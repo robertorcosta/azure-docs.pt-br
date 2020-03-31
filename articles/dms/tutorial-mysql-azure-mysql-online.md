@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: migrar o MySQL online para o banco de dados do Azure para MySQL'
+title: 'Tutorial: Migre o MySQL on-line para o Banco de Dados Azure para MySQL'
 titleSuffix: Azure Database Migration Service
 description: Saiba como realizar uma migração online do MySQL local para o Banco de Dados do Azure para MySQL usando o Serviço de Migração de Banco de Dados do Azure.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 50787a5bbfdc9baddfa4307247e8b505be6e3003
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 7c8087a01bb71657e816be89b6a562dd4783b271
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273233"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240732"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o MySQL para o Banco de Dados do Azure para MySQL online usando o DMS
 
@@ -38,16 +38,16 @@ Neste tutorial, você aprenderá como:
 > [!IMPORTANT]
 > Para obter uma experiência ideal de migração, a Microsoft recomenda a criação de uma instância do Serviço de Migração de Banco de Dados do Azure na mesma região do Azure como o banco de dados de destino. Mover dados entre regiões ou áreas geográficas pode desacelerar o processo de migração e introduzir erros.
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará:
 
 * Baixar e instalar o [MySQL community edition](https://dev.mysql.com/downloads/mysql/) 5.6 ou 5.7. A versão do MySQL local deve corresponder à versão do Banco de Dados do Azure para MySQL. Por exemplo, o MySQL 5.6 só pode migrar para o Banco de Dados do Azure para MySQL 5.6; não pode ser atualizado para 5.7.
 * [Criar uma instância no Banco de Dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal). Consulte o artigo [Usar o MySQL Workbench para se conectar e consultar dados](https://docs.microsoft.com/azure/mysql/connect-workbench) a fim de obter detalhes sobre como se conectar e criar um banco de dados usando o portal do Azure.  
-* Crie um Rede Virtual do Microsoft Azure para o serviço de migração de banco de dados do Azure usando Azure Resource Manager modelo de implantação, que fornece conectividade site a site para seus servidores de origem locais usando o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações sobre como criar uma rede virtual, consulte a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
+* Crie uma rede virtual do Microsoft Azure para o Serviço de Migração de Banco de Dados do Azure usando o modelo de implantação do Azure Resource Manager, que fornece conectividade local a seus servidores de origem no local usando [expressroute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) Para obter mais informações sobre a criação de uma rede virtual, consulte a [Documentação](https://docs.microsoft.com/azure/virtual-network/)da Rede Virtual e, especialmente, os artigos de início rápido com detalhes passo a passo.
 
     > [!NOTE]
-    > Durante a instalação do networkNet virtual, se você usar o ExpressRoute com emparelhamento de rede para a Microsoft, adicione os seguintes [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de serviço à sub-rede na qual o serviço será provisionado:
+    > Durante a configuração da rede virtualNet, se você usar o ExpressRoute com peering de rede para a Microsoft, adicione os [seguintes pontos finais de](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) serviço à sub-rede na qual o serviço será provisionado:
     >
     > * Ponto de extremidade do banco de dados de destino (por exemplo, ponto de extremidade do SQL, ponto de extremidade do Cosmos DB, e assim por diante)
     > * Ponto de extremidade de armazenamento
@@ -55,11 +55,11 @@ Para concluir este tutorial, você precisará:
     >
     > Essa configuração é necessária porque o Serviço de Migração de Banco de Dados do Azure não tem conectividade com a internet.
 
-* Verifique se as regras do grupo de segurança de rede de rede virtual não bloqueiam as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG de rede virtual, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Certifique-se de que as regras do Grupo de Segurança de Rede de Rede de rede virtual não bloqueiem as seguintes portas de comunicação de entrada para o Serviço de Migração de Banco de Dados Do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego DE Rede Virtual NSG, consulte o artigo [Filtrar](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)o tráfego da rede com grupos de segurança da rede .
 * Configurar o [Firewall do Windows para acesso ao mecanismo de banco de dados](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Abra o Firewall do Windows para permitir que o Serviço de Migração de Banco de Dados do Azure acesse o Servidor MySQL de origem, que, por padrão, é a porta TCP 3306.
 * Ao usar um dispositivo de firewall na frente de seus bancos de dados de origem, talvez seja necessário adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração.
-* Crie uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) no nível de servidor para o Banco de Dados do Azure para MySQL a fim de permitir o acesso do Serviço de Migração de Banco de Dados do Azure aos bancos de dados de destino. Forneça o intervalo de sub-rede da rede virtual usada para o serviço de migração de banco de dados do Azure.
+* Crie uma [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) no nível de servidor para o Banco de Dados do Azure para MySQL a fim de permitir o acesso do Serviço de Migração de Banco de Dados do Azure aos bancos de dados de destino. Forneça a faixa de sub-rede da rede virtual usada para o Serviço de Migração de Banco de Dados do Azure.
 * O MySQL de origem deve estar no MySQL community edition com suporte. Para determinar a versão da instância do MySQL, execute o seguinte comando no utilitário MySQL ou no MySQL Workbench:
 
     ```
@@ -71,7 +71,7 @@ Para concluir este tutorial, você precisará:
 * Habilite registro em log binário no arquivo my.ini (Windows) ou my.cnf (Unix) no banco de dados de origem usando a seguinte configuração:
 
   * **server_id** = 1 ou superior (relevante apenas para MySQL 5.6)
-  * **log-bin** =\<caminho > (relevante somente para MySQL 5,6), por exemplo: log-bin = E:\ MySQL_logs \binlog
+  * **log-bin** =\<caminho> (relevante apenas para o MySQL 5.6). Por exemplo: log-bin = E:\MySQL_logs\BinLog
   * **binlog_format** = row
   * **Expire_logs_days** = 5 (é recomendável não usar zero; relevante somente para MySQL 5.6)
   * **Binlog_row_image = full** (relevante apenas para o MySQL 5.6)
@@ -87,13 +87,13 @@ Para concluir este tutorial, você precisará:
 
 Para concluir todos os objetos de banco de dados, como procedimentos armazenados, índices e esquemas de tabela, é necessário extrair o esquema do banco de dados de origem e aplicar ao banco de dados. Para extrair o esquema, você pode usar mysqldump com o parâmetro `--no-data`.
 
-Supondo que você tenha o banco de dados de **Funcionários** de exemplo do MySQL no sistema local, o comando para fazer a migração de esquema usando mysqldump é:
+Supondo que você tenha o banco de dados de **amostragem de funcionários** do MySQL no sistema local, o comando para fazer a migração de esquemausando mysqldump é:
 
 ```
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
 ```
 
-Por exemplo:
+Por exemplo: 
 
 ```
 mysqldump -h 10.10.123.123 -u root -p --databases employees --no-data > d:\employees.sql
@@ -105,7 +105,7 @@ Para importar o esquema no Banco de Dados do Azure para MySQL de destino, execut
 mysql.exe -h [servername] -u [username] -p[password] [database]< [schema file path]
  ```
 
-Por exemplo:
+Por exemplo: 
 
 ```
 mysql.exe -h shausample.mysql.database.azure.com -u dms@shausample -p employees < d:\employees.sql
@@ -154,7 +154,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
     ![Exibir provedores de recursos](media/tutorial-mysql-to-azure-mysql-online/portal-select-resource-provider.png)
 
-3. Pesquise por migração e, em seguida, à direita do **Microsoft.DataMigration**, selecione **Registrar**.
+3. Procure migração e, em seguida, à direita do **Microsoft.DataMigration,** selecione **Registrar**.
 
     ![Registrar provedor de recursos](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)
 
@@ -172,9 +172,9 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
 4. Selecione uma rede virtual existente ou crie uma nova.
 
-    A rede virtual fornece ao serviço de migração de banco de dados do Azure acesso ao SQL Server de origem e à instância de destino do banco de dados SQL do Azure.
+    A rede virtual fornece ao Azure Database Migration Service acesso ao SQL Server de origem e à instância de banco de dados SQL do Azure.
 
-    Para obter mais informações sobre como criar uma rede virtual no portal do Azure, consulte o artigo [criar uma rede virtual usando o portal do Azure](https://aka.ms/DMSVnet).
+    Para obter mais informações sobre como criar uma rede virtual no portal Azure, consulte o artigo [Criar uma rede virtual usando o portal Azure](https://aka.ms/DMSVnet).
 
 5. Selecione um tipo de preço.
 
@@ -225,7 +225,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
     ![Mapear para bancos de dados de destino](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
    > [!NOTE] 
-   > Embora você possa selecionar vários bancos de dados nesta etapa, cada instância do serviço de migração de banco de dados do Azure dá suporte a até quatro bancos de dados para migração simultânea. Além disso, há um limite de duas instâncias do serviço de migração de banco de dados do Azure por região em uma assinatura. Por exemplo, se você tiver 40 bancos de dados para migrar, só poderá migrar oito deles simultaneamente, e somente se tiver criado duas instâncias do serviço de migração de banco de dados do Azure.
+   > Embora você possa selecionar vários bancos de dados nesta etapa, cada instância do Azure Database Migration Service suporta até quatro bancos de dados para migração simultânea. Além disso, há um limite de duas instâncias do Azure Database Migration Service por região em uma assinatura. Por exemplo, se você tiver 40 bancos de dados para migrar, você só poderá migrar oito deles simultaneamente, e somente se você tiver criado duas instâncias do Azure Database Migration Service.
 
 3. Selecione **Salvar** na tela **Resumo de migração**, na caixa de texto **Nome da atividade**, especifique um nome para a atividade de migração e reveja o resumo para ter certeza de que os detalhes de origem e destino correspondem ao que foi especificado anteriormente.
 
@@ -263,7 +263,7 @@ Após a conclusão do carregamento completo inicial, os bancos de dados são mar
 3. Selecione **Confirmar**e selecione **Aplicar**.
 4. Quando o status de migração de banco de dados mostrar **Concluído**, conecte seus aplicativos ao novo Banco de Dados SQL do Azure de destino.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter informações sobre problemas conhecidos e limitações na realização de migrações online para o Banco de Dados do Azure para MySQL, consulte o artigo [Problemas conhecidos e soluções alternativas nas migrações online de Banco de Dados do Azure para MySQL](known-issues-azure-mysql-online.md).
 * Para obter informações sobre o Serviço de Migração de Banco de Dados do Azure, confira o artigo [O que é o Serviço de Migração de Banco de Dados do Azure?](https://docs.microsoft.com/azure/dms/dms-overview).

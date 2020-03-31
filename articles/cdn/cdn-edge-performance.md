@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: b8a65d4ae6aaac78e642c851a66b745a940fa0ad
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593909"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analisar o desempenho do nó de borda no CDN do Microsoft Azure
@@ -40,7 +40,7 @@ Os dados de atividade CDN devem ser coletados pelo módulo de análise de desemp
 > 
 > 
 
-## <a name="dashboard"></a>painel
+## <a name="dashboard"></a>Painel
 O painel de análise de desempenho de borda controla o tráfego CDN atual e o histórico por meio de um gráfico e de estatísticas. Use este painel para detectar tendências de longo prazo e recentes sobre o desempenho do tráfego CDN para sua conta.
 
 Este painel consiste em:
@@ -70,7 +70,7 @@ O painel contém um gráfico que rastreia uma métrica ao longo do período sele
 * Clique em Exibir o ano anterior para ativar ou desativar uma sobreposição de atividade do ano anterior no mesmo período de tempo para o gráfico. Esse tipo de comparação fornece informações sobre padrões de uso CDN a longo prazo. O canto superior direito do grafo contém uma legenda que indica o código de cor para cada grafo de linha.
 
 #### <a name="updating-the-chart"></a>Atualizando o gráfico
-* Intervalo de tempo: Execute uma das ações a seguir:
+* Intervalo de tempo: Execute um destes procedimentos:
   * Selecione a região desejada na linha do tempo. O gráfico será atualizado com dados que correspondem ao período de tempo selecionado.
   * Clique duas vezes no gráfico para exibir todos os dados históricos disponíveis até um máximo de dois anos.
 * Métrica: Clique no ícone de gráfico que aparece ao lado da métrica desejada. O gráfico e a linha do tempo serão atualizados com dados para a métrica correspondente.
@@ -84,7 +84,7 @@ A finalidade dessas métricas é verificar se é possível melhorar a eficiênci
   * Redução dos custos operacionais.
 * Uma melhor aceleração de entrega de dados, pois mais solicitações serão servidas diretamente a partir do CDN.
 
-| Campo | DESCRIÇÃO |
+| Campo | Descrição |
 | --- | --- |
 | Eficiência de cache |Indica a porcentagem dos dados transferidos que foram servidos a partir do cache. Essa métrica mede quando uma versão em cache do conteúdo solicitado foi fornecida diretamente do CDN (servidores de borda) para os solicitantes (por exemplo, o navegador da web) |
 | Taxa de acertos |Indica a porcentagem de solicitações que foram atendidas no cache. Essa métrica mede quando uma versão armazenada em cache do conteúdo solicitado foi fornecida diretamente do CDN (servidores de borda) para os solicitantes (por exemplo, o navegador da web) |
@@ -102,7 +102,7 @@ O objetivo dessas métricas é fornecer informações sobre as seguintes medidas
 > 
 > 
 
-| Campo | DESCRIÇÃO |
+| Campo | Descrição |
 | --- | --- |
 | Média de bytes enviados |Indica o número médio de bytes transferidos para cada solicitação atendida do CDN (servidores de borda) ao solicitante (por exemplo, o navegador da web). |
 | Nenhuma taxa de byte de configuração de cache |Indica a porcentagem de tráfego atendido a partir do CDN (servidores de borda) ao solicitante (por exemplo, o navegador da web) que não será armazenado em cache devido ao recurso de Ignorar cache. |
@@ -114,10 +114,10 @@ O objetivo dessas métricas é fornecer informações sobre as seguintes medidas
 #### <a name="performance-metrics"></a>Métricas de desempenho
 O objetivo dessas métricas é acompanhar o desempenho geral do CDN para o tráfego.
 
-| Campo | DESCRIÇÃO |
+| Campo | Descrição |
 | --- | --- |
 | Taxa de transferência |Indica a taxa média, em que o conteúdo foi transferido do CDN para um solicitante. |
-| Duração |Indica o tempo médio, em milissegundos, gasto para fornecer um ativo para um solicitante (por exemplo, o navegador da web). |
+| Duration |Indica o tempo médio, em milissegundos, gasto para fornecer um ativo para um solicitante (por exemplo, o navegador da web). |
 | Taxa de solicitação compactada |Indica a porcentagem de acertos enviada do CDN (servidores de borda) para os solicitantes (por exemplo, o navegador da web) em um formato compactado. |
 | Taxa de erros 4xx |Indica a porcentagem de acertos que gerou um código de status 4xx. |
 | Taxa de erros 5xx |Indica a porcentagem de acertos que gerou um código de status 5xx. |
@@ -126,7 +126,7 @@ O objetivo dessas métricas é acompanhar o desempenho geral do CDN para o tráf
 #### <a name="secure-traffic-metrics"></a>Métricas de tráfego de segurança
 O objetivo dessas métricas é acompanhar o desempenho do CDN para o tráfego de HTTPS.
 
-| Campo | DESCRIÇÃO |
+| Campo | Descrição |
 | --- | --- |
 | Eficiência de cache seguro |Indica a porcentagem de dados transferidos para solicitações de HTTPS que foram atendidas a partir do cache. Essa métrica mede quando uma versão em cache do conteúdo solicitado foi fornecida diretamente do CDN (servidores de borda) para os solicitantes (por exemplo, o navegador da web) por HTTPS. |
 | Taxa de transferência segura |Indica a taxa média, em que o conteúdo foi transferido do CDN (servidores de borda) para os solicitantes (por exemplo, servidores web) por HTTPS. |
@@ -147,7 +147,7 @@ Cada relatório neste módulo contém um gráfico e as estatísticas de uso de l
    
     A tela de relatórios de análise de nó de borda é exibido.
 
-| Relatório | DESCRIÇÃO |
+| Relatório | Descrição |
 | --- | --- |
 | Resumo diário |Permite que você veja tendências diárias de tráfego em um período de tempo especificado. Cada barra no grafo representa uma data específica. O tamanho da barra indica o número total de ocorrências que ocorreram nessa data. |
 | Resumo por hora |Permite que você veja tendências de tráfego por hora em um período de tempo especificado. Cada barra no grafo representa uma única hora em uma determinada data. O tamanho da barra indica o número total de ocorrências que ocorreu durante essa hora. |
@@ -183,9 +183,9 @@ Cada relatório neste módulo contém um gráfico e as estatísticas de uso de l
 | Erros 502 |Contém um grafo de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 502 Bad Gateway. Um código de resposta 502 Bad Gateway ocorre quando ocorre uma falha de protocolo HTTP entre um servidor e um proxy HTTP. No caso do nosso CDN, um código de resposta 502 Bad Gateway normalmente ocorre quando um servidor de origem do cliente retorna uma resposta inválida para um servidor de borda. Uma resposta é inválida, se ela não pode ser analisada ou se está incompleta. |
 | Erros 5xx |Contém um grafo de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta no intervalo de 500.  Os códigos de resposta 502 Bad Gateway e 504 Gateway Timeout não estão incluídos no relatório. |
 
-## <a name="see-also"></a>Consulte também
-* [Visão geral da CDN do Azure](cdn-overview.md)
+## <a name="see-also"></a>Confira também
+* [Visão geral do Azure CDN](cdn-overview.md)
 * [Estatísticas em tempo real na CDN do Microsoft Azure](cdn-real-time-stats.md)
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
-* [Relatórios avançados de HTTP](cdn-advanced-http-reports.md)
+* [Relatórios HTTP avançados](cdn-advanced-http-reports.md)
 

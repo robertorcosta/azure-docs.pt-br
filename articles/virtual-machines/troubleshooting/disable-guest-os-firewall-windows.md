@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 292b53fac6c970fb961e8ad4ce7774c080e52422
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: dbb9b0f865c7ec5d9d29e2310ae41abbec287bd6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718864"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79464955"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar o firewall do sistema operacional convidado na VM do Azure
 
@@ -27,7 +27,7 @@ Este artigo fornece uma referência para situações em que você suspeita de qu
 
 ## <a name="solution"></a>Solução
 
-O processo descrito neste artigo se destina a ser usado como uma solução alternativa para que você possa se concentrar em corrigir o problema real, que é como configurar as regras de firewall corretamente. É uma prática recomendada da Microsoft ter o componente Firewall do Windows habilitado. A maneira como você configura as regras de firewall depende do nível de acesso à VM necessária.
+O processo descrito neste artigo se destina a ser usado como uma solução alternativa para que você possa se concentrar em corrigir o problema real, que é como configurar as regras de firewall corretamente. É uma prática recomendada da Microsoft ter o componente Windows Firewall ativado. A forma como você configura as regras de firewall depende do nível de acesso à VM que é necessário.
 
 ### <a name="online-solutions"></a>Soluções on-line 
 
@@ -70,7 +70,7 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
     ```
 
 > [!Note]
-> Se o firewall for definido por meio de um objeto Política de Grupo, esse método poderá não funcionar porque esse comando altera apenas as entradas do Registro local. Se uma política estiver em vigor, ela substituirá essa alteração. 
+> Se o firewall for definido por meio de um Objeto da Política de Grupo, esse método pode não funcionar porque esse comando altera somente as entradas dos registros locais. Se uma política estiver em vigor, ela substituirá essa alteração. 
 
 #### <a name="mitigation-3-pstools-commands"></a>Mitigação 3: comandos do PSTools
 
@@ -90,9 +90,9 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
 
 Siga estas etapas para usar o [Registro Remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
-1.  Na solução de problemas da VM, inicie o editor do registro e selecione **Arquivo** > **Conecte o Registro de Rede**.
+1.  Na VM de solução de problemas, inicie o editor de registro e, em seguida, vá para **File** > **Connect Network Registry**.
 
-2.  Abra a ramificação \System do *computador de destino*e especifique os seguintes valores:
+2.  Abra a agência *TARGET MACHINE*\SYSTEM e especifique os seguintes valores:
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -100,15 +100,15 @@ Siga estas etapas para usar o [Registro Remoto](https://support.microsoft.com/he
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.  Reinicie o serviço. Uma vez que você não pode fazer isso usando o registro remoto, você deve usar Remover o Console de Serviço.
+3.  Reinicie o serviço. Como você não pode fazer isso usando o registro remoto, você deve usar o Console de Serviço Remoto.
 
-4.  Abra uma instância de **Services. msc**.
+4.  Abra uma instância de **Services.msc**.
 
-5.  Clique em **Serviços (Local)** .
+5.  Clique em **Serviços (Local)**.
 
 6.  Selecione **Conectar-se a outro computador**.
 
-7.  Insira o **endereço IP privado (DIP)** da VM com problema.
+7.  Digite o **Endereço IP Privado (DIP)** da VM do problema.
 
 8.  Reinicie a política de firewall local.
 

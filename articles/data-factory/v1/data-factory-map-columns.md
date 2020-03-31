@@ -1,5 +1,5 @@
 ---
-title: Mapeando colunas do conjunto de linhas no Azure Data Factory
+title: Mapeamento de colunas de conjunto de dados na fábrica de dados do Azure
 description: Saiba como mapear colunas de origem para colunas de destino.
 services: data-factory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 6eb7012e28319ee6cc86de5ee56090743d681068
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74923878"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mapear colunas de conjunto de dados de origem para colunas de conjunto de dados de destino
 > [!NOTE]
-> Este artigo se aplica à versão 1 da fábrica de dados. 
+> Este artigo aplica-se à versão 1 do Data Factory. 
 
 O mapeamento de coluna pode ser usado para definir como colunas especificadas na "estrutura" da tabela de origem estão correlacionadas a colunas especificada na "estrutura" da tabela de coletor. A propriedade **columnMapping** está disponível na seção **typeProperties** da atividade Copiar.
 
@@ -135,7 +135,7 @@ O JSON a seguir define uma atividade de cópia em um pipeline. As colunas da fon
         }
 }
 ```
-**Fluxo de mapeamento de coluna:**
+**Fluxo de mapeamento de colunas:**
 
 ![Fluxo de mapeamento de coluna](./media/data-factory-map-columns/column-mapping-flow.png)
 
@@ -178,7 +178,7 @@ Nesse caso, os resultados da consulta primeiro são mapeados para colunas especi
 
 ![Fluxo de mapeamento de coluna-2](./media/data-factory-map-columns/column-mapping-flow-2.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Veja o artigo para obter um tutorial sobre como usar a Atividade de Cópia: 
 
 - [Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

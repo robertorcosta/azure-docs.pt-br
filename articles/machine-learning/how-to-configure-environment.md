@@ -1,7 +1,7 @@
 ---
 title: Configurar um ambiente de desenvolvimento do Python
 titleSuffix: Azure Machine Learning
-description: Saiba como configurar seu ambiente de desenvolvimento para Azure Machine Learning. Use ambientes Conda, Crie arquivos de configuração e configure seu próprio servidor de notebook baseado em nuvem, notebooks Jupyter, Azure Databricks, IDEs, editores de código e o Máquina Virtual de Ciência de Dados.
+description: Aprenda a configurar seu ambiente de desenvolvimento para o Azure Machine Learning. Use ambientes Conda, crie arquivos de configuração e configure seu próprio servidor de notebook baseado em nuvem, Notebooks Jupyter, Databricks Azure, IDEs, editores de código e a Máquina Virtual de Data Science.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,41 +11,40 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 32db7b19b7ec63135c3359f9685dd767dd0921f5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: a5f46f5af723e1245afbc6bca90d25ae9036d646
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79283700"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472419"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento para Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você aprenderá a configurar um ambiente de desenvolvimento para trabalhar com Azure Machine Learning. Azure Machine Learning é independente da plataforma. O único requisito rígido para seu ambiente de desenvolvimento é o Python 3. Um ambiente isolado como Anaconda ou Virtualenv também é recomendado.
+Neste artigo, você aprende a configurar um ambiente de desenvolvimento para trabalhar com o Azure Machine Learning. Azure Machine Learning é agnóstico de plataforma. O único requisito difícil para o seu ambiente de desenvolvimento é o Python 3. Um ambiente isolado como Anaconda ou Virtualenv também é recomendado.
 
-A tabela a seguir mostra cada ambiente de desenvolvimento abordado neste artigo, juntamente com prós e contras.
+A tabela a seguir mostra cada ambiente de desenvolvimento abordado neste artigo, com os prós e contras.
 
 | Ambiente | Vantagens | Desvantagens |
 | --- | --- | --- |
-| [Instância de computação de Azure Machine Learning baseada em nuvem (versão prévia)](#compute-instance) | A maneira mais fácil de começar. O SDK completo já está instalado na VM do seu espaço de trabalho, e os tutoriais do notebook são previamente clonados e prontos para serem executados. | Falta de controle sobre seu ambiente de desenvolvimento e dependências. Custo adicional incorrido para a VM do Linux (a VM pode ser interrompida quando não estiver em uso para evitar cobranças). Consulte [detalhes de preço](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
-| [Ambiente local](#local) | Controle total do seu ambiente de desenvolvimento e dependências. Execute com qualquer ferramenta de compilação, ambiente ou IDE de sua escolha. | Leva mais tempo para começar. Os pacotes SDK necessários devem ser instalados e um ambiente também deve ser instalado se você ainda não tiver um. |
-| [Azure Databricks](#aml-databricks) | Ideal para executar fluxos de trabalho de aprendizado de máquina com uso intensivo em larga escala na plataforma de Apache Spark escalonável. | Um exagero para aprendizado de máquina experimental ou experimentos e fluxos de trabalho de escala menor. Custo adicional incorrido para Azure Databricks. Consulte [detalhes de preço](https://azure.microsoft.com/pricing/details/databricks/). |
-| [O Máquina Virtual de Ciência de Dados (DSVM)](#dsvm) | Semelhante à instância de computação baseada em nuvem (o Python e o SDK são pré-instalados), mas com uma ciência de dados popular adicional e ferramentas de aprendizado de máquina pré-instaladas. Fácil de dimensionar e combinar com outras ferramentas e fluxos de trabalho personalizados. | Uma experiência de introdução mais lenta em comparação com a instância de computação baseada em nuvem. |
+| [Instância de computação de aprendizado de máquina baseada em nuvem (visualização)](#compute-instance) | A maneira mais fácil de começar. Todo o SDK já está instalado em sua VM de espaço de trabalho, e os tutoriais do notebook são pré-clonados e prontos para serem executados. | Falta de controle sobre seu ambiente de desenvolvimento e dependências. Custo adicional incorrido para O Linux VM (VM pode ser interrompido quando não estiver em uso para evitar cobranças). Veja [detalhes de preços](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
+| [Ambiente local](#local) | Controle total do seu ambiente de desenvolvimento e dependências. Execute com qualquer ferramenta de construção, ambiente ou IDE de sua escolha. | Leva mais tempo para começar. Os pacotes SDK necessários devem ser instalados, e um ambiente também deve ser instalado se você ainda não tiver um. |
+| [Azure Databricks](#aml-databricks) | Ideal para executar fluxos de trabalho de aprendizado de máquina com uso intensivo em larga escala na plataforma Apache Spark escalonável. | Exagero para aprendizado de máquina experimental, ou experimentos e fluxos de trabalho em menor escala. Custo adicional incorrido para Azure Databricks. Veja [detalhes de preços](https://azure.microsoft.com/pricing/details/databricks/). |
+| [A Máquina Virtual de Ciência de Dados (DSVM)](#dsvm) | Semelhante à instância de computação baseada em nuvem (Python e SDK são pré-instalados), mas com ferramentas adicionais populares de data science e machine learning pré-instaladas. Fácil de dimensionar e combinar com outras ferramentas e fluxos de trabalho personalizados. | Uma experiência de início mais lenta em comparação com a instância de computação baseada em nuvem. |
 
+Este artigo também fornece dicas adicionais de uso para as seguintes ferramentas:
 
-Este artigo também fornece dicas de uso adicionais para as seguintes ferramentas:
+* [Jupyter Notebooks](#jupyter): Se você já está usando o Jnotebook Jupyter, o SDK tem alguns extras que você deve instalar.
 
-* [Jupyter notebooks](#jupyter): se você já estiver usando o Jupyter notebook, o SDK terá alguns extras que você deve instalar.
+* [Visual Studio Code](#vscode): Se você usar o Visual Studio Code, a [extensão Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) inclui amplo suporte de linguagem para Python, bem como recursos para tornar o trabalho com o Azure Machine Learning muito mais conveniente e produtivo.
 
-* [Visual Studio Code](#vscode): se você usar Visual Studio Code, a [extensão Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) incluirá amplo suporte a idiomas para Python, bem como recursos para tornar o trabalho com os Azure Machine Learning muito mais conveniente e produtivo.
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="prerequisites"></a>Prerequisites
+Um Workspace do Azure Machine Learning. Para criar o espaço de trabalho, consulte [Criar um espaço de trabalho de aprendizado de máquina do Azure](how-to-manage-workspace.md). Um espaço de trabalho é tudo o que você precisa para começar com seu próprio [servidor de notebook baseado em nuvem,](#compute-instance)um [DSVM](#dsvm)ou [Azure Databricks](#aml-databricks).
 
-Um Workspace do Azure Machine Learning. Para criar o espaço de trabalho, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md). Um espaço de trabalho é tudo o que você precisa para começar com seu próprio [servidor de bloco de anotações baseado em nuvem](#compute-instance), um [DSVM](#dsvm)ou um [Azure Databricks](#aml-databricks).
+Para instalar o ambiente SDK para o [seu computador local,](#local) [o servidor Jupyter Notebook](#jupyter) ou o Visual Studio [Code](#vscode) também precisam:
 
-Para instalar o ambiente do SDK do [computador local](#local), [Jupyter Notebook Server](#jupyter) ou [Visual Studio Code](#vscode) você também precisa:
-
-- O Gerenciador de pacotes [Anaconda](https://www.anaconda.com/download/) ou [Miniconda](https://conda.io/miniconda.html) .
+- Ou o gerente de [pacotes Anaconda](https://www.anaconda.com/download/) ou [Miniconda.](https://conda.io/miniconda.html)
 
 - No Linux ou MacOS, será necessário o shell do bash.
 
@@ -54,18 +53,17 @@ Para instalar o ambiente do SDK do [computador local](#local), [Jupyter Notebook
 
 - No Windows, você precisa do prompt de comando ou do prompt Anaconda (instalado pelo Anaconda e pelo Miniconda).
 
-## <a id="compute-instance"></a>Sua própria instância de computação baseada em nuvem
+## <a name="your-own-cloud-based-compute-instance"></a><a id="compute-instance"></a>Sua própria instância de computação baseada em nuvem
 
-A instância de computação de Azure Machine Learning [(versão prévia)](concept-compute-instance.md) é uma estação de trabalho do Azure segura e baseada em nuvem que fornece cientistas de dados com um servidor de notebook Jupyter, JupyterLab e um ambiente de ml totalmente preparado.
+A instância de computação do Azure Machine Learning [(preview)](concept-compute-instance.md) é uma estação de trabalho Segura, baseada em nuvem, que fornece aos cientistas de dados um servidor de notebook Jupyter, o JupyterLab e um ambiente ML totalmente preparado.
 
-Não há nada para instalar ou configurar para uma instância de computação.  Crie uma a qualquer momento em seu espaço de trabalho Azure Machine Learning. Forneça apenas um nome e especifique um tipo de VM do Azure. Experimente agora com este [tutorial: configurar o ambiente e o espaço de trabalho](tutorial-1st-experiment-sdk-setup.md).
+Não há nada para instalar ou configurar para uma instância de computação.  Crie um a qualquer momento dentro do seu espaço de trabalho azure Machine Learning. Forneça apenas um nome e especifique um tipo de VM do Azure. Experimente agora com este [Tutorial: Ambiente de configuração e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md).
 
+Saiba mais sobre [as instâncias computacionais](concept-compute-instance.md).
 
-Saiba mais sobre as [instâncias de computação](concept-compute-instance.md).
+Para parar de incorrer em encargos computacionais, [pare a instância de computação](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 
-Para parar de incorrer em encargos de computação, [interrompa a instância de computação](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
-
-## <a id="dsvm"></a>Máquina Virtual de Ciência de Dados
+## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Máquina Virtual de Ciência de Dados
 
 A DSVM é uma imagem de VM (máquina virtual) personalizada. Ela foi projetada para trabalhos de ciência de dados pré-configurados com:
 
@@ -77,7 +75,7 @@ A DSVM é uma imagem de VM (máquina virtual) personalizada. Ela foi projetada p
 
 O SDK do Azure Machine Learning funciona na versão da DSVM para Ubuntu ou Windows. Porém, se você também planeja usar a DSVM como um destino de computação, somente o Ubuntu tem suporte.
 
-Para usar o DSVM como um ambiente de desenvolvimento:
+Para usar o DSVM como ambiente de desenvolvimento:
 
 1. Crie uma DSVM em um dos seguintes ambientes:
 
@@ -85,7 +83,7 @@ Para usar o DSVM como um ambiente de desenvolvimento:
 
         * [Criar uma Máquina Virtual de Ciência de Dados do Ubuntu](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
 
-        * [Criar uma máquina virtual de Ciência de Dados do Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
+        * [Criar uma Máquina Virtual de Ciência de Dados do Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
 
     * CLI do Azure:
 
@@ -96,7 +94,7 @@ Para usar o DSVM como um ambiente de desenvolvimento:
 
         * Para criar uma Máquina Virtual de Ciência de Dados do Ubuntu, use o comando a seguir:
 
-            ```azurecli
+            ```azurecli-interactive
             # create a Ubuntu DSVM in your resource group
             # note you need to be at least a contributor to the resource group in order to execute this command successfully
             # If you need to create a new resource group use: "az group create --name YOUR-RESOURCE-GROUP-NAME --location YOUR-REGION (For example: westus2)"
@@ -105,7 +103,7 @@ Para usar o DSVM como um ambiente de desenvolvimento:
 
         * Para criar uma Máquina Virtual de Ciência de Dados do Windows, use o comando a seguir:
 
-            ```azurecli
+            ```azurecli-interactive
             # create a Windows Server 2016 DSVM in your resource group
             # note you need to be at least a contributor to the resource group in order to execute this command successfully
             az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
@@ -115,13 +113,13 @@ Para usar o DSVM como um ambiente de desenvolvimento:
 
     * Para DSVM do Ubuntu:
 
-        ```shell
+        ```bash
         conda activate py36
         ```
 
     * Para DSVM do Windows:
 
-        ```shell
+        ```bash
         conda activate AzureML
         ```
 
@@ -132,49 +130,49 @@ Para usar o DSVM como um ambiente de desenvolvimento:
     print(azureml.core.VERSION)
     ```
 
-1. Para configurar o DSVM para usar seu espaço de trabalho Azure Machine Learning, consulte a seção [criar um arquivo de configuração de espaço de trabalho](#workspace) .
+1. Para configurar o DSVM para usar o espaço de trabalho azure Machine Learning, consulte a seção Criar uma seção [de arquivo de configuração de espaço de trabalho.](#workspace)
 
 Para obter mais informações, consulte [Máquinas Virtuais de Ciência de Dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
-## <a id="local"></a>Computador local
+## <a name="local-computer"></a><a id="local"></a>Computador local
 
 Quando você estiver usando um computador local (que também pode ser uma máquina virtual remota), crie um ambiente Anaconda e instale o SDK. Aqui está um exemplo:
 
-1. Baixe e instale o [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3,7 versão) se você ainda não o tiver.
+1. Baixe e [instale o Anaconda](https://www.anaconda.com/distribution/#download-section) (versão Python 3.7) se você ainda não tiver.
 
-1. Abra um prompt do Anaconda e crie um ambiente com os seguintes comandos:
+1. Abra um prompt anaconda e crie um ambiente com os seguintes comandos:
 
-    Execute o comando a seguir para criar o ambiente.
+    Execute o seguinte comando para criar o ambiente.
 
-    ```shell
+    ```bash
     conda create -n myenv python=3.6.5
     ```
 
-    Em seguida, ative o ambiente.
+    Então ative o ambiente.
 
-    ```shell
+    ```bash
     conda activate myenv
     ```
 
-    Este exemplo cria um ambiente usando Python 3.6.5, mas qualquer subversão específica pode ser escolhida. A compatibilidade do SDK pode não ser garantida com determinadas versões principais (o 3.5 + é recomendado) e é recomendável tentar uma versão/subversão diferente em seu ambiente Anaconda se você encontrar erros. Levará vários minutos para criar o ambiente enquanto os componentes e pacotes são baixados.
+    Este exemplo cria um ambiente usando python 3.6.5, mas quaisquer subversões específicas podem ser escolhidas. A compatibilidade com o SDK pode não ser garantida com certas versões principais (3.5+ é recomendado), e é recomendável experimentar uma versão/subversão diferente em seu ambiente Anaconda se você encontrar erros. Levará vários minutos para criar o ambiente enquanto os componentes e pacotes são baixados.
 
 1. Execute os seguintes comandos em seu novo ambiente para habilitar kernels IPython específicos do ambiente. Isso garantirá o comportamento esperado de importação de kernel e pacote ao trabalhar com notebooks Jupyter em ambientes Anaconda:
 
-    ```shell
+    ```bash
     conda install notebook ipykernel
     ```
 
     Em seguida, execute o seguinte comando para criar o kernel:
 
-    ```shell
+    ```bash
     ipython kernel install --user --name myenv --display-name "Python (myenv)"
     ```
 
-1. Use os seguintes comandos para instalar pacotes do:
+1. Use os seguintes comandos para instalar pacotes:
 
-    Esse comando instala o SDK de Azure Machine Learning base com bloco de anotações e `automl` extras. O `automl` extra é uma instalação grande e pode ser removido dos colchetes se você não pretende executar experimentos de aprendizado de máquina automatizados. O `automl` extra também inclui o SDK de preparação de dados do Azure Machine Learning, por padrão, como uma dependência.
+    Este comando instala o Base Azure Machine Learning `automl` SDK com notebook e extras. O `automl` extra é uma grande instalação, e pode ser removido dos suportes se você não pretende executar experimentos automatizados de aprendizado de máquina. O `automl` extra também inclui o Azure Machine Learning Data Prep SDK por padrão como uma dependência.
 
-    ```shell
+    ```bash
     pip install azureml-sdk[notebooks,automl]
     ```
 
@@ -187,169 +185,167 @@ Quando você estiver usando um computador local (que também pode ser uma máqui
    >
    >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
 
+   Levará vários minutos para instalar o SDK. Para obter mais informações sobre as opções de instalação, consulte o [guia de instalação](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-   Levará vários minutos para instalar o SDK. Para obter mais informações sobre as opções de instalação, consulte o [guia](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)de instalação.
+1. Instale outros pacotes para sua experimentação de aprendizado de máquina.
 
-1. Instale outros pacotes para sua experimentação do Machine Learning.
+    Use qualquer um dos seguintes comandos e substitua * \<o novo pacote>* com o pacote que deseja instalar. A instalação de `conda install` pacotes através requer que o pacote faça parte dos canais atuais (novos canais podem ser adicionados no Anaconda Cloud).
 
-    Use qualquer um dos comandos a seguir e substitua *\<novo pacote >* com o pacote que você deseja instalar. A instalação de pacotes via `conda install` requer que o pacote faça parte dos canais atuais (novos canais podem ser adicionados no Anaconda Cloud).
-
-    ```shell
+    ```bash
     conda install <new package>
     ```
 
-    Como alternativa, você pode instalar pacotes via `pip`.
+    Alternativamente, você pode instalar `pip`pacotes via .
 
-    ```shell
+    ```bash
     pip install <new package>
     ```
 
-### <a id="jupyter"></a>Jupyter Notebooks
+### <a name="jupyter-notebooks"></a><a id="jupyter"></a>Jupyter Notebooks
 
 Jupyter Notebooks fazem parte do [Projeto Jupyter](https://jupyter.org/). Eles fornecem uma experiência interativa de codificação, em que você pode criar documentos que combinam código ao vivo com elementos gráficos e texto. O Jupyter Notebook também é uma ótima maneira de compartilhar seus resultados com outras pessoas, já que é possível salvar a saída das seções de código no documento. Você pode instalar os Jupyter Notebooks em uma variedade de plataformas.
 
-O procedimento na seção [computador local](#local) instala os componentes necessários para executar blocos de anotações do Jupyter em um ambiente Anaconda.
+O procedimento na seção local do [computador](#local) instala os componentes necessários para a execução de Notebooks Jupyter em um ambiente Anaconda.
 
-Para habilitar esses componentes em seu ambiente de Jupyter Notebook:
+Para habilitar esses componentes no ambiente do Jupyter Notebook:
 
-1. Abra um prompt do Anaconda e ative seu ambiente.
+1. Abra um prompt Anaconda e ative seu ambiente.
 
-    ```shell
+    ```bash
     conda activate myenv
     ```
 
-1. Clone [o repositório do GitHub](https://aka.ms/aml-notebooks) para um conjunto de blocos de anotações de exemplo.
+1. Clone [o repositório GitHub](https://aka.ms/aml-notebooks) para um conjunto de notebooks de exemplo.
 
-    ```CLI
+    ```bash
     git clone https://github.com/Azure/MachineLearningNotebooks.git
     ```
 
-1. Inicie o servidor de Jupyter Notebook com o seguinte comando:
+1. Inicie o servidor Jupyter Notebook com o seguinte comando:
 
-    ```shell
+    ```bash
     jupyter notebook
     ```
 
-1. Para verificar se Jupyter Notebook pode usar o SDK, crie um **novo** bloco de anotações, selecione **Python 3** como kernel e, em seguida, execute o seguinte comando em uma célula do notebook:
+1. Para verificar se o Jupyter Notebook pode usar o SDK, crie um **novo** notebook, selecione **Python 3** como seu kernel e execute o seguinte comando em uma célula de notebook:
 
     ```python
     import azureml.core
     azureml.core.VERSION
     ```
 
-1. Se você encontrar problemas ao importar módulos e receber um `ModuleNotFoundError`, verifique se o kernel do Jupyter está conectado ao caminho correto para o seu ambiente executando o seguinte código em uma célula do bloco de anotações.
+1. Se você encontrar problemas de importação `ModuleNotFoundError`de módulos e receber um , certifique-se de que seu kernel Jupyter está conectado ao caminho correto para o seu ambiente, executando o seguinte código em uma célula Notebook.
 
     ```python
     import sys
     sys.path
     ```
 
-1. Para configurar o Jupyter Notebook para usar seu espaço de trabalho do Azure Machine Learning, vá para a seção [criar um arquivo de configuração do espaço de trabalho](#workspace) .
+1. Para configurar o Jupyter Notebook para usar seu espaço de trabalho Azure Machine Learning, vá para a seção Criar uma seção [de arquivo de configuração de espaço de trabalho.](#workspace)
 
+### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio Code
 
-### <a id="vscode"></a>Visual Studio Code
+Visual Studio Code é um editor de código cross platform muito popular que suporta um extenso conjunto de linguagens e ferramentas de programação através de extensões disponíveis no [mercado visual studio.](https://marketplace.visualstudio.com/vscode) A [extensão Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) instala a [extensão Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para codificação em todos os tipos de ambientes Python (virtual, Anaconda, etc.). Além disso, ele fornece recursos de conveniência para trabalhar com recursos de Machine Learning do Azure e executar experimentos de Machine Learning do Azure, tudo sem sair do Visual Studio Code.
 
-Visual Studio Code é um editor de código de plataforma cruzada muito popular que dá suporte a um amplo conjunto de linguagens de programação e ferramentas por meio de extensões disponíveis no [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode). A [extensão Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) instala a [extensão do Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para codificação em todos os tipos de ambientes do Python (virtual, Anaconda, etc.). Além disso, ele fornece recursos de conveniência para trabalhar com Azure Machine Learning recursos e executar Azure Machine Learning experimentos sem sair Visual Studio Code.
+Para usar o Visual Studio Code para desenvolvimento:
 
-Para usar Visual Studio Code para desenvolvimento:
-
-1. Instale a extensão de Azure Machine Learning para Visual Studio Code, consulte [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
+1. Instale a extensão Azure Machine Learning para Visual Studio Code, consulte [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
     Para obter mais informações, consulte [Usar o Azure Machine Learning para Visual Studio Code](tutorial-setup-vscode-extension.md).
 
-1. Saiba como usar Visual Studio Code para qualquer tipo de desenvolvimento em Python, consulte Introdução [ao Python no VSCode](https://code.visualstudio.com/docs/python/python-tutorial).
+1. Aprenda a usar o Visual Studio Code para qualquer tipo de desenvolvimento Python, consulte [Comece com o Python no VSCode](https://code.visualstudio.com/docs/python/python-tutorial).
 
-    - Para selecionar o ambiente Python do SDK que contém o SDK, abra VS Code e, em seguida, selecione CTRL + SHIFT + P (Linux e Windows) ou Command + Shift + P (Mac).
-        - A __paleta de comandos__ é aberta.
+    - Para selecionar o ambiente SDK Python contendo o SDK, abra o CÓDIGO VS e selecione Ctrl+Shift+P (Linux e Windows) ou Command+Shift+P (Mac).
+        - A __paleta de comando é__ aberta.
 
-    - Insira __Python: selecionar intérprete__e, em seguida, selecione o ambiente apropriado
+    - Digite __Python: Selecione O interpretador__e selecione o ambiente apropriado
 
-1. Para validar que você pode usar o SDK, crie um novo arquivo Python (. py) que contenha o seguinte código:
+1. Para validar que você pode usar o SDK, crie um novo arquivo Python (.py) que contém o seguinte código:
 
     ```python
     #%%
     import azureml.core
     azureml.core.VERSION
     ```
-    Execute esse código clicando no CodeLens "executar célula" ou simplesmente pressione Shift-Enter.
+    Execute este código clicando no CodeLens "Run cell" ou simplesmente pressione shift-enter.
 <a name="aml-databricks"></a>
 
 ## <a name="azure-databricks"></a>Azure Databricks
-Azure Databricks é um ambiente baseado em Apache Spark na nuvem do Azure. Ele fornece um ambiente de colaboração baseado em notebook com CPU ou cluster de computação baseado em GPU.
+O Azure Databricks é um ambiente baseado em Faíscaapache na nuvem do Azure. Ele fornece um ambiente colaborativo baseado em Notebook com cpu ou cluster de computação baseado em GPU.
 
-Como Azure Databricks funciona com Azure Machine Learning:
-+ Você pode treinar um modelo usando o Spark MLlib e implantar o modelo em ACI/AKS de dentro Azure Databricks.
-+ Você também pode usar recursos [automatizados de aprendizado de máquina](concept-automated-ml.md) em um SDK do Azure ml especial com Azure Databricks.
-+ Você pode usar Azure Databricks como um destino de computação de um [pipeline de Azure Machine Learning](concept-ml-pipelines.md).
+Como o Azure Databricks funciona com o Azure Machine Learning:
++ Você pode treinar um modelo usando Spark MLlib e implantar o modelo no ACI/AKS de dentro do Azure Databricks.
++ Você também pode usar recursos [automatizados de aprendizado de máquina](concept-automated-ml.md) em um Azure ML SDK especial com Azure Databricks.
++ Você pode usar o Azure Databricks como um alvo de computação de um [pipeline de Machine Learning do Azure](concept-ml-pipelines.md).
 
-### <a name="set-up-your-databricks-cluster"></a>Configurar o cluster do databricks
+### <a name="set-up-your-databricks-cluster"></a>Configure seu cluster Databricks
 
-Crie um [cluster do databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Algumas configurações se aplicam somente se você instalar o SDK do Machine Learning automatizado no databricks.
-**Levará alguns minutos para criar o cluster.**
+Crie um [cluster Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Algumas configurações só se aplicam se você instalar o SDK para aprendizado automático de máquina em Databricks.
+**São necessários alguns minutos para criar o cluster.**
 
 Use estas configurações:
 
 | Configuração |Aplica-se a| Valor |
 |----|---|---|
-| Nome do cluster |constante| nomedoseucluster |
-| Databricks Runtime |constante|Tempo de execução não ML 6,0 (escala 2,11, Spark 2.4.3) |
-| Versão do Python |constante| 3 |
-| Trabalhos |constante| 2 ou superior |
-| Tipos de VM do nó de trabalho <br>(determina o número máximo de iterações simultâneas) |ML automatizado<br>rápido| Uma VM otimizada para memória é preferível |
+| Nome do cluster |always| nomedoseucluster |
+| Databricks Runtime |always|Tempo de execução não-ML 6.0 (scala 2.11, faísca 2.4.3) |
+| Versão do Python |always| 3 |
+| Trabalhos |always| 2 ou superior |
+| Tipos de VM do nó de trabalho <br>(determina o max # de iterações simultâneas) |ML automatizado<br>rápido| Uma VM otimizada para memória é preferível |
 | Habilitar o dimensionamento automático |ML automatizado<br>rápido| Desmarcar |
 
 Aguarde até que o cluster está em execução antes de continuar.
 
-### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Instalar o SDK correto em uma biblioteca do databricks
-Depois que o cluster estiver em execução, [crie uma biblioteca](https://docs.databricks.com/user-guide/libraries.html#create-a-library) para anexar o pacote SDK do Azure Machine Learning apropriado ao cluster.
+### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Instale o SDK correto em uma biblioteca databricks
+Uma vez que o cluster esteja em execução, [crie uma biblioteca](https://docs.databricks.com/user-guide/libraries.html#create-a-library) para anexar o pacote SDK de aprendizado de máquina azure apropriado ao seu cluster.
 
-1. Clique com o botão direito do mouse na pasta do espaço de trabalho atual onde você deseja armazenar a biblioteca. Selecione **criar** > **biblioteca**.
+1. Clique com o botão direito do mouse na pasta workspace atual onde deseja armazenar a biblioteca. Selecione **Criar** > **biblioteca**.
 
-1. Escolha **apenas uma** opção (não há suporte para nenhuma outra instalação do SDK)
+1. Escolha **apenas uma** opção (nenhuma outra instalação do SDK é suportada)
 
-   |SDK&nbsp;pacote&nbsp;extras|Fonte|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |Extras do&nbsp;&nbsp;pacote SDK|Fonte|Nome&nbsp;PyPi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
-   |Para databricks| Carregar Python Egg ou PyPI | azureml-sdk[databricks]|
-   |Para databricks-com-<br> recursos de ML automatizados| Carregar Python Egg ou PyPI | azureml-SDK [automl]|
+   |Para Databricks| Carregar Python Egg ou PyPI | azureml-sdk[databricks]|
+   |Para Databricks -com...<br> recursos automatizados de ML| Carregar Python Egg ou PyPI | azureml-sdk[automl]|
 
    > [!Warning]
-   > Nenhum outro adicional do SDK pode ser instalado. Escolha apenas uma das opções anteriores [databricks] ou [automl].
+   > Nenhum outro sdk extras pode ser instalado. Escolha apenas uma das opções anteriores [databricks] ou [automl].
 
-   * Não selecione **anexar automaticamente a todos os clusters**.
-   * Selecione **anexar** ao lado do nome do cluster.
+   * Não selecione **Anexar automaticamente a todos os clusters**.
+   * Selecione **Anexar** ao lado do nome do cluster.
 
-1. Monitorar erros até que o status seja alterado para **anexado**, o que pode levar vários minutos.  Se esta etapa falhar:
+1. Monitore se há erros até que o status seja **alterado para Anexo,** o que pode levar vários minutos.  Se esta etapa falhar:
 
-   Tente reiniciar o cluster da:
+   Tente reiniciar seu cluster por:
    1. No painel esquerdo, selecione **Clusters**.
    1. Na tabela, selecione o nome do cluster.
    1. Na guia **Bibliotecas**, selecione **Reiniciar**.
 
    Considere também:
-   + Na configuração do AutoML, ao usar Azure Databricks adicione os seguintes parâmetros:
-       1. o ```max_concurrent_iterations``` é baseado no número de nós de trabalho no cluster.
-        2. o ```spark_context=sc``` é baseado no contexto padrão do Spark.
-   + Ou, se você tiver uma versão antiga do SDK, desmarque-a do bibliotecas instalado do cluster e mude para Trash. Instale a nova versão do SDK e reinicie o cluster. Se houver um problema após a reinicialização, desanexe e anexe novamente o cluster.
+   + Na configuração AutoML, ao usar o Azure Databricks, adicione os seguintes parâmetros:
+       1. ```max_concurrent_iterations```é baseado no número de nódulos operidiais em seu cluster.
+        2. ```spark_context=sc```é baseado no contexto padrão de faísca.
+   + Ou, se você tiver uma versão antiga do SDK, desmarque-a das libs instaladas do cluster e mude-se para o lixo. Instale a nova versão do SDK e reinicie o cluster. Se houver um problema após a reinicialização, desconecte-se e reconecte o cluster.
 
-Se a instalação tiver sido bem-sucedida, a biblioteca importada deverá ser semelhante a uma destas:
+Se a instalação foi bem sucedida, a biblioteca importada deve se parecer com uma delas:
 
-SDK para databricks **_sem_** o aprendizado de máquina automatizado ![o sdk do Azure Machine Learning para databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+SDK para Databricks **_sem_** aprendizado ![automático de máquina Azure Machine Learning SDK para Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-SDK para databricks **com** o sdk do ![de Machine Learning automatizado com o Machine Learning automatizado instalado no databricks](./media/how-to-configure-environment/automlonadb.png)
+SDK para Databricks **COM** SDK automatizado de aprendizado de ![máquina com aprendizado automático de máquina instalado em Databricks](./media/how-to-configure-environment/automlonadb.png)
 
 ### <a name="start-exploring"></a>Comece a explorar
 
 Experimente:
-+ Embora muitos blocos de anotações de exemplo estejam disponíveis, **somente [esses blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) funcionam com Azure Databricks.**
++ Embora muitos cadernos de exemplo estejam disponíveis, **apenas [esses notebooks de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) funcionam com os Databricks do Azure.**
 
-+ Importe esses exemplos diretamente do seu espaço de trabalho. Veja abaixo: ![selecione Importar](./media/how-to-configure-environment/azure-db-screenshot.png)
-![painel importar](./media/how-to-configure-environment/azure-db-import.png)
++ Importe essas amostras diretamente do seu espaço de trabalho. Veja abaixo: ![](./media/how-to-configure-environment/azure-db-screenshot.png)
+![Selecione painel de importação de importação](./media/how-to-configure-environment/azure-db-import.png)
 
-+ Saiba como [criar um pipeline com o databricks como a computação de treinamento](how-to-create-your-first-pipeline.md).
++ Aprenda a [criar um pipeline com Databricks como o cálculo de treinamento](how-to-create-your-first-pipeline.md).
 
-## <a id="workspace"></a>Criar um arquivo de configuração do workspace
+## <a name="create-a-workspace-configuration-file"></a><a id="workspace"></a>Criar um arquivo de configuração de workspace
 
-O arquivo de configuração do espaço de trabalho é um arquivo JSON que informa ao SDK como se comunicar com seu espaço de trabalho Azure Machine Learning. O arquivo é nomeado *config.json* e tem o seguinte formato:
+O arquivo de configuração do espaço de trabalho é um arquivo JSON que informa ao SDK como se comunicar com o espaço de trabalho do Azure Machine Learning. O arquivo é nomeado *config.json* e tem o seguinte formato:
 
 ```json
 {
@@ -365,13 +361,13 @@ Para usar esse arquivo de seu código, use `ws=Workspace.from_config()`. Esse c�
 
 É possível criar o arquivo de configuração de três maneiras:
 
-* **Use [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)** : para gravar um arquivo *config. JSON* . O arquivo contém as informações de configuração do workspace. É possível baixar ou copiar o *config.json* para outros ambientes de desenvolvimento.
+* **Use [ws.write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**: para escrever um arquivo *config.json.* O arquivo contém as informações de configuração do workspace. É possível baixar ou copiar o *config.json* para outros ambientes de desenvolvimento.
 
-* **Baixe o arquivo**: na [portal do Azure](https://ms.portal.azure.com), selecione **baixar config. JSON** na seção **visão geral** do seu espaço de trabalho.
+* **Baixe o arquivo**: No [portal Azure,](https://ms.portal.azure.com)selecione **Baixar config.json** na seção **Visão Geral** do seu espaço de trabalho.
 
      ![Portal do Azure](./media/how-to-configure-environment/configure.png)
 
-* **Crie o arquivo programaticamente**: no trecho de código a seguir, você se conecta a um espaço de trabalho fornecendo a ID da assinatura, o grupo de recursos e o nome do espaço de trabalho. Em seguida, salva a configuração do workspace no arquivo:
+* **Crie o arquivo de forma programática**: No seguinte trecho de código, você se conecta a um espaço de trabalho fornecendo o ID de assinatura, grupo de recursos e nome do espaço de trabalho. Em seguida, salva a configuração do workspace no arquivo:
 
     ```python
     from azureml.core import Workspace
@@ -388,10 +384,9 @@ Para usar esse arquivo de seu código, use `ws=Workspace.from_config()`. Esse c�
         print('Workspace not found')
     ```
 
-    Esse código grava o arquivo de configuração no arquivo *. azureml/config. JSON* .
-
+    Este código grava o arquivo de configuração no arquivo *.azureml/config.json.*
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Treinar um modelo](tutorial-train-models-with-aml.md) no Azure Machine Learning com o conjunto de dados MNIST
+- [Treine um modelo](tutorial-train-models-with-aml.md) no Azure Machine Learning com o conjunto de dados MNIST
 - Veja a referência do [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)

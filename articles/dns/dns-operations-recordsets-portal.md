@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/6/2018
 ms.author: rohink
 ms.openlocfilehash: 4012b32eb2684126b8dc64b9e86bf35a016e9fba
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76936837"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gerenciar registros e conjuntos de registros DNS usando o portal do Azure
@@ -70,14 +70,14 @@ Assim que o registro for salvo, os valores do conjunto de registros na folha **Z
 Você pode usar o Portal do Azure para remover registros de um conjunto de registros. Observe que remover o último registro de um conjunto de registros não exclui o conjunto.
 
 1. Na folha **Propriedades do conjunto de registros** do conjunto de registros, procure o registro.
-2. Clique no registro que você quer remover. Em seguida, selecione **Remover**.
+2. Clique no registro que você quer remover. Em seguida, **selecione Remover**.
 
     ![Remover um registro](./media/dns-operations-recordsets-portal/removerecord500.png)
 
 3. Clique em **Salvar** na parte superior da folha para salvar as configurações.
 4. Assim que o registro for removido, os valores do registro na folha **Zona DNS** refletirão a remoção.
 
-## <a name="delete"></a>Excluir um conjunto de registros
+## <a name="delete-a-record-set"></a><a name="delete"></a>Excluir um conjunto de registros
 
 1. Na folha **Propriedades do conjunto de registros**do conjunto de registros, clique em **Excluir**.
 
@@ -107,7 +107,7 @@ Observe que isso se aplica somente ao conjunto de registros NS definido no apex 
 
 Não é possível excluir os conjuntos de registros SOA e NS no apex da zona (nome = "\\@\") criados automaticamente quando a zona é criada. Eles são excluídos automaticamente ao excluir a zona.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter mais informações sobre o DNS do Azure, confira [Visão geral do DNS do Azure](dns-overview.md).
 * Para obter mais informações sobre como automatizar o DNS, confira [Criando zonas DNS e conjuntos de registros usando o SDK do .NET](dns-sdk.md).

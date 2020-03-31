@@ -5,21 +5,21 @@ ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
 ms.openlocfilehash: 5f7b3a4d43d35f0d2965dd33c8f69143f4b3a8f7
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938921"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transações e modos de bloqueio em Coleções Confiáveis do Azure Service Fabric
 
 ## <a name="transaction"></a>Transação
 
-Uma transação é uma sequência de operações executadas como uma única unidade lógica de trabalho. Ele exibe as propriedades [Acid](https://en.wikipedia.org/wiki/ACID) comuns (*atomicidade*, *consistência*, *isolamento*, *durabilidade*) das transações de banco de dados:
+Uma transação é uma sequência de operações executadas como uma única unidade lógica de trabalho. Exibe as propriedades comuns [de ACID](https://en.wikipedia.org/wiki/ACID) *(atomicity,* *consistência,* *isolamento,* *durabilidade)* das transações de banco de dados:
 
 * **Atomicidade**: uma transação deve ser uma unidade atômica de trabalho. Em outras palavras, todas as suas modificações de dados são realizadas ou nenhuma delas é realizada.
 * **Consistência**: quando concluída, uma transação deve deixar todos os dados em um estado consistente. Todas as estruturas de dados internos devem estar corretas ao final da transação.
-* **Isolamento**: as modificações feitas por transações simultâneas devem ser isoladas das modificações feitas por quaisquer outras transações simultâneas. O nível de isolamento usado para uma operação em um [ITransaction](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) é determinado pelo [IReliableState](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) que executa a operação.
+* **Isolamento**: as modificações feitas por transações simultâneas devem ser isoladas das modificações feitas por quaisquer outras transações simultâneas. O nível de isolamento usado para uma operação dentro de uma [Transação I](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) é determinado pelo [IReliableState](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) que executa a operação.
 * **Durabilidade**: após uma transação ser concluída, seus efeitos ficam permanentemente vigentes no sistema. As modificações persistem até mesmo no caso de uma queda do sistema.
 
 ### <a name="isolation-levels"></a>Níveis de isolamento
@@ -46,22 +46,22 @@ A seguir está a tabela que descreve os padrões de nível de isolamento para op
 > Exemplos comuns de Operações de Entidade Única são `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`.
 > 
 
-O dicionário confiável e a fila confiável dão suporte à *leitura de suas gravações*.
+Tanto o Dicionário Confiável quanto o suporte à fila confiável *Leia suas gravações*.
 Em outras palavras, qualquer gravação em uma transação será visível para uma leitura seguinte que pertence à mesma transação.
 
 ## <a name="locks"></a>Locks
 
 Nas Coleções Confiáveis, todas as transações implementam um bloqueio de duas fases rigoroso: uma transação não libera os bloqueios que adquiriu até que a transação seja encerrada com uma confirmação ou anulação.
 
-O dicionário confiável usa o bloqueio em nível de linha para todas as operações de entidade única.
+O Dicionário Confiável usa o bloqueio em nível de linha para todas as operações de entidade única.
 Fila Confiável compensa simultaneidade para propriedade PEPS transacional estrita.
-A fila confiável usa bloqueios em nível de operação, permitindo que uma transação com `TryPeekAsync` e/ou `TryDequeueAsync` e uma transação com `EnqueueAsync` de cada vez.
+A Fila Confiável usa bloqueios de `TryPeekAsync` nível `TryDequeueAsync` de operação `EnqueueAsync` que permitem uma transação com e/ou uma transação de cada vez.
 Observe que, para preservar PEPS, se um `TryPeekAsync` ou `TryDequeueAsync` nunca observarem que a Fila Confiável está vazia, também bloquearão `EnqueueAsync`.
 
 Operações de gravação sempre utilizam bloqueios exclusivos.
 Para operações de leitura, o bloqueio depende de alguns fatores:
 
-- Qualquer operação de leitura feita usando o isolamento de instantâneo é sem bloqueio.
+- Qualquer operação de leitura feita usando isolamento instantâneo é livre de bloqueio.
 - Qualquer operação de Leitura Repetida por padrão recebe bloqueios compartilhados.
 - No entanto, para qualquer operação de leitura que dá suporte à Leitura Repetida, o usuário pode solicitar um bloqueio de atualização, em vez do bloqueio compartilhado.
 Um Bloqueio de atualização é um bloqueio assimétrico usado para evitar uma forma comum de deadlock que ocorre quando várias transações bloqueiam recursos para atualização potencial em um momento posterior.
@@ -74,12 +74,12 @@ A matriz de compatibilidade de bloqueio pode ser encontrada na tabela a seguir:
 | Atualizar |Sem conflito |Sem conflito |Conflito |Conflito |
 | Exclusivo |Sem conflito |Conflito |Conflito |Conflito |
 
-O argumento Timeout nas APIs de coleções confiáveis é usado para detecção de deadlock.
+O argumento de tempo limite em APIs de coleções confiáveis é usado para detecção de impasse.
 Por exemplo, duas transações (T1 e T2) estão tentando ler e atualizar K1.
 É possível que ocorra um deadlock, porque ambas acabam tendo o bloqueio compartilhado.
-Nesse caso, uma ou ambas as operações atingirão o tempo limite. Nesse cenário, um bloqueio de atualização pode impedir esse deadlock.
+Neste caso, uma ou ambas as operações terão tempo. Neste cenário, um bloqueio de atualização poderia evitar tal impasse.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Trabalhando com Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Notificações do Reliable Services](service-fabric-reliable-services-notifications.md)

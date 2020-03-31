@@ -1,5 +1,5 @@
 ---
-title: Conceitos de ponto de verificação e recuperação de reprodução no Azure Stream Analytics
+title: Conceitos de recuperação de checkpoint e replay no Azure Stream Analytics
 description: Este artigo descreve conceitos de ponto de verificação e de recuperação de trabalho de reprodução no Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: f5bb2b97d7da770828c2f4f03167483ad2044c79
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426399"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Conceitos de ponto de verificação e de reprodução em trabalhos do Azure Stream Analytics
 Este artigo descreve os conceitos internos de ponto de verificação e de reprodução no Azure Stream Analytics e o impacto deles na recuperação de trabalho. Sempre que um trabalho do Stream Analytics é executado, as informações de estado são mantidas internamente. Essas informações de estado são salvas em um ponto de verificação periodicamente. Em alguns cenários, as informações de ponto de verificação são usadas para a recuperação de trabalho se ocorrer uma falha de trabalho ou de atualização. Em outras circunstâncias, o ponto de verificação não pode ser usado para a recuperação, e é necessária uma reprodução.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Lógica de consulta com estado em elementos temporais
-Um dos recursos exclusivos do trabalho do Azure Stream Analytics é a execução do processamento com estado, como funções de análise temporal, de junções temporais e de agregações em janela. Cada um desses operadores mantém informações de estado quando o trabalho é executado. O tamanho máximo da janela para esses elementos de consulta é de sete dias. 
+Um dos recursos exclusivos do trabalho do Azure Stream Analytics é a execução do processamento com estado, como funções de análise temporal, de junções temporais e de agregações em janela. Cada um desses operadores mantém informações de estado quando o trabalho é executado.O tamanho máximo da janela para esses elementos de consulta é de sete dias. 
 
 O conceito de janela temporal é exibido em vários elementos de consulta do Stream Analytics:
 1. Agregações em janela (GROUP BY Em cascata, Salto e Janelas deslizantes)
@@ -67,8 +67,8 @@ Para editar a sintaxe de Consulta em um trabalho de streaming, ou para ajustar a
 
 Os dados de ponto de verificação não podem ser usados para uma reinicialização de trabalho iniciada pelo usuário. Para estimar o atraso de saída durante tal reinicialização, use o mesmo procedimento conforme descrito na seção anterior e aplique uma mitigação semelhante se o atraso for muito longo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre confiabilidade e escalabilidade, confira estes artigos:
-- [Tutorial: configurar alertas para trabalhos do Azure Stream Analytics](stream-analytics-set-up-alerts.md)
-- [Dimensionar um trabalho do Azure Stream Analytics para aumentar a taxa de transferência](stream-analytics-scale-jobs.md)
+- [Tutorial: Configurar alertas para trabalhos do Azure Stream Analytics](stream-analytics-set-up-alerts.md)
+- [Escalar um trabalho do Azure Stream Analytics para aumentar a taxa de transferência](stream-analytics-scale-jobs.md)
 - [Garantir a confiabilidade do trabalho do Stream Analytics durante atualizações do serviço](stream-analytics-job-reliability.md)

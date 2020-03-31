@@ -1,5 +1,5 @@
 ---
-title: Transformar dados usando a atividade MapReduce do Hadoop
+title: Transformar dados usando hadoop mapReduzir a atividade
 description: Saiba como processar dados executando programas MapReduce do Hadoop em um cluster do Azure HDInsight em um Azure Data Factory.
 services: data-factory
 ms.service: data-factory
@@ -11,10 +11,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
 ms.openlocfilehash: 5d38e3126442bcf34c96cead2b2ea59507b50b8c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74912857"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do MapReduce do Hadoop no Azure Data Factory
@@ -60,15 +60,15 @@ Consulte [Pig](transform-data-using-hadoop-pig.md) e [Hive](transform-data-using
 
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 
-| Propriedade          | Descrição                              | obrigatórios |
+| Propriedade          | Descrição                              | Obrigatório |
 | ----------------- | ---------------------------------------- | -------- |
-| Nome              | Nome da atividade                     | SIM      |
-| Descrição       | Texto que descreve qual a utilidade da atividade | Não       |
-| type              | Para a atividade do MapReduce, o tipo de atividade é HDinsightMapReduce | SIM      |
-| linkedServiceName | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | SIM      |
-| className         | Nome da classe a ser executada         | SIM      |
+| name              | Nome da atividade                     | Sim      |
+| descrição       | Texto que descreve qual a utilidade da atividade | Não       |
+| type              | Para a atividade do MapReduce, o tipo de atividade é HDinsightMapReduce | Sim      |
+| linkedServiceName | Referência ao cluster do HDInsight registrado como um serviço vinculado no Data Factory. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados). | Sim      |
+| className         | Nome da classe a ser executada         | Sim      |
 | jarLinkedService  | Referência a um serviço vinculado do Armazenamento do Azure usado para armazenar os arquivos Jar. Se você não especificar esse serviço vinculado, será usado o serviço vinculado do Armazenamento do Azure definido no serviço vinculado do HDInsight. | Não       |
-| jarFilePath       | Forneça o caminho para os arquivos Jar armazenados no Armazenamento do Azure referenciado por jarLinkedService. O nome do arquivo diferencia maiúsculas de minúsculas. | SIM      |
+| jarFilePath       | Forneça o caminho para os arquivos Jar armazenados no Armazenamento do Azure referenciado por jarLinkedService. O nome do arquivo diferencia maiúsculas de minúsculas. | Sim      |
 | jarlibs           | Matriz de cadeia de caracteres do caminho para os arquivos de biblioteca Jar referenciados pelo trabalho armazenado no Armazenamento do Azure referenciado por jarLinkedService. O nome do arquivo diferencia maiúsculas de minúsculas. | Não       |
 | getDebugInfo      | Especifica quando os arquivos de log são copiados para o Armazenamento do Azure usado pelo cluster do HDInsight (ou) especificado por jarLinkedService. Valores permitidos: Nenhum, Sempre ou Falha. Valor padrão: Nenhum. | Não       |
 | argumentos         | Especifica uma matriz de argumentos para um trabalho do Hadoop. Os argumentos são passados como argumentos de linha de comando para cada tarefa. | Não       |
@@ -112,14 +112,14 @@ Você pode usar a atividade do HDInsight MapReduce para executar qualquer arquiv
 ```
 Você pode especificar argumentos para o programa MapReduce na seção **argumentos**. Em runtime, você verá alguns argumentos extras (por exemplo: mapreduce.job.tags) da estrutura MapReduce. Para diferenciar seus argumentos com os argumentos MapReduce, considere usar opção e valor como argumentos, conforme mostrado no exemplo a seguir (- s, --input - output etc... são opções seguidas imediatamente por seus valores).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte os seguintes artigos que explicam como transformar dados de outras maneiras:
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md) (Atividade do U-SQL)
 * [Hive activity](transform-data-using-hadoop-hive.md) (Atividade do Hive)
-* [Pig activity](transform-data-using-hadoop-pig.md) (Atividade do Pig)
+* [Atividade suína](transform-data-using-hadoop-pig.md)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md) (Atividade de streaming do Hadoop)
-* [Spark activity](transform-data-using-spark.md) (Atividade do Spark)
-* [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
+* [Atividade de faísca](transform-data-using-spark.md)
+* [Atividade personalizada .NET](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md) (Atividade de execução em lotes do Machine Learning)
-* [Stored procedure activity](transform-data-using-stored-procedure.md) (Atividade de procedimento armazenado)
+* [Atividade do procedimento armazenado](transform-data-using-stored-procedure.md)

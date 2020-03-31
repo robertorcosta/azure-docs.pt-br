@@ -1,6 +1,6 @@
 ---
-title: Erro de RequestBodyTooLarge do aplicativo Apache Spark-Azure HDInsight
-description: NativeAzureFileSystem ... RequestBodyTooLarge aparece no log para o aplicativo de streaming Apache Spark no Azure HDInsight
+title: RequestBodyTooGrande erro do aplicativo Apache Spark - Azure HDInsight
+description: NativeAzureFileSystem ... RequestBodyTooLarge aparece no log do aplicativo de streaming Apache Spark no Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,37 +8,37 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
 ms.openlocfilehash: 777d06670238a7625d190c92f78a55cd4794d226
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75894393"
 ---
-# <a name="nativeazurefilesystemrequestbodytoolarge-appear-in-apache-spark-streaming-app-log-in-hdinsight"></a>"NativeAzureFileSystem... RequestBodyTooLarge "aparece no log do aplicativo Apache Spark streaming no HDInsight
+# <a name="nativeazurefilesystemrequestbodytoolarge-appear-in-apache-spark-streaming-app-log-in-hdinsight"></a>"NativeAzureFileSystem... RequestBodyTooLarge" aparecem no aplicativo de streaming Apache Spark log no HDInsight
 
-Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao usar os componentes do Apache Spark nos clusters do Azure HDInsight.
+Este artigo descreve etapas de solução de problemas e possíveis resoluções para problemas ao usar componentes Apache Spark em clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-O erro: `NativeAzureFileSystem ... RequestBodyTooLarge` aparece no log de driver para um aplicativo de streaming Apache Spark.
+O erro: `NativeAzureFileSystem ... RequestBodyTooLarge` aparece no registro do driver de um aplicativo de streaming Apache Spark.
 
 ## <a name="cause"></a>Causa
 
-O arquivo de log de eventos do Spark provavelmente está atingindo o limite de comprimento do arquivo para WASB.
+O arquivo de registro de eventos Spark provavelmente está atingindo o limite de comprimento do arquivo para WASB.
 
-No Spark 2,3, cada aplicativo Spark gera um arquivo de log de eventos do Spark. O arquivo de log de eventos do Spark para um aplicativo de streaming do Spark continua crescendo enquanto o aplicativo está em execução. Hoje, um arquivo em WASB tem um limite de bloco de 50000 e o tamanho de bloco padrão é 4 MB. Portanto, na configuração padrão, o tamanho máximo do arquivo é 195 GB. No entanto, o armazenamento do Azure aumentou o tamanho máximo do bloco para 100 MB, o que efetivamente trouxe o limite de arquivo único para 4,75 TB. Para obter mais informações, consulte [escalabilidade e metas de desempenho para o armazenamento de BLOBs](../../storage/blobs/scalability-targets.md).
+No Spark 2.3, cada aplicativo Spark gera um arquivo de registro de eventos Spark. O arquivo de registro de eventos Spark para um aplicativo de streaming Spark continua a crescer enquanto o aplicativo está em execução. Hoje, um arquivo no WASB tem um limite de bloco de 50000, e o tamanho padrão do bloco é de 4 MB. Assim, na configuração padrão, o tamanho máximo do arquivo é de 195 GB. No entanto, o Azure Storage aumentou o tamanho máximo do bloco para 100 MB, o que efetivamente elevou o limite de arquivo único para 4,75 TB. Para obter mais informações, confira [Escalabilidade e metas de desempenho do Armazenamento de Blobs](../../storage/blobs/scalability-targets.md).
 
 ## <a name="resolution"></a>Resolução
 
-Há três soluções disponíveis para este erro:
+Existem três soluções disponíveis para este erro:
 
-* Aumente o tamanho do bloco para até 100 MB. Na interface do usuário do amAmbari, modifique a propriedade de configuração HDFS `fs.azure.write.request.size` (ou crie-a na seção `Custom core-site`). Defina a propriedade como um valor maior, por exemplo: 33554432. Salve a configuração atualizada e reinicie os componentes afetados.
+* Aumente o tamanho do bloco para até 100 MB. Na Ambari UI, modifique `fs.azure.write.request.size` a propriedade de `Custom core-site` configuração Do HDFS (ou crie-a na seção). Defina a propriedade para um valor maior, por exemplo: 33554432. Salve a configuração atualizada e reinicie os componentes afetados.
 
-* Pare periodicamente e envie novamente o trabalho de streaming do Spark.
+* Pare periodicamente e reenvie o trabalho de streaming de faíscas.
 
-* Use o HDFS para armazenar logs de eventos do Spark. Usar o HDFS para armazenamento pode resultar em perda de dados de evento do Spark durante o dimensionamento do cluster ou atualizações do Azure.
+* Use o HDFS para armazenar registros de eventos spark. O uso do HDFS para armazenamento pode resultar na perda de dados de eventos spark durante o dimensionamento de clusters ou upgrades do Azure.
 
-    1. Faça alterações em `spark.eventlog.dir` e `spark.history.fs.logDirectory` por meio da interface do usuário do Ambari:
+    1. Faça alterações para `spark.eventlog.dir` e `spark.history.fs.logDirectory` via Ambari UI:
 
         ```
         spark.eventlog.dir = hdfs://mycluster/hdp/spark2-events
@@ -54,14 +54,14 @@ Há três soluções disponíveis para este erro:
         hadoop fs -chmod -R o+t hdfs://mycluster/hdp/spark2-events
         ```
 
-    1. Reinicie todos os serviços afetados por meio da interface do usuário do Ambari.
+    1. Reinicie todos os serviços afetados via Ambari UI.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure através [do Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Conecte-se com o [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se você precisar de mais ajuda, você pode enviar uma solicitação de suporte do [portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o centro **de suporte Ajuda +.** Para obter informações mais detalhadas, consulte [Como criar uma solicitação de suporte ao Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e suporte ao faturamento está incluído na assinatura do Microsoft Azure, e o suporte técnico é fornecido através de um dos Planos de Suporte do [Azure](https://azure.microsoft.com/support/plans/).

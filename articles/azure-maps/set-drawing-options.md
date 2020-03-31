@@ -1,53 +1,53 @@
 ---
 title: Módulo de ferramentas de desenho | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá a definir dados de opções de desenho usando o SDK da Web do Microsoft Azure Maps
-author: farah-alyasari
-ms.author: v-faalya
+description: Neste artigo, você aprenderá como definir dados de opções de desenho usando o Microsoft Azure Maps Web SDK
+author: philmea
+ms.author: philmea
 ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f3634149b744b9a03f0ed89aafbc20932701bdbc
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 711609f9382e2153cbc738d544933796dbbe2e99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208175"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334305"
 ---
 # <a name="use-the-drawing-tools-module"></a>Usar o módulo de ferramentas de desenho
 
-O SDK da Web do Azure Maps fornece um *módulo de ferramentas de desenho*. Esse módulo facilita desenhar e editar formas no mapa usando um dispositivo de entrada, como um mouse ou tela sensível ao toque. A classe principal desse módulo é o [Gerenciador de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). O Gerenciador de desenho fornece todos os recursos necessários para desenhar e editar formas no mapa. Ele pode ser usado diretamente e está integrado a uma interface do usuário personalizada da barra de ferramentas. Você também pode usar a classe de [barra de ferramentas de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) interna. 
+O Web SDK do Azure Maps fornece um *módulo de ferramentas de desenho*. Este módulo facilita a desenho e edição de formas no mapa usando um dispositivo de entrada, como um mouse ou tela sensível ao toque. A classe principal deste módulo é o [gerenciador de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). O gerenciador de desenho fornece todos os recursos necessários para desenhar e editar formas no mapa. Ele pode ser usado diretamente, e é integrado com uma ui de barra de ferramentas personalizada. Você também pode usar a classe de barra de ferramentas de [desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) incorporada. 
 
-## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Carregando o módulo ferramentas de desenho em uma página da Web
+## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Carregando o módulo de ferramentas de desenho em uma página web
 
 1. Crie um novo arquivo HTML e [implemente o mapa como de costume](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
-2. Carregue o módulo ferramentas de desenho do Azure Maps. Você pode carregá-lo de uma das duas maneiras:
-    - Use a versão de rede de distribuição de conteúdo do Azure hospedada globalmente do módulo serviços do Azure Maps. Adicione referência à folha de estilo JavaScript e CSS no elemento `<head>` do arquivo:
+2. Carregue o módulo de ferramentas de desenho do Azure Maps. Você pode carregá-lo de duas maneiras:
+    - Use a versão globalmente hospedada, Azure Content Delivery Network do módulo de serviços Do Azure Maps. Adicionar referência à folha de estilos JavaScript `<head>` e CSS no elemento do arquivo:
 
         ```html
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/0.1/atlas-drawing.min.css" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0.1/atlas-drawing.min.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.js"></script>
         ```
 
-    - Ou então, você pode carregar o módulo ferramentas de desenho para o código-fonte do SDK Web do Azure Maps localmente usando o pacote [Azure-Maps-desenho-Tools](https://www.npmjs.com/package/azure-maps-drawing-tools) NPM e, em seguida, hospedá-lo com seu aplicativo. Esse pacote também inclui definições de TypeScript. Use este comando:
+    - Ou, você pode carregar o módulo de ferramentas de desenho para o código-fonte do Azure Maps Web SDK localmente usando o pacote npm de [ferramentas de desenho de mapas azure](https://www.npmjs.com/package/azure-maps-drawing-tools) e, em seguida, hospedá-lo com o seu aplicativo. Esse pacote também inclui definições de TypeScript. Use este comando:
     
-        > **NPM instalar Azure-Maps-desenho-ferramentas**
+        > **npm instalar azure-mapas-drawing-tools**
     
-        Em seguida, adicione uma referência à folha de estilo JavaScript e CSS no elemento `<head>` do arquivo:
+        Em seguida, adicione uma referência à folha de `<head>` estilos JavaScript e CSS no elemento do arquivo:
 
          ```html
         <link rel="stylesheet" href="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.css" type="text/css" />
         <script src="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.js"></script>
          ```
 
-## <a name="use-the-drawing-manager-directly"></a>Usar o Gerenciador de desenho diretamente
+## <a name="use-the-drawing-manager-directly"></a>Use o gerenciador de desenho diretamente
 
-Depois que o módulo ferramentas de desenho for carregado em seu aplicativo, você poderá habilitar os recursos de desenho e edição usando o [Gerenciador de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). Você pode especificar opções para o Gerenciador de desenho ao criar uma instância dele ou usar a função `drawingManager.setOptions()` como alternativa.
+Uma vez que o módulo de ferramentas de desenho esteja carregado em seu aplicativo, você pode habilitar os recursos de desenho e edição usando o [gerenciador de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). Você pode especificar opções para o gerenciador de `drawingManager.setOptions()` desenho enquanto instancia-lo ou, alternativamente, usar a função.
 
-### <a name="set-the-drawing-mode"></a>Definir o modo de desenho
+### <a name="set-the-drawing-mode"></a>Defina o modo de desenho
 
-O código a seguir cria uma instância do Gerenciador de desenho e define a opção de **modo** de desenho. 
+O código a seguir cria uma instância do gerenciador de desenho e define a opção **de modo** de desenho. 
 
 ```Javascript
 //Create an instance of the drawing manager and set drawing mode.
@@ -56,24 +56,24 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 });
 ```
 
-O código a seguir é um exemplo de execução completa de como definir um modo de desenho do Gerenciador de desenho. Clique no mapa para começar a desenhar um polígono.
+O código abaixo é um exemplo completo de como definir um modo de desenho do gerenciador de desenho. Clique no mapa para começar a desenhar um polígono.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Desenhar um polígono" src="//codepen.io/azuremaps/embed/YzKVKRa/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte a caneta <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>desenhar um polígono</a> pelo mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Desenhe um polígono" src="//codepen.io/azuremaps/embed/YzKVKRa/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Veja a Caneta <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>Desenhar um polígono</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
-### <a name="set-the-interaction-type"></a>Definir o tipo de interação
+### <a name="set-the-interaction-type"></a>Defina o tipo de interação
 
-O Gerenciador de desenho dá suporte a três maneiras diferentes de interagir com o mapa para desenhar formas.
+O gerenciador de desenho suporta três maneiras diferentes de interagir com o mapa para desenhar formas.
 
-* as coordenadas de `click` são adicionadas quando o mouse ou toque é clicado.
-* as coordenadas de `freehand ` são adicionadas quando o mouse ou toque é arrastado no mapa. 
-* as coordenadas de `hybrid` são adicionadas quando o mouse ou toque é clicado ou arrastado.
+* `click`- Coordenadas são adicionadas quando o mouse ou o toque são clicados.
+* `freehand `- As coordenadas são adicionadas quando o mouse ou o toque são arrastados no mapa. 
+* `hybrid`- As coordenadas são adicionadas quando o mouse ou o toque são clicados ou arrastados.
 
-O código a seguir habilita o modo de desenho de polígono e define o tipo de interação de desenho que o Gerenciador de desenho deve aderir a `freehand`. 
+O código a seguir permite o modo de desenho do polígono `freehand`e define o tipo de interação de desenho que o gerenciador de desenho deve aderir . 
 
 ```Javascript
 //Create an instance of the drawing manager and set drawing mode.
@@ -83,28 +83,28 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 });
 ```
 
- Este exemplo de código implementa a funcionalidade de desenhar um polígono no mapa. Basta manter o botão esquerdo do mouse e arrastá-lo livremente.
+ Esta amostra de código implementa a funcionalidade de desenhar um polígono no mapa. Basta segurar o botão esquerdo do mouse e arrastá-lo ao redor, livremente.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Desenho livre" src="//codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte o desenho de caneta <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>livre</a> pelo mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Desenho à mão livre" src="//codepen.io/azuremaps/embed/ZEzKoaj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Veja o <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>desenho de caneta à mão livre</a> do Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
-### <a name="customizing-drawing-options"></a>Personalizando opções de desenho
+### <a name="customizing-drawing-options"></a>Personalização de opções de desenho
 
-Os exemplos anteriores demonstraram como personalizar opções de desenho ao instanciar o Gerenciador de desenho. Você também pode definir as opções do Gerenciador de desenho usando a função `drawingManager.setOptions()`. Abaixo está uma ferramenta para testar a personalização de todas as opções do Gerenciador de desenho usando a função SetOptions.
+Os exemplos anteriores demonstraram como personalizar opções de desenho enquanto instanciavam o Gerenciador de desenho. Você também pode definir as opções do Gerenciador de desenho usando a `drawingManager.setOptions()` função. Abaixo está uma ferramenta para testar a personalização de todas as opções para o gerenciador de desenho usando a função setOptions.
 
 <br/>
 
-<iframe height="685" title="Personalizar o Gerenciador de desenho" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>obter dados da forma</a> pelo mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height="685" title="Personalizar gerenciador de desenho" src="//codepen.io/azuremaps/embed/LYPyrxR/?height=600&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Consulte os <a href='https://codepen.io/azuremaps/pen/LYPyrxR/'>dados de forma</a> da<a href='https://codepen.io/azuremaps'>@azuremaps</a>caneta Obter por Azure Maps ( ) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como usar recursos adicionais do módulo ferramentas de desenho:
+Saiba como usar recursos adicionais do módulo de ferramentas de desenho:
 
 > [!div class="nextstepaction"]
 > [Adicionar uma barra de ferramentas de desenho](map-add-drawing-toolbar.md)
@@ -121,10 +121,10 @@ Saiba como usar recursos adicionais do módulo ferramentas de desenho:
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Gerenciador de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Gerente de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
 
 > [!div class="nextstepaction"]
-> [Barra de ferramentas desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Barra de ferramentas de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)

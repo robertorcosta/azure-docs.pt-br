@@ -1,44 +1,44 @@
 ---
-title: Implantar hosts dedicados do Azure usando o Azure PowerShell
-description: Implante VMs em hosts dedicados usando Azure PowerShell.
+title: Implantar hosts dedicados ao Azure usando o Azure PowerShell
+description: Implante VMs para hosts dedicados usando o Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 30d15970b00a81ab85cdb85d2c0a27ee23ed1b92
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: a228a83d711c84d2aa994e6de7d90af48cca7f28
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79130313"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530930"
 ---
-# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implantar VMs em hosts dedicados usando o Azure PowerShell
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implantar VMs para hosts dedicados usando o Azure PowerShell
 
-Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMS). 
+Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md) ao Azure para hospedar suas máquinas virtuais (VMs). 
 
-Verifique se você instalou Azure PowerShell versão 2.8.0 ou posterior e se está conectado a uma conta do Azure no com `Connect-AzAccount`. 
+Certifique-se de que você instalou a versão 2.8.0 do Azure PowerShell ou `Connect-AzAccount`posterior, e você está conectado a uma conta do Azure com . 
 
 ## <a name="limitations"></a>Limitações
 
-- Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
-- Os tamanhos e tipos de hardware disponíveis para hosts dedicados variam por região. Consulte a página de [preços](https://aka.ms/ADHPricing) do host para saber mais.
+- Os conjuntos de escala de máquinas virtuais não são suportados atualmente em hosts dedicados.
+- Os tamanhos e tipos de hardware disponíveis para hosts dedicados variam de acordo com a região. Consulte a [página de preços](https://aka.ms/ADHPricing) do host para saber mais.
 
 ## <a name="create-a-host-group"></a>Criar um grupo de hosts
 
-Um **grupo de hosts** é um recurso que representa uma coleção de hosts dedicados. Você cria um grupo de hosts em uma região e uma zona de disponibilidade e adiciona hosts a ele. Ao planejar a alta disponibilidade, há opções adicionais. Você pode usar uma ou ambas as opções a seguir com seus hosts dedicados: 
-- Alcance entre várias zonas de disponibilidade. Nesse caso, é necessário ter um grupo de hosts em cada uma das zonas que você deseja usar.
-- Alcance entre vários domínios de falha que são mapeados para racks físicos. 
+Um **grupo anfitrião** é um recurso que representa uma coleção de hosts dedicados. Você cria um grupo de host em uma região e uma região de disponibilidade e adiciona hosts a ele. Ao planejar a alta disponibilidade, há opções adicionais. Você pode usar uma ou ambas as opções a seguir com seus hosts dedicados: 
+- Span em várias zonas de disponibilidade. Neste caso, você é obrigado a ter um grupo de hospedagem em cada uma das zonas que deseja usar.
+- Spane vários domínios de falha que são mapeados para racks físicos. 
  
-Em ambos os casos, você precisa fornecer a contagem de domínios de falha para seu grupo de hosts. Se você não quiser abranger domínios de falha em seu grupo, use uma contagem de domínio de falha de 1. 
+Em ambos os casos, você precisa fornecer a contagem de domínio de falha para o seu grupo de host. Se você não quiser cobrir domínios de falha em seu grupo, use uma contagem de domínios de falha de 1. 
 
-Você também pode optar por usar zonas de disponibilidade e domínios de falha. Este exemplo cria um grupo de hosts na zona 1, com 2 domínios de falha. 
+Você também pode decidir usar zonas de disponibilidade e domínios de falhas. Este exemplo cria um grupo de host na zona 1, com 2 domínios de falha. 
 
 
-```powershell
+```azurepowershell-interactive
 $rgName = "myDHResourceGroup"
-$location = "East US"
+$location = "EastUS"
 
 New-AzResourceGroup -Location $location -Name $rgName
 $hostGroup = New-AzHostGroup `
@@ -51,14 +51,14 @@ $hostGroup = New-AzHostGroup `
 
 ## <a name="create-a-host"></a>Criar um host
 
-Agora, vamos criar um host dedicado no grupo de hosts. Além de um nome para o host, você deve fornecer a SKU para o host. O SKU do host captura a série de VMs com suporte, bem como a geração de hardware para seu host dedicado.
+Agora vamos criar um host dedicado no grupo anfitrião. Além de um nome para o host, você é obrigado a fornecer o SKU para o host. O Host SKU captura a série VM suportada, bem como a geração de hardware para o seu host dedicado.
 
-Para obter mais informações sobre os preços e as SKUs do host, consulte [preços do host dedicado do Azure](https://aka.ms/ADHPricing).
+Para obter mais informações sobre as SKUs host e preços, consulte [os preços do Host dedicado do Azure](https://aka.ms/ADHPricing).
 
-Se você definir uma contagem de domínios de falha para seu grupo de hosts, será solicitado que você especifique o domínio de falha para o host. Neste exemplo, definimos o domínio de falha para o host como 1.
+Se você definir uma contagem de domínio de falha para o seu grupo de host, será solicitado que você especifique o domínio de falha para o host. Neste exemplo, definimos o domínio de falha para o host como 1.
 
 
-```powershell
+```azurepowershell-interactive
 $dHost = New-AzHost `
    -HostGroupName $hostGroup.Name `
    -Location $location -Name myHost `
@@ -72,10 +72,10 @@ $dHost = New-AzHost `
 
 Crie uma máquina virtual no host dedicado. 
 
-Se você especificou uma zona de disponibilidade ao criar o grupo de hosts, será necessário usar a mesma zona ao criar a máquina virtual. Para este exemplo, como nosso grupo de hosts está na zona 1, precisamos criar a VM na zona 1.  
+Se você especificou uma zona de disponibilidade ao criar seu grupo de host, você será obrigado a usar a mesma região ao criar a máquina virtual. Para este exemplo, como nosso grupo de host está na zona 1, precisamos criar a VM na zona 1.  
 
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 New-AzVM `
    -Credential $cred `
@@ -89,13 +89,13 @@ New-AzVM `
 ```
 
 > [!WARNING]
-> Se você criar uma máquina virtual em um host que não tem recursos suficientes, a máquina virtual será criada em um estado de falha. 
+> Se você criar uma máquina virtual em um host que não tenha recursos suficientes, a máquina virtual será criada em um estado FALHO. 
 
-## <a name="check-the-status-of-the-host"></a>Verificar o status do host
+## <a name="check-the-status-of-the-host"></a>Verifique o status do host
 
-Você pode verificar o status de integridade do host e quantas máquinas virtuais você ainda pode implantar no host usando [GetAzHost](/powershell/module/az.compute/get-azhost) com o parâmetro `-InstanceView`.
+Você pode verificar o estado de saúde do host e quantas máquinas virtuais `-InstanceView` você ainda pode implantar no host usando [getAzHost](/powershell/module/az.compute/get-azhost) com o parâmetro.
 
-```
+```azurepowershell-interactive
 Get-AzHost `
    -ResourceGroupName $rgName `
    -Name myHost `
@@ -164,37 +164,83 @@ Location               : eastus
 Tags                   : {}
 ```
 
+## <a name="add-an-existing-vm"></a>Adicione uma VM existente 
+
+Você pode adicionar uma VM existente a um host dedicado, mas a VM deve primeiro ser Stop\Deallocated. Antes de mover uma VM para um host dedicado, certifique-se de que a configuração da VM seja suportada:
+
+- O tamanho da VM deve estar na mesma família do tamanho do host dedicado. Por exemplo, se o seu host dedicado for DSv3, então o tamanho da VM pode ser Standard_D4s_v3, mas não poderia ser um Standard_A4_v2. 
+- A VM precisa estar localizada na mesma região do host dedicado.
+- A VM não pode fazer parte de um grupo de colocação de proximidade. Remova a VM do grupo de colocação de proximidade antes de movê-la para um host dedicado. Para obter mais informações, consulte [Mover uma VM de um grupo de colocação de proximidade](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- A VM não pode estar em um conjunto de disponibilidade.
+- Se a VM estiver em uma zona de disponibilidade, ela deve ser a mesma zona de disponibilidade do grupo de host. As configurações de zona de disponibilidade para a VM e o grupo de host devem coincidir.
+
+Substitua os valores das variáveis por suas próprias informações.
+
+```azurepowershell-interactive
+$vmRGName = "movetohost"
+$vmName = "myVMtoHost"
+$dhRGName = "myDHResourceGroup"
+$dhGroupName = "myHostGroup"
+$dhName = "myHost"
+
+$myDH = Get-AzHost `
+   -HostGroupName $dhGroupName `
+   -ResourceGroupName $dhRGName `
+   -Name $dhName
+   
+$myVM = Get-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName
+   
+$myVM.Host = New-Object Microsoft.Azure.Management.Compute.Models.SubResource
+
+$myVM.Host.Id = "$myDH.Id"
+
+Stop-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName -Force
+   
+Update-AzVM `
+   -ResourceGroupName $vmRGName `
+   -VM $myVM -Debug
+   
+Start-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName
+```
+
+
 ## <a name="clean-up"></a>Limpar
 
-Você está sendo cobrado por seus hosts dedicados, mesmo quando não há máquinas virtuais implantadas. Você deve excluir os hosts que não está usando no momento para economizar custos.  
+Você está sendo cobrado por seus hosts dedicados mesmo quando nenhuma máquina virtual é implantada. Você deve excluir todos os hosts que você não está usando no momento para economizar custos.  
 
 Você só pode excluir um host quando não houver mais máquinas virtuais usando-o. Exclua as VMs usando [Remove-AzVM](/powershell/module/az.compute/remove-azvm).
 
-```powershell
+```azurepowershell-interactive
 Remove-AzVM -ResourceGroupName $rgName -Name myVM
 ```
 
 Depois de excluir as VMs, você pode excluir o host usando [Remove-AzHost](/powershell/module/az.compute/remove-azhost).
 
-```powershell
+```azurepowershell-interactive
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 
-Depois de excluir todos os hosts, você poderá excluir o grupo de hosts usando [Remove-AzHostGroup](/powershell/module/az.compute/remove-azhostgroup). 
+Depois de excluir todos os hosts, você pode excluir o grupo host usando [Remove-AzHostGroup](/powershell/module/az.compute/remove-azhostgroup). 
 
-```powershell
+```azurepowershell-interactive
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 
-Você também pode excluir o grupo de recursos inteiro em um único comando usando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Isso excluirá todos os recursos criados no grupo, incluindo todas as VMs, hosts e grupos de hosts.
+Você também pode excluir todo o grupo de recursos em um único comando usando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Isso excluirá todos os recursos criados no grupo, incluindo todas as VMs, hosts e grupos de host.
  
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $rgName
 ```
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-- Há um modelo de exemplo, encontrado [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), que usa zonas e domínios de falha para obter máxima resiliência em uma região.
+- Há um modelo de amostra, encontrado [aqui,](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)que usa tanto zonas quanto domínios de falha para máxima resiliência em uma região.
 
-- Você também pode implantar hosts dedicados usando o [portal do Azure](dedicated-hosts-portal.md).
+- Você também pode implantar hosts dedicados usando o [portal Azure](dedicated-hosts-portal.md).

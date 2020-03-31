@@ -1,13 +1,13 @@
 ---
-title: Serviço DNS do Azure Service Fabric
+title: Serviço Azure Serviço De Malha DNS serviço
 description: Use o serviço DNS do Service Fabric para descobrir microsserviços no cluster.
 ms.topic: conceptual
 ms.date: 7/20/2018
 ms.openlocfilehash: 317aa81238ec7a0dc24b69b1d00568901b9bc34f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458038"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric
@@ -103,10 +103,10 @@ Depois de ter um modelo, habilite o serviço DNS com as seguintes etapas:
 3. Após atualizar o modelo de cluster com as alterações, aplique-as e permita a conclusão do upgrade. Quando a atualização for concluída, o serviço do sistema DNS começa a ser executado em seu cluster. O nome do serviço é `fabric:/System/DnsService` e você pode encontrar na seção do serviço **Sistema** no explorador do Microsoft Azure Service Fabric. 
 
 > [!NOTE]
-> Ao atualizar o DNS de desabilitado para habilitado, Service Fabric Explorer pode não refletir o novo estado. Para resolver, reinicie os nós modificando o UpgradePolicy em seu modelo de Azure Resource Manager. Consulte a [referência do modelo de Service Fabric](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) para obter mais informações.
+> Ao atualizar o DNS de desativado para ativado, o Service Fabric Explorer pode não refletir o novo estado. Para resolver, reinicie os nós modificando a Política de upgrade no modelo do Azure Resource Manager. Consulte a [referência do modelo de malha de serviço](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) para obter mais informações.
 
 > [!NOTE]
-> Habilitar o serviço DNS ao desenvolver em um computador local substituirá algumas configurações de DNS. Se você tiver problemas para se conectar à Internet, verifique as configurações de DNS.
+> A ativação do serviço de DNS ao desenvolver em uma máquina local substituirá algumas configurações de DNS. Se você tiver problemas de conexão com a internet, verifique as configurações do DNS.
 
 ## <a name="setting-the-dns-name-for-your-service"></a>Configurando o nome DNS para o serviço
 É possível configurar um nome DNS para os serviços de forma declarativa para serviços padrão no arquivo ApplicationManifest.xml ou através de comandos do PowerShell.
@@ -170,7 +170,7 @@ Consultas DNS destinadas a uma partição são formatadas da seguinte maneira:
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-Onde:
+Em que:
 
 - *First-Label-Of-Partitioned-Service-DNSName* é a primeira parte do nome DNS do serviço.
 - *PartitionPrefix* é um valor que pode ser definido na seção DnsService do manifesto do cluster ou por meio do modelo do Resource Manager do cluster. O valor padrão é "--". Para saber mais, consulte [Configurações do serviço DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
@@ -251,6 +251,6 @@ public class ValuesController : Controller
 
 * O serviço DNS para serviços do Service Fabric ainda não é suportado no Linux. O serviço DNS é suportado para contêineres no Linux. Resolução manual usando Fabric Client / ServicePartitionResolver é a alternativa disponível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a comunicação de serviço no cluster com [Conectar e comunicar-se com serviços](service-fabric-connect-and-communicate-with-services.md)
 

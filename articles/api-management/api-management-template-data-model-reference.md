@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243933"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência de modelo de dados de modelo do Gerenciamento de API do Azure
@@ -35,7 +35,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 -   [Resumo da API](#APISummary)  
 -   [Aplicativo](#Application)  
 -   [Anexo](#Attachment)  
--   [Exemplo de código](#Sample)  
+-   [Amostra de código](#Sample)  
 -   [Comentário](#Comment)  
 -   [Filtragem](#Filtering)  
 -   [Cabeçalho](#Header)  
@@ -52,14 +52,14 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 -   [Representação](#Representation)  
 -   [Assinatura](#Subscription)  
 -   [Resumo da assinatura](#SubscriptionSummary)  
--   [Informações de conta de usuário](#UserAccountInfo)  
+-   [Informações da conta de usuário](#UserAccountInfo)  
 -   [Entrada do usuário](#UseSignIn)  
 -   [Inscrição do usuário](#UserSignUp)  
   
-##  <a name="API"></a> API  
+##  <a name="api"></a><a name="API"></a>Api  
  A entidade `API` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`id`|string|Identificador de recurso. Identifica exclusivamente a API na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `apis/{id}` em que `{id}` é um identificador de API. Essa propriedade é somente leitura.|  
 |`name`|string|O nome da API. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
@@ -70,19 +70,19 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |`authenticationSettings`|[Authorization server authentication settings](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings) (Configurações de autenticação do servidor de autorização)|Coleção de configurações de autenticação incluídas nessa API.|  
 |`subscriptionKeyParameterNames`|objeto|Propriedade opcional que pode ser usada para especificar nomes personalizados para parâmetros de consulta e/ou cabeçalho que contêm a chave de assinatura. Quando essa propriedade estiver presente, ela deverá conter pelo menos uma das duas propriedades a seguir.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="APISummary"></a> Resumo da API  
+##  <a name="api-summary"></a><a name="APISummary"></a>Resumo da API  
  A entidade `API summary` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`id`|string|Identificador de recurso. Identifica exclusivamente a API na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `apis/{id}` em que `{id}` é um identificador de API. Essa propriedade é somente leitura.|  
 |`name`|string|O nome da API. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
 |`description`|string|A descrição da API. Não deve ficar vazio. Pode incluir marcas de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
   
-##  <a name="Application"></a> Aplicativo  
+##  <a name="application"></a><a name="Application"></a>Aplicativo  
  A entidade `application` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`Id`|string|O identificador exclusivo do aplicativo.|  
 |`Title`|string|O título do aplicativo.|  
@@ -97,19 +97,19 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |`Attachments`|Coleção de entidades de [Anexo](#Attachment).|Todos os anexos do aplicativo, como capturas de tela ou ícones.|  
 |`Icon`|[Anexo](#Attachment)|O ícone do aplicativo.|  
   
-##  <a name="Attachment"></a> Anexo  
+##  <a name="attachment"></a><a name="Attachment"></a>Anexo  
  A entidade `attachment` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`UniqueId`|string|O identificador exclusivo do anexo.|  
 |`Url`|string|A URL do recurso.|  
 |`Type`|string|O tipo de anexo.|  
 |`ContentType`|string|O tipo de mídia do anexo.|  
   
-##  <a name="Sample"></a> Exemplo de código  
+##  <a name="code-sample"></a><a name="Sample"></a>Amostra de código  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`title`|string|O nome da operação.|  
 |`snippet`|string|Essa propriedade foi preterida e não deve ser usada.|  
@@ -124,23 +124,23 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |`headers`|Coleção de entidades de [Cabeçalho](#Header).|Cabeçalhos para esta operação.|  
 |`parameters`|Coleção de entidade de [Parâmetro](#Parameter).|Parâmetros que são definidos para essa operação.|  
   
-##  <a name="Comment"></a> Comentário  
+##  <a name="comment"></a><a name="Comment"></a>Comentário  
  A entidade `API` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
-|`Id`|número|A ID do comentário.|  
+|`Id`|número|A id do comentário.|  
 |`CommentText`|string|O corpo do comentário. Pode incluir HTML.|  
 |`DeveloperCompany`|string|O nome da empresa do desenvolvedor.|  
 |`PostedOn`|Datetime|A data e hora em que o comentário foi postado.|  
   
-##  <a name="Issue"></a> Problema  
+##  <a name="issue"></a><a name="Issue"></a>Questão  
  A entidade `issue` tem as seguintes propriedades.  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`Id`|string|O identificador exclusivo do problema.|  
-|`ApiID`|string|A ID da API para a qual esse problema foi relatado.|  
+|`ApiID`|string|O ID da API para o qual este problema foi relatado.|  
 |`Title`|string|Título do problema.|  
 |`Description`|string|Descrição do problema.|  
 |`SubscriptionDeveloperName`|string|Nome do desenvolvedor que relatou o problema.|  
@@ -150,18 +150,18 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |`Attachments`|Coleção de entidades de [Anexo](api-management-template-data-model-reference.md#Attachment).|Quaisquer anexos para o problema.|  
 |`Services`|Coleção de entidades de [API](#API).|As APIs assinadas pelo usuário que arquivou o problema.|  
   
-##  <a name="Filtering"></a> Filtragem  
+##  <a name="filtering"></a><a name="Filtering"></a>Filtragem  
  A entidade `filtering` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`Pattern`|string|O termo de pesquisa atual ou `null` se não houver nenhum termo de pesquisa.|  
 |`Placeholder`|string|O texto a ser exibido na caixa de pesquisa quando não há nenhum termo de pesquisa especificado.|  
   
-##  <a name="Header"></a> Cabeçalho  
+##  <a name="header"></a><a name="Header"></a>Cabeçalho  
  Esta seção descreve a representação de `parameter`.  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|-----------------|----------|  
 |`name`|string|Nome do parâmetro.|  
 |`description`|string|Descrição do parâmetro.|  
@@ -171,29 +171,29 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |`required`|booleano|Se o cabeçalho é necessário.|  
 |`readOnly`|booleano|Se o cabeçalho é somente leitura.|  
   
-##  <a name="HTTPRequest"></a> Solicitação HTTP  
+##  <a name="http-request"></a><a name="HTTPRequest"></a>Solicitação HTTP  
  Esta seção descreve a representação de `request`.  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`description`|string|Descrição da solicitação de operação.|  
 |`headers`|matriz de entidades de [Cabeçalho](#Header).|Cabeçalhos de solicitação.|  
 |`parameters`|matriz de [Parâmetro](#Parameter)|Coleção de parâmetros de solicitação da operação.|  
 |`representations`|matriz de [Representação](#Representation)|Coleção de representações de solicitação da operação.|  
   
-##  <a name="HTTPResponse"></a> Resposta HTTP  
+##  <a name="http-response"></a><a name="HTTPResponse"></a>Resposta HTTP  
  Esta seção descreve a representação de `response`.  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`statusCode`|número inteiro positivo|Código de status de resposta da operação.|  
 |`description`|string|Descrição da resposta da operação.|  
 |`representations`|matriz de [Representação](#Representation)|Coleção de representações de resposta da operação.|  
   
-##  <a name="Operation"></a> Operação  
+##  <a name="operation"></a><a name="Operation"></a>Operação  
  A entidade `operation` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`id`|string|Identificador de recurso. Identifica exclusivamente a operação na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `apis/{aid}/operations/{id}` em que `{aid}` é um identificador de API e `{id}` é um identificador de API. Essa propriedade é somente leitura.|  
 |`name`|string|Nome da operação. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
@@ -205,29 +205,29 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |`request`|[Solicitação HTTP](#HTTPRequest)|Uma entidade que contém detalhes da solicitação.|  
 |`responses`|matriz de [Resposta HTTP](#HTTPResponse)|Matriz de entidades de [Resposta HTTP](#HTTPResponse) da operação.|  
   
-##  <a name="Menu"></a> Menu de operação  
+##  <a name="operation-menu"></a><a name="Menu"></a>Menu de operação  
  A entidade `operation menu` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
-|`ApiId`|string|A ID da API atual.|  
-|`CurrentOperationId`|string|A ID da operação atual.|  
+|`ApiId`|string|O ID da API atual.|  
+|`CurrentOperationId`|string|A id da operação atual.|  
 |`Action`|string|O tipo de menu.|  
 |`MenuItems`|Coleção de entidades de [Item de menu de operação](#MenuItem).|As operações para a API do atual.|  
   
-##  <a name="MenuItem"></a> Item de menu de operação  
+##  <a name="operation-menu-item"></a><a name="MenuItem"></a>Item do menu de operação  
  A entidade `operation menu item` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
-|`Id`|string|A ID da operação.|  
+|`Id`|string|A id da operação.|  
 |`Title`|string|A descrição da operação.|  
 |`HttpMethod`|string|O método HTTP da operação.|  
   
-##  <a name="Paging"></a> Paginação  
+##  <a name="paging"></a><a name="Paging"></a>Paginação  
  A entidade `paging` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`Page`|número|O número da página atual.|  
 |`PageSize`|número|O número máximo de resultados a serem exibidos em uma única página.|  
@@ -235,10 +235,10 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |`ShowAll`|booleano|Se todos os resultados devem ser mostrados em uma única página.|  
 |`PageCount`|número|O número de páginas de resultados.|  
   
-##  <a name="Parameter"></a> Parâmetro  
+##  <a name="parameter"></a><a name="Parameter"></a>Parâmetro  
  Esta seção descreve a representação de `parameter`.  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|-----------------|----------|  
 |`name`|string|Nome do parâmetro.|  
 |`description`|string|Descrição do parâmetro.|  
@@ -248,10 +248,10 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |`kind`|número|Se esse parâmetro for um parâmetro de caminho (1) ou um parâmetro de cadeia de caracteres de consulta (2).|  
 |`typeName`|string|Tipo de parâmetro.|  
   
-##  <a name="Product"></a> Produto  
+##  <a name="product"></a><a name="Product"></a>Produto  
  A entidade `product` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificador de recurso. Identifica exclusivamente o produto na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `products/{pid}` em que `{pid}` é um identificador de produto. Essa propriedade é somente leitura.|  
 |`Title`|string|O nome do produto. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
@@ -261,27 +261,27 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |`AllowMultipleSubscriptions`|booleano|Especifica se um usuário pode ter várias assinaturas para este produto ao mesmo tempo.|  
 |`MultipleSubscriptionsCount`|número|Número máximo de assinaturas para esse produto que um usuário pode ter ao mesmo tempo.|  
   
-##  <a name="Provider"></a> Provedor  
+##  <a name="provider"></a><a name="Provider"></a>Provedor  
  A entidade `provider` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`Properties`|dicionário de cadeia de caracteres|Propriedades desse provedor de autenticação.|  
 |`AuthenticationType`|string|O tipo de provedor. (Azure Active Directory, logon do Facebook, Conta do Google, Conta da Microsoft, Twitter).|  
 |`Caption`|string|Nome de exibição do provedor.|  
   
-##  <a name="Representation"></a> Representação  
+##  <a name="representation"></a><a name="Representation"></a>Representação  
  Esta seção descreve uma `representation`.  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`contentType`|string|Especifica um tipo de conteúdo registrado ou personalizado para essa representação, por exemplo, `application/xml`.|  
 |`sample`|string|Um exemplo da representação.|  
   
-##  <a name="Subscription"></a> Assinatura  
+##  <a name="subscription"></a>Assinatura de <a name="Subscription"></a>  
  A entidade `subscription` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificador de recurso. Identifica exclusivamente a assinatura na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `subscriptions/{sid}` em que `{sid}` é um identificador de assinatura. Essa propriedade é somente leitura.|  
 |`ProductId`|string|O identificador de recurso do produto assinado. O valor é uma URL relativa válida no formato de `products/{pid}` em que `{pid}` é um identificador de produto.|  
@@ -304,18 +304,18 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |`CancelUrl`|string|A URL relativa para cancelar a assinatura.|  
 |`RenewUrl`|string|A URL relativa para renovar a assinatura.|  
   
-##  <a name="SubscriptionSummary"></a> Resumo da assinatura  
+##  <a name="subscription-summary"></a><a name="SubscriptionSummary"></a>Resumo da assinatura  
  A entidade `subscription summary` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`Id`|string|Identificador de recurso. Identifica exclusivamente a assinatura na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `subscriptions/{sid}` em que `{sid}` é um identificador de assinatura. Essa propriedade é somente leitura.|  
 |`DisplayName`|string|O nome de exibição da assinatura|  
   
-##  <a name="UserAccountInfo"></a> Informações de conta de usuário  
+##  <a name="user-account-info"></a><a name="UserAccountInfo"></a> Informações de conta de usuário  
  A entidade `user account info` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`FirstName`|string|Nome. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
 |`LastName`|string|Sobrenome. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
@@ -325,10 +325,10 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |`ProviderName`|string|Nome do provedor de autenticação.|  
 |`IsBasicAccount`|booleano|True se essa conta foi registrada usando o email e a senha, false se a conta foi registrada usando um provedor.|  
   
-##  <a name="UseSignIn"></a> Entrada do usuário  
+##  <a name="user-sign-in"></a><a name="UseSignIn"></a> Entrada do usuário  
  A entidade `user sign in` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`Email`|string|Endereço de email. Não deve estar vazio e deve ser exclusivo dentro da instância do serviço. O comprimento máximo é de 254 caracteres.|  
 |`Password`|string|Senha da conta de usuário.|  
@@ -343,10 +343,10 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |`UserRegistrationTerms`|string|Termos que um usuário deve aceitar antes de entrar.|  
 |`UserRegistrationTermsEnabled`|booleano|Se os termos estão habilitados.|  
   
-##  <a name="UserSignUp"></a> Inscrição do usuário  
+##  <a name="user-sign-up"></a><a name="UserSignUp"></a> Inscrição do usuário  
  A entidade `user sign up` tem as seguintes propriedades:  
   
-|Propriedade|Type|DESCRIÇÃO|  
+|Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`PasswordConfirm`|booleano|Valor usado pelo controle [sign-up](api-management-page-controls.md#sign-up).|  
 |`Password`|string|Senha da conta de usuário.|  

@@ -1,15 +1,15 @@
 ---
-title: Visão geral da comunicação do Reliable Services
+title: Visão geral da comunicação de serviços confiáveis
 description: Visão geral do modelo de comunicação dos Reliable Services, incluindo a abertura de ouvintes, a resolução de pontos de extremidade e a comunicação entre serviços.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 3c1a6cfa5227369bf1cde4af087019727c22c0c2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75462960"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Como usar as APIs de comunicação dos Reliable Services
@@ -207,7 +207,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-Para se conectar aos serviços em um cluster diferente, um ServicePartitionResolver pode ser criado com um conjunto de pontos de extremidade de gateway do cluster. Observe que os pontos de extremidade de gateway são apenas pontos de extremidade diferentes para se conectar ao mesmo cluster. Por exemplo:
+Para se conectar aos serviços em um cluster diferente, um ServicePartitionResolver pode ser criado com um conjunto de pontos de extremidade de gateway do cluster. Observe que os pontos de extremidade de gateway são apenas pontos de extremidade diferentes para se conectar ao mesmo cluster. Por exemplo: 
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
@@ -421,7 +421,7 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [ASP.NET Core com Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md)
 * [Comunicação remota de serviço com os Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [Comunicação WCF usando os Reliable Services](service-fabric-reliable-services-communication-wcf.md)

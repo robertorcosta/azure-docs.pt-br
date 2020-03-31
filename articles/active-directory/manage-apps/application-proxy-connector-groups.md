@@ -1,6 +1,6 @@
 ---
-title: Publicar aplicativos em redes separadas por meio de grupos de conectores-Azure AD
-description: Aborda como criar e gerenciar grupos de conectores no Proxy de Aplicativo do Azure AD.
+title: Publicar aplicativos em redes separadas através de grupos de conectores - Azure AD
+description: Aborda como criar e gerenciar grupos de conectores no Proxy de Aplicativo Azure AD.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -15,10 +15,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22fa1de0a0e3bb91480212381e07b17875bf0bf4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275576"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicativos em redes e locais separados usando grupos de conectores
@@ -32,7 +32,7 @@ Todos os aplicativos são atribuídos a um grupo de conectores. Se você não cr
 > [!TIP]
 > Se você tiver uma grande implantação de Proxy de Aplicativo, não atribua nenhum aplicativo ao grupo de conectores padrão. Dessa forma, novos conectores não recebem nenhum tráfego ao vivo até você atribuí-los a um grupo de conectores ativo. Essa configuração permite que você coloque conectores em um modo ocioso, movendo-os de volta ao grupo padrão, para que você possa executar manutenções sem afetar os usuários.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para agrupar seus conectores, você precisa assegurar-se de ter [instalado vários conectores](application-proxy-add-on-premises-application.md). Quando você instala um novo conector, ele automaticamente se junta ao grupo de conector **Padrão** .
 
@@ -40,8 +40,8 @@ Para agrupar seus conectores, você precisa assegurar-se de ter [instalado vári
 
 Siga estas etapas para criar quantos grupos de conectores desejar.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-1. Selecione **Azure Active Directory** > **Aplicativos empresariais** > **Proxy de aplicativo**.
+1. Faça login no [portal Azure](https://portal.azure.com).
+1. Selecione o**proxy**de**aplicativos** > do **Azure Active Directory** > Enterprise .
 1. Selecione **Novo grupo de conectores**. A folha Novo Grupo de Conectores é exibida.
 
    ![Mostra a tela para selecionar um novo grupo de conectores](./media/application-proxy-connector-groups/new-group.png)
@@ -53,7 +53,7 @@ Siga estas etapas para criar quantos grupos de conectores desejar.
 
 Siga estas etapas para cada aplicativo publicado com Proxy de Aplicativo. Você pode atribuir um aplicativo a um grupo de conectores quando você o publica pela primeira vez, ou você pode usar estas etapas para alterar a atribuição sempre que desejar.
 
-1. No painel de gerenciamento do seu diretório, selecione **Aplicativos empresariais** > **Todos os aplicativos** > o aplicativo que você deseja atribuir a um grupo de conectores > **Proxy de Aplicativo**.
+1. No painel de gerenciamento do seu diretório, selecione **aplicativos Corporativos** > **Todos os aplicativos** > o aplicativo que você deseja atribuir a um grupo de conectores > proxy de **aplicativo**.
 1. No menu suspenso **Grupo de Conectores**, selecione o grupo que você deseja que o aplicativo use.
 1. Clique em **Salvar** para aplicar a alteração.
 
@@ -77,11 +77,11 @@ Para aplicativos instalados no IaaS para acesso à nuvem, os grupos de conector 
 
 Veja um exemplo de uma organização que tem diversas máquinas virtuais conectadas à própria rede virtual IaaS hospedada. Para permitir que os funcionários usem esses aplicativos, essas redes privadas são conectadas à rede corporativa usando VPN site a site. Isso proporciona uma boa experiência para os funcionários locais. Mas, talvez não seja ideal para funcionários remotos, pois exige uma infraestrutura local adicional para rotear o acesso, como você pode ver no diagrama a seguir:
 
-![Diagrama que ilustra a rede IaaS do Azure AD](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![Diagrama que ilustra a rede Azure AD IaaS](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
-Com os grupos de conectores do Proxy de Aplicativo do Azure AD, você pode permitir que um serviço comum proteja o acesso a todos os aplicativos sem criar dependências adicionais em sua rede corporativa:
+Com os grupos de conectores do Proxy de Aplicativo Azure AD, você pode permitir que um serviço comum proteja o acesso a todos os aplicativos sem criar dependências adicionais em sua rede corporativa:
 
-![Vários fornecedores de nuvem do Azure AD IaaS](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![Azure AD IaaS Vários Fornecedores de Nuvem](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Várias florestas – grupos de conectores diferentes para cada floresta
 
@@ -108,7 +108,7 @@ Entre os exemplos que você pode implementar, estão os grupos de conectores a s
 
 Se você não usar grupos de conector, sua configuração terá esta aparência:
 
-![Exemplo do Azure AD sem grupos de conectores](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
+![Exemplo Azure AD Sem Grupos conectores](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
 
 Essa configuração é suficiente para testes e pequenas implantações. Ela também funcionará bem se a sua organização tiver uma topologia de rede simples.
 
@@ -116,7 +116,7 @@ Essa configuração é suficiente para testes e pequenas implantações. Ela tam
 
 Essa configuração é uma evolução da padrão, pois há um aplicativo específico que é executado em uma rede isolada, como a rede virtual IaaS:
 
-![Exemplo do Azure AD sem grupos de conectores e uma rede isolada](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
+![Exemplo Azure AD Sem Grupos conectores e uma rede isolada](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
 
 ### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>Configuração recomendada – vários grupos específicos e um grupo padrão para ociosidade
 
@@ -128,5 +128,5 @@ No exemplo abaixo, a empresa tem dois data centers, A e B, com dois conectores q
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md)
+* [Entenda os conectores proxy do aplicativo Azure AD](application-proxy-connectors.md)
 * [Habilitar o logon único](what-is-single-sign-on.md)

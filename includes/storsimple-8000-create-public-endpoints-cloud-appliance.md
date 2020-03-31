@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 1cf5bbdad555c50c418851904f36a578522843b2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67171984"
 ---
 #### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Para criar pontos de extremidade públicos no dispositivo de nuvem
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 2. Acesse **Máquinas Virtuais** e selecione a máquina virtual que está sendo usada como seu dispositivo de nuvem.
     
 3. Você precisa criar uma regra de NSG (grupo de segurança de rede) para controlar o fluxo de entrada e saída de tráfego de sua máquina virtual. Execute as etapas a seguir para criar uma regra de NSG.
@@ -31,7 +31,7 @@ ms.locfileid: "67171984"
 
         Na folha Adicionar regra de segurança de entrada:
 
-        1. Para o **nome**, digite o seguinte nome para o ponto de extremidade: WinRMHttps.
+        1. Para o **Nome**, digite o seguinte nome para o ponto de extremidade: WinRMHttps.
         
         2. Para a **Prioridade**, selecione um número menor do que 1000 (que é a prioridade para a regra padrão). Quanto maior o valor, menor a prioridade.
 

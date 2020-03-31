@@ -1,6 +1,6 @@
 ---
 title: Monitorar métricas do servidor do Azure Analysis Services | Microsoft Docs
-description: Saiba como Analysis Services usar o Metrics Explorer do Azure, uma ferramenta gratuita no portal, para ajudá-lo a monitorar o desempenho e a integridade de seus servidores.
+description: Saiba como os Serviços de Análise usam o Azure Metrics Explorer, uma ferramenta gratuita no portal, para ajudá-lo a monitorar o desempenho e a saúde de seus servidores.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,15 +8,15 @@ ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: aaa3a6d128fe7dd466f6f60ab515f05fa38ba63b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252799"
 ---
 # <a name="monitor-server-metrics"></a>Monitorar métricas do servidor
 
-Analysis Services fornece métricas no Azure Metrics Explorer, uma ferramenta gratuita no portal, para ajudá-lo a monitorar o desempenho e a integridade de seus servidores. Por exemplo, monitore a memória e o uso da CPU, o número de conexões de cliente e o consumo de recursos de consulta. O Analysis Services usa a mesma estrutura de monitoramento que a maioria dos outros serviços do Azure. Para saber mais, confira [introdução ao Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md).
+Os Serviços de Análise fornecem métricas no Azure Metrics Explorer, uma ferramenta gratuita no portal, para ajudá-lo a monitorar o desempenho e a saúde de seus servidores. Por exemplo, monitore a memória e o uso da CPU, o número de conexões de cliente e o consumo de recursos de consulta. O Analysis Services usa a mesma estrutura de monitoramento que a maioria dos outros serviços do Azure. Para saber mais, consulte [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md).
 
 Para executar diagnóstico mais detalhado, rastrear o desempenho e identificar tendências em vários recursos de serviço em um grupo de recursos ou assinatura, use o [Azure Monitor](../azure-monitor/overview.md). Azure Monitor (serviço) pode resultar em um serviço faturável.
 
@@ -27,7 +27,7 @@ Para executar diagnóstico mais detalhado, rastrear o desempenho e identificar t
 
     ![Monitorar no Portal do Azure](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. Em **métrica**, selecione as métricas a serem incluídas no gráfico. 
+2. Em **Métrica,** selecione as métricas a serem inseridas em seu gráfico. 
 
     ![Gráfico do monitor](./media/analysis-services-monitor/aas-monitor-chart.png)
 
@@ -37,7 +37,7 @@ Para executar diagnóstico mais detalhado, rastrear o desempenho e identificar t
 
 Use essa tabela para determinar quais métricas são melhores para o seu cenário de monitoramento. Apenas as métricas da mesma unidade podem ser mostradas no mesmo gráfico.
 
-|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|DESCRIÇÃO|
+|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Comprimento da fila de trabalho do pool de comando|Contagem|Média|Número de trabalhos na fila do pool de threads de comando.|
 |CurrentConnections|Conexão: conexões atuais|Contagem|Média|Número atual de conexões de cliente estabelecidas.|
@@ -54,10 +54,10 @@ Use essa tabela para determinar quais métricas são melhores para o seu cenári
 |MemoryLimitLow|Memória: limite de memória inferior|Bytes|Média|Limite de memória inferior, do arquivo de configuração.|
 |MemoryLimitVertiPaq|Memória: VertiPaq do limite de memória|Bytes|Média|Limite na memória, do arquivo de configuração.|
 |MemoryUsage|Memória: uso de memória|Bytes|Média|Uso de memória do processo do servidor, como usado no cálculo de preço de memória do limpador. Igual ao contador Process\PrivateBytes mais o tamanho dos dados mapeados em memória, ignorando qualquer memória mapeada ou alocada pelo mecanismo de análise in-memory (VertiPaq), além do Limite de Memória do mecanismo.|
-|private_bytes_metric|Bytes Particulares |Bytes|Média|A quantidade total de memória que o processo do mecanismo de Analysis Services e os processos de contêiner do mashup alocaram, não incluindo a memória compartilhada com outros processos.|
-|virtual_bytes_metric|Bytes Virtuais |Bytes|Média|O tamanho atual do espaço de endereço virtual que Analysis Services processo do mecanismo e os processos de contêiner do mashup estão usando.|
-|mashup_engine_private_bytes_metric|Bytes privados do mecanismo M |Bytes|Média|A quantidade total de processos de contêiner de mashup de memória alocados, não incluindo a memória compartilhada com outros processos.|
-|mashup_engine_virtual_bytes_metric|Bytes virtuais do mecanismo M |Bytes|Média|O tamanho atual dos processos de contêiner do mashup de espaço de endereço virtual está usando.|
+|private_bytes_metric|Bytes Particulares |Bytes|Média|A quantidade total de memória que o processo do mecanismo do Analysis Services e os processos de contêiner Mashup alocou, sem incluir a memória compartilhada com outros processos.|
+|virtual_bytes_metric|Bytes Virtuais |Bytes|Média|O tamanho atual do espaço de endereço virtual que o processo do mecanismo do Analysis Services e os processos de contêiner Mashup estão usando.|
+|mashup_engine_private_bytes_metric|M Engine Private Bytes |Bytes|Média|A quantidade total de processos de contêiner Mashup de memória alocou, sem incluir a memória compartilhada com outros processos.|
+|mashup_engine_virtual_bytes_metric|M Engine Virtual Bytes |Bytes|Média|O tamanho atual do espaço de endereço virtual que os processos de contêiner Mashup estão usando.|
 |Quota|Memória: cota|Bytes|Média|Cota de memória atual, em bytes. A cota de memória também é conhecida como uma reserva de memória ou concessão de memória.|
 |QuotaBlocked|Memória: cota bloqueada|Contagem|Média|Número atual de solicitações de cota bloqueadas até que outras cotas de memória sejam liberadas.|
 |VertiPaqNonpaged|Memória: VertiPaq não paginado|Bytes|Média|Bytes de memória bloqueada no conjunto de trabalho para uso pelo mecanismo na memória.|
@@ -88,6 +88,6 @@ Use essa tabela para determinar quais métricas são melhores para o seu cenári
 |TotalConnectionRequests|Solicitações de conexão totais|Contagem|Média|Solicitações de conexão totais. |
 
 ## <a name="next-steps"></a>Próximas etapas
-[Visão geral de Azure Monitor](../azure-monitor/overview.md)      
-[Introdução ao Metrics Explorer do Azure](../azure-monitor/platform/metrics-getting-started.md)      
+[Visão geral do Monitor do Azure](../azure-monitor/overview.md)      
+[Começando com o Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md)      
 [Métricas na API REST do Azure Monitor](/rest/api/monitor/metrics)

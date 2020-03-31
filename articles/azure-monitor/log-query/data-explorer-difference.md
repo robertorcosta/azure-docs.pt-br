@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: b4601968a318388086a60ef98e4359ae01f652ed
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77662095"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Diferenças na linguagem de consulta de log do Azure Monitor
@@ -33,29 +33,29 @@ As seções a seguir descrevem os elementos da linguagem de consulta Kusto não 
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
 * [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
 * [cursor_current(), current_cursor()](/azure/kusto/query/cursorcurrent)
-* [database()](/azure/kusto/query/databasefunction)
+* [banco de dados()](/azure/kusto/query/databasefunction)
 * [current_principal()](/azure/kusto/query/current-principalfunction)
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)
 
 ### <a name="operators-not-supported-in-azure-monitor"></a>Operadores não compatíveis com o Azure Monitor
 
-* [Junção entre clusters](/azure/kusto/query/joincrosscluster)
+* [Juntar-se em cluster sino](/azure/kusto/query/joincrosscluster)
 * [Operador externaldata](/azure/kusto/query/externaldata-operator)
 
 ### <a name="plugins-not-supported-in-azure-monitor"></a>Plug-ins não compatíveis com o Azure Monitor
 
-* [Plug-in do Python](/azure/kusto/query/pythonplugin)
+* [Plugin Python](/azure/kusto/query/pythonplugin)
 * [Plug-in do sql_request](/azure/kusto/query/sqlrequestplugin)
 
 
 ## <a name="additional-operators-in-azure-monitor"></a>Operadores adicionais no Azure Monitor
 Os seguintes operadores dão suporte a recursos específicos do Azure Monitor e não estão disponíveis fora do Azure Monitor.
 
-* [app()](app-expression.md)
-* [workspace()](workspace-expression.md)
+* [aplicativo()](app-expression.md)
+* [espaço de trabalho()](workspace-expression.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Obtenha referências para diferentes [recursos para escrever consultas de log do Azure Monitor](query-language.md).
 - Acesse a [documentação de referência completa da linguagem de consulta Kusto](/azure/kusto/query/).

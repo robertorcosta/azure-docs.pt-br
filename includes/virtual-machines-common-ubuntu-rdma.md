@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d41b86b902d9a58b144e251e6922fbd95d459031
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67671189"
 ---
 1. Instalar dapl, rdmacm, ibverbs e mlx4
@@ -42,7 +42,7 @@ ms.locfileid: "67671189"
    wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/9278/l_mpi_p_5.1.3.223.tgz
    ```
  
-   Há suporte apenas para tempos de execução MPI Intel 5.x.
+   Há suporte apenas para runtimes MPI Intel 5.x.
  
    Para saber as etapas de instalação, consulte o [Guia de instalação da Intel MPI Library](https://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
 

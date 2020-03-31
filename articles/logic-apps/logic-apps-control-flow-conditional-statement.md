@@ -1,5 +1,5 @@
 ---
-title: Adicionar instruções condicionais a fluxos de trabalho
+title: Adicionar instruções condicionais aos fluxos de trabalho
 description: Como criar condições que controlam ações em fluxos de trabalho nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: fe79cf5af86e1f303e4735214b993d8db4488a25
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74793257"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Crie instruções condicionais que controlam ações de fluxo de trabalho nos Aplicativos Lógicos do Azure
@@ -36,7 +36,7 @@ Por exemplo, suponha que você tenha um aplicativo lógico que envia muitos emai
 
 1. Adicione uma condição no local que deseja. 
 
-   Para adicionar uma condição entre etapas, mova o ponteiro sobre a seta onde você quer adicionar a condição. Escolha o **sinal de adição** ( **+** ) que aparece e, em seguida, escolha **Adicionar uma ação**. Por exemplo:
+   Para adicionar uma condição entre etapas, mova o ponteiro sobre a seta onde você quer adicionar a condição. Escolha o sinal**+** de **adição** () que aparece e escolha Adicionar uma **ação**. Por exemplo: 
 
    ![Adicionar ação entre etapas](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
@@ -65,11 +65,11 @@ Por exemplo, suponha que você tenha um aplicativo lógico que envia muitos emai
 
    ![Condição completa](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
 
-   Para adicionar outra linha à condição, escolha **Adicionar** > **Adicionar linha**. 
-   Para adicionar um grupo com subcondições, escolha **Adicionar** > **Adicionar grupo**. 
+   Para adicionar outra linha à sua condição, escolha **Adicionar** > **linha**. 
+   Para adicionar um grupo com subcondições, escolha **Adicionar** > **grupo**. 
    Para agrupar linhas existentes, marque as caixas de seleção dessas linhas, escolha o botão de reticências (...) para qualquer linha e escolha **Fazer grupo**.
 
-1. Em **Se verdadeiro** e **Se falso**, adicione as etapas a serem executadas com base em se a condição é atendida. Por exemplo:
+1. Em **Se verdadeiro** e **Se falso**, adicione as etapas a serem executadas com base em se a condição é atendida. Por exemplo: 
 
    ![Condição com caminhos "Se verdadeiro" e "Se falso"](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
@@ -113,7 +113,7 @@ Aqui está a definição de código de alto nível por trás de uma instrução 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em recursos e sugestões, visite o [site de comentários do usuário de Aplicativos Lógicos do Azure](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Executar etapas baseadas em valores diferentes (instruções de comutador)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Executar e repetir (loops)](../logic-apps/logic-apps-control-flow-loops.md)

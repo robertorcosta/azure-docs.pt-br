@@ -1,15 +1,15 @@
 ---
-title: Gerenciador de recursos de Cluster Service Fabric-políticas de posicionamento
+title: Service Fabric Cluster Resource Manager - Políticas de colocação
 description: Visão geral das políticas de posicionamento adicionais e das regras para os Serviços do Service Fabric
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 9aea157d03f344e07a81f0588d3e0127f17ca75d
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75834458"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Políticas de posicionamento para serviços do Service Fabric
@@ -36,8 +36,8 @@ A política de posicionamento **InvalidDomain** permite especificar que um deter
 
 <center>
 
-![][Image1]
-de exemplo de domínio inválido </center>
+![Exemplo de domínio inválido][Image1]
+</center>
 
 Código:
 
@@ -57,7 +57,7 @@ A política de posicionamento de domínio necessário requer que o serviço este
 
 <center>
 
-![exemplo de domínio necessário][Image2]
+![Exemplo de domínio necessário][Image2]
 </center>
 
 Código:
@@ -79,8 +79,8 @@ O Domínio Primário Preferencial especifica o domínio de falha no qual colocar
 
 <center>
 
-![domínios primários preferenciais e][Image3]
-de failover </center>
+![Domínios primários preferenciais e failover][Image3]
+</center>
 
 ```csharp
 ServicePlacementPreferPrimaryDomainPolicyDescription primaryDomain = new ServicePlacementPreferPrimaryDomainPolicyDescription();
@@ -122,7 +122,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 Agora, seria possível usar essas configurações para serviços em um cluster que não tenha sido distribuído geograficamente? Seria, mas também não há um bom motivo para isso. As configurações de domínio obrigatórias, inválidas e preferenciais devem ser evitadas, a menos que os cenários as exijam. Não faz sentido tentar forçar uma determinada carga de trabalho a ser executada em um único rack ou preferir algum segmento do seu cluster local em vez de outro. Diferentes configurações de hardware devem ser distribuídas entre domínios de falha e manipuladas por propriedades de nó e restrições de posicionamento normais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Para saber mais sobre como configurar os serviços, [Saiba mais sobre como configurar serviços](service-fabric-cluster-resource-manager-configure-services.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png

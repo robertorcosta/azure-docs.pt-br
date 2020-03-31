@@ -1,5 +1,5 @@
 ---
-title: Configurar o endereçamento IP após o failover para um site secundário com Azure Site Recovery
+title: Configurar endereçamento IP após failover para um site secundário com a recuperação do site do Azure
 description: Descreve como configurar o endereçamento de IP para conectar-se a VMs em um site local secundário após recuperação de desastre e failover com o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73961434"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurar o endereçamento IP para conectar a um site local secundário após failover
@@ -65,9 +65,9 @@ Os gráficos a seguir ilustram as sub-redes antes e após o failover.
 
 ![Antes do failover](./media/hyper-v-vmm-networking/network-design2.png)
 
-**Após o failover**
+**Após failover**
 
-![Após o failover](./media/hyper-v-vmm-networking/network-design3.png)
+![Depois do failover](./media/hyper-v-vmm-networking/network-design3.png)
 
 Após o failover, o Site Recovery aloca um endereço IP para cada interface de rede na máquina virtual. O endereço é alocado do pool de endereços IP estáticos na rede relevante, para cada instância de VM.
 
@@ -120,7 +120,7 @@ Neste exemplo, temos endereços IP diferentes em sites primários e secundários
 
 ![Endereço IP diferente - antes do failover](./media/hyper-v-vmm-networking/network-design10.png)
 
-**Após o failover**
+**Após failover**
 
 ![Endereço IP diferente - depois do failover](./media/hyper-v-vmm-networking/network-design11.png)
 

@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.openlocfilehash: b120acd25874585a744fb774aafe15d32d7baf08
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74976495"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Início Rápido: Converter texto em fala usando Node.js
@@ -23,7 +23,7 @@ Neste início rápido, você aprenderá como converter texto em fala usando Node
 
 Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso do serviço de Fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](get-started.md) para obter uma chave de assinatura.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido requer:
 
@@ -167,7 +167,7 @@ main()
 
 ## <a name="run-the-sample-app"></a>Executar o aplicativo de exemplo
 
-É isso aí, você está pronto para executar seu aplicativo de amostra de texto para fala. Na linha de comando (ou sessão de terminal), navegue até o diretório do seu projeto e execute:
+É isso aí, você está pronto para executar seu aplicativo de amostra de texto para fala. Na linha de comando (ou sessão de terminal), navegue até o diretório do projeto e execute:
 
 ```console
 node tts.js
@@ -175,7 +175,7 @@ node tts.js
 
 Quando solicitado, digite o que você deseja converter de conversão de texto em fala. Se bem sucedido, o arquivo de fala está localizado na pasta do seu projeto. Reproduzi-lo usando o player de mídia favorito.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Remova todas as informações confidenciais do código-fonte do seu aplicativo de exemplo, como as chaves de assinatura.
 
@@ -184,7 +184,7 @@ Remova todas as informações confidenciais do código-fonte do seu aplicativo d
 > [!div class="nextstepaction"]
 > [Explorar exemplos do Node.js no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NodeJS)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Referência de API de texto em fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Criar fontes de voz personalizada](how-to-customize-voice-font.md)

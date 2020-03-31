@@ -1,29 +1,26 @@
 ---
-title: Visão geral de Azure Active Directory para desenvolvedores (v 1.0)
+title: Visão geral do Azure Active Directory para desenvolvedores (v1.0)
 description: Este artigo fornece uma visão geral sobre como se conectar às contas corporativa e de estudante da Microsoft usando o ponto de extremidade v1.0 do Azure Active Directory e a plataforma.
 services: active-directory
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 638c265fda3c8b331415d54047180b3c0ee2174a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ROBOTS: NOINDEX
+ms.openlocfilehash: ade350c91ebd2f3a68b52011e598f739a14c220f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79263524"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154484"
 ---
-# <a name="azure-active-directory-for-developers-v10-overview"></a>Visão geral de Azure Active Directory para desenvolvedores (v 1.0)
+# <a name="azure-active-directory-for-developers-v10-overview"></a>Visão geral do Azure Active Directory para desenvolvedores (v1.0)
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -35,7 +32,7 @@ O Azure Active Directory (Azure AD) é um serviço de identidade de nuvem que pe
 | | |
 | --- | --- |
 |[Noções básicas de autenticação](v1-authentication-scenarios.md) | Uma introdução à autenticação com o Azure AD. |
-|[Tipos de aplicativos](app-types.md) | Uma visão geral dos cenários de autenticação com suporte no Azure AD. |
+|[Tipos de aplicações](app-types.md) | Uma visão geral dos cenários de autenticação com suporte no Azure AD. |
 | | |
 
 ## <a name="get-started"></a>Introdução
@@ -59,6 +56,6 @@ Os artigos a seguir fornecem informações detalhadas sobre as APIs, as mensagen
 
 ## <a name="videos"></a>vídeos
 
-Consulte [Azure Active Directory vídeos da plataforma de desenvolvedor](videos.md) para obter ajuda para migrar para a nova plataforma de identidade da Microsoft.
+Consulte [os vídeos da plataforma de desenvolvedores do Azure Active Directory](videos.md) para ajudar a migrar para a nova plataforma de identidade da Microsoft.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

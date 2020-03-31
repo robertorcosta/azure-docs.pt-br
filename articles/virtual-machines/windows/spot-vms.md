@@ -1,6 +1,6 @@
 ---
-title: Usar VMs do Azure Spot
-description: Saiba como usar VMs pontuais para economizar em custos.
+title: Use Azure Spot VMs
+description: Aprenda a usar VMs spot para economizar custos.
 services: virtual-machines-windows
 author: cynthn
 manager: gwallace
@@ -10,20 +10,20 @@ ms.topic: article
 ms.date: 11/20/2019
 ms.author: cynthn
 ms.openlocfilehash: 4acbab324c63cf0184f5384e6af5e9418ca06677
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74782093"
 ---
-# <a name="preview-use-spot-vms-in-azure"></a>Versão prévia: usar VMs pontuais no Azure
+# <a name="preview-use-spot-vms-in-azure"></a>Pré-visualização: Use VMs spot no Azure
 
 [!INCLUDE [common-spot-vms](../../../includes/virtual-machines-common-spot-vms.md)]  
 
 
-## <a name="next-steps"></a>Próximos passos
-Use o [portal](spot-portal.md), a [CLI](../linux/spot-cli.md) ou o [PowerShell](spot-powershell.md) para implantar VMs pontuais.
+## <a name="next-steps"></a>Próximas etapas
+Use o [portal,](spot-portal.md) [CLI](../linux/spot-cli.md) ou [PowerShell](spot-powershell.md) para implantar VMs spot.
 
-Você também pode implantar um [conjunto de dimensionamento com instâncias de VM Spot](../../virtual-machine-scale-sets/use-spot.md).
+Você também pode implantar um [conjunto de escalas com instâncias Spot VM](../../virtual-machine-scale-sets/use-spot.md).
 
-Se você encontrar um erro, consulte [códigos de erro](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se você encontrar um erro, consulte [Códigos de erro](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

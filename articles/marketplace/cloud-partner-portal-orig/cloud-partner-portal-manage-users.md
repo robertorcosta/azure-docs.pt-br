@@ -1,20 +1,18 @@
 ---
-title: Gerenciando usuários no portal de parceiros de nuvem | Azure Marketplace
+title: Gerenciando usuários no portal parceiro sustal | Mercado Azure
 description: Gerenciando usuários no portal de parceiros de nuvem
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
-manager: pbutlerm
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: b14d40e9b3a2aa1ca71335b60e97f15b3782698f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 441f466fcbeb05d06d565dbe1af237d01554d844
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823274"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280211"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Gerenciando usuários no portal de parceiros de nuvem
 ======================================
@@ -55,7 +53,7 @@ Atualmente, apenas proprietários podem acessar as guias Pagamentos e Cliente Az
 ----------------------------------------------------------------------------------------------------------------------------
 
 > [!NOTE]
-> Os ' nomes de publicador ' para os quais seu email é adicionado como proprietário ou colaborador serão exibidos na lista suspensa do Publicador para seleção. '
+> Os 'nomes dos editores' para os quais seu e-mail é adicionado como proprietário ou contribuinte aparecerão na lista de seleção do Publisher para seleção."
 
 ![Atribuir função - selecione publicador](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 

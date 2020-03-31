@@ -1,21 +1,21 @@
 ---
-title: Utilizar o sys_schema-banco de dados do Azure para MySQL
-description: Saiba como usar sys_schema para encontrar problemas de desempenho e manter o banco de dados no banco de dados do Azure para MySQL.
+title: Utilize sys_schema - Banco de Dados Azure para MySQL
+description: Aprenda a usar sys_schema para encontrar problemas de desempenho e manter o banco de dados no Banco de Dados Azure para MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 50552b87fad9d8f58ff8c48dc03463d4c901bf99
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
-ms.translationtype: MT
+ms.date: 3/18/2020
+ms.openlocfilehash: a35a586a519ff78e8b32d986b92bd008b2c6b858
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775938"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067876"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Como usar sys_schema para ajuste de desempenho e manutenção de banco de dados no Banco de Dados do Azure para MySQL
 
-O MySQL performance_schema, primeiro disponível no MySQL 5,5, fornece instrumentação para muitos recursos de servidor vitais, como alocação de memória, programas armazenados, bloqueio de metadados, etc. No entanto, o performance_schema contém mais de 80 tabelas, e obter as informações necessárias geralmente requer a União de tabelas dentro do performance_schema, bem como tabelas da information_schema. Ao compilar o performance_schema e o information_schema, o sys_schema fornece uma coleção avançada de [exibições amigáveis de usuário](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) em um banco de dados somente leitura e é totalmente habilitado no Banco de Dados do Azure para MySQL versão 5.7.
+O MySQL performance_schema, disponível pela primeira vez no MySQL 5.5, fornece instrumentação para muitos recursos vitais do servidor, como alocação de memória, programas armazenados, bloqueio de metadados, etc. No entanto, o performance_schema contém mais de 80 tabelas, e obter as informações necessárias muitas vezes requer a junção de tabelas dentro do performance_schema, bem como tabelas do information_schema. Ao compilar o performance_schema e o information_schema, o sys_schema fornece uma coleção avançada de [exibições amigáveis de usuário](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) em um banco de dados somente leitura e é totalmente habilitado no Banco de Dados do Azure para MySQL versão 5.7.
 
 ![Exibições do sys_schema](./media/howto-troubleshoot-sys-schema/sys-schema-views.png)
 
@@ -29,7 +29,7 @@ Há 52 exibições no sys_schema e cada uma tem um dos prefixos a seguir:
 - User: recursos consumidos e agrupados pelos usuários. Exemplos são E/S de arquivos, conexões e memória.
 - Wait: aguarda eventos agrupados por host ou usuário.
 
-Agora, vejamos alguns padrões comuns de uso do sys_schema. Para começar, agruparemos os padrões de uso em duas categorias: **Ajuste de desempenho** e **Manutenção do banco de dados**.
+Agora vamos olhar para alguns padrões de uso comuns do sys_schema. Para começar, agruparemos os padrões de uso em duas categorias: **ajuste de desempenho** e manutenção do banco de **dados.**
 
 ## <a name="performance-tuning"></a>Ajuste de desempenho
 
@@ -55,7 +55,7 @@ Para solucionar problemas de desempenho do banco de dados, pode ser útil identi
 
 ![Resumo por instrução](./media/howto-troubleshoot-sys-schema/summary-by-statement.png)
 
-Neste exemplo, o Banco de Dados do Azure para MySQL gastou 53 minutos liberando o log de consultas do slog 44579 vezes. Isso é muito tempo e muitas E/Ss. É possível reduzir essa atividade, desabilitando o log de consultas lentas ou diminuindo a frequência do logon de consultas lentas do portal do Azure.
+Neste exemplo, o Banco de Dados do Azure para MySQL gastou 53 minutos liberando o log de consultas do slog 44579 vezes. Isso é muito tempo e muitos IOs. É possível reduzir essa atividade, desabilitando o log de consultas lentas ou diminuindo a frequência do logon de consultas lentas do portal do Azure.
 
 ## <a name="database-maintenance"></a>Manutenção de banco de dados
 
@@ -79,5 +79,5 @@ Os índices são excelentes ferramentas para melhorar o desempenho de leitura, m
 
 Em resumo, o sys_schema é uma ótima ferramenta para ajuste de desempenho e manutenção de banco de dados. Aproveitar esse recurso no seu Banco de Dados do Azure para MySQL. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Para localizar respostas de pares às suas perguntas mais preocupantes ou publicar uma nova pergunta/resposta, visite o [Fórum do MSDN](https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL) ou o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

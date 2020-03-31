@@ -1,18 +1,18 @@
 ---
 title: Aprenda a auditar o conteúdo de máquinas virtuais
-description: Saiba como Azure Policy usa o agente de configuração do convidado para auditar as configurações nas máquinas virtuais.
+description: Saiba como a Diretiva Azure usa o agente de configuração de hóspedes para auditar as configurações dentro de máquinas virtuais.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 73f986774fc13ac8c69cd800c977c909b591a74c
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: cc2ba11f75da5f993b99c90e5d0cc1030003203e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77369744"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80257249"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
-Além da auditoria e da [correção](../how-to/remediate-resources.md) dos recursos do Azure, Azure Policy pode auditar as configurações dentro de um computador. A validação é executada pela extensão e pelo cliente de Configuração de Convidado. A extensão, por meio do cliente, valida as configurações como:
+Além de auditar e [remediar](../how-to/remediate-resources.md) os recursos do Azure, a Azure Policy pode auditar as configurações dentro de uma máquina. A validação é executada pela extensão e pelo cliente de Configuração de Convidado. A extensão, por meio do cliente, valida as configurações como:
 
 - A configuração do sistema operacional
 - Configuração ou presença do aplicativo
@@ -22,15 +22,15 @@ Neste momento, a Configuração de Convidado do Azure Policy audita somente as c
 
 ## <a name="extension-and-client"></a>Extensão e cliente
 
-Para auditar as configurações dentro de um computador, uma [extensão de máquina virtual](../../../virtual-machines/extensions/overview.md) está habilitada. A extensão baixa a atribuição de política aplicável e a definição de configuração correspondente.
+Para auditar as configurações dentro de uma máquina, uma [extensão de máquina virtual](../../../virtual-machines/extensions/overview.md) é habilitada. A extensão baixa a atribuição de política aplicável e a definição de configuração correspondente.
 
 ### <a name="limits-set-on-the-extension"></a>Limites definidos na extensão
 
-Para limitar a extensão de afetar os aplicativos em execução dentro do computador, a configuração de convidado não tem permissão para exceder mais de 5% da utilização da CPU. Essa limitação existe para as definições internas e personalizadas.
+Para limitar a extensão de aplicativos que afetam o funcionamento da máquina, a Configuração do Convidado não pode exceder mais de 5% da utilização da CPU. Essa limitação existe para definições incorporadas e personalizadas.
 
 ## <a name="register-guest-configuration-resource-provider"></a>Registrar o provedor de recursos de Configuração de Convidado
 
-Antes de usar a Configuração de Convidado, você precisa registrar o provedor de recursos. Registre-se por meio do portal ou do PowerShell. O provedor de recursos será registrado automaticamente se a atribuição de uma política de configuração de convidado for feita por meio do Portal.
+Antes de usar a Configuração de Convidado, você precisa registrar o provedor de recursos. Registre-se por meio do portal ou do PowerShell. O provedor de recursos é registrado automaticamente se a atribuição de uma diretiva de configuração de hóspedes for feita através do portal.
 
 ### <a name="registration---portal"></a>Registro – Portal
 
@@ -55,18 +55,18 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 ## <a name="validation-tools"></a>Ferramentas de validação
 
-Dentro do computador, o cliente de configuração de convidado usa ferramentas locais para executar a auditoria.
+Dentro da máquina, o cliente Configuração do Convidado usa ferramentas locais para executar a auditoria.
 
 A tabela a seguir mostra uma lista das ferramentas locais usadas em cada sistema operacional com suporte:
 
 |Sistema operacional|Ferramenta de validação|Observações|
 |-|-|-|
-|Windows|[Configuração de estado desejado do Windows PowerShell](/powershell/scripting/dsc/overview/overview) v2| |
+|Windows|[Configuração do estado desejado do Windows PowerShell](/powershell/scripting/dsc/overview/overview) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| O Ruby e o Python são instalados pela extensão de Configuração de Convidado. |
 
 ### <a name="validation-frequency"></a>Frequência de validação
 
-O cliente de Configuração Convidado verifica o novo conteúdo a cada 5 minutos. Depois que uma atribuição de convidado for recebida, as configurações serão verificadas em um intervalo de 15 minutos. Os resultados são enviados ao provedor de recursos de configuração do convidado assim que a auditoria é concluída. Quando ocorre um [gatilho de avaliação](../how-to/get-compliance-data.md#evaluation-triggers) de política, o estado do computador é gravado no provedor de recursos de Configuração do Convidado. Essa atualização faz com que Azure Policy avaliar as propriedades de Azure Resource Manager. Uma avaliação de Azure Policy sob demanda recupera o valor mais recente do provedor de recursos de configuração de convidado. No entanto, ele não aciona uma nova auditoria da configuração no computador.
+O cliente de Configuração Convidado verifica o novo conteúdo a cada 5 minutos. Depois que uma atribuição de convidado for recebida, as configurações serão verificadas em um intervalo de 15 minutos. Os resultados são enviados ao provedor de recursos de configuração do convidado assim que a auditoria é concluída. Quando ocorre um [gatilho de avaliação](../how-to/get-compliance-data.md#evaluation-triggers) de política, o estado do computador é gravado no provedor de recursos de Configuração do Convidado. Essa atualização faz com que a Política do Azure avalie as propriedades do Azure Resource Manager. Uma avaliação demanda da Azure Policy recupera o valor mais recente do provedor de recursos De configuração de hóspedes. No entanto, ele não aciona uma nova auditoria da configuração dentro da máquina.
 
 ## <a name="supported-client-types"></a>Tipos de clientes com suporte
 
@@ -76,125 +76,125 @@ A tabela a seguir mostra uma lista de sistemas operacionais com suporte em image
 |-|-|-|
 |Canônico|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
-|Microsoft|Windows Server|2012 datacenter, 2012 R2 Datacenter, 2016 Data Center, 2019 datacenter|
+|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
 |Microsoft|Windows Client|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6|
 |Suse|SLES|12 SP3|
 
 > [!IMPORTANT]
-> A configuração de convidado pode auditar OS nós que executam um sistema operacional com suporte. Se você quiser auditar as máquinas virtuais que usam uma imagem personalizada, será necessário duplicar a definição de **DeployIfNotExists** e modificar a seção **If** para incluir suas propriedades de imagem.
+> A configuração do convidado pode auditar os nós executando um sistema operacional suportado. Se você quiser auditar máquinas virtuais que usam uma imagem personalizada, você precisa duplicar a definição **DeployIfNotExist** e modificar a seção **If** para incluir suas propriedades de imagem.
 
 ### <a name="unsupported-client-types"></a>Tipos de clientes sem suporte
 
-O Windows Server nano Server não tem suporte em nenhuma versão.
+O Windows Server Nano Server não é suportado em nenhuma versão.
 
-## <a name="guest-configuration-extension-network-requirements"></a>Requisitos de rede da extensão de configuração do convidado
+## <a name="guest-configuration-extension-network-requirements"></a>Requisitos de rede de extensão de configuração de hóspedes
 
-Para se comunicar com o provedor de recursos de configuração de convidado no Azure, as máquinas exigem acesso de saída aos datacenters do Azure na porta **443**. Se você estiver usando uma rede virtual privada no Azure que não permita o tráfego de saída, configure exceções com regras de [grupo de segurança de rede](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) .
-A [marca de serviço](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" pode ser usada para fazer referência ao serviço de configuração de convidado.
+Para se comunicar com o provedor de recursos de configuração de hóspedes no Azure, as máquinas exigem acesso de saída aos data centers do Azure na porta **443**. Se você estiver usando uma rede virtual privada no Azure que não permite tráfego de saída, configure exceções com as regras [do Network Security Group.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)
+A [tag de serviço](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" pode ser usada para referenciar o serviço de configuração de hóspedes.
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição da Configuração de Convidado
 
-Cada execução de auditoria pela configuração de convidado requer duas definições de política, uma definição de **DeployIfNotExists** e uma definição de **AuditIfNotExists** . A definição de **DeployIfNotExists** é usada para preparar a máquina com o agente de configuração convidado e outros componentes para dar suporte às [ferramentas de validação](#validation-tools).
+Cada auditoria executada pela Configuração do Convidado requer duas definições de diretiva, uma definição **DeployIfNotExist** e uma **definição AuditIfNotExist.** A definição **DeployIfNotExiste** é usada para preparar a máquina com o agente de configuração de hóspedes e outros componentes para suportar as [ferramentas de validação](#validation-tools).
 
 A definição de política **DeployIfNotExists** valida e corrige os seguintes itens:
 
-- Valide se uma configuração foi atribuída à máquina para avaliação. Se nenhuma atribuição estiver presente no momento, obtenha a atribuição e prepare a máquina da:
-  - Autenticando no computador usando uma [identidade gerenciada](../../../active-directory/managed-identities-azure-resources/overview.md)
+- Valide que a máquina foi designada para avaliar uma configuração. Se nenhuma atribuição estiver presente no momento, obtenha a atribuição e prepare a máquina por:
+  - Autenticação para a máquina usando uma [identidade gerenciada](../../../active-directory/managed-identities-azure-resources/overview.md)
   - Instalando a versão mais recente da extensão **Microsoft.GuestConfiguration**
   - Instalando [ferramentas de validação](#validation-tools) e dependências se necessário
 
-Se a atribuição de **DeployIfNotExists** não for compatível, uma [tarefa de correção](../how-to/remediate-resources.md#create-a-remediation-task) poderá ser usada.
+Se a atribuição **DeployIfNotExist** estiver incompatível, uma tarefa de [remediação](../how-to/remediate-resources.md#create-a-remediation-task) poderá ser usada.
 
-Depois que a atribuição de **DeployIfNotExists** é compatível, a atribuição de política **AuditIfNotExists** usa as ferramentas de validação locais para determinar se a atribuição de configuração é compatível ou não compatível. A ferramenta de validação fornece os resultados para o cliente de Configuração de Convidado. O cliente encaminha os resultados para a Extensão de Convidado, o que os disponibiliza por meio do provedor de recursos da Configuração de Convidado.
+Uma vez que a atribuição **DeployIfNotExist** esteja em conformidade, a atribuição de diretiva **AuditIfNotExist** usa as ferramentas de validação locais para determinar se a atribuição de configuração está em conformidade ou não. A ferramenta de validação fornece os resultados para o cliente de Configuração de Convidado. O cliente encaminha os resultados para a Extensão de Convidado, o que os disponibiliza por meio do provedor de recursos da Configuração de Convidado.
 
 O Azure Policy usa a propriedade **complianceStatus** dos provedores de recursos da Configuração de Convidado para relatar a conformidade no nó **Conformidade**. Para obter mais informações, confira [Obtendo dados de conformidade](../how-to/get-compliance-data.md).
 
 > [!NOTE]
-> A política **DeployIfNotExists** é necessária para que a política **AuditIfNotExists** retorne os resultados. Sem o **DeployIfNotExists**, a política **AuditIfNotExists** mostra "0 de 0" recursos como status.
+> A diretiva **DeployIfNotExists** é necessária para que a diretiva **AuditIfNotExist** reevolva resultados. Sem o **DeployIfNotExists**, a diretiva **AuditIfNotExists** mostra os recursos "0 de 0" como status.
 
-Todas as políticas internas da Configuração de Convidado são incluídas em uma iniciativa para agrupar as definições a serem usadas em atribuições. A iniciativa interna chamada _\[Preview\]: auditoria de configurações de segurança de senha dentro de computadores Linux e Windows_ contém 18 políticas. Há seis pares de **DeployIfNotExists** e **AuditIfNotExists** para o Windows e três para o Linux. A lógica de [definição de política](definition-structure.md#policy-rule) valida que apenas o sistema operacional de destino é avaliado.
+Todas as políticas internas da Configuração de Convidado são incluídas em uma iniciativa para agrupar as definições a serem usadas em atribuições. A iniciativa incorporada _ \[chamada\]Preview : Audit Password configurações de segurança dentro de máquinas Linux e Windows_ contém 18 políticas. Há seis pares de **DeployIfNotExists** e **AuditIfNotExists** para o Windows e três para o Linux. A lógica [de definição de política](definition-structure.md#policy-rule) valida que apenas o sistema operacional alvo é avaliado.
 
-#### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditando configurações do sistema operacional seguindo linhas de base do setor
+#### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditoria das configurações do sistema operacional seguindo as linhas de base do setor
 
-Uma das iniciativas disponíveis no Azure Policy fornece a capacidade de auditar configurações do sistema operacional dentro de máquinas virtuais após uma "linha de base" da Microsoft. A definição, _\[visualização\]: auditar VMs do Windows que não correspondem às configurações de linha de base de segurança do Azure_ inclui um conjunto completo de regras de auditoria com base nas configurações de Active Directory política de grupo.
+Uma das iniciativas disponíveis no Azure Policy fornece a capacidade de auditar as configurações do sistema operacional dentro de máquinas virtuais seguindo uma "linha de base" da Microsoft. A definição, _ \[\]Preview : Audit Windows VMs que não correspondem às configurações da linha de base de segurança do Azure_ inclui um conjunto completo de regras de auditoria com base nas configurações da Active Directory Group Policy.
 
-A maioria das configurações está disponível como parâmetros. Essa funcionalidade permite que você personalize o que é auditado para alinhar a política com seus requisitos organizacionais ou mapear a política para informações de terceiros, como padrões regulatórios do setor.
+A maioria das configurações estão disponíveis como parâmetros. Essa funcionalidade permite personalizar o que é auditado para alinhar a política com seus requisitos organizacionais ou para mapear a política para informações de terceiros, como padrões regulatórios do setor.
 
-Alguns parâmetros dão suporte a um intervalo de valores inteiros. Por exemplo, o parâmetro duração máxima da senha pode ser definido usando um operador de intervalo para dar flexibilidade aos proprietários do computador. Você pode auditar que a configuração de Política de Grupo efetiva que exige que os usuários alterem suas senhas não deve ter mais de 70 dias, mas não deve ser inferior a um dia. Conforme descrito na bolha de informações do parâmetro, para tornar essa política de negócios o valor de auditoria efetivo, defina o valor como "1, 70".
+Alguns parâmetros suportam uma faixa de valor inteiro. Por exemplo, o parâmetro Idade máxima de senha pode ser definido usando um operador de intervalo para dar flexibilidade aos proprietários de máquinas. Você pode auditar que a configuração eficaz da Diretiva de Grupo que exige que os usuários alterem suas senhas não deve ser superior a 70 dias, mas não deve ser inferior a um dia. Conforme descrito na bolha de informações para o parâmetro, para fazer dessa política de negócios o valor efetivo da auditoria, definir o valor para "1,70".
 
-Se você atribuir a política usando um modelo de implantação Azure Resource Manager, poderá usar um arquivo de parâmetros para gerenciar essas configurações do controle do código-fonte. Usar uma ferramenta como o Git para gerenciar alterações em políticas de auditoria com comentários em cada verificação de documentos de check-in, por que uma atribuição deve ser uma exceção para o valor esperado.
+Se você atribuir a diretiva usando um modelo de implantação do Azure Resource Manager, poderá usar um arquivo de parâmetros para gerenciar essas configurações a partir do controle de origem. Usar uma ferramenta como o Git para gerenciar alterações nas políticas de auditoria com comentários em cada documento de check-in prova por que uma atribuição deve ser uma exceção ao valor esperado.
 
-#### <a name="applying-configurations-using-guest-configuration"></a>Aplicando configurações usando a configuração de convidado
+#### <a name="applying-configurations-using-guest-configuration"></a>Aplicando configurações usando a configuração do convidado
 
-O recurso mais recente do Azure Policy define as configurações dentro de computadores. A definição _Configurar o fuso horário em computadores Windows_ faz alterações no computador Configurando o fuso horário.
+O recurso mais recente da Diretiva Azure configura configurações dentro de máquinas. A definição _Configure o fuso horário nas máquinas Windows_ faz alterações na máquina configurando o fuso horário.
 
-Ao atribuir definições que começam com _Configure_, você também deve atribuir os pré-requisitos de implantação de definição _para habilitar a política de configuração de convidado em VMs do Windows_. Você pode combinar essas definições em uma iniciativa se escolher.
+Ao atribuir definições que começam com _Configurar,_ você também deve atribuir a definição _Implantar pré-requisitos para ativar a Política de Configuração de Hóspedes em VMs do Windows_. Você pode combinar essas definições em uma iniciativa, se você escolher.
 
-#### <a name="assigning-policies-to-machines-outside-of-azure"></a>Atribuindo políticas a computadores fora do Azure
+#### <a name="assigning-policies-to-machines-outside-of-azure"></a>Atribuindo políticas a máquinas fora do Azure
 
-As políticas de auditoria disponíveis para a configuração de convidado incluem o tipo de recurso **Microsoft. HybridCompute/Machines** . Todos os computadores integrados ao [Azure ARC para servidores](../../../azure-arc/servers/overview.md) que estão no escopo da atribuição de política são incluídos automaticamente.
+As políticas de auditoria disponíveis para configuração de hóspedes incluem o tipo de recurso **Microsoft.HybridCompute/machines.** Todas as máquinas a bordo [do Azure Arc para servidores](../../../azure-arc/servers/overview.md) que estejam no escopo da atribuição de políticas são automaticamente incluídas.
 
-### <a name="multiple-assignments"></a>Várias atribuições
+### <a name="multiple-assignments"></a>Múltiplas atribuições
 
-Atualmente, as políticas de configuração de convidado só dão suporte à atribuição da mesma entrada de convidado uma vez por computador, mesmo que a atribuição de política use parâmetros diferentes.
+Atualmente, as políticas de configuração de hóspedes só suportam a atribuição da mesma atribuição de hóspedes uma vez por máquina, mesmo que a atribuição de diretiva use parâmetros diferentes.
 
-## <a name="built-in-resource-modules"></a>Módulos de recursos internos
+## <a name="built-in-resource-modules"></a>Módulos de recursos incorporados
 
-Ao instalar a extensão de configuração de convidado, o módulo do PowerShell ' GuestConfiguration ' é incluído com a versão mais recente dos módulos de recursos de DSC. Esse módulo pode ser baixado do Galeria do PowerShell usando o link ' download manual ' na página do módulo [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). O formato de arquivo '. nupkg ' pode ser renomeado para '. zip ' para descompactar e examinar.
+Ao instalar a extensão Configuração do Convidado, o módulo PowerShell 'GuestConfiguration' é incluído com a versão mais recente dos módulos de recursos DSC. Este módulo pode ser baixado na Galeria PowerShell usando o link 'Download manual' da página do módulo [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). O formato do arquivo '.nupkg' pode ser renomeado para '.zip' para descompactar e revisar.
 
 ## <a name="client-log-files"></a>Arquivos de log do cliente
 
-A extensão de configuração de convidado grava arquivos de log nos seguintes locais:
+A extensão Configuração do Convidado grava arquivos de log para os seguintes locais:
 
-Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\<version>\dsc\logs\dsc.log`
+Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
-Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
+Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
 
-Onde `<version>` se refere ao número de versão atual.
+Quando `<version>` se refere ao número da versão atual.
 
-### <a name="collecting-logs-remotely"></a>Coletando logs remotamente
+### <a name="collecting-logs-remotely"></a>Coleta ndo registros remotamente
 
-A primeira etapa na solução de problemas de configurações de convidado ou módulos deve ser usar o cmdlet `Test-GuestConfigurationPackage` seguindo as etapas em [testar um pacote de configuração de convidado](../how-to/guest-configuration-create.md#test-a-guest-configuration-package).
-Se isso não for bem-sucedido, coletar logs do cliente poderá ajudar a diagnosticar problemas.
+O primeiro passo para solucionar as configurações `Test-GuestConfigurationPackage` ou módulos de configuração do hóspede deve ser usar o cmdlet seguindo as etapas de como [criar uma política de auditoria de configuração de hóspedes personalizada para windows](../how-to/guest-configuration-create.md#step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows).
+Se isso não for bem sucedido, coletar registros de clientes pode ajudar a diagnosticar problemas.
 
 #### <a name="windows"></a>Windows
 
-Para usar a capacidade de comando de execução de VM do Azure para capturar informações de arquivos de log em computadores Windows, o exemplo de script do PowerShell a seguir pode ser útil. Para obter mais informações, consulte [executar scripts do PowerShell em sua VM do Windows com o comando executar](../../../virtual-machines/windows/run-command.md).
+Para usar o recurso Azure VM Run Command para capturar informações de arquivos de log em máquinas Windows, o exemplo a seguir do script PowerShell pode ser útil. Para obter mais informações, consulte [Executar scripts PowerShell em sua VM do Windows com comando Run](../../../virtual-machines/windows/run-command.md).
 
 ```powershell
 $linesToIncludeBeforeMatch = 0
 $linesToIncludeAfterMatch = 10
-$latestVersion = Get-ChildItem -Path 'C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\' | ForEach-Object {$_.FullName} | Sort-Object -Descending | Select-Object -First 1
-Select-String -Path "$latestVersion\dsc\logs\dsc.log" -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
+$logPath = 'C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log'
+Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensitive -Context $linesToIncludeBeforeMatch,$linesToIncludeAfterMatch | Select-Object -Last 10
 ```
 
 #### <a name="linux"></a>Linux
 
-Para usar a capacidade de comando de execução de VM do Azure para capturar informações de arquivos de log em computadores Linux, o exemplo de script de bash a seguir pode ser útil. Para obter mais informações, consulte [executar scripts de Shell em sua VM do Linux com o comando executar](../../../virtual-machines/linux/run-command.md)
+Para usar o recurso Azure VM Run Command para capturar informações de arquivos log em máquinas Linux, o exemplo a seguir o script bash pode ser útil. Para obter mais informações, consulte [Executar scripts shell em sua VM Linux com comando Run](../../../virtual-machines/linux/run-command.md)
 
 ```Bash
 linesToIncludeBeforeMatch=0
 linesToIncludeAfterMatch=10
-latestVersion=$(find /var/lib/waagent/ -type d -name "Microsoft.GuestConfiguration.ConfigurationforLinux-*" -maxdepth 1 -print | sort -z | sed -n 1p)
-egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' "$latestVersion/GCAgent/logs/dsc.log" | tail
+logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
+egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
 
-## <a name="guest-configuration-samples"></a>Exemplos de configuração de convidado
+## <a name="guest-configuration-samples"></a>Amostras de configuração do convidado
 
-A origem das iniciativas internas de configuração de convidado de política está disponível nos seguintes locais:
+A fonte para as iniciativas de configuração de configuração de hóspedes de diretiva está disponível nos seguintes locais:
 
-- [Definições de política internas-configuração de convidado](../samples/built-in-policies.md#guest-configuration)
-- [Iniciativas internas-configuração de convidado](../samples/built-in-initiatives.md#guest-configuration)
-- [Repositório GitHub de exemplos de Azure Policy](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+- [Definições de diretiva incorporada - Configuração do convidado](../samples/built-in-policies.md#guest-configuration)
+- [Iniciativas incorporadas - Configuração do hóspede](../samples/built-in-initiatives.md#guest-configuration)
+- [Azure Policy amostra srepo gitHub](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
+- Revisar exemplos em [amostras de política do Azure](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](definition-structure.md).
 - Revisar [Compreendendo os efeitos da política](effects.md).
-- Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).
+- Entenda como [criar políticas programáticas.](../how-to/programmatically-create.md)
 - Saiba como [obter dados de conformidade](../how-to/get-compliance-data.md).
-- Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
-- Veja o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).
+- Aprenda a [remediar recursos não compatíveis.](../how-to/remediate-resources.md)
+- Reveja o que é um grupo de gestão com [organize seus recursos com grupos de gerenciamento do Azure.](../../management-groups/overview.md)

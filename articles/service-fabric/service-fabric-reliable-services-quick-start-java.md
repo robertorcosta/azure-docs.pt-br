@@ -6,15 +6,15 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: c3b301a7a9039f1fe8095950f0a5a4e23eb52a9b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614206"
 ---
-# <a name="get-started-with-reliable-services-in-java"></a>Introdução ao Reliable Services em Java
+# <a name="get-started-with-reliable-services-in-java"></a>Comece com serviços confiáveis em Java
 > [!div class="op_single_selector"]
-> * [C# em Windows](service-fabric-reliable-services-quick-start.md)
+> * [C# no Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java no Linux](service-fabric-reliable-services-quick-start-java.md)
 >
 >
@@ -261,6 +261,6 @@ Depois da implantação do aplicativo, abra um navegador e navegue até [Service
 > Para implantar o aplicativo em um cluster seguro do Linux no Azure, você precisa configurar um certificado para validar seu aplicativo com o runtime do Service Fabric. Isso permite que os serviços de Reliable Services se comuniquem com as APIs de runtime do Service Fabric subjacente. Para obter mais informações, consulte [Configurar um aplicativo de Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)

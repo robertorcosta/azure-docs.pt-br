@@ -1,5 +1,5 @@
 ---
-title: Instalar um servidor de destino mestre para failback de VM Linux com Azure Site Recovery
+title: Instale um servidor de destino mestre para failback do Linux VM com o Azure Site Recovery
 description: Saiba como configurar um servidor de destino mestre do Linux para o failback em um site local durante a recuperação de desastre de VMs do VMware no Azure usando o Azure Site Recovery.
 author: mayurigupta13
 services: site-recovery
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
 ms.openlocfilehash: 5b4d625d28584bb601905e9439c112c845219e54
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954371"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino mestre Linux para failback
@@ -29,7 +29,7 @@ Este artigo fornece instruções sobre como instalar um destino mestre do Linux.
 
 Publique comentários ou perguntas no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Para escolher o host no qual deseja implantar o destino mestre, determine se o failback vai ser para uma máquina virtual local existente ou para uma nova máquina virtual. 
     * Para uma máquina virtual existente, o host do destino mestre deve ter acesso a armazenamentos de dados da máquina virtual.
@@ -46,7 +46,7 @@ Crie o destino mestre de acordo com as seguintes diretrizes de dimensionamento:
 - **Tamanho de disco adicional para a unidade de retenção**: 1 TB
 - **Núcleos de CPU**: 4 núcleos ou mais
 
-Há suporte para os seguintes kernels do Ubuntu.
+Os seguintes kernels do Ubuntu são suportados.
 
 
 |Série de Kernel  |Suporte até  |
@@ -62,7 +62,7 @@ Há suporte para os seguintes kernels do Ubuntu.
 
 Use as seguinte as etapas para instalar o sistema de operacional de 64 bits do Ubuntu 16.04.2.
 
-1.   Vá para o [link de download](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), escolha o espelho mais próximo e baixe um ISO 16.04.2 minimal de mínimo de 64 bits.
+1.   Acesse o link de [download,](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso)escolha o espelho mais próximo e baixe um ISO de 64 bits mínimo do Ubuntu 16.04.2.
 Mantenha um ISO do Ubuntu 16.04.2 Minimal de 64 bits na unidade de DVD e inicie o sistema.
 
 1.  Selecione **Inglês** como o idioma de preferência e selecione **Enter**.
@@ -83,7 +83,7 @@ Mantenha um ISO do Ubuntu 16.04.2 Minimal de 64 bits na unidade de DVD e inicie 
 1. Selecione **Não** (a opção padrão) e selecione **Enter**.
 
      ![Configurar o teclado](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Selecione **Inglês (EUA)** como o país/região de origem do teclado e, em seguida, selecione **Enter**.
+1. Selecione **o inglês (EUA)** como o país/região de origem para o teclado e, em seguida, **selecione Enter**.
 
 1. Selecione **inglês (EUA)** como o layout do teclado e selecione **Enter**.
 
@@ -160,7 +160,7 @@ Para obter a ID de cada disco SCSI em uma máquina virtual Linux, o parâmetro *
 
 3. Selecione a guia **Opções**.
 
-4. No painel esquerdo, selecione **Avançado** > **Geral**e selecione o botão **Parâmetros de Configuração** no canto inferior direito da tela.
+4. No painel esquerdo, selecione **Advanced** > **General**e selecione o botão **Parâmetros de configuração** na parte inferior direita da tela.
 
     ![Abra o parâmetro de configuração](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
@@ -195,7 +195,7 @@ Se o destino mestre tiver conectividade com a Internet, você poderá usar as et
 
 #### <a name="download-the-master-target-installation-packages"></a>Baixar os pacotes de instalação do destino mestre
 
-[Baixe os bits de instalação de destino mestre Linux mais recentes](https://aka.ms/latestlinuxmobsvc).
+[Baixe os bits de instalação de destino mestre do Linux mais recentes](https://aka.ms/latestlinuxmobsvc).
 
 Para baixá-los usando o Linux, digite:
 
@@ -209,12 +209,12 @@ Para baixá-los usando o Linux, digite:
 
 1. No servidor de processo, vá para **C:\Arquivos de Programas (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**.
 
-2. Copie o arquivo do instalador obrigatório do servidor de processo e salvá-lo como **latestlinuxmobsvc.tar.gz** no seu diretório base.
+2. Copie o arquivo instalador necessário do servidor de processo e salve-o como **mais recentelinuxmobsvc.tar.gz** em seu diretório inicial.
 
 
 ### <a name="apply-custom-configuration-changes"></a>Aplicar alterações de configuração personalizadas
 
-Para aplicar alterações de configuração personalizadas, use as seguintes etapas como um usuário raiz:
+Para aplicar alterações de configuração personalizadas, use as seguintes etapas como usuário ROOT:
 
 1. Execute o comando a seguir para descompactar o binário.
 
@@ -244,7 +244,7 @@ Use as etapas a seguir para criar um disco de retenção:
 
     ![ID de vários caminhos](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formate a unidade e, em seguida, crie um sistema de arquivos na nova unidade: **mkfs. ext4/dev/mapper/\<a ID de vários caminhos do disco de retenção >** .
+3. Formatar a unidade e, em seguida, criar um sistema de arquivos na nova unidade: **mkfs.ext4 /dev/mapper/\<Retenção id do disco de retenção>**.
     
     ![Sistema de arquivos](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -261,7 +261,7 @@ Use as etapas a seguir para criar um disco de retenção:
     
     Selecione **Inserir** para começar a editar o arquivo. Crie uma nova linha e insira o texto a seguir. Edite a ID de vários caminhos de disco com base na ID de vários caminhos realçada no comando anterior.
 
-    **/dev/mapper/\<a ID de vários caminhos de discos de retenção >/mnt/Retention ext4 RW 0 0**
+    **/dev/mapper/\<Discos de retenção id multicaminho> /mnt/retenção ext4 rw 0 0 0**
 
     Selecione **Esc** e digite **:wq** (gravar e sair) para fechar a janela do editor.
 
@@ -272,7 +272,7 @@ Use as etapas a seguir para criar um disco de retenção:
 
 
 > [!NOTE]
-> Antes de instalar o servidor de destino mestre, verifique se o arquivo **/etc/hosts** na máquina virtual contém entradas que mapeiam o nome do host local para os endereços IP associados a todos os adaptadores de rede.
+> Antes de instalar o servidor de destino mestre, verifique se o arquivo **/etc/hosts** na máquina virtual contém entradas que mapeiam o nome de host local para os endereços IP associados a todos os adaptadores de rede.
 
 1. Copie a frase secreta de **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** no servidor de configuração. Em seguida, salve-o como **passphrase.txt** no mesmo diretório local executando o seguinte comando:
 
@@ -335,7 +335,7 @@ Você precisa instalar ferramentas do VMware ou open-vm-tools no destino mestre 
 
 ### <a name="upgrade-the-master-target-server"></a>Atualizar o servidor de destino mestre
 
-Execute o instalador. Ele detecta automaticamente que o agente está instalado no destino mestre. Para atualizar, selecione **Y**.  Após a conclusão da instalação, verifique a versão do destino mestre instalada usando o seguinte comando:
+Execute o instalador. Ele detecta automaticamente que o agente está instalado no destino mestre. Para atualizar, selecione **Y**.  Depois que a configuração for concluída, verifique a versão do destino mestre instalado usando o seguinte comando:
 
 `cat /usr/local/.vx_version`
 
@@ -356,5 +356,5 @@ Você verá que o campo **Versão** fornece o número de versão de destino mest
 ## <a name="next-steps"></a>Próximas etapas
 Depois que a instalação e o registro do destino mestre forem concluídos, você poderá ver o destino mestre na seção **Destino Mestre** na **Infraestrutura do Site Recovery**, na visão geral do servidor de configuração.
 
-Você pode prosseguir com a [nova proteção](vmware-azure-reprotect.md), seguida pelo failback.
+Agora você pode prosseguir com [a reproteção,](vmware-azure-reprotect.md)seguida de failback.
 

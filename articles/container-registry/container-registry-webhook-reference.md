@@ -1,18 +1,18 @@
 ---
-title: Referência de esquema de webhook do registro
-description: Referência para carga JSON para solicitações de webhook em um registro de contêiner do Azure, que são geradas quando os WebHooks são habilitados para envio de artefato ou eventos de exclusão
+title: Referência de esquema de webhook de registro
+description: Referência para carga json para solicitações de webhook em um registro de contêiner Do Zure, que são geradas quando os webhooks são habilitados para eventos de push ou exclusão de artefatos
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74455968"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referência de webhook do Registro de Contêiner do Azure
 
-Você pode [configurar webhooks](container-registry-webhook.md) para o registro de contêiner que geram eventos quando certas ações são executadas em relação a ela. Por exemplo, habilite WebHooks que são disparados quando uma imagem de contêiner ou gráfico Helm é enviado para um registro ou excluído. Quando um webhook é disparado, o Registro de Contêiner do Azure emite uma solicitação HTTPS ou HTTP contendo informações sobre o evento para um ponto de extremidade que você especificou. Seu ponto de extremidade pode então processar o webhook e agir em conformidade.
+Você pode [configurar webhooks](container-registry-webhook.md) para o registro de contêiner que geram eventos quando certas ações são executadas em relação a ela. Por exemplo, habilite webhooks que são acionados quando uma imagem de contêiner ou gráfico Helm é empurrado para um registro ou excluído. Quando um webhook é disparado, o Registro de Contêiner do Azure emite uma solicitação HTTPS ou HTTP contendo informações sobre o evento para um ponto de extremidade que você especificou. Seu ponto de extremidade pode então processar o webhook e agir em conformidade.
 
 As seções a seguir detalham o esquema das solicitações de webhook geradas por eventos com suporte. As seções de evento contêm o esquema de carga para o tipo de evento, um exemplo de carga de solicitação e um ou mais exemplos de comandos que disparam o webhook.
 
@@ -36,17 +36,17 @@ Webhook disparado quando uma imagem de contêiner é enviada por push para um re
 
 ### <a name="push-event-payload"></a>Enviar carga do evento por push
 
-|Elemento|Digite|DESCRIÇÃO|
+|Elemento|Type|Descrição|
 |-------------|----------|-----------|
 |`id`|String|A ID do evento do webhook.|
-|`timestamp`|DateTime|A hora em que o evento do webhook foi disparado.|
+|`timestamp`|Datetime|A hora em que o evento do webhook foi disparado.|
 |`action`|String|A ação que disparou o evento do webhook.|
 |[destino](#target)|Tipo complexo|O destino do evento que desencadeou o evento do webhook.|
 |[solicitação](#request)|Tipo complexo|A solicitação que gerou o evento do webhook.|
 
-### <a name="target"></a>alvo
+### <a name="target"></a><a name="target"></a>Alvo
 
-|Elemento|Digite|DESCRIÇÃO|
+|Elemento|Type|Descrição|
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo. Mesmo que o campo de Comprimento.|
@@ -55,16 +55,16 @@ Webhook disparado quando uma imagem de contêiner é enviada por push para um re
 |`repository`|String|Nome do repositório.|
 |`tag`|String|O nome da marca de imagem.|
 
-### <a name="request"></a>Quest
+### <a name="request"></a><a name="request"></a>solicitação
 
-|Elemento|Digite|DESCRIÇÃO|
+|Elemento|Type|Descrição|
 |------------------|----------|-----------|
 |`id`|String|A ID da solicitação que iniciou o evento.|
 |`host`|String|O nome de host acessível externamente da instância de registro, conforme especificado pelo cabeçalho do host HTTP em solicitações de entrada.|
 |`method`|String|O método de solicitação que gerou o evento.|
 |`useragent`|String|O cabeçalho do agente de usuário da solicitação.|
 
-### <a name="payload-example-image-push-event"></a>Exemplo de carga: evento de push de imagem
+### <a name="payload-example-image-push-event"></a>Exemplo de carga útil: evento de empurrão de imagem
 
 ```JSON
 {
@@ -88,38 +88,38 @@ Webhook disparado quando uma imagem de contêiner é enviada por push para um re
 }
 ```
 
-Exemplo de comando da [CLI do Docker](https://docs.docker.com/engine/reference/commandline/cli/) que dispara o webhook do evento de **Push** de imagem:
+Exemplo do comando [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/) que aciona o webhook de evento de **push** de imagem:
 
 ```bash
 docker push myregistry.azurecr.io/hello-world:v1
 ```
 
-## <a name="chart-push-event"></a>Evento de push de gráfico
+## <a name="chart-push-event"></a>Evento de empurrar gráfico
 
-Webhook disparado quando um gráfico Helm é enviado por push para um repositório.
+Webhook acionado quando um gráfico helm é empurrado para um repositório.
 
-### <a name="chart-push-event-payload"></a>Conteúdo do evento de push de gráfico
+### <a name="chart-push-event-payload"></a>Carga de pagamento de evento push de gráfico
 
-|Elemento|Digite|DESCRIÇÃO|
+|Elemento|Type|Descrição|
 |-------------|----------|-----------|
 |`id`|String|A ID do evento do webhook.|
-|`timestamp`|DateTime|A hora em que o evento do webhook foi disparado.|
+|`timestamp`|Datetime|A hora em que o evento do webhook foi disparado.|
 |`action`|String|A ação que disparou o evento do webhook.|
 |[destino](#helm_target)|Tipo complexo|O destino do evento que desencadeou o evento do webhook.|
 
-### <a name="helm_target"></a>alvo
+### <a name="target"></a><a name="helm_target"></a>Alvo
 
-|Elemento|Digite|DESCRIÇÃO|
+|Elemento|Type|Descrição|
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo.|
 |`digest`|String|O resumo da mensagem, conforme definido pela Especificação API HTTP do Registry V2.|
 |`repository`|String|Nome do repositório.|
-|`tag`|String|O nome da marca do gráfico.|
+|`tag`|String|O nome da etiqueta do gráfico.|
 |`name`|String|O nome do gráfico.|
 |`version`|String|A versão do gráfico.|
 
-### <a name="payload-example-chart-push-event"></a>Exemplo de carga: evento de push de gráfico
+### <a name="payload-example-chart-push-event"></a>Exemplo de carga útil: evento de impulso de gráfico
 
 ```JSON
 {
@@ -138,7 +138,7 @@ Webhook disparado quando um gráfico Helm é enviado por push para um repositór
 }
 ```
 
-Exemplo [CLI do Azure](/cli/azure/acr) comando que dispara o webhook de evento de **chart_push** :
+Exemplo do comando [Azure CLI](/cli/azure/acr) que aciona o webhook de evento **chart_push:**
 
 ```azurecli
 az acr helm push wordpress-5.4.0.tgz --name MyRegistry
@@ -146,36 +146,36 @@ az acr helm push wordpress-5.4.0.tgz --name MyRegistry
 
 ## <a name="delete-event"></a>Excluir evento
 
-Webhook disparado quando um repositório ou manifesto de imagem é excluído. Não é disparado quando uma marca é excluída.
+O webhook é acionado quando um repositório ou manifesto de imagem é excluído. Não é disparado quando uma marca é excluída.
 
 ### <a name="delete-event-payload"></a>Excluir carga do evento
 
-|Elemento|Digite|DESCRIÇÃO|
+|Elemento|Type|Descrição|
 |-------------|----------|-----------|
 |`id`|String|A ID do evento do webhook.|
-|`timestamp`|DateTime|A hora em que o evento do webhook foi disparado.|
+|`timestamp`|Datetime|A hora em que o evento do webhook foi disparado.|
 |`action`|String|A ação que disparou o evento do webhook.|
 |[destino](#delete_target)|Tipo complexo|O destino do evento que desencadeou o evento do webhook.|
 |[solicitação](#delete_request)|Tipo complexo|A solicitação que gerou o evento do webhook.|
 
-### <a name="delete_target"></a> destino
+### <a name="target"></a><a name="delete_target"></a>Alvo
 
-|Elemento|Digite|DESCRIÇÃO|
+|Elemento|Type|Descrição|
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`digest`|String|O resumo da mensagem, conforme definido pela Especificação API HTTP do Registry V2.|
 |`repository`|String|Nome do repositório.|
 
-### <a name="delete_request"></a> solicitação
+### <a name="request"></a><a name="delete_request"></a>Solicitação
 
-|Elemento|Digite|DESCRIÇÃO|
+|Elemento|Type|Descrição|
 |------------------|----------|-----------|
 |`id`|String|A ID da solicitação que iniciou o evento.|
 |`host`|String|O nome de host acessível externamente da instância de registro, conforme especificado pelo cabeçalho do host HTTP em solicitações de entrada.|
 |`method`|String|O método de solicitação que gerou o evento.|
 |`useragent`|String|O cabeçalho do agente de usuário da solicitação.|
 
-### <a name="payload-example-image-delete-event"></a>Exemplo de carga: evento de exclusão de imagem
+### <a name="payload-example-image-delete-event"></a>Exemplo de carga útil: evento de exclusão de imagem
 
 ```JSON
 {
@@ -206,32 +206,32 @@ az acr repository delete --name MyRegistry --repository MyRepository
 az acr repository delete --name MyRegistry --image MyRepository:MyTag
 ```
 
-## <a name="chart-delete-event"></a>Evento de exclusão de gráfico
+## <a name="chart-delete-event"></a>Evento de exclusão de gráficos
 
-Webhook disparado quando um gráfico ou repositório Helm é excluído. 
+Webhook acionado quando um gráfico ou repositório helm é excluído. 
 
-### <a name="chart-delete-event-payload"></a>Carga do evento de exclusão de gráfico
+### <a name="chart-delete-event-payload"></a>Gráfico excluir carga de pagamento de evento
 
-|Elemento|Digite|DESCRIÇÃO|
+|Elemento|Type|Descrição|
 |-------------|----------|-----------|
 |`id`|String|A ID do evento do webhook.|
-|`timestamp`|DateTime|A hora em que o evento do webhook foi disparado.|
+|`timestamp`|Datetime|A hora em que o evento do webhook foi disparado.|
 |`action`|String|A ação que disparou o evento do webhook.|
 |[destino](#chart_delete_target)|Tipo complexo|O destino do evento que desencadeou o evento do webhook.|
 
-### <a name="chart_delete_target"></a> destino
+### <a name="target"></a><a name="chart_delete_target"></a>Alvo
 
-|Elemento|Digite|DESCRIÇÃO|
+|Elemento|Type|Descrição|
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo.|
 |`digest`|String|O resumo da mensagem, conforme definido pela Especificação API HTTP do Registry V2.|
 |`repository`|String|Nome do repositório.|
-|`tag`|String|O nome da marca do gráfico.|
+|`tag`|String|O nome da etiqueta do gráfico.|
 |`name`|String|O nome do gráfico.|
 |`version`|String|A versão do gráfico.|
 
-### <a name="payload-example-chart-delete-event"></a>Exemplo de carga: evento de exclusão de gráfico
+### <a name="payload-example-chart-delete-event"></a>Exemplo de carga útil: evento de exclusão de gráficos
 
 ```JSON
 {
@@ -250,7 +250,7 @@ Webhook disparado quando um gráfico ou repositório Helm é excluído.
 }
 ```
 
-Exemplo [CLI do Azure](/cli/azure/acr) comando que dispara o webhook de evento de **chart_delete** :
+Exemplo do comando [Azure CLI](/cli/azure/acr) que aciona o webhook de evento **chart_delete:**
 
 ```azurecli
 az acr helm delete wordpress --version 5.4.0 --name MyRegistry

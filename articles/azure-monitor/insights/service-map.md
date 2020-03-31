@@ -6,36 +6,36 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: c177589bea76770f8f72dd3267b856b00d57699c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f2f3e84462307f43ffe432fe878476d979f489f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79275237"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480905"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando a solução Mapa do Serviço no Azure
 
 O Mapa do Serviço descobre automaticamente os componentes de aplicativo em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Com o Mapa do Serviço é possível exibir seus servidores da maneira desejada: como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra conexões entre servidores, processos, latência de conexão de entrada e saída e portas em qualquer arquitetura conectada a TCP, sem a necessidade de configuração diferente da instalação de um agente.
 
-Este artigo descreve os detalhes de integração e como usar o Mapa do Serviço. Para obter informações sobre como configurar os pré-requisitos para essa solução, consulte [habilitar a Azure monitor para VMs visão geral](vminsights-enable-overview.md#prerequisites). Para resumir, você precisa do seguinte:
+Este artigo descreve os detalhes de integração e como usar o Mapa do Serviço. Para obter informações sobre a configuração dos pré-requisitos para esta solução, consulte [Ativar o Monitor Azure para vMs visão geral](vminsights-enable-overview.md#prerequisites). Resumindo, você precisa do seguinte:
 
-* Um espaço de trabalho Log Analytics para habilitar essa solução.
+* Um espaço de trabalho do Log Analytics para habilitar essa solução.
 
-* O agente de Log Analytics instalado no computador Windows ou no servidor Linux configurado para relatar o mesmo espaço de trabalho com o qual você habilitou a solução.
+* O agente Log Analytics instalado no computador Windows ou servidor Linux configurado para relatar o mesmo espaço de trabalho com o qual você habilitou a solução.
 
-* O Dependency Agent instalado no computador Windows ou no servidor Linux.
+* O agente de dependência instalado no computador Windows ou servidor Linux.
 
 >[!NOTE]
->Se o Mapa do Serviço já foi implantado, também será possível exibir os mapas no Azure Monitor para VMs, que inclui recursos adicionais para monitorar a integridade e o desempenho da VM. Para saber mais, consulte [visão geral do Azure Monitor para VMs](../../azure-monitor/insights/vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa do Serviço e o recurso de mapa de Azure Monitor para VMs, consulte as [perguntas frequentes](../faq.md#azure-monitor-for-vms-preview)a seguir.
+>Se o Mapa do Serviço já foi implantado, também será possível exibir os mapas no Azure Monitor para VMs, que inclui recursos adicionais para monitorar a integridade e o desempenho da VM. Para saber mais, consulte [visão geral do Azure Monitor para VMs](../../azure-monitor/insights/vminsights-overview.md). Para saber mais sobre as diferenças entre a solução Mapa de Serviços e o recurso Azure Monitor for VMs Map, consulte as [seguintes perguntas frequentes](../faq.md#azure-monitor-for-vms).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="enable-service-map"></a>Habilitar Mapa do Serviço
 
-1. Habilite a solução de Mapa do Serviço do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções de monitoramento do Galeria de soluções](solutions.md).
-1. [Instale o Dependency Agent no Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) ou [Instale o Dependency Agent no Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) em cada computador em que você deseja obter dados. O Agente de Dependência pode monitorar conexões a vizinhos imediatos, portanto, talvez não seja necessário ter um agente em cada computador.
+1. Habilite a solução de Mapa de Serviços do [mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) ou usando o processo descrito no [Add soluções de monitoramento da Galeria de Soluções](solutions.md).
+1. [Instale o agente de dependência no Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) ou [instale o agente de dependência no Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) em cada computador onde você deseja obter dados. O Agente de Dependência pode monitorar conexões a vizinhos imediatos, portanto, talvez não seja necessário ter um agente em cada computador.
 
 Acesse o Mapa do Serviço no portal do Azure do seu espaço de trabalho do Log Analytics e selecione a opção **Soluções** no painel esquerdo.<br><br> ![Selecione a opção Soluções no workspace](./media/service-map/select-solution-from-workspace.png).<br> Na lista de soluções, selecione **ServiceMap(workspaceName)** e na página de visão geral da solução Mapa do Serviço, clique no bloco de resumo do Mapa do Serviço.<br><br> ![Bloco de resumo do Mapa do Serviço](./media/service-map/service-map-summary-tile.png).
 
@@ -55,7 +55,7 @@ Ao utilizar o Mapa do Serviço você pode, efetivamente, planejar, acelerar e va
 
 ### <a name="business-continuity"></a>Continuidade de negócios
 
-Se você estiver usando o Azure Site Recovery e precisar de ajuda para definir a sequência de recuperação para seu ambiente de aplicativo, o Mapa do Serviço poderá mostrar automaticamente como os sistemas dependem uns dos outros para assegurar que seu plano de recuperação seja confiável. Ao escolher um grupo ou servidor crítico e exibir seus clientes, será possível identificar quais são os sistemas front-end a serem recuperados depois que o servidor estiver restaurado e disponível. Por outro lado, ao analisar as dependências de back-end de servidores críticos, você poderá identificar os sistemas a serem recuperados antes que seus sistemas de foco sejam restaurados.
+Se você estiver usando o Azure Site Recovery e precisar de ajuda para definir a sequência de recuperação para seu ambiente de aplicativo, o Mapa do Serviço poderá mostrar automaticamente como os sistemas dependem uns dos outros para assegurar que seu plano de recuperação seja confiável. Ao escolher um grupo ou servidor crítico e exibir seus clientes, será possível identificar quais são os sistemas front-end a serem recuperados depois que o servidor estiver restaurado e disponível. Por outro lado, olhando para as dependências de back-end dos servidores críticos, você pode identificar quais sistemas devem ser recuperar antes que seus sistemas de foco sejam restaurados.
 
 ### <a name="patch-management"></a>Gerenciamento de patch
 
@@ -63,7 +63,7 @@ O Mapa do Serviço aprimora seu uso da Avaliação de atualização do sistema, 
 
 ## <a name="mapping-overview"></a>Visão geral do mapeamento
 
-Os agentes do Mapa do Serviço coletam informações sobre todos os processos conectados a TCP no servidor em que estão instalados e detalhes sobre as conexões de entrada e saída de cada processo.
+Os agentes do Mapa de Serviço coletam informações sobre todos os processos conectados ao TCP no servidor onde estão instalados e detalhes sobre as conexões de entrada e saída de cada processo.
 
 Na lista no painel esquerdo, você pode selecionar computadores ou grupos que possuem agentes do Mapa do Serviço para visualizar suas dependências em um intervalo de tempo especificado. Os mapas de dependência de computador concentram-se em um computador específico e mostram todos os computadores que são clientes TCP diretos ou servidores daquele computador.  Os mapas do Grupo de Computadores mostram os conjuntos de servidores e suas dependências.
 
@@ -108,7 +108,7 @@ Nesse ponto, é possível escolher **Criar novo** e atribuir ao grupo um nome.
 
 ### <a name="viewing-a-group"></a>Exibir um Grupo
 
-Depois de criar alguns grupos, você poderá exibi-los clicando na guia Grupos.
+Depois de criar alguns grupos, você pode visualizá-los escolhendo a guia Grupos.
 
 ![Guia Grupos](media/service-map/machine-groups-tab.png)
 
@@ -129,7 +129,7 @@ Quando **Todos os processos** estiver selecionado, o mapa incluirá todos os pro
 
 ![Todos os processos do Grupo de Computadores](media/service-map/machine-groups-all.png)
 
-Se você alterar a exibição para mostrar apenas os **processos conectados por grupo** , o mapa será inoperante apenas para os processos e conexões diretamente conectados a outros computadores do grupo, criando uma exibição simplificada.
+Se você alterar a exibição para mostrar apenas os **processos conectados por grupo **, o mapa será inoperante apenas para os processos e conexões diretamente conectados a outros computadores do grupo, criando uma exibição simplificada.
 
 ![Processos filtrados do Grupo de Computadores](media/service-map/machine-groups-filtered.png)
  
@@ -154,7 +154,7 @@ Clique no menu de reticências próximo ao nome do grupo na Lista de Grupos.
 
 Alguns processos possuem funções específicas em computadores: servidores Web, servidores de aplicativos, banco de dados, etc. O Mapa do Serviço adiciona ao processo e às caixas do computador ícones de função para ajudar a identificar rapidamente a função de um processo ou servidor.
 
-| Ícone de função | DESCRIÇÃO |
+| Ícone de função | Descrição |
 |:--|:--|
 | ![Servidor Web](media/service-map/role-web-server.png) | Servidor Web |
 | ![Servidor de aplicativos](media/service-map/role-application-server.png) | Servidor de aplicativos |
@@ -219,7 +219,7 @@ Ao navegar no mapa do Mapa do Serviço, é possível selecionar computadores e p
 
 ![Painel Propriedades do Processo](media/service-map/process-properties.png)
 
-O painel **Resumo do Processo** fornece informações adicionais sobre a conectividade do processo, incluindo suas portas associadas, conexões de entrada e saída e conexões com falha.
+O **painel Resumo de Processos** fornece informações adicionais sobre a conectividade do processo, incluindo suas portas vinculadas, conexões de entrada e saída e conexões com falha.
 
 ![Painel Resumo do Processo](media/service-map/process-summary.png)
 
@@ -320,13 +320,13 @@ Como vários registros podem existir para um processo e computador específicos 
 
 ### <a name="connections"></a>conexões
 
-As métricas de conexão são gravadas em uma nova tabela no Log Analytics: VMConnection. Essa tabela fornece informações sobre as conexões de um computador (entrada e saída). As Métricas de Conexão também são expostas com APIs que fornecem meios para obter uma métrica específica durante um intervalo de tempo.  As conexões TCP resultantes da aceitação em um soquete de escuta são de entrada, enquanto aquelas criadas pela conexão a um determinado IP e porta são de saída. A direção de uma conexão é representada pela propriedade Direction, o que pode ser definida para **entrada** ou **saída**. 
+As métricas de conexão são gravadas em uma nova tabela no Log Analytics: VMConnection. Essa tabela fornece informações sobre as conexões de um computador (entrada e saída). As Métricas de Conexão também são expostas com APIs que fornecem meios para obter uma métrica específica durante um intervalo de tempo.  As conexões TCP resultantes da aceitação em um soquete de escuta estão a entrar, enquanto as criadas pela conexão a um determinado IP e porta são de saída. A direção de uma conexão é representada pela propriedade Direction, o que pode ser definida para **entrada** ou **saída**. 
 
 Os registros nessas tabelas são gerados a partir dos dados relatados pelo agente de Dependência. Cada registro representa uma observação durante o intervalo de tempo de um minuto. A propriedade TimeGenerated indica o início do intervalo de tempo. Cada registro contém informações para identificar a respectiva entidade, ou seja, conexão ou porta, bem como as métricas associadas àquela entidade. Atualmente, apenas as atividades de rede que usam TCP via IPv4 são relatadas.
 
 Para gerenciar o custo e a complexidade, os registros de conexão não representam as conexões de rede física individuais. Várias conexões de rede física são agrupadas em uma conexão lógica, o que é refletido na respectiva tabela.  Ou seja, os registros na tabela *VMConnection* representam um agrupamento lógico, não as conexões físicas individuais sendo observadas. As conexões de rede física que compartilham o mesmo valor para os atributos a seguir durante o intervalo especificado de um minuto são agregadas em um único registro lógico em *VMConnection*. 
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--|:--|
 | `Direction` |Direção da conexão, o valor é *entrada* ou *saída* |
 | `Machine` |O FQDN do computador |
@@ -338,7 +338,7 @@ Para gerenciar o custo e a complexidade, os registros de conexão não represent
 
 Para levar em conta o impacto do agrupamento, são fornecidas informações sobre o número de conexões físicas agrupadas nas seguintes propriedades do registro:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--|:--|
 | `LinksEstablished` |O número de conexões de rede física que foram estabelecidas durante o intervalo de tempo de geração de relatórios |
 | `LinksTerminated` |O número de conexões de rede física que foram terminadas durante o intervalo de tempo de geração de relatórios |
@@ -349,7 +349,7 @@ Para levar em conta o impacto do agrupamento, são fornecidas informações sobr
 
 Além das métricas de contagem de conexões, as informações sobre o volume de dados enviados e recebidos em determinada conexão lógica ou porta de rede também estão incluídas nas seguintes propriedades do registro:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--|:--|
 | `BytesSent` |Número total de bytes enviados durante o intervalo de tempo de geração de relatórios |
 | `BytesReceived` |Número total de bytes recebidos durante o intervalo de tempo de geração de relatórios |
@@ -377,9 +377,9 @@ Para sua conveniência, o endereço IP da extremidade remota de uma conexão é 
 
 *VMConnection* também inclui informações de localização geográfica para a extremidade remota de cada registro de conexão nas seguintes propriedades do registro: 
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--|:--|
-| `RemoteCountry` |O nome do país/região que hospeda o RemoteIp.  Por exemplo: *Estados Unidos* |
+| `RemoteCountry` |O nome do país/região que hospeda O Controle Remoto.  Por exemplo: *Estados Unidos* |
 | `RemoteLatitude` |A latitude da localização geográfica.  Por exemplo: *47,68* |
 | `RemoteLongitude` |A longitude da localização geográfica.  Por exemplo: *-122,12* |
 
@@ -387,7 +387,7 @@ Para sua conveniência, o endereço IP da extremidade remota de uma conexão é 
 
 Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em um conjunto de IPs com atividades maliciosas conhecidas. Se RemoteIp for identificado como malicioso, as propriedades a seguir serão preenchidas (elas ficam em branco quando o IP não é considerado malicioso) nas seguintes propriedades do registro:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--|:--|
 | `MaliciousIp` |Endereço de RemoteIp |
 | `IndicatorThreadType` |O indicador de ameaça detectado é um dos seguintes valores, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
@@ -405,7 +405,7 @@ Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em um c
 
 Registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário para servidores com agentes do Mapa do Serviço. Esses registros têm as propriedades descritas na tabela a seguir:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--|:--|
 | `Type` | *ServiceMapComputer_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -431,7 +431,7 @@ Registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário para 
 
 Registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário para processos conectados com TCP em servidores com agentes do Mapa do Serviço. Esses registros têm as propriedades descritas na tabela a seguir:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -552,53 +552,53 @@ Para obter mais informações sobre a coleta e uso de dados, consulte a [Políti
 
 Saiba mais sobre [pesquisas de logs](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para recuperar dados coletados pelo Mapa do Serviço.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você enfrentar problemas ao instalar ou executar o Mapa do Serviço, esta seção poderá lhe ajudar. Se ainda não for possível resolver o problema, entre em contato com o Suporte da Microsoft.
 
 ### <a name="dependency-agent-installation-problems"></a>Problemas de instalação do Agente de Dependência
 
 #### <a name="installer-prompts-for-a-reboot"></a>O instalador solicita uma reinicialização
-O agente de dependência *geralmente* não requer uma reinicialização após a instalação ou remoção. No entanto, em alguns casos raros, o Windows Server exige uma reinicialização para continuar com uma instalação. Isso acontece quando uma dependência, geralmente, a biblioteca C++ redistribuível do Microsoft Visual requer uma reinicialização devido a um arquivo bloqueado.
+O agente dependency *geralmente* não requer uma reinicialização após a instalação ou remoção. No entanto, em alguns casos raros, o Windows Server exige uma reinicialização para continuar com uma instalação. Isso acontece quando uma dependência, geralmente, a biblioteca Microsoft Visual C++ Redistributable requer uma reinicialização por causa de um arquivo bloqueado.
 
 #### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>A mensagem "Não é possível instalar o Agente de Dependência: as bibliotecas de runtime do Visual Studio não foram instaladas (código = [número_de_código])" aparece
 
 O Microsoft Dependency Agent é compilado com base nas bibliotecas de runtime do Microsoft Visual Studio. Você receberá uma mensagem se houver um problema durante a instalação das bibliotecas. 
 
-Os instaladores da biblioteca de runtime criam logs na pasta %LOCALAPPDATA%\temp. O arquivo é `dd_vcredist_arch_yyyymmddhhmmss.log`, em que *Arch* é `x86` ou `amd64` e *AAAAMMDDHHMMSS* é a data e a hora (relógio de 24 horas) quando o log foi criado. O log fornece detalhes sobre o problema que está bloqueando a instalação.
+Os instaladores da biblioteca de runtime criam logs na pasta %LOCALAPPDATA%\temp. O arquivo `dd_vcredist_arch_yyyymmddhhmmss.log`é , `x86` `amd64` onde *o arco* é ou e *yyyymmddhhmmss* é a data e a hora (relógio de 24 horas) quando o registro foi criado. O log fornece detalhes sobre o problema que está bloqueando a instalação.
 
-Pode ser útil instalar primeiro as [bibliotecas de tempo de execução mais recentes](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) .
+Pode ser útil instalar as [bibliotecas de tempo de execução mais recentes](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) primeiro.
 
 A tabela a seguir lista números de código e soluções sugeridas.
 
-| Código | DESCRIÇÃO | Resolução |
+| Código | Descrição | Resolução |
 |:--|:--|:--|
-| 0x17 | O instalador da biblioteca exige uma atualização do Windows que não foi instalada. | Procure no log do instalador de biblioteca mais recente.<br><br>Se uma referência a `Windows8.1-KB2999226-x64.msu` for seguida por uma linha `Error 0x80240017: Failed to execute MSU package,` você não terá os pré-requisitos para instalar o KB2999226. Siga as instruções na seção pré-requisitos no artigo [tempo de execução universal C no Windows](https://support.microsoft.com/kb/2999226) . Talvez seja necessário executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Execute novamente o instalador do Agente de Dependência da Microsoft. |
+| 0x17 | O instalador da biblioteca exige uma atualização do Windows que não foi instalada. | Procure no log do instalador de biblioteca mais recente.<br><br>Se uma `Windows8.1-KB2999226-x64.msu` referência for seguida `Error 0x80240017: Failed to execute MSU package,` por uma linha, você não terá os pré-requisitos para instalar o KB2999226. Siga as instruções na seção de pré-requisitos no [artigo Universal C Runtime in Windows.](https://support.microsoft.com/kb/2999226) Talvez seja necessário executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Execute novamente o instalador do Agente de Dependência da Microsoft. |
 
 ### <a name="post-installation-issues"></a>Problemas pós-instalação
 
 #### <a name="server-doesnt-appear-in-service-map"></a>O servidor não aparece no Mapa do Serviço
 
-Se a instalação do agente de dependência for bem-sucedida, mas você não vir seu computador na solução Mapa do Serviço:
+Se a instalação do agente de dependência foi bem sucedida, mas você não verá sua máquina na solução do Mapa de Serviço:
 * O Agente de Dependência foi instalado com êxito? Confirme isso verificando se o serviço está instalado e em execução.<br><br>
-**Windows**: Procure o serviço chamado **Microsoft Dependency Agent**.
-**Linux**: Procure o processo em execução **Microsoft-Dependency-Agent**.
+**Windows**: Procure o serviço chamado **Microsoft Dependency agent**.
+**Linux**: Procure o processo de execução **do microsoft-dependency-agent**.
 
-* Você está na [camada gratuita log Analytics](https://azure.microsoft.com/pricing/details/monitor/)? O plano gratuito permite até cinco máquinas Mapa do Serviço exclusivas. Quaisquer computadores subsequentes não aparecerão no Mapa do Serviço, mesmo que os cinco anteriores não estejam mais enviando dados.
+* Você está no nível livre do [Log Analytics?](https://azure.microsoft.com/pricing/details/monitor/) O plano Gratuito permite até cinco máquinas exclusivas do Mapa de Serviço. Quaisquer máquinas subseqüentes não aparecerão no Mapa de Serviço, mesmo que as cinco anteriores não estejam mais enviando dados.
 
-* O servidor está enviando dados de log e desempenho para Azure Monitor logs? Vá para o Azure Monitor\Logs e execute a seguinte consulta para o seu computador: 
+* Seu servidor está enviando dados de log e perf para o Azure Monitor Logs? Vá para Azure Monitor\Logs e execute a seguinte consulta para o seu computador: 
 
     ```kusto
     Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-Você obteve uma variedade de eventos nos resultados? Os dados são recentes? Nesse caso, seu agente de Log Analytics está operando corretamente e se comunicando com o espaço de trabalho. Caso contrário, verifique o agente em seu computador: [log Analytics agente para solução de problemas do Windows](../platform/agent-windows-troubleshoot.md) ou solução [de problemas do agente log Analytics para Linux](../platform/agent-linux-troubleshoot.md).
+Você obteve uma variedade de eventos nos resultados? Os dados são recentes? Nesse caso, o agente log analytics está operando corretamente e se comunicando com o espaço de trabalho. Caso assim, verifique o agente na máquina: [Agente log analytics para solução de problemas do Windows](../platform/agent-windows-troubleshoot.md) ou agente do Log [Analytics para solução de problemas do Linux](../platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>O servidor aparece no Mapa do Serviço, mas sem processos
 
-Se você vir seu computador no Mapa do Serviço, mas ele não tem nenhum processo ou dados de conexão, isso indica que o agente de dependência está instalado e em execução, mas o driver do kernel não foi carregado. 
+Se você ver sua máquina no Mapa de Serviço, mas ela não tiver nenhum processo ou dados de conexão, isso indica que o agente Dependency está instalado e funcionando, mas o driver do kernel não carregou. 
 
-Verifique o `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) ou `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). As últimas linhas do arquivo devem indicar por que o kernel não foi carregado. Por exemplo, se o kernel tiver sido atualizado por você, talvez o Linux não dê suporte a ele.
+Verifique `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` o (Windows) ou `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). As últimas linhas do arquivo devem indicar por que o kernel não foi carregado. Por exemplo, se o kernel tiver sido atualizado por você, talvez o Linux não dê suporte a ele.
 
 ## <a name="feedback"></a>Comentários
 

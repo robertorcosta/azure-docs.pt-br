@@ -1,16 +1,16 @@
 ---
-title: Introdução à autenticação no Xamarin Android
-description: Saiba como usar aplicativos móveis para autenticar usuários de seu aplicativo Xamarin Android com provedores de identidade como AAD, Google, Facebook, Twitter e Microsoft.
+title: Comece com a autenticação no Xamarin Android
+description: Aprenda a usar aplicativos móveis para autenticar usuários do seu aplicativo Xamarin Android com provedores de identidade como AAD, Google, Facebook, Twitter e Microsoft.
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: fa70b7419e1877ab2daba49ad154cdfd5a8d2cba
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458946"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Adicione autenticação ao aplicativo Xamarin.Android
@@ -21,10 +21,10 @@ Este tópico mostra como autenticar usuários de um aplicativo móvel em seu apl
 
 Este tutorial baseia-se no início rápido do aplicativo móvel. Você também deve primeiro concluir o tutorial [Criar um aplicativo Xamarin.Android]. Se você não usar o projeto baixado de início rápido do servidor, deve adicionar o pacote de extensão de autenticação ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="register"></a>Registrar seu aplicativo para autenticação e configurar os Serviços de Aplicativos
+## <a name="register-your-app-for-authentication-and-configure-app-services"></a><a name="register"></a>Registrar seu aplicativo para autenticação e configurar os Serviços de Aplicativos
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adicionar seu aplicativo às URLs de redirecionamento externo permitidas
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Adicionar seu aplicativo às URLs de redirecionamento externo permitidas
 
 A autenticação segura exige que você defina um novo esquema de URL para seu aplicativo. Isso permite que o sistema de autenticação redirecione para seu aplicativo após a conclusão do processo de autenticação. Neste tutorial, usamos sempre o esquema de URL _appname_. No entanto, você pode usar o esquema de URL que quiser. Ele deve ser exclusivo para seu aplicativo móvel. Para habilitar o redirecionamento no lado do servidor:
 
@@ -36,16 +36,16 @@ A autenticação segura exige que você defina um novo esquema de URL para seu a
 
 4. Clique em **OK**.
 
-5. Clique em **Save** (Salvar).
+5. Clique em **Salvar**.
 
-## <a name="permissions"></a>Restringir permissões a usuários autenticados
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restringir permissões a usuários autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 No Visual Studio ou Xamarin Studio, execute o projeto cliente em um dispositivo ou emulador. Verifique se uma exceção não tratada com um código de status 401 (Não autorizado) é gerada após o aplicativo ser iniciado. Isso acontece porque o aplicativo tenta acessar o back-end do aplicativo móvel como um usuário não autenticado. A tabela *TodoItem* agora exige autenticação.
 
 Em seguida, você atualizará o aplicativo do cliente para solicitar recursos do back-end do aplicativo móvel com um usuário autenticado.
 
-## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
+## <a name="add-authentication-to-the-app"></a><a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 O aplicativo é atualizado para exigir que os usuários toquem no botão **Entrar** e se autentiquem para que os dados sejam exibidos.
 
 1. Adicione o seguinte código à classe **TodoActivity** :
@@ -119,7 +119,7 @@ O aplicativo é atualizado para exigir que os usuários toquem no botão **Entra
 
 6. No Visual Studio ou Xamarin Studio, execute o projeto cliente em um dispositivo ou emulador e entre com o seu provedor de identidade preferido. Quando você entrar com êxito, o aplicativo exibirá o sua ID de logon e a lista de itens de tarefas e você poderá fazer atualizações aos dados.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 **O aplicativo falhou com `Java.Lang.NoSuchMethodError: No static method startActivity`**
 

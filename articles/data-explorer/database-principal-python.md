@@ -1,6 +1,6 @@
 ---
-title: Adicionar entidades de banco de dados para o Azure Data Explorer usando Python
-description: Neste artigo, você aprenderá a adicionar entidades de banco de dados para o Azure Data Explorer usando o Python.
+title: Adicionar princípios de banco de dados para o Azure Data Explorer usando python
+description: Neste artigo, você aprende como adicionar os principais do banco de dados para o Azure Data Explorer usando python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,25 +8,25 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 8b9c4f4d5427b326c273558db0bff808068b192a
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76965002"
 ---
-# <a name="add-database-principals-for-azure-data-explorer-by-using-python"></a>Adicionar entidades de banco de dados para o Azure Data Explorer usando Python
+# <a name="add-database-principals-for-azure-data-explorer-by-using-python"></a>Adicionar princípios de banco de dados para o Azure Data Explorer usando python
 
 > [!div class="op_single_selector"]
-> * [C#](database-principal-csharp.md)
+> * [C #](database-principal-csharp.md)
 > * [Python](database-principal-python.md)
-> * [Modelo do Azure Resource Manager](database-principal-resource-manager.md)
+> * [Modelo de Gerenciador de recursos do Azure](database-principal-resource-manager.md)
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. Neste artigo, você adiciona entidades de banco de dados para o Azure Data Explorer usando o Python.
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. Neste artigo, você adiciona os princípios do banco de dados do Azure Data Explorer usando python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-* [Criar um cluster e um banco de dados](create-cluster-database-python.md)
+* [Criar um cluster em um banco de dados](create-cluster-database-python.md)
 
 ## <a name="install-python-package"></a>Instalar o pacote do Python
 
@@ -39,9 +39,9 @@ pip install azure-mgmt-kusto
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
-## <a name="add-a-database-principal"></a>Adicionar uma entidade de banco de dados
+## <a name="add-a-database-principal"></a>Adicionar um principal de banco de dados
 
-O exemplo a seguir mostra como adicionar uma entidade de segurança de banco de dados programaticamente.
+O exemplo a seguir mostra como adicionar um banco de dados principal programáticamente.
 
 ```Python
 from azure.mgmt.kusto import KustoManagementClient
@@ -81,19 +81,19 @@ poller = kusto_management_client.database_principal_assignments.create_or_update
 
 |**Configuração** | **Valor sugerido** | **Descrição do campo**|
 |---|---|---|
-| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | ID do locatário. Também conhecida como ID de diretório.|
-| subscription_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | A ID da assinatura que você usa para a criação de recursos.|
-| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | A ID do cliente do aplicativo que pode acessar recursos em seu locatário.|
-| client_secret | *xxxxxxxxxxxxxx* | O segredo do cliente do aplicativo que pode acessar recursos em seu locatário. |
-| resource_group_name | *testrg* | O nome do grupo de recursos que contém o cluster.|
-| cluster_name | *mykustocluster* | O nome do cluster.|
+| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | ID do locatário. Também conhecido como ID do diretório.|
+| subscription_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | O ID de assinatura que você usa para criação de recursos.|
+| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | O ID do cliente do aplicativo que pode acessar recursos em seu inquilino.|
+| client_secret | *xxxxxxxxxxxxxx* | O segredo do cliente do aplicativo que pode acessar recursos em seu inquilino. |
+| resource_group_name | *testrg* | O nome do grupo de recursos que contém seu cluster.|
+| cluster_name | *mykustocluster* | O nome do seu grupo.|
 | database_name | *mykustodatabase* | O nome do banco de dados.|
-| principal_assignment_name | *databasePrincipalAssignment1* | O nome do recurso principal do banco de dados.|
-| principal_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | A ID da entidade, que pode ser email do usuário, ID do aplicativo ou nome do grupo de segurança.|
-| função | *Administrador* | A função da entidade de segurança do banco de dados, que pode ser ' admin ', ' ingeritor ', ' monitor ', ' user ', ' UnrestrictedViewers ', ' Viewer '.|
-| tenant_id_for_principal | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | A ID do locatário da entidade de segurança.|
-| principal_type | *Aplicativo* | O tipo de entidade de segurança, que pode ser ' user ', ' app ' ou ' Group '|
+| principal_assignment_name | *banco de dadosPrincipalAssignment1* | O nome do seu principal recurso de banco de dados.|
+| principal_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | O ID principal, que pode ser e-mail do usuário, ID do aplicativo ou nome do grupo de segurança.|
+| função | *Administração* | O papel do principal do seu banco de dados, que pode ser 'Administrador', 'Ingestor', 'Monitor', 'Usuário', 'Visualizadores irrestritos', 'Visualizador'.|
+| tenant_id_for_principal | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | A id do inquilino do diretor.|
+| principal_type | *Aplicativo* | O tipo do principal, que pode ser 'Usuário', 'App' ou 'Grupo'|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Ingerir dados usando a biblioteca Python do Azure Data Explorer](python-ingest-data.md)

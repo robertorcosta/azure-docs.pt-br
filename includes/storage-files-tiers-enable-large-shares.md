@@ -9,20 +9,20 @@ ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 8a2e5defd0672516d52d4f3477641f39eca63368
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77597756"
 ---
-Por padrão, os compartilhamentos de arquivos padrão podem abranger até 5 TiB, embora o limite de compartilhamento possa ser aumentado para 100 TiB. Para fazer isso, o recurso de *compartilhamento de arquivos grandes* deve ser habilitado no nível da conta de armazenamento. As contas de armazenamento Premium (contas de armazenamento de*armazenamento* de arquivo) não têm o sinalizador de recurso de compartilhamento de arquivos grandes, já que todos os compartilhamentos de arquivos premium estão habilitados para provisionamento na capacidade total de 100 Tib.
+Por padrão, as ações de arquivo padrão podem se estender apenas até 5 TiB, embora o limite de ação possa ser aumentado para 100 TiB. Para fazer isso, um grande recurso *de compartilhamento de arquivos* deve ser habilitado no nível da conta de armazenamento. Contas de armazenamento premium (contas de armazenamento*de armazenamento de arquivos)* não têm o grande sinalizador de recurso de compartilhamento de arquivos, pois todas as partes de arquivos premium já estão habilitadas para provisionamento até a capacidade total de 100 TiB.
 
-Você só pode habilitar compartilhamentos de arquivos grandes em contas de armazenamento padrão com redundância local ou de zona. Depois de habilitar o sinalizador de recurso de compartilhamento de arquivos grandes, não é possível alterar o nível de redundância para armazenamento com redundância geográfica ou com redundância geográfica.
+Você só pode habilitar grandes compartilhamentos de arquivos em contas de armazenamento padrão redundantes localmente redundantes ou redundantes de zona. Depois de habilitar o sinalizador de recurso de compartilhamento de arquivos grande, você não pode alterar o nível de redundância para armazenamento geo-redundante ou geo-zona-redundante.
 
-Para habilitar compartilhamentos de arquivos grandes em uma conta de armazenamento existente, navegue até o modo de exibição de **configuração** no Sumário da conta de armazenamento e alterne a opção de tentativa de compartilhamento de arquivo grande para habilitado:
+Para habilitar grandes compartilhamentos de arquivos em uma conta de armazenamento existente, navegue até a **exibição configuração** na tabela de conteúdo da conta de armazenamento e alterne o switch roqueiro de compartilhamento de arquivos grande para habilitado:
 
-![Uma captura de tela da opção Habilitar a pedra do compartilhamento de arquivos grandes no portal do Azure](media/storage-files-tiers-enable-large-shares/enable-lfs-0.png)
+![Uma captura de tela do switch roqueiro de compartilhamento de arquivos grandes no portal Azure](media/storage-files-tiers-enable-large-shares/enable-lfs-0.png)
 
-Você também pode habilitar compartilhamentos de arquivos 100 TiB por meio do cmdlet [`Set-AzStorageAccount`](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) PowerShell e o comando [`az storage account update`](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update) CLI do Azure.
+Você também pode habilitar 100 [`Set-AzStorageAccount`](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) compartilhamentos de arquivos [`az storage account update`](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update) TiB através do cmdlet PowerShell e do comando Azure CLI.
 
-Para saber mais sobre como habilitar grandes compartilhamentos de arquivos em novas contas de armazenamento, consulte [criando um compartilhamento de arquivos do Azure](../articles/storage/files/storage-how-to-create-file-share.md).
+Para saber mais sobre como ativar grandes compartilhamentos de arquivos em novas contas de armazenamento, consulte [a criação de um compartilhamento de arquivos Do Zure](../articles/storage/files/storage-how-to-create-file-share.md).

@@ -1,20 +1,18 @@
 ---
 title: Suporte para Azure Marketplace e AppSource | Azure
 description: Informações e links de suporte para o Azure Marketplace e o AppSource
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: MaggiePucciEvans
-manager: evansma
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-ms.date: 3/11/2020
-ms.author: evansma
-ms.openlocfilehash: 80911ce7858308302b1736328b6c7954c0e05a86
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.topic: conceptual
+ms.date: 3/19/2020
+ms.author: dsindona
+ms.openlocfilehash: 6cb08e11910bc0afdd4b2f454582612395cbd50f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79095532"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284918"
 ---
 # <a name="support-for-the-marketplace"></a>Suporte para o Marketplace  
 Aqui está uma lista de opções de suporte para o Marketplace.  
@@ -23,15 +21,15 @@ Além disso, você pode obter muitas das suas dúvidas na [canal do Marketplace 
 
 ## <a name="onboarding"></a>Integração
 
-Abra um tíquete com o [suporte de editor](https://aka.ms/marketplacepublishersupport) do Microsoft Marketplace para problemas de integração e introdução.
+Abra um ticket com [o suporte ao publisher do microsoft marketplace](https://aka.ms/marketplacepublishersupport) para problemas com onboarding e início.
 
-## <a name="partner-center-or-cloud-partner-portal"></a>Centro de parceiros ou Portal do Cloud Partner  
+## <a name="partner-center-or-cloud-partner-portal"></a>Centro de Parceiros ou Portal de Parceiros na Nuvem  
 
-| Canal de suporte | Descrição | Availability |  
+| Canal de suporte | Descrição | Disponibilidade |  
 |:--- |:--- |:--- |  
-| Para obter assistência, visite Criar uma página de incidentes localizada em [Suporte do Marketplace](https://aka.ms/marketplacepublishersupport)</li> </ul> | Suporte para o Partner Center ou Portal do Cloud Partner. | O suporte é fornecido 24x5. |  
+| Para obter assistência, visite Criar uma página de incidentes localizada em [Suporte do Marketplace](https://aka.ms/marketplacepublishersupport)</li> </ul> | Suporte para Centro de Parceiros ou Portal de Parceiros na Nuvem. | O suporte é fornecido 24x5. |  
 
-## <a name="technical"></a>Técnico  
+## <a name="technical"></a>Técnicos  
 
 | Canal de suporte | Descrição |  
 |:--- |:--- |  
@@ -40,14 +38,16 @@ Abra um tíquete com o [suporte de editor](https://aka.ms/marketplacepublishersu
 
 ## <a name="marketing-resources"></a>Recursos de marketing  
 
-| Canal de suporte | Descrição | Availability |  
+| Canal de suporte | Descrição | Disponibilidade |  
 |:--- |:--- |:--- |  
-| Email: [cosell@microsoft.com](mailto:cosell@microsoft.com) | Suporte para processos de integração e questões relacionadas ao programa de Venda Conjunta. | Baseado no fuso horário do Pacífico. |  
-| Email: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Suporte para benefícios de entrada no mercado e perguntas sobre o programa. | O horário comercial está no fuso horário do Pacífico. |  
-| Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Responde perguntas sobre o uso para logotipos e identidade visual do Azure. |  |  
+| Email:[cosell@microsoft.com](mailto:cosell@microsoft.com) | Suporte para processos de integração e questões relacionadas ao programa de Venda Conjunta. | Baseado no fuso horário do Pacífico. |  
+| Email:[gtm@microsoft.com](mailto:gtm@microsoft.com) | Suporte para benefícios de entrada no mercado e perguntas sobre o programa. | O horário comercial está no fuso horário do Pacífico. |  
+| Email:[cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Responde perguntas sobre o uso para logotipos e identidade visual do Azure. |  |  
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
-Visite a página [ do Azure Marketplace e do AppSource Publisher Guide ](./marketplace-publishers-guide.md).  
- 
+## <a name="next-steps"></a>Próximas etapas
+
+* Visite a [página do Azure Marketplace e do AppSource Publisher Guide](https://docs.microsoft.com/azure/marketplace/).
+* Saiba mais sobre [o programa Suporte ao Mercado Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+
 ---

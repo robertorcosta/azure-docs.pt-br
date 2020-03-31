@@ -1,34 +1,34 @@
 ---
-title: Contornar as configurações de firewall de armazenamento
-description: Uma configuração de firewall de rede da conta de armazenamento pode causar falha ao criar um destino de armazenamento de BLOBs do Azure no cache do HPC do Azure. Este artigo fornece uma solução alternativa para a limitação até que uma correção de software esteja em vigor.
+title: Trabalhe em torno das configurações de firewall de armazenamento
+description: Uma configuração de firewall de rede de conta de armazenamento pode causar falha ao criar um alvo de armazenamento Azure Blob no Cache Azure HPC. Este artigo fornece uma solução para a limitação até que uma correção de software esteja em vigor.
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.author: rohogue
 ms.openlocfilehash: 6643662d498db8cbcffcb120a9ceabc46cfc04cb
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74174402"
 ---
-# <a name="work-around-blob-storage-account-firewall-settings"></a>Contornar as configurações de firewall da conta de armazenamento de BLOBs
+# <a name="work-around-blob-storage-account-firewall-settings"></a>Ajustar as configurações de firewall da conta de armazenamento de blobs
 
-Uma configuração específica usada em firewalls de conta de armazenamento pode fazer com que a criação de destino do armazenamento de BLOBs falhe. A equipe de cache do Azure HPC está trabalhando em uma correção de software para esse problema, mas você pode contorná-la seguindo as instruções neste artigo.
+Uma configuração específica usada em firewalls de conta de armazenamento pode fazer com que a criação do alvo de armazenamento Blob falhe. A equipe de cache do Azure HPC está trabalhando em uma correção de software para este problema, mas você pode contorná-lo seguindo as instruções deste artigo.
 
-A configuração de firewall que permite o acesso somente de "redes selecionadas" pode impedir que o cache crie um destino de armazenamento de BLOBs. Essa configuração está na página de configurações **firewalls e redes virtuais** da conta de armazenamento.
+A configuração de firewall que permite o acesso apenas a partir de "redes selecionadas" pode impedir que o cache crie um destino de armazenamento Blob. Essa configuração está na página de configurações de **Firewalls e redes virtuais** da conta de armazenamento.
 
-O problema é que o serviço de cache usa uma rede virtual de serviço oculto que é separada dos ambientes de clientes. Não é possível autorizar explicitamente esta rede a acessar sua conta de armazenamento.
+O problema é que o serviço de cache usa uma rede virtual de serviço oculto separada dos ambientes do cliente. Não é possível autorizar explicitamente essa rede para acessar sua conta de armazenamento.
 
-Quando você cria um destino de armazenamento de BLOBs, o serviço de cache usa essa rede para verificar se o contêiner está vazio ou não. Se o firewall não permitir acesso da rede oculta, a verificação falhará e a criação do destino de armazenamento falhará.
+Quando você cria um alvo de armazenamento Blob, o serviço de cache usa essa rede para verificar se o contêiner está ou não vazio. Se o firewall não permitir o acesso da rede oculta, a verificação falhará e a criação do destino de armazenamento falhará.
 
-Para contornar o problema, altere temporariamente as configurações de firewall ao criar o destino de armazenamento:
+Para contornar o problema, altere temporariamente as configurações do firewall ao criar o destino de armazenamento:
 
-1. Vá para a página firewalls da conta de armazenamento **e redes virtuais** e altere a configuração "permitir acesso de" para **todas as redes**.
-1. Crie o destino de armazenamento de BLOBs no cache do Azure HPC.
-1. Depois que o destino de armazenamento tiver sido criado com êxito, altere a configuração de firewall da conta de volta para **redes selecionadas**.
+1. Vá para a página **firewalls e redes virtuais** da conta de armazenamento e altere a configuração "Permitir acesso" para **Todas as redes**.
+1. Crie o destino de armazenamento Blob no cache Do Azure HPC.
+1. Depois que o destino de armazenamento for criado com sucesso, altere a configuração de firewall da conta para **redes selecionadas**.
 
-O cache HPC do Azure não usa a rede virtual de serviço para acessar o destino de armazenamento concluído.
+O Cache Azure HPC não usa a rede virtual do serviço para acessar o destino de armazenamento acabado.
 
-Para obter ajuda com essa solução alternativa, [entre em contato com o serviço e suporte da Microsoft](hpc-cache-support-ticket.md).
+Para obter ajuda com esta solução, entre [em contato com o Serviço e suporte da Microsoft.](hpc-cache-support-ticket.md)

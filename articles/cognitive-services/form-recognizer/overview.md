@@ -9,14 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 0d78f3cc4f2b12b2d9f45878a0c1b91263112689
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 6b19dc11438274ecf6218d5c0bd8c9ef3dafbf01
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118548"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80052428"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecimento de Formulários?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 O Reconhecimento de Formulários do Azure é um serviço cognitivo que usa a tecnologia de aprendizado de máquina para identificar e extrair texto, pares chave-valor e dados de tabela de documentos de formulário. Em ingere texto de formulários e gera dados estruturados que incluem as relações no arquivo original. É possível obter resultados com rapidez e precisão, adaptados ao seu conteúdo específico, sem intervenção manual intensa nem ampla experiência em ciência de dados. O Reconhecimento de Formulários é composto por modelos personalizados, o modelo de recebimento predefinido e a API de layout. Chame os modelos do Reconhecimento de Formulários usando uma API REST para reduzir a complexidade e integrá-lo a seu fluxo de trabalho ou aplicativo.
 
@@ -49,7 +51,7 @@ O Reconhecimento de Formulários também inclui um modelo para ler os recibos de
 
 ## <a name="layout-api"></a>API de layout
 
-O Reconhecimento de Formulários também pode extrair a estrutura de texto e tabela (os números de linha e coluna associados ao texto) usando o OCR (reconhecimento óptico de caracteres) de alta definição. 
+O Reconhecimento de Formulários também pode extrair a estrutura de texto e tabela (os números de linha e coluna associados ao texto) usando o OCR (reconhecimento óptico de caracteres) de alta definição.
 
 ## <a name="get-started"></a>Introdução
 
@@ -59,9 +61,9 @@ Siga um início rápido para começar a extrair dados de seus formulários. Reco
   * Treinar sem rótulos
     * [Início Rápido: treinar em um modelo do Reconhecimento de Formulários e extrair dados de formulário usando a API REST com o cURL](quickstarts/curl-train-extract.md)
     * [Início Rápido: treinar em um modelo do Reconhecimento de Formulários e extrair dados de formulário usando a API REST com o Python](quickstarts/python-train-extract.md)
-  * Treinar com rótulos 
+  * Treinar com rótulos
     * [Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo](quickstarts/label-tool.md)
-    * [Treinar um modelo do Reconhecimento de Formulários com rótulos usando a API REST e o Python](quickstarts/python-labeled-data.md) 
+    * [Treinar um modelo do Reconhecimento de Formulários com rótulos usando a API REST e o Python](quickstarts/python-labeled-data.md)
 * Confirmações predefinidas – extrair dados de recibos de vendas dos EUA
   * [Início Rápido: extrair dados de recibos usando cURL](quickstarts/curl-receipts.md)
   * [Início Rápido: extrair dados de recibos usando Python](quickstarts/python-receipts.md)
@@ -92,7 +94,7 @@ Os requisitos de entrada para o modelo de recebimento são um pouco diferentes.
 
 * O formato deve ser JPEG, PNG, BMP, PDF (texto ou digitalizado) ou TIFF.
 * O tamanho do arquivo deve ser inferior a 20 MB.
-* As imagens de dimensões devem estar entre 50 x 50 pixels e 10.000 x 10.000 pixels. 
+* As imagens de dimensões devem estar entre 50 x 50 pixels e 10.000 x 10.000 pixels.
 * As dimensões de PDF devem ter no máximo 17 x 17 polegadas, correspondentes aos tamanhos de papel ofício ou A3 e menores.
 * Para PDF e TIFF, somente as primeiras 200 páginas são processadas (com uma assinatura de camada gratuita, somente as duas primeiras páginas são processadas).
 

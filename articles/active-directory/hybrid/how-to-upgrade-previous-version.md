@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Atualização de uma versão anterior | Microsoft Docs'
+title: 'Azure AD Connect: atualizar de uma versão anterior | Microsoft Docs'
 description: Explica os diferentes métodos para atualizar para a versão mais recente do Azure Active Directory Connect, incluindo a atualização in-loco e a migração swing.
 services: active-directory
 documentationcenter: ''
@@ -17,23 +17,23 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60347633"
 ---
-# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Atualização de uma versão anterior para a mais recente
+# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: atualização de uma versão anterior para a mais recente
 Este tópico descreve os diferentes métodos que você pode usar para atualizar sua instalação do Azure Active Directory (Azure AD) Connect para a versão mais recente. Recomendamos que você se mantenha atualizado com as versões do Azure AD Connect. Também é possível usar as etapas descritas na seção [migração Swing](#swing-migration) ao fazer uma alteração significativa na configuração.
 
 >[!NOTE]
-> Atualmente, há suporte para atualizar a partir de qualquer versão do Azure AD Connect para a versão atual. Não há suporte para atualizações in-loco de DirSync ou ADSync e uma migração swing é necessária.  Se você quiser atualizar do DirSync, consulte [atualizar da ferramenta de sincronização do Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md) ou o [migração Swing](#swing-migration) seção.  </br>Na prática, os clientes em versões muito antigas podem encontrar problemas que não estão diretamente relacionados ao Azure AD Connect. Servidores que estão em produção por vários anos, normalmente tiveram vários patches aplicados a eles e nem todas elas podem ser consideradas.  Em geral, os clientes que não fizeram a atualização em 12 a 18 meses devem considerar uma atualização swing em vez disso, como essa é a opção mais conservador e menos arriscada.
+> Atualmente, ele é suportado para atualizar de qualquer versão do Azure AD Connect para a versão atual. Atualizações no local do DirSync ou do ADSync não são suportadas e uma migração de balanço é necessária.  Se você quiser fazer o upgrade do DirSync, consulte [Atualizar da ferramenta de sincronização Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md) ou da seção De [migração Swing.](#swing-migration)  </br>Na prática, os clientes em versões extremamente antigas podem encontrar problemas não diretamente relacionados ao Azure AD Connect. Servidores que estão em produção há vários anos, normalmente tiveram vários patches aplicados a eles e nem todos eles podem ser contabilizados.  Geralmente, os clientes que não atualizaram em 12-18 meses devem considerar um upgrade de balanço, pois esta é a opção mais conservadora e menos arriscada.
 
 Se você quiser atualizar do DirSync, confira [Atualizar da ferramenta de sincronização do Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md).
 
 Há algumas estratégias diferentes que podem ser usadas para atualizar o Azure AD Connect.
 
-| Método | DESCRIÇÃO |
+| Método | Descrição |
 | --- | --- |
 | [Atualização automática](how-to-connect-install-automatic-upgrade.md) |Para clientes com uma instalação expressa, esse é o método mais simples. |
 | [Atualização in-loco](#in-place-upgrade) |Se você tiver apenas um servidor, é possível atualizar a instalação in-loco no mesmo servidor. |
@@ -42,7 +42,7 @@ Há algumas estratégias diferentes que podem ser usadas para atualizar o Azure 
 Para informações sobre permissões, consulte as [permissões necessárias para uma atualização](reference-connect-accounts-permissions.md#upgrade).
 
 > [!NOTE]
-> Depois que você tiver ativado o novo servidor do Azure AD Connect para iniciar a sincronização de alterações para o Azure AD, não deverá reverter usando o DirSync ou o Azure AD Sync. Fazer downgrade do Azure AD Connect para clientes herdados, incluindo o DirSync e o Azure AD Sync, não tem suporte e pode levar a problemas como a perda de dados no Azure AD.
+> Depois de habilitar o novo servidor Azure AD Connect para iniciar a sincronização de alterações no Azure AD, você não deve reverter para usar o DirSync ou o Azure AD Sync. O downgrade do Azure AD Connect para clientes legados, incluindo O DirSync e o Azure AD Sync, não é suportado e pode levar a problemas como perda de dados no Azure AD.
 
 ## <a name="in-place-upgrade"></a>Atualização in-loco
 Uma atualização in-loco funciona para mudar do Azure AD Sync ou do Azure AD Connect. Ele não funcionará para a migração do DirSync ou para uma solução com o FIM (Forefront Identity Manager) + Azure AD Connector.
@@ -75,7 +75,7 @@ Estas etapas também funcionam para mudar do Azure AD Sync ou de uma solução c
 3. Se estiver atualizando de uma versão anterior do Azure AD Connect, atualize o servidor de preparo para a versão mais recente. Se estiver movendo do Azure AD Sync, instale o Azure AD Connect em seu servidor de preparo.
 4. Permita que o mecanismo de sincronização execute a importação completa e a sincronização completa em seu servidor de preparo.
 5. Verifique se a nova configuração não causou alterações inesperadas usando as etapas descritas em “Verificar” em [Verificar a configuração de um servidor](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server). Se algo não acontecer conforme o esperado, siga as etapas para corrigir, executar a importação e a sincronização e verificar os dados até que eles fiquem corretos.
-6. Altere o servidor de preparo para que ele passe a ser o servidor ativo. Esta é a etapa final de “Alterar o servidor ativo” em [Verificar a configuração de um servidor](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server).
+6. Altere o servidor de preparo para que ele passe a ser o servidor ativo. Esta é a etapa final "Switch active server" em [Verificar a configuração de um servidor](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server).
 7. Se estiver atualizando do Azure AD Connect, atualize o servidor que está no modo de preparo para a versão mais recente. Siga as mesmas etapas anteriores para atualizar os dados e a configuração. Se estiver atualizando do Azure AD Sync, agora você poderá desativar e encerrar o servidor antigo.
 
 ### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>Mover uma configuração personalizada do servidor ativo para o servidor de preparo
@@ -135,7 +135,7 @@ Pode haver situações em que você não deseja que essas substituições ocorra
 
 Para adicionar as substituições para a importação completa e para a sincronização completa em um conector qualquer, execute o seguinte cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 A seção a seguir contém solução de problemas e informações que você pode usar se encontrar um problema ao atualizar o Azure AD Connect.
 
 ### <a name="azure-active-directory-connector-missing-error-during-azure-ad-connect-upgrade"></a>Erro inexistente do conector do Azure Active Directory durante a atualização do Azure AD Connect

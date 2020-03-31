@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shg
 ms.openlocfilehash: c112fb0b2d0eb3b8a66731948f48c8038a2296f8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023643"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do lote para o Node.js
@@ -43,7 +43,7 @@ O cliente do Node.js implanta um trabalho em lote com uma tarefa de preparação
 
 > [!TIP]
 > O cliente do Node.js no link especificado não contém código específico para ser implantado como um aplicativo de função do Azure. Você pode consultar os links a seguir para obter instruções para criar um.
-> - [Como criar um aplicativo de função](../azure-functions/functions-create-first-azure-function.md)
+> - [Criar aplicativo de funções](../azure-functions/functions-create-first-azure-function.md)
 > - [Como criar uma função de gatilho de temporizador](../azure-functions/functions-bindings-timer.md)
 >
 >
@@ -67,7 +67,7 @@ Este comando instala a versão mais recente do SDK do nó de lote do azure.
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Etapa 2: criação uma conta de lote do Azure
 
-Você pode criá-lo do [portal do Azure](batch-account-create-portal.md) ou da linha de comando ([PowerShell](batch-powershell-cmdlets-get-started.md) /[CLI do Azure](/cli/azure)).
+Você pode criá-lo a partir do [portal Azure](batch-account-create-portal.md) ou da linha de comando[(PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI).](/cli/azure)
 
 A seguir estão os comandos para criar um através da CLI do Azure.
 
@@ -351,7 +351,7 @@ O código adiciona várias tarefas ao pool. E cada uma das tarefas é executada 
 
 O portal tem exibições detalhadas nas tarefas e nos status do trabalho. Você também pode usar a lista e obter funções no SDK do nó do Azure. Os detalhes são fornecidos no [link](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) de documentação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Examine o artigo [Visão geral dos recursos do Lote do Azure](batch-api-basics.md) , que é recomendável se ainda não estiver familiarizado com o serviço.
 - Confira a [referência Node.js em lotes](/javascript/api/overview/azure/batch) para explorar a API do lote.

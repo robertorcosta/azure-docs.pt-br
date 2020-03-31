@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273053"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de inicialização comuns do Serviço de Nuvem
@@ -25,7 +25,7 @@ Confira [este artigo](cloud-services-startup-tasks.md) para entender o funcionam
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Definir variáveis de ambiente antes de iniciar uma função
-Se você precisar de variáveis de ambiente definidas para uma tarefa específica, use o elemento [Ambiente] dentro do elemento [Tarefa].
+Se você precisar de variáveis de ambiente definidas para uma tarefa específica, use o elemento [Environment] dentro do elemento [Task].
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -119,13 +119,13 @@ EXIT %ERRORLEVEL%
 ```
 
 ## <a name="add-firewall-rules"></a>Adicionar regras de firewall
-No Azure, há efetivamente dois firewalls. O primeiro firewall controla conexões entre a máquina virtual e o mundo externo. Esse firewall é controlado pelo elemento [Pontos de extremidade] no arquivo [ServiceDefinition.csdef].
+No Azure, há efetivamente dois firewalls. O primeiro firewall controla conexões entre a máquina virtual e o mundo externo. Esse firewall é controlado pelo elemento [EndPoints] no arquivo [ServiceDefinition.csdef].
 
 O segundo firewall controla conexões entre a máquina virtual e os processos dessa máquina virtual. Esse firewall pode ser controlada pela ferramenta de linha de comando `netsh advfirewall firewall`.
 
 O Azure cria regras de firewall para processos iniciados em suas funções. Por exemplo, quando você inicia um serviço ou um programa, o Azure cria automaticamente as regras de firewall necessárias para permitir que o serviço ser comunique com a Internet. No entanto, se você criar um serviço que é iniciado por um processo fora de sua função (como um serviço COM+ ou uma tarefa agendada do Windows), precisará criar manualmente uma regra de firewall para permitir o acesso a esse serviço. Essas regras de firewall podem ser criadas usando uma tarefa de inicialização.
 
-Uma tarefa de inicialização que cria uma regra de firewall deve ter um [executionContext][tarefa]**elevado**. Adicione a seguinte tarefa de inicialização ao arquivo [ServiceDefinition.csdef] .
+Uma tarefa de inicialização que cria uma regra de firewall deve ter um [executionContext][Task]**elevado**. Adicione a seguinte tarefa de inicialização ao arquivo [ServiceDefinition.csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -298,9 +298,9 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 ## <a name="run-in-the-emulator-or-cloud"></a>Executar no emulador ou na nuvem
 Você pode fazer com que sua tarefa de inicialização execute etapas diferentes quando estiver funcionando na nuvem em comparação a quando estiver no emulador de computação. Por exemplo, convém usar uma cópia atualizada dos dados SQL somente durante a execução no emulador. Ou você talvez queira fazer alguma otimização de desempenho para a nuvem que não seja necessária na execução no emulador.
 
-Essa capacidade de executar ações diferentes no emulador de computação e na nuvem pode ser obtida criando uma variável de ambiente no arquivo [ServiceDefinition.csdef]. Você testa então essa variável de ambiente para um valor em sua tarefa de inicialização.
+Essa capacidade de executar ações diferentes no emulador de computação e na nuvem pode ser obtida criando uma variável de ambiente no arquivo [Servicedefinition]. Você testa então essa variável de ambiente para um valor em sua tarefa de inicialização.
 
-Para criar a variável de ambiente, adicione o elemento [Variável]/[RoleInstanceValue] e crie um valor XPath de `/RoleEnvironment/Deployment/@emulated`. O valor da variável de ambiente **%ComputeEmulatorRunning%** é `true` na execução no emulador de computação e `false` na execução na nuvem.
+Para criar a variável ambiente, adicione o elemento [Variable]/[RoleInstanceValue] e crie um valor XPath de `/RoleEnvironment/Deployment/@emulated`. O valor da variável de ambiente **%ComputeEmulatorRunning%** é `true` na execução no emulador de computação e `false` na execução na nuvem.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -377,7 +377,7 @@ EXIT /B 0
 A seguir, algumas práticas recomendadas que você deve seguir ao configurar a tarefa para sua função Web ou de trabalho.
 
 ### <a name="always-log-startup-activities"></a>Sempre registrar em log as atividades de inicialização
-O Visual Studio não fornece um depurador para percorrer arquivos em lotes e, portanto, será bom ter tantos dados sobre a operação de arquivos em lotes quanto possível. O registro em log da saída de arquivos em lotes, **stdout** e **stderr**, pode fornecer informações importantes ao tentar depurar e corrigir arquivos em lotes. Para registrar em log **stdout** e **stderr** para o arquivo StartupLog.txt no diretório apontado pela variável de ambiente **%TEMP%** , adicione o texto `>>  "%TEMP%\\StartupLog.txt" 2>&1` ao final de linhas específicas que deseja registrar em log. Por exemplo, para executar setup.exe no diretório **%PathToApp1Install%** :
+O Visual Studio não fornece um depurador para percorrer arquivos em lotes e, portanto, será bom ter tantos dados sobre a operação de arquivos em lotes quanto possível. O registro em log da saída de arquivos em lotes, **stdout** e **stderr**, pode fornecer informações importantes ao tentar depurar e corrigir arquivos em lotes. Para registrar em log **stdout** e **stderr** para o arquivo StartupLog.txt no diretório apontado pela variável de ambiente **%TEMP%**, adicione o texto `>>  "%TEMP%\\StartupLog.txt" 2>&1` ao final de linhas específicas que deseja registrar em log. Por exemplo, para executar setup.exe no diretório **%PathToApp1Install%** :
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
@@ -466,12 +466,12 @@ Exemplo de saída no arquivo **Startuplog**:
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Definir executionContext adequadamente para tarefas de inicialização
 Definir privilégios adequadamente para a tarefa de inicialização. Às vezes, as tarefas de inicialização devem ser executadas com privilégios elevados, mesmo que a função seja executada com privilégios normais.
 
-A ferramenta de linha de comando [executionContext][tarefa] define o nível de privilégio da tarefa de inicialização. A utilização de `executionContext="limited"` significa que a tarefa de inicialização tem o mesmo nível de privilégio que a função. A utilização de `executionContext="elevated"` significa que a tarefa de inicialização tem privilégios de administrador, o que permite que a tarefa de inicialização execute tarefas de administrador sem conceder privilégios de administrador à sua função.
+A ferramenta de linha de comando [executionContext][Task] define o nível de privilégio da tarefa de inicialização. A utilização de `executionContext="limited"` significa que a tarefa de inicialização tem o mesmo nível de privilégio que a função. A utilização de `executionContext="elevated"` significa que a tarefa de inicialização tem privilégios de administrador, o que permite que a tarefa de inicialização execute tarefas de administrador sem conceder privilégios de administrador à sua função.
 
 Um exemplo de uma tarefa de inicialização que exija privilégios elevados é uma tarefa de inicialização que usa **AppCmd.exe** para configurar o IIS. **AppCmd.exe** requer `executionContext="elevated"`.
 
 ### <a name="use-the-appropriate-tasktype"></a>Usar o taskType adequado
-A ferramenta de linha de comando [taskType][tarefa] determina a maneira como a tarefa de inicialização é executada. Há três valores: **simples**, **segundo plano** e **primeiro plano**. As tarefas em primeiro e segundo plano são iniciadas de forma assíncrona e as tarefas simples são executadas de forma síncrona, uma de cada vez.
+A ferramenta de linha de comando [taskType][Task] determina a maneira como a tarefa de inicialização é executada. Há três valores: **simples**, **segundo plano** e **primeiro plano**. As tarefas em primeiro e segundo plano são iniciadas de forma assíncrona e as tarefas simples são executadas de forma síncrona, uma de cada vez.
 
 Com as tarefas de inicialização **simples**, você pode definir a ordem na qual as tarefas são executadas pela ordem na qual as tarefas são listadas no arquivo ServiceDefinition.csdef. Se uma tarefa **simples** terminar com um código de saída diferente de zero, o procedimento de inicialização será interrompido e a função não será iniciada.
 
@@ -506,12 +506,12 @@ Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md) .
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variável]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+[RoleInstanceValueInstância]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Pontos de extremidade]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
-[LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
+[Extremidade]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Localstorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+[RoleInstanceValueInstância]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
 
 

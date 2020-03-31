@@ -1,5 +1,5 @@
 ---
-title: Testar Azure Stream Analytics consultas localmente no Visual Studio
+title: Teste consultas do Azure Stream Analytics localmente no Visual Studio
 description: Este artigo descreve como testar as consultas localmente com as Ferramentas do Azure Stream Analytics para o Microsoft Visual Studio.
 author: su-jie
 ms.author: sujie
@@ -8,15 +8,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.openlocfilehash: 34c8555356d5c0142d7b677c8119fe66806ab064
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76834898"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Testar as consultas do Stream Analytics localmente com o Microsoft Visual Studio
 
-Você pode usar as ferramentas do Azure Stream Analytics para Visual Studio para testar seus trabalhos do Stream Analytics localmente com dados de exemplo ou [dados dinâmicos](stream-analytics-live-data-local-testing.md). 
+Você pode usar as ferramentas do Azure Stream Analytics para o Visual Studio para testar seus trabalhos de Stream Analytics localmente com dados de amostra ou [dados ao vivo](stream-analytics-live-data-local-testing.md). 
 
 Use este [Início Rápido](stream-analytics-quick-create-vs.md) para aprender a criar um trabalho de Stream Analytics usando o Visual Studio.
 
@@ -58,7 +58,7 @@ Verifique os resultados na pasta local.
    
 
 ### <a name="sample-input"></a>Entrada de exemplo
-Você também pode coletar a amostragem de dados de entrada de fontes de entrada para um arquivo local. Clique com o botão direito do mouse no arquivo de configuração de entrada e selecione **Dados de Exemplo**. 
+Você também pode coletar a amostragem de dados de entrada de fontes de entrada para um arquivo local. Clique com o botão direito do mouse no arquivo de configuração de entrada e selecione **Dados de amostra**. 
 
 ![Dados de Amostra](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
 
@@ -66,11 +66,11 @@ Você pode apenas realizar amostra de streaming de dados dos Hubs de Eventos ou 
 
 ![Configuração de dados de exemplo](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-02.png)
  
-Você pode ver o andamento na janela de **Saída**. 
+Você pode ver o progresso na janela **Saída.** 
 
 ![Saída de dados de exemplo](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-03.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Início Rápido: criar um trabalho do Stream Analytics usando o Microsoft Visual Studio](stream-analytics-quick-create-vs.md)
 * [Use o Microsoft Visual Studio para visualizar os trabalhos do Azure Stream Analytics](stream-analytics-vs-tools.md)

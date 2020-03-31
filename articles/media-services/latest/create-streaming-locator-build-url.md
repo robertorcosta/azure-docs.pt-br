@@ -1,6 +1,6 @@
 ---
-title: Criar um localizador de streaming e URLs de compilação-serviços de mídia do Azure
-description: Este artigo demonstra como criar um localizador de streaming e URLs de compilação.
+title: Crie um localizador de streaming e construa URLs - Azure Media Services
+description: Este artigo demonstra como criar um localizador de streaming e construir URLs.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,21 +12,21 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: 2972c60aa5874c21a6f7bce21020ad58b5f3b556
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78304557"
 ---
-# <a name="create-a-streaming-locator-and-build-urls"></a>Criar um localizador de streaming e URLs de compilação
+# <a name="create-a-streaming-locator-and-build-urls"></a>Crie um localizador de streaming e construa URLs
 
-Nos serviços de mídia do Azure, para criar uma URL de streaming, primeiro você precisa criar um [localizador de streaming](streaming-locators-concept.md). Em seguida, você concatena o nome do host do [ponto de extremidade de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) e o caminho do **localizador de streaming** . Neste exemplo, o **ponto de extremidade de streaming** *padrão* é usado. Quando você cria uma conta de serviço de mídia pela primeira vez, esse **ponto de extremidade de streaming** *padrão* estará em um estado parado, portanto, você precisa chamar **Iniciar** para iniciar streaming.
+No Azure Media Services, para criar uma URL de streaming, você precisa primeiro criar um [localizador de streaming](streaming-locators-concept.md). Em seguida, concatena o nome do host [do Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e o caminho **do Localizador de Streaming.** Neste exemplo, o *padrão do * **Ponto de Extremidade de Streaming** é usado. Quando você cria uma conta do Serviço de Mídia pela primeira vez, este **endpoint** de streaming *padrão* estará em um estado parado, então você precisa chamar **Start** para iniciar o streaming.
 
-Este artigo demonstra como criar um localizador de streaming e criar uma URL de streaming usando SDKs Java e .NET.
+Este artigo demonstra como criar um localizador de streaming e construir uma URL de streaming usando SDKs Java e .NET.
 
 ## <a name="prerequisite"></a>Pré-requisito 
 
-Visualizar [empacotamento dinâmico](dynamic-packaging-overview.md)
+Pré-visualização [de embalagem dinâmica](dynamic-packaging-overview.md)
 
 ## <a name="java"></a>Java
 
@@ -85,7 +85,7 @@ private static List<String> getStreamingUrls(MediaManager manager, String resour
 }
 ```
 
-Consulte o exemplo de código completo: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
+Veja a amostra completa do código: [CodificaçãoComMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
 
 ## <a name="net"></a>.NET
 
@@ -158,14 +158,14 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 }
 ```
 
-Consulte o exemplo de código completo: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
+Veja a amostra completa do código: [CodificaçãoComMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
-* [Criar filtros com .NET](filters-dynamic-manifest-dotnet-howto.md)
+* [Criar filtros com o .NET](filters-dynamic-manifest-dotnet-howto.md)
 * [Criar filtros com REST](filters-dynamic-manifest-rest-howto.md)
 * [Criar filtros com a CLI](filters-dynamic-manifest-cli-howto.md)
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 [Proteja seu conteúdo com DRM](protect-with-drm.md).

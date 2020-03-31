@@ -1,6 +1,6 @@
 ---
-title: Adicionar monitoramento & diagnóstico a uma máquina virtual do Azure
-description: Use um modelo de Azure Resource Manager para criar uma nova máquina virtual do Windows com a extensão de diagnóstico do Azure.
+title: Adicionar diagnósticos de & de monitoramento a uma máquina virtual do Azure
+description: Use um modelo do Azure Resource Manager para criar uma nova máquina virtual do Windows com a extensão de diagnósticos do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
@@ -16,10 +16,10 @@ ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2490c3de60e0deac6a1a4ddc5abc95cb46e240b2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073835"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usar monitoramento e diagnóstico com uma VM Windows e modelos do Azure Resource Manager
@@ -62,7 +62,7 @@ Para um Gerenciador de Recursos simples baseado em máquina virtual, adicione a 
 ]
 ```
 
-Outra prática comum é adicionar a configuração de extensão ao nó de recursos raiz do modelo, em vez de defini-la no nó de recursos da máquina virtual. Com essa abordagem, você deve especificar claramente uma relação hierárquica entre a extensão e a máquina virtual com os valores *name* e *type*. Por exemplo: 
+Outra prática comum é adicionar a configuração de extensão ao nó de recursos raiz do modelo, em vez de defini-la no nó de recursos da máquina virtual. Com essa abordagem, você deve especificar claramente uma relação hierárquica entre a extensão e a máquina virtual com os valores *name* e *type*. Por exemplo:  
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
@@ -176,7 +176,7 @@ Cada tabela WADMetrics inclui as seguintes colunas:
 * **Count**: o número total de valores relatados do contador de desempenho.
 * **Average**: o valor médio (total/contagem) do contador de desempenho durante o período de agregação.
 
-## <a name="next-steps"></a>Próximas Etapas
-* Para obter um modelo de exemplo completo de uma máquina virtual do Windows com extensão de diagnóstico, confira [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
+## <a name="next-steps"></a>Próximas etapas
+* Para obter um modelo de exemplo completo de uma máquina virtual do Windows com extensão de diagnóstico, consulte [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 * Implante o modelo do Azure Resource Manager usando o [Azure PowerShell](../windows/ps-template.md) ou a [Linha de Comando do Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* Saiba mais sobre a [Criação de modelos do Gerenciador de Recursos do Azure](../../resource-group-authoring-templates.md)
+* Saiba mais sobre [a autoria de modelos do Azure Resource Manager](../../resource-group-authoring-templates.md)

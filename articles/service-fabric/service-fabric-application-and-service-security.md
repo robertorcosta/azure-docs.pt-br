@@ -1,13 +1,13 @@
 ---
-title: Saiba mais sobre a segurança do aplicativo Service Fabric do Azure
+title: Saiba mais sobre a segurança do aplicativo Azure Service Fabric
 description: Uma visão geral de como executar com segurança aplicativos de microsserviço no Service Fabric. Saiba como executar um script de inicialização e serviços em diferentes contas de segurança, autenticar e autorizar usuários, gerenciar segredos de aplicativo, proteger as comunicações de serviço, usar um gateway de API e proteger dados em repouso de aplicativos.
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.openlocfilehash: 6c40bf66d1068310790d1440174eeb5b2a571154
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75452248"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Segurança de serviço e aplicativo do Service Fabric
@@ -25,7 +25,7 @@ A primeira etapa para tomar decisões de confiança de nível de API é a autent
 
 Se os serviços puderem ser acessados diretamente, um serviço de autenticação, como o Azure Active Directory ou um microsserviço de autenticação dedicado atuando como um serviço de token de segurança (STS), poderá ser usado para autenticar os usuários. As decisões de confiança são compartilhadas entre os serviços com tokens de segurança ou cookies. 
 
-Para o ASP.NET Core, o mecanismo principal para [autenticar usuários](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) é o sistema de associação da Identidade do ASP.NET Core. A Identidade do ASP.NET Core armazena informações de usuário (incluindo informações de logon, funções e declarações) em um repositório de dados configurado pelo desenvolvedor. A Identidade do ASP.NET Core dá suporte à autenticação de dois fatores.  Os provedores de autenticação externa também têm suporte, para que os usuários possam entrar usando os processos de autenticação existentes de provedores como Microsoft, Google, Facebook ou Twitter.
+Para o ASP.NET Core, o mecanismo principal para [autenticar usuários](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) é o sistema de associação da Identidade do ASP.NET Core. A Identidade do ASP.NET Core armazena informações de usuário (incluindo informações de logon, funções e declarações) em um repositório de dados configurado pelo desenvolvedor. A Identidade do ASP.NET Core dá suporte à autenticação de dois fatores.  Os provedores de autenticação externotambém são suportados, para que os usuários possam entrar usando processos de autenticação existentes de provedores como Microsoft, Google, Facebook ou Twitter.
 
 ### <a name="authorization"></a>Autorização
 Após a autenticação, os serviços precisam autorizar o acesso do usuário ou determinar o que um usuário é capaz de fazer. Esse processo permite que um serviço disponibilize APIs para alguns usuários autenticados, mas não para todos. A autorização é ortogonal e independente de autenticação, que é o processo de verificação de quem é um usuário. A autenticação pode criar uma ou mais identidades para o usuário atual.
@@ -40,9 +40,9 @@ No Service Fabric, um gateway pode ser qualquer serviço sem estado, como um [ap
 O Gerenciamento de API integra-se diretamente com o Service Fabric, permitindo que APIs sejam publicadas com um conjunto de regras de roteamento avançado para serviços de back-end do Service Fabric .  Você pode proteger o acesso a serviços de back-end, evitar ataques de DOS usando limitação ou verificar chaves de API, tokens de JWT, certificados e outras credenciais. Para saber mais, leia [Service Fabric com visão geral de Gerenciamento de API do Azure](service-fabric-api-management-overview.md).
 
 ## <a name="manage-application-secrets"></a>Gerenciar segredos do aplicativo
-Os segredos podem ser informações confidenciais, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser tratados como texto sem formatação. Este artigo usa o Azure Key Vault para gerenciar chaves e segredos. No entanto, o *uso* de segredos em um aplicativo é independente de plataforma de nuvem para permitir que os aplicativos sejam implantados em um cluster hospedado em qualquer lugar.
+Os segredos podem ser informações confidenciais, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser tratados como texto sem formatação. Este artigo usa o Azure Key Vault para gerenciar chaves e segredos. No entanto, *o uso de* segredos em um aplicativo é agnóstico em nuvem para permitir que os aplicativos sejam implantados em um cluster hospedado em qualquer lugar.
 
-A maneira recomendada para gerenciar definições de configuração de serviço é por meio de [pacotes de configuração de serviço][config-package]. Os pacotes de configuração são atualizáveis e têm controle de versão por meio de atualizações sem interrupção gerenciadas com reversão automática e validação de integridade. Isso é preferível à configuração global, pois reduz as chances de uma interrupção de serviços globais. Segredos criptografados não são exceção. O Service Fabric tem recursos internos para criptografar e descriptografar valores em um arquivo Settings.XML do pacote de configuração usando a criptografia de certificado.
+A maneira recomendada de gerenciar as definições de configuração de serviço é por meio de [pacotes de configuração de serviço][config-package]. Os pacotes de configuração são atualizáveis e têm controle de versão por meio de atualizações sem interrupção gerenciadas com reversão automática e validação de integridade. Isso é preferível à configuração global, pois reduz as chances de uma interrupção de serviços globais. Segredos criptografados não são exceção. O Service Fabric tem recursos internos para criptografar e descriptografar valores em um arquivo Settings.XML do pacote de configuração usando a criptografia de certificado.
 
 O diagrama a seguir ilustra o fluxo básico para gerenciamento de segredos em um aplicativo do Service Fabric:
 
@@ -55,7 +55,7 @@ Há quatro etapas principais nesse fluxo:
 3. Criptografe valores do segredo ao implantar um aplicativo com o certificado e coloque-os no arquivo de configuração Settings.xml de um serviço.
 4. Leia os valores criptografados de Settings.xml ao descriptografar com o mesmo certificado de codificação. 
 
-[Azure Key Vault][key-vault-get-started] é usado aqui como um local de armazenamento seguro para certificados e como uma maneira de obter certificados instalados em clusters Service Fabric no Azure. Se não estiver implantando no Azure, você não precisará usar o cofre de chaves para gerenciar segredos em aplicativos do Service Fabric.
+O [Azure Key Vault][key-vault-get-started] é usado aqui como um local de armazenamento seguro para certificados e como uma maneira de obter certificados instalados em clusters do Service Fabric no Azure. Se não estiver implantando no Azure, você não precisará usar o cofre de chaves para gerenciar segredos em aplicativos do Service Fabric.
 
 Para obter um exemplo, veja [Gerenciar segredos do aplicativo](service-fabric-application-secret-management.md).
 
@@ -92,7 +92,7 @@ TO DO: Encrypt disks on Linux clusters?-->
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Executar um script de configuração na inicialização do serviço](service-fabric-run-script-at-service-startup.md)
 * [Especificar recursos em um manifesto do serviço](service-fabric-service-manifest-resources.md)
 * [Implantar um aplicativo](service-fabric-deploy-remove-applications.md)
