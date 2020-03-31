@@ -1,6 +1,6 @@
 ---
-title: Adicionar um conta Microsoft pessoal ao aplicativo Microsoft Authenticator-Azure AD
-description: Adicione contas pessoais da Microsoft, como para Outlook.com ou Xbox LIVE ao aplicativo Microsoft Authenticator para verificar sua identidade ao usar a verificação de dois fatores.
+title: Adicione uma conta microsoft pessoal ao aplicativo Microsoft Authenticator - Azure AD
+description: Adicione contas pessoais da Microsoft, como para Outlook.com ou Xbox LIVE ao aplicativo Microsoft Authenticator para verificar sua identidade enquanto usa a verificação de dois fatores.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,13 +12,13 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 289c00e28fd82b78b321732628ff85d22c64cabf
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062295"
 ---
-# <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Adicionar contas pessoais da Microsoft ao aplicativo Microsoft Authenticator
+# <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Adicione contas pessoais da Microsoft ao aplicativo Microsoft Authenticator
 
 Adicione suas contas Microsoft pessoais, tais como para o Outlook.com ou o Xbox LIVE, ao aplicativo Microsoft Authenticator para verificação de dois fatores e o método de entrada por celular sem senha.
 
@@ -69,6 +69,6 @@ Você pode adicionar sua conta Microsoft pessoal ativando primeiro a verificaç�
 
 - Depois de adicionar as contas ao aplicativo, você poderá entrar usando o aplicativo Authenticator em seu dispositivo. Para obter mais informações, confira [Entrar usando o aplicativo](user-help-auth-app-sign-in.md).
 
-- Se você estiver tendo problemas para obter seu código de verificação para seu conta Microsoft pessoal, consulte a seção **Solucionando** problemas de código de verificação do artigo [conta Microsoft informações de segurança & códigos de verificação](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) .
+- Se você estiver tendo problemas para obter seu código de verificação para sua conta microsoft pessoal, consulte a seção Problemas de código de verificação de **problemas** do artigo [de informações de segurança da conta da Microsoft & códigos de verificação.](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)
 
 - Para dispositivos que executam o iOS, você também pode fazer backup das credenciais da sua conta e das configurações de aplicativos relacionadas, tais como a ordem de suas contas, na nuvem. Para obter mais informações, confira [Fazer backup e recuperar informações com o aplicativo Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

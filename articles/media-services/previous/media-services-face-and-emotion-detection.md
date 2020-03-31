@@ -16,16 +16,16 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.openlocfilehash: 2d746167f993438e5fce467365844df2078c08a6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919283"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detectar a face e a emoção com o Azure Media Analytics
 
 > [!NOTE]
-> O processador de mídia **Azure Media face detector** será desativado. Para a data de aposentadoria, consulte o tópico [componentes herdados](legacy-components.md) .
+> O processador de mídia **Azure Media Face Detector** será aposentado. Para a data de aposentadoria, consulte o tópico [componentes legados.](legacy-components.md)
 
 ## <a name="overview"></a>Visão geral
 
@@ -55,7 +55,7 @@ A API de detecção e acompanhamento facial fornece detecção e acompanhamento 
 
 As faces detectadas e acompanhadas retornam com coordenadas (esquerda, superior, largura e altura) que indicam o local das faces na imagem em pixels, bem como um número de identificação da face indicando o acompanhamento dessa pessoa. Os números de identificação de face estão sujeitos à redefinição em circunstâncias nas quais a face frontal é perdida ou sobreposta no quadro, resultando na atribuição de várias IDs às mesmas pessoas.
 
-## <a id="output_elements"></a>Elementos do arquivo JSON de saída
+## <a name="elements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos do arquivo JSON de saída
 
 [!INCLUDE [media-services-analytics-output-json](../../../includes/media-services-analytics-output-json.md)]
 
@@ -83,7 +83,7 @@ Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especifi
 #### <a name="attribute-descriptions"></a>Descrições de atributos
 | Nome do atributo | Descrição |
 | --- | --- |
-| Modo |Mais rápido: maior velocidade de processamento, mas menos precisão (padrão).|
+| Mode |Mais rápido: maior velocidade de processamento, mas menos precisão (padrão).|
 
 ### <a name="json-output"></a>Saída em JSON
 O exemplo de saída JSON a seguir foi truncado.
@@ -158,7 +158,7 @@ Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especifi
 #### <a name="attribute-descriptions"></a>Descrições de atributos
 | Nome do atributo | Descrição |
 | --- | --- |
-| Modo |Faces: somente detecção facial.<br/>PerFaceEmotion: retornar emoção independentemente de cada detecção facial.<br/>AggregateEmotion: retorna uma média dos valores de emoção para todas as faces no quadro. |
+| Mode |Faces: somente detecção facial.<br/>PerFaceEmotion: retornar emoção independentemente de cada detecção facial.<br/>AggregateEmotion: retorna uma média dos valores de emoção para todas as faces no quadro. |
 | AggregateEmotionWindowMs |Use se o modo AggregateEmotion for selecionado. Especifica a duração do vídeo usado para produzir cada resultado da agregação, em milissegundos. |
 | AggregateEmotionIntervalMs |Use se o modo AggregateEmotion for selecionado. Especifica com que frequência deve-se produzir resultados agregados. |
 
@@ -348,9 +348,9 @@ O programa a seguir mostra como:
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
+Configure seu ambiente de desenvolvimento e preencha o arquivo app.config com informações de conexão, conforme descrito no [desenvolvimento do Media Services com .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>{1&gt;Exemplo&lt;1}
+#### <a name="example"></a>Exemplo
 
 ```csharp
 using System;

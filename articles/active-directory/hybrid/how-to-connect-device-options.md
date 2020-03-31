@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 96ddcdb67ef079cfa23902a1dcb03b0ec61077fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109537"
 ---
-# <a name="azure-ad-connect-device-options"></a>Azure AD Connect: Opções do dispositivo
+# <a name="azure-ad-connect-device-options"></a>Do Azure AD Connect: opções de dispositivo
 
 A documentação a seguir fornece informações sobre as várias opções de dispositivo disponíveis no Azure AD Connect. Você pode usar o Azure AD Connect para configurar as duas operações a seguir: 
-* **Ingresso no Azure AD Híbrido**: se o ambiente tiver um volume de memória do AD local e você quiser os benefícios do Azure AD, você poderá implementar dispositivos ingressados ao Azure AD híbrido. Esses dispositivos são ingressados ao Active Directory local e ao Azure Active Directory.
-* **Write-back de dispositivo**: Write-back de dispositivo é usado para habilitar o acesso condicional com base em dispositivos para o AD FS (2012 R2 ou superior) dispositivos protegidos
+* **Ingresso no Azure AD híbrido**: se o ambiente tiver um volume de memória do AD local e você quiser os benefícios do Azure AD, poderá implementar dispositivos ingressados ao Azure AD híbrido. Esses dispositivos são ingressados ao Active Directory local e ao Azure Active Directory.
+* **Regravação do dispositivo**: A regravação do dispositivo é usada para permitir o acesso condicional com base em dispositivos protegidos a AD FS (2012 R2 ou superior)
 
 ## <a name="configure-device-options-in-azure-ad-connect"></a>Opções de logon único do usuário no Azure AD Connect
 
@@ -45,6 +45,6 @@ A documentação a seguir fornece informações sobre as várias opções de dis
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configurar associação Híbrida do Microsoft Azure Active Directory](../device-management-hybrid-azuread-joined-devices-setup.md)
+* [Configure a adesão do Azure Híbrido AD](../device-management-hybrid-azuread-joined-devices-setup.md)
 * [Configurar/desativar o write-back do dispositivo](how-to-connect-device-writeback.md)
 

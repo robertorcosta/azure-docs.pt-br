@@ -1,6 +1,6 @@
 ---
 title: Executar trabalhos do Apache Sqoop usando o PowerShell e o Azure HDInsight
-description: Saiba como usar Azure PowerShell de uma estação de trabalho para executar a importação e exportação do Apache Sqoop entre um cluster Apache Hadoop e um banco de dados SQL do Azure.
+description: Aprenda a usar o Azure PowerShell de uma estação de trabalho para executar a importação e exportação do Apache Sqoop entre um cluster Apache Hadoop e um Banco de Dados SQL do Azure.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,31 +9,31 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/10/2020
 ms.openlocfilehash: f39b595adf249b7412cb9b6b48f86b6fbd2c5e1d
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263397"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Saiba como executar trabalhos do Apache Sqoop usando o Azure PowerShell para Apache Hadoop no HDInsight
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Saiba como usar Azure PowerShell para executar trabalhos do Apache Sqoop no Azure HDInsight para importar e exportar dados entre um cluster HDInsight e um banco de dados SQL do Azure ou SQL Server  Este artigo é uma continuação do [uso do Apache Sqoop com Hadoop no HDInsight](./hdinsight-use-sqoop.md).
+Aprenda a usar o Azure PowerShell para executar trabalhos do Apache Sqoop no Azure HDInsight para importar e exportar dados entre um cluster HDInsight e um banco de dados SQL Ou SQL Server do Azure.  Este artigo é uma continuação de [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma estação de trabalho com Azure PowerShell [módulo AZ](https://docs.microsoft.com/powershell/azure/overview) instalado.
+* Uma estação de trabalho com o [Módulo Azure](https://docs.microsoft.com/powershell/azure/overview) PowerShell AZ instalado.
 
-* Conclusão da [configuração do ambiente de teste](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) de [usar o Apache Sqoop com o Hadoop no HDInsight](./hdinsight-use-sqoop.md).
+* Conclusão do ambiente de [teste configurar](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) do Uso [apache Sqoop com Hadoop no HDInsight](./hdinsight-use-sqoop.md).
 
-* Familiaridade com o Sqoop. Para obter mais informações, consulte [Guia do usuário do Sqoop](https://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html).
+* Familiaridade com Sqoop. Para obter mais informações, consulte [o Guia do Usuário sqoop](https://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html).
 
 ## <a name="sqoop-export"></a>Exportação do Sqoop
 
-De Hive para SQL Server.
+Da Colmeia ao SQL Server.
 
-Este exemplo exporta dados da tabela `hivesampletable` do hive para a tabela `mobiledata` no banco de dados SQL. Defina os valores para as variáveis abaixo e execute o comando.
+Este exemplo exporta dados `hivesampletable` da `mobiledata` tabela Colmeia para a tabela no Banco de Dados SQL. Defina os valores para as variáveis abaixo e execute o comando.
 
 ```powershell
 $hdinsightClusterName = ""
@@ -62,7 +62,7 @@ New-AzHDInsightSqoopJobDefinition `
 
 ### <a name="alternative-execution"></a>Execução alternativa
 
-1. O código a seguir executa a mesma exportação; no entanto, ele fornece uma maneira de ler os logs de saída. Execute o código para iniciar a exportação.
+1. O código abaixo realiza a mesma exportação; no entanto, ele fornece uma maneira de ler os logs de saída. Execute o código para iniciar a exportação.
 
     ```powershell
     $sqoopCommand = "export --connect $connectionString --table mobiledata --hcatalog-table hivesampletable"
@@ -76,7 +76,7 @@ New-AzHDInsightSqoopJobDefinition `
                     -JobDefinition $sqoopDef
     ```
 
-1. O código a seguir exibe os logs de saída. Execute o código abaixo:
+1. O código abaixo exibe os registros de saída. Execute o código abaixo:
 
     ```powershell
     Get-AzHDInsightJobOutput `
@@ -92,11 +92,11 @@ New-AzHDInsightSqoopJobDefinition `
         -DisplayOutputType StandardOutput
     ```
 
-Se você receber a mensagem de erro, `The specified blob does not exist.`, tente novamente depois de alguns minutos.
+Se você receber a `The specified blob does not exist.`mensagem de erro, tente novamente após alguns minutos.
 
 ## <a name="sqoop-import"></a>Importação do Sqoop
 
-De SQL Server para o armazenamento do Azure. Este exemplo importa dados da tabela `mobiledata` no banco de dados SQL, para o diretório `wasb:///tutorials/usesqoop/importeddata` no HDInsight. Os campos nos dados que são separados por um caractere de tabulação, e as linhas serão encerradas por um caractere de nova linha. Este exemplo pressupõe que você concluiu o exemplo anterior.
+Do SQL Server ao Armazenamento Azure. Este exemplo importa `mobiledata` dados da tabela no Banco `wasb:///tutorials/usesqoop/importeddata` de Dados SQL para o diretório no HDInsight. Os campos nos dados que são separados por um caractere de tabulação, e as linhas serão encerradas por um caractere de nova linha. Este exemplo pressupõe que você tenha completado o exemplo anterior.
 
 ```powershell
 $sqoopCommand = "import --connect $connectionString --table mobiledata --target-dir wasb:///tutorials/usesqoop/importeddata --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1"
@@ -124,11 +124,11 @@ Get-AzHDInsightJobOutput `
 
 ```
 
-## <a name="additional-sqoop-export-example"></a>Exemplo de exportação Sqoop adicional
+## <a name="additional-sqoop-export-example"></a>Exemplo adicional de exportação de Sqoop
 
-Este é um exemplo robusto que exporta dados de `/tutorials/usesqoop/data/sample.log` da conta de armazenamento padrão e, em seguida, importa-os para uma tabela chamada `log4jlogs` em um banco de dados SQL Server. Este exemplo não depende dos exemplos anteriores.
+Este é um exemplo robusto `/tutorials/usesqoop/data/sample.log` de que exporta dados da conta `log4jlogs` de armazenamento padrão e, em seguida, importa-os para uma tabela chamada em um banco de dados SQL Server. Este exemplo não depende dos exemplos anteriores.
 
-O seguinte script do PowerShell processa previamente o arquivo de origem e, em seguida, exporta-o para um banco de dados SQL do Azure para a tabela `log4jlogs`. Substitua `CLUSTERNAME`, `CLUSTERPASSWORD`e `SQLPASSWORD` pelos valores que você usou do pré-requisito.
+O script powerShell a seguir préprocessa o arquivo de origem e, `log4jlogs`em seguida, exporta-o para um Banco de Dados SQL do Azure para tabela . Substituir `CLUSTERNAME` `CLUSTERPASSWORD`, `SQLPASSWORD` e com os valores que você usou a partir do pré-requisito.
 
 ```powershell
 <#------ BEGIN USER INPUT ------#>
@@ -271,13 +271,13 @@ Get-AzHDInsightJobOutput `
 
 O HDInsight baseado em Linux tem as seguintes limitações:
 
-* Exportação em massa: o conector do Sqoop que é usado para exportar dados para Microsoft SQL Server ou o Azure SQL Database atualmente não dá suporte a inserções em massa.
+* Exportação em massa: O conector Sqoop usado para exportar dados para o Microsoft SQL Server ou O Banco de Dados SQL do Azure não suporta atualmente inserções em massa.
 
 * Envio em lote: ao usar o comutador `-batch` para executar inserções, o Sqoop realizará várias inserções em vez de enviar em lote as operações de inserção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Agora você aprendeu a usar o Sqoop. Para obter mais informações, consulte:
+Agora você aprendeu a usar Sqoop. Para obter mais informações, consulte:
 
-* [Usar o Apache Oozie com o HDInsight](../hdinsight-use-oozie-linux-mac.md): Use a ação Sqoop em um fluxo de trabalho Oozie.
+* [Use o Apache Oozie com HDInsight](../hdinsight-use-oozie-linux-mac.md): Use a ação Sqoop em um fluxo de trabalho Oozie.
 * [Carregar dados no HDInsight](../hdinsight-upload-data.md): localize outros métodos de carregamento de dados no HDInsight ou no Armazenamento de Blobs do Azure.

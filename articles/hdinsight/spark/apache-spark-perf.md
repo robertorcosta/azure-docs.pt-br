@@ -1,6 +1,6 @@
 ---
 title: Otimizar os trabalhos do Spark para desempenho – Microsoft Azure HDInsight
-description: Mostre estratégias comuns para o melhor desempenho de clusters de Apache Spark no Azure HDInsight.
+description: Mostre estratégias comuns para o melhor desempenho dos clusters Apache Spark no Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.openlocfilehash: 3d8f4a28961be7e0ece517e00026d9711d8f67e9
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198864"
 ---
-# <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Otimizar Apache Spark trabalhos no HDInsight
+# <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Otimizar os trabalhos do Apache Spark no HDInsight
 
-Saiba como otimizar a configuração de cluster do [Apache Spark](https://spark.apache.org/) para a carga de trabalho específica.  O desafio mais comum é a pressão de memória, devido a configurações incorretas (especialmente executores de tamanho errado), operações de execução longa e tarefas que resultam em operações cartesianas. É possível acelerar os trabalhos com o armazenamento em cache apropriado e permitir [distorção de dados](#optimize-joins-and-shuffles). Para obter o melhor desempenho, monitore e revise as execuções de trabalho do Spark de execução longa e consumo de recursos. Para obter informações sobre como começar a usar o Apache Spark no HDInsight, consulte [criar Apache Spark cluster usando portal do Azure](apache-spark-jupyter-spark-sql-use-portal.md).
+Saiba como otimizar a configuração de cluster do [Apache Spark](https://spark.apache.org/) para a carga de trabalho específica.  O desafio mais comum é a pressão de memória, devido a configurações inadequadas (particularmente executores de tamanho errado), operações de longa duração e tarefas que resultam em operações cartesianas. É possível acelerar os trabalhos com o armazenamento em cache apropriado e permitir [distorção de dados](#optimize-joins-and-shuffles). Para obter o melhor desempenho, monitore e revise as execuções de trabalho do Spark de execução longa e consumo de recursos. Para obter informações sobre como começar com o Apache Spark no HDInsight, consulte [Criar o cluster Apache Spark usando o portal Azure](apache-spark-jupyter-spark-sql-use-portal.md).
 
 As seções a seguir descrevem as recomendações e otimizações de trabalho do Spark comuns.
 
 ## <a name="choose-the-data-abstraction"></a>Escolha a abstração de dados
 
-As versões anteriores do Spark usam RDDs para abstrair dados, Spark 1,3 e 1,6 introduziu dataframes e DataSets, respectivamente. Considere os seguintes méritos relativos:
+As versões anteriores do Spark usam RDDs para dados abstratos, o Spark 1.3 e o 1.6 introduziram DataFrames e DataSets, respectivamente. Considere os seguintes méritos relativos:
 
 * **DataFrames**
     * Melhor escolha na maioria das situações.
@@ -32,7 +32,7 @@ As versões anteriores do Spark usam RDDs para abstrair dados, Spark 1,3 e 1,6 i
     * Acesso direto à memória.
     * Baixa sobrecarga de coleta de lixo (GC).
     * Não é tão amigável para desenvolvedores como os Conjuntos de Dados, pois não há verificações de tempo de compilação ou programação de objeto de domínio.
-* **Conjuntos de Dados**
+* **Datasets**
     * Bom em pipelines ETL complexos, onde o impacto no desempenho é aceitável.
     * Não é bom em agregações onde o impacto no desempenho pode ser considerável.
     * Fornece otimização de consulta através do Catalyst.
@@ -41,7 +41,7 @@ As versões anteriores do Spark usam RDDs para abstrair dados, Spark 1,3 e 1,6 i
     * Alta sobrecarga de GC.
     * Interrompe a geração de código em estágio inteiro.
 * **RDDs**
-    * Você não precisa usar o RDDs, a menos que precise criar um novo RDD personalizado.
+    * Você não precisa usar RDDs, a menos que você precise construir um novo RDD personalizado.
     * Nenhuma otimização de consulta através do Catalyst.
     * Nenhuma geração de código em estágio inteiro.
     * Alta sobrecarga de GC.
@@ -55,28 +55,28 @@ O melhor formato para desempenho é parquet com *compactação snappy*, que é o
 
 ## <a name="select-default-storage"></a>Selecionar o armazenamento padrão
 
-Ao criar um novo cluster Spark, você pode selecionar o armazenamento de BLOBs do Azure ou Azure Data Lake Storage como o armazenamento padrão do cluster. Ambas as opções oferecem o benefício do armazenamento de longo prazo para clusters transitórios, para que seus dados não sejam excluídos automaticamente quando você excluir o cluster. É possível recriar um cluster transitório e ainda acessar seus dados.
+Ao criar um novo cluster Spark, você pode selecionar o Azure Blob Storage ou o Azure Data Lake Storage como o armazenamento padrão do seu cluster. Ambas as opções lhe dão o benefício do armazenamento a longo prazo para clusters transitórios, para que seus dados não sejam excluídos automaticamente quando você exclui seu cluster. É possível recriar um cluster transitório e ainda acessar seus dados.
 
 | Tipo de Armazenamento | Sistema de Arquivos | Velocidade | Transitório | Casos de uso |
 | --- | --- | --- | --- | --- |
-| Armazenamento do Blobs do Azure | **wasb:** //url/ | **Standard** | Sim | Cluster transitório |
-| Armazenamento de BLOBs do Azure (seguro) | **wasbs:** //URL/ | **Standard** | Sim | Cluster transitório |
-| Azure Data Lake Storage Gen 2| **abfs:** //URL/ | **Mais rápido** | Sim | Cluster transitório |
-| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Mais rápido** | Sim | Cluster transitório |
-| HDFS local | **hdfs:** //url/ | **Mais rápida** | Não | Cluster interativo 24/7 |
+| Armazenamento do Blobs do Azure | **wasb:**//url/ | **Standard** | Sim | Cluster transitório |
+| Armazenamento Azure Blob (seguro) | **wasbs:**//url/ | **Standard** | Sim | Cluster transitório |
+| Azure Data Lake Storage Gen 2| **abfs:**//url/ | **Mais rápido** | Sim | Cluster transitório |
+| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Mais rápido** | Sim | Cluster transitório |
+| HDFS local | **hdfs:**//url/ | **Mais rápida** | Não | Cluster interativo 24/7 |
 
-Para obter uma descrição completa das opções de armazenamento disponíveis para clusters HDInsight, consulte [comparar as opções de armazenamento para uso com clusters do Azure hdinsight](../hdinsight-hadoop-compare-storage-options.md).
+Para obter uma descrição completa das opções de armazenamento disponíveis para clusters HDInsight, consulte [Comparar opções de armazenamento para uso com clusters Azure HDInsight](../hdinsight-hadoop-compare-storage-options.md).
 
 ## <a name="use-the-cache"></a>Usar o cache
 
-O Spark fornece os próprios mecanismos de cache nativo que podem ser utilizados através de diferentes métodos, como `.persist()`, `.cache()` e `CACHE TABLE`. Esse cache nativo é efetivo com pequenos conjuntos de dados, bem como em pipelines ETL, onde é necessário armazenar em cache resultados intermediários. No entanto, o cache nativo do Spark atualmente não funciona bem com o particionamento, uma vez que uma tabela armazenada em cache não mantém os dados de particionamento. Uma técnica de cache mais genérica e confiável é o *cache de camada de armazenamento*.
+O Spark fornece os próprios mecanismos de cache nativo que podem ser utilizados através de diferentes métodos, como `.persist()`, `.cache()` e `CACHE TABLE`. Esse cache nativo é efetivo com pequenos conjuntos de dados, bem como em pipelines ETL, onde é necessário armazenar em cache resultados intermediários. No entanto, o cache nativo spark atualmente não funciona bem com particionamento, uma vez que uma tabela em cache não mantém os dados de particionamento. Uma técnica de cache mais genérica e confiável é o *cache de camada de armazenamento*.
 
 * Cache do Spark Nativo (não recomendado)
     * Bom para pequenos conjuntos de dados.
-    * Não funciona com particionamento, o que pode ser alterado em versões futuras do Spark.
+    * Não funciona com particionamento, o que pode mudar em futuras versões do Spark.
 
 * Cache de nível de armazenamento (recomendado)
-    * Pode ser implementado no HDInsight usando o recurso de [cache de e/s](apache-spark-improve-performance-iocache.md) .
+    * Pode ser implementado no HDInsight usando o recurso [Cache IO.](apache-spark-improve-performance-iocache.md)
     * Usa cache SSD e em memória.
 
 * HDFS local (recomendado)
@@ -97,7 +97,7 @@ Para sua referência, a estrutura da memória do Spark e alguns parâmetros da m
 
 ### <a name="spark-memory-considerations"></a>Considerações de memória do Spark
 
-Se você estiver usando [Apache HADOOP yarn](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), yarn controlará a soma máxima da memória usada por todos os contêineres em cada nó do Spark.  O diagrama a seguir mostra os objetos de chave e os respectivos relacionamentos.
+Se você estiver usando [o Apache Hadoop YARN,](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)então o YARN controla a soma máxima da memória usada por todos os recipientes em cada nó spark.  O diagrama a seguir mostra os objetos de chave e os respectivos relacionamentos.
 
 ![Gerenciamento de memória YARN do Spark](./media/apache-spark-perf/apache-yarn-spark-memory.png)
 
@@ -109,14 +109,14 @@ Para endereçar mensagens de "memória insuficiente", tente:
 * Aproveitar os Conjuntos de Dados em vez dos objetos RDD de nível inferior.
 * Criar ComplexTypes que encapsulam ações, como "Top N", várias agregações ou operações de janelas.
 
-Para obter etapas de solução de problemas adicionais, consulte [OutOfMemoryError Exceptions for Apache Spark no Azure HDInsight](apache-spark-troubleshoot-outofmemory.md).
+Para obter etapas adicionais de solução de [problemas, consulte exceções outofmemoryerror para Apache Spark no Azure HDInsight](apache-spark-troubleshoot-outofmemory.md).
 
 ## <a name="optimize-data-serialization"></a>Otimizar a serialização de dados
 
 Os trabalhos do Spark são distribuídos, por isso a serialização de dados apropriada é importante para obter o melhor desempenho.  Há duas opções de serialização para Spark:
 
 * A serialização Java é o padrão.
-* A serialização Kryo é um formato mais recente e pode resultar em serialização mais rápida e compacta do que Java.  O kryo exige que você registre as classes em seu programa e ainda não oferece suporte a todos os tipos serializáveis.
+* A serialização Kryo é um formato mais recente e pode resultar em serialização mais rápida e compacta do que Java.  Kryo exige que você registre as aulas em seu programa, e ele ainda não suporta todos os tipos serializáveis.
 
 ## <a name="use-bucketing"></a>Usar bucketing
 
@@ -132,7 +132,7 @@ Alguns recursos de bucket avançados são:
 
 ## <a name="optimize-joins-and-shuffles"></a>Ordens aleatórias e junções otimizadas
 
-Se houver trabalhos lentos em uma Junção ou Ordem Aleatória, provavelmente a causa será a *distorção de dados*, que é a assimetria nos dados de trabalho. Por exemplo, um trabalho de mapa pode levar 20 segundos, mas executar um trabalho onde os dados são unidos ou em ordem aleatória leva horas. Para corrigir a distorção de dados, será necessário usar salt da chave inteira ou um *salt isolado* para apenas um subconjunto de chaves. Se você estiver usando um Salt isolado, deverá filtrar ainda mais para isolar seu subconjunto de chaves com Salt em junções de mapa. Outra opção é primeiro introduzir uma coluna de bucket e pré-agregado em buckets.
+Se houver trabalhos lentos em uma Junção ou Ordem Aleatória, provavelmente a causa será a *distorção de dados*, que é a assimetria nos dados de trabalho. Por exemplo, um trabalho de mapa pode levar 20 segundos, mas executar um trabalho onde os dados são unidos ou em ordem aleatória leva horas. Para corrigir a distorção de dados, será necessário usar salt da chave inteira ou um *salt isolado* para apenas um subconjunto de chaves. Se você estiver usando um sal isolado, você deve filtrar ainda mais para isolar seu subconjunto de chaves salgadas nas junções do mapa. Outra opção é primeiro introduzir uma coluna de bucket e pré-agregado em buckets.
 
 Outro fator que causa junções lentas pode ser o tipo de junção. Por padrão, o Spark usa o tipo de junção `SortMerge`. Este tipo de junção é mais adequado para conjuntos de dados grandes, mas, de outra forma, é computacionalmente caro porque primeiro deve classificar os lados esquerdo e direito dos dados antes de mesclá-los.
 
@@ -153,11 +153,11 @@ df1.join(broadcast(df2), Seq("PK")).
 sql("SELECT col1, col2 FROM V_JOIN")
 ```
 
-Se você estiver usando tabelas segmentadas, terá um terceiro tipo de junção, a `Merge` join. Um conjunto de dados corretamente pré-particionado e pré-classificado ignorará a fase de classificação cara de uma junção `SortMerge`.
+Se você está usando mesas baldeed, então você `Merge` tem um terceiro tipo de adesão, a juntar. Um conjunto de dados corretamente pré-particionado e pré-classificado ignorará a fase de classificação cara de uma junção `SortMerge`.
 
 A ordem de questões de junção, particularmente em consultas mais complexas. Inicie com as junções mais seletivas. Além disso, mova junções que aumentam o número de linhas após as agregações, quando possível.
 
-Para gerenciar o paralelismo para junções cartesianas, você pode adicionar estruturas aninhadas, janelas e, talvez, ignorar uma ou mais etapas em seu trabalho do Spark.
+Para gerenciar o paralelismo para as junções cartesianas, você pode adicionar estruturas aninhadas, janelas e talvez pular um ou mais passos em seu Spark Job.
 
 ## <a name="customize-cluster-configuration"></a>Personalizar a configuração do cluster
 
@@ -188,18 +188,18 @@ Como regra geral, ao selecionar o tamanho do executor:
 
 1. Inicie com 30 GB por executor e distribua núcleos de computadores disponíveis.
 2. Aumente o número de núcleos de executor para clusters maiores (> 100 executores).
-3. Modifique o tamanho com base nas execuções de avaliação e nos fatores anteriores, como a sobrecarga de GC.
+3. Modificar o tamanho com base em corridas de teste e nos fatores anteriores, como sobrecarga de GC.
 
 Ao executar consultas simultâneas, considere o seguinte:
 
 1. Inicie com 30 GB por executor e todos os núcleos de computadores.
 2. Crie várias aplicações do Spark paralelas com subscrição excessiva de CPU (cerca de 30% de melhoria de latência).
 3. Distribua consultas em aplicativos paralelos.
-4. Modifique o tamanho com base nas execuções de avaliação e nos fatores anteriores, como a sobrecarga de GC.
+4. Modificar o tamanho com base em corridas de teste e nos fatores anteriores, como sobrecarga de GC.
 
-Para obter mais informações sobre como usar o Ambari para configurar executores, consulte [configurações de Apache Spark-executores do Spark](apache-spark-settings.md#configuring-spark-executors).
+Para obter mais informações sobre o uso de Ambari para configurar executores, consulte [configurações do Apache Spark - Executores spark](apache-spark-settings.md#configuring-spark-executors).
 
-Monitore o desempenho da consulta para verificar exceções ou outros problemas de desempenho, observando a exibição da linha do tempo, o gráfico SQL, as estatísticas de trabalho e, assim por diante. Para obter informações sobre como depurar trabalhos do Spark usando o YARN e o servidor de histórico do Spark, consulte [depurar Apache Spark trabalhos em execução no Azure HDInsight](apache-spark-job-debugging.md). Para obter dicas sobre como usar o servidor de linha do tempo YARN, confira [acessar logs de aplicativo do YARN Apache Hadoop](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+Monitore o desempenho da consulta para verificar exceções ou outros problemas de desempenho, observando a exibição da linha do tempo, o gráfico SQL, as estatísticas de trabalho e, assim por diante. Para obter informações sobre como depurar trabalhos de ignição usando o YARN e o servidor Spark History, consulte [Debug Apache Spark jobs em execução no Azure HDInsight](apache-spark-job-debugging.md). Para obter dicas sobre como usar o YARN Timeline Server, consulte [Acessar os registros do aplicativo Access Apache Hadoop YARN](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
 Às vezes, um ou alguns dos executores são mais lentos que os outros e as tarefas demoram muito mais tempo para serem executadas. Isso geralmente ocorre em clusters maiores (> 30 nós). Nesse caso, divida o trabalho em um número maior de tarefas para que o agendador possa compensar tarefas lentas. Por exemplo, tenha pelo menos duas vezes mais tarefas que o número de núcleos de executor no aplicativo. Você também pode habilitar a execução especulativa de tarefas com `conf: spark.speculation = true`.
 

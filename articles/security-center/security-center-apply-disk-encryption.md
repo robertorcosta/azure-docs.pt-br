@@ -1,6 +1,6 @@
 ---
 title: Aplicar a criptografia de disco na Central de Segurança do Azure | Microsoft Docs
-description: Este documento mostra como implementar a recomendação da Central de Segurança do Azure **Aplicar criptografia de disco**.
+description: Este documento mostra como implementar a recomendação do Azure Security Center **Aplicar criptografia de disco**.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: d0f96fe758966a435f8fb8e448e75cbb18b85122
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604518"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Aplicar a criptografia de disco na Central de Segurança do Azure
@@ -56,10 +56,10 @@ Este documento mostrou como implementar a recomendação da Central de Seguranç
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 * [Configuração de políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) – saiba como definir as políticas de segurança.
-* [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
-* [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
-* [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger os recursos do Azure.
-* [Blog de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
+* [Monitoramento de segurança no Azure Security Center](security-center-monitoring.md) -- Saiba como monitorar a saúde de seus recursos do Azure.
+* [Gerenciamento e resposta a alertas de segurança no Azure Security Center](security-center-managing-and-responding-alerts.md) -- Saiba como gerenciar e responder a alertas de segurança.
+* [Gerenciamento de recomendações de segurança no Azure Security Center](security-center-recommendations.md) -- Saiba como as recomendações ajudam você a proteger seus recursos do Azure.
+* [Blog do Azure Security](https://blogs.msdn.com/b/azuresecurity/) -- Encontre posts no blog sobre segurança e conformidade do Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png

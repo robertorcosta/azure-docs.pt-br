@@ -10,21 +10,21 @@ ms.date: 09/07/2018
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: a7b58e96918d26851812aa96c18043121c081e94
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023915"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorar soluções do Lote pela contagem de tarefas e nós por estado
 
 Para monitorar e gerenciar soluções do Lote do Azure em grande escala, você precisa de contagens precisas de recursos em vários estados. O Lote do Azure fornece operações eficientes para obter essas contagens para *tarefas* e *nós de computação* do Lote. Use essas operações, em vez de consultas de lista potencialmente demoradas que retornam informações detalhadas sobre grandes conjuntos de tarefas ou nós.
 
-* [Obter contagens de tarefas][rest_get_task_counts] Obtém uma contagem agregada de tarefas ativas, em execução e concluídas em um trabalho e de tarefas que tiveram êxito ou falharam. 
+* [Obter Contagens de Tarefas][rest_get_task_counts] obtém uma contagem agregada de tarefas ativas, em execução e concluídas em um trabalho, bem como das tarefas que tiveram êxito ou falharam. 
 
   Contando as tarefas em cada estado, você pode exibir mais facilmente o andamento do trabalho para um usuário ou detectar atrasos inesperados ou falhas que podem afetar o trabalho. Obter Contagens de Tarefas está disponível desde a API do serviço de lote versão 2017-06-01.5.1 e SDKs e ferramentas relacionados.
 
-* [Listar contagens de nó do pool][rest_get_node_counts] Obtém o número de nós de computação dedicados e de baixa prioridade em cada pool que estão em vários Estados: criação, ociosidade, offline, preempção, reinicialização, recriação de imagens, início e outros. 
+* [Listar Contagens de Nó de Pool][rest_get_node_counts] obtém o número de nós de computação dedicado e de baixa prioridade em cada pool que estão em vários estados: criando, ocioso, offline, que admitiu preempção, reinicializando, refazendo a imagem, iniciando e outros. 
 
   Pela contagem de nós em cada estado, você pode determinar quando você tem recursos computacionais adequados para executar seus trabalhos e identificar possíveis problemas com seus pools. Listar Contagens de Nó de Pool está disponível desde a API do Serviço de Lote versão 2018-03-01.6.1 e SDKs e ferramentas relacionados.
 
@@ -35,9 +35,9 @@ Se você está usando uma versão do serviço que não dá suporte às operaçõ
 A operação Obter Contagens de Tarefas conta tarefas pelos seguintes estados:
 
 - **Ativa** – uma tarefa que está na fila e é capaz de executar, mas não está atualmente atribuída a um nó de computação. Uma tarefa também é `active` se é [dependente de uma tarefa pai](batch-task-dependencies.md) que ainda não foi concluída. 
-- **Executando** – uma tarefa que foi atribuída a um nó de computação, mas ainda não foi concluída. Uma tarefa é contada como `running` quando seu estado é `preparing` ou `running`, conforme indicado pela operação [obter informações sobre uma tarefa][rest_get_task] .
+- **Executando** – uma tarefa que foi atribuída a um nó de computação, mas ainda não foi concluída. Uma tarefa é contabilizada como `running` quando seu estado é `preparing` ou `running`, conforme indicado pela operação [Obter informações sobre uma tarefa][rest_get_task].
 - **Concluída** – uma tarefa que não é mais elegível para ser executada porque foi concluída com êxito, ou então foi concluída com êxito e também esgotou seu limite de repetição. 
-- **Bem-sucedida** – uma tarefa cujo resultado da execução da tarefa é `success`. O lote determina se uma tarefa teve êxito ou falhou verificando a propriedade `TaskExecutionResult` da propriedade [executionInfo][rest_get_exec_info] .
+- **Bem-sucedida** – uma tarefa cujo resultado da execução da tarefa é `success`. O Lote determina se uma tarefa teve êxito ou não, verificando a propriedade `TaskExecutionResult` da propriedade [executionInfo][rest_get_exec_info].
 - **Bem-sucedida** – uma tarefa cuja execução tem resultado `failure`.
 
 O exemplo de código .NET a seguir mostra como recuperar contagens de tarefas por estado: 
@@ -71,7 +71,7 @@ A operação Listar Contagens de Nós de Pool lista nós de computação pelos s
 - **Refazendo a imagem** – um nó no qual o sistema operacional está sendo reinstalado.
 - **Em execução** – um nó que está executando uma ou mais tarefas (exceto a tarefa iniciar).
 - **Iniciando** – um nó no qual o serviço de Lote está iniciando. 
-- **StartTaskFailed** -um nó no qual a [tarefa inicial][rest_start_task] falhou e se esgotou todas as repetições e na qual `waitForSuccess` é definida na tarefa inicial. O nó não é utilizável para execução de tarefas.
+- **StartTaskFailed** – um nó no qual a [tarefa iniciar][rest_start_task] falhou e esgotou todas as novas tentativas e no qual `waitForSuccess` está definido na tarefa iniciar. O nó não é utilizável para execução de tarefas.
 - **Desconhecido** – um nó que perdeu contato com o serviço de Lote e cujo estado não é conhecido.
 - **Não utilizável** – um nó que não pode ser usado para execução da tarefa devido a erros.
 - **WaitingForStartTask** – um nó no qual a tarefa iniciar começou a ser executada, mas `waitForSuccess` está definida e a tarefa iniciar não foi concluída.
@@ -118,7 +118,7 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
 ```
 Você pode usar um padrão semelhante para REST e outras linguagens compatíveis para obter contagens de nó para pools.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Veja a [visão geral dos recursos do Lote](batch-api-basics.md) para saber mais sobre os conceitos e os recursos do serviço do Lote. O artigo aborda os recursos principais do Lote, como pools, nós de computação, trabalhos e tarefas, e fornece uma visão geral dos recursos do serviço.
 

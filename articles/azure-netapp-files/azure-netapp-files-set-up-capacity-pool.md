@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
 ms.openlocfilehash: 8f50b2ad34c705c8d3831d8243f136c41d750dc0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60691065"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configurar um pool de capacidade
@@ -60,5 +60,5 @@ Você já deve ter criado uma conta do NetApp.
 ## <a name="next-steps"></a>Próximas etapas 
 
 - [Níveis de serviço do Azure NetApp Files](azure-netapp-files-service-levels.md)
-- Confira a [página de preços do Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/) para obter o preço de diferentes níveis de serviço
+- Confira a [Página de preços do Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/) para ver o preço de diferentes níveis de serviço
 - [Delegar uma sub-rede ao Azure NetApp Files](azure-netapp-files-delegate-subnet.md)

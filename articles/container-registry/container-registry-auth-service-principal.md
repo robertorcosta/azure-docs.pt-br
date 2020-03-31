@@ -1,13 +1,13 @@
 ---
-title: Autenticar com a entidade de serviço
+title: Autenticação com a entidade de serviço
 description: Fornecer acesso a imagens em seu registro de contêiner particular usando uma entidade de serviço do Azure Active Directory.
 ms.topic: article
 ms.date: 10/04/2019
 ms.openlocfilehash: 37da784c8e95a5f5b924532e4a019552924a1a3f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74455415"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação do Registro de Contêiner do Azure com entidades de serviço
@@ -16,90 +16,90 @@ Use uma entidade de serviço do Azure AD (Azure Active Directory) para fornecer 
 
 ## <a name="what-is-a-service-principal"></a>O que é uma entidade de serviço?
 
-As *entidades de serviço* do Azure AD fornecem acesso aos recursos do Azure em sua assinatura. Você pode considerar uma entidade de serviço como uma identidade de usuário para um serviço, em que "serviço" é qualquer aplicativo, serviço ou plataforma que precise acessar os recursos. Você pode configurar uma entidade de serviço com direitos de acesso com escopo apenas nos recursos especificados. Em seguida, configure seu aplicativo ou serviço para usar as credenciais da entidade de serviço para acessar esses recursos.
+As *entidades de serviço* do Azure AD fornecem acesso aos recursos do Azure em sua assinatura. Você pode pensar em um diretor de serviço como uma identidade de usuário para um serviço, onde "serviço" é qualquer aplicativo, serviço ou plataforma que precisa acessar os recursos. Você pode configurar uma entidade de serviço com direitos de acesso com escopo apenas nos recursos especificados. Em seguida, configure seu aplicativo ou serviço para usar as credenciais da entidade de serviço para acessar esses recursos.
 
 No contexto do Registro de Contêiner do Azure, você pode criar uma entidade de serviço do Microsoft Azure Active Directory com permissões de pull, push e pull ou proprietário em seu Registro particular no Azure. Para obter uma lista completa de funções, confira [Funções e permissões do Registro de Contêiner do Azure](container-registry-roles.md).
 
 ## <a name="why-use-a-service-principal"></a>Por que usar uma entidade de serviço?
 
-Usando uma entidade de serviço do Azure AD, você pode fornecer acesso com escopo ao seu registro de contêiner particular. Crie entidades de serviço diferentes para cada um dos seus aplicativos ou serviços, cada um com direitos de acesso adaptados ao registro. Já que você pode evitar o compartilhamento de credenciais entre serviços e aplicativos, você pode girar as credenciais ou revogar o acesso somente à entidade de serviço (e, portanto, ao aplicativo) de sua escolha.
+Usando uma entidade de serviço do Azure AD, você pode fornecer acesso com escopo ao seu registro de contêiner particular. Crie diferentes diretores de serviço para cada um de seus aplicativos ou serviços, cada um com direitos de acesso personalizados ao seu registro. Já que você pode evitar o compartilhamento de credenciais entre serviços e aplicativos, você pode girar as credenciais ou revogar o acesso somente à entidade de serviço (e, portanto, ao aplicativo) de sua escolha.
 
-Por exemplo, configure seu aplicativo Web para usar uma entidade de serviço que fornece a ele somente acesso de `pull` de imagem, enquanto o sistema de compilação usa uma entidade de serviço que fornece o acesso `push` e `pull`. Se o desenvolvimento do seu aplicativo mudar de mãos, você poderá girar suas credenciais de entidade de serviço sem afetar o sistema de compilação.
+Por exemplo, configure seu aplicativo web para usar `pull` um diretor de serviço que o forneça apenas `push` acesso `pull` à imagem, enquanto seu sistema de compilação usa um diretor de serviço que fornece tanto com acesso quanto com acesso. Se o desenvolvimento do seu aplicativo mudar de mãos, você pode girar suas credenciais principais de serviço sem afetar o sistema de compilação.
 
 ## <a name="when-to-use-a-service-principal"></a>Quando usar uma entidade de serviço
 
-Você deve usar uma entidade de serviço para fornecer o acesso de registro em **cenários “sem periféricos”** . Em outras palavras, qualquer aplicativo, serviço ou script que precisa enviar por push ou efetuar pull de imagens de contêiner de maneira automatizada ou autônoma. Por exemplo:
+Você deve usar uma entidade de serviço para fornecer o acesso de registro em **cenários “sem periféricos”**. Em outras palavras, qualquer aplicativo, serviço ou script que precisa enviar por push ou efetuar pull de imagens de contêiner de maneira automatizada ou autônoma. Por exemplo: 
 
-  * *Pull*: implante contêineres de um registro para sistemas de orquestração, incluindo KUBERNETES, DC/so e Docker Swarm. Você também pode efetuar pull de registros de contêiner para serviços do Azure relacionados, como o [AKs (serviço kubernetes do Azure)](../aks/cluster-container-registry-integration.md), [instâncias de contêiner do Azure](container-registry-auth-aci.md), [serviço de aplicativo](../app-service/index.yml), [lote](../batch/index.yml), [Service Fabric](/azure/service-fabric/)e outros.
+  * *Puxar*: Implantar contêineres de um registro para sistemas de orquestração, incluindo Kubernetes, DC/OS e Docker Swarm. Você também pode retirar de registros de contêineres para serviços relacionados do Azure [Azure Kubernetes Service (AKS),](../aks/cluster-container-registry-integration.md) [Azure Container Instances,](container-registry-auth-aci.md) [App Service,](../app-service/index.yml) [Batch,](../batch/index.yml) [Service, Service Fabric,](/azure/service-fabric/)entre outros.
 
-  * *Push*: crie imagens de contêiner e envie-as por push para um registro usando soluções de implantação e integração contínuas como Azure pipelines ou Jenkins.
+  * *Push*: Construa imagens de contêineres e empurre-as para um registro usando soluções de integração e implantação contínuas como Azure Pipelines ou Jenkins.
 
-Para acesso individual a um registro, como quando você efetua pull manualmente de uma imagem de contêiner para sua estação de trabalho de desenvolvimento, é recomendável usar sua própria [identidade do Azure ad](container-registry-authentication.md#individual-login-with-azure-ad) em vez de acesso ao registro (por exemplo, com [AZ ACR login][az-acr-login]).
+Para acesso individual a um registro, como quando você puxa manualmente uma imagem de contêiner para sua estação de trabalho de desenvolvimento, recomendamos usar sua própria [identidade Azure AD](container-registry-authentication.md#individual-login-with-azure-ad) em vez de acesso ao registro (por exemplo, com [login az acr][az-acr-login]).
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
-### <a name="sample-scripts"></a>Exemplos de scripts
+### <a name="sample-scripts"></a>Scripts de exemplo
 
-Você pode encontrar os scripts de exemplo anteriores para CLI do Azure no GitHub, bem como versões para Azure PowerShell:
+Você pode encontrar os scripts de exemplo anteriores para Azure CLI no GitHub, bem como versões para Azure PowerShell:
 
-* [CLI do Azure][acr-scripts-cli]
+* [Azure CLI][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
-## <a name="authenticate-with-the-service-principal"></a>Autenticar com a entidade de serviço
+## <a name="authenticate-with-the-service-principal"></a>Autenticar com o diretor de serviço
 
-Depois que você tiver uma entidade de serviço que concedeu acesso ao registro de contêiner, você pode configurar suas credenciais para acessar serviços e aplicativos "sem periféricos" ou inseri-los usando o comando `docker login`. Use os seguintes valores:
+Uma vez que você tenha um diretor de serviço que você concedeu acesso ao seu registro de contêiner, você `docker login` pode configurar suas credenciais para acesso a serviços e aplicativos "sem cabeça" ou inseri-los usando o comando. Use os seguintes valores:
 
-* **Nome de usuário** -ID do aplicativo da entidade de serviço (também chamada de *ID do cliente*)
-* **Senha** -senha da entidade de serviço (também chamada de *segredo do cliente*)
+* **Nome de usuário** - iD do aplicativo principal do serviço (também chamado *de ID do cliente*)
+* **Senha** - senha principal do serviço (também chamada *de cliente secreto*)
 
-Cada valor é um GUID do formulário `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
+Cada valor é um `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`GUID do formulário . 
 
 > [!TIP]
 > Você pode regenerar a senha de uma entidade de serviço executando o comando [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset).
 >
 
-### <a name="use-credentials-with-azure-services"></a>Usar credenciais com os serviços do Azure
+### <a name="use-credentials-with-azure-services"></a>Use credenciais com serviços do Azure
 
-Você pode usar as credenciais da entidade de serviço de qualquer serviço do Azure que se autentique com um registro de contêiner do Azure.  Use as credenciais de entidade de serviço em vez das credenciais de administrador do registro para uma variedade de cenários.
+Você pode usar as principais credenciais de serviço de qualquer serviço Do Azure que autentica com um registro de contêiner do Azure.  Use as principais credenciais de serviço no lugar das credenciais de admin do registro para uma variedade de cenários.
 
-Por exemplo, use as credenciais para efetuar pull de uma imagem de um registro de contêiner do Azure para [instâncias de contêiner do Azure](container-registry-auth-aci.md).
+Por exemplo, use as credenciais para puxar uma imagem de um registro de contêiner do Azure para [instâncias de contêiner do Azure](container-registry-auth-aci.md).
 
-### <a name="use-with-docker-login"></a>Usar com o logon do Docker
+### <a name="use-with-docker-login"></a>Use com login docker
 
-Você pode executar `docker login` usando uma entidade de serviço. No exemplo a seguir, a ID do aplicativo da entidade de serviço é passada na variável de ambiente `$SP_APP_ID`e a senha na variável `$SP_PASSWD`. Para obter as práticas recomendadas para gerenciar as credenciais do Docker, consulte a referência do comando [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
+Você pode `docker login` executar usando um diretor de serviço. No exemplo a seguir, o ID do aplicativo `$SP_APP_ID`principal do serviço `$SP_PASSWD`é passado na variável ambiente , e a senha na variável . Para obter as melhores práticas para gerenciar as credenciais do Docker, consulte a referência de comando [de login do Docker.](https://docs.docker.com/engine/reference/commandline/login/)
 
 ```bash
 # Log in to Docker with service principal credentials
 docker login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 ```
 
-Depois de conectado, o Docker armazena as credenciais em cache.
+Uma vez logado, o Docker armazena as credenciais.
 
-### <a name="use-with-certificate"></a>Usar com certificado
+### <a name="use-with-certificate"></a>Use com certificado
 
-Se você tiver adicionado um certificado à sua entidade de serviço, poderá entrar no CLI do Azure com autenticação baseada em certificado e, em seguida, usar o comando [AZ ACR login][az-acr-login] para acessar um registro. Usar um certificado como um segredo em vez de uma senha fornece segurança adicional quando você usa a CLI. 
+Se você adicionou um certificado ao seu diretor de serviço, você pode entrar no Azure CLI com autenticação baseada em certificadoe e, em seguida, usar o comando [de login az acr][az-acr-login] para acessar um registro. Usar um certificado como segredo em vez de uma senha fornece segurança adicional quando você usa o CLI. 
 
-Um certificado autoassinado pode ser criado quando você [cria uma entidade de serviço](/cli/azure/create-an-azure-service-principal-azure-cli). Ou adicione um ou mais certificados a uma entidade de serviço existente. Por exemplo, se você usar um dos scripts neste artigo para criar ou atualizar uma entidade de serviço com direitos para extrair ou enviar imagens por push de um registro, adicione um certificado usando o comando [AZ ad SP Credential rereset][az-ad-sp-credential-reset] .
+Um certificado auto-assinado pode ser criado quando você [cria um diretor de serviço](/cli/azure/create-an-azure-service-principal-azure-cli). Ou, adicione um ou mais certificados a um diretor de serviço existente. Por exemplo, se você usar um dos scripts deste artigo para criar ou atualizar um diretor de serviço com direitos de puxar ou empurrar imagens de um registro, adicione um certificado usando o comando [de reset credencial az ad sp.][az-ad-sp-credential-reset]
 
-Para usar a entidade de serviço com o certificado para [entrar no CLI do Azure](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal), o certificado deve estar no formato PEM e incluir a chave privada. Se o certificado não estiver no formato necessário, use uma ferramenta como `openssl` para convertê-lo. Ao executar o [AZ login][az-login] para entrar na CLI usando a entidade de serviço, forneça também a ID do aplicativo da entidade de serviço e a ID do locatário do Active Directory. O exemplo a seguir mostra esses valores como variáveis de ambiente:
+Para usar o diretor de serviço com certificado para [entrar no Azure CLI,](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal)o certificado deve estar em formato PEM e incluir a chave privada. Se o certificado não estiver no formato necessário, `openssl` use uma ferramenta como convertê-lo. Quando você executa o [login az][az-login] para entrar na CLI usando o principal de serviço, também forneça o ID de aplicativo do diretor do serviço e o ID de inquilino do Active Directory. O exemplo a seguir mostra esses valores como variáveis de ambiente:
 
 ```azurecli
 az login --service-principal --username $SP_APP_ID --tenant $SP_TENANT_ID  --password /path/to/cert/pem/file
 ```
 
-Em seguida, execute [AZ ACR login][az-acr-login] para autenticar com o registro:
+Em seguida, execute [o login az acr][az-acr-login] para autenticar com o registro:
 
 ```azurecli
 az acr login --name myregistry
 ```
 
-A CLI usa o token criado quando você executou `az login` para autenticar a sessão com o registro.
+A CLI usa o token `az login` criado quando você correu para autenticar sua sessão com o registro.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Consulte a [visão geral de autenticação](container-registry-authentication.md) para outros cenários para autenticar com um registro de contêiner do Azure.
+* Consulte a visão geral de [autenticação](container-registry-authentication.md) para outros cenários para autenticar com um registro de contêiner do Azure.
 
-* Para obter um exemplo de como usar um cofre de chaves do Azure para armazenar e recuperar as credenciais da entidade de serviço para um registro de contêiner, consulte o tutorial para [criar e implantar uma imagem de contêiner usando tarefas ACR](container-registry-tutorial-quick-task.md).
+* Para um exemplo de usar um cofre de chaves do Azure para armazenar e recuperar as principais credenciais do serviço para um registro de contêiner, consulte o tutorial para construir e implantar uma imagem de [contêiner usando tarefas ACR](container-registry-tutorial-quick-task.md).
 
 <!-- LINKS - External -->
 [acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry

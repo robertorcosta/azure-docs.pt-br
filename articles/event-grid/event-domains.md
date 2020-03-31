@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: f6698f91d7659f9fc2c314a9291380301146f8ed
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898858"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Entenda os domínios de eventos para gerenciar tópicos do Event Grid
@@ -31,7 +31,7 @@ Os domínios de eventos disponibilizam a mesma arquitetura usada pelos serviços
 
 ### <a name="example-use-case"></a>Caso de uso de exemplo
 
-Os domínios de eventos são mais facilmente explicados usando um exemplo. Digamos que você execute máquinas de construção da Contoso, em que você fabrica os tratores, a utilização de equipamentos e outras máquinas pesadas. Como parte da execução dos negócios, você envia informações em tempo real aos clientes sobre manutenção de equipamentos, integridade de sistemas e atualizações de contrato. Todas essas informações vão para vários pontos de extremidade, incluindo seu aplicativo, endpoints de clientes e outras infraestruturas que os clientes configuraram.
+Os domínios de eventos são mais facilmente explicados usando um exemplo. Digamos que você execute a Contoso Construction Machinery, onde fabrica tratores, equipamentos de escavação e outras máquinas pesadas. Como parte da execução dos negócios, você envia informações em tempo real aos clientes sobre manutenção de equipamentos, integridade de sistemas e atualizações de contrato. Todas essas informações vão para vários pontos de extremidade, incluindo seu aplicativo, endpoints de clientes e outras infraestruturas que os clientes configuraram.
 
 Todas essas informações vão para vários pontos de extremidade, incluindo seu aplicativo, endpoints de clientes e outras infraestruturas que os clientes configuraram. Cada um dos seus clientes é representado como um tópico dentro do domínio. Autenticação e autorização são tratadas usando o Active Directory do Azure. Cada um de seus clientes pode se inscrever no tópico deles e receber os eventos deles. O acesso gerenciado por meio do domínio do evento garante que eles possam acessar apenas o tópico deles.
 
@@ -47,7 +47,7 @@ O RBAC em domínios de eventos funciona da mesma maneira que o [controle de aces
 
 ### <a name="built-in-roles"></a>Funções internas
 
-O Event Grid tem duas definições de função integradas para tornar o RBAC mais fácil para trabalhar com domínios de eventos. Essas funções são **EventGrid EventSubscription Contributor (Visualizar)** e **EventGrid EventSubscription Reader (Visualizar)** . Você atribui essas funções a usuários que precisam se inscrever em tópicos em seu domínio de evento. Você faz o escopo da atribuição de função apenas para o tópico que os usuários precisam assinar.
+O Event Grid tem duas definições de função integradas para tornar o RBAC mais fácil para trabalhar com domínios de eventos. Essas funções são **EventGrid EventSubscription Contributor (Visualizar)** e **EventGrid EventSubscription Reader (Visualizar)**. Você atribui essas funções a usuários que precisam se inscrever em tópicos em seu domínio de evento. Você escopo a atribuição de função apenas para o tópico que os usuários precisam assinar.
 
 Para obter informações sobre essas funções, consulte [Funções internas da grade de eventos](security-authorization.md#built-in-roles).
 
@@ -63,7 +63,7 @@ Os domínios de eventos também permitem assinaturas de escopo de domínio. Uma 
 
 Quando você cria um domínio de evento, recebe um ponto de extremidade de publicação semelhante a se você criou um tópico na Grade de Eventos. 
 
-Para publicar eventos em qualquer tópico em um Domínio de Eventos, envie os eventos para o endpoint do domínio [da mesma forma que você faria para um tópico personalizado](./post-to-custom-topic.md). A única diferença é que você deve especificar o tópico para o qual você gostaria que o evento seja entregue.
+Para publicar eventos em qualquer tópico em um domínio de eventos, empurre os eventos para o ponto final do domínio da [mesma forma que você faria para um tópico personalizado](./post-to-custom-topic.md). A única diferença é que você deve especificar o tópico para o qual você gostaria que o evento seja entregue.
 
 Por exemplo, publicar a matriz de eventos a seguir enviaria o evento com `"id": "1111"` para o tópico `foo`, enquanto o evento com `"id": "2222"` seria enviado para o tópico `bar`:
 
@@ -97,21 +97,21 @@ Por exemplo, publicar a matriz de eventos a seguir enviaria o evento com `"id": 
 Os domínios de eventos tratam da publicação de tópicos para você. Em vez de publicar eventos para cada tópico gerenciado individualmente, você pode publicar todos os seus eventos no endpoint do domínio. A Grade de Eventos garante que cada evento seja enviado para o tópico correto.
 
 ## <a name="limits-and-quotas"></a>Limites e cotas
-Aqui estão os limites e as cotas relacionados aos domínios de evento:
+Aqui estão os limites e cotas relacionados aos domínios de eventos:
 
-- 100.000 tópicos por domínio de evento 
-- 100 domínios de evento por assinatura do Azure 
-- 500 assinaturas de evento por tópico em um domínio de evento
+- 100.000 tópicos por domínio de eventos 
+- 100 domínios de eventos por assinatura do Azure 
+- 500 assinaturas de eventos por tópico em um domínio de eventos
 - 50 assinaturas de escopo de domínio 
-- taxa de ingestão de eventos por segundo do 5.000 (em um domínio)
+- 5.000 eventos por segunda taxa de ingestão (em um domínio)
 
-Se esses limites não forem adequados a você, acesse a equipe do produto abrindo um tíquete de suporte ou enviando um email para [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
+Se esses limites não se adequarem a você, entre em contato com [askgrid@microsoft.com](mailto:askgrid@microsoft.com)a equipe do produto abrindo um ticket de suporte ou enviando um e-mail para . 
 
 ## <a name="pricing"></a>Preços
-Os domínios de evento usam o mesmo [preço de operações](https://azure.microsoft.com/pricing/details/event-grid/) que todos os outros recursos na grade de eventos usam.
+Os domínios de eventos usam os [mesmos preços de operações](https://azure.microsoft.com/pricing/details/event-grid/) que todos os outros recursos em Event Grid usam.
 
 As operações funcionam da mesma forma em domínios de eventos, como em tópicos personalizados. Cada entrada de um evento para um domínio de evento é uma operação e cada tentativa de entrega de um evento é uma operação.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber como configurar domínios de eventos, criar tópicos, criar inscrições de eventos e publicar eventos, consulte [Gerenciar domínios de eventos](./how-to-event-domains.md).
+* Para saber como criar domínios de eventos, criar tópicos, criar assinaturas de eventos e publicar eventos, consulte [Gerenciar domínios de eventos](./how-to-event-domains.md).

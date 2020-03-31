@@ -1,110 +1,110 @@
 ---
 title: Criptografar dados de implantação
-description: Saiba mais sobre a criptografia de dados persistidos para seus recursos de instância de contêiner e como criptografar os dados com uma chave gerenciada pelo cliente
+description: Saiba mais sobre a criptografia de dados persistidos para os recursos de instância do contêiner e como criptografar os dados com uma chave gerenciada pelo cliente
 ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: ad232c5d9df9f6bfae3a79dbd72e2c68143be949
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79080353"
 ---
 # <a name="encrypt-deployment-data"></a>Criptografar dados de implantação
 
-Ao executar recursos de ACI (instâncias de contêiner do Azure) na nuvem, o serviço ACI coleta e mantém os dados relacionados aos seus contêineres. O ACI criptografa esses dados automaticamente quando eles são persistidos na nuvem. Essa criptografia protege seus dados para ajudar a atender aos compromissos de segurança e conformidade de sua organização. O ACI também oferece a opção de criptografar esses dados com sua própria chave, proporcionando a você maior controle sobre os dados relacionados às implantações do ACI.
+Ao executar os recursos azure Container Instances (ACI) na nuvem, o serviço ACI coleta e persiste dados relacionados aos seus contêineres. A ACI criptografa automaticamente esses dados quando ele é persistido na nuvem. Essa criptografia protege seus dados para ajudar a cumprir os compromissos de segurança e conformidade da sua organização. A ACI também lhe dá a opção de criptografar esses dados com sua própria chave, dando-lhe maior controle sobre os dados relacionados às suas implantações de ACI.
 
-## <a name="about-aci-data-encryption"></a>Sobre a criptografia de dados do ACI 
+## <a name="about-aci-data-encryption"></a>Sobre a criptografia de dados ACI 
 
-Os dados no ACI são criptografados e descriptografados usando a criptografia AES de 256 bits. Ele está habilitado para todas as implantações de ACI e você não precisa modificar sua implantação ou contêineres para aproveitar essa criptografia. Isso inclui metadados sobre a implantação, as variáveis de ambiente, as chaves que estão sendo passadas para seus contêineres e os logs persistiram depois que os contêineres são interrompidos para que você possa vê-los. A criptografia não afeta o desempenho do grupo de contêineres e não há nenhum custo adicional para a criptografia.
+Os dados em ACI são criptografados e descriptografados usando criptografia AES de 256 bits. Ele está habilitado para todas as implantações de ACI, e você não precisa modificar sua implantação ou contêineres para tirar proveito dessa criptografia. Isso inclui metadados sobre a implantação, variáveis de ambiente, chaves sendo passadas para seus contêineres e registros persistidos depois que seus contêineres são interrompidos para que você ainda possa vê-los. A criptografia não afeta o desempenho do grupo de contêineres e não há custo adicional para criptografia.
 
 ## <a name="encryption-key-management"></a>Gerenciamento de chaves de criptografia
 
-Você pode contar com chaves gerenciadas pela Microsoft para a criptografia de seus dados de contêiner ou pode gerenciar a criptografia com suas próprias chaves. A tabela a seguir compara estas opções: 
+Você pode confiar em chaves gerenciadas pela Microsoft para a criptografia de seus dados de contêiner, ou pode gerenciar a criptografia com suas próprias chaves. A tabela a seguir compara essas opções: 
 
 |    |    Chaves gerenciadas pela Microsoft     |     Chaves gerenciadas pelo cliente     |
 |----|----|----|
 |    Operações de criptografia/descriptografia    |    Azure    |    Azure    |
-|    Armazenamento de chaves    |    Repositório de chaves da Microsoft    |    Cofre de Chave do Azure    |
-|    Responsabilidade de rotação de chave    |    Microsoft    |    Cliente    |
-|    Acesso à chave    |    Somente Microsoft    |    Microsoft, cliente    |
+|    Armazenamento de chaves    |    Loja-chave da Microsoft    |    Cofre de Chave do Azure    |
+|    Responsabilidade de rotação chave    |    Microsoft    |    Cliente    |
+|    Acesso à chave    |    Somente microsoft    |    Microsoft, Cliente    |
 
-O restante do documento aborda as etapas necessárias para criptografar os dados de implantação do ACI com sua chave (chave gerenciada pelo cliente). 
+O restante do documento abrange as etapas necessárias para criptografar seus dados de implantação de ACI com sua chave (chave gerenciada pelo cliente). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="encrypt-data-with-a-customer-managed-key"></a>Criptografar dados com uma chave gerenciada pelo cliente
 
-### <a name="create-service-principal-for-aci"></a>Criar entidade de serviço para ACI
+### <a name="create-service-principal-for-aci"></a>Criar diretor de serviço para ACI
 
-A primeira etapa é garantir que seu [locatário do Azure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) tenha uma entidade de serviço atribuída para conceder permissões ao serviço de instâncias de contêiner do Azure. 
+O primeiro passo é garantir que o [seu inquilino do Azure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) tenha um principal de serviço designado para conceder permissões ao serviço Azure Container Instances. 
 
 > [!IMPORTANT]
-> Para executar o comando a seguir e criar uma entidade de serviço com êxito, confirme que você tem permissões para criar entidades de serviço em seu locatário.
+> Para executar o seguinte comando e criar um diretor de serviço com sucesso, confirme que você tem permissões para criar diretores de serviço em seu inquilino.
 >
 
-O seguinte comando da CLI irá configurar o SP ACI em seu ambiente do Azure:
+O seguinte comando CLI configurará a Controladoria ACI no ambiente Azure:
 
 ```azurecli-interactive
 az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 ```
 
-A saída da execução deste comando deve mostrar uma entidade de serviço que foi configurada com "displayName": "serviço de instância de contêiner do Azure".
+A saída de execução deste comando deve mostrar-lhe um principal de serviço que foi configurado com "displayName": "Azure Container Instance Service".
 
-Caso você não consiga criar a entidade de serviço com êxito:
-* Confirme que você tem permissões para fazer isso em seu locatário
-* Verifique se uma entidade de serviço já existe em seu locatário para implantar no ACI. Você pode fazer isso executando `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` e usar essa entidade de serviço em vez disso
+No caso de você não conseguir criar com sucesso o principal do serviço:
+* confirmar que você tem permissões para fazê-lo em seu inquilino
+* verifique se um diretor de serviço já existe em seu inquilino para implantação na ACI. Você pode fazer `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` isso executando e usando esse principal de serviço em vez
 
 ### <a name="create-a-key-vault-resource"></a>Crie um recurso do Key Vault
 
-Crie um Azure Key Vault usando [portal do Azure](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault), [CLI](https://docs.microsoft.com/azure/key-vault/quick-create-cli)ou [PowerShell](https://docs.microsoft.com/azure/key-vault/quick-create-powershell). 
+Crie um Cofre de Chaves Azure usando [o portal Azure,](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) [CLI](https://docs.microsoft.com/azure/key-vault/quick-create-cli)ou [PowerShell.](https://docs.microsoft.com/azure/key-vault/quick-create-powershell) 
 
-Para as propriedades do cofre de chaves, use as seguintes diretrizes: 
+Para as propriedades do cofre principal, use as seguintes diretrizes: 
 * Nome: é necessário um nome exclusivo. 
 * Assinatura: escolha uma assinatura.
-* Em grupo de recursos, escolha um grupo de recursos existente ou crie um novo e insira um nome de grupo de recursos.
+* Em Grupo de recursos, escolha um grupo de recursos existente ou crie um novo e insira um nome de grupo de recursos.
 * No menu suspenso Local, escolha um local.
 * Você pode deixar as outras opções para seus padrões ou escolher com base em requisitos adicionais.
 
 > [!IMPORTANT]
-> Ao usar chaves gerenciadas pelo cliente para criptografar um modelo de implantação ACI, é recomendável que as duas propriedades a seguir sejam definidas no cofre de chaves, exclusão reversível e não sejam limpas. Essas propriedades não são habilitadas por padrão, mas podem ser habilitadas usando o PowerShell ou CLI do Azure em um cofre de chaves novo ou existente.
+> Ao usar as chaves gerenciadas pelo cliente para criptografar um modelo de implantação de ACI, recomenda-se que as duas propriedades seguintes sejam definidas no cofre de chaves, Soft Delete e Não Purga. Essas propriedades não são habilitadas por padrão, mas podem ser habilitadas usando o PowerShell ou o Azure CLI em um cofre de chaves novo ou existente.
 
 ### <a name="generate-a-new-key"></a>Gerar uma nova chave 
 
-Depois que o cofre de chaves for criado, navegue até o recurso em portal do Azure. No menu de navegação à esquerda da folha de recursos, em configurações, clique em **chaves**. Na exibição de "chaves", clique em "gerar/importar" para gerar uma nova chave. Use qualquer nome exclusivo para essa chave e outras preferências com base em seus requisitos. 
+Uma vez que seu cofre principal seja criado, navegue até o recurso no portal Azure. No menu de navegação à esquerda da lâmina de recursos, em Configurações, clique em **Teclas**. Na exibição de "Chaves", clique em "Gerar/Importar" para gerar uma nova tecla. Use qualquer nome exclusivo para esta chave e quaisquer outras preferências com base em seus requisitos. 
 
 ![Gerar uma nova chave](./media/container-instances-encrypt-data/generate-key.png)
 
 ### <a name="set-access-policy"></a>Definir política de acesso
 
-Crie uma nova política de acesso para permitir que o serviço ACI acesse sua chave.
+Crie uma nova política de acesso para permitir que o serviço ACI acesse sua Chave.
 
-* Depois que a chave tiver sido gerada, volte na folha de recursos do cofre de chaves, em configurações, clique em **políticas de acesso**.
-* Na página "políticas de acesso" do cofre de chaves, clique em **Adicionar política de acesso**.
-* Defina as *permissões de chave* para incluir a chave **Get** e a **desencapsulamento** ![definir permissões de chave](./media/container-instances-encrypt-data/set-key-permissions.png)
-* Para *selecionar entidade de segurança*, selecione **serviço de instância de contêiner do Azure**
+* Uma vez que sua chave tenha sido gerada, volte para a lâmina de recurso do cofre principal, em Configurações, clique em **Políticas de acesso**.
+* Na página "Políticas de acesso" para o cofre principal, clique em **Adicionar política de acesso**.
+* Defina as *permissões de chave* para incluir as permissões de chave **get** e **desembrulhar** ![](./media/container-instances-encrypt-data/set-key-permissions.png)
+* Para *selecionar principal,* selecione **O serviço de instância do contêiner Azure**
 * Clique em **Adicionar** na parte inferior 
 
-A política de acesso agora deve aparecer nas políticas de acesso do cofre de chaves.
+A política de acesso deve agora aparecer nas políticas de acesso do seu cofre principal.
 
 ![Nova política de acesso](./media/container-instances-encrypt-data/access-policy.png)
 
-### <a name="modify-your-json-deployment-template"></a>Modificar seu modelo de implantação JSON
+### <a name="modify-your-json-deployment-template"></a>Modifique seu modelo de implantação JSON
 
 > [!IMPORTANT]
-> A criptografia de dados de implantação com uma chave gerenciada pelo cliente está disponível na versão mais recente da API (2019-12-01) que está sendo distribuída no momento. Especifique essa versão de API em seu modelo de implantação. Se você tiver problemas com isso, entre em contato com o suporte do Azure.
+> A criptografia de dados de implantação com uma chave gerenciada pelo cliente está disponível na versão mais recente da API (2019-12-01) que está sendo desatualizada no momento. Especifique esta versão da API no modelo de implantação. Se você tiver algum problema com isso, entre em contato com o Azure Support.
 
-Depois que a chave do Key Vault e a política de acesso forem configuradas, adicione as propriedades a seguir ao modelo de implantação do ACI. Saiba mais sobre a implantação de recursos do ACI com um modelo no [tutorial: implantar um grupo de vários contêineres usando um modelo do Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
-* Em `resources`, defina `apiVersion` como `2019-12-01`.
-* Na seção Propriedades do grupo de contêineres do modelo de implantação, adicione um `encryptionProperties`, que contém os seguintes valores:
-  * `vaultBaseUrl`: o nome DNS do cofre de chaves, pode ser encontrado na folha visão geral do recurso do cofre de chaves no portal
+Uma vez que a chave do cofre chave e a política de acesso sejam configuradas, adicione as seguintes propriedades ao modelo de implantação da ACI. Saiba mais sobre a implantação de recursos ACI com um modelo no [Tutorial: Implante um grupo de vários contêineres usando um modelo de Gerenciador de recursos](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+* Em `resources`, `apiVersion` `2019-12-01`definido para .
+* Na seção propriedades do grupo de `encryptionProperties`contêiner do modelo de implantação, adicione um , que contém os seguintes valores:
+  * `vaultBaseUrl`: o nome DNS do seu cofre de chaves, pode ser encontrado na lâmina de visão geral do recurso do cofre chave no Portal
   * `keyName`: o nome da chave gerada anteriormente
-  * `keyVersion`: a versão atual da chave. Isso pode ser encontrado ao clicar na chave em si (em "chaves" na seção de configurações do recurso do cofre de chaves)
-* Nas propriedades do grupo de contêineres, adicione uma propriedade `sku` com valor `Standard`. A propriedade `sku` é necessária na versão de API 2019-12-01.
+  * `keyVersion`: a versão atual da chave. Isso pode ser encontrado clicando na própria chave (em "Chaves" na seção Configurações do recurso do cofre de chaves)
+* as propriedades do `sku` grupo de `Standard`contêineres, adicione uma propriedade com valor. A `sku` propriedade é exigida na versão API 2019-12-01.
 
-O trecho de código de modelo a seguir mostra essas propriedades adicionais para criptografar os dados de implantação:
+O trecho do modelo a seguir mostra essas propriedades adicionais para criptografar dados de implantação:
 
 ```json
 [...]
@@ -129,7 +129,7 @@ O trecho de código de modelo a seguir mostra essas propriedades adicionais para
 ]
 ```
 
-A seguir está um modelo completo, adaptado do modelo no [tutorial: implantar um grupo de vários contêineres usando um modelo do Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+A seguir está um modelo completo, adaptado do modelo em [Tutorial: Implante um grupo de vários contêineres usando um modelo do Gerenciador de Recursos](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
 
 ```json
 {
@@ -223,11 +223,11 @@ A seguir está um modelo completo, adaptado do modelo no [tutorial: implantar um
 }
 ```
 
-### <a name="deploy-your-resources"></a>Implantar seus recursos
+### <a name="deploy-your-resources"></a>Implante seus recursos
 
-Se você criou e editou o arquivo de modelo em sua área de trabalho, você pode carregá-lo em seu diretório Cloud Shell arrastando o arquivo para ele. 
+Se você criou e editou o arquivo de modelo em sua área de trabalho, você pode carregá-lo para o diretório Cloud Shell arrastando o arquivo para ele. 
 
-Crie um grupo de recursos com o comando [az group create][az-group-create].
+Crie um grupo de recursos com o comando [az group create.][az-group-create]
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -239,7 +239,7 @@ Implante o modelo com o comando [az group deployment create][az-group-deployment
 az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
-Em alguns segundos, você deverá receber uma resposta inicial do Azure. Depois que a implantação for concluída, todos os dados relacionados a ela persistidos pelo serviço ACI serão criptografados com a chave que você forneceu.
+Em alguns segundos, você deverá receber uma resposta inicial do Azure. Uma vez que a implantação seja concluída, todos os dados relacionados a ele persistidos pelo serviço ACI serão criptografados com a chave que você forneceu.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create

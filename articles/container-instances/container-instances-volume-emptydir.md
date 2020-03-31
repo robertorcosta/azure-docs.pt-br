@@ -1,21 +1,21 @@
 ---
-title: Montar o volume emptyDir para o grupo de contêineres
+title: Montar volume dir vazio para grupo de contêineres
 description: Saiba como montar um volume emptyDir para compartilhar dados entre os contêineres em um grupo de contêineres em Instâncias de Contêiner do Azure
 ms.topic: article
 ms.date: 01/31/2020
 ms.openlocfilehash: 64a3c83008f163167528a5e5987fe2316942d5bc
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77117746"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Montar um volume emptyDir em Instâncias de Contêiner do Azure
 
-Saiba como montar um volume *emptyDir* para compartilhar dados entre os contêineres em um grupo de contêineres em Instâncias de Contêiner do Azure. Use volumes *emptyDir* como caches efêmeros para suas cargas de trabalho em contêineres.
+Saiba como montar um volume *emptyDir* para compartilhar dados entre os contêineres em um grupo de contêineres em Instâncias de Contêiner do Azure. Use volumes *vaziosDir* como caches efêmeros para suas cargas de trabalho contêiner.
 
 > [!NOTE]
-> A montagem de um volume *emptyDir* está atualmente restrita a contêineres do Linux. Enquanto estamos trabalhando para trazer todos os recursos para contêineres do Windows, você pode encontrar as diferenças da plataforma atual na [visão geral](container-instances-overview.md#linux-and-windows-containers).
+> A montagem de um volume *emptyDir* está atualmente restrita a contêineres do Linux. Enquanto estamos trabalhando para trazer todos os recursos para os contêineres do Windows, você pode encontrar diferenças atuais da plataforma na [visão geral](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="emptydir-volume"></a>Volume emptyDir
 
@@ -27,22 +27,22 @@ Alguns exemplos usam para um volume *emptyDir*:
 * Ponto de verificação durante tarefas de longa execução
 * Armazenar dados recuperados por um contêiner secundário e fornecidos por um contêiner de aplicativos
 
-Os dados em um volume *emptyDir* são mantidos mesmo após falhas de contêiner. Os contêineres reiniciados, entretanto, não têm a garantia de manter os dados em um volume *emptyDir*. Se você parar um grupo de contêineres, o volume *emptyDir* não será persistido.
+Os dados em um volume *emptyDir* são mantidos mesmo após falhas de contêiner. Os contêineres reiniciados, entretanto, não têm a garantia de manter os dados em um volume *emptyDir*. Se você parar um grupo de contêineres, o volume *vazioDir* não será persistido.
 
-O tamanho máximo de um volume *emptyDir* do Linux é de 50 GB.
+O tamanho máximo de um volume *de Dirdir vazio do* Linux é de 50 GB.
 
 ## <a name="mount-an-emptydir-volume"></a>Montar um volume emptyDir
 
-Para montar um volume emptyDir em uma instância de contêiner, você pode implantar usando um [modelo de Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups), um [arquivo YAML](container-instances-reference-yaml.md)ou outros métodos programáticos para implantar um grupo de contêineres.
+Para montar um volume Dir vazio em uma instância de contêiner, você pode implantar usando um [modelo do Azure Resource Manager,](/azure/templates/microsoft.containerinstance/containergroups)um [arquivo YAML](container-instances-reference-yaml.md)ou outros métodos programáticos para implantar um grupo de contêineres.
 
-Primeiro, preencha a matriz de `volumes` na seção `properties` do grupo de contêineres do arquivo. Em seguida, para cada contêiner do grupo de contêineres no qual você deseja montar o volume *emptyDir*, popule a matriz `volumeMounts` na seção `properties` da definição de contêiner.
+Primeiro, preencha `volumes` a matriz `properties` na seção grupo de contêiner do arquivo. Em seguida, para cada contêiner do grupo de contêineres no qual você deseja montar o volume *emptyDir*, popule a matriz `volumeMounts` na seção `properties` da definição de contêiner.
 
 Por exemplo, o modelo do Resource Manager a seguir cria um grupo de contêineres que consiste em dois contêineres, cada um montando o volume *emptyDir*:
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json -->
 [!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
 
-Para ver exemplos de implantação de grupo de contêineres, consulte [implantar um grupo de vários contêineres usando um modelo do Resource Manager](container-instances-multi-container-group.md) e [implantar um grupo de vários contêineres usando um arquivo YAML](container-instances-multi-container-yaml.md).
+Para ver exemplos de implantação de grupo de contêineres, consulte [Implantar um grupo de vários contêineres usando um modelo de Gerenciador de recursos](container-instances-multi-container-group.md) e implantar um grupo de vários [contêineres usando um arquivo YAML](container-instances-multi-container-yaml.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

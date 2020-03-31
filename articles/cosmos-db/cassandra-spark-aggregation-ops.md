@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 4fbb86f4fbda9b8e521f7465bb8bb3d18602ca13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60894179"
 ---
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Agregue operações nas tabelas de API do Azure Cosmos DB Cassandra do Spark 
@@ -87,17 +87,17 @@ A contagem de frames de dados não é atualmente suportada.  O exemplo abaixo mo
 
 Escolha uma [opção de armazenamento]( https://spark.apache.org/docs/2.2.0/rdd-programming-guide.html#which-storage-level-to-choose) nas seguintes opções disponíveis, para evitar problemas de "falta de memória":
 
-* MEMORY_ONLY: Essa é a opção de armazenamento padrão. Armazena o RDD como objetos Java desserializados na JVM. Se o RDD não couber na memória, algumas partições não serão armazenadas em cache e serão recalculadas na hora toda vez que forem necessárias.
+* MEMORY_ONLY: esta é a opção de armazenamento padrão. Armazena o RDD como objetos Java desserializados na JVM. Se o RDD não couber na memória, algumas partições não serão armazenadas em cache e serão recalculadas na hora toda vez que forem necessárias.
 
 * MEMORY_AND_DISK: Armazena o RDD como objetos Java desserializados na JVM. Se o RDD não couber na memória, armazene as partições que não cabem no disco e, sempre que necessário, leia-as no local em que estão armazenadas.
 
-* MEMORY_ONLY_SER (Java/Scala): Armazena o RDD como objetos Java serializados – matriz de um byte por partição. Essa opção é eficiente em termos de espaço quando comparada a objetos desserializados, especialmente ao usar um serializador rápido, mas exige mais uso da CPU para ler.
+* MEMORY_ONLY_SER (Java / Scala): Armazena o RDD como objetos Java serializados - matriz de um byte por partição. Essa opção é eficiente em termos de espaço quando comparada a objetos desserializados, especialmente ao usar um serializador rápido, mas exige mais uso da CPU para ler.
 
-* MEMORY_AND_DISK_SER (Java/Scala): Essa opção de armazenamento é como MEMORY_ONLY_SER, a única diferença é que ela despeja partições que não cabem na memória do disco, em vez de recalculá-las quando forem necessárias.
+* MEMORY_AND_DISK_SER (Java / Scala): Esta opção de armazenamento é como MEMORY_ONLY_SER, a única diferença é que ele despeja partições que não cabem na memória do disco, em vez de recalculá-las quando forem necessárias.
 
-* DISK_ONLY: Armazena as partições RDD somente no disco.
+* DISK_ONLY: armazena as partições RDD somente no disco.
 
-* MEMORY_ONLY_2, MEMORY_AND_DISK_2…: Igual aos níveis acima, exceto pelo fato de que replica cada partição em dois nós do cluster.
+* MEMORY_ONLY_2, MEMORY_AND_DISK_2…: O mesmo que os níveis acima, mas replica cada partição em dois nós do cluster.
 
 * OFF_HEAP (experimental): Semelhante a MEMORY_ONLY_SER, mas armazena os dados na memória fora do heap e exige que a memória fora do heap seja ativada antes do tempo. 
 

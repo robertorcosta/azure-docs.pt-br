@@ -1,13 +1,13 @@
 ---
-title: Introdução às coleções confiáveis
+title: Introdução a Coleções Confiáveis
 description: Os serviços com monitoração de estado do Service Fabric fornecem coleções confiáveis que permitem escrever aplicativos em nuvem altamente disponíveis, escalonáveis e com baixa latência.
 ms.topic: conceptual
 ms.date: 1/3/2019
 ms.openlocfilehash: 48fa682f4c017f66911729e1f581f3aa91cdc28d
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609716"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introdução à Reliable Collections nos serviços com monitoração de estado do Service Fabric do Azure
@@ -36,7 +36,7 @@ Para obter consistência mais fraca, os aplicativos podem confirmar para o clien
 As APIs de Coleções Confiáveis são uma evolução das APIs de coleções simultâneas (encontradas no namespace **System.Collections.Concurrent** ):
 
 * Assíncronas: retorna uma tarefa, já que, ao contrário das coleções concorrentes, as operações são replicadas e mantidas.
-* Sem parâmetros de saída: usa `ConditionalValue<T>` para retornar um `bool` e um valor em vez de parâmetros de saída. `ConditionalValue<T>` é como `Nullable<T>`, mas não requer T para ser um struct.
+* Sem parâmetros `ConditionalValue<T>` de `bool` saída: Usa para retornar um e um valor em vez de parâmetros de saída. `ConditionalValue<T>` é como `Nullable<T>`, mas não requer T para ser um struct.
 * Transações: usam um objeto de transação para permitir que o usuário agrupe as ações em várias Coleções Confiáveis em uma transação.
 
 Hoje, **Microsoft.ServiceFabric.Data.Collections** contém três coleções:
@@ -45,17 +45,17 @@ Hoje, **Microsoft.ServiceFabric.Data.Collections** contém três coleções:
 * [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx): representa uma fila PEPS (primeiro a entrar, primeiro a sair) estrita, assíncrona, transacional e replicada. Semelhante a **ConcurrentQueue**, a chave pode ser de qualquer tipo.
 * [Fila Simultânea Confiável](service-fabric-reliable-services-reliable-concurrent-queue.md): representa uma fila de ordenação de melhor esforço replicada, transacional e assíncrona para alta taxa de transferência. Semelhante à **ConcurrentQueue**, o valor pode ser de qualquer tipo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Recomendações e Diretrizes de Coleções Confiáveis](service-fabric-reliable-services-reliable-collections-guidelines.md)
+* [Diretrizes de coleta confiáveis & recomendações](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Trabalhando com Reliable Collections](service-fabric-work-with-reliable-collections.md)
-* [Transações e bloqueios](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+* [Transações e Bloqueios](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gerenciando dados
-  * [Backup e restauração](service-fabric-reliable-services-backup-restore.md)
+  * [Backup e Restauração](service-fabric-reliable-services-backup-restore.md)
   * [Notificações](service-fabric-reliable-services-notifications.md)
   * [Serialização de coleção confiável](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serialização e atualização](service-fabric-application-upgrade-data-serialization.md)
   * [Configuração do Gerenciador de Estado Confiável](service-fabric-reliable-services-configuration.md)
-* Diversos
-  * [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
+* Outras pessoas
+  * [Início rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
   * [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

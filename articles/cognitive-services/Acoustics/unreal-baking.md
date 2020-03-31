@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7a868a5f9b06499e23710399733b0659d97f900d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68854899"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutorial de bake do Projeto Acústico do Unreal
@@ -60,7 +60,7 @@ Se um elemento não tiver a marca **AcousticsGeometry** nem **AcousticsNavigatio
 
 ### <a name="tag-acoustics-occlusion-and-reflection-geometry"></a>Marcar oclusão acústica e geometria de reflexão
 
-Abra a guia Objetos da janela Acústica. Marque todos os objetos como Geometria Acústica, se eles devem ocluir, refletir ou absorver som. Geometria acústica pode incluir elementos como piso, paredes, tetos, janelas e vidro de janela, tapetes e móveis grandes. Você pode usar qualquer nível arbitrário de complexidade para esses objetos. Como a cena é voxelizada antes da simulação, malhas altamente detalhadas, como árvores com muitas folhas pequenas, não são mais onerosas para bake do que objetos simplificados.
+Abra a guia Objetos da janela Acústica. Marque todos os objetos como Geometria Acústica, se eles devem ocluir, refletir ou absorver som. Geometria acústica pode incluir coisas como zero, paredes, preench, janelas e vidro da janela, tapetes e móveis grandes. Você pode usar qualquer nível arbitrário de complexidade para esses objetos. Como a cena é voxelizada antes da simulação, malhas altamente detalhadas, como árvores com muitas folhas pequenas, não são mais onerosas para bake do que objetos simplificados.
 
 Não inclua elementos que não devem afetar a acústica, como malhas de colisão invisíveis.
 
@@ -117,7 +117,7 @@ Depois de atribuir os materiais, alterne para o **investigações** guia.
 1. O **investigações** botão guia usada para abrir essa página
 2. Uma breve descrição do que você precisa fazer usando essa página
 3. Utilize para escolher uma resolução de simulação grossa ou fina. Grande é mais rápido, mas tem determinadas vantagens e desvantagens. Veja [Fazer o Bake da Resolução](bake-resolution.md) abaixo para obter detalhes.
-4. Escolha o local onde os arquivos de dados acústicos devem ser colocados usando este campo. Clique no botão "..." para usar um seletor de pastas. Para obter mais informações sobre arquivos de dados, consulte [Arquivo de Dados](#Data-Files), abaixo.
+4. Escolha o local onde os arquivos de dados acústicos devem ser colocados usando este campo. Clique no botão "..." para usar um seletor de pastas. Para mais informações sobre arquivos de dados, consulte [Arquivos de Dados](#Data-Files) abaixo.
 5. Os arquivos de dados para esta cena serão nomeados usando o prefixo fornecido aqui. O padrão é "[Nome do Nível] _AcousticsData".
 6. Clique no botão **Calcular** para voxelizar a cena e calcular os locais dos pontos de sonda. Isso é feito localmente em sua máquina e deve ser feito antes de fazer um cozimento. Após o cálculo das sondas, os controles acima serão desabilitados e esse botão mudará para **Limpar**. Clique no botão **Limpar** para apagar os cálculos e habilitar os controles para que você possa recalcular usando as novas configurações.
 
@@ -159,7 +159,7 @@ Se você comparar os voxels criados com resolução grossa vs resolução fina, 
 
 ### <a name="probe-points"></a>Pontos de teste
 
-Os pontos de teste são sinônimos de possíveis locais do player (ouvinte). Ao fazer bake, a simulação calcula a acústica que conecta todos os possíveis locais de origem para cada ponto de sonda. No tempo de execução, o local de escuta é interpolado entre pontos de sonda próximos.
+Os pontos de teste são sinônimos de possíveis locais do player (ouvinte). Ao fazer bake, a simulação calcula a acústica que conecta todos os possíveis locais de origem para cada ponto de sonda. No runtime, o local de escuta é interpolado entre pontos de sonda próximos.
 
 É importante verificar se os pontos de sonda existem em qualquer lugar onde o player deverá percorrer na cena. Os pontos de sonda são colocados na malha de navegação pelo mecanismo do Projeto Acústico e não podem ser movidos ou editados, portanto, assegure-se de que a malha de navegação cubra todos os possíveis locais do player, inspecionando os pontos de sonda.
 
@@ -188,7 +188,7 @@ Veja [Fazer o Bake da Resolução](bake-resolution.md) para obter mais detalhes 
 11. A contagem de sondas para sua cena, conforme calculada na guia **Sondas**. O número de probes determina o número de simulações que precisam ser executadas na nuvem. Você não pode especificar mais nós do que probes.
 12. Essa mensagem informa o status atual do trabalho ou, se houver algum erro nessa guia, quais são esses erros.
 
-Você sempre poderá obter informações completas sobre trabalhos ativos, pools de computação e armazenamento no [portal do Azure](https://portal.azure.com).
+Você sempre pode obter informações completas sobre os trabalhos ativos, pools de computação e armazenamento no [portal do Azure](https://portal.azure.com).
 
 Enquanto um trabalho está em execução, o botão **Bake** muda para **Cancelar trabalho**. Use este botão para cancelar o trabalho em andamento.Use esse botão para cancelar o trabalho em andamento. O cancelamento de um trabalho não pode ser desfeito, nenhum resultado estará disponível e você ainda será cobrado por qualquer tempo de computação do Azure usado antes do cancelamento.
 
@@ -196,21 +196,21 @@ Após ter iniciado um bake, você poderá fechar o Unreal. Dependendo do projeto
 
 As credenciais do Azure são armazenadas com segurança no computador local e associadas ao projeto do Unreal. Eles são usados exclusivamente para estabelecer uma conexão segura com o Azure.
 
-### <a name="Estimating-bake-cost"></a> Estimar o custo do bake do Azure
+### <a name="estimating-azure-bake-cost"></a><a name="Estimating-bake-cost"></a> Estimar o custo do bake do Azure
 
 Para estimar o custo de um dado bake, pegue o valor mostrado para **Estimated Compute Cost**, que é uma duração, e multiplique-o pelo custo por hora em sua moeda local do **VM Node Type** você selecionou. O resultado não incluirá o tempo de nó necessárias para colocar os nós e em execução. Por exemplo, se você selecionar **Standard_F8s_v2** para seu tipo de nó, que tem um custo de US$ 0,40/h, e o custo estimado de computação for de 3 horas e 57 minutos, o custo estimado para executar o trabalho será de US$ 0,40 * ~ 4 horas = ~ US$ 1,60. O custo real provavelmente será um pouco maior devido ao tempo extra para iniciar os nós. Você pode encontrar o custo de nó por hora na página [Preço do lote do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (selecione "Computar otimizado" ou "Computação de alto desempenho" para a categoria).
 
 ### <a name="reviewing-the-bake-results"></a>Revendo os resultados do cozimento
 
-Depois que o assar for concluído, verifique se os voxels e os pontos de teste estão em seus locais esperados, executando o plugin de tempo de execução.
+Depois que o assar for concluído, verifique se os voxels e os pontos de teste estão em seus locais esperados, executando o plugin de runtime.
 
-## <a name="Data-Files"></a>Arquivos de dados
+## <a name="data-files"></a><a name="Data-Files"></a>Arquivos de dados
 
-Existem quatro arquivos de dados criados por este plugin em vários pontos. Apenas um deles é necessário em tempo de execução e é colocado na pasta Conteúdo/Acústico do projeto, a qual é automaticamente adicionada ao caminho de empacotamento do projeto. Os outros três estão dentro da pasta Dados Acústicos e não são empacotados.
+Existem quatro arquivos de dados criados por este plugin em vários pontos. Apenas um deles é necessário em runtime e é colocado na pasta Conteúdo/Acústico do projeto, a qual é automaticamente adicionada ao caminho de empacotamento do projeto. Os outros três estão dentro da pasta Dados Acústicos e não são empacotados.
 
 * **[Projeto]/Config/ProjectAcoustics.cfg**: Esse arquivo armazena os dados inseridos nos campos na Interface do Usuário do Modo de Acústica. O local e o nome deste arquivo não podem ser alterados. Existem outros valores armazenados nesse arquivo que afetam o bake, mas são para usuários avançados e não devem ser alterados.
-* **[Projeto]/Content/Acoustics/[LevelName]\_AcousticsData.ace**: Esse arquivo é criado durante a simulação de bake e contém os dados de pesquisa usados pelo tempo de execução para renderizar a acústica da cena. O local e o nome desse arquivo podem ser alterados usando os campos na **investigações** guia. Se você quiser renomear esse arquivo após sua criação, exclua o UAsset do seu projeto Unreal, renomeie o arquivo fora do Unreal no Explorador de Arquivos e, em seguida, importe novamente o arquivo para Unreal a fim de produzir um novo UAsset. Renomear o UAsset por si só não funcionará.
-* **[Projeto]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData.vox**: Esse arquivo armazena a geometria acústica voxelizada e as propriedades do material. Calculado usando o botão **Calcular** na guia **Sondas**. A localização e o nome desse arquivo podem ser alterados usando os campos da guia **Sondas**.
+* **[Projeto]/Content/Acoustics/[LevelName]\_AcousticsData.ace**: Esse arquivo é criado durante a simulação de bake e contém os dados de pesquisa usados pelo runtime para renderizar a acústica da cena. O local e o nome desse arquivo podem ser alterados usando os campos na **investigações** guia. Se você quiser renomear esse arquivo após sua criação, exclua o UAsset do seu projeto Unreal, renomeie o arquivo fora do Unreal no Explorador de Arquivos e, em seguida, importe novamente o arquivo para Unreal a fim de produzir um novo UAsset. Renomear o UAsset por si só não funcionará.
+* **[Projeto]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData.vox**: Esse arquivo armazena a geometria acústica voxelizada e as propriedades do material. Calculado usando o botão **Calcular** na guia **Sondas**. O local e o nome desse arquivo podem ser alterados usando os campos na **investigações** guia.
 * **[Projeto]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData\_config.xml**: Esse arquivo armazena os parâmetros calculados usando o botão **Calcular** na guia **Sondas**. A localização e o nome desse arquivo podem ser alterados usando os campos da guia **Sondas**.
 
 Tenha cuidado para não excluir o arquivo *.ace baixado do Azure. Este arquivo não é recuperável, exceto por re-gravar a cena.

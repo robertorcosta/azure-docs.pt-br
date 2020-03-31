@@ -1,6 +1,6 @@
 ---
-title: Gerenciar seus dispositivos conectados no portal minha conta – Azure AD
-description: Como exibir e desabilitar dispositivos conectados à sua conta corporativa ou de estudante na página dispositivos do portal minha conta.
+title: Gerencie seus dispositivos conectados a partir do portal Minha Conta - Azure AD
+description: Como visualizar e desativar dispositivos conectados à sua conta de trabalho ou escola a partir da página Dispositivos do portal Minha Conta.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,30 +12,30 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
 ms.openlocfilehash: e273a44c1cbc5a6a6161f059038c7e87973a33d5
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062482"
 ---
-# <a name="manage-your-connected-devices-from-the-devices-page"></a>Gerenciar seus dispositivos conectados na página dispositivos
+# <a name="manage-your-connected-devices-from-the-devices-page"></a>Gerenciar seus dispositivos conectados a partir da página Dispositivos
 
-A página **dispositivos** do portal **minha conta** ajuda você a gerenciar os dispositivos conectados à sua conta corporativa ou de estudante. Na página **dispositivos** , você pode:
+A página **Dispositivos** do portal **Minha Conta** ajuda você a gerenciar os dispositivos conectados à sua conta de trabalho ou escola. Na página **Dispositivos,** você pode:
 
-- Exiba seus dispositivos conectados à conta corporativa ou de estudante.
+- Veja seus dispositivos conectados à conta de trabalho ou à escola.
 
-- Desabilite todos os dispositivos que você não possui mais, que foram perdidos ou que foram roubados.
+- Desabilite todos os dispositivos que você não possui mais, tenha perdido ou que tenham sido roubados.
 
 >[!Important]
->Este artigo destina-se a usuários que tentam atualizar as informações do dispositivo conectadas a uma conta corporativa ou de estudante. Se você for um administrador procurando informações sobre o gerenciamento de dispositivos para seus funcionários e outros usos, consulte a [documentação de identidades de dispositivo](https://docs.microsoft.com/azure/active-directory/devices/index).
+>Este artigo destina-se a usuários que tentam atualizar as informações do dispositivo conectadas a uma conta de trabalho ou escola. Se você é um administrador que procura informações sobre o gerenciamento de dispositivos para seus funcionários e outros usos, consulte a [Documentação de Identidades de Dispositivo](https://docs.microsoft.com/azure/active-directory/devices/index).
 
 ## <a name="view-your-connected-devices"></a>Exibir seus dispositivos conectados
 
-1. Entre em sua conta corporativa ou de estudante e, em seguida, vá para a página **minha conta** (https://myprofile.microsoft.com/).
+1. Faça login na sua conta de trabalho ou escolahttps://myprofile.microsoft.com/) e, em seguida, vá para a Minha **Conta** (página).
 
 2. Selecione **Dispositivos** do painel de navegação à esquerda ou selecione o link **Gerenciar dispositivos** no bloco **Dispositivos**.
 
-    ![Página minha conta, mostrando links de dispositivos realçados](media/my-account-portal/my-account-portal-devices.png)
+    ![Minha página de conta, mostrando links de dispositivos destacados](media/my-account-portal/my-account-portal-devices.png)
 
 3. Examine as informações dos dispositivos conectados e verifique se você reconhece todos eles.
 
@@ -43,7 +43,7 @@ A página **dispositivos** do portal **minha conta** ajuda você a gerenciar os 
 
 ## <a name="disable-a-device"></a>Desabilitar um dispositivo
 
-Você pode desabilitar os dispositivos conectados a qualquer hora. Isso é particularmente importante se um dispositivo não parece familiar ou em caso de perda ou roubo de dispositivos. Depois de desabilitar um dispositivo, ele não poderá mais ser autenticado por sua organização e não poderá acessar nenhum dos recursos da sua organização.
+Você pode desabilitar os dispositivos conectados a qualquer hora. Isso é particularmente importante se um dispositivo não parece familiar ou em caso de perda ou roubo de dispositivos. Depois de desativar um dispositivo, ele não poderá mais ser autenticado pela sua organização e não poderá acessar nenhum dos recursos da sua organização.
 
 >[!Important]
 >Se você desabilitar um dispositivo por engano, não será possível desfazer a ação. Você terá de entrar em contato com o administrador da organização para adicionar o dispositivo novamente.
@@ -54,25 +54,25 @@ Você pode desabilitar os dispositivos conectados a qualquer hora. Isso é parti
 
 2. Selecione **Sim** para confirmar que você deseja desabilitar o dispositivo.
 
-## <a name="view-a-bitlocker-key"></a>Exibir uma chave do BitLocker
+## <a name="view-a-bitlocker-key"></a>Exibir uma tecla BitLocker
 
-Se você estiver bloqueado em seu dispositivo ou tiver um erro fatal, poderá ir para outro dispositivo e exibir a chave do BitLocker no portal **minha conta** .
+Se você estiver bloqueado fora do seu dispositivo ou tiver um erro fatal, você pode ir para outro dispositivo e visualizar sua chave BitLocker no portal **Minha conta.**
 
-1. Em outro dispositivo, em que você não está bloqueado, vá para a página **dispositivos** do portal **minha conta** .
+1. Em outro dispositivo, onde você não está bloqueado, vá para a página **Dispositivos** do portal **Minha Conta.**
 
-    ![Página do dispositivo com a opção de chave do BitLocker](media/my-account-portal/my-account-portal-devices-bitlocker.png)
+    ![Página do dispositivo com opção de chave BitLocker](media/my-account-portal/my-account-portal-devices-bitlocker.png)
 
-2. Selecione **Exibir chaves do BitLocker** para o dispositivo bloqueado e anote a chave do BitLocker para seu dispositivo bloqueado.
+2. Selecione **Exibir teclas bitlocker** para o dispositivo bloqueado e anote a tecla BitLocker para o dispositivo bloqueado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de exibir os dispositivos conectados, você pode:
+Depois de visualizar seus dispositivos conectados, você pode:
 
-- Selecione para exibir ou gerenciar suas [informações de segurança](user-help-security-info-overview.md).
+- Selecione para visualizar ou gerenciar suas [informações de segurança](user-help-security-info-overview.md).
 
-- Exiba e gerencie suas [organizações](my-account-portal-organizations-page.md).
+- Visualize e gerencie suas [organizações.](my-account-portal-organizations-page.md)
 
-- Exiba sua [atividade de entrada](my-account-portal-sign-ins-page.md).
+- Veja sua [atividade de login](my-account-portal-sign-ins-page.md).
 
 - Veja como sua organização [usa seus dados relacionados à privacidade](my-account-portal-privacy-page.md).
 
