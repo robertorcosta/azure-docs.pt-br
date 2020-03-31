@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/20/2020
 ms.author: dapine
 ms.openlocfilehash: 2ee6b12923bfd0e06343e8f185226cb72280d806
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78383899"
 ---
 Neste início rápido, você aprenderá a usar o SDK de Dispositivos de Fala para Android para criar um produto habilitado para fala ou usá-lo como um dispositivo de [transcrição de conversas](../conversation-transcription-service.md).
@@ -18,7 +18,7 @@ Este guia exige uma conta dos [Serviços Cognitivos do Azure](../get-started.md)
 
 O código-fonte para o aplicativo de exemplo é incluído com o SDK de Dispositivos de Fala. Também está [disponível no GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar a usar o SDK de Dispositivos de Fala, você precisará:
 
@@ -168,7 +168,7 @@ Para validar sua instalação do kit de desenvolvimento, crie e instale o aplica
 
 1. Experimento!
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Se você não puder se conectar ao Dispositivo de Fala. Digite o comando a seguir em uma janela do prompt de comando. Ele retornará uma lista de dispositivos:
 

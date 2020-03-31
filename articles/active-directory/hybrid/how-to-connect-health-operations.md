@@ -16,10 +16,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ef908429d359020282920d73480a472bfde0aa60
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261509"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operações do Azure Active Directory Connect Health
@@ -43,11 +43,11 @@ Você pode configurar o serviço do Azure AD Connect Health para enviar notifica
 6. Para finalizar as alterações, clique em **Salvar**. As alterações entram em vigor somente depois de salvar.
 
 >[!NOTE] 
-> Quando há problemas ao processar solicitações de sincronização em nosso serviço de back-end, esse serviço envia um email de notificação com os detalhes do erro para os endereços de email de contato administrativo do seu locatário. Ouvimos comentários de clientes que, em determinados casos, o volume dessas mensagens é extremamente grande, portanto, estamos alterando a maneira como enviamos essas mensagens. 
+> Quando há problemas no processamento de solicitações de sincronização em nosso serviço de backend, este serviço envia um e-mail de notificação com os detalhes do erro para o endereço de e-mail de contato administrativo(es) do seu inquilino. Ouvimos comentários de clientes de que, em certos casos, o volume dessas mensagens é proibitivamente grande, por isso estamos mudando a maneira como enviamos essas mensagens. 
 >
-> Em vez de enviar uma mensagem para cada erro de sincronização toda vez que ocorrer, enviaremos um resumo diário de todos os erros retornados pelo serviço de back-end. Isso permite que os clientes processem esses erros de maneira mais eficiente e reduzem o número de mensagens de erro duplicadas.
+> Em vez de enviar uma mensagem para cada erro de sincronização toda vez que ocorrer, enviaremos uma digestão diária de todos os erros que o serviço de back-end retornou. Isso permite que os clientes processem esses erros de forma mais eficiente e reduz o número de mensagens de erro duplicadas.
 >
-> Planejamos que essa alteração seja implementada em 15 de janeiro de 2020.
+> Planejamos que essa mudança seja implementada em 15 de janeiro de 2020.
 
 ## <a name="delete-a-server-or-service-instance"></a>Excluir uma instância de serviço ou servidor
 
@@ -78,7 +78,7 @@ Azure AD Connect Health para Serviços de Federação do Active Directory (AD FS
 
 Azure AD Connect Health para Azure Active Directory Domain Services:
 
-1. Abra o painel **Controladores de Domínio**.
+1. Abra o painel **controladores de** domínio.
 2. Selecione o controlador de domínio a ser removido.
 3. Na barra de ações, clique em **Excluir Selecionado**.
 4. Confirme a ação para excluir o servidor.
@@ -168,7 +168,7 @@ Você pode remover um usuário ou grupo adicionado ao RBAC do Azure AD Connect H
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
-* [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
+* [Instalação do Azure AD Connect Health Agent](how-to-connect-health-agent-install.md)
 * [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
 * [Usando o Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
 * [Usar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)

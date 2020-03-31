@@ -9,10 +9,10 @@ ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255308"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos do sistema para Importação/Exportação do Azure
@@ -41,7 +41,7 @@ Para preparar os discos rígidos usando a ferramenta WAImportExport, os seguinte
 
 O serviço de importação/exportação do Azure é compatível com os seguintes tipos de contas de armazenamento:
 
-- Contas de armazenamento Standard Uso Geral v2 (recomendado para a maioria dos cenários)
+- Contas de armazenamento V2 de Propósito Geral Padrão (recomendadas para a maioria dos cenários)
 - Contas de Armazenamento de Blobs
 - Contas de armazenamento v1 de Uso Geral (implantações clássicas ou do Azure Resource Manager)
 
@@ -50,14 +50,14 @@ Para saber mais sobre as contas de armazenamento, confira [Azure storage account
 Cada trabalho pode ser usado para transferir dados para apenas uma conta de armazenamento, ou por meio dela. Em outras palavras, um único trabalho de importação/exportação não pode estender-se por várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-account-create.md).
 
 > [!IMPORTANT]
-> O serviço de Exportação/Importação do Azure não dá suporte a contas de armazenamento em que o recurso [Pontos de Extremidade de Serviço de Rede Virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) tenha sido habilitado. 
+> O serviço Azure Import Export não suporta contas de armazenamento onde o recurso [Depontos](../../virtual-network/virtual-network-service-endpoints-overview.md) finais de serviço de rede virtual foi ativado. 
 
 ## <a name="supported-storage-types"></a>Tipos de armazenamento com suporte
 
 Os tipos de armazenamento na lista a seguir têm suporte com o serviço de Importação/Exportação do Azure.
 
 
-|Trabalho  |Serviço de Armazenamento |Suportado  |Sem suporte  |
+|Trabalho  |Serviço de Armazenamento |Com suporte  |Sem suporte  |
 |---------|---------|---------|---------|
 |Importar     |  Armazenamento de Blobs do Azure <br><br> Armazenamento de arquivos do Azure       | Blobs de página e Blobs de bloco com suporte <br><br> Arquivos com suporte          |
 |Exportação     |   Armazenamento de Blobs do Azure       | Blobs de blocos, blobs de páginas e blobs de acréscimo com suporte         | Arquivos do Azure sem suporte
@@ -72,15 +72,15 @@ Para o serviço de Importação/Exportação do Azure, você precisa de discos c
 Os discos na lista a seguir têm suporte para uso com o serviço de Importação/Exportação.
 
 
-|Tipo de disco  |Tamanho  |Suportado |
+|Tipo de disco  |Tamanho  |Com suporte |
 |---------|---------|---------|
 |SSD    |   2,5"      |SATA III          |
 |HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |
 
-Não há suporte para os seguintes tipos de disco:
-- USBs.
-- HDD externo com adaptador USB interno.
-- Discos que estão dentro dos compartimentos de uma HDD externa.
+Os seguintes tipos de disco não são suportados:
+- Usbs.
+- HDD externo com adaptador USB embutido.
+- Discos que estão dentro do invólucro de um HDD externo.
 
 Um trabalho de importação/exportação único pode ter:
 - No máximo 10 HDD/SSDs.
@@ -95,4 +95,4 @@ Ao preparar discos rígidos e copiar os dados usando a ferramenta WAImportExport
 
 * [Configurar a ferramenta WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
-* [Exemplo de API REST de importação e exportação do Azure](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
+* [Amostra de API de exportação de importação do Azure](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

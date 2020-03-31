@@ -1,5 +1,5 @@
 ---
-title: 'Gateway de VPN do Azure: solucionar problemas de configurações e conexões'
+title: 'Gateway Azure VPN: Solucionando problemas de configurações e conexões'
 description: Este artigo ajuda-o com links de artigos para solucionar problemas de configuração e conexão de Gateway de VPN e a validar taxa de transferência.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: cherylmc
 ms.openlocfilehash: d73bc8e9c39c14a254e8f7bae1d7b1a96a6c3225
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75780157"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>Solucionar problemas de Gateway de VPN
@@ -28,6 +28,6 @@ As conexões de Gateway de VPN podem falhar por vários motivos. Este artigo con
 
 * [Conexões site a site](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)<br>Depois de configurar uma conexão VPN site a site entre uma rede local e uma rede virtual do Azure, a conexão VPN repentinamente deixa de funcionar e não pode ser reconectada. Este artigo apresenta etapas para a solução de problemas para ajudá-lo a resolver esse problema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você também pode usar essas etapas para [Validar conexões VPN e VNet](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections).

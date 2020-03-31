@@ -1,6 +1,6 @@
 ---
-title: Conectar o Raspberry Pi ao Hub IoT do Azure na nuvem (Node. js)
-description: Saiba como configurar e conectar o Raspberry Pi ao Hub IoT do Azure para o Raspberry Pi para enviar dados para a plataforma de nuvem do Azure neste tutorial.
+title: Conecte Raspberry Pi ao Azure IoT Hub na nuvem (Node.js)
+description: Saiba como configurar e conectar Raspberry Pi ao Azure IoT Hub para Raspberry Pi para enviar dados para a plataforma de nuvem Azure neste tutorial.
 author: wesmc7777
 manager: eliotgra
 keywords: raspberry pi azure iot, hub iot raspberry pi, raspberry pi enviar dados para a nuvem, raspberry pi para nuvem
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: wesmc
 ms.openlocfilehash: 7c32ae73f065aa5cd1d0dabec421d354684fbb3c
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371487"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Conectar o Raspberry Pi ao Hub IoT do Azure (Node.js)
@@ -94,7 +94,7 @@ Preparar o cartão microSD para instalação da imagem do Raspbian.
 
 1. Baixe o Raspbian.
 
-   a. [Raspbian Buster com desktop](https://www.raspberrypi.org/downloads/raspbian/) (o arquivo. zip).
+   a. [Raspbian Buster com desktop](https://www.raspberrypi.org/downloads/raspbian/) (o arquivo .zip).
 
    b. Extraia a imagem do Raspbian em uma pasta no computador.
 
@@ -116,9 +116,9 @@ Preparar o cartão microSD para instalação da imagem do Raspbian.
 
 1. Conecte o Pi ao monitor, ao teclado e ao mouse.
 
-2. Inicie o PI e entre no Raspbian usando `pi` como o nome de usuário e `raspberry` como a senha.
+2. Inicie pi e, em seguida, `pi` faça login `raspberry` no Raspbian usando como nome de usuário e como senha.
 
-3. Clique no ícone do Raspberry > **Preferências** > **Configuração do Raspberry Pi**.
+3. Clique no ícone Framboesa > **Preferências** > **Framboesa Framboesa ) Configuração**.
 
    ![O menu de Preferências do Raspbian](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
@@ -131,7 +131,7 @@ Preparar o cartão microSD para instalação da imagem do Raspbian.
 
 ### <a name="connect-the-sensor-to-pi"></a>Conectar o sensor ao Pi
 
-Use a placa universal e os cabos de jumper para conectar um LED e um BME280 ao Pi, da seguinte maneira. Se você não tiver o sensor, [ignore esta seção](#connect-pi-to-the-network).
+Use a placa universal e os cabos de jumper para conectar um LED e um BME280 ao Pi, da seguinte maneira. Se você não tem o sensor, [pule esta seção.](#connect-pi-to-the-network)
 
 ![A conexão do Raspberry Pi e do sensor](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
@@ -148,7 +148,7 @@ Para os pinos do sensor, use a seguinte fiação:
 | LED VDD (pino 18F)        | GPIO 24 (pino 18)       | Cabo branco   |
 | LED GND (pino 17F)        | GND (pino 20)           | Cabo preto   |
 
-Clique para exibir os [mapeamentos de pinos do Raspberry Pi 2 e 3](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) para referência.
+Clique para ver [os mapeamentos de Framboesa Pi 2 & 3 pinos](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) para sua referência.
 
 Depois de conectar com êxito o BME280 ao Raspberry Pi, ele deve ficar semelhante à imagem abaixo.
 
@@ -192,7 +192,7 @@ Ligue o Pi usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethern
    node -v
    ```
 
-   Se a versão for inferior a 10. x ou se não houver node. js em seu PI, instale a versão mais recente.
+   Se a versão for inferior a 10.x, ou se não houver Node.js no seu Pi, instale a versão mais recente.
 
    ```bash
    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
@@ -229,7 +229,7 @@ Ligue o Pi usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethern
 
    Se você **não tiver o sensor**, defina o valor `simulatedData` como `true` para fazer com que o aplicativo de exemplo crie e use dados simulados de sensor.
 
-   *Observação: o endereço I2C usado neste tutorial é 0x77 por padrão. Dependendo da sua configuração, ele também pode ser 0x76: se você encontrar um erro I2C, tente alterar o valor para 118 e ver se isso funciona melhor. Para ver qual endereço é usado pelo sensor, execute `sudo i2cdetect -y 1` em um shell no Raspberry Pi*
+   *Nota: O endereço i2c usado neste tutorial é 0x77 por padrão. Dependendo da sua configuração, também pode ser 0x76: se você encontrar um erro i2c, tente alterar o valor para 118 e ver se isso funciona melhor. Para ver qual endereço é usado `sudo i2cdetect -y 1` pelo seu sensor, execute em uma concha no pi framboesa*
 
 2. Salve e saia digitando Control-O > Enter > Control-X.
 
@@ -248,14 +248,14 @@ Você deverá ver a seguinte saída, mostrando os dados do sensor e as mensagens
 
 ![Saída – dados de sensor enviados do Raspberry Pi para o seu Hub IoT](./media/iot-hub-raspberry-pi-kit-node-get-started/8-run-output.png)
 
-## <a name="read-the-messages-received-by-your-hub"></a>Ler as mensagens recebidas pelo seu hub
+## <a name="read-the-messages-received-by-your-hub"></a>Leia as mensagens recebidas pelo seu hub
 
-Uma maneira de monitorar as mensagens recebidas pelo Hub IoT do seu dispositivo é usar as ferramentas de IoT do Azure para Visual Studio Code. Para saber mais, confira [usar as ferramentas de IOT do Azure para Visual Studio Code para enviar e receber mensagens entre o dispositivo e o Hub IOT](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Uma maneira de monitorar as mensagens recebidas pelo seu hub ioT do seu dispositivo é usar as Ferramentas De IoT do Azure para o Visual Studio Code. Para saber mais, consulte [Use Azure IoT Tools for Visual Studio Code para enviar e receber mensagens entre seu dispositivo e o IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
-Para obter mais maneiras de processar dados enviados pelo seu dispositivo, continue na próxima seção.
+Para obter mais maneiras de processar os dados enviados pelo seu dispositivo, continue para a próxima seção.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você executou um aplicativo de exemplo para coletar dados de sensor e enviá-los para o Hub IoT.
+Você executou um aplicativo de exemplo para coletar dados do sensor e enviá-los para o seu hub de IoT.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

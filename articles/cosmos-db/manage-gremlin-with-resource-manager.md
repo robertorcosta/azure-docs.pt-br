@@ -1,35 +1,35 @@
 ---
-title: Modelos do Resource Manager para Azure Cosmos DB API do Gremlin
-description: Use modelos de Azure Resource Manager para criar e configurar Azure Cosmos DB API Gremlin.
+title: Modelos de gerenciador de recursos para API API AZURE Cosmos DB Gremlin
+description: Use os modelos do Azure Resource Manager para criar e configurar a API Do Azure Cosmos DB Gremlin.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
 ms.openlocfilehash: e4c18d93f07cb2143dcc5bf9c93b9ac7298d2f7b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246741"
 ---
-# <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Gerenciar Azure Cosmos DB recursos da API Gremlin usando modelos de Azure Resource Manager
+# <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Gerencie os recursos da API do Azure Cosmos DB Gremlin usando modelos do Azure Resource Manager
 
-Este artigo descreve como executar operações diferentes para automatizar o gerenciamento de suas contas de Azure Cosmos DB, bancos de dados e contêineres usando modelos de Azure Resource Manager. Este artigo tem exemplos apenas para contas de API Gremlin, para encontrar exemplos para outras contas de tipo de API, consulte: usar modelos de Azure Resource Manager com a API de Azure Cosmos DB para [Cassandra](manage-cassandra-with-resource-manager.md), [SQL](manage-sql-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), artigos de [tabela](manage-table-with-resource-manager.md) .
+Este artigo descreve como executar diferentes operações para automatizar o gerenciamento de suas contas, bancos de dados e contêineres do Azure Cosmos usando modelos do Azure Resource Manager. Este artigo tem exemplos apenas para contas de API do Gremlin, para encontrar exemplos para outras contas do tipo API ver: use modelos do Azure Resource Manager com a API do Azure Cosmos DB para [Cassandra](manage-cassandra-with-resource-manager.md), [SQL,](manage-sql-with-resource-manager.md) [MongoDB](manage-mongodb-with-resource-manager.md), Artigos [de tabela.](manage-table-with-resource-manager.md)
 
-## Criar Azure Cosmos DB API para a conta, banco de dados e coleção do MongoDB<a id="create-resource"></a>
+## <a name="create-azure-cosmos-db-api-for-mongodb-account-database-and-collection"></a>Crie a API do Azure Cosmos DB para conta, banco de dados e coleta do MongoDB<a id="create-resource"></a>
 
-Crie Azure Cosmos DB recursos usando um modelo de Azure Resource Manager. Este modelo criará uma conta do Azure Cosmos para a API do Gremlin com dois gráficos que compartilham a taxa de transferência de 400 RU/s no nível do banco de dados. Copie o modelo e implante-o conforme mostrado abaixo ou visite a [Galeria de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin/) e implante do portal do Azure. Você também pode baixar o modelo em seu computador local ou criar um novo modelo e especificar o caminho local com o parâmetro `--template-file`.
+Crie recursos do Azure Cosmos DB usando um modelo do Azure Resource Manager. Este modelo criará uma conta do Azure Cosmos para a API Gremlin com dois gráficos que compartilham o throughput de 400 RU/s no nível do banco de dados. Copie o modelo e implante conforme mostrado abaixo ou visite [a Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin/) e implante no portal Azure. Você também pode baixar o modelo para o seu computador local `--template-file` ou criar um novo modelo e especificar o caminho local com o parâmetro.
 
 > [!NOTE]
-> Os nomes de conta devem ser minúsculos e 44 ou menos caracteres.
-> Para atualizar RU/s, envie novamente o modelo com valores de propriedade de produtividade atualizados.
+> Os nomes das contas devem ser minúsculos e 44 ou menos caracteres.
+> Para atualizar RU/s, envie o modelo com valores de propriedade de throughput atualizados.
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json":::
 
-## <a name="deploy-with-the-azure-cli"></a>Implantar com o CLI do Azure
+## <a name="deploy-with-the-azure-cli"></a>Implantar com o Cli Azure
 
-Para implantar o modelo de Azure Resource Manager usando o CLI do Azure, **Copie** o script e selecione **Experimente-** o para abrir o Azure cloud Shell. Para colar o script, clique com o botão direito do mouse no Shell e selecione **colar**:
+Para implantar o modelo do Azure Resource Manager usando o Azure CLI, **copie** o script e **selecione Tente** abrir o Azure Cloud Shell. Para colar o script, clique com o botão direito do mouse na concha e, em seguida, **selecione Colar**:
 
 ```azurecli-interactive
 
@@ -51,7 +51,7 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-O comando `az cosmosdb show` mostra a conta recém-criada do Azure Cosmos depois que ela é provisionada. Se você optar por usar uma versão instalada localmente do CLI do Azure em vez de usar Cloud Shell, consulte o artigo [CLI do Azure](/cli/azure/) .
+O `az cosmosdb show` comando mostra a conta recém-criada do Azure Cosmos depois de ser provisionada. Se você optar por usar uma versão instalada localmente do Azure CLI em vez de usar o Cloud Shell, consulte o artigo [do Azure CLI.](/cli/azure/)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -59,5 +59,5 @@ Estes são alguns recursos adicionais:
 
 - [Documentação do Azure Resource Manager](/azure/azure-resource-manager/)
 - [Esquema do provedor de recursos Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)
-- [Modelos de início rápido Azure Cosmos DB](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
-- [Solucionar erros comuns de implantação de Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md)
+- [Modelos Azure Cosmos DB Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
+- [Solucionar problemas comuplediaerros comuns do Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md)

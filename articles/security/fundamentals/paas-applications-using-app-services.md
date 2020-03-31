@@ -1,5 +1,5 @@
 ---
-title: Protegendo aplicativos móveis Web & de PaaS
+title: Garantir aplicativos móveis de & web PaaS
 titleSuffix: Azure App Service
 description: 'Saiba mais sobre o Serviço de Aplicativo do Azure e as melhores práticas de segurança para proteger aplicativos Web e móveis de PaaS. '
 services: security
@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
 ms.openlocfilehash: c3f3c7fbaa043a03b70ab770c06e493716c70daf
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77500275"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Melhores práticas para proteger aplicativos PaaS móveis e Web usando o Serviço de Aplicativo do Azure
@@ -39,9 +39,9 @@ A restrição do acesso é fundamental para as organizações que desejam impor 
 Não importa a qualidade de sua segurança se você perder suas chaves de assinatura. O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Com o Key Vault, você pode criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves protegidas por HSMs (módulos de segurança de hardware). Para garantia extra, você pode importar ou gerar chaves em HSMs. Também é possível usar o Key Vault para gerenciar seus certificados TLS com renovação automática. Veja [O que é o Azure Key Vault](../../key-vault/key-vault-overview.md) para saber mais.
 
 ## <a name="restrict-incoming-source-ip-addresses"></a>Restringir os endereços IP de origem de entrada
-O [Ambiente de Serviço de Aplicativo](../../app-service/environment/intro.md) tem um recurso de integração de rede virtual que ajuda a restringir endereços IP de origem de entrada por meio dos NSGs (grupos de segurança de rede). Se você não estiver familiarizado com VNETs (Redes Virtuais do Azure), isso é um recurso que permite colocar muitos dos recursos do Azure em uma rede que não pode ser roteada pela Internet, cujo acesso você pode controlar. Para saber mais, confira [Integrar seu aplicativo com uma Rede Virtual do Azure](../../app-service/web-sites-integrate-with-vnet.md).
+O [Ambiente de Serviço de Aplicativo](../../app-service/environment/intro.md) tem um recurso de integração de rede virtual que ajuda a restringir endereços IP de origem de entrada por meio dos NSGs (grupos de segurança de rede). Se você não estiver familiarizado com VNETs (Redes Virtuais do Azure), isso é um recurso que permite colocar muitos dos recursos do Azure em uma rede que não pode ser roteada pela Internet, cujo acesso você pode controlar. Para saber mais, consulte [Integrar seu aplicativo com uma Rede Virtual Azure](../../app-service/web-sites-integrate-with-vnet.md).
 
-Para o serviço de aplicativo no Windows, você também pode restringir os endereços IP dinamicamente Configurando o Web. config. Para obter mais informações, consulte [segurança de IP dinâmico](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Para o Serviço de Aplicativo no Windows, você também pode restringir endereços IP dinamicamente configurando o web.config. Para obter mais informações, consulte [Dynamic IP Security](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 
 ## <a name="next-steps"></a>Próximas etapas

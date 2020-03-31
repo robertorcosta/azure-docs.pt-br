@@ -1,6 +1,6 @@
 ---
-title: Fontes de dados de Azure Monitor pastas de trabalho | Microsoft docs
-description: Simplifique relatórios complexos com pastas de trabalho Azure Monitor parametrizadas predefinidas e personalizadas criadas com base em várias fontes de dados
+title: Azure Monitor fontes de dados de livros de trabalho | Docs da Microsoft
+description: Simplifique relatórios complexos com workbooks adiadores do Monitor Azure pré-construídos e personalizados construídos a partir de várias fontes de dados
 services: azure-monitor
 documentationcenter: ''
 author: mrbullwinkle
@@ -11,77 +11,77 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: d57910ae31d4db9be17b3dc46b5920a925ab4fcf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248574"
 ---
-# <a name="azure-monitor-workbooks-data-sources"></a>Fontes de dados de Azure Monitor pastas de trabalho
+# <a name="azure-monitor-workbooks-data-sources"></a>Fontes de dados dos livros de trabalho do Azure Monitor
 
-As pastas de trabalho são compatíveis com um grande número de fontes de dados. Este artigo explicará as fontes de dados que estão disponíveis atualmente para Azure Monitor pastas de trabalho.
+As atos de trabalho são compatíveis com um grande número de fontes de dados. Este artigo irá levá-lo através de fontes de dados que estão atualmente disponíveis para as abanuais do Azure Monitor.
 
 ## <a name="logs"></a>Logs
 
-As pastas de trabalho permitem consultar logs das seguintes fontes:
+As câmaras de trabalho permitem consultar logs das seguintes fontes:
 
-* Logs de Azure Monitor (recursos de Application Insights e espaços de trabalho de Log Analytics.)
-* Dados centrados em recursos (logs de atividade)
+* Logs do Monitor do Azure (Recursos de Insights de Aplicativos e Espaços de Trabalho do Log Analytics.)
+* Dados centrados em recursos (registros de atividade)
 
-Os autores da pasta de trabalho podem usar consultas KQL que transformam os dados de recurso subjacentes para selecionar um conjunto de resultados que pode ser visualizado como texto, gráficos ou grades.
+Os autores da carteira de trabalho podem usar consultas KQL que transformam os dados de recursos subjacentes para selecionar um conjunto de resultados que pode ser visualizado como texto, gráficos ou grades.
 
-![Captura de tela da interface de relatório de logs de pastas de trabalho](./media/workbooks-overview/logs.png)
+![Captura de tela da interface de relatório de registros de livros de trabalho](./media/workbooks-overview/logs.png)
 
-Os autores da pasta de trabalho podem facilmente consultar em vários recursos, criando uma experiência de relatório sofisticada verdadeiramente unificada.
+Os autores de livros de trabalho podem facilmente consultar vários recursos criando uma experiência de relatório selada verdadeiramente unificada.
 
 ## <a name="metrics"></a>Métricas
 
-Os recursos do Azure emitem [métricas](data-platform-metrics.md) que podem ser acessadas via pastas de trabalho. As métricas podem ser acessadas em pastas de trabalho por meio de um controle especializado que permite especificar os recursos de destino, as métricas desejadas e sua agregação. Esses dados podem então ser plotados em gráficos ou grades.
+Os recursos do Azure emitem [métricas](data-platform-metrics.md) que podem ser acessadas através de livros de trabalho. As métricas podem ser acessadas em livros de trabalho através de um controle especializado que permite especificar os recursos de destino, as métricas desejadas e sua agregação. Esses dados podem então ser plotados em gráficos ou grades.
 
-![Captura de tela de gráficos de métricas de pasta de trabalho de utilização da CPU](./media/workbooks-overview/metrics-graph.png)
+![Captura de tela dos gráficos de métricas da carteira de trabalho da utilização da CPU](./media/workbooks-overview/metrics-graph.png)
 
-![Captura de tela da interface de métricas da pasta de trabalho](./media/workbooks-overview/metrics.png)
+![Captura de tela da interface de métricas da carteira de trabalho](./media/workbooks-overview/metrics.png)
 
 ## <a name="azure-resource-graph"></a>Gráfico de Recursos do Azure 
 
-As pastas de trabalho dão suporte à consulta de recursos e seus metadados usando o grafo de recursos do Azure (ARG). Essa funcionalidade é usada principalmente para criar escopos de consulta personalizados para relatórios. O escopo do recurso é expresso por meio de um subconjunto de KQL com suporte de ARG, que geralmente é suficiente para casos de uso comuns.
+As obras de trabalho suportam a consulta de recursos e seus metadados usando o Azure Resource Graph (ARG). Essa funcionalidade é usada principalmente para criar escopos de consulta personalizados para relatórios. O escopo de recursos é expresso através de um subconjunto KQL que o ARG suporta – o que muitas vezes é suficiente para casos de uso comum.
 
-Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa tipo de consulta para escolher o grafo de recursos do Azure e selecione as assinaturas a serem direcionadas. Use o controle de consulta para adicionar o ARG KQL-subconjunto que seleciona um subconjunto de recursos interessante.
+Para fazer um controle de consulta, use essa fonte de dados, use o tipo de inserção do tipo Consulta para escolher o Gráfico de Recursos do Azure e selecione as assinaturas a destino. Use o controle de consulta para adicionar o subconjunto ARG KQL que seleciona um subconjunto de recursos interessante.
 
 
-![Captura de tela da consulta KQL do grafo de recursos do Azure](./media/workbooks-overview/azure-resource-graph.png)
+![Captura de tela da consulta KQL do Gráfico de Recursos do Azure](./media/workbooks-overview/azure-resource-graph.png)
 
-## <a name="alerts-preview"></a>Alertas (versão prévia)
+## <a name="alerts-preview"></a>Alertas (visualização)
 
-As pastas de trabalho permitem que os usuários visualizem os alertas ativos relacionados aos seus recursos. Esse recurso permite a criação de relatórios que reúnem dados de notificação (alerta) e informações de diagnóstico (métricas, logs) em um relatório. Essas informações também podem ser Unidas para criar relatórios avançados que combinam informações entre essas fontes de dados.
+As obras permitem que os usuários visualizem os alertas ativos relacionados aos seus recursos. Esse recurso permite a criação de relatórios que reúnem dados de notificação (alerta) e informações diagnósticas (métricas, logs) em um relatório. Essas informações também podem ser unidas para criar relatórios ricos que combinam insights entre essas fontes de dados.
 
-Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa tipo de consulta para escolher alertas e selecionar as assinaturas, grupos de recursos ou recursos para o destino. Use os menus suspensos de filtro de alerta para selecionar um subconjunto interessante de alertas para suas necessidades analíticas.
+Para fazer um controle de consulta, use essa fonte de dados, use o tipo de inserção do tipo Consulta para escolher Alertas e selecionar as assinaturas, grupos de recursos ou recursos para segmentar. Use as gotas do filtro de alerta para selecionar um subconjunto interessante de alertas para suas necessidades analíticas.
 
 ![Captura de tela da consulta de alertas](./media/workbooks-overview/alerts.png)
 
-## <a name="workload-health-preview"></a>Integridade da carga de trabalho (versão prévia)
+## <a name="workload-health-preview"></a>Saúde da carga de trabalho (visualização)
 
-Azure Monitor tem funcionalidade que monitora de forma proativa a disponibilidade e o desempenho de sistemas operacionais convidados Windows ou Linux. O Azure Monitor modela os principais componentes e suas relações, critérios de como medir a integridade desses componentes e quais componentes o alertam quando uma condição não íntegra é detectada. As pastas de trabalho permitem que os usuários usem essas informações para criar relatórios interativos sofisticados.
+O Azure Monitor possui funcionalidade que monitora proativamente a disponibilidade e o desempenho dos sistemas operacionais convidados windows ou Linux. O Azure Monitor modela os principais componentes e suas relações, critérios de como medir a saúde desses componentes e quais componentes alertam quando uma condição insalubre é detectada. Os workbooks permitem que os usuários usem essas informações para criar relatórios interativos ricos.
 
-Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa **tipo de consulta** para escolher integridade da carga de trabalho e selecione assinatura, grupo de recursos ou recursos de VM para destino. Use os menus suspensos de filtro de integridade para selecionar um subconjunto interessante de incidentes de integridade para suas necessidades analíticas.
+Para fazer um controle de consulta, use essa fonte de dados, use o **tipo de queda** de consulta para escolher a Workload Health e selecionar recursos de assinatura, grupo de recursos ou VM para segmentar. Use as gotas do filtro de saúde para selecionar um subconjunto interessante de incidentes de saúde para suas necessidades analíticas.
 
 ![Captura de tela da consulta de alertas](./media/workbooks-overview/workload-health.png)
 
-## <a name="azure-resource-health"></a>Azure Resource Health 
+## <a name="azure-resource-health"></a>Saúde de recursos do Azure 
 
-As pastas de trabalho dão suporte à obtenção do Azure Resource Health e à combinação deles com outras fontes de dados para criar relatórios de integridade avançados e interativos
+As obras de trabalho suportam a obtenção de recursos de saúde do Azure e a combiná-lo com outras fontes de dados para criar relatórios de saúde ricos e interativos
 
-Para fazer com que um controle de consulta Use essa fonte de dados, use a lista suspensa **tipo de consulta** para escolher a integridade do Azure e selecione os recursos para direcionar. Use os menus suspensos de filtro de integridade para selecionar um subconjunto interessante de problemas de recursos para suas necessidades analíticas.
+Para fazer um controle de consulta, use essa fonte de dados, use o **tipo de query** para baixo para escolher a saúde do Azure e selecione os recursos a serem direcionados. Use as gotas do filtro de saúde para selecionar um subconjunto interessante de problemas de recursos para suas necessidades analíticas.
 
 ![Captura de tela da consulta de alertas](./media/workbooks-overview/resource-health.png)
 
-## <a name="azure-data-explorer-preview"></a>Data Explorer do Azure (versão prévia)
+## <a name="azure-data-explorer-preview"></a>Azure Data Explorer (visualização)
 
-As pastas de trabalho agora têm suporte para a consulta de clusters do [Azure data Explorer](https://docs.microsoft.com/azure/data-explorer/) com a poderosa linguagem de consulta [Kusto](https://docs.microsoft.com/azure/kusto/query/index) .   
+As adias agora têm suporte para consultas dos clusters [do Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/) com a poderosa linguagem de consulta [Kusto.](https://docs.microsoft.com/azure/kusto/query/index)   
 
 ![Captura de tela da janela de consulta do Kusto](./media/workbooks-overview/data-explorer.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Comece a aprender mais](workbooks-visualizations.md) sobre pastas de trabalho muitas opções de visualizações ricas.
-* [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.
+* [Comece a](workbooks-visualizations.md) aprender mais sobre livros de trabalho muitas opções ricas de visualizações.
+* [Controle](workbooks-access-control.md) e compartilhe o acesso aos recursos da sua carteira de trabalho.

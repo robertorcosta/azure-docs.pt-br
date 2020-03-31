@@ -1,19 +1,18 @@
 ---
-title: Navegação Portal do Cloud Partner para o Azure Marketplace
-description: Explicação da navegação dentro do Portal do Cloud Partner para o Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Navegação do Portal de Parceiros em Nuvem para o Azure Marketplace
+description: Explicação da navegação dentro do Portal de Parceiros em Nuvem para o Azure Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: pabutler
-ms.openlocfilehash: 57ccc7fb738dc23956e56e70c68405cc995a9a99
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2c1d0eafe96d6e1533bb980ae0e4fd3c43f0e56b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821484"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278409"
 ---
 # <a name="cloud-partner-portal-navigation"></a>Navegação do Portal do Microsoft Cloud Partner
 
@@ -31,13 +30,13 @@ Clicar nesses resultados áreas nas seguintes ações:
 1. Área de título - navega para a home page do portal.
 2. Botão **Ajudar** - exibe o menu de Ajuda, que fornece recursos para ajudar o usuário.
 3. Botão **Feedback** - exibe o formulário **Envie-nos um feedback**.
-4. Botão **Editor** - exibe um menu que permite ao usuário gerenciar seu perfil.
+4. Botão ** Editor ** - exibe um menu que permite ao usuário gerenciar seu perfil.
 
 Esses menus e formulários são descritos a seguir.
 
 ### <a name="help-menu"></a>Menu Ajuda
 
-O menu **Ajuda** fornece recursos para ajudar o usuário no Portal do Microsoft Cloud Partner.
+O menu ** Ajuda ** fornece recursos para ajudar o usuário no Portal do Microsoft Cloud Partner.
 
 ![Barra de menus superior](./media/top-menubar2.png)
 
@@ -75,10 +74,10 @@ Um painel de navegação recolhível ocupa o lado esquerdo do portal.  Ele cont�
 | ![Novo item de oferta](./media/left-navbar1.png) | [Novo menu de ofertas](./cpp-new-offer-menu.md) para criar novas ofertas do tipo especificado. |
 | ![Todos os itens de ofertas](./media/left-navbar2.png) | [Todas as ofertas](./cpp-all-offers-page.md) página para visualizar todas as ofertas enviadas e algumas de suas principais características. |
 | ![Item de aprovações](./media/left-navbar3.png) | [ página Aprovações ](./cpp-approvals-page.md) para visualizar todas as ofertas aprovadas no momento. |
-| ![Item de todos os publicadores](./media/left-navbar4.png) | A página [Todos os publicadores](./cpp-all-publishers-page.md) lista todos os editores atuais de parceiros na nuvem registrados. |
+| ![Item de todos os publicadores](./media/left-navbar4.png) | A página [Todos os editores](./cpp-all-publishers-page.md) lista todos os editores atuais de parceiros na nuvem registrados. |
 | ![Item de usuários](./media/left-navbar5.png) | A página [Usuários](./cpp-users-page.md) lista todas as contas de usuário atuais associadas aos parceiros da nuvem registrados. |
-| ![Item do histórico](./media/left-navbar6.png) | A página do [histórico ](./cpp-history-page.md) lista os eventos de publicação e modificação de ofertas para todos os editores. |
-| ![Item de Insights](./media/left-navbar7.png) | A página de [insights](./cpp-insights-page.md) contém os vários painéis que compõem o recurso *Insights do vendedor* deste portal. |
+| ![Item do histórico](./media/left-navbar6.png) | A página [Histórico ](./cpp-history-page.md) lista os eventos de publicação e modificação de ofertas para todos os editores. |
+| ![Item de Insights](./media/left-navbar7.png) | a página [insights](./cpp-insights-page.md) contém os vários dashboards que compõem o recurso *Seller Insights* deste portal. |
 | ![Item de Documentação](./media/left-navbar8.png) | Inicia uma nova guia na página inicial da documentação do Portal do Microsoft Cloud Partner (duplica a entrada no menu **Ajuda**). |
 | ![Item de Fórum](./media/left-navbar9.png)  | Inicia uma nova guia na página inicial da documentação da Comunidade de parceiros para os Mercados AppSource e Azure (entrada de duplicatas no menu **Ajuda**). |
 |  |  |

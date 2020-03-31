@@ -1,6 +1,6 @@
 ---
-title: ARRAY_LENGTH na linguagem de consulta Azure Cosmos DB
-description: Saiba mais sobre como a função do sistema SQL de comprimento da matriz em Azure Cosmos DB retorna o número de elementos da expressão de matriz especificada
+title: ARRAY_LENGTH no idioma de consulta do Azure Cosmos DB
+description: Saiba como o sistema SQL de comprimento do Array funciona no Azure Cosmos DB retorna o número de elementos da expressão de matriz especificada
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 3596ce4bc702d5e54225d8c90db2f9563feab670
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303980"
 ---
 # <a name="array_length-azure-cosmos-db"></a>ARRAY_LENGTH (Azure Cosmos DB)
@@ -34,7 +34,7 @@ ARRAY_LENGTH(<arr_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir como obter o comprimento de uma matriz usando `ARRAY_LENGTH`.  
+  O exemplo a seguir de como `ARRAY_LENGTH`obter o comprimento de uma matriz usando .  
   
 ```sql
 SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"]) AS len  
@@ -48,10 +48,10 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"]) AS len
   
 ## <a name="remarks"></a>Comentários
 
-Essa função do sistema não usará o índice.
+Esta função do sistema não utilizará o índice.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Funções de matriz Azure Cosmos DB](sql-query-array-functions.md)
-- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

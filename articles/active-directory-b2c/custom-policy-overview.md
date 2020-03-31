@@ -11,28 +11,28 @@ ms.date: 03/20/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246039"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Políticas personalizadas são arquivos de configuração que definem o comportamento do seu locatário Azure Active Directory B2C (Azure AD B2C). Fluxos de usuário são predefinidos no portal do Azure AD B2C para as tarefas de identidade mais comuns. As políticas personalizadas podem ser totalmente editadas por um desenvolvedor de identidades para concluir várias tarefas diferentes.
+Políticas personalizadas são arquivos de configuração que definem o comportamento do seu inquilino Azure Active Directory B2C (Azure AD B2C). Fluxos de usuário são predefinidos no portal do Azure AD B2C para as tarefas de identidade mais comuns. As políticas personalizadas podem ser totalmente editadas por um desenvolvedor de identidades para concluir várias tarefas diferentes.
 
 ## <a name="comparing-user-flows-and-custom-policies"></a>Comparando fluxos dos usuários e as políticas personalizadas
 
 | | Fluxos de usuário | Políticas personalizadas |
 |-|-------------------|-----------------|
-| Usuários de destino | Todos os desenvolvedores de aplicativos, com ou sem experiência em identidade. | Profissionais de identidade, integradores de sistemas, consultores e equipes internas de identidade. Eles se sentem confortáveis com os fluxos do OpenID Connect e entendem os provedores de identidade e a autenticação baseada em declarações. |
+| Usuários de destino | Todos os desenvolvedores de aplicativos, com ou sem experiência em identidade. | Profissionais de identidade, integradores de sistemas, consultores e equipes internas de identidade. Eles estão confortáveis com os fluxos do OpenID Connect e entendem os provedores de identidade e a autenticação baseada em sinistros. |
 | Método de configuração | Portal do Azure com uma UI (interface do usuário) amigável ao usuário. | Editando arquivos XML diretamente e carregando-os no portal do Azure. |
-| Personalização da interface do usuário | Personalização completa da interface do usuário, incluindo HTML, CSS e JavaScript.<br><br>Suporte a várias linguagens com cadeias de caracteres Personalizadas. | Idêntico |
+| Personalização da interface do usuário | Personalização completa da iu, incluindo HTML, CSS e JavaScript.<br><br>Suporte a várias linguagens com cadeias de caracteres Personalizadas. | Idêntico |
 | Personalização de atributos | Atributos padrão e personalizados. | Idêntico |
 | Gerenciamento de tokens e sessões | Token personalizado e opções de várias sessões. | Idêntico |
-| Provedores de Identidade | Provedor local ou social predefinido e provedores de identidade mais OIDC, como Federação com locatários Azure Active Directory. | SAML, OAUTH e OIDC baseado em padrões.  A autenticação também é possível usando a integração com APIs REST. |
+| Provedores de Identidade | Provedor local ou social predefinido e a maioria dos provedores de identidade OIDC, como federação com inquilinos do Azure Active Directory. | SAML, OAUTH e OIDC baseado em padrões.  A autenticação também é possível usando integração com APIs REST. |
 | Tarefas de identidade | Inscrever-se-se ou entrar com contas locais ou muitas contas sociais.<br><br>Redefinição de senha de autoatendimento.<br><br>Edição de perfil.<br><br>Autenticação Multifator.<br><br>Personalizar tokens e sessões.<br><br>Acessar fluxos de token. | Concluir as mesmas tarefas como fluxos de usuários usando os provedores de identidade personalizados ou usar escopos personalizados.<br><br>Provisione uma conta de usuário em outro sistema no momento do registro.<br><br>Enviar um email de boas-vindas usando seu próprio provedor de serviços de email.<br><br>Use um repositório de usuários fora do Azure AD B2C.<br><br>Valide as informações fornecidas pelo usuário com um sistema confiável usando uma API. |
 
 ## <a name="policy-files"></a>Arquivos de política
@@ -55,7 +55,7 @@ O serviço de CIAM (gerenciamento de acesso e identidade do cliente) no Azure in
 
 O Azure AD B2C interage com provedores de identidade, usuários, outros sistemas e com o diretório do usuário local em sequência para obter uma tarefa de identidade. Por exemplo, entre em um usuário, registre um novo usuário ou redefina uma senha. A Estrutura de Experiência de Identidade e uma política (também chamada de percurso do usuário ou uma política de estrutura confiável) estabelecem a confiança de vários participantes e define explicitamente os atores, as ações, os protocolos e a sequência de etapas a serem concluídas.
 
-A estrutura de experiência de identidade é uma plataforma do Azure baseada em nuvem, orientada por políticas, totalmente configurável que orquestra a confiança entre entidades em formatos de protocolo padrão, como OpenID Connect, OAuth, SAML e alguns não padrão, por exemplo, REST As trocas de declarações do sistema para o sistema baseadas em API. A estrutura cria experiências fáceis de usar e rotuladas em branco que dão suporte a HTML e CSS.
+O Identity Experience Framework é uma plataforma Azure totalmente configurável, orientada por políticas e baseada em nuvem que orquestra a confiança entre entidades em formatos de protocolo padrão, como OpenID Connect, OAuth, SAML e algumas não-padronizadas, por exemplo, REST Trocas de sinistros de sistema para sistema baseadas em API. A estrutura cria experiências fáceis de usar e rotuladas em branco que dão suporte a HTML e CSS.
 
 Uma política personalizada é representada como um ou vários arquivos formatados em XML que se referenciam entre si em uma cadeia hierárquica. Os elementos XML definem o esquema de declarações, as transformações de declarações, as definições de conteúdo, os provedores de declarações, os perfis técnicos e as etapas de orquestração do percurso do usuário, entre outros elementos. Uma política personalizada é acessível como um ou vários arquivos XML que são executados pela Estrutura de Experiência de Identidade quando invocados por uma terceira parte confiável. Os desenvolvedores que configuram as políticas personalizadas devem definir as relações de confiança em detalhes para incluir pontos de extremidade de metadados, definições exatas de troca de declarações e configurar segredos, chaves e certificados, conforme necessário, para cada provedor de identidade.
 
@@ -66,4 +66,4 @@ Quando um aplicativo chama o arquivo de política RP, a Estrutura de Experiênci
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Introdução às políticas personalizadas](custom-policy-get-started.md)
+> [Comece com políticas personalizadas](custom-policy-get-started.md)

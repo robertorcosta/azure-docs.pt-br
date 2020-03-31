@@ -1,6 +1,6 @@
 ---
 title: Mapear o campo personalizado para o esquema de Grade de Eventos do Azure
-description: Este artigo descreve como converter seu esquema personalizado para o esquema da grade de eventos do Azure quando os dados do evento não correspondem ao esquema da grade de eventos.
+description: Este artigo descreve como converter seu esquema personalizado para o esquema azure Event Grid quando os dados do evento não correspondem ao esquema da Grade de Eventos.
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: e8077068a265d659cf6009eb7762188637c373d6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721652"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Mapear campos personalizados para o esquema de Grade de Eventos
@@ -205,7 +205,7 @@ A segunda assinatura usou o esquema de evento de entrada. O formato do evento fo
 
 Observe que os campos originais foram entregues.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter informações sobre a entrega de eventos e repetições, [Entrega e repetição de mensagens da Grade de Eventos](delivery-and-retry.md).
 * Para ver uma introdução à Grade de Eventos, confira [About Event Grid](overview.md) (Sobre a Grade de Eventos).

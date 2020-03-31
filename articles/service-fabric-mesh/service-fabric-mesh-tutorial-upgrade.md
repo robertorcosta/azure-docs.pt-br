@@ -1,5 +1,5 @@
 ---
-title: Tutorial – atualizar um aplicativo de malha de Service Fabric do Azure
+title: Tutorial- Atualize um aplicativo de malha de malha de malha de serviço do Azure
 description: Este tutorial é a parte quatro de uma série e mostra como atualizar um aplicativo do Azure Service Fabric Mesh diretamente do Visual Studio.
 author: dkkapur
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 7cdb8868f760ef0f35ab90c06b411110f871738c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75351710"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutorial: Aprenda como atualizar um aplicativo do Service Fabric usando o Visual Studio
@@ -55,13 +55,13 @@ Vamos atualizar o parâmetro `WebFrontEnd_cpu` para atualizar os recursos de CPU
 
 2. Abra o arquivo **service.yaml** do projeto **WebFrontEnd** em **WebFrontEnd** > **Recursos do Serviço**.
 
-    Observe que na seção `resources:`, `cpu:` é definido como `"[parameters('WebFrontEnd_cpu')]"`. Se o projeto estiver sendo compilado para a nuvem, o valor para `'WebFrontEnd_cpu` será retirado do arquivo **Ambientes** > **Nuvem** > **parameters.yaml** e será `1.5`. Se o projeto estiver sendo compilado para execução localmente, o valor será retirado do arquivo **Ambientes** > **Local** > **parameters.yaml** e será '0.5'.
+    Observe que na seção `resources:`, `cpu:` é definido como `"[parameters('WebFrontEnd_cpu')]"`. Se o projeto estiver sendo construído para `'WebFrontEnd_cpu` a nuvem, o valor será retirado do arquivo `1.5` **Environments** >  > **Cloud.yaml,** e será .**Cloud** Se o projeto estiver sendo construído para ser executado localmente, o valor será retirado do arquivo **Ambientes** > **Locais.yaml,** **Local** > e será '0.5'.
 
 > [!Tip]
 > Por padrão, o arquivo de parâmetros que é um par do arquivo profile.yaml será usado para fornecer os valores para esse arquivo profile.yaml.
 > Por exemplo, Ambientes > Nuvem > parameters.yaml fornece os valores do parâmetro para Ambientes > Nuvem > profile.yaml.
 >
-> Você pode substituir isso adicionando o seguinte ao arquivo Profile. YAML:`parametersFilePath=”relative or full path to the parameters file”` por exemplo, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` ou `parametersFilePath=”..\CommonParameters.yaml”`
+> Você pode anular isso adicionando o seguinte ao arquivo`parametersFilePath=”relative or full path to the parameters file”` profile.yaml: Por exemplo, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` ou`parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modificar o modelo
 
@@ -143,7 +143,7 @@ Na caixa de diálogo de publicação, pressione o botão **Publicar** para atual
 
 Depois que a imagem é compilada e enviada por push para o Registro de Contêiner do Azure, um link **Para status** será exibido na saída, onde você pode clicar para monitorar a implantação no portal do Azure.
 
-Quando a atualização for concluída, a saída **Service Fabric Tools** exibirá o endereço IP e a porta do seu aplicativo na forma de uma URL.
+Quando a atualização for concluída, a saída ** Service Fabric Tools ** exibirá o endereço IP e a porta do seu aplicativo na forma de uma URL.
 
 ```json
 The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
@@ -151,7 +151,7 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Abra um navegador da Web e navegue até a URL para ver o site em execução no Azure. Agora você deve ver uma página da web que contém uma coluna de categoria.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Nesta parte do tutorial, você aprendeu a:
 > [!div class="checklist"]

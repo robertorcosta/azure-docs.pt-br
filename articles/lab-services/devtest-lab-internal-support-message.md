@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 591dcec36dc62143901d3b49db24196e84d58c29
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76170362"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Adicionar uma instrução de suporte interno em um laboratório no Azure DevTest Labs
@@ -31,7 +31,7 @@ Você pode facilmente desabilitar ou editar uma instrução de suporte depois qu
 
 ## <a name="steps-to-add-a-support-statement-to-an-existing-lab"></a>Etapas para adicionar uma instrução de suporte a um laboratório existente
 
-1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessário, selecione **Todos os Serviços** e selecione **DevTest Labs** na lista. (O laboratório já pode ser exibido no painel, em **Todos os Recursos**).
 1. Na lista de laboratórios, selecione o laboratório no qual você deseja adicionar uma instrução de suporte.  
 1. Na área **Visão geral** do laboratório, selecione **Configuração e políticas**.  
@@ -68,6 +68,6 @@ Quando não quiser mais mostrar essa mensagem de suporte para os usuários do la
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Instruções de suporte interno normalmente são usadas para fornecer informações de suporte que não são alteradas com frequência. Você também pode aprender como [postar um comunicado em um laboratório](devtest-lab-announcements.md) para informar os usuários de alterações temporárias ou de atualizações no laboratório.
 * [Definir políticas e agendas](devtest-lab-set-lab-policy.md) fornece informações sobre como aplicar as convenções e restrições em sua assinatura usando políticas personalizadas.

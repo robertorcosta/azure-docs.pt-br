@@ -1,18 +1,18 @@
 ---
-title: Configurar parâmetros do servidor-CLI do Azure-banco de dados do Azure para MariaDB
+title: Configurar parâmetros de servidor - Azure CLI - Banco de dados Azure para MariaDB
 description: Este artigo descreve como configurar os parâmetros de serviço no Banco de Dados do Azure para MariaDB usando o utilitário de linha de comando da CLI do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 707f4eca440c0e8461420ff0bbc5e67f8e5ad69d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 3/18/2020
+ms.openlocfilehash: 56975c52b22b90840fb1534187e99f6efa19469e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888505"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527666"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Personalizar os parâmetros de configuração do servidor usando a CLI do Azure
 Você pode listar, mostrar e atualizar os parâmetros de configuração de um Banco de Dados do Azure para MariaDB usando a CLI do Azure, o utilitário de linha de comando do Azure. Um subconjunto de configurações de mecanismo é exposto no nível do servidor e pode ser modificado.
@@ -69,7 +69,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> Você deve reiniciar o servidor para garantir que as tabelas de fuso horário sejam populadas corretamente. Para reiniciar o servidor, use o [portal do Azure](howto-restart-server-portal.md) ou a [CLI](howto-restart-server-cli.md).
+> Você deve reiniciar o servidor para garantir que as tabelas de fuso horário estejam preenchidas corretamente. Para reiniciar o servidor, use o [portal Azure](howto-restart-server-portal.md) ou [CLI](howto-restart-server-cli.md).
 
 Para exibir os valores de fuso horário disponíveis, execute o comando a seguir:
 
@@ -97,6 +97,6 @@ SET time_zone = 'US/Pacific';
 
 Consulte a documentação do MariaDB para [Funções de data e hora](https://mariadb.com/kb/en/library/date-time-functions/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Como configurar [parâmetros de servidor no Portal do Azure](howto-server-parameters.md)

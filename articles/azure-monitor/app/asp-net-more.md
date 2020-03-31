@@ -4,10 +4,10 @@ description: Após começar a usar o Application Insights, veja um resumo dos re
 ms.topic: conceptual
 ms.date: 02/03/2017
 ms.openlocfilehash: 3c4a9a736f34d4f7dbfeb004d0837f1f2efa55dc
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77666017"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Mais telemetria do Application Insights

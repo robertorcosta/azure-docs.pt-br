@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: deb1ea8c7b41ad48bddebfbed1b15c667ee0071a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73483943"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
@@ -40,7 +40,7 @@ Você pode usar este exemplo para monitorar os estados de informações e sensor
 
 ## <a name="provision-azure-services"></a>Provisionar Serviços do Azure
 
-1. Clique no menu suspenso **Tarefas** no Visual Studio Code e selecione **Executar Tarefa...**  - **cloud-provision**.
+1. Clique no menu suspenso **Tarefas** no Visual Studio Code e selecione **Executar Tarefa...** - **cloud-provision**.
 
 2. Seu andamento é exibido na guia **TERMINAL** do painel **Bem-vindo**.
 
@@ -59,7 +59,7 @@ Você pode usar este exemplo para monitorar os estados de informações e sensor
 
 ## <a name="deploy-function-app"></a>Implantar aplicativo de funções
 
-1. Clique no menu suspenso **Tarefas** no Visual Studio Code e selecione **Executar Tarefa...**  - **cloud-deploy**.
+1. Clique no menu suspenso **Tarefas** no Visual Studio Code e selecione **Executar Tarefa...** - **cloud-deploy**.
 
 2. Aguarde o processo de upload do código do aplicativo de função ser concluído; a mensagem *implantações do aplicativo de funções: Concluídas* é exibida.
 
@@ -67,7 +67,7 @@ Você pode usar este exemplo para monitorar os estados de informações e sensor
 
 1. Conecte o MXChip IoT DevKit no computador.
 
-2. Clique no menu suspenso **Tarefas** no Visual Studio Code e selecione **Executar Tarefa...**  - **config-device-connection**
+2. Clique no menu suspenso **Tarefas** no Visual Studio Code e selecione **Executar Tarefa...** - **config-device-connection**
 
 3. No MXChip IoT DevKit, pressione e mantenha pressionado o botão **A**, pressione o botão **Reiniciar** e, em seguida, solte o botão **A** para fazer o DekKit entrar no modo de configuração.
 
@@ -77,7 +77,7 @@ Você pode usar este exemplo para monitorar os estados de informações e sensor
 
 Com o MXChip IoT DevKit conectado ao computador:
 
-1. Clique no menu suspenso **tarefas** no Visual Studio Code e selecione **Executar tarefa de compilação...** O esboço Arduino é compilado e carregado no DevKit.
+1. Clique no menu suspenso **tarefas** no Visual Studio Code e selecione **Executar tarefa de compilação...** O esboço de Arduino é compilado e carregado no DevKit.
 
 2. Quando o esboço tiver sido carregado com êxito, uma mensagem *Compilar e Carregar Esboço: êxito* será exibida.
 
@@ -106,7 +106,7 @@ Com o MXChip IoT DevKit conectado ao computador:
 ![Exemplo de procedimento de teste](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Você pode ver os dados brutos de dispositivos gêmeos no portal do Azure: IoT Hub -\> dispositivos IoT -\> *\<seu dispositivo\>*  -\>  Dispositivo gêmeo.
+> Você pode ver dados brutos do dispositivo twin no\> portal Azure: IoT Hub - dispositivos IoT -\> * \<seu dispositivo\> *  - \> Device Twin.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -117,4 +117,4 @@ Você aprendeu como:
 Aqui estão sugestões para as próximas etapas:
 
 * [Visão geral do acelerador de solução de Monitoramento Remoto do Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Conectar um dispositivo MXChip IoT DevKit ao seu aplicativo Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)
+* [Conectar um dispositivo MXChip IoT DevKit ao aplicativo Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)

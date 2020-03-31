@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: aahi
 ms.openlocfilehash: ec0ffdcf86e67a7126a3100c1e20b6e5c3474e35
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78253046"
 ---
 Introdução à biblioteca de clientes da Pesquisa Personalizada do Bing para Python. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. A API de Pesquisa Personalizada do Bing permite criar experiências de pesquisa personalizadas sem anúncios para tópicos importantes para você. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py).

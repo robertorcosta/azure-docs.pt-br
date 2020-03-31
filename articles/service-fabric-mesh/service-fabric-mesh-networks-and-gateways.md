@@ -1,5 +1,5 @@
 ---
-title: Introdução à rede Service Fabric do Azure
+title: Introdução à rede de malha de serviço do Azure
 description: Saiba mais sobre redes, gateways e roteamento de tráfego inteligente na Malha do Service Fabric.
 author: dkkapur
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.date: 11/26/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: dc793e2991783cc9b7b46d92fcc8e0267feb529b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75459143"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Introdução à rede nos aplicativos da Malha do Service Fabric
@@ -34,7 +34,7 @@ Quando o recurso de rede é criado com `ingressConfig`, um IP público é atribu
 
 Quando um aplicativo de malha é criado, ele deve fazer referência a um recurso de rede existente. Novas portas públicas podem ser adicionadas ou portas existentes podem ser removidas da configuração de entrada. Uma exclusão para um recurso de rede falhará se um recurso de aplicativo estiver fazendo referência a ele. Quando o aplicativo é excluído, o recurso de rede será removido.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 Para saber mais sobre Malha do Service Fabric, leia a visão geral:
 - [Visão geral da Malha do Service Fabric](service-fabric-mesh-overview.md)
 

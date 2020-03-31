@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c80ab4acd745717e2e68ae7d9dc818594ad1ce9e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087075"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501473"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar a taxa de transferência provisionada no Azure Cosmos DB
 
@@ -29,11 +29,11 @@ Você pode provisionar a taxa de transferência em bancos de dados ou contêiner
 
 Abaixo estão algumas diretrizes para a escolha de uma estratégia de taxa de transferência provisionada:
 
-**Considere provisionar a taxa de transferência em um banco de dados Cosmos do Azure (que contém um conjunto de contêineres) se**:
+**Considere o provisionamento de throughput em um banco de dados do Azure Cosmos (contendo um conjunto de contêineres) se:**
 
 1. Você tem algumas dezenas de contêineres do Azure Cosmos e deseja compartilhar a taxa de transferência entre alguns ou todos eles. 
 
-2. Você está migrando de um banco de dados de um único locatário projetado para ser executado em VMs hospedadas IaaS ou locais, por exemplo, bancos de dados relacionais ou NoSQL, para o Azure Cosmos DB. E se você tiver muitas coleções/tabelas/grafos e não quiser fazer alterações no modelo de dados. Observe que talvez você precise comprometer alguns dos benefícios oferecidos pelo Azure Cosmos DB se não estiver atualizando seu modelo de dados ao migrar de um banco de dado local. É recomendável sempre reavaliar o modelo de dados para obter o máximo em termos de desempenho e também para otimizar os custos. 
+2. Você está migrando de um banco de dados de um único locatário projetado para ser executado em VMs hospedadas IaaS ou locais, por exemplo, bancos de dados relacionais ou NoSQL, para o Azure Cosmos DB. E se você tiver muitas coleções/tabelas/gráficos e não quiser fazer nenhuma alteração no seu modelo de dados. Observe, você pode ter que comprometer alguns dos benefícios oferecidos pelo Azure Cosmos DB se você não estiver atualizando seu modelo de dados ao migrar de um banco de dados local. É recomendável sempre reavaliar o modelo de dados para obter o máximo em termos de desempenho e também para otimizar os custos. 
 
 3. Você deseja absorver picos não planejados em cargas de trabalho ocorridos quando uma taxa de transferência em pool no nível do banco de dados é sujeitada a picos inesperados em cargas de trabalho. 
 
@@ -65,7 +65,7 @@ Ao provisionar a produtividade em níveis diferentes, você pode otimizar seus c
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>Otimizar suas solicitações com limitação de taxa
 
-Para cargas de trabalho que não são afetadas pela latência, você pode provisionar uma taxa de transferência menor e permitir que o aplicativo lide com a limitação de taxa quando a taxa de transferência real exceder a taxa de transferência provisionada. O servidor finalizará preventivamente a solicitação com `RequestRateTooLarge` (código de status HTTP 429) e retornará o cabeçalho `x-ms-retry-after-ms` indicando o período de tempo, em milissegundos, que o usuário deve aguardar antes de repetir a solicitação. 
+Para cargas de trabalho que não são afetadas pela latência, você pode provisionar uma taxa de transferência menor e permitir que o aplicativo lide com a limitação de taxa quando a taxa de transferência real exceder a taxa de transferência provisionada. O servidor encerrará preventivamente a `RequestRateTooLarge` solicitação com (código de status `x-ms-retry-after-ms` HTTP 429) e devolverá o cabeçalho indicando a quantidade de tempo, em milissegundos, que o usuário deve esperar antes de tentar novamente a solicitação. 
 
 ```html
 HTTP Status 429, 
@@ -77,9 +77,9 @@ HTTP Status 429,
 
 Os SDKs nativos (.NET/.NET Core, Java, Node.js e Python) capturam essa resposta implicitamente, respeitam o cabeçalho retry-after especificado para o servidor e repetem a solicitação. A menos que sua conta seja acessada simultaneamente por vários clientes, a tentativa seguinte será bem-sucedida.
 
-Se você tiver mais de um cliente operando de forma cumulativa consistentemente acima da taxa de solicitação, a contagem de repetição padrão, que está atualmente definida como 9, pode não ser suficiente. Nesses casos, o cliente gera um `RequestRateTooLargeException` com o código de status 429 para o aplicativo. A contagem de repetição padrão pode ser alterada definindo `RetryOptions` na instância de ConnectionPolicy. Por padrão, o `RequestRateTooLargeException` com o código de status 429 é retornado após um tempo de espera cumulativo de 30 segundos se a solicitação continuar a operar acima da taxa de solicitação. Isso ocorre mesmo quando a contagem de repetição atual é menor que a contagem de repetição máxima, seja o padrão 9 seja um valor definido pelo usuário. 
+Se você tiver mais de um cliente operando de forma consistente acima da taxa de solicitação, a contagem de repetições padrão, que atualmente está definida como 9, pode não ser suficiente. Nesses casos, o cliente `RequestRateTooLargeException` joga um com o código de status 429 para o aplicativo. A contagem de repetição padrão pode ser alterada definindo `RetryOptions` na instância de ConnectionPolicy. Por padrão, `RequestRateTooLargeException` o código de status 429 é devolvido após um tempo de espera acumulado de 30 segundos se a solicitação continuar operando acima da taxa de solicitação. Isso ocorre mesmo quando a contagem de repetição atual é menor que a contagem de repetição máxima, seja o padrão 9 seja um valor definido pelo usuário. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) é definido como 3, portanto, nesse caso, se uma operação de solicitação tiver uma taxa limitada excedendo a taxa de transferência reservada para o contêiner, a operação de solicitação tentará novamente três vezes antes de lançar a exceção para o aplicativo. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) é definido como 60, portanto, nesse caso, se o tempo de espera de repetição cumulativo em segundos desde a primeira solicitação exceder 60 segundos, a exceção será lançada.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) é definido como 3, portanto, neste caso, se uma operação de solicitação for limitada por exceder o throughput reservado para o contêiner, a operação de solicitação se retenta três vezes antes de lançar a exceção ao aplicativo. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) está definido como 60, portanto, neste caso, se o tempo de espera acumulado em segundos, uma vez que a primeira solicitação excede 60 segundos, a exceção será lançada.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
@@ -111,7 +111,7 @@ Além disso, se você está usando o Azure Cosmos DB e sabe que não vai pesquis
 
 ## <a name="optimize-by-changing-indexing-policy"></a>Otimizar através da alteração da política de indexação 
 
-Por padrão, o Azure Cosmos DB indexa automaticamente todas as propriedades de cada registro. Isso destina-se a facilitar o desenvolvimento e garantir um desempenho excelente entre vários tipos diferentes de consultas ad hoc. Se você tiver grandes registros com milhares de propriedades, pagar o custo da taxa de transferência para indexar todas as propriedades pode não ser útil, especialmente se você faz consulta apenas em relação a 10 ou 20 dessas propriedades. À medida que você for ficando mais familiarizado com sua carga de trabalho específica, nossa diretriz é a de ajustar sua política de índice. Obtenha detalhes completos sobre a política de indexação do Azure Cosmos DB [aqui](indexing-policies.md). 
+Por padrão, o Azure Cosmos DB indexa automaticamente todas as propriedades de cada registro. Este objetivo é facilitar o desenvolvimento e garantir um excelente desempenho em muitos tipos diferentes de consultas ad hoc. Se você tiver grandes registros com milhares de propriedades, pagar o custo da taxa de transferência para indexar todas as propriedades pode não ser útil, especialmente se você faz consulta apenas em relação a 10 ou 20 dessas propriedades. À medida que você for ficando mais familiarizado com sua carga de trabalho específica, nossa diretriz é a de ajustar sua política de índice. Obtenha detalhes completos sobre a política de indexação do Azure Cosmos DB [aqui](indexing-policies.md). 
 
 ## <a name="monitoring-provisioned-and-consumed-throughput"></a>Monitoramento provisionado e taxa de transferência consumida 
 
@@ -123,7 +123,7 @@ Você também pode definir alertas para verificar se o número de solicitações
 
 ## <a name="scale-your-throughput-elastically-and-on-demand"></a>Dimensionar a taxa de transferência com flexibilidade e sob demanda 
 
-Como você será cobrado pela taxa de transferência provisionada, igualar a taxa de transferência provisionada às suas necessidades pode ajudar a evitar encargos sobre taxa de transferência não utilizada. Você pode escalar ou reduzir verticalmente sua taxa de transferência a qualquer hora e conforme necessário. Se suas necessidades de taxa de transferência forem muito previsíveis, você poderá usar Azure Functions e usar um gatilho de temporizador para [aumentar ou diminuir a taxa de transferência em uma agenda](scale-on-schedule.md). 
+Como você será cobrado pela taxa de transferência provisionada, igualar a taxa de transferência provisionada às suas necessidades pode ajudar a evitar encargos sobre taxa de transferência não utilizada. Você pode escalar ou reduzir verticalmente sua taxa de transferência a qualquer hora e conforme necessário. Se suas necessidades de throughput forem muito previsíveis, você pode usar funções do Azure e usar um gatilho do temporizador para [aumentar ou diminuir a throughput em um cronograma](scale-on-schedule.md). 
 
 * O monitoramento do consumo das RUs e a velocidade das solicitações com taxa limitada pode revelar que não é necessário manter uma taxa de transferência provisionada constante ao longo do dia ou da semana. Você pode receber menos tráfego durante a noite ou no fim de semana. Usando o portal do Azure, ou SDKs nativos ou API REST do Azure Cosmos DB, você pode dimensionar a taxa de transferência provisionada a qualquer hora. A API REST do Azure Cosmos DB fornece pontos de extremidade para atualizar o nível de desempenho de seus contêineres programaticamente, simplificando o ajuste da taxa de transferência em seu código dependendo da hora do dia ou do dia da semana. A operação é realizada sem nenhum tempo de inatividade e normalmente entra em vigor em menos de um minuto. 
 
@@ -155,9 +155,9 @@ As etapas a seguir ajudam a tornar as suas soluções altamente escalonáveis e 
 
 1. Se você provisionou sua taxa de transferência muito acima do necessário em contêineres e bancos de dados, examine as RUs consumidas e as provisionadas e ajuste as cargas de trabalho.  
 
-2. Um método para estimar a quantidade de produtividade reservada exigida pelo aplicativo é registrar o encargo de RUs ( unidades de solicitação) associado à execução de operações comuns em relação a um banco de dados ou contêiner do Azure Cosmos representativo usado pelo aplicativo e, em seguida, estimar o número de operações que você prevê que executará a cada segundo. Meça e inclua consultas comuns e seu uso também. Para saber como estimar os custos de RU de consultas programaticamente ou usando o portal, consulte [Otimizar o custo de consultas](online-backup-and-restore.md). 
+2. Um método para estimar a quantidade de produtividade reservada exigida pelo aplicativo é registrar o encargo de RUs ( unidades de solicitação) associado à execução de operações comuns em relação a um banco de dados ou contêiner do Azure Cosmos representativo usado pelo aplicativo e, em seguida, estimar o número de operações que você prevê que executará a cada segundo. Meça e inclua consultas comuns e seu uso também. Para saber como estimar os custos de RU de consultas programaticamente ou usando o portal, consulte [Otimizar o custo de consultas](../synapse-analytics/sql-data-warehouse/backup-and-restore.md). 
 
-3. Outra maneira de obter operações e seus custos no RUs é habilitar os logs de Azure Monitor, o que lhe dará a divisão de operação/duração e o encargo da solicitação. O Azure Cosmos DB fornece encargos de solicitação para cada operação, ou seja, o encargo de cada operação pode ser armazenado a partir da resposta e usado para análise. 
+3. Outra maneira de obter operações e seus custos em RUs é habilitando os logs do Monitor Do Azure, o que lhe dará a quebra da operação/duração e a taxa de solicitação. O Azure Cosmos DB fornece encargos de solicitação para cada operação, ou seja, o encargo de cada operação pode ser armazenado a partir da resposta e usado para análise. 
 
 4. Você pode escalar e reduzir a taxa de transferência provisionada verticalmente, conforme necessário, para atender às suas necessidades de carga de trabalho. 
 

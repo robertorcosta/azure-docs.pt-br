@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 93681813c12f0df99909c849e57153e7a64c78fb
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 7f398012edc25ba6a04e230fa8049e7264f857bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79299304"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294519"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configurações de proxy e firewall da Sincronização de arquivos do Azure
 A Sincronização de arquivos do Azure se conecta seus servidores locais para arquivos do Azure, permitindo camadas de recursos de nuvem e sincronização de vários locais. Como tal, um servidor local deve estar conectado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor acessar os serviços de nuvem do Azure.
@@ -89,13 +89,13 @@ Conforme mencionado em uma seção anterior, a porta 443 precisa estar com a sa�
 
 A tabela a seguir descreve os domínios necessários para a comunicação:
 
-| Serviço | Ponto de extremidade de nuvem pública | Ponto de extremidade do Azure Governamental | Uso |
+| Serviço | Ponto final da nuvem pública | Ponto de extremidade do Azure Governamental | Uso |
 |---------|----------------|---------------|------------------------------|
-| **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Qualquer chamada de usuário (como o PowerShell) passa por essa URL, incluindo a chamada de registro inicial do servidor. |
-| **Azure Active Directory** | https://login.windows.net<br>https://login.microsoftonline.com | https://login.microsoftonline.us | As chamadas do Azure Resource Manager devem ser feitas por um usuário autenticado. Para ter êxito, essa URL é usada para autenticação do usuário. |
-| **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Como parte da implantação de Sincronização de Arquivos do Azure, será criado um objeto de serviço do Azure Active Directory da assinatura. Essa URL é usada para fazer isso. Essa entidade de segurança é usada para a delegação de um conjunto mínimo de direitos para o Serviço de Sincronização de Arquivos do Azure. O usuário que estiver executando a configuração inicial de Sincronização de Arquivos do Azure deve ser um usuário autenticado com privilégios de proprietário da assinatura. |
-| **Armazenamento do Azure** | &ast;.core.windows.net | &ast;. core.usgovcloudapi.net | Quando o servidor baixa um arquivo, o servidor executa essa movimentação de dados com mais eficiência quando se comunicando diretamente com o compartilhamento de arquivos do Azure na conta de armazenamento. O servidor tem uma chave SAS que só permite o acesso de compartilhamento do arquivo de destino. |
-| **Sincronização de Arquivos do Azure** | &ast;. one.microsoft.com<br>&ast;. afs.azure.net | &ast;. afs.azure.us | Após o registro do servidor inicial, o servidor recebe uma URL regional para a instância do serviço de Sincronização de Arquivos do Azure nessa região. O servidor pode usar a URL para se comunicar de forma direta e eficiente com a instância de tratando sua sincronização. |
+| **Gerente de Recursos do Azure** | `https://management.azure.com` | https://management.usgovcloudapi.net | Qualquer chamada de usuário (como o PowerShell) passa por essa URL, incluindo a chamada de registro inicial do servidor. |
+| **Azure Active Directory** | https://login.windows.net<br>`https://login.microsoftonline.com` | https://login.microsoftonline.us | As chamadas do Azure Resource Manager devem ser feitas por um usuário autenticado. Para ter êxito, essa URL é usada para autenticação do usuário. |
+| **Azure Active Directory** | https://graph.microsoft.com/ | https://graph.microsoft.com/ | Como parte da implantação de Sincronização de Arquivos do Azure, será criado um objeto de serviço do Azure Active Directory da assinatura. Essa URL é usada para fazer isso. Essa entidade de segurança é usada para a delegação de um conjunto mínimo de direitos para o Serviço de Sincronização de Arquivos do Azure. O usuário que estiver executando a configuração inicial de Sincronização de Arquivos do Azure deve ser um usuário autenticado com privilégios de proprietário da assinatura. |
+| **Armazenamento Azure** | &ast;.core.windows.net | &ast;Core.usgovcloudapi.net | Quando o servidor baixa um arquivo, o servidor executa essa movimentação de dados com mais eficiência quando se comunicando diretamente com o compartilhamento de arquivos do Azure na conta de armazenamento. O servidor tem uma chave SAS que só permite o acesso de compartilhamento do arquivo de destino. |
+| **Sincronização de Arquivos do Azure** | &ast;. one.microsoft.com<br>&ast;Afs.azure.net. | &ast;Afs.azure.us | Após o registro do servidor inicial, o servidor recebe uma URL regional para a instância do serviço de Sincronização de Arquivos do Azure nessa região. O servidor pode usar a URL para se comunicar de forma direta e eficiente com a instância de tratando sua sincronização. |
 | **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Depois de instalar o agente da Sincronização de Arquivos do Azure, a URL do PKI é usada para baixar os certificados intermediários necessários para se comunicar com o serviço de Sincronização de Arquivos do Azure e do compartilhamento de arquivos do Azure. A URL do OCSP é usada para verificar o status de um certificado. |
 
 > [!Important]
@@ -103,7 +103,7 @@ A tabela a seguir descreve os domínios necessários para a comunicação:
 
 Se o &ast;. one.microsoft.com for muito amplo, você poderá limitar a comunicação do servidor permitindo a comunicação apenas com instâncias regionais explícitas do serviço Sincronização de Arquivos do Azure. Qual instância escolher depende da região do serviço de sincronização de armazenamento em que o servidor está implantado e registrado. Essa região é chamada de "URL do ponto de extremidade primário" na tabela abaixo.
 
-Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), você pode ter especificado os compartilhamentos de arquivos do Azure em uma conta de GRS (armazenamento com redundância global). Se esse for o caso, os compartilhamentos de arquivos do Azure farão failover na região emparelhada se ocorrer uma interrupção regional duradoura. A Sincronização de Arquivos do Azure usa os mesmos emparelhamentos regionais do armazenamento. Portanto, se você usar contas de armazenamento GRS, será necessário habilitar URLs adicionais para permitir que o servidor se comunique com a região emparelhada para Sincronização de Arquivos do Azure. A tabela a seguir chama essa "região emparelhada". Adicionalmente, há uma URL do perfil do gerenciador de tráfego que também precisa ser habilitada. Isso garantirá que o tráfego possa ser roteado novamente diretamente para a região emparelhada no caso de um failover e é chamado de "URL de Descoberta" na tabela abaixo.
+Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), você pode ter especificado os compartilhamentos de arquivos do Azure em uma conta de GRS (armazenamento com redundância global). Se esse for o caso, os compartilhamentos de arquivos do Azure farão failover na região emparelhada se ocorrer uma interrupção regional duradoura. A Sincronização de Arquivos do Azure usa os mesmos emparelhamentos regionais do armazenamento. Portanto, se você usar contas de armazenamento GRS, você precisa habilitar URLs adicionais para permitir que seu servidor fale com a região emparelhada para o Azure File Sync. A tabela abaixo chama isso de "região pareada". Adicionalmente, há uma URL do perfil do gerenciador de tráfego que também precisa ser habilitada. Isso garantirá que o tráfego possa ser roteado novamente diretamente para a região emparelhada no caso de um failover e é chamado de "URL de Descoberta" na tabela abaixo.
 
 | Nuvem  | Região | URL do ponto de extremidade primário | Região emparelhada | URL de descoberta |
 |--------|--------|----------------------|---------------|---------------|
@@ -141,63 +141,130 @@ Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), v
 
 **Exemplo:** você implanta um serviço de sincronização de armazenamento em `"West US"` e registra o servidor com ele. As URLs para permitir que o servidor comunique-se para esse caso são:
 
-> - https:\//kailani.one.microsoft.com (ponto de extremidade primário: oeste dos EUA)
-> - https:\//kailani1.one.microsoft.com (região de failover emparelhada: leste dos EUA)
+> - https:\//kailani.one.microsoft.com (ponto final primário: West US)
+> - https:\//kailani1.one.microsoft.com (região de fail-over emparelhada: Leste dos EUA)
 > - https:\//tm-kailani.one.microsoft.com (URL de descoberta da região primária)
 
-### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Lista de permissões para endereços IP de Sincronização de Arquivos do Azure
-Se o firewall local exigir a adição de endereços IP específicos a uma lista de permissões para se conectar ao Sincronização de Arquivos do Azure, você poderá adicionar os seguintes intervalos de endereços IP com base nas regiões às quais você está se conectando.
+### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Permitir lista para endereços IP do Azure File Sync
+O Azure File Sync suporta o uso de tags de [serviço,](../../virtual-network/service-tags-overview.md)que representam um grupo de prefixos de endereço IP para um determinado serviço Azure. Você pode usar tags de serviço para criar regras de firewall que permitem a comunicação com o serviço Azure File Sync. A tag de serviço para `StorageSyncService`Azure File Sync é .
 
-| Região | Intervalos de endereços IP |
-|--------|-------------------|
-| Centro dos EUA | 52.176.149.179/32, 20.37.157.80/29 |
-| Leste dos EUA 2 | 40.123.47.110/32, 20.41.5.144/29 |
-| Leste dos EUA | 104.41.148.238/32, 20.42.4.248/29 |
-| Centro-Norte dos EUA | 65.52.62.167/32, 40.80.188.24/29 |
-| Centro-Sul dos Estados Unidos | 104.210.219.252/32, 13.73.248.112/29 |
-| Oeste dos EUA 2 | 52.183.27.204/32, 20.42.131.224/29 |
-| Centro-Oeste dos EUA | 52.161.25.233/32, 52.150.139.104/29 |
-| Oeste dos EUA | 40.112.150.67/32, 40.82.253.192/29 |
-| Canadá Central | 52.228.42.41/32, 52.228.81.248/29 |
-| Leste do Canadá | 52.235.36.119/32, 40.89.17.232/29 |
-| Sul do Brasil | 191.237.253.115/32, 191.235.225.216/29 |
-| Norte da Europa | 40.113.94.67/32, 20.38.85.152/29 |
-| Europa Ocidental | 104.40.191.8/32, 20.50.1.0/29 |
-| França Central | 52.143.166.54/32, 20.43.42.8/29 |
-| Sul da França | 52.136.131.99/32, 51.105.88.248/29 |
-| Sul do Reino Unido | 51.140.67.72/32, 51.104.25.224/29 |
-| Oeste do Reino Unido | 51.140.202.34/32, 51.137.161.240/29 |
-| Norte da Suíça | 51.107.48.224/29 |
-| Oeste da Suíça | 51.107.144.216/29 |
-| Oeste da Noruega | 51.120.224.216/29 |
-| Leste da Noruega | 51.120.40.224/29 |
-| Leste da Ásia | 23.102.225.54/32, 20.189.108.56/29 |
-| Sudeste Asiático | 13.76.81.46/32, 20.43.131.40/29 |
-| Austrália Central | 20.37.224.216/29 |
-| Austrália Central 2 | 20.36.120.216/29 |
-| Leste da Austrália | 13.75.153.240/32, 20.37.195.96/29 |
-| Sudeste da Austrália | 13.70.176.196/32, 20.42.227.128/29 |
-| Sul da Índia | 104.211.231.18/32, 20.41.193.160/29 |
-| Oeste da Índia | 52.136.48.216/29 |
-| Leste do Japão | 104.41.161.113/32, 20.43.66.0/29 |
-| Oeste do Japão | 23.100.106.151/32, 40.80.57.192/29 |
-| Coreia Central | 52.231.67.75/32, 20.41.65.184/29 |
-| Sul da Coreia | 52.231.159.38/32, 40.80.169.176/29 |
-| DoD do Leste dos EUA | 20.140.72.152/29 |
-| Governo dos EUA do Arizona | 20.140.64.152/29 |
-| Governo dos EUA do Arizona | 52.244.75.224/32, 52.244.79.140/32 |
-| US Gov Iowa | 52.244.79.140/32, 52.244.75.224/32 |
-| Governo dos EUA do Texas | 52.238.166.107/32, 52.238.79.29/32 |
-| Gov. dos EUA – Virgínia | 13.72.17.152/32, 52.227.153.92/32 |
-| Norte da África do Sul | 102.133.175.72/32 |
-| Oeste da África do Sul | 102.133.75.173/32, 102.133.56.128/29, 20.140.48.216/29 |
-| EAU Central | 20.45.71.151/32, 20.37.64.216/29, 20.140.48.216/29 |
-| Norte dos EAU | 40.123.216.130/32, 20.38.136.224/29, 20.140.56.136/29 |
+Se você estiver usando o Azure File Sync no Azure, você pode usar a tag nome de serviço diretamente no seu grupo de segurança de rede para permitir o tráfego. Para saber mais sobre como fazer isso, consulte [grupos de segurança da Rede](../../virtual-network/security-overview.md).
 
-## <a name="test-network-connectivity-to-service-endpoints"></a>Testar a conectividade de rede para pontos de extremidade de serviço
-Depois que um servidor é registrado com o serviço de Sincronização de Arquivos do Azure, o cmdlet Test-StorageSyncNetworkConnectivity e o ServerRegistration. exe podem ser usados para testar as comunicações com todos os pontos de extremidade (URLs) específicos desse servidor. Esse cmdlet pode ajudar a solucionar problemas quando a comunicação incompleta impede que o servidor trabalhe totalmente com Sincronização de Arquivos do Azure e pode ser usado para ajustar as configurações de proxy e firewall.
+Se você estiver usando o Azure File Sync no local, você pode usar a API de tag de serviço para obter faixas de endereço IP específicas para a lista de permitir do firewall. Existem dois métodos para obter essas informações:
 
-Para executar o teste de conectividade de rede, instale Sincronização de Arquivos do Azure Agent versão 9,1 ou posterior e execute os seguintes comandos do PowerShell:
+- A lista atual de faixas de endereços IP para todos os serviços do Azure que suportam tags de serviço são publicadas semanalmente no Microsoft Download Center a forma de um documento JSON. Cada nuvem do Azure tem seu próprio documento JSON com os intervalos de endereço IP relevantes para essa nuvem:
+    - [Público do Azure](https://www.microsoft.com/download/details.aspx?id=56519)
+    - [Governo dos EUA para Azure](https://www.microsoft.com/download/details.aspx?id=57063)
+    - [Azure China](https://www.microsoft.com/download/details.aspx?id=57062)
+    - [Azure Alemanha](https://www.microsoft.com/download/details.aspx?id=57064)
+- A API de detecção de marca de serviço (visualização) permite a recuperação programática da lista atual de tags de serviço. Na visualização, a API de detecção de marca de serviço pode retornar informações menos atuais do que as informações devolvidas dos documentos JSON publicados no Microsoft Download Center. Você pode usar a superfície da API com base na sua preferência de automação:
+    - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [Azure CLI](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+
+Como a API de detecção de tag de serviço não é atualizada com tanta freqüência quanto os documentos JSON publicados no Microsoft Download Center, recomendamos o uso do documento JSON para atualizar a lista de permitir do firewall no local. Isso pode ser feito da seguinte maneira:
+
+```PowerShell
+# The specific region to get the IP address ranges for. Replace westus2 with the desired region code 
+# from Get-AzLocation.
+$region = "westus2"
+
+# The service tag for Azure File Sync. Do not change unless you're adapting this
+# script for another service.
+$serviceTag = "StorageSyncService"
+
+# Download date is the string matching the JSON document on the Download Center. 
+$possibleDownloadDates = 0..7 | `
+    ForEach-Object { [System.DateTime]::Now.AddDays($_ * -1).ToString("yyyyMMdd") }
+
+# Verify the provided region
+$validRegions = Get-AzLocation | `
+    Where-Object { $_.Providers -contains "Microsoft.StorageSync" } | `
+    Select-Object -ExpandProperty Location
+
+if ($validRegions -notcontains $region) {
+    Write-Error `
+            -Message "The specified region $region is not available. Either Azure File Sync is not deployed there or the region does not exist." `
+            -ErrorAction Stop
+}
+
+# Get the Azure cloud. This should automatically based on the context of 
+# your Az PowerShell login, however if you manually need to populate, you can find
+# the correct values using Get-AzEnvironment.
+$azureCloud = Get-AzContext | `
+    Select-Object -ExpandProperty Environment | `
+    Select-Object -ExpandProperty Name
+
+# Build the download URI
+$downloadUris = @()
+switch($azureCloud) {
+    "AzureCloud" { 
+        $downloadUris = $possibleDownloadDates | ForEach-Object {  
+            "https://download.microsoft.com/download/7/1/D/71D86715-5596-4529-9B13-DA13A5DE5B63/ServiceTags_Public_$_.json"
+        }
+    }
+
+    "AzureUSGovernment" {
+        $downloadUris = $possibleDownloadDates | ForEach-Object { 
+            "https://download.microsoft.com/download/6/4/D/64DB03BF-895B-4173-A8B1-BA4AD5D4DF22/ServiceTags_AzureGovernment_$_.json"
+        }
+    }
+
+    "AzureChinaCloud" {
+        $downloadUris = $possibleDownloadDates | ForEach-Object { 
+            "https://download.microsoft.com/download/9/D/0/9D03B7E2-4B80-4BF3-9B91-DA8C7D3EE9F9/ServiceTags_China_$_.json"
+        }
+    }
+
+    "AzureGermanCloud" {
+        $downloadUris = $possibleDownloadDates | ForEach-Object { 
+            "https://download.microsoft.com/download/0/7/6/076274AB-4B0B-4246-A422-4BAF1E03F974/ServiceTags_AzureGermany_$_.json"
+        }
+    }
+
+    default {
+        Write-Error -Message "Unrecognized Azure Cloud: $_" -ErrorAction Stop
+    }
+}
+
+# Find most recent file
+$found = $false 
+foreach($downloadUri in $downloadUris) {
+    try { $response = Invoke-WebRequest -Uri $downloadUri -UseBasicParsing } catch { }
+    if ($response.StatusCode -eq 200) {
+        $found = $true
+        break
+    }
+}
+
+if ($found) {
+    # Get the raw JSON 
+    $content = [System.Text.Encoding]::UTF8.GetString($response.Content)
+
+    # Parse the JSON
+    $serviceTags = ConvertFrom-Json -InputObject $content -Depth 100
+
+    # Get the specific $ipAddressRanges
+    $ipAddressRanges = $serviceTags | `
+        Select-Object -ExpandProperty values | `
+        Where-Object { $_.id -eq "$serviceTag.$region" } | `
+        Select-Object -ExpandProperty properties | `
+        Select-Object -ExpandProperty addressPrefixes
+} else {
+    # If the file cannot be found, that means there hasn't been an update in
+    # more than a week. Please verify the download URIs are still accurate
+    # by checking https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+    Write-Verbose -Message "JSON service tag file not found."
+    return
+}
+```
+
+Em seguida, você pode usar `$ipAddressRanges` os intervalos de endereçoIP para atualizar seu firewall. Verifique o site do seu aparelho de firewall/rede para obter informações sobre como atualizar seu firewall.
+
+## <a name="test-network-connectivity-to-service-endpoints"></a>Teste a conectividade da rede aos pontos finais de serviço
+Uma vez que um servidor esteja registrado no serviço Azure File Sync, o cmdlet e o ServerRegistration.exe podem ser usados para testar comunicações com todos os pontos finais (URLs) específicos para este servidor. Este cmdlet pode ajudar a solucionar problemas quando a comunicação incompleta impede que o servidor funcione totalmente com o Azure File Sync e pode ser usado para ajustar as configurações de proxy e firewall.
+
+Para executar o teste de conectividade de rede, instale o agente Azure File Sync versão 9.1 ou posterior e execute os seguintes comandos do PowerShell:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Test-StorageSyncNetworkConnectivity
@@ -209,6 +276,6 @@ As listas no início deste documento contém as URLs de Sincronização de Arqui
 A configuração das regras de firewall de restrição de domínio pode ser uma medida para melhorar a segurança. Se essas configurações de firewall são utilizadas, é necessário ter em mente que URLs serão adicionadas e poderão até mesmo ser alteradas ao longo do tempo. Consulte este artigo periodicamente.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+- [Planejamento para uma implantação do Azure File Sync](storage-sync-files-planning.md)
 - [Implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)
 - [Monitorar a Sincronização de Arquivos do Azure](storage-sync-files-monitoring.md)

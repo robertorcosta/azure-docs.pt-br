@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282322"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnóstico e monitoramento de desempenho para Reliable Actors
@@ -23,7 +23,7 @@ Exemplos de ferramentas e tecnologias que ajudam a coletar e/ou exibir eventos E
 ### <a name="keywords"></a>Palavras-chave
 Todos os eventos que pertencem ao EventSource dos Reliable Actors são associados a uma ou mais palavras-chave. Isso permite a filtragem dos eventos que são coletados. Os bits de palavra-chave são definidos a seguir.
 
-| bit | DESCRIÇÃO |
+| bit | Descrição |
 | --- | --- |
 | 0x1 |Conjunto de eventos importantes que resumem a operação do runtime dos Atores do Fabric. |
 | 0x2 |Conjunto de eventos que descrevem as chamadas de método do ator. Para saber mais, confira o [tópico introdutório sobre atores](service-fabric-reliable-actors-introduction.md). |
@@ -33,7 +33,7 @@ Todos os eventos que pertencem ao EventSource dos Reliable Actors são associado
 ## <a name="performance-counters"></a>Contadores de desempenho
 O runtime dos Reliable Actors define as categorias de contador de desempenho a seguir.
 
-| Categoria | DESCRIÇÃO |
+| Categoria | Descrição |
 | --- | --- |
 | Ator da Malha do Serviço |Contadores específicos aos atores do Service Fabric do Azure; por exemplo, tempo que se leva para salvar o estado do ator |
 | Método de ator da Malha do Serviço |Contadores específicos aos métodos implementados pelos atores do Service Fabric; por exemplo, quantas vezes um método de ator é invocado |
@@ -50,7 +50,7 @@ Para a categoria `Service Fabric Actor`, os nomes da instância do contador est�
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* é a representação da cadeia de caracteres da ID da partição do Service Fabric à qual a instância do contador de desempenho está associada. A ID da partição é um GUID e sua representação da cadeia de caracteres é gerada por meio do método [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de string do ID de partição de malha de serviço com a que a instância de contador de desempenho está associada. O ID de partição é um GUID, [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) e sua representação de string é gerada através do método com o especificador de formato "D".
 
 *ActorRuntimeInternalID* é a representação da cadeia de caracteres de um inteiro de 64 bits que é gerada pelo tempo de execução dos Atores do Fabric para seu uso interno. Isso está incluído no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflito com outros nomes da instância do contador de desempenho. Os usuários não devem tentar interpretar essa parte do nome da instância do contador de desempenho.
 
@@ -69,7 +69,7 @@ Para a categoria `Service Fabric Actor Method`, os nomes da instância do contad
 
 *ActorsRuntimeMethodId* é a representação da cadeia de caracteres de um inteiro de 32 bits que é gerada pelo tempo de execução dos Atores do Fabric para seu uso interno. Isso está incluído no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflito com outros nomes da instância do contador de desempenho. Os usuários não devem tentar interpretar essa parte do nome da instância do contador de desempenho.
 
-*ServiceFabricPartitionID* é a representação da cadeia de caracteres da ID da partição do Service Fabric à qual a instância do contador de desempenho está associada. A ID da partição é um GUID e sua representação da cadeia de caracteres é gerada por meio do método [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de string do ID de partição de malha de serviço com a que a instância de contador de desempenho está associada. O ID de partição é um GUID, [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) e sua representação de string é gerada através do método com o especificador de formato "D".
 
 *ActorRuntimeInternalID* é a representação da cadeia de caracteres de um inteiro de 64 bits que é gerada pelo tempo de execução dos Atores do Fabric para seu uso interno. Isso está incluído no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflito com outros nomes da instância do contador de desempenho. Os usuários não devem tentar interpretar essa parte do nome da instância do contador de desempenho.
 
@@ -83,7 +83,7 @@ No exemplo acima, `ivoicemailboxactor.leavemessageasync` é o nome do método, `
 ### <a name="actor-method-events-and-performance-counters"></a>Eventos e contadores de desempeno do método de ator
 O runtime dos Reliable Actors emite os eventos relacionados aos [métodos de ator](service-fabric-reliable-actors-introduction.md)a seguir.
 
-| Nome do evento | ID do evento | Nível | Palavra-chave | DESCRIÇÃO |
+| Nome do evento | ID do evento | Nível | Palavra-chave | Descrição |
 | --- | --- | --- | --- | --- |
 | ActorMethodStart |7 |Detalhado |0x2 |O runtime dos atores está prestes a invocar um método de ator. |
 | ActorMethodStop |8 |Detalhado |0x2 |Um método de ator finalizou a execução. Isto é, a chamada assíncrona do runtime para o método de ator foi retornada e a tarefa retornada pelo método de ator foi concluída. |
@@ -91,7 +91,7 @@ O runtime dos Reliable Actors emite os eventos relacionados aos [métodos de ato
 
 O runtime dos Reliable Actors publica os contadores de desempenho relacionados à execução dos métodos de ator a seguir.
 
-| Nome da categoria | Nome do contador | DESCRIÇÃO |
+| Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
 | Método de ator da Malha do Serviço |Invocação/s |Número de vezes que o método de serviço do ator é invocado por segundo |
 | Método de ator da Malha do Serviço |Média de milissegundos por invocação |Tempo usado para executar o método de serviço do ator em milissegundos |
@@ -100,13 +100,13 @@ O runtime dos Reliable Actors publica os contadores de desempenho relacionados �
 ### <a name="concurrency-events-and-performance-counters"></a>Contadores de desempenho e eventos simultâneos
 O runtime dos Atores Confiáveis emite os eventos relacionados à [simultaneidade](service-fabric-reliable-actors-introduction.md#concurrency)a seguir.
 
-| Nome do evento | ID do evento | Nível | Palavra-chave | DESCRIÇÃO |
+| Nome do evento | ID do evento | Nível | Palavra-chave | Descrição |
 | --- | --- | --- | --- | --- |
 | ActorMethodCallsWaitingForLock |12 |Detalhado |0x8 |Esse evento é escrito no início de cada novo turno em um ator. Ele contém o número de chamadas pendentes do ator que estão aguardando para adquirir o bloqueio por ator que aplica a simultaneidade baseada em turno. |
 
 O runtime dos Reliable Actors publica os contadores de desempenho a seguir relacionados à simultaneidade.
 
-| Nome da categoria | Nome do contador | DESCRIÇÃO |
+| Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
 | Ator da Malha do Serviço |nº de chamadas do ator aguardando o bloqueio |Número de chamadas pendentes do ator aguardando para adquirir o bloqueio por ator que aplica a simultaneidade baseada em turno |
 | Ator da Malha do Serviço |Média de milissegundos por espera de bloqueio |Tempo (em milissegundos) para adquirir o bloqueio por ator que impõe a simultaneidade baseada em turno |
@@ -115,14 +115,14 @@ O runtime dos Reliable Actors publica os contadores de desempenho a seguir relac
 ### <a name="actor-state-management-events-and-performance-counters"></a>Contadores de desempenho e eventos do gerenciamento de estado do ator
 O runtime de Reliable Actors emite os eventos a seguir relacionados ao [gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md).
 
-| Nome do evento | ID do evento | Nível | Palavra-chave | DESCRIÇÃO |
+| Nome do evento | ID do evento | Nível | Palavra-chave | Descrição |
 | --- | --- | --- | --- | --- |
 | ActorSaveStateStart |10 |Detalhado |0x4 |O runtime dos atores está prestes a salvar o estado do ator. |
 | ActorSaveStateStop |11 |Detalhado |0x4 |O runtime dos atores acabou de salvar o estado do ator. |
 
 O runtime dos Reliable Actors publica os contadores de desempenho a seguir relacionados ao gerenciamento de estado do ator.
 
-| Nome da categoria | Nome do contador | DESCRIÇÃO |
+| Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
 | Ator da Malha do Serviço |Milissegundos em média por operação de salvamento do estado |Tempo necessário para salvar o estado do ator em milissegundos |
 | Ator da Malha do Serviço |Média de milissegundos por operação de carregar estado |Tempo necessário para carregar o estado do ator em milissegundos |
@@ -130,7 +130,7 @@ O runtime dos Reliable Actors publica os contadores de desempenho a seguir relac
 ### <a name="events-related-to-actor-replicas"></a>Eventos relacionados às réplicas do ator
 O runtime dos Reliable Actors emite os seguintes eventos relacionados às [réplicas do ator](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
-| Nome do evento | ID do evento | Nível | Palavra-chave | DESCRIÇÃO |
+| Nome do evento | ID do evento | Nível | Palavra-chave | Descrição |
 | --- | --- | --- | --- | --- |
 | ReplicaChangeRoleToPrimary |1 |Informativo |0x1 |A réplica do ator alterou a função para Primária. Isso significa que os atores dessa partição serão criados dentro dessa réplica. |
 | ReplicaChangeRoleFromPrimary |2 |Informativo |0x1 |A réplica do ator alterou a função para não Primária. Isso significa que os atores dessa partição não serão mais criados dentro dessa réplica. Nenhuma nova solicitação será entregue aos atores já criados dentro dessa réplica. Os atores serão destruídos depois que todas as solicitações em andamento forem concluídas. |
@@ -138,21 +138,21 @@ O runtime dos Reliable Actors emite os seguintes eventos relacionados às [répl
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Eventos de ativação e desativação do ator e contadores de desempenho
 O runtime de Reliable Actors emite os eventos a seguir relacionados à [ativação e desativação do ator](service-fabric-reliable-actors-lifecycle.md).
 
-| Nome do evento | ID do evento | Nível | Palavra-chave | DESCRIÇÃO |
+| Nome do evento | ID do evento | Nível | Palavra-chave | Descrição |
 | --- | --- | --- | --- | --- |
 | ActorActivated |5 |Informativo |0x1 |Um ator foi ativado. |
 | ActorDeactivated |6 |Informativo |0x1 |Um ator foi desativado. |
 
 O runtime dos Reliable Actors publica os contadores de desempenho a seguir relacionados à ativação e à desativação do ator.
 
-| Nome da categoria | Nome do contador | DESCRIÇÃO |
+| Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
 | Ator da Malha do Serviço |Média de milissegundos para OnActivateAsync |Tempo necessário para executar o método OnActivateAsync em milissegundos |
 
 ### <a name="actor-request-processing-performance-counters"></a>Solicitação do ator processando contadores de desempenho
 Quando um cliente chama um método por meio de um objeto de proxy do ator, isso resulta no envio de uma mensagem de solicitação pela rede para o serviço de ator. O serviço processa a mensagem de solicitação e envia uma resposta de volta ao cliente. O runtime dos Reliable Actors publica os seguintes contadores de desempenho relacionados ao processamento de solicitação de ator.
 
-| Nome da categoria | Nome do contador | DESCRIÇÃO |
+| Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
 | Ator da Malha do Serviço |nº de solicitações pendentes |Número de solicitações sendo processadas no serviço |
 | Ator da Malha do Serviço |Média de milissegundos por solicitação |Tempo (em milissegundos) que o serviço leva para processar uma solicitação |
@@ -162,5 +162,5 @@ Quando um cliente chama um método por meio de um objeto de proxy do ator, isso 
 ## <a name="next-steps"></a>Próximas etapas
 * [Como os Reliable Actors usam a plataforma do Service Fabric](service-fabric-reliable-actors-platform.md)
 * [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Exemplo de código](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Código de amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Provedores de EventSource no PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

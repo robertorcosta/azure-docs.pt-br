@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: bc08cd5183bcaac6cb77ccb0938b07893f082862
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250221"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializar a telemetria usando Buffers de Protocolo
@@ -32,7 +32,7 @@ As etapas deste guia de instruções mostram como:
 1. Gerar classes de Protobuf
 1. Testar localmente
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para executar as etapas neste guia de instruções, você precisará de:
 
@@ -63,7 +63,7 @@ Baixe e descompacte o [microsserviço de adaptador de armazenamento](https://git
 
 No Visual Studio Code, abra a pasta **remote-monitoring-services-dotnet-master\storage-adapter**. Clique em qualquer botão **Restaurar** para corrigir todas as dependências não resolvidas.
 
-Abra o arquivo **.vscode/launch.json** e atribua sua cadeia de conexão do Cosmos DB à variável de ambiente **PCS\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING**.
+Abra o arquivo **.vscode/launch.json** e atribua sua seqüência de conexão Cosmos DB à variável de ambiente **CONNSTRING DO PCS\_STORAGEADAPTER\_DOCUMENTDB.\_**
 
 > [!NOTE]
 > Ao executar o microsserviço localmente em seu computador, ele ainda exige uma instância do Cosmos DB no Azure para funcionar corretamente.
@@ -174,7 +174,7 @@ Quando você tiver um arquivo **proto**, a próxima etapa será gerar as classes
 
 1. [Baixe o compilador Protobuf do GitHub](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)
 
-1. Execute o compilador, especificando o diretório de origem, o diretório de destino e o nome do seu arquivo **proto**. Por exemplo:
+1. Execute o compilador, especificando o diretório de origem, o diretório de destino e o nome do seu arquivo **proto**. Por exemplo: 
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -200,13 +200,13 @@ Abra o arquivo **WebService/Properties/launchSettings.json** e atribua:
 * Sua cadeia de conexão da conta de armazenamento à variável de ambiente **PCS\_AZURE\_STORAGE\_ACCOUNT**.
 * Sua cadeia de conexão do Cosmos DB à variável de ambiente **PCS\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING**.
 
-Abra o arquivo **WebService\appsettings.ini** e modifique as configurações da seguinte maneira:
+Abra o **arquivo WebService\appsettings.ini** e modifique as configurações da seguinte forma:
 
 #### <a name="configure-the-solution-to-include-your-new-device-model-files"></a>Configurar a solução para incluir seus novos arquivos de modelo do dispositivo
 
 Por padrão, os arquivos JSON e JS de seu novo modelo de dispositivo não serão copiados para a solução criada. Você precisa incluí-los explicitamente.
 
-Adicione uma entrada para o arquivo **services\services.csproj** para cada arquivo que você quer incluir. Por exemplo:
+Adicione uma entrada para o arquivo **services\services.csproj** para cada arquivo que você quer incluir. Por exemplo: 
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -265,7 +265,7 @@ Para configurar e executar a simulação:
 
 Para parar a simulação, selecione a solicitação **Parar a simulação** no Postman e clique em **Enviar**.
 
-### <a name="clean-up-resources"></a>Limpar os recursos
+### <a name="clean-up-resources"></a>Limpar recursos
 
 Você pode parar os dois microsserviços em execução local em suas instâncias do Visual Studio Code (**Depurar \> Parar Depuração**).
 

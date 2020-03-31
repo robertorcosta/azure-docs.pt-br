@@ -10,15 +10,15 @@ ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
 ms.openlocfilehash: 0a49cbdb4caf474d0628fea3679ce712d37886e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60813409"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Estender scripts U-SQL com código Python no Azure Data Lake Analytics
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de que as extensões de Python estejam instaladas na sua conta do Azure Data Lake Analytics.
 
@@ -100,8 +100,8 @@ Atualmente, uma exceção no código Python aparece como falha genérica de vér
 ### <a name="input-and-output-size-limitations"></a>Limitações de tamanho de Entrada e Saída
 Cada vértice tem uma quantidade limitada de memória atribuída a ele. Atualmente, esse limite é de 6 GB para um AU. Como os DataFrames de entrada e de saída devem existir na memória no código Python, o tamanho total para a entrada e saída não pode exceder os 6 GB.
 
-## <a name="see-also"></a>Consulte também
-* [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+## <a name="see-also"></a>Confira também
+* [Visão geral da Análise Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Usar funções da janela do U-SQL para trabalhos de análise do Azure Data Lake](data-lake-analytics-use-window-functions.md)
 * [Usar as Ferramentas do Azure Data Lake para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)

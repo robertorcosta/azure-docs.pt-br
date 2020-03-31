@@ -1,19 +1,19 @@
 ---
 title: Definir um novo tipo de dispositivo IoT no Azure IoT Central | Microsoft Docs
-description: Este tutorial mostra a você, como construtor, as etapas de criação de um modelo de dispositivo IoT do Azure em seu aplicativo do Azure IoT Central. Você define a telemetria, estado, propriedades e comandos para o seu tipo.
+description: Este artigo mostra, como construtor, como criar um novo modelo de dispositivo Azure IoT em seu aplicativo Azure IoT Central. Você define a telemetria, estado, propriedades e comandos para o seu tipo.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
-ms.topic: tutorial
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 2313c347e3836b6fa9d6055f99c258624e44c51f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
-ms.translationtype: HT
+ms.openlocfilehash: 6f93d74653aab78e48e613ddf9252a0876548b95
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023779"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157663"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo IoT em seu aplicativo do Azure IoT Central
 
@@ -34,7 +34,7 @@ Nesse modelo de dispositivo, um operador pode criar e conectar dispositivos de v
 > [!NOTE]
 > Somente construtores e administradores podem criar, editar e excluir modelos de dispositivo. Qualquer usuário pode criar dispositivos na página **Dispositivos** com base nos modelos de dispositivos existentes.
 
-O [IoT Plug and Play (versão prévia)](../../iot-pnp/overview-iot-plug-and-play.md) permite ao IoT Central integrar dispositivos sem que você escreva nenhum código de dispositivo inserido. No núcleo do IoT Plug and Play (versão prévia) está um esquema de modelo de funcionalidade do dispositivo que descreve as funcionalidades do dispositivo. Em um aplicativo do IoT Central, os modelos de dispositivo usam esses modelos de funcionalidade do dispositivo do IoT Plug and Play (versão prévia).
+[IoT Plug and Play (preview)](../../iot-pnp/overview-iot-plug-and-play.md) permite que a IoT Central integre dispositivos, sem que você escreva qualquer código de dispositivo incorporado. No núcleo do IoT Plug and Play (versão prévia) está um esquema de modelo de funcionalidade do dispositivo que descreve as funcionalidades do dispositivo. Em um aplicativo do IoT Central, os modelos de dispositivo usam esses modelos de funcionalidade do dispositivo do IoT Plug and Play (versão prévia).
 
 Como um criador, você tem várias opções para criar modelos de dispositivo:
 
@@ -102,7 +102,7 @@ Para criar uma interface:
 
     - Criar uma interface personalizada do zero.
     - Importar uma interface existente de um arquivo. Um construtor de dispositivo pode ter usado o Visual Studio Code para criar uma interface para seu dispositivo.
-    - Escolher uma das interfaces padrão, como a interface **Informações do Dispositivo**. As interfaces padrão especificam as funcionalidades comuns a muitos dispositivos. Essas interfaces padrão são publicadas pelo Azure IoT e não podem ter controle de versão nem ser editadas.
+    - Escolha uma das interfaces padrão, como a interface **Informações do Dispositivo.** As interfaces padrão especificam as funcionalidades comuns a muitos dispositivos. Essas interfaces padrão são publicadas pelo Azure IoT e não podem ter controle de versão nem ser editadas.
 
 1. Depois de criar uma interface, escolha **Editar Identidade** para alterar o nome de exibição da interface.
 
@@ -123,7 +123,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Esquema | O tipo de dados telemétricos, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado. |
 | Severity | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
 | Valores de Estado | Disponível apenas para o tipo de estado semântico. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor. |
-| Unidade | Uma unidade para o valor de telemetria, como **mph**, **%** ou **&deg;C**. |
+| Unidade | Uma unidade para o valor da telemetria, como **mph**, **%** ou ** &deg;C**. |
 | Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |
 | Comentário | Comentários sobre a funcionalidade de telemetria. |
 | Descrição | Uma descrição da funcionalidade de telemetria. |
@@ -144,7 +144,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Gravável | Se a propriedade não for gravável, o dispositivo poderá relatar valores de propriedade para o IoT Central. Se a propriedade for gravável, o dispositivo poderá relatar valores de propriedade para o IoT Central, e o IoT Central poderá enviar atualizações de propriedade para o dispositivo.
 | Severity | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
 | Valores de Estado | Disponível apenas para o tipo de estado semântico. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor. |
-| Unidade | Uma unidade para o valor da propriedade, como **mph**, **%** ou **&deg;C**. |
+| Unidade | Uma unidade para o valor da **%** propriedade, como **mph,** ou ** &deg;C**. |
 | Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |
 | Comentário | Comentários sobre a funcionalidade de propriedade. |
 | Descrição | Uma descrição da funcionalidade de propriedade. |

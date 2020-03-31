@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
 ms.openlocfilehash: 482fcf7d100a90d9527f510382c5dafb4f67adfa
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72439080"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Gerenciamento de Serviços de Nuvem do Azure usando a Automação do Azure
@@ -38,5 +38,5 @@ Entre alguns usos de exemplo da Automação do Azure para gerenciar os Serviços
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para serviços de nuvem do Azure, siga estes links para obter mais informações sobre a Automação do Azure.
 
-* [Visão geral da Automação](../automation/automation-intro.md)
+* [Visão geral da automação do Azure](../automation/automation-intro.md)
 * [Meu primeiro runbook](../automation/automation-first-runbook-graphical.md)

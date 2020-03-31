@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
 ms.openlocfilehash: 29a344c739d8d99da2e5c81d41a11c601e48022e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74969132"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Usando o castLabs para fornecer licenças Widevine para os Serviços de Mídia do Azure 
@@ -29,7 +29,7 @@ ms.locfileid: "74969132"
 > 
 > 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Este artigo descreve como é possível usar os serviços de mídia do Azure (AMS) para oferecer um fluxo dinamicamente é criptografado pelo AMS com os DRMs do PlayReady e Widevine. A licença do PlayReady vem do servidor de licenças do PlayReady dos serviços de mídia e a licença do Widevine é fornecida pelo servidor de licenças do **castLabs** .
 
@@ -61,14 +61,14 @@ A tabela a seguir descreve o token JWT no AMS.
 | Público |Cadeia de caracteres do público-alvo do STS usado |
 | Declarações |Um conjunto de declarações |
 | NotBefore |Validade inicial do token |
-| Expira |Validade final do token |
+| Expires |Validade final do token |
 | SigningCredentials |A chave que é compartilhada entre o servidor de licenças do PlayReady, servidor de licenças do castLabs e STS, pode ser simétrica ou assimétrica. |
 
 ### <a name="jwt-token-in-castlabs"></a>Token JWT no castLabs
 
 A tabela a seguir descreve o token JWT no castLabs. 
 
-| name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | optData |Uma cadeia de caracteres JSON que contém informações sobre você. |
 | crt |Uma cadeia de caracteres JSON que contém informações sobre o ativo, suas informações de licença e seus direitos de reprodução. |
@@ -117,7 +117,7 @@ Para reproduzir um vídeo criptografado com uma criptografia comum (PlayReady e/
 
 ## <a name="additional-notes"></a>Observações adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+* O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

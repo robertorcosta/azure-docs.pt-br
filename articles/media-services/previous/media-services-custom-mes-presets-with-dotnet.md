@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251239"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalizando as predefinições do Media Encoder Standard  
@@ -30,9 +30,9 @@ Este artigo mostra como executar a codificação avançada com o MES (Media Enco
 Este artigo mostra a você como personalizar uma predefinição usando a predefinição a [H264 Taxas de Bits Múltiplas 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) e reduzindo o número de camadas. O artigo [Personalizando as predefinições do Media Encoder Standard](media-services-advanced-encoding-with-mes.md) demonstra as predefinições personalizadas que podem ser usadas para executar tarefas avançadas de codificação.
 
 > [!NOTE]
-> As predefinições personalizadas descritas neste artigo não podem ser usadas nas transformações do [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) ou nos comandos da CLI. Consulte as [diretrizes de migração de v2 a V3](../latest/migrate-from-v2-to-v3.md) para obter mais detalhes.
+> As predefinições personalizadas descritas neste artigo não podem ser usadas em transformações de [Serviços de Mídia V3](https://docs.microsoft.com/azure/media-services/latest/) ou nos comandos CLI. Consulte a [orientação de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md) para obter mais detalhes.
 
-## <a id="customizing_presets"></a> Personalizando uma predefinição do MES
+## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a> Personalizando uma predefinição do MES
 
 ### <a name="original-preset"></a>Predefinição original
 
@@ -113,7 +113,7 @@ Abra o arquivo **CustomPreset_JSON.json** e remova as primeiras três camadas de
     }  
 ```
 
-## <a id="encoding_with_dotnet"></a>Codificação com o SDK do .NET dos Serviços de Mídia
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codificação com o SDK do .NET dos Serviços de Mídia
 
 O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para executar as seguintes tarefas:
 
@@ -132,7 +132,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
+Configure seu ambiente de desenvolvimento e preencha o arquivo app.config com informações de conexão, conforme descrito no [desenvolvimento do Media Services com .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exemplo   
 
@@ -266,7 +266,7 @@ namespace CustomizeMESPresests
 
 ## <a name="see-also"></a>Confira também
 
-- [Como codificar com uma transformação personalizada usando a CLI](../latest/custom-preset-cli-howto.md)
+- [Como codificar com uma transformação personalizada usando cli](../latest/custom-preset-cli-howto.md)
 - [Codificação com os Serviços de Mídia v3](../latest/encoding-concept.md)
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia

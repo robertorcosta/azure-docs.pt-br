@@ -4,28 +4,26 @@ description: Saiba mais sobre a Camada de Nuvem do recurso de Sincronização de
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 03/17/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fea9cebc5199fc7c1fc5c081aa45f08044c21e44
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 11f9097fc4875f0a4300ac56dafe7af9a0b00c97
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268087"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454611"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral da Camada de Nuvem
 A camada de nuvem é um recurso opcional da Sincronização de Arquivos do Azure em que arquivos acessados frequentemente são armazenados em cache localmente no servidor, enquanto todos os outros arquivos são organizados em camadas para Arquivos do Azure com base nas configurações de política. Quando um arquivo está disposto em camadas, o filtro do sistema de arquivos da Sincronização de Arquivos do Azure (StorageSync.sys) substitui o arquivo localmente por um ponteiro ou ponto de nova análise. O ponto de nova análise representa uma URL para o arquivo nos Arquivos do Azure. Um arquivo em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definidos em NTFS, de modo que aplicativos de terceiros podem identificar com segurança os arquivos dispostos em camadas.
  
-Quando um usuário abre um arquivo em camadas, Sincronização de Arquivos do Azure rechama diretamente os dados de arquivo dos arquivos do Azure sem que o usuário precise saber que o arquivo está armazenado no Azure. 
+Quando um usuário abre um arquivo hierárquico, o Azure File Sync lembra perfeitamente os dados do arquivo do Azure Files sem que o usuário precise saber que o arquivo está armazenado no Azure. 
  
  > [!Important]  
- > A camada de nuvem não dá suporte a pontos de extremidade do servidor nos volumes de sistema do Windows e somente arquivos com tamanho maior que 64 KiB podem ser dispostos em camadas nos Arquivos do Azure.
+ > O hierarquidamento em nuvem não é suportado no volume do sistema Windows.
     
-A Sincronização de Arquivos do Azure não dá suporte à disposição em camadas para arquivos menores que 64 KiB, já que a sobrecarga de desempenho causada pela disposição em camadas e subsequente recuperação desses arquivos pequenos seria mais onerosa que a economia de espaço.
-
  > [!Important]  
- > Para recuperar os arquivos que foram em camadas, a largura de banda da rede deve ser de pelo menos 1 Mbps. Se a largura de banda da rede for menor que 1 Mbps, os arquivos poderão falhar ao se recuperar com um erro de tempo limite.
+ > Para recordar arquivos que foram hierárquicos, a largura de banda da rede deve ser de pelo menos 1 Mbps. Se a largura de banda da rede for inferior a 1 Mbps, os arquivos podem não ser recordados com um erro de tempo.
 
 ## <a name="cloud-tiering-faq"></a>Perguntas frequentes das Camadas de Nuvem
 
@@ -34,6 +32,10 @@ A Sincronização de Arquivos do Azure não dá suporte à disposição em camad
 O filtro do sistema de Sincronização de Arquivos do Azure cria um "mapa de calor" do seu namespace em cada ponto de extremidade do servidor. Ele monitora acessos (operações leitura e gravação) ao longo do tempo e, em seguida, com base na frequência de acessos e no quanto eles são recentes, atribui uma pontuação de calor a todos os arquivos. Um arquivo acessado com frequência que foi aberto recentemente é considerado frequente, enquanto um arquivo que quase não é usado e que não foi acessado por algum tempo é considerado frio. Quando o volume de arquivos em um servidor excede o limite de espaço livre do volume definido, ele fará a disposição dos arquivos mais frios em camadas nos Arquivos do Azure até que o percentual de espaço livre necessário seja alcançado.
 
 Nas versões 4.0 e superiores do agente de Sincronização de Arquivos do Azure, é possível especificar adicionalmente uma política de data em cada ponto de extremidade do servidor que classificará os arquivos não acessados ou modificados em um determinado número de dias.
+
+<a id="tiering-minimum-file-size"></a>
+### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Qual é o tamanho mínimo do arquivo para um arquivo para tier?
+Para as versões 9.x do agente e mais recentes, o tamanho mínimo do arquivo para um arquivo para o nível é baseado no tamanho do cluster do sistema de arquivos (o dobro do tamanho do cluster do sistema de arquivos). Por exemplo, se o tamanho do cluster do sistema de arquivos NTFS for 4KB, o tamanho mínimo de arquivo resultante para um arquivo para o nível é de 8KB. Para as versões 8.x do agente e mais antigas, o tamanho mínimo do arquivo para um arquivo para o nível é de 64KB.
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Como a política de disposição em camadas do espaço livre no volume funciona?
@@ -61,7 +63,7 @@ Manter mais dados armazenados localmente significará custos de saída menores, 
 
 <a id="how-long-until-my-files-tier"></a>
 ### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>Eu adicionei um novo ponto de extremidade de servidor. Quanto tempo levará até que meus arquivos estejam nessa camada de servidor?
-Nas versões 4,0 e acima do agente de Sincronização de Arquivos do Azure, depois que os arquivos forem carregados no compartilhamento de arquivos do Azure, eles serão em camadas de acordo com suas políticas assim que a próxima sessão de camadas for executada, o que acontecerá uma vez por hora. Em agentes mais antigos, a disposição em camadas pode levar até 24 horas para ocorrer.
+Nas versões 4.0 e acima do agente Azure File Sync, uma vez que seus arquivos tenham sido carregados para o compartilhamento de arquivos do Azure, eles serão hierarquizados de acordo com suas políticas assim que a próxima sessão de hierarquiagem for executada, o que acontece uma vez por hora. Em agentes mais antigos, a disposição em camadas pode levar até 24 horas para ocorrer.
 
 <a id="is-my-file-tiered"></a>
 ### <a name="how-can-i-tell-whether-a-file-has-been-tiered"></a>Como saber se um arquivo foi distribuído em camadas?
@@ -73,10 +75,10 @@ Há várias maneiras de verificar se um arquivo foi colocado em camadas no compa
         | Carta de atributo | Atributo | Definição |
         |:----------------:|-----------|------------|
         | Um | Archive | Indica que o arquivo deve ter o backup feito pelo software de backup. Esse atributo é sempre definido independentemente de o arquivo estar em camadas ou totalmente armazenado no disco. |
-        | P | Arquivos esparsos | Indica que o arquivo é um arquivo esparso. Um arquivo esparso é um tipo especializado de arquivo que o NTFS oferece para uso eficiente quando o arquivo no fluxo do disco está basicamente vazio. A Sincronização de Arquivos do Azure usa arquivos esparsos, porque um arquivo é totalmente em camadas ou parcialmente cancelado. Em um arquivo totalmente em camadas, o fluxo de arquivos é armazenado na nuvem. Em um arquivo que sofreu recall parcial, essa parte do arquivo já está no disco. Se o recall de um arquivo é feito totalmente em disco, a Sincronização de Arquivos do Azure o converte de um arquivo esparso em um arquivo regular. Esse atributo só é definido no Windows Server 2016 e mais antigo.|
-        | M | Recall no acesso a dados | Indica que os dados do arquivo não estão totalmente presentes no armazenamento local. A leitura do arquivo fará com que pelo menos um conteúdo do arquivo seja obtido de um compartilhamento de arquivos do Azure ao qual o ponto de extremidade do servidor está conectado. Esse atributo só é definido no Windows Server 2019. |
+        | P | Arquivos esparsos | Indica que o arquivo é um arquivo esparso. Um arquivo esparso é um tipo especializado de arquivo que o NTFS oferece para uso eficiente quando o arquivo no fluxo do disco está basicamente vazio. A Sincronização de Arquivos do Azure usa arquivos esparsos, porque um arquivo é totalmente em camadas ou parcialmente cancelado. Em um arquivo totalmente em camadas, o fluxo de arquivos é armazenado na nuvem. Em um arquivo que sofreu recall parcial, essa parte do arquivo já está no disco. Se o recall de um arquivo é feito totalmente em disco, a Sincronização de Arquivos do Azure o converte de um arquivo esparso em um arquivo regular. Este atributo só é definido no Windows Server 2016 e mais antigo.|
+        | M | Recall sobre acesso a dados | Indica que os dados do arquivo não estão totalmente presentes no armazenamento local. A leitura do arquivo fará com que pelo menos parte do conteúdo do arquivo seja obtido a partir de um compartilhamento de arquivos do Azure ao qual o ponto final do servidor está conectado. Este atributo só está definido no Windows Server 2019. |
         | L | Ponto de nova análise | Indica que o arquivo tem um ponto de nova análise. Um ponto de nova análise é um ponteiro especial para ser usado por um filtro do sistema de arquivos. A Sincronização de Arquivos do Azure usa pontos de nova análise a fim de definir, para o filtro do sistema de arquivos da Sincronização de Arquivos do Azure (StorageSync.sys), o local na nuvem em que o arquivo está armazenado. Isso dá suporte a acesso contínuo. Os usuários não precisarão saber que a Sincronização de Arquivos do Azure está sendo usada ou como obter acesso ao arquivo em seu compartilhamento de arquivos do Azure. Quando o recall de um arquivo é totalmente feito, a Sincronização de Arquivos do Azure remove o ponto de nova análise do arquivo. |
-        | O | Offline | Indica que parte ou nenhum conteúdo do arquivo está armazenado em disco. Quando o recall de um arquivo é totalmente feito, a Sincronização de Arquivos do Azure remove esse atributo. |
+        | O  | Offline | Indica que parte ou nenhum conteúdo do arquivo está armazenado em disco. Quando o recall de um arquivo é totalmente feito, a Sincronização de Arquivos do Azure remove esse atributo. |
 
         ![A caixa de diálogo Propriedades de um arquivo com a guia Detalhes selecionada](media/storage-files-faq/azure-file-sync-file-attributes.png)
         
@@ -89,7 +91,7 @@ Há várias maneiras de verificar se um arquivo foi colocado em camadas no compa
         fsutil reparsepoint query <your-file-name>
         ```
 
-        Se o arquivo tiver um ponto de nova análise, você deverá ver um **Valor de Marca de Nova Análise: 0x8000001e**. Esse valor hexadecimal é o valor do ponto de nova análise que pertence ao Sincronização de Arquivos do Azure. A saída também contém os dados de nova análise que representam o caminho para o arquivo no compartilhamento de arquivos do Azure.
+        Se o arquivo tiver um ponto de nova análise, você deverá ver um **Valor de Marca de Nova Análise: 0x8000001e**. Este valor hexadecimal é o valor de ponto reparse que é de propriedade do Azure File Sync. A saída também contém os dados reparsos que representam o caminho para o seu arquivo no seu compartilhamento de arquivos Azure.
 
         > [!WARNING]  
         > O comando do utilitário `fsutil reparsepoint` também tem a capacidade de excluir um ponto de nova análise. Não execute esse comando, a menos que a equipe de engenharia de Sincronização de Arquivos do Azure lhe solicite isso. A execução desse comando pode resultar em perda de dados. 
@@ -106,17 +108,17 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 Parâmetros opcionais:
-* `-Order CloudTieringPolicy` se lembrará dos arquivos modificados mais recentemente primeiro.  
-* `-ThreadCount` determina quantos arquivos podem ser rechamados em paralelo.
-* `-PerFileRetryCount`determina com que frequência uma recall será tentada de um arquivo bloqueado no momento.
-* `-PerFileRetryDelaySeconds`determina o tempo em segundos entre as tentativas de repetição para recuperar e deve ser sempre usada em combinação com o parâmetro anterior.
+* `-Order CloudTieringPolicy`vai recordar os arquivos mais recentemente modificados primeiro.  
+* `-ThreadCount`determina quantos arquivos podem ser recuperados em paralelo.
+* `-PerFileRetryCount`determina com que frequência um recall será tentado de um arquivo que está atualmente bloqueado.
+* `-PerFileRetryDelaySeconds`determina o tempo em segundos entre tentar novamente para recordar tentativas e deve ser sempre usado em combinação com o parâmetro anterior.
 
 > [!Note]  
 > Se o volume local que hospeda o servidor não tiver espaço livre suficiente para realizar o recall de todos os dados em camadas, o cmdlet `Invoke-StorageSyncFileRecall` falha.  
 
 <a id="sizeondisk-versus-size"></a>
 ### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Por que, após usar a Sincronização de Arquivos do Azure, a propriedade *Tamanho em disco* de um arquivo não corresponde à propriedade *Tamanho*? 
-O Explorador de Arquivos do Windows expõe duas propriedades para representar o tamanho de um arquivo: **Tamanho** e **Tamanho em disco**. O significado dessas propriedades difere um pouco. **Tamanho** representa o tamanho completo do arquivo. **Tamanho em disco** representa o tamanho do fluxo de arquivo que é armazenado no disco. Os valores dessas propriedades podem diferir por vários motivos, como compactação, uso de eliminação de duplicação de dados ou camadas de nuvem com Sincronização de Arquivos do Azure. Se um arquivo estiver em camadas para um compartilhamento de arquivos do Azure, o tamanho no disco será zero, pois o fluxo de arquivos será armazenado no compartilhamento de arquivos do Azure e não no disco. Também é possível que um arquivo esteja parcialmente em camadas (ou seja parcialmente em recall). Em um arquivo parcialmente hierárquico, parte do arquivo está no disco. Isso pode acontecer quando os arquivos são lidos parcialmente por aplicativos como players de multimídia ou utilitários de compactação. 
+O Explorador de Arquivos do Windows expõe duas propriedades para representar o tamanho de um arquivo: **Tamanho** e **Tamanho em disco**. O significado dessas propriedades difere um pouco. **Tamanho** representa o tamanho completo do arquivo. **Tamanho em disco** representa o tamanho do fluxo de arquivo que é armazenado no disco. Os valores dessas propriedades podem diferir por uma variedade de razões, como compactação, uso de Deduplicação de Dados ou hierarquamento em nuvem com o Azure File Sync. Se um arquivo for hierárquico para um compartilhamento de arquivos Do Zure, o tamanho no disco será zero, porque o fluxo de arquivos é armazenado no compartilhamento de arquivos do Azure, e não no disco. Também é possível que um arquivo esteja parcialmente em camadas (ou seja parcialmente em recall). Em um arquivo parcialmente hierárquico, parte do arquivo está no disco. Isso pode acontecer quando os arquivos são lidos parcialmente por aplicativos como players de multimídia ou utilitários de compactação. 
 
 <a id="afs-force-tiering"></a>
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Como posso forçar um arquivo ou diretório a ficar em camadas?
@@ -128,10 +130,10 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ```
 
 <a id="afs-image-thumbnail"></a>
-### <a name="why-are-my-tiered-files-not-showing-thumbnails-or-previews-in-windows-explorer"></a>Por que meus arquivos em camadas não estão mostrando miniaturas ou visualizações no Windows Explorer?
-Para arquivos em camadas, miniaturas e visualizações não estarão visíveis no ponto de extremidade do servidor. Esse comportamento é esperado, pois o recurso de cache em miniatura do Windows ignora intencionalmente a leitura de arquivos com o atributo offline. Com a camada de nuvem habilitada, a leitura por meio de arquivos em camadas fará com que eles fossem baixados (rechamados).
+### <a name="why-are-my-tiered-files-not-showing-thumbnails-or-previews-in-windows-explorer"></a>Por que meus arquivos hierárquicos não mostram miniaturas ou visualizações no Windows Explorer?
+Para arquivos hierárquicos, miniaturas e visualizações não serão visíveis no ponto final do servidor. Esse comportamento é esperado, uma vez que o recurso de cache em miniatura no Windows ignora intencionalmente a leitura de arquivos com o atributo off-line. Com o Cloud Tiering ativado, a leitura através de arquivos hierárquicos faria com que eles fossem baixados (lembrado).
 
-Esse comportamento não é específico do Sincronização de Arquivos do Azure, o Windows Explorer exibe um "X cinza" para todos os arquivos que têm o atributo offline definido. Você verá o ícone X ao acessar arquivos por SMB. Para obter uma explicação detalhada desse comportamento, consulte [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+Esse comportamento não é específico do Azure File Sync, o Windows Explorer exibe um "X cinza" para quaisquer arquivos que tenham o conjunto de atributos off-line. Você verá o ícone X ao acessar arquivos sobre SMB. Para uma explicação detalhada deste comportamento, consulte[https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
 
 ## <a name="next-steps"></a>Próximas etapas

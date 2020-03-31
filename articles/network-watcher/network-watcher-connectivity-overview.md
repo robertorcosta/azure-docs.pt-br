@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283271"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introdução à solução de problemas de conexão no Observador de Rede do Azure
@@ -29,7 +29,7 @@ O recurso de solução de problemas de conexão do Observador de Rede fornece a 
 
 A tabela a seguir mostra as propriedades retornadas quando a solução de problemas de conexão conclui a execução.
 
-|Propriedade  |DESCRIÇÃO  |
+|Propriedade  |Descrição  |
 |---------|---------|
 |ConnectionStatus     | O status da verificação de conectividade. Os resultados possíveis são **Acessível** e **Inacessível**.        |
 |AvgLatencyInMs     | Latência média durante a verificação de conectividade em milissegundos. (Exibido somente se a verificação de status estiver acessível)        |
@@ -46,7 +46,7 @@ A tabela a seguir mostra as propriedades retornadas quando a solução de proble
 |Hops[].Issues | Uma coleção dos problemas encontrados durante a verificação do salto. Se não houver problemas, o valor ficará em branco.|
 |Hops[].Issues[].Origin | No salto atual, o ponto em que o problema ocorreu. Os valores possíveis são:<br/> **Entrada** – o problema está no link do salto anterior para o salto atual<br/>**Saída** – o problema está no link do salto atual para o próximo salto<br/>**Local** – problema está no salto atual.|
 |Hops[].Issues[].Severity | A gravidade do problema detectado. Os valores possíveis são **Erro** e **Aviso**. |
-|Hops[].Issues[].Type |O tipo de problema encontrado. Os valores possíveis são: <br/>**CPU**<br/>**Memória**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
+|Hops[].Issues[].Type |O tipo de problema encontrado. Os valores possíveis são: <br/>**Cpu**<br/>**Memória**<br/>**GuestFirewall**<br/>**Resolução Dns**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
 |Hops[].Issues[].Context |Detalhes sobre o problema encontrado.|
 |Hops[].Issues[].Context[].key |Chave do par chave-valor retornado.|
 |Hops[].Issues[].Context[].value |Valor do par chave-valor retornado.|
@@ -72,7 +72,7 @@ O seguinte é um exemplo de um problema encontrado em um salto.
 
 A solução de problemas de conexão retorna tipos de falha sobre a conexão. A tabela a seguir fornece uma lista dos tipos de falhas atuais retornados.
 
-|Type  |DESCRIÇÃO  |
+|Type  |Descrição  |
 |---------|---------|
 |CPU     | Alta utilização da CPU.       |
 |Memória     | Alta utilização de memória.       |

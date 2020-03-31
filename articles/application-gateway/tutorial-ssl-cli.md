@@ -1,5 +1,5 @@
 ---
-title: Terminação SSL usando Aplicativo Azure gateway de CLI
+title: Rescisão ssl usando CLI - Gateway de aplicativo Azure
 description: Saiba como criar um gateway de aplicativo e adicionar um certificado para a terminação SSL usando a CLI do Azure.
 services: application-gateway
 author: vhorne
@@ -9,15 +9,15 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: c297a7d34e8b85420329abaca0e15029ce207861
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78246608"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Criar um gateway de aplicativo com terminação SSL usando a CLI do Azure
 
-Você pode usar o CLI do Azure para criar um [Gateway de aplicativo](overview.md) com um certificado para [terminação SSL](ssl-overview.md). Para servidores de back-end, você pode usar um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao pool de back-end padrão do gateway de aplicativo.
+Você pode usar o Azure CLI para criar um [gateway de aplicativo](overview.md) com um certificado de [rescisão SSL](ssl-overview.md). Para servidores backend, você pode usar um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao pool de back-end padrão do gateway de aplicativo.
 
 Neste artigo, você aprenderá como:
 
@@ -33,7 +33,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Caso opte por instalar e usar a CLI localmente, este artigo exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Caso opte por instalar e usar a CLI localmente, este artigo exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisar instalar ou atualizar, consulte [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
@@ -165,7 +165,7 @@ az network public-ip show \
   --output tsv
 ```
 
-Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Para este exemplo, a URL é: **https://52.170.203.149** .
+Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Para este exemplo, a **https://52.170.203.149**URL é: .
 
 ![Aviso de segurança](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
@@ -173,7 +173,7 @@ Para aceitar o aviso de segurança se você usou um certificado autoassinado, se
 
 ![Testar a URL de base no gateway de aplicativo](./media/tutorial-ssl-cli/application-gateway-nginx.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, remova o grupo de recursos, o gateway de aplicativo e todos os recursos relacionados.
 

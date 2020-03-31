@@ -1,6 +1,6 @@
 ---
-title: Recomendações do Endpoint Protection nos centros de segurança do Azure
-description: Como as soluções do Endpoint Protection são descobertas e identificadas como íntegras.
+title: Recomendações de proteção de endpoint em Centros de Segurança do Azure
+description: Como as soluções de proteção de ponto final são descobertas e identificadas como saudáveis.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,30 +14,30 @@ ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
 ms.openlocfilehash: dcf7df501665ea3885d00b9f7668a95cbbf02428
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78208535"
 ---
-# <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Avaliação e recomendações do Endpoint Protection na central de segurança do Azure
+# <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Avaliação e recomendações de proteção de endpoint no Azure Security Center
 
-A central de segurança do Azure fornece avaliações de integridade de versões [com suporte](security-center-services.md#endpoint-supported) das soluções do Endpoint Protection. Este artigo explica os cenários que levam à central de segurança para gerar as duas recomendações a seguir:
+O Azure Security Center fornece avaliações de saúde de versões [suportadas](security-center-services.md#endpoint-supported) de soluções de proteção Endpoint. Este artigo explica os cenários que levam o Security Center a gerar as seguintes duas recomendações:
 
-* **Instalar soluções do Endpoint Protection em sua máquina virtual**
-* **Resolver problemas de integridade do Endpoint Protection em seus computadores**
+* **Instale soluções de proteção de ponto final em sua máquina virtual**
+* **Resolver problemas de integridade da proteção do endpoint em suas máquinas**
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** quando [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) for executado e o resultado for **AMServiceEnabled: false**
+* O Security Center recomenda que você **"Instale soluções de proteção de ponto final na máquina virtual"** quando [o Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) for executado e o resultado for **AMServiceEnabled: False**
 
-* A central de segurança recomenda que você **"resolva problemas de integridade do Endpoint Protection em suas máquinas" quando o** [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) for executado e qualquer uma das seguintes situações ocorrer:
+* O Security Center recomenda que você **"Resolva problemas de saúde de proteção de ponto final em suas máquinas"** quando [o Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) for executado e qualquer um dos seguintes ocorre:
 
-  * Qualquer uma das seguintes propriedades é falsa:
+  * Qualquer uma das seguintes propriedades são falsas:
 
     **AMServiceEnabled**
 
-    **AntispywareEnabled**
+    **AntispywareAtivado**
 
     **RealTimeProtectionEnabled**
 
@@ -51,15 +51,15 @@ A central de segurança do Azure fornece avaliações de integridade de versões
 
     **AntispywareSignatureAge**
 
-    **AntivirusSignatureAge**
+    **AntivírusSignatureAge**
 
-## <a name="microsoft-system-center-endpoint-protection"></a>Proteção de ponto de extremidade do Microsoft System Center
+## <a name="microsoft-system-center-endpoint-protection"></a>Proteção de ponto final do Microsoft System Center
 
-* A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** ao importar **SCEPMpModule ("$env:P rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** e executar resultados **de Get-MProtComputerStatus** com **AMServiceEnabled = false**
+* O Security Center recomenda que você **"Instale soluções de proteção de ponto final na máquina virtual"** ao importar **o SCEPMpModule ("$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1")** e executar os resultados **do Get-MProtComputerStatus** com **AMServiceEnabled = false**
 
-* A central de segurança recomenda que você **"resolva problemas de integridade do Endpoint Protection em suas máquinas" quando o** **Get-MprotComputerStatus** for executado e qualquer uma das seguintes situações ocorrer:
+* O Security Center recomenda que você **"Resolva problemas de saúde de proteção de ponto final em suas máquinas"** quando **o Get-MprotComputerStatus** é executado e qualquer um dos seguintes ocorre:
 
-    * Pelo menos uma das seguintes propriedades é false:
+    * Pelo menos uma das seguintes propriedades é falsa:
 
             **AMServiceEnabled**
 
@@ -73,112 +73,112 @@ A central de segurança do Azure fornece avaliações de integridade de versões
     
             **OnAccessProtectionEnabled**
           
-    * Se uma ou ambas as atualizações de assinatura a seguir forem maiores ou iguais a 7. 
+    * Se uma ou ambas as seguintes Atualizações de Assinatura forem maiores ou iguais a 7. 
 
             **AntispywareSignatureAge**
     
             **AntivirusSignatureAge**
 
-## <a name="trend-micro"></a>Trend Micro
+## <a name="trend-micro"></a>Micro tendência
 
-* A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** quando qualquer uma das seguintes verificações não for atendida:
-    * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent** existe
-    * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** existe
-    * O arquivo **dsa_query. cmd** é encontrado na pasta de instalação
-    * Executando os resultados de **dsa_query. cmd** com o **componente. am. Mode: o agente de segurança em Trend Micro Deep Security detectado**
+* O Security Center recomenda que você **"Instale soluções de proteção de ponto final na máquina virtual"** quando qualquer uma das seguintes verificações não for atendida:
+    * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** existe
+    * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** existe
+    * O arquivo **dsa_query.cmd** é encontrado na pasta de instalação
+    * Executando **dsa_query.cmd** resultados com **component.AM.mode: on - Trend Micro Deep Security Agent detectado**
 
-## <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection
-A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** quando qualquer uma das seguintes verificações não for atendida:
+## <a name="symantec-endpoint-protection"></a>Proteção de ponto final da Symantec
+O Security Center recomenda que você **"Instale soluções de proteção de ponto final na máquina virtual"** quando qualquer uma das seguintes verificações não for atendida:
 
-* **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
+* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 Ou
 
-* **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
+* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-A central de segurança recomenda que você **"resolva problemas de integridade do Endpoint Protection em suas máquinas"** quando qualquer uma das seguintes verificações não for atendida:
+O Security Center recomenda que você **"Resolva problemas de saúde de proteção de ponto final em suas máquinas"** quando qualquer uma das seguintes verificações não for atendida:
 
-* Verifique a versão do Symantec > = 12: local do registro: **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion "-value" PRODUCTVERSION "**
+* Verificar symantec versão >= 12: Local de registro: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Valor "PRODUCTVERSION"**
 
-* Verificar o status da proteção em tempo real: **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff = = 1**
+* Verifique o status de proteção em tempo real: **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff == 1**
 
-* Verificar status de atualização de assinatura: **HKLM\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LatestVirusDefsDate < = 7 dias**
+* Verificar status de atualização de assinatura: **HKLM\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LatestVirusDefsDate <= 7 dias**
 
-* Verifique o status da verificação completa: **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime < = 7 dias**
+* Verifique o status de varredura completa: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime <= 7 dias**
 
-* Localize o caminho do número de versão da assinatura para a versão da assinatura do Symantec 12: **caminhos do registro + "CurrentVersion\SharedDefs" – valor "SRTSP"** 
+* Encontre o número da versão de assinatura Path para a versão de assinatura do Symantec 12: **Registry Paths+ "CurrentVersion\SharedDefs" -Valor "SRTSP"** 
 
-* Caminho para a versão da assinatura do Symantec 14: **caminhos do registro + "CurrentVersion\SharedDefs\SDSDefs" – valor "SRTSP"**
+* Caminho para a versão de assinatura para Symantec 14: **Caminhos de Registro+ "CurrentVersion\SharedDefs\SDSDefs" -Valor "SRTSP"**
 
-Caminhos do registro:
+Caminhos de registro:
 
-* **"HKLM: \ Software\Symantec\Symantec Endpoint Protection" + $Path;**
-* **"HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
+* **"HKLM:\Software\Symantec\Symantec Endpoint Protection" + $Path;**
+* **"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
 
-## <a name="mcafee-endpoint-protection-for-windows"></a>McAfee Endpoint Protection para Windows
+## <a name="mcafee-endpoint-protection-for-windows"></a>Proteção de ponto final da McAfee para Windows
 
-A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** quando qualquer uma das seguintes verificações não for atendida:
+O Security Center recomenda que você **"Instale soluções de proteção de ponto final na máquina virtual"** quando qualquer uma das seguintes verificações não for atendida:
 
-* **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion** existe
+* **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** existe
 
-* **HKLM: \ SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
+* **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
-A central de segurança recomenda que você **"resolva problemas de integridade do Endpoint Protection em suas máquinas"** quando qualquer uma das seguintes verificações não for atendida:
+O Security Center recomenda que você **"Resolva problemas de saúde de proteção de ponto final em suas máquinas"** quando qualquer uma das seguintes verificações não for atendida:
 
-* Versão da McAfee: **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion > = 10**
+* Versão da McAfee: **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
 
-* Localizar versão da assinatura: **HKLM: \ Software\McAfee\AVSolution\DS\DS-Value "dwContentMajorVersion"**
+* Encontrar versão de assinatura: **HKLM:\Software\McAfee\AVSolution\DS\DS -Valor "dwContentMajorVersion"**
 
-* Localizar a data da assinatura: **HKLM: \ Software\McAfee\AVSolution\DS\DS-Value "szContentCreationDate" > = 7 dias**
+* Encontrar data de assinatura: **HKLM:\Software\McAfee\AVSolution\DS\DS -Valor "szContentCreationDate" >= 7 dias**
 
-* Localizar data de verificação: **HKLM: \ Software\McAfee\Endpoint\AV\ODS-Value "LastFullScanOdsRunTime" > = 7 dias**
+* Encontrar data de varredura: **HKLM:\Software\McAfee\Endpoint\AV\ODS -Valor "LastFullScanOdsRunTime" >= 7 dias**
 
-## <a name="mcafee-endpoint-security-for-linux-threat-prevention"></a>Prevenção contra ameaças do McAfee Endpoint Security para Linux 
+## <a name="mcafee-endpoint-security-for-linux-threat-prevention"></a>McAfee Endpoint Security para prevenção de ameaças Linux 
 
-A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** quando qualquer uma das seguintes verificações não for atendida:
+O Security Center recomenda que você **"Instale soluções de proteção de ponto final na máquina virtual"** quando qualquer uma das seguintes verificações não for atendida:
 
-- Saídas do arquivo **/opt/ISEC/ENS/threatprevention/bin/isecav** 
+- Arquivo **/opt/isec/ens/threatprevention/bin/isecav** sai 
 
-- **a saída "/opt/ISEC/ENS/threatprevention/bin/isecav-Version"** é: **nome da McAfee = McAfee Endpoint Security para Linux Threat Prevention e McAfee versão > = 10**
+- **"/opt/isec/ens/threatprevention/bin/isecav --version"** é: **Nome McAfee = McAfee Endpoint Security para Prevenção de Ameaças Linux e versão mcAfee >= 10**
 
-A central de segurança recomenda que você **"resolva problemas de integridade do Endpoint Protection em suas máquinas"** quando qualquer uma das seguintes verificações não for atendida:
+O Security Center recomenda que você **"Resolva problemas de saúde de proteção de ponto final em suas máquinas"** quando qualquer uma das seguintes verificações não for atendida:
 
-- **"/opt/ISEC/ENS/threatprevention/bin/isecav--listtask"** retorna **verificação rápida, verificação completa** e ambas as verificações < = 7 dias
+- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** retorna **Scan rápido, varredura completa** e ambas as varreduras <= 7 dias
 
-- **"/opt/ISEC/ENS/threatprevention/bin/isecav--listtask"** retorna o **dat e o tempo de atualização do mecanismo** e ambos < = 7 dias
+- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** retorna **dat e tempo** de atualização do motor e ambos <= 7 dias
 
-- **"/opt/ISEC/ENS/threatprevention/bin/isecav--getoasconfig--Summary"** retorna **no status da verificação de acesso**
+- **"/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary"** retorna no status **de varredura de acesso**
 
 ## <a name="sophos-antivirus-for-linux"></a>Sophos Antivirus para Linux 
 
-A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** quando qualquer uma das seguintes verificações não for atendida:
+O Security Center recomenda que você **"Instale soluções de proteção de ponto final na máquina virtual"** quando qualquer uma das seguintes verificações não for atendida:
 
-- O arquivo **/opt/Sophos-AV/bin/savdstatus** sai ou pesquisa o local personalizado **"readlink $ (que SAVScan)"**
+- Arquivo **/opt/sophos-av/bin/savdstatus** saídas ou pesquisa por localização personalizada **"readlink $(que savscan)"**
 
-- **"/opt/Sophos-AV/bin/savdstatus--Version"** retorna o Sophos name = **Sophos Anti-Virus e o Sophos versão > = 9**
+- **"/opt/sophos-av/bin/savdstatus --version"** retorna nome Sophos = **Versão Sophos Anti-Virus e Sophos >= 9**
 
-A central de segurança recomenda que você **"resolva problemas de integridade do Endpoint Protection em suas máquinas"** quando qualquer uma das seguintes verificações não for atendida:
+O Security Center recomenda que você **"Resolva problemas de saúde de proteção de ponto final em suas máquinas"** quando qualquer uma das seguintes verificações não for atendida:
 
-- **"/opt/Sophos-AV/bin/savlog--MaxAge = 7 | grep-i "verificação agendada.\* concluído "| Tail-1 "** , retorna um valor
+- **"/opt/sophos-av/bin/savlog -maxage=7 | grep -i "Varredura programada . \* completou" | cauda -1"**, retorna um valor
 
-- **"/opt/Sophos-AV/bin/savlog--MaxAge = 7 | grep "Verificação concluída"** | Tail-1 ", retorna um valor
+- **"/opt/sophos-av/bin/savlog -maxage=7 | grep "scan acabado"** | cauda -1", retorna um valor
 
-- **"/opt/Sophos-AV/bin/savdstatus--LastUpdate"** retorna LastUpdate, que deve ser < = 7 dias 
+- **"/opt/sophos-av/bin/savdstatus --lastupdate"** retorna lastUpdate, que deve ser <= 7 dias 
 
-- **"/opt/Sophos-AV/bin/savdstatus-v"** é igual a **"a verificação no acesso está em execução"** 
+- **"/opt/sophos-av/bin/savdstatus -v"** é igual a **"A varredura de acesso está sendo realizada"** 
 
-- **"/opt/Sophos-AV/bin/savconfig Get LiveProtection"** retorna habilitado
+- **Retornos "/opt/sophos-av/bin/savconfig get LiveProtection"** ativados
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
 ### <a name="troubleshoot"></a>Solução de problemas
 
-Os logs de extensão antimalware da Microsoft estão disponíveis em: **%systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware (ou PaaSAntimalware) \1.5.5.x (Version #) \CommandExecution.log**
+Os logs de extensão do Microsoft Antimalware estão disponíveis em: **%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware(Ou PaaSAntimalware)\1.5.5.x(versão#)\CommandExecution.log**
 
 ### <a name="support"></a>Suporte
 
-Para obter mais ajuda, entre em contato com os especialistas do Azure nos [fóruns do Azure e Stack Overflow do MSDN](https://azure.microsoft.com/support/forums/). Ou arquivo de um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Para obter mais ajuda, entre em contato com os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Ou registrar um incidente de suporte ao Azure. Vá ao site de suporte do [Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

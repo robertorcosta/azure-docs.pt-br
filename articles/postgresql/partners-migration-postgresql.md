@@ -8,26 +8,26 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.openlocfilehash: f9b3cde8ff0f3a1b97d53a1de72cb6c5c48a800c
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76289774"
 ---
 # <a name="azure-database-for-postgresql-migration-partners"></a>Banco de dados do Azure para os parceiros de migração do PostgreSQL
 Para oferecer suporte amplo à sua solução do Banco de Dados do Azure para PostgreSQL, escolha entre uma ampla variedade de parceiros e ferramentas líderes do setor. Este artigo destaca as empresas parceiras da Microsoft com soluções de migração que dão suporte ao Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="migration-partners"></a>Parceiros de migração
-| Parceiro | Description | Links | Vídeos |
+| Partner (parceiro) | Descrição | Links | vídeos |
 | --- | --- | --- | --- |
 | ![SNP Technologies][1] |**SNP Technologies**<br>A SNP Technologies é uma provedora de serviços somente na nuvem, criando soluções seguras e confiáveis para os negócios do futuro. A empresa acredita na geração de valor real para o seu negócio. Do pensamento à execução, a SNP Technologies compartilha um objetivo comum com os clientes, para transformar seu investimento em uma vantagem.|[Site][snp_website]<br>[Twitter][snp_twitter]<br>[Contato][snp_contact] | |
-| ![DB Best Technologies, LLC][2] |**DB Best Technologies, LLC**<br>A DB Best ajuda os clientes a obterem a maior parte do serviço de banco de dados do Azure. A empresa oferece várias maneiras para começar, incluindo [Projeto arquitetônico de estado futuro ](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2F www.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0), [ Otimização de gerenciamento de dados para o Microsoft Data Platform ](https://www.dbbest.com/services/data-management-optimization-for-microsoft-data-platform/), [Serviços de Planejamento de Implantação do Microsoft Azure ](https://www.dbbest.com/services/microsoft-azure-deployment-planning-services) e [ Treinamento de Preparação para Plataforma de Dados do Azure ](https://www.dbbest.com/services/azure-data-platform-readiness-training).|[Site][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[Contato][dbbest_contact] | |
+| ![DB Best Technologies, LLC][2] |**DB Best Technologies, LLC**<br>A DB Best ajuda os clientes a obterem a maior parte do serviço de banco de dados do Azure. A empresa oferece várias maneiras para começar, incluindo [Projeto arquitetônico de estado futuro ](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0), [ Otimização de gerenciamento de dados para o Microsoft Data Platform ](https://www.dbbest.com/services/data-management-optimization-for-microsoft-data-platform/), [Serviços de Planejamento de Implantação do Microsoft Azure ](https://www.dbbest.com/services/microsoft-azure-deployment-planning-services) e [ Treinamento de Preparação para Plataforma de Dados do Azure ](https://www.dbbest.com/services/azure-data-platform-readiness-training).|[Site][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[Contato][dbbest_contact] | |
 | ![Pragmatic Works][3] |**Pragmatic Works**<br>A Pragmatic Works é uma empresa de treinamento e consultoria com profundo conhecimento em gerenciamento e desempenho de dados, Business Intelligence, Big Data, Power BI e Azure. Com foco na otimização de dados e na melhoria da eficiência do Microsoft SQL Server e do gerenciamento de nuvem.|[Site][pragmatic-works_website]<br>[Twitter][pragmatic-works_twitter]<br>[YouTube][pragmatic-works_youtube]<br>[Contato][pragmatic-works_contact] | |
 | ![Infosys][4] |**Infosys**<br>A Infosys é líder global nos serviços e consultoria digitais mais recentes. Com mais de três décadas de experiência no gerenciamento de sistemas de empresas globais, a Infosys orienta habilmente os clientes por meio de sua jornada digital, permitindo as organizações com um núcleo alimentado por IA. Fazer isso ajuda a priorizar a execução de alteração. A Infosys também oferece às empresas uma escala digital ágil para oferecer níveis de desempenho sem precedentes e satisfação do cliente.|[Site][infosys_website]<br>[Twitter][infosys_twitter]<br>[YouTube][infosys_youtube]<br>[Contato][infosys_contact] | |
 | ![credativ][5] |**credativ**<br>a credativ é uma empresa independente de consultoria e serviços. Desde 1999, oferece serviços abrangentes e suporte técnico para a implementação e operação do software Open Source em aplicativos comerciais. Sua ampla gama de serviços inclui um consultoria estratégica, bom conselho técnico, treinamento qualificado e suporte personalizado até 24 horas por dia para todas as suas necessidades de TI.|[Marketplace][credativ_marketplace]<br>[Site][credativ_website]<br>[Twitter][credative_twitter]<br>[YouTube][credativ_youtube]<br>[Contato][credativ_contact] | |
 | ![Pactera][6] |**Pactera**<br>Pactera é uma empresa global que oferece serviços de consultoria, digital, tecnologia e operações para empresas líderes do mundo. De suas raízes em engenharia para a versão mais recente na transformação digital, oferece aos clientes uma vantagem competitiva. Suas ferramentas e metodologias comprovadas certificam que seus dados são seguro, autênticos e precisos.|[Site][pactera_website]<br>[Twitter][pactera_twitter]<br>[Contato][pactera_contact] | |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre outros parceiros da Microsoft, consulte o silte [Microsoft Partner](https://partner.microsoft.com/en-US/).
 
 <!--Image references-->

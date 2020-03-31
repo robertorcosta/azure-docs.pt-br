@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: af4c3829c8b12bfcaae0602dde8f459de7e50f3a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67172563"
 ---
-- **Detalhes da ordem**. Quando um pedido é criado, o endereço para remessa, endereço de email e informações de contato do usuário é armazenado no portal do Azure. As informações salvas incluem:
+- **Detalhes do pedido**. Quando um pedido é criado, o endereço de envio, endereço de e-mail e informações de contato do usuário são armazenados no portal Azure. As informações salvas incluem:
   - Nome de contato
   - Número de telefone
   - Endereço de email
   - Endereço
   - City
-  - Código postal/CEP
+  - CEP/CEP
   - Estado
   - País/província/região
   - Enviar número de controle
 
-    Detalhes do pedido são criptografados e armazenados no serviço. O serviço mantém as informações até que você exclua explicitamente o recurso ou a ordem. A exclusão do recurso e a ordem de correspondente é bloqueada desde o momento em que o dispositivo é enviado até que o dispositivo volta à Microsoft.
+    Os detalhes do pedido são criptografados e armazenados no serviço. O serviço retém as informações até que você exclua explicitamente o recurso ou o pedido. A exclusão do recurso e da ordem correspondente é bloqueada a partir do momento em que o dispositivo é enviado até que o dispositivo retorne à Microsoft.
 
-- **Endereço para remessa**. Depois que um pedido, o serviço Data Box fornece o endereço de envio para operadoras de terceiros, como no-break.
+- **Endereço de envio**. Depois que um pedido é feito, o serviço Data Box fornece o endereço de envio para operadoras de terceiros, como a UPS.
 
-- **Compartilhar usuários**. Os usuários em seu dispositivo também podem acessar dados localizados nos compartilhamentos. Uma lista de usuários que podem acessar os dados de compartilhamento pode ser exibida. Quando os compartilhamentos são excluídos, essa lista também é excluída.
+- **Compartilhar usuários**. Os usuários do seu dispositivo também podem acessar os dados localizados nas ações. Uma lista de usuários que podem acessar os dados de compartilhamento pode ser visualizada. Quando as ações são excluídas, essa lista também é excluída.

@@ -1,5 +1,5 @@
 ---
-title: Adquirir tokens de cache & com MSAL | Azure
+title: Adquira tokens de cache & com msal | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba mais sobre a aquisição e o armazenamento em cache de tokens usando a MSAL (Biblioteca de Autenticação da Microsoft).
 services: active-directory
@@ -14,13 +14,13 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: c1f1cbf85b96aade745cc4248aed4bc89e41b450
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085159"
 ---
-# <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e armazenar tokens em cache usando a MSAL (biblioteca de autenticação da Microsoft)
+# <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquira e cachem tokens usando a biblioteca de autenticação da Microsoft (MSAL)
 
 Os [tokens de acesso](access-tokens.md) permitem que os clientes chamem com segurança as APIs Web protegidas pelo Azure. Há muitas maneiras de adquirir um token usando a MSAL (Biblioteca de Autenticação da Microsoft). Algumas formas exigem interações do usuário por meio de um navegador da Web. Algumas não exigem interações do usuário. Geralmente, a maneira de adquirir um token dependerá se o aplicativo for um aplicativo cliente público (área de trabalho ou aplicativo móvel) ou um aplicativo cliente confidencial (Aplicativo Web, API da Web ou aplicativo daemon, como um serviço do Windows).
 
@@ -38,7 +38,7 @@ Na MSAL, também é possível acessar recursos da versão 1.0. Veja mais informa
 
 ### <a name="request-specific-scopes-for-a-web-api"></a>Solicitar escopos específicos para uma API Web
 
-Quando seu aplicativo precisar solicitar tokens com permissões específicas para uma API de recursos, transmita os escopos que contêm o URI da ID do aplicativo da API no formato abaixo: *&lt;escopo do&gt;/&lt;URI da ID do aplicativo&gt;*
+Quando seu aplicativo precisar solicitar tokens com permissões específicas para uma API de recursos, você precisará passar os escopos que contêm o ID uri do aplicativo da API no formato abaixo: * &lt;escopo uri&gt;/&lt;id do aplicativo&gt;*
 
 Por exemplo, escopos da API do Microsoft Graph: `https://graph.microsoft.com/User.Read`
 
@@ -109,6 +109,6 @@ Quando seu cliente solicita um token de acesso, o Azure AD também retorna um re
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você estiver usando o MSAL para Java, saiba mais sobre a [serialização de cache de token personalizada em MSAL para Java](msal-java-token-cache-serialization.md).
+Se você estiver usando o MSAL para Java, aprenda sobre [serialização de cache de token personalizado no MSAL for Java](msal-java-token-cache-serialization.md).
 
 Saiba mais sobre o [tratamento de erros e exceções](msal-handling-exceptions.md).

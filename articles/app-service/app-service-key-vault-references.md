@@ -1,19 +1,19 @@
 ---
-title: Usar referências de Key Vault
-description: Saiba como configurar Azure App serviço e Azure Functions para usar referências Azure Key Vault. Torne os segredos do Key Vault disponíveis para o código do aplicativo.
+title: Use referências do Key Vault
+description: Saiba como configurar o Azure App Service e as funções do Azure para usar as referências do Azure Key Vault. Disponibilize os segredos do Key Vault para o código do seu aplicativo.
 author: mattchenderson
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 7fdb7c980a278e2dcd4b64a4b70de50721d0b72a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280333"
 ---
-# <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usar referências de Key Vault para o serviço de aplicativo e Azure Functions
+# <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Use referências do Key Vault para serviço de aplicativo e funções do Azure
 
 Este tópico mostra como trabalhar com segredos do Cofre de Chaves do Azure no seu aplicativo Serviço de Aplicativo ou no Aplicativo de Funções do Azure sem exigir alterações de código. [Azure Key Vault](../key-vault/key-vault-overview.md) é um serviço que fornece gerenciamento centralizado de segredos, com controle total sobre políticas de acesso e histórico de auditoria.
 
@@ -31,19 +31,19 @@ Para ler os segredos do Key Vault, você precisa criar um vault e conceder permi
 1. Crie uma política de [acesso no Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) para a identidade do aplicativo que você criou anteriormente. Ative a permissão secreta "Obter" nesta política. Não defina o "aplicativo autorizado" ou as configurações `applicationId`, pois isso não é compatível com uma identidade gerenciada.
 
     > [!NOTE]
-    > Key Vault referências não estão atualmente capazes de resolver segredos armazenados em um cofre de chaves com [restrições de rede](../key-vault/key-vault-overview-vnet-service-endpoints.md).
+    > As referências do Key Vault não são atualmente capazes de resolver segredos armazenados em um cofre de chaves com [restrições de rede](../key-vault/key-vault-overview-vnet-service-endpoints.md).
 
 ## <a name="reference-syntax"></a>Sintaxe de referência
 
 Uma referência do Key Vault é da forma `@Microsoft.KeyVault({referenceString})`, em que `{referenceString}` é substituído por uma das seguintes opções:
 
 > [!div class="mx-tdBreakAll"]
-> | Cadeia de caracteres de referência                                                            | DESCRIÇÃO                                                                                                                                                                                 |
+> | Cadeia de caracteres de referência                                                            | Descrição                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | SecretUri = _secretUri_                                                       | O **SegredoUri** deve ser o URI do plano de dados completo de um segredo no Key Vault, incluindo uma versão, por exemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | VaultName = _vaultName_; SecretName = _secretName_; SecretVersion = _secretVersion_ | O **VaultName** deve ser o nome do seu recurso Key Vault. O **SecretName** deve ser o nome do segredo de destino. O **SecretVersion** deve ser a versão do segredo a ser usado. |
 
-Por exemplo, uma referência completa com a versão seria parecida com a seguinte:
+Por exemplo, uma referência completa com a Versão seria parecida com a seguinte:
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
@@ -57,7 +57,7 @@ Como alternativa:
 
 ## <a name="source-application-settings-from-key-vault"></a>Configurações de aplicativos de origem do cofre de chaves
 
-Key Vault referências podem ser usadas como valores para [configurações do aplicativo](configure-common.md#configure-app-settings), permitindo que você mantenha os segredos em Key Vault em vez da configuração do site. As configurações do aplicativo são criptografadas com segurança em repouso, mas se você precisar de recursos de gerenciamento secreto, elas deverão entrar em Key Vault.
+As referências do Key Vault podem ser usadas como valores para [configurações de aplicativos,](configure-common.md#configure-app-settings)permitindo que você mantenha segredos no Key Vault em vez da configuração do site. As configurações do aplicativo são criptografadas com segurança em repouso, mas se você precisar de recursos de gerenciamento secreto, eles devem ir para o Key Vault.
 
 Para usar uma referência do Key Vault para uma configuração de aplicativo, defina a referência como o valor da configuração. Seu aplicativo pode fazer referência ao segredo por meio de sua chave normalmente. Nenhuma alteração de código é necessária.
 
@@ -174,28 +174,28 @@ Um exemplo de psuedo-template para um aplicativo de função pode ser semelhante
 > [!NOTE] 
 > Neste exemplo, a implantação do controle de origem depende das configurações do aplicativo. Esse comportamento normalmente é inseguro, pois a atualização da configuração do aplicativo se comporta de maneira assíncrona. No entanto, como incluímos a configuração do aplicativo `WEBSITE_ENABLE_SYNC_UPDATE_SITE`, a atualização é síncrona. Isso significa que a implantação do controle de origem só será iniciada quando as configurações do aplicativo tiverem sido totalmente atualizadas.
 
-## <a name="troubleshooting-key-vault-references"></a>Solucionando problemas de referências de Key Vault
+## <a name="troubleshooting-key-vault-references"></a>Solucionando referências do cofre de chaves
 
-Se uma referência não for resolvida corretamente, o valor de referência será usado em seu lugar. Isso significa que, para as configurações do aplicativo, uma variável de ambiente seria criada cujo valor tem a sintaxe `@Microsoft.KeyVault(...)`. Isso pode fazer com que o aplicativo gere erros, pois estava esperando um segredo de uma determinada estrutura.
+Se uma referência não for resolvida corretamente, o valor de referência será usado em vez disso. Isso significa que, para as configurações do aplicativo, `@Microsoft.KeyVault(...)` seria criada uma variável de ambiente cujo valor tenha a sintaxe. Isso pode fazer com que a aplicação jogue erros, pois esperava um segredo de uma certa estrutura.
 
-Normalmente, isso se deve a uma configuração incorreta da [política de acesso de Key Vault](#granting-your-app-access-to-key-vault). No entanto, também pode ser devido a um segredo não mais existente ou a um erro de sintaxe na própria referência.
+Mais comumente, isso é devido a uma configuração errada da política de [acesso do Key Vault](#granting-your-app-access-to-key-vault). No entanto, também pode ser devido a um segredo que não existe mais ou a um erro de sintaxe na própria referência.
 
-Se a sintaxe estiver correta, você poderá exibir outras causas de erro verificando o status atual da resolução no Portal. Navegue até configurações do aplicativo e selecione "Editar" para a referência em questão. Abaixo da configuração de configuração, você deve ver informações de status, incluindo quaisquer erros. A ausência deles implica que a sintaxe de referência é inválida.
+Se a sintaxe estiver correta, você pode visualizar outras causas de erro verificando o status de resolução atual no portal. Navegue até configurações de aplicativo e selecione "Editar" para a referência em questão. Abaixo da configuração de configuração, você deve ver informações de status, incluindo quaisquer erros. A ausência destes implica que a sintaxe de referência é inválida.
 
-Você também pode usar um dos detectores internos para obter informações adicionais.
+Você também pode usar um dos detectores embutidos para obter informações adicionais.
 
-### <a name="using-the-detector-for-app-service"></a>Usando o detector para o serviço de aplicativo
+### <a name="using-the-detector-for-app-service"></a>Usando o detector para serviço de aplicativo
 
-1. No portal, navegue até seu aplicativo.
-2. Selecione **diagnosticar e resolver problemas**.
-3. Escolha **disponibilidade e desempenho** e selecione **aplicativo Web inativo.**
-4. Encontre **Key Vault diagnóstico de configurações do aplicativo** e clique em **mais informações**.
+1. No portal, navegue até o seu aplicativo.
+2. Selecione **Diagnóstico e solução de problemas**.
+3. Escolha **Disponibilidade e Desempenho** e selecione o aplicativo da Web para **baixo.**
+4. Encontre **o Diagnóstico de Configurações do Aplicativo do Cofre-Chave** e clique em Mais **informações**.
 
 
-### <a name="using-the-detector-for-azure-functions"></a>Usando o detector para Azure Functions
+### <a name="using-the-detector-for-azure-functions"></a>Usando o detector para funções azure
 
-1. No portal, navegue até seu aplicativo.
-2. Navegue até **recursos da plataforma.**
-3. Selecione **diagnosticar e resolver problemas**.
-4. Escolha **disponibilidade e desempenho** e selecione **aplicativo de funções ou relatando erros.**
-5. Clique em **Key Vault configurações do aplicativo diagnósticos.**
+1. No portal, navegue até o seu aplicativo.
+2. Navegue até **os recursos da Plataforma.**
+3. Selecione **Diagnóstico e solução de problemas**.
+4. Escolha **Disponibilidade e Desempenho** e selecione **Função aplicativo para baixo ou emissão de erros de emissão de relatórios.**
+5. Clique em **Diagnósticos de configurações do aplicativo do cofre-chave.**

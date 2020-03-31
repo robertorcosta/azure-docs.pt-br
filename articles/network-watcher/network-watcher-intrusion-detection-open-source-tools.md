@@ -1,5 +1,5 @@
 ---
-title: Executar a detecção de intrusão de rede com ferramentas de código aberto
+title: Executar a detecção de intrusões de rede com ferramentas de código aberto
 titleSuffix: Azure Network Watcher
 description: Este artigo descreve como usar o Observador de Rede do Azure e ferramentas de software livre para executar a detecção de invasão de rede
 services: network-watcher
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 781f3788c9001276315a2baed7060450fa00d77a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76845016"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Executar a detecção de invasão de rede com o Observador de Rede e ferramentas de software livre
@@ -254,7 +254,7 @@ Você também pode criar suas próprias visualizações e painéis personalizado
 
 O painel de exemplo fornece várias visualizações dos logs de alerta Suricata:
 
-1. Alertas por GeoIP – um mapa que mostra a distribuição de alertas por seu país/região de origem com base no local geográfico (determinado pelo IP)
+1. Alertas da GeoIP – um mapa que mostra a distribuição de alertas por seu país/região de origem com base na localização geográfica (determinada por IP)
 
     ![ip geográfico][3]
 
@@ -280,7 +280,7 @@ Para obter mais documentação sobre a criação de painéis e visualizações p
 
 Combinando pacote captura fornecida pelo Observador de Rede e ferramentas de IDS de código-fonte aberto como Suricata, você pode executar detecção de invasão de rede para uma ampla variedade de ameaças. Esses painéis permitem identificar rapidamente as tendências e anomalias em sua rede, como dig bem nos dados para descobrir a causa raiz de alertas como agentes de usuário mal-intencionado ou portas vulneráveis. Com esses dados extraídos, você pode tomar decisões informadas sobre como reagir a proteger sua rede contra todas as tentativas de intrusão prejudicial e criar regras para evitar futuras invasões à sua rede.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Aprenda a acionar capturas de pacote com base em alertas visitando [usar a captura de pacote para fazer o monitoramento de rede proativo com Azure Functions](network-watcher-alert-triggered-packet-capture.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Considerações sobre desempenho para arquivos do Azure NetApp | Microsoft Docs
-description: Descreve considerações sobre desempenho para arquivos do Azure NetApp.
+title: Considerações de desempenho para arquivos do Azure NetApp | Microsoft Docs
+description: Descreve considerações de desempenho para arquivos do Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,53 +15,53 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: b-juche
 ms.openlocfilehash: 97e3c6212edd2ade4eabb96db3543e9b3b68e2ae
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67454133"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Considerações de desempenho para o Azure NetApp Files
 
-O [limite de taxa de transferência](azure-netapp-files-service-levels.md) para um volume é determinado por uma combinação da cota atribuída ao volume e o serviço de nível selecionado. Quando você faz planos de desempenho sobre os arquivos do Azure NetApp, você precisa entender as várias considerações. 
+O [limite de throughput](azure-netapp-files-service-levels.md) para um volume é determinado por uma combinação da cota atribuída ao volume e ao nível de serviço selecionado. Quando você faz planos de desempenho sobre o Azure NetApp Files, você precisa entender várias considerações. 
 
-## <a name="quota-and-throughput"></a>Cota e taxa de transferência  
+## <a name="quota-and-throughput"></a>Cota e throughput  
 
-O limite de taxa de transferência é apenas um determinante do desempenho real que será obtido.  
+O limite de rendimento é apenas um determinante do desempenho real que será realizado.  
 
-Considerações de desempenho de armazenamento comuns, incluindo ler e gravar combinação, o tamanho da transferência, padrões sequenciais ou aleatórias e muitos outros fatores contribuirá para o desempenho total fornecido.  
+Considerações típicas de desempenho de armazenamento, incluindo mix de leitura e gravação, o tamanho da transferência, padrões aleatórios ou seqüenciais e muitos outros fatores contribuirão para o desempenho total entregue.  
 
-A taxa de transferência máxima empírica que foi observada em teste é 4.500 MiB/s.  Na camada de armazenamento Premium, uma cota do volume de TiB 70.31 provisionará um limite de taxa de transferência é alto o suficiente para alcançar esse nível de desempenho.  
+O throughput empírico máximo observado nos testes é de 4.500 MiB/s.  No nível de armazenamento Premium, uma cota de volume de 70,31 TiB irá provisionar um limite de rendimento que é alto o suficiente para atingir esse nível de desempenho.  
 
-Se você estiver considerando atribuindo valores de cota além do 70.31 TiB de volume, a cota adicional pode ser atribuída a um volume para armazenar dados adicionais. No entanto, a cota adicional não resultará em um aumento adicional na taxa de transferência real.  
+Se você estiver considerando atribuir valores de cota de volume além de 70,31 TiB, a cota adicional pode ser atribuída a um volume para armazenar dados adicionais. No entanto, o contingente adicionado não resultará em um aumento adicional no throughput real.  
 
-Ver [benchmarks de desempenho para arquivos do Azure NetApp](azure-netapp-files-performance-benchmarks.md) para obter informações adicionais.
+Consulte [os benchmarks de desempenho dos arquivos do Azure NetApp](azure-netapp-files-performance-benchmarks.md) para obter informações adicionais.
 
-## <a name="overprovisioning-the-volume-quota"></a>A cota do volume de excesso de provisionamento
+## <a name="overprovisioning-the-volume-quota"></a>Provisionamento excessivo da cota de volume
 
-Se o desempenho de uma carga de trabalho for associado de limite de taxa de transferência, é possível provisionar excessivamente a cota de volume para definir um nível mais alto de taxa de transferência e atingir um melhor desempenho.  
+Se o desempenho de uma carga de trabalho estiver vinculado ao limite de rendimento, é possível superprovisionar a cota de volume para definir um nível de rendimento mais alto e obter um desempenho mais alto.  
 
-Por exemplo, se um volume na camada de armazenamento Premium tem apenas 500 GiB de dados, mas requer 128 MiB/s de taxa de transferência, você pode definir a cota para 2 TiB para que o nível de taxa de transferência é definido adequadamente (MiB/s 64 por TB * 2 TiB = 128 MiB/s).  
+Por exemplo, se um volume no nível de armazenamento Premium tiver apenas 500 GiB de dados, mas exigir 128 MiB/s de throughput, você pode definir a cota para 2 TiB para que o nível de throughput seja definido de acordo (64 MiB/s por TB * 2 TiB = 128 MiB/s).  
 
-Se você provisionar excessivamente consistentemente um volume para atingir uma taxa de transferência maior, considere usar um nível mais alto de serviço.  No exemplo acima, você pode obter o mesmo limite de taxa de transferência com metade a cota de volume usando a camada de armazenamento Ultra em vez disso (128 MiB/s por TiB * 1 TiB = 128 MiB/s).
+Se você tiver um volume de provisionamento consistente para atingir um rendimento mais alto, considere usar um nível de serviço mais alto.  No exemplo acima, você pode alcançar o mesmo limite de throughput com metade da cota de volume usando o nível de armazenamento Ultra (128 MiB/s por TiB * 1 TiB = 128 MiB/s).
 
-## <a name="dynamically-increasing-or-decreasing-volume-quota"></a>Dinamicamente aumentando ou diminuindo a cota do volume
+## <a name="dynamically-increasing-or-decreasing-volume-quota"></a>Aumento dinamicamente ou diminuição da cota de volume
 
-Se seus requisitos de desempenho são temporários por natureza, ou se você tiver aumentado necessidades de desempenho para um período fixo de tempo, você pode aumentar ou diminuir a cota do volume para instantaneamente ajustar o limite de taxa de transferência dinamicamente.  Observe as seguintes considerações: 
+Se seus requisitos de desempenho forem temporários ou se você tiver aumentado as necessidades de desempenho por um período fixo de tempo, você pode aumentar ou diminuir dinamicamente a cota de volume para ajustar instantaneamente o limite de rendimento.  Observe as seguintes considerações: 
 
-* Cota do volume pode seja aumentada ou diminuída sem qualquer necessidade de pausar e/s e acessar o volume não é interrompida ou afetado.  
+* A cota de volume pode ser aumentada ou diminuída sem necessidade de pausar o IO, e o acesso ao volume não é interrompido ou impactado.  
 
-    Você pode ajustar a cota durante uma transação ativa de e/s em relação a um volume.  Observe que essa cota do volume nunca pode ser reduzida abaixo da quantidade de dados lógicos que são armazenados no volume.
+    Você pode ajustar a cota durante uma transação ativa de I/O em relação a um volume.  Observe que a cota de volume nunca pode ser diminuída abaixo da quantidade de dados lógicos armazenados no volume.
 
-* Quando a cota do volume for alterada, a alteração correspondente no limite de taxa de transferência é quase instantânea. 
+* Quando a cota de volume é alterada, a alteração correspondente no limite de throughput é quase instantânea. 
 
-    A alteração interrompa nem afetar o acesso ao volume ou e/s.  
+    A alteração não interrompe nem afeta o acesso ao volume ou a I/O.  
 
-* Cota do volume de ajustar exige uma alteração no tamanho do pool de capacidade.  
+* O ajuste da cota de volume requer uma alteração no tamanho do pool de capacidade.  
 
-    O tamanho do pool de capacidade pode ser ajustado dinamicamente e sem afetar a disponibilidade de volume ou e/s.
+    O tamanho da piscina de capacidade pode ser ajustado dinamicamente e sem afetar a disponibilidade de volume ou I/O.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Níveis de serviço do Azure NetApp Files](azure-netapp-files-service-levels.md)
-- [Avaliações de desempenho do arquivos do Azure NetApp](azure-netapp-files-performance-benchmarks.md)
+- [Parâmetros de comparação de desempenho para o Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)

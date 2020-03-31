@@ -1,13 +1,13 @@
 ---
-title: Executar um serviço em contas de segurança local e do sistema
+title: Execute um serviço o sistema e contas de segurança locais
 description: Saiba como executar um aplicativo do Service Fabric nas contas de sistema e de segurança local.  Criar entidades de segurança e aplique a política Run-As para executar com segurança seus serviços.
 ms.topic: conceptual
 ms.date: 03/29/2018
 ms.openlocfilehash: 53212f8636602705899834b6db1d3f0d80b5fe4f
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610108"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Executar um serviço como uma conta de usuário ou conta de sistema local
@@ -172,7 +172,7 @@ O exemplo de manifesto de serviço a seguir mostra a habilitação do redirecion
 ```
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Entenda o modelo de aplicativo](service-fabric-application-model.md)
 * [Especificar recursos em um manifesto do serviço](service-fabric-service-manifest-resources.md)
 * [Implantar um aplicativo](service-fabric-deploy-remove-applications.md)

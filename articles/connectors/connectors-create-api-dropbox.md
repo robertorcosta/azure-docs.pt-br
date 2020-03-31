@@ -1,6 +1,6 @@
 ---
 title: Conectar-se ao Dropbox
-description: Automatizar tarefas e fluxos de trabalho que carregam e gerenciam arquivos no Dropbox usando o aplicativo lógico do Azure
+description: Automatize tarefas e fluxos de trabalho que carregam e gerenciam arquivos no Dropbox usando aplicativos azure logic
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 tags: connectors
 ms.openlocfilehash: 8f54f832884b172761f62b16db29d2f0abd0dd46
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75665744"
 ---
-# <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Carregar e gerenciar arquivos no Dropbox usando o aplicativo lógico do Azure
+# <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Carregar e gerenciar arquivos no Dropbox usando aplicativos azure logic
 
-Com o conector do Dropbox e os aplicativos lógicos do Azure, você pode criar fluxos de trabalho automatizados que carregam e gerenciam arquivos em sua conta do dropbox. 
+Com o conector Dropbox e o Azure Logic Apps, você pode criar fluxos de trabalho automatizados que carregam e gerenciam arquivos em sua conta dropbox. 
 
-Este artigo mostra como se conectar ao dropbox de seu aplicativo lógico e, em seguida, adicionar o gatilho **quando um arquivo é criado** e o **conteúdo do Dropbox Get file usando** a ação Path.
+Este artigo mostra como se conectar ao Dropbox a partir do seu aplicativo lógico e, em seguida, adicionar o Dropbox **Quando um arquivo é criado** gatilho e o conteúdo do arquivo Dropbox Obter usando ação de **caminho.**
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-* Uma [conta do Dropbox](https://www.dropbox.com/), que você pode assinar gratuitamente. Suas credenciais de conta são necessárias para criar uma conexão entre seu aplicativo lógico e sua conta do dropbox.
+* Uma [conta dropbox](https://www.dropbox.com/), que você pode se inscrever gratuitamente. Suas credenciais de conta são necessárias para criar uma conexão entre seu aplicativo lógico e sua conta Dropbox.
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md). Neste exemplo, você precisa de um aplicativo lógico em branco.
 
@@ -41,31 +41,31 @@ Na lista de gatilhos, selecione este gatilho: **Quando um arquivo é criado**
 
 1. Forneça as informações necessárias para o gatilho. 
 
-   Neste exemplo, selecione a pasta onde você deseja acompanhar a criação do arquivo. Para procurar suas pastas, escolha o ícone de pasta ao lado da caixa **pasta** .
+   Neste exemplo, selecione a pasta onde deseja acompanhar a criação de arquivos. Para navegar em suas pastas, escolha o ícone da pasta ao lado da caixa **Pasta.**
 
 ## <a name="add-action"></a>Adicionar ação
 
-Agora, adicione uma ação que obtém o conteúdo de qualquer arquivo novo.
+Agora adicione uma ação que obtém o conteúdo de qualquer novo arquivo.
 
 1. No gatilho, escolha **Próxima etapa**. 
 
 1. Na caixa de pesquisa, escolha **Tudo**. Na caixa de pesquisa, insira "dropbox" como o seu filtro.
-Na lista ações, selecione esta ação: **obter o conteúdo do arquivo usando o caminho**
+Na lista de ações, selecione esta ação: **Obtenha conteúdo de arquivo usando o caminho**
 
-1. Se você ainda não tiver autorizado o aplicativo lógico do Azure para acessar o Dropbox, autorize o acesso agora.
+1. Se você ainda não autorizou o Azure Logic Apps a acessar o Dropbox, autorize o acesso agora.
 
-1. Para procurar o caminho do arquivo que você deseja usar, ao lado da caixa **caminho do arquivo** , escolha o botão de reticências ( **...** ). 
+1. Para navegar pelo caminho do arquivo que deseja usar, ao lado da caixa **Caminho de arquivo,** escolha o botão elipses (**...**). 
 
-   Você também pode clicar dentro da caixa **caminho do arquivo** e, na lista conteúdo dinâmico, selecionar **caminho do arquivo**, cujo valor está disponível como saída do gatilho adicionado na seção anterior.
+   Você também pode clicar dentro da caixa **Caminho de arquivos** e, a partir da lista de conteúdo dinâmico, selecione Caminho de **arquivo**, cujo valor está disponível como saída do gatilho adicionado na seção anterior.
 
 1. Quando terminar, salve o aplicativo lógico.
 
-1. Para disparar seu aplicativo lógico, crie um novo arquivo no dropbox.
+1. Para ativar seu aplicativo lógico, crie um novo arquivo no Dropbox.
 
 ## <a name="connector-reference"></a>Referência de conector
 
 Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo de Swagger do conector, confira a [página de referência do conector](/connectors/dropbox/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

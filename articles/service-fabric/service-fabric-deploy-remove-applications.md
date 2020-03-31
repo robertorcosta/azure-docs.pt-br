@@ -1,26 +1,26 @@
 ---
-title: Implantação de Service Fabric do Azure com o PowerShell
-description: Saiba mais sobre como remover e implantar aplicativos no Azure Service Fabric e como executar essas ações no PowerShell.
+title: Implantação de malha de serviço do Azure com powershell
+description: Saiba como remover e implantar aplicativos no Azure Service Fabric e como executar essas ações no Powershell.
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282504"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implantar e remover aplicativos usando o PowerShell
 
 > [!div class="op_single_selector"]
-> * [Resource Manager](service-fabric-application-arm-resource.md)
-> * [PowerShell](service-fabric-deploy-remove-applications.md)
+> * [Gerenciador de recursos](service-fabric-application-arm-resource.md)
+> * [Powershell](service-fabric-deploy-remove-applications.md)
 > * [CLI do Service Fabric](service-fabric-application-lifecycle-sfctl.md)
-> * [APIs de FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
+> * [APIs do FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
 <br/>
 
-Depois que um [tipo de aplicativo tiver sido empacotado][10], ele estará pronto para implantação em um cluster de Service Fabric do Azure. A implantação envolve as três etapas a seguir:
+Assim que um [tipo de aplicativo for empacotado][10], ele está pronto para implantação em um cluster do Azure Service Fabric. A implantação envolve as três etapas a seguir:
 
 1. Carregue o pacote de aplicativos no repositório de imagens.
 2. Registre o tipo do aplicativo com o caminho relativo do repositório de imagens.
@@ -32,7 +32,7 @@ Depois que o aplicativo implantado não é mais necessário, você pode excluir 
 2. Cancele o registro do tipo de aplicativo se você não precisar mais dele.
 3. Remova o pacote de aplicativos do repositório de imagens.
 
-Se você usar o Visual Studio para implantar e depurar aplicativos no cluster de desenvolvimento local, todas as etapas anteriores serão tratadas automaticamente por meio de um script do PowerShell.  Esse script é encontrado na pasta *Scripts* do projeto do aplicativo. Este artigo fornece informações sobre o que esse script faz para que você possa executar as mesmas operações fora do Visual Studio. 
+Se você usar o Visual Studio para implantar e depurar aplicativos no cluster de desenvolvimento local, todas as etapas anteriores serão tratadas automaticamente por meio de um script do PowerShell.  Este script é encontrado na pasta *Scripts* do projeto de aplicativo. Este artigo fornece informações sobre o que esse script faz para que você possa executar as mesmas operações fora do Visual Studio. 
 
 Outra maneira de implantar um aplicativo é usando o provisionamento externo. O pacote de aplicativos pode ser [empacotado como `sfpkg`](service-fabric-package-apps.md#create-an-sfpkg) e carregado em um repositório externo. Nesse caso, o carregamento para o repositório de imagens não é necessário. A implantação precisa das etapas a seguir:
 
@@ -132,7 +132,7 @@ Por exemplo, eis aqui as estatísticas de compactação para alguns pacotes, que
 |100|100|00:00:03.3547592|60|
 |512|100|00:00:16.3850303|307|
 |1024|500|00:00:32.5907950|615|
-|2\.048|1000|00:01:04.3775554|1231|
+|2.048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
 Depois que um pacote é compactado, ele pode ser carregado para um ou vários clusters do Service Fabric conforme necessário. O mecanismo de implantação é o mesmo para pacotes compactados e não compactados. Pacotes compactados são armazenados como tal no repositório de imagens do cluster. Os pacotes são descompactados no nó, antes do aplicativo ser executado.
@@ -191,7 +191,7 @@ Register application type succeeded
 
 ### <a name="register-the-application-package-copied-to-an-external-store"></a>Registrar o pacote de aplicativos copiado para um repositório externo
 
-A partir do Service Fabric versão 6.1, o provisionamento oferece suporte para fazer o download do pacote de um repositório externo. O download do URI representa o caminho para o [`sfpkg` pacote de aplicativos](service-fabric-package-apps.md#create-an-sfpkg) de onde o pacote de aplicativos pode ser baixado usando protocolos HTTP ou HTTPS. O pacote deve ter sido carregado anteriormente para esse local externo. O URI deve permitir o acesso de leitura para que o Service Fabric possa fazer o download do arquivo. O arquivo `sfpkg` deve ter a extensão ".sfpkg". A operação de provisionamento deve incluir as informações de tipo de aplicativo, como encontrado no manifesto do aplicativo.
+A partir do Service Fabric versão 6.1, o provisionamento oferece suporte para fazer o download do pacote de um repositório externo. O URI de download representa [ `sfpkg` ](service-fabric-package-apps.md#create-an-sfpkg) o caminho para o pacote de aplicativos de onde o pacote de aplicativos pode ser baixado usando protocolos HTTP ou HTTPS. O pacote deve ter sido carregado anteriormente para esse local externo. O URI deve permitir o acesso de leitura para que o Service Fabric possa fazer o download do arquivo. O arquivo `sfpkg` deve ter a extensão ".sfpkg". A operação de provisionamento deve incluir as informações de tipo de aplicativo, como encontrado no manifesto do aplicativo.
 
 ```powershell
 Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
@@ -312,7 +312,7 @@ Execute [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabr
 Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
 ```
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage solicita um ImageStoreConnectionString
 
@@ -353,7 +353,7 @@ Experimente:
 Se o computador cliente estiver em uma região diferente do cluster, considere usar um computador cliente em uma região mais próxima ou na mesma que o cluster.
 - Verifique se você está sofrendo limitação externa. Por exemplo, quando o repositório de imagens é configurado para usar o Armazenamento do Azure, o upload pode ser limitado.
 
-Problema: o pacote de carregamento foi concluído com êxito, mas [o Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) expira. Tente
+Problema: Enviar pacote concluído com sucesso, mas [registrar-serviceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) é eliminado. Tentar:
 - [Compactar o pacote](service-fabric-package-apps.md#compress-a-package) antes de copiar para o repositório de imagens.
 A compactação reduz o tamanho e o número de arquivos, o que por sua vez reduz a quantidade de tráfego e trabalho que o Service Fabric deve executar. A operação de upload pode ser mais lenta (especialmente se você incluir o tempo de compactação), mas as operações de registrar e cancelar o registro do tipo de aplicativo são mais rápidas.
 - Especificar um tempo limite maior para o comando [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) com o parâmetro `TimeoutSec`.
@@ -392,7 +392,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Preparar um aplicativo](service-fabric-package-apps.md)
+[Empacotar um aplicativo](service-fabric-package-apps.md)
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
 

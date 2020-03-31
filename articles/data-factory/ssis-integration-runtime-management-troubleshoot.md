@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de gerenciamento de Integration Runtime do SSIS
-description: Este artigo fornece orientação para a solução de problemas de gerenciamento do SSIS Integration Runtime (SSIS IR)
+title: Soluciona problemas Gerenciamento de tempo de execução de integração do SSIS
+description: Este artigo fornece orientação para solução de problemas de gerenciamento do SSIS Integration Runtime (SSIS IR)
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -12,25 +12,25 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
 ms.openlocfilehash: 52b1d93935e6428563c72361655893ffddf8a507
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74941841"
 ---
-# <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Solucionar problemas de gerenciamento de Integration Runtime do SSIS no Azure Data Factory
+# <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Soluciona problemas Gerenciamento de tempo de execução da integração do SSIS na fábrica de dados do Azure
 
-Este artigo fornece orientação para a solução de problemas de gerenciamento no SSIS (Azure-SQL Server Integration Services) Integration Runtime (IR), também conhecido como IR do SSIS.
+Este artigo fornece orientação para solução de problemas de gerenciamento no SSIS (Integration Desis) Integration Runtime (IR) do Azure-SQL Server Services (SSIS), também conhecido como SSIS IR.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
-Se você tiver algum problema ao provisionar ou desprovisionar o SSIS IR, verá uma mensagem de erro no portal do Microsoft Azure Data Factory ou um erro retornado de um cmdlet do PowerShell. O erro sempre aparece no formato de um código de erro com uma mensagem de erro detalhada.
+Se você encontrar qualquer problema durante o provisionamento ou desprovisionamento do SSIS IR, você verá uma mensagem de erro no portal Microsoft Azure Data Factory ou um erro retornado de um cmdlet PowerShell. O erro sempre aparece no formato de um código de erro com uma mensagem de erro detalhada.
 
-Se o código de erro for InternalServerError, o serviço terá problemas transitórios e você deverá repetir a operação mais tarde. Se uma nova tentativa não ajudar, entre em contato com a equipe de suporte do Azure Data Factory.
+Se o código de erro for InternalServerError, o serviço tem problemas transitórios e você deve tentar novamente a operação mais tarde. Se uma nova tentativa não ajudar, entre em contato com a equipe de suporte da Fábrica de Dados Do Azure.
 
-Caso contrário, três principais dependências externas podem causar erros: um servidor de banco de dados SQL do Azure ou uma instância gerenciada, um script de instalação personalizada e uma configuração de rede virtual.
+Caso contrário, três grandes dependências externas podem causar erros: um servidor de banco de dados SQL do Azure ou uma instância gerenciada, um script de configuração personalizado e uma configuração de rede virtual.
 
-## <a name="azure-sql-database-server-or-managed-instance-issues"></a>Problemas de servidor do banco de dados SQL do Azure ou instância gerenciada
+## <a name="azure-sql-database-server-or-managed-instance-issues"></a>Azure SQL Database server ou problemas de instância gerenciada
 
 Um servidor de banco de dados SQL do Azure ou uma instância gerenciada será necessária se você estiver provisionando o SSIS IR com um banco de dados de catálogo do SSIS. O IR do SSIS deve ser capaz de acessar o servidor do banco de dados SQL do Azure ou a instância gerenciada. Além disso, a conta do servidor de banco de dados SQL do Azure ou da instância gerenciada deve ter permissão para criar um SSISDB (banco de dados de catálogo do SSIS). Se houver um erro, um código de erro com uma mensagem de exceção SQL detalhada será mostrado no portal de Data Factory. Use as informações na lista a seguir para solucionar problemas de códigos de erro.
 
@@ -43,8 +43,8 @@ Você poderá ver esse problema quando estiver provisionando um novo IR do SSIS 
 * Falha de logon durante a autenticação do Microsoft Azure Active Directory (AD do Azure) (identidade gerenciada). Adicione a identidade gerenciada de sua fábrica a um grupo do AAD e verifique se a identidade gerenciada tem permissões de acesso ao seu servidor de banco de dados de catálogo.
 * Tempo limite de conexão. Esse erro é sempre causado por uma configuração relacionada à segurança. É recomendável que você:
   1. Crie uma nova VM.
-  1. Ingresse a VM no mesmo Rede Virtual do Microsoft Azure de IR se o IR estiver em uma rede virtual.
-  1. Instale o SSMS e verifique o servidor do banco de dados SQL do Azure ou o status da instância gerenciada.
+  1. Junte-se à VM para a mesma Rede Virtual microsoft azure de IR se o IR estiver em uma rede virtual.
+  1. Instale o SSMS e verifique o servidor de banco de dados SQL do Azure ou o status de instância gerenciada.
 
 Para outros problemas, corrija o problema mostrado na mensagem de erro de exceção SQL detalhada. Se você ainda tiver problemas, entre em contato com o servidor do banco de dados SQL do Azure ou com a equipe de suporte da instância gerenciada.
 
@@ -52,10 +52,10 @@ Se você vir o erro quando o IR estiver em execução, as alterações de firewa
 
 ### <a name="catalogcapacitylimiterror"></a>CatalogCapacityLimitError
 
-Este tipo de mensagem de erro pode parecer com o seguinte: "o banco de dados ' SSISDB ' atingiu sua cota de tamanho. Particione ou exclua dados, remova índices ou consulte a documentação para obter as possíveis resoluções. " 
+Eis como esse tipo de mensagem de erro pode parecer: "O banco de dados 'SSISDB' atingiu sua cota de tamanho. Partição ou exclusão de dados, índices de queda ou consultar a documentação para possíveis resoluções." 
 
 Entre as soluções possíveis estão:
-* Aumente o tamanho da cota do SSISDB.
+* Aumente o tamanho da cota do seu SSISDB.
 * Altere a configuração do SSISDB para reduzir o tamanho:
    * Reduzindo o período de retenção e o número de versões do projeto.
    * Reduzindo o período de retenção do log.
@@ -76,9 +76,9 @@ Para outros problemas, verifique a mensagem de erro de exceção do SQL e corrij
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-Esse tipo de mensagem de erro é semelhante a: "nome do objeto inválido ' Catalog. catalog_properties '." Nessa situação, você já tem um banco de dados chamado SSISDB, mas ele não foi criado pelo IR do SSIS ou o banco de dados está em um estado inválido causado por erros no último provisionamento de IR do SSIS. Você pode remover o banco de dados existente com o nome SSISDB ou pode configurar um novo servidor de banco de dados SQL do Azure ou uma instância gerenciada para o IR.
+Esse tipo de mensagem de erro se parece com isso: "Nome de objeto inválido 'catalog.catalog_properties'." Nesta situação, ou você já tem um banco de dados chamado SSISDB, mas não foi criado pelo SSIS IR, ou o banco de dados está em um estado inválido que é causado por erros no último provisionamento de IR ssis. Você pode remover o banco de dados existente com o nome SSISDB ou pode configurar um novo servidor de banco de dados SQL do Azure ou uma instância gerenciada para o IR.
 
-## <a name="custom-setup-issues"></a>Problemas de instalação personalizada
+## <a name="custom-setup-issues"></a>Problemas de configuração personalizados
 
 A configuração personalizada fornece uma interface para adicionar suas próprias etapas de configuração durante o provisionamento ou reconfigurar o IR do Azure-SSIS. Para obter mais informações, confira [Configuração personalizada para o Azure-SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
 
@@ -86,7 +86,7 @@ Verifique se o contêiner contém apenas os arquivos de configuração personali
 
 O contêiner de script de configuração personalizada será verificado enquanto o IR estiver em execução, pois o SSIS IR é atualizado regularmente. Essa atualização requer acesso ao contêiner para baixar o script de configuração personalizada e instalá-lo novamente. O processo também verifica se o contêiner está acessível e se o arquivo main.cmd existe.
 
-Para qualquer erro que envolva a instalação personalizada, você verá um código de erro CustomSetupScriptFailure com o subcódigo, como CustomSetupScriptBlobContainerInaccessible ou CustomSetupScriptNotFound.
+Para qualquer erro que envolva configuração personalizada, você verá um código de erro CustomSetupScriptFailure com código sub-code como CustomSetupScriptBlobContainerInaccessible ou CustomSetupScriptNotFound.
 
 ### <a name="customsetupscriptblobcontainerinaccessible"></a>CustomSetupScriptBlobContainerInaccessible
 
@@ -122,7 +122,7 @@ Esse erro pode ocorrer por vários motivos. Para solucionar problemas, consulte 
 
 ### <a name="forbidden"></a>Proibido
 
-Esse tipo de erro pode ser semelhante a este: "Subnetid não está habilitado para a conta atual. O provedor de recursos Microsoft. batch não está registrado na mesma assinatura da VNet. "
+Esse tipo de erro pode se assemelhar a isso: "O SubnetId não está habilitado para conta corrente. O provedor de recursos Microsoft.Batch não está registrado a mesma assinatura do VNet.
 
 Esses detalhes significam que o lote do Azure não pode acessar sua rede virtual. Registre o provedor de recursos Microsoft.Batch na mesma assinatura que a rede virtual.
 
@@ -130,14 +130,14 @@ Esses detalhes significam que o lote do Azure não pode acessar sua rede virtual
 
 Esse tipo de erro pode ser semelhante a este: 
 
-- "A VNet especificada não existe ou o serviço de lote não tem acesso a ela."
-- "A sub-rede xxx especificada não existe."
+- "Ou o VNet especificado não existe ou o serviço Batch não tem acesso a ele."
+- "A sub-rede especificada xxx não existe."
 
 Esses erros significam que a rede virtual não existe, o serviço de lote do Azure não pode acessá-la ou a sub-rede fornecida não existe. Verifique se a rede virtual e a sub-rede existem e se o lote do Azure pode acessá-las.
 
 ### <a name="misconfigureddnsserverornsgsettings"></a>MisconfiguredDnsServerOrNsgSettings
 
-Esse tipo de mensagem de erro pode ter a seguinte aparência: "falha ao provisionar Integration Runtime na VNet. Se as configurações do servidor DNS ou do NSG estiverem configuradas, verifique se o servidor DNS está acessível e se NSG está configurado corretamente. "
+Esse tipo de mensagem de erro pode ser assim: "Falha ao provisionar o Tempo de Execução de Integração no VNet. Se as configurações do servidor DNS ou DO NSG estiverem configuradas, certifique-se de que o servidor DNS esteja acessível e o NSG esteja configurado corretamente."
 
 Nessa situação, você provavelmente tem uma configuração personalizada do servidor DNS ou das configurações de NSG, o que impede que o nome do servidor do Azure exigido pelo SSIS IR seja resolvido ou acessado. Para obter mais informações, consulte [Configuração de rede virtual IR do SSIS](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Se você ainda tiver problemas, entre em contato com a equipe de suporte do Azure Data Factory.
 
@@ -159,35 +159,35 @@ Esse erro ocorre quando o IR está em execução e significa que o IR se tornou 
 
 ## <a name="static-public-ip-addresses-configuration"></a>Configuração de endereços IP públicos estáticos
 
-Ao unir o Azure-SSIS IR à rede virtual do Azure, você também poderá trazer seus próprios endereços IP públicos estáticos para o IR para que o IR possa acessar fontes de dados que limitam o acesso a endereços IP específicos. Para obter mais informações, consulte [Unir o Azure-SSIS Integration Runtime a uma rede virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+Quando você se junta ao Ir Azure-SSIS para a Rede Virtual Azure, você também pode trazer seus próprios endereços IP públicos estáticos para o IR para que o IR possa acessar fontes de dados que limitam o acesso a endereços IP específicos. Para obter mais informações, consulte [Unir o Azure-SSIS Integration Runtime a uma rede virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
-Além dos problemas de rede virtual acima, você também pode atender a um problema relacionado a endereços IP públicos estáticos. Verifique os erros a seguir para obter ajuda.
+Além dos problemas de rede virtuais acima, você também pode atender a problemas de endereços IP públicos estáticos. Verifique os seguintes erros para obter ajuda.
 
-### <a name="InvalidPublicIPSpecified"></a>InvalidPublicIPSpecified
+### <a name="invalidpublicipspecified"></a><a name="InvalidPublicIPSpecified"></a>InvalidPublicIPEspecificado
 
-Esse erro pode ocorrer por vários motivos quando você inicia o Azure-SSIS IR:
+Esse erro pode ocorrer por uma variedade de razões ao iniciar o IR Azure-SSIS:
 
 | Mensagem de erro | Solução|
 |:--- |:--- |
-| O endereço IP público estático fornecido já está sendo usado, forneça dois não utilizados para seu Azure-SSIS Integration Runtime. | Você deve selecionar dois endereços IP públicos estáticos não utilizados ou remover as referências atuais para o endereço IP público especificado e, em seguida, reiniciar o Azure-SSIS IR. |
-| O endereço IP público estático fornecido não tem nenhum nome DNS, forneça dois deles com o nome DNS para seu Azure-SSIS Integration Runtime. | Você pode configurar o nome DNS do endereço IP público em portal do Azure, como mostra a imagem abaixo. As etapas específicas são as seguintes: (1) abrir portal do Azure e ir para a página de recursos desse endereço IP público; (2) Selecione a seção **configuração** e configure o nome DNS e clique no botão **salvar** ; (3) reinicie o Azure-SSIS IR. |
-| A VNet fornecida e os endereços IP públicos estáticos para seu Azure-SSIS Integration Runtime devem estar no mesmo local. | De acordo com os requisitos da rede do Azure, o endereço IP público estático e a rede virtual devem estar no mesmo local e assinatura. Forneça dois endereços IP públicos estáticos válidos e reinicie o Azure-SSIS IR. |
-| O endereço IP público estático fornecido é um básico, forneça dois padrões para seu Azure-SSIS Integration Runtime. | Consulte [SKUs do endereço IP público](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) para obter ajuda. |
+| O endereço IP público estático fornecido já está sendo usado, por favor, forneça dois não utilizados para o seu Tempo de Execução de Integração Azure-SSIS. | Você deve selecionar dois endereços IP públicos estáticos não utilizados ou remover referências atuais ao endereço IP público especificado e, em seguida, reiniciar o IR Azure-SSIS. |
+| O endereço IP público estático fornecido não tem nome DNS, por favor forneça a dois deles o nome DNS para o seu Tempo de Execução de Integração Azure-SSIS. | Você pode configurar o nome DNS do endereço IP público no portal Azure, como mostra a imagem abaixo. As etapas específicas são as seguintes: (1) Portal Open Azure e acesse a página de recursos deste endereço IP público; (2) Selecione a seção **Configuração** e configure o nome DNS e clique **em Salvar** botão; (3) Reinicie seu IR Azure-SSIS. |
+| Os endereços IP públicos estáticos fornecidos para o Seu Tempo de Execução de Integração Azure-SSIS devem estar no mesmo local. | De acordo com os requisitos da Rede Azure, o endereço IP público estático e a rede virtual devem estar no mesmo local e assinatura. Por favor, forneça dois endereços IP públicos estáticos válidos e reinicie o IR Azure-SSIS. |
+| O endereço IP público estático fornecido é básico, por favor, forneça dois padrão para o seu Tempo de Execução de Integração Azure-SSIS. | Consulte [sKUs de endereço IP público](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) para obter ajuda. |
 
 ![IR Azure-SSIS](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
 
 ### <a name="publicipresourcegrouplockedduringstart"></a>PublicIPResourceGroupLockedDuringStart
 
-Se Azure-SSIS IR o provisionamento falhar, todos os recursos que foram criados serão excluídos. No entanto, se houver um bloqueio de exclusão de recurso na assinatura ou no grupo de recursos (que contém o endereço IP público estático), os recursos de rede não serão excluídos conforme o esperado. Para corrigir o erro, remova o bloqueio de exclusão e reinicie o IR.
+Se o provisionamento de IR do Azure-SSIS falhar, todos os recursos que foram criados serão excluídos. No entanto, se houver um bloqueio de exclusão de recursos no nível de assinatura ou grupo de recursos (que contém seu endereço IP público estático), os recursos da rede não serão excluídos como esperado. Para corrigir o erro, remova o bloqueio de exclusão e reinicie o IR.
 
 ### <a name="publicipresourcegrouplockedduringstop"></a>PublicIPResourceGroupLockedDuringStop
 
-Quando você parar Azure-SSIS IR, todos os recursos de rede criados no grupo de recursos que contém seu endereço IP público serão excluídos. Mas a exclusão poderá falhar se houver um bloqueio de exclusão de recurso na assinatura ou no grupo de recursos (que contém o endereço IP público estático). Remova o bloqueio de exclusão e reinicie o IR.
+Quando você parar o Azure-SSIS IR, todos os recursos de rede criados no grupo de recursos que contém seu endereço IP público serão excluídos. Mas a exclusão pode falhar se houver um bloqueio de exclusão de recursos no nível de assinatura ou grupo de recursos (que contém seu endereço IP público estático). Por favor, remova o bloqueio de exclusão e reinicie o IR.
 
 ### <a name="publicipresourcegrouplockedduringupgrade"></a>PublicIPResourceGroupLockedDuringUpgrade
 
-Azure-SSIS IR é automaticamente atualizado regularmente. Novos nós IR são criados durante a atualização e os nós antigos serão excluídos. Além disso, os recursos de rede criados (por exemplo, o balanceador de carga e o grupo de segurança de rede) para os nós antigos são excluídos e os novos recursos de rede são criados em sua assinatura. Esse erro significa que a exclusão de recursos de rede para os nós antigos falhou devido a um bloqueio de exclusão na assinatura ou no grupo de recursos (que contém o endereço IP público estático). Remova o bloqueio de exclusão para que possamos limpar os nós antigos e liberar o endereço IP público estático para os nós antigos. Caso contrário, o endereço IP público estático não poderá ser liberado e não será possível atualizar ainda mais seu IR.
+O Azure-SSIS IR é atualizado automaticamente regularmente. Novos nós de IR são criados durante a atualização e os nós antigos serão excluídos. Além disso, os recursos de rede criados (por exemplo, o balanceador de carga e o grupo de segurança da rede) para os nós antigos são excluídos, e os novos recursos de rede são criados sua assinatura. Esse erro significa que a exclusão dos recursos de rede para os nós antigos falhou devido a um bloqueio de exclusão no nível de assinatura ou grupo de recursos (que contém o seu endereço IP público estático). Por favor, remova o bloqueio de exclusão para que possamos limpar os nós antigos e liberar o endereço IP público estático para os nós antigos. Caso contrário, o endereço IP público estático não pode ser liberado e não poderemos atualizar ainda mais o seu IR.
 
-### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
+### <a name="publicipnotusableduringupgrade"></a>PublicIPNotusableDuringUpgrade
 
-Quando você quiser colocar seus próprios endereços IP públicos estáticos, dois endereços IP públicos devem ser fornecidos. Um deles será usado para criar os nós de IR imediatamente e outro será usado durante a atualização do IR. Esse erro pode ocorrer quando o outro endereço IP público é inutilizável durante a atualização. Consulte [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) para obter as possíveis causas.
+Quando você quiser trazer seus próprios endereços IP públicos estáticos, dois endereços IP públicos devem ser fornecidos. Um deles será usado para criar os nódulos de IR imediatamente e outro será usado durante a atualização do IR. Esse erro pode ocorrer quando o outro endereço IP público estiver inutilizável durante a atualização. Consulte [InvalidPublicIPEspecificado](#InvalidPublicIPSpecified) para possíveis causas.

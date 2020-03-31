@@ -1,6 +1,6 @@
 ---
-title: Integrar logs com o ArcSight usando o Azure Monitor | Microsoft Docs
-description: Saiba como integrar logs de Azure Active Directory com o ArcSight usando Azure Monitor
+title: Integre logs com arcsight usando o Azure Monitor | Microsoft Docs
+description: Saiba como integrar os logs do Azure Active Directory com o ArcSight usando o Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 05002c1b11ef31b61fb4036f09dc8edcdafca767
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75608373"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrar logs de Azure Active Directory com o ArcSight usando Azure Monitor
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrar logs do Azure Active Directory ao ArcSight usando o Azure Monitor
 
 [Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) uma solução SIEM (gerenciamento de eventos e informações de segurança) que ajuda a detectar e responder a ameaças de segurança na plataforma. Agora você pode rotear os logs do Azure AD (Azure Active Directory) para ArcSight usando o Azure Monitor usando o conector ArcSight para Azure AD. Esse recurso permite que você monitore o locatário por comprometimento de segurança usando o ArcSight.  
 
@@ -57,6 +57,6 @@ Baixe e abra o [guia de configuração do ArcSight SmartConnector para Hub de Ev
 
 5. O guia de configuração também explica como personalizar as propriedades do conector no Azure e como atualizar e desinstalar o conector. Há também uma seção sobre aprimoramentos de desempenho, incluindo upgrade para um [Plano de Consumo do Azure](https://azure.microsoft.com/pricing/details/functions) e configuração de um Balanceador de Carga do ArcSight se a carga de eventos for maior que um SmartConnector Daemon Syslog NG único pode manipular.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Guia de configuração do ArcSight SmartConnector para Hub de Eventos do Azure Monitor](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)

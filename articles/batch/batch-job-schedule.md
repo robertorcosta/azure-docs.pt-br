@@ -1,5 +1,5 @@
 ---
-title: Agendar seus trabalhos
+title: Agende seus trabalhos
 description: Use o agendamento de trabalho para gerenciar suas tarefas.
 services: batch
 author: LauraBrenner
@@ -13,73 +13,73 @@ ms.date: 02/20/2020
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 55ea8fb4cc0e65deaa89d718c4a46513716dcf54
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672427"
 ---
 # <a name="schedule-jobs-for-efficiency"></a>Agendar trabalhos para eficiência
 
-O agendamento de trabalhos em lotes permite priorizar os trabalhos que você deseja executar primeiro ao levar em conta as tarefas que têm dependências em outras tarefas. Ao agendar seus trabalhos, você pode se certificar de usar a quantidade mínima de recursos. Os nós podem ser descomissionados quando não forem necessários, as tarefas que dependem de outras tarefas são giradas just in time, otimizando os fluxos de trabalho. Apenas um trabalho de cada vez é executado. Um novo não será iniciado até que o anterior seja concluído. Você pode definir seu trabalho para preenchimento automático. 
+Agendar trabalhos em lote permite que você priorize os trabalhos que deseja executar primeiro, levando em conta tarefas que têm dependências de outras tarefas. Ao agendar seus trabalhos, você pode ter certeza de usar a menor quantidade de recursos. Os nós podem ser desativados quando não são necessários, tarefas que dependem de outras tarefas são giradas apenas no tempo otimizando os fluxos de trabalho. Apenas um trabalho de cada vez é executado. Um novo não começará até que o anterior seja concluído. Você pode definir o seu trabalho para completar automaticamente. 
 
-## <a name="benefit-of-job-scheduling"></a>Benefício do agendamento de trabalho
+## <a name="benefit-of-job-scheduling"></a>Benefício do agendamento de empregos
 
-O benefício do agendamento de trabalhos é que você pode especificar um agendamento para a criação do trabalho. As tarefas que você agenda usando a tarefa do Gerenciador de trabalho são associadas a um trabalho. A tarefa do Gerenciador de trabalho criará tarefas para o trabalho. Para fazer isso, a tarefa do Gerenciador de trabalho precisa ser autenticada com a conta do lote. Use o token de acesso AZ_BATCH_AUTHENTICATION_TOKEN. O token permitirá o acesso ao restante do trabalho. 
+A vantagem de agendar empregos é que você pode especificar um cronograma para a criação de empregos. As tarefas que você agenda usando a tarefa de gerente de trabalho estão associadas a um trabalho. A tarefa de gerente de trabalho criará tarefas para o trabalho. Para isso, a tarefa de gerente de trabalho precisa autenticar com a conta Batch. Use o token de acesso AZ_BATCH_AUTHENTICATION_TOKEN. O token permitirá o acesso ao resto do trabalho. 
 
-## <a name="use-the-portal-to-schedule-a-job"></a>Usar o portal para agendar um trabalho
+## <a name="use-the-portal-to-schedule-a-job"></a>Use o portal para agendar um trabalho
 
-   1. Entre no [Portal do Azure](https://portal.azure.com/).
+   1. Faça login no [portal Azure](https://portal.azure.com/).
 
-   2. Selecione a conta do lote na qual você deseja agendar trabalhos.
+   2. Selecione a conta Lote em que deseja agendar trabalhos.
 
-   3. Selecione **Adicionar** para criar uma nova agenda de trabalho e concluir o **formulário básico**.
+   3. Selecione **Adicionar** para criar um novo cronograma de trabalho e preencha o **formulário Básico**.
 
 
 
-![Agendar um trabalho][1]
+![Agende um trabalho][1]
 
-**ID do plano de trabalho**: o identificador exclusivo para esta agenda de trabalho.
+**Carteira de trabalho :** O identificador exclusivo para este horário de trabalho.
 
-**Nome de exibição**: o nome para exibição do trabalho não precisa ser exclusivo, mas tem um comprimento máximo de 1024 caracteres.
+**Nome de exibição**: O nome de exibição para o trabalho não precisa ser único, mas tem um comprimento máximo de 1024 caracteres.
 
-**Não executar até**: especifica a primeira vez em que o trabalho será executado. Se você não definir isso, a agenda se tornará pronta para executar trabalhos imediatamente.
+**Não corra até**: Especifica o tempo mais cedo que o trabalho será executado. Se você não definir isso, o cronograma fica pronto para executar trabalhos imediatamente.
 
-Não **executar após**: nenhum trabalho será executado após a hora definida aqui. Se você não especificar uma hora, você estará criando um agendamento de trabalho recorrente que permanece ativo até que você o Finalize explicitamente.
+**Não corra atrás**: Nenhum trabalho executado após o tempo que você definir aqui. Se você não especificar uma hora, então você está criando um cronograma de trabalho recorrente que permanece ativo até que você o encerre explicitamente.
 
-**Intervalo de recorrência**: você pode especificar o período de tempo entre os trabalhos. Você pode ter apenas um trabalho de cada vez agendado, portanto, se for o momento de criar um novo trabalho em uma agenda de trabalho, mas o trabalho anterior ainda estiver em execução, o serviço de lote não criará o novo trabalho até que o trabalho anterior seja concluído.  
+**Intervalo de recorrência**: Você pode especificar a quantidade de tempo entre os trabalhos. Você pode ter apenas um emprego por vez agendado, portanto, se for a hora de criar um novo emprego um cronograma de trabalho, mas o trabalho anterior ainda está em execução, o serviço Batch não criará o novo emprego até que o trabalho anterior termine.  
 
-**Iniciar janela**: aqui você especifica o intervalo de tempo, começando a partir do momento em que o agendamento indica que um trabalho deve ser criado, até que ele deva ser concluído. Se o trabalho atual não for concluído durante sua janela, o trabalho seguinte não será iniciado.
+**Janela de início**: Aqui você especifica o intervalo de tempo, a partir da hora em que o cronograma indica que um trabalho deve ser criado, até que ele deve ser concluído. Se o trabalho atual não for concluído durante a janela, o próximo trabalho não começará.
 
-Na parte inferior do formulário básico, você especificará o pool no qual deseja que o trabalho seja executado. Para localizar as informações de ID do pool, selecione **Atualizar**. 
+Na parte inferior do formulário básico, você especificará o pool no qual deseja que o trabalho seja executado. Para encontrar as informações de id do pool, selecione **Atualizar**. 
 
 ![Especificar pool][2]
 
 
-**ID do pool**: identifique o pool no qual o trabalho será executado.
+**Identificação do pool :** Identifique o pool em que você executará o trabalho.
 
-**Tarefa de configuração de trabalho**: selecione **Atualizar** para nomear a tarefa do Gerenciador de trabalho, bem como as tarefas de preparação e liberação do trabalho, se você as estiver usando.
+**Tarefa de configuração do trabalho**: Selecione **Atualizar** para nomear a tarefa de Job Manager, bem como as tarefas de preparação e liberação do trabalho, se você estiver usando-as.
 
-**Prioridade**: dê prioridade ao trabalho.
+**Prioridade:** Dar prioridade ao trabalho.
 
-**Tempo máximo do relógio de parede**: defina a quantidade máxima de tempo durante o qual o trabalho pode ser executado. Se ele não for concluído dentro do período de tempo, o lote encerrará o trabalho. Se você não definir isso, não haverá limite de tempo para o trabalho.
+**Tempo máximo do relógio**de parede : Defina o tempo máximo que o trabalho pode executar. Se não for concluído dentro do prazo, Batch encerra o trabalho. Se você não definir isso, então não há limite de tempo para o trabalho.
 
-**Contagem máxima de tentativas de tarefa**: especifique o número de vezes que uma tarefa pode ser repetida até um máximo de quatro vezes. Isso não é o mesmo que o número de repetições que uma chamada de API pode ter.
+**Contagem máxima de repetição de tarefas**: Especifique o número de vezes que uma tarefa pode ser repetida até um máximo de quatro vezes. Isso não é o mesmo que o número de repetições que uma chamada de API pode ter.
 
-**Quando todas as tarefas forem concluídas**: o padrão é nenhuma ação.
+**Quando todas as tarefas são concluídas:** O padrão não é ação.
 
-**Quando uma tarefa falha**: o padrão é nenhuma ação. Uma tarefa falhará se a contagem de repetição for esgotada ou houve um erro ao iniciar a tarefa. 
+**Quando uma tarefa falha:** O padrão não é ação. Uma tarefa falha se a contagem de repetições estiver esgotada ou se houve um erro ao iniciar a tarefa. 
 
-Depois de selecionar **salvar**, se você for para **agendas de trabalho** no painel de navegação esquerdo, poderá acompanhar a execução do trabalho, selecionando **informações de execução**.
+Depois de selecionar **Salvar**, se você for para **agendamentos de trabalho** na navegação à esquerda, você pode acompanhar a execução do trabalho, selecionando informações de **execução**.
 
 
 ## <a name="for-more-information"></a>Para obter mais informações
 
-Para gerenciar um trabalho usando o CLI do Azure, consulte [AZ batch Jobs-Schedule](https://docs.microsoft.com/cli/azure/batch/job-schedule?view=azure-cli-latest).
+Para gerenciar um trabalho usando o Azure CLI, consulte [az batch job-schedule](https://docs.microsoft.com/cli/azure/batch/job-schedule?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Crie dependências de tarefas para executar tarefas que dependem de outras tarefas](batch-task-dependencies.md).
+[Crie dependências de tarefas para executar tarefas que dependem de outras tarefas.](batch-task-dependencies.md)
 
 
 

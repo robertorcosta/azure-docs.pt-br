@@ -1,19 +1,18 @@
 ---
-title: Descrição do Marketplace para um módulo Azure IoT Edge | Azure Marketplace
+title: Descrição do mercado para um módulo Azure IoT Edge | Mercado Azure
 description: Crie a descrição do marketplace de um módulo IoT Edge.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 8021b6fe40e006a95b3eeff1031606c38cc47b87
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.author: dsindona
+ms.openlocfilehash: 3ff65a637c1d3722e773ab27f051b3b5bc109a23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721618"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281724"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Guia de mercado de módulo do IoT Edge
 
@@ -31,11 +30,11 @@ A tabela a seguir descreve o objetivo e o conteúdo desses campos. Os campos obr
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |
 | **Título\***                 | Título da oferta. Ele será exibido com destaque no marketplace.  Comprimento máximo de 50 caracteres. <!--ADD PICTURE IN ACTION-->|
-| **\* de resumo**               | Breve resumo da oferta. Comprimento máximo de 100 caracteres. <!--ADD PICTURE IN ACTION-->|
+| **Resumo\***               | Breve resumo da oferta. Comprimento máximo de 100 caracteres. <!--ADD PICTURE IN ACTION-->|
 | **Resumo longo\***          | Mais Resumo da oferta (embora pudesse ser igual a **resumo**).  Comprimento máximo de 256 caracteres. <!--ADD PICTURE IN ACTION-->|
-| **Description\***           | Descrição da oferta.  Comprimento máximo de 3000 caracteres, suporta formatação HTML simples.<br/> Ele deve incluir um *requisitos mínimos de hardware* parágrafo na parte inferior. Por exemplo: <br/> <p><u>Requisitos mínimos de hardware:</u> Linux x64 e arm32 do sistema operacional, 1 GB de RAM, 500 Mb de armazenamento</p>
-| **Identificador de marketing\***  | Um URL exclusivo para associar a essa oferta geralmente inclui sua organização e o nome da solução, com um comprimento máximo de 50 caracteres.  Por exemplo: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
-| **Visualizar códigos de inscrição** | Adicione de um a 100 identificadores de assinatura de pré-visualizadores. Essas assinaturas listadas na lista de permissões terão acesso à oferta assim que forem publicadas antes de serem publicadas. |
+| **Descrição\***           | Descrição da oferta.  Comprimento máximo de 3000 caracteres, suporta formatação HTML simples.<br/> Ele deve incluir um *requisitos mínimos de hardware* parágrafo na parte inferior. Por exemplo: <br/> <p><u>Requisitos mínimos de hardware:</u> Linux x64 e arm32 do sistema operacional, 1 GB de RAM, 500 Mb de armazenamento</p>
+| **Identificador de marketing\***  | Um URL exclusivo para associar a essa oferta geralmente inclui sua organização e o nome da solução, com um comprimento máximo de 50 caracteres.  Por exemplo:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **Visualizar IDs de assinatura** | Adicione de um a 100 identificadores de assinatura de pré-visualizadores. Essas assinaturas listadas na lista de permissões terão acesso à oferta assim que forem publicadas antes de serem publicadas. |
 | **Links úteis**          | A seleção múltipla de categorias comerciais e técnicas que oferecem pode ser melhor associada.  Um máximo de 10 permitido. Certifique-se de adicionar pelo menos um link à sua documentação e um link para os dispositivos compatíveis do IoT Edge a partir do [catálogo de dispositivos IoT do Azure](https://catalog.azureiotsolutions.com/). |
 | **Categorias sugeridas\*** | Selecione até cinco categorias. Eles serão exibidos na sua página de detalhes do produto. Nas páginas de navegação, todos os módulos IoT Edge são mostrados na categoria *Internet of Things \> IoT Edge*.|
 |  |  |
@@ -88,10 +87,10 @@ Esta seção tem as seguintes subseções: **Logotipos**, **Captura de tela** e 
 | *Logos*  | Veja as capturas de tela anteriores para ver como e onde seus logotipos serão usados.  |
 | **Pequeno\***                 | formato PNG de 40 x 40 pixels                                                     |
 | **Médio\***                | formato PNG de 90 x 90 pixels                                                     |
-| **Grande\***                 | formato do pixel 115 x 115 PNG                                                  |
-| **\* largo**                  | formato do pixel de 255 x 115 PNG                                                   |
+| **grande\***                 | formato do pixel 115 x 115 PNG                                                  |
+| **Larga\***                  | formato do pixel de 255 x 115 PNG                                                   |
 | **Hero**                  | formato de pixel de 815 x 290 PNG.  Opcional, no entanto, uma vez carregado, o ícone do herói não pode ser excluído. |
-| *Capturas de tela*  | Capturas de tela são exibidas na sua página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o que o seu módulo IoT Edge faz e como funciona. Você pode mostrar diagramas de arquitetura ou usar ilustrações de casos, por exemplo. Opcional, mas no máximo cinco capturas de tela por SKU. |
+| *Screenshots*  | Capturas de tela são exibidas na sua página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o que o seu módulo IoT Edge faz e como funciona. Você pode mostrar diagramas de arquitetura ou usar ilustrações de casos, por exemplo. Opcional, mas no máximo cinco capturas de tela por SKU. |
 | **Nome**                  | Nome ou o título. Comprimento máximo de 100 caracteres.                             |
 | **Imagem**                 | Imagem de captura de tela, o formato do pixel 533, 324 PNG                               |
 | *Vídeos*  | Vídeos são exibidos na sua página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o que o seu módulo IoT Edge faz e como funciona. |
@@ -165,12 +164,12 @@ Esta seção permite fornecer os dois documentos legais necessários para cada o
 
 |  **Campo**                    |     **Descrição**                                                          |
 |  ---------                    |     ---------------                                                          |
-| **URL da política de privacidade\***      | URL para sua política de privacidade postada                                            |
-| **Usar\* Constract padrão**  | Se o modelo padrão de contrato da Microsoft deve ser usado.  Para obter mais informações, consulte [contrato Standard](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
-| **Termos de uso\***            | *Termos de uso* como HTML simples embutido ou link para a página de termos de uso postados     |
+| **URL da Política de Privacidade\***      | URL para sua política de privacidade postada                                            |
+| **Use Standard Constract\***  | Se deve usar o modelo padrão de contrato da Microsoft.  Para obter mais informações, consulte [Contrato Padrão](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
+| **Termos de uso\***            | *Termos de uso* como HTML simples em linha ou link para sua página de termos de uso postado     |
 |  |  |
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Use o [suporte](./cpp-support-tab.md) guia para fornecer suportam técnico e usuário de recursos para sua oferta.

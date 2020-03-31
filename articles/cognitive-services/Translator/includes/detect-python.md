@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 6591fd6eb232bf5fb242c9e08830324f864dac2f
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71837544"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
@@ -142,7 +142,7 @@ Depois de executar o exemplo, você deverá ver o seguinte impresso no terminal:
 ]
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você embutiu sua chave de assinatura no programa, remova-a quando tiver terminado este início rápido.
 

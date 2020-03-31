@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.openlocfilehash: 5794a2c754e2082fdf45ad689bdb89ea494541c2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73679866"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Atividade de filtro no Azure Data Factory
@@ -36,16 +36,16 @@ Você pode usar uma atividade de filtro em um pipeline para aplicar uma express�
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Nome | Nome da atividade `Filter`. | Cadeia de caracteres | Sim
-Tipo | Deve ser definido como **filtro** | Cadeia de caracteres | Sim
+name | Nome da atividade `Filter`. | String | Sim
+type | Deve ser definido como **filtro** | String | Sim
 condition | Condição a ser usada para filtragem de entrada. | Expression | Sim
-items | Matriz de entrada na qual o filtro deve ser aplicado. | Expression | Sim
+itens | Matriz de entrada na qual o filtro deve ser aplicado. | Expression | Sim
 
 ## <a name="example"></a>Exemplo
 
-Neste exemplo, o pipeline tem duas atividades: **Filter** e **Foreach**. A atividade de filtro está configurada para filtrar a matriz de entrada de itens com um valor maior que 3. Em seguida, a atividade ForEach itera sobre os valores filtrados e define o **teste** de variável para o valor atual.
+Neste exemplo, o pipeline tem duas atividades: **Filter** e **Foreach**. A atividade de filtro está configurada para filtrar a matriz de entrada de itens com um valor maior que 3. A atividade ForEach então itera sobre os valores filtrados e define o **teste** variável para o valor atual.
 
 ```json
 {
@@ -114,10 +114,10 @@ Neste exemplo, o pipeline tem duas atividades: **Filter** e **Foreach**. A ativi
 ## <a name="next-steps"></a>Próximas etapas
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
-- [Atividade de Condição If](control-flow-if-condition-activity.md)
+- [Atividade de Condição Se](control-flow-if-condition-activity.md)
 - [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade de obtenção de metadados](control-flow-get-metadata-activity.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
-- [Atividade da Web](control-flow-web-activity.md)
+- [Atividade web](control-flow-web-activity.md)
 - [Atividade Until](control-flow-until-activity.md)

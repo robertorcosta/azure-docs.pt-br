@@ -1,5 +1,5 @@
 ---
-title: Configurar a recuperação de desastre do Hyper-V (com VMM) em um site secundário com Azure Site Recovery/PowerShell
+title: Configure a recuperação de desastres do Hyper-V (com VMM) em um site secundário com o Azure Site Recovery/PowerShell
 description: Descreve como configurar a recuperação de desastre de VMs Hyper-V em nuvens do VMM para um site secundário do VMM usando o Azure Site Recovery e o PowerShell.
 services: site-recovery
 author: sujayt
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77048611"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastre de VMs Hyper-V para um site secundário usando PowerShell (Resource Manager)
@@ -20,10 +20,10 @@ Este artigo mostra como automatizar as etapas para a replicação de VMs do Hype
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Examine os [componentes e a arquitetura do cenário](hyper-v-vmm-architecture.md).
-- Examine os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md) de todos os componentes.
+- Revise os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md) para todos os componentes.
 - Verifique se os servidores do Virtual Machine Manager e os hosts do Hyper-V estão em conformidade com [os requisitos de suporte](site-recovery-support-matrix-to-sec-site.md).
 - Verifique se as VMs que você deseja replicar estão em conformidade com o [suporte ao computador replicado](site-recovery-support-matrix-to-sec-site.md).
 
@@ -89,7 +89,7 @@ Verifique se você tem o PowerShell do Azure pronto para uso:
    $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    ```
 
-   Você pode recuperar o objeto do cofre depois de criá-lo usando o cmdlet `Get-AzRecoveryServicesVault`.
+   Você pode recuperar o objeto do cofre `Get-AzRecoveryServicesVault` depois de criá-lo usando o cmdlet.
 
 ## <a name="set-the-vault-context"></a>Definir o contexto do cofre
 
@@ -210,7 +210,7 @@ Para verificar a conclusão da operação, siga as etapas em [Monitorar a ativid
 
 ##  <a name="configure-network-mapping"></a>Configurar o mapeamento de rede
 
-1. Use este comando para recuperar os servidores para o cofre atual. O comando armazena os servidores de Site Recovery na variável de matriz `$Servers`.
+1. Use este comando para recuperar os servidores para o cofre atual. O comando armazena os servidores de `$Servers` recuperação de site na variável array.
 
    ```azurepowershell
    $Servers = Get-AzRecoveryServicesAsrFabric
@@ -227,7 +227,7 @@ Para verificar a conclusão da operação, siga as etapas em [Monitorar a ativid
    > [!NOTE]
    > O servidor de Virtual Machine Manager de origem pode ser o primeiro ou o segundo na matriz do servidor. Verifique os nomes de servidor de Virtual Machine Manager e recupere as redes adequadamente.
 
-1. O cmdlet cria um mapeamento entre a rede principal e a rede de recuperação. Ele especifica a rede principal como o primeiro elemento de `$PrimaryNetworks`. Ele especifica a rede de recuperação como o primeiro elemento de `$RecoveryNetworks`.
+1. O cmdlet cria um mapeamento entre a rede principal e a rede de recuperação. Ele especifica a rede primária como `$PrimaryNetworks`o primeiro elemento de . Ele especifica a rede de recuperação `$RecoveryNetworks`como o primeiro elemento de .
 
    ```azurepowershell
    New-AzRecoveryServicesAsrNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
@@ -256,14 +256,14 @@ Depois que os servidores, nuvens e redes estiverem configurados corretamente, ha
    ```
 
 > [!NOTE]
-> Se você quiser replicar em discos gerenciados habilitados para o CMK no Azure, execute as seguintes etapas usando AZ PowerShell 3.3.0 em diante:
+> Se você deseja replicar em discos gerenciados habilitados para CMK no Azure, faça as seguintes etapas usando o Az PowerShell 3.3.0 em diante:
 >
-> 1. Habilitar o failover para discos gerenciados atualizando as propriedades da VM
-> 1. Use o cmdlet `Get-AzRecoveryServicesAsrReplicationProtectedItem` para buscar a ID do disco de cada disco do item protegido
-> 1. Crie um objeto Dictionary usando `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` cmdlet para conter o mapeamento da ID do disco para o conjunto de criptografia de disco. Esses conjuntos de criptografia de disco devem ser criados previamente por você na região de destino.
-> 1. Atualize as propriedades da VM usando o cmdlet `Set-AzRecoveryServicesAsrReplicationProtectedItem` passando o objeto Dictionary no parâmetro **DiskIdToDiskEncryptionSetMap** .
+> 1. Habilitar failover a discos gerenciados atualizando propriedades de VM
+> 1. Use `Get-AzRecoveryServicesAsrReplicationProtectedItem` o cmdlet para buscar o ID do disco para cada disco do item protegido
+> 1. Crie um objeto `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` de dicionário usando cmdlet para conter o mapeamento do ID de disco para o conjunto de criptografia de disco. Esses conjuntos de criptografia de disco devem ser pré-criados por você na região de destino.
+> 1. Atualize as propriedades `Set-AzRecoveryServicesAsrReplicationProtectedItem` da VM usando cmdlet passando o objeto do dicionário no parâmetro **DiskIdToDiskEncryptionSetMap.**
 
-## <a name="run-a-test-failover"></a>executar um failover de teste
+## <a name="run-a-test-failover"></a>Execute um teste de failover
 
 Para testar sua implantação, execute um failover de teste para uma única máquina virtual. Você também pode criar um plano de recuperação que contém várias VMs e executar um failover de teste para o plano. O failover de teste simula o mecanismo de failover e recuperação em uma rede isolada.
 
@@ -359,6 +359,6 @@ if($isJobLeftForProcessing)
 }While($isJobLeftForProcessing)
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 [Saiba mais](/powershell/module/az.recoveryservices) sobre o Site Recovery com cmdlets do PowerShell do Resource Manager.

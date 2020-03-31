@@ -1,5 +1,5 @@
 ---
-title: Configurar o RAID de software em uma VM Linux
+title: Configure o SOFTWARE RAID em uma VM Linux
 description: Saiba como usar mdadm para configurar o RAID no Linux no Azure.
 author: rickstercdn
 ms.service: virtual-machines-linux
@@ -8,10 +8,10 @@ ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: 122abda51b907491b322908c3c2c689bc1723e87
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250251"
 ---
 # <a name="configure-software-raid-on-linux"></a>Configurar RAID de software no Linux
@@ -21,7 +21,7 @@ ms.locfileid: "79250251"
 Dois ou mais discos de dados vazios são necessárias para configurar um dispositivo RAID.  O principal motivo para a criação de um dispositivo RAID é melhorar o desempenho de E/S em seu disco.  Com base em suas necessidades de E/S, você pode optar por anexar discos que serão armazenados em nosso armazenamento padrão, com até 500 E/S/s por disco, ou em nosso armazenamento Premium, com até 5.000 E/S/s por disco. Este artigo não se aprofunda em detalhes sobre como provisionar e anexar discos de dados para uma máquina virtual Linux.  Confira o artigo [anexar um disco](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) do Microsoft Azure para obter instruções detalhadas sobre como anexar um disco de dados vazio a uma máquina virtual do Linux no Azure.
 
 > [!IMPORTANT]
->Não misture discos de tamanhos diferentes, fazendo isso resultaria em desempenho do raidset limitado ao do disco mais lento. 
+>Não misture discos de diferentes tamanhos, fazendo isso resultaria no desempenho do conjunto raidset para ser limitado ao do disco mais lento. 
 
 ## <a name="install-the-mdadm-utility"></a>Instalar o utilitário mdadm
 * **Ubuntu**

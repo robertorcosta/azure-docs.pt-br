@@ -1,5 +1,5 @@
 ---
-title: Adicionar uma página à interface do usuário da solução de monitoramento remoto – Azure | Microsoft Docs
+title: Adicione uma página para a solução de monitoramento remoto da interface do usuário - Azure | Microsoft Docs
 description: Este artigo mostra como adicionar uma nova página na interface do usuário web do acelerador de solução de Monitoramento Remoto.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: ec0b9fbdfdb96317e1e7f6fe00384ba4f8c42bcc
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 0228f317e2d3380f2387dd557a27203eb3abc4ad
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607958"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240257"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione uma página personalizada à interface da Web da web do acelerador de solução de monitoramento remoto
 
@@ -24,7 +24,7 @@ Este artigo mostra como adicionar uma nova página na interface do usuário web 
 
 Outros guias de instruções ampliam esse cenário para adicionar mais recursos para a página que você adicionar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas neste guia de instruções, você precisa ter o seguinte software instalado em seu computador de desenvolvimento local:
 
@@ -142,7 +142,7 @@ npm install
 npm start
 ```
 
-O comando anterior é executado localmente na interface do usuário [ http://localhost:3000/dashboard ](http://localhost:3000/dashboard).
+O comando anterior executa a [http://localhost:3000/dashboard](http://localhost:3000/dashboard)ui localmente em .
 
 Sem se conectar a sua instância local da web da interface do usuário para uma instância implantada do acelerador da solução, você verá erros no painel. Esses erros não afetam sua capacidade de testar sua nova página.
 
@@ -154,17 +154,17 @@ Opcionalmente, você pode conectar sua cópia local de execução da web da inte
 
 1. Implante uma instância **básica** do acelerador de solução usando a CLI **pcs**. Anote o nome da sua implantação e as credenciais fornecidas para a máquina virtual. Para saber mais, veja [Implantar usando a CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Use o portal do Azure ou a [CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para habilitar o acesso SSH à máquina virtual que hospeda o microsserviços em sua solução. Por exemplo:
+1. Use o portal Azure ou o [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para permitir o acesso SSH à máquina virtual que hospeda os microsserviços em sua solução. Por exemplo: 
 
-    ```sh
+    ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Você só deve habilitar o acesso SSH durante o desenvolvimento e teste. Se você habilitar o SSH, [você deve desabilitá-lo novamente assim que possível](../security/fundamentals/network-best-practices.md).
+    Você só deve habilitar o acesso SSH durante o desenvolvimento e teste. Se você ativar o SSH, [você deve desabilitá-lo novamente o mais rápido possível](../security/fundamentals/network-best-practices.md).
 
-1. Use o portal do Azure ou a [CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para localizar o nome e o endereço IP público de sua máquina virtual. Por exemplo:
+1. Use o portal do Azure ou a [CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para localizar o nome e o endereço IP público de sua máquina virtual. Por exemplo: 
 
-    ```sh
+    ```azurecli
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```

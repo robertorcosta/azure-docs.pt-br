@@ -1,6 +1,6 @@
 ---
-title: Discos do sistema operacional efêmero para o Azure Máquinas Virtuais do Linux
-description: Saiba mais sobre discos do sistema operacional efêmero para VMs do Azure.
+title: Discos efêmeros do Sistema Operacional para Máquinas Virtuais Azure Linux
+description: Saiba mais sobre discos efêmeros do Sistema Operacional para VMs Azure.
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -9,16 +9,16 @@ ms.date: 07/01/2019
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: 971461f33b3a80363ffb0835ddc74f46d1a34fb1
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945199"
 ---
-# <a name="ephemeral-os-disks-for-azure-vms"></a>Discos do sistema operacional efêmero para VMs do Azure
+# <a name="ephemeral-os-disks-for-azure-vms"></a>Discos efêmeros do sistema operacional para VMs azure
 
 [!INCLUDE [virtual-machines-common-ephemeral](../../../includes/virtual-machines-common-ephemeral.md)]
  
 ## <a name="next-steps"></a>Próximas etapas
-Você pode criar uma VM com um disco do sistema operacional efêmero usando o [CLI do Azure](https://docs.microsoft.com/cli/azure/vm#az-vm-create).
+Você pode criar uma VM com um disco efêmero do SISTEMA OPERACIONAL usando o [Azure CLI](https://docs.microsoft.com/cli/azure/vm#az-vm-create).
 

@@ -11,10 +11,10 @@ ms.date: 01/29/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dfb34085181e0b759d1d77485ff21b5bc59e0de3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189762"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
@@ -41,7 +41,7 @@ Um provedor de declarações contém um conjunto de [perfis técnicos](technical
 
 O elemento **ClaimsProviders** contém o seguinte elemento:
 
-| Elemento | Ocorrências | DESCRIÇÃO |
+| Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | ClaimsProvider | 1:n | Um provedor de declarações autorizado que pode ser aproveitado em vários percursos do usuário. |
 
@@ -49,13 +49,13 @@ O elemento **ClaimsProviders** contém o seguinte elemento:
 
 O elemento **ClaimsProvider** contém os elementos filho a seguir:
 
-| Elemento | Ocorrências | DESCRIÇÃO |
+| Elemento | Ocorrências | Descrição |
 | ------- | ---------- | ----------- |
 | Domínio | 0:1 | Uma cadeia de caracteres que contém o nome de domínio do provedor de declarações. Por exemplo, se o provedor de declarações incluir o perfil técnico do Facebook, o nome de domínio será Facebook.com. Esse nome de domínio é usado para todos os perfis técnicos definidos no provedor de declarações, a menos que seja substituído pelo perfil técnico. O nome do domínio também pode ser referenciado em **domain_hint**. Para obter mais informações, consulte a seção **Redirecionar a entrada para um provedor social** de [Configurar entrada direta usando o Azure Active Directory B2C](direct-signin.md). |
-| DisplayName | 1:1 | Uma cadeia de caracteres que contém o nome do provedor de declarações. |
+| DisplayName | 1:1 | Uma seqüência que contém o nome do provedor de sinistros. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Um conjunto de perfis técnicos com suporte pelo provedor de declarações |
 
-**Claimprovider** organiza como seus perfis técnicos se relacionam com o provedor de declarações. O exemplo a seguir mostra o provedor de declarações do Azure Active Directory com os perfis técnicos do Azure Active Directory:
+**O ClaimsProvider** organiza como seus perfis técnicos se relacionam com o provedor de sinistros. O exemplo a seguir mostra o provedor de declarações do Azure Active Directory com os perfis técnicos do Azure Active Directory:
 
 ```XML
 <ClaimsProvider>

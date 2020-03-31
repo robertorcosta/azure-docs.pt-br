@@ -9,18 +9,18 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: 610232dab776648bb3dcc7c301ec292e9acad9fc
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898519"
 ---
 # <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Limites e cotas e limitações no Agendador do Azure
 
 > [!IMPORTANT]
-> O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível. 
+> [A Azure Logic Apps](../logic-apps/logic-apps-overview.md) está substituindo o Azure Scheduler, que está [sendo aposentado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você criou no Scheduler, [migre para o Azure Logic Apps o](../scheduler/migrate-from-scheduler-to-logic-apps.md) mais rápido possível. 
 >
-> O Agendador não está mais disponível na portal do Azure, mas a [API REST](/rest/api/scheduler) e os [cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md) permanecem disponíveis no momento para que você possa gerenciar seus trabalhos e coleções de trabalhos.
+> O agendador não está mais disponível no portal Azure, mas os cmdlets [Do API e](/rest/api/scheduler) [do Azure Scheduler PowerShell](scheduler-powershell-reference.md) permanecem disponíveis neste momento para que você possa gerenciar seus trabalhos e coletas de empregos.
 
 ## <a name="limits-quotas-and-thresholds"></a>Limites, cotas e limitações
 
@@ -28,7 +28,7 @@ ms.locfileid: "78898519"
 
 ## <a name="x-ms-request-id-header"></a>Cabeçalho x-ms-request-id
 
-Cada solicitação feita no serviço de Agendador retorna um cabeçalho de resposta chamado **x-MS-Request-ID**. Esse cabeçalho contém um valor opaco que identifica exclusivamente a solicitação. Portanto, se você confirmar que uma solicitação está formatada corretamente e ela falhar de forma consistente, relate o erro à Microsoft fornecendo o valor do cabeçalho de resposta **x-ms-request-id** e incluindo estes detalhes: 
+Cada solicitação feita contra o serviço Agendador retorna um cabeçalho de resposta chamado **x-ms-request-id**. Este cabeçalho contém um valor opaco que identifica exclusivamente a solicitação. Portanto, se você confirmar que uma solicitação está formatada corretamente e ela falhar de forma consistente, relate o erro à Microsoft fornecendo o valor do cabeçalho de resposta **x-ms-request-id** e incluindo estes detalhes: 
 
 * O valor de **x-ms-request-id**
 * O tempo aproximado quando a solicitação foi feita 
@@ -38,6 +38,6 @@ Cada solicitação feita no serviço de Agendador retorna um cabeçalho de respo
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
-* [Planos e cobrança do Agendador do Azure](scheduler-plans-billing.md)
+* [Planos e Cobrança do Agendador do Azure](scheduler-plans-billing.md)
 * [Referência da API REST do Agendador do Azure](/rest/api/scheduler)
 * [Referência de cmdlets do PowerShell do Agendador do Azure](scheduler-powershell-reference.md)

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/01/2019
-ms.openlocfilehash: 9bfadf55e4f68bb7188b27e4ef5bc03e3955f375
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/16/2020
+ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662041"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480276"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemplos de consulta de log do Azure Monitor
 Este artigo inclui vários exemplos de [consultas](log-query-overview.md) usando a [linguagem de consulta do Kusto](/azure/kusto/query/) para recuperar os diferentes tipos de dados de log do Azure Monitor. Diferentes métodos são usados para consolidar e analisar os dados, de modo que você pode usar esses exemplos para identificar estratégias diferentes que pode usar para seus próprios requisitos.  
@@ -229,7 +229,7 @@ protection_data | join (heartbeat_data) on Computer, round_time
 ### <a name="count-security-events-by-activity-id"></a>Contar eventos de segurança por ID da atividade
 
 
-Este exemplo se baseia na estrutura fixa da coluna **Activity**: \<ID\>-\<Name\>.
+Este exemplo se baseia na estrutura fixa\>-\<da\>coluna **Atividade:** \<ID Name .
 Ele analisa o valor de **Activity** em duas novas colunas e conta a ocorrência de cada **activityID**.
 
 ```Kusto
@@ -270,7 +270,7 @@ SecurityEvent
 ```
 
 ### <a name="parse-activity-name-and-id"></a>Analisar a ID e o nome da atividade
-Os dois exemplos são baseados na estrutura fixa da coluna **Activity**: \<ID\>-\<Name\>. O primeiro exemplo usa o operador **parse** para atribuir valores a duas novas colunas: **activityID** e **activityDesc**.
+Os dois exemplos abaixo dependem da estrutura fixa da\>-\<\>coluna **Atividade:** \<ID Name . O primeiro exemplo usa o operador **parse** para atribuir valores a duas novas colunas: **activityID** e **activityDesc**.
 
 ```Kusto
 SecurityEvent
@@ -375,40 +375,47 @@ suspicious_users_that_later_logged_in
 
 ## <a name="usage"></a>Uso
 
-### <a name="calculate-the-average-size-of-perf-usage-reports-per-computer"></a>Calcular o tamanho médio dos relatórios de desempenho de uso por computador
+O `Usage` tipo de dados pode ser usado para rastrear o volume de dados ingerido por solução ou tipo de dados. Existem outras técnicas para estudar volumes de dados ingeridos por [computador](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) ou [assinatura do Azure, grupo de recursos ou recurso.](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription)
 
-Este exemplo calcula o tamanho médio dos relatórios de uso de desempenho por computador, nas últimas 3 horas.
-Os resultados são mostrados em um gráfico de barras.
-```Kusto
+#### <a name="data-volume-by-solution"></a>Volume de dados por solução
+
+A consulta usada para visualizar o volume de dados faturados por solução ao longo do último mês (excluindo o último dia parcial) é:
+
+```kusto
 Usage 
-| where TimeGenerated > ago(3h)
-| where DataType == "Perf" 
-| where QuantityUnit == "MBytes" 
-| summarize avg(Quantity) by Computer
-| sort by avg_Quantity desc nulls last
-| render barchart
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-### <a name="timechart-latency-percentiles-50-and-95"></a>Traçar gráfico do 50º e do 95º percentis de latência
+Observe que `where IsBillable = true` a cláusula filtra os tipos de dados de determinadas soluções para as quais não há cobrança de ingestão.  Além disso, `TimeGenerated` a cláusula com é apenas para garantir que a experiência de consulta no portal Azure olhará para trás além do padrão 24 horas. Ao usar o tipo `StartTime` `EndTime` de dados de uso e representar os baldes de tempo para os quais os resultados são apresentados. 
 
-Este exemplo calcula e traça o gráfico do 50º e do 95º percentis da **avgLatency** relatada por hora nas últimas 24 horas.
+#### <a name="data-volume-by-type"></a>Volume de dados por tipo
 
-```Kusto
-Usage
-| where TimeGenerated > ago(24h)
-| summarize percentiles(AvgLatencyInSeconds, 50, 95) by bin(TimeGenerated, 1h) 
-| render timechart
+Você pode perfurar mais para ver as tendências de dados para por tipo de dados:
+
+```kusto
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType | render barchart
 ```
 
-### <a name="usage-of-specific-computers-today"></a>Uso de computadores específicos no dia de hoje
-Este exemplo recupera dados de **Usage** das últimas 24 horas para nomes de computador que contêm a cadeia de caracteres _ContosoFile_. Os resultados são classificados por **TimeGenerated**.
+Ou para ver uma tabela por solução e digitar para o último mês,
 
-```Kusto
-Usage
-| where TimeGenerated > ago(1d)
-| where  Computer contains "ContosoFile" 
-| sort by TimeGenerated desc nulls last
+```kusto
+Usage 
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by Solution, DataType
+| sort by Solution asc, DataType asc
 ```
+
+> [!NOTE]
+> Alguns dos campos do tipo de dados Uso, ainda no esquema, foram reprovados e seus valores não serão mais preenchidos. Estes são **Computador**, bem como campos relacionados à ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.
 
 ## <a name="updates"></a>Atualizações
 
@@ -428,7 +435,7 @@ Update
 ```
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Veja a [Referência da linguagem Kusto](/azure/kusto/query) para obter detalhes sobre a linguagem.
 - Confira uma [lição sobre as consultas de log de gravação no Azure Monitor](get-started-queries.md).

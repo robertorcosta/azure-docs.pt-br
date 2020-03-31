@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259962"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Usar o portal do Azure para administrar o Data Box Disk
@@ -55,7 +55,7 @@ Execute as etapas a seguir para clonar um pedido.
 
 O clone é criado em alguns minutos e a portal é atualizado para mostrar o novo pedido.
 
-[![Clonar pedido 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Ordem de clone 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
 
 ## <a name="delete-order"></a>Excluir pedido
 
@@ -63,7 +63,7 @@ Você talvez queira excluir um pedido quando ele é concluído. O pedido contém
 
 Só é possível excluir pedidos que tenham sido concluídos ou cancelados. Execute as etapas a seguir para excluir um pedido.
 
-1. Acesse **Todos os recursos**. Pesquise seu pedido.
+1. Vá para **Todos os recursos.** Pesquise seu pedido.
 
     ![Pesquisar pedidos de Data Box Disk](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
 
@@ -119,7 +119,7 @@ Execute as etapas a seguir para editar os detalhes de notificação.
 
 ## <a name="view-order-status"></a>Exibir status do pedido
 
-|Status do pedido |DESCRIÇÃO |
+|Status do pedido |Descrição |
 |---------|---------|
 |Encomendado     | Pedido feito com êxito. <br> Se os discos não estiverem disponíveis, você receberá uma notificação. <br>Se os discos estiverem disponíveis, a Microsoft identificará um disco para remessa e preparará o pacote de disco.        |
 |Processado     | O processamento de pedidos foi concluído. <br> Durante o processamento do pedido, as seguintes ações ocorrem:<li>Os discos são criptografados usando a criptografia BitLocker AES-128. </li> <li>Os Azure Data Box Disk estão bloqueados para impedir acesso não autorizado.</li><li>A chave de acesso que desbloqueia os discos é gerada durante esse processo.</li>        |

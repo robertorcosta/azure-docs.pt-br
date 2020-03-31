@@ -1,6 +1,6 @@
 ---
 title: Usar feed de alterações do Azure Cosmos DB para visualizar análise de dados em tempo real
-description: Este artigo descreve como o feed de alterações pode ser usado por uma empresa de varejo para entender os padrões do usuário, executar análise e visualização de dados em tempo real
+description: Este artigo descreve como o feed de alterações pode ser usado por uma empresa de varejo para entender os padrões do usuário, realizar análise de dados em tempo real e visualização
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: c0c1a28dc399d3f176f92e656621fec1bc92dbfc
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513485"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usar feed de alterações do Azure Cosmos DB para visualizar análise de dados em tempo real
 
-O feed de alteração Azure Cosmos DB é um mecanismo para obter um feed contínuo e incremental de registros de um contêiner Cosmos do Azure, pois esses registros estão sendo criados ou modificados. O suporte do feed de alterações funciona através de escuta de contêiner para quaisquer alterações. Ele gera a lista classificada de documentos que foram alterados na ordem em que eles foram modificados. Para saber mais sobre o feed de alterações, consulte o artigo [trabalhando com feed de alterações](change-feed.md). 
+O feed de alteração Azure Cosmos DB é um mecanismo para obter uma alimentação contínua e incremental de registros de um contêiner Azure Cosmos à medida que esses registros estão sendo criados ou modificados. O suporte do feed de alterações funciona através de escuta de contêiner para quaisquer alterações. Ele gera a lista classificada de documentos que foram alterados na ordem em que eles foram modificados. Para saber mais sobre o feed de alterações, consulte o artigo [trabalhando com feed de alterações](change-feed.md). 
 
 Este artigo descreve como o feed de alterações pode ser usado por uma empresa de comércio eletrônico para reconhecer padrões de usuário, executar análise de dados em tempo real e visualização. Você analisará eventos como um usuário visualizando um item, adicionando um item ao carrinho ou comprando um item. Quando um desses eventos ocorre, um novo registro é criado e o feed de alterações registra em log esse registro. O feed de alterações dispara uma série de etapas, resultando na visualização de métricas que analisam o desempenho e a atividade da empresa. As métricas de exemplo possíveis de serem visualizadas incluem receita, visitantes do site exclusivo, itens mais populares e preço médio dos itens que são visualizados versus adicionados a um carrinho versus comprados. Essas métricas de exemplo podem ajudar uma empresa de comércio eletrônico a avaliar a popularidade do site, desenvolver estratégias de preços e publicidade e tomar decisões sobre qual estoque investir.
 
@@ -41,9 +41,9 @@ O diagrama a seguir representa o fluxo de dados e os componentes envolvidos na s
    }
    ```
 
-2. **Cosmos DB:** Os dados gerados são armazenados em um contêiner Cosmos do Azure.  
+2. **Cosmos DB:** Os dados gerados são armazenados em um contêiner Do Azure Cosmos.  
 
-3. **Feed de alterações:** O feed de alterações escutará as alterações no contêiner Cosmos do Azure. Todas as vezes que um novo documento for adicionado à coleção (ou seja, quando um evento ocorrer como um usuário visualizando um item, adicionando um item ao carrinho ou comprando um item), o feed de alterações disparará um [Azure Functions](../azure-functions/functions-overview.md).  
+3. **Feed de alterações:** O feed de mudança saem para ouvir as alterações no contêiner Azure Cosmos. Todas as vezes que um novo documento for adicionado à coleção (ou seja, quando um evento ocorrer como um usuário visualizando um item, adicionando um item ao carrinho ou comprando um item), o feed de alterações disparará um [Azure Functions](../azure-functions/functions-overview.md).  
 
 4. **Azure Functions:** o Azure Functions processa os novos dados e envia-os para um [Hub de Eventos do Azure](../event-hubs/event-hubs-about.md).  
 
@@ -93,7 +93,7 @@ Crie os recursos do Azure - Azure Cosmos DB, Conta de armazenamento, Hub de Even
 
 Agora, você criará uma coleção para realizar eventos do site de comércio eletrônico. Quando um usuário visualiza um item, adiciona um item ao carrinho ou compra um item, a coleção recebe um registro que inclui a ação ("visualizado", "adicionado" ou "comprado"), o nome do item envolvido, o preço do item envolvido e o número de ID do carrinho de usuário envolvido.
 
-1. Vá para [portal do Azure](https://portal.azure.com/) e localize a **conta de Azure Cosmos DB** que é criada pela implantação do modelo.  
+1. Vá ao [portal Azure](https://portal.azure.com/) e encontre a **Conta Azure Cosmos DB** criada pela implantação do modelo.  
 
 2. No painel **Data Explorer**, selecione **Nova Coleção** e preencha o formulário com os seguintes detalhes:  
 
@@ -101,7 +101,7 @@ Agora, você criará uma coleção para realizar eventos do site de comércio el
    * Para o campo de ID da **Coleção**, insira **changefeedlabcollection**.  
    * Para o campo **Chave de partição**, insira **/Item**. Esse campo diferencia maiúsculas e minúsculas, portanto, insira corretamente.  
    * Para o campo **Taxa de transferência**, insira **10000**.  
-   * Selecione o botão **OK**.  
+   * Selecione o botão **OK.**  
 
 3. Em seguida, crie outra coleção nomeada **concessões** para o processamento de feed de alterações. A coleção de concessões coordena o processamento do feed de alterações em vários trabalhos. Uma coleção separada é usada para armazenar as concessões com uma concessão por partição.  
 
@@ -111,13 +111,13 @@ Agora, você criará uma coleção para realizar eventos do site de comércio el
    * Para o campo **ID da Coleção**, insira **concessões**.  
    * Para **Capacidade de armazenamento**, selecione **Fixo**.  
    * Deixe o campo **Taxa de transferência** configurado para o valor padrão.  
-   * Selecione o botão **OK**.
+   * Selecione o botão **OK.**
 
 ## <a name="get-the-connection-string-and-keys"></a>Obter a cadeia de conexão e chaves
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>Obter a cadeia de conexão do Azure Cosmos DB
 
-1. Vá para [portal do Azure](https://portal.azure.com/) e localize a **conta de Azure Cosmos DB** que é criada pela implantação do modelo.  
+1. Vá ao [portal Azure](https://portal.azure.com/) e encontre a **Conta Azure Cosmos DB** criada pela implantação do modelo.  
 
 2. Navegue até o painel **Chaves**, copie a CADEIA DE CONEXÃO PRIMÁRIA e copie-a para um bloco de notas ou outro documento que você terá acesso a todo o laboratório. É necessário rotulá-la como **Cadeia de Conexão do Cosmos DB**. Posteriormente, será necessário copiar a cadeia de caracteres no código, portanto, anote-a e lembre-se em que local está armazenando-a.
 
@@ -143,7 +143,7 @@ Um Hub de Eventos do Azure recebe os dados do evento, armazena, processa e encam
 
 ## <a name="set-up-azure-function-to-read-the-change-feed"></a>Configurar o Azure Functions para ler o feed de alterações
 
-Quando um novo documento é criado ou um documento atual é modificado em um contêiner Cosmos, o feed de alterações adiciona automaticamente esse documento modificado ao seu histórico de alterações de coleção. Agora, você criará e executará um Azure Functions que processará o feed de alterações. Quando um documento for criado ou modificado na coleção criada, o Azure Functions será disparado pelo feed de alterações. Em seguida, o Azure Functions enviará o documento modificado para o Hub de Eventos.
+Quando um novo documento é criado ou um documento atual é modificado em um contêiner Cosmos, o feed de alteração adiciona automaticamente esse documento modificado ao seu histórico de alterações de coleção. Agora, você criará e executará um Azure Functions que processará o feed de alterações. Quando um documento for criado ou modificado na coleção criada, o Azure Functions será disparado pelo feed de alterações. Em seguida, o Azure Functions enviará o documento modificado para o Hub de Eventos.
 
 1. Retorne para o repositório que você clonou no dispositivo.  
 
@@ -177,7 +177,7 @@ Para ver como o feed de alterações processa novas ações em um site de comér
  
 6. Aguarde o programa ser executado. As estrelas significam que os dados estão sendo coletados! Mantenha o programa em execução - é importante que muitos dados sejam coletados.  
 
-7. Se você navegar até [portal do Azure](https://portal.azure.com/) e, em seguida, para a conta de Cosmos DB em seu grupo de recursos, para **Data Explorer**, você verá os dados aleatórios importados em seu **changefeedlabcollection** .
+7. Se você navegar para o [portal Azure,](https://portal.azure.com/) então para a conta Cosmos DB dentro do seu grupo de recursos, em seguida, para **o Data Explorer,** você verá os dados randomizados importados em sua **changefeedlabcollection** .
  
    ![Dados gerados no portal](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -185,7 +185,7 @@ Para ver como o feed de alterações processa novas ações em um site de comér
 
 O Azure Stream Analytics é um serviço de nuvem totalmente gerenciado para processamento de dados de streaming em tempo real. Neste laboratório, você usará o Stream Analytics para processar novos eventos do Hub de Eventos (isto é, quando um item for visualizado, adicionado a um carrinho ou comprado), incorporar esses eventos à análise de dados em tempo real e enviá-los para o Power BI para visualização.
 
-1. No [portal do Azure](https://portal.azure.com/), navegue até o grupo de recursos e, em seguida, para **streamjob1** (o trabalho do Stream Analytics que você criou no prelab).  
+1. A partir do [portal Azure,](https://portal.azure.com/)navegue até o seu grupo de recursos e, em seguida, **faça streamingjob1** (o trabalho de análise de fluxo que você criou no pré-laboratório).  
 
 2. Selecione **Entradas** como demonstrado abaixo.  
 
@@ -236,7 +236,7 @@ O Azure Stream Analytics é um serviço de nuvem totalmente gerenciado para proc
 
 11. Agora, retorne para **streamjob1** e selecione o botão **Iniciar** na parte superior da página. O Azure Stream Analytics pode demorar alguns minutos para inicializar, mas você verá a mudança de "Início" para "Executando".
 
-## <a name="connect-to-power-bi"></a>Conecte-se ao Power BI
+## <a name="connect-to-power-bi"></a>Conectar o Power BI
 
 O Power BI é um conjunto de ferramentas de análise de negócios para analisar dados e compartilhar insights. É um ótimo exemplo de como você pode visualizar estrategicamente os dados analisados.
 
@@ -250,7 +250,7 @@ O Power BI é um conjunto de ferramentas de análise de negócios para analisar 
  
 5. Selecione **averagePrice** em **SEUS CONJUNTOS DE DADOS** e, em seguida, selecione **Avançar**.  
 
-6. No campo **Tipo de Visualização**, escolha **Gráfico de barras clusterizado** no menu suspenso. Em **Eixo**, adicione ação. Ignore a **Legenda** sem adicionar nada. Em seguida, na próxima seção chamada **Value**, adicione **AVG**. Selecione **Avançar**, então, título do gráfico e selecione **aplicar**. Um novo gráfico no painel deverá ser exibido!  
+6. No campo **Tipo de Visualização**, escolha **Gráfico de barras clusterizado** no menu suspenso. Em **Eixo**, adicione ação. Ignore a **Legenda** sem adicionar nada. Em seguida, na próxima seção chamada **Valor,** adicione **avg**. Selecione **Next**, depois title seu gráfico e selecione **Aplicar**. Um novo gráfico no painel deverá ser exibido!  
 
 7. Agora, se você quiser visualizar mais métricas, volte para **streamjob1** e crie mais três saídas com os seguintes campos.
 
@@ -318,11 +318,11 @@ O Power BI é um conjunto de ferramentas de análise de negócios para analisar 
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Opcional: visualizar com um site de comércio eletrônico
 
-Agora, você observará como é possível usar a nova ferramenta de análise de dados para conectar um site de comércio eletrônico real. Para criar o site de comércio eletrônico, use um banco de dados Cosmos do Azure para armazenar a lista de categorias de produtos (mulheres, homens, unissex), o catálogo de produtos e uma lista dos itens mais populares.
+Agora, você observará como é possível usar a nova ferramenta de análise de dados para conectar um site de comércio eletrônico real. Para construir o site de e-commerce, use um banco de dados do Azure Cosmos para armazenar a lista de categorias de produtos (Women's, Men's, Unisex), o catálogo de produtos e uma lista dos itens mais populares.
 
-1. Navegue de volta para o [portal do Azure](https://portal.azure.com/), em seguida, para sua **conta de Cosmos DB**e, em seguida, para **Data Explorer**.  
+1. Navegue de volta para o [portal Azure,](https://portal.azure.com/)depois para sua **conta Cosmos DB,** e depois para **o Data Explorer**.  
 
-   Adicione duas coleções em **changefeedlabdatabase** -  **de produtos** e **categorias** com capacidade de armazenamento fixo.
+   Adicione duas coleções em**produtos** e **categorias** **changefeedlabdatabase** - com capacidade de armazenamento fixo.
 
    Adicione outra coleção em **changefeedlabdatabase** chamada **topItems** e **/Item** como a chave de partição.
 
@@ -376,11 +376,11 @@ Agora, você observará como é possível usar a nova ferramenta de análise de 
 
 6. Abra **EcommerceWebApp.sln** e navegue até o arquivo **Web.config** no **Gerenciador de Soluções**.  
 
-7. No bloco `<appSettings>`, adicione o **URI** e a **CHAVE PRIMÁRIA** que você salvou anteriormente, onde informa **seu URI aqui**  e **sua chave primária aqui**. Em seguida, adicione o **nome do banco de dados** e o **nome da coleção**, conforme indicado. (Esses nomes devem ser **changefeedlabdatabase** e **changefeedlabcollection**, a menos que você queira nomeá-los de maneira diferente.)
+7. No bloco `<appSettings>`, adicione o **URI** e a **CHAVE PRIMÁRIA** que você salvou anteriormente, onde informa **seu URI aqui ** e **sua chave primária aqui**. Em seguida, adicione o **nome do banco de dados** e o **nome da coleção**, conforme indicado. (Esses nomes devem ser **changefeedlabdatabase** e **changefeedlabcollection**, a menos que você queira nomeá-los de maneira diferente.)
 
-   Preencha o **nome da coleção de produtos**, **nome da coleção de categorias**  e o **nome da coleção dos principais itens**, conforme indicado. (Esses nomes devem ser **produtos, categorias e topItems**, a menos que você queira nomeá-los de maneira diferente.)  
+   Preencha o **nome da coleção de produtos**, **nome da coleção de categorias ** e o **nome da coleção dos principais itens**, conforme indicado. (Esses nomes devem ser **produtos, categorias e topItems**, a menos que você queira nomeá-los de maneira diferente.)  
 
-8. Navegue e abra a **Pasta de check-out**  em **EcommerceWebApp.sln.** Em seguida, abra o arquivo **Web.config** dentro dessa pasta.  
+8. Navegue e abra a **Pasta de check-out ** em **EcommerceWebApp.sln.** Em seguida, abra o arquivo **Web.config** dentro dessa pasta.  
 
 9. No bloco `<appSettings>`, adicione o **URI** e a **CHAVE PRIMÁRIA** que você salvou anteriormente onde indicado. Em seguida, adicione o **nome do banco de dados** e o **nome da coleção**, conforme indicado. (Esses nomes devem ser **changefeedlabdatabase** e **changefeedlabcollection**, a menos que você queira nomeá-los de maneira diferente.)  
 
@@ -390,8 +390,8 @@ Agora, você observará como é possível usar a nova ferramenta de análise de 
 
 ## <a name="delete-the-resources"></a>Excluir os recursos
 
-Para excluir os recursos que você criou durante este laboratório, navegue até o grupo de recursos em [portal do Azure](https://portal.azure.com/), em seguida, selecione **excluir grupo de recursos** no menu na parte superior da página e siga as instruções fornecidas.
+Para excluir os recursos criados durante este laboratório, navegue até o grupo de recursos no [portal Azure](https://portal.azure.com/)e **selecione Excluir grupo** de recursos no menu no topo da página e siga as instruções fornecidas.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
   
 * Para saber mais sobre feed de alterações, consulte [como trabalhar com suporte de feed de alterações no Azure Cosmos DB](change-feed.md) 

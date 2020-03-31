@@ -1,20 +1,20 @@
 ---
-title: Escalabilidade de aplicativos de malha de Service Fabric do Azure
-description: Uma das vantagens de implantar aplicativos em Service Fabric malha é a capacidade de dimensionar facilmente seus serviços, seja manualmente ou com políticas de dimensionamento automático.
+title: Escalabilidade de aplicativos de malha de malha de malha de serviço do Azure
+description: Uma das vantagens de implantar aplicativos no Service Fabric Mesh é a capacidade de dimensionar facilmente seus serviços, seja manualmente ou com políticas de autodimensionamento.
 author: dkkapur
 ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: 474eda904df653d514fd2ee59fa046f1f87a66aa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259169"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Escalonar aplicativos de Malha do Service Fabric
 
-Uma das principais vantagens da implantação de aplicativos em Service Fabric malha é a capacidade de você facilmente dimensionar seus serviços para dentro ou para fora. Isso deve ser usado para lidar com quantidades diferentes de carga em seus serviços ou para melhorar a disponibilidade. Você pode realizar manualmente a expansão ou redução horizontal de seus serviços ou definir políticas de dimensionamento automático.
+Uma das principais vantagens de implantar aplicativos no Service Fabric Mesh é a capacidade de você facilmente dimensionar seus serviços dentro ou fora. Isso deve ser usado para lidar com quantidades variadas de carga em seus serviços ou melhorar a disponibilidade. Você pode realizar manualmente a expansão ou redução horizontal de seus serviços ou definir políticas de dimensionamento automático.
 
 ## <a name="manual-scaling-instances"></a>Instâncias de colocação em escala manuais
 
@@ -27,9 +27,9 @@ O dimensionamento automático é uma capacidade adicional do Microsoft Azure Ser
 
 Uma política de escala automática é definida por serviço no arquivo de recurso de serviço. Cada política de dimensionamento consiste em duas partes:
 
-- Um gatilho de dimensionamento, que descreve quando o dimensionamento do serviço será executado. Há três fatores que determinam quando o serviço será dimensionado. *Limite inferior de carga* é um valor que determina quando o serviço será dimensionado horizontalmente. Se a carga média de todas as instâncias das partições for menor do que esse valor, o serviço será reduzido horizontalmente. *Limite de carga superior* é um valor que determina quando o serviço será escalado horizontalmente. Se a carga média de todas as instâncias da partição for maior que esse valor, o serviço será escalado horizontalmente. O *intervalo de dimensionamento* determina com que frequência (em segundos) o gatilho será verificado. Depois que o gatilho for verificado, se for necessário escalar, o mecanismo será aplicado. Se não for necessário escalar, nenhuma ação será tomada. Em ambos os casos, o gatilho não será verificado novamente antes do intervalo de escala expirar.
+- Um gatilho de dimensionamento, que descreve quando o dimensionamento do serviço será executado. Há três fatores que determinam quando o serviço será dimensionado. *Limite de carga mais baixo* é um valor que determina quando o serviço será dimensionado. Se a carga média de todas as instâncias das partições for menor do que esse valor, o serviço será reduzido horizontalmente. *Limite de carga superior* é um valor que determina quando o serviço será dimensionado. Se a carga média de todas as instâncias da partição for maior que esse valor, o serviço será dimensionado. *O intervalo de dimensionamento* determina com que frequência (em segundos) o gatilho será verificado. Depois que o gatilho for verificado, se for necessário escalar, o mecanismo será aplicado. Se não for necessário escalar, nenhuma ação será tomada. Em ambos os casos, o gatilho não será verificado novamente antes do intervalo de escala expirar.
 
-- O mecanismo de dimensionamento descreve como o dimensionamento será executado quando ele for disparado. O *Incremento de Escala* determina quantas instâncias serão adicionadas ou removidas quando o mecanismo for disparado. O *Número máximo de instâncias* define o limite superior para o dimensionamento. Se o número de instâncias da partição atingir esse limite, o serviço não será escalado horizontalmente, independentemente da carga. *Número mínimo de instâncias* define o limite inferior para escala. Se o número de instâncias da partição atingir esse limite, o serviço não será reduzido horizontalmente, independentemente da carga.
+- O mecanismo de dimensionamento descreve como o dimensionamento será executado quando ele for disparado. O *Incremento de Escala* determina quantas instâncias serão adicionadas ou removidas quando o mecanismo for disparado. *A contagem máxima de* instâncias define o limite superior para o dimensionamento. Se o número de instâncias da partição atingir esse limite, o serviço não será escalado horizontalmente, independentemente da carga. *A contagem mínima de* instâncias define o limite inferior para o dimensionamento. Se o número de instâncias da partição atingir esse limite, o serviço não será reduzido horizontalmente, independentemente da carga.
 
 Para saber como definir uma política de dimensionamento automático para seu serviço, leia [serviços de dimensionamento automático](service-fabric-mesh-howto-auto-scale-services.md).
 

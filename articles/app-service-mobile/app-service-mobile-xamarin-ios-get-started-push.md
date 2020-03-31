@@ -1,16 +1,16 @@
 ---
-title: Adicionar notificações por push ao seu aplicativo Xamarin. iOS
-description: Saiba como usar Azure App serviço para enviar notificações por push para seu aplicativo Xamarin. iOS.
+title: Adicione notificações push ao seu aplicativo Xamarin.iOS
+description: Saiba como usar o Azure App Service para enviar notificações push para o seu aplicativo Xamarin.iOS.
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: f9c70491d06f61931ebabda859ff3a86ed035b44
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249276"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Adicionar notificações por push a seu aplicativo Xamarin.iOS
@@ -23,7 +23,7 @@ Neste tutorial, você adicionará notificações por push ao projeto de [início
 
 Se você não usar o projeto baixado do início rápido do servidor, deve adicionar o pacote de extensão de notificação por push ao seu projeto. Confira [Trabalhar com o servidor back-end SDK do .NET para os Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) para obter mais informações.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Conclua o tutorial [Criar um aplicativo Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md) .
 * Um dispositivo físico iOS. Não há suporte para notificações por push pelo simulador do iOS.
@@ -132,15 +132,15 @@ Se você não usar o projeto baixado do início rápido do servidor, deve adicio
 
 Seu aplicativo foi atualizado para dar suporte a notificações por push.
 
-## <a name="test"></a>Testar notificações por push no seu aplicativo
+## <a name="test-push-notifications-in-your-app"></a><a name="test"></a>Testar notificações por push no seu aplicativo
 
 1. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS; em seguida, clique em **OK** para aceitar as notificações por push.
 
    > [!NOTE]
    > Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
 
-2. No aplicativo, digite uma tarefa e clique no ícone do sinal de adição ( **+** ).
-3. Verifique se uma notificação é recebida e clique em **OK** para ignorar a notificação.
+2. No aplicativo, digite uma tarefa e**+** clique no ícone de adição ( )
+3. Verifique se uma notificação é recebida e clique em **OK** para descartar a notificação.
 4. Repita a etapa 2 e imediatamente feche o aplicativo e verifique se uma notificação é exibida.
 
 Este tutorial foi concluído com êxito.
