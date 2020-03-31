@@ -1,5 +1,5 @@
 ---
-title: Configurar a complexidade de senha usando políticas personalizadas
+title: Configurar a complexidade da senha usando políticas personalizadas
 titleSuffix: Azure AD B2C
 description: Como configurar os requisitos de complexidade de senha usando uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
@@ -12,17 +12,17 @@ ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b16790e288f6569f08ce14e5a7c751bbd8083faf
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79138427"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a complexidade da senha usando políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-No Azure Active Directory B2C (Azure AD B2C), você pode configurar os requisitos de complexidade para senhas que são fornecidas por um usuário ao criar uma conta. Por padrão, o Azure AD B2C usa senhas **Fortes**. Este artigo mostra como configurar a complexidade de senha em [políticas personalizadas](custom-policy-overview.md). Também é possível configurar a complexidade da senha em [fluxos de usuário](user-flow-password-complexity.md).
+No Azure Active Directory B2C (Azure AD B2C), você pode configurar os requisitos de complexidade para senhas fornecidas por um usuário ao criar uma conta. Por padrão, o Azure AD B2C usa senhas **Fortes**. Este artigo mostra como configurar a complexidade de senha em [políticas personalizadas](custom-policy-overview.md). Também é possível configurar a complexidade da senha em [fluxos de usuário](user-flow-password-complexity.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,11 +31,11 @@ Conclua as etapas em [Introdução às políticas personalizadas](custom-policy-
 
 ## <a name="add-the-elements"></a>Adicionar os elementos
 
-Para configurar a complexidade da senha, substitua os tipos de [declaração](claimsschema.md) `newPassword` e `reenterPassword` por uma referência a [validações de predicado](predicates.md#predicatevalidations). O elemento PredicateValidations agrupa um conjunto de predicados para formar uma validação de entrada de usuário que pode ser aplicada a um tipo de declaração. Abra o arquivo de extensões da política. Por exemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
+Para configurar a complexidade da `newPassword` senha, anule os tipos e `reenterPassword` os tipos de [solicitação](claimsschema.md) com uma referência a [validações predicadas](predicates.md#predicatevalidations). O elemento PredicateValidations agrupa um conjunto de predicados para formar uma validação de entrada do usuário que pode ser aplicada a um tipo de solicitação. Abra o arquivo de extensões da sua apólice. Por exemplo, <em> `SocialAndLocalAccounts/` </em>.
 
 1. Pesquise o elemento [BuildingBlocks](buildingblocks.md). Se o elemento não existir, adicione-o.
-1. Localize o elemento [ClaimsSchema](claimsschema.md) . Se o elemento não existir, adicione-o.
-1. Adicione as declarações `newPassword` e `reenterPassword` ao elemento **ClaimsSchema** .
+1. Localize o elemento [ClaimsSchema.](claimsschema.md) Se o elemento não existir, adicione-o.
+1. Adicione `newPassword` as `reenterPassword` reivindicações e as reivindicações ao elemento **ClaimsSchema.**
 
     ```XML
     <ClaimType Id="newPassword">
@@ -46,7 +46,7 @@ Para configurar a complexidade da senha, substitua os tipos de [declaração](cl
     </ClaimType>
     ```
 
-1. Os [predicados](predicates.md) definem uma validação básica para verificar o valor de um tipo de declaração e retorna true ou false. A validação é feita usando um elemento de método especificado e um conjunto de parâmetros relevantes para o método. Adicione os seguintes predicados ao elemento **BuildingBlocks** imediatamente após o fechamento do elemento `</ClaimsSchema>`:
+1. [Predicados](predicates.md) define uma validação básica para verificar o valor de um tipo de reclamação e retorna verdadeiro ou falso. A validação é feita usando um elemento de método especificado e um conjunto de parâmetros relevantes para o método. Adicione os seguintes predicados ao elemento **BuildingBlocks,** imediatamente `</ClaimsSchema>` após o fechamento do elemento:
 
     ```XML
     <Predicates>
@@ -84,7 +84,7 @@ Para configurar a complexidade da senha, substitua os tipos de [declaração](cl
     </Predicates>
     ```
 
-1. Adicione as validações predicadas a seguir ao elemento **BuildingBlocks** imediatamente após o fechamento do elemento `</Predicates>`:
+1. Adicione as seguintes validações de predicados ao elemento **BuildingBlocks,** imediatamente após o fechamento do `</Predicates>` elemento:
 
     ```XML
     <PredicateValidations>
@@ -109,7 +109,7 @@ Para configurar a complexidade da senha, substitua os tipos de [declaração](cl
     </PredicateValidations>
     ```
 
-1. Os perfis técnicos a seguir são [Active Directory perfis técnicos](active-directory-technical-profile.md), que lêem e gravam dados em Azure Active Directory. Substitua esses perfis técnicos no arquivo de extensão. Use `PersistedClaims` para desabilitar a política de senha forte. Localize o elemento **ClaimsProviders**.  Adicione os seguintes provedores de declaração da seguinte maneira:
+1. Os seguintes perfis técnicos são [perfis técnicos do Active Directory,](active-directory-technical-profile.md)que lêem e escrevem dados no Azure Active Directory. Anular esses perfis técnicos no arquivo de extensão. Use `PersistedClaims` para desativar a forte política de senhas. Localize o elemento **ClaimsProviders**.  Adicione os seguintes provedores de sinistros da seguinte forma:
 
     ```XML
     <ClaimsProvider>
@@ -135,17 +135,17 @@ Para configurar a complexidade da senha, substitua os tipos de [declaração](cl
 
 ### <a name="upload-the-files"></a>Carregar os arquivos
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure](https://portal.azure.com/).
 2. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
 3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 4. Selecione **Estrutura de Experiência de Identidade**.
 5. Na página de políticas personalizadas, clique em **Carregar Política**.
-6. Selecione **substituir a política, se ela existir**, e, em seguida, procure e selecione o arquivo *TrustFrameworkExtensions. xml* .
+6. Selecione **Substituir a diretiva se ela existir**e, em seguida, procurar e selecionar o arquivo *TrustFrameworkExtensions.xml.*
 7. Clique em **Carregar**.
 
 ### <a name="run-the-policy"></a>Executar a política
 
-1. Abra a política de inscrição ou entrada. Por exemplo, *B2C_1A_signup_signin*.
+1. Abra a política de inscrição ou de login. Por exemplo, *B2C_1A_signup_signin*.
 2. Para **Aplicativo**, selecione seu aplicativo que você registrou anteriormente. Para ver o token, a **URL de resposta** deve mostrar `https://jwt.ms`.
 3. Clique em **Executar agora**.
 4. Selecione **Inscrever-se agora**, insira um endereço de email e insira uma nova senha. Algumas restrições de senhas são apresentadas. Termine de inserir as informações do usuário e clique em **Criar**. Você deverá ver o conteúdo do token retornado.
@@ -153,4 +153,4 @@ Para configurar a complexidade da senha, substitua os tipos de [declaração](cl
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [Configurar a alteração da senha usando políticas personalizadas no Azure Active Directory B2C](custom-policy-password-change.md).
-- Saiba mais sobre os [predicados](predicates.md) e elementos [PredicateValidations](predicates.md#predicatevalidations) na referência de IEF.
+- Saiba mais sobre os [elementos Predicados](predicates.md) e [Predicados Validações](predicates.md#predicatevalidations) na referência do IEF.

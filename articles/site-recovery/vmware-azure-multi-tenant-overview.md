@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastre multilocatário de VM VMware com Azure Site Recovery
+title: Recuperação de desastres multilocatários VMware VM com recuperação do site do Azure
 description: Apresenta uma visão geral do suporte do Azure Site Recovery para recuperação de desastres do VMWare para o Azure em um programa de ambiente multilocatário (CSP).
 author: mayurigupta13
 manager: rochakm
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083982"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Visão geral do suporte multilocatário para recuperação de desastre do VMware para o Azure com o CSP
 
-O [Azure Site Recovery](site-recovery-overview.md) dá suporte a ambientes de multilocatário para assinaturas de locatário. Ele também dá suporte à multilocação para assinaturas de locatários que são criadas e gerenciadas por meio do programa CSP (Provedor de Soluções na Nuvem da Microsoft).
+[O Azure Site Recovery](site-recovery-overview.md) suporta ambientes de vários inquilinos para assinaturas de inquilinos. Ele também dá suporte à multilocação para assinaturas de locatários que são criadas e gerenciadas por meio do programa CSP (Provedor de Soluções na Nuvem da Microsoft).
 
 Este artigo fornece uma visão geral de implementação e gerenciamento da replicação do VMware no Azure de multilocatário.
 
@@ -24,11 +24,11 @@ Este artigo fornece uma visão geral de implementação e gerenciamento da repli
 
 Há três modelos principais de multilocatários:
 
-* **HSP (Provedor de Serviços de Hospedagem Compartilhada)** : o parceiro é o proprietário da infraestrutura física e usa recursos compartilhados (vCenter, datacenters, armazenamento físico e assim por diante) para hospedar VMs de vários locatários na mesma infraestrutura. O parceiro pode fornecer gerenciamento de recuperação de desastre como um serviço gerenciado ou o locatário pode ter recuperação de desastre como uma solução de autoatendimento.
+* **HSP (Provedor de Serviços de Hospedagem Compartilhada)**: o parceiro é o proprietário da infraestrutura física e usa recursos compartilhados (vCenter, datacenters, armazenamento físico e assim por diante) para hospedar VMs de vários locatários na mesma infraestrutura. O parceiro pode fornecer gerenciamento de recuperação de desastre como um serviço gerenciado ou o locatário pode ter recuperação de desastre como uma solução de autoatendimento.
 
 * **Provedor de Serviços de Hospedagem Dedicado**: o parceiro tem a infraestrutura física, mas usa recursos dedicados (vários vCenters, repositórios de dados físicos e assim por diante) para hospedar VMs de cada locatário em uma infraestrutura separada. O parceiro pode fornecer gerenciamento de recuperação de desastre como um serviço gerenciado ou o locatário pode já tê-la como uma solução de autoatendimento.
 
-* **MSP (Provedor de Serviços Gerenciado)** : o cliente tem a infraestrutura física que hospeda as VMs e o parceiro fornece a habilitação e gerenciamento de recuperação de desastre.
+* **MSP (Provedor de Serviços Gerenciado)**: o cliente tem a infraestrutura física que hospeda as VMs e o parceiro fornece a habilitação e gerenciamento de recuperação de desastre.
 
 ## <a name="shared-hosting-services-provider-hsp"></a>HSP (provedor de serviços de hospedagem compartilhada)
 
@@ -72,13 +72,13 @@ Configure o servidor de configuração com uma conta que tem uma função especi
 
 ### <a name="create-a-vcenter-account"></a>Criar uma conta do vCenter
 
-1. Crie uma nova função clonando a função *Somente leitura* predefinida e dê a ela um nome conveniente (como Azure_Site_Recovery, como mostrado neste exemplo).
+1. Crie uma nova função clonando o papel predefinido somente leitura e, em seguida, *dê-lhe* um nome conveniente (como Azure_Site_Recovery, como mostrado neste exemplo).
 2. Atribua as seguintes permissões a essa função:
 
    * **Repositório de dados**: Alocar espaço, Procurar repositório de dados, Operações de arquivo de baixo nível, Remover arquivo, Atualizar arquivos de máquina virtual
    * **Rede**: Atribuição de rede
    * **Recurso**: Atribuir VM ao pool de recursos, Migrar VM desligada, Migrar VM ligada
-   * **Tarefas**: Criar tarefa, Atualizar tarefa
+   * **Tarefas**: Criar tarefa, atualizar tarefa
    * **VM – Configuração**: tudo
    * **VM – Interação** > Responder a perguntas, Conexão do dispositivo, Configurar mídia de CD, Configurar mídia de disquete, Desligar, Ligar, Instalação de ferramentas do VMware
    * **VM – Inventário** > Criar com base em existente, Criar novo, Registrar, Cancelar registro
@@ -120,7 +120,7 @@ Para restringir as operações de recuperação de desastre a somente failover (
 
 1. No portal do Azure, no cofre que você criou anteriormente, registre o servidor vCenter para o servidor de configuração, usando a conta do vCenter que você criou.
 2. Conclua o processo de “Preparação da infraestrutura” para o Site Recovery de acordo com o processo normal.
-3. Agora, as VMs estão prontas para serem replicadas. Verifique se apenas as VMs do locatário estão visíveis em **Replicar** > **Selecionar as máquinas virtuais**.
+3. Agora, as VMs estão prontas para serem replicadas. Verifique se apenas as VMs do inquilino são exibidas em**máquinas virtuais** **Replicate** > Select .
 
 ## <a name="dedicated-hosting-solution"></a>Solução de hospedagem dedicada
 

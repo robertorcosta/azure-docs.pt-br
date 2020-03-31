@@ -10,10 +10,10 @@ ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: d40658e1510c9ae8a2e3e1f865df7ac95f61abfb
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68355988"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Gerenciar o Azure Data Lake Analytics usando o Python
@@ -24,16 +24,16 @@ Este artigo descreve como gerenciar contas, fontes de dados, usuários e trabalh
 ## <a name="supported-python-versions"></a>Versões do Python compatíveis
 
 * Use uma versão de 64 bits do Python.
-* Você pode usar a distribuição padrão do Python encontrada nos  **[downloads do Python.org](https://www.python.org/downloads/)** . 
-* Muitos desenvolvedores consideram conveniente usar a  **[Distribuição do Anaconda Python](https://www.anaconda.com/download/)** .  
+* Você pode usar a distribuição padrão do Python encontrada nos **[downloads do Python.org](https://www.python.org/downloads/)**. 
+* Muitos desenvolvedores consideram conveniente usar a **[Distribuição do Anaconda Python](https://www.anaconda.com/download/)**.  
 * Este artigo foi escrito usando o Python versão 3.6 da distribuição padrão do Python
 
 ## <a name="install-azure-python-sdk"></a>Instalar o SDK do Python do Azure
 
 Instale os seguintes módulos:
 
-* O módulo **azure-mgmt-resource** inclui outros módulos do Azure para o Active Directory, etc.
-* O módulo **azure-datalake-store** inclui as operações de sistema de arquivos do Azure Data Lake Store. 
+* O módulo **azure-mgmt-resource** inclui outros módulos Do Zure para Active Directory, etc.
+* O módulo **azure-datalake-store** inclui as operações do sistema de arquivos Azure Data Lake Store. 
 * O módulo **azure-mgmt-datalake-store** inclui as operações de gerenciamento de contas do Azure Data Lake Store.
 * O módulo **azure-mgmt-datalake-analytics** inclui as operações do Azure Data Lake Analytics. 
 
@@ -144,7 +144,7 @@ adlaJobClient = DataLakeAnalyticsJobManagementClient(
     credentials, 'azuredatalakeanalytics.net')
 ```
 
-## <a name="create-an-azure-resource-group"></a>Criar um grupo de recursos do Azure
+## <a name="create-an-azure-resource-group"></a>Criar um Grupo de Recursos do Azure
 
 ```python
 armGroupResult = resourceClient.resource_groups.create_or_update(

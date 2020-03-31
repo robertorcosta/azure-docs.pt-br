@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: danlep
 ms.openlocfilehash: 8444a2a99977f0e8f6324423ea676c7763481a53
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67508294"
 ---
 Para especificar meses ou dias, você pode usar valores numéricos, nomes ou abreviações de nomes:

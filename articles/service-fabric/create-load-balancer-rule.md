@@ -4,10 +4,10 @@ description: Configure um Azure Load Balancer para abrir portas para seu cluster
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025377"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir portas para um cluster do Service Fabric
@@ -34,7 +34,7 @@ Para criar uma regra de balanceador de carga, você precisa coletar as seguintes
 - Porta externa.
 - Porta interna.
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI do Azure
 É preciso apenas um único comando para criar uma regra de balanceador de carga com a **CLI do Azure**. Você só precisa saber o nome do balanceador de carga e do grupo de recursos para criar uma nova regra.
 
 >[!NOTE]
@@ -50,7 +50,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 O comando da CLI do Azure tem alguns parâmetros que são descritos na seguinte tabela:
 
-| Parâmetro | Description |
+| Parâmetro | Descrição |
 | --------- | ----------- |
 | `--backend-port`  | A porta em que o aplicativo do Service Fabric está escutando. |
 | `--frontend-port` | A porta que o balanceador de carga expõe para conexões externas. |
@@ -98,6 +98,6 @@ Em relação ao comando `New-AzLoadBalancerRuleConfig`, o `-FrontendPort` repres
 >[!NOTE]
 >Para saber mais sobre como criar um balanceador de carga com o PowerShell, confira [Criar um balanceador de carga com o PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [rede no Service Fabric](service-fabric-patterns-networking.md).

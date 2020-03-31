@@ -1,15 +1,15 @@
 ---
-title: CLI do Azure Service Fabric-serviço sfctl
-description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar serviços, tipos de serviço e pacotes de serviço.
+title: Azure Service Fabric CLI- serviço sfctl
+description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para gerenciar serviços, tipos de serviço e pacotes de serviços.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 696de713129ca71dd7f2451501a7cc9eca0ee9b9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906230"
 ---
 # <a name="sfctl-service"></a>Serviço sfctl
@@ -17,7 +17,7 @@ Crie, exclua e gerencie o serviço, os tipos de serviço e os pacotes de serviç
 
 ## <a name="commands"></a>Comandos
 
-|Comando|Description|
+|Comando|Descrição|
 | --- | --- |
 | app-name | Obtém o nome do aplicativo do Service Fabric para um serviço. |
 | code-package-list | Obtém a lista de pacotes de código implantados em um nó do Service Fabric. |
@@ -27,7 +27,7 @@ Crie, exclua e gerencie o serviço, os tipos de serviço e os pacotes de serviç
 | deployed-type-list | Obtém a lista que contém as informações sobre os tipos de serviço dos aplicativos implantados em um nó em um cluster do Service Fabric. |
 | descrição | Obtém a descrição de um serviço do Service Fabric existente. |
 | get-container-logs | Obtém os logs de contêiner para um contêiner implantado em um nó do Service Fabric. |
-| saúde | Obtém a integridade do serviço do Service Fabric especificado. |
+| integridade | Obtém a integridade do serviço do Service Fabric especificado. |
 | informações | Obtém as informações sobre o serviço específico pertencentes ao aplicativo do Service Fabric. |
 | list | Obtém as informações sobre todos os serviços pertencentes ao aplicativo especificado pela ID de aplicativo. |
 | manifest | Obtém o manifesto que descreve um tipo de serviço. |
@@ -48,14 +48,14 @@ Obtém o nome do aplicativo para o serviço especificado. Um erro FABRIC_E_SERVI
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --service-id [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -70,17 +70,17 @@ Obtém a lista de pacotes de código implantado em um nó de malha do serviço p
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | --node-name      [Obrigatório] | O nome do nó. |
 | --code-package-name | O nome do pacote de código especificado no manifesto de serviço registrado como parte de um tipo de aplicativo em um cluster do Service Fabric. |
 | --service-manifest-name | O nome de um manifesto de serviço registrado como parte de um tipo de aplicativo em um cluster do Service Fabric. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -93,7 +93,7 @@ Cria o serviço de malha do serviço especificado.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --app-id       [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo é ' malha\:/myapp/app1 ', a identidade do aplicativo deve ser ' myapp\~app1' 6.0 + e ' myapp/app1' nas versões anteriores. |
 | --name         [Obrigatório] | Nome do serviço. Deve ser um filho da ID do aplicativo. Este é o nome completo, incluindo o URI `fabric\:`. Por exemplo, o serviço `fabric\:/A/B` é um filho do aplicativo `fabric\:/A`. |
@@ -110,15 +110,15 @@ Cria o serviço de malha do serviço especificado.
 | --int-scheme-low | O final do intervalo de chaves de inteiros, se estiver usando um esquema de partição de inteiros uniforme. |
 | --load-metrics | Lista de métricas codificada em JSON, usada ao balancear as cargas de serviços entre nós. |
 | --min-replica-set-size | O tamanho mínimo do conjunto de réplicas como um número. Aplica-se apenas a serviços com estado. |
-| --move-cost | Especifica o custo da mudança para o serviço. Os valores possíveis são\: ' zero ', ' low ', ' Medium ', ' High ', ' VeryHigh '. |
+| --move-cost | Especifica o custo da mudança para o serviço. Os valores possíveis são\: 'Zero', 'Baixo', 'Médio', 'Alto', 'Muito Alto'. |
 | --named-scheme | Indica que o serviço deve ter várias partições nomeadas. |
 | --named-scheme-list | Lista de nomes codificada em JSON para particionar o serviço, se estiver usando o esquema de partição nomeada. |
 | --no-persisted-state | Se verdadeiro, indica que o serviço não tem um estado persistente armazenado no disco local, ou só armazena o estado na memória. |
-| --placement-policy-list | Lista codificada por JSON de políticas de posicionamento para o serviço e quaisquer nomes de domínio associados. As políticas podem ser um ou mais dos\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain``RequireDomainDistribution`. |
+| --placement-policy-list | Lista codificada por JSON de políticas de posicionamento para o serviço e quaisquer nomes de domínio associados. As políticas podem ser\: `NonPartiallyPlaceService` `PreferPrimaryDomain`uma `RequireDomain` `RequireDomainDistribution`ou mais de, , . . |
 | --quorum-loss-wait | A duração máxima, em segundos, durante a qual uma partição é permitida em um estado de perda de quorum. Aplica-se apenas a serviços com estado. |
 | --replica-restart-wait | A duração, em segundos, entre a inatividade de uma réplica e a criação de uma nova réplica. Aplica-se apenas a serviços com estado. |
 | -políticas de dimensionamento | Lista de políticas para esse serviço de dimensionamento codificados para JSON. |
-| --Service-Placement-time | A duração pela qual as réplicas podem permanecer incompiladas antes de relatar que a compilação está paralisada. Aplica-se apenas a serviços com estado. |
+| --tempo de colocação de serviço | A duração para a qual as réplicas podem permanecer InBuild antes de reportar essa compilação está presa. Aplica-se apenas a serviços com estado. |
 | --singleton-scheme | Indica que o serviço deve ter uma única partição ou ser um serviço não particionado. |
 | --stand-by-replica-keep | A duração máxima, em segundos, para qual espera réplicas serão mantidas antes de serem removidos. Aplica-se apenas a serviços com estado. |
 | --stateful | Indica que o serviço tem estado. |
@@ -128,7 +128,7 @@ Cria o serviço de malha do serviço especificado.
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -143,15 +143,15 @@ Um serviço deve ser criado antes que possa ser excluído. Por padrão, do Servi
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --service-id [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
 | --force-remove | Force a remoção de um aplicativo ou serviço do Service Fabric sem passar pela sequência de desligamento normal. Esse parâmetro pode ser usado para forçar a exclusão de um aplicativo ou serviço para o qual a exclusão estiver ultrapassando o tempo limite, devido a problemas no código do serviço que impedem o fechamento normal das réplicas. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -166,17 +166,17 @@ Obtém a lista que contém as informações sobre um tipo de serviço específic
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --application-id      [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | -nome de nó [requerido] | O nome do nó. |
 | ---nome do tipo serviço [requerido] | Especifica o nome de um tipo de serviço do Service Fabric. |
 | --service-manifest-name | O nome do manifesto do serviço para filtrar a lista de informações de tipo de serviço implantado. Se especificado, a resposta conterá apenas as informações sobre os tipos de serviço que são definidos neste manifesto de serviço. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -191,16 +191,16 @@ Obtém a lista que contém as informações sobre os tipos de serviço dos aplic
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | --node-name      [Obrigatório] | O nome do nó. |
 | --service-manifest-name | O nome do manifesto do serviço para filtrar a lista de informações de tipo de serviço implantado. Se especificado, a resposta conterá apenas as informações sobre os tipos de serviço que são definidos neste manifesto de serviço. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -215,14 +215,14 @@ Obtém a descrição de um serviço do Service Fabric existente. É necessário 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --service-id [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -237,7 +237,7 @@ Obtém os logs do contêiner para contêiner implantado em um nó de malha do se
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --application-id      [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | -código de-nome do pacote [requerido] | O nome do pacote de código especificado no manifesto de serviço registrado como parte de um tipo de aplicativo em um cluster do Service Fabric. |
@@ -245,11 +245,11 @@ Obtém os logs do contêiner para contêiner implantado em um nó de malha do se
 | --service-manifest-name    [Obrigatório] | O nome de um manifesto de serviço registrado como parte de um tipo de aplicativo em um cluster do Service Fabric. |
 | -anterior | Especifica se deve obter logs de contêiner contêineres/mortas saiu da instância do pacote de código. |
 | -final | Número de linhas a serem mostradas do final dos logs. O padrão é 100. 'todos' para mostrar os logs de conclusão. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -264,17 +264,17 @@ Obtém as informações de integridade do serviço especificado. Use EventsHealt
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --service-id          [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
 | --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são enumerações baseadas no sinalizador. Assim, o valor pode ser uma combinação desses valores obtidos, usando o operador “OR” bit a bit. Por exemplo, se o valor fornecido for 6, serão retornados todos os eventos com o valor de HealthState de OK (2) e de Aviso (4).  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
 | --exclude-health-statistics | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. Falso por padrão. As estatísticas mostram o número de entidades filhas nos estados de integridade Ok, Warning e Error. |
 | --partitions-health-state-filter | Permite a filtragem dos objetos de estado de integridade das partições retornados no resultado da consulta de integridade de serviço, com base em seu estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente as partições que correspondem ao filtro são retornadas. Todas as partições são usadas para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for "6", o estado de integridade das partições com um valor de HealthState OK (2) e Warning (4) retornará.  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -289,15 +289,15 @@ Retorna as informações sobre o serviço especificado pertencentes ao aplicativ
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | --service-id          [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -312,16 +312,16 @@ Retorna as informações sobre todos os serviços pertencentes ao aplicativo esp
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | --continuation-token | O parâmetro do token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluso na resposta da API quando os resultados do sistema não couberem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
 | --service-type-name | O nome de tipo de serviço usado para filtrar os serviços para consulta. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -336,16 +336,16 @@ Obtém o manifesto que descreve um tipo de serviço. A resposta contém o XML do
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --application-type-name    [Obrigatório] | O nome do tipo de aplicativo. |
 | --application-type-version [Obrigatório] | A versão do tipo de aplicativo. |
 | --service-manifest-name    [Obrigatório] | O nome de um manifesto de serviço registrado como parte de um tipo de aplicativo em um cluster do Service Fabric. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -358,7 +358,7 @@ Baixa os pacotes associados ao manifesto de serviço especificado para o cache d
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | -aplicativo-nome do tipo [requerido] | O nome do manifesto do aplicativo para o manifesto de serviço solicitado correspondente. |
 | --tipo-versão do aplicativo [requerido] | A versão do manifesto do aplicativo para o manifesto de serviço solicitado correspondente. |
@@ -369,7 +369,7 @@ Baixa os pacotes associados ao manifesto de serviço especificado para o cache d
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -384,17 +384,17 @@ Obtém as informações sobre a integridade do pacote de serviço para um aplica
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --id do aplicativo [requerido] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | -nome de nó [requerido] | O nome do nó. |
 | -serviço-nome do pacote [requerido] | O nome do pacote de serviço. |
 | --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são enumerações baseadas no sinalizador. Assim, o valor pode ser uma combinação desses valores obtidos, usando o operador “OR” bit a bit. Por exemplo, se o valor fornecido for 6, serão retornados todos os eventos com o valor de HealthState de OK (2) e de Aviso (4).  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -409,16 +409,16 @@ Retorna as informações sobre os pacotes de serviço implantado em um nó de ma
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --id do aplicativo [requerido] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | -nome de nó [requerido] | O nome do nó. |
 | -serviço-nome do pacote [requerido] | O nome do pacote de serviço. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -433,15 +433,15 @@ Retorna as informações sobre os pacotes de serviço implantado em um nó de ma
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | --node-name      [Obrigatório] | O nome do nó. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -456,14 +456,14 @@ Indica para o cluster do Service Fabric que ele deve tentar recuperar o serviço
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --service-id [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -478,7 +478,7 @@ Relata o estado de integridade do serviço de malha do serviço especificado. O 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --health-property [Obrigatório] | A propriedade das informações de integridade. <br><br> Uma entidade pode ter relatórios de integridade para propriedades diferentes. A propriedade é uma cadeia de caracteres e não uma enumeração fixa para permitir ao relator flexibilidade para categorizar a condição de estado que dispara o relatório. Por exemplo, um relator com SourceId "LocalWatchdog" pode monitorar o estado do disco disponível em um nó, para poder relatar a propriedade "AvailableDisk" nesse nó. O mesmo relator pode monitorar a conectividade do nó, para que ele possa relatar a "Conectividade" de uma propriedade no mesmo nó. No repositório de integridade, esses relatórios são tratados como eventos de integridade distintos para o nó especificado. Junto com a SourceId, a propriedade identifica exclusivamente as informações de integridade. |
 | --health-state    [Obrigatório] | Os valores possíveis são\: 'Invalid', 'Ok', 'Warning', 'Error', 'Unknown'. |
@@ -493,7 +493,7 @@ Relata o estado de integridade do serviço de malha do serviço especificado. O 
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -508,17 +508,17 @@ Resolve uma partição de serviço do Service Fabric, para obter os pontos de ex
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --service-id [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
 | --partition-key-type | Tipo de chave para a partição. Esse parâmetro é necessário se o esquema de partição para o serviço for Int64Range ou Nomeado. Os valores possíveis são os seguintes. -None (1) - Indica que o parâmetro PartitionKeyValue não foi especificado. Isso é válido para as partições com o esquema de particionamento como Singleton. Esse é o valor padrão. O valor é 1. -Int64Range (2)- Indica que o parâmetro PartitionKeyValue é uma chave de partição int64. Isso é válido para as partições com o esquema de particionamento como Int64Range. O valor é 2. -Named (3) - Indica que o parâmetro PartitionKeyValue é um nome da partição. Isso é válido para as partições com o esquema de particionamento como Named. O valor é 3. |
 | --partition-key-value | Chave de partição. Isso é necessário se o esquema de partição para o serviço for Int64Range ou Named. Essa não é a ID da partição, mas em vez disso, o valor inteiro da chave ou o nome da ID da partição. Por exemplo, se o serviço estiver usando partições de intervalos de 0 a 10, o PartitionKeyValue dele seria um número inteiro nesse intervalo. Consulte a descrição do serviço para ver o intervalo ou o nome. |
 | --previous-rsp-version | O valor no campo Versão da resposta recebida anteriormente. Isso será necessário se o usuário souber que o resultado obtido anteriormente está obsoleto. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -533,15 +533,15 @@ Obtém a lista que contém as informações sobre os tipos de serviço compatív
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --application-type-name    [Obrigatório] | O nome do tipo de aplicativo. |
 | --application-type-version [Obrigatório] | A versão do tipo de aplicativo. |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -554,7 +554,7 @@ Atualiza o serviço especificado usando a descrição de atualização fornecida
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --service-id          [Obrigatório] | A identidade do serviço. Normalmente, é o nome completo do serviço sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço é ' malha\:/myapp/app1/svc1', a identidade de serviço deve ser ' myapp\~app1\~svc1' 6.0 + e ' myapp/app1/svc1' nas versões anteriores. |
 | --constraints | As restrições de posicionamento como uma cadeia de caracteres. As restrições de posicionamento são expressões boolianas nas propriedades de nó, e permitem restringir um serviço a nós específicos com base nos requisitos do serviço. Por exemplo, para posicionar um serviço em nós nos quais NodeType é azul, especifique o seguinte\:: "NodeColor == blue". |
@@ -563,12 +563,12 @@ Atualiza o serviço especificado usando a descrição de atualização fornecida
 | --instance-count | A contagem de instâncias. Aplica-se apenas a serviços sem estado. |
 | --load-metrics | Lista de métricas codificadas em JSON usadas ao balancear as cargas entre os nós. |
 | --min-replica-set-size | O tamanho mínimo do conjunto de réplicas como um número. Aplica-se apenas a serviços com estado. |
-| --move-cost | Especifica o custo da mudança para o serviço. Os valores possíveis são\: ' zero ', ' low ', ' Medium ', ' High ', ' VeryHigh '. |
-| --placement-policy-list | Lista codificada por JSON de políticas de posicionamento para o serviço e quaisquer nomes de domínio associados. As políticas podem ser um ou mais dos\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain``RequireDomainDistribution`. |
+| --move-cost | Especifica o custo da mudança para o serviço. Os valores possíveis são\: 'Zero', 'Baixo', 'Médio', 'Alto', 'Muito Alto'. |
+| --placement-policy-list | Lista codificada por JSON de políticas de posicionamento para o serviço e quaisquer nomes de domínio associados. As políticas podem ser\: `NonPartiallyPlaceService` `PreferPrimaryDomain`uma `RequireDomain` `RequireDomainDistribution`ou mais de, , . . |
 | --quorum-loss-wait | A duração máxima, em segundos, durante a qual uma partição é permitida em um estado de perda de quorum. Aplica-se apenas a serviços com estado. |
 | --replica-restart-wait | A duração, em segundos, entre a inatividade de uma réplica e a criação de uma nova réplica. Aplica-se apenas a serviços com estado. |
 | -políticas de dimensionamento | Lista de políticas para esse serviço de dimensionamento codificados para JSON. |
-| --Service-Placement-time | A duração pela qual as réplicas podem permanecer incompiladas antes de relatar que a compilação está paralisada. Aplica-se apenas a serviços com estado. |
+| --tempo de colocação de serviço | A duração para a qual as réplicas podem permanecer InBuild antes de reportar essa compilação está presa. Aplica-se apenas a serviços com estado. |
 | --stand-by-replica-keep | A duração máxima, em segundos, para qual espera réplicas serão mantidas antes de serem removidos. Aplica-se apenas a serviços com estado. |
 | --stateful | Indica que o serviço de destino tem estado. |
 | --stateless | Indica que o serviço de destino não tem estado. |
@@ -577,7 +577,7 @@ Atualiza o serviço especificado usando a descrição de atualização fornecida
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -586,6 +586,6 @@ Atualiza o serviço especificado usando a descrição de atualização fornecida
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Próximos passos
-- [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
+## <a name="next-steps"></a>Próximas etapas
+- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

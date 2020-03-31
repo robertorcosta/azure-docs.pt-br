@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 9962d4333e458243670d1005ad2ccfbc0bb7c92a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75348910"
 ---
 # <a name="reliable-actors-state-management"></a>Gerenciamento de estado dos Reliable Actors
@@ -116,7 +116,7 @@ Você deve ter uma diretiva clara sobre como gerenciar o tamanho do estado de ca
  
 Se você vir que o tamanho do arquivo de banco de dados de um serviço de atores está aumentando para além do tamanho esperado, certifique-se de que você esteja seguindo as diretrizes anteriores. Se você estiver seguindo essas diretrizes e ainda houver problemas de tamanho de arquivo do banco de dados, você deverá [abrir um tíquete de suporte](service-fabric-support.md) com a equipe de produto para obter ajuda.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 O estado que é armazenado no Reliable Actors deve ser serializado antes de ser gravado no disco e replicado para alta disponibilidade. Saiba mais sobre a [Serialização de tipo de ator](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 

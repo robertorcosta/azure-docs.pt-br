@@ -1,6 +1,6 @@
 ---
 title: Visão geral da API de Retransmissão do Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral das APIs de retransmissão do Azure disponíveis (.NET Standard, .NET Framework, Node. js, etc.)
+description: Este artigo fornece uma visão geral das APIs disponíveis do Azure Relay (.NET Standard, .NET Framework, Node.js, etc.)
 services: event-hubs
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 41d9e2026c19c959dc6fe2546b0ef699571ec7cd
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513959"
 ---
 # <a name="available-relay-apis"></a>APIs de Retransmissão disponíveis
@@ -31,15 +31,15 @@ A seção [informações adicionais](#additional-information) contém mais infor
 
 | Linguagem/plataforma | Recurso disponível | Pacote de cliente | Repositório |
 | --- | --- | --- | --- |
-| .NET Standard | Conexões híbridas | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
-| .NET Framework | Retransmissão do WCF | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/D |
-| Nó | Conexões híbridas | [Websockets: `hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[Websockets: `hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[Solicitações HTTP: `hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
+| .NET Standard | Conexões Híbridas | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
+| .NET Framework | Retransmissão de WCF | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/D |
+| Nó | Conexões Híbridas | [Soquetes:`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[Soquetes:`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[Solicitações HTTP:`hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### <a name="additional-information"></a>Informações adicionais
 
 #### <a name="net"></a>.NET
 
-O ecossistema .NET tem vários runtimes, portanto, há várias bibliotecas .NET para a Retransmissão. A biblioteca .NET Standard pode ser executada usando o .NET Core ou o .NET Framework, enquanto a biblioteca do .NET Framework só pode ser executada em um ambiente do .NET Framework. Para saber mais sobre o .NET Framework, veja [versões da estrutura](/dotnet/articles/standard/frameworks).
+O ecossistema .NET tem vários runtimes, portanto, há várias bibliotecas .NET para a Retransmissão. A biblioteca .NET Standard pode ser executada usando o .NET Core ou o .NET Framework, enquanto a biblioteca do .NET Framework só pode ser executada em um ambiente do .NET Framework. Para obter mais informações sobre .NET Frameworks, consulte [versões-quadro](/dotnet/articles/standard/frameworks).
 
 A biblioteca do .NET Framework dá suporte apenas ao modelo de programação do WCF e conta com um protocolo binário proprietário baseado no transporte WCF `net.tcp`. Este protocolo e biblioteca são mantidos para compatibilidade com aplicativos existentes.
 
@@ -55,8 +55,8 @@ Os módulos `hyco-ws` e `hyco-websocket` corrigem os módulos populares `ws` e `
 
 Detalhes sobre esses módulos podem ser encontrados no repositório GitHub [azure-relay-node](https://github.com/Azure/azure-relay-node).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a Retransmissão do Azure, visite estes links:
 * [O que é Retransmissão do Azure?](relay-what-is-it.md)
-* [Perguntas frequentes sobre retransmissão](relay-faq.md)
+* [Perguntas frequentes sobre Retransmissão](relay-faq.md)

@@ -12,10 +12,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: ac38adba4ca0d978dd48a546bed1b1faf4fe40fe
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79036966"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu com meu projeto do MVC (serviço conectado do Active Directory do Azure do Visual Studio)?
@@ -24,15 +24,15 @@ ms.locfileid: "79036966"
 > - [Introdução](vs-active-directory-dotnet-getting-started.md)
 > - [O que aconteceu](vs-active-directory-dotnet-what-happened.md)
 
-Este artigo identifica as alterações exatas feitas em um projeto MVC do ASP.NET ao adicionar o [serviço conectado do Azure Active Directory usando o Visual Studio](vs-active-directory-add-connected-service.md).
+Este artigo identifica as alterações exatas feitas em um projeto mvc ASP.NET ao adicionar o [serviço conectado a Azure Active Directory usando o Visual Studio](vs-active-directory-add-connected-service.md).
 
 Para obter informações sobre como trabalhar com o serviço conectado, consulte [Introdução](vs-active-directory-dotnet-getting-started.md).
 
 ## <a name="added-references"></a>Referências adicionadas
 
-Afeta o arquivo de projeto (referências de *. NET) e `packages.config` (referências do NuGet).
+Afeta o arquivo do projeto (referências*.NET) e `packages.config` (referências NuGet).
 
-| Tipo | Referência |
+| Type | Referência |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -47,7 +47,7 @@ Afeta o arquivo de projeto (referências de *. NET) e `packages.config` (referê
 
 Referências adicionais se você selecionou a opção **Ler dados do diretório**:
 
-| Tipo | Referência |
+| Type | Referência |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (somente Visual Studio 2015) |
@@ -61,7 +61,7 @@ Referências adicionais se você selecionou a opção **Ler dados do diretório*
 
 As seguintes referências são removidas (somente projetos ASP.NET 4, como no Visual Studio 2015):
 
-| Tipo | Referência |
+| Type | Referência |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
@@ -143,7 +143,7 @@ Alterações adicionais se você selecionou a opção **Ler dados do diretório*
 
 ### <a name="file-backup-visual-studio-2015"></a>Backup de arquivo (Visual Studio 2015)
 
-Ao adicionar o serviço conectado, o Visual Studio 2015 faz backup dos arquivos alterados e removidos. Todos os arquivos afetados são salvos na pasta `Backup/AzureAD`. O Visual Studio 2017 e posterior não cria backups.
+Ao adicionar o serviço conectado, o Visual Studio 2015 faz backup dos arquivos alterados e removidos. Todos os arquivos afetados são salvos na pasta `Backup/AzureAD`. Visual Studio 2017 e posteriormente não cria backups.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`
@@ -161,7 +161,7 @@ Ao adicionar o serviço conectado, o Visual Studio 2015 faz backup dos arquivos 
 
 [Saiba mais sobre o Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
-- [Cenários de autenticação do Azure Active Directory](authentication-scenarios.md)
-- [Adicionar entrada com a Microsoft para um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md)
+- [Cenários de autenticação para Diretório Ativo do Azure](authentication-scenarios.md)
+- [Adicionar a opção Entrar com uma Conta da Microsoft a um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md)

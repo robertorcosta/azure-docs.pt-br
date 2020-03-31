@@ -1,6 +1,6 @@
 ---
 title: Redimensionar uma VM em um laboratório no Azure DevTest Labs
-description: Saiba como alterar o tamanho de uma VM (máquina virtual) em Azure DevTest Labs com base em suas necessidades de desempenho de CPU, rede ou disco.
+description: Aprenda a alterar o tamanho de uma máquina virtual (VM) no Azure DevTest Labs com base nas suas necessidades de desempenho de CPU, rede ou disco.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: bf7c425766a97aaa1d143133f04502a0aa3c36cb
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76756170"
 ---
 # <a name="resize-a-vm-in-a-lab-in-azure-devtest-labs"></a>Redimensionar uma VM em um laboratório no Azure DevTest Labs
@@ -31,7 +31,7 @@ Para redimensionar uma VM em um laboratório no Azure DevTest Labs, siga estas e
 > [!NOTE]
 > Se estiver conectado à VM por meio de uma sessão de área de trabalho remota (RDP), salve seu trabalho e desconecte-se da VM antes de redimensioná-la.
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Faça login no [portal Azure](https://portal.azure.com).
 2. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 3. Na lista de laboratórios, selecione o laboratório que inclui a VM que você deseja redimensionar.  
 4. No painel esquerdo, selecione **Minhas Máquinas Virtuais**. 
@@ -49,7 +49,7 @@ Para redimensionar uma VM em um laboratório no Azure DevTest Labs, siga estas e
 10. Depois que a operação de redimensionamento for bem-sucedida, feche a janela **Notificações**. 
 11. Selecione **Visão geral** no menu à esquerda e selecione **Reiniciar** na barra de ferramentas para reiniciar a VM. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter informações detalhadas sobre o recurso de redimensionamento compatível com as máquinas virtuais do Azure, confira [Redimensionar máquinas virtuais](https://azure.microsoft.com/blog/resize-virtual-machines/).
 
 

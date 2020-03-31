@@ -1,5 +1,5 @@
 ---
-title: Configurar identidades gerenciadas no Azure VMSS usando REST – Azure AD
+title: Configure identidades gerenciadas no Azure VMSS usando REST - Azure AD
 description: Instruções passo a passo para configurar identidades gerenciadas atribuídas ao usuário e ao sistema em um VMSS do Azure usando CURL para fazer chamadas à API REST.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dce9894b26d03c351a2209792cc076de91feba54
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253332"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando chamadas à API REST
@@ -33,9 +33,9 @@ Neste artigo, usando CURL para fazer chamadas ao ponto de extremidade de REST do
 - Habilitar e desabilitar a identidade gerenciada atribuída ao sistema em um conjunto de dimensionamento de máquinas virtuais do Azure
 - Adicionar e remover uma identidade gerenciada atribuída ao usuário em um conjunto de dimensionamento de máquinas virtuais do Azure
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para realizar as operações de gerenciamento deste artigo, a conta precisa das seguintes atribuições de controle de acesso baseado em função do Azure:
 
@@ -46,7 +46,7 @@ Neste artigo, usando CURL para fazer chamadas ao ponto de extremidade de REST do
     - [Função de Contratada de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerenciada atribuída pelo usuário.
     - Função de [Operador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade atribuída ao usuário de e para um conjunto de dimensionamento de máquinas virtuais.
 - Se você estiver usando o Windows, instale o [subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou use o [Azure Cloud Shell](../../cloud-shell/overview.md) no portal do Azure.
-- Se você usa o [subsistema do Windows para Linux](/cli/azure/install-azure-cli) ou um [SO de distribuição do Linux](https://msdn.microsoft.com/commandline/wsl/about), [instale o console local da CLI do Azure](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
+- Se você usa o [subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou um [SO de distribuição do Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [instale o console local da CLI do Azure](/cli/azure/install-azure-cli).
 - Se você estiver usando o console local do Azure CLI, faça logon no Azure usando `az login` com uma conta associada à assinatura do Azure que deseja gerenciar as identidades gerenciadas pelo sistema ou pelo usuário.
 
 
@@ -90,12 +90,12 @@ Para criar um conjunto de dimensionamento de máquinas virtuais com identidade g
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
    |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
-   **Corpo da solicitação**
+   **Solicitar corpo**
 
    ```JSON
     {
@@ -185,12 +185,12 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
    |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
-   **Corpo da solicitação**
+   **Solicitar corpo**
 
    ```JSON
     {
@@ -218,12 +218,12 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
    |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |
  
-   **Corpo da solicitação**
+   **Solicitar corpo**
 
    ```JSON
     {
@@ -252,12 +252,12 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
    |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
-   **Corpo da solicitação**
+   **Solicitar corpo**
 
    ```JSON
     {
@@ -296,12 +296,12 @@ Para desabilitar uma identidade gerenciada atribuída ao sistema em um conjunto 
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
    |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
-   **Corpo da solicitação**
+   **Solicitar corpo**
 
    ```JSON
     {
@@ -353,12 +353,12 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
    |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
-   **Corpo da solicitação**
+   **Solicitar corpo**
 
    ```JSON
     {
@@ -440,12 +440,12 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
    |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |
  
-   **Corpo da solicitação**
+   **Solicitar corpo**
 
    ```JSON
     {
@@ -535,7 +535,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |   
  
@@ -556,12 +556,12 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
    |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
-   **Corpo da solicitação**
+   **Solicitar corpo**
 
    ```JSON
     {
@@ -588,12 +588,12 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
    |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
-   **Corpo da solicitação**
+   **Solicitar corpo**
 
    ```JSON
     {
@@ -624,12 +624,12 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
    |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
-   **Corpo da solicitação**
+   **Solicitar corpo**
 
    ```JSON
     {
@@ -663,12 +663,12 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
     **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
    |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
-   **Corpo da solicitação**
+   **Solicitar corpo**
 
    ```JSON
     {
@@ -702,7 +702,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |
    
@@ -724,12 +724,12 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
    |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
-   **Corpo da solicitação**
+   **Solicitar corpo**
 
    ```JSON
     {
@@ -756,12 +756,12 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |DESCRIÇÃO  |
+   |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
    |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
-   **Corpo da solicitação**
+   **Solicitar corpo**
 
    ```JSON
     {
@@ -786,12 +786,12 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Cabeçalhos da solicitação**
 
-|Cabeçalho da solicitação  |DESCRIÇÃO  |
+|Cabeçalho da solicitação  |Descrição  |
 |---------|---------|
-|*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+|*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
 |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
-**Corpo da solicitação**
+**Solicitar corpo**
 
 ```JSON
 {
@@ -813,12 +813,12 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Cabeçalhos da solicitação**
 
-|Cabeçalho da solicitação  |DESCRIÇÃO  |
+|Cabeçalho da solicitação  |Descrição  |
 |---------|---------|
-|*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+|*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
 |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
-**Corpo da solicitação**
+**Solicitar corpo**
 
 ```JSON
 {

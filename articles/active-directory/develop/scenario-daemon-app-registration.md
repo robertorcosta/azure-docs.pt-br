@@ -1,6 +1,6 @@
 ---
-title: Registrar aplicativos de daemon que chamam APIs da Web-plataforma de identidade da Microsoft | Azure
-description: Saiba como criar um aplicativo daemon que chama APIs da Web-registro de aplicativo
+title: Registre aplicativos daemon que chamam de APIs web - plataforma de identidade da Microsoft | Azure
+description: Saiba como criar um aplicativo daemon que chama APIs web - registro de aplicativos
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,43 +16,43 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 922a484d111746e5073c08a64d7c92e2b6b4a7c4
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773386"
 ---
-# <a name="daemon-app-that-calls-web-apis---app-registration"></a>Aplicativo daemon que chama APIs Web-registro de aplicativo
+# <a name="daemon-app-that-calls-web-apis---app-registration"></a>Aplicativo Daemon que chama APIs web - registro de aplicativos
 
-Para um aplicativo daemon, veja o que você precisa saber ao registrar o aplicativo.
+Para um aplicativo daemon, aqui está o que você precisa saber quando você registrar o aplicativo.
 
 ## <a name="supported-account-types"></a>Tipos de conta com suporte
 
-Os aplicativos daemon fazem sentido apenas em locatários do Azure AD. Portanto, ao criar o aplicativo, você precisa escolher uma das seguintes opções:
+As aplicações da Daemon só fazem sentido em inquilinos azure AD. Então, ao criar o aplicativo, você precisa escolher uma das seguintes opções:
 
-- **Contas somente neste diretório organizacional**. Essa opção é a mais comum porque os aplicativos de daemon são geralmente escritos por desenvolvedores de linha de negócios (LOB).
-- **Contas em qualquer diretório organizacional**. Você fará essa escolha se for um ISV que fornece uma ferramenta de utilitário para seus clientes. Você precisará dos administradores de locatário de seus clientes para aprová-lo.
+- **Contas apenas neste diretório organizacional**. Essa escolha é a mais comum porque os aplicativos daemon geralmente são escritos por desenvolvedores de linha de negócios (LOB).
+- **Contas em qualquer diretório organizacional**. Você fará essa escolha se você for um ISV fornecendo uma ferramenta de utilidade para seus clientes. Você precisará dos adínisas de seus clientes para aprová-lo.
 
-## <a name="authentication---no-reply-uri-needed"></a>Autenticação-nenhum URI de resposta necessário
+## <a name="authentication---no-reply-uri-needed"></a>Autenticação - não é necessário responder URI
 
-No caso em que seu aplicativo cliente confidencial usa *apenas* o fluxo de credenciais do cliente, o URI de resposta não precisa ser registrado. Não é necessário para a configuração ou a construção do aplicativo. O fluxo de credenciais do cliente não o utiliza.
+No caso de seu aplicativo cliente confidencial usar *apenas* o fluxo de credenciais do cliente, o URI de resposta não precisa ser registrado. Não é necessário para a configuração ou construção do aplicativo. O fluxo de credenciais do cliente não o usa.
 
-## <a name="api-permissions---app-permissions-and-admin-consent"></a>Permissões de API-permissões de aplicativo e consentimento de administrador
+## <a name="api-permissions---app-permissions-and-admin-consent"></a>Permissões de API - permissões de aplicativos e consentimento de admin
 
-Um aplicativo daemon pode solicitar permissões de aplicativo somente para APIs (permissões não delegadas). Na página **permissões de API** para o registro do aplicativo, depois de selecionar **Adicionar uma permissão** e escolher a família de API, escolha **permissões de aplicativo**e, em seguida, selecione suas permissões.
+Um aplicativo daemon pode solicitar apenas permissões de solicitação para APIs (não permissões delegadas). Na página **de permissões** da API para o registro do aplicativo, depois de selecionado **Adicionar uma permissão** e escolher a família API, escolha **permissões de aplicativo**e, em seguida, selecione suas permissões.
 
-![Permissões do aplicativo e consentimento do administrador](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
+![Permissões de aplicativos e consentimento de admin](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
 > [!NOTE]
-> A API da Web que você deseja chamar precisa definir *permissões de aplicativo (funções de aplicativo)* , permissões não delegadas. Para obter detalhes sobre como expor essa API, consulte [API Web protegida: registro de aplicativo – quando sua API Web é chamada por um aplicativo daemon](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
+> A API web que você deseja chamar precisa definir *permissões de aplicativos (funções de aplicativo)*, não permissões delegadas. Para obter detalhes sobre como expor tal API, consulte [API web protegida: Registro de aplicativos - quando sua API web é chamada por um aplicativo daemon](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
 
-Os aplicativos daemon exigem que um administrador de locatário consentisse previamente o aplicativo que chama a API da Web. Os administradores de locatários fornecem esse consentimento na mesma página de **permissão de API** selecionando **conceder consentimento de administrador para *nossa organização***
+Os aplicativos Daemon exigem que um inquilino admin pré-consentimento para o aplicativo que chama a API web. Os admins do inquilino fornecem esse consentimento na mesma página de permissão da **API,** selecionando **o consentimento do grant admin para *nossa organização* **
 
-Se você for um ISV criando um aplicativo multilocatário, leia a seção [implantação-caso de aplicativos de daemon multilocatário](scenario-daemon-production.md#deployment---multitenant-daemon-apps).
+Se você é um ISV construindo um aplicativo multilocatário, você deve ler a seção [Implantação - caso de aplicativos daemon multilocatários](scenario-daemon-production.md#deployment---multitenant-daemon-apps).
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Aplicativo daemon-configuração de código do aplicativo](./scenario-daemon-app-configuration.md)
+> [Aplicativo Daemon - configuração de código de aplicativo](./scenario-daemon-app-configuration.md)

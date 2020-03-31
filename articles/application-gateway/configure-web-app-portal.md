@@ -1,7 +1,7 @@
 ---
-title: Gerenciar o tráfego para aplicativos multilocatários usando o portal
+title: Gerencie o tráfego para aplicativos multilocatários usando o portal
 titleSuffix: Azure Application Gateway
-description: Este artigo fornece orientação sobre como configurar os aplicativos Web do serviço Azure App como membros no pool de back-end em um gateway de aplicativo novo ou existente.
+description: Este artigo fornece orientações sobre como configurar os aplicativos web de serviço do Azure App como membros no pool de backend em um gateway de aplicativo existente ou novo.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -9,91 +9,91 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
 ms.openlocfilehash: 0ec417b3c7a025d2d05bdd74ec683a2891c3b0de
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74075175"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurar Serviço de Aplicativo com Gateway de Aplicativo
 
-Como o serviço de aplicativo é um serviço multilocatário em vez de uma implantação dedicada, ele usa o cabeçalho de host na solicitação de entrada para resolver a solicitação para o ponto de extremidade correto do serviço de aplicativo. Normalmente, o nome DNS do aplicativo que, por sua vez, é o nome DNS associado ao gateway de aplicativo que o serviço de aplicativo, é diferente do nome de domínio do serviço de aplicativo de back-end. Portanto, o cabeçalho de host na solicitação original recebida pelo gateway de aplicativo não é o mesmo que o nome de host do serviço de back-end. Por isso, a menos que o cabeçalho de host na solicitação do gateway de aplicativo para o back-end seja alterado para o nome de host do serviço de back-end, os back-ends de vários locatários não poderão resolver a solicitação para o ponto de extremidade correto.
+Como o serviço de aplicativo é um serviço de vários locatários em vez de uma implantação dedicada, ele usa o cabeçalho do host na solicitação recebida para resolver a solicitação para o ponto final de serviço de aplicativo correto. Normalmente, o nome DNS do aplicativo, que por sua vez é o nome DNS associado ao gateway de aplicativo em frente ao serviço do aplicativo, é diferente do nome de domínio do serviço de aplicativo backend. Portanto, o cabeçalho host na solicitação original recebida pelo gateway de aplicativo não é o mesmo que o nome de host do serviço backend. Por causa disso, a menos que o cabeçalho host na solicitação do gateway de aplicativo para o backend seja alterado para o nome de host do serviço backend, os backends de vários inquilinos não são capazes de resolver a solicitação para o ponto final correto.
 
-O gateway de aplicativo fornece uma opção chamada `Pick host name from backend address` que substitui o cabeçalho de host na solicitação pelo nome de host do back-end quando a solicitação é roteada do gateway de aplicativo para o back-end. Esse recurso habilita o suporte para back-ends de vários locatários, como o serviço de aplicativo do Azure e o gerenciamento de API. 
+O Application Gateway `Pick host name from backend address` fornece um switch chamado que substitui o cabeçalho host na solicitação com o nome do host do back-end quando a solicitação é roteada do Gateway de aplicativo para o backend. Esse recurso permite o suporte para back-ends de vários inquilinos, como serviço de aplicativos Azure e gerenciamento de API. 
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 >
-> - Criar um pool de back-end e adicionar um serviço de aplicativo a ele
-> - Criar configurações de HTTP e investigação personalizada com opções "escolher nome do host" habilitadas
+> - Crie um pool de back-end e adicione um serviço de aplicativo a ele
+> - Crie configurações HTTP e teste personalizado com switches "Pick Hostname" ativado
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-- Gateway de aplicativo: se você não tiver um gateway de aplicativo existente, consulte como [criar um gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-- Serviço de aplicativo: se você não tiver um serviço de aplicativo existente, consulte a [documentação do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/).
+- Gateway de aplicativo: Se você não tiver um gateway de aplicativo existente, veja como [criar um gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+- Serviço de aplicativo: Se você não tem um serviço de aplicativo existente, consulte [a documentação do serviço do Aplicativo](https://docs.microsoft.com/azure/app-service/).
 
-## <a name="add-app-service-as-backend-pool"></a>Adicionar serviço de aplicativo como pool de back-end
+## <a name="add-app-service-as-backend-pool"></a>Adicionar serviço de aplicativo como pool de backend
 
-1. No portal do Azure, abra o modo de exibição de configuração do seu gateway de aplicativo.
+1. No portal Azure, abra a visualização de configuração do gateway de aplicativo.
 
-2. Em **pools de back-end**, clique em **Adicionar** para criar um novo pool de back-end.
+2. Em **pools Backend,** clique em **Adicionar** para criar um novo pool de back-end.
 
-3. Forneça um nome adequado para o pool de back-end. 
+3. Forneça um nome adequado para a piscina de backend. 
 
-4. Em **destinos**, clique na lista suspensa e escolha **serviços de aplicativos** como a opção.
+4. Em **Targets,** clique no dropdown e escolha **Serviços de aplicativos** como opção.
 
-5. Uma lista suspensa logo abaixo da lista suspensa **destinos** aparecerá, que conterá uma List dos serviços de aplicativo. Nessa lista suspensa, escolha o serviço de aplicativo que você deseja adicionar como um membro do pool de back-end e clique em Adicionar.
+5. Uma lista de paradas imediatamente abaixo da lista de alvos será exibida, que conterá uma lista de **serviços** de aplicativos. A partir deste dropdown, escolha o Serviço de aplicativo que deseja adicionar como membro do pool de backend e clique em Adicionar.
 
-   ![Back-end do serviço de aplicativo](./media/configure-web-app-portal/backendpool.png)
+   ![Backend de serviço de aplicativo](./media/configure-web-app-portal/backendpool.png)
    
    > [!NOTE]
-   > A lista suspensa preencherá apenas os serviços de aplicativos que estão na mesma assinatura que o seu gateway de aplicativo. Se você quiser usar um serviço de aplicativo que esteja em uma assinatura diferente daquela em que o gateway de aplicativo está, em vez de escolher **serviços de aplicativos** na lista suspensa **destinos** , escolha **endereço IP ou** opção de nome de host e insira o nome do host (exemplo. azurewebsites.net) do serviço de aplicativo.
+   > A isto será apenas preenchida pelos serviços de aplicativos que estão na mesma assinatura do gateway do aplicativo. Se você quiser usar um serviço de aplicativo que esteja em uma assinatura diferente da em que o Gateway de aplicativo está, em vez de escolher **serviços** de aplicativo na lista **de alvos,** escolha endereço IP ou opção **de nome de host** e digite o nome do host (exemplo. azurewebsites.net) do serviço de aplicativo.
 
-## <a name="create-http-settings-for-app-service"></a>Criar configurações de HTTP para o serviço de aplicativo
+## <a name="create-http-settings-for-app-service"></a>Crie configurações HTTP para o serviço do aplicativo
 
-1. Em **configurações de http**, clique em **Adicionar** para criar uma nova configuração de http.
+1. Em **Configurações HTTP,** clique **em Adicionar** para criar uma nova configuração HTTP.
 
-2. Insira um nome para a configuração de HTTP e você pode habilitar ou desabilitar a afinidade baseada em cookie de acordo com seu requisito.
+2. Insira um nome para a configuração HTTP e você pode ativar ou desativar a Afinidade Baseada em Cookies conforme sua exigência.
 
-3. Escolha o protocolo como HTTP ou HTTPS de acordo com seu caso de uso. 
+3. Escolha o protocolo como HTTP ou HTTPS conforme o seu caso de uso. 
 
    > [!NOTE]
-   > Se você selecionar HTTPS, não será necessário carregar nenhum certificado de autenticação ou certificado raiz confiável para a lista de permissões de back-end do serviço de aplicativo, pois o serviço de aplicativo é um serviço do Azure confiável.
+   > Se você selecionar HTTPS, você não precisará carregar nenhum certificado de autenticação ou certificado raiz confiável para listar o backend do serviço de aplicativo, já que o serviço do aplicativo é um serviço Azure confiável.
 
-4. Marque a caixa para **uso do serviço de aplicativo** . Observe que as opções `Create a probe with pick host name from backend address` e `Pick host name from backend address` serão habilitadas automaticamente.`Pick host name from backend address` substituirá o cabeçalho de host na solicitação pelo nome do host do back-end quando a solicitação for roteada do gateway de aplicativo para o back-end.  
+4. Verifique a caixa para **uso para o serviço de aplicativo** . Observe que os `Create a probe with pick host name from backend address` `Pick host name from backend address` switches e serão automaticamente ativados.`Pick host name from backend address` substituirá o cabeçalho do host na solicitação com o nome do host do back-end quando a solicitação for roteada do Gateway de aplicativo para o backend.  
 
-   `Create a probe with pick host name from backend address` criará automaticamente uma investigação de integridade e a associará a essa configuração de HTTP. Você não precisa criar nenhuma outra investigação de integridade para essa configuração de HTTP. Você pode verificar se uma nova investigação com o nome <HTTP Setting name><Unique GUID> foi adicionada na lista de investigações de integridade e já tem a opção `Pick host name from backend http settings enabled`.
+   `Create a probe with pick host name from backend address`criará automaticamente um teste de saúde e o associará a esta configuração HTTP. Você não precisa criar nenhum outro teste de saúde para esta configuração HTTP. Você pode verificar se um <HTTP Setting name> <Unique GUID> novo teste com o nome foi adicionado na `Pick host name from backend http settings enabled`lista de sondas de saúde e já tem o switch .
 
-   Se você já tiver uma ou mais configurações HTTP que estão sendo usadas para o serviço de aplicativo e se essas configurações de HTTP usarem o mesmo protocolo que o que você está usando no que você está criando, em vez da opção `Create a probe with pick host name from backend address`, você obterá uma lista suspensa para selecionar uma das investigações personalizadas. Isso ocorre porque, como já existe uma configuração HTTP com o serviço de aplicativo, por isso, também existe uma investigação de integridade que tem a opção `Pick host name from backend http settings enabled`. Escolha essa investigação personalizada na lista suspensa.
+   Se você já tem uma ou mais configurações HTTP que estão sendo usadas para o serviço do App e se essas configurações HTTP usarem o mesmo protocolo que você está usando no que você está criando, então, em vez do `Create a probe with pick host name from backend address` switch, você receberá uma parada para selecionar um dos testes personalizados . Isso porque como já existe uma Configuração HTTP com serviço de aplicativo, portanto, `Pick host name from backend http settings enabled` também existiria um teste de saúde que tem o switch . Escolha essa sonda personalizada no dropdown.
 
-5. Clique em **OK** para criar a configuração de http.
+5. Clique em **OK** para criar a configuração HTTP.
 
-   ![HTTP-Setting1](./media/configure-web-app-portal/http-setting1.png)
+   ![Configuração HTTP1](./media/configure-web-app-portal/http-setting1.png)
 
-   ![HTTP-setting2](./media/configure-web-app-portal/http-setting2.png)
+   ![Configuração HTTP2](./media/configure-web-app-portal/http-setting2.png)
 
 
 
-## <a name="create-rule-to-tie-the-listener-backend-pool-and-http-setting"></a>Criar regra para ligar o ouvinte, o pool de back-end e a configuração de HTTP
+## <a name="create-rule-to-tie-the-listener-backend-pool-and-http-setting"></a>Criar regra para amarrar o ouvinte, o backend pool e a configuração HTTP
 
-1. Em **regras**, clique em **básico** para criar uma nova regra básica.
+1. Em **Regras,** clique **em Básico** para criar uma nova regra Básica.
 
-2. Forneça um nome adequado e selecione o ouvinte que irá aceitar as solicitações de entrada para o serviço de aplicativo.
+2. Forneça um nome adequado e selecione o ouvinte que aceitará as solicitações recebidas para o serviço do App.
 
-3. Na lista suspensa **pool de back-end** , escolha o pool de back-end que você criou acima.
+3. No **pool de backend,** escolha o pool de back-end que você criou acima.
 
-4. Na lista suspensa **configuração de http** , escolha a configuração http que você criou acima.
+4. Na **configuração HTTP,** escolha a configuração HTTP que você criou acima.
 
 5. Clique em **OK** para salvar esta regra.
 
    ![Regra](./media/configure-web-app-portal/rule.png)
 
-## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Configuração adicional no caso de redirecionamento para o caminho relativo do serviço de aplicativo
+## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Configuração adicional em caso de redirecionamento para o caminho relativo do serviço de aplicativo
 
-Quando o serviço de aplicativo envia uma resposta de redirecionamento para o cliente para redirecionar para seu caminho relativo (por exemplo, um redirecionamento de contoso.azurewebsites.net/path1 para contoso.azurewebsites.net/path2), ele usa o mesmo nome de host no cabeçalho de local de sua resposta como aquele na solicitação recebida do gateway de aplicativo. Portanto, o cliente fará a solicitação diretamente para contoso.azurewebsites.net/path2 em vez de passar pelo gateway de aplicativo (contoso.com/path2). Ignorar o gateway de aplicativo não é desejável.
+Quando o serviço de aplicativo envia uma resposta de redirecionamento ao cliente para redirecionar para seu caminho relativo (Por exemplo, um redirecionamento de contoso.azurewebsites.net/path1 para contoso.azurewebsites.net/path2), ele usa o mesmo nome de host no cabeçalho de localização de sua resposta como o da solicitação recebida do gateway do aplicativo. Assim, o cliente fará a solicitação diretamente para contoso.azurewebsites.net/path2 em vez de passar pelo gateway de aplicativo (contoso.com/path2). Ignorar o gateway do aplicativo não é desejável.
 
-Se, em seu caso de uso, houver cenários em que o serviço de aplicativo precisará enviar uma resposta de redirecionamento para o cliente, execute as [etapas adicionais para regravar o cabeçalho de local](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration).
+Se no seu caso de uso, houver cenários em que o serviço do App precisará enviar uma resposta de redirecionamento ao cliente, executar as [etapas adicionais para reescrever o cabeçalho de localização](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration).
 
 ## <a name="restrict-access"></a>Restringir acesso
 
@@ -103,4 +103,4 @@ Uma forma de você restringir o acesso a seus aplicativos web de uma maneira é 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o serviço de aplicativo e outros suporte a vários locatários com o gateway de aplicativo, consulte [suporte a serviços multilocatários com o gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
+Para saber mais sobre o serviço do App e outros suportes a vários inquilinos com gateway de aplicativo, consulte [suporte a serviços multilocatários com gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).

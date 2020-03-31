@@ -1,14 +1,14 @@
 ---
-title: Dimensionamento do Cluster Service Fabric do Azure
-description: Saiba mais sobre dimensionamento de clusters do Azure Service Fabric para reduzir ou escalar horizontalmente e reduzir ou escalar verticalmente. À medida que as demandas de aplicativo mudam, podem Service Fabric clusters.
+title: Dimensionamento do cluster de malha de serviço azure
+description: Saiba mais sobre dimensionamento de clusters do Azure Service Fabric para reduzir ou escalar horizontalmente e reduzir ou escalar verticalmente. À medida que as demandas de aplicativos mudam, os clusters de malha de serviço também podem mudar.
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
 ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258688"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Dimensionar clusters do Azure Service Fabric
@@ -28,7 +28,7 @@ Ao dimensionar um cluster do Azure, lembre-se das diretrizes a seguir:
 - os tipos de nós primários que executam cargas de trabalho de produção sempre devem ter cinco ou mais nós.
 - os tipos de nó não primário que executam cargas de trabalho de produção com estado sempre devem ter cinco ou mais nós.
 - os tipos de nó não primário que executam cargas de trabalho de produção sem estado sempre devem ter dois ou mais nós.
-- Qualquer tipo de nó de [nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Ouro ou Prata sempre deve ter cinco ou mais nós.
+- Todos os tipos de nó com [nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Ouro ou Prata sempre devem ter cinco ou mais nós.
 - Não remova nós/instâncias de VM aleatórias de um tipo de nó, sempre use o recurso de redução vertical do conjunto de dimensionamento de máquinas virtuais. A exclusão de instâncias de VM aleatórias pode afetar negativamente a capacidade do sistema para balancear carga adequadamente.
 - Se estiver usando regras de autoescala, defina as regras para que a redução horizontal (remoção de instâncias de VM) seja feito um nó por vez. Redução de mais de uma instância em um momento não é segura.
 
@@ -37,7 +37,7 @@ Como os tipos de nós do Service Fabric no cluster são compostos de conjuntos d
 ### <a name="programmatic-scaling"></a>Dimensionamento programático
 Em muitos cenários, [Dimensionar um cluster manualmente ou com regras de autoescala](service-fabric-cluster-scale-up-down.md) é uma boa solução. Para cenários mais avançados, no entanto, eles podem não ser adequados. As desvantagens desses métodos incluem:
 
-- O dimensionamento manual exige que você entre e solicite explicitamente as operações de dimensionamento. Se as operações de dimensionamento são necessárias com frequência ou em momentos imprevisíveis, essa abordagem não pode ser uma boa solução.
+- O dimensionamento manual exige que você faça login e solicite explicitamente operações de dimensionamento. Se as operações de dimensionamento são necessárias com frequência ou em momentos imprevisíveis, essa abordagem não pode ser uma boa solução.
 - Quando as regras de dimensionamento automático removem uma instância de um conjunto de dimensionamento de máquinas virtuais, elas não removem o conhecimento do nó do cluster do Service Fabric associado, a menos que o tipo de nó tenha um nível de durabilidade de Prata ou Ouro. Como as regras de dimensionamento automático funcionam no nível do conjunto de dimensionamento (em vez do nível do Service Fabric), elas podem remover nós do Service Fabric sem desligá-lo normalmente. Essa remoção de nó sem maiores cuidados deixará um estado do nó do Service Fabric “fantasma” de rastro após as operações de redução horizontal. Uma pessoa (ou um serviço) precisaria limpar periodicamente o estado do nó removido no cluster do Service Fabric.
 - Um tipo de nó com um nível de durabilidade de Ouro ou Prata limpa automaticamente nós removidos, portanto, nenhuma limpeza adicional é necessária.
 - Embora haja [várias métricas](../azure-monitor/platform/autoscale-common-metrics.md) com suporte pelas regras de dimensionamento automático, o conjunto ainda é limitado. Se seu cenário exigir dimensionamento com base em alguma métrica não abordada no conjunto, as regras de dimensionamento automático podem não ser uma boa opção.
@@ -46,7 +46,7 @@ Como você deve abordar o dimensionamento do Service Fabric depende de seu cená
 
 Existem APIs do Azure que permitem aos aplicativos trabalhar com conjuntos de dimensionamento de máquinas virtuais e clusters do Service Fabric por meio de programação. Se as opções de dimensionamento automático existentes não funcionam em seu cenário, essas APIs possibilitam a implementação de lógica de dimensionamento personalizada. 
 
-Uma abordagem para implementar essa funcionalidade de dimensionamento automático “caseira” é adicionar um novo serviço sem estado ao aplicativo do Service Fabric para gerenciar operações de dimensionamento. Criar o próprio serviço de dimensionamento fornece o mais alto grau de controle e personalização do comportamento de dimensionamento do aplicativo. Isso pode ser útil para cenários que exigem controle preciso sobre quando ou como um aplicativo é dimensionado para dentro ou para fora. No entanto, esse controle vem com uma compensação da complexidade do código. O uso dessa abordagem significa que você precisa possuir código de dimensionamento, o que não é simples. No método `RunAsync` do serviço, um conjunto de disparadores pode determinar se o dimensionamento é necessário (inclusive verificando parâmetros como o tamanho máximo do cluster e o dimensionamento de cooldowns).   
+Uma abordagem para implementar essa funcionalidade de dimensionamento automático “caseira” é adicionar um novo serviço sem estado ao aplicativo do Service Fabric para gerenciar operações de dimensionamento. Criar o próprio serviço de dimensionamento fornece o mais alto grau de controle e personalização do comportamento de dimensionamento do aplicativo. Isso pode ser útil para cenários que requerem controle preciso sobre quando ou como um aplicativo entra ou sai. No entanto, este controle vem com uma troca de complexidade de código. O uso dessa abordagem significa que você precisa possuir código de dimensionamento, o que não é simples. No método `RunAsync` do serviço, um conjunto de disparadores pode determinar se o dimensionamento é necessário (inclusive verificando parâmetros como o tamanho máximo do cluster e o dimensionamento de cooldowns).   
 
 A API usada para interações de conjunto de dimensionamento de máquinas virtuais (tanto para verificar o número atual de instâncias da máquina virtual quanto para modificá-lo) é a [biblioteca de computação do Gerenciamento do Azure fluente](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). A biblioteca de computação fluente fornece uma API fácil de usar para interagir com conjuntos de dimensionamento de máquinas virtuais.  Para interagir com o próprio cluster do Service Fabric, use [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
 
@@ -71,7 +71,7 @@ Ao dimensionar um cluster do Azure, lembre-se das diretrizes a seguir:
 O processo de escala vertical ou redução vertical de um tipo de nó é diferente, dependendo se é um tipo de nó primário ou não primário.
 
 ### <a name="scaling-non-primary-node-types"></a>Dimensionar tipos de nós não primários
-Crie um novo tipo de nó com os recursos necessários.  Atualize as restrições de posicionamento dos serviços em execução para incluir o novo tipo de nó.  Gradualmente (um de cada vez), reduza a contagem de instâncias da contagem de instâncias do tipo de nó anterior para zero, de modo que a confiabilidade do cluster não seja afetada.  Os serviços migrarão gradualmente para o novo tipo de nó, já que o tipo de nó antigo é encerrado.
+Crie um novo tipo de nó com os recursos necessários.  Atualize as restrições de posicionamento dos serviços em execução para incluir o novo tipo de nó.  Gradualmente (um de cada vez), reduza a contagem de instâncias da contagem de instâncias do tipo de nó anterior para zero, de modo que a confiabilidade do cluster não seja afetada.  Os serviços migrarão gradualmente para o novo tipo de nó à medida que o tipo de nó antigo for desativado.
 
 ### <a name="scaling-the-primary-node-type"></a>Dimensionando o tipo de nó primário
 É recomendável não alterar a SKU da VM do tipo de nó primário. Se mais capacidade do cluster for necessária, é recomendável adicionar mais instâncias. 

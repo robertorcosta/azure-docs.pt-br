@@ -1,5 +1,5 @@
 ---
-title: Criar um cluster de Data Explorer do Azure & DB com CLI do Azure
+title: Crie um cluster azure Data Explorer & DB com o Azure CLI
 description: Saiba como criar um cluster e o banco de dados do Azure Data Explorer usando a CLI do Azure
 author: radennis
 ms.author: radennis
@@ -8,31 +8,31 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 6b8c2924e50da095c3bc5c7db2d2bf48ef5a27c2
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77561894"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Criar um cluster e um banco de dados do Azure Data Explorer usando a CLI do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)
-> * [CLI](create-cluster-database-cli.md)
-> * [PowerShell](create-cluster-database-powershell.md)
-> * [C#](create-cluster-database-csharp.md)
+> * [Cli](create-cluster-database-cli.md)
+> * [Powershell](create-cluster-database-powershell.md)
+> * [C #](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
-> * [Modelo de ARM](create-cluster-database-resource-manager.md)
+> * [Modelo ARM](create-cluster-database-resource-manager.md)
 
-O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerenciado para análise em tempo real de grandes volumes de streaming de dados de aplicativos, sites, dispositivos IoT e muito mais. Para usar o Azure Data Explorer, primeiro crie um cluster e um ou mais bancos de dados nesse cluster. Em seguida, ingira (carregue) dados em um banco de dados para poder executar consultas nele. Neste artigo, você cria um cluster e um banco de dados usando CLI do Azure.
+O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerenciado para análise em tempo real de grandes volumes de streaming de dados de aplicativos, sites, dispositivos IoT e muito mais. Para usar o Azure Data Explorer, primeiro crie um cluster e um ou mais bancos de dados nesse cluster. Em seguida, ingira (carregue) dados em um banco de dados para poder executar consultas nele. Neste artigo, você cria um cluster e um banco de dados usando o Azure CLI.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este artigo, você precisa de uma assinatura do Azure. Se você não tiver [uma conta gratuita](https://azure.microsoft.com/free/), crie uma antes de começar.
+Para concluir este artigo, você precisa de uma assinatura do Azure. Se você não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o CLI do Azure localmente, este artigo exigirá o CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para verificar sua versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você optar por instalar e usar o Azure CLI localmente, este artigo requer a versão 2.0.4 ou posterior do Azure CLI. Execute `az --version` para verificar sua versão. Caso precise instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-the-cli-parameters"></a>Configurar os parâmetros da CLI
 
@@ -98,7 +98,7 @@ Se o resultado contém `provisioningState` com o valor `Succeeded`, o cluster fo
 
 Agora você tem um cluster e um banco de dados.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 * Se você planeja seguir nossos outros artigos, mantenha os recursos que você criou.
 * Para limpar recursos, exclua o cluster. Quando você exclui um cluster, também exclui todos os bancos de dados nele. Use o seguinte comando para excluir o cluster:

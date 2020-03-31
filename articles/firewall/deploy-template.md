@@ -1,6 +1,6 @@
 ---
 title: Implantar Firewall do Azure usando um modelo
-description: Implante o Firewall do Azure usando um modelo. A rede criada tem uma VNet com três sub-redes. Duas máquinas virtuais de dois núcleos do Windows Server são implantadas.
+description: Implantar o Firewall Do Azure usando um modelo. A rede criada tem um VNet com três sub-redes. Duas máquinas virtuais do Windows Server de dois núcleos são implantadas.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: b9e82998283bf44eede88148a12d88aae521b1ca
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74169190"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Implantar Firewall do Azure usando um modelo
 
-O modelo [Configuração de área restrita do AzureFirewall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox) cria um ambiente de rede de teste com um firewall. A rede tem uma rede virtual (VNet) com três sub-redes: *AzureFirewallSubnet*, *ServersSubnet*e *JumpboxSubnet*. A sub-rede *ServersSubnet* e *JumpboxSubnet* tem uma máquina virtual única de dois núcleos do Windows Server.
+O modelo [Configuração de área restrita do AzureFirewall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox) cria um ambiente de rede de teste com um firewall. A rede possui uma rede virtual (VNet) com três sub-redes: *AzureFirewallSubnet,* *ServersSubnet*e *JumpboxSubnet*. A sub-rede *ServersSubnet* e *JumpboxSubnet* tem uma máquina virtual única de dois núcleos do Windows Server.
 
-O firewall está na sub-rede *AzureFirewallSubnet* e tem uma coleção de regras de aplicativo com uma única regra que permite o acesso a `www.microsoft.com`.
+O firewall está na sub-rede *AzureFirewallSubnet,* e tem uma coleção `www.microsoft.com`de regras de aplicativo com uma única regra que permite o acesso a .
 
 Uma rota definida pelo usuário que aponta o tráfego de rede da sub-rede *ServersSubnet* até o firewall, em que as regras de firewall são aplicadas.
 
@@ -33,7 +33,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 **Para instalar e implantar o Firewall do Azure usando o modelo:**
 
-1. Acessar o modelo no [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox).
+1. Acesse o [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox)modelo em .
    
 1. Leia a introdução e quando estiver pronto para implantar, selecione **Implantar no Azure**.
    
@@ -41,12 +41,12 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 1. No portal, na página**Criar uma configuração de área restrita do AzureFirewall**, digite ou selecione os seguintes valores:
    
-   - **Grupo de recursos**: selecione **criar novo**, digite um nome para o grupo de recursos e selecione **OK**. 
-   - **Nome da rede virtual**: digite um nome para a nova VNet. 
-   - **Nome**de usuário do administrador: digite um nome de usuário para a conta do administrador.
-   - **Senha**do administrador: digite uma senha de administrador. 
+   - **Grupo de recursos**: Selecione **Criar novo,** digite um nome para o grupo de recursos e selecione **OK**. 
+   - **Nome da rede virtual**: Digite um nome para o novo VNet. 
+   - **Nome de usuário do administrador :** Digite um nome de usuário para a conta de usuário do administrador.
+   - **Senha de administrador :** Digite uma senha de administrador. 
    
-1. Leia os termos e condições e depois selecione **Eu concordo com os termos e condições declarados acima**.
+1. Leia os termos e condições e, em seguida, selecione **Concordo com os termos e condições indicados acima.**
    
 1. Selecione **Comprar**.
    
@@ -58,7 +58,7 @@ Saiba mais sobre a sintaxe e as propriedades de JSON para um firewall em um mode
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando você não precisar mais deles, poderá remover o grupo de recursos, o firewall e todos os recursos relacionados executando o comando do PowerShell [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) . Para remover um grupo de recursos nomeado *MyResourceGroup*, execute: 
+Quando você não precisar mais deles, você pode remover o grupo de recursos, o firewall e todos os recursos relacionados executando o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) PowerShell. Para remover um grupo de recursos nomeado *MyResourceGroup*, execute: 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
@@ -70,4 +70,4 @@ Não remova o grupo de recursos e o firewall ainda, se você planeja prosseguir 
 Em seguida, é possível monitorar os logs do Firewall do Azure:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitorar os logs do Firewall do Azure](./tutorial-diagnostics.md)
+> [Tutorial: Monitor logs do Firewall do Azure](./tutorial-diagnostics.md)

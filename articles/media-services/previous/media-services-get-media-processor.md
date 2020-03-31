@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: af6badda426f1bb81d8528cfda9b8c02d55712b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463818"
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>Como: Obter uma instância do Processador de Mídia
+# <a name="how-to-get-a-media-processor-instance"></a>Como: Obter uma instância do processador de mídia
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
-> * [REST](media-services-rest-get-media-processor.md)
+> * [Resto](media-services-rest-get-media-processor.md)
 > 
 > 
 
@@ -35,12 +35,12 @@ Nos Serviços de Mídia, um processador de mídia é um componente que manipula 
 
 O tópico a seguir fornece listas de processadores de mídia:
 
-* [Codificação de processadores de mídia](scenarios-and-availability.md#encoding-media-processors)
-* [Processadores de mídia do Analytics](scenarios-and-availability.md#analytics-media-processors)
+* [Codificando processadores de mídia](scenarios-and-availability.md#encoding-media-processors)
+* [Processadores de mídia da Análise](scenarios-and-availability.md#analytics-media-processors)
 
 ## <a name="get-media-processor"></a>Obter processador de mídia
 
-O método a seguir mostra como obter uma instância do processador de mídia. O exemplo de código pressupõe o uso de uma variável no nível do módulo chamada **_context** para referenciar o contexto do servidor, como descrito na seção [Como: Conectar Programaticamente os Serviços de Mídia](media-services-use-aad-auth-to-access-ams-api.md).
+O método a seguir mostra como obter uma instância do processador de mídia. O exemplo de código pressupõe o uso de uma variável em nível de módulo chamada **_context** para fazer referência ao contexto do servidor, conforme é descrito na seção [Como conectar-se aos Serviços de Mídia de forma programática](media-services-use-aad-auth-to-access-ams-api.md).
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {

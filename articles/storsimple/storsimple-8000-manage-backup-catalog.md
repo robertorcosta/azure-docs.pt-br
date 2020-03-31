@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 07d9e03f1631ebce88a7a7c2e33be62f21dda522
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60319580"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Usar o serviço do Gerenciador de Dispositivos StorSimple para gerenciar o catálogo de backup
@@ -33,15 +33,15 @@ A folha **Catálogo de Backup** fornece uma consulta para restringir sua seleç�
 
 * **Dispositivo** – O dispositivo no qual o conjunto de backup foi criado.
 * **Política de backup ou Volume** – A política de backup ou volume associado a este conjunto de backup.
-* **De e Para** – o intervalo de datas e horas em que o conjunto de backup foi criado.
+* **De e A** – O intervalo de data e hora em que o conjunto de backup foi criado.
 
 Os conjuntos de backup filtrados são então tabulados com base nos seguintes atributos:
 
-* **Nome** – O nome da política de backup ou do volume associada a este conjunto de backup.
+* **Nome** – O nome do volume ou política de backup associados ao conjunto de backup.
 * **Tamanho** – O tamanho real do conjunto de backup.
-* **Criado em** – O intervalo de data e hora quando os backups foram criados. 
-* **Tipo** – Conjuntos de Backup podem ser instantâneos locais ou instantâneos de nuvem. Um instantâneo local é um backup de todos os dados do volume armazenadas localmente no dispositivo, enquanto um instantâneo de nuvem refere-se ao backup dos dados do volume que residem na nuvem. Instantâneos locais fornecem acesso mais rápido, enquanto os instantâneos de nuvem são escolhidos para resiliência de dados.
-* **Iniciada por** – os backups podem ser iniciados de forma automática, de acordo com uma agenda ou de forma manual por um usuário. Você pode usar uma política de backup para agendar backups. Como alternativa, você pode usar a opção **Fazer backup** para fazer um backup manual.
+* **Criado em** – A data e hora em que os backups foram criados. 
+* **Tipo** – Os conjuntos de backup podem ser instantâneos locais ou na nuvem. Um instantâneo local é um backup de todos os dados do volume armazenadas localmente no dispositivo, enquanto um instantâneo de nuvem refere-se ao backup dos dados do volume que residem na nuvem. Instantâneos locais fornecem acesso mais rápido, enquanto os instantâneos de nuvem são escolhidos para resiliência de dados.
+* **Iniciado por** – Os backups podem ser iniciados automaticamente por uma agenda ou manualmente por um usuário. Você pode usar uma política de backup para agendar backups. Como alternativa, você pode usar a opção **Fazer backup** para fazer um backup manual.
 
 ## <a name="list-backup-sets-for-a-backup-policy"></a>Listar conjuntos de backup para uma política de backup
 Conclua as etapas a seguir para listar todos os backups de uma política de backup.

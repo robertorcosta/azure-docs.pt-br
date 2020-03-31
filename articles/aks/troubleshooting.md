@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
 ms.openlocfilehash: 7bdabf2ec109fe96c28185bd1a2a680ce19c2650
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79368325"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
@@ -33,9 +33,9 @@ A configuração máxima de pods por nó é 110 por padrão, se você implantar 
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Estou recebendo o erro “insuficienteSubnetSize” ao implantar um cluster AKS com a rede avançada. O que devo fazer?
 
-Se o Azure CNI (rede avançada) for usado, o AKS alocará endereços IP com base no "Max-pods" por nó configurado. Com base no máximo de pods configurado por nó, o tamanho da sub-rede deve ser maior que o produto do número de nós e a configuração do pod máximo por nó. A equação a seguir descreve isso:
+Se o Azure CNI (rede avançada) for usado, o AKS alocará endereços IP com base nos "pods max" por nó configurado. Com base nos pods max configurados por nó, o tamanho da sub-rede deve ser maior do que o produto do número de nós e da configuração de pod max por nó. A seguinte equação descreve isso:
 
-O tamanho da sub-rede > número de nós no cluster (levando em consideração os requisitos de dimensionamento futuros) * máximo de pods por conjunto de nós.
+Tamanho da sub-rede > número de nós no cluster (levando em consideração os requisitos futuros de dimensionamento) * pods máximos por nó definido.
 
 Para saber mais, confira [Planejar o endereçamento IP para o cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
@@ -60,143 +60,143 @@ O motivo para os avisos no painel é que agora o cluster está habilitado com o 
 
 A maneira mais fácil de acessar seu serviço fora do cluster é executar `kubectl proxy`, que enviará solicitações de proxy para sua porta local 8001 ao servidor Kubernetes API. A partir daí, o servidor de API pode usar um proxy ao seu serviço: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
 
-Se você não vir o painel do kubernetes, verifique se o Pod `kube-proxy` está em execução no namespace `kube-system`. Se não estiver em estado de execução, exclua o pod e ele será reiniciado.
+Se você não vir o painel do Kubernetes, verifique se o `kube-proxy` pod está sendo executado no `kube-system` namespace. Se não estiver em estado de execução, exclua o pod e ele será reiniciado.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Não consigo obter os logs, usando kubectl logs ou não é possível conectar-se ao servidor de API. Estou recebendo "erro do servidor: erro ao discar back-end: discar TCP...". O que devo fazer?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Não consigo obter os logs, usando kubectl logs ou não é possível conectar-se ao servidor de API. Estou recebendo "Erro do servidor: erro discando backend: disque tcp...". O que devo fazer?
 
-Verifique se o grupo de segurança de rede padrão não foi modificado e se a porta 22 e 9000 estão abertas para conexão com o servidor de API. Verifique se o pod de `tunnelfront` está em execução no namespace *Kube-System* usando o comando `kubectl get pods --namespace kube-system`. Se não estiver, force a exclusão do pod e ele será reiniciado.
+Certifique-se de que o grupo de segurança de rede padrão não foi modificado e que ambas as portas 22 e 9000 estão abertas para conexão com o servidor de API. Verifique se `tunnelfront` o pod está sendo executado no `kubectl get pods --namespace kube-system` namespace do *sistema kube* usando o comando. Se não estiver, force a exclusão do pod e ele será reiniciado.
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Estou tentando atualizar ou dimensionar e estou recebendo um erro "mensagem: a alteração da propriedade ' imageReference ' não é permitida". Como faço para corrigir esse problema?
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Estou tentando atualizar ou dimensionar e estou recebendo um erro "mensagem: Alterar a propriedade 'imageReference' não é permitido". Como faço para corrigir esse problema?
 
 Você pode estar recebendo este erro porque modificou as tags nos nós do agente dentro do cluster do AKS. Modificar e excluir tags e outras propriedades de recursos no grupo de recursos MC_ * pode levar a resultados inesperados. Modificar os recursos sob o grupo MC_ * no cluster do AKS quebra o objetivo de nível de serviço (SLO).
 
-## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Estou recebendo erros de que meu cluster está em estado de falha e a atualização ou o dimensionamento não funcionará até que seja corrigido
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Estou recebendo erros que meu cluster está em estado falho e atualizar ou dimensionar não funcionará até que seja corrigido
 
-*Esta assistência para solução de problemas é direcionada de https://aka.ms/aks-cluster-failed*
+*Esta assistência de solução de problemas é direcionada a partir dehttps://aka.ms/aks-cluster-failed*
 
-Esse erro ocorre quando os clusters entram em um estado de falha por vários motivos. Siga as etapas abaixo para resolver o estado de falha do cluster antes de repetir a operação que falhou anteriormente:
+Esse erro ocorre quando os clusters entram em um estado de falha por várias razões. Siga as etapas abaixo para resolver o estado de falha do cluster antes de tentar novamente a operação anteriormente falhada:
 
-1. Até que o cluster esteja fora do estado de `failed`, as operações de `upgrade` e `scale` não terão sucesso. As resoluções e problemas de raiz comuns incluem:
-    * Dimensionamento com **cota de computação insuficiente (CRP)** . Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga estas [etapas para solicitar um aumento de cota de computação](../azure-portal/supportability/resource-manager-core-quotas-request.md) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
-    * Dimensionamento de um cluster com rede avançada e **recursos de sub-rede (rede) insuficientes**. Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga [estas etapas para solicitar um aumento de cota de recursos](../azure-resource-manager/templates/error-resource-quota.md#solution) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
-2. Depois que a causa subjacente da falha de atualização for resolvida, o cluster deverá estar em um estado com êxito. Quando um estado bem-sucedido for verificado, repita a operação original.
+1. Até que o `failed` grupo `upgrade` esteja `scale` fora do estado, e as operações não tenham sucesso. Problemas e resoluções de raiz comuns incluem:
+    * Dimensionamento com **cota de cálculo insuficiente (CRP).** Para resolver, primeiro dimensione seu cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga [estas etapas para solicitar um aumento da cota de cálculo](../azure-portal/supportability/resource-manager-core-quotas-request.md) antes de tentar escalar novamente além dos limites iniciais de cotas.
+    * Dimensionamento de um cluster com rede avançada e **recursos insuficientes de sub-rede (rede).** Para resolver, primeiro dimensione seu cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga [estas etapas para solicitar um aumento da cota de recursos](../azure-resource-manager/templates/error-resource-quota.md#solution) antes de tentar escalar novamente além dos limites iniciais de cotas.
+2. Uma vez que a causa básica para falha de atualização seja resolvida, seu cluster deve estar em um estado bem sucedido. Uma vez verificado um estado bem sucedido, tente novamente a operação original.
 
-## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Estou recebendo erros ao tentar atualizar ou dimensionar o estado em que meu cluster está sendo atualizado no momento ou com falha na atualização
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Estou recebendo erros ao tentar atualizar ou dimensionar esse estado que meu cluster está sendo atualizado ou com falha na atualização
 
-*Esta assistência para solução de problemas é direcionada de https://aka.ms/aks-pending-upgrade*
+*Esta assistência de solução de problemas é direcionada a partir dehttps://aka.ms/aks-pending-upgrade*
 
-As operações de atualização e dimensionamento em um cluster com um único pool de nós ou um cluster com [vários pools de nós](use-multiple-node-pools.md) são mutuamente exclusivas. Você não pode ter um cluster ou pool de nós simultaneamente para atualizar e dimensionar. Em vez disso, cada tipo de operação deve ser concluído no recurso de destino antes da próxima solicitação no mesmo recurso. Como resultado, as operações são limitadas quando as operações de atualização ativa ou de escala estão ocorrendo ou tentadas e subsequentemente falharam. 
+As operações de upgrade e escala em um cluster com um único pool de nós ou um cluster com vários pools de nós são mutuamente [exclusivas.](use-multiple-node-pools.md) Você não pode ter um cluster ou um pool de nó simultaneamente atualizar e dimensionar. Em vez disso, cada tipo de operação deve ser concluído no recurso de destino antes da próxima solicitação sobre esse mesmo recurso. Como resultado, as operações são limitadas quando as operações ativas de upgrade ou escala estão ocorrendo ou tentativas e, posteriormente, falharam. 
 
-Para ajudar a diagnosticar o problema, execute `az aks show -g myResourceGroup -n myAKSCluster -o table` para recuperar o status detalhado no cluster. Com base no resultado:
+Para ajudar a `az aks show -g myResourceGroup -n myAKSCluster -o table` diagnosticar o problema, execute-se para recuperar o status detalhado em seu cluster. Com base no resultado:
 
-* Se o cluster estiver sendo atualizado ativamente, aguarde até que a operação seja encerrada. Se tiver êxito, repita a operação anterior com falha novamente.
+* Se o cluster estiver atualizado ativamente, aguarde até que a operação termine. Se for bem sucedido, tente novamente a operação anteriormente fracassada.
 * Se o cluster tiver falhado na atualização, siga as etapas descritas na seção anterior.
 
-## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Posso mover meu cluster para uma assinatura diferente ou minha assinatura com meu cluster para um novo locatário?
+## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Posso mover meu cluster para uma assinatura diferente ou minha assinatura com meu cluster para um novo inquilino?
 
-Se você moveu o cluster AKS para uma assinatura diferente ou o cluster que possui a assinatura para um novo locatário, o cluster perderá a funcionalidade devido à perda de atribuições de função e aos direitos de entidades de serviço. **AKs não dá suporte à movimentação de clusters entre assinaturas ou locatários** devido a essa restrição.
+Se você mudou seu cluster AKS para uma assinatura diferente ou a assinatura do cluster para um novo inquilino, o cluster perderá a funcionalidade devido à perda de atribuições de função e direitos de diretores de serviço. **A AKS não suporta clusters móveis entre assinaturas ou inquilinos** devido a essa restrição.
 
-## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Estou recebendo erros ao tentar usar recursos que exigem conjuntos de dimensionamento de máquinas virtuais
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Estou recebendo erros tentando usar recursos que requerem conjuntos de escala de máquinas virtuais
 
-*Esta assistência para solução de problemas é direcionada do aka.ms/aks-vmss-enablement*
+*Esta assistência de solução de problemas é dirigida a partir de aka.ms/aks-vmss-enablement*
 
-Você pode receber erros que indicam que o cluster AKS não está em um conjunto de dimensionamento de máquinas virtuais, como o exemplo a seguir:
+Você pode receber erros que indicam que seu cluster AKS não está em um conjunto de escala de máquina virtual, como o seguinte exemplo:
 
-**O AgentPool ' AgentPool ' definiu o dimensionamento automático como habilitado, mas não está em conjuntos de dimensionamento de máquinas virtuais**
+**AgentPool 'agentpool' definiu o dimensionamento automático como ativado, mas não está nos conjuntos de escala de máquinavirtual**
 
-Para usar recursos como os pools de dimensionamento de vários nós ou do cluster, os clusters AKS devem ser criados para usar conjuntos de dimensionamento de máquinas virtuais. Os erros são retornados se você tentar usar recursos que dependem de conjuntos de dimensionamento de máquinas virtuais e você tiver como alvo um cluster AKS de conjunto de dimensionamento de máquinas não virtuais regular.
+Para usar recursos como o cluster autoscaler ou vários grupos de nó, devem ser criados clusters AKS que usam conjuntos de escala de máquinavirtual. Os erros são devolvidos se você tentar usar recursos que dependem de conjuntos de escala de máquinas virtuais e você mira um cluster AKS conjunto de escala de máquina não virtual regular.
 
-Siga as etapas *antes de começar* no documento apropriado para criar corretamente um cluster AKs:
+Siga as *etapas antes* de iniciar as etapas no doc apropriado para criar corretamente um cluster AKS:
 
-* [Usar o dimensionamento de cluster](cluster-autoscaler.md)
-* [Criar e usar vários pools de nós](use-multiple-node-pools.md)
+* [Use o autoscaler de cluster](cluster-autoscaler.md)
+* [Crie e use vários pools de nó](use-multiple-node-pools.md)
  
-## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>Quais restrições de nomenclatura são impostas para recursos e parâmetros AKS?
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>Quais restrições de nomeação são aplicadas para recursos e parâmetros AKS?
 
-*Esta assistência para solução de problemas é direcionada do aka.ms/aks-naming-rules*
+*Esta assistência de solução de problemas é dirigida a partir de aka.ms/aks-naming-rules*
 
-As restrições de nomenclatura são implementadas pela plataforma do Azure e AKS. Se um nome de recurso ou parâmetro quebrar uma dessas restrições, será retornado um erro solicitando que você forneça uma entrada diferente. As seguintes diretrizes de nomenclatura comuns se aplicam:
+As restrições de nomeação são implementadas tanto pela plataforma Azure quanto pela AKS. Se um nome ou parâmetro de recurso quebrar uma dessas restrições, um erro é retornado que pede que você forneça uma entrada diferente. Aplicam-se as seguintes diretrizes comuns de nomeação:
 
-* Os nomes de cluster devem ter de 1-63 caracteres. Os únicos caracteres permitidos são letras, números, traços e sublinhados. O primeiro e o último caractere devem ser uma letra ou um número.
-* O nome do grupo de recursos do AKS *MC_* combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerada automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` não deve ser maior que 80 caracteres. Se necessário, reduza o tamanho do nome do grupo de recursos ou do nome do cluster AKS.
-* O *dnsPrefix* deve começar e terminar com valores alfanuméricos e deve ter entre 1-54 caracteres. Os caracteres válidos incluem valores alfanuméricos e hifens (-). O *dnsPrefix* não pode incluir caracteres especiais, como um ponto (.).
+* Os nomes de cluster devem ser de 1 a 63 caracteres. Os únicos caracteres permitidos são letras, números, traços e sublinhados. O primeiro e último caractere deve ser uma letra ou um número.
+* O nome do grupo de recursos *aKS MC_* combina nome do grupo de recursos e nome do recurso. A sintaxe autogerada não `MC_resourceGroupName_resourceName_AzureRegion` deve ser superior a 80 chars. Se necessário, reduza o comprimento do nome do grupo de recursos ou do cluster AKS.
+* O *dnsPrefix* deve iniciar e terminar com valores alfanuméricos e deve estar entre 1-54 caracteres. Caracteres válidos incluem valores alfanuméricos e hífens (-). O *dnsPrefix* não pode incluir caracteres especiais, como um período (.).
 
-## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou recebendo erros ao tentar criar, atualizar, dimensionar, excluir ou atualizar o cluster. essa operação não é permitida porque outra operação está em andamento.
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou recebendo erros ao tentar criar, atualizar, dimensionar, excluir ou atualizar cluster, essa operação não é permitida, pois outra operação está em andamento.
 
-*Esta assistência para solução de problemas é direcionada do aka.ms/aks-pending-operation*
+*Esta assistência de solução de problemas é dirigida a partir de aka.ms/aks-pending-operation*
 
-As operações de cluster são limitadas quando uma operação anterior ainda está em andamento. Para recuperar um status detalhado do cluster, use o comando `az aks show -g myResourceGroup -n myAKSCluster -o table`. Use seu próprio grupo de recursos e o nome do cluster AKS, conforme necessário.
+As operações de cluster são limitadas quando uma operação anterior ainda está em andamento. Para recuperar um status detalhado do `az aks show -g myResourceGroup -n myAKSCluster -o table` seu cluster, use o comando. Use seu próprio grupo de recursos e nome de cluster AKS conforme necessário.
 
 Com base na saída do status do cluster:
 
-* Se o cluster estiver em qualquer estado de provisionamento diferente de *êxito* ou *falha*, aguarde até que a operação (*atualização/atualização/criação/dimensionamento/exclusão/migração*) seja encerrada. Quando a operação anterior for concluída, tente novamente a operação de cluster mais recente.
+* Se o cluster estiver em qualquer estado de provisionamento que não *seja bem sucedido* ou *falho,* aguarde até que a operação *(Atualização / Atualização / Criação / Dimensionamento / Exclusão / Migração*) termine. Quando a operação anterior estiver concluída, tente novamente sua última operação de cluster.
 
-* Se o cluster tiver uma falha de atualização, siga as etapas descritas estou [recebendo erros de que meu cluster está em estado de falha e a atualização ou o dimensionamento não funcionará até que seja corrigido](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
+* Se o cluster tiver uma atualização com falha, siga as etapas descritas [Estou recebendo erros que meu cluster está em estado de falha e a atualização ou o dimensionamento não funcionarão até que seja corrigido](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
-## <a name="im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one"></a>Estou recebendo erros de que minha entidade de serviço não foi encontrada quando tento criar um novo cluster sem passar um existente.
+## <a name="im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one"></a>Estou recebendo erros que meu diretor de serviço não foi encontrado quando tento criar um novo cluster sem passar em um já existente.
 
-Ao criar um cluster AKS, ele requer uma entidade de serviço para criar recursos em seu nome. O AKS oferece a capacidade de ter um novo criado no momento da criação do cluster, mas isso requer que Azure Active Directory propague totalmente a nova entidade de serviço em um tempo razoável para que o cluster tenha sucesso na criação. Quando essa propagação demorar muito, o cluster falhará na validação para criar, pois ele não pode encontrar uma entidade de serviço disponível para fazer isso. 
+Ao criar um cluster AKS, é necessário um diretor de serviço para criar recursos em seu nome. O AKS oferece a capacidade de ter um novo criado no momento da criação de clusters, mas isso requer que o Azure Active Directory propague totalmente o novo diretor de serviço em um tempo razoável, a fim de que o cluster tenha sucesso na criação. Quando essa propagação demorar muito, o cluster falhará na validação para criar, pois não poderá encontrar um principal de serviço disponível para fazê-lo. 
 
-Use as seguintes soluções alternativas para isso:
-1. Use uma entidade de serviço existente que já propagada entre regiões e exista para passar para AKS no momento da criação do cluster.
-2. Se você estiver usando scripts de automação, adicione atrasos entre a criação da entidade de serviço e a criação do cluster AKS.
-3. Se estiver usando portal do Azure, retorne para as configurações de cluster durante a criação e repita a página de validação após alguns minutos.
+Use as seguintes soluçãos para isso:
+1. Use um princípio de serviço existente que já se propagou entre as regiões e existe para passar para aKS no tempo de criação de cluster.
+2. Se usar scripts de automação, adicione atrasos de tempo entre a criação principal do serviço e a criação de clusterS AKS.
+3. Se estiver usando o portal Azure, retorne às configurações do cluster durante a criação e tente novamente a página de validação após alguns minutos.
 
-## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>Estou recebendo erros depois de restringir o tráfego de egresso
+## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>Estou recebendo erros depois de restringir meu tráfego de saída
 
-Ao restringir o tráfego de saída de um cluster AKS, há regras de saída/portas de rede [recomendadas e opcionais necessárias](limit-egress-traffic.md) e regras de FQDN/aplicativo para AKs. Se suas configurações estiverem em conflito com qualquer uma dessas regras, talvez você não possa executar determinados comandos de `kubectl`. Você também pode ver erros ao criar um cluster AKS.
+Ao restringir o tráfego de saída de um cluster AKS, existem portas de saída [recomendadas e opcionais e](limit-egress-traffic.md) regras de fqdn / aplicativos para AKS. Se suas configurações estiverem em conflito com qualquer uma dessas `kubectl` regras, você pode não ser capaz de executar certos comandos. Você também pode ver erros ao criar um cluster AKS.
 
-Verifique se as configurações não estão em conflito com nenhuma das portas de rede/regras de saída necessárias ou opcionais recomendadas ou regras de FQDN/aplicativo.
+Verifique se suas configurações não estão conflitantes com qualquer uma das portas de saída recomendadas ou opcionais exigidas/ regras de rede e regras de fqdn / aplicativo.
 
-## <a name="azure-storage-and-aks-troubleshooting"></a>Solução de problemas de armazenamento e AKS do Azure
+## <a name="azure-storage-and-aks-troubleshooting"></a>Armazenamento azure e solução de problemas aks
 
-### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-disk"></a>Quais são as versões estáveis recomendadas do kubernetes para o disco do Azure? 
+### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-disk"></a>Quais são as versões estáveis recomendadas do Kubernetes para disco Azure? 
 
-| Versão do kubernetes | Versão recomendada |
+| Versão Kubernetes | Versão recomendada |
 | -- | :--: |
-| 1,12 | 1.12.9 ou posterior |
-| 1,13 | 1.13.6 ou posterior |
+| 1.12 | 1.12.9 ou posterior |
+| 1.13 | 1.13.6 ou posterior |
 | 1,14 | 1.14.2 ou posterior |
 
 
-### <a name="what-versions-of-kubernetes-have-azure-disk-support-on-the-sovereign-cloud"></a>Quais versões do kubernetes têm suporte de disco do Azure na nuvem do soberanas?
+### <a name="what-versions-of-kubernetes-have-azure-disk-support-on-the-sovereign-cloud"></a>Quais versões do Kubernetes têm suporte ao Azure Disk na Nuvem Soberana?
 
-| Versão do kubernetes | Versão recomendada |
+| Versão Kubernetes | Versão recomendada |
 | -- | :--: |
-| 1,12 | 1.12.0 ou posterior |
-| 1,13 | 1.13.0 ou posterior |
+| 1.12 | 1.12.0 ou posterior |
+| 1.13 | 1.13.0 ou posterior |
 | 1,14 | 1.14.0 ou posterior |
 
 
-### <a name="waitforattach-failed-for-azure-disk-parsing-devdiskazurescsi1lun1-invalid-syntax"></a>Falha de WaitForAttach para o disco do Azure: analisando "/dev/disk/Azure/scsi1/lun1": sintaxe inválida
+### <a name="waitforattach-failed-for-azure-disk-parsing-devdiskazurescsi1lun1-invalid-syntax"></a>Falha no WaitForAttach para o Disco Azure: análise "/dev/disk/azure/scsi1/lun1": sintaxe inválida
 
-No kubernetes versão 1,10, MountVolume. WaitForAttach pode falhar com a remontagem de disco do Azure.
+Na versão 1.10 do Kubernetes, o MountVolume.WaitForAttach pode falhar com uma remontagem do Disco Azure.
 
-No Linux, você pode ver um erro de formato DevicePath incorreto. Por exemplo:
+No Linux, você pode ver um erro de formato do DevicePath incorreto. Por exemplo: 
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-No Windows, você pode ver um erro de número de DevicePath (LUN) errado. Por exemplo:
+No Windows, você pode ver um erro de número do DevicePath (LUN) errado. Por exemplo: 
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
 1102-dynamic-pvc-6c526c51-4a18-11e8-ab5c-000d3af7b38e) lun:(4)
 ```
 
-Esse problema foi corrigido nas seguintes versões do kubernetes:
+Este problema foi corrigido nas seguintes versões do Kubernetes:
 
-| Versão do kubernetes | Versão corrigida |
+| Versão Kubernetes | Versão fixa |
 | -- | :--: |
 | 1,10 | 1.10.2 ou posterior |
 | 1.11 | 1.11.0 ou posterior |
-| 1,12 e posterior | N/D |
+| 1.12 e posterior | N/D |
 
-### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Falha ao definir UID e GID em mountoptions para disco do Azure
+### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Falha ao definir uid e gid em mountOptions for Azure Disk
 
-O disco do Azure usa o ext4, o sistema de arquivos XFS por padrão e mountoptions como uid = x, GID = x não pode ser definido no momento da montagem. Por exemplo, se você tentou definir mountoptions UID = 999, GID = 999, o veria um erro como:
+O Azure Disk usa o sistema de arquivos ext4.xfs por padrão e montagemOpções como uid=x,gid=x não podem ser definidas na hora da montagem. Por exemplo, se você tentasse definir mountOptions uid=999,gid=999, veria um erro como:
 
 ```console
 Warning  FailedMount             63s                  kubelet, aks-nodepool1-29460110-0  MountVolume.MountDevice failed for volume "pvc-d783d0e4-85a1-11e9-8a90-369885447933" : azureDisk - mountDevice:FormatAndMount failed with mount failed: exit status 32
@@ -207,9 +207,9 @@ mount: wrong fs type, bad option, bad superblock on /dev/sde,
        missing codepage or helper program, or other error
 ```
 
-Você pode mitigar o problema seguindo um destes procedimentos:
+Você pode mitigar o problema fazendo um o seguinte:
 
-* [Configure o contexto de segurança para um pod](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) definindo UID em runAsUser e GID em fsGroup. Por exemplo, a configuração a seguir definirá o Pod executar como raiz, torná-lo acessível para qualquer arquivo:
+* [Configure o contexto de segurança de um pod](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) definindo uid em runAsUser e gid no fsGroup. Por exemplo, a configuração a seguir definirá a execução do pod como raiz, tornando-a acessível a qualquer arquivo:
 
 ```yaml
 apiVersion: v1
@@ -223,9 +223,9 @@ spec:
 ```
 
   >[!NOTE]
-  > Como GID e uid são montados como root ou 0 por padrão. Se GID ou uid forem definidos como não raiz, por exemplo, 1000, o kubernetes usará `chown` para alterar todos os diretórios e arquivos nesse disco. Essa operação pode ser demorada e pode tornar a montagem do disco muito lenta.
+  > Uma vez que gid e uid são montados como raiz ou 0 por padrão. Se o gid ou uid for definido como não raiz, por exemplo `chown` 1000, os Kubernetes usarão para alterar todos os diretórios e arquivos esse disco. Esta operação pode ser demorada e pode tornar a montagem do disco muito lenta.
 
-* Use `chown` em initContainers para definir o GID e UID. Por exemplo:
+* Use `chown` initContainers para definir gid e uid. Por exemplo: 
 
 ```yaml
 initContainers:
@@ -237,9 +237,9 @@ initContainers:
     mountPath: /data
 ```
 
-### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>Erro ao excluir o Azure Disk PersistentVolumeClaim em uso por um pod
+### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>Erro ao excluir o Azure Disk PersistentVolumeVolumeem uso por um pod
 
-Se você tentar excluir um disco PersistentVolumeClaim do Azure que está sendo usado por um pod, você poderá ver um erro. Por exemplo:
+Se você tentar excluir um Azure Disk PersistentVolumeClaim que está sendo usado por um pod, você poderá ver um erro. Por exemplo: 
 
 ```console
 $ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
@@ -247,105 +247,105 @@ $ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
 Message:         disk.DisksClient#Delete: Failure responding to request: StatusCode=409 -- Original Error: autorest/azure: Service returned an error. Status=409 Code="OperationNotAllowed" Message="Disk kubernetes-dynamic-pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06 is attached to VM /subscriptions/{subs-id}/resourceGroups/MC_markito-aks-pvc_markito-aks-pvc_westus/providers/Microsoft.Compute/virtualMachines/aks-agentpool-25259074-0."
 ```
 
-No kubernetes versão 1,10 e posterior, há um recurso de proteção do PersistentVolumeClaim habilitado por padrão para evitar esse erro. Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar esse problema excluindo o Pod usando o PersistentVolumeClaim antes de excluir o PersistentVolumeClaim.
+Na versão 1.10 do Kubernetes e posterior, há um recurso de proteção PersistentVolumeClaim ativado por padrão para evitar esse erro. Se você estiver usando uma versão do Kubernetes que não tem a correção para este problema, você pode mitigar esse problema excluindo o pod usando o PersistentVolumeClaim antes de excluir o PersistentVolumeClaim.
 
 
-### <a name="error-cannot-find-lun-for-disk-when-attaching-a-disk-to-a-node"></a>Erro "não é possível localizar o LUN para o disco" ao anexar um disco a um nó
+### <a name="error-cannot-find-lun-for-disk-when-attaching-a-disk-to-a-node"></a>Erro "Não é possível encontrar Lun para disco" ao anexar um disco a um nó
 
-Ao anexar um disco a um nó, você poderá ver o seguinte erro:
+Ao anexar um disco a um nó, você pode ver o seguinte erro:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-12b458f4-c23f-11e8-8d27-46799c22b7c6" : Cannot find Lun for disk kubernetes-dynamic-pvc-12b458f4-c23f-11e8-8d27-46799c22b7c6
 ```
 
-Esse problema foi corrigido nas seguintes versões do kubernetes:
+Este problema foi corrigido nas seguintes versões do Kubernetes:
 
-| Versão do kubernetes | Versão corrigida |
+| Versão Kubernetes | Versão fixa |
 | -- | :--: |
 | 1,10 | 1.10.10 ou posterior |
 | 1.11 | 1.11.5 ou posterior |
-| 1,12 | 1.12.3 ou posterior |
-| 1,13 | 1.13.0 ou posterior |
-| 1,14 e posterior | N/D |
+| 1.12 | 1.12.3 ou posterior |
+| 1.13 | 1.13.0 ou posterior |
+| 1.14 e posterior | N/D |
 
-Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar o problema aguardando vários minutos e tentando novamente.
+Se você estiver usando uma versão do Kubernetes que não tem a correção para este problema, você pode mitigar o problema esperando vários minutos e tentando novamente.
 
-### <a name="azure-disk-attachdetach-failure-mount-issues-or-io-errors-during-multiple-attachdetach-operations"></a>Falha de anexação/desanexação de disco do Azure, problemas de montagem ou erros de e/s durante várias operações de conexão/desanexação
+### <a name="azure-disk-attachdetach-failure-mount-issues-or-io-errors-during-multiple-attachdetach-operations"></a>Azure Disk attach/desacoplado falha, problemas de montagem ou erros de I/O durante várias operações de conexão/desconexão
 
-A partir do kubernetes versão 1.9.2, ao executar várias operações de anexar/desanexar em paralelo, você poderá ver os seguintes problemas de disco devido a um cache de VM sujo:
+A partir da versão 1.9.2 do Kubernetes, ao executar várias operações de conexão/desacoplamento em paralelo, você pode ver os seguintes problemas de disco devido a um cache de VM sujo:
 
-* Falhas de anexação/desanexação de disco
-* Erros de e/s de disco
-* Desanexação de disco inesperada da VM
-* VM em execução em estado de falha devido à anexação de disco não existente
+* Falhas de acoplação/desacoplação de disco
+* Erros de I/O do disco
+* Desprendimento de disco inesperado da VM
+* VM em estado de falha devido à anexação de disco não existente
 
-Esse problema foi corrigido nas seguintes versões do kubernetes:
+Este problema foi corrigido nas seguintes versões do Kubernetes:
 
-| Versão do kubernetes | Versão corrigida |
+| Versão Kubernetes | Versão fixa |
 | -- | :--: |
 | 1,10 | 1.10.12 ou posterior |
 | 1.11 | 1.11.6 ou posterior |
-| 1,12 | 1.12.4 ou posterior |
-| 1,13 | 1.13.0 ou posterior |
-| 1,14 e posterior | N/D |
+| 1.12 | 1.12.4 ou posterior |
+| 1.13 | 1.13.0 ou posterior |
+| 1.14 e posterior | N/D |
 
-Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar o problema experimentando o seguinte:
+Se você estiver usando uma versão do Kubernetes que não tem a correção para este problema, você pode mitigar o problema tentando o abaixo:
 
-* Se houver um disco aguardando para desanexar por um longo período de tempo, tente desanexar o disco manualmente
+* Se houver um disco esperando para desapegar por um longo período de tempo, tente separar o disco manualmente
 
-### <a name="azure-disk-waiting-to-detach-indefinitely"></a>Disco do Azure aguardando desanexar indefinidamente
+### <a name="azure-disk-waiting-to-detach-indefinitely"></a>Disco Azure esperando para desapegar indefinidamente
 
-Em alguns casos, se uma operação de desanexação de disco do Azure falhar na primeira tentativa, ela não repetirá a operação de desanexação e permanecerá anexada à VM do nó original. Esse erro pode ocorrer ao mover um disco de um nó para outro. Por exemplo:
+Em alguns casos, se uma operação de desacoplamento do Disco Azure falhar na primeira tentativa, ela não tentará novamente a operação de desacoplamento e permanecerá anexada à VM do nó original. Esse erro pode ocorrer ao mover um disco de um nó para outro. Por exemplo: 
 
 ```console
 [Warning] AttachVolume.Attach failed for volume "pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" : Attach volume "kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance "/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0" failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code="ConflictingUserInput" Message="Disk '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9' cannot be attached as the disk is already owned by VM '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1'."
 ```
 
-Esse problema foi corrigido nas seguintes versões do kubernetes:
+Este problema foi corrigido nas seguintes versões do Kubernetes:
 
-| Versão do kubernetes | Versão corrigida |
+| Versão Kubernetes | Versão fixa |
 | -- | :--: |
 | 1.11 | 1.11.9 ou posterior |
-| 1,12 | 1.12.7 ou posterior |
-| 1,13 | 1.13.4 ou posterior |
-| 1,14 e posterior | N/D |
+| 1.12 | 1.12.7 ou posterior |
+| 1.13 | 1.13.4 ou posterior |
+| 1.14 e posterior | N/D |
 
-Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema, você pode mitigar o problema desanexando manualmente o disco.
+Se você estiver usando uma versão do Kubernetes que não tem a correção para este problema, você pode mitigar o problema desvinculando manualmente o disco.
 
-### <a name="azure-disk-detach-failure-leading-to-potential-race-condition-issue-and-invalid-data-disk-list"></a>Falha de desanexação de disco do Azure que leva a problemas potenciais de condição de corrida e lista de discos de dados
+### <a name="azure-disk-detach-failure-leading-to-potential-race-condition-issue-and-invalid-data-disk-list"></a>Azure Disk desacoplado falha levando a problema potencial de condição de corrida e lista de disco de dados inválida
 
-Quando um disco do Azure não é desconectado, ele tentará novamente até seis vezes para desanexar o disco usando a retirada exponencial. Ele também manterá um bloqueio em nível de nó na lista de discos de dados por cerca de 3 minutos. Se a lista de discos for atualizada manualmente durante esse período de tempo, como uma operação de anexação ou desanexação manual, isso fará com que a lista de discos mantida pelo bloqueio em nível de nó fique obsoleta e cause instabilidade na VM do nó.
+Quando um Disco Azure não se desprende, ele tentará novamente até seis vezes para desprender o disco usando um recuo exponencial. Ele também manterá um bloqueio de nível de nó na lista de discos de dados por cerca de 3 minutos. Se a lista de discos for atualizada manualmente durante esse período de tempo, como uma operação manual de fixação ou desacoplamento, isso fará com que a lista de discos mantida pelo bloqueio de nível de nó seja obsoleta e cause instabilidade na VM do nó.
 
-Esse problema foi corrigido nas seguintes versões do kubernetes:
+Este problema foi corrigido nas seguintes versões do Kubernetes:
 
-| Versão do kubernetes | Versão corrigida |
+| Versão Kubernetes | Versão fixa |
 | -- | :--: |
-| 1,12 | 1.12.9 ou posterior |
-| 1,13 | 1.13.6 ou posterior |
+| 1.12 | 1.12.9 ou posterior |
+| 1.13 | 1.13.6 ou posterior |
 | 1,14 | 1.14.2 ou posterior |
-| 1,15 e posterior | N/D |
+| 1.15 e posterior | N/D |
 
-Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema e a VM do nó tiver uma lista de discos obsoletos, você poderá mitigar o problema desanexando todos os discos não existentes da VM como uma única operação em massa. **O desanexação individual de discos não existentes pode falhar.**
+Se você estiver usando uma versão do Kubernetes que não tem a correção para este problema e sua VM de nó tiver uma lista de discos obsoleto, você pode mitigar o problema desvinculando todos os discos não existentes da VM como uma única operação em massa. **A desvinculação individual de discos não existentes pode falhar.**
 
 
-### <a name="large-number-of-azure-disks-causes-slow-attachdetach"></a>Um grande número de discos do Azure causa conexão/desanexação lenta
+### <a name="large-number-of-azure-disks-causes-slow-attachdetach"></a>Grande número de discos Azure causa conexão/desapego lento
 
-Quando o número de discos do Azure anexados a uma VM de nó é maior que 10, as operações de anexar e desanexar podem ser lentas. Esse problema é um problema conhecido e não há soluções alternativas no momento.
+Quando o número de discos Azure conectados a uma VM de nó for maior que 10, as operações de fixação e desvinculação podem ser lentas. Este problema é um problema conhecido e não há solução para o momento.
 
-### <a name="azure-disk-detach-failure-leading-to-potential-node-vm-in-failed-state"></a>Falha de desanexação de disco do Azure que leva à VM de nó potencial em estado de falha
+### <a name="azure-disk-detach-failure-leading-to-potential-node-vm-in-failed-state"></a>Azure Disk desacoplado falha levando a potencial vm de nó em estado falho
 
-Em alguns casos de borda, uma desanexação de disco do Azure pode falhar parcialmente e deixar a VM do nó em um estado de falha.
+Em alguns casos de borda, um desacoplamento do Disco Azure pode falhar parcialmente e deixar a VM do nó em um estado de falha.
 
-Esse problema foi corrigido nas seguintes versões do kubernetes:
+Este problema foi corrigido nas seguintes versões do Kubernetes:
 
-| Versão do kubernetes | Versão corrigida |
+| Versão Kubernetes | Versão fixa |
 | -- | :--: |
-| 1,12 | 1.12.10 ou posterior |
-| 1,13 | 1.13.8 ou posterior |
+| 1.12 | 1.12.10 ou posterior |
+| 1.13 | 1.13.8 ou posterior |
 | 1,14 | 1.14.4 ou posterior |
-| 1,15 e posterior | N/D |
+| 1.15 e posterior | N/D |
 
-Se você estiver usando uma versão do kubernetes que não tenha a correção para esse problema e a VM do nó estiver em um estado de falha, você poderá mitigar o problema atualizando manualmente o status da VM usando um dos seguintes:
+Se você estiver usando uma versão do Kubernetes que não tem a correção para este problema e sua VM de nó estiver em um estado de falha, você pode mitigar o problema atualizando manualmente o status da VM usando um dos abaixo:
 
 * Para um cluster baseado em conjunto de disponibilidade:
     ```azurecli
@@ -357,34 +357,34 @@ Se você estiver usando uma versão do kubernetes que não tenha a correção pa
     az vmss update-instances -g <RESOURCE_GROUP_NAME> --name <VMSS_NAME> --instance-id <ID>
     ```
 
-## <a name="azure-files-and-aks-troubleshooting"></a>Solução de problemas de arquivos e AKS do Azure
+## <a name="azure-files-and-aks-troubleshooting"></a>Azure Files e AKS Solução de Problemas
 
-### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-files"></a>Quais são as versões estáveis recomendadas do kubernetes para arquivos do Azure?
+### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-files"></a>Quais são as versões estáveis recomendadas de Kubernetes para arquivos Azure?
  
-| Versão do kubernetes | Versão recomendada |
+| Versão Kubernetes | Versão recomendada |
 | -- | :--: |
-| 1,12 | 1.12.6 ou posterior |
-| 1,13 | 1.13.4 ou posterior |
+| 1.12 | 1.12.6 ou posterior |
+| 1.13 | 1.13.4 ou posterior |
 | 1,14 | 1.14.0 ou posterior |
 
-### <a name="what-versions-of-kubernetes-have-azure-files-support-on-the-sovereign-cloud"></a>Quais versões do kubernetes têm suporte aos arquivos do Azure na nuvem do soberanas?
+### <a name="what-versions-of-kubernetes-have-azure-files-support-on-the-sovereign-cloud"></a>Quais versões do Kubernetes têm suporte a Arquivos Azure na Nuvem Soberana?
 
-| Versão do kubernetes | Versão recomendada |
+| Versão Kubernetes | Versão recomendada |
 | -- | :--: |
-| 1,12 | 1.12.0 ou posterior |
-| 1,13 | 1.13.0 ou posterior |
+| 1.12 | 1.12.0 ou posterior |
+| 1.13 | 1.13.0 ou posterior |
 | 1,14 | 1.14.0 ou posterior |
 
-### <a name="what-are-the-default-mountoptions-when-using-azure-files"></a>Quais são as montagens padrão ao usar os arquivos do Azure?
+### <a name="what-are-the-default-mountoptions-when-using-azure-files"></a>Quais são as opções de montagem padrãoao usar arquivos Do Zure?
 
 Configurações recomendadas:
 
-| Versão do kubernetes | valor fileMode e dirMode|
+| Versão Kubernetes | fileMode e dirMode valor|
 | -- | :--: |
-| 1.12.0-1.12.1 | 0755 |
+| 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 e posterior | 0777 |
 
-Se estiver usando um cluster com kubernetes versão 1.8.5 ou superior e criando dinamicamente o volume persistente com uma classe de armazenamento, as opções de montagem poderão ser especificadas no objeto de classe de armazenamento. O exemplo a seguir define *0777*:
+Se usar um cluster com a versão 1.8.5 ou superior do Kubernetes e criar dinamicamente o volume persistente com uma classe de armazenamento, as opções de montagem podem ser especificadas no objeto da classe de armazenamento. O exemplo a seguir define *0777*:
 
 ```yaml
 kind: StorageClass
@@ -404,49 +404,49 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Algumas configurações adicionais de *mountoptions* úteis:
+Algumas configurações de *opções* de montagem úteis adicionais:
 
-* *mfsymlinks* fará com que os links simbólicos do suporte a montagem de arquivos do Azure (CIFS)
-* o *nobrl* impedirá o envio de solicitações de bloqueio de intervalo de bytes para o servidor. Essa configuração é necessária para determinados aplicativos que interrompem com bloqueios de intervalo de bytes obrigatórios de estilo CIFS. A maioria dos servidores CIFS ainda não dá suporte à solicitação de bloqueios de intervalo de bytes de consultoria. Se não estiver usando *nobrl*, os aplicativos que interromperem com o estilo CIFS os bloqueios de intervalo de bytes obrigatórios podem causar mensagens de erro semelhantes a:
+* *mfsymlinks* farão com que o Azure Files mount (cifs) suporte links simbólicos
+* *nobrl* impedirá o envio de solicitações de bloqueio de faixa de byte para o servidor. Esta configuração é necessária para certos aplicativos que rompem com bloqueios de faixa de byte obrigatórios do estilo CIFS. A maioria dos servidores cifs ainda não suporta bloqueios de faixa de byte de solicitação de assessoria. Se não usar *nobrl,* aplicativos que rompam com bloqueios de faixa de byte obrigatórios do estilo cifs podem causar mensagens de erro semelhantes às:
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
 
-### <a name="error-could-not-change-permissions-when-using-azure-files"></a>Erro "não foi possível alterar as permissões" ao usar arquivos do Azure
+### <a name="error-could-not-change-permissions-when-using-azure-files"></a>Erro "não foi possível alterar permissões" ao usar arquivos do Azure
 
-Ao executar o PostgreSQL no plug-in de arquivos do Azure, você poderá ver um erro semelhante a:
+Ao executar o PostgreSQL no plugin Azure Files, você pode ver um erro semelhante ao:
 
 ```console
 initdb: could not change permissions of directory "/var/lib/postgresql/data": Operation not permitted
 fixing permissions on existing directory /var/lib/postgresql/data
 ```
 
-Esse erro é causado pelo plug-in de arquivos do Azure usando o protocolo CIFS/SMB. Ao usar o protocolo CIFS/SMB, as permissões de arquivo e diretório não puderam ser alteradas após a montagem.
+Esse erro é causado pelo plugin Azure Files usando o protocolo cifs/SMB. Ao usar o protocolo cifs/SMB, as permissões de arquivo e diretório não puderam ser alteradas após a montagem.
 
-Para resolver esse problema, use *subcaminho* junto com o plug-in de disco do Azure. 
+Para resolver esse problema, use *o subPath* juntamente com o plugin Azure Disk. 
 
 > [!NOTE] 
-> Para o tipo de disco ext3/4, há um diretório perdido + encontrado depois que o disco é formatado.
+> Para o tipo de disco ext3/4, há um diretório perdido+encontrado depois que o disco é formatado.
 
-### <a name="azure-files-has-high-latency-compared-to-azure-disk-when-handling-many-small-files"></a>Os arquivos do Azure têm alta latência em comparação com o disco do Azure ao lidar com muitos arquivos pequenos
+### <a name="azure-files-has-high-latency-compared-to-azure-disk-when-handling-many-small-files"></a>Azure Files tem alta latência em comparação com o Azure Disk ao lidar com muitos arquivos pequenos
 
-Em alguns casos, como a manipulação de muitos arquivos pequenos, você pode enfrentar alta latência ao usar os arquivos do Azure em comparação com o disco do Azure.
+Em alguns casos, como o manuseio de muitos arquivos pequenos, você pode experimentar alta latência ao usar arquivos Azure quando comparado ao Azure Disk.
 
-### <a name="error-when-enabling-allow-access-allow-access-from-selected-network-setting-on-storage-account"></a>Erro ao habilitar a configuração "permitir acesso de permissão de acesso da rede selecionada" na conta de armazenamento
+### <a name="error-when-enabling-allow-access-allow-access-from-selected-network-setting-on-storage-account"></a>Erro ao ativar a configuração "Permitir acesso a partir da rede selecionada" na conta de armazenamento
 
-Se você habilitar *permitir o acesso da rede selecionada* em uma conta de armazenamento que é usada para provisionamento dinâmico no AKs, receberá um erro quando o AKs criar um compartilhamento de arquivos:
+Se você *habilitar permitir o acesso a partir de uma rede selecionada* em uma conta de armazenamento que é usada para provisionamento dinâmico no AKS, você terá um erro quando o AKS criar um compartilhamento de arquivos:
 
 ```console
 persistentvolume-controller (combined from similar events): Failed to provision volume with StorageClass "azurefile": failed to create share kubernetes-dynamic-pvc-xxx in account xxx: failed to create file share, err: storage: service returned error: StatusCode=403, ErrorCode=AuthorizationFailure, ErrorMessage=This request is not authorized to perform this operation.
 ```
 
-Esse erro ocorre devido ao kubernetes *persistentvolume-Controller* não estar na rede escolhida quando a configuração *permitir acesso da rede selecionada*.
+Este erro é devido ao *controlador de volume persistente* kubernetes não estar na rede escolhida quando a configuração *permite o acesso a partir da rede selecionada*.
 
-Você pode mitigar o problema usando o [provisionamento estático com os arquivos do Azure](azure-files-volume.md).
+Você pode mitigar o problema usando [provisionamento estático com arquivos Azure](azure-files-volume.md).
 
-### <a name="azure-files-fails-to-remount-in-windows-pod"></a>Falha na remontagem de arquivos do Azure no pod do Windows
+### <a name="azure-files-fails-to-remount-in-windows-pod"></a>Arquivos do Azure falham em remontar no pod do Windows
 
-Se um pod do Windows com uma montagem de arquivos do Azure for excluído e agendado para ser recriado no mesmo nó, a montagem falhará. Essa falha ocorre devido à falha do comando `New-SmbGlobalMapping`, pois a montagem dos arquivos do Azure já está montada no nó.
+Se um pod do Windows com uma montagem de Arquivos Azure for excluído e, em seguida, programado para ser recriado no mesmo nó, a montagem falhará. Esta falha é `New-SmbGlobalMapping` devido à falha de comando, uma vez que a montagem de Arquivos Do Azure já está montada no nó.
 
 Por exemplo, você pode ver um erro semelhante a:
 
@@ -454,47 +454,47 @@ Por exemplo, você pode ver um erro semelhante a:
 E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"kubernetes.io/azure-file/42c0ea39-1af9-11e9-8941-000d3af95268-pvc-d7e1b5f9-1af3-11e9-8941-000d3af95268\" (\"42c0ea39-1af9-11e9-8941-000d3af95268\")" failed. No retries permitted until 2019-01-18 08:15:53.0410149 +0000 GMT m=+732.446642701 (durationBeforeRetry 1s). Error: "MountVolume.SetUp failed for volume \"pvc-d7e1b5f9-1af3-11e9-8941-000d3af95268\" (UniqueName: \"kubernetes.io/azure-file/42c0ea39-1af9-11e9-8941-000d3af95268-pvc-d7e1b5f9-1af3-11e9-8941-000d3af95268\") pod \"deployment-azurefile-697f98d559-6zrlf\" (UID: \"42c0ea39-1af9-11e9-8941-000d3af95268\") : azureMount: SmbGlobalMapping failed: exit status 1, only SMB mount is supported now, output: \"New-SmbGlobalMapping : Generic failure \\r\\nAt line:1 char:190\\r\\n+ ... ser, $PWord;New-SmbGlobalMapping -RemotePath $Env:smbremotepath -Cred ...\\r\\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\r\\n    + CategoryInfo          : NotSpecified: (MSFT_SmbGlobalMapping:ROOT/Microsoft/...mbGlobalMapping) [New-SmbGlobalMa \\r\\n   pping], CimException\\r\\n    + FullyQualifiedErrorId : HRESULT 0x80041001,New-SmbGlobalMapping\\r\\n \\r\\n\""
 ```
 
-Esse problema foi corrigido nas seguintes versões do kubernetes:
+Este problema foi corrigido nas seguintes versões do Kubernetes:
 
-| Versão do kubernetes | Versão corrigida |
+| Versão Kubernetes | Versão fixa |
 | -- | :--: |
-| 1,12 | 1.12.6 ou posterior |
-| 1,13 | 1.13.4 ou posterior |
-| 1,14 e posterior | N/D |
+| 1.12 | 1.12.6 ou posterior |
+| 1.13 | 1.13.4 ou posterior |
+| 1.14 e posterior | N/D |
 
-### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>Falha na montagem de arquivos do Azure devido à chave de conta de armazenamento alterada
+### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>Falha no suporte do Azure Files devido à alteração da chave da conta de armazenamento
 
-Se sua chave de conta de armazenamento tiver sido alterada, você poderá ver falhas de montagem de arquivos do Azure.
+Se a chave da sua conta de armazenamento tiver sido alterada, você poderá ver falhas de montagem de arquivos do Azure.
 
-Você pode mitigar o problema atualizando manualmente o campo *azurestorageaccountkey* manualmente no segredo de arquivo do Azure com sua chave de conta de armazenamento codificada em base64.
+Você pode mitigar o problema atualizando manualmente o campo *azurestorageaccountkey* manualmente no segredo de arquivo Azure com a chave da conta de armazenamento codificada base64.
 
-Para codificar sua chave de conta de armazenamento em base64, você pode usar `base64`. Por exemplo:
+Para codificar a chave da sua conta `base64`de armazenamento na base64, você pode usar . Por exemplo: 
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Para atualizar o arquivo secreto do Azure, use `kubectl edit secret`. Por exemplo:
+Para atualizar seu arquivo secreto `kubectl edit secret`do Azure, use . Por exemplo: 
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret
 ```
 
-Após alguns minutos, o nó do agente tentará novamente a montagem de arquivo do Azure com a chave de armazenamento atualizada.
+Após alguns minutos, o nó do agente tentará novamente a montagem do arquivo azure com a chave de armazenamento atualizada.
 
-### <a name="cluster-autoscaler-fails-to-scale-with-error-failed-to-fix-node-group-sizes"></a>Falha no dimensionamento do autodimensionator do cluster com o erro falha ao corrigir os tamanhos do grupo de nós
+### <a name="cluster-autoscaler-fails-to-scale-with-error-failed-to-fix-node-group-sizes"></a>O cluster autoscaler falha na escala com erro não foi corrigido os tamanhos do grupo de nó
 
-Se o dimensionador automático do cluster não estiver sendo expandido/reduzido e você vir um erro como abaixo nos [logs de dimensionamento][view-master-logs]automático do cluster.
+Se o escalador automático do cluster não estiver escalando para cima/para baixo e você verá um erro como o abaixo nos [logs de escalador automático][view-master-logs]do cluster .
 
 ```console
 E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes: failed to decrease aks-default-35246781-vmss: attempt to delete existing nodes
 ```
 
-Esse erro ocorre devido a uma condição de corrida de autoescalar de cluster upstream em que o dimensionamento de cluster é encerrado com um valor diferente daquele que realmente está no cluster. Para sair desse Estado, basta desabilitar e reabilitar o [dimensionador do cluster][cluster-autoscaler].
+Este erro é devido a uma condição de corrida de cluster de cluster upstream onde o cluster autoscaler termina com um valor diferente do que está realmente no cluster. Para sair deste estado, basta desativar e reativar o [cluster autoscaler][cluster-autoscaler].
 
-### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Anexo de disco lento, o GetAzureDiskLun leva de 10 a 15 minutos e você recebe um erro
+### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Anexo de disco lento, GetAzureDiskLun leva de 10 a 15 minutos e você recebe um erro
 
-Em versões do kubernetes **anteriores ao 1.15.0** , você pode receber um erro, como o **erro WaitForAttach não pode localizar o LUN para o disco**.  A solução alternativa para isso é aguardar aproximadamente 15 minutos e tentar novamente.
+Nas versões Kubernetes **com mais de 1.15.0** você pode receber um erro como **O Erro WaitForAttach Não é possível encontrar Lun para disco**.  A solução para isso é esperar aproximadamente 15 minutos e tentar novamente.
 
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md

@@ -6,26 +6,26 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 7465f8eb4357fcb6faa1d0fee0173837b6cb019b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4b3248cb9ab61a158f70b5a2d6ae9dd846501816
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77593642"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473618"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Executar trabalhos do Apache Spark no AKS
 
-[Apache Spark][apache-spark] é um mecanismo rápido para processamento de dados em larga escala. A partir da [versão 2.3.0 do Spark][spark-latest-release], o Apache Spark dá suporte à integração nativa com clusters kubernetes. O AKS (Serviço de Kubernetes do Azure) é um ambiente Kubernetes gerenciado em execução no Azure. Este documento detalha a preparação e execução de trabalhos do Apache Spark em um cluster do AKS (Serviço de Kubernetes do Azure).
+[Apache Spark][apache-spark] é um motor rápido para processamento de dados em larga escala. A partir do [Spark versão 2.3.0][spark-latest-release], o Apache Spark fornece suporte para integração nativa com clusters de Kubernetes. O AKS (Serviço de Kubernetes do Azure) é um ambiente Kubernetes gerenciado em execução no Azure. Este documento detalha a preparação e execução de trabalhos do Apache Spark em um cluster do AKS (Serviço de Kubernetes do Azure).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas deste artigo, você precisa dos itens a seguir.
 
-* Noções básicas sobre kubernetes e [Apache Spark][spark-quickstart].
-* Conta do [Hub do Docker][docker-hub] ou um [registro de contêiner do Azure][acr-create].
-* CLI do Azure [instalado][azure-cli] no seu sistema de desenvolvimento.
-* [JDK 8][java-install] instalado em seu sistema.
-* SBT ([ferramenta de criação escalar][sbt-install]) instalada em seu sistema.
+* Reconhecimento básico de Kubernetes e [Apache Spark][spark-quickstart].
+* Conta de [Hub do Docker][docker-hub] ou um [Registro de Contêiner do Azure][acr-create].
+* CLI do Azure [instalada][azure-cli] no sistema de desenvolvimento.
+* [JDK 8][java-install] instalado no sistema.
+* SBT ([Ferramenta de Compilação Scala][sbt-install]) instalada no sistema.
 * Ferramentas de linha de comando do Git instaladas no sistema.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster AKS
@@ -40,13 +40,13 @@ Crie um grupo de recursos para o cluster.
 az group create --name mySparkCluster --location eastus
 ```
 
-Crie uma entidade de serviço para o cluster. Depois que ele for criado, você precisará do appId e da senha da entidade de serviço para o próximo comando.
+Crie um diretor de serviço para o cluster. Depois que ele for criado, você precisará do aplicativo service principal e senha para o próximo comando.
 
 ```azurecli
 az ad sp create-for-rbac --name SparkSP
 ```
 
-Crie o cluster AKS com nós de tamanho `Standard_D3_v2`e os valores de appId e senha passados como parâmetros de entidade de serviço e de segredo do cliente.
+Crie o cluster AKS com nós `Standard_D3_v2`de tamanho e valores de appId e senha passados como parâmetros de serviço-principal e cliente-secreto.
 
 ```azurecli
 az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
@@ -58,7 +58,7 @@ Conecte o cluster do AKS.
 az aks get-credentials --resource-group mySparkCluster --name mySparkCluster
 ```
 
-Se você estiver utilizando o ACR (Registro de Contêiner do Azure) para armazenar imagens de contêiner, configure a autenticação entre o AKS e o ACR. Consulte a [documentação de autenticação do ACR][acr-aks] para essas etapas.
+Se você estiver utilizando o ACR (Registro de Contêiner do Azure) para armazenar imagens de contêiner, configure a autenticação entre o AKS e o ACR. Consulte a [Documentação de autenticação do ACR][acr-aks] para essas etapas.
 
 ## <a name="build-the-spark-source"></a>Compilar a fonte do Spark
 
@@ -186,7 +186,7 @@ export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-strin
 
 Carregue o arquivo Jar na conta de armazenamento do Azure com os comandos a seguir.
 
-```bash
+```azurecli
 CONTAINER_NAME=jars
 BLOB_NAME=SparkPi-assembly-0.1.0-SNAPSHOT.jar
 FILE_TO_UPLOAD=target/scala-2.11/SparkPi-assembly-0.1.0-SNAPSHOT.jar
@@ -241,8 +241,10 @@ Envie o trabalho utilizando `spark-submit`.
 Essa operação inicia o trabalho do Spark, que envia o status do trabalho para a sessão do Shell. Enquanto o trabalho estiver em execução, será possível ver o pod do driver do Spark e os pods executores usando o comando kubectl get pods. Abra uma segunda sessão de terminal para executar esses comandos.
 
 ```console
-$ kubectl get pods
+kubectl get pods
+```
 
+```output
 NAME                                               READY     STATUS     RESTARTS   AGE
 spark-pi-2232778d0f663768ab27edc35cb73040-driver   1/1       Running    0          16s
 spark-pi-2232778d0f663768ab27edc35cb73040-exec-1   0/1       Init:0/1   0          4s
@@ -270,7 +272,7 @@ kubectl get pods --show-all
 
 Saída:
 
-```bash
+```output
 NAME                                               READY     STATUS      RESTARTS   AGE
 spark-pi-2232778d0f663768ab27edc35cb73040-driver   0/1       Completed   0          1m
 ```
@@ -283,7 +285,7 @@ kubectl logs spark-pi-2232778d0f663768ab27edc35cb73040-driver
 
 Dentro desses logs, é possível visualizar o resultado do trabalho do Spark, que é o valor de Pi.
 
-```bash
+```output
 Pi is roughly 3.152155760778804
 ```
 
@@ -325,7 +327,7 @@ Ao executar o trabalho, em vez de indicar uma URL do Jar remota, o esquema `loca
 ```
 
 > [!WARNING]
-> Na [documentação][spark-docs]do Spark: "o Agendador kubernetes é experimental no momento. Em versões futuras, pode haver alterações de comportamento em torno de configuração, imagens de contêiner e pontos de entrada".
+> Na [documentação do Spark][spark-docs]: "o agendador Kubernetes está em período de testes no momento. Em versões futuras, pode haver alterações de comportamento em torno de configuração, imagens de contêiner e pontos de entrada".
 
 ## <a name="next-steps"></a>Próximas etapas
 

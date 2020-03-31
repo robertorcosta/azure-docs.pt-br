@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: c26cca40b0bf6d02bcec09945043f4ba854fa8e9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 34a70a4698b69881a06cfb7a7017fa0c30647197
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79249458"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80047690"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-##  <a name="TransformationPolicies"></a> Políticas de transformação
+##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a>Políticas de transformação
 
--   [Converter JSON para XML](api-management-transformation-policies.md#ConvertJSONtoXML) - Converte o corpo da solicitação ou da resposta de JSON para XML.
+-   [Converter JSON para XML](api-management-transformation-policies.md#ConvertJSONtoXML) – converte o corpo da solicitação ou da resposta de JSON para XML.
 
--   [Converter XML para JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) - Converte o corpo da solicitação ou da resposta de XML para JSON.
+-   [Converter XML para JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) – converte o corpo da solicitação ou da resposta de XML para JSON.
 
--   [Localizar e substituir cadeia no corpo](api-management-transformation-policies.md#Findandreplacestringinbody) - Encontra uma subcadeia de uma solicitação ou resposta e a substitui por outra subcadeia.
+-   [Localizar e substituir cadeia de caracteres no corpo](api-management-transformation-policies.md#Findandreplacestringinbody) – localiza uma subcadeia de caracteres de solicitação ou de resposta e a substitui por outra subcadeia de caracteres.
 
 -   [Mascarar URLs no conteúdo](api-management-transformation-policies.md#MaskURLSContent) – Reescreve (mascara) os links no corpo da resposta, para que eles apontem para o link equivalente por meio do gateway.
 
@@ -40,11 +40,11 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 -   [Definir parâmetro de cadeia de consulta](api-management-transformation-policies.md#SetQueryStringParameter) - Adiciona, substitui o valor ou exclui parâmetros de cadeias de consulta de solicitação.
 
--   [Reescrever URL](api-management-transformation-policies.md#RewriteURL) - Converte a URL de uma solicitação de sua forma pública em sua forma esperada pelo serviço Web.
+-   [Reescrever URL](api-management-transformation-policies.md#RewriteURL) – converte a URL de uma solicitação de sua forma pública para a forma esperada pelo serviço Web.
 
 -   [Transformar XML usando um XSLT](api-management-transformation-policies.md#XSLTransform) – aplica uma transformação XSL para XML no corpo da solicitação ou resposta.
 
-##  <a name="ConvertJSONtoXML"></a> Converter JSON para XML
+##  <a name="convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a>Converter JSON para XML
  A política `json-to-xml` converte o corpo da solicitação ou da resposta de JSON para XML.
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -69,16 +69,16 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|DESCRIÇÃO|Obrigatório|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |json-to-xml|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|DESCRIÇÃO|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |aplicar|O atributo deve ser definido como um dos valores a seguir.<br /><br /> –  always – sempre aplicar conversão.<br />–  content-type-json – converter somente se o cabeçalho Content-Type da resposta indica a presença de JSON.|Sim|N/D|
-|consider-accept-header|O atributo deve ser definido como um dos valores a seguir.<br /><br /> –  true – aplica conversão se JSON é solicitado no cabeçalho Accept da solicitação.<br />–  false – sempre aplicar conversão.|Não|true|
+|consider-accept-header|O atributo deve ser definido como um dos valores a seguir.<br /><br /> –  true – aplica conversão se XML é solicitado no cabeçalho Accept da solicitação.<br />–  false – sempre aplicar conversão.|Não|true|
 |parse-date|Quando definido como `false`, os valores de data são simplesmente copiados durante a transformação|Não|true|
 
 ### <a name="usage"></a>Uso
@@ -88,7 +88,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="ConvertXMLtoJSON"></a> Converter XML para JSON
+##  <a name="convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a>Converter XML para JSON
  A política `xml-to-json` converte o corpo da solicitação ou da resposta de XML para JSON. Esta política pode ser usada para modernizar APIs baseadas em serviços Web de back-end somente XML.
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -113,17 +113,17 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|DESCRIÇÃO|Obrigatório|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |xml-to-json|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|DESCRIÇÃO|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |kind|O atributo deve ser definido como um dos valores a seguir.<br /><br /> – javascript-friendly – o JSON convertido tem um formato amigável para desenvolvedores de JavaScript.<br />– direct – o JSON convertido reflete a estrutura do documento XML original.|Sim|N/D|
 |aplicar|O atributo deve ser definido como um dos valores a seguir.<br /><br /> – always – converter sempre.<br />–  content-type-xml – converter somente se o cabeçalho Content-Type da resposta indica a presença de XML.|Sim|N/D|
-|consider-accept-header|O atributo deve ser definido como um dos valores a seguir.<br /><br /> –  true – aplica conversão se XML é solicitado no cabeçalho Accept da solicitação.<br />–  false – sempre aplicar conversão.|Não|true|
+|consider-accept-header|O atributo deve ser definido como um dos valores a seguir.<br /><br /> –  true – aplica conversão se JSON é solicitado no cabeçalho Accept da solicitação.<br />–  false – sempre aplicar conversão.|Não|true|
 
 ### <a name="usage"></a>Uso
  Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
@@ -132,7 +132,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="Findandreplacestringinbody"></a> Localizar e substituir cadeia de caracteres no corpo
+##  <a name="find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a>Encontrar e substituir a corda no corpo
  A política `find-and-replace` Encontra uma subcadeia de caracteres de uma solicitação ou resposta e a substitui por outra subcadeia de caracteres.
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -149,13 +149,13 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|DESCRIÇÃO|Obrigatório|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |find-and-replace|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|DESCRIÇÃO|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |de|A cadeia a ser pesquisada.|Sim|N/D|
 |para|A cadeia de caracteres de substituição. Especifique uma cadeia de substituição de comprimento zero para remover a cadeia de caracteres de pesquisa.|Sim|N/D|
@@ -167,7 +167,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="MaskURLSContent"></a> Mascarar URLs no conteúdo
+##  <a name="mask-urls-in-content"></a><a name="MaskURLSContent"></a>Mascarar URLs em conteúdo
  A política `redirect-content-urls` reescreve (mascara) os links no corpo da resposta para que eles apontem para o link equivalente por meio do gateway. Use na seção de saída para regravar links de corpo da resposta para que apontem para o gateway. Use na seção de entrada para obter um efeito oposto.
 
 > [!NOTE]
@@ -187,7 +187,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|DESCRIÇÃO|Obrigatório|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |redirect-content-urls|Elemento raiz.|Sim|
 
@@ -198,7 +198,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="SetBackendService"></a> Definir o serviço de back-end
+##  <a name="set-backend-service"></a><a name="SetBackendService"></a>Definir serviço backend
  Use a política `set-backend-service` para redirecionar uma solicitação de entrada para um back-end diferente daquele especificado nas configurações de API para essa operação. Essa política altera a URL base do serviço de back-end da solicitação de entrada para aquele especificado na política.
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -214,7 +214,7 @@ ou
 ```
 
 > [!NOTE]
-> Entidades de back-end podem ser gerenciadas por meio da [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) de gerenciamento e do [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> As entidades backend podem ser gerenciadas através da [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) de gerenciamento e [do PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Exemplo
 
@@ -260,16 +260,16 @@ Neste exemplo, a política encaminha a solicitação para um back-end de Service
 
 ### <a name="elements"></a>Elementos
 
-|Nome|DESCRIÇÃO|Obrigatório|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |set-backend-service|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|DESCRIÇÃO|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
-|base-url|Nova URL base do serviço de back-end.|Um dos `base-url` ou `backend-id` deve estar presente.|N/D|
-|backend-id|Identificador do back-end para o qual encaminhar. (As entidades de back-end são gerenciadas por meio da [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) e do [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Um dos `base-url` ou `backend-id` deve estar presente.|N/D|
+|base-url|Nova URL base do serviço de back-end.|Um `base-url` deles `backend-id` deve estar presente.|N/D|
+|backend-id|Identificador do back-end para o qual encaminhar. (As entidades backend são gerenciadas via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Um `base-url` deles `backend-id` deve estar presente.|N/D|
 |sf-partition-key|Aplicável somente quando o back-end é um serviço do Service Fabric e é especificado usando 'backend-id'. Usado para resolver uma partição específica do serviço de resolução de nome.|Não|N/D|
 |sf-replica-type|Aplicável somente quando o back-end é um serviço do Service Fabric e é especificado usando 'backend-id'. Controla se a solicitação deve ir para a réplica primária ou secundária de uma partição. |Não|N/D|
 |sf-resolve-condition|Aplicável somente quando o back-end é um serviço do Service Fabric. Condição que identifica se a chamada para o back-end do Service Fabric deve ser repetida com a nova resolução.|Não|N/D|
@@ -283,7 +283,7 @@ Neste exemplo, a política encaminha a solicitação para um back-end de Service
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="SetBody"></a> Definir corpo
+##  <a name="set-body"></a><a name="SetBody"></a>Definir corpo
  Use a política `set-body` para definir o corpo da mensagem para solicitações de entrada e saída. Para acessar o corpo da mensagem, você pode usar a propriedade `context.Request.Body` ou a `context.Response.Body`, dependendo da seção em que a política está: de entrada ou de saída.
 
 > [!IMPORTANT]
@@ -384,7 +384,7 @@ A política `set-body` pode ser configurada para usar a linguagem de modelagem [
 </set-body>
 ```
 
-#### <a name="transform-json-using-a-liquid-template"></a>Transformar JSON usando um modelo líquido
+#### <a name="transform-json-using-a-liquid-template"></a>Transforme json usando um modelo líquido
 ```xml
 {
 "order": {
@@ -396,13 +396,13 @@ A política `set-body` pode ser configurada para usar a linguagem de modelagem [
 
 ### <a name="elements"></a>Elementos
 
-|Nome|DESCRIÇÃO|Obrigatório|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |set-body|Elemento raiz. Contém o texto do corpo ou expressões que retornam um corpo.|Sim|
 
 ### <a name="properties"></a>Propriedades
 
-|Nome|DESCRIÇÃO|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |template|Usado para alterar o modo de modelagem no qual a política de corpo definida será executada. Atualmente, o único valor aceito é:<br /><br />- liquid – a política de corpo definida usará o mecanismo de modelagem líquida |Não||
 
@@ -453,7 +453,7 @@ OriginalUrl.
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="SetHTTPheader"></a> Definir cabeçalho HTTP
+##  <a name="set-http-header"></a><a name="SetHTTPheader"></a> Definir cabeçalho HTTP
  A política `set-header` atribui um valor a uma resposta e/ou cabeçalho de resposta existente ou adiciona uma nova resposta e/ou cabeçalho de resposta.
 
  Insere uma lista de cabeçalhos HTTP em uma mensagem HTTP. Quando colocada em um pipeline de entrada, esta política define os cabeçalhos HTTP para a solicitação que está sendo passada para o serviço alvo. Quando colocada em um pipeline de saída, esta política define os cabeçalhos HTTP para a resposta que está sendo passada para o cliente do gateway.
@@ -468,14 +468,14 @@ OriginalUrl.
 
 ### <a name="examples"></a>Exemplos
 
-#### <a name="example---adding-header-override-existing"></a>Exemplo-adicionando cabeçalho, substituir existente
+#### <a name="example---adding-header-override-existing"></a>Exemplo - adicionar cabeçalho, substituir existente
 
 ```xml
 <set-header name="some header name" exists-action="override">
     <value>20</value>
 </set-header>
 ```
-#### <a name="example---removing-header"></a>Exemplo-removendo o cabeçalho
+#### <a name="example---removing-header"></a>Exemplo - remoção de cabeçalho
 
 ```xml
  <set-header name="some header name" exists-action="delete" />
@@ -497,27 +497,27 @@ OriginalUrl.
  Para obter mais informações, veja [Expressões de política](api-management-policy-expressions.md) e [Variável de contexto](api-management-policy-expressions.md#ContextVariables).
 
 > [!NOTE]
-> Vários valores de um cabeçalho são concatenados a uma cadeia de caracteres CSV, por exemplo: `headerName: value1,value2,value3`
+> Vários valores de um cabeçalho são concatenados a uma seqüência de seqüência csv, por exemplo:`headerName: value1,value2,value3`
 >
 > As exceções incluem cabeçalhos padronizados, cujos valores:
 > - podem conter vírgulas (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
 > - podem conter a data (`Cookie`, `Set-Cookie`, `Warning`),
 > - contêm a data (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
 >
-> No caso dessas exceções, vários valores de cabeçalho não serão concatenados em uma cadeia de caracteres e serão passados como cabeçalhos separados, por exemplo: `User-Agent: value1`
+> No caso dessas exceções, vários valores de cabeçalho não serão concatenados em uma seqüência e serão passados como cabeçalhos separados, por exemplo:`User-Agent: value1`
 >`User-Agent: value2`
 >`User-Agent: value3`
 
 ### <a name="elements"></a>Elementos
 
-|Nome|DESCRIÇÃO|Obrigatório|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |set-header|Elemento raiz.|Sim|
 |value|Especifica o valor do cabeçalho a ser definido. Para adicionar vários cabeçalhos com o mesmo nome, adicione elementos `value` adicionais.|Não|
 
 ### <a name="properties"></a>Propriedades
 
-|Nome|DESCRIÇÃO|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |exists-action|Especifica a ação a ser adotada quando o cabeçalho já foi especificado. Este atributo deve ter um dos valores a seguir.<br /><br /> – override – substitui o valor do cabeçalho existente.<br />– skip – não substitui o valor do cabeçalho existente.<br />– append – acrescenta o valor ao valor do cabeçalho existente.<br />– delete – remove o cabeçalho da solicitação.<br /><br /> Quando definido como `override`, listar diversas entradas com o mesmo nome faz com que o cabeçalho seja definido de acordo com todas as entradas (que serão listadas várias vezes); somente valores listados serão definidos no resultado.|Não|override|
 |name|Especifica o nome do cabeçalho a ser definido.|Sim|N/D|
@@ -529,7 +529,7 @@ OriginalUrl.
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="SetQueryStringParameter"></a> Definir parâmetro de cadeia de consulta
+##  <a name="set-query-string-parameter"></a><a name="SetQueryStringParameter"></a>Definir parâmetro de seqüência de string de consulta
  A política `set-query-parameter` adiciona, substitui o valor ou exclui parâmetros de cadeias de consulta de solicitação. Pode ser usada para transmitir parâmetros de consulta esperados pelo serviço de back-end que são opcionais ou nunca estão presentes na solicitação.
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -570,14 +570,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementos
 
-|Nome|DESCRIÇÃO|Obrigatório|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |set-query-parameter|Elemento raiz.|Sim|
 |value|Especifica o valor do parâmetro de consulta a ser definido. Para adicionar vários parâmetros de consulta com o mesmo nome, adicione elementos `value` adicionais.|Sim|
 
 ### <a name="properties"></a>Propriedades
 
-|Nome|DESCRIÇÃO|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |exists-action|Especifica a ação a ser adotada quando o parâmetro de consulta já foi especificado. Este atributo deve ter um dos valores a seguir.<br /><br /> – override – substitui o valor do parâmetro existente.<br />– skip – não substitui o valor do parâmetro de consulta existente.<br />– append – acrescenta o valor ao valor do parâmetro de consulta existente.<br />– delete – remove o parâmetro de consulta da solicitação.<br /><br /> Quando definido como `override`, listar diversas entradas com o mesmo nome faz com que o parâmetro de consulta seja definido de acordo com todas as entradas (que serão listadas várias vezes); somente valores listados serão definidos no resultado.|Não|override|
 |name|Especifica o nome do parâmetro de consulta a ser definido.|Sim|N/D|
@@ -589,7 +589,7 @@ OriginalUrl.
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="RewriteURL"></a> Reescrever URL
+##  <a name="rewrite-url"></a><a name="RewriteURL"></a>Reescrever URL
  A política `rewrite-uri` converte a URL de uma solicitação de sua forma pública para a forma esperada pelo serviço Web, conforme mostrado no exemplo a seguir.
 
 - URL pública – `http://api.example.com/storenumber/ordernumber`
@@ -649,13 +649,13 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementos
 
-|Nome|DESCRIÇÃO|Obrigatório|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |rewrite-uri|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Atributo|DESCRIÇÃO|Obrigatório|Padrão|
+|Atributo|Descrição|Obrigatório|Padrão|
 |---------------|-----------------|--------------|-------------|
 |template|A URL real do serviço Web com quaisquer parâmetros de cadeia de consulta. Ao usar expressões, o valor inteiro deve ser uma expressão.|Sim|N/D|
 |copy-unmatched-params|Especifica se os parâmetros de consulta na solicitação de entrada não presentes no modelo de URL original são adicionados à URL definida pelo modelo reescrito|Não|true|
@@ -667,7 +667,7 @@ OriginalUrl.
 
 -   **Escopos da política:** todos os escopos
 
-##  <a name="XSLTransform"></a> Transformar XML usando um XSLT
+##  <a name="transform-xml-using-an-xslt"></a><a name="XSLTransform"></a> Transformar XML usando um XSLT
  A política `Transform XML using an XSLT` aplica uma transformação XSL para XML no corpo da solicitação ou da resposta.
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -718,7 +718,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementos
 
-|Nome|DESCRIÇÃO|Obrigatório|
+|Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
 |xsl-transform|Elemento raiz.|Sim|
 |parâmetro|Usado para definir as variáveis usadas na transformação|Não|

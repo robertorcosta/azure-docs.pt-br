@@ -1,5 +1,5 @@
 ---
-title: Descobrir recursos do Azure para gerenciar no PIM – Azure AD | Microsoft Docs
+title: Descubra os recursos do Azure para gerenciar no PIM - Azure AD | Microsoft Docs
 description: Saiba como descobrir recursos do Azure para gerenciar no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
@@ -15,56 +15,56 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87da43100c7494937ddc842e0f903ba3a360959e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74022884"
 ---
-# <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Descubra os recursos do Azure para gerenciar no Privileged Identity Management
+# <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Descubra os recursos do Azure para gerenciar no Gerenciamento de Identidade Privilegiada
 
-Usando o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), você pode melhorar a proteção dos recursos do Azure. Isso é útil para organizações que já usam Privileged Identity Management para proteger as funções do Azure AD e para os proprietários do grupo de gerenciamento e da assinatura que estão procurando proteger os recursos de produção.
+Usando o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), você pode melhorar a proteção dos seus recursos do Azure. Isso é útil para organizações que já usam o Gerenciamento de Identidade Privilegiada para proteger as funções do Azure AD e para os proprietários de grupo de gerenciamento e assinaturas que estão procurando garantir recursos de produção.
 
-Ao configurar o Privileged Identity Management para recursos do Azure pela primeira vez, você precisa descobrir e selecionar os recursos a serem protegidos com Privileged Identity Management. Não há limite para o número de recursos que você pode gerenciar com Privileged Identity Management. No entanto, é recomendável começar com seus recursos  mais importantes (produção).
+Quando você configura o Gerenciamento de Identidade Privilegiada para recursos do Azure, você precisa descobrir e selecionar os recursos para proteger com o Gerenciamento de Identidade Privilegiado. Não há limite para o número de recursos que você pode gerenciar com o Gerenciamento de Identidade Privilegiada. No entanto, é recomendável começar com seus recursos  mais importantes (produção).
 
 ## <a name="discover-resources"></a>Descobrir recursos
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure](https://portal.azure.com/).
 
-1. Abra o **Azure AD Privileged Identity Management**.
+1. Abra **o Azure AD Privileged Identity Management**.
 
 1. Selecione **Recursos do Azure**.
 
-    Se esta for a primeira vez que você usa Privileged Identity Management para recursos do Azure, você verá uma página **descobrir recursos** .
+    Se esta é a primeira vez que usa o Gerenciamento de Identidade Privilegiada para recursos do Azure, você verá uma página **de recursos do Discover.**
 
-    ![Descobrir o painel de recursos sem recursos listados para a primeira experiência](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
+    ![Descubra o painel de recursos sem recursos listados para a primeira experiência](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
 
-    Se outro administrador em sua organização já estiver gerenciando recursos do Azure no Privileged Identity Management, você verá uma lista dos recursos que estão sendo gerenciados no momento.
+    Se outro administrador em sua organização já estiver gerenciando os recursos do Azure no Gerenciamento de Identidade Privilegiada, você verá uma lista dos recursos que estão sendo gerenciados no momento.
 
-    ![Painel descobrir recursos listando recursos que estão sendo gerenciados no momento](./media/pim-resource-roles-discover-resources/discover-resources.png)
+    ![Descubra recursos de listagem de pai que estão sendo gerenciados](./media/pim-resource-roles-discover-resources/discover-resources.png)
 
-1. Selecione **descobrir recursos** para iniciar a experiência de descoberta.
+1. Selecione **os recursos do Discover** para iniciar a experiência de descoberta.
 
-    ![Painel de descoberta listando recursos que podem ser gerenciados, como assinaturas e grupos de gerenciamento](./media/pim-resource-roles-discover-resources/discovery-pane.png)
+    ![Recursos de listagem de pai e de si maquinamento do Discovery que podem ser gerenciados, como assinaturas e grupos de gerenciamento](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
-1. Na página **descoberta** , use **filtro de estado do recurso** e **selecione tipo de recurso** para filtrar os grupos de gerenciamento ou assinaturas para os quais você tem permissão de gravação. Ele provavelmente é mais fácil para começar **todos** os inicialmente.
+1. Na página **''Detecção',** use **filtro de estado de recursos** e **selecione o tipo de recurso** para filtrar os grupos de gerenciamento ou assinaturas para os quais você tem permissão de gravação. Ele provavelmente é mais fácil para começar **todos** os inicialmente.
 
-    Você só pode procurar e selecionar recursos de assinatura ou grupo de gerenciamento para gerenciar usando Privileged Identity Management. Ao gerenciar um grupo de gerenciamento ou uma assinatura no Privileged Identity Management, você também pode gerenciar seus recursos filho.
+    Você só pode pesquisar e selecionar recursos de gerenciamento ou assinatura para gerenciar usando o Gerenciamento de Identidade Privilegiada. Quando você gerencia um grupo de gerenciamento ou uma assinatura no Gerenciamento de Identidade Privilegiada, você também pode gerenciar seus recursos filhos.
 
-1. Marque a caixa de seleção ao lado de quaisquer recursos não gerenciados que você deseja gerenciar.
+1. Selecione a caixa de seleção ao lado de quaisquer recursos não gerenciados que você deseja gerenciar.
 
-1. Selecione **gerenciar recurso** para começar a gerenciar os recursos selecionados.
+1. Selecione **Gerenciar recurso** para começar a gerenciar os recursos selecionados.
 
     > [!NOTE]
-    > Depois que um grupo de gerenciamento ou assinatura é gerenciado, ele não pode ser não gerenciado. Isso impede que outro administrador de recursos remova Privileged Identity Management configurações.
+    > Uma vez gerenciado um grupo de gerenciamento ou assinatura, ele não pode ser gerenciado. Isso impede que outro administrador de recursos removesse configurações de gerenciamento de identidade privilegiado.
 
-    ![Painel de descoberta com um recurso selecionado e a opção de gerenciar recurso realçada](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
+    ![Painel de detecção com um recurso selecionado e a opção Gerenciar recurso destacada](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. Se você vir uma mensagem para confirmar a integração do recurso selecionado para gerenciamento, selecione **Sim**.
+1. Se você vir uma mensagem para confirmar o onboarding do recurso selecionado para gerenciamento, selecione **Sim**.
 
-    ![Mensagem confirmando a integração dos recursos selecionados para gerenciamento](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
+    ![Mensagem confirmando os recursos selecionados para gestão](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Definir configurações de função de recurso do Azure no Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
-- [Atribuir funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-assign-roles.md)
+- [Configure as configurações de função de recurso do Azure no Gerenciamento de Identidade Privilegiada](pim-resource-roles-configure-role-settings.md)
+- [Atribuir funções de recurso do Azure no Gerenciamento de Identidade Privilegiada](pim-resource-roles-assign-roles.md)

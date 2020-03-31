@@ -10,14 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: bf0710ebef21226d8d8582a920d64027bb015d34
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 850ab0ee89ee167886d8747a0c721bb643529e14
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622731"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80052056"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 O Personalizador do Azure é um serviço de API baseado em nuvem que ajuda seu aplicativo cliente a escolher o melhor item de _conteúdo_ para mostrar a cada usuário. O serviço seleciona o melhor item entre os itens de conteúdo com base nas informações coletivas em tempo real que você fornece sobre o conteúdo e o contexto.
 

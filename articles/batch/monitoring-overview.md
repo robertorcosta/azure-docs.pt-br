@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: labrenne
 ms.openlocfilehash: d251229c522bd4d6daca894513eaae14d244d8a1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025853"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorar soluções do Lote
@@ -29,7 +29,7 @@ No nível da assinatura, que inclui as contas do Lote, o [Log de atividades](../
 
 Para as contas do Lote e especificamente, o log de atividades coleta eventos relacionados à criação e exclusão de contas e ao gerenciamento de chaves.
 
-Uma maneira de recuperar eventos do log de atividades é usar o Portal do Azure. Clique em **Todos os serviços** > **Log de Atividades**. Ou consulte os eventos usando as CLI do Azure, os cmdlets do PowerShell ou a API REST do Azure Monitor. Você também pode exportar o log de atividades ou configurar os [alertas do log de atividades](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
+Uma maneira de recuperar eventos do log de atividades é usar o Portal do Azure. Clique em **Todos os serviços** > **de registro de atividades**. Ou consulte os eventos usando as CLI do Azure, os cmdlets do PowerShell ou a API REST do Azure Monitor. Você também pode exportar o log de atividades ou configurar os [alertas do log de atividades](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
 
 ## <a name="batch-account-level-monitoring"></a>Monitoramento no nível de conta do Lote
 
@@ -40,10 +40,10 @@ Monitore cada conta do Lote usando os recursos do [Azure Monitor](../azure-monit
 
 ## <a name="batch-resource-monitoring"></a>Monitoramento de recursos do Lote
 
-Nos aplicativo do Lote, use as APIs de Lote para monitorar ou consultar o status dos recursos, incluindo trabalhos, tarefas, nós e pools. Por exemplo:
+Nos aplicativo do Lote, use as APIs de Lote para monitorar ou consultar o status dos recursos, incluindo trabalhos, tarefas, nós e pools. Por exemplo: 
 
 * [Contar tarefas e nós de computação por estado](batch-get-resource-counts.md)
-* [Criar consultas para listar os recursos do Lote de forma eficiente](batch-efficient-list-queries.md)
+* [Criar consultas para listar recursos do Lote com eficiência](batch-efficient-list-queries.md)
 * [Criar dependências de tarefas](batch-task-dependencies.md)
 * Use uma [tarefa do gerenciador de trabalhos](/rest/api/batchservice/job/add#jobmanagertask)
 * Monitore o [estado da tarefa](/rest/api/batchservice/task/list#taskstate)
@@ -62,10 +62,10 @@ Nos aplicativo do Lote, use as APIs de Lote para monitorar ou consultar o status
   > Custos adicionais poderão incorrer para usar o Application Insights. Consulte [opções de preços](https://azure.microsoft.com/pricing/details/application-insights/). 
   >
 
-* [O Batch Explorer](https://github.com/Azure/BatchExplorer) é uma ferramenta cliente autônoma, rica e exclusiva para ajudar a criar, depurar e monitorar aplicativos em lote do Azure. Baixe um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows. Opcionalmente, configure sua solução em lote para [exibir dados do Application Insights](https://github.com/Azure/batch-insights), como os contadores de desempenho da VM no Batch Explorer.
+* [O Explorador de lotes](https://github.com/Azure/BatchExplorer) é uma ferramenta de cliente autônomo e gratuita para ajudar a criar, depurar e monitorar aplicativos em lote do Azure. Baixe um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows. Opcionalmente, configure sua solução em lote para [exibir dados do Application Insights](https://github.com/Azure/batch-insights), como os contadores de desempenho da VM no Batch Explorer.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre as [Ferramentas e APIs do Lote](batch-apis-tools.md) disponíveis para a criação de soluções do Lote.
 * Saiba mais sobre [log de diagnósticos](batch-diagnostics.md) com Lote.

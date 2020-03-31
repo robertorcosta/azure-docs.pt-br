@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60581188"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Fazer backup de volumes ou compartilhamentos no StorSimple Virtual Array
@@ -32,7 +32,7 @@ Este tutorial se aplica somente a Matrizes Virtuais StorSimple. Para obter infor
 
 ## <a name="back-up-shares-and-volumes"></a>Fazer backup de compartilhamentos e volumes
 
-Backups oferecem proteção pontual, melhoram a capacidade de recuperação e minimizam os tempos de compartilhamentos e volumes. Você pode fazer backup de um compartilhamento ou volume em seu dispositivo StorSimple de duas maneiras: **Agendado** ou **Manual**. Cada um desses métodos é discutido nas seções a seguir.
+Backups oferecem proteção pontual, melhoram a capacidade de recuperação e minimizam os tempos de compartilhamentos e volumes. É possível fazer backup de um compartilhamento ou volume em seu dispositivo StorSimple de duas maneiras: **Agendada** ou **Manual**. Cada um desses métodos é discutido nas seções a seguir.
 
 ## <a name="change-the-backup-start-time"></a>Alterar a hora de início do backup
 

@@ -1,6 +1,7 @@
 ---
-title: Transcrição ao vivo dos serviços de mídia do Azure | Microsoft Docs
-description: Este artigo explica o que é a transcrição dinâmica dos serviços de mídia do Azure.
+title: Transcrição ao vivo
+titleSuffix: Azure Media Services
+description: Saiba mais sobre a transcrição ao vivo do Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,31 +14,31 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 95cd759a5ef4f5f67ecf56e60595e709bbc8b44f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b364b6e70e3b5723c483bc3435f0c3a152c03aa9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845689"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499866"
 ---
-# <a name="live-transcription-preview"></a>Transcrição ao vivo (versão prévia)
+# <a name="live-transcription-preview"></a>Transcrição ao vivo (pré-visualização)
 
-O serviço de mídia do Azure fornece vídeo, áudio e, agora, texto em diferentes protocolos. Quando você publica sua transmissão ao vivo usando MPEG-DASH ou HLS/CMAF, juntamente com vídeo e áudio, nosso serviço fornecerá o texto transtratado no TTML compatível com IMSC 1.1, empacotado nos fragmentos de MPEG-4, parte 30 (ISO/IEC 14496-30). Se estiver usando a entrega via HLS/TS, o texto será entregue como um VTT em bloco. 
+O Azure Media Service fornece vídeo, áudio e texto em diferentes protocolos. Quando você publica sua transmissão ao vivo usando MPEG-DASH ou HLS/CMAF, em seguida, juntamente com vídeo e áudio, nosso serviço fornece o texto transcrito em TTML compatível com IMSC1.1. A entrega é embalada em fragmentos MPEG-4 Parte 30 (ISO/IEC 14496-30). Se usar a entrega via HLS/TS, o texto será entregue como VTT em pedaços.
 
-Este artigo descreve como habilitar a transcrição ao vivo ao transmitir um evento ao vivo com os serviços de mídia do Azure v3. Antes de prosseguir, verifique se você está familiarizado com o uso das APIs REST dos serviços de mídia v3 (consulte [este tutorial](stream-files-tutorial-with-rest.md) para obter detalhes). Você também deve estar familiarizado com o conceito de [transmissão ao vivo](live-streaming-overview.md) . É recomendável concluir o tutorial do [Stream Live com os serviços de mídia](stream-live-tutorial-with-api.md) . 
+Este artigo descreve como ativar a transcrição ao vivo ao transmitir um evento ao vivo com o Azure Media Services v3. Antes de continuar, certifique-se de estar familiarizado com o uso de APIs de Media Services v3 REST (veja [este tutorial](stream-files-tutorial-with-rest.md) para obter detalhes). Você também deve estar familiarizado com o conceito [de transmissão ao vivo.](live-streaming-overview.md) Recomenda-se completar o [tutorial de Stream live com Media Services.](stream-live-tutorial-with-api.md)
 
 > [!NOTE]
-> Atualmente, a transcrição ao vivo só está disponível como um recurso de visualização na região oeste dos EUA 2. Ele dá suporte à transcrição de palavras faladas em inglês para texto. A referência de API para esse recurso está neste documento – já que ele está em versão prévia, os detalhes não estão disponíveis com nossos documentos REST. 
+> Atualmente, a transcrição ao vivo só está disponível como um recurso de pré-visualização na região oeste dos EUA 2. Suporta transcrição de palavras faladas em inglês para texto. A referência de API para este recurso está localizada abaixo — becasuse está em pré-visualização, os detalhes não estão disponíveis com nossos documentos REST.
 
-## <a name="creating-the-live-event"></a>Criando o evento ao vivo 
+## <a name="creating-the-live-event"></a>Criando o Evento Ao Vivo
 
-Para criar o evento ao vivo, você enviaria a operação PUT para a versão 2019-05-01-Preview, como: 
+Para criar o Evento Ao Vivo, envie a operação PUT para a versão de pré-visualização 2019-05-01, por exemplo:
 
 ```
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
 ```
 
-A operação tem o seguinte corpo (em que um evento de passagem ao vivo é criado com RTMP como o protocolo de ingestão). Observe a adição de uma propriedade transcrições. O único valor permitido para o idioma é en-US. 
+A operação tem o seguinte corpo (onde um evento ao vivo de passagem é criado com RTMP como protocolo de ingestão). Note a adição de uma propriedade de transcrições. O único valor permitido para a linguagem é en-US.
 
 ```
 { 
@@ -87,24 +88,24 @@ A operação tem o seguinte corpo (em que um evento de passagem ao vivo é criad
 } 
 ```
 
-Você deve sondar o status do evento ao vivo até que ele vá para o estado "em execução", que indica que agora você pode enviar um feed RTMP de contribuição. Agora você pode seguir as mesmas etapas deste tutorial, como verificar o feed de visualização e criar saídas dinâmicas. 
+Consulte o status do Evento Ao Vivo até que ele entre no estado "Running", o que indica que agora você pode enviar uma contribuição feed RTMP. Agora você pode seguir os mesmos passos deste tutorial, como verificar o feed de visualização e criar saídas ao vivo.
 
-## <a name="delivery-and-playback"></a>Entrega e reprodução 
+## <a name="transcription-delivery-and-playback"></a>Entrega e reprodução de transcrição
 
-Examine o artigo [visão geral do empacotamento dinâmico](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery) de como nosso serviço usa o empacotamento dinâmico para fornecer vídeo, áudio e agora texto em diferentes protocolos. Quando você publica sua transmissão ao vivo usando MPEG-DASH ou HLS/CMAF, juntamente com vídeo e áudio, nosso serviço fornecerá o texto transtratado no TTML compatível com IMSC 1.1, empacotado nos fragmentos de MPEG-4, parte 30 (ISO/IEC 14496-30). Se estiver usando a entrega via HLS/TS, o texto será entregue como um VTT em bloco. Você pode usar um Web Player, como o [player de mídia do Azure](use-azure-media-player.md) para reproduzir o fluxo.  
+Revise o artigo [de visão geral](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery) da embalagem dinâmica de como nosso serviço usa embalagens dinâmicas para fornecer vídeo, áudio e texto em diferentes protocolos. Quando você publica sua transmissão ao vivo usando MPEG-DASH ou HLS/CMAF, em seguida, juntamente com vídeo e áudio, nosso serviço fornece o texto transcrito em TTML compatível com IMSC1.1. Esta entrega é embalada em fragmentos MPEG-4 Parte 30 (ISO/IEC 14496-30). Se usar a entrega via HLS/TS, o texto será entregue como VTT em pedaços. Você pode usar um web player como o [Azure Media Player](use-azure-media-player.md) para reproduzir a transmissão.  
 
 > [!NOTE]
->  Se estiver usando Player de Mídia do Azure, use a versão 2.3.3 ou posterior.
+> Se usar o Azure Media Player, use a versão 2.3.3 ou posterior.
 
-## <a name="known-issues"></a>Problemas conhecidos 
+## <a name="known-issues"></a>Problemas conhecidos
 
-Na visualização, veja a seguir os problemas conhecidos com a transcrição ao vivo 
+Para visualização, os seguintes problemas são conhecidos com transcrição ao vivo:
 
-* O recurso está disponível apenas no oeste dos EUA 2.
-* Os aplicativos precisam usar as APIs de visualização, descritas na especificação de [especificação openapi dos serviços de mídia v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json) .
-* O único idioma com suporte é o inglês (en-US).
-* Em relação à proteção de conteúdo, há suporte apenas para criptografia de envelope AES.
+* O recurso está disponível apenas no West US 2.
+* Os aplicativos precisam usar as APIs de visualização, descritas na [Especificação OpenAPI do Media Services v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
+* A única língua suportada é o inglês (en-us).
+* Com proteção de conteúdo, apenas a criptografia de envelope AES é suportada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-[Visão geral dos Serviços de Mídia](media-services-overview.md)
+* [Visão geral dos Serviços de Mídia](media-services-overview.md)

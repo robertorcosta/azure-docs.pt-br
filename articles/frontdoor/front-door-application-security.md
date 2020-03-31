@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service – Segurança de camada de aplicativo | Microsoft Docs
-description: Este artigo ajuda a entender como o Azure Front Door Service permite proteger os back-ends de seus aplicativos
+title: Porta da Frente do Azure - Segurança da camada do aplicativo | Microsoft Docs
+description: Este artigo ajuda você a entender como o Azure Front Door permite proteger e proteger os backends do aplicativo
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,23 +11,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: c7b99548e2fe1ad0c1cab39953e28a97e7ebff4b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e458926930c1b95d48886559551878fc6c9d0673
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193910"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471788"
 ---
 # <a name="application-layer-security-with-front-door"></a>Segurança da camada de aplicativo com o Front Door
-O Azure Front Door Service fornece funcionalidade de proteção de aplicativo Web para proteger seus aplicativos Web contra ataques de rede e explorações de vulnerabilidades da Web comuns, como Injeção de SQL ou XSS (Cross Site Scripting). Habilitado para front-ends HTTP(S), a segurança de camada de aplicativo do Front Door é distribuída globalmente e permanece sempre ativa, impedindo ataques mal-intencionados na borda da rede do Azure, longe de seus back-ends. Com mais segurança e otimização de desempenho, o Front Door oferece experiências da Web rápidas e seguras aos usuários finais.
+O Azure Front Door oferece o recurso de proteção de aplicativos da Web para proteger seus aplicativos da Web contra ataques de rede e vulnerabilidades comuns da Web, como o SQL Injection ou o Cross Site Scripting (XSS). Habilitada para front-ends HTTP(S), a segurança de camada de aplicativo do Front Door é distribuída globalmente e permanece sempre ativa, impedindo ataques mal-intencionados na borda da rede do Azure, longe de seus back-ends. Com mais segurança e otimização de desempenho, o Front Door oferece experiências na Web rápidas e seguras aos usuários finais.
 
 ## <a name="application-protection"></a>Proteção do aplicativo
-A proteção de aplicativo do Front Door é configurada em cada ambiente de borda em todo o mundo, de forma alinhada com os aplicativos, e impede automaticamente o tráfego não HTTP(S) de acessar seus aplicativos Web. Nossa arquitetura distribuída multilocatário permite a proteção global em escala sem sacrificar o desempenho. Para cargas de trabalho HTTP(S), o serviço de proteção de aplicativo Web do Front Door fornece um mecanismo de regras avançado para regras personalizadas, um conjunto de regras pré-configurado contra ataques comuns e o registro em log detalhado de todas as solicitações que correspondem a uma regra. Há suporte somente para ações flexíveis como permitir, bloquear ou registrar em log.
+A proteção de aplicativo do Front Door é configurada em cada ambiente de borda em todo o mundo, de forma alinhada com os aplicativos, e impede automaticamente o tráfego que não é HTTP(S) de acessar seus aplicativos Web. Nossa arquitetura distribuída multilocatário permite a proteção global em escala sem sacrificar o desempenho. Para cargas de trabalho HTTP(S), o serviço de proteção de aplicativo Web do Front Door fornece um mecanismo de regras avançado para regras personalizadas, um conjunto de regras pré-configurado contra ataques comuns e o registro em log detalhado de todas as solicitações que correspondem a uma regra. Há suporte somente para ações flexíveis como permitir, bloquear ou registrar em log.
 
 ## <a name="custom-access-control-rules"></a>Regras personalizadas de controle de acesso
-- **Permissões de IP lista e a lista de bloqueios:** Você pode configurar regras personalizadas para controlar o acesso aos seus aplicativos web com base na lista de endereços IP do cliente. Há suporte para IP v4 e IP v6
-- **Controle de acesso com base geográfica:** Você pode configurar regras personalizadas para controlar o acesso aos seus aplicativos web com base em um IP do cliente é de código do país
-- **Parâmetros HTTP de filtragem:** Você pode configurar regras de acesso personalizado com base na correspondência de parâmetros de solicitação de HTTP (s), incluindo os cabeçalhos, URL e cadeias de caracteres de consulta
+- **Lista de permitir IP e lista de blocos:** Você pode configurar regras personalizadas para controlar o acesso aos seus aplicativos web com base na lista de endereços IP do cliente. Há suporte para IP v4 e IP v6
+- **Controle de acesso com base geográfica:** é possível configurar regras personalizadas para controlar o acesso a aplicativos Web com base no código do país de origem do IP do cliente
+- **Filtragem de parâmetros HTTP:** é possível configurar regras de acesso personalizadas com base na correspondência de parâmetros da solicitação HTTP(S), incluindo cabeçalhos, URL e cadeias de consulta
 
 ## <a name="azure-managed-rules"></a>Regras gerenciadas pelo Azure
 - Um conjunto predefinido de regras relacionadas às vulnerabilidades de OWASP mais comuns é habilitado por padrão. Na versão prévia, o conjunto de regras inclui a verificação de solicitações de SQLI e XSS. Mais regras serão adicionadas. Você pode optar por começar com a ação de somente registrar em log para validar se as regras pré-configuradas funcionam conforme o esperado nos aplicativos 

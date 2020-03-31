@@ -1,6 +1,6 @@
 ---
 title: Configurar ASE v1
-description: Configuração, gerenciamento e monitoramento do Ambiente do Serviço de Aplicativo v1. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
+description: Configuração, gerenciamento e monitoramento do Ambiente de Serviço de Aplicativo v1. Este doc é fornecido apenas para clientes que usam o Legado v1 ASE.
 author: ccompy
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.topic: article
@@ -8,19 +8,19 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687253"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuração de um Ambiente do Serviço de Aplicativo v1
 
 > [!NOTE]
-> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em infraestrutura mais avançada. Para saber mais sobre o novo início de versão com o [Introdução ao Ambiente do Serviço de Aplicativo](intro.md).
+> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em infraestrutura mais avançada. Para saber mais sobre a nova versão, comece com a [Introdução ao Ambiente de Serviço do Aplicativo](intro.md).
 > 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Em um nível elevado, um Ambiente do Serviço de Aplicativo do Azure consiste em vários componentes principais:
 
 * Recursos de computação que estão em execução no serviço hospedado do Ambiente do Serviço de Aplicativo
@@ -63,7 +63,7 @@ Se os aplicativos exigirem um recurso de computação maior, você não poderá 
 
 **Dimensionamento automático**: uma das ferramentas que podem ajudá-lo a gerenciar o consumo de recursos de computação é o dimensionamento automático. Você pode usar o dimensionamento automático para o front-end ou para os pools de trabalho. Você pode aumentar suas instâncias de algum tipo de pool de manhã e reduzi-las durante a noite. Ou você pode adicionar instâncias quando o número de trabalhador disponíveis em um pool de trabalho cair abaixo de um certo limite.
 
-Se você quiser definir regras de dimensionamento automático com relação às métricas de pool de recursos de computação, lembre-se do tempo necessário para o provisionamento. Para obter mais detalhes sobre o dimensionamento automático de ambientes do serviço de aplicativo, consulte [como configurar a autoescala em um ambiente do serviço de aplicativo][ASEAutoscale].
+Se você quiser definir regras de dimensionamento automático com relação às métricas de pool de recursos de computação, lembre-se do tempo necessário para o provisionamento. Para obter mais detalhes sobre o dimensionamento automático dos Ambientes do Serviço de Aplicativo, confira [Como configurar o dimensionamento automático em um Ambiente de Serviço de Aplicativo][ASEAutoscale].
 
 ### <a name="storage"></a>Armazenamento
 Cada ASE é configurado com 500 GB de armazenamento. Esse espaço é usado em todos os aplicativos do ASE. Esse espaço de armazenamento faz parte do ASE e atualmente não pode ser alternado para usar seu espaço de armazenamento. Se você estiver fazendo ajustes no roteamento ou segurança de rede virtual, ainda será necessário permitir o acesso ao Armazenamento do Azure ou o ASE não funcionará.
@@ -81,7 +81,7 @@ Há algumas restrições na rede virtual que é usada para um ASE:
 * Quando uma sub-rede é usada para hospedar um ASE, o intervalo de endereços da sub-rede não pode ser alterado. Por esse motivo, recomendamos que a sub-rede contenha pelo menos 64 endereços a fim acomodar qualquer crescimento futuro do ASE.
 * Nada mais pode existir na sub-rede além do ASE.
 
-Ao contrário do serviço hospedado que contém o ASE, a [rede virtual][virtualnetwork] e a sub-rede estão sob controle do usuário.  Você pode administrar sua rede virtual por meio da interface do usuário de rede virtual ou do PowerShell.  Um ASE pode ser implantado em uma VNet clássica ou do Resource Manager.  O portal e as experiências de API são um pouco diferentes entre as VNets Clássica e do Resource Manager, mas a experiência do ASE é a mesma.
+Ao contrário do serviço hospedado que contém o ASE, a [rede virtual][virtualnetwork] e a sub-rede estão sob o controle do usuário.  Você pode administrar sua rede virtual por meio da interface do usuário de rede virtual ou do PowerShell.  Um ASE pode ser implantado em uma VNet clássica ou do Resource Manager.  O portal e as experiências de API são um pouco diferentes entre as VNets Clássica e do Resource Manager, mas a experiência do ASE é a mesma.
 
 A rede virtual que é usada para hospedar um ASE pode usar endereços IP RFC1918 privados ou endereços IP públicos.  Se você deseja usar um intervalo de IP que não é coberto pelo RFC1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), precisa criar sua rede virtual e sub-rede a ser usada pelo seu ASE antes de criá-lo.
 
@@ -89,14 +89,14 @@ Já que esse recurso coloca o serviço de aplicativo do Azure em sua rede virtua
 
 Por exemplo, você pode usar a Integração VNET para integrar-se a uma Rede Virtual que esteja em sua assinatura mas que não esteja conectada à rede virtual em que seu ASE está. Você também ainda pode usar as Conexões Híbridas para acessar recursos em outras redes, como faria normalmente.  
 
-Caso você tenha configurado sua rede virtual com uma VPN do ExpressRoute, deverá estar ciente das necessidades de rotas de um ASE. Há algumas configurações de UDR (rota definida pelo usuário) que são incompatíveis com um ASE. Para obter mais detalhes sobre como executar um ASE em uma rede virtual com o ExpressRoute, consulte [executando um ambiente do serviço de aplicativo em uma rede virtual com o expressroute][ExpressRoute].
+Caso você tenha configurado sua rede virtual com uma VPN do ExpressRoute, deverá estar ciente das necessidades de rotas de um ASE. Há algumas configurações de UDR (rota definida pelo usuário) que são incompatíveis com um ASE. Para obter mais detalhes sobre como executar um ASE em uma rede virtual com o ExpressRoute, confira [Executando um Ambiente de Serviço de Aplicativo em uma rede virtual com o ExpressRoute][ExpressRoute].
 
 #### <a name="securing-inbound-traffic"></a>Protegendo o tráfego de entrada
 Há dois métodos principais para controlar o tráfego de entrada para seu ASE.  Você pode usar NSGs (Grupos de Segurança de Rede) para controlar quais endereços IP podem acessar seu ASE conforme descrito aqui [Como controlar o tráfego de entrada em um Ambiente de Serviço de Aplicativo](app-service-app-service-environment-control-inbound-traffic.md) e também pode configurar seu ASE com um ILB (Balanceador de Carga Interno).  Esses recursos também podem ser usados juntos para restringir o acesso usando NSGs para seu ASE ILB.
 
 Quando você cria um ASE, ele cria um VIP em sua rede virtual.  Há dois tipos de VIP, internos e externos.  Quando você cria um ASE com um VIP externo, seus aplicativos no ASE poderão ser acessados por meio de um endereço IP que pode ser roteado na Internet. Quando você seleciona seu ASE interno, ele será configurado com um ILB e não poderá ser acessado diretamente pela Internet.  Um ASE ILB ainda requer um VIP externo, mas ele é usado somente para acesso de gerenciamento e manutenção do Azure.  
 
-Durante a criação do ASE ILB, você fornecerá o subdomínio usado pelo ASE ILB e terá que gerenciar seu próprio DNS para o subdomínio que especificar.  Como você define o nome de subdomínio, também precisa gerenciar o certificado usado para acesso HTTPS.  Após a criação do ASE, você precisará fornecer o certificado.  Para saber mais sobre como criar e usar um ASE ILB, leia [usando um Load balancer interno com um ambiente do serviço de aplicativo][ILBASE]. 
+Durante a criação do ASE ILB, você fornecerá o subdomínio usado pelo ASE ILB e terá que gerenciar seu próprio DNS para o subdomínio que especificar.  Como você define o nome de subdomínio, também precisa gerenciar o certificado usado para acesso HTTPS.  Após a criação do ASE, você precisará fornecer o certificado.  Para saber mais sobre a criação e o uso de um ASE ILB, leia [Usando um Balanceador de Carga Interno com um Ambiente de Serviço de Aplicativo][ILBASE]. 
 
 ## <a name="portal"></a>Portal
 Você pode gerenciar e monitorar o ambiente de serviço de aplicativo usando a interface do usuário no portal do Azure. Se você tiver um ASE, provavelmente verá o símbolo do Serviço de Aplicativo em sua barra lateral. Esse símbolo é usado para representar Ambientes do Serviço de Aplicativo no portal do Azure:
@@ -125,13 +125,13 @@ Em um ASE, todos os Planos de Serviço de Aplicativo são planos de serviço de 
 ### <a name="settings"></a>Configurações
 Na folha do ASE, há uma seção **Configurações** que contém vários recursos importantes:
 
-**Configurações** > **Propriedades**: a folha **Configurações** será aberta automaticamente quando você abrir a folha de seu ASE. As **Propriedades**estão na parte superior. Há alguns itens aqui que são redundantes para o que você vê em **Fundamentos**, mas o que é muito útil é o **Endereço VIP Virtual**, bem como o **Endereço IP de Saída**.
+**Propriedades das configurações** > **Properties**: A lâmina **de configurações** abre automaticamente quando você levanta a lâmina ASE. As **Propriedades**estão na parte superior. Há alguns itens aqui que são redundantes para o que você vê em **Fundamentos**, mas o que é muito útil é o **Endereço VIP Virtual**, bem como o **Endereço IP de Saída**.
 
 ![Folha Configurações e propriedades][4]
 
-**Configurações** > **Endereços IP**: ao criar um aplicativo de IP SSL (protocolo SSL) em seu ASE, você precisará de um endereço IP SSL. Para obter um, seu ASE precisa de endereços IP SSL próprios que possam ser alocados. Quando um ASE é criado, ele conta com um endereço IP SSL para essa finalidade, mas você pode adicionar mais. Há um encargo para endereços IP SSL adicionais, conforme mostrado em [preços do serviço de aplicativo][AppServicePricing] (na seção sobre conexões SSL). O preço adicional é o preço do IP SSL.
+**Configurações endereços** > **IP**: Quando você cria um aplicativo SSL (IP Secure Sockets Layer) em seu ASE, você precisa de um endereço SSL IP. Para obter um, seu ASE precisa de endereços IP SSL próprios que possam ser alocados. Quando um ASE é criado, ele conta com um endereço IP SSL para essa finalidade, mas você pode adicionar mais. Há uma cobrança por endereços IP SSL adicionais, conforme indicado em [Preços do Serviço de Aplicativo][AppServicePricing] (na seção Conexões SSL). O preço adicional é o preço do IP SSL.
 
-**Configurações** > **Pool de Front-ends** / **Pools de Trabalho**: cada uma dessas folhas do pool de recursos só mostra as informações daquele pool de recursos, além de fornecer controles para o dimensionamento completo do pool de recursos.  
+**Configurações Pools** > **de trabalhadores do**pool front**end** / : Cada uma dessas lâminas de pool de recursos oferece a capacidade de ver informações apenas nesse pool de recursos, além de fornecer controles para dimensionar totalmente esse pool de recursos.  
 
 A folha base de cada pool de recursos oferece um gráfico com métricas para o pool de recursos. Assim como acontece com os gráficos da folha ASE, você pode entrar no gráfico e configurar alertas como desejado. A configuração de um alerta da folha ASE para um pool de recursos específico é igual à configuração feita do pool de recursos. Da folha **Configurações** do pool de trabalho, você tem acesso a todos os Aplicativos ou os Planos do Serviço de Aplicativo em execução nesse pool de trabalho.
 
@@ -154,7 +154,7 @@ Para usar a operação Escala na folha ASE, arraste o controle deslizante até a
 
 ![Interface do usuário de escala][6]
 
-Para usar os recursos manuais ou de dimensionamento automático em um pool de recursos específico, acesse **Configurações** > **Pool de Front-end** / **Pools de Trabalho**, como apropriado. Em seguida, abra o pool que você deseja alterar. Vá para **Configurações** > **Escalar Horizontalmente** ou **Configurações** > **Escalar Verticalmente**. A folha **Escalar Horizontalmente** permite o controle da quantidade de instâncias. **Escalar Verticalmente** permite que você controle o tamanho do recurso.  
+Para usar os recursos manuais ou de escala automática em um pool de recursos específico, vá para **Configurações** > **Front End Pool** / **Worker Pools** conforme apropriado. Em seguida, abra o pool que você deseja alterar. Vá para **Configurações** > **Escalade ou** Escala de **Configurações** > **.** A folha **Escalar Horizontalmente** permite o controle da quantidade de instâncias. **Escalar Verticalmente** permite que você controle o tamanho do recurso.  
 
 ![Interface do usuário de configurações de escala][7]
 
@@ -185,7 +185,7 @@ Se você deseja excluir um ambiente do serviço de aplicativo, simplesmente use 
 ![Interface do usuário Excluir um Ambiente de Serviço de Aplicativo][9]  
 
 ## <a name="getting-started"></a>Introdução
-Para se familiarizar com os Ambientes de Serviços de Aplicativo, consulte [Como criar um Ambiente de Serviço de Aplicativo](app-service-web-how-to-create-an-app-service-environment.md).
+Para começar com o App Service Environments, consulte [Como criar um ambiente de serviço de aplicativos.](app-service-web-how-to-create-an-app-service-environment.md)
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: a4a81a3e4c5759e444836162319abb97d83a4c74
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671062"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analisar padrões de navegação do usuário com o Fluxos de Usuário no Azure Application Insights
@@ -37,21 +37,21 @@ A ferramenta Fluxos de Usuário inicia de uma exibição de página inicial, eve
 
 Para começar a responder perguntas com a ferramenta Fluxos de Usuário, escolha uma exibição de página ou um evento personalizado inicial para servir como o ponto de partida para a visualização:
 
-1. Clique no link no título **O que os usuários fazem depois de...?** , ou clique no botão**Editar**.
+1. Clique no link no título **O que os usuários fazem depois de...?**, ou clique no botão**Editar**.
 2. Selecione uma exibição de página, evento personalizado ou exceção do menu suspenso **Evento inicial**.
-3. Clique em **Criar grafo**.
+3. Clique **em Criar gráfico**.
 
 A coluna "Etapa 1" da visualização mostra o que os usuários fizeram com mais frequência logo após o evento inicial, ordenados de cima para baixo, do mais ao menos frequente. A coluna "Etapa 2" e as colunas subsequentes mostram que os usuários fizeram depois disso, criando uma imagem de todas as maneiras em que os usuários navegam por meio de seu site.
 
 Por padrão, a ferramenta Fluxos de Usuário faz uma amostragem aleatória apenas das últimas 24 horas de exibições de página e eventos personalizados do seu site. No menu Editar, você pode aumentar o intervalo de tempo e alterar o equilíbrio entre desempenho e precisão para amostragem aleatória.
 
-Se alguns dos eventos personalizados e modos de exibição de página não são relevantes para você, clique no **X** nos nós que você deseja ocultar. Depois de selecionar os nós que você deseja ocultar, clique no botão **Criar grafo** abaixo da visualização. Para ver todos os nós que você ocultou, clique no botão **Editar** e, em seguida, examine a seção **Eventos excluídos**.
+Se alguns dos eventos personalizados e modos de exibição de página não são relevantes para você, clique no **X** nos nós que você deseja ocultar. Depois de selecionar os nós que deseja ocultar, clique no botão **Criar gráfico** abaixo da visualização. Para ver todos os nós que você escondeu, clique no botão **Editar** e, em seguida, olhe para a seção **Eventos Excluídos.**
 
 Se as exibições de página ou eventos personalizados que você espera ver na visualização estão ausentes:
 
-* Verifique a seção **Eventos excluídos** no menu **Editar**.
+* Verifique a seção **Eventos Excluídos** no menu **Editar.**
 * Use os botões de adição em **Outros** nós para incluir eventos menos frequentes na visualização.
-* Se a exibição de página ou evento personalizado que você espera que é enviado com pouca frequência pelos usuários, tente aumentar o intervalo de tempo da visualização no menu **Editar**.
+* Se a exibição de página ou evento personalizado que você espera for enviado com pouca frequência pelos usuários, tente aumentar o intervalo de tempo da visualização no menu **Editar.**
 * Certifique-se de que a exibição de página, evento personalizado ou exceção que você espera está configurado para ser coletado pelo SDK do Application Insights no código-fonte do seu site. [Saiba mais sobre como coletar eventos personalizados.](../../azure-monitor/app/api-custom-events-metrics.md)
 
 Se você quiser ver mais etapas na visualização, use os menus suspensos **Etapas anteriores** e **Próximas etapas** acima da visualização.
@@ -66,9 +66,9 @@ Se o evento inicial é um evento personalizado, a primeira coluna mostra o que o
 
 ## <a name="where-are-the-places-that-users-churn-most-from-your-site"></a>Quais são os locais com maior rotatividade pelos usuários em seu site?
 
-Fique atento aos nós de **Sessão Finalizada** que aparecem no alto de uma coluna na visualização, especialmente no início de um fluxo. Isso significa que muitos usuários provavelmente saíram do seu site depois de seguir o caminho precedente de páginas e interações de interface do usuário. Algumas vezes a rotatividade é esperada – depois de concluir uma compra em um site de comércio eletrônico, por exemplo – mas geralmente a rotatividade é um sinal de problemas de design, baixo desempenho ou outros problemas com seu site, os quais podem ser melhorados.
+Observe os nós **session ended** que aparecem em alta em uma coluna na visualização, especialmente no início de um fluxo. Isso significa que muitos usuários provavelmente saíram do seu site depois de seguir o caminho precedente de páginas e interações de interface do usuário. Algumas vezes a rotatividade é esperada – depois de concluir uma compra em um site de comércio eletrônico, por exemplo – mas geralmente a rotatividade é um sinal de problemas de design, baixo desempenho ou outros problemas com seu site, os quais podem ser melhorados.
 
-Tenha em mente que nós de **Sessão Finalizada** têm como base apenas a telemetria coletada por esse recurso do Application Insights. Se o Application Insights não receber a telemetria para determinadas interações do usuário, os usuários poderão ainda ter interagido com seu site dessas maneiras depois que a ferramenta Fluxos de Usuário diz que a sessão foi finalizada.
+Tenha em mente que os nós **do Session Ended** são baseados apenas na telemetria coletada por este recurso Application Insights. Se o Application Insights não receber a telemetria para determinadas interações do usuário, os usuários poderão ainda ter interagido com seu site dessas maneiras depois que a ferramenta Fluxos de Usuário diz que a sessão foi finalizada.
 
 ## <a name="are-there-places-where-users-repeat-the-same-action-over-and-over"></a>Há locais em que os usuários repetem a mesma ação repetidamente?
 
@@ -87,7 +87,7 @@ Use as opções **Dividir por** no menu **Editar**:
 1. Escolha o evento que você deseja dividir no menu **Evento**.
 2. Escolha uma dimensão no menu **Dimensão**. Por exemplo, se você tiver um evento chamado “Botão clicado”, tente uma propriedade personalizada chamada “Nome do botão.”
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral do uso](usage-overview.md)
 * [Usuários, Sessões e Eventos](usage-segmentation.md)

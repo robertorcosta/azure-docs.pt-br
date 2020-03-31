@@ -1,6 +1,6 @@
 ---
 title: Azure Disk Encryption scripts de exemplo
-description: Este artigo é o apêndice para Microsoft Azure a criptografia de disco para VMs do Linux.
+description: Este artigo é o apêndice do Microsoft Azure Disk Encryption para VMs Linux.
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
@@ -9,15 +9,15 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: c98da4b41da183f56d80fad1e8c01706d1cfcf23
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970504"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption scripts de exemplo 
 
-Este artigo fornece scripts de exemplo para a preparação de VHDs e outras tarefas criptografados previamente.
+Este artigo fornece scripts de exemplo para a preparação de VHDs pré-criptografados e outras tarefas.
 
  
 
@@ -37,7 +37,7 @@ Este artigo fornece scripts de exemplo para a preparação de VHDs e outras tare
      Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
      ```
 
-### <a name="using-the-azure-disk-encryption-prerequisites-powershell-script"></a>Usando o script do PowerShell Azure Disk Encryption pré-requisitos
+### <a name="using-the-azure-disk-encryption-prerequisites-powershell-script"></a> Usando o script do PowerShell de pré-requisitos do Azure Disk Encryption
 Se você já estiver familiarizado com os pré-requisitos do Azure Disk Encryption, use o [script do PowerShell de pré-requisitos do Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para obter um exemplo de como usar esse script do PowerShell, confira o [Guia de início rápido para criptografar uma VM](disk-encryption-powershell-quickstart.md). Você pode remover os comentários de uma seção do script, começando na linha 211, para criptografar todos os discos de VMs existentes em um grupo de recursos existente. 
 
 A tabela a seguir mostra quais parâmetros podem ser usados no script do PowerShell: 
@@ -49,20 +49,20 @@ A tabela a seguir mostra quais parâmetros podem ser usados no script do PowerSh
 |$keyVaultName|Nome do KeyVault no qual as chaves de criptografia devem ser colocadas. Um cofre com esse nome será criado caso ele ainda não exista.| True|
 |$location|Local do KeyVault. Verifique se o KeyVault e as VMs a serem criptografadas estão no mesmo local. Obtenha uma lista de locais com `Get-AzLocation`.|True|
 |$subscriptionId|Identificador da assinatura do Azure a ser usada.  Você pode obter sua ID de assinatura com `Get-AzSubscription`.|True|
-|$aadAppName|Nome do aplicativo do Azure AD que será usado para gravar segredos no KeyVault. Será criado um novo aplicativo com esse nome caso ele não exista. Se esse aplicativo já existir, passe o parâmetro aadClientSecret para o script.|False|
-|$aadClientSecret|Segredo do cliente do aplicativo do Azure AD que já foi criado.|False|
-|$keyEncryptionKeyName|Nome da chave de criptografia da chave opcional no KeyVault. Uma chave com esse nome será criada caso ela ainda não exista.|False|
+|$aadAppName|Nome do aplicativo do Azure AD que será usado para gravar segredos no KeyVault. Será criado um novo aplicativo com esse nome caso ele não exista. Se esse aplicativo já existir, passe o parâmetro aadClientSecret para o script.|Falso|
+|$aadClientSecret|Segredo do cliente do aplicativo do Azure AD que já foi criado.|Falso|
+|$keyEncryptionKeyName|Nome da chave de criptografia da chave opcional no KeyVault. Uma chave com esse nome será criada caso ela ainda não exista.|Falso|
 
 
 ### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Criptografar ou descriptografar VMs sem um aplicativo do Azure AD
 
-- [Habilitar a criptografia de disco em uma VM Linux existente ou em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
+- [Habilite a criptografia de disco em um VM Linux existente ou em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
 - [Desabilitar criptografia em uma VM do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - Desabilitar criptografia somente é permitida em volumes de Dados para VMs do Linux.  
 
 ### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Criptografar ou descriptografar VMs com um aplicativo do Azure AD (versão anterior) 
  
-- [Habilitar a criptografia de disco em uma VM Linux existente ou em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
+- [Habilite a criptografia de disco em um VM Linux existente ou em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
 
 -  [Desabilitar criptografia em uma VM do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
@@ -80,7 +80,7 @@ A tabela a seguir mostra quais parâmetros podem ser usados no script do PowerSh
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Pré-requisitos para a criptografia de disco do sistema operacional
 
-* A VM deve usar uma distribuição compatível com a criptografia de disco do sistema operacional, conforme listado no [Azure Disk Encryption sistemas operacionais com suporte](disk-encryption-overview.md#supported-vm-sizes) 
+* A VM deve estar usando uma distribuição compatível com a criptografia de disco DO S, conforme listado nos [sistemas operacionais suportados pela Criptografia de Disco Do Azure](disk-encryption-overview.md#supported-vm-sizes) 
 * A VM deve ser criada com base na imagem do Marketplace no Azure Resource Manager.
 * VM do Azure com, no mínimo, 4 GB de RAM (o tamanho recomendável é de 7 GB).
 * (Para RHEL e CentOS) Desabilite o SELinux. Para desabilitar SELinux, confira "4.4.2. Desabilitando o SELinux" no [Guia do Administrador e Usuário do SELinux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) na VM.
@@ -108,7 +108,7 @@ A tabela a seguir mostra quais parâmetros podem ser usados no script do PowerSh
 
 5. Periodicamente, monitore o progresso da criptografia usando as instruções da [próxima seção](#monitoring-os-encryption-progress).
 
-6. Depois que o Get-AzVmDiskEncryptionStatus Mostrar "VMRestartPending", reinicie a VM conectando-se a ela ou usando o portal, o PowerShell ou a CLI.
+6. Depois de Get-AzVmDiskEncryptionStatus mostra "VMRestartPending", reinicie sua VM fazendo login nele ou usando o portal, PowerShell ou CLI.
     ```powershell
     C:\> Get-AzVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
@@ -161,7 +161,7 @@ Você pode monitorar o progresso de criptografia do sistema operacional de três
   É recomendado que você não entre na máquina virtual enquanto a criptografia do sistema operacional está em andamento. Copie os logs apenas quando os outros dois métodos falharem.
 
 ## <a name="prepare-a-pre-encrypted-linux-vhd"></a>Preparar um VHD Linux previamente criptografado
-A preparação para VHDs previamente criptografados pode variar dependendo da distribuição. Exemplos de preparação do Ubuntu 16, openSUSE 13,2 e CentOS 7 estão disponíveis. 
+A preparação para VHDs previamente criptografados pode variar dependendo da distribuição. Exemplos sobre a preparação do Ubuntu 16, openSUSE 13.2 e CentOS 7 estão disponíveis. 
 
 ### <a name="ubuntu-16"></a>Ubuntu 16
 Configure a criptografia durante a instalação da distribuição, realizando as seguintes etapas:
@@ -320,7 +320,7 @@ Para configurar a criptografia para funcionar com o Azure, execute as seguintes 
 
 6. Agora é possível desprovisionar a VM e carregar o VHD no Azure.
 
-### <a name="centos-7-and-rhel-81"></a>CentOS 7 e RHEL 8,1
+### <a name="centos-7-and-rhel-81"></a>CentOS 7 e RHEL 8.1
 
 Para configurar a criptografia durante a instalação da distribuição, execute as seguintes etapas:
 1. Selecione **Criptografar meus dados** ao particionar os discos.
@@ -371,7 +371,7 @@ Para configurar a criptografia para funcionar com o Azure, execute as seguintes 
    ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
    ```
-   até
+   para
    ```bash
     if [ 1 ]; then
    ```
@@ -401,11 +401,11 @@ Para configurar a criptografia para funcionar com o Azure, execute as seguintes 
     ![Instalação do CentOS 7: executar /usr/sbin/dracut -f -v](./media/disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="upload-encrypted-vhd-to-an-azure-storage-account"></a>Carregue o VHD criptografado para uma conta de armazenamento do Azure
-Depois que a criptografia DM-cript estiver habilitada, o VHD criptografado local precisará ser carregado em sua conta de armazenamento.
+Depois que a criptografia DM-Crypt for ativada, o VHD criptografado local precisa ser carregado em sua conta de armazenamento.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
-## <a name="upload-the-secret-for-the-pre-encrypted-vm-to-your-key-vault"></a>Carregar o segredo para a VM previamente criptografada para o cofre de chaves
+## <a name="upload-the-secret-for-the-pre-encrypted-vm-to-your-key-vault"></a> Carregar o segredo da VM previamente criptografada no cofre de chaves
 Ao criptografar usando um aplicativo do Azure AD (versão anterior), você precisa carregar o segredo da criptografia de disco já obtido, como um segredo no cofre de chaves. O cofre de chaves deve ter criptografia de disco e permissões habilitadas para o cliente do Azure AD.
 
 ```powershell 
@@ -419,7 +419,7 @@ Ao criptografar usando um aplicativo do Azure AD (versão anterior), você preci
 ``` 
 
 ### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>Segredo de criptografia de disco não criptografado com uma KEK
-Para configurar o segredo em seu cofre de chaves, use [set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). A frase secreta é codificada como uma cadeia de caracteres Base64 e, em seguida, carregada no cofre de chaves. Além disso, verifique se as seguintes marcas estão definidas ao criar o segredo no cofre de chaves.
+Para configurar o segredo no cofre principal, use [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). A senha é codificada como uma seqüência base64 e, em seguida, carregada para o cofre da chave. Além disso, verifique se as seguintes marcas estão definidas ao criar o segredo no cofre de chaves.
 
 ```powershell
 
@@ -439,7 +439,7 @@ Para configurar o segredo em seu cofre de chaves, use [set-AzKeyVaultSecret](/po
 Use o `$secretUrl` na próxima etapa para [anexar o disco do sistema operacional sem usar KEK](#without-using-a-kek).
 
 ### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Segredo de criptografia de disco criptografado com uma KEK
-Antes de carregar o segredo no cofre de chaves, opcionalmente, você pode criptografá-lo usando uma chave de criptografia de chave. Use a [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) de encapsulamento para primeiro criptografar o segredo usando a chave de criptografia de chave. A saída dessa operação wrap é uma cadeia de caracteres de URL codificada em base64, que você pode carregar como um segredo usando o cmdlet [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret).
+Antes de carregar o segredo no cofre de chaves, opcionalmente, você pode criptografá-lo usando uma chave de criptografia de chave. Use a [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) de encapsulamento para primeiro criptografar o segredo usando a chave de criptografia de chave. A saída desta operação de envoltório é uma seqüência codificada de URL [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) base64, que você pode então carregar como um segredo usando o cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

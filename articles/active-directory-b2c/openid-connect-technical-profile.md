@@ -1,5 +1,5 @@
 ---
-title: Definir um perfil técnico do OpenID Connect em uma política personalizada
+title: Defina um perfil técnico do OpenID Connect em uma política personalizada
 titleSuffix: Azure AD B2C
 description: Defina um perfil técnico do OpenID Connect em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
@@ -8,25 +8,25 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8e8a56fdfd57b44677cf5459eb1a4e6e46e6bdae
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: e259a57a9cd6b24362862ffd6cb738157ca912d5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399069"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332755"
 ---
-# <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do OpenID Connect em uma política personalizada de Azure Active Directory B2C
+# <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico do OpenID Connect em uma política personalizada do Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Active Directory B2C (Azure AD B2C) fornece suporte para o provedor de identidade do protocolo [OpenID Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) . O OpenID Connect 1.0 define uma camada de identidade com base em OAuth 2.0 e representa a estado de última geração em protocolos de autenticação modernos. Com um perfil técnico do OpenID Connect, você pode federar com um provedor de identidade baseado em OpenID Connect, como o Azure AD. A Federação com um provedor de identidade permite que os usuários entrem com suas identidades sociais ou empresariais existentes.
+O Azure Active Directory B2C (Azure AD B2C) oferece suporte para o provedor de identidade de protocolo [OpenID Connect.](https://openid.net/2015/04/17/openid-connect-certification-program/) O OpenID Connect 1.0 define uma camada de identidade com base em OAuth 2.0 e representa a estado de última geração em protocolos de autenticação modernos. Com um perfil técnico do OpenID Connect, você pode federar com um provedor de identidade baseado no OpenID Connect, como o Azure AD. A federação com um provedor de identidade permite que os usuários entrem com suas identidades sociais ou corporativas existentes.
 
 ## <a name="protocol"></a>Protocolo
 
-O atributo **Name** do elemento **Protocol** precisa ser definido como `OpenIdConnect`. Por exemplo, o protocolo para o perfil técnico **MSA-OIDC** é `OpenIdConnect`:
+O atributo **Nome** do elemento **Protocolo** precisa ser definido como `OpenIdConnect`. Por exemplo, o protocolo para o perfil técnico **MSA-OIDC** é `OpenIdConnect`:
 
 ```XML
 <TechnicalProfile Id="MSA-OIDC">
@@ -47,13 +47,13 @@ Os elementos **InputClaims** e **InputClaimsTransformations** não são necessá
 
 ## <a name="output-claims"></a>Declarações de saída
 
-O elemento **OutputClaims** contém uma lista de declarações retornadas pelo provedor de identidade do OpenID Connect. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido no provedor de identidade. Você também pode incluir declarações que não são retornadas pelo provedor de identidade, desde que defina o atributo `DefaultValue`.
+O elemento **OutputClaims** contém uma lista de reclamações retornadas pelo provedor de identidade OpenID Connect. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido no provedor de identidade. Você também pode incluir declarações que não são retornadas pelo provedor de identidade, desde que defina o atributo `DefaultValue`.
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** usados para modificar as declarações de saída ou gerar novas declarações.
 
 O exemplo a seguir mostra as declarações retornadas pelo provedor de identidade de Conta Microsoft:
 
-- A **subdeclaração que** é mapeada para a Declaração **issuerUserId** .
+- A **subalegação** que está mapeada para a reivindicação **do emissorUserId.**
 - A declaração **name** que é mapeada para a declaração **displayName**.
 - O **email** sem mapeamento de nome.
 
@@ -77,20 +77,30 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | client_id | Sim | O identificador do aplicativo do provedor de identidade. |
-| IdTokenAudience | Não | O público-alvo do id_token. Se especificado, Azure AD B2C verifica se a declaração de `aud` em um token retornado pelo provedor de identidade é igual à especificada nos metadados IdTokenAudience.  |
-| METADATA | Sim | Uma URL que aponta para um documento de configuração do provedor de identidade do OpenID Connect, que também é conhecido como ponto de extremidade de configuração bem conhecido do OpenID. A URL pode conter a expressão `{tenant}`, que é substituída pelo nome do locatário.  |
-| authorization_endpoint | Não | Uma URL que aponta para um ponto de extremidade de autorização de configuração do provedor de identidade do OpenID Connect. O valor de authorization_endpoint metadados tem precedência sobre a `authorization_endpoint` especificada no ponto de extremidade de configuração conhecido do OpenID. A URL pode conter a expressão `{tenant}`, que é substituída pelo nome do locatário. |
-| emissor | Não | O identificador exclusivo de um provedor de identidade do OpenID Connect. O valor dos metadados do emissor tem precedência sobre o `issuer` especificado no ponto de extremidade de configuração bem conhecido do OpenID.  Se especificado, Azure AD B2C verifica se a declaração de `iss` em um token retornado pelo provedor de identidade é igual à especificada nos metadados do emissor. |
+| IdTokenAudience | Não | O público-alvo do id_token. Se especificado, o Azure AD `aud` B2C verifica se a reclamação em um token retornada pelo provedor de identidade é igual à especificada nos metadados IdTokenAudience.  |
+| METADATA | Sim | Uma URL que aponta para um documento de configuração do provedor de identidade OpenID Connect, que também é conhecido como OpenID, ponto final de configuração bem conhecido. A URL pode `{tenant}` conter a expressão, que é substituída pelo nome do inquilino.  |
+| authorization_endpoint | Não | Uma URL que aponta para um ponto final de autorização de configuração do provedor de identidade OpenID Connect. O valor de authorization_endpoint metadados `authorization_endpoint` tem precedência sobre o especificado no ponto final de configuração bem conhecido do OpenID. A URL pode `{tenant}` conter a expressão, que é substituída pelo nome do inquilino. |
+| emissor | Não | O identificador exclusivo de um provedor de identidade OpenID Connect. O valor dos metadados do emissor `issuer` tem precedência sobre o especificado no ponto final de configuração bem conhecido do OpenID.  Se especificado, o Azure AD `iss` B2C verifica se a reclamação em um token retornada pelo provedor de identidade é igual à especificada nos metadados do emissor. |
 | ProviderName | Não | O nome do provedor de identidade.  |
 | response_types | Não | O tipo de resposta de acordo com a especificação do OpenID Connect Core 1.0. Valores possíveis: `id_token`, `code` ou `token`. |
 | response_mode | Não | O método que o provedor de identidade usa para enviar o resultado de volta ao Azure AD B2C. Valores possíveis: `query`, `form_post` (padrão) ou `fragment`. |
-| escopo | Não | O escopo da solicitação que é definido de acordo com a especificação do OpenID Connect Core 1,0. Como `openid`, `profile` e `email`. |
+| scope | Não | O escopo da solicitação definida de acordo com a especificação OpenID Connect Core 1.0. Como `openid`, `profile` e `email`. |
 | HttpBinding | Não | A associação HTTP esperada para o token de acesso e pontos de extremidade do token de declarações. Valores possíveis: `GET` ou `POST`.  |
 | ValidTokenIssuerPrefixes | Não | Uma chave que pode ser usada para entrar em cada um dos locatários ao usando um provedor de identidade multilocatário como o Azure Active Directory. |
-| UsePolicyInRedirectUri | Não | Indica se deve ser usada uma política ao criar o URI de redirecionamento. Quando você configura seu aplicativo no provedor de identidade, precisa especificar o URI de redirecionamento. O URI de redirecionamento aponta para Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`.  Se você especificar `false`, precisará adicionar um URI de redirecionamento a cada política que você usar. Por exemplo: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
+| UsePolicyInRedirectUri | Não | Indica se deve ser usada uma política ao criar o URI de redirecionamento. Quando você configura seu aplicativo no provedor de identidade, precisa especificar o URI de redirecionamento. O uri redirecionar os pontos do Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`.  Se você especificar `false`, precisará adicionar um URI de redirecionamento a cada política que você usar. Por exemplo: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
 | MarkAsFailureOnStatusCode5xx | Não | Indica se uma solicitação para um serviço externo deverá ser marcada como uma falha se o código de status Http estiver no intervalo 5xx. O padrão é `false`. |
 | DiscoverMetadataByTokenIssuer | Não | Indica se os metadados OIDC devem ser descobertos usando o emissor no token JWT. |
-| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true`ou `false` (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina isso como `true`. |
+| IncludeClaimResolveingInClaimshandling  | Não | Para reclamações de entrada e saída, especifica se a [resolução de sinistros](claim-resolver-overview.md) está incluída no perfil técnico. Valores `true`possíveis: `false`  , ou (padrão). Se você quiser usar um resolver sinistros no `true`perfil técnico, defina isso como . |
+
+### <a name="ui-elements"></a>Elementos da interface do usuário
+ 
+As seguintes configurações podem ser usadas para configurar a mensagem de erro exibida após a falha. Os metadados devem ser configurados no perfil técnico openid connect. As mensagens de erro podem ser [localizadas](localization-string-ids.md#sign-up-or-sign-in-error-messages).
+
+| Atributo | Obrigatório | Descrição |
+| --------- | -------- | ----------- |
+| UserMessageIfClaimsPrincipalDoesNotExist | Não | A mensagem a ser exibida ao usuário se uma conta com o nome de usuário fornecido não for encontrada no diretório. |
+| UserMessageIfInvalidPassword | Não | A mensagem a ser exibida ao usuário se a senha estiver incorreta. |
+| UserMessageIfOldPasswordUsed| Não |  A mensagem a ser exibida ao usuário se uma senha antiga for usada.|
 
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 
@@ -102,7 +112,7 @@ O elemento **CryptographicKeys** contém o seguinte atributo:
 
 ## <a name="redirect-uri"></a>URI de redirecionamento
 
-Ao configurar o URI de redirecionamento do seu provedor de identidade, insira `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`. Certifique-se de substituir `{your-tenant-name}` pelo nome do locatário. O URI de redirecionamento deve ser todo em letras minúsculas.
+Ao configurar o URI de redirecionamento do seu provedor de identidade, insira `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`. Certifique-se `{your-tenant-name}` de substituir com o nome do seu inquilino. O URI de redirecionamento deve ser todo em letras minúsculas.
 
 Exemplos:
 

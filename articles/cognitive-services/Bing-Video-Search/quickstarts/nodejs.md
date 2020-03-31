@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
 ms.openlocfilehash: 6ae8afefae9a539812748c0ae5380ddaf1fb084c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75382660"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e Node.js
 
 Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Vídeo do Bing e exibir um resultado de pesquisa da resposta JSON. Este aplicativo JavaScript simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta. Embora o aplicativo seja escrito em JavaScript e use Node.js, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) com anotações de código e tratamentos de erro adicionais.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Node.js](https://nodejs.org/en/download/)
 

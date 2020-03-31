@@ -1,5 +1,5 @@
 ---
-title: Alterar o caminho do blob do padrão
+title: Alterar o caminho blob do padrão
 description: Saiba como configurar uma função do Azure para renomear um caminho de arquivo de blob
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 5ba1709ae195631371e4ea72667ba9b2a4bf279e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76270621"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Alterar o caminho de blob padrão
@@ -25,7 +25,7 @@ Certifique-se de que você tenha uma definição de trabalho configurada correta
 
 Para criar uma função do Azure, realize as etapas a seguir:
 
-1. Vá para o [Portal do Azure](https://portal.azure.com/).
+1. Vá para o [portal Azure.](https://portal.azure.com/)
 
 2. Clique em **+ Criar um recurso**. Na caixa **Pesquisa**, digite **Aplicativo de funções** e pressione **Enter**. Selecione e clique em **Aplicativo de Funções** na lista de aplicativos exibidos.
 
@@ -189,11 +189,11 @@ Para criar uma função do Azure, realize as etapas a seguir:
 
        ![O link “Exibir arquivos”](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
 
-    2. Clique em **+ Adicionar**.
+    2. Clique **+ Adicionar**.
         
         ![O link “Exibir arquivos”](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
-    3. Digite **project.json** e pressione **Enter**. No arquivo **project.json**, cole o seguinte código:
+    3. Digite **project.json**e, em seguida, **pressione Enter**. No arquivo **project.json**, cole o seguinte código:
 
         ```
         {
@@ -209,12 +209,12 @@ Para criar uma função do Azure, realize as etapas a seguir:
         ```
 
     
-    4. Clique em **Save** (Salvar).
+    4. Clique em **Salvar**.
 
         ![O link “Exibir arquivos”](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 
 Você criou uma função do Azure. Essa função é disparada sempre que um novo blob é gerado pelo trabalho de transformação de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-[Usar a interface do usuário do Gerenciador de Dados StorSimple para transformar seus dados](storsimple-data-manager-ui.md)
+[Use a interface do gerente de dados StorSimple para transformar seus dados](storsimple-data-manager-ui.md)

@@ -1,6 +1,6 @@
 ---
-title: Processar mensagens em lote como um grupo
-description: Enviar e receber mensagens em grupos entre seus fluxos de trabalho usando o processamento em lotes em aplicativos lógicos do Azure
+title: Mensagens de processo em lote como um grupo
+description: Enviar e receber mensagens em grupos entre seus fluxos de trabalho usando processamento em lote em Aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: e48d2bb2ffce0dd4f9293417534165165d426784
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666747"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Enviar, receber e processar em lote mensagens nos Aplicativos Lógicos do Azure
@@ -33,7 +33,7 @@ Certifique-se de que o receptor do lote e o remetente do lote compartilham a mes
 
 Para seguir este exemplo, você precisa destes itens:
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura, poderá [iniciar com uma conta gratuita do Azure](https://azure.microsoft.com/free/). Ou, [inscreva-se para uma assinatura de Pagamento Conforme o Uso](https://azure.microsoft.com/pricing/purchase-options/).
+* Uma assinatura do Azure. Se você não tiver uma assinatura, você pode [começar com uma conta gratuita do Azure](https://azure.microsoft.com/free/). Ou, [inscreva-se para uma assinatura de Pagamento Conforme o Uso](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Uma conta de email com qualquer [provedor de email com suporte dos Aplicativos Lógicos do Azure](../connectors/apis-list.md)
 
@@ -55,11 +55,11 @@ Antes de enviar mensagens para um lote, esse lote deverá existir primeiro como 
 
 3. Defina estas propriedades para o receptor do lote: 
 
-   | Propriedade | Description | 
+   | Propriedade | Descrição | 
    |----------|-------------|
    | **Modo de lote** | - **Inline**: para definir os critérios de liberação dentro do acionador de lote <br>- **Conta de Integração**: para definir várias configurações de critérios de liberação por meio de uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Com uma conta de integração, você pode manter essas configurações em um só lugar e não em aplicativos lógicos separados. | 
    | **Nome do lote** | O nome do seu lote, que é "TestBatch" neste exemplo, e se aplica apenas ao modo em lote **Inline** |  
-   | **Critérios de liberação** | Aplica-se somente ao modo em lote **Embutido** e selecione os critérios a serem atendidos antes do processamento de cada lote: <p>**com base na contagem de mensagens**- : Libere o lote com base no número de mensagens coletadas pelo lote. <br>**com base no tamanho**do - : Libere o lote com base no tamanho total em bytes para todas as mensagens coletadas por esse lote. <br>**agenda**de - : libera o lote com base em um agendamento de recorrência, que especifica um intervalo e uma frequência. Nas opções avançadas, você também pode selecionar um fuso horário e fornecer uma data e hora de início. <br>- **Selecionar tudo**: usar todos os critérios especificados. | 
+   | **Critérios de liberação** | Aplica-se somente ao modo em lote **Embutido** e selecione os critérios a serem atendidos antes do processamento de cada lote: <p>- **Contagem de mensagens baseada**: Libere o lote com base no número de mensagens coletadas pelo lote. <br>- **Tamanho baseado**: Libere o lote com base no tamanho total em bytes para todas as mensagens coletadas por esse lote. <br>- **Cronograma**: Libere o lote com base em um cronograma de recorrência, que especifica um intervalo e frequência. Nas opções avançadas, você também pode selecionar um fuso horário e fornecer uma data e hora de início. <br>- **Selecionar tudo**: usar todos os critérios especificados. | 
    | **Contagem de mensagens** | O número de mensagens a coletar no lote, por exemplo, 10 mensagens. O limite de um lote é 8.000 mensagens. | 
    | **Tamanho do lote** | O tamanho total em bytes para coletar no lote, por exemplo, 10 MB. O limite de tamanho de um lote é de 80 MB. | 
    | **Agenda** | O intervalo e a frequência entre lançamentos de lote, por exemplo, 10 minutos. A recorrência mínima é de 60 segundos ou 1 minuto. Os valores de fração de minutos são arredondados para 1 minuto. Para especificar um fuso horário ou uma data e hora de início, escolha **Mostrar opções avançadas**. | 
@@ -89,7 +89,7 @@ Antes de enviar mensagens para um lote, esse lote deverá existir primeiro como 
 
    3. Selecione esta ação: **enviar um e-mail - <*provedor de e-mail*>**
 
-      Por exemplo:
+      Por exemplo: 
 
       ![Selecione a ação "Enviar um email" para o seu provedor de email](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 
@@ -168,7 +168,7 @@ Agora crie um ou mais aplicativos de lógica de remetente em lote que enviem men
 
 3. Defina propriedades do remetente de lote:
 
-   | Propriedade | Description | 
+   | Propriedade | Descrição | 
    |----------|-------------| 
    | **Nome do lote** | O nome do lote definido pelo aplicativo lógico do receptor, que é "TestBatch" neste exemplo <p>**Importante**: o nome do lote é validado no runtime e deve corresponder ao nome especificado pelo aplicativo lógico do receptor. Alterar o nome do lote faz com que o remetente do lote falhe. | 
    | **Conteúdo da mensagem** | O conteúdo da mensagem que você deseja enviar | 
@@ -186,10 +186,10 @@ Agora crie um ou mais aplicativos de lógica de remetente em lote que enviem men
 
 4. Agora, configure uma partição para o lote. Na ação "Destinatáriolote", escolha **Mostrar opções avançadas** e definir essas propriedades:
 
-   | Propriedade | Description | 
+   | Propriedade | Descrição | 
    |----------|-------------| 
-   | **Nome da partição** | Uma chave de partição exclusiva opcional a ser usada para dividir o lote de destino em subconjuntos lógicos e coletar mensagens com base nessa chave | 
-   | **Id da mensagem** | Um identificador de mensagem opcional que é um identificador global exclusivo gerado (GUID) quando estiver vazio | 
+   | **Nome da Partição** | Uma chave de partição exclusiva opcional a ser usada para dividir o lote de destino em subconjuntos lógicos e coletar mensagens com base nessa chave | 
+   | **Id de mensagem** | Um identificador de mensagem opcional que é um identificador global exclusivo gerado (GUID) quando estiver vazio | 
    ||| 
 
    Para este exemplo, na caixa **Partition Name**, adicione uma expressão que gere um número aleatório entre um e cinco. Deixe a caixa **ID da mensagem** vazia.
@@ -218,9 +218,9 @@ Seu aplicativo de lógica de remetente em lote é executado a cada minuto, gera 
 > [!IMPORTANT]
 > Quando você terminar o teste, desabilite o aplicativo lógico RemetenteLote para interromper o envio de mensagens e evitar a sobrecarga de sua caixa de entrada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Colocar em lotes e enviar mensagens de EDI](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
+* [Colocar em lote e enviar mensagens EDI](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
 * [Compilar definições de aplicativo lógico usando JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Compilar um aplicativo sem servidor no Visual Studio com os Aplicativos Lógicos do Azure e o Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)
-* [Tratamento de exceção e registro em log de erros para aplicativos lógicos](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [Tratamento de exceção e log de erros para aplicativos lógicos](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

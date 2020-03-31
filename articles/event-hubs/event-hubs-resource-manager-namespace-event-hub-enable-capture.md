@@ -14,27 +14,27 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 02/12/2020
 ms.author: shvija
-ms.openlocfilehash: 51b69e8b7f6c980fd851cdf3e60ecfe0ade29e71
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 0b20c73ed0590f3afc19db43b4b55dd3ff6bde8e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187337"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79453863"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Criar um namespace com o hub de eventos e habilitar a Captura usando um modelo
 
-Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace de [Hubs de Eventos](event-hubs-what-is-event-hubs.md), com uma instância de hub de eventos e também habilita o [recurso Captura](event-hubs-capture-overview.md) no hub de eventos. O artigo descreve como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
+Este artigo mostra como usar um modelo do Azure Resource Manager que cria um namespace [do Event Hubs,](event-hubs-what-is-event-hubs.md) com uma instância do hub de eventos, e também habilita o [recurso Capture](event-hubs-capture-overview.md) no hub de eventos. O artigo descreve como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
 Este artigo também mostra como especificar que os eventos sejam capturados em Blobs de Armazenamento do Azure ou em um Azure Data Lake Store com base no destino escolhido.
 
-Para saber mais sobre a criação de modelos, consulte [Criação de modelos do Azure Resource Manager][Authoring Azure Resource Manager templates]. Para que as propriedades e a sintaxe JSON sejam usadas no modelo, consulte [Tipos de recursos Microsoft.EventHub](/azure/templates/microsoft.eventhub/allversions).
+Para obter mais informações sobre a criação de modelos, consulte [Os modelos do Azure Resource Manager][Authoring Azure Resource Manager templates]. Para que as propriedades e a sintaxe JSON sejam usadas no modelo, consulte [Tipos de recursos Microsoft.EventHub](/azure/templates/microsoft.eventhub/allversions).
 
-Para obter mais informações sobre padrões e práticas para convenções de nomenclatura de recursos do Azure, consulte [convenções de nomenclatura de recursos do Azure][Azure Resources naming conventions].
+Para saber mais sobre as práticas e os padrões de convenções de nomenclatura de Recursos do Azure, confira [Convenções de nomenclatura de funcionalidade do Azure][Azure Resources naming conventions].
 
 Para obter os modelos completos, clique nos seguintes links do GitHub:
 
-- [Hub de eventos e habilitar a captura para o modelo de armazenamento][Event Hub and enable Capture to Storage template] 
-- [Hub de eventos e habilitar a captura para Azure Data Lake Store modelo][Event Hub and enable Capture to Azure Data Lake Store template]
+- [Hub de eventos e habilitar a Captura no modelo de Armazenamento][Event Hub and enable Capture to Storage template] 
+- [Hub de eventos e habilitar a Captura no modelo do Azure Data Lake Store][Event Hub and enable Capture to Azure Data Lake Store template]
 
 > [!NOTE]
 > Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][Azure Quickstart Templates] e procure por Hubs de Eventos.
@@ -51,7 +51,7 @@ Clique no botão abaixo para habilitar a Captura de Hubs de Eventos no Azure Dat
 
 [![Implantar no Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture-for-adls%2Fazuredeploy.json)
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores que deseja especificar quando o modelo é implantado. O modelo inclui uma seção chamada `Parameters` , que contém todos os valores de parâmetro. Você deve definir um parâmetro para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação ocorre. Não defina parâmetros para valores que permanecem sempre os mesmos. Cada valor de parâmetro é usado no modelo para definir os recursos que são implantados.
 
@@ -235,7 +235,7 @@ O contêiner de blob no qual deseja capturar os dados de evento.
 }
 ```
 
-Use os parâmetros a seguir se você escolher Azure Data Lake Store Gen 1 como seu destino. Você deve definir permissões no caminho do Data Lake Store no qual deseja capturar o evento. Para definir permissões, consulte [capturar dados para Azure data Lake Storage Gen 1](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1).
+Use os seguintes parâmetros se você escolher a Azure Data Lake Store Gen 1 como seu destino. Você deve definir permissões no caminho do Data Lake Store no qual deseja capturar o evento. Para definir permissões, consulte [Capturar dados para Azure Data Lake Storage Gen 1](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1).
 
 ### <a name="subscriptionid"></a>subscriptionId
 
@@ -414,17 +414,13 @@ New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -Templa
 Armazenamento de Blobs do Azure como destino:
 
 ```azurecli
-azure config mode arm
-
-azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
+az group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
 
 Azure Data Lake Store como destino:
 
 ```azurecli
-azure config mode arm
-
-azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json][]
+az group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json][]
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -433,9 +429,9 @@ Você também pode configurar a Captura de Hubs de Eventos por meio do [portal d
 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
 * [Criar um hub de eventos](event-hubs-create.md)
-* [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
+* [Perguntas frequentes dos Hubs de Eventos](event-hubs-faq.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs

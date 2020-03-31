@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
 ms.openlocfilehash: 37ae97d5fbc62e507f726c452999a7f6e7c989c6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670960"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Análise de retenção de usuários para aplicativos Web com o Application Insights
@@ -57,7 +57,7 @@ Ou no código de servidor do ASP.NET:
 [Saiba mais sobre como escrever eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 - Para habilitar as experiências de uso, comece enviando [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.
     - [Usuários, Sessões, Eventos](usage-segmentation.md)

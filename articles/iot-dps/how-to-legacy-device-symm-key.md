@@ -1,6 +1,6 @@
 ---
-title: Provisionar dispositivos herdados usando chaves simétricas – serviço de provisionamento de dispositivos no Hub IoT do Azure
-description: Como usar chaves simétricas para provisionar dispositivos herdados com sua instância do serviço de provisionamento de dispositivos (DPS)
+title: Provisão de dispositivos legados usando chaves simétricas - Serviço de provisionamento de dispositivos do Hub Azure IoT
+description: Como usar chaves simétricas para provisionar dispositivos legados com a instância dps (Device Provisioning Service, serviço de provisionamento de dispositivos)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 4d1a92f3ebf32d2270eb77ec9c79fe860ba090e1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75434707"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Como provisionar dispositivos herdados usando chaves simétricas
@@ -28,9 +28,9 @@ Este artigo também pressupõe que a atualização do dispositivo ocorre em um a
 Este artigo é orientado para uma estação de trabalho baseada no Windows. No entanto, é possível executar os procedimentos no Linux. Para um exemplo do Linux, confira [Como provisionar para multilocação](how-to-provision-multitenant.md).
 
 > [!NOTE]
-> O exemplo usado neste artigo é escrito em C. Também há um [ C# exemplo de chave simétrica de provisionamento de dispositivos](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) disponível. Para usar este exemplo, baixe ou clone o repositório [Azure-IOT-Samples-Csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) e siga as instruções embutidas no código de exemplo. Você pode seguir as instruções neste artigo para criar um grupo de registro de chave simétrica usando o portal e para localizar o escopo da ID e as chaves primárias e secundárias necessárias para executar o exemplo. Você também pode criar registros individuais usando o exemplo.
+> A amostra utilizada neste artigo está escrita em C. Há também uma [amostra de chave simétrica de provisionamento de dispositivos C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) disponível. Para usar esta amostra, baixe ou clone o repositório [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) e siga as instruções em linha no código de amostra. Você pode seguir as instruções deste artigo para criar um grupo de inscrição de chaves simétricas usando o portal e encontrar o Escopo de ID e as chaves primárias e secundárias do grupo de matrícula necessárias para executar a amostra. Você também pode criar matrículas individuais usando a amostra.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Uma ID de registro exclusiva será definida para cada dispositivo com base nas informações que identificam esse dispositivo. Por exemplo, o endereço MAC ou um número de série.
 
@@ -45,9 +45,9 @@ O código de dispositivo demonstrado neste artigo seguirá o mesmo padrão que o
 
 * Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
 
-Os pré-requisitos a seguir são para um ambiente de desenvolvimento do Windows. Para Linux ou macOS, consulte a seção apropriada em [preparar seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) na documentação do SDK do.
+Os pré-requisitos a seguir são para um ambiente de desenvolvimento do Windows. Para Linux ou macOS, confira a seção apropriada em [Preparar seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) na documentação do SDK.
 
-* O [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com a carga de [trabalho C++' desenvolvimento de desktop com '](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitada. Também há suporte para o Visual Studio 2015 e o Visual Studio 2017.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) com a carga de trabalho ["Desenvolvimento para desktop com C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitada. Também há suporte para o Visual Studio 2015 e o Visual Studio 2017.
 
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
@@ -61,9 +61,9 @@ O SDK inclui o código de exemplo para o dispositivo simulado. Este dispositivo 
 
     É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho de "Desenvolvimento para Desktop com C++") estejam instalados em seu computador, **antes** da instalação de `CMake`. Após a instalação dos pré-requisitos e verificação do download, instale o sistema de compilação CMake.
 
-2. Localize o nome da marca para a [versão mais recente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) do SDK.
+2. Localize o nome da tag para a [versão mais recente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) do SDK.
 
-3. Abra um prompt de comando ou o shell Bash do Git. Execute os comandos a seguir para clonar a versão mais recente do repositório GitHub do [SDK do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c) . Use a marca que você encontrou na etapa anterior como o valor para o parâmetro `-b`:
+3. Abra um prompt de comando ou o shell Bash do Git. Execute os comandos a seguir para clonar a versão mais recente do repositório do GitHub do [SDK do Azure IoT C](https://github.com/Azure/azure-iot-sdk-c). Use a tag que você encontrou na etapa anterior como o valor para o parâmetro `-b`:
 
     ```cmd/sh
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -73,7 +73,7 @@ O SDK inclui o código de exemplo para o dispositivo simulado. Este dispositivo 
 
     Essa operação deve demorar alguns minutos.
 
-4. Crie um subdiretório `cmake` no diretório raiz do repositório git e navegue até essa pasta. Execute os seguintes comandos no diretório `azure-iot-sdk-c`:
+4. Crie um subdiretório `cmake` no diretório raiz do repositório git e navegue até essa pasta. Execute os seguintes comandos do diretório `azure-iot-sdk-c`:
 
     ```cmd/sh
     mkdir cmake
@@ -205,7 +205,7 @@ Nesta seção, você atualizará um exemplo de provisionamento denominado **prov
 
 Esse código de exemplo simula uma sequência de inicialização do dispositivo que envia a solicitação de provisionamento à sua instância do Serviço de Provisionamento de Dispositivos. A sequência de inicialização fará com que o dispositivo seja reconhecido e atribuído ao hub IoT que você configurou no grupo de registro.
 
-1. No portal do Azure, selecione a guia **Visão Geral** de seu serviço de Provisionamento de Dispositivos e anote o valor de **_Escopo da ID_** .
+1. No portal do Azure, selecione a guia **Visão Geral** de seu serviço de Provisionamento de Dispositivos e anote o valor de **_Escopo da ID_**.
 
     ![Extrair informações do ponto de extremidade do Serviço de Provisionamento de Dispositivo na folha do portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -250,7 +250,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
 
 7. Clique com botão direito do mouse no projeto **prov\_dev\_client\_sample** e selecione **Definir como Projeto de Inicialização**. 
 
-8. No menu do Visual Studio, selecione **Depurar** > **Iniciar sem depuração** para executar a solução. No prompt para recompilar o projeto, clique em **Sim** para recompilar o projeto antes da execução.
+8. No menu Visual Studio, selecione **Debug** > **Start sem depuração** para executar a solução. No prompt para recompilar o projeto, clique em **Sim** para recompilar o projeto antes da execução.
 
     A saída a seguir é um exemplo do dispositivo simulado inicializando com êxito e conectando a instância de Serviço de provisionamento a ser atribuída a um Hub IoT:
 
@@ -269,7 +269,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
     Press enter key to exit:
     ```
 
-9. No portal, navegue até o Hub IoT ao qual o dispositivo simulado foi atribuído e clique na guia **dispositivos IOT** . No provisionamento bem-sucedido da Simulated para o Hub, sua ID de dispositivo aparece na folha **dispositivos IOT** , com *status* como **habilitado**. Talvez seja necessário clicar no botão **Atualizar** na parte superior. 
+9. No portal, navegue até o hub IoT para o seu dispositivo simulado e clique na guia **Dispositivos IoT.** No provisionamento bem-sucedido do simulado para o hub, seu ID do dispositivo aparece na lâmina **ioT Devices,** com *STATUS* conforme **ativado**. Talvez seja necessário clicar no botão **Atualizar** na parte superior. 
 
     ![Dispositivo é registrado no Hub IoT](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 
@@ -283,11 +283,11 @@ Entenda que isso deixa a chave de dispositivo derivada incluída como parte da i
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre o reprovisionamento, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](concepts-device-reprovision.md) 
+* Para saber mais Reprovisionamento, consulte conceitos de [reprovisionamento do Dispositivo Hub IoT](concepts-device-reprovision.md) 
 * [Início Rápido: provisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
-* Para saber mais sobre desprovisionamento, confira [como desprovisionar dispositivos que foram previamente provisionados automaticamente](how-to-unprovision-devices.md) 
+* Para saber mais Deprovisionamento, consulte [Como desprovisionar dispositivos que foram provisionados automaticamente](how-to-unprovision-devices.md) 
 
 
 

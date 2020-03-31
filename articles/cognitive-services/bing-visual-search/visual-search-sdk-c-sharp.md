@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: b1f5274bcae1f6e59f6dea94beee810a4613d739
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75446604"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>Início Rápido: Obtenha insights de imagem usando o SDK de Pesquisa Visual do Bing para C#
 
 Use este início rápido para começar obtendo insights de imagem do serviço de Pesquisa Visual do Bing, usando o SDK do C#. Embora a Pesquisa Visual do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço aos seus aplicativos. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * Se você estiver usando Linux/MacOS, este aplicativo poderá ser executado usando [Mono](https://www.mono-project.com/).

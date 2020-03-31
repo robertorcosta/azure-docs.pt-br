@@ -10,20 +10,20 @@ ms.custom: include file
 ms.topic: include
 ms.date: 12/04/2019
 ms.openlocfilehash: 6106d4e0801500b0429e634651f3de342646b754
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77156469"
 ---
-**Os destinos de computação podem ser reutilizados de um trabalho de treinamento para o próximo**. Por exemplo, após anexar uma VM remota ao seu workspace, você pode reutilizá-la para vários trabalhos.  Para pipelines de Machine Learning, use a [etapa de pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py) apropriada para cada destino de computação.
+**Metas de computação podem ser reutilizadas de um trabalho de treinamento para o outro**. Por exemplo, após anexar uma VM remota ao seu workspace, você pode reutilizá-la para vários trabalhos.  Para pipelines de aprendizado de máquina, use a etapa de [pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py) apropriada para cada meta de computação.
 
-|Treinamento &nbsp;destinos|[ML automatizado](../articles/machine-learning/concept-automated-ml.md) | [Pipelines de ML](../articles/machine-learning/concept-ml-pipelines.md) | [Designer do Azure Machine Learning](../articles/machine-learning/concept-designer.md)
+|Metas &nbsp;de treinamento|[ML automatizado](../articles/machine-learning/concept-automated-ml.md) | [Gasodutos ML](../articles/machine-learning/concept-ml-pipelines.md) | [Designer do Azure Machine Learning](../articles/machine-learning/concept-designer.md)
 |----|:----:|:----:|:----:|
 |[Computador local](../articles/machine-learning/how-to-set-up-training-targets.md#local)| sim | &nbsp; | &nbsp; |
-|[Azure Machine Learning cluster de computação](../articles/machine-learning/how-to-set-up-training-targets.md#amlcompute)| Sim & <br/>ajuste de&nbsp;de hiperparâmetro | sim | sim |
-|[VM remota](../articles/machine-learning/how-to-set-up-training-targets.md#vm) | Sim & <br/>gráfico de ajuste de hiperparâmetro | sim | &nbsp; |
-|[Azure&nbsp;databricks](../articles/machine-learning/how-to-create-your-first-pipeline.md#databricks)| Sim (somente no modo local do SDK) | sim | &nbsp; |
+|[Cluster de computação azure Machine Learning](../articles/machine-learning/how-to-set-up-training-targets.md#amlcompute)| Sim, & <br/>ajuste hiperparâmetro&nbsp; | sim | sim |
+|[VM remoto](../articles/machine-learning/how-to-set-up-training-targets.md#vm) | Sim, & <br/>gráfico de ajuste de hiperparâmetro | sim | &nbsp; |
+|[Azure&nbsp;Databricks](../articles/machine-learning/how-to-create-your-first-pipeline.md#databricks)| sim (somente no modo local SDK) | sim | &nbsp; |
 |[Azure Data Lake Analytics](../articles/machine-learning/how-to-create-your-first-pipeline.md#adla) | &nbsp; | sim | &nbsp; |
 |[Azure HDInsight](../articles/machine-learning/how-to-set-up-training-targets.md#hdinsight) | &nbsp; | sim | &nbsp; |
 |[Lote do Azure](../articles/machine-learning/how-to-set-up-training-targets.md#azbatch) | &nbsp; | sim | &nbsp; |

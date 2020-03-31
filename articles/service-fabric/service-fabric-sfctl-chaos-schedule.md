@@ -1,15 +1,15 @@
 ---
-title: CLI do Azure Service Fabric-agenda de caos sfctl
-description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para o agendamento de caos.
+title: Azure Service Fabric CLI- programação de caos sfctl
+description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para o agendamento do caos.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 29b365c48e405830e238945f1d94156f477c15b4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906178"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
@@ -17,7 +17,7 @@ Obter e definir a agenda do caos.
 
 ## <a name="commands"></a>Comandos
 
-|Comando|Description|
+|Comando|Descrição|
 | --- | --- |
 | get | Obter a Agenda de Caos define quando e como executar o Caos. |
 | set | Defina a agenda usada por Chaos. |
@@ -29,13 +29,13 @@ Obtém a versão da Agenda de Caos em uso e Agenda de Caos que define quando e c
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
-| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -46,11 +46,11 @@ Obtém a versão da Agenda de Caos em uso e Agenda de Caos que define quando e c
 ## <a name="sfctl-chaos-schedule-set"></a>definir agenda do sfctl chaos
 Defina a agenda usada por Chaos.
 
-O Caos agendará automaticamente execuções com base na Agenda do Caos. O agendamento de caos será atualizado se a versão fornecida corresponder à versão no servidor. Ao atualizar o cronograma de caos, a versão no servidor é incrementada em 1. A versão no servidor voltará para 0 depois de atingir um grande número. Se o Caos é executado quando esta chamada é feita, a chamada falhará.
+O Caos agendará automaticamente execuções com base na Agenda do Caos. O Chaos Schedule será atualizado se a versão fornecida corresponder à versão no servidor. Ao atualizar o Chaos Schedule, a versão no servidor é incrementada por 1. A versão no servidor será wrapada de volta para 0 depois de atingir um grande número. Se o Caos é executado quando esta chamada é feita, a chamada falhará.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --chaos-parameters-dictionary | Lista codificada JSON que representa um mapeamento de nomes de cadeia de caracteres para ChaosParameters a ser usado por trabalhos codificados para Trabalhos. |
 | --expiry-date-utc | Data e hora de quando parar de usar a Agenda para agendar o Caos.  Padrão\: 9999-12-31T23\:59\:59.999Z. |
@@ -61,7 +61,7 @@ O Caos agendará automaticamente execuções com base na Agenda do Caos. O agend
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -139,6 +139,6 @@ sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z"
 
 
 
-## <a name="next-steps"></a>Próximos passos
-- [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
+## <a name="next-steps"></a>Próximas etapas
+- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

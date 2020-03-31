@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma camada de bolha a um mapa | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá como adicionar uma camada de bolha a um mapa usando o SDK da Web do Microsoft Azure Maps.
+title: Adicione uma camada bolha a um mapa | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre como adicionar uma camada Bubble a um mapa usando o Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 7ae11734eb804715f3eb1b5edcb02fc328dafec8
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77208549"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Adicionar uma camada de bolha a um mapa
@@ -21,11 +21,11 @@ ms.locfileid: "77208549"
 Este artigo mostra como renderizar dados de ponto de uma fonte de dados como uma camada de bolha em um mapa. Camadas de bolha renderizam pontos como círculos no mapa com um raio de pixel fixo. 
 
 > [!TIP]
-> As camadas de bolha por padrão processarão as coordenadas de todas as geometrias em uma fonte de dados. Para limitar a camada de modo que ela só processe os recursos de geometria de ponto, defina a propriedade `filter` da camada como `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` se você quiser incluir recursos do MultiPoint também.
+> As camadas de bolha por padrão processarão as coordenadas de todas as geometrias em uma fonte de dados. Para limitar a camada, de tal forma que `filter` ela só `['==', ['geometry-type'], 'Point']` renderiza `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` recursos de geometria de ponto, defina a propriedade da camada para ou se você quiser incluir recursos do MultiPoint também.
 
 ## <a name="add-a-bubble-layer"></a>Adicionar uma camada de bolha
 
-O código a seguir carrega uma matriz de pontos em uma fonte de dados. Em seguida, ele conecta os pontos de dados a uma [camada de bolha](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). A camada de bolha renderiza o raio de cada bolha com cinco pixels e uma cor de preenchimento de branco. E uma cor de traço de azul e uma largura de traço de seis pixels. 
+O código a seguir carrega uma matriz de pontos em uma fonte de dados. Em seguida, ele conecta os pontos de dados a uma [camada de bolha](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). A camada de bolha renderiza o raio de cada bolha com cinco pixels e uma cor de preenchimento de branco. E, uma cor de traçado de azul, e uma largura de curso de seis pixels. 
 
 ```javascript
 //Add point locations.
@@ -53,7 +53,7 @@ map.layers.add(new atlas.layer.BubbleLayer(dataSource, null, {
 }));
 ```
 
-Abaixo está o exemplo de código completo em execução da funcionalidade acima.
+Abaixo está a amostra completa de código de execução da funcionalidade acima.
 
 <br/>
 
@@ -62,7 +62,7 @@ Abaixo está o exemplo de código completo em execução da funcionalidade acima
 
 ## <a name="show-labels-with-a-bubble-layer"></a>Mostrar rótulos de uma camada de bolha
 
-Este código mostra como usar uma camada de bolha para renderizar um ponto no mapa. E, como usar uma camada de símbolo para renderizar um rótulo. Para ocultar o ícone da camada de símbolo, defina a propriedade `image` das opções de ícone como `'none'`.
+Este código mostra como usar uma camada de bolha para renderizar um ponto no mapa. E, como usar uma camada de símbolo para renderizar um rótulo. Para ocultar o ícone da `image` camada símbolo, defina a propriedade das opções de ícones para `'none'`.
 
 <br/>
 
@@ -94,7 +94,7 @@ Consulte os artigos a seguir para obter mais exemplos de código para adicionar 
 > [Criar uma fonte de dados](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de símbolo](map-add-pin.md)
+> [Adicione uma camada de símbolo](map-add-pin.md)
 
 > [!div class="nextstepaction"]
 > [Usar expressões de estilo controladas por dados](data-driven-style-expressions-web-sdk.md)

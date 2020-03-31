@@ -1,6 +1,6 @@
 ---
 title: Habilitar o CI/CD com plug-in do Jenkins – Azure IoT Edge | Microsoft Docs
-description: A extensão Azure IoT Edge para Jenkins permite que você integre IoT Edge tarefas de desenvolvimento e implantação à sua solução DevOps existente.
+description: A extensão Azure IoT Edge para Jenkins permite que você integre tarefas de desenvolvimento e implantação de IoT Edge em sua solução DevOps existente.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 75ed5f5eda48f10776b854ce4de4d2f855a53634
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76510236"
 ---
 # <a name="integrate-azure-iot-edge-with-jenkins-pipelines"></a>Integrar o Azure IoT Edge com os pipelines do Jenkins

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: 95c85309058911d6767eb44efd7b37ddac7a9119
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77915022"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Solução de problemas de erros de exclusão de recursos de armazenamento clássicos
@@ -65,7 +65,7 @@ O usuário tenta excluir uma conta de armazenamento, que não está sendo mais u
 
 > <span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
 > 
-> <span style="color:red">remove-AzureStorageAccount: BadRequest: a conta de armazenamento myclassicaccount tem algumas imagens (s) ativas e/ou discos, por exemplo,  
+> <span style="color:red">Remove-AzureStorageAccount : BadRequest: A conta de armazenamento myclassicaccount tem algumas imagens ativas e/ou disco(s), por exemplo.  
 > myclassicaccount. Garanta que esses discos e/ou essas imagens sejam removidos antes de excluir essa conta de armazenamento.</span>
 
 ## <a name="unable-to-delete-storage-container"></a>Não é possível excluir o contêiner de armazenamento
@@ -83,7 +83,7 @@ Se o usuário optar pela exclusão usando o PowerShell, isso resultará no erro 
 
 > <span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
 > 
-> <span style="color:red">Remove-AzureStorageContainer: o servidor remoto retornou um erro: (412) atualmente, há uma concessão no contêiner e nenhuma ID de concessão foi especificada na solicitação. Código de status HTTP: 412-mensagem de erro HTTP: atualmente, há uma concessão no contêiner e nenhuma ID de concessão foi especificada na solicitação.</span>
+> <span style="color:red">Remove-AzureStorageContainer : O servidor remoto retornou um erro: (412) No momento, há uma locação no contêiner e nenhum ID de locação foi especificado na solicitação.. Código de status HTTP: 412 - Mensagem de erro HTTP: Atualmente há uma locação no contêiner e nenhum ID de locação foi especificado na solicitação.</span>
 
 ## <a name="unable-to-delete-a-vhd"></a>Não é possível excluir um VHD 
 
@@ -103,9 +103,9 @@ No portal, pode haver duas experiências, dependendo da lista de blobs seleciona
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Se o usuário optar pela exclusão usando o PowerShell, isso resultará no erro a seguir. 
 
-> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"** </span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
 > 
-> <span style="color:red">Remove-AzureStorageBlob: o servidor remoto retornou um erro: (412) atualmente, há uma concessão no BLOB e nenhuma ID de concessão foi especificada na solicitação.. Código de status HTTP: 412-mensagem de erro de HTTP: atualmente, há uma concessão no BLOB e nenhuma ID de concessão foi especificada na solicitação.</span>
+> <span style="color:red">Remove-AzureStorageBlob : O servidor remoto retornou um erro: (412) No momento, há uma locação na bolha e nenhum ID de locação foi especificado na solicitação.. Código de status HTTP: 412 - Mensagem de erro HTTP: Atualmente há uma locação na bolha e nenhum ID de locação foi especificado na solicitação.</span>
 
 
 ## <a name="resolution-steps"></a>Etapas de resolução
@@ -114,7 +114,7 @@ Se o usuário optar pela exclusão usando o PowerShell, isso resultará no erro 
 Siga estas etapas no portal do Azure:
 1.  Navegue até o [Portal do Azure](https://portal.azure.com).
 2.  Navegue para Discos (clássicos). 
-3.  Clique na guia discos. ![captura de tela do portal, com o painel "lista" do blob de contêiner aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
+3.  Clique na guia ![Discos. Captura de tela do portal, com o painel "list" do contêiner blob aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
  
 4.  Selecione o disco de dados e clique em Excluir o Disco.
  ![Captura de tela do portal, com o painel "Lista" aberto do blob do contêiner](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)

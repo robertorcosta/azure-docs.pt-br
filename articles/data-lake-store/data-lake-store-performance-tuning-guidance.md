@@ -1,21 +1,21 @@
 ---
-title: Ajuste de Azure Data Lake Storage Gen1 desempenho
-description: Descreve como ajustar Azure Data Lake Storage Gen1 para desempenho.
+title: Azure Data Lake Storage Gen1 - ajuste de desempenho
+description: Descreve como ajustar o Azure Data Lake Storage Gen1 para obter desempenho.
 author: stewu
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
 ms.openlocfilehash: 2521700e0f07691541ee6cbbf085a8be72f08129
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73904618"
 ---
-# <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Ajustar Azure Data Lake Storage Gen1 para desempenho
+# <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Ajuste o Azure Data Lake Storage Gen1 para desempenho
 
-O Data Lake Storage Gen1 dá suporte à alta taxa de transferência para análise intensiva de e/s e movimentação de dados. No Data Lake Storage Gen1, usar todos os recursos disponíveis - a quantidade de dados que podem ser lidos ou gravados por segundo - é importante para obter o melhor desempenho. Isso é obtido executando o maior número possível de leituras e gravações em paralelo.
+O Data Lake Storage Gen1 suporta alto throughput para análise intensiva de I/O e movimentação de dados. No Data Lake Storage Gen1, usar todos os recursos disponíveis - a quantidade de dados que podem ser lidos ou gravados por segundo - é importante para obter o melhor desempenho. Isso é obtido executando o maior número possível de leituras e gravações em paralelo.
 
 ![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/throughput.png)
 
@@ -23,7 +23,7 @@ O Data Lake Storage Gen1 pode ser dimensionado para fornecer o throughput necess
 
 ## <a name="data-ingestion"></a>Ingestão de dados
 
-Ao ingerir dados de um sistema de origem para Data Lake Storage Gen1, é importante considerar que o hardware de origem, o hardware de rede de origem e a conectividade de rede para Data Lake Storage Gen1 podem ser o afunilamento.
+Ao ingerir dados de um sistema de origem para data lake storage Gen1, é importante considerar que o hardware de origem, o hardware de rede de origem e a conectividade de rede ao Data Lake Storage Gen1 podem ser o gargalo.
 
 ![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
@@ -31,7 +31,7 @@ Ao ingerir dados de um sistema de origem para Data Lake Storage Gen1, é importa
 
 ### <a name="source-hardware"></a>Hardware de origem
 
-Se você estiver usando máquinas locais ou VMs no Azure, deverá selecionar cuidadosamente o hardware apropriado. Para Hardware de Disco de Origem, prefira SSDs a HDDs e escolha o hardware de disco com eixos mais rápidos. Para Hardware de Rede de Origem, use as NICs mais rápidas que puder. No Azure, recomendamos as VMs D14 do Azure que têm o hardware de rede e de disco adequadamente avançado.
+Se você estiver usando máquinas locais ou VMs no Azure, você deve selecionar cuidadosamente o hardware apropriado. Para Hardware de Disco de Origem, prefira SSDs a HDDs e escolha o hardware de disco com eixos mais rápidos. Para Hardware de Rede de Origem, use as NICs mais rápidas que puder. No Azure, recomendamos VMs Azure D14 que tenham o hardware de disco e rede apropriadamente poderoso.
 
 ### <a name="network-connectivity-to-data-lake-storage-gen1"></a>Conectividade de rede para Data Lake Storage Gen1
 
@@ -39,33 +39,33 @@ A conectividade de rede entre os dados de origem e o Data Lake Storage Gen1 às 
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configurar ferramentas de ingestão de dados para paralelização máxima
 
-Depois de solucionar os afunilamentos de conectividade de rede e hardware de origem, você estará pronto para configurar suas ferramentas de ingestão. A tabela a seguir resume as configurações de chave para diversas ferramentas de ingestão populares e fornece artigos detalhados de ajuste de desempenho para eles. Para saber mais sobre qual ferramenta usar para seu cenário, visite este [artigo](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
+Depois de abordar os gargalos de conectividade de hardware e rede de origem, você está pronto para configurar suas ferramentas de ingestão. A tabela a seguir resume as configurações de chave para diversas ferramentas de ingestão populares e fornece artigos detalhados de ajuste de desempenho para eles. Para saber mais sobre qual ferramenta usar para seu cenário, visite este [artigo](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
 
 | Ferramenta          | Configurações | Mais detalhes                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | Powershell       | PerFileThreadCount, ConcurrentFileCount | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
 | AdlCopy    | Unidades do Azure Data Lake Analytics | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
 | DistCp            | -m (mapper) | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies | [Link](../data-factory/copy-activity-performance.md)                          |
+| Fábrica de dados do Azure| parallelCopies | [Link](../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | fs.azure.block.size, -m (mapper) | [Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>Estruturar seu conjunto de dados
 
-Quando os dados são armazenados em Data Lake Storage Gen1, o tamanho do arquivo, o número de arquivos e a estrutura de pastas afetam o desempenho. A seção a seguir descreve as práticas recomendadas nessas áreas.
+Quando os dados são armazenados no Data Lake Storage Gen1, o tamanho do arquivo, o número de arquivos e a estrutura da pasta afetam o desempenho. A seção a seguir descreve as práticas recomendadas nessas áreas.
 
-### <a name="file-size"></a>Tamanho do arquivo
+### <a name="file-size"></a>Tamanho de arquivo
 
 Normalmente os mecanismos de análise, tais como HDInsight e Azure Data Lake Analytics, têm uma sobrecarga por arquivo. Se você armazenar os dados como vários arquivos pequenos, isso poderá afetar negativamente o desempenho.
 
-Em geral, organize seus dados em arquivos de tamanhos maior para melhorar o desempenho. Como regra geral, organize conjuntos de dados em arquivos de 256 MB ou mais. Em alguns casos, como imagens e dados binários, não é possível processá-los em paralelo. Nesses casos, é recomendável manter arquivos individuais em 2 GB.
+Em geral, organize seus dados em arquivos de tamanhos maior para melhorar o desempenho. Como regra geral, organize conjuntos de dados em arquivos de 256 MB ou maiores. Em alguns casos, como imagens e dados binários, não é possível processá-los em paralelo. Nesses casos, recomenda-se manter arquivos individuais abaixo de 2 GB.
 
 Às vezes, os pipelines de dados têm controle limitado sobre os dados brutos que têm muitos arquivos pequenos. Recomenda-se ter um processo de "cooking" que gere arquivos maiores para usar em aplicativos downstream.
 
-### <a name="organize-time-series-data-in-folders"></a>Organizar dados de série temporal em pastas
+### <a name="organize-time-series-data-in-folders"></a>Organize dados de séries tempois em pastas
 
-Para cargas de trabalho do hive e do ADLA, a remoção de partições de dados de série temporal pode ajudar algumas consultas a ler apenas um subconjunto dos dados, o que melhora o desempenho.
+Para cargas de trabalho hive e ADLA, a poda de partição de dados de séries tempontos pode ajudar algumas consultas a ler apenas um subconjunto dos dados, o que melhora o desempenho.
 
-Esses pipelines que ingerim dados de série temporal, geralmente colocam seus arquivos com uma nomenclatura estruturada para arquivos e pastas. Veja a seguir um exemplo comum que vemos para dados estruturados por data:
+Esses pipelines que ingerem dados de séries tempois, muitas vezes colocam seus arquivos com uma nomenclatura estruturada para arquivos e pastas. O seguinte é um exemplo comum que vemos para dados estruturados por data:
 
     \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
 
@@ -77,13 +77,13 @@ Para data e hora, o padrão a seguir é comum
 
 Novamente, a escolha que você fizer com a pasta e organização do arquivo deverá otimizar para os maiores tamanhos de arquivo e um número razoável de arquivos em cada pasta.
 
-## <a name="optimize-io-intensive-jobs-on-hadoop-and-spark-workloads-on-hdinsight"></a>Otimizar trabalhos com uso intensivo de e/s em cargas de trabalho do Hadoop e do Spark no HDInsight
+## <a name="optimize-io-intensive-jobs-on-hadoop-and-spark-workloads-on-hdinsight"></a>Otimizar trabalhos intensivos de I/O em cargas de trabalho hadoop e spark no HDInsight
 
 Trabalhos se enquadram em uma destas três categorias:
 
 * **Com uso intensivo de CPU.** Esses trabalhos têm tempos de computação longos com tempos de E/S mínimos. Exemplos incluem aprendizado de máquina e trabalhos de processamento de linguagem natural.
-* **Com uso intensivo de memória.** Estes trabalhos usam muita memória. Exemplos incluem PageRank e trabalhos de análise em tempo real.
-* **Com uso intensivo de E/S.** Esses trabalhos passam a maior parte do tempo fazendo E/S. Um exemplo comum é um trabalho de cópia que faz apenas operações de leitura e gravação. Outros exemplos incluem trabalhos de preparação de dados que lêem vários dados, executam alguma transformação de dados e, em seguida, grava os dados de volta no repositório.
+* **Memória intensiva.** Estes trabalhos usam muita memória. Exemplos incluem PageRank e trabalhos de análise em tempo real.
+* **Com uso intensivo de E/S.** Esses trabalhos passam a maior parte do tempo fazendo E/S. Um exemplo comum é um trabalho de cópia que só lê e escreve operações. Outros exemplos incluem trabalhos de preparação de dados que leem inúmeros dados, realizam alguma transformação de dados e, em seguida, gravam os dados de volta para o armazenamento.
 
 As diretrizes a seguir são aplicáveis somente a trabalhos com uso intensivo de E/S.
 
@@ -114,13 +114,13 @@ Há três camadas em um cluster HDInsight que podem ser ajustadas para aumentar 
 
 ![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
-Dependendo de sua carga de trabalho, sempre haverá um tamanho de contêiner YARN mínimo necessário. Se você selecionar um contêiner muito pequeno, os trabalhos encontrarão problemas de falta de memória. Normalmente, os contêineres YARN não devem ser menores que 1 GB. É comum ver contêineres YARN de 3 GB. Para algumas cargas de trabalho, talvez contêineres YARN maiores sejam necessários.
+Dependendo de sua carga de trabalho, sempre haverá um tamanho de contêiner YARN mínimo necessário. Se você selecionar um contêiner muito pequeno, os trabalhos encontrarão problemas de falta de memória. Normalmente, os recipientes YARN não devem ser menores que 1 GB. É comum ver recipientes de 3 GB de YARN. Para algumas cargas de trabalho, talvez contêineres YARN maiores sejam necessários.
 
-**Aumente os núcleos por contêiner YARN.** Aumente o número de núcleos alocados para cada contêiner para aumentar o número de tarefas paralelas que são executadas em cada contêiner. Isso funciona para aplicativos como o Spark, que executa várias tarefas por contêiner. Para aplicativos como o hive que executam um único thread em cada contêiner, é melhor ter mais contêineres em vez de mais núcleos por contêiner.
+**Aumente os núcleos por contêiner YARN.** Aumente o número de núcleos alocados para cada contêiner para aumentar o número de tarefas paralelas que são executadas em cada contêiner. Isso funciona para aplicativos como o Spark, que executam várias tarefas por contêiner. Para aplicações como a Colmeia que executam um único segmento em cada recipiente, é melhor ter mais contêineres em vez de mais núcleos por contêiner.
 
 ### <a name="workload-layer"></a>Camada de carga de trabalho
 
-**Use todos os contêineres disponíveis.** Defina o número de tarefas como igual ou maior que o número de contêineres disponíveis para que todos os recursos sejam usados.
+**Use todos os contêineres disponíveis.** Defina o número de tarefas como igual ou maior do que o número de contêineres disponíveis para que todos os recursos sejam usados.
 
 ![Desempenho do Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
 
@@ -133,9 +133,9 @@ Além das diretrizes gerais acima, cada aplicativo tem diferentes parâmetros di
 | [Spark no HDInsight](data-lake-store-performance-tuning-spark.md)  | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
 | [Hive no HDInsight](data-lake-store-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
 | [MapReduce no HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
-| [Storm no HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de executor de spout</li><li>Número de instâncias de bolt executor </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
+| [Storm no HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de spout executor</li><li>Número de instâncias de bolt executor </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introdução à Análise Data Lake do Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

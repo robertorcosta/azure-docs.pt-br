@@ -1,5 +1,5 @@
 ---
-title: Benchmarking de seu aplicativo no Armazenamento em Disco do Azure
+title: Benchmarking seu aplicativo no Azure Disk Storage
 description: Saiba mais sobre o processo de aplicação de parâmetros de comparação em seu aplicativo no Azure.
 author: roygara
 ms.author: rogarana
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.openlocfilehash: 640ec54e9634751d05c2cea90d7c03d02e7a3387
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75720048"
 ---
 # <a name="benchmarking-a-disk"></a>Aplicação de parâmetros de comparação em um disco
@@ -24,8 +24,8 @@ Para seguir os exemplos abaixo, crie uma VM DS14 padrão e anexe 11 discos do Ar
 
 [!INCLUDE [virtual-machines-disks-benchmarking](../../../includes/virtual-machines-managed-disks-benchmarking.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Vá para nosso artigo sobre como [projetar para alto desempenho](premium-storage-performance.md).
+Proceda nosso artigo sobre [design para alta performance.](premium-storage-performance.md)
 
-Neste artigo, você cria uma lista de verificação semelhante ao aplicativo existente para o protótipo. Usando ferramentas de Benchmark, você pode simular as cargas de trabalho e avaliar o desempenho no aplicativo do protótipo. Com isso, será possível determinar qual oferta de disco pode corresponder ou superar os requisitos de desempenho do aplicativo. Em seguida, você pode implementar as mesmas diretrizes para o aplicativo de produção.
+Nesse artigo, você cria uma lista de verificação semelhante à sua aplicação existente para o protótipo. Usando ferramentas de Benchmark, você pode simular as cargas de trabalho e avaliar o desempenho no aplicativo do protótipo. Com isso, será possível determinar qual oferta de disco pode corresponder ou superar os requisitos de desempenho do aplicativo. Em seguida, você pode implementar as mesmas diretrizes para o aplicativo de produção.

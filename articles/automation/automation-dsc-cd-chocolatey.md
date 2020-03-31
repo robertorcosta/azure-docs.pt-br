@@ -6,10 +6,10 @@ ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ms.openlocfilehash: 4445f6e9b72380b66f3282d50871b4283f7fc7fa
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75966733"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemplo de uso: implantação contínua em Máquinas Virtuais usando Configuração de Estado da Automação e Chocolatey
@@ -50,7 +50,7 @@ Começando pela parte superior, você escreve o código, compila e testa e, depo
 O Chocolatey pode manipular vários tipos de pacotes de instalação, como MSI, MSU e ZIP. Você conta com toda a capacidade do PowerShell para realizar a instalação real, caso os recursos nativos do Chocolatey não sejam suficientes. Coloque o pacote em algum lugar acessível – um repositório de pacotes. Este exemplo de uso usa uma pasta pública em uma conta de armazenamento de blob do Azure, mas pode estar em qualquer outro lugar. O Chocolatey funciona nativamente com servidores do NuGet e alguns outras para o gerenciamento de metadados de pacote. [Este artigo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descreve as opções. Este exemplo de uso usa o NuGet. Um Nuspec consiste em metadados sobre seus pacotes. O Nuspec é "compilado" no NuPkg e armazenado em um servidor do NuGet. Quando a configuração solicita um pacote por nome e faz referência a um servidor do NuGet, o Recurso DSC do Chocolatey (agora na VM) obtém o pacote e o instala para você. Você também pode solicitar uma versão específica de um pacote.
 
 Na parte inferior esquerda da imagem, há um modelo do Azure Resource Manager. Nesse exemplo de uso, a extensão da VM registra a VM com o Servidor de Pull da Configuração de Estado da Automação do Azure (ou seja, um servidor de pull) como um Nó. A configuração é armazenada no servidor de recepção.
-Na verdade, ele é armazenado duas vezes: uma vez como texto sem formatação e uma vez compilado como um arquivo MOF (para aqueles que conhecem tais coisas.) No portal, o MOF é uma "configuração de nó" (em vez de simplesmente "configuração"). É o artefato associado a um nó para que o nó conheça a configuração. Os detalhes a seguir mostram como atribuir a configuração de nó ao nó.
+Na verdade, ele é armazenado duas vezes: uma vez como texto simples e uma vez compilado como um arquivo MOF (para aqueles que sabem sobre essas coisas.) No portal, o MOF é uma "configuração de nó" (em vez de simplesmente "configuração"). É o artefato associado a um nó para que o nó conheça a configuração. Os detalhes a seguir mostram como atribuir a configuração de nó ao nó.
 
 Provavelmente, você já está realizando a ação na parte superior, ou a maior parte dela. Criar o nuspec, compilá-lo e armazená-lo em um servidor do NuGet é uma tarefa pequena. E você já está gerenciando VMs. O próximo passo para a implantação contínua requer a configuração do servidor de recepção (uma vez), o registro dos nós (uma vez) e a criação e o armazenamento da configuração neles (inicialmente). Em seguida, à medida que os pacotes forem atualizados e implantados no repositório, atualize a Configuração e a Configuração de Nó no servidor de recepção (repita conforme necessário).
 
@@ -82,7 +82,7 @@ Navegue até o recurso desejado e clique no botão "Implantar na Automação do 
 Outra técnica recentemente adicionada ao Portal do Azure permite criar novos módulos ou atualizar módulos existentes. Clique no recurso Conta de Automação, no bloco Ativos e, por fim, no bloco Módulos. O ícone Procurar na Galeria permite ver a lista de módulos na galeria, filtrar para ver detalhes e, por fim, importar para sua Conta de Automação. Isso é uma ótima maneira de manter atualizados os módulos periodicamente. Além disso, o recurso de importação verifica dependências com outros módulos para garantir que nada esteja fora de sincronização.
 
 Ou então, há a abordagem manual. A estrutura de pastas de um Módulo de Integração do PowerShell para um computador com Windows é um pouco diferente da estrutura de pastas esperada pela Automação do Azure.
-Isso exige que você faça alguns ajustes. Mas não é difícil, e isso é feito apenas uma vez por recurso (a menos que você queira atualizá-lo no futuro). Para obter mais informações sobre a criação de módulos de integração do PowerShell, consulte este artigo: [criando módulos de integração para a automação do Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
+Isso exige que você faça alguns ajustes. Mas não é difícil, e é feito apenas uma vez por recurso (a menos que você queira atualizá-lo no futuro.) Para obter mais informações sobre a autoria dos Módulos de Integração PowerShell, consulte este artigo: [Módulos de Integração de Autoria para Automação Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - Instale o módulo necessário na estação de trabalho, da seguinte maneira:
   - Instale o [Windows Management Framework, v5](https://aka.ms/wmf5latest) (não é necessário para o Windows 10)
@@ -193,11 +193,11 @@ Não é necessário usar um modelo do Resource Manager e a extensão da VM para 
 O código-fonte completo deste exemplo de uso está [neste projeto do Visual Studio](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) no GitHub.
 
 ## <a name="related-articles"></a>Artigos relacionados
-* [Visão geral do DSC de Automação do Azure](automation-dsc-overview.md)
+* [Visão geral do DSC da Automação do Azure](automation-dsc-overview.md)
 * [cmdlets do DSC de Automação do Azure](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
 * [Integração de computadores para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral, consulte [Configuração de Estado da Automação do Azure](automation-dsc-overview.md)
 - Para começar, consulte [Introdução à Configuração de Estado da Automação do Azure](automation-dsc-getting-started.md)
