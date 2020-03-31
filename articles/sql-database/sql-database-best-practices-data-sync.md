@@ -12,10 +12,10 @@ ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ms.openlocfilehash: ee929fa227cb105b73bc929c13a768aabef37ce3
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75771676"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Práticas recomendadas para a Sincronização de Dados SQL 
@@ -25,9 +25,9 @@ Este artigo descreve as práticas recomendadas para a Sincronização de Dados S
 Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> Atualmente, a Sincronização de Dados SQL **não** dá suporte para Instância Gerenciada do Banco de Dados SQL do Azure.
+> O Azure SQL Data Sync **não** suporta a instância gerenciada do banco de dados Azure SQL no momento.
 
-## <a name="security-and-reliability"></a> Segurança e confiabilidade
+## <a name="security-and-reliability"></a><a name="security-and-reliability"></a> Segurança e confiabilidade
 
 ### <a name="client-agent"></a>Agente cliente
 
@@ -41,7 +41,7 @@ Para obter uma visão geral da Sincronização de Dados SQL, consulte [Sincroniz
 
 -   **Para configuração da sincronização**. Criar/alterar tabela; alterar banco de dados; criar procedimento; selecionar/alterar esquema; criar tipo definido pelo usuário.
 
--   **Para sincronização em andamento**. Selecionar/inserir/atualizar/excluir em tabelas selecionadas para sincronização e em metadados de sincronização e tabelas de acompanhamento; Permissão EXECUTE em procedimentos armazenados criados pelo serviço; Permissão EXECUTE em tipos de tabela definidos pelo usuário.
+-   **Para sincronização contínua.** Selecione/ Insira/ Atualize/ Exclua em tabelas selecionadas para sincronização e em metadados de sincronização e tabelas de rastreamento; Executar permissão em procedimentos armazenados criados pelo serviço; Execute a permissão em tipos de tabela definidos pelo usuário.
 
 -   **Para desprovisionamento**. Alterar em tabelas que fazem parte da sincronização; Selecionar/Excluir em tabelas de metadados de sincronização; Controlar em tabelas de sincronização, procedimentos armazenados e tipos definidos pelo usuário.
 
@@ -52,7 +52,7 @@ O banco de dados SQL do Azure oferece suporte a apenas um único conjunto de cre
 
 ## <a name="setup"></a>Instalação
 
-### <a name="database-considerations-and-constraints"></a> Restrições e considerações de banco de dados
+### <a name="database-considerations-and-constraints"></a><a name="database-considerations-and-constraints"></a> Restrições e considerações de banco de dados
 
 #### <a name="sql-database-instance-size"></a>Tamanho da instância do Banco de Dados SQL
 
@@ -61,7 +61,7 @@ Quando você criar uma nova instância do Banco de Dados SQL, defina o tamanho m
 > [!IMPORTANT]
 > A Sincronização de Dados SQL armazena metadados adicionais com cada banco de dados. Não deixe de considerar esses metadados ao calcular o espaço necessário. A quantidade de sobrecarga adicionada é relacionada à largura das tabelas (por exemplo, tabelas estreitas exigem mais sobrecarga) e a quantidade de tráfego.
 
-### <a name="table-considerations-and-constraints"></a> Restrições e considerações de tabela
+### <a name="table-considerations-and-constraints"></a><a name="table-considerations-and-constraints"></a> Restrições e considerações de tabela
 
 #### <a name="selecting-tables"></a>Selecionando tabelas
 
@@ -77,7 +77,7 @@ Antes de usar a Sincronização de Dados SQL em produção, teste o desempenho d
 
 Tabelas vazias fornecem o melhor desempenho em tempo de inicialização. Se a tabela de destino estiver vazia, a Sincronização de Dados usará inserção em massa para carregar os dados. Caso contrário, a Sincronização de Dados fará uma comparação e inserção linha por linha para verificar conflitos. No entanto, se o desempenho não for uma preocupação, você poderá configurar a sincronização entre tabelas que já contenham dados.
 
-### <a name="provisioning-destination-databases"></a> Provisionamento de bancos de dados de destino
+### <a name="provisioning-destination-databases"></a><a name="provisioning-destination-databases"></a> Provisionamento de bancos de dados de destino
 
 A Sincronização de Dados SQL fornece provisionamento automático de banco de dados básico.
 
@@ -94,14 +94,14 @@ A Sincronização de Dados SQL tem as seguintes limitações para provisionament
 -   Os gatilhos existentes nas tabelas de origem não são provisionados.  
 -   Exibições e procedimentos armazenados não são criados no banco de dados de destino.
 -   EM UPDATE CASCADE e ON DELETE CASCADE ações em restrições de chave estrangeira não são recriadas nas tabelas de destino.
--   Se você tiver colunas decimais ou numéricas com uma precisão maior que 28, Sincronização de Dados SQL poderá encontrar um problema de estouro de conversão durante a sincronização. Recomendamos que você limite a precisão de colunas decimais ou numéricas para 28 ou menos.
+-   Se você tiver colunas decimais ou numéricas com uma precisão superior a 28, o SQL Data Sync pode encontrar um problema de estouro de conversão durante a sincronização. Recomendamos que você limite a precisão das colunas decimais ou numéricas a 28 ou menos.
 
 #### <a name="recommendations"></a>Recomendações
 
 -   Use o recurso de provisionamento automático da Sincronização de Dados SQL somente quando você estiver experimentando o serviço.  
 -   Para a produção, provisione o esquema de banco de dados.
 
-### <a name="locate-hub"></a> Onde localizar o banco de dados hub
+### <a name="where-to-locate-the-hub-database"></a><a name="locate-hub"></a> Onde localizar o banco de dados hub
 
 #### <a name="enterprise-to-cloud-scenario"></a>Cenário de empresa para nuvem
 
@@ -116,9 +116,9 @@ Para minimizar a latência, mantenha o banco de dados hub próximo da maior conc
 
 Aplique as diretrizes anteriores para as configurações complexas de grupo de sincronização, como as que são uma combinação de cenários de empresa para nuvem e nuvem para nuvem.
 
-## <a name="sync"></a>Sincronização
+## <a name="sync"></a>Sincronizar
 
-### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Evitar a sincronização inicial lenta e dispendiosa
+### <a name="avoid-slow-and-costly-initial-sync"></a><a name="avoid-a-slow-and-costly-initial-synchronization"></a> Evitar a sincronização inicial lenta e dispendiosa
 
 Nesta seção, discutiremos a sincronização inicial de um grupo de sincronização. Saiba como evitar que uma sincronização inicial demore mais e seja mais cara do que o necessário.
 
@@ -132,13 +132,13 @@ Se os bancos de dados estiverem em datacenters diferentes, cada linha deverá pe
 
 Se for possível, comece com os dados em apenas um dos bancos de dados do grupo de sincronização.
 
-### <a name="design-to-avoid-synchronization-loops"></a> Design para evitar loops de sincronização
+### <a name="design-to-avoid-sync-loops"></a><a name="design-to-avoid-synchronization-loops"></a> Design para evitar loops de sincronização
 
 Um loop de sincronização ocorre quando há referências circulares dentro de um grupo de sincronização. Nesse cenário, cada alteração em um banco de dados é infinitamente e circularmente replicada por meio de bancos de dados no grupo de sincronização.   
 
 Evite loops de sincronização, pois eles causam degradação de desempenho e podem aumentar significativamente os custos.
 
-### <a name="handling-changes-that-fail-to-propagate"></a> Alterações com falha de propagação
+### <a name="changes-that-fail-to-propagate"></a><a name="handling-changes-that-fail-to-propagate"></a> Alterações com falha de propagação
 
 #### <a name="reasons-that-changes-fail-to-propagate"></a>Razões pelas quais as alterações falham ao se propagar
 
@@ -162,9 +162,9 @@ As alterações podem apresentar falha na propagação por um dos seguintes moti
 Monitore a integridade do banco de dados e do grupo de sincronização regularmente através da interface de log e do Portal.
 
 
-## <a name="maintenance"></a>Manutenção
+## <a name="maintenance"></a>Manutenção 
 
-### <a name="avoid-out-of-date-databases-and-sync-groups"></a> Evitar bancos de dados e grupos de sincronização desatualizados
+### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a> Evitar bancos de dados e grupos de sincronização desatualizados
 
 Um grupo de sincronização ou um banco de dados em um grupo de sincronização pode ficar desatualizado. Quando o status de um grupo de sincronização for **Desatualizado**, ele deixará de funcionar. Quando o status de um banco de dados é **Desatualizado**, os dados podem ser perdidos. É melhor evitar este cenário em vez de tentar recuperá-lo.
 
@@ -189,7 +189,7 @@ Para impedir que grupos de sincronização fiquem desatualizados:
 -   Atualize os valores das chaves estrangeiras para incluir os valores que estão contidos nas linhas com falha.
 -   Atualize os valores de dados na linha com falha para que sejam compatíveis com o esquema ou chaves estrangeiras no banco de dados de destino.
 
-### <a name="avoid-deprovisioning-issues"></a> Evitar problemas de desprovisionamento
+### <a name="avoid-deprovisioning-issues"></a><a name="avoid-deprovisioning-issues"></a> Evitar problemas de desprovisionamento
 
 Em algumas circunstâncias, cancelar o registro de um banco de dados com um agente cliente pode causar falhas de sincronização.
 
@@ -210,7 +210,7 @@ Para se recuperar desse cenário:
 2. Adicione o banco de dados de volta a cada grupo de sincronização de que você acabou de removê-lo.  
 3. Implante cada grupo de sincronização afetado (esta ação provisiona o banco de dados).  
 
-### <a name="modifying-your-sync-group"></a> Modificando um grupo de sincronização
+### <a name="modifying-a-sync-group"></a><a name="modifying-your-sync-group"></a> Modificando um grupo de sincronização
 
 Não tente remover um banco de dados de um grupo de sincronização e, em seguida, editar o grupo de sincronização sem primeiro implantar uma das alterações.
 
@@ -218,22 +218,22 @@ Em vez disso, primeiro remova um banco de dados de um grupo de sincronização. 
 
 Se você tentar remover um banco de dados e, em seguida, editar um grupo de sincronização sem primeiro implantar as alterações, uma ou outra operação falhará. A interface do portal pode se tornar inconsistente. Se isto ocorrer, atualize a página para restaurar o estado correto.
 
-### <a name="avoid-schema-refresh-timeout"></a>Evitar tempo limite de atualização do esquema
+### <a name="avoid-schema-refresh-timeout"></a>Evite o tempo de atualização do esquema
 
-Se você tiver um esquema complexo para sincronizar, poderá encontrar um "tempo limite de operação" durante uma atualização de esquema se o banco de dados de metadados de sincronização tiver um SKU inferior (exemplo: básico). 
+Se você tiver um esquema complexo para sincronizar, você pode encontrar um "tempo de operação" durante uma atualização de esquema se o banco de dados de metadados de sincronização tiver um SKU mais baixo (exemplo: básico). 
 
 #### <a name="solution"></a>Solução
 
-Para atenuar esse problema, escale verticalmente seu banco de dados de metadados de sincronização para ter uma SKU superior, como S3. 
+Para mitigar esse problema, por favor, dimensione seu banco de dados de metadados de sincronização para ter um SKU mais alto, como o S3. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a Sincronização de Dados SQL, consulte:
 
 -   Visão geral - [Sincronize dados em vários bancos de dados locais e na nuvem com o Azure SQL Data Sync](sql-database-sync-data.md)
 -   Configurar sincronização de dados
     - No portal - [Tutorial: configure o SQL Data Sync para sincronizar dados entre o Banco de Dados SQL do Azure e o SQL Server local](sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
-        -  [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Use o PowerShell para sincronizar entre vários bancos de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Agente de Sincronização de Dados - [Agente de Sincronização de Dados para Sincronização de Dados SQL do Azure](sql-database-data-sync-agent.md)
 -   Monitor – [monitore a Sincronização de Dados SQL com logs do Azure Monitor](sql-database-sync-monitor-oms.md)

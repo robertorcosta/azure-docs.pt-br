@@ -1,6 +1,6 @@
 ---
-title: Sincronização com escopo para Azure AD Domain Services | Microsoft Docs
-description: Saiba como configurar a sincronização com escopo do Azure AD para um Azure Active Directory Domain Services domínio gerenciado
+title: Sincronização escopo para serviços de domínio Azure AD | Microsoft Docs
+description: Saiba como configurar a sincronização escopo do Azure AD para um domínio gerenciado do Azure Active Directory Domain Services
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,87 +12,87 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
 ms.openlocfilehash: cc126af67a0d8627d61e595cee56f3df8973340d
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77613052"
 ---
-# <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configurar a sincronização com escopo do Azure AD para Azure Active Directory Domain Services
+# <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configure a sincronização escopo do Azure AD para o Azure Active Directory Domain Services
 
-Para fornecer serviços de autenticação, Azure Active Directory Domain Services (Azure AD DS) sincroniza usuários e grupos do Azure AD. Em um ambiente híbrido, os usuários e grupos de um ambiente de Active Directory Domain Services local (AD DS) podem ser sincronizados primeiro com o Azure AD usando Azure AD Connect e, em seguida, sincronizados com o Azure AD DS.
+Para fornecer serviços de autenticação, o Azure Active Directory Domain Services (Azure AD DS) sincroniza usuários e grupos do Azure AD. Em um ambiente híbrido, usuários e grupos de um ambiente AD DS (Active Directory Domain Services, serviços de domínio de diretório ativo) no local podem ser sincronizados primeiro com o Azure AD Connect e, em seguida, sincronizados com o Azure AD DS.
 
-Por padrão, todos os usuários e grupos de um diretório do AD do Azure são sincronizados com um domínio gerenciado do Azure AD DS. Se você tiver necessidades específicas, poderá optar por sincronizar apenas um conjunto definido de usuários.
+Por padrão, todos os usuários e grupos de um diretório Azure AD estão sincronizados com um domínio Gerenciado pelo Azure AD DS. Se você tiver necessidades específicas, você pode optar por sincronizar apenas um conjunto definido de usuários.
 
-Este artigo mostra como criar um domínio gerenciado AD DS do Azure que usa a sincronização com escopo e, em seguida, alterar ou desabilitar o conjunto de usuários com escopo.
+Este artigo mostra como criar um domínio gerenciado pelo Azure AD DS que usa sincronização escopo e, em seguida, alterar ou desativar o conjunto de usuários com escopo.
 
-## <a name="scoped-synchronization-overview"></a>Visão geral da sincronização com escopo
+## <a name="scoped-synchronization-overview"></a>Visão geral da sincronização escopo
 
-Por padrão, todos os usuários e grupos de um diretório do AD do Azure são sincronizados com um domínio gerenciado do Azure AD DS. Se apenas alguns usuários precisarem acessar o domínio gerenciado, você poderá sincronizar somente as contas de usuário. Essa sincronização com escopo é baseada em grupo. Quando você configura a sincronização com escopo baseado em grupo, somente as contas de usuário que pertencem aos grupos que você especifica são sincronizadas com o domínio gerenciado AD DS do Azure.
+Por padrão, todos os usuários e grupos de um diretório Azure AD estão sincronizados com um domínio Gerenciado pelo Azure AD DS. Se apenas alguns usuários precisarem acessar o domínio gerenciado, você poderá sincronizar apenas essas contas de usuário. Esta sincronização escopo é baseada em grupo. Quando você configura a sincronização escopo baseada em grupo, apenas as contas de usuário que pertencem aos grupos especificados são sincronizadas ao domínio gerenciado pelo Azure AD DS.
 
-A tabela a seguir descreve como usar a sincronização com escopo:
+A tabela a seguir descreve como usar a sincronização escopo:
 
 | Estado atual | Estado desejado | Configuração necessária |
 | --- | --- | --- |
-| Um domínio gerenciado existente é configurado para sincronizar todas as contas de usuário e grupos. | Você deseja sincronizar somente as contas de usuário que pertencem a grupos específicos. | Não é possível alterar a sincronização de todos os usuários para o uso da sincronização com escopo. [Exclua o domínio gerenciado existente](delete-aadds.md)e siga as etapas neste artigo para recriar um domínio gerenciado do Azure AD DS com a sincronização com escopo definido. |
-| Nenhum domínio gerenciado existente. | Você deseja criar um novo domínio gerenciado e sincronizar apenas as contas de usuário que pertencem a grupos específicos. | Siga as etapas neste artigo para criar um domínio gerenciado do Azure AD DS com a sincronização com escopo definido. |
-| Um domínio gerenciado existente é configurado para sincronizar somente as contas que pertencem a grupos específicos. | Você deseja modificar a lista de grupos cujos usuários devem ser sincronizados com o domínio gerenciado AD DS do Azure. | Siga as etapas neste artigo para modificar a sincronização com escopo definido. |
+| Um domínio gerenciado existente é configurado para sincronizar todas as contas e grupos de usuários. | Você deseja sincronizar apenas contas de usuário que pertencem a grupos específicos. | Você não pode mudar de sincronizar todos os usuários para usar sincronização com escopo. [Exclua o domínio gerenciado existente](delete-aadds.md)e siga as etapas deste artigo para recriar um domínio gerenciado pelo Azure AD DS com sincronização escopo configurada. |
+| Nenhum domínio gerenciado existente. | Você deseja criar um novo domínio gerenciado e sincronizar apenas as contas de usuário que pertencem a grupos específicos. | Siga as etapas deste artigo para criar um domínio gerenciado pelo Azure AD DS com sincronização escopo configurada. |
+| Um domínio gerenciado existente é configurado para sincronizar apenas contas que pertencem a grupos específicos. | Você deseja modificar a lista de grupos cujos usuários devem ser sincronizados com o domínio gerenciado pelo Azure AD DS. | Siga as etapas deste artigo para modificar a sincronização escopo. |
 
-Use o portal do Azure ou o PowerShell para definir as configurações de sincronização com escopo definido:
+Você usa o portal Azure ou powerShell para configurar as configurações de sincronização com escopo:
 
 | Ação | | |
 |--|--|--|
-| Criar um domínio gerenciado AD DS do Azure e configurar a sincronização com escopo | [Azure portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
-| Modificar sincronização com escopo | [Azure portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
-| Desabilitar sincronização com escopo | [Azure portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
+| Crie um domínio gerenciado pelo Azure AD DS e configure a sincronização com escopo | [Portal Azure](#enable-scoped-synchronization-using-the-azure-portal) | [Powershell](#enable-scoped-synchronization-using-powershell) |
+| Modificar sincronização escopo | [Portal Azure](#modify-scoped-synchronization-using-the-azure-portal) | [Powershell](#modify-scoped-synchronization-using-powershell) |
+| Desativar a sincronização com escopo | [Portal Azure](#disable-scoped-synchronization-using-the-azure-portal) | [Powershell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
-> Alterar o escopo da sincronização faz com que o domínio gerenciado AD DS do Azure sincronize novamente todos os dados.
+> Alterar o escopo da sincronização faz com que o domínio Gerenciado pelo Azure AD DS ressincronizar todos os dados.
 > 
->  * Quando você altera o escopo de sincronização de um domínio gerenciado do Azure AD DS, ocorre uma ressincronização completa.
->  * Os objetos que não são mais necessários no domínio gerenciado AD DS do Azure são excluídos. Novos objetos são criados no domínio gerenciado.
->  * A ressincronização pode levar muito tempo para ser concluída. O tempo de sincronização depende do número de objetos, como usuários, grupos e associações de grupo no domínio gerenciado do Azure AD DS e no diretório do AD do Azure. Para diretórios grandes com várias centenas de milhares de objetos, a ressincronização pode levar alguns dias.
+>  * Quando você altera o escopo de sincronização de um domínio gerenciado pelo Azure AD DS, ocorre uma ressincronização completa.
+>  * Os objetos que não são mais necessários no domínio gerenciado pelo Azure AD DS são excluídos. Novos objetos são criados no domínio gerenciado.
+>  * A ressincronização pode levar muito tempo para ser concluída. O tempo de sincronização depende do número de objetos, como usuários, grupos e membros de grupos no domínio gerenciado do Azure AD DS e no diretório Azure AD. Para diretórios grandes com várias centenas de milhares de objetos, a ressincronização pode levar alguns dias.
 
-## <a name="enable-scoped-synchronization-using-the-azure-portal"></a>Habilitar sincronização com escopo usando o portal do Azure
+## <a name="enable-scoped-synchronization-using-the-azure-portal"></a>Habilite a sincronização escopo usando o portal Azure
 
-1. Siga o [tutorial para criar e configurar uma instância de AD DS do Azure](tutorial-create-instance-advanced.md). Conclua todos os pré-requisitos e as etapas de implantação diferentes de para o escopo de sincronização.
-1. Escolha **escopo** na etapa de sincronização e selecione os grupos do Azure ad para sincronizar com a instância de AD DS do Azure.
+1. Siga o [tutorial para criar e configurar uma instância Azure AD DS](tutorial-create-instance-advanced.md). Complete todos os pré-requisitos e etapas de implantação que não sejam para o escopo de sincronização.
+1. Escolha **Escopo** na etapa de sincronização e selecione os grupos Azure AD para sincronizar a instância Azure AD DS.
 
-O domínio gerenciado AD DS do Azure pode levar até uma hora para concluir a implantação. No portal do Azure, a página **visão geral** do domínio gerenciado do Azure AD DS mostra o status atual durante esse estágio de implantação.
+O domínio gerenciado pelo Azure AD DS pode levar até uma hora para concluir a implantação. No portal Azure, a página **Visão geral** do domínio gerenciado pelo Azure AD DS mostra o status atual durante esta fase de implantação.
 
-Quando o portal do Azure mostra que o domínio gerenciado do Azure AD DS concluiu o provisionamento, as seguintes tarefas precisam ser concluídas:
+Quando o portal Azure mostra que o domínio gerenciado pelo Azure AD DS terminou o provisionamento, as seguintes tarefas precisam ser concluídas:
 
 * Atualize as configurações de DNS da rede virtual, de modo que as máquinas virtuais possam encontrar o domínio gerenciado para ingresso no domínio ou autenticação.
-    * Para configurar o DNS, selecione seu domínio gerenciado AD DS do Azure no Portal. Na janela **visão geral** , é solicitado que você defina automaticamente essas configurações de DNS.
-* [Habilite a sincronização de senha para Azure AD Domain Services](tutorial-create-instance-advanced.md#enable-user-accounts-for-azure-ad-ds) para que os usuários finais possam entrar no domínio gerenciado usando suas credenciais corporativas.
+    * Para configurar o DNS, selecione o domínio gerenciado pelo Azure AD DS no portal. Na **janela Visão geral,** você é solicitado a configurar automaticamente essas configurações de DNS.
+* [Habilite a sincronização de senha satisco no Azure AD Domain Services para](tutorial-create-instance-advanced.md#enable-user-accounts-for-azure-ad-ds) que os usuários finais possam entrar no domínio gerenciado usando suas credenciais corporativas.
 
-## <a name="modify-scoped-synchronization-using-the-azure-portal"></a>Modificar sincronização com escopo usando o portal do Azure
+## <a name="modify-scoped-synchronization-using-the-azure-portal"></a>Modificar sincronização escopo usando o portal Azure
 
-Para modificar a lista de grupos cujos usuários devem ser sincronizados com o domínio gerenciado AD DS do Azure, conclua as seguintes etapas:
+Para modificar a lista de grupos cujos usuários devem ser sincronizados com o domínio gerenciado pelo Azure AD DS, complete as seguintes etapas:
 
-1. Na portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha sua instância, como *aaddscontoso.com*.
-1. Selecione **sincronização** no menu do lado esquerdo.
-1. Para adicionar um grupo, escolha **+ Selecionar grupos** na parte superior e, em seguida, escolha os grupos a serem adicionados.
-1. Para remover um grupo do escopo de sincronização, selecione-o na lista de grupos sincronizados no momento e escolha **remover grupos**.
-1. Quando todas as alterações forem feitas, selecione **salvar escopo de sincronização**.
+1. No portal Azure, procure e selecione **Azure AD Domain Services**. Escolha sua instância, como *aaddscontoso.com*.
+1. Selecione **Sincronização** no menu do lado esquerdo.
+1. Para adicionar um grupo, escolha **+ Selecione grupos** na parte superior e escolha os grupos a serem adicionados.
+1. Para remover um grupo do escopo de sincronização, selecione-o na lista de grupos sincronizados atualmente e escolha **Remover grupos**.
+1. Quando todas as alterações forem feitas, selecione **Salvar o escopo de sincronização**.
 
-Alterar o escopo da sincronização faz com que o domínio gerenciado AD DS do Azure sincronize novamente todos os dados. Os objetos que não são mais necessários no domínio gerenciado AD DS do Azure são excluídos e a ressincronização pode levar muito tempo para ser concluída.
+Alterar o escopo da sincronização faz com que o domínio Gerenciado pelo Azure AD DS ressincronizar todos os dados. Os objetos que não são mais necessários no domínio gerenciado pelo Azure AD DS são excluídos e a ressincronização pode levar muito tempo para ser concluída.
 
-## <a name="disable-scoped-synchronization-using-the-azure-portal"></a>Desabilitar sincronização com escopo usando o portal do Azure
+## <a name="disable-scoped-synchronization-using-the-azure-portal"></a>Desativar a sincronização com escopo usando o portal Azure
 
-Para desabilitar a sincronização com escopo baseado em grupo para um domínio gerenciado do Azure AD DS, conclua as seguintes etapas:
+Para desativar a sincronização com escopo baseada em grupo para um domínio gerenciado pelo Azure AD DS, complete as seguintes etapas:
 
-1. Na portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha sua instância, como *aaddscontoso.com*.
-1. Selecione **sincronização** no menu do lado esquerdo.
-1. Defina o escopo de sincronização de **escopo** para **todos**e selecione **salvar escopo de sincronização**.
+1. No portal Azure, procure e selecione **Azure AD Domain Services**. Escolha sua instância, como *aaddscontoso.com*.
+1. Selecione **Sincronização** no menu do lado esquerdo.
+1. Defina o escopo de sincronização de **Escopo** para **Todos**e selecione **Salvar o escopo de sincronização**.
 
-Alterar o escopo da sincronização faz com que o domínio gerenciado AD DS do Azure sincronize novamente todos os dados. Os objetos que não são mais necessários no domínio gerenciado AD DS do Azure são excluídos e a ressincronização pode levar muito tempo para ser concluída.
+Alterar o escopo da sincronização faz com que o domínio Gerenciado pelo Azure AD DS ressincronizar todos os dados. Os objetos que não são mais necessários no domínio gerenciado pelo Azure AD DS são excluídos e a ressincronização pode levar muito tempo para ser concluída.
 
-## <a name="powershell-script-for-scoped-synchronization"></a>Script do PowerShell para sincronização com escopo
+## <a name="powershell-script-for-scoped-synchronization"></a>Script PowerShell para sincronização escopo
 
-Para configurar a sincronização com escopo usando o PowerShell, primeiro salve o script a seguir em um arquivo chamado `Select-GroupsToSync.ps1`. Esse script configura o Azure AD DS para sincronizar os grupos selecionados do Azure AD. Todas as contas de usuário que fazem parte dos grupos especificados são sincronizadas com o domínio gerenciado AD DS do Azure.
+Para configurar a sincronização escopo usando o PowerShell, primeiro `Select-GroupsToSync.ps1`salve o script a seguir em um arquivo chamado . Este script configura o Azure AD DS para sincronizar grupos selecionados do Azure AD. Todas as contas de usuário que fazem parte dos grupos especificados estão sincronizadas com o domínio gerenciado pelo Azure AD DS.
 
-Esse script é usado nas etapas adicionais neste artigo.
+Este script é usado nas etapas adicionais deste artigo.
 
 ```powershell
 param (
@@ -171,30 +171,30 @@ foreach ($id in $newGroupIds)
 Write-Output "****************************************************************************`n"
 ```
 
-## <a name="enable-scoped-synchronization-using-powershell"></a>Habilitar sincronização com escopo usando o PowerShell
+## <a name="enable-scoped-synchronization-using-powershell"></a>Habilite a sincronização escopo usando o PowerShell
 
 Use o PowerShell para concluir esse conjunto de etapas. Confira as instruções para [Habilitar o Azure Active Directory Domain Services usando o PowerShell](powershell-create-instance.md). Algumas das etapas neste artigo foram ligeiramente modificadas para configurar a sincronização no escopo.
 
-1. Conclua as seguintes tarefas do artigo para habilitar o Azure AD DS usando o PowerShell. Pare na etapa para realmente criar o domínio gerenciado. Você configura a sincronização com escopo criado o domínio gerenciado do Azure AD DS.
+1. Complete as seguintes tarefas do artigo para habilitar o Azure AD DS usando o PowerShell. Pare na etapa para realmente criar o domínio gerenciado. Você configura a sincronização escopo que você cria o domínio gerenciado pelo Azure AD DS.
 
-   * [Instale os módulos do PowerShell necessários](powershell-create-instance.md#prerequisites).
-   * [Crie a entidade de serviço necessária e o grupo do Azure ad para acesso administrativo](powershell-create-instance.md#create-required-azure-ad-resources).
-   * [Crie recursos do Azure de suporte como uma rede virtual e sub-redes](powershell-create-instance.md#create-supporting-azure-resources).
+   * [Instale os módulos PowerShell necessários](powershell-create-instance.md#prerequisites).
+   * [Crie o principal de serviço necessário e o grupo Azure AD para acesso administrativo](powershell-create-instance.md#create-required-azure-ad-resources).
+   * [Crie recursos de suporte do Azure como uma rede virtual e sub-redes](powershell-create-instance.md#create-supporting-azure-resources).
 
-1. Determine os grupos e usuários que eles contêm que você deseja sincronizar do Azure AD. Faça uma lista dos nomes de exibição dos grupos para sincronizar com o Azure AD DS.
+1. Determine os grupos e usuários que eles contêm que você deseja sincronizar a partir do Azure AD. Faça uma lista dos nomes de exibição dos grupos para sincronizar com o Azure AD DS.
 
-1. Execute o [script da seção anterior](#powershell-script-for-scoped-synchronization) e use o parâmetro *-groupsToAdd* para passar a lista de grupos a serem sincronizados.
+1. Execute o [script da seção anterior](#powershell-script-for-scoped-synchronization) e use o parâmetro *-groupsToAdd* para passar a lista de grupos para sincronizar.
 
    > [!WARNING]
-   > Você deve incluir o grupo de *Administradores de DC do AAD* na lista de grupos para sincronização com escopo. Se você não incluir esse grupo, o domínio gerenciado AD DS do Azure será inutilizável.
+   > Você deve incluir o grupo *Administradores AAD DC* na lista de grupos para sincronização escopo. Se você não incluir esse grupo, o domínio gerenciado pelo Azure AD DS será inutilizável.
 
    ```powershell
    .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
    ```
 
-1. Agora, crie o domínio gerenciado AD DS do Azure e habilite a sincronização com escopo baseado em grupo. Inclua *"filteredSync" = "Enabled"* no parâmetro *-Properties* .
+1. Agora crie o domínio gerenciado do Azure AD DS e habilite a sincronização escopo baseada em grupo. Inclua *"filteredSync" = "Ativado"* no parâmetro *-Propriedades.*
 
-    Defina sua ID de assinatura do Azure e forneça um nome para o domínio gerenciado, como *aaddscontoso.com*. Você pode obter sua ID de assinatura usando o cmdlet [Get-AzSubscription][Get-AzSubscription] . Defina o nome do grupo de recursos, o nome da rede virtual e a região para os valores usados nas etapas anteriores para criar os recursos de suporte do Azure:
+    Defina seu ID de assinatura do Azure e, em seguida, forneça um nome para o domínio gerenciado, como *aaddscontoso.com*. Você pode obter seu ID de assinatura usando o [cmdlet Get-AzSubscription.][Get-AzSubscription] Defina o nome do grupo de recursos, o nome da rede virtual e a região para os valores usados nas etapas anteriores para criar os recursos do Azure de suporte:
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
@@ -211,32 +211,32 @@ Use o PowerShell para concluir esse conjunto de etapas. Confira as instruções 
    -Force -Verbose
    ```
 
-Leva alguns minutos para criar o recurso e retornar o controle para o prompt do PowerShell. O Azure AD DS domínio gerenciado continua a ser provisionado em segundo plano e pode levar até uma hora para concluir a implantação. No portal do Azure, a página **visão geral** do domínio gerenciado do Azure AD DS mostra o status atual durante esse estágio de implantação.
+Leva alguns minutos para criar o recurso e retornar o controle ao prompt powershell. O domínio gerenciado pelo Azure AD DS continua a ser provisionado em segundo plano e pode levar até uma hora para concluir a implantação. No portal Azure, a página **Visão geral** do domínio gerenciado pelo Azure AD DS mostra o status atual durante esta fase de implantação.
 
-Quando o portal do Azure mostra que o domínio gerenciado do Azure AD DS concluiu o provisionamento, as seguintes tarefas precisam ser concluídas:
+Quando o portal Azure mostra que o domínio gerenciado pelo Azure AD DS terminou o provisionamento, as seguintes tarefas precisam ser concluídas:
 
 * Atualize as configurações de DNS da rede virtual, de modo que as máquinas virtuais possam encontrar o domínio gerenciado para ingresso no domínio ou autenticação.
-    * Para configurar o DNS, selecione seu domínio gerenciado AD DS do Azure no Portal. Na janela **visão geral** , é solicitado que você defina automaticamente essas configurações de DNS.
-* Se você criou um domínio gerenciado AD DS do Azure em uma região que dá suporte a Zonas de Disponibilidade, crie um grupo de segurança de rede para restringir o tráfego na rede virtual para o domínio gerenciado do Azure AD DS. Um balanceador de carga standard do Azure é criado e requer que essas regras sejam colocadas. Esse grupo de segurança de rede protege o Azure AD DS e é necessário para que o domínio gerenciado funcione corretamente.
-    * Para criar o grupo de segurança de rede e as regras necessárias, selecione seu domínio gerenciado AD DS do Azure no Portal. Na janela **visão geral** , é solicitado que você crie e configure automaticamente o grupo de segurança de rede.
-* [Habilite a sincronização de senha para Azure AD Domain Services](tutorial-create-instance-advanced.md#enable-user-accounts-for-azure-ad-ds) para que os usuários finais possam entrar no domínio gerenciado usando suas credenciais corporativas.
+    * Para configurar o DNS, selecione o domínio gerenciado pelo Azure AD DS no portal. Na **janela Visão geral,** você é solicitado a configurar automaticamente essas configurações de DNS.
+* Se você criou um domínio gerenciado pelo Azure AD DS em uma região que suporta Zonas de disponibilidade, crie um grupo de segurança de rede para restringir o tráfego na rede virtual para o domínio gerenciado pelo Azure AD DS. Um balanceador de carga padrão do Azure é criado que exige que essas regras sejam colocadas. Esse grupo de segurança de rede protege o Azure AD DS e é necessário para que o domínio gerenciado funcione corretamente.
+    * Para criar o grupo de segurança da rede e as regras necessárias, selecione o domínio gerenciado pelo Azure AD DS no portal. Na janela **Visão geral,** você é solicitado a criar e configurar automaticamente o grupo de segurança da rede.
+* [Habilite a sincronização de senha satisco no Azure AD Domain Services para](tutorial-create-instance-advanced.md#enable-user-accounts-for-azure-ad-ds) que os usuários finais possam entrar no domínio gerenciado usando suas credenciais corporativas.
 
-## <a name="modify-scoped-synchronization-using-powershell"></a>Modificar sincronização com escopo usando o PowerShell
+## <a name="modify-scoped-synchronization-using-powershell"></a>Modificar sincronização escopo usando powershell
 
-Para modificar a lista de grupos cujos usuários devem ser sincronizados com o domínio gerenciado AD DS do Azure, execute novamente o [script do PowerShell](#powershell-script-for-scoped-synchronization) e especifique a nova lista de grupos. No exemplo a seguir, os grupos para sincronizar não incluem mais *GroupName2*e agora incluem *GroupName3*.
+Para modificar a lista de grupos cujos usuários devem ser sincronizados com o domínio gerenciado pelo Azure AD DS, execute novamente o [script PowerShell](#powershell-script-for-scoped-synchronization) e especifique a nova lista de grupos. No exemplo a seguir, os grupos para sincronizar não incluem mais *GroupName2*e agora incluem *GroupName3*.
 
 > [!WARNING]
-> Você deve incluir o grupo de *Administradores de DC do AAD* na lista de grupos para sincronização com escopo. Se você não incluir esse grupo, o domínio gerenciado AD DS do Azure será inutilizável.
+> Você deve incluir o grupo *Administradores AAD DC* na lista de grupos para sincronização escopo. Se você não incluir esse grupo, o domínio gerenciado pelo Azure AD DS será inutilizável.
 
 ```powershell
 .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName3")
 ```
 
-Alterar o escopo da sincronização faz com que o domínio gerenciado AD DS do Azure sincronize novamente todos os dados. Os objetos que não são mais necessários no domínio gerenciado AD DS do Azure são excluídos e a ressincronização pode levar muito tempo para ser concluída.
+Alterar o escopo da sincronização faz com que o domínio Gerenciado pelo Azure AD DS ressincronizar todos os dados. Os objetos que não são mais necessários no domínio gerenciado pelo Azure AD DS são excluídos e a ressincronização pode levar muito tempo para ser concluída.
 
-## <a name="disable-scoped-synchronization-using-powershell"></a>Desabilitar sincronização com escopo usando o PowerShell
+## <a name="disable-scoped-synchronization-using-powershell"></a>Desativar a sincronização com escopo usando o PowerShell
 
-Para desabilitar a sincronização com escopo baseado em grupo para um domínio gerenciado do Azure AD DS, defina *"filteredSync" = "Disabled"* no recurso de AD DS do Azure e, em seguida, atualize o domínio gerenciado. Ao concluir, todos os usuários e grupos serão definidos para sincronizar do Azure AD.
+Para desativar a sincronização escopo baseada em grupo para um domínio gerenciado pelo Azure AD DS, defina *"filteredSync" = "Disabled"* no recurso Azure AD DS e atualize o domínio gerenciado. Quando concluído, todos os usuários e grupos são definidos para sincronizar a partir do Azure AD.
 
 ```powershell
 // Retrieve the Azure AD DS resource.
@@ -249,11 +249,11 @@ $disableScopedSync = @{"filteredSync" = "Disabled"}
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $disableScopedSync
 ```
 
-Alterar o escopo da sincronização faz com que o domínio gerenciado AD DS do Azure sincronize novamente todos os dados. Os objetos que não são mais necessários no domínio gerenciado AD DS do Azure são excluídos e a ressincronização pode levar muito tempo para ser concluída.
+Alterar o escopo da sincronização faz com que o domínio Gerenciado pelo Azure AD DS ressincronizar todos os dados. Os objetos que não são mais necessários no domínio gerenciado pelo Azure AD DS são excluídos e a ressincronização pode levar muito tempo para ser concluída.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o processo de sincronização, consulte [entender a sincronização no Azure AD Domain Services](synchronization.md).
+Para saber mais sobre o processo de sincronização, consulte [Entender a sincronização no Azure AD Domain Services](synchronization.md).
 
 <!-- EXTERNAL LINKS -->
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription

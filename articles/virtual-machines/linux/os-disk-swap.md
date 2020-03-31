@@ -1,5 +1,5 @@
 ---
-title: Trocar o disco do sistema operacional para uma VM do Azure usando a CLI '
+title: Troque o disco do Sistema Operacional por um Azure VM usando cli '
 description: Mude o disco do sistema operacional usado por uma máquina virtual do Azure usando a CLI.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.openlocfilehash: bfbe47fb68ffe7cee1ee2f9f7b94b418d8da2a1d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74035337"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Mudar o disco do sistema operacional usado por uma VM do Azure usando a CLI
@@ -30,7 +30,7 @@ A VM precisa ser interrompida\desalocada e, em seguida, a ID de recurso do disco
 
 Certifique-se de que o tipo de armazenamento e o tamanho da VM sejam compatíveis com o disco que você deseja anexar. Por exemplo, se o disco que você deseja usar estiver no armazenamento Premium, a VM precisa ter capacidade de armazenamento Premium (como um tamanho da série DS).
 
-Este tutorial requer a CLI do Azure, versão 2.0.25 ou superior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Este tutorial requer a CLI do Azure, versão 2.0.25 ou superior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 Use [az disk list](/cli/azure/disk) para obter uma lista dos discos no grupo de recursos.

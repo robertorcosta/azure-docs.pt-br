@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: 7f597bb5cba1a12bdb93325fe2b877ffc644e3e4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60199172"
 ---
 # <a name="using-the-azure-cloud-shell-editor"></a>Como usar o editor do Azure Cloud Shell
@@ -52,5 +52,5 @@ Para inicializar a paleta de comandos, use a tecla `F1` quando o foco estiver de
 Há suporte para realce de linguagem no editor do Cloud Shell usando a funcionalidade upstream no uso das definições de sintaxe Monarch do [Editor do Mônaco](https://github.com/Microsoft/monaco-editor). Para saber como fazer contribuições, leia o [Guia do colaborador do Mônaco](https://github.com/Microsoft/monaco-editor/blob/master/CONTRIBUTING.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Experimente o início rápido para Bash no Cloud Shell](quickstart.md)
-[Exibir a lista completa de ferramentas integradas do Cloud Shell](features.md)
+[Experimente o quickstart for Bash in Cloud Shell](quickstart.md)
+[View a lista completa de ferramentas integradas cloud shell](features.md)

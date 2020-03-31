@@ -1,7 +1,7 @@
 ---
-title: Soluções VMware do Azure (AVS)-monitorar a atividade de nuvem privada AVS
-description: Descreve as informações disponíveis sobre atividades na solução VMware do Azure por meio do ambiente AVS, incluindo alertas, eventos, tarefas e auditoria.
-titleSuffix: Azure VMware Solutions (AVS)
+title: Monitorar a atividade da Nuvem Privada
+titleSuffix: Azure VMware Solution by CloudSimple
+description: Descreve as informações disponíveis sobre a atividade no ambiente Azure VMware by CloudSimple, incluindo alertas, eventos, tarefas e auditoria.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/13/2019
@@ -9,108 +9,108 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5d6fd1b92db62ab7cc9edd47c601910b8148bb95
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77019665"
 ---
-# <a name="monitor-vmware-solutions-avs-activity"></a>Monitorar atividade de soluções VMware (AVS)
+# <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Monitore a solução VMware por atividade CloudSimple
 
-Os logs de atividade de AVS fornecem uma percepção das operações realizadas no portal da AVS. A lista inclui alertas, eventos, tarefas e auditoria. Use os logs de atividade para determinar quem, quando e quais operações foram executadas. Os logs de atividades não incluem nenhuma operação de leitura feita por um usuário.
+Os registros de atividades do CloudSimple fornecem uma visão das operações feitas no portal CloudSimple.  A lista inclui alertas, eventos, tarefas e auditoria.  Use os registros de atividadepara determinar quem, quando e quais operações foram realizadas.  Os registros de atividade não incluem nenhuma operação de leitura feita por um usuário.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="access-the-avs-portal"></a>Acessar o portal da AVS
+## <a name="access-the-cloudsimple-portal"></a>Acessar o portal da CloudSimple
 
-Acesse o [portal da AVS](access-cloudsimple-portal.md).
+Acesse o [portal CloudSimple](access-cloudsimple-portal.md).
 
-## <a name="activity-information"></a>Informações da atividade
+## <a name="activity-information"></a>Informações sobre atividades
 
-Para acessar as páginas de atividade, selecione **atividade** no menu lateral.
+Para acessar as páginas Atividade, **selecione Atividade** no menu lateral.
 
-![Visão geral da página de atividade](media/activity-page-overview.png)
+![Visão geral da página de atividades](media/activity-page-overview.png)
 
-Para exibir detalhes sobre qualquer uma das atividades na página atividade, selecione a atividade. Um painel de detalhes é aberto à direita. As ações no painel dependem do tipo de atividade. Clique em **X** para fechar o painel.
+Para ver detalhes sobre qualquer uma das atividades na página de atividades, selecione a atividade. Um painel de detalhes abre à direita. As ações no painel dependem do tipo de atividade. Clique **em X** para fechar o painel.
 
-Clique em um cabeçalho de coluna para classificar a exibição. Você pode filtrar colunas para ver valores específicos. Baixe o relatório de atividades clicando no ícone **baixar como CSV** .
+Clique em um cabeçalho de coluna para classificar o visor.  Você pode filtrar colunas para valores específicos a serem visualizados.  Baixe o relatório de atividade clicando em Download como ícone **CSV.**
 
 ## <a name="alerts"></a>Alertas
 
-Alertas são notificações de qualquer atividade significativa em seu ambiente de AVS. Os alertas incluem eventos que afetam a cobrança ou o acesso do usuário.
+Alertas são notificações de qualquer atividade significativa em seu ambiente CloudSimple.  Os alertas incluem eventos que afetam o faturamento ou o acesso do usuário.
 
-Para confirmar os alertas e removê-los da lista, selecione um ou mais na lista e clique em **reconhecer**.
+Para reconhecer os alertas e removê-los da lista, selecione um ou mais da lista e clique **em Reconhecer**.
 
-As colunas de informações a seguir estão disponíveis para alertas. Clique em **Editar colunas** e selecione as colunas que você deseja exibir.
+As seguintes colunas de informações estão disponíveis para alertas. Clique em **Editar colunas** e selecionar colunas que deseja visualizar.
 
-| Column | Description |
+| Coluna | Descrição |
 ------------ | ------------- |
-| Tipo de alerta | Categoria do alerta.|
-| Tempo | Hora em que o alerta ocorreu. |
-| Gravidade | Significância do alerta.|
-| Nome do Recurso | Nome atribuído ao recurso, como o nome da nuvem privada AVS. |
-| Tipo de recurso | Categoria do recurso: sincronização de nuvem privada de AVS, rack de nuvem. |
+| Tipo de alerta | Categoria de alerta.|
+| Hora | Hora do alerta ocorreu. |
+| Severity | Significado do alerta.|
+| Nome do Recurso | Nome atribuído ao recurso, como o nome Nuvem Privada. |
+| Tipo de recurso | Categoria de recurso: Nuvem Privada, Cloud Rack. |
 | ID de Recurso | Identificador do recurso. |
-| Description | Descrição do que disparou o alerta. |
-| Confirmado | Indica se o alerta é confirmado. |
+| Descrição | Descrição do que acionou o alerta. |
+| Confirmado | Indicação se o alerta é reconhecido. |
 
 ## <a name="events"></a>Eventos
 
-Eventos mostram a atividade de usuário e sistema no portal da AVS. A página eventos lista a atividade associada a um recurso específico e a gravidade do impacto.
+Eventos mostram a atividade do usuário e do sistema no portal CloudSimple. A página Eventos lista a atividade associada a um recurso específico e a gravidade do impacto.
 
-As colunas de informações a seguir estão disponíveis para alertas. Clique em **Editar colunas** e selecione as colunas que você deseja exibir.
+As seguintes colunas de informações estão disponíveis para alertas. Clique em **Editar colunas** e selecionar colunas que deseja visualizar.
 
-| Column | Description |
+| Coluna | Descrição |
 ------------ | ------------- |
-| Tempo | Data e hora em que o evento ocorreu. |
+| Hora | Data e hora do evento ocorreu. |
 | Tipo de evento | Código numérico que identifica o evento. |
-| Gravidade | Severidade do evento.|
-| Nome do Recurso | Nome atribuído ao recurso, como o nome da nuvem privada AVS. |
-| Tipo de recurso | Categoria do recurso: sincronização de nuvem privada de AVS, rack de nuvem. |
-| Description | Descrição do que disparou o alerta. |
+| Severity | Gravidade do evento.|
+| Nome do Recurso | Nome atribuído ao recurso, como o nome Nuvem Privada. |
+| Tipo de recurso | Categoria de recurso: Nuvem Privada, Cloud Rack. |
+| Descrição | Descrição do que acionou o alerta. |
 
 ## <a name="tasks"></a>Tarefas
 
-As tarefas são atividades de nuvem privada de AVS que devem levar 30 segundos ou mais para serem concluídas. (As atividades que devem levar menos de 30 segundos são relatadas apenas como eventos.) Abra as páginas tarefas para acompanhar o progresso das tarefas da sua nuvem privada de AVS.
+Tarefas são atividades de Nuvem Privada que devem levar 30 segundos ou mais para serem concluídas. (Atividades que devem levar menos de 30 segundos são relatadas apenas como eventos.) Abra as páginas Tarefas para acompanhar o progresso das tarefas para sua Nuvem Privada.
 
-As colunas de informações a seguir estão disponíveis para alertas. Clique em **Editar colunas** e selecione as colunas que você deseja exibir.
+As seguintes colunas de informações estão disponíveis para alertas. Clique em **Editar colunas** e selecionar colunas que deseja visualizar.
 
-| Column | Description |
+| Coluna | Descrição |
 ------------ | ------------- |
-| ID da Tarefa | Identificador exclusivo da tarefa. |
-| Operação | Ação executada pela tarefa. |
-| Usuário | Usuário atribuído para concluir a tarefa. |
+| ID da Tarefa | Identificador único para a tarefa. |
+| Operação | Ação que a tarefa realiza. |
+| Usuário | Usuário designado para concluir a tarefa. |
 | Nome do Recurso | Nome atribuído ao recurso. |
-| Tipo de recurso | Categoria do recurso: sincronização de nuvem privada de AVS, rack de nuvem. |
+| Tipo de recurso | Categoria de recurso: Nuvem Privada, Cloud Rack. |
 | ID de Recurso | Identificador do recurso. |
-| Iniciar | Hora de início da tarefa. |
-| Terminar | Hora de término da tarefa. |
+| Iniciar | Hora de começar a tarefa. |
+| End | Fim do tempo para a tarefa. |
 | Status | Status da tarefa atual. |
-| Tempo decorrido | Tempo que a tarefa levou para ser concluída (se estiver concluída) ou que está sendo executada (se em andamento). |
-| Description | Descrição da tarefa. |
+| Tempo decorrido | Tempo que a tarefa levou para ser concluída (se concluída) ou está tomando (se estiver em andamento). |
+| Descrição | Descrição da tarefa. |
 
 ## <a name="audit"></a>Audit
 
-Os logs de auditoria controlam a atividade do usuário. Você pode usar os logs de auditoria para monitorar a atividade do usuário para todos os usuários.
+Os registros de auditoria acompanham a atividade do usuário. Você pode usar registros de auditoria para monitorar a atividade do usuário para todos os usuários.
 
-As colunas de informações a seguir estão disponíveis para alertas. Clique em **Editar colunas** e selecione as colunas que você deseja exibir.
+As seguintes colunas de informações estão disponíveis para alertas. Clique em **Editar colunas** e selecionar colunas que deseja visualizar.
 
-| Column | Description |
+| Coluna | Descrição |
 ------------ | ------------- |
-| Tempo | Hora da entrada de auditoria. |
-| Operação | Ação executada pela tarefa. |
+| Hora | Hora da entrada da auditoria. |
+| Operação | Ação que a tarefa realiza. |
 | Usuário | Usuário atribuído à tarefa. |
 | Nome do Recurso | Nome atribuído ao recurso. |
-| Tipo de recurso | Categoria do recurso: sincronização de nuvem privada de AVS, rack de nuvem. |
+| Tipo de recurso | Categoria de recurso: Nuvem Privada, Cloud Rack. |
 | ID de Recurso | Identificador do recurso. |
-| Result | Resultado da atividade, como **êxito**. |
-| Tempo decorrido | Tempo para concluir a tarefa. |
-| Description | Descrição da ação. |
+| Result | Resultado da atividade, como **Sucesso.** |
+| Tempo tomado | Hora de completar a tarefa. |
+| Descrição | Descrição da ação. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* [Consumir VMs VMware no Azure](quickstart-create-vmware-virtual-machine.md)
-* Saiba mais sobre as [nuvens privadas da AVS](cloudsimple-private-cloud.md)
+* [Consumir VMs do VMware no Azure](quickstart-create-vmware-virtual-machine.md)
+* Saiba mais sobre [nuvens privadas](cloudsimple-private-cloud.md)

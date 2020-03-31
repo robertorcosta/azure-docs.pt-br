@@ -1,7 +1,7 @@
 ---
 title: Idiomas com suporte
 titleSuffix: Azure Data Science Virtual Machine
-description: Os idiomas do programa com suporte e as ferramentas relacionadas pré-instaladas no Máquina Virtual de Ciência de Dados.
+description: Os idiomas do programa suportados e ferramentas relacionadas pré-instaladas na Máquina Virtual de Data Science.
 keywords: ferramentas de ciência de dados, máquina virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 ms.service: machine-learning
@@ -11,34 +11,34 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: e7b32579712e89c0d5595303ee7e03d8b2462607
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283648"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Linguagens com suporte na Máquina Virtual de Ciência de Dados 
 
-O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predefinidas e ferramentas de desenvolvimento para criar seus aplicativos de ia (inteligência artificial). Aqui estão algumas das notáveis.
+A Máquina Virtual de Data Science (DSVM) vem com várias linguagens pré-construídas e ferramentas de desenvolvimento para construir suas aplicações de inteligência artificial (IA). Aqui estão alguns dos notáveis.
 
-## <a name="python-windows-server-2016-edition"></a>Python (Windows Server 2016 Edition)
+## <a name="python-windows-server-2016-edition"></a>Python (edição 2016 do Windows Server)
 
 |    |           |
 | ------------- | ------------- |
-| Versões de idioma com suporte | Python 2,7 e 3,7 |
-| Edições DSVM com suporte      | Windows Server 2016     |
-| Como é configurado/instalado no DSVM?  | Dois ambientes de `conda` global são criados: <br /> * O ambiente de `root` localizado em `/anaconda/` é Python 3,7. <br/> * O ambiente de `python2` localizado em `/anaconda/envs/python2` é Python 2,7.       |
-| Links para exemplos      | Os notebooks Jupyter de exemplo para Python estão incluídos.     |
+| Versões de idioma suportadas | Python 2.7 e 3.7 |
+| Edições DSVM suportadas      | Windows Server 2016     |
+| Como é configurado/instalado no DSVM?  | Dois `conda` ambientes globais são criados: <br /> * `root` O ambiente `/anaconda/` localizado é o Python 3.7. <br/> * `python2` O ambiente `/anaconda/envs/python2` localizado é o Python 2.7.       |
+| Links para exemplos      | Os notebooks Jupyter de amostra para Python estão incluídos.     |
 | Ferramentas relacionadas no DSVM      | PySpark, R, Julia.      |
 
 > [!NOTE]
-> As compilações do Windows Server 2016 que foram criadas antes de 2018 de março contêm Python 3,5 e Python 2,7. O Python 2,7 é o ambiente **raiz** Conda e **py37** é o ambiente Python 3,7.
+> As compilações do Windows Server 2016 criadas antes de março de 2018 contêm Python 3.5 e Python 2.7. Python 2.7 é o ambiente **raiz** conda, e **py37** é o ambiente Python 3.7.
 
 ### <a name="how-to-use-and-run-it"></a>Como usá-lo e executá-lo    
 
-* Executar em um prompt de comando:
+* Execute em um prompt de comando:
 
-  Abra um prompt de comando e use um dos seguintes métodos, dependendo da versão do Python que você deseja executar:
+  Abra um prompt de comando e use um dos seguintes métodos, dependendo da versão do Python que deseja executar:
 
     ```
     # To run Python 2.7
@@ -52,33 +52,33 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
     
 * Use em um IDE:
 
-  Use o Ferramentas Python para Visual Studio (PTVS), instalado no Visual Studio Community Edition. Por padrão, o único ambiente configurado automaticamente no PTVS é Python 3,6. 
+  Use ferramentas Python para Visual Studio (PTVS), instaladas na edição Visual Studio Community. Por padrão, o único ambiente configurado automaticamente no PTVS é o Python 3.6. 
 
     > [!NOTE]
-    > Para apontar o PTVS no Python 2,7, você deve criar um ambiente personalizado no PTVS. Para definir esse caminho de ambiente no Visual Studio Community Edition, acesse **ferramentas** -> **ferramentas Python** -> **ambientes python** e selecione **+ personalizado**. Em seguida, defina o local como **c:\anaconda\envs\python2** e selecione **detecção automática**.
+    > Para apontar PTVS no Python 2.7, você deve criar um ambiente personalizado no PTVS. Para definir esse caminho de ambiente no Visual Studio Community Edition, vá para **Ferramentas** -> **Python Tools** -> **Python Environments** e selecione **+ Custom**. Em seguida, defina o local como **c:\anaconda\envs\python2** e selecione **Auto Detect**.
 
-* Use em Jupyter:
+* Uso em Jupyter:
 
-  Abra Jupyter e selecione **novo** para criar um novo bloco de anotações. Você pode definir o tipo de kernel como _Python [Conda root]_ para Python 3,7 e _Python [Conda env: Python2]_ para Python 2,7.
+  Abra o Jupyter e selecione **O Novo** para criar um novo notebook. Você pode definir o tipo de kernel como _Python [Raiz de Conda]_ para Python 3.7 e _Python [Conda env:python2]_ para Python 2.7.
 
-* Instalar pacotes do Python:
+* Instale pacotes Python:
 
-  Os ambientes padrão do Python no DSVM são ambientes globais que podem ser lidos por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, ative para o ambiente raiz ou python2 usando o comando `activate` como administrador. Em seguida, você pode usar um Gerenciador de pacotes como `conda` ou `pip` para instalar ou atualizar pacotes.
+  Os ambientes Python padrão no DSVM são ambientes globais que podem ser legíveis por todos os usuários. Mas apenas os administradores podem escrever e instalar pacotes globais. Para instalar pacotes no ambiente global, ative-o no `activate` ambiente raiz ou python2 usando o comando como administrador. Em seguida, você pode `conda` usar `pip` um gerenciador de pacotes como ou para instalar ou atualizar pacotes.
 
 ## <a name="python-linux-edition"></a>Python (edição Linux)
 
 |    |           |
 | ------------- | ------------- |
-| Versões de idioma com suporte | Python 2,7 e 3,5 |
-| Edições DSVM com suporte      | Linux   |
-| Como é configurado/instalado no DSVM?  | Dois ambientes de `conda` global são criados: <br /> * ambiente de `root` localizado em `/anaconda/` é Python 2,7. <br/> * ambiente de `py35` localizado em `/anaconda/envs/py35`é Python 3,5.       |
-| Links para exemplos      | Os notebooks Jupyter de exemplo para Python estão incluídos.     |
+| Versões de idioma suportadas | Python 2.7 e 3.5 |
+| Edições DSVM suportadas      | Linux   |
+| Como é configurado/instalado no DSVM?  | Dois `conda` ambientes globais são criados: <br /> * `root`ambiente localizado `/anaconda/` em Python 2.7. <br/> * `py35`ambiente localizado `/anaconda/envs/py35`em Python 3.5.       |
+| Links para exemplos      | Os notebooks Jupyter de amostra para Python estão incluídos.     |
 | Ferramentas relacionadas no DSVM      | PySpark, R, Julia      |
 ### <a name="how-to-use-and-run-it"></a>Como usá-lo e executá-lo    
 
-* Executar em um terminal:
+* Executado em um terminal:
 
-  Abra o terminal e faça um dos seguintes, dependendo da versão do Python que você deseja executar:
+  Abra o terminal e faça um dos seguintes, dependendo da versão do Python que deseja executar:
 
     ```
     # To run Python 2.7
@@ -92,116 +92,116 @@ O Máquina Virtual de Ciência de Dados (DSVM) vem com várias linguagens predef
     ```
 * Use em um IDE:
 
-  Use o PyCharm, instalado no Visual Studio Community Edition. 
+  Use PyCharm, instalado na edição Visual Studio Community. 
 
-* Use em Jupyter:
+* Uso em Jupyter:
 
-  Abra Jupyter e selecione **novo** para criar um novo bloco de anotações. Você pode definir o tipo de kernel como **Python [Conda root]** para Python 2,7 e **Python [Conda env: py35]** para o ambiente Python 3,5. 
+  Abra o Jupyter e selecione **O Novo** para criar um novo notebook. Você pode definir o tipo de kernel como **Python [Raiz de Conda]** para Python 2.7 e **Python [Conda env:py35]** para o ambiente Python 3.5. 
 
-* Instalar pacotes do Python:
+* Instale pacotes Python:
 
-  Os ambientes Python padrão no DSVM são ambientes globais legíveis por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, ative para o ambiente raiz ou py35 usando o comando `source activate` como administrador ou como um usuário com permissões sudo. Em seguida, você pode usar um Gerenciador de pacotes como `conda` ou `pip` para instalar ou atualizar pacotes.
+  Os ambientes Python padrão no DSVM são ambientes globais legíveis por todos os usuários. Mas apenas os administradores podem escrever e instalar pacotes globais. Para instalar pacotes no ambiente global, ative para o `source activate` ambiente raiz ou py35 usando o comando como administrador ou como usuário com permissões sudo. Em seguida, você pode `conda` usar `pip` um gerenciador de pacotes como ou para instalar ou atualizar pacotes.
 
 
 ## <a name="r"></a>R
 
 |    |           |
 | ------------- | ------------- |
-| Versões de idioma com suporte | Microsoft R Open 3. x (100% compatível com CRAN-R)<br /> Microsoft R Server 9. x Developer Edition (uma plataforma de R pronta para empresas escalonável)|
-| Edições DSVM com suporte      | Linux, Windows     |
+| Versões de idioma suportadas | Microsoft R Open 3.x (100% compatível com CRAN-R)<br /> Microsoft R Server 9.x Edição developer (uma plataforma R escalável pronta para a empresa)|
+| Edições DSVM suportadas      | Linux, Windows     |
 | Como é configurado/instalado no DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
-| Links para exemplos      | Os notebooks Jupyter de exemplo para R estão incluídos.     |
+| Links para exemplos      | Amostra de cadernos Jupyter para R estão incluídos.     |
 | Ferramentas relacionadas no DSVM      | SparkR, Python, Julia      |
 ### <a name="how-to-use-and-run-it"></a>Como usá-lo e executá-lo    
 
-**Windows**:
+**Janelas:**
 
-* Executar em um prompt de comando:
+* Execute em um prompt de comando:
 
   Abra um prompt de comando e digite `R`.
 
 * Use em um IDE:
 
-  Use RTVS (RTools para Visual Studio) instalado no Visual Studio Community Edition ou RStudio. Elas estão disponíveis no menu iniciar ou como um ícone de área de trabalho. 
+  Use RTVS (RTools para Visual Studio) instalado no Visual Studio Community Edition ou RStudio. Estes estão disponíveis no menu Iniciar ou como um ícone de desktop. 
 
-* Usar em Jupyter
+* Uso em Jupyter
 
-  Abra Jupyter e selecione **novo** para criar um novo bloco de anotações. Você pode definir o tipo de kernel como **R** para usar o kernel do Jupyter R (IRKernel).
+  Abra o Jupyter e selecione **O Novo** para criar um novo notebook. Você pode definir o tipo de kernel como **R** para usar o kernel Jupyter R (IRKernel).
 
-* Instalar pacotes do R:
+* Instalar pacotes R:
 
-  O R é instalado no DSVM em um ambiente global que é legível por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, execute R usando um dos métodos anteriores. Em seguida, você pode executar o Gerenciador de pacotes R `install.packages()` para instalar ou atualizar pacotes.
+  R é instalado no DSVM em um ambiente global que é legível por todos os usuários. Mas apenas os administradores podem escrever e instalar pacotes globais. Para instalar pacotes no ambiente global, execute R usando um dos métodos anteriores. Em seguida, você pode `install.packages()` executar o gerenciador de pacotes R para instalar ou atualizar pacotes.
 
 **Linux**:
 
-* Executar no terminal:
+* Executado no terminal:
 
-  Abra um terminal e execute `R`.  
+  Abra um terminal `R`e execute.  
 
 * Use em um IDE:
 
-  Use o RStudio, instalado no DSVM do Linux.  
+  Use o RStudio, instalado no Linux DSVM.  
 
-* Use em Jupyter:
+* Uso em Jupyter:
 
-  Abra Jupyter e selecione **novo** para criar um novo bloco de anotações. Você pode definir o tipo de kernel como **R** para usar o kernel do Jupyter R (IRKernel). 
+  Abra o Jupyter e selecione **O Novo** para criar um novo notebook. Você pode definir o tipo de kernel como **R** para usar o kernel Jupyter R (IRKernel). 
 
-* Instalar pacotes do R:
+* Instalar pacotes R:
 
-  O R é instalado no DSVM em um ambiente global que é legível por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, execute R usando um dos métodos anteriores. Em seguida, você pode executar o Gerenciador de pacotes R `install.packages()` para instalar ou atualizar pacotes.
+  R é instalado no DSVM em um ambiente global que é legível por todos os usuários. Mas apenas os administradores podem escrever e instalar pacotes globais. Para instalar pacotes no ambiente global, execute R usando um dos métodos anteriores. Em seguida, você pode `install.packages()` executar o gerenciador de pacotes R para instalar ou atualizar pacotes.
 
 
 ## <a name="julia"></a>Julia
 
 |    |           |
 | ------------- | ------------- |
-| Versões de idioma com suporte | 0.6 |
-| Edições DSVM com suporte      | Linux, Windows     |
+| Versões de idioma suportadas | 0.6 |
+| Edições DSVM suportadas      | Linux, Windows     |
 | Como é configurado/instalado no DSVM?  | Windows: instalado em `C:\JuliaPro-VERSION`<br /> Linux: instalado em `/opt/JuliaPro-VERSION`    |
-| Links para exemplos      | Os notebooks Jupyter de exemplo para Julia estão incluídos.     |
+| Links para exemplos      | Amostras de cadernos jupyter para Julia estão incluídas.     |
 | Ferramentas relacionadas no DSVM      | Python, R      |
 ### <a name="how-to-use-and-run-it"></a>Como usá-lo e executá-lo    
 
-**Windows**:
+**Janelas:**
 
 * Executar em um prompt de comando
 
-  Abra um prompt de comando e execute `julia`.
+  Abra um prompt `julia`de comando e execute .
 * Use em um IDE:
 
-  Use `Juno` com o IDE Julia instalado no DSVM e disponível como um atalho da área de trabalho.
+  Use `Juno` com o Julia IDE instalado no DSVM e disponível como um atalho de desktop.
 
-* Use em Jupyter:
+* Uso em Jupyter:
 
-  Abra Jupyter e selecione **novo** para criar um novo bloco de anotações. Você pode definir o tipo de kernel como a **versão Julia**.
+  Abra o Jupyter e selecione **O Novo** para criar um novo notebook. Você pode definir o tipo de kernel como **Julia VERSION**.
 
-* Instalar pacotes Julia:
+* Instale os pacotes Julia:
 
-  O local Julia padrão é um ambiente global que é legível por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, execute Julia usando um dos métodos anteriores. Em seguida, você pode executar comandos do Gerenciador de pacotes Julia como `Pkg.add()` para instalar ou atualizar pacotes.
+  A localização padrão de Julia é um ambiente global que é legível por todos os usuários. Mas apenas os administradores podem escrever e instalar pacotes globais. Para instalar pacotes no ambiente global, execute Julia usando um dos métodos anteriores. Em seguida, você pode executar `Pkg.add()` comandos do gerenciador de pacotes Julia como instalar ou atualizar pacotes.
 
 
 **Linux**:
-* Executar em um terminal:
+* Executado em um terminal:
 
-  Abra um terminal e execute `julia`.
+  Abra um terminal `julia`e execute.
 * Use em um IDE:
 
-  Use `Juno`, com o IDE Julia instalado no DSVM e disponível como um atalho de menu do **aplicativo** .
+  Use `Juno`, com o Julia IDE instalado no DSVM e disponível como um atalho de menu **de aplicativo.**
 
-* Use em Jupyter:
+* Uso em Jupyter:
 
-  Abra Jupyter e selecione **novo** para criar um novo bloco de anotações. Você pode definir o tipo de kernel como a **versão Julia**.
+  Abra o Jupyter e selecione **O Novo** para criar um novo notebook. Você pode definir o tipo de kernel como **Julia VERSION**.
 
-* Instalar pacotes Julia:
+* Instale os pacotes Julia:
 
-  O local Julia padrão é um ambiente global que é legível por todos os usuários. Mas somente os administradores podem gravar e instalar pacotes globais. Para instalar pacotes no ambiente global, execute Julia usando um dos métodos anteriores. Em seguida, você pode executar comandos do Gerenciador de pacotes Julia como `Pkg.add()` para instalar ou atualizar pacotes.
+  A localização padrão de Julia é um ambiente global que é legível por todos os usuários. Mas apenas os administradores podem escrever e instalar pacotes globais. Para instalar pacotes no ambiente global, execute Julia usando um dos métodos anteriores. Em seguida, você pode executar `Pkg.add()` comandos do gerenciador de pacotes Julia como instalar ou atualizar pacotes.
 
 ## <a name="other-languages"></a>Outros idiomas
 
-**C#** : Disponível no Windows e acessível por meio do Visual Studio Community Edition ou na `Developer Command Prompt for Visual Studio`, em que você pode executar o comando `csc`.
+**C#**: Disponível no Windows e acessível `Developer Command Prompt for Visual Studio`através da edição `csc` visual studio community ou no , onde você pode executar o comando.
 
-**Java**: OpenJDK está disponível nas edições Linux e Windows do DSVM e está definido no caminho. Para usar o Java, digite o comando `javac` ou `java` em um prompt de comando no Windows ou no shell bash no Linux.
+**Java**: OpenJDK está disponível nas edições Linux e Windows do DSVM e está definido no caminho. Para usar java, `javac` `java` digite o ou comando em um prompt de comando no Windows ou no bash shell no Linux.
 
-**Node. js**: o Node. js está disponível nas edições Linux e Windows do DSVM e está definido no caminho. Para acessar o Node. js, digite o comando `node` ou `npm` em um prompt de comando no Windows ou no shell bash no Linux. No Windows, a extensão do Visual Studio para as ferramentas node. js é instalada para fornecer um IDE gráfico para desenvolver seu aplicativo node. js.
+**Node.js**: Node.js está disponível nas edições Linux e Windows do DSVM e está definido no caminho. Para acessar node.js, `node` `npm` digite o comando ou em um prompt de comando no Windows ou no bash shell no Linux. No Windows, a extensão Visual Studio para as ferramentas Node.js é instalada para fornecer um IDE gráfico para desenvolver seu aplicativo Node.js.
 
-**F#** : Disponível no Windows e acessível por meio do Visual Studio Community Edition ou em um `Developer Command Prompt for Visual Studio`, em que você pode executar o comando `fsc`.
+**F#**: Disponível no Windows e acessível `Developer Command Prompt for Visual Studio`através da edição `fsc` Visual Studio Community ou em um , onde você pode executar o comando.

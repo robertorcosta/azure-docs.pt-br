@@ -1,93 +1,93 @@
 ---
-title: Gerenciar e atualizar o cache HPC do Azure
-description: Como gerenciar e atualizar o cache HPC do Azure usando o portal do Azure
+title: Gerenciar e atualizar o Cache Azure HPC
+description: Como gerenciar e atualizar o Cache Azure HPC usando o portal Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: rohogue
 ms.openlocfilehash: da260074fc69fac9e98d3698bb2d40fdf80d7118
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77252035"
 ---
-# <a name="manage-your-cache-from-the-azure-portal"></a>Gerenciar seu cache do portal do Azure
+# <a name="manage-your-cache-from-the-azure-portal"></a>Gerencie seu cache a partir do portal Azure
 
-A página Visão geral do cache na portal do Azure mostra detalhes do projeto, status do cache e estatísticas básicas para seu cache. Ele também tem controles para parar ou iniciar o cache, excluir o cache, liberar dados para o armazenamento de longo prazo e atualizar o software.
+A página de visão geral do cache no portal Azure mostra detalhes do projeto, status do cache e estatísticas básicas para o cache. Ele também tem controles para parar ou iniciar o cache, excluir o cache, liberar dados para armazenamento a longo prazo e atualizar o software.
 
-Para abrir a página Visão geral, selecione o recurso de cache na portal do Azure. Por exemplo, carregue a página **todos os recursos** e clique no nome do cache.
+Para abrir a página de visão geral, selecione seu recurso de cache no portal Azure. Por exemplo, carregue a página **Todos os recursos** e clique no nome do cache.
 
-![captura de tela de uma página de visão geral da instância do cache HPC do Azure](media/hpc-cache-overview.png)
+![captura de tela da página visão geral de uma instância do Cache Azure HPC](media/hpc-cache-overview.png)
 
 Os botões na parte superior da página podem ajudá-lo a gerenciar o cache:
 
-* **Iniciar** e [**parar**](#stop-the-cache) – suspende a operação de cache
-* [**Flush**](#flush-cached-data) -grava dados alterados para destinos de armazenamento
-* [**Atualização**](#upgrade-cache-software) – atualiza o software de cache
-* **Atualizar** – recarrega a página Visão geral
-* [**Excluir**](#delete-the-cache) – destrói permanentemente o cache
+* **Iniciar** e [**Parar**](#stop-the-cache) - Suspende a operação de cache
+* [**Flush**](#flush-cached-data) - Grava dados alterados para alvos de armazenamento
+* [**Upgrade**](#upgrade-cache-software) - Atualiza o software de cache
+* **Atualização** - Recarrega a página de visão geral
+* [**Excluir**](#delete-the-cache) - Destrói permanentemente o cache
 
 Leia mais sobre essas opções abaixo.
 
-## <a name="stop-the-cache"></a>Parar o cache
+## <a name="stop-the-cache"></a>Pare o cache
 
-Você pode interromper o cache para reduzir os custos durante um período inativo. Você não é cobrado pelo tempo de atividade enquanto o cache é interrompido, mas você é cobrado pelo armazenamento em disco alocado do cache. (Consulte a página de [preços](https://aka.ms/hpc-cache-pricing) para obter detalhes.)
+Você pode parar o cache para reduzir custos durante um período inativo. Você não é cobrado por tempo de atividade enquanto o cache é interrompido, mas você é cobrado pelo armazenamento de disco alocado do cache. (Veja a página [de preços](https://aka.ms/hpc-cache-pricing) para obter detalhes.)
 
-Um cache interrompido não responde às solicitações do cliente. Você deve desmontar os clientes antes de parar o cache.
+Um cache parado não responde às solicitações do cliente. Você deve desmontar clientes antes de parar o cache.
 
-O botão **parar** suspende um cache ativo. O botão **parar** está disponível quando o status de um cache está **íntegro** ou **degradado**.
+O botão **Stop** suspende um cache ativo. O botão **Stop** está disponível quando o status de um cache é **saudável** ou **degradado**.
 
-![captura de tela dos botões superior com parar realçado e uma mensagem pop-up que descreve a ação de parada e perguntando "deseja continuar?" com Sim (padrão) e nenhum botão](media/stop-cache.png)
+![captura de tela dos botões superiores com Stop destacado e uma mensagem pop-up descrevendo a ação stop e perguntando 'você quer continuar?' com sim (padrão) e sem botões](media/stop-cache.png)
 
-Depois de clicar em Sim para confirmar a interrupção do cache, o cache libera automaticamente seu conteúdo para os destinos de armazenamento. Esse processo pode levar algum tempo, mas garante a consistência dos dados. Por fim, o status do cache é alterado para **parado**.
+Depois de clicar em Sim para confirmar a interrupção do cache, o cache libera automaticamente seu conteúdo para os alvos de armazenamento. Esse processo pode levar algum tempo, mas garante a consistência dos dados. Finalmente, o status do cache muda para **Parado**.
 
-Para reativar um cache interrompido, clique no botão **Iniciar** . Nenhuma confirmação é necessária.
+Para reativar um cache parado, clique no botão **Iniciar.** Nenhuma confirmação é necessária.
 
-![captura de tela dos botões superior com início realçado](media/start-cache.png)
+![captura de tela dos botões superiores com Iniciar destacado](media/start-cache.png)
 
-## <a name="flush-cached-data"></a>Liberar dados armazenados em cache
+## <a name="flush-cached-data"></a>Flush dados armazenados em cache
 
-O botão **liberar** na página Visão geral informa o cache para gravar imediatamente todos os dados alterados armazenados no cache para os destinos de armazenamento de back-end. O cache salva rotineiramente os dados nos destinos de armazenamento, portanto, não é necessário fazer isso manualmente, a menos que você queira verificar se o sistema de armazenamento de back-end está atualizado. Por exemplo, você pode usar **flush** antes de tirar um instantâneo de armazenamento ou verificar o tamanho do conjunto de dados.
+O botão **Flush** na página de visão geral informa ao cache para gravar imediatamente todos os dados alterados armazenados no cache para os alvos de armazenamento back-end. O cache salva rotineiramente dados para os alvos de armazenamento, portanto, não é necessário fazer isso manualmente, a menos que você queira ter certeza de que o sistema de armazenamento back-end está atualizado. Por exemplo, você pode usar **Flush** antes de tirar um instantâneo de armazenamento ou verificar o tamanho do conjunto de dados.
 
 > [!NOTE]
-> Durante o processo de liberação, o cache não pode atender às solicitações do cliente. O acesso ao cache é suspenso e continua após a conclusão da operação.
+> Durante o processo de flush, o cache não pode atender às solicitações do cliente. O acesso ao cache é suspenso e é retomado após o término da operação.
 
-![captura de tela dos botões superior com liberação realçada e uma mensagem pop-up descrevendo a ação de liberação e perguntando "deseja continuar?" com Sim (padrão) e nenhum botão](media/hpc-cache-flush.png)
+![captura de tela dos botões superiores com Flush destacado e uma mensagem pop-up descrevendo a ação flush e perguntando 'você quer continuar?' com sim (padrão) e sem botões](media/hpc-cache-flush.png)
 
-Quando você inicia a operação de liberação de cache, o cache para de aceitar solicitações de cliente e o status do cache na página de visão geral muda para a **liberação**.
+Quando você inicia a operação de flush de cache, o cache pára de aceitar solicitações do cliente e o status do cache na página de visão geral é alterado para **Flushing**.
 
-Os dados no cache são salvos nos destinos de armazenamento apropriados. Dependendo da quantidade de dados que precisa ser liberada, o processo pode levar alguns minutos ou mais de uma hora.
+Os dados no cache são salvos nos alvos de armazenamento apropriados. Dependendo da quantidade de dados necessários para serem lavados, o processo pode levar alguns minutos ou mais de uma hora.
 
-Depois que todos os dados são salvos em destinos de armazenamento, o cache começa automaticamente a executar solicitações de cliente novamente. O status do cache retorna para **íntegro**.
+Depois que todos os dados são salvos em alvos de armazenamento, o cache começa automaticamente a receber solicitações do cliente novamente. O status do cache retorna ao **Healthy**.
 
-## <a name="upgrade-cache-software"></a>Atualizar o software de cache
+## <a name="upgrade-cache-software"></a>Atualizar software de cache
 
-Se uma nova versão de software estiver disponível, o botão **Atualizar** se tornará ativo. Você também deverá ver uma mensagem na parte superior da página sobre como atualizar o software.
+Se uma nova versão de software estiver disponível, o botão **Atualizar** fica ativo. Você também deve ver uma mensagem no topo da página sobre a atualização do software.
 
-![captura de tela da linha superior de botões com o botão de atualização habilitado](media/hpc-cache-upgrade-button.png)
+![captura de tela da linha superior de botões com o botão Atualizar ativado](media/hpc-cache-upgrade-button.png)
 
-O acesso do cliente não é interrompido durante uma atualização de software, mas o desempenho do cache fica mais lento. Planeje a atualização de software durante horas de uso fora do pico ou em um período de manutenção planejada.
+O acesso ao cliente não é interrompido durante uma atualização de software, mas o desempenho do cache diminui. Planeje atualizar o software durante horas de uso não-pico ou em um período de manutenção planejado.
 
-A atualização de software pode levar várias horas. Os caches configurados com maior taxa de transferência levam mais tempo para atualizar que os caches com valores menores de taxa de transferência de pico.
+A atualização de software pode levar várias horas. Caches configurados com maior rendimento levam mais tempo para serem atualizados do que caches com valores de throughput de pico menores.
 
-Quando uma atualização de software estiver disponível, você terá uma semana ou mais para aplicá-la manualmente. A data de término é listada na mensagem de atualização. Se você não atualizar durante esse tempo, o Azure aplicará automaticamente a atualização ao seu cache. O tempo de atualização automática não é configurável. Se você estiver preocupado com o impacto no desempenho do cache, atualize o software por conta própria antes que o período de tempo expire.
+Quando uma atualização de software estiver disponível, você terá uma semana ou mais para aplicá-la manualmente. A data final está listada na mensagem de atualização. Se você não atualizar durante esse tempo, o Azure aplica automaticamente a atualização ao seu cache. O tempo da atualização automática não é configurável. Se você estiver preocupado com o impacto do desempenho do cache, você mesmo deve atualizar o software antes que o período de tempo expire.
 
-Se o cache for interrompido quando a data de término passar, o cache atualizará automaticamente o software na próxima vez que for iniciado. (A atualização pode não iniciar imediatamente, mas será iniciada na primeira hora.)
+Se o cache for interrompido quando a data final for aprovada, o cache atualizará automaticamente o software na próxima vez que for iniciado. (A atualização pode não começar imediatamente, mas começará na primeira hora.)
 
-Clique no botão **Atualizar** para iniciar a atualização de software. O status do cache muda para **atualizando** até que a operação seja concluída.
+Clique no botão **Atualizar** para iniciar a atualização de software. O status do cache muda para **Atualização** até que a operação seja concluída.
 
 ## <a name="delete-the-cache"></a>Excluir o cache
 
-O botão **excluir** destrói o cache. Quando você exclui um cache, todos os seus recursos são destruídos e não incorrem mais em encargos de conta.
+O botão **Excluir** destrói o cache. Quando você exclui um cache, todos os seus recursos são destruídos e não incorrem mais em cobranças de conta.
 
-Os volumes de armazenamento de back-end usados como destinos de armazenamento não são afetados quando você exclui o cache. Você pode adicioná-los a um cache futuro posteriormente ou descomissiona-los separadamente.
+Os volumes de armazenamento back-end usados como alvos de armazenamento não são afetados quando você exclui o cache. Você pode adicioná-los a um cache futuro mais tarde ou descomissioná-los separadamente.
 
 > [!NOTE]
-> O cache HPC do Azure não grava automaticamente os dados alterados do cache nos sistemas de armazenamento de back-end antes de excluir o cache.
+> O Cache Azure HPC não grava automaticamente dados alterados do cache para os sistemas de armazenamento back-end antes de excluir o cache.
 >
-> Para garantir que todos os dados no cache tenham sido gravados no armazenamento de longo prazo, [interrompa o cache antes de](#stop-the-cache) excluí-lo. Verifique se ele mostra o status **parado** antes de clicar no botão excluir.
+> Para ter certeza de que todos os dados do cache foram gravados para armazenamento a longo prazo, [pare o cache](#stop-the-cache) antes de excluí-lo. Certifique-se de que ele mostra o status **Parou** antes de clicar no botão excluir.
 <!--... written to long-term storage, follow this procedure:
 >
 > 1. [Remove](hpc-cache-edit-storage.md#remove-a-storage-target) each storage target from the Azure HPC Cache by using the delete button on the Storage targets page. The system automatically writes any changed data from the cache to the back-end storage system before removing the target.
@@ -96,16 +96,16 @@ Os volumes de armazenamento de back-end usados como destinos de armazenamento n�
 >
 > Alternatively, you can use the [flush](#flush-cached-data) option to save cached data, but there is a small risk of losing work if a client writes a change to the cache after the flush completes but before the cache instance is destroyed.-->
 
-## <a name="cache-metrics-and-monitoring"></a>Métricas e monitoramento de cache
+## <a name="cache-metrics-and-monitoring"></a>Métricas de cache e monitoramento
 
-A página Visão geral mostra grafos para algumas estatísticas básicas de cache-taxa de transferência de cache, operações por segundo e latência.
+A página de visão geral mostra gráficos para algumas estatísticas básicas de cache - throughput de cache, operações por segundo e latência.
 
-![captura de tela de três gráficos de linha mostrando as estatísticas mencionadas acima para um cache de exemplo](media/hpc-cache-overview-stats.png)
+![captura de tela de três gráficos de linha mostrando as estatísticas mencionadas acima para um cache amostral](media/hpc-cache-overview-stats.png)
 
-Esses gráficos fazem parte das ferramentas internas de monitoramento e análise do Azure. Ferramentas e alertas adicionais estão disponíveis nas páginas no cabeçalho **monitoramento** na barra lateral do Portal. Saiba mais na seção portal da documentação de [monitoramento do Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+Esses gráficos fazem parte das ferramentas de monitoramento e análise incorporadas do Azure. Ferramentas e alertas adicionais estão disponíveis nas páginas o título **Monitoramento** na barra lateral do portal. Saiba mais na seção portal da documentação do [Azure Monitoring](../azure-monitor/insights/monitor-azure-resource.md#monitoring-in-the-azure-portal).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 <!-- * Learn more about metrics and statistics for hpc cache -->
-* Saiba mais sobre as [ferramentas de métricas e estatísticas do Azure](../azure-monitor/index.yml)
-* Obtenha [ajuda com o cache do HPC do Azure](hpc-cache-support-ticket.md)
+* Saiba mais sobre [as métricas e ferramentas de estatística do Azure](../azure-monitor/index.yml)
+* Obtenha [ajuda com o cache Do Azure HPC](hpc-cache-support-ticket.md)

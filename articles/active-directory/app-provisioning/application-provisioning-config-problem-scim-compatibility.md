@@ -1,5 +1,5 @@
 ---
-title: Problemas conhecidos com a conformidade do protocolo SCIM 2,0-Azure AD
+title: Problemas conhecidos com conformidade de protocolo SCIM 2.0 - Azure AD
 description: Como solucionar problemas de compatibilidade de protocolo comuns enfrentados ao adicionar um aplicativo inexistente na galeria que dá suporte a SCIM 2.0 ao Microsoft Azure AD
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6dff0d4f8f0062c00351b60174c63d9c19bdfa15
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77522927"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e as resoluções em conformidade com o protocolo SCIM 2.0 do serviço de Provisionamento de Usuário do Microsoft Azure Active Directory
@@ -36,7 +36,7 @@ Este artigo descreve os problemas atuais e anteriores com a aderência ao servi�
 
 ## <a name="scim-20-compliance-issues-and-status"></a>Problemas de conformidade de SCIM 2.0 e o status
 
-| **Problemas de conformidade SCIM 2.0** |  **Corrigido?** | **Corrigir a data**  |  
+| **Problemas de conformidade SCIM 2.0** |  **Fixo?** | **Corrigir a data**  |  
 |---|---|---|
 | O Microsoft Azure Active Directory requer "/ scim" para estar na raiz da URL do ponto de extremidade do SCIM do aplicativo  | Sim  |  18 de dezembro de 2018 | 
 | Os atributos de extensão usam ponto de notação "." antes de nomes de atributo, em vez de notação de dois pontos “:” |  Sim  | 18 de dezembro de 2018  | 
@@ -66,7 +66,7 @@ Sim. Se você já estiver usando essa instância de aplicativo para logon único
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
-   ![Obter trabalhos](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Obter trabalhos") 
+   ![Obter empregos](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Obter empregos") 
 
 
 6. Nos resultados, copie a cadeia de caracteres completa de "ID" que começa com "customappsso" ou "scim".
@@ -74,7 +74,7 @@ Sim. Se você já estiver usando essa instância de aplicativo para logon único
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
-   ![Obter esquema](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Obter esquema") 
+   ![Obter Schema](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Obter Schema") 
 
 8. Copie a saída JSON da última etapa e salve-a em um arquivo de texto. Isso contém qualquer mapeamento de atributo personalizado que você adicionou para o seu aplicativo antigo e deve ser aproximadamente algumas milhares de linhas de JSON.
 9. Execute o comando a seguir para excluir o trabalho de provisionamento:

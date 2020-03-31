@@ -6,28 +6,28 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: d5eada62bec49fe771373671e9438d2786d6b165
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458428"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Backup sob demanda no Azure Service Fabric
 
 Você pode fazer backup de dados de Reliable Stateful Services e Reliable Actors para lidar com cenários de desastre ou perda de dados.
 
-O Azure Service Fabric é equipado com recursos para [backup periódico dos dados](service-fabric-backuprestoreservice-quickstart-azurecluster.md) e backup dos dados conforme a necessidade. O backup sob demanda é útil, pois ele protege contra a _perda_/_corrupção de dados_ causadas por alterações planejadas em seu ambiente ou serviço subjacente.
+O Azure Service Fabric é equipado com recursos para [backup periódico dos dados](service-fabric-backuprestoreservice-quickstart-azurecluster.md) e backup dos dados conforme a necessidade. O backup demanda é útil porque protege contra_a corrupção_ de dados de _perda_/de dados devido a mudanças planejadas no serviço subjacente ou em seu ambiente.
 
 Os recursos de backup sob demanda são úteis para capturar o estado dos serviços antes de você acionar manualmente uma operação de serviço ou ambiente de serviço. Por exemplo, se você fizer uma alteração nos binários de serviço ao atualizar ou fazer o downgrade do serviço. Nesse caso, o backup sob demanda pode ajudar a proteger os dados contra corrupção por bugs no código do aplicativo.
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Instale o módulo Microsoft. perfabric. PowerShell. http [em versão prévia] para fazer chamadas de configuração.
+- Instale microsoft.serviceFabric.Powershell.Http Module [In Preview] para fazer chamadas de configuração.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-- Verifique se o cluster está conectado usando o comando `Connect-SFCluster` antes de fazer qualquer solicitação de configuração usando o módulo Microsoft. onfabric. PowerShell. http.
+- Certifique-se de que `Connect-SFCluster` o Cluster está conectado usando o comando antes de fazer qualquer solicitação de configuração usando o Módulo Microsoft.ServiceFabric.Powershell.Http.
 
 ```powershell
 
@@ -46,7 +46,7 @@ Você pode configurar a política de backup periódica para usar uma partição 
 
 O caso a seguir é a continuação do cenário em [Habilitar o backup periódico para o serviço confiável com estado e Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). Nesse caso, você permite que uma política de backup use uma partição e que um backup ocorra em uma frequência definida no Armazenamento do Microsoft Azure.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft. infabric. PowerShell. http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell usando Microsoft.ServiceFabric.Powershell.Http Module
 
 ```powershell
 
@@ -54,7 +54,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
+#### <a name="rest-call-using-powershell"></a>Chamada de descanso usando Powershell
 
 Use a API [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) para configurar o acionamento do backup sob demanda para a ID de partição `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
 
@@ -71,7 +71,7 @@ Use a API [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/
 Você pode solicitar o backup sob demanda para uma partição de um Reliable Stateful Service ou Reliable Actor. Forneça as informações de armazenamento como parte da solicitação de backup sob demanda.
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft. infabric. PowerShell. http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell usando Microsoft.ServiceFabric.Powershell.Http Module
 
 ```powershell
 
@@ -79,7 +79,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlo
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
+#### <a name="rest-call-using-powershell"></a>Chamada de descanso usando Powershell
 
 Use a API [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) para configurar o acionamento do backup sob demanda para a ID de partição `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Inclua as seguintes informações do Armazenamento do Microsoft Azure:
 
@@ -102,16 +102,16 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 Você pode usar a API [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) para configurar o acompanhamento para o [progresso do backup sob demanda](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
-### <a name="using-service-fabric-explorer"></a>Usando Service Fabric Explorer
-Verifique se o modo avançado foi habilitado nas configurações de Service Fabric Explorer.
-1. Selecione as partições desejadas e clique em ações. 
-2. Selecione disparar backup de partição e preencha as informações do Azure:
+### <a name="using-service-fabric-explorer"></a>Usando o Explorador de Malha de Serviço
+Certifique-se de que o modo avançado foi ativado nas configurações do Service Fabric Explorer.
+1. Selecione as partições desejadas e clique em Ações. 
+2. Selecione Backup de partição de gatilho e preencha as informações do Azure:
 
-    ![Disparar backup de partição][0]
+    ![Backup de partição de gatilho][0]
 
     ou FileShare:
 
-    ![Disparar compartilhamento de backup de partição][1]
+    ![Arquivo de backup de partição de gatilhoCompartilhar][1]
 
 ## <a name="tracking-on-demand-backup-progress"></a>Rastreamento do progresso de backup sob demanda
 
@@ -120,14 +120,14 @@ Uma partição de um serviço Confiável com Estado ou Reliable Actor aceita ape
 Partições diferentes podem acionar solicitações de backup sob demanda ao mesmo tempo.
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft. infabric. PowerShell. http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell usando Microsoft.ServiceFabric.Powershell.Http Module
 
 ```powershell
 
 Get-SFPartitionBackupProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 
 ```
-#### <a name="rest-call-using-powershell"></a>Chamada REST usando o PowerShell
+#### <a name="rest-call-using-powershell"></a>Chamada de descanso usando Powershell
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetBackupProgress?api-version=6.4"
@@ -139,7 +139,7 @@ $backupResponse
 
 Solicitações de backup sob demanda podem estar nos seguintes estados:
 
-- **Aceito**: o backup foi iniciado na partição e está em andamento.
+- **Aceito**: O backup começou na partição e está em andamento.
   ```
   BackupState             : Accepted
   TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -149,8 +149,8 @@ Solicitações de backup sob demanda podem estar nos seguintes estados:
   LsnOfLastBackupRecord   : 0
   FailureError            :
   ```
-- **Êxito**, **falha**ou **tempo limite**: um backup sob demanda solicitado pode ser concluído em qualquer um dos seguintes Estados:
-  - **Êxito**: um estado de backup _bem-sucedido_ indica que o backup do estado da partição foi realizado com êxito. A resposta fornece _BackupEpoch_ e _BackupLSN_ para a partição e a hora em UTC.
+- **Sucesso,** **Falha**ou **Tempo nenhum**: Um backup demanda solicitado pode ser concluído em qualquer um dos seguintes estados:
+  - **Sucesso**: Um estado de backup _de sucesso_ indica que o estado de partição fez backup com sucesso. A resposta fornece _BackupEpoch_ e _BackupLSN_ para a partição e a hora em UTC.
     ```
     BackupState             : Success
     TimeStampUtc            : 2018-11-21T20:00:01Z
@@ -160,7 +160,7 @@ Solicitações de backup sob demanda podem estar nos seguintes estados:
     LsnOfLastBackupRecord   : 36
     FailureError            :
     ```
-  - **Falha**: um estado de backup de _falha_ indica que ocorreu uma falha durante o backup do estado da partição. A causa da falha é indicada na resposta.
+  - **Falha**: Um estado de backup _de falha_ indica que ocorreu uma falha durante o backup do estado da partição. A causa da falha é indicada na resposta.
     ```
     BackupState             : Failure
     TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -170,7 +170,7 @@ Solicitações de backup sob demanda podem estar nos seguintes estados:
     LsnOfLastBackupRecord   : 0
     FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
     ```
-  - **Tempo limite**: um estado de backup de _tempo limite_ indica que o backup do estado da partição não pôde ser criado em um determinado período de tempo. O valor do tempo limite padrão é de 10 minutos. Inicie uma nova solicitação de backup sob demanda com [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) maior neste cenário.
+  - **Tempo :** Um estado de backup _timeout_ indica que o backup do estado de partição não poderia ser criado em um determinado período de tempo. O valor do tempo limite padrão é de 10 minutos. Inicie uma nova solicitação de backup sob demanda com [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) maior neste cenário.
     ```
     BackupState             : Timeout
     TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -181,7 +181,7 @@ Solicitações de backup sob demanda podem estar nos seguintes estados:
     FailureError            : @{Code=FABRIC_E_TIMEOUT; Message=The request of backup has timed out.}
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Noções básicas sobre a configuração de backup periódico](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Referência da API REST BackupRestore](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

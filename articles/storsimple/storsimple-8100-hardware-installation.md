@@ -1,5 +1,5 @@
 ---
-title: Instalar Microsoft Azure StorSimple dispositivo 8100
+title: Instale o dispositivo Microsoft Azure StorSimple 8100
 description: Descreve como desembalar, montar em rack e cabear do dispositivo do StorSimple 8100 antes de implantar e configurar o software.
 author: alkohli
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267580"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desembalar, montar em rack e cabear o dispositivo StorSimple 8100.
@@ -27,7 +27,7 @@ As etapas a seguir fornecem instruções claras e detalhadas sobre como desempac
 ### <a name="prepare-to-unpack-your-device"></a>Preparar para desempacotar o dispositivo
 Antes de desempacotar o dispositivo, leia as informações a seguir.
 
-![ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **aviso!**
+![Ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **AVISO!**
 
 1. Se for manejar o dispositivo manualmente, assegure-se de que terá a ajuda de duas pessoas que possam aguentar o peso do compartimento. Um compartimento totalmente configurado pode pesar até 32 kg (70 lbs.).
 2. Coloque a caixa em uma superfície plana e nivelada.
@@ -42,7 +42,7 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
    
     **Exibição do dispositivo de armazenamento desempacotado**
    
-   | Rótulo | DESCRIÇÃO |
+   | Rótulo | Descrição |
    | --- | --- |
    |   1 |Embalagem |
    |   2 |Espuma inferior |
@@ -83,7 +83,7 @@ O dispositivo deve ser instalado em um rack padrão de 19 polegadas (48 cm) com 
 2. Verifique se o local onde você pretende instalar tem energia de corrente alternada padrão de uma fonte independente ou uma PDU (unidade de distribuição de energia) em rack com um no-break.
 3. Verifique se um slot de 2U está disponível no rack em que você pretende montar o dispositivo.
 
-![ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **aviso!**
+![Ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **AVISO!**
 
 Se for instalar o dispositivo manualmente, assegure-se de que terá a ajuda de duas pessoas que possam aguentar o peso do dispositivo. Um compartimento totalmente configurado pode pesar até 32 kg (70 lbs.).
 
@@ -104,7 +104,7 @@ Um conjunto de trilhos de montagem é fornecido para ser usado com o gabinete de
 
     **Fixando corrediças do trilho interno às laterais do compartimento**
    
-    Rótulo | DESCRIÇÃO
+    Rótulo | Descrição
     ----- | -----------
     1     | Parafusos de cabeça abaulada M 3x4
     2     | Corrediças dos chassis
@@ -118,7 +118,7 @@ Um conjunto de trilhos de montagem é fornecido para ser usado com o gabinete de
    
     **Fixando os conjuntos de trilhos internos ao rack**
    
-   | Rótulo | DESCRIÇÃO |
+   | Rótulo | Descrição |
    | --- | --- |
    |   1 |Parafuso de travamento |
    |   2 |Parafuso da coluna do rack frontal para orifício quadrado |
@@ -144,7 +144,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
    
     **Instalando as tampas do flange**
    
-   | Rótulo | DESCRIÇÃO |
+   | Rótulo | Descrição |
    | --- | --- |
    |   1 |Parafuso de fixação do compartimento |
 
@@ -153,7 +153,7 @@ A próxima etapa é fazer o cabeamento do dispositivo para recebimento de energi
 ## <a name="cable-your-storsimple-8100-device"></a>Cabear o dispositivo StorSimple 8100
 Os procedimentos a seguir explicam como cabear o dispositivo StorSimple 8100 para conexões de energia, rede e serial.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar o cabeamento do dispositivo, você precisará dos seguintes itens:
 
 * Seu dispositivo de armazenamento totalmente desempacotado e montado no rack.
@@ -184,7 +184,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
    
     **Parte traseira do dispositivo mostrando as portas de dados**
    
-   | Rótulo | DESCRIÇÃO |
+   | Rótulo | Descrição |
    | --- | --- |
    |   0,1,4,5 |Interfaces de rede de 1 GbE |
    |   2,3 |Interfaces de rede de 10 GbE |
@@ -195,7 +195,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
 
     **Cabeamento de rede para o dispositivo**
 
-   |Rótulo | DESCRIÇÃO |
+   |Rótulo | Descrição |
    |----- | ----------- |
    | Um    | LAN com acesso à Internet |
    | B    | Controlador 0 |

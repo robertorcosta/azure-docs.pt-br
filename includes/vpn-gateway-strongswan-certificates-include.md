@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 09/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1c2525b352c25f470814ce909a8d10ff821d9e32
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70961614"
 ---
 Gere o Certificado de Autoridade de Certificação.
@@ -22,7 +22,7 @@ Gere o Certificado de Autoridade de Certificação.
   ipsec pki --self --in caKey.pem --dn "CN=VPN CA" --ca --outform pem > caCert.pem
   ```
 
-Imprima o Certificado de Autoridade de Certificação no formato base64. Este é o formato compatível com o Azure. Você carrega esse certificado no Azure como parte das [etapas de configuração do P2S](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+Imprima o Certificado de Autoridade de Certificação no formato base64. Este é o formato compatível com o Azure. Você carrega este certificado para o Azure como parte das etapas de [configuração P2S](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
   ```
   openssl x509 -in caCert.pem -outform der | base64 -w0 ; echo

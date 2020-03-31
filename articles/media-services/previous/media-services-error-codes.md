@@ -1,6 +1,6 @@
 ---
 title: Códigos de erro dos Serviços de Mídia do Azure | Microsoft Docs
-description: Você pode receber códigos de erro HTTP do serviço dependendo de problemas como tokens de autenticação expirando para ações que não têm suporte nos serviços de mídia. Este artigo fornece uma visão geral dos códigos de erro da API do Azure Media Services v2.
+description: Você pode receber códigos de erro HTTP do serviço, dependendo de problemas como tokens de autenticação expirando para ações que não são suportadas nos Serviços de Mídia. Este artigo fornece uma visão geral dos códigos de erro da Azure Media Services v2 API.
 author: Juliako
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74887060"
 ---
 # <a name="azure-media-services-error-codes"></a>Códigos de erro dos Serviços de Mídia do Azure
@@ -119,7 +119,7 @@ Para resolver esse erro, é recomendável usar a lógica de repetição de retir
 ## <a name="see-also"></a>Consulte também
 [Códigos de erro do gerenciamento dos Serviços de Mídia](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários

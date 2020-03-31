@@ -1,5 +1,5 @@
 ---
-title: Exemplo de aplicativo multilocatário – Wingtip SaaS
+title: Exemplo de aplicativo multi-inquilino - Wingtip SaaS
 description: Fornece diretrizes e etapas para instalar e executar o aplicativo de multilocatário de exemplo que usa o Banco de Dados SQL do Azure, o exemplo de SaaS do Wingtip Tickets.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 162d1f269c65ad98afa30e8e96370bbdceca99bd
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74132304"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Diretrizes gerais para trabalhar com aplicativos SaaS de exemplo do Wingtip Tickets
@@ -24,7 +24,7 @@ Este artigo contém diretrizes gerais para a execução de aplicativos SaaS de e
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Baixe e desbloqueie os scripts SaaS do Wingtip Tickets
 
-Conteúdos executáveis (scripts, dlls) podem ser bloqueados pelo Windows quando arquivos zip são baixados de uma fonte externa e extraídos. Ao extrair os scripts de um arquivo zip, **siga as etapas abaixo para desbloquear o arquivo. zip antes da extração**. Isso garante que os scripts podem ser executados.
+Conteúdos executáveis (scripts, dlls) podem ser bloqueados pelo Windows quando arquivos zip são baixados de uma fonte externa e extraídos. Ao extrair os scripts de um arquivo zip, **siga as etapas abaixo para desbloquear o arquivo .zip antes de extrair**. Isso garante que os scripts podem ser executados.
 
 1. Navegue até o repositório GitHub de SaaS do Wingtip Tickets para o padrão de locação do banco de dados que você deseja explorar:
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
@@ -37,7 +37,7 @@ Conteúdos executáveis (scripts, dlls) podem ser bloqueados pelo Windows quando
 6. Clique em **OK**.
 7. Extraia os arquivos.
 
-Os scripts estão localizados na pasta *..\\Learning Modules*.
+Os scripts estão localizados no *.. Pasta \\Módulos de Aprendizagem.*
 
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Trabalhando com scripts do PowerShell do Wingtip Tickets
@@ -56,7 +56,7 @@ Definir esses valores aqui simplesmente impede que você precise atualizar esses
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Execute os scripts pressionando F5
 
-Vários scripts usam *$PSScriptRoot* para permitir a navegação em pastas e *$PSScriptRoot* é avaliada somente quando o script é executado, ao pressionar **F5**.  Realçar e executar uma seleção (**F8**) pode resultar em erros; portanto, pressione **F5** ao executar scripts.
+Vários scripts usam *$PSScriptRoot* para permitir a navegação em pastas e *$PSScriptRoot* é avaliada somente quando o script é executado, ao pressionar **F5**.Realçar e executar uma seleção (**F8**) pode resultar em erros, então pressione **F5** ao executar scripts.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Percorrer os scripts para examinar a implementação
 
@@ -78,7 +78,7 @@ Use o [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/
 
 Inicialmente, a implantação tem locatários e servidores do Banco de Dados SQL do catálogo para se conectar. A nomenclatura dos servidores depende do padrão de locação do banco de dados (veja abaixo detalhes específicos).
 
-   - **Aplicativo autônomo:** servidores para cada locatário (ex. servidor *contosoconcerthall-&lt;Usuário&gt;* ) e *catalog-sa-&lt;Usuário&gt;*
+   - **Aplicativo autônomo:** servidores para cada locatário (ex. servidor *contosoconcerthall-&lt;Usuário&gt;*) e *catalog-sa-&lt;Usuário&gt;*
    - **Banco de dados por locatário:** *tenants1-dpt-&lt;Usuário&gt;*  e servidores *catalog-dpt-&lt;Usuário&gt;*
    - **Base de dados multilocatário:** *tenants1-mt-&lt;User&gt;* e servidores *catalog-mt-&lt;User&gt;*
 
@@ -89,11 +89,11 @@ Para garantir uma conexão de demonstração bem-sucedida, todos os servidores t
     - **Aplicativo autônomo:** servidores de inquilinos individuais (ex. *contosoconcerthall-&lt;Usuário&gt;.database.windows.net*)
     - **Banco de dados por locatário:** *tenants1-dpt-&lt;Usuário&gt;.database.windows.net*
     - **Banco de dados multilocatário:** *tenants1-mt-&lt;Usuário&gt;.database.windows.net*
-2. Clique em **Conectar** > **Mecanismo de Banco de Dados...** :
+2. Clique **em Conectar** > **mecanismo de banco de dados...**:
 
    ![servidor catalog](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. As credenciais de demonstração são: login = *Developer*, password = *P\@ssword1*
+3. As credenciais de demonstração são: Login = *desenvolvedor*, Senha = *P\@ssword1*
 
     A imagem abaixo demonstra o logon para o padrão *Banco de dados por locatário*.
     ![conexão](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
@@ -116,6 +116,6 @@ A imagem abaixo demonstra o logon para o padrão *Banco de dados por locatário*
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Implantar o Aplicativo Autônomo SaaS Wingtip Tickets](saas-standaloneapp-get-started-deploy.md)
-- [Implantar o aplicativo Wingtip Tickets SaaS Database per Tenant](saas-dbpertenant-get-started-deploy.md)
+- [Implantar o aplicativo do Banco de Dados por locatário do SaaS do Wingtip Ticket](saas-dbpertenant-get-started-deploy.md)
 - [Implantar o aplicativo do Banco de Dados Multilocatário do SaaS do Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
 

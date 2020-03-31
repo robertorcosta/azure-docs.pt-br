@@ -1,5 +1,5 @@
 ---
-title: Monitorar seu dispositivo StorSimple série 8000
+title: Monitore seu dispositivo da série StorSimple 8000
 description: Descreve como usar o serviço Gerenciador de Dispositivos do StorSimple para monitorar o uso, desempenho de E/S e utilização da capacidade.
 author: alkohli
 ms.service: storsimple
@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: alkohli
 ms.openlocfilehash: b3b77024606c5cdb02ff7bdd357c2d14a2415efa
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277049"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usar o serviço Gerenciador de Dispositivos do StorSimple para monitorar seu dispositivo StorSimple
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 É possível usar o serviço Gerenciador de Dispositivos do StorSimple para monitorar dispositivos específicos na sua solução do StorSimple. É possível criar gráficos personalizados com base no desempenho de E/S, utilização da capacidade, taxa de transferência de rede e métricas de desempenho do dispositivo e fixá-los no painel. Para obter mais informações, vá para [personalizar seu painel do portal](../azure-portal/azure-portal-dashboards.md).
 
 Para exibir as informações de monitoramento de um dispositivo específico, no Portal do Azure, selecione o serviço Gerenciador de Dispositivos do StorSimple. Na lista de dispositivos, selecione seu dispositivo e acesse **Monitorar**. Em seguida, é possível ver os gráficos **Capacidade**, **Uso** e **Desempenho** para o dispositivo selecionado.
 
-## <a name="capacity"></a>Capacidade
+## <a name="capacity"></a>Capacity
 **Capacidade** controla o espaço provisionado e o espaço restante no dispositivo. A capacidade restante é exibida como fixado localmente ou em camadas.
 
 A capacidade provisionada e restante é dividida por volumes fixados localmente e em camadas. Para cada volume, a capacidade provisionada e a capacidade restante no dispositivo são exibidas.
@@ -104,7 +104,7 @@ Os gráficos seguintes mostram o armazenamento primário usado para um dispositi
 
 ![Utilização do armazenamento local depois do instantâneo de nuvem](./media/storsimple-8000-monitor-device/device-local-storage-after-cloudsnapshot.png)
 
-## <a name="performance"></a>Performance
+## <a name="performance"></a>Desempenho
 **Desempenho** rastreia métricas relacionadas ao número de operações de leitura e de gravação entre as interfaces do iniciador iSCSI no servidor host e o dispositivo ou o dispositivo e a nuvem. Esse desempenho pode ser medido para um volume específico, um contêiner de volume específico ou todos os contêineres de volume. O desempenho também inclui a utilização da CPU e a taxa de transferência de rede para os vários adaptadores de rede em seu dispositivo.
 
 ### <a name="io-performance-for-initiator-to-device"></a>Desempenho de E/S do iniciador para o dispositivo
@@ -138,7 +138,7 @@ A **Utilização da CPU** rastreia as métricas relacionadas à CPU utilizada em
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar o painel de dispositivo do serviço Gerenciador de Dispositivos do StorSimple](storsimple-device-dashboard.md).
 * Saiba como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-manager-service-administration.md).
 

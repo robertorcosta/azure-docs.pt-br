@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
 ms.openlocfilehash: 05d892edf20cda228bc566b30b0b693ea7c4a184
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75417639"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gerenciar pacotes do Python 2 no Automação do Azure
@@ -26,38 +26,38 @@ Na página **Adicionar pacote do Python 2**, selecione um pacote local para carr
 
 ![Adicionar pacote do Python](media/python-packages/upload-package.png)
 
-Depois que um pacote tiver sido importado, ele será listado na página **pacotes do Python 2** em sua conta de automação. Se for necessário remover um pacote, selecione o pacote e escolha **Excluir**  na página do pacote.
+Uma vez que um pacote tenha sido importado, ele está listado na página **de pacotes Python 2** em sua Conta de Automação. Se for necessário remover um pacote, selecione o pacote e escolha **Excluir**  na página do pacote.
 
 ![Lista de pacotes](media/python-packages/package-list.png)
 
 ## <a name="import-packages-with-dependencies"></a>Importar pacotes com dependências
 
-A automação do Azure não resolve dependências de pacotes do Python durante o processo de importação. Há duas maneiras de importar um pacote com todas as suas dependências. Somente uma das etapas a seguir precisa ser usada para importar os pacotes para sua conta de automação.
+A automação do Azure não resolve dependências de pacotes python durante o processo de importação. Existem duas maneiras de importar um pacote com todas as suas dependências. Apenas uma das seguintes etapas precisa ser usada para importar os pacotes para sua Conta de Automação.
 
-### <a name="manually-download"></a>Baixar manualmente
+### <a name="manually-download"></a>Download manual
 
-Em um computador com Windows de 64 bits com [Python 2.7](https://www.python.org/downloads/release/latest/python2) e [Pip](https://pip.pypa.io/en/stable/) instalado, execute o seguinte comando para baixar um pacote e todas as suas dependências:
+Em uma máquina com Windows de 64 bits com [python2.7](https://www.python.org/downloads/release/latest/python2) e [pip](https://pip.pypa.io/en/stable/) instalados, execute o seguinte comando para baixar um pacote e todas as suas dependências:
 
 ```cmd
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
 ```
 
-Depois que os pacotes forem baixados, você poderá importá-los para sua conta de automação.
+Uma vez que os pacotes são baixados, você pode importá-los para sua conta de automação.
 
 ### <a name="runbook"></a>Runbook
 
-Importe os pacotes python [2 de importação do runbook do Python do PyPI para a conta de automação do Azure](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) da galeria para sua conta de automação. Verifique se as configurações de execução estão definidas como **Azure** e inicie o runbook com os parâmetros. O runbook requer uma conta Executar como para que a conta de automação funcione. Para cada parâmetro, certifique-se de iniciá-lo com a opção conforme mostrado na seguinte lista e imagem:
+Importe o runbook python [Importe pacotes Python Python 2 de pipi para a conta azure Automation](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) da galeria para sua Conta de Automação. Certifique-se de que as configurações de execução estão definidas **como Azure** e inicie o manual com os parâmetros. O manual requer que uma conta execute como a conta de automação funcione. Para cada parâmetro certifique-se de iniciá-lo com o interruptor, como visto na seguinte lista e imagem:
 
-* -s \<SubscriptionId\>
+* -s \<subscriptionId\>
 * -g \<resourceGroup\>
-* -a \<automationAccount\>
-* -m \<modulePackage\>
+* -uma \<conta de automação\>
+* -m \<móduloPacote\>
 
 ![Lista de pacotes](media/python-packages/import-python-runbook.png)
 
-O runbook permite que você especifique qual pacote baixar, por exemplo, `Azure` (o quarto parâmetro) baixará todos os módulos do Azure e todas as suas dependências, que é de cerca de 105.
+O runbook permite especificar qual pacote baixar, por exemplo, `Azure` (o quarto parâmetro) baixará todos os módulos do Azure e todas as suas dependências, que é cerca de 105.
 
-Depois que o runbook for concluído, você poderá verificar a página de **pacotes do Python 2** em **recursos compartilhados** em sua conta de automação para verificar se eles foram importados corretamente.
+Uma vez que o runbook tenha sido concluído, você pode verificar a página **de pacotes Python 2** em Recursos **Compartilhados** em sua Conta de Automação para verificar se o pacote foi importado corretamente.
 
 ## <a name="use-a-package-in-a-runbook"></a>Use um pacote em um runbook
 
@@ -87,6 +87,6 @@ for group in groups:
 
 Para desenvolver e testar os runbooks do Python 2 offline, você pode usar o módulo de [ativos emulados do python de Automação do Azure](https://github.com/azureautomation/python_emulated_assets) no GitHub. Esse módulo permite referenciar os recursos compartilhados como credenciais, variáveis, conexões e certificados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para começar a usar os runbooks do Python 2, consulte [Meu primeiro runbook do Python 2](automation-first-runbook-textual-python2.md)

@@ -1,13 +1,13 @@
 ---
-title: Visão geral de Service Fabric e contêineres
+title: Visão geral do Service Fabric e contêineres
 description: Uma visão geral do Service Fabric e o uso de contêineres para implantar aplicativos de microsserviço. Este artigo fornece uma visão geral de como os contêineres podem ser usados e dos recursos disponíveis no Service Fabric.
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458214"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contêineres
@@ -69,7 +69,7 @@ Estes são exemplos típicos em que um contêiner é uma boa opção:
 
 * **Combinar contêineres e microsserviços do Service Fabric**: use uma imagem existente do contêiner para parte do seu aplicativo. Por exemplo, é possível usar o [contêiner NGINX](https://hub.docker.com/_/nginx/) para o front-end da Web do seu aplicativo e serviços com estado para obter a computação mais intensiva de back-end.
 
-* **Reduzir o impacto de serviços "vizinhos ruidosos"** : você pode usar a capacidade de governança de recursos de contêineres para restringir os recursos que um serviço usa em um host. Se os serviços consumirem muitos recursos e afetarem o desempenho dos outros (como uma operação demorada, parecida com uma consulta), considere colocar esses serviços em contêineres com governança de recursos.
+* **Reduzir o impacto de serviços "vizinhos ruidosos"**: você pode usar a capacidade de governança de recursos de contêineres para restringir os recursos que um serviço usa em um host. Se os serviços consumirem muitos recursos e afetarem o desempenho dos outros (como uma operação demorada, parecida com uma consulta), considere colocar esses serviços em contêineres com governança de recursos.
 
 ## <a name="service-fabric-support-for-containers"></a>Suporte ao Service Fabric para contêineres
 
@@ -92,7 +92,7 @@ O Service Fabric fornece vários recursos de contêiner que ajudam a compilar de
 
 Para obter uma visão abrangente do contêiner de suporte no Azure, por exemplo, como criar um cluster Kubernetes com o Serviço de Kubernetes do Azure, como para criar um registro privado do Docker no Registro de Contêiner do Azure e muito mais, consulte [Azure para contêineres](https://docs.microsoft.com/azure/containers/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu sobre o suporte que o Service Fabric fornece para contêineres em execução. Em seguida, apresentaremos exemplos de cada um dos recursos para mostrar como usá-los.
 

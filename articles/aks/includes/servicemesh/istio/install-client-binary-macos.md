@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 11/15/2019
 ms.author: pabouwer
 ms.openlocfilehash: 74f5b22ccc822a188059b29d9c661a15cf8412bf
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77593914"
 ---
-## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Baixar e instalar o binário do cliente İSTİO istioctl
+## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Baixe e instale o binário do cliente Istio istioctl
 
-Em um shell baseado em bash no MacOS, use `curl` para baixar a versão İSTİO e, em seguida, extrair com `tar` da seguinte maneira:
+Em um shell baseado em bash `curl` no MacOS, use para `tar` baixar a versão istio e, em seguida, extrair com o seguinte:
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions
@@ -21,7 +21,7 @@ ISTIO_VERSION=1.4.0
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-osx.tar.gz" | tar xz
 ```
 
-O binário de cliente do `istioctl` é executado no computador cliente e permite que você interaja com a malha do serviço İSTİO. Use os comandos a seguir para instalar o binário do İSTİO `istioctl` Client em um shell baseado em bash no MacOS. Esses comandos copiam o `istioctl` binário de cliente para o local do programa do usuário padrão no `PATH`.
+O `istioctl` binário do cliente é executado na sua máquina cliente e permite que você interaja com a malha de serviço istio. Use os seguintes comandos `istioctl` para instalar o binário do cliente Istio em um shell baseado em bash no MacOS. Esses comandos copiam o `istioctl` binário de cliente para o local do programa do usuário padrão no `PATH`.
 
 ```bash
 cd istio-$ISTIO_VERSION

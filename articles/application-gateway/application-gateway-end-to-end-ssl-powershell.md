@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
 ms.openlocfilehash: 7ba273cddb6cf41872c4db1c34560c104b992787
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72286457"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurar o SSL de ponta a ponta usando o Gateway de Aplicativo com o PowerShell
@@ -20,7 +20,7 @@ ms.locfileid: "72286457"
 
 O Gateway de Aplicativo do Azure dá suporte à criptografia de tráfego de ponta a ponta. O Gateway de Aplicativo termina a conexão SSL no gateway de aplicativo. O gateway, em seguida, aplica as regras de roteamento ao tráfego, criptografa o pacote novamente e encaminha o pacote para o servidor de back-end apropriado com base nas regras de roteamento definidas. Qualquer resposta do servidor Web passa pelo mesmo processo de volta para o usuário final.
 
-O Gateway de Aplicativo dá suporte para definir opções personalizadas de SSL. Ele também dá suporte para desabilitar as seguintes versões do protocolo: **TLSv1.0**, **TLSv1.1** e **TLSv1.2**, bem como definir quais conjuntos de criptografia usar e a ordem de preferência. Para saber mais sobre as opções configuráveis de SSL, acesse [Visão geral da política de SSL](application-gateway-SSL-policy-overview.md).
+O Gateway de Aplicativo dá suporte para definir opções personalizadas de SSL. Ele também dá suporte para desabilitar as seguintes versões de protocolo: **TLSv1.0**, **TLSv1.1** e **TLSv1.2** como também para definir quais conjuntos de criptografia usar e a ordem de preferência. Para saber mais sobre as opções configuráveis de SSL, acesse [Visão geral da política de SSL](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > O SSL 2.0 e o SSL 3.0 estão desabilitados por padrão e não podem ser habilitados. Eles são considerados não seguros e não podem ser usados com o Gateway de Aplicativo.
@@ -33,8 +33,8 @@ Neste cenário, você aprenderá a criar um gateway de aplicativo usando o SSL d
 
 Este cenário:
 
-* Criar um grupo de recursos denominado **appgw-rg**.
-* Criar uma rede virtual denominada **appgwvnet** com um espaço de endereço de **10.0.0.0/16**.
+* Crie um grupo de recursos chamado **appgw-rg**.
+* Crie uma rede virtual chamada **appgwvnet** com um espaço de endereço de **10.0.0.0/16**.
 * Crie duas sub-redes chamadas **appgwsubnet** e **appsubnet**.
 * Crie um gateway de aplicativo pequeno que dê suporte à criptografia de SSL de ponta a ponta que limita versões de protocolos SSL e conjuntos de criptografia.
 
@@ -44,7 +44,7 @@ Este cenário:
 
 Para configurar o SSL de ponta a ponta com um gateway de aplicativo, um certificado é necessário para o gateway e são necessários certificados para os servidores de back-end. O certificado de gateway é usado para derivar uma chave simétrica conforme a especificação do protocolo SSL. A chave simétrica então é usada para criptografar e descriptografar o tráfego enviado para o gateway. O certificado do gateway precisa estar no formato PFX (Troca de Informações Pessoais). Esse formato de arquivo permite exportar a chave privada que é exigida pelo gateway de aplicativo para realizar a criptografia e descriptografia do tráfego.
 
-Para a criptografia SSL de ponta a ponta, o back-end deve ser explicitamente permitido pelo gateway de aplicativo. Carregue o certificado público dos servidores de back-end para o gateway de aplicativo. Adicionar o certificado garante que o gateway de aplicativo se comunique somente com instâncias de back-end conhecidas. Isso protege ainda mais a comunicação de ponta a ponta.
+Para criptografia SSL de ponta a ponta, o back-end deve ser explicitamente permitido pelo gateway de aplicativo. Carregue o certificado público dos servidores de back-end para o gateway de aplicativo. Adicionar o certificado garante que o gateway de aplicativo se comunique somente com instâncias de back-end conhecidas. Isso protege ainda mais a comunicação de ponta a ponta.
 
 O processo de configuração é descrito nas seções a seguir.
 
@@ -52,7 +52,7 @@ O processo de configuração é descrito nas seções a seguir.
 
 Esta seção orienta você pela criação de um grupo de recursos que contenha o gateway de aplicativo.
 
-1. Entre na sua conta do Azure.
+1. Entre em sua conta do Azure.
 
    ```powershell
    Connect-AzAccount
@@ -64,7 +64,7 @@ Esta seção orienta você pela criação de um grupo de recursos que contenha o
    Select-Azsubscription -SubscriptionName "<Subscription name>"
    ```
 
-3. Crie um grupo de recursos. (Ignore esta etapa se está usando um grupo de recursos existente.)
+3. Crie um grupos de recursos. (Ignore esta etapa se está usando um grupo de recursos existente.)
 
    ```powershell
    New-AzResourceGroup -Name appgw-rg -Location "West US"
@@ -174,7 +174,7 @@ Todos os itens de configuração são definidos antes da criação do gateway de
    ```
 
    > [!NOTE]
-   > O certificado fornecido na etapa anterior deve ser a chave pública do certificado. pfx presente no back-end. Exporte o certificado (não o certificado raiz) instalado no servidor de back-end no formato CER (Claim, Evidence and Reasoning) e use-o nesta etapa. Esta etapa coloca o back-end na lista de permissões do gateway de aplicativo.
+   > O certificado fornecido na etapa anterior deve ser a chave pública do certificado .pfx presente no back-end. Exporte o certificado (não o certificado raiz) instalado no servidor de back-end no formato CER (Claim, Evidence and Reasoning) e use-o nesta etapa. Esta etapa coloca o back-end na lista de permissões do gateway de aplicativo.
 
    Se você estiver usando a SKU do Gateway de Aplicativo v2, crie um certificado raiz confiável, em vez de um certificado de autenticação. Para saber mais, confira [Visão geral de SSL de ponta a ponta com o Gateway de Aplicativo](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
 
@@ -200,7 +200,7 @@ Todos os itens de configuração são definidos antes da criação do gateway de
    $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-10. Configure o tamanho da instância do gateway de aplicativo. Os tamanhos disponíveis são **Standard\_Small**, **Standard\_Medium** e **Standard\_Large**.  Para a capacidade, os valores disponíveis são **1** a **10**.
+10. Configure o tamanho da instância do gateway de aplicativo. Os tamanhos disponíveis são **Standard\_Small**, **Standard\_Medium** e **Standard\_Large**.  Para capacidade, os valores disponíveis são **de 1** a **10**.
 
     ```powershell
     $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -227,19 +227,19 @@ Todos os itens de configuração são definidos antes da criação do gateway de
 
 Usando todas as etapas anteriores, crie o gateway de aplicativo. A criação do gateway é um processo que leva muito tempo para ser executado.
 
-Para a SKU v1, use o comando abaixo
+Para V1 SKU use o comando abaixo
 ```powershell
 $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
-Para a SKU v2, use o comando abaixo
+Para V2 SKU use o comando abaixo
 ```powershell
 $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting01 -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -TrustedRootCertificate $trustedRootCert01 -Verbose
 ```
 
-## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>Aplicar um novo certificado se o certificado de back-end tiver expirado
+## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>Aplique um novo certificado se o certificado back-end estiver expirado
 
-Use este procedimento para aplicar um novo certificado se o certificado de back-end tiver expirado.
+Use este procedimento para aplicar um novo certificado se o certificado back-end estiver expirado.
 
 1. Recupere o gateway de aplicativo para atualizar.
 
@@ -247,7 +247,7 @@ Use este procedimento para aplicar um novo certificado se o certificado de back-
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. Adicione o novo recurso de certificado do arquivo. cer, que contém a chave pública do certificado e também pode ser o mesmo certificado adicionado ao ouvinte para terminação SSL no gateway de aplicativo.
+2. Adicione o novo recurso de certificado do arquivo .cer, que contém a chave pública do certificado e também pode ser o mesmo certificado adicionado ao ouvinte para término SSL no gateway do aplicativo.
 
    ```powershell
    Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
@@ -259,21 +259,21 @@ Use este procedimento para aplicar um novo certificado se o certificado de back-
    $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
    ```
  
- 4. Atribua o novo certificado à configuração **BackendHttp** e faça referência a ele com a variável $AuthCert. (Especifique o nome da configuração HTTP que você deseja alterar.)
+ 4. Atribua o novo certificado à configuração **BackendHttp** e encaminhe-o com a variável $AuthCert. (Especifique o nome de configuração HTTP que deseja alterar.)
  
    ```powershell
    $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
    ```
     
- 5. Confirme a alteração no gateway de aplicativo e passe a nova configuração contida na variável $out.
+ 5. Comprometa a alteração no gateway de aplicativo e passe a nova configuração contida na variável $out.
  
    ```powershell
    Set-AzApplicationGateway -ApplicationGateway $gw  
    ```
 
-## <a name="remove-an-unused-expired-certificate-from-http-settings"></a>Remover um certificado expirado não utilizado das configurações de HTTP
+## <a name="remove-an-unused-expired-certificate-from-http-settings"></a>Remova um certificado expirado não utilizado das configurações HTTP
 
-Use este procedimento para remover um certificado expirado não utilizado das configurações de HTTP.
+Use este procedimento para remover um certificado expirado não utilizado das Configurações HTTP.
 
 1. Recupere o gateway de aplicativo para atualizar.
 
@@ -281,7 +281,7 @@ Use este procedimento para remover um certificado expirado não utilizado das co
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. Liste o nome do certificado de autenticação que você deseja remover.
+2. Liste o nome do certificado de autenticação que deseja remover.
 
    ```powershell
    Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw | select name
@@ -293,7 +293,7 @@ Use este procedimento para remover um certificado expirado não utilizado das co
    $gw=Remove-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name ExpiredCert
    ```
  
- 4. Confirme a alteração.
+ 4. Cometa a mudança.
  
    ```powershell
    Set-AzApplicationGateway -ApplicationGateway $gw
@@ -310,7 +310,7 @@ As etapas anteriores levaram você pela criação de um aplicativo com SSL de po
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Defina uma política de SSL. No exemplo a seguir, **TLSv1.0** e **TLSv1.1** estão desabilitadas e os conjuntos de criptografia **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** são os únicos permitidos.
+2. Defina uma política de SSL. No exemplo a seguir, **TLSv1.0** e **TLSv1.1** estão desativados e as suítes de cifra **TLS\_\_ECDHE ECDSA\_COM\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_COM\_AES\_256\_GCM\_SHA384**, e **TLS\_RSA\_COM\_AES\_128\_GCM\_SHA256** são as únicas permitidas.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
@@ -327,7 +327,7 @@ As etapas anteriores levaram você pela criação de um aplicativo com SSL de po
 
 Depois de criar o gateway, a próxima etapa é configurar o front-end para comunicação. O Gateway de Aplicativo requer um nome DNS atribuído dinamicamente ao usar um IP público, o que não é amigável. Para garantir que os usuários finais possam acessar o gateway de aplicativo, você poderá usar um registro CNAME para apontar para o ponto de extremidade público do gateway de aplicativo. Para saber mais, confira [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
 
-Para configurar um alias, recupere os detalhes do gateway de aplicativo e seu nome DNS/IP associado usando o elemento **PublicIPAddress** anexado ao gateway de aplicativo. Use o nome DNS do gateway de aplicativo para criar um registro CNAME que aponte os dois aplicativos Web para esse nome DNS. Não recomendamos o uso de registros A, pois o VIP pode ser alterado no reinício do gateway de aplicativo.
+Para configurar um alias, recupere detalhes do gateway do aplicativo e seu nome IP/DNS associado usando o elemento **PublicIPAddress** anexado ao gateway do aplicativo. Use o nome DNS do gateway de aplicativo para criar um registro CNAME que aponte os dois aplicativos Web para esse nome DNS. Não recomendamos o uso de registros A, pois o VIP pode ser alterado no reinício do gateway de aplicativo.
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01

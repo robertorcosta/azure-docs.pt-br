@@ -9,21 +9,21 @@ ms.date: 07/12/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: ceda7bd6bd165df1eece555c6ce8a9a6c863b2c1
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77112265"
 ---
 ### <a name="create-a-user-assigned-identity"></a>Criar uma identidade atribuída pelo usuário
 
-Crie uma identidade denominada *myACRTasksId* em sua assinatura usando o comando [AZ Identity Create][az-identity-create] . Você pode usar o mesmo grupo de recursos que usou anteriormente para criar um registro de contêiner ou outro.
+Crie uma identidade chamada *myACRTasksId* em sua assinatura usando o comando [az identity create.][az-identity-create] Você pode usar o mesmo grupo de recursos que usou anteriormente para criar um registro de contêiner ou um diferente.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRTasksId
 ```
 
-Para configurar a identidade atribuída pelo usuário nas etapas a seguir, use o comando [AZ Identity show][az-identity-show] para armazenar a ID do recurso da identidade, a ID da entidade e a ID do cliente em variáveis.
+Para configurar a identidade atribuída pelo usuário nas etapas a seguir, use o comando [az identity show][az-identity-show] para armazenar o ID de recurso da identidade, o ID principal e o ID do cliente em variáveis.
 
 ```azurecli
 # Get resource ID of the user-assigned identity

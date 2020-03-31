@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840801"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introdução à captura de pacote de varáveis no Observador de Rede do Azure
@@ -31,7 +31,7 @@ Para reduzir as informações capturadas apenas às informações desejadas, as 
 
 **Configuração da captura**
 
-|Propriedade|Description|
+|Propriedade|Descrição|
 |---|---|
 |**Máximo de bytes por pacote (bytes)** | O número de bytes capturados de cada pacote; todos os bytes serão capturados se deixado em branco. O número de bytes capturados de cada pacote; todos os bytes serão capturados se deixado em branco. Se você precisar apenas do cabeçalho IPv4 – indique 34 aqui |
 |**Máximo de bytes por sessão (bytes)** | Número total de bytes capturados, quando o valor for atingido, a sessão terminará.|
@@ -39,7 +39,7 @@ Para reduzir as informações capturadas apenas às informações desejadas, as 
 
 **Filtragem (opcional)**
 
-|Propriedade|Description|
+|Propriedade|Descrição|
 |---|---|
 |**Protocolo** | O protocolo de filtragem da captura de pacote. Os valores disponíveis são TCP, UDP e Todos.|
 |**Endereço IP local** | Esse valor filtra a captura de pacotes para os pacotes cujo endereço IP local corresponde ao valor do filtro.|
@@ -47,7 +47,7 @@ Para reduzir as informações capturadas apenas às informações desejadas, as 
 |**Endereço IP remoto** | Esse valor filtra a captura de pacotes para os pacotes cujo IP remoto corresponde ao valor do filtro.|
 |**Porta remota** | Esse valor filtra a captura de pacotes para os pacotes cuja porta remota corresponde ao valor do filtro.|
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Próximas etapas
 
 Saiba como você pode gerenciar as capturas de pacote no portal visitando [Gerenciar captura de pacote no Portal do Azure](network-watcher-packet-capture-manage-portal.md) ou com o PowerShell visitando [Gerenciar captura de pacote com o PowerShell](network-watcher-packet-capture-manage-powershell.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Instalar componentes licenciados para o tempo de execução de integração do Azure-SSIS
+title: Instale componentes licenciados para o tempo de execução da integração Azure-SSIS
 description: Saiba como um ISV pode desenvolver e instalar componentes personalizados pagos ou licenciados para o runtime de integração do Azure-SSIS
 services: data-factory
 ms.service: data-factory
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: 599b54f8a5d97ee5ed29ce4df16980f456ffb919
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74914576"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Instalar componentes personalizados pagos ou licenciados para o runtime de integração do Azure-SSIS
@@ -77,7 +77,7 @@ O diagrama a seguir mostra a instalação, a ativação e a associação típica
 
 Você pode encontrar uma lista de parceiros do ISV que adaptaram seus componentes e extensões para o IR do Azure-SSIS no final desta postagem de blog – [Enterprise Edition, Instalação Personalizada e Extensibilidade de Terceiros para SSIS no ADF](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Enterprise-Edition-Custom-Setup-and-3rd-Party-Extensibility-for/ba-p/388360).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 -   [Instalação personalizada do runtime de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md)
 

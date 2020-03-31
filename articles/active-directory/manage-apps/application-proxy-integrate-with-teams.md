@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 037e005993a54e525560571a6d893197af99b6a0
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67807770"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Acessar seus aplicativos locais por meio do Microsoft Teams
@@ -33,23 +33,23 @@ Os usuários podem adicionar aplicativos de nuvem aos seus canais do Teams [usan
 
 Se você ainda não o fez, [configure o Proxy de Aplicativo para seu locatário e instale o conector](application-proxy-add-on-premises-application.md). Em seguida, [publique seu aplicativo local](application-proxy-add-on-premises-application.md) para acesso remoto. Quando você estiver publicando o aplicativo, anote a URL externa porque ela é usada para adicionar o aplicativo ao Teams.
 
-Se você já tem seus aplicativos publicados mas não se lembra de suas URLs externas, consulte-os no [portal do Azure](https://portal.azure.com). Entre, navegue até **Azure Active Directory** > **Aplicativos empresariais** > **Todos os aplicativos** > selecione seu aplicativo > **Proxy de aplicativo**.
+Se você já tem seus aplicativos publicados mas não se lembra de suas URLs externas, consulte-os no [portal do Azure](https://portal.azure.com). Faça login e navegue até**os aplicativos** > do **Azure Active Directory** > Enterprise**Todos os aplicativos** > selecionam o aplicativo > proxy **do aplicativo**.
 
 ## <a name="add-your-app-to-teams"></a>Adicionar seu aplicativo ao Teams
 
 Depois de publicar o aplicativo pelo Proxy de Aplicativo, informe aos usuários que eles podem adicioná-lo como uma guia diretamente em seus canais do Teams e, em seguida, o aplicativo estará disponível para todos da equipe usarem. Faça com que eles sigam estas três etapas:
 
-1. Navegue até o canal do Teams em que você deseja adicionar este aplicativo e selecione **+** para adicionar uma guia.
+1. Navegue até o canal Equipes onde **+** você deseja adicionar este aplicativo e selecione para adicionar uma guia.
 
-   ![Selecione + para adicionar uma guia no Teams](./media/application-proxy-integrate-with-teams/add-tab.png)
+   ![Selecione + para adicionar uma guia em Equipes](./media/application-proxy-integrate-with-teams/add-tab.png)
 
 1. Selecione **Site** entre as opções da guia.
 
-   ![Selecione o site de adicionar uma tela de guia](./media/application-proxy-integrate-with-teams/website.png)
+   ![Selecione o site na tela Adicionar uma guia](./media/application-proxy-integrate-with-teams/website.png)
 
 1. Nomeie a guia e defina a URL para a URL externa do Proxy de Aplicativo.
 
-   ![Nomeie a guia e adicionar a URL externa](./media/application-proxy-integrate-with-teams/tab-name-url.png)
+   ![Nomeie a guia e adicione a URL externa](./media/application-proxy-integrate-with-teams/tab-name-url.png)
 
 Depois que um membro de uma equipe adiciona a guia, ela aparece para todos no canal. Quaisquer usuários que têm acesso ao aplicativo obtêm acesso de logon único com as credenciais que usam para o Microsoft Teams. Quaisquer usuários que não tenham acesso ao aplicativo verão a guia no Teams, mas serão bloqueados até que você conceda a permissão para o aplicativo local e a versão do aplicativo publicada no Portal do Azure.
 

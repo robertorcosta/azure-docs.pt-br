@@ -1,5 +1,5 @@
 ---
-title: Modificar o conteúdo da página no portal do desenvolvedor no gerenciamento de API
+title: Modificar o conteúdo da página no portal do desenvolvedor no Gerenciamento de API
 titleSuffix: Azure API Management
 description: Saiba como editar o conteúdo da página no portal do desenvolvedor no Gerenciamento de API do Azure.
 services: api-management
@@ -15,22 +15,22 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
 ms.openlocfilehash: ebf2cbd430339378a09d10d91ad61327d24842e4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430627"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificar o conteúdo e o layout de páginas no portal do desenvolvedor no Gerenciamento de API do Azure
 Há três maneiras básicas para personalizar o portal do desenvolvedor no Gerenciamento de API do Azure:
 
-* [Editar o conteúdo de páginas estáticas e elementos de layout de página][modify-content-layout] (explicado neste guia)
-* [Atualizar os estilos usados para elementos de página no portal do desenvolvedor][customize-styles]
-* [Modificar os modelos usados para páginas geradas pelo portal][portal-templates] (por exemplo, documentos de API, produtos, autenticação de usuário, etc.)
+* [Editar o conteúdo de páginas estáticas e elementos de layout da página][modify-content-layout] (explicado neste guia)
+* [Atualizar os estilos usados para elementos de página entre o portal do desenvolvedor][customize-styles]
+* [Modificar os modelos usados para as páginas geradas pelo portal][portal-templates] (por exemplo, documentos de API, produtos, autenticação do usuário, etc.)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="page-structure"> </a>Estrutura das páginas do portal do desenvolvedor
+## <a name="structure-of-developer-portal-pages"></a><a name="page-structure"> </a>Estrutura das páginas do portal do desenvolvedor
 
 O portal do desenvolvedor é baseado em um sistema de gerenciamento de conteúdo. O layout de cada página é criado com base no conjunto de pequenos elementos de página conhecidos como widgets:
 
@@ -42,7 +42,7 @@ Todos os widgets são editáveis.
 
 Na edição de página de rotina, em geral, a modificação é feita somente no widget de conteúdo, que terá conteúdo diferente para cada página.
 
-## <a name="modify-layout-widget"> </a>Modificando o conteúdo de um widget de layout
+## <a name="modifying-the-contents-of-a-layout-widget"></a><a name="modify-layout-widget"> </a>Modificação do conteúdo de um widget de layout
 
 O Portal do Desenvolvedor pode ser acessado no Portal do Azure.
 
@@ -55,9 +55,9 @@ O Portal do Desenvolvedor pode ser acessado no Portal do Azure.
 
 Agora você poderá ver o novo cabeçalho em cada página no portal do desenvolvedor.
 
-## <a name="next-steps"> </a>Próximas etapas
-* [Atualizar os estilos usados para elementos de página no portal do desenvolvedor][customize-styles]
-* [Modificar os modelos usados para páginas geradas pelo portal][portal-templates] (por exemplo, documentos de API, produtos, autenticação de usuário, etc.)
+## <a name="next-steps"></a><a name="next-steps"> </a>Próximas etapas
+* [Atualizar os estilos usados para elementos de página entre o portal do desenvolvedor][customize-styles]
+* [Modificar os modelos usados para as páginas geradas pelo portal][portal-templates] (por exemplo, documentos de API, produtos, autenticação do usuário, etc.)
 
 [Structure of developer portal pages]: #page-structure
 [Modifying the contents of a layout widget]: #modify-layout-widget

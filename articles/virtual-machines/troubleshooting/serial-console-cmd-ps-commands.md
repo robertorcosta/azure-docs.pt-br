@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 493340764f507c4fa364a5000f65cc232630b243
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77167039"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandos do Windows – CMD e PowerShell
@@ -117,7 +117,7 @@ Quando limitado a métodos disponíveis no Windows por padrão, o PowerShell pod
 ### <a name="disable-windows-firewall"></a>Desabilitar Firewall do Windows
 `netsh advfirewall set allprofiles state off`
 
-É possível usar esse comando ao solucionar problemas para excluir temporariamente o Firewall do Windows. Ele será habilitado na próxima reinicialização ou quando você habilitá-lo usando o comando a seguir. Não pare o serviço do Firewall do Windows (MPSSVC) ou o BFE (Mecanismo de Filtragem Base) como forma de excluir o Firewall do Windows. Parar o MPSSVC ou BFE resultará no bloqueio de toda a conectividade.
+É possível usar esse comando ao solucionar problemas para excluir temporariamente o Firewall do Windows. Ele será ativado na próxima reinicialização ou quando você habilitá-lo usando o comando abaixo. Não pare o serviço do Firewall do Windows (MPSSVC) ou o BFE (Mecanismo de Filtragem Base) como forma de excluir o Firewall do Windows. Parar o MPSSVC ou BFE resultará no bloqueio de toda a conectividade.
 ### <a name="enable-windows-firewall"></a>Habilitar Firewall do Windows
 `netsh advfirewall set allprofiles state on`
 ## <a name="manage-users-and-groups"></a>Gerenciar usuários e grupos
@@ -320,7 +320,7 @@ ou
 `test-netconnection`
 
 > [!NOTE]
-> O cmdlet Write-Progress pode não funcionar com este comando. Como uma mitigação, você pode executar `$ProgressPreference = "SilentlyContinue"` no PowerShell para desabilitar a barra de progresso.
+> O cmdlet Write-Progress pode não funcionar com este comando. Como atenuação, você `$ProgressPreference = "SilentlyContinue"` pode executar no PowerShell para desativar a barra de progresso.
 
 ou
 
@@ -480,4 +480,4 @@ Para obter mais informações, consulte [Serviço de metadados da instância do 
 ## <a name="next-steps"></a>Próximas etapas
 * A página principal da documentação do console serial do Windows está localizada [aqui](serial-console-windows.md).
 * O console serial também está disponível para VMs do [Linux](serial-console-linux.md).
-* Saiba mais sobre [diagnóstico de inicialização](boot-diagnostics.md).
+* Saiba mais sobre [diagnósticos de inicialização](boot-diagnostics.md).

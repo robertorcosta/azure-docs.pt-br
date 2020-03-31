@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: glenga
 ms.openlocfilehash: 437b4ab62cc8c4903af88ca2f9632e89b953c798
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68669507"
 ---
-Para ativar os logs de streaming para seu aplicativo de funções no Azure:
+Para ativar os logs de streaming do seu aplicativo de função no Azure:
 
-1. Selecione F1 para abrir a paleta de comandos e, em seguida, pesquise e execute **o comando Azure Functions: Inicie os logs**de streaming.
+1. Selecione F1 para abrir a paleta de comando e, em seguida, procure e execute o comando **Funções Azure: Inicie logs de streaming**.
 
-1. Selecione seu aplicativo de funções no Azure e, em seguida, selecione **Sim** para habilitar o log de aplicativo para o aplicativo de funções.
+1. Selecione seu aplicativo de função no Azure e, em seguida, **selecione Sim** para ativar o registro de aplicativos para o aplicativo de função.
 
-1. Dispare suas funções no Azure. Observe que os dados de log são exibidos na janela saída no Visual Studio Code.
+1. Acione suas funções no Azure. Observe que os dados de log são exibidos na janela Saída no Visual Studio Code.
 
-1. Quando terminar, lembre-se de executar o comando **Azure Functions: Interrompa os logs** de streaming para desabilitar o registro em log para o aplicativo de funções.
+1. Quando terminar, lembre-se de executar o comando **Funções do Azure: Pare de fazer logs de streaming** para desativar o registro do aplicativo de função.

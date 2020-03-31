@@ -1,7 +1,7 @@
 ---
-title: Referenciar entradas e saídas em habilidades
+title: Entradas e saídas de referência em skillsets
 titleSuffix: Azure Cognitive Search
-description: Explica a sintaxe da anotação e como fazer referência a uma anotação nas entradas e saídas de um conconhecimento em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
+description: Explica a sintaxe de anotação e como referenciar uma anotação nas entradas e saídas de um skillset em um pipeline de enriquecimento de IA na Azure Cognitive Search.
 manager: nitinme
 author: LuisCabrer
 ms.author: luisca
@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113861"
 ---
-# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Como fazer referência a anotações em um Azure Pesquisa Cognitiva skillset
+# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Como referenciar anotações em um conjunto de habilidades de Pesquisa Cognitiva do Azure
 
 Neste artigo, você aprende a referenciar anotações em definições de habilidades usando exemplos para ilustrar diferentes cenários. Conforme o conteúdo de um documento flui por um conjunto de habilidades, ele é enriquecido com anotações. Anotações podem ser usadas como entradas para mais enriquecimento downstream ou podem ser mapeadas para um campo de saída em um índice. 
  
@@ -25,7 +25,7 @@ Os exemplos neste artigo são baseados campo *content* gerado automaticamente pe
 
 Antes de examinarmos a sintaxe, vamos rever alguns conceitos importantes para entender melhor os exemplos fornecidos mais adiante neste artigo.
 
-| Termo | DESCRIÇÃO |
+| Termo | Descrição |
 |------|-------------|
 | Documento enriquecido | Um documento enriquecido é uma estrutura interna criada e usada pelo pipeline para reter todas as anotações relacionadas a um documento. Pense em um documento enriquecido como uma árvore de anotações. Em geral, uma anotação criada de uma anotação anterior se torna seu filho.<p/>Documentos enriquecidos existem somente pela duração da execução do conjunto de habilidades. Após o conteúdo ser mapeado para o índice de pesquisa, o documento enriquecido deixará de ser necessário. Embora você não interaja diretamente com documentos enriquecidos, é útil ter um modelo mental dos documentos ao criar um conjunto de habilidades. |
 | Contexto de enriquecimento | O contexto em que o enriquecimento ocorre, em termos de qual elemento é enriquecido. Por padrão, o contexto de enriquecimento está no nível do `"/document"` e seu escopo são documentos individuais. Quando uma habilidade é executada, suas saídas se tornam [propriedades do contexto definido](#example-2).|
@@ -33,7 +33,7 @@ Antes de examinarmos a sintaxe, vamos rever alguns conceitos importantes para en
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>Exemplo 1: referência de anotação simples
 
-No armazenamento de BLOBs do Azure, suponha que você tenha uma variedade de arquivos contendo referências a nomes de pessoas que você deseja extrair usando o reconhecimento de entidade. Na definição de habilidade abaixo, `"/document/content"` é a representação textual de todo o documento e "people" é uma extração de nomes completos para entidades identificadas como pessoas.
+No armazenamento Azure Blob, suponha que você tenha uma variedade de arquivos contendo referências aos nomes das pessoas que você deseja extrair usando o reconhecimento da entidade. Na definição de habilidade abaixo, `"/document/content"` é a representação textual de todo o documento e "people" é uma extração de nomes completos para entidades identificadas como pessoas.
 
 Como o contexto padrão é `"/document"`, a lista de pessoas agora pode ser referenciada como `"/document/people"`. Neste caso específico, `"/document/people"` é uma anotação que agora poderia ser mapeada para um campo em um índice ou usada em outra habilidade do mesmo conjunto de habilidades.
 
@@ -95,7 +95,7 @@ Quando as anotações forem matrizes ou coleções de cadeias de caracteres, tal
 
 Às vezes, você precisa agrupar todas as anotações de um tipo específico para passá-las para uma habilidade específica. Considere uma habilidade personalizada hipotética que identifica o sobrenome mais comum de todos os sobrenomes extraídos no exemplo 2. Para fornecer apenas os sobrenomes à habilidade personalizada, especifique o contexto como `"/document"` e a entrada como `"/document/people/*/lastname"`.
 
-Observe que a cardinalidade de `"/document/people/*/lastname"` é maior do que a do documento. Pode haver 10 nós de sobrenome, enquanto há apenas um nó de documento para este documento. Neste caso, o sistema criará automaticamente uma matriz de `"/document/people/*/lastname"` contendo todos os elementos no documento.
+Note que a `"/document/people/*/lastname"` cardinalidade de é maior que a do documento. Pode haver 10 nós de sobrenome, enquanto há apenas um nó de documento para este documento. Neste caso, o sistema criará automaticamente uma matriz de `"/document/people/*/lastname"` contendo todos os elementos no documento.
 
 ```json
   {
@@ -120,7 +120,7 @@ Observe que a cardinalidade de `"/document/people/*/lastname"` é maior do que a
 
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 + [Como integrar uma habilidade personalizada a um pipeline de enriquecimento](cognitive-search-custom-skill-interface.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
 + [Criar conjunto de qualificações (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

@@ -1,5 +1,5 @@
 ---
-title: Autenticação baseada em certificado-Azure Active Directory
+title: Autenticação baseada em certificados - Diretório Ativo do Azure
 description: Aprenda a configurar a autenticação baseada em certificado no seu ambiente
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4b57c4f474b0b9def08005f32f48225d36ea8cf1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848826"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Inicie com uma autenticação baseada em certificado do Azure Active Directory
@@ -36,7 +36,7 @@ Este tópico:
 
 Para configurar a autenticação baseada em certificado, as instruções a seguir devem ser verdadeiras:
 
-- A CBA (autenticação baseada em certificado) só tem suporte em ambientes federados para aplicativos de navegador, clientes nativos que usam a ADAL (autenticação moderna) ou bibliotecas MSAL. A exceção é EAS (Exchange Active Sync) para EXO, que pode ser usada para contas gerenciadas e federadas.
+- A autenticação baseada em certificados (CBA) só é suportada para ambientes federados para aplicativos de navegador, clientes nativos usando bibliotecas ADAL (Modern Authentication, autenticação moderna) ou MSAL. A exceção é EAS (Exchange Active Sync) para EXO, que pode ser usada para contas gerenciadas e federadas.
 - A autoridade de certificação raiz e qualquer autoridade de certificação intermediária devem ser configuradas no Azure Active Directory.
 - Cada autoridade de certificação deve ter uma CRL (Lista de Certificados Revogados) que pode ser referenciada por meio de uma URL para a Internet.
 - Você deve ter pelo menos uma autoridade de certificação configurada no Azure Active Directory. Você pode encontrar etapas relacionadas na seção [Configuração de autoridades de certificação](#step-2-configure-the-certificate-authorities).
@@ -45,7 +45,7 @@ Para configurar a autenticação baseada em certificado, as instruções a segui
 - Um certificado de cliente para autenticação de cliente deve ter sido emitido para seu cliente.
 
 >[!IMPORTANT]
->O tamanho máximo de uma CRL para Azure Active Directory ser baixado com êxito e o cache é 20 MB, e o tempo necessário para baixar a CRL não deve exceder 10 segundos.  Se Azure Active Directory não puder baixar uma CRL, as autenticações baseadas em certificado usando certificados emitidos pela autoridade de certificação correspondente falharão. As práticas recomendadas para garantir que os arquivos de CRL estejam dentro das restrições de tamanho são manter os tempos de vida dos certificados dentro dos limites razoáveis e limpar os certificados expirados. 
+>O tamanho máximo de um CRL para o Azure Active Directory para baixar e cache com sucesso é de 20MB, e o tempo necessário para baixar o CRL não deve exceder 10 segundos.  Se o Azure Active Directory não conseguir baixar um CRL, autenticações baseadas em certificados usando certificados emitidos pelo CA correspondente falharão. As práticas recomendadas para garantir que os arquivos CRL estejam dentro das restrições de tamanho são manter as vidas dos certificados dentro dos limites razoáveis e limpar os certificados vencidos. 
 
 ## <a name="step-1-select-your-device-platform"></a>Etapa 1: selecione a plataforma do dispositivo
 
@@ -205,7 +205,7 @@ Um perfil do EAS pode ser configurado e colocado no dispositivo por meio da util
 1. Configure um perfil EAS no aplicativo que atenda aos requisitos da seção anterior.
 2. Abra o aplicativo e verifique a sincronização de email.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Informações adicionais sobre autenticação baseada em certificado nos dispositivos Android.](active-directory-certificate-based-authentication-android.md)
 

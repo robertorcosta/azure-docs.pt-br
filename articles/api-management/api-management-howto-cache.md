@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75708348"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Adicionar caching para melhorar o desempenho no Gerenciamento de API do Azure
@@ -46,17 +46,17 @@ Para concluir este tutorial:
 + [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 + [Importar e publicar uma API](import-and-publish.md)
 
-## <a name="caching-policies"> </a>Adicionar as políticas de cache
+## <a name="add-the-caching-policies"></a><a name="caching-policies"> </a>Adicionar as políticas de cache
 
 Com as políticas de armazenamento em cache mostradas neste exemplo, a primeira solicitação feita à operação **GetSpeakers** retorna uma resposta do serviço de back-end. Esta resposta será armazenada em cache, com uma chave de acordo com os parâmetros de cadeia de consulta e cabeçalhos especificados. Chamadas subsequentes para a operação, com parâmetros correspondentes, retornarão respostas em cache até que o intervalo de duração de cache expire.
 
-1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Navegue até sua instância de APIM.
 3. Selecione a guia **API**.
 4. Clique em **API de Conferência de Demonstração** na sua lista de APIs.
 5. Selecione **GetSpeakers**.
 6. Na parte superior da tela, selecione a guia **Design**.
-7. Na seção **Processamento de entrada**, clique no ícone **</>** .
+7. Na seção **Processamento de entrada**, clique no ícone **</>**.
 
     ![editor de códigos](media/api-management-howto-cache/code-editor.png)
 
@@ -77,17 +77,17 @@ Com as políticas de armazenamento em cache mostradas neste exemplo, a primeira 
 > [!TIP]
 > Se você estiver usando um cache externo, conforme descrito em [Uso de um Cache do Azure para Redis externo no Gerenciamento de API do Azure](api-management-howto-cache-external.md), poderá especificar o atributo `caching-type` das políticas de cache. Para obter mais detalhes, consulte [Políticas de caching do Gerenciamento de API](api-management-caching-policies.md).
 
-## <a name="test-operation"> </a>Chamar uma operação e testar o cache
+## <a name="call-an-operation-and-test-the-caching"></a><a name="test-operation"> </a>Chamar uma operação e testar o cache
 Para ver o cache em funcionamento, chame a operação por meio do portal do desenvolvedor.
 
 1. No portal do Azure, navegue até sua instância do APIM.
-2. Selecione a guia **APIs**.
+2. Selecione a guia **APIs.**
 3. Selecione a API para a qual você adicionou políticas de cache.
 4. Selecione a operação **GetSpeakers**.
 5. Clique na guia **Teste** no menu superior direito.
 6. Pressione **Enviar**.
 
-## <a name="next-steps"> </a>Próximas etapas
+## <a name="next-steps"></a><a name="next-steps"> </a>Próximas etapas
 * Para saber mais sobre as políticas de cache, veja [Políticas de cache][Caching policies] na [Referência de política do Gerenciamento de API][API Management policy reference].
 * Para saber mais sobre itens de cache por chave usando expressões de política, confira [Cache personalizado no Gerenciamento de API do Azure](api-management-sample-cache-by-key.md).
 * Para obter mais informações sobre como usar o Cache do Azure para Redis externo, confira [Usar um Cache do Azure para Redis externo no Gerenciamento de API](api-management-howto-cache-external.md).

@@ -1,5 +1,5 @@
 ---
-title: Desenvolvimento iterativo e depuração no Azure Data Factory
+title: Desenvolvimento iterativo e depuração na Fábrica de Dados Azure
 description: Saiba como desenvolver e depurar pipelines do Data Factory interativamente no Portal do Azure.
 ms.date: 09/26/2018
 ms.topic: conceptual
@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 3a771181f8f2785339cbc47e0a0234b9c4e39adc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74926843"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e depuração com o Azure Data Factory
@@ -51,13 +51,13 @@ Você pode visualizar todas as execuções de depuração que estão em andament
 
 ![Lista de exemplo de execuções de depuração ativas](media/iterative-development-debugging/view-debug-runs-image2.png)
 
-Se você tiver sessões de depuração de fluxo de dados ativas, essas sessões serão exibidas na parte inferior da janela de depuração ativa. Você pode selecionar uma sessão de fluxo de dados ativa e parar o respectivo cluster.
+Se você tiver sessões ativas de depuração de fluxo de dados, essas sessões aparecerão na parte inferior da janela de depuração ativa. Você pode selecionar uma sessão de fluxo de dados ativo e parar o respectivo cluster.
 
-![Lista de exemplos de execuções de depuração de fluxo de dados ativas](media/data-flow/dfsessions.png)
+![Lista de exemplo de depuração de fluxo de dados ativo é executada](media/data-flow/dfsessions.png)
 
 ## <a name="monitoring-debug-runs"></a>Monitorar execuções de depuração
 
-As execuções de teste iniciadas com a capacidade de **depuração** não estão disponíveis na lista na guia **Monitor** . Você só pode ver execuções disparadas com gatilhos de **janela** de **gatilho agora**, **agendamento**ou em cascata na guia **monitorar** . Você pode ver a última execução de teste iniciada com a capacidade de **depuração** na janela **saída** da tela do pipeline.
+Os testes iniciados com o recurso **Debug** não estão disponíveis na lista na guia **Monitor.** Você só pode ver as corridas acionadas com **gatilho agora,** **agendar**ou **janelas de queda** na guia **Monitor.** Você pode ver a última execução de teste iniciada com a capacidade **Debug** na janela **Saída** da tela do pipeline.
 
 ## <a name="setting-breakpoints-for-debugging"></a>Definir pontos de interrupção para depuração
 
@@ -73,5 +73,5 @@ Depois de selecionar a opção *Depurar Até*, ele é alterado para um círculo 
 
 ![Depois de configurar um ponto de interrupção no elemento selecionado](media/iterative-development-debugging/iterative-development-image6.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Integração e implementação contínuas no Azure Data Factory](continuous-integration-deployment.md)

@@ -1,5 +1,5 @@
 ---
-title: Usando a biblioteca de cliente do banco de dados elástico com Entity Framework
+title: Usando biblioteca de clientes de banco de dados elástico com Entity Framework
 description: Usar a biblioteca de cliente do Banco de Dados Elástico e o Entity Framework para bancos de dados de codificação
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
 ms.openlocfilehash: 1653a904875964d86864c59c718603a6dacdcbda
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77087179"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca cliente do Banco de Dados Elástico com Entity Framework
@@ -27,7 +27,7 @@ Este documento mostra as alterações em um aplicativo do Entity Framework neces
 Para baixar o código para este artigo:
 
 * É necessário o Visual Studio 2012 ou posterior. 
-* Baixe o [exemplo de integração de ferramentas de banco de BD elástico para SQL do Azure-Entity Framework](https://github.com/Azure/elastic-db-tools/). Descompacte o exemplo em um local de sua escolha.
+* Baixe as [ferramentas elásticas DB para a amostra Azure SQL - Entity Framework Integration](https://github.com/Azure/elastic-db-tools/). Descompacte o exemplo em um local de sua escolha.
 * Inicie o Visual Studio. 
 * No Visual Studio, selecione Arquivo -> Abrir Projeto/Solução. 
 * Na caixa de diálogo **Abrir Projeto**, navegue até o exemplo que você baixou e selecione **EntityFrameworkCodeFirst.sln** para abrir a amostra. 
@@ -44,8 +44,8 @@ Depois de criar esses bancos de dados, preencha os espaços reservados em **Prog
 
 Os desenvolvedores do Entity Framework dependem de um dos seguintes quatro fluxos de trabalho para criar aplicativos e para garantir a persistência de objetos de aplicativo:
 
-* **Code First (Novo banco de dados)** : o desenvolvedor do EF cria o modelo no código do aplicativo e, em seguida, o EF gera o banco de dados por meio dele. 
-* **Code First (Banco de dados existente)** : o desenvolvedor deixa o EF criar código do aplicativo para o modelo por meio de um banco de dados existente.
+* **Code First (Novo banco de dados)**: o desenvolvedor do EF cria o modelo no código do aplicativo e, em seguida, o EF gera o banco de dados por meio dele. 
+* **Code First (Banco de dados existente)**: o desenvolvedor deixa o EF criar código do aplicativo para o modelo por meio de um banco de dados existente.
 * **Model First**: o desenvolvedor cria o modelo no designer de EF e, em seguida, o EF cria o banco de dados por meio do modelo.
 * **Database First**: o desenvolvedor usa ferramentas do EF para inferir o modelo a por meio de um banco de dados existente. 
 
@@ -275,7 +275,7 @@ As abordagens descritas neste documento envolvem algumas limitações:
 
 ## <a name="conclusion"></a>Conclusão
 
-Por meio das etapas descritas neste documento, os aplicativos do EF podem usar a funcionalidade da biblioteca cliente do banco de dados elástico para o roteamento dependente de dados executado pelos construtores de refatoração das subclasses **DbContext** usadas no aplicativo do EF. Isso limita as alterações necessárias para os locais onde as classes do **DbContext** já existem. Além disso, aplicativos do EF podem continuar a se beneficiar com a implantação automática do esquema, combinando as etapas que invocam as migrações necessárias do EF com o registro de novos fragmentos e mapeamentos no mapa de fragmentos. 
+Por meio das etapas descritas neste documento, os aplicativos do EF podem usar a funcionalidade da biblioteca cliente do banco de dados elástico para o roteamento dependente de dados executado pelos construtores de refatoração das subclasses **DbContext** usadas no aplicativo do EF. Isso limita as alterações necessárias aos locais onde as aulas **do DbContext** já existem. Além disso, aplicativos do EF podem continuar a se beneficiar com a implantação automática do esquema, combinando as etapas que invocam as migrações necessárias do EF com o registro de novos fragmentos e mapeamentos no mapa de fragmentos. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

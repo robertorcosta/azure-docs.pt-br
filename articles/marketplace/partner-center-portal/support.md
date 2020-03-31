@@ -1,83 +1,82 @@
 ---
-title: Obtenha suporte para o portal do Marketplace comercial no Partner Center
+title: Obtenha suporte para o portal Do Mercado Comercial no Partner Center
 description: Saiba mais sobre suas opções de suporte no Partner Center, incluindo como arquivar uma solicitação de suporte.
 author: qianw211
-manager: evansma
-ms.author: jamwall
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/07/2020
-ms.openlocfilehash: a85d9ebb03ea0c9ebe078ad49ce6bbf40a5b004d
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: fbfc8cc29a1584dbc9f7e4ff0b73513d85950f99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927551"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281384"
 ---
-# <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Suporte para o programa do Marketplace comercial no Partner Center
+# <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Suporte ao programa Marketplace Comercial no Partner Center
 
-A Microsoft fornece suporte para uma ampla variedade de produtos e serviços. Encontrar a equipe de suporte correta é importante para garantir uma resposta apropriada e oportuna. Considere os seguintes cenários, que podem ajudá-lo a rotear sua consulta para a equipe apropriada: 
+A Microsoft fornece suporte para uma ampla variedade de produtos e serviços. Encontrar a equipe de suporte certa é importante para garantir uma resposta adequada e oportuna. Considere os seguintes cenários, que podem ajudá-lo a rotear sua consulta para a equipe apropriada: 
 
-- Se você for um Publicador e tiver uma pergunta de um cliente, peça ao cliente para solicitar suporte usando os links de suporte no [portal do Azure](https://portal.azure.com/). 
+- Se você é um editor e tem uma pergunta de um cliente, peça ao seu cliente para solicitar suporte usando os links de suporte no [portal Azure](https://portal.azure.com/). 
 
-- Se você for um Publicador e tiver uma pergunta relacionada ao seu aplicativo ou serviço, examine as opções de suporte a seguir.
+- Se você é um editor e tem uma pergunta relacionada ao seu aplicativo ou serviço, revise as seguintes opções de suporte.
 
-## <a name="support-options-for-publishers"></a>Opções de suporte para Publicadores
+## <a name="support-options-for-publishers"></a>Opções de suporte para editores
 
-1. Entre no programa do [Marketplace comercial no Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) com sua conta corporativa. (Se você ainda não tiver feito isso, será necessário [criar uma conta do Partner Center](./create-account.md).)
+1. Faça login no [programa Commercial Marketplace no Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) com sua conta de trabalho. (Se você ainda não fez isso, você precisará [criar uma conta do Partner Center](./create-account.md).)
 
-2. No menu superior no lado direito da página, selecione o ícone de **suporte** . 
+2. No menu superior no lado direito da página, selecione o ícone **Suporte.** 
  
-3. O painel **ajuda e suporte** será exibido no lado direito da página. 
+3. O painel **Ajuda e suporte** aparecerá do lado direito da página. 
  
    ![Menu suspenso de suporte](./media/commercial-marketplace-support-pane.png)
 
-    Ou vá até o painel **página inicial** e selecione **ajuda e suporte**.
+    Ou vá para o **painel home page** e selecione Ajuda e **suporte**.
 
-   ![Ajuda e suporte da Home Page](./media/homepage-help-support.png)
+   ![Ajuda e suporte da home page](./media/homepage-help-support.png)
 
-4. Selecione a **[documentação](../index.yml)** para examinar as respostas abrangentes para perguntas e recursos. 
+4. Selecione **[Documentação](../index.yml)** para revisar respostas abrangentes a perguntas e recursos. 
 
-5. Selecione **[Fórum da comunidade de parceiros do Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** para responder suas perguntas, aproveitando o conhecimento de outros publicadores da Microsoft. 
+5. Selecione **[o fórum da comunidade de parceiros de marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** para responder às suas perguntas aproveitando o conhecimento de outros editores da Microsoft. 
 
-6. Selecione **[ajuda adicional](https://aka.ms/marketplacepublishersupport)** para abrir um **novo** tíquete de solicitação de suporte.  
+6. Selecione **[ajuda adicional](https://aka.ms/marketplacepublishersupport)** para abrir um novo bilhete de solicitação **de suporte.**  
 
 ## <a name="how-to-open-a-support-ticket"></a>Como abrir um tíquete de suporte
 
-Agora você está pronto para abrir um tíquete de suporte na tela de **ajuda e suporte** .
+Agora você está pronto para abrir um bilhete de suporte na tela **ajuda e suporte.**
 
 ![Ajuda e suporte](./media/help-and-support.png)
 
 >[!Note]
->Se você estiver conectado ao Partner Center, receberá uma experiência melhor com o suporte.
+>Se você estiver logado no Partner Center, receberá melhor experiência com suporte.
 
-**Opção 1:** Insira palavras-chave como: Marketplace, aplicativo do Azure, oferta de SaaS, gerenciamento de conta, gerenciamento de Lead, problema de implantação, pagamento, etc.
+**Opção 1:** Digite palavras-chave como: Marketplace, aplicativo Azure, oferta SaaS, gerenciamento de contas, gerenciamento de lead, emissão de implantação, pagamento, etc.
 
-**Opção 2:** Procurar tópicos-> selecione **categoria** = Marketplace comercial – > selecione o **tópico** apropriado e **subtópico**.
+**Opção 2:** Procurar tópicos -> selecionar **Categoria** = mercado comercial -> selecionar o Tópico apropriado **e** **subtópico**.
 
-Depois de encontrar o tópico de sua escolha, selecione **examinar soluções**.
+Depois de encontrar o tópico de sua escolha, selecione **Soluções de revisão**.
 
 ![Próxima etapa](./media/next-step.png)
 
-As seguintes opções ficarão disponíveis:
+As seguintes opções serão disponibilizadas:
 
-* Para selecionar um tópico diferente, selecione um link de tópico diferente em **problema selecionado**.
-* Examine a descrição desse problema, se disponível.  É o texto mostrado acima das **etapas recomendadas**.
-* Examine **as etapas recomendadas**, se disponíveis.
-* Examine os **documentos recomendados**, se disponíveis.
+* Para selecionar um tópico diferente, selecione um link de tópico diferente em **edição selecionada**.
+* Revise a descrição desta edição, se disponível.  É o texto mostrado acima das **etapas recomendadas.**
+* Revise **as etapas recomendadas,** se disponível.
+* Revise **os documentos recomendados,** se disponível.
 
 ![Soluções recomendadas](./media/recommended-solutions.png)
 
-Caso não encontre sua resposta em **soluções recomendadas**, clique em **fornecer detalhes do problema**.  Preencha o formulário e todos os campos obrigatórios para ajudar a acelerar o processo de resolução.  Em seguida, clique em **Enviar**.
+Caso você não encontre sua resposta nas **soluções recomendadas,** clique em **fornecer detalhes do problema**.  Preencha o formulário e todos os campos necessários para ajudar a acelerar o processo de resolução.  Em seguida, clique **em enviar**.
 
 >[!Note]
->Se você não tiver feito logon no Partner Center e o tópico exigir autenticação, será solicitado que você faça logon antes de continuar.  Para tópicos públicos, a autenticação não é necessária.
+>Se você não fez login no Partner Center e o tópico requer autenticação, você será solicitado a fazer login antes de prosseguir.  Para tópicos públicos, a autenticação não é necessária.
 
 ## <a name="track-your-existing-support-requests"></a>Acompanhe suas solicitações de suporte existentes 
 
-Para examinar todos os tíquetes abertos e fechados, vá para o **Marketplace comercial** na barra de navegação à esquerda e selecione **suporte**.
+Para revisar todos os seus bilhetes abertos e fechados, vá ao **Comercial Marketplace** na barra de navegação à esquerda e selecione **o suporte**.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Atualizar uma oferta existente no Marketplace comercial](./update-existing-offer.md)

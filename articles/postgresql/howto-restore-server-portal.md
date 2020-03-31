@@ -1,19 +1,19 @@
 ---
-title: Backup e restauração-portal do Azure-banco de dados do Azure para PostgreSQL-servidor único
-description: Este artigo descreve como restaurar um servidor no banco de dados do Azure para PostgreSQL-servidor único usando o portal do Azure.
+title: Backup e restauração - Portal Azure - Banco de Dados Azure para PostgreSQL - Servidor Único
+description: Este artigo descreve como restaurar um servidor no Banco de Dados Azure para PostgreSQL - Servidor Único usando o portal Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.openlocfilehash: fb13e4f062976e39c3cec607001e6982db228873
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74765623"
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no banco de dados do Azure para PostgreSQL-servidor único usando o portal do Azure
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no Banco de Dados Azure para PostgreSQL - Servidor Único usando o portal Azure
 
 ## <a name="backup-happens-automatically"></a>O backup ocorre automaticamente
 O backup do Banco de Dados do Azure para servidores PostgreSQL é feito periodicamente para habilitar os recursos de restauração. Com esse recurso de backup automático, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior em um novo servidor.
@@ -33,7 +33,7 @@ Ao criar um servidor por meio do portal do Azure, a janela **Tipo de Preço** é
 Para saber mais sobre como definir esses valores de durante a criação, confira o [guia de início rápido do Banco de Dados do Azure para servidor PostgreSQL](quickstart-create-server-database-portal.md).
 
 O período de retenção de backup de um servidor pode ser alterado por meio das seguintes etapas:
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+1. Inscreva-se no [portal Azure](https://portal.azure.com/).
 2. Selecione seu servidor de Banco de Dados do Azure para PostgreSQL. Essa ação abre a página **Visão geral** do runbook.
 3. Selecione **Tipo de Preço** no menu, em **CONFIGURAÇÕES**. Usando o controle deslizante, você pode alterar o **Período de Retenção de Backup** entre 7 e 35 dias, conforme a sua preferência.
 Na captura de tela abaixo, ele foi aumentado para 34 dias.
@@ -43,7 +43,7 @@ Na captura de tela abaixo, ele foi aumentado para 34 dias.
 
 O período de retenção de backup determina até quando a restauração de pontos anteriores pode ser feita, já que ele se baseia em backups disponíveis. A Restauração pontual é descrita mais detalhadamente na seção a seguir. 
 
-## <a name="point-in-time-restore"></a>Restauração pontual
+## <a name="point-in-time-restore"></a>Restauração em um momento determinado
 O Banco de Dados do Azure para PostgreSQL permite a restauração do servidor em um ponto anterior no tempo e em uma nova cópia do servidor. Você pode usar esse novo servidor para recuperar seus dados ou fazer seu aplicativo cliente apontar para esse novo servidor.
 
 Por exemplo, se uma tabela for acidentalmente descartada ao meio-dia de hoje, você poderá restaurar em um momento logo antes do meio-dia e recuperar a tabela e os dados dessa nova cópia do servidor. A restauração pontual está no nível do servidor, não no nível do banco de dados.
@@ -69,14 +69,14 @@ As etapas a seguir restauram o exemplo de servidor para um ponto anterior:
 
 O novo servidor criado pela restauração pontual tem o mesmo nome de logon e senha do administrador válidos para o servidor existente no ponto escolhido. Você pode alterar a senha na página **Visão geral** do novo servidor.
 
-O novo servidor criado durante uma restauração não tem as regras de firewall ou os pontos de extremidade de serviço de VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para esse novo servidor.
+O novo servidor criado durante uma restauração não tem as regras de firewall ou pontos finais de serviço VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para este novo servidor.
 
 
 ## <a name="geo-restore"></a>Restauração geográfica
 
 Se você configurou seu servidor para backups com redundância geográfica, um novo servidor pode ser criado do backup do servidor existente. Esse novo servidor pode ser criado em qualquer região em que o Banco de Dados do Azure para PostgreSQL esteja disponível.  
 
-1. Selecione o botão **Criar um recurso** (+) no canto superior esquerdo do portal. Selecione **Bancos de Dados** > **Banco de Dados do Azure para PostgreSQL**.
+1. Selecione o **Botão Criar um recurso** (+) no canto superior esquerdo do portal. Selecione **Bancos de** > **Dados Azure para PostgreSQL**.
 
    ![A opção “Banco de Dados do Azure para PostgreSQL”](./media/howto-restore-server-portal/1-navigate-to-postgres.png)
 
@@ -92,9 +92,9 @@ Se você configurou seu servidor para backups com redundância geográfica, um n
 
 O novo servidor criado pela restauração geográfica tem o mesmo nome de logon e senha do administrador válidos para o servidor existente no momento em que a restauração foi iniciada. A senha pode ser alterada na página **Visão geral** do servidor.
 
-O novo servidor criado durante uma restauração não tem as regras de firewall ou os pontos de extremidade de serviço de VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para esse novo servidor.
+O novo servidor criado durante uma restauração não tem as regras de firewall ou pontos finais de serviço VNet que existiam no servidor original. Essas regras precisam ser configuradas separadamente para este novo servidor.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre os [backups](concepts-backup.md) do serviço.
 - Saiba mais sobre as opções de [continuidade dos negócios](concepts-business-continuity.md).

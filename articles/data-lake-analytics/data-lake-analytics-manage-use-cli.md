@@ -1,5 +1,5 @@
 ---
-title: Gerenciar Azure Data Lake Analytics usando CLI do Azure
+title: Gerencie o Azure Data Lake Analytics usando o Azure CLI
 description: Este artigo descreve como usar a CLI do Azure para gerenciar trabalhos, fontes de dados e usuários do Data Lake Analytics.
 services: data-lake-analytics
 author: jasonwhowell
@@ -8,12 +8,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: d66926d8ba87096537800d22a9c116b7b10d23cf
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 69a48952ef273acb8cf7eb0ec5968e12b962b622
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309731"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454356"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gerenciar o Azure Data Lake Analytics usando a CLI (interface de linha de comando) do Azure
 
@@ -60,7 +60,7 @@ Execute o comando a seguir para criar uma conta Data Lake,
 
 ### <a name="update-accounts"></a>Atualizar contas
 
-O comando a seguir atualiza as propriedades de uma conta existente da Análise Data Lake
+O comando a seguir atualiza as propriedades de uma conta existente da Análise Data Lake 
 
    ```azurecli
    az dla account update --account "<Data Lake Analytics Account Name>" --firewall-state "Enabled" --query-store-retention 7
@@ -90,8 +90,8 @@ Listar contas da Análise Data Lake em um grupo de recursos específico
 
 No momento, o Data Lake Analytics dá suporte às duas fontes de dados a seguir:
 
-* [Repositório Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
-* [Armazenamento do Azure](../storage/common/storage-introduction.md)
+* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
+* [Armazenamento Azure](../storage/common/storage-introduction.md)
 
 Quando você cria uma conta da Análise, é necessário designar uma conta do Armazenamento do Azure Data Lake como a conta de armazenamento padrão. A conta de armazenamento padrão do Data Lake é usada para armazenar metadados de trabalho e logs de auditoria de trabalho. Depois de criar uma conta da Análise, é possíveis adicionar outras contas do Armazenamento do Data Lake e/ou uma conta do Armazenamento do Azure. 
 
@@ -143,7 +143,7 @@ Para listar as contas do Armazenamento de Blobs:
    az dla account blob-storage list --account "<Data Lake Analytics account name>"
    ```
 
-![Fonte de dados de lista da Análise Data Lake](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
+![Fonte de dados de lista da Análise Data Lake  ](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
 ### <a name="delete-data-sources"></a>Excluir fontes de dados:
 Para excluir uma conta do Repositório do Data Lake:
@@ -167,7 +167,7 @@ Você deve ter uma conta da Análise Data Lake antes de criar um trabalho.  Para
    az dla job list --account "<Data Lake Analytics account name>"
    ```
 
-   ![Fonte de dados de lista da Análise Data Lake](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-jobs.png)
+   ![Fonte de dados de lista da Análise Data Lake  ](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-jobs.png)
 
 ### <a name="get-job-details"></a>Exibir detalhes do trabalho
 
@@ -197,7 +197,7 @@ Use o comando “list” para localizar o ID do trabalho e use “cancel” para
 
 Utilize os comandos `az dla job pipeline` para consultar as informações de pipeline para trabalhos enviados anteriormente.
 
-```
+```azurecli
 az dla job pipeline list --account "<Data Lake Analytics Account Name>"
 
 az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
@@ -205,15 +205,15 @@ az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeli
 
 Utilize os comandos `az dla job recurrence` para consultar as informações de recorrência para trabalhos enviados anteriormente.
 
-```
+```azurecli
 az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
-## <a name="see-also"></a>Consulte também
-* [Visão geral da Análise do Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Introdução à Análise do Data Lake usando o portal do Azure](data-lake-analytics-get-started-portal.md)
-* [Gerenciar o Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-manage-use-portal.md)
-* [Monitorar e solucionar problemas em trabalhos do Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+## <a name="see-also"></a>Confira também
+* [Visão geral da Análise Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+* [Comece com o Data Lake Analytics usando o portal Azure](data-lake-analytics-get-started-portal.md)
+* [Gerencie o Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-manage-use-portal.md)
+* [Monitore e soluciona problemas do Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 

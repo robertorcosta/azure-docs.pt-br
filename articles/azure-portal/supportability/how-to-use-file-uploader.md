@@ -1,6 +1,6 @@
 ---
-title: Solicitação de suporte do Azure-diretrizes de upload de arquivo
-description: Descreve as diretrizes ao usar Microsoft Azure opção de upload de arquivo de solicitação de suporte
+title: Solicitação de suporte do Azure - diretrizes de upload de arquivos
+description: Descreve as diretrizes ao usar a opção de upload de solicitação de solicitação de suporte do Microsoft Azure
 author: genlin
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
@@ -9,26 +9,26 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: genli
 ms.openlocfilehash: ac8dffe3b1200f3925478f968170498ee744bb79
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76548961"
 ---
-# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Diretrizes do utilitário de upload de novo arquivo de solicitação de suporte Microsoft Azure
+# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Novas diretrizes de utilitário de upload de arquivos de solicitação de suporte do Microsoft Azure
 
-Quando você [cria uma solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support), a opção de carregamento de arquivo pode ajudá-lo a carregar facilmente os arquivos de diagnóstico ou quaisquer outros arquivos que você ache relevantes para o incidente.  
+Quando você [cria uma solicitação de suporte,](https://portal.azure.com/#create/Microsoft.Support)a opção de upload de arquivos pode ajudá-lo a carregar facilmente arquivos de diagnóstico ou quaisquer outros arquivos que você acha que são relevantes para o incidente.  
 
 > [!NOTE]
 > Para proteger sua privacidade, não inclua nenhuma informação pessoal em seu upload.
 >
 >
 
-Siga estas diretrizes ao usar a opção de carregamento de arquivo:
+Siga estas diretrizes quando usar a opção de upload de arquivos:
 
-* Todos os arquivos devem ter uma extensão de nome de arquivo, como *. docx* ou *. xlsx*. Consulte a tabela para obter as extensões de nome de arquivo permitidas.
+* Todos os arquivos devem ter uma extensão de nome de arquivo, como *.docx* ou *.xlsx*. Consulte a tabela para as extensões permitidas do nome do arquivo.
 * O nome do arquivo deve ter menos de 110 caracteres.
-* Não é possível carregar mais de um arquivo.
+* Você não pode carregar mais de um arquivo.
 * Os arquivos não podem ser maiores que 4 MB.
 
 ## <a name="table-of-the-allowed-file-name-extensions"></a>Tabela das extensões de nome de arquivo permitidas

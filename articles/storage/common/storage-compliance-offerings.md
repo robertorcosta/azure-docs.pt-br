@@ -9,17 +9,17 @@ ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: 1ad41b0b7391236a15b7c1be7d42ed81aaf5b51a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61483427"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Ofertas de conformidade do Armazenamento do Azure
 
 Para ajudar as organizações a atenderem aos requisitos nacionais, regionais e específicos do setor que controlam a coleta e o uso de dados de indivíduos, o Microsoft Azure e o Armazenamento do Azure oferecem o conjunto mais abrangente de certificações e atestados que qualquer provedor de serviços de nuvem.
 
-Encontre abaixo as ofertas de conformidade do Armazenamento do Azure para garantir que seu serviço esteja regulamentado ao usar o serviço de Armazenamento do Azure. Elas são aplicáveis às ofertas do Armazenamento do Azure a seguir: Blobs, Arquivos, Filas, Tabelas, Discos, Armazenamento Esporádico e Armazenamento Premium.
+Encontre abaixo as ofertas de conformidade do Armazenamento do Azure para garantir que seu serviço esteja regulamentado ao usar o serviço de Armazenamento do Azure. Elas são aplicáveis às seguintes ofertas do Armazenamento do Azure: blobs, arquivos, filas, tabelas, discos, armazenamento esporádico e Armazenamento Premium.
 
 ## <a name="global"></a>Global
 
@@ -79,7 +79,7 @@ Encontre abaixo as ofertas de conformidade do Armazenamento do Azure para garant
 * [ENISA IAF (UE)](https://aka.ms/AzureCompliance)
 * [ENS (Espanha)](https://www.microsoft.com/trustcenter/compliance/spainens)
 * [Cláusulas de modelo da UE](https://www.microsoft.com/trustcenter/compliance/eu-model-clauses)
-* [Blindagem de privacidade UE-EUA](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
+* [Escudo de privacidade UE-EUA](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
 * [GB 18030 (China)](https://www.trustcenter.cn/compliance/default.html#GB18030)
 * [GDPR (UE)](https://www.microsoft.com/trustcenter/privacy/gdpr)
 * [IT Grundschutz Workbook (Alemanha)](https://www.microsoft.com/TrustCenter/Compliance/IT-Grundschutz)

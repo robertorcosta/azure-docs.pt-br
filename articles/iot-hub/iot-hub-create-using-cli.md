@@ -1,6 +1,6 @@
 ---
 title: Criar um Hub IoT usando a CLI do Azure | Microsoft Docs
-description: Saiba como usar os comandos de CLI do Azure para criar um grupo de recursos e, em seguida, criar um hub IoT no grupo de recursos. Saiba também como remover o Hub.
+description: Aprenda a usar os comandos Azure CLI para criar um grupo de recursos e, em seguida, criar um hub de IoT no grupo de recursos. Aprenda também como remover o hub.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
 ms.openlocfilehash: e7253747d95917e34725cc7c6c034b1306f65e50
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284714"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Criar um Hub IoT usando a CLI do Azure
@@ -20,7 +20,7 @@ ms.locfileid: "79284714"
 
 Este artigo mostra como criar um Hub IoT usando a CLI do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir estas instruções, você precisa de uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -72,7 +72,7 @@ O comando anterior cria um Hub IoT com tipo de preço S1, pelo qual você será 
 
 Você pode usar a CLI do Azure para [excluir um recurso individual](https://docs.microsoft.com/cli/azure/resource), tal como um Hub IoT, ou excluir um grupo de recursos e todos os seus recursos, incluindo quaisquer Hubs IoT.
 
-Para [excluir um Hub IoT](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-delete), execute o seguinte comando:
+Para [excluir um hub IoT,](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-delete)execute o seguinte comando:
 
 ```azurecli
 az iot hub delete --name {your iot hub name} -\
@@ -89,5 +89,5 @@ az group delete --name {your resource group name}
 
 Para saber mais sobre como usar um Hub IoT, veja os seguintes artigos:
 
-* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
+* [Guia de desenvolvedores do IoT Hub](iot-hub-devguide.md)
 * [Usar o portal do Azure para gerenciar o Hub IoT](iot-hub-create-through-portal.md)

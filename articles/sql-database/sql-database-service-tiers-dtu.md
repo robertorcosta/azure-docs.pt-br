@@ -1,5 +1,5 @@
 ---
-title: Camadas de serviço-modelo de compra baseado em DTU
+title: Níveis de serviço - Modelo de compra baseado em DTU
 description: Saiba mais sobre as camadas de serviço do modelo de compra baseado em DTU, para bancos de dados individuais e em pool, para fornecer tamanhos de computação e de armazenamento.
 services: sql-database
 ms.service: sql-database
@@ -12,15 +12,15 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
 ms.openlocfilehash: 2f316e57e407a0588e77f56d6e1fbe8c19ba5fee
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75562112"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Camadas de serviço no modelo de compra baseado em DTU
 
-As camadas de serviço no modelo de compra baseado em DTU são diferenciadas por uma gama de tamanhos da computação com quantidade fixa de armazenamento incluído, período de retenção fixo para backups e preço fixo. Todas as camadas de serviço no modelo de compra baseado em DTU fornecem flexibilidade para alterar os tamanhos de computação com [tempo de inatividade](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)mínimo; no entanto, há uma mudança no período em que a conectividade é perdida no banco de dados por um curto período de tempo, o que pode ser mitigado usando a lógica de repetição. Os bancos de dados individuais e os pools elásticos são cobrados por hora com base na camada de serviço e no tamanho da computação.
+As camadas de serviço no modelo de compra baseado em DTU são diferenciadas por uma gama de tamanhos da computação com quantidade fixa de armazenamento incluído, período de retenção fixo para backups e preço fixo. Todos os níveis de serviço no modelo de compra baseado em DTU fornecem flexibilidade para alterar tamanhos de computação com tempo mínimo [de inatividade;](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/) no entanto, há uma mudança ao longo do período em que a conectividade é perdida para o banco de dados por um curto período de tempo, que pode ser atenuada usando a lógica de repetição. Os bancos de dados individuais e os pools elásticos são cobrados por hora com base na camada de serviço e no tamanho da computação.
 
 > [!IMPORTANT]
 > A instância gerenciada do Banco de Dados SQL não dá suporte ao modelo de compra baseado em DTU. Para obter mais informações, consulte [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md).
@@ -31,11 +31,11 @@ As camadas de serviço no modelo de compra baseado em DTU são diferenciadas por
 
 Escolher uma camada de serviço depende principalmente da continuidade dos negócios, armazenamento e requisitos de desempenho.
 
-||Básico|Padrão|Premium|
+||Basic|Standard|Premium|
 | :-- | --: |--:| --:|
 |Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
-|Contrato de Nível de Serviço de tempo de atividade|99,99%|99,99%|99,99%|
-|Retenção de backup máxima|7 dias|35 dias|35 dias|
+|SLA de tempo de atividade|99,99%|99,99%|99,99%|
+|Retenção máxima de backup|7 dias|35 dias|35 dias|
 |CPU|Baixo|Baixo, Médio, Alto|Médio, Alto|
 |Taxa de transferência de E/S (aproximada) |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
 |Latência de E/S (aproximada)|5 ms (leitura), 10 ms (gravação)|5 ms (leitura), 10 ms (gravação)|2 ms (leitura/gravação)|
@@ -44,26 +44,26 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 |||||
 
 > [!IMPORTANT]
-> As camadas de serviço básico, Standard S0, S1 e S2 fornecem menos de um vCore (CPU).  Para cargas de trabalho com uso intensivo de CPU, é recomendável uma camada de serviço S3 ou superior. 
+> Os níveis de serviço Basic, Standard S0, S1 e S2 fornecem menos de um vCore (CPU).  Para cargas de trabalho intensivas em CPU, recomenda-se um nível de serviço de S3 ou superior. 
 >
->Em relação ao armazenamento de dados, as camadas de serviço básico, Standard S0 e S1 são colocadas em blobs de páginas padrão. Os blobs de páginas padrão usam mídia de armazenamento baseada em HDD (unidade de disco rígido) e são mais adequados para desenvolvimento, teste e outras cargas de trabalho acessadas com pouca frequência que são menos sensíveis à variabilidade de desempenho.
+>Em relação ao armazenamento de dados, os níveis de serviço Basic, Standard S0 e S1 são colocados em Blobs de página padrão. Os Blobs de página padrão usam mídia de armazenamento baseada em disco rígido (HDD) e são mais adequados para desenvolvimento, testes e outras cargas de trabalho pouco acessadas que são menos sensíveis à variabilidade de desempenho.
 >
 
 > [!NOTE]
-> Você pode obter um banco de dados SQL do Azure gratuito na camada de serviço básica em conjunto com uma conta gratuita do Azure para explorar o Azure. Para obter informações, consulte [Crie um banco de dados de nuvem gerenciado com sua conta gratuita do Azure](https://azure.microsoft.com/free/services/sql-database/).
+> Você pode obter um banco de dados SQL gratuito no nível de serviço Basic em conjunto com uma conta gratuita do Azure para explorar o Azure. Para obter informações, consulte [Crie um banco de dados de nuvem gerenciado com sua conta gratuita do Azure](https://azure.microsoft.com/free/services/sql-database/).
 
 ## <a name="single-database-dtu-and-storage-limits"></a>DTU de banco de dados único e limite de armazenamento
 
-Os tamanhos da computação são expressos em termos de DTUs (unidades de transação de banco de dados) para bancos de dados individuais e de eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para obter mais informações sobre DTUs e eDTUs, consulte [modelo de compra baseado em DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
+Os tamanhos da computação são expressos em termos de DTUs (unidades de transação de banco de dados) para bancos de dados individuais e de eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para obter mais informações sobre DTUs e eDTUs, consulte [o modelo de compra baseado em DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
 
-||Básico|Padrão|Premium|
+||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
 | Tamanho máximo de armazenamento | 2 GB | 1 TB | 4 TB  |
 | Máximo de DTUs | 5 | 3000 | 4000 | 
 |||||
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [Gerenciar espaço de arquivos no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>EDTU de pool elástico, armazenamento e limites de banco de dados em pool
 
@@ -77,9 +77,9 @@ Os tamanhos da computação são expressos em termos de DTUs (unidades de transa
 |||||
 
 > [!IMPORTANT]
-> Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto: Leste da China, Norte da China, Alemanha central, Alemanha nordeste, Oeste EUA Central, regiões de US DoD e central do governo dos EUA. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB.  Para obter mais informações, confira [Limitações atuais de P11-P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> Mais de 1 TB de armazenamento no nível Premium está atualmente disponível em todas as regiões, exceto: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regiões e US Government Central. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB.  Para obter mais informações, confira [Limitações atuais de P11-P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!IMPORTANT]
-> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, confira [Gerenciar espaço para arquivo no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivos no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
 
 ## <a name="dtu-benchmark"></a>Parâmetro de comparação de DTU
 
@@ -105,11 +105,11 @@ Um programa de geração de dados gera os dados para o banco de dados inicial. O
 
 O banco de dados é dimensionado com base em um "fator de escala". O fator de escala (abreviado como SF) determina a cardinalidade das tabelas em escala e crescentes. Conforme descrito abaixo na seção Usuários e Definição, o tamanho do banco de dados, o número de usuários e o desempenho máximo são dimensionados proporcionalmente entre si.
 
-### <a name="transactions"></a>Transações
+### <a name="transactions"></a>Transactions
 
 A carga de trabalho consiste em nove tipos de transação, conforme mostrado na tabela a seguir. Cada transação é projetada para realçar um conjunto de características do sistema em particular no mecanismo de banco de dados e no hardware do sistema, com alto contraste em relação às outras transações. Essa abordagem facilita a avaliação do impacto dos diferentes componentes no desempenho geral. Por exemplo, a transação "Leitura Intensa" gera um número significativo de operações de leitura do disco.
 
-| Tipo de transação | Description |
+| Tipo de transação | Descrição |
 | --- | --- |
 | Leitura Simples |SELECT; na memória; somente leitura |
 | Leitura Média |SELECT; maior parte na memória; somente leitura |
@@ -171,10 +171,10 @@ As principais métricas no parâmetro de comparação são a taxa de transferên
 | Classe de serviço | Medida de taxa de transferência | Requisito de tempo de resposta |
 | --- | --- | --- |
 | Premium |Transações por segundo |95º percentil em 0,5 segundo |
-| Padrão |Transações por minuto |90º percentil em 1,0 segundo |
-| Básico |Transações por hora |80º percentil em 2,0 segundos |
+| Standard |Transações por minuto |90º percentil em 1,0 segundo |
+| Basic |Transações por hora |80º percentil em 2,0 segundos |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter detalhes sobre os tamanhos da computação específicos e as opções de tamanho de armazenamento disponíveis para bancos de dados individuais, confira [Limites de recursos baseados em DTU do Banco de Dados SQL para bancos de dados individuais](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
 - Para obter detalhes sobre os tamanhos da computação específicos e opções de tamanho de armazenamento disponíveis para pools elásticos, confira [Limites de recursos baseados em DTU do Banco de Dados SQL](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

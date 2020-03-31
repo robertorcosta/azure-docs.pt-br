@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
 ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75769652"
 ---
-## <a name="rest"></a>Implantar o arquivo ZIP com APIs REST 
+## <a name="deploy-zip-file-with-rest-apis"></a><a name="rest"></a>Implantar o arquivo ZIP com APIs REST 
 
 Você pode usar as [APIs REST do serviço de implantação](https://github.com/projectkudu/kudu/wiki/REST-API) para implantar o arquivo .zip ao seu aplicativo no Azure. Para implantá-lo, envie uma solicitação POST para https://<app_name>.scm.azurewebsites.net/api/zipdeploy. A solicitação POST deve conter o arquivo .zip no corpo da mensagem. As credenciais de implantação para seu aplicativo são fornecidas na solicitação usando a autenticação BÁSICA HTTP. Para obter mais informações, consulte a [referência de implantação por push do .zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
 
@@ -33,7 +33,7 @@ curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deploymen
 
 ### <a name="with-powershell"></a>Com o PowerShell
 
-O exemplo a seguir usa [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) para carregar o arquivo. zip. Substitua os espaços reservados `<group-name>`, `<app-name>` e `<zip-file-path>`.
+O exemplo a seguir usa [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) para carregar o arquivo .zip. Substitua os espaços reservados `<group-name>`, `<app-name>` e `<zip-file-path>`.
 
 ```powershell
 Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <zip-file-path>
@@ -41,7 +41,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 Essa solicitação dispara a implantação de envio do arquivo .zip carregado. 
 
-Para examinar as implantações atuais e anteriores, execute os comandos a seguir. Novamente, substitua os espaços reservados `<deployment-user>`, `<deployment-password>`e `<app-name>`.
+Para examinar as implantações atuais e anteriores, execute os comandos a seguir. Novamente, substitua `<deployment-password>`os `<app-name>` `<deployment-user>`espaços reservados e espaços reservados.
 
 ```bash
 $username = "<deployment-user>"

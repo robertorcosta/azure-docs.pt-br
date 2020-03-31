@@ -1,21 +1,21 @@
 ---
-title: Carregar um conjunto de dados grandes em métodos Azure Data Lake Storage Gen1-offline
-description: Use o serviço de importação/exportação para copiar dados do armazenamento de BLOBs do Azure para Azure Data Lake Storage Gen1
+title: Carregar grandes dados definidos para O Azure Data Lake Storage Gen1 - métodos off-line
+description: Use o serviço Importação/Exportação para copiar dados do armazenamento Azure Blob para o Azure Data Lake Storage Gen1
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: aa3eb0bcd9ddd2a094563efe326f7af7e9e8708a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73839304"
 ---
-# <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-storage-gen1"></a>Usar o serviço de importação/exportação do Azure para cópia offline de dados para Data Lake Storage Gen1
+# <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-storage-gen1"></a>Use o serviço de importação/exportação do Azure para cópia off-line de dados para Data Lake Storage Gen1
 
-Neste artigo, você aprenderá a copiar grandes conjuntos de dados (> 200 GB) para Data Lake Storage Gen1 usando métodos de cópia offline, como o [serviço de importação/exportação do Azure](../storage/common/storage-import-export-service.md). Especificamente, o arquivo usado como exemplo nesse artigo tem 339.420.860.416 bytes, ou aproximadamente 319 GB em disco. Vamos chamar esse arquivo de 319GB.tsv.
+Neste artigo, você aprenderá a copiar enormes conjuntos de dados (>200 GB) no Data Lake Storage Gen1 usando métodos de cópia off-line, como o [serviço Deimportação/Exportação do Azure](../storage/common/storage-import-export-service.md). Especificamente, o arquivo usado como exemplo nesse artigo tem 339.420.860.416 bytes, ou aproximadamente 319 GB em disco. Vamos chamar esse arquivo de 319GB.tsv.
 
 O Serviço de Importação/Exportação do Azure ajuda você a transferir com segurança grandes quantidades de dados para o Armazenamento de Blobs do Azure por meio do envio de unidades de disco rígido para um data center do Azure.
 
@@ -23,13 +23,13 @@ O Serviço de Importação/Exportação do Azure ajuda você a transferir com se
 
 Antes de começar, você deverá ter o seguinte:
 
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta de armazenamento do Azure**.
-* **Uma conta do Azure Data Lake Storage Gen1**. Para obter instruções sobre como criar um, consulte [Introdução ao Azure Data Lake armazenamento Gen1](data-lake-store-get-started-portal.md).
+* **Uma assinatura do Azure.** Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma conta de armazenamento Azure.**
+* **Uma conta do Azure Data Lake Storage Gen1**. Para obter instruções de como criar uma, confira [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 
 ## <a name="prepare-the-data"></a>Preparar os dados
 
-Antes de usar o serviço de Importação/Exportação, divida o arquivo de dados a ser transferido **em cópias de menos de 200 GB** de tamanho. A ferramenta de importação não funciona em arquivos com mais de 200 GB. Neste artigo, dividimos o arquivo em partes de 100 GB cada. Você pode fazer isso usando o [Cygwin](https://cygwin.com/install.html). O Cygwin dá suporte a comandos do Linux. Nesse caso, use o seguinte comando:
+Antes de usar o serviço de Importação/Exportação, divida o arquivo de dados a ser transferido **em cópias de menos de 200 GB** de tamanho. A ferramenta de importação não funciona em arquivos com mais de 200 GB. Neste artigo, dividimos o arquivo em pedaços de 100 GB cada. Você pode fazer isso usando o [Cygwin](https://cygwin.com/install.html). O Cygwin dá suporte a comandos do Linux. Nesse caso, use o seguinte comando:
 
     split -b 100m 319GB.tsv
 
@@ -65,7 +65,7 @@ Agora, você pode criar um trabalho de importação usando as instruções em [U
 
 Agora, você pode enviar fisicamente os discos para um datacenter do Azure. Lá, os dados são copiados nos Azure Storage Blobs que você forneceu ao criar o trabalho de importação. Além disso, ao criar o trabalho, se tiver optado por fornecer as informações de acompanhamento posteriormente, agora você poderá voltar ao trabalho de importação e atualizar o número de controle.
 
-## <a name="copy-data-from-blobs-to-data-lake-storage-gen1"></a>Copiar dados de BLOBs para Data Lake Storage Gen1
+## <a name="copy-data-from-blobs-to-data-lake-storage-gen1"></a>Copiar dados de blobs para Data Lake Storage Gen1
 
 Depois que o status do trabalho de importação tiver sido concluído, você poderá verificar se os dados estão disponíveis nos Azure Storage Blobs especificados. Em seguida, você poderá usar uma variedade de métodos para mover esses dados dos blobs para o Azure Data Lake Storage Gen1. Para todas as opções disponíveis para carregamento de dados, confira [Ingerindo dados no Data Lake Storage Gen1](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-storage-gen1).
 
@@ -86,7 +86,7 @@ Nesta seção, fornecemos as definições de JSON que você pode usar para criar
 }
 ```
 
-### <a name="target-linked-service-data-lake-storage-gen1"></a>Serviço vinculado de destino (Data Lake Storage Gen1)
+### <a name="target-linked-service-data-lake-storage-gen1"></a>Serviço vinculado ao destino (Data Lake Storage Gen1)
 
 ```JSON
 {
@@ -198,7 +198,7 @@ Nesta seção, fornecemos as definições de JSON que você pode usar para criar
 
 Para obter mais informações, confira [Mover dados do Azure Storage Blob para o Azure Data Lake Storage Gen1 usando o Azure Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
-## <a name="reconstruct-the-data-files-in-data-lake-storage-gen1"></a>Reconstruir os arquivos de dados no Data Lake Storage Gen1
+## <a name="reconstruct-the-data-files-in-data-lake-storage-gen1"></a>Reconstruir os arquivos de dados em Data Lake Storage Gen1
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

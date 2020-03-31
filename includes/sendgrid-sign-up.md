@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
 ms.openlocfilehash: e38cecfe206f21f9189493e7ed6e8f0cadda9cd9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75463521"
 ---
-Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.000 emails mensais gratuitos fornecerão acesso a relatórios avançados e análises e [todas as APIs][all APIs] (Web, SMTP, evento, análise e muito mais). Para obter informações sobre os serviços adicionais fornecidos pelo SendGrid, visite a página [soluções do SendGrid][SendGrid Solutions] .
+Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.000 e-mails mensais gratuitos lhe darão acesso a relatórios e análises avançadas e [todas as APIs][all APIs] (Web, SMTP, Event, Parse e muito mais). Para obter informações sobre os serviços adicionais fornecidos por SendGrid, visite a página [Soluções do SendGrid][SendGrid Solutions].
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Para se inscrever em uma conta do SendGrid
-1. Entre no [portal do Azure][Azure portal].
-2. No menu portal do Azure ou no home page, selecione **criar um recurso**.
+1. Faça login no [portal Azure][Azure portal].
+2. No menu do portal Azure ou na página inicial, **selecione Criar um recurso**.
 
     ![command-bar-new][command-bar-new]
 3. Procure e selecione **SendGrid**.
@@ -33,12 +33,12 @@ Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.
     ![sendgrid-pricing][sendgrid-pricing]
 10. Insira um **Código de Promoção**, se você tiver um.
 11. Insira suas **Informações de Contato**.
-12. Examine e aceite os **Termos legais**.
-13. Depois de confirmar sua compra, você verá um pop-up de **implantação com êxito** e verá sua conta listada.
+12. Revise e aceite os **termos legais.**
+13. Depois de confirmar sua compra, você verá um pop-up **de implantação bem sucedido** e verá sua conta listada.
 
     ![all-resources][all-resources]
 
-    Depois de concluir a compra e clicar no botão **Gerenciar** para iniciar o processo de verificação de email, você receberá um email do SendGrid, pedindo para você verificar sua conta. Se você não receber este email ou tiver problemas para verificar sua conta, consulte nossas perguntas frequentes.
+    Depois de concluir a compra e clicar no botão **Gerenciar** para iniciar o processo de verificação de email, você receberá um email do SendGrid, pedindo para você verificar sua conta. Se você não receber este e-mail ou tiver problemas para verificar sua conta, consulte nossa FAQ.
 
     ![gerenciar][manage]
 
@@ -76,7 +76,7 @@ Para gerenciar suas configurações de entrega de email, clique no **botão Gere
 
 ![gerenciar][manage]
 
-Para obter mais informações sobre como enviar email por meio do SendGrid, visite a [visão geral da API de email][Email API Overview].
+Para obter mais informações sobre o envio de email por meio do SendGrid, visite a [Visão Geral da API Email][Email API Overview].
 
 <!--images-->
 
