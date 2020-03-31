@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: 9f25c845302d62e3bc9e230b4a6f8f2669f4ac35
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774282"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Moderar comandos e postagens do Facebook com o Content Moderator do Azure
@@ -37,7 +37,7 @@ Este diagrama ilustra cada componente desse cenário:
 > [!IMPORTANT]
 > Em 2018, o Facebook implementou uma política de habilitação mais estrita para Aplicativos Facebook. Você não poderá concluir as etapas deste tutorial caso seu aplicativo não tenha sido examinado e aprovado pela equipe de análise do Facebook.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma chave de assinatura do Content Moderator. Siga as instruções descritas em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço Content Moderator e obter sua chave.
 - Uma [conta do Facebook](https://www.facebook.com/).

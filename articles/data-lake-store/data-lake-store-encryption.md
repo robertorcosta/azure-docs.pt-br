@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60878347"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Criptografia de dados no Azure Data Lake Storage Gen1
@@ -21,8 +21,8 @@ A criptografia no Azure Data Lake Storage Gen1 ajuda a proteger os dados, implem
 
 O Data Lake Storage Gen1 dá suporte a criptografia de dados em repouso e em trânsito. Para dados em repouso, o Data Lake Storage Gen1 dá suporte a criptografia transparente "ativada por padrão". Aqui está o que esses termos significam um pouco mais detalhadamente:
 
-* **Em por padrão**: Quando você cria uma nova conta do Data Lake armazenamento Gen1, a configuração padrão permite a criptografia. Posteriormente, os dados armazenados no Data Lake Storage Gen1 são sempre criptografados antes de serem armazenados em mídia persistente. Esse é o comportamento para todos os dados e não pode ser alterado depois que uma conta é criada.
-* **Transparente**: Data Lake armazenamento Gen1 automaticamente criptografa os dados antes da persistência e descriptografa os dados antes da recuperação. A criptografia é configurada e gerenciada no nível de conta do Data Lake Storage Gen1 por um administrador. Nenhuma alteração é feita para APIs de acesso a dados. Portanto, nenhuma alteração é necessária em aplicativos e serviços que interagem com o Data Lake Storage Gen1 devido à criptografia.
+* **Ativada por padrão**: quando você cria uma nova conta do Data Lake Storage Gen1, a configuração padrão habilita a criptografia. Posteriormente, os dados armazenados no Data Lake Storage Gen1 são sempre criptografados antes de serem armazenados em mídia persistente. Esse é o comportamento para todos os dados e não pode ser alterado depois que uma conta é criada.
+* **Transparente**: o Data Lake Storage Gen1 criptografa automaticamente os dados antes de persistir e descriptografa os dados antes de recuperá-los. A criptografia é configurada e gerenciada no nível de conta do Data Lake Storage Gen1 por um administrador. Nenhuma alteração é feita para APIs de acesso a dados. Portanto, nenhuma alteração é necessária em aplicativos e serviços que interagem com o Data Lake Storage Gen1 devido à criptografia.
 
 Os dados em trânsito (também conhecidos como dados em movimento) também são sempre criptografados no Data Lake Storage Gen1. Além de criptografar os dados antes de armazenar em mídia persistente, os dados são sempre protegidos em trânsito usando HTTPS. HTTPS é o único protocolo com suporte para as interfaces REST do Data Lake Storage Gen1. O diagrama a seguir mostra como os dados são criptografados no Data Lake Storage Gen1:
 
@@ -107,7 +107,7 @@ O diagrama a seguir ilustra esses conceitos:
 
 Quando você estiver usando chaves gerenciados pelo cliente, você pode alterar a MEK. Para saber como configurar uma conta do Data Lake Storage Gen1 com chaves gerenciadas pelo cliente, consulte [Introdução](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Pré-requisitos
 
 Ao configurar a conta do Data Lake Storage Gen1, você optou por usar suas próprias chaves. Essa opção não pode ser alterada depois que a conta foi criada. As etapas a seguir pressupõem que você está usando as chaves gerenciadas pelo cliente (isto é, você escolheu suas próprias chaves do Key Vault).
 
@@ -115,7 +115,7 @@ Observe que, se você usar as opções padrão para criptografia, seus dados ser
 
 ### <a name="how-to-rotate-the-mek-in-data-lake-storage-gen1"></a>Como girar a MEK no Data Lake Storage Gen1
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure](https://portal.azure.com/).
 2. Navegue até a instância do Key Vault que armazena suas chaves associadas à sua conta do Data Lake Storage Gen1. Selecione **Chaves**.
 
     ![Captura de tela do Key Vault](./media/data-lake-store-encryption/keyvault.png)

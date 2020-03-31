@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 9227417d28eb09a322dd4757033ee62fee97d91c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943898"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: criar um aplicativo de página única usando a API de Pesquisa de Imagem do Bing
@@ -31,7 +31,7 @@ O aplicativo de tutorial ilustra como:
 
 O código-fonte completo deste tutorial está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * A versão mais recente do [Node.js](https://nodejs.org/).
 * A estrutura [Express.js](https://expressjs.com/) para Node.js. Instruções de instalação do código-fonte estão disponíveis no arquivo Leiame da amostra do GitHub.
@@ -95,7 +95,7 @@ function getSubscriptionKey() {
 }
 ```
 
-A marca `onsubmit` HTML `<form>` chama a função `bingWebSearch` para retornar os resultados da pesquisa. `bingWebSearch` usa `getSubscriptionKey` para autenticar cada consulta. Conforme mostrado na definição anterior, `getSubscriptionKey` solicita ao usuário a chave, caso ela ainda não tenha sido inserida. A chave é então armazenada para continuar o uso pelo aplicativo.
+A marca `<form>` HTML `onsubmit` chama a função `bingWebSearch` para retornar os resultados da pesquisa. `bingWebSearch` usa `getSubscriptionKey` para autenticar cada consulta. Conforme mostrado na definição anterior, `getSubscriptionKey` solicita ao usuário a chave, caso ela ainda não tenha sido inserida. A chave é então armazenada para continuar o uso pelo aplicativo.
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value,
@@ -316,7 +316,7 @@ function renderImageResults(items) {
 
 A API de Pesquisa de Imagem do Bing pode retornar quatro tipos de sugestões de pesquisa para ajudar a orientar as experiências de pesquisa dos usuários, cada um em seu próprio objeto de nível superior:
 
-| Sugestão         | Descrição                                                                                                                                                                                                         |
+| Sugestão         | DESCRIÇÃO                                                                                                                                                                                                         |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pivotSuggestions` | Consultas que substituem uma palavra original na pesquisa original por outra. Por exemplo, se você pesquisar "flores vermelhas", uma palavra original pode ser "vermelhas" e uma sugestão dinâmica poderá ser "flores amarelas". |
 | `queryExpansions`  | Consultas que restringem a pesquisa original com a adição de mais termos. Por exemplo, se você pesquisar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".                                   |
@@ -338,7 +338,7 @@ searchItemRenderers = {
 
 Essas funções de renderizador aceitam os seguintes parâmetros:
 
-| Parâmetro         | Descrição                                                                                              |
+| Parâmetro         | DESCRIÇÃO                                                                                              |
 |---------|----------------------------------------------------------------------------------------------|
 | `item`  | O objeto do JavaScript que contém as propriedades do item, como a URL e a descrição. |
 | `index` | O índice do item de resultado na coleção.                                          |

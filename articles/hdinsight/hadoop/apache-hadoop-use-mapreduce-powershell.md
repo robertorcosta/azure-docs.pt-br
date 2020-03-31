@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
 ms.openlocfilehash: b3c1abb7bff54e3e2d294b073b867c6c0e06f482
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75830064"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Executar tarefas do MapReduce com o Apache Hadoop no HDInsight usando o PowerShell
@@ -23,7 +23,7 @@ Esse documento fornece um exemplo de uso do PowerShell do Azure para executar um
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do Apache Hadoop no HDInsight. Consulte [criar Apache Hadoop clusters usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
+* Um cluster do Apache Hadoop no HDInsight. Consulte [Criar clusters Apache Hadoop usando o portal Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 * O [Módulo Az](https://docs.microsoft.com/powershell/azure/overview) do PowerShell instalado.
 
@@ -33,10 +33,10 @@ O PowerShell do Azure fornece *cmdlets* que permitem executar remotamente trabal
 
 Os cmdlets a seguir são usados ao executar trabalhos MapReduce em um cluster HDInsight remoto.
 
-|Cmdlet | Description |
+|Cmdlet | Descrição |
 |---|---|
 |Connect-AzAccount|Autentica o Azure PowerShell para a assinatura do Azure.|
-|New-AzHDInsightMapReduceJobDefinition|Cria uma nova *definição de trabalho* usando as informações de MapReduce especificadas.|
+|New-AzHDInsightMapReduceJobDefinition|Cria uma nova*definição de trabalho*, usando as informações do MapReduce especificadas.|
 |Start-AzHDInsightJob|Envia a definição de trabalho para HDInsight e inicia o trabalho. Um objeto *job* é retornado.|
 |Wait-AzHDInsightJob|Usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou o tempo de espera seja excedido.|
 |Get-AzHDInsightJobOutput|Usado para recuperar a saída do trabalho.|
@@ -51,7 +51,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
 
         .\mapreducejob.ps1
 
-    Ao executar o script, você será solicitado a fornecer o nome do cluster HDInsight e o logon do cluster. Você também poderá receber uma solicitação para autenticar a sua assinatura do Azure.
+    Quando você executa o script, você é solicitado para o nome do cluster HDInsight e o login do cluster. Você também poderá receber uma solicitação para autenticar a sua assinatura do Azure.
 
 3. Quando o trabalho for concluído, você receberá uma saída semelhante ao seguinte texto:
 
@@ -81,7 +81,7 @@ Para ver as palavras e contagens produzidas pelo trabalho, abra o arquivo **outp
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Se nenhuma informação for retornada quando o trabalho for concluído, exiba os erros para o trabalho. Para exibir informações de erro para esse trabalho, adicione o seguinte comando ao final do arquivo **mapreducejob. ps1** . Em seguida, salve o arquivo e execute o script novamente.
+Se nenhuma informação for retornada quando o trabalho for concluído, exiba os erros para o trabalho. Para visualizar as informações de erro para este trabalho, adicione o seguinte comando ao final do arquivo **mapreducejob.ps1.** Em seguida, salve o arquivo e execute novamente o script.
 
 ```powershell
 # Print the output of the WordCount job.
@@ -95,9 +95,9 @@ Get-AzHDInsightJobOutput `
 
 Esse cmdlet retorna as informações gravadas em STDERR conforme o trabalho é executado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Como você pode ver, o PowerShell do Azure fornece uma maneira fácil de executar trabalhos MapReduce em um cluster HDInsight, monitorar o status do trabalho e recuperar a saída. Para obter informações sobre outros modos possíveis de trabalhar com Hadoop no HDInsight:
 
 * [Usar o MapReduce no Hadoop do HDInsight](hdinsight-use-mapreduce.md)
-* [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Usar Apache Hive com Apache Hadoop no HDInsight](hdinsight-use-hive.md)

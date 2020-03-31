@@ -1,6 +1,6 @@
 ---
-title: Criar grupos de IP no firewall do Azure
-description: Os grupos de IPS permitem que você agrupe e gerencie endereços IP para regras de firewall do Azure.
+title: Criar grupos IP no Firewall Do Azure
+description: Os Grupos IP permitem que você agrupe e gerencie endereços IP para as regras do Firewall do Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,43 +8,43 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: 7e8b2350b9e85d07ce1c399ce4536703ec998cbc
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444531"
 ---
-# <a name="create-ip-groups-preview"></a>Criar grupos de IPS (versão prévia)
+# <a name="create-ip-groups-preview"></a>Criar grupos IP (visualização)
 
 > [!IMPORTANT]
 > Essa versão prévia pública é fornecida sem um SLA e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
 
-Os grupos de IPS permitem que você agrupe e gerencie endereços IP para regras de firewall do Azure. Eles podem ter um único endereço IP, vários endereços IP ou um ou mais intervalos de endereços IP.
+Os Grupos IP permitem que você agrupe e gerencie endereços IP para as regras do Firewall do Azure. Eles podem ter um único endereço IP, vários endereços IP ou uma ou mais faixas de endereçoIP.
 
-## <a name="create-an-ip-group"></a>Criar um grupo de IPS
+## <a name="create-an-ip-group"></a>Criar um grupo IP
 
 1. Na página inicial do portal do Azure, selecione **Criar um recurso**.
-2. Digite **grupos de IPS** na caixa de texto de pesquisa e, em seguida, selecione **grupos de IPS**.
+2. Digite **grupos IP** na caixa de texto de pesquisa e, em seguida, selecione **Grupos IP**.
 3. Selecione **Criar**.
 4. Selecione sua assinatura.
 5. Selecione um grupo de recursos ou crie um novo.
-6. Digite um nome exclusivo para o grupo de IPS e selecione uma região.
+6. Digite um nome exclusivo para você GRUPO IP e selecione uma região.
 
-6. Selecione **Avançar: endereços IP**.
-7. Digite um endereço IP, vários endereços IP ou intervalos de endereços IP.
+6. Selecione **A seguir: endereços IP**.
+7. Digite um endereço IP, vários endereços IP ou faixas de endereçoIP.
 
-   Há duas maneiras de inserir endereços IP:
+   Existem duas maneiras de inserir endereços IP:
    - Você pode inseri-los manualmente
-   - Você pode importá-los de um arquivo
+   - Você pode importá-los a partir de um arquivo
 
-   Para importar de um arquivo, selecione **importar de um arquivo**. Você pode arrastar o arquivo para a caixa ou selecionar **procurar arquivos**. Se necessário, você pode revisar e editar seus endereços IP carregados.
+   Para importar de um arquivo, **selecione Importar a partir de um arquivo**. Você pode arrastar seu arquivo para a caixa ou selecionar **Procurar arquivos**. Se necessário, você pode rever e editar seus endereços IP enviados.
 
-   Quando você digita um endereço IP, o portal o valida para verificar se há sobreposição, duplicações e problemas de formatação.
+   Quando você digita um endereço IP, o portal valida-o para verificar se há problemas de sobreposição, duplicatas e formatação.
 
-5. Quando terminar, selecione **revisar + criar**.
+5. Quando terminar, selecione **'Revisar + Criar '''Revisar'.**
 6. Selecione **Criar**.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Saiba mais sobre grupos de IP](ip-groups.md)
+- [Saiba mais sobre grupos DE IP](ip-groups.md)

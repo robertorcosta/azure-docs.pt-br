@@ -1,5 +1,5 @@
 ---
-title: Conectar-se ao Dynamics 365
+title: Conecte-se à Dinâmica 365
 description: Criar e gerenciar registros com as APIs REST do Dynamics 365 (online) e os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: 9837b68fbfba783a468712d8ba1883b198af4954
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789879"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gerenciar registros do Dynamics 365 com os Aplicativos Lógicos do Azure
@@ -21,11 +21,11 @@ ms.locfileid: "74789879"
 Com os Aplicativos Lógicos do Azure e o conector do Dynamics 365, é possível criar tarefas e fluxos de trabalho automatizados com base nos recursos no Dynamics 365. Os fluxos de trabalho podem criar registros, atualizar itens, retornar registros e muito mais na sua conta do Dynamics 365. É possível incluir ações nos seus aplicativos lógicos que obtêm respostas do Dynamics 365 e disponibilizam a saída para outras ações. Por exemplo, quando um item é atualizado no Dynamics 365, você pode enviar um email usando o Office 365.
 
 Este tópico mostra como criar um aplicativo lógico que cria uma tarefa no Dynamics 365 sempre que um novo registro de cliente potencial é criado no Dynamics 365.
-Se ainda não estiver familiarizado com aplicativos lógicos, leia [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md).
+Se você é novo em aplicativos lógicos, [revise o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Uma [conta do Dynamics 365](https://dynamics.microsoft.com)
 
@@ -49,12 +49,12 @@ Primeiro, adicione um gatilho do Dynamics 365 que é acionado quando um novo reg
 
 1. Forneça os seguintes detalhes do gatilho:
 
-   | Propriedade | obrigatórios | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Nome da organização** | SIM | O nome da instância do Dynamics 365 da sua organização a ser monitorada, por exemplo, “Contoso” |
-   | **Nome da entidade** | SIM | O nome da entidade a ser monitorada, por exemplo, “Clientes potenciais” | 
-   | **Frequência** | SIM | A unidade de tempo a ser usada com intervalos durante a verificação de atualizações relacionadas ao gatilho |
-   | **Intervalo** | SIM | O número de segundos, minutos, horas, dias, semanas ou meses que você deseja que passem antes da próxima verificação |
+   | **Nome da organização** | Sim | O nome da instância do Dynamics 365 da sua organização a ser monitorada, por exemplo, “Contoso” |
+   | **Nome da entidade** | Sim | O nome da entidade a ser monitorada, por exemplo, “Clientes potenciais” | 
+   | **Freqüência** | Sim | A unidade de tempo a ser usada com intervalos durante a verificação de atualizações relacionadas ao gatilho |
+   | **Intervalo** | Sim | O número de segundos, minutos, horas, dias, semanas ou meses que você deseja que passem antes da próxima verificação |
    ||| 
 
    ![Detalhes do gatilho](./media/connectors-create-api-crmonline/trigger-details.png)
@@ -71,10 +71,10 @@ Agora, adicione a ação do Dynamics 365 que cria um registro de tarefa para o n
 
 1. Forneça esses detalhes da ação:
 
-   | Propriedade | obrigatórios | Descrição |
+   | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Nome da organização** | SIM | A instância do Dynamics 365 na qual você deseja criar o registro, que não precisa ser a mesma instância em seu gatilho, mas é “Contoso” neste exemplo |
-   | **Nome da entidade** | SIM | A entidade na qual você deseja criar o registro, por exemplo, “Tarefas” |
+   | **Nome da organização** | Sim | A instância do Dynamics 365 na qual você deseja criar o registro, que não precisa ser a mesma instância em seu gatilho, mas é “Contoso” neste exemplo |
+   | **Nome da entidade** | Sim | A entidade na qual você deseja criar o registro, por exemplo, “Tarefas” |
    | | |
 
    ![Detalhes da ação](./media/connectors-create-api-crmonline/action-details.png)
@@ -132,11 +132,11 @@ Expandindo esses tipos de campo, vemos aqui os campos de exemplo em gatilhos e a
 | Campo | Descrição |
 |-------|-------------|
 | **Proprietário** | É preciso ser uma ID de usuário ou ID de registro de equipe válida. |
-| **Tipo de proprietário** | Deve ser `systemusers` ou `teams`. |
+| **Tipo de proprietário** | Deve ser `systemusers` `teams`um ou. |
 | **Relação** | Precisa ser uma ID de registro válida, como uma ID de conta ou de registro de contato. |
-| **Tipo de relação** | Deve ser um tipo de pesquisa, como `accounts` ou `contacts`. |
+| **Tipo de relação** | Deve ser um tipo de `accounts` `contacts`procuração, como ou . |
 | **Cliente** | Precisa ser uma ID de registro válida, como uma ID de conta ou de registro de contato. |
-| **Tipo de cliente** | Deve ser o tipo de pesquisa, como `accounts` ou `contacts`. |
+| **Tipo de cliente** | Deve ser o tipo de `accounts` `contacts`procuração, como ou . |
 |||
 
 Neste exemplo, a ação denominada **Criar um novo registro** cria um novo registro de tarefa:
@@ -159,7 +159,7 @@ Para localizar uma ID de registro, siga estas etapas:
 
 2. Na barra de ferramentas de ações, escolha uma destas etapas:
 
-   * Escolha **Pop Out**. ![destacar registro](./media/connectors-create-api-crmonline/popout-record.png) 
+   * Escolha **Pop Out**. ![disco popout](./media/connectors-create-api-crmonline/popout-record.png) 
    * Escolha **LINK POR EMAIL** para que você possa copiar a URL completa no seu programa de email padrão.
 
    A ID do registro é exibida na URL entre os caracteres de codificação `%7b` e `%7d`:
@@ -188,6 +188,6 @@ Para obter mais informações sobre como solucionar problemas de aplicativos ló
 
 Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/dynamicscrmonline/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

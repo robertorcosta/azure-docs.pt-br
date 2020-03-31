@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
 ms.openlocfilehash: f7edbd0fd8791829a2d9ffaa4e7c0ee0e561cc5d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73748976"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Pssar credenciais para o manipulador de extensões DSC do Azure
@@ -60,7 +60,7 @@ configuration Main
 }
 ```
 
-É importante incluir **node localhost** como parte da configuração. O manipulador de extensão procura especificamente a instrução **node localhost**. Se essa instrução estiver ausente, as etapas a seguir não funcionam. Também é importante incluir a conversão de tipo **[PsCredential]** . Esse tipo específico dispara a extensão para criptografar as credenciais.
+É importante incluir **node localhost** como parte da configuração. O manipulador de extensão procura especificamente a instrução **node localhost**. Se essa instrução estiver ausente, as etapas a seguir não funcionam. Também é importante incluir a conversão de tipo **[PsCredential]**. Esse tipo específico dispara a extensão para criptografar as credenciais.
 
 Para publicar esse script no armazenamento de blobs do Azure:
 
@@ -83,11 +83,11 @@ $vm | Update-AzVM
 
 Executar esse código solicita uma credencial. Depois que a credencial é fornecida, ela é armazenada brevemente na memória. Quando a credencial é publicada usando o cmdlet **Set-AzVMDscExtension**, ela é transmitida por HTTPS para a VM. Na VM, o Azure armazena a credencial criptografada no disco usando o certificado local da VM. A credencial é brevemente descriptografada na memória e, em seguida, criptografada novamente para passá-la à DSC.
 
-Esse processo é diferente de [usar configurações seguras sem o manipulador de extensões](/powershell/scripting/dsc/pull-server/securemof). O ambiente do Azure oferece uma forma de transmitir dados de configuração com segurança por meio de certificados. Ao usar o manipulador de extensão DSC, não é necessário fornecer **$CertificatePath** ou uma entrada **$CertificateID**/  **$Thumbprint** em **ConfigurationData**.
+Esse processo é diferente de [usar configurações seguras sem o manipulador de extensões](/powershell/scripting/dsc/pull-server/securemof). O ambiente do Azure oferece uma forma de transmitir dados de configuração com segurança por meio de certificados. Ao usar o manipulador de extensão DSC, não é necessário fornecer **$CertificatePath** ou uma entrada **$CertificateID**/ **$Thumbprint** em **ConfigurationData**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Obtenha uma [introdução ao manipulador de extensões DSC do Azure](dsc-overview.md).
 - Examine o [modelo do Azure Resource Manager para a extensão de DSC](dsc-template.md).
-- Para saber mais sobre a DSC do PowerShell, acesse o [centro de documentação do PowerShell](/powershell/scripting/dsc/overview/overview).
-- Para mais funcionalidade que você pode gerenciar com a DSC do PowerShell e para mais recursos de DSC, navegue na [galeria do PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
+- Para obter mais informações sobre o DSC do PowerShell, vá até o [Centro de documentação do PowerShell](/powershell/scripting/dsc/overview/overview).
+- Para mais funcionalidade que você pode gerenciar usando o DSC do PowerShell e para obter mais recursos de DSC, procure na [Galeria do PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).

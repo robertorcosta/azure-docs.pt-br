@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 8e7e01dac29cb9ba91c83270dac4e46c73b2089e
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610107"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Atualize a configuração de um cluster independente 
@@ -17,11 +17,11 @@ ms.locfileid: "75610107"
 Para qualquer sistema moderno, a capacidade de atualização é fundamental para o sucesso de seu produto a longo prazo. Um cluster do Azure Service Fabric é um recurso que pertence a você. Este artigo descreve como atualizar as definições de configuração do cluster autônomo do Service Fabric.
 
 ## <a name="customize-cluster-settings-in-the-clusterconfigjson-file"></a>Personalizar configurações de cluster no arquivo ClusterConfig.json
-Os clusters independentes são configurados por meio do arquivo *ClusterConfig.json*. Para saber mais sobre as diferentes configurações, consulte [Definições de configuração para um cluster autônomo do Windows](service-fabric-cluster-manifest.md).
+Os clusters autônomos são configurados através do arquivo *ClusterConfig.json.* Para saber mais sobre as diferentes configurações, consulte [Definições de configuração para um cluster autônomo do Windows](service-fabric-cluster-manifest.md).
 
-Adicionar, atualizar ou remover as configurações na `fabricSettings` seção sob o [propriedades do Cluster](./service-fabric-cluster-manifest.md#cluster-properties) seção *Clusterconfig*. 
+Você pode adicionar, atualizar ou remover `fabricSettings` configurações na seção na seção [Propriedades Cluster](./service-fabric-cluster-manifest.md#cluster-properties) em *ClusterConfig.json*. 
 
-Por exemplo, o JSON a seguir adiciona uma nova configuração *MaxDiskQuotaInMB* para a *seção de diagnóstico*  em `fabricSettings`:
+Por exemplo, o JSON a seguir adiciona uma nova configuração *MaxDiskQuotaInMB* para a *seção de diagnóstico * em `fabricSettings`:
 
 ```json
       {
@@ -50,10 +50,10 @@ Ou use este script:
 TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
 ```
 
-Algumas configurações não podem ser atualizadas, como pontos de extremidade, nome do cluster, IP do nó, etc. O novo JSON de configuração de cluster é testado em relação ao antigo e gera erros na janela do PowerShell se houver um problema.
+Algumas configurações não podem ser atualizadas, como pontos finais, nome do cluster, IP de nó, etc. A nova configuração de cluster JSON é testada contra a antiga e lança erros na janela PowerShell se houver um problema.
 
 ## <a name="upgrade-the-cluster-configuration"></a>Atualizar a configuração do cluster
-Para atualizar a configuração do cluster, execute o comando [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). A atualização de configuração é processada domínio de atualização por domínio de atualização.
+Para atualizar a atualização da configuração do cluster, execute [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). A atualização de configuração é processada domínio de atualização por domínio de atualização.
 
 ```powershell
 Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
@@ -73,7 +73,7 @@ Há suporte para quatro opções:
 * Atualização da impressão digital do emissor do certificado: o caminho de atualização é Certificado CN=A,IssuerThumbprint=IT1 (Principal) -> Certificado CN=A,IssuerThumbprint=IT1,IT2 (Principal) -> Certificado CN=A,IssuerThumbprint=IT2 (Principal).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba como personalizar algumas das [configurações de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md).
 * Saiba como [reduzir e escalar horizontalmente seu cluster](service-fabric-cluster-scale-up-down.md).
 * Saiba mais sobre [atualizações de aplicativo](service-fabric-application-upgrade.md).

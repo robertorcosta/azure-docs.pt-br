@@ -4,10 +4,10 @@ description: Este início rápido oferece uma introdução à biblioteca de clie
 ms.topic: quickstart
 ms.date: 01/13/2020
 ms.openlocfilehash: 05e6d2c77a351c22c73f0bdb54daeaf0e03f4a9d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76021322"
 ---
 Use a biblioteca de clientes do QnA Maker para Node.js para:
@@ -23,7 +23,7 @@ Use a biblioteca de clientes do QnA Maker para Node.js para:
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [Node.js](https://nodejs.org).

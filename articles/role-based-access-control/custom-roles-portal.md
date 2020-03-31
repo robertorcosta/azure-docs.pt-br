@@ -1,6 +1,6 @@
 ---
-title: Criar ou atualizar funções personalizadas do Azure usando o portal do Azure (visualização) – RBAC do Azure
-description: Saiba como criar funções personalizadas do Azure para o controle de acesso baseado em função do Azure (RBAC do Azure) usando o portal do Azure. Isso inclui como listar, criar, atualizar e excluir funções personalizadas.
+title: Criar ou atualizar funções personalizadas do Azure usando o portal Azure (Preview) - Azure RBAC
+description: Saiba como criar funções personalizadas do Azure para o controle de acesso baseado em função do Azure (Azure RBAC) usando o portal Azure. Isso inclui como listar, criar, atualizar e excluir funções personalizadas.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,47 +13,47 @@ ms.workload: identity
 ms.date: 02/26/2020
 ms.author: rolyon
 ms.openlocfilehash: 3204cdf51f3f37588f684f801a811f569b337d13
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77674864"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal-preview"></a>Criar ou atualizar funções personalizadas do Azure usando o portal do Azure (versão prévia)
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal-preview"></a>Criar ou atualizar funções personalizadas do Azure usando o portal Azure (Preview)
 
 > [!IMPORTANT]
-> As funções personalizadas do Azure usando o portal do Azure está atualmente em visualização pública.
+> As funções personalizadas do Azure usando o portal Azure estão atualmente em visualização pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Se as [funções internas do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas do Azure. Assim como as funções internas, você pode atribuir funções personalizadas a usuários, grupos e entidades de serviço em escopos de grupo de recursos e assinatura. As funções personalizadas são armazenadas em um diretório do Azure AD (Azure Active Directory) e podem ser compartilhadas entre assinaturas. Cada diretório pode ter até 5000 funções personalizadas. As funções personalizadas podem ser criadas usando o portal do Azure, Azure PowerShell, CLI do Azure ou a API REST. Este artigo descreve como criar funções personalizadas usando o portal do Azure (atualmente em visualização).
+Se as [funções incorporadas do Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, você poderá criar suas próprias funções personalizadas do Azure. Assim como as funções incorporadas, você pode atribuir funções personalizadas a usuários, grupos e diretores de serviços em escopos de grupos de assinatura e recursos. As funções personalizadas são armazenadas em um diretório do Azure AD (Azure Active Directory) e podem ser compartilhadas entre assinaturas. Cada diretório pode ter até 5000 funções personalizadas. As funções personalizadas podem ser criadas usando o portal Azure, Azure PowerShell, Azure CLI ou a API REST. Este artigo descreve como criar funções personalizadas usando o portal Azure (atualmente em pré-visualização).
 
-## <a name="prerequisites"></a>{1&gt;{2&gt;Pré-requisitos&lt;2}&lt;1}
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para criar funções personalizadas, você precisará:
 
 - Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de acesso do usuário](built-in-roles.md#user-access-administrator)
 
-## <a name="step-1-determine-the-permissions-you-need"></a>Etapa 1: determinar as permissões necessárias
+## <a name="step-1-determine-the-permissions-you-need"></a>Passo 1: Determine as permissões necessárias
 
-O Azure tem milhares de permissões que podem ser potencialmente incluídas em sua função personalizada. Estas são as quatro maneiras pelas quais você pode determinar as permissões que deseja adicionar à sua função personalizada:
+O Azure tem milhares de permissões que você pode incluir potencialmente em sua função personalizada. Aqui estão quatro maneiras que você pode determinar as permissões que você deseja adicionar à sua função personalizada:
 
 | Método | Descrição |
 | --- | --- |
-| Examinar as funções existentes | Você pode examinar as funções existentes para ver quais permissões estão sendo usadas. Para obter mais informações, consulte [funções internas do Azure](built-in-roles.md). |
-| Procurar permissões por palavra-chave | Ao criar uma função personalizada usando o portal do Azure, você pode procurar permissões por palavra-chave. Por exemplo, você pode pesquisar por *máquina virtual* ou permissões de *cobrança* . Essa funcionalidade de pesquisa é descrita mais adiante na [etapa 4: permissões](#step-4-permissions). |
-| Baixar todas as permissões | Ao criar uma função personalizada usando o portal do Azure, você pode baixar todas as permissões como um arquivo CSV e, em seguida, pesquisar esse arquivo. No painel **adicionar permissões** , clique no botão **baixar todas as permissões** para baixar todas as permissões. Para obter mais informações sobre o painel adicionar permissões, consulte [etapa 4: permissões](#step-4-permissions). |
-| Exibir as permissões no docs | Você pode exibir as permissões disponíveis em [Azure Resource Manager operações do provedor de recursos](resource-provider-operations.md). |
+| Olhe para os papéis existentes | Você pode olhar para as funções existentes para ver quais permissões estão sendo usadas. Para obter mais informações, consulte [funções incorporadas do Azure](built-in-roles.md). |
+| Busca de permissões por palavra-chave | Quando você cria uma função personalizada usando o portal Azure, você pode procurar permissões por palavra-chave. Por exemplo, você pode procurar por *permissões de máquina virtual* ou *faturamento.* Essa funcionalidade de pesquisa é descrita mais tarde no [Passo 4: Permissões](#step-4-permissions). |
+| Baixe todas as permissões | Quando você cria uma função personalizada usando o portal Azure, você pode baixar todas as permissões como um arquivo CSV e, em seguida, pesquisar este arquivo. No **painel Adicionar permissões,** clique no botão **Baixar todas as permissões** para baixar todas as permissões. Para obter mais informações sobre o painel de permissões Adicionar, consulte [Passo 4: Permissões](#step-4-permissions). |
+| Veja as permissões nos docs | Você pode visualizar as permissões disponíveis nas operações do [provedor de recursos do Azure Resource Manager](resource-provider-operations.md). |
 
-## <a name="step-2-choose-how-to-start"></a>Etapa 2: escolher como iniciar
+## <a name="step-2-choose-how-to-start"></a>Passo 2: Escolha como começar
 
-Há três maneiras pelas quais você pode começar a criar uma função personalizada. Você pode clonar uma função existente, começar do zero ou começar com um arquivo JSON. A maneira mais fácil é encontrar uma função existente que tenha a maioria das permissões necessárias e, em seguida, clonar e modificá-la para seu cenário. 
+Há três maneiras que você pode começar a criar um papel personalizado. Você pode clonar uma função existente, começar do zero ou começar com um arquivo JSON. A maneira mais fácil é encontrar um papel existente que tenha a maioria das permissões que você precisa e, em seguida, cloná-lo e modificá-lo para o seu cenário. 
 
-### <a name="clone-a-role"></a>Clonar uma função
+### <a name="clone-a-role"></a>Clonar um papel
 
-Se uma função existente não tiver as permissões necessárias, você poderá cloná-la e, em seguida, modificar as permissões. Siga estas etapas para iniciar a clonagem de uma função.
+Se uma função existente não tiver as permissões necessárias, você pode cloná-la e, em seguida, modificar as permissões. Siga estas etapas para começar a clonar um papel.
 
-1. No portal do Azure, abra uma assinatura ou grupo de recursos em que você deseja que a função personalizada seja atribuível e, em seguida, abra o **controle de acesso (iam)** .
+1. No portal Azure, abra um grupo de assinatura ou recurso onde você deseja que a função personalizada seja atribuída e, em seguida, abra o **controle de acesso (IAM)**.
 
     A captura de tela a seguir mostra a página de controle de acesso (IAM) aberta para uma assinatura.
 
@@ -61,35 +61,35 @@ Se uma função existente não tiver as permissões necessárias, você poderá 
 
 1. Clique na guia **Funções** para ver uma lista de todas as funções integradas e personalizadas.
 
-1. Procure uma função que você deseja clonar, como a função de leitor de cobrança.
+1. Procure por um papel que você deseja clonar, como o papel de Leitor de Faturamento.
 
-1. No final da linha, clique nas reticências ( **...** ) e, em seguida, clique em **clonar**.
+1. No final da linha, clique na elipse (**...**) e, em seguida, clique em **Clone**.
 
-    ![Clonar menu de contexto](./media/custom-roles-portal/clone-menu.png)
+    ![Menu de contexto de clone](./media/custom-roles-portal/clone-menu.png)
 
-    Isso abre o editor de funções personalizadas com a opção **clonar uma função** selecionada.
+    Isso abre o editor de funções personalizadas com o Clone uma opção **de função** selecionada.
 
-1. Vá para a [etapa 3: Noções básicas](#step-3-basics).
+1. Proceder ao [Passo 3: Noções básicas](#step-3-basics).
 
 ### <a name="start-from-scratch"></a>Começar do zero
 
-Se preferir, você pode seguir estas etapas para iniciar uma função personalizada do zero.
+Se preferir, você pode seguir estes passos para iniciar uma função personalizada do zero.
 
-1. No portal do Azure, abra uma assinatura ou grupo de recursos em que você deseja que a função personalizada seja atribuível e, em seguida, abra o **controle de acesso (iam)** .
+1. No portal Azure, abra um grupo de assinatura ou recurso onde você deseja que a função personalizada seja atribuída e, em seguida, abra o **controle de acesso (IAM)**.
 
-1. Clique em **Adicionar** e em **Adicionar função personalizada (versão prévia)** .
+1. Clique **em Adicionar** e clique em Adicionar função personalizada **(visualização)**.
 
     ![Adicionar menu de função personalizado](./media/custom-roles-portal/add-custom-role-menu.png)
 
     Isso abre o editor de funções personalizadas com a opção **Iniciar do zero** selecionada.
 
-1. Vá para a [etapa 3: Noções básicas](#step-3-basics).
+1. Proceder ao [Passo 3: Noções básicas](#step-3-basics).
 
-### <a name="start-from-json"></a>Iniciar do JSON
+### <a name="start-from-json"></a>Comece de JSON
 
 Se preferir, você pode especificar a maioria dos valores de função personalizada em um arquivo JSON. Você pode abrir o arquivo no editor de funções personalizadas, fazer alterações adicionais e, em seguida, criar a função personalizada. Siga estas etapas para começar com um arquivo JSON.
 
-1. Crie um arquivo JSON com o seguinte formato:
+1. Crie um arquivo JSON que tenha o seguinte formato:
 
     ```json
     {
@@ -109,7 +109,7 @@ Se preferir, você pode especificar a maioria dos valores de função personaliz
     }
     ```
 
-1. No arquivo JSON, especifique valores para as várias propriedades. Aqui está um exemplo com alguns valores adicionados. Para obter informações sobre as diferentes propriedades, consulte [entender as definições de função](role-definitions.md).
+1. No arquivo JSON, especifique valores para as várias propriedades. Aqui está um exemplo com alguns valores adicionados. Para obter informações sobre as diferentes propriedades, consulte [Entender definições de função](role-definitions.md).
 
     ```json
     {
@@ -139,77 +139,77 @@ Se preferir, você pode especificar a maioria dos valores de função personaliz
     }
     ```
     
-1. No portal do Azure, abra a página **controle de acesso (iam)** .
+1. No portal Azure, abra a página **controle de acesso (IAM).**
 
-1. Clique em **Adicionar** e em **Adicionar função personalizada (versão prévia)** .
+1. Clique **em Adicionar** e clique em Adicionar função personalizada **(visualização)**.
 
     ![Adicionar menu de função personalizado](./media/custom-roles-portal/add-custom-role-menu.png)
 
     Isso abre o editor de funções personalizadas.
 
-1. Na guia noções básicas, em **permissões de linha de base**, selecione **Iniciar do JSON**.
+1. Na guia Basics, em **Permissões de Linha de Base,** selecione **Iniciar a partir de JSON**.
 
-1. Ao lado da caixa Selecionar um arquivo, clique no botão pasta para abrir a caixa de diálogo abrir.
+1. Ao lado da Selecionar uma caixa de arquivos, clique no botão pasta para abrir a caixa de diálogo Abrir.
 
-1. Selecione o arquivo JSON e clique em **abrir**.
+1. Selecione seu arquivo JSON e clique em **Abrir**.
 
-1. Vá para a [etapa 3: Noções básicas](#step-3-basics).
+1. Proceder ao [Passo 3: Noções básicas](#step-3-basics).
 
-## <a name="step-3-basics"></a>Etapa 3: Noções básicas
+## <a name="step-3-basics"></a>Passo 3: Noções básicas
 
-Na guia **noções básicas** , você especifica o nome, a descrição e as permissões de linha de base para sua função personalizada.
+Na guia **Básico,** você especifica o nome, a descrição e as permissões de linha de base para sua função personalizada.
 
-1. Na caixa **nome da função personalizada** , especifique um nome para a função personalizada. O nome deve ser exclusivo para o diretório do Azure AD. O nome pode incluir letras, números, espaços e caracteres especiais.
+1. Na **caixa nome de função Personalizado,** especifique um nome para a função personalizada. O nome deve ser único para o diretório Azure AD. O nome pode incluir letras, números, espaços e caracteres especiais.
 
-1. Na caixa **Descrição** , especifique uma descrição opcional para a função personalizada. Isso se tornará a dica de ferramenta para a função personalizada.
+1. Na caixa **Descrição,** especifique uma descrição opcional para a função personalizada. Esta será a dica de ferramenta para a função personalizada.
 
-    A opção **permissões de linha de base** já deve estar definida com base na etapa anterior, mas você pode alterar.
+    A opção **de permissões de linha de base** já deve ser definida com base na etapa anterior, mas você pode alterar.
 
-    ![Guia noções básicas com valores especificados](./media/custom-roles-portal/basics-values.png)
+    ![Guia básico com valores especificados](./media/custom-roles-portal/basics-values.png)
 
-## <a name="step-4-permissions"></a>Etapa 4: permissões
+## <a name="step-4-permissions"></a>Passo 4: Permissões
 
-Na guia **permissões** , especifique as permissões para sua função personalizada. Dependendo se você clonou uma função ou se começou com JSON, a guia permissões talvez já liste algumas permissões.
+Na guia **Permissões,** você especifica as permissões para sua função personalizada. Dependendo se você clonou uma função ou se você começou com JSON, a guia Permissões já pode listar algumas permissões.
 
-![Guia permissões de criar função personalizada](./media/custom-roles-portal/permissions.png)
+![Guia de permissões de criar função personalizada](./media/custom-roles-portal/permissions.png)
 
 ### <a name="add-or-remove-permissions"></a>Adicionar ou remover permissões
 
 Siga estas etapas para adicionar ou remover permissões para sua função personalizada.
 
-1. Para adicionar permissões, clique em **adicionar permissões** para abrir o painel adicionar permissões.
+1. Para adicionar permissões, clique **em Adicionar permissões** para abrir o painel Adicionar permissões.
 
-    Esse painel lista todas as permissões disponíveis agrupadas em categorias diferentes em um formato de cartão. Cada categoria representa um *provedor de recursos*, que é um serviço que fornece recursos do Azure.
+    Este painel lista todas as permissões disponíveis agrupadas em diferentes categorias em um formato de cartão. Cada categoria representa um *provedor de recursos*, que é um serviço que fornece recursos do Azure.
 
-1. Na caixa **Pesquisar por uma permissão** , digite uma cadeia de caracteres para procurar permissões. Por exemplo, pesquise *fatura* para encontrar permissões relacionadas à fatura.
+1. Na busca por uma caixa **de permissões,** digite uma string para procurar permissões. Por exemplo, procure *fatura* para encontrar permissões relacionadas à fatura.
 
-    Uma lista de cartões do provedor de recursos será exibida com base na sua cadeia de caracteres de pesquisa. Para obter uma lista de como os provedores de recursos são mapeados para os serviços do Azure, consulte [provedores de recursos para serviços do Azure](../azure-resource-manager/management/azure-services-resource-providers.md).
+    Uma lista de cartões de provedor de recursos será exibida com base na seqüência de pesquisa. Para obter uma lista de como os provedores de recursos mapeiam os serviços do Azure, consulte [provedores de recursos para serviços do Azure](../azure-resource-manager/management/azure-services-resource-providers.md).
 
-    ![Adicionar o painel de permissões com o provedor de recursos](./media/custom-roles-portal/add-permissions-provider.png)
+    ![Adicionar painel de permissões com provedor de recursos](./media/custom-roles-portal/add-permissions-provider.png)
 
-1. Clique em um cartão de provedor de recursos que pode ter as permissões que você deseja adicionar à sua função personalizada, como **o Microsoft billing**.
+1. Clique em um cartão de provedor de recursos que pode ter as permissões que você deseja adicionar à sua função personalizada, como **o Microsoft Billing**.
 
-    Uma lista das permissões de gerenciamento para esse provedor de recursos é exibida com base na sua cadeia de caracteres de pesquisa.
+    Uma lista das permissões de gerenciamento para esse provedor de recursos é exibida com base na seqüência de pesquisa.
 
     ![Adicionar lista de permissões](./media/custom-roles-portal/add-permissions-list.png)
 
-1. Se você estiver procurando permissões que se aplicam ao plano de dados, clique em **ações de dados**. Caso contrário, deixe as ações alternar definidas como **ações** para listar as permissões que se aplicam ao plano de gerenciamento. Para obter mais informações, sobre as diferenças entre o plano de gerenciamento e o plano de dados, consulte [Gerenciamento e operações de dados](role-definitions.md#management-and-data-operations).
+1. Se você estiver procurando permissões que se aplicam ao plano de dados, clique em **Ações de dados**. Caso contrário, deixe as ações alternadas **definidas** para Ações para listar permissões que se aplicam ao plano de gerenciamento. Para obter mais informações sobre as diferenças entre o plano de gerenciamento e o plano de dados, consulte [Gestão e operações de dados](role-definitions.md#management-and-data-operations).
 
-1. Se necessário, atualize a cadeia de caracteres de pesquisa para refinar ainda mais sua pesquisa.
+1. Se necessário, atualize a seqüência de pesquisa para refinar ainda mais sua pesquisa.
 
-1. Depois de encontrar uma ou mais permissões que você deseja adicionar à sua função personalizada, adicione uma marca de seleção ao lado das permissões. Por exemplo, adicione uma marca de seleção ao lado de **outros: baixar fatura** para adicionar a permissão para baixar faturas.
+1. Depois de encontrar uma ou mais permissões que deseja adicionar à sua função personalizada, adicione uma marca de seleção ao lado das permissões. Por exemplo, adicione uma marca de seleção ao lado **de Outra : Baixe fatura** para adicionar a permissão para baixar faturas.
 
-1. Clique em **Adicionar** para adicionar a permissão à sua lista de permissões.
+1. Clique **em Adicionar** para adicionar a permissão à sua lista de permissões.
 
-    A permissão é adicionada como um `Actions` ou um `DataActions`.
+    A permissão é `Actions` adicionada `DataActions`como um ou um .
 
     ![Permissão adicionada](./media/custom-roles-portal/permissions-list-add.png)
 
-1. Para remover permissões, clique no ícone Excluir no final da linha. Neste exemplo, como um usuário não precisará da capacidade de criar tíquetes de suporte, a permissão `Microsoft.Support/*` pode ser excluída.
+1. Para remover permissões, clique no ícone excluir no final da linha. Neste exemplo, uma vez que um usuário não precisará `Microsoft.Support/*` da capacidade de criar tickets de suporte, a permissão pode ser excluída.
 
 ### <a name="add-wildcard-permissions"></a>Adicionar permissões curinga
 
-Dependendo de como você optou por iniciar, você pode ter permissões com curingas (\*) na sua lista de permissões. Um curinga (\*) estende uma permissão para tudo que corresponde à cadeia de caracteres que você fornece. Por exemplo, suponha que você quisesse adicionar todas as permissões relacionadas ao gerenciamento de custos e às exportações do Azure. Você pode adicionar todas essas permissões:
+Dependendo de como você escolheu começar, você pode\*ter permissões com curingas ( ) em sua lista de permissões. Um curinga ()\*estende uma permissão para tudo o que corresponde à seqüência que você fornece. Por exemplo, suponha que você queria adicionar todas as permissões relacionadas à Gestão de Custos do Azure e às exportações. Você pode adicionar todas essas permissões:
 
 ```
 Microsoft.CostManagement/exports/action
@@ -219,52 +219,52 @@ Microsoft.CostManagement/exports/delete
 Microsoft.CostManagement/exports/run/action
 ```
 
-Em vez de adicionar todas essas permissões, basta adicionar uma permissão de caractere curinga. Por exemplo, a seguinte permissão de curinga é equivalente às cinco permissões anteriores. Isso também incluiria permissões de exportação futuras que possam ser adicionadas.
+Em vez de adicionar todas essas permissões, você poderia apenas adicionar uma permissão curinga. Por exemplo, a seguinte permissão curinga é equivalente às cinco permissões anteriores. Isso também incluiria quaisquer permissões futuras de exportação que possam ser adicionadas.
 
 ```
 Microsoft.CostManagement/exports/*
 ```
 
-Se você quiser adicionar uma nova permissão de caractere curinga, não poderá adicioná-la usando o painel **adicionar permissões** . Para adicionar uma permissão curinga, você precisa adicioná-la manualmente usando a guia **JSON** . Para obter mais informações, consulte [Step 6: JSON](#step-6-json).
+Se você quiser adicionar uma nova permissão curinga, você não pode adicioná-la usando o painel **adicionar permissões.** Para adicionar uma permissão curinga, você tem que adicioná-la manualmente usando a guia **JSON.** Para obter mais informações, consulte [passo 6: JSON](#step-6-json).
 
-### <a name="exclude-permissions"></a>Excluir permissões
+### <a name="exclude-permissions"></a>Exclua permissões
 
-Se sua função tiver uma permissão curinga (\*) e você quiser excluir ou subtrair permissões específicas dessa permissão de curinga, você poderá excluí-las. Por exemplo, digamos que você tenha a seguinte permissão de curinga:
+Se a sua função\*tiver uma permissão curinga () e você quiser excluir ou subtrair permissões específicas dessa permissão curinga, você pode excluí-las. Por exemplo, digamos que você tenha a seguinte permissão curinga:
 
 ```
 Microsoft.CostManagement/exports/*
 ```
 
-Se você não quiser permitir que uma exportação seja excluída, poderá excluir a seguinte permissão de exclusão:
+Se você não quiser permitir que uma exportação seja excluída, você pode excluir a seguinte permissão de exclusão:
 
 ```
 Microsoft.CostManagement/exports/delete
 ```
 
-Quando você exclui uma permissão, ela é adicionada como uma `NotActions` ou `NotDataActions`. As permissões efetivas de gerenciamento são computadas adicionando todas as `Actions` e, em seguida, subtraindo todas as `NotActions`. As permissões de dados efetivas são computadas adicionando todas as `DataActions` e, em seguida, subtraindo todas as `NotDataActions`.
+Quando você exclui uma permissão, `NotActions` `NotDataActions`ela é adicionada como a ou . As permissões de gerenciamento eficazes são `Actions` calculadas adicionando todas `NotActions`as e, em seguida, subtraindo todas as . As permissões de dados eficazes são `DataActions` calculadas adicionando todas `NotDataActions`as e, em seguida, subtraindo todas as .
 
 > [!NOTE]
-> A exclusão de uma permissão não é a mesma que uma negação. A exclusão de permissões é simplesmente uma maneira conveniente de subtrair permissões de uma permissão curinga.
+> Excluir uma permissão não é o mesmo que negar. Excluir permissões é simplesmente uma maneira conveniente de subtrair permissões de uma permissão curinga.
 
-1. Para excluir ou subtrair uma permissão de uma permissão de curinga permitido, clique em **excluir permissões** para abrir o painel de permissões de exclusão.
+1. Para excluir ou subtrair uma permissão de uma permissão curinga permitida, clique **em Excluir permissões** para abrir o painel Exclua permissões.
 
-    Nesse painel, você especifica as permissões de gerenciamento ou de dados que são excluídas ou subtraídas.
+    Neste painel, você especifica o gerenciamento ou as permissões de dados que são excluídas ou subtraídas.
 
-1. Depois de encontrar uma ou mais permissões que você deseja excluir, adicione uma marca de seleção ao lado das permissões e, em seguida, clique no botão **Adicionar** .
+1. Depois de encontrar uma ou mais permissões que deseja excluir, adicione uma marca de seleção ao lado das permissões e clique no botão **Adicionar.**
 
-    ![Painel de permissões de exclusão-permissão selecionada](./media/custom-roles-portal/exclude-permissions-select.png)
+    ![Exclua o painel de permissões - permissão selecionada](./media/custom-roles-portal/exclude-permissions-select.png)
 
-    A permissão é adicionada como um `NotActions` ou `NotDataActions`.
+    A permissão é `NotActions` `NotDataActions`adicionada como um ou .
 
     ![Permissão excluída](./media/custom-roles-portal/exclude-permissions-list-add.png)
 
-## <a name="step-5-assignable-scopes"></a>Etapa 5: escopos atribuíveis
+## <a name="step-5-assignable-scopes"></a>Passo 5: Escopos atribuídos
 
-Na guia **escopos atribuíveis** , especifique onde sua função personalizada está disponível para atribuição, como assinatura ou grupo de recursos. Dependendo de como você optou por iniciar, essa guia pode listar o escopo onde você abriu a página controle de acesso (IAM). Não há suporte para definir o escopo atribuível para o escopo raiz ("/"). Para esta versão prévia, você não pode adicionar um grupo de gerenciamento como um escopo atribuível.
+Na guia **Escopos atribuídos,** você especifica onde sua função personalizada está disponível para atribuição, como assinatura ou grupo de recursos. Dependendo de como você escolheu iniciar, esta guia pode listar o escopo onde você abriu a página de controle de acesso (IAM). A configuração do escopo atribuído ao escopo raiz ("/") não é suportada. Para esta visualização, você não pode adicionar um grupo de gerenciamento como um escopo atribuível.
 
-1. Clique em **Adicionar escopos atribuíveis** para abrir o painel Adicionar escopos atribuíveis.
+1. Clique **em Adicionar escopos atribuídos** para abrir o painel Adicionar escopos atribuídos.
 
-    ![Guia escopos atribuíveis](./media/custom-roles-portal/assignable-scopes.png)
+    ![Guia de escopos atribuídos](./media/custom-roles-portal/assignable-scopes.png)
 
 1. Clique em um ou mais escopos que você deseja usar, normalmente sua assinatura.
 
@@ -272,85 +272,85 @@ Na guia **escopos atribuíveis** , especifique onde sua função personalizada e
 
 1. Clique no botão **Adicionar** para adicionar seu escopo atribuível.
 
-## <a name="step-6-json"></a>Etapa 6: JSON
+## <a name="step-6-json"></a>Passo 6: JSON
 
-Na guia **JSON** , você vê sua função personalizada formatada em JSON. Se desejar, você pode editar diretamente o JSON. Se você quiser adicionar uma permissão curinga (\*), deverá usar essa guia.
+Na guia **JSON,** você vê sua função personalizada formatada em JSON. Se você quiser, você pode editar diretamente o JSON. Se você quiser adicionar uma\*permissão curinga ( ) você deve usar esta guia.
 
-1. Para editar o JSON, clique em **Editar**.
+1. Para editar o JSON, clique **em Editar**.
 
-    ![Guia JSON mostrando a função personalizada](./media/custom-roles-portal/json.png)
+    ![Guia JSON mostrando função personalizada](./media/custom-roles-portal/json.png)
 
 1. Faça alterações no JSON.
 
-    Se o JSON não estiver formatado corretamente, você verá uma linha vermelha denteada e um indicador na medianiz vertical.
+    Se o JSON não formatado corretamente, você verá uma linha irregular vermelha e um indicador na sarjeta vertical.
 
-1. Quando terminar de editar, clique em **salvar**.
+1. Quando terminar a edição, clique **em Salvar**.
 
-## <a name="step-7-review--create"></a>Etapa 7: examinar + criar
+## <a name="step-7-review--create"></a>Passo 7: Revisão + criar
 
-Na guia **revisar + criar** , você pode examinar as configurações de função personalizadas.
+Na guia **'Revisar + criar',** você pode rever suas configurações de função personalizadas.
 
-1. Examine as configurações de função personalizadas.
+1. Revise suas configurações de função personalizadas.
 
     ![Guia Examinar + criar](./media/custom-roles-portal/review-create.png)
 
-1. Clique em **criar** para criar sua função personalizada.
+1. Clique **em Criar** para criar sua função personalizada.
 
-    Após alguns instantes, uma caixa de mensagem será exibida indicando que a função personalizada foi criada com êxito.
+    Após alguns momentos, uma caixa de mensagem aparece indicando que sua função personalizada foi criada com sucesso.
 
     ![Criar mensagem de função personalizada](./media/custom-roles-portal/custom-role-success.png)
 
-    Se forem detectados erros, uma mensagem será exibida.
+    Se fordetectado algum erro, uma mensagem será exibida.
 
-    ![Examinar + criar erro](./media/custom-roles-portal/review-create-error.png)
+    ![Revisão + criar erro](./media/custom-roles-portal/review-create-error.png)
 
-1. Exiba sua nova função personalizada na lista de **funções** . Se você não vir sua função personalizada, clique em **Atualizar**.
+1. Veja sua nova função personalizada na lista **De Papéis.** Se você não ver sua função personalizada, clique **em Atualizar**.
 
-     Pode levar alguns minutos para que sua função personalizada apareça em todos os lugares.
+     Pode levar alguns minutos para que seu papel personalizado apareça em todos os lugares.
 
 ## <a name="list-custom-roles"></a>Listar funções personalizadas
 
-Siga estas etapas para exibir suas funções personalizadas.
+Siga estas etapas para ver suas funções personalizadas.
 
-1. Abra uma assinatura ou um grupo de recursos e, em seguida, abra o **controle de acesso (iam)** .
+1. Abra um grupo de assinatura ou recurso e, em seguida, abra **o controle de acesso (IAM)**.
 
 1. Clique na guia **Funções** para ver uma lista de todas as funções integradas e personalizadas.
 
-1. Na lista **tipo** , selecione **CustomRole** para ver apenas suas funções personalizadas.
+1. Na lista **Tipo,** selecione **CustomRole** para apenas ver suas funções personalizadas.
 
-    Se você acabou de criar sua função personalizada e não a vir na lista, clique em **Atualizar**.
+    Se você acabou de criar sua função personalizada e não a verá na lista, clique em **Atualizar**.
 
-    ![Lista de funções personalizadas](./media/custom-roles-portal/custom-role-list.png)
+    ![Lista de papéis personalizada](./media/custom-roles-portal/custom-role-list.png)
 
 ## <a name="update-a-custom-role"></a>Atualizar uma função personalizada
 
-1. Conforme descrito anteriormente neste artigo, abra a lista de funções personalizadas.
+1. Como descrito anteriormente neste artigo, abra sua lista de funções personalizadas.
 
-1. Clique nas reticências ( **...** ) para a função personalizada que você deseja atualizar e clique em **Editar**. Observe que você não pode atualizar funções internas.
+1. Clique na elipse (**...**) para a função personalizada que deseja atualizar e clique em **Editar**. Observe que você não pode atualizar funções incorporadas.
 
-    A função personalizada é aberta no editor.
+    O papel personalizado é aberto no editor.
 
-    ![Menu de função personalizada](./media/custom-roles-portal/edit-menu.png)
+    ![Menu de funções personalizado](./media/custom-roles-portal/edit-menu.png)
 
 1. Use as diferentes guias para atualizar a função personalizada.
 
-1. Depois de concluir as alterações, clique na guia **revisar + criar** para revisar as alterações.
+1. Depois de terminar suas alterações, clique na guia **'Revisar + criar** para revisar suas alterações.
 
 1. Clique no botão **Atualizar** para atualizar sua função personalizada.
 
 ## <a name="delete-a-custom-role"></a>Excluir uma função personalizada
 
-1. Conforme descrito anteriormente neste artigo, abra a lista de funções personalizadas.
+1. Como descrito anteriormente neste artigo, abra sua lista de funções personalizadas.
 
-1. Remova as atribuições de função que usam a função personalizada.
+1. Remova quaisquer atribuições de função que usem a função personalizada.
 
-1. Clique nas reticências ( **...** ) para a função personalizada que você deseja excluir e clique em **excluir**.
+1. Clique na elipse (**...**) para a função personalizada que deseja excluir e clique em **Excluir**.
 
-    ![Menu de função personalizada](./media/custom-roles-portal/delete-menu.png)
+    ![Menu de funções personalizado](./media/custom-roles-portal/delete-menu.png)
 
     Pode levar alguns minutos para que sua função personalizada seja completamente excluída.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - [Tutorial: Criar uma função personalizada usando o Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Funções personalizadas no Azure](custom-roles.md)

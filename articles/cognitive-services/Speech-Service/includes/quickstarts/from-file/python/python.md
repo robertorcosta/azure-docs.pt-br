@@ -2,14 +2,14 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/10/2020
+ms.date: 03/20/2020
 ms.author: dapine
-ms.openlocfilehash: b3d7ea44acac99cc8077993f679bdcea2e5018fa
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: e01e6f0e38abe9bdd3afa83306b90725daf287ce
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79081892"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80117153"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +36,7 @@ Se você tiver um problema ou se estiver faltando um recurso, confira [Support a
 
 É possível copiar o [código de exemplo](#sample-code) neste início rápido para um arquivo de origem `quickstart.py` e executá-lo no IDE ou no console:
 
-```sh
+```Bash
 python quickstart.py
 ```
 
@@ -58,7 +58,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_r
 # Creates an audio configuration that points to an audio file.
 # Replace with your own audio filename.
 audio_filename = "whatstheweatherlike.wav"
-audio_input = speechsdk.AudioConfig(filename=audio_filename)
+audio_input = speechsdk.audio.AudioConfig(filename=audio_filename)
 
 # Creates a recognizer with the given settings
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)

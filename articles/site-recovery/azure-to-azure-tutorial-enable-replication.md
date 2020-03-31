@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 979b390f65363b43f33ce2f09d26844c3cc1a2e8
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: c5d2bbe920f87421550fadf30a7e7e9d23931bfd
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759782"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80292477"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurar a recuperação de desastre para VMs do Azure
 
@@ -27,7 +27,7 @@ Este tutorial mostra como configurar a recuperação de desastre para o VMs do A
 > [!NOTE]
 > Este artigo fornece instruções para implantar a recuperação de desastre com as configurações mais simples. Caso queira saber mais sobre as configurações personalizadas, examine os artigos na [seção Instruções](azure-to-azure-how-to-enable-replication.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -75,7 +75,7 @@ Caso esteja usando um proxy de firewall baseado em URL para controlar a conectiv
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
-Se você estiver usando um NSG (grupo de segurança de rede), crie regras NSG baseadas em marca de serviço para acesso ao Armazenamento do Azure, ao Azure Active Directory, ao serviço Site Recovery e ao monitoramento do Site Recovery. [Saiba mais](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
+Se você estiver usando um NSG (grupo de segurança de rede), crie regras NSG baseadas em marca de serviço para acesso ao Armazenamento do Azure, ao Azure Active Directory, ao serviço Site Recovery e ao monitoramento do Site Recovery. [Saiba mais](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ## <a name="verify-azure-vm-certificates"></a>Verifique os certificados de VM do Azure
 

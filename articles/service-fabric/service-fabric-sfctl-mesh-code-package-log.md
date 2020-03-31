@@ -1,15 +1,15 @@
 ---
-title: CLI do Azure Service Fabric-pacote de código de malha sfctl-log
-description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para obter logs para um pacote de códigos especificado.
+title: Azure Service Fabric CLI-sfctl mesh code-log
+description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para obter logs para um pacote de código especificado.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: f8665e75e4c921a3305c9965601e2ee0825c8995
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906055"
 ---
 # <a name="sfctl-mesh-code-package-log"></a>sfctl mesh code-package-log
@@ -17,7 +17,7 @@ Obter os logs para o contêiner do pacote de código especificado para a réplic
 
 ## <a name="commands"></a>Comandos
 
-|Comando|Description|
+|Comando|Descrição|
 | --- | --- |
 | get | Obtém os logs do contêiner. |
 
@@ -28,7 +28,7 @@ Obtém os logs para o contêiner do pacote de código especificado para a répli
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --app-name --application-name [Obrigatório] | O nome do aplicativo. |
 | --code-package-name           [Obrigatório] | O nome do pacote de código do serviço. |
@@ -38,7 +38,7 @@ Obtém os logs para o contêiner do pacote de código especificado para a répli
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -47,6 +47,6 @@ Obtém os logs para o contêiner do pacote de código especificado para a répli
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Próximos passos
-- [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
+## <a name="next-steps"></a>Próximas etapas
+- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

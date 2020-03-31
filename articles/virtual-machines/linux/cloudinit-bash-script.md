@@ -1,5 +1,5 @@
 ---
-title: Usar Cloud-init para executar um script de bash em uma VM do Linux no Azure
+title: Use cloud-init para executar um script bash em um VM Linux no Azure
 description: Como usar o cloud-init para executar um script de bash em uma VM do Linux durante a criação com a CLI do Azure
 author: rickstercdn
 ms.service: virtual-machines-linux
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: e2f19ceb6c7f19ba749b46a3553036587be6a71a
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969226"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Usar cloud-init para executar um script de bash em uma VM Linux no Azure
@@ -28,7 +28,7 @@ Para ver essa funcionalidade em ação, crie um script de bash simples para test
 echo "this has been written via cloud-init" + $(date) >> /tmp/myScript.txt
 ```
 
-Antes de implantar essa imagem, você precisa criar um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
+Antes de implantar essa imagem, você precisa criar um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no *local eastus.*
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -57,7 +57,7 @@ Altere para o diretório **/tmp** e verifique se o arquivo myScript.txt existe e
 Running config-scripts-user using lock Running command ['/var/lib/cloud/instance/scripts/part-001']
 ```
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 Para obter exemplos adicionais de alterações de configuração do cloud-init, consulte o seguinte:
  
 - [Add an additional Linux user to a VM](cloudinit-add-user.md) (Adicionar um usuário adicional do Linux a uma VM)

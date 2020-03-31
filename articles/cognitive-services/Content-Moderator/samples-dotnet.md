@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 930571c841146e0b12efbf7325915ba2b23a7efa
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73744336"
 ---
 # <a name="content-moderator-net-sdk-samples"></a>Amostras do SDK do .NET do Content Moderator
@@ -39,7 +39,7 @@ A lista a seguir inclui links para exemplos de código criados usando o SDK do C
 
 - **Moderação de vídeo**: [Examine um vídeo em relação a conteúdo para adulto e sexual e obtenha resultados](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Consulte o [início rápido](video-moderation-api.md).
 
-## <a name="review"></a>Análise
+## <a name="review"></a>Revisão
 
 - **Trabalhos de imagem**: [Inicie um trabalho de moderação que examina e cria revisões](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageJobs/Program.cs). Consulte o [início rápido](moderation-jobs-quickstart-dotnet.md).
 - **Análises de imagem**: [Crie revisões com interação humana](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageReviews/Program.cs). Consulte o [início rápido](dotnet-sdk-quickstart.md).

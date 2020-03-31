@@ -1,15 +1,15 @@
 ---
-title: Elemento de interface do usuário VirtualNetworkCombo
+title: Elemento de UI VirtualNetworkCombo
 description: Descreve o elemento de interface do usuário Microsoft.Network.VirtualNetworkCombo para o Portal do Azure.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 53c9653b44a6c9d26d49d37b351cf6000676e2d4
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651963"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Elemento de interface do usuário Microsoft.Network.VirtualNetworkCombo
@@ -110,11 +110,11 @@ Quando o usuário escolher uma rede virtual existente, deve mapear cada sub-rede
 - `constraints.minAddressPrefixSize`deve ser especificado. Todas as redes virtuais existentes com um espaço de endereço menor do que o valor especificado estarão indisponíveis para seleção.
 - `subnets`deve ser especificado e `constraints.minAddressPrefixSize` deve ser especificado para cada sub-rede.
 - Ao criar uma nova rede virtual, cada prefixo de endereço de sub-rede será calculado automaticamente com base no prefixo de endereço da rede virtual e os respectivos `addressPrefixSize`.
-- Ao usar uma rede virtual existente, todas as sub-redes menores que os respectivos `constraints.minAddressPrefixSize` ficarão indisponíveis para seleção. Além disso, se especificado, as sub-redes que não contêm pelo menos `minAddressCount` endereços disponíveis ficam indisponíveis para seleção. O valor padrão é **0**. Para garantir que os endereços disponíveis são contíguos, especifique **true** para `requireContiguousAddresses`. O valor padrão é **true**.
+- Ao usar uma rede virtual existente, todas as sub-redes menores que os respectivos `constraints.minAddressPrefixSize` ficarão indisponíveis para seleção. Além disso, se especificado, as sub-redes que não contêm pelo menos `minAddressCount` endereços disponíveis ficam indisponíveis para seleção. O valor padrão é **0**. Para garantir que os endereços disponíveis são contíguos, especifique **true** para `requireContiguousAddresses`. O valor padrão é **verdadeiro.**
 - Não há suporte para a criação de sub-redes em uma rede virtual existente.
 - Se `options.hideExisting` é **true**, o usuário não pode escolher uma rede virtual existente. O valor padrão é **false**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](create-uidefinition-elements.md).

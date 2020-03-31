@@ -1,5 +1,5 @@
 ---
-title: Agendamento e execução com Data Factory
+title: Agendamento e Execução com Fábrica de Dados
 description: Aprenda sobre os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 15a2d6ae5d8b80468ffcdd00d60b1f36843ed677
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281061"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento e execução com o Data Factory
@@ -26,10 +26,10 @@ Este artigo explica os aspectos de agendamento e execução do modelo de aplicat
 
 * [Introdução ao Data Factory](data-factory-introduction.md)
 * [Pipelines](data-factory-create-pipelines.md)
-* [Conjunto de dados](data-factory-create-datasets.md) 
+* [Conjuntos de dados](data-factory-create-datasets.md) 
 
 ## <a name="start-and-end-times-of-pipeline"></a>Horas de início e término do pipeline
-Um pipeline está ativo somente entre sua hora de **início** e de **término**. Ele não é executado antes da hora de início ou após a hora de término. Se o pipeline estiver em pausa, ele não será executado, independentemente de suas horas de início e término. Para um pipeline ser executado, ele não deve estar pausado. É possível encontrar essas configurações (início, término, em pausa) na definição do pipeline: 
+Um gasoduto está ativo apenas entre o horário **de início** e o tempo **de término.** Ele não é executado antes da hora de início ou após a hora de término. Se o pipeline estiver em pausa, ele não será executado, independentemente de suas horas de início e término. Para um pipeline ser executado, ele não deve estar pausado. É possível encontrar essas configurações (início, término, em pausa) na definição do pipeline: 
 
 ```json
 "start": "2017-04-01T08:00:00Z",
@@ -180,15 +180,15 @@ No exemplo anterior, o agendamento especificado para conjuntos de dados de entra
 Você já viu o uso da frequência e das propriedades de intervalo na seção de disponibilidade da definição do conjunto de dados. Há algumas outras propriedades que afetam o agendamento e a execução de uma atividade. 
 
 ### <a name="dataset-availability"></a>Disponibilidade do conjunto de dados 
-A tabela a seguir descreve as propriedades que você pode usar na seção de **availability**:
+A tabela a seguir descreve propriedades que você pode usar na seção **disponibilidade:**
 
-| Propriedade | DESCRIÇÃO | Obrigatório | Padrão |
+| Propriedade | Descrição | Obrigatório | Padrão |
 | --- | --- | --- | --- |
 | frequência |Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/><b>Frequência com suporte</b>: Minuto, Hora, Dia, Semana, Mês |Sim |NA |
 | intervalo |Especifica um multiplicador para frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida.<br/><br/>Se você precisa que o conjunto de dados seja dividido por hora, defina <b>Frequência</b> como <b>Hora</b> e <b>intervalo</b> como <b>1</b>.<br/><br/><b>Observação:</b>: caso você especifique a frequência como minuto, recomendamos que defina o intervalo como não inferior a 15 |Sim |NA |
 | estilo |Especifica se a fatia deve ser produzida no início/término do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência for definida como Mês e o estilo como EndOfInterval, a fatia será produzida no último dia do mês. Se o estilo for definido como StartOfInterval, a fatia será produzida no primeiro dia do mês.<br/><br/>Se a frequência for definida como Dia e o estilo como EndOfInterval, a fatia será produzida na última hora do dia.<br/><br/>Se a Frequência for definida como Hora e o estilo como EndOfInterval, a fatia será produzida ao final da hora. Por exemplo, para uma fatia de período 13h – 14h, a fatia é produzida às 14h. |Não |EndOfInterval |
-| anchorDateTime |Define a posição absoluta no tempo usada pelo agendador para computar limites de fatia do conjunto de dados. <br/><br/><b>Observação:</b> se AnchorDateTime tiver partes de datas mais granulares do que a frequência, as partes mais granulares serão ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> for <b>por hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contiver <b>minutos e segundos</b>, as partes <b>minutos e segundos</b> do AnchorDateTime serão ignoradas. |Não |01/01/0001 |
-| deslocamento |O período de tempo no qual o início e o término de todas as fatias de conjunto de dados são deslocados. <br/><br/><b>Observação:</b> se anchorDateTime e o deslocamento forem especificados, o resultado será um deslocamento combinado. |Não |NA |
+| anchorDateTime |Define a posição absoluta no tempo usada pelo agendador para computar limites de fatia do conjunto de dados. <br/><br/><b>Nota:</b>Se o AnchorDateTime tiver peças de data mais granulares do que a frequência, as partes mais granulares serão ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> for <b>de hora em hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contiver <b>minutos e segundos,</b>as partes de <b>minutos e segundos</b> do AnchorDateTime são ignoradas. |Não |01/01/0001 |
+| deslocamento |O período de tempo no qual o início e o término de todas as fatias de conjunto de dados são deslocados. <br/><br/><b>Nota:</b>Se ambos anchorDateTime e offset forem especificados, o resultado será a mudança combinada. |Não |NA |
 
 ### <a name="offset-example"></a>exemplo de deslocamento
 Por padrão, fatias (`"frequency": "Day", "interval": 1`) diárias começam em hora UTC de 12: 00 (meia-noite). Se desejar que a hora de início para hora UTC de 6 horas em vez disso, define o deslocamento, conforme mostrado no snippet a seguir: 
@@ -230,7 +230,7 @@ Um conjunto de dados pode ter uma política de validação definida que especifi
 
 A seção **política** na definição do conjunto de dados define os critérios ou a condição que as divisões de conjunto de dados devem atender. A seguinte tabela descreve as propriedades que você pode usar na seção **política**:
 
-| Nome da política | DESCRIÇÃO | Aplicado a | Obrigatório | Padrão |
+| Nome da política | Descrição | Aplicado a | Obrigatório | Padrão |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Valida que os dados em um **blob do Azure** atendem aos requisitos de tamanho mínimo (em megabytes). |Blob do Azure |Não |NA |
 | minimumRows | Valida que os dados em um **Banco de Dados SQL do Azure** ou uma **tabela do Azure** contêm o número mínimo de linhas. |<ul><li>Banco de Dados SQL do Azure</li><li>tabela do Azure</li></ul> |Não |NA |
@@ -266,7 +266,7 @@ Para obter mais informações sobre essas propriedades e exemplos, consulte o ar
 ## <a name="activity-policies"></a>Políticas de atividades
 As políticas afetam o comportamento de tempo de execução de uma atividade, especialmente quando a divisão de uma tabela é processada. A tabela a seguir fornece os detalhes.
 
-| Propriedade | Valores permitidos | Valor Padrão | DESCRIÇÃO |
+| Propriedade | Valores permitidos | Valor Padrão | Descrição |
 | --- | --- | --- | --- |
 | simultaneidade |Integer <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de atividade paralela que podem ocorrer em divisões diferentes. Por exemplo, se uma atividade precisa passar por um grande conjunto de dados disponíveis, ter um valor de concorrência maior acelera o processamento de dados. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordem das divisões de dados que estão sendo processadas.<br/><br/>Por exemplo, se houver duas fatias (uma ocorre às 16h e a outra às 17h),e ambas estiverem com a execução pendente. Se você definir executionPriorityOrder como NewestFirst, a divisão às 17h será processada primeiro. De modo semelhante, se você definir executionPriorityORder como OldestFIrst, a fatia às 16h será processada. |
@@ -695,7 +695,7 @@ Veja o exemplo de JSON do pipeline:
 
 Observe que no exemplo, o conjunto de dados de saída da primeira atividade de cópia (Dataset2) é especificado como entrada para a segunda atividade. Portanto, a segunda atividade será executada somente quando o conjunto de dados de saída da primeira atividade estiver pronto.  
 
-No exemplo, CopyActivity2 pode ter uma entrada diferente como Dataset3, mas você especifica Dataset2 como uma entrada para CopyActivity2 para que a atividade não seja executada até que CopyActivity1 seja concluída. Por exemplo:
+No exemplo, CopyActivity2 pode ter uma entrada diferente como Dataset3, mas você especifica Dataset2 como uma entrada para CopyActivity2 para que a atividade não seja executada até que CopyActivity1 seja concluída. Por exemplo: 
 
 CopyActivity1
 

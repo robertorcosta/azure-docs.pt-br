@@ -1,15 +1,15 @@
 ---
-title: Visão Geral dos Reliable Actors do Service Fabric
-description: Introdução ao modelo de programação de Reliable Actors Service Fabric, com base no padrão de ator virtual.
+title: Visão geral dos atores confiáveis do tecido do serviço
+description: Introdução ao modelo de programação Service Fabric Reliable Actors, baseado no padrão Ator Virtual.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 6aafa2a3372c431f8afa7fad41051c26c3fe5fcd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645558"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introdução aos Reliable Actors do Service Fabric
@@ -97,7 +97,7 @@ A classe `ActorProxy`(C#) / `ActorProxyBase`(Java) do lado do cliente executa a 
 * A entrega de mensagem é o melhor esforço.
 * Os atores podem receber mensagens duplicadas do mesmo cliente.
 
-## <a name="concurrency"></a>Simultaneidade
+## <a name="concurrency"></a>Concorrência
 O runtime dos Reliable Actors fornece um modelo de acesso baseado em turno simples para acessar os métodos de ator. Isso significa que não é permitido mais de um thread ativo no código do objeto de um ator a qualquer momento. O acesso baseado em turno simplifica consideravelmente os sistemas simultâneos, pois não há necessidade de mecanismos de sincronização para o acesso a dados. Isso também significa que os sistemas devem ser projetados com considerações especiais sobre a natureza do acesso single-threaded de cada instância de ator.
 
 * Uma única instância de ator não pode processar mais de uma solicitação por vez. Uma instância de ator poderá causar um gargalo da taxa de transferência se tiver de manipular solicitações simultâneas.
@@ -134,7 +134,7 @@ O runtime dos Atores permite reentrância por padrão. Isso significa que, se um
 ### <a name="scope-of-concurrency-guarantees"></a>Escopo de garantias de simultaneidade
 O runtime dos Atores fornece essas garantias de simultaneidade em situações em que ele controla a invocação desses métodos. Por exemplo, ele fornece essas garantias para as invocações de método que são feitas em resposta à solicitação de cliente, bem como para retornos de chamada de temporizador e lembrete. No entanto, se o código de ator envolver diretamente esses métodos fora dos mecanismos fornecidos pelo runtime dos Atores, o runtime não poderá fornecer nenhuma garantia de simultaneidade. Por exemplo, se o método for invocado no contexto de alguma tarefa que não está associada à tarefa retornada pelos métodos de ator, o runtime não poderá fornecer garantias de simultaneidade. Se o método for chamado de um thread criado pelo ator por conta própria, o runtime também não poderá fornecer garantias de simultaneidade. Portanto, para executar operações em segundo plano, os atores devem usar [temporizadores e lembretes de ator](service-fabric-reliable-actors-timers-reminders.md) que respeitam a simultaneidade baseada em turno.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Comece criando seu primeiro serviço de Reliable Actors:
    * [Introdução aos Reliable Actors no .NET](service-fabric-reliable-actors-get-started.md)
    * [Introdução aos Reliable Actors em Java](service-fabric-reliable-actors-get-started-java.md)

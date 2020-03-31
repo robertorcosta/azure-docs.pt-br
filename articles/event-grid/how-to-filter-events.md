@@ -1,18 +1,18 @@
 ---
 title: Como filtrar eventos para o Azure Event Grid
-description: Este artigo mostra como filtrar eventos (por tipo de evento, por assunto, por operadores e dados, etc.) ao criar uma assinatura de grade de eventos.
+description: Este artigo mostra como filtrar eventos (por tipo de evento, por assunto, por operadores e dados, etc.) ao criar uma assinatura do Event Grid.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 58da209c68449d3a28b08f52ec575f7db520f121
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 63a5cdbff79af52d9f96cf410a820c6cfc530066
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79244336"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454016"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtrar eventos de grade de eventos
 
@@ -193,7 +193,7 @@ Esses exemplos criam um tópico personalizado. Eles assinam o tópico personaliz
 
 Para a CLI do Azure, use:
 
-```azurecli-interactive
+```azurecli
 topicName=<your-topic-name>
 endpointURL=<endpoint-URL>
 
@@ -214,7 +214,7 @@ Observe que uma [data de expiração](concepts.md#event-subscription-expiration)
 
 Para o PowerShell, use:
 
-```azurepowershell-interactive
+```powershell
 $topicName = <your-topic-name>
 $endpointURL = <endpoint-URL>
 
@@ -240,7 +240,7 @@ Para testar o filtro, envie um evento com o campo de cores definido como verde. 
 
 Para a CLI do Azure, use:
 
-```azurecli-interactive
+```azurecli
 topicEndpoint=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name $topicName -g gridResourceGroup --query "key1" --output tsv)
 
@@ -251,7 +251,7 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 
 Para o PowerShell, use:
 
-```azurepowershell-interactive
+```powershell
 $endpoint = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Endpoint
 $keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicName
 
@@ -279,14 +279,14 @@ Para testar um cenário em que o evento não é enviado, envie um evento com o c
 
 Para a CLI do Azure, use:
 
-```azurecli-interactive
+```azurecli
 event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "yellow"},"dataVersion": "1.0"} ]'
 
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
 Para o PowerShell, use:
 
-```azurepowershell-interactive
+```powershell
 $htbody = @{
     id= $eventID
     eventType="recordInserted"

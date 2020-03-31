@@ -1,5 +1,5 @@
 ---
-title: Gerenciar logs de fluxo NSG – API REST do Azure
+title: Gerenciar logs de fluxo NSG - Api Azure REST
 titleSuffix: Azure Network Watcher
 description: Esta página explica como gerenciar logs de fluxo do Grupo de segurança de rede no Observador de Rede do Azure com a API REST
 services: network-watcher
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 7cc47414dc985f6fc2fff3c57d809f307b142e30
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840920"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configurar logs de fluxo do Grupo de segurança de rede usando a API REST
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
-> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
+> - [Portal Azure](network-watcher-nsg-flow-logging-portal.md)
+> - [Powershell](network-watcher-nsg-flow-logging-powershell.md)
+> - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 Logs de fluxo do Grupo de Segurança de Rede são um recurso do Observador de Rede permite que você exiba informações sobre o tráfego IP de entrada e saída por meio de um Grupo de Segurança de Rede. Esses logs de fluxo são escritos no formato json e mostram os fluxos de entrada e de saída por regra, a NIC à qual o fluxo se aplica, as informações de cinco tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino, Protocolo) e se o tráfego foi permitido ou negado.
@@ -215,7 +215,7 @@ Se uma conta de armazenamento for especificada, os arquivos de captura de pacote
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [Visualizar seus logs de fluxo NSG com o PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

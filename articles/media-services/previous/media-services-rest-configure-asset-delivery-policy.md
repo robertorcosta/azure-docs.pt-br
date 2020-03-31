@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 09f0371bc189fcf7b25ec3261e2e1f5eaf1892ae
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194465"
 ---
 # <a name="configuring-asset-delivery-policies"></a>Configuração de políticas de entrega de ativos
@@ -29,7 +29,7 @@ Se você planeja entregar dinamicamente ativos criptografados, uma das etapas do
 Este tópico discute como e por que criar e configurar políticas de entrega de ativos.
 
 > [!NOTE]
-> Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
+> Quando sua conta AMS é criada, um ponto final de streaming **padrão** é adicionado à sua conta no estado **Parado.** Para começar a transmitir seu conteúdo e aproveitar a embalagem dinâmica e a criptografia dinâmica, o ponto final de streaming a partir do qual você deseja transmitir conteúdo tem que estar no estado **em execução.** 
 >
 > Além disso, para poder usar o empacotamento dinâmico e a criptografia dinâmica, seu ativo deve conter um conjunto de arquivos MP4 de taxa de bits adaptável ou de Smooth Streaming de taxa de bits adaptável.
 
@@ -64,14 +64,14 @@ Para obter instruções sobre como publicar um ativo e criar uma URL de streamin
 
 > [!NOTE]
 > 
-> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
+> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento de API REST de serviços de mídia](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
 
 Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="clear-asset-delivery-policy"></a>Política de entrega de ativos clara
-### <a id="create_asset_delivery_policy"></a>Criar política de entrega de ativos
+### <a name="create-asset-delivery-policy"></a><a id="create_asset_delivery_policy"></a>Criar política de entrega de ativos
 A solicitação HTTP a seguir cria uma política de entrega de ativos que especifica a não aplicação de criptografia dinâmica e a entrega do fluxo em qualquer um dos seguintes protocolos: MPEG DASH, HLS e protocolos Smooth Streaming. 
 
 Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types) .   
@@ -120,7 +120,7 @@ Resposta:
     "Created":"2015-02-08T06:21:27.6908329Z",
     "LastModified":"2015-02-08T06:21:27.6908329Z"}
 
-### <a id="link_asset_with_asset_delivery_policy"></a>Ativos de link com a política de entrega de ativos
+### <a name="link-asset-with-asset-delivery-policy"></a><a id="link_asset_with_asset_delivery_policy"></a>Ativos de link com a política de entrega de ativos
 A seguinte solicitação HTTP vincula o ativo especificado na política de entrega de ativos.
 
 Solicitação:
@@ -147,7 +147,7 @@ Resposta:
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>Cria chave de conteúdo do tipo EnvelopeEncryption e a vincula ao ativo
 Ao especificar a política de entrega DynamicEnvelopeEncryption, você precisa certificar-se de vincular seu ativo a uma chave de conteúdo do tipo EnvelopeEncryption. Para saber mais, confira: [Criando uma chave de conteúdo](media-services-rest-create-contentkey.md)).
 
-### <a id="get_delivery_url"></a>Obter URL de entrega
+### <a name="get-delivery-url"></a><a id="get_delivery_url"></a>Obtenha URL de entrega
 Obter a URL de entrega para o método de entrega especificado da chave de conteúdo criado na etapa anterior. Um cliente usa a URL retornada para solicitar uma chave AES ou uma licença PlayReady a fim de reproduzir o conteúdo protegido.
 
 Especifique o tipo da URL para obter no corpo da solicitação HTTP. Se você estiver protegendo o conteúdo com PlayReady, solicite uma URL de aquisição de licenças PlayReady dos Serviços de Mídia usando 1 para o keyDeliveryType: {"keyDeliveryType":1}. Se você estiver protegendo seu conteúdo com a criptografia de envelope, solicite uma URL de aquisição de chave especificando 2 para keyDeliveryType: {"keyDeliveryType":2}.
@@ -260,7 +260,7 @@ Solicitação:
 
 Se você deseja proteger o conteúdo usando Widevine DRM, atualize os valores de AssetDeliveryConfiguration para usar WidevineLicenseAcquisitionUrl (que tem o valor de 7) e especifique a URL de um serviço de fornecimento de licença. Você pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças Widevine: [Axinom](https://www.axinom.com), [EZDRM](https://ezdrm.com/) e [castLabs](https://castlabs.com/company/partners/azure/).
 
-Por exemplo: 
+Por exemplo:  
 
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 
@@ -272,7 +272,7 @@ Por exemplo:
 ### <a name="link-asset-with-asset-delivery-policy"></a>Ativos de link com a política de entrega de ativos
 Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_asset_delivery_policy)
 
-## <a id="types"></a>Tipos usados ao definir AssetDeliveryPolicy
+## <a name="types-used-when-defining-assetdeliverypolicy"></a><a id="types"></a>Tipos usados ao definir AssetDeliveryPolicy
 
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
 

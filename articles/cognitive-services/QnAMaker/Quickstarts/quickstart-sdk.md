@@ -4,12 +4,12 @@ description: Este guia de início rápido mostra como criar e gerenciar sua base
 ms.topic: quickstart
 ms.date: 01/13/2020
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 33725eb54e8a78547f4bf82d6a8f6fae58fdb5cb
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 065f88ce12037109773b7023972c151d968840a8
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524403"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79218479"
 ---
 # <a name="quickstart-create-and-manage-knowledge-base"></a>Início Rápido: Criar e gerenciar a base de conhecimento
 
@@ -30,7 +30,7 @@ Introdução à biblioteca de clientes do QnA Maker. Siga essas etapas para inst
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
->[Tutorial: Criar e responder a uma KB](../tutorials/create-publish-query-in-portal.md)
+>[Tutorial: Testar sua base de dados de conhecimento com um arquivo em lotes](./batch-testing.md)
 
 * [O que é a API de QnA Maker?](../Overview/overview.md)
 * [Editar uma base de dados de conhecimento](../how-to/edit-knowledge-base.md)

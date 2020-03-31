@@ -15,12 +15,12 @@
       href: quick-backup-vm-powershell.md
     - name: Fazer backup de uma VM – CLI
       href: quick-backup-vm-cli.md
-    - name: Fazer backup de uma VM – Modelo do Resource Manager
-      displayName: ARM
+    - name: Fazer backup de uma VM – Modelo de ARM
+      displayName: Resource Manager
       href: quick-backup-vm-template.md
 - name: Tutoriais
   items:
-    - name: Fazer backup de VMs do Azure em escala
+    - name: Fazer backup de várias VMs do Azure
       href: tutorial-backup-vm-at-scale.md
     - name: Fazer backup de VMs do Azure com o PowerShell
       href: tutorial-backup-azure-vm.md
@@ -58,6 +58,8 @@
           href: backup-support-matrix-mabs-dpm.md
         - name: Matriz de suporte do agente do MARS
           href: backup-support-matrix-mars-agent.md
+        - name: Matriz de suporte de backup do SQL Server
+          href: sql-support-matrix.md
         - name: Matriz de suporte de backup do SAP HANA
           href: sap-hana-backup-support-matrix.md
         - name: SKUs de VM com suporte para o Azure Policy

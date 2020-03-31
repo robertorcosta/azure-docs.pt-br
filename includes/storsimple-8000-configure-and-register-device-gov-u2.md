@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 7700f1c92aecab76dbc347814b7b161bc3d822a0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67171978"
 ---
 ### <a name="to-configure-and-register-the-device"></a>Para configurar e registrar o dispositivo
 1. Acesse a interface do Windows PowerShell no console serial do dispositivo StorSimple. Consulte [Usar o PuTTY para se conectar ao console serial do dispositivo](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console) para obter instruções. **Siga o procedimento corretamente ou você não conseguirá acessar o console.**
-2. Na sessão aberta, pressione **Enter** uma vez para obter um prompt de comando.
-3. Você deverá escolher o idioma que deseja definir para seu dispositivo. Especifique a linguagem e pressione **Enter**.
+2. Na sessão que se abre, **pressione Enter** uma vez para obter um prompt de comando.
+3. Você deverá escolher o idioma que deseja definir para seu dispositivo. Especifique o idioma e **pressione Enter**.
    
     ![O StorSimple configura e registra o dispositivo 1](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice1-gov-include.png)
 4. No menu do console serial apresentado, escolha a opção 1 para **Fazer logon com acesso completo**.
@@ -23,10 +23,10 @@ ms.locfileid: "67171978"
 5. Conclua as etapas a seguir para definir as configurações de rede necessárias e mínimas para seu dispositivo.
    
    > [!IMPORTANT]
-   > Essas etapas de configuração devem ser executadas no controlador ativo do dispositivo. O menu do console serial indica o estado do controlador na mensagem de faixa. Se você não estiver conectado ao controlador ativo, desconecte e conecte-se ao controlador ativo.
+   > Essas etapas de configuração devem ser executadas no controlador ativo do dispositivo.  O menu do console serial indica o estado do controlador na mensagem de faixa. Se você não estiver conectado ao controlador ativo, desconecte e conecte-se ao controlador ativo.
    
    1. No prompt de comando, digite sua senha. A senha do dispositivo padrão é **Senha1**.
-   2. Digite o seguinte comando:
+   2. Digite o seguinte comando: 
       
         `Invoke-HcsSetupWizard`
    3. Um assistente de instalação aparecerá para ajudá-lo a configurar as definições da rede para o dispositivo. Forneça as seguintes informações:
@@ -61,7 +61,7 @@ ms.locfileid: "67171978"
 11. Por motivos de segurança, a senha de administrador do dispositivo expira após a primeira sessão, e você precisará alterá-la agora. Quando solicitado, forneça uma senha de administrador do dispositivo. Uma senha de administrador do dispositivo válida deve ter entre 8 e 15 caracteres. A senha deve conter três das seguintes opções: caracteres com letras minúsculas e maiúsculas, numéricos e especiais.
     
     <br/>![Dispositivo de registro do StorSimple 5](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
-12. A etapa final do assistente de configuração registra seu dispositivo no serviço StorSimple Device Manager. Para isso, será necessária a chave de registro do serviço obtida na [Etapa 2: obter a chave de registro do serviço](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Depois de fornecer a chave de registro, talvez seja necessário aguardar de 2 a 3 minutos antes do dispositivo ser registrado.
+12. A etapa final do assistente de configuração registra seu dispositivo no serviço StorSimple Device Manager. Para isso, será necessária a chave de registro do serviço obtida na [Etapa 2: Obter a chave de registro](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Depois de fornecer a chave de registro, talvez seja necessário aguardar de 2 a 3 minutos antes do dispositivo ser registrado.
     
     > [!NOTE]
     > Você pode pressionar Ctrl + C a qualquer momento para sair do assistente de instalação. Se você tiver inserido todas as configurações de rede (endereço IP para Dados 0, Máscara de sub-rede e Gateway), as entradas serão mantidas.
@@ -81,7 +81,7 @@ ms.locfileid: "67171978"
     1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple.
     2. Clique em **Dispositivos**. Na lista de dispositivos, identifique o dispositivo que você está implantando. Verifique se o dispositivo se conectou com êxito ao serviço ao examinar seu status. O status do dispositivo deve ser **Online**.
             
-        Se o status do dispositivo for **Offline**, aguarde alguns minutos para o dispositivo ficar online.
+        Se o status do dispositivo estiver como **Offline**, aguarde alguns minutos para que o dispositivo fique online.
        
         Se o dispositivo continuar offline após alguns minutos, você precisará se certificar de que a rede do firewall foi configurada conforme descrito nos [requisitos de rede para seu dispositivo StorSimple](../articles/storsimple/storsimple-8000-system-requirements.md).
        

@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77109002"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Início Rápido: Testar a base de dados de conhecimento com perguntas em lotes e respostas esperadas
 
 Use a ferramenta de teste em lotes do QnA Maker para testar as bases de dados de conhecimento em seu recurso do QnA Maker para respostas esperadas, pontuações de confiança e prompts de vários turnos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Crie um serviço do QnA Maker](create-publish-knowledge-base.md) ou use um serviço existente, que usa o idioma inglês.

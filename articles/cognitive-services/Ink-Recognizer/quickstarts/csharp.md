@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 1cf519d8d8c25877b49bf14aefd1c0be3afa8023
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: c24d055f1904453d2f512a278f00e23c6fea1d9b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137887"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371370"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Início Rápido: Reconhecer tinta digital com a API REST de Reconhecimento de Tinta Digital e o C#
 
@@ -29,7 +29,7 @@ Normalmente, você chamará a API em um aplicativo de escrita à tinta digital. 
 
 O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Qualquer edição do [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
@@ -39,7 +39,7 @@ O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://go
         3. Pesquise `Newtonsoft.Json` e instale o pacote
 - Se você estiver usando o Linux/macOS, esse aplicativo poderá ser executado com o [Mono](https://www.mono-project.com/).
 
-- Os dados de traço de tinta de exemplo deste início rápido podem ser encontrados no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
+- Os dados de traço de tinta de exemplo deste início rápido podem ser encontrados no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Vision/InkRecognition/quickstart/example-ink-strokes.json).
 
 ### <a name="create-an-ink-recognizer-resource"></a>Criar um recurso do Reconhecimento de Tinta Digital
 
@@ -90,7 +90,7 @@ Crie uma função chamada `LoadJson()` para carregar o arquivo JSON de dados de 
 
 ## <a name="run-the-application-and-view-the-response"></a>Executar o aplicativo e exibir a resposta
 
-Execute o aplicativo. Uma resposta bem-sucedida é retornada no formato JSON. Você também pode encontrar a resposta JSON no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-response.json).
+Execute o aplicativo. Uma resposta bem-sucedida é retornada no formato JSON. Você também pode encontrar a resposta JSON no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Vision/InkRecognition/quickstart/example-response.json).
 
 
 ## <a name="next-steps"></a>Próximas etapas

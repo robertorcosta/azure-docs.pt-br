@@ -1,5 +1,5 @@
 ---
-title: 'Identidade híbrida: comparação de ferramentas de integração de diretórios | Microsoft Docs'
+title: 'Identidade Híbrida: comparação de ferramentas de integração de diretório | Microsoft Docs'
 description: Esta é a página que fornece uma tabela abrangente que compara as diversas ferramentas de integração de diretório que podem ser usadas para a integridade de diretório.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aed01ea11c1f53cb090d9c2e65ee23f521575649
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60456910"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Comparação de ferramentas de integração de diretório da Identidade Híbrida
@@ -28,7 +28,7 @@ Ao longo dos anos, as ferramentas de integração de diretório cresceram e evol
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
 > [!NOTE]
-> O Azure AD Connect incorpora componentes e funcionalidades lançados anteriormente como Dirsync e AAD Sync. Essas ferramentas não são mais lançadas individualmente e todas as melhorias futuras serão incluídas nas atualizações do Azure AD Connect, para que você sempre saiba onde obter a funcionalidade mais atual.
+> O Azure AD Connect incorpora os componentes e funcionalidades anteriormente lançados como Dirsync e AAD Sync. Essas ferramentas não estão mais sendo lançadas individualmente, e todas as melhorias futuras serão incluídas nas atualizações do Azure AD Connect, para que você saiba sempre onde obter a funcionalidade mais atual.
 > 
 > DirSync e Azure AD Sync foram preteridos. Mais informações podem ser encontradas [aqui](reference-connect-dirsync-deprecated.md).
 > 
@@ -101,5 +101,5 @@ PP = Versão prévia pública
 | Permitir a personalização avançada para fluxos de atributo |● |● | |● |● |
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
+Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Visão geral da API dos Hubs de Eventos do Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral das APIs disponíveis (tempo de execução e gerenciamento) para usar o serviço de hubs de eventos do Azure.
+description: Este artigo fornece uma visão geral das APIs disponíveis (tempo de execução e gerenciamento) para o uso do serviço Azure Event Hubs.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
 ms.openlocfilehash: 08e10996f633d35ffbf946b61937a0e9a76f7227
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162218"
 ---
 # <a name="available-event-hubs-apis"></a>APIs de Hubs de Eventos disponíveis
@@ -33,8 +33,8 @@ Para obter mais detalhes sobre o status atual de cada biblioteca de runtime, vej
 
 | Linguagem/plataforma | Pacote de cliente | Pacote EventProcessorHost | Repositório |
 | --- | --- | --- | --- |
-| .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
-| .NET Framework | [NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | N/D |
+| .NET Standard | [Nuget](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [Nuget](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
+| .NET Framework | [Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [Nuget](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | N/D |
 | Java | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22) | [GitHub](https://github.com/Azure/azure-event-hubs-java) |
 | Nó | [NPM](https://www.npmjs.com/package/azure-event-hubs) | N/D | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) |
 | C | N/D | N/D | [GitHub](https://github.com/Azure/azure-event-hubs-c) |
@@ -47,7 +47,7 @@ O ecossistema do .NET tem vários runtimes, portanto, há várias bibliotecas .N
 
 #### <a name="node"></a>Nó
 
-A [biblioteca JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) está atualmente em visualização e é mantida como um projeto lado por funcionários da Microsoft e colaboradores externos. Todas as contribuições, incluindo código-fonte são bem-vindas e serão analisadas.
+A [biblioteca JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) está atualmente em pré-visualização e é mantida como um projeto paralelo por funcionários da Microsoft e colaboradores externos. Todas as contribuições, incluindo código-fonte são bem-vindas e serão analisadas.
 
 ## <a name="management-apis"></a>APIs de gerenciamento
 
@@ -55,11 +55,11 @@ A seguir está uma lista de todas as bibliotecas específicas de gerenciamento d
 
 | Linguagem/plataforma | Pacote de gerenciamento | Repositório |
 | --- | --- | --- |
-| .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
+| .NET Standard | [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
 
 ## <a name="next-steps"></a>Próximas etapas
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
 * [Criar um hub de eventos](event-hubs-create.md)
-* [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
+* [Perguntas frequentes dos Hubs de Eventos](event-hubs-faq.md)

@@ -4,10 +4,10 @@ description: Introdução ao Azure Advisor.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259624"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
@@ -19,7 +19,7 @@ Saiba como acessar o Assistente por meio do Portal do Azure e obter e implementa
 
 ## <a name="get-recommendations"></a>Obter recomendações
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Faça login no [portal Azure](https://portal.azure.com).
 
 1. No painel esquerdo, clique em **Assistente**.  Se você não visualizar o Assistente no painel esquerdo, clique em **Todos os serviços**.  No painel do menu de serviço, em **Monitoramento e Gerenciamento**, clique em **Assistente**. O painel Assistente é exibido.
 
@@ -88,7 +88,7 @@ Você pode ter grupos de recursos ou assinaturas para os quais você não deseja
 
 Este procedimento configura a regra média de utilização da CPU para a recomendação de máquina virtual de baixo uso.
 
-O Advisor monitora o uso de máquinas virtuais por 7 dias e identifica máquinas virtuais de baixa utilização. As máquinas virtuais são consideradas de baixa utilização se a utilização da CPU for de 5% ou menos e sua utilização de rede for menor que 2% ou se a carga de trabalho atual puder ser acomodada por um tamanho de máquina virtual menor.
+O Advisor monitora o uso da máquina virtual por 7 dias e, em seguida, identifica máquinas virtuais de baixa utilização. As máquinas virtuais são consideradas de baixa utilização se sua utilização de CPU for de 5% ou menos e sua utilização de rede for inferior a 2% ou se a carga de trabalho atual puder ser acomodada por um tamanho menor de máquina virtual.
 
 Se você deseja ser mais agressivo na identificação de máquinas virtuais de baixo uso, você pode ajustar a regra de média de utilização da CPU para cálculo por assinatura.  A regra de utilização da CPU pode ser definida como 5%, 10%, 15% ou 20%.
 

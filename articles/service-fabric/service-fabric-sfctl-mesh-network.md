@@ -1,15 +1,15 @@
 ---
-title: CLI do Azure Service Fabric – rede de malha sfctl
-description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para obter e excluir Service Fabric recursos de rede de malha.
+title: Rede de malha CLI-sfctl de malha azure
+description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para obter e excluir recursos da rede Malha de malha de malha de malha de serviço.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 9aa0b6795508cb94200c486df092b867c1086316
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906004"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
@@ -17,7 +17,7 @@ Obter e excluir recursos de rede da malha.
 
 ## <a name="commands"></a>Comandos
 
-|Comando|Description|
+|Comando|Descrição|
 | --- | --- |
 | excluir | Exclui o recurso de rede. |
 | list | Lista todos os recursos de rede. |
@@ -30,13 +30,13 @@ Exclui o recurso de rede identificado pelo nome.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --name -n [Obrigatório] | O nome da rede. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -51,7 +51,7 @@ Obtém as informações sobre todos os recursos de rede em um determinado grupo 
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -66,13 +66,13 @@ Obtém as informações sobre o recurso de rede com o nome fornecido. As informa
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --name -n [Obrigatório] | O nome da rede. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Description|
+|Argumento|Descrição|
 | --- | --- |
 | --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
@@ -81,6 +81,6 @@ Obtém as informações sobre o recurso de rede com o nome fornecido. As informa
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 
-## <a name="next-steps"></a>Próximos passos
-- [Configurar](service-fabric-cli.md) a CLI do Service Fabric.
+## <a name="next-steps"></a>Próximas etapas
+- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

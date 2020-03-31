@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/11/2019
 ms.author: aahi
 ms.openlocfilehash: 69e4d992e2ef89b4d3d9408d6e50591fb8166c79
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75385772"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Início Rápido para API de Pesquisa de Entidade do Bing com Ruby
@@ -23,7 +23,7 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de E
 
 Embora esse aplicativo seja escrito no Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ou posterior.
 

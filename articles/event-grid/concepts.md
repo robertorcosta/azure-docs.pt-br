@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
 ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265058"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos da Grade de Eventos do Azure
@@ -22,7 +22,7 @@ Este artigo descreve os principais conceitos da Grade de Eventos do Azure.
 
 Um evento é a menor quantidade de informações que descreve por completo algo que aconteceu no sistema. Todos os eventos apresentam informações comuns: origem do evento, hora em que o evento ocorreu e identificador exclusivo. Cada evento também apresenta informações específicas que são relevantes somente para o tipo de evento em questão. Por exemplo, um evento sobre um novo arquivo que está sendo criado no Armazenamento do Azure tem detalhes sobre o arquivo, como o valor `lastTimeModified`. Ou, um evento de Hubs de Eventos tem a URL do arquivo de Captura. 
 
-Um evento de tamanho de até 64 KB é coberto pela disponibilidade geral (GA) Contrato de Nível de Serviço (SLA). O suporte para um evento de tamanho de até 1 MB está atualmente em visualização. Eventos acima de 64 KB são cobrados em incrementos de 64 KB. 
+Um evento de tamanho de até 64 KB é coberto pelo Acordo de Nível de Serviço (SLA) de Disponibilidade Geral (GA). O suporte para um evento de tamanho de até 1 MB está atualmente em visualização. Eventos acima de 64 KB são cobrados em incrementos de 64 KB. 
 
 
 Para encontrar as propriedades que são enviadas em um evento, confira [Esquema de evento da Grade de Eventos do Azure](event-schema.md).
@@ -41,7 +41,7 @@ Para obter informações sobre como implementar qualquer uma das origens de Grad
 
 O tópico da grade de eventos fornece um ponto de extremidade em que a fonte envia eventos. O editor cria o tópico de grade de eventos e decide se uma origem do evento precisa de um tópico ou mais de um tópico. Um tópico é usado para uma coleção de eventos relacionados. Para reagir a determinados tipos de evento, os assinantes decidem quais tópicos assinar.
 
-Os tópicos do sistema são tópicos internos fornecidos pelos serviços do Azure. Você não vê tópicos do sistema na sua assinatura do Azure porque o editor é o proprietário dos tópicos, mas você pode assiná-los. Para assinar, você deve fornecer informações sobre o recurso do qual deseja receber eventos. Contanto que tenha acesso ao recurso, você pode assinar seus eventos.
+Os tópicos do sistema são tópicos internos fornecidos pelos serviços do Azure. Você não vê tópicos do sistema na sua assinatura do Azure porque o editor é o proprietário dos tópicos, mas você pode assiná-los. Para assinar, você deve fornecer informações sobre o recurso do qual deseja receber eventos. Desde que você tenha acesso ao recurso, poderá assinar seus eventos.
 
 Os tópicos personalizados são tópicos de aplicativo e de terceiros. Quando criar ou receber acesso a um tópico personalizado, você verá o tópico personalizado na assinatura.
 
@@ -80,10 +80,10 @@ Se a Grade de Eventos não puder confirmar que um evento foi recebido pelo ponto
 
 ## <a name="batching"></a>Envio em lote
 
-Ao usar um tópico personalizado, os eventos sempre devem ser publicados em uma matriz. Isso pode ser um lote de um para cenários de baixo rendimento, no entanto, para casos de uso de alto volume, é recomendável agrupar vários eventos juntos por publicação para obter maior eficiência. Lotes podem ter até 1 MB. Cada evento ainda deve ser maior que 64 KB (disponibilidade geral) ou 1 MB (versão prévia).
+Ao usar um tópico personalizado, os eventos sempre devem ser publicados em uma matriz. Isso pode ser um lote de um para cenários de baixo rendimento, no entanto, para casos de uso de alto volume, é recomendável agrupar vários eventos juntos por publicação para obter maior eficiência. Lotes podem ter até 1 MB. Cada evento ainda não deve ser maior que 64 KB (Disponibilidade Geral) ou 1 MB (visualização).
 
 > [!NOTE]
-> Um evento de tamanho de até 64 KB é coberto pela disponibilidade geral (GA) Contrato de Nível de Serviço (SLA). O suporte para um evento de tamanho de até 1 MB está atualmente em visualização. Eventos acima de 64 KB são cobrados em incrementos de 64 KB. 
+> Um evento de tamanho de até 64 KB é coberto pelo Acordo de Nível de Serviço (SLA) de Disponibilidade Geral (GA). O suporte para um evento de tamanho de até 1 MB está atualmente em visualização. Eventos acima de 64 KB são carregados em incrementos de 64 KB. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,10 +9,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.openlocfilehash: 2604d5b357feacce3493b4a4ded971144262611d
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161929"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperação de desastre regional para clusters do Azure Databricks
@@ -21,7 +21,7 @@ Este artigo descreve uma arquitetura de recuperação de desastre útil para clu
 
 ## <a name="azure-databricks-architecture"></a>Arquitetura do Azure Databricks
 
-Em um alto nível, ao criar um workspace do Azure Databricks do Portal do Azure, um [dispositivo gerenciado](../azure-resource-manager/managed-applications/overview.md) é implantado como um recurso do Azure em sua assinatura, na região do Azure escolhida (por exemplo, Oeste dos EUA). Esse dispositivo é implantado em uma [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) com um [Grupo de Segurança de Rede](../virtual-network/manage-network-security-group.md) e uma conta de Armazenamento do Azure, disponível em sua assinatura. A rede virtual oferece segurança em nível de perímetro ao workspace do Databricks e é protegida por meio do grupo de segurança de rede. Dentro do workspace, é possível criar clusters do Databricks fornecendo ao trabalhador e ao driver o tipo de VM e a versão do Databricks runtime. Os dados persistentes estão disponíveis em sua conta de armazenamento, que pode ser o armazenamento de BLOBs do Azure ou Azure Data Lake Storage. Após a criação do cluster, será possível executar trabalhos por meio de pontos de extremidade ODBC/JDBC, APIs REST e blocos de anotações anexando-os a um cluster específico.
+Em um alto nível, ao criar um workspace do Azure Databricks do Portal do Azure, um [dispositivo gerenciado](../azure-resource-manager/managed-applications/overview.md) é implantado como um recurso do Azure em sua assinatura, na região do Azure escolhida (por exemplo, Oeste dos EUA). Esse dispositivo é implantado em uma [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) com um [Grupo de Segurança de Rede](../virtual-network/manage-network-security-group.md) e uma conta de Armazenamento do Azure, disponível em sua assinatura. A rede virtual oferece segurança em nível de perímetro ao workspace do Databricks e é protegida por meio do grupo de segurança de rede. Dentro do workspace, é possível criar clusters do Databricks fornecendo ao trabalhador e ao driver o tipo de VM e a versão do Databricks runtime. Os dados persistidos estão disponíveis em sua conta de armazenamento, que pode ser o Azure Blob Storage ou o Azure Data Lake Storage. Após a criação do cluster, será possível executar trabalhos por meio de pontos de extremidade ODBC/JDBC, APIs REST e blocos de anotações anexando-os a um cluster específico.
 
 O painel de controle do Databricks gerencia e monitora o ambiente de workspace do Databricks. Qualquer operação de gerenciamento como criação de cluster será iniciada no painel de controle. Todos os metadados, como trabalhos agendados, são armazenados em um Banco de dados do Azure com replicação geográfica para obter tolerância a falhas.
 
@@ -37,7 +37,7 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
 
    1. Provisione vários workspaces do Azure Databricks em regiões do Azure separadas. Por exemplo, crie o workspace primário do Azure Databricks no Leste dos EUA 2. Crie o workspace secundário do Azure Databricks para recuperação de desastre em uma região separada, como Oeste dos EUA.
 
-   2. Use o [armazenamento com redundância geográfica](../storage/common/storage-redundancy.md). Os dados associados ao Azure Databricks são armazenados no Armazenamento do Azure por padrão. Os resultados dos trabalhos do Databricks também são armazenados no Armazenamento de Blobs do Azure para que os dados processados sejam duráveis e permaneçam altamente disponíveis após a terminação do cluster. Como o cluster de Armazenamento e do Databricks estão colocalizados, é necessário usar o armazenamento com redundância geográfica para que os dados possam ser acessados na região secundária se a região primária não estiver mais acessível.
+   2. Use [armazenamento geo-redundante](../storage/common/storage-redundancy.md). Os dados associados ao Azure Databricks são armazenados no Armazenamento do Azure por padrão. Os resultados dos trabalhos do Databricks também são armazenados no Armazenamento de Blobs do Azure para que os dados processados sejam duráveis e permaneçam altamente disponíveis após a terminação do cluster. Como o cluster de Armazenamento e do Databricks estão colocalizados, é necessário usar o armazenamento com redundância geográfica para que os dados possam ser acessados na região secundária se a região primária não estiver mais acessível.
 
    3. Depois de criar a região secundária, será necessário migrar os usuários, pastas do usuário, blocos de notas, configuração do cluster, configuração de trabalhos, bibliotecas, armazenamento, scripts init e reconfigurar o controle de acesso. Mais detalhes são descritos na seguinte seção.
 
@@ -284,9 +284,9 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
 
    No momento, não há uma maneira simples de migrar bibliotecas de um workspace para outro. Em vez disso, reinstale essas bibliotecas no novo workspace manualmente. É possível automatizar usando a combinação da [CLI DBFS](https://github.com/databricks/databricks-cli#dbfs-cli-examples) para carregar bibliotecas personalizadas para o workspace e para a [CLI das bibliotecas](https://github.com/databricks/databricks-cli#libraries-cli).
 
-8. **Migrar o armazenamento de BLOBs do Azure e montagens de Azure Data Lake Storage**
+8. **Migrar armazenamento blob do Azure e montagens de armazenamento do Lago de Dados Azure**
 
-   Remonte manualmente todos os pontos de montagem [do armazenamento de BLOBs do Azure e do](/azure/databricks/data/data-sources/azure/azure-storage) [Azure data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) usando uma solução baseada em bloco de anotações. Os recursos de armazenamento teriam sido montados no workspace primário, e isso precisaria ser repetido no workspace secundário. Não há nenhuma API externa para montagens.
+   Remonte manualmente todos os pontos [de montagem do Azure Blob](/azure/databricks/data/data-sources/azure/azure-storage) e [do Azure Data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) usando uma solução baseada em notebook. Os recursos de armazenamento teriam sido montados no workspace primário, e isso precisaria ser repetido no workspace secundário. Não há nenhuma API externa para montagens.
 
 9. **Migrar scripts de inicialização de cluster**
 
@@ -306,9 +306,9 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
 
     Se você usar o recurso de Controle de acesso manualmente, reaplique o controle de acesso aos recursos (Blocos de anotações, clusters, trabalhos, tabelas).
 
-## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Recuperação de desastre para seu ecossistema do Azure
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Recuperação de desastres para o seu ecossistema Azure
 
-Se você estiver usando outros serviços do Azure, certifique-se de implementar práticas recomendadas de recuperação de desastre para esses serviços também. Por exemplo, se você optar por usar uma instância de metastore do Hive externa, deverá considerar a recuperação de desastre para o [azure SQL Server](../sql-database/sql-database-disaster-recovery.md), o [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)e/ou o [banco de dados do Azure para MySQL](../mysql/concepts-business-continuity.md). Para obter informações gerais sobre a recuperação de desastre, consulte [recuperação de desastre para aplicativos do Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Se você estiver usando outros serviços do Azure, certifique-se de implementar as melhores práticas de recuperação de desastres para esses serviços também. Por exemplo, se você optar por usar uma instância de metastore do Hive externo, você deve considerar a recuperação de desastres para [o Azure SQL Server,](../sql-database/sql-database-disaster-recovery.md) [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)e/ou [Azure Database para MySQL](../mysql/concepts-business-continuity.md). Para obter informações gerais sobre recuperação de [desastres, consulte Recuperação de desastres para aplicativos Do Zure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## <a name="next-steps"></a>Próximas etapas
 

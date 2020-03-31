@@ -1,5 +1,5 @@
 ---
-title: Conectar-se ao Microsoft Translator
+title: Conecte-se ao Microsoft Translator
 description: Traduzir texto e executar outras tarefas de linguagem com APIs REST do Microsoft Translator e os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/07/2016
 tags: connectors
 ms.openlocfilehash: ec809a897ce2579125c8797dc8c1d8c7d30a8f9c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789557"
 ---
 # <a name="get-started-with-the-microsoft-translator-connector"></a>Introdução ao conector do Microsoft Translator
@@ -31,7 +31,7 @@ Conecte-se ao Microsoft Translator para traduzir texto, detectar um idioma e mui
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/microsofttranslator/).
+Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/microsofttranslator/).
 
 ## <a name="more-connectors"></a>Mais conectores
 Volte para a [Lista de APIs](apis-list.md).

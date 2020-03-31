@@ -1,13 +1,13 @@
 ---
-title: Criar um aplicativo de contêiner de Service Fabric do Azure no Linux
+title: Crie um aplicativo de contêiner Azure Service Fabric no Linux
 description: Crie seu primeiro aplicativo de contêiner do Linux no Azure Service Fabric. Crie uma imagem do Docker com o seu aplicativo, envie a imagem para um registro de contêiner por push, crie e implante um aplicativo de contêiner do Service Fabric.
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.openlocfilehash: f2f8c7884323667f843382b02c73a570e58617f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75457963"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux
@@ -22,7 +22,7 @@ A execução de um aplicativo existente em um contêiner do Linux em um cluster 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Um computador de desenvolvimento executando:
-  * [Ferramentas e SDK do Service Fabric](service-fabric-get-started-linux.md).
+  * [SDK de tecido](service-fabric-get-started-linux.md)de serviço e ferramentas .
   * [Docker CE para Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [CLI do Service Fabric](service-fabric-cli.md)
 
@@ -113,9 +113,9 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* fornece um nome para o contêiner em execução (em vez da ID do contêiner).
 
-Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado na porta 4000, por exemplo "http:\//localhost: 4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
+Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado\/na porta 4000, por exemplo "http: /localhost:4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
-![Hello World!][hello-world]
+![Olá, Mundo!][hello-world]
 
 Para interromper o contêiner, execute:
 
@@ -132,9 +132,9 @@ docker rm my-web-site
 ## <a name="push-the-image-to-the-container-registry"></a>Enviar a imagem para o registro de contêiner
 Depois de verificar que o aplicativo é executado no Docker, envie a imagem por push para o registro no Registro de Contêiner do Azure.
 
-Execute `docker login` para entrar no registro de contêiner com suas [credenciais de registro](../container-registry/container-registry-authentication.md).
+Execute `docker login` para entrar no seu registro de contêiner com suas [credenciais de registro](../container-registry/container-registry-authentication.md).
 
-O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação. Ou, você pode entrar usando o nome de usuário e a senha do registro.
+O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação. Ou, você pode entrar usando seu nome de usuário e senha do registro.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -171,10 +171,10 @@ Especifique o mapeamento de porta no formato apropriado. Para este artigo, você
 
 ## <a name="configure-container-repository-authentication"></a>Configurar a autenticação do repositório de contêiner
 
-Consulte [autenticação de repositório de contêiner](configure-container-repository-credentials.md)para saber como configurar diferentes tipos de autenticação para download de imagem de contêiner.
+Consulte [Autenticação de repositório de contêineres](configure-container-repository-credentials.md)para aprender como configurar diferentes tipos de autenticação para download de imagens de contêiner.
 
 ## <a name="configure-isolation-mode"></a>Configurar o modo de isolamento
-Com a versão de tempo de execução 6,3, o isolamento de VM tem suporte para contêineres do Linux, dando suporte a dois modos de isolamento para contêineres: processo e Hyper-V. Com o modo de isolamento do Hyper-V, os kernels são isolados entre cada contêiner e o host do contêiner. O isolamento do Hyper-V é implementado usando [contêineres claros](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). O modo de isolamento é especificado para clusters do Linux no elemento `ServicePackageContainerPolicy` no arquivo de manifesto do aplicativo. Os modos de isolamento que podem ser especificados são `process`, `hyperv` e `default`. O padrão é o modo de isolamento do processo. O snippet a seguir mostra como o modo de isolamento é especificado no arquivo de manifesto do aplicativo.
+Com a versão em tempo de execução 6.3, o isolamento da VM é suportado para contêineres Linux, suportando assim dois modos de isolamento para contêineres: processo e Hyper-V. Com o modo de isolamento Hyper-V, os núcleos ficam isolados entre cada contêiner e o host do contêiner. O isolamento Hyper-V é implementado usando [recipientes transparentes](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). O modo de isolamento é especificado para clusters do Linux no elemento `ServicePackageContainerPolicy` no arquivo de manifesto do aplicativo. Os modos de isolamento que podem ser especificados são `process`, `hyperv` e `default`. O padrão é o modo de isolamento do processo. O snippet a seguir mostra como o modo de isolamento é especificado no arquivo de manifesto do aplicativo.
 
 ```xml
 <ServiceManifestImport>
@@ -208,7 +208,7 @@ A [governança de recursos](service-fabric-resource-governance.md) restringe os 
 
 Iniciando a versão 6.1, o Service Fabric integra automaticamente os eventos do [HEALTHCHECK do Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) em seu relatório de integridade do sistema. Isso significa que, se o contêiner tiver o **HEALTHCHECK** habilitado, o Service Fabric relatará a integridade sempre que o status de integridade do contêiner for alterado conforme relatado pelo Docker. Um relatório de integridade **OK** será exibido no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) quando o *health_status* for *íntegro* e um **AVISO** aparecerá quando o *health_status* for *não íntegro*. 
 
-A partir da versão de atualização mais recente do v 6.4, você tem a opção de especificar que as avaliações do Docker HEALTHCHECK devem ser relatadas como um erro. Se essa opção estiver habilitada, um relatório de integridade **OK** será exibido quando *health_status* estiver *íntegro* e o **erro** será exibido quando *health_status* não estiver *íntegro*.
+Começando com a última versão de atualização do v6.4, você tem a opção de especificar que as avaliações do DOCKER HEALTHCHECK devem ser relatadas como um erro. Se essa opção estiver habilitada, um relatório de saúde **OK** aparecerá quando *health_status* estiver *saudável* e **o ERRO** aparecerá quando *health_status* estiver *insalubre*.
 
 A instrução do **HEALTHCHECK** apontando para a verificação real que é executada para monitorar a integridade do contêiner deve estar presente no Dockerfile usado ao gerar a imagem de contêiner.
 
@@ -232,11 +232,11 @@ Você pode configurar o comportamento do **HEALTHCHECK** para cada contêiner es
     </Policies>
 </ServiceManifestImport>
 ```
-Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido como **true**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false**e *TreatContainerUnhealthyStatusAsError* é definido como **false**. 
+Por *padrão, IncludeDockerHealthStatusInSystemHealthReport* é definido como **verdadeiro,** *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **falso**e *TreatContainerUnhealthyStatusAsError* é definido como **falso**. 
 
 Se o *RestartContainerOnUnhealthyDockerHealthStatus* for definido como **true**, um contêiner relatando repetidamente um estado não íntegro será reiniciado (possivelmente em outros nós).
 
-Se *TreatContainerUnhealthyStatusAsError* for definido como **true**, os relatórios de integridade de **erro** serão exibidos quando o *health_status* do contêiner não estiver *íntegro*.
+Se *TreatContainerUnhealthyStatusAsError* for definido como **true**, os relatórios de saúde **ERROR** aparecerão quando a *health_status* do recipiente estiver *insalubre*.
 
 Se você deseja desabilitar a integração do **HEALTHCHECK** para todo o cluster do Service Fabric, precisará definir o [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) como **false**.
 
@@ -256,11 +256,11 @@ Use o script de instalação fornecido nos modelos em https://github.com/Azure-S
 ./install.sh
 ```
 
-Abra um navegador e navegue até Service Fabric Explorer em http:\//localhost: 19080/Explorer (substitua localhost pelo IP privado da VM se estiver usando Vagrant no Mac OS X). Expanda o nó Aplicativos e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
+Abra um navegador e navegue até\/o Service Fabric Explorer em http: /localhost:19080/Explorer (substitua o localhost pelo IP privado da VM se estiver usando Vagrant no Mac OS X). Expanda o nó Aplicativos e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
 
-Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado na porta 4000, por exemplo "http:\//localhost: 4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
+Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado\/na porta 4000, por exemplo "http: /localhost:4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
-![Hello World!][hello-world]
+![Olá, Mundo!][hello-world]
 
 
 ## <a name="clean-up"></a>Limpar
@@ -465,7 +465,7 @@ Com a versão 6.2, e superiores, do runtime do Service Fabric, você pode inicia
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre como executar [contêineres no Service Fabric](service-fabric-containers-overview.md).
 * Leia o tutorial [Como implantar um aplicativo .NET em um contêiner](service-fabric-host-app-in-a-container.md).
 * Leia mais sobre o [ciclo de vida do aplicativo](service-fabric-application-lifecycle.md) do Service Fabric.

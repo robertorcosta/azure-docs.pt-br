@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/28/2019
 ms.openlocfilehash: 69acfd4f2edab9be1b1dcfbb52eafbd00aec712f
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934575"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalar e usar o Hue em clusters de Hadoop do HDInsight
@@ -33,11 +33,11 @@ Matiz é um conjunto de aplicativos Web usados para interagir com um cluster Apa
 > [!WARNING]  
 > Há suporte total a componentes fornecidos com o cluster HDInsight e o Suporte da Microsoft ajudará a isolar e resolver problemas relacionados a esses componentes.
 >
-> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Isso pode resultar na resolução do problema ou na solicitação de você buscar nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Por exemplo, há muitos sites de comunidades que podem ser usados, como o [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Além disso, os projetos do Apache têm sites de projeto em [https://apache.org](https://apache.org), por exemplo: [Hadoop](https://hadoop.apache.org/).
+> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Isso pode resultar na resolução do problema ou na solicitação de você buscar nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Por exemplo, existem muitos sites comunitários que podem ser usados, [https://stackoverflow.com](https://stackoverflow.com)como: [fórum MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), . Também os projetos Apache [https://apache.org](https://apache.org)têm sites de projetos em , por exemplo: [Hadoop](https://hadoop.apache.org/).
 
 ## <a name="install-hue-using-script-actions"></a>Instalar o Hue usando Ações de Script
 
-Use as informações na tabela abaixo para a ação de script. Consulte [Personalizar clusters HDInsight com ações de script](hdinsight-hadoop-customize-cluster-linux.md) para obter instruções específicas sobre como usar ações de script.
+Use as informações na tabela abaixo para sua Ação de Script. Consulte [Personalizar clusters HDInsight com ações de script](hdinsight-hadoop-customize-cluster-linux.md) para obter instruções específicas sobre o uso de Ações de Script.
 
 > [!NOTE]  
 > Para instalar o Hue em clusters HDInsight, o tamanho do nó de cabeçalho recomendado é de, pelo menos, A4 (8 núcleos, memória de 14 GB).
@@ -47,18 +47,18 @@ Use as informações na tabela abaixo para a ação de script. Consulte [Persona
 |Tipo de script:|- Personalizado|
 |Nome|Instalar o Hue|
 |URI do script Bash|`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`|
-|Tipos de nó:|de Cabeçalho|
+|Tipos de nó:|Head|
 
 ## <a name="use-hue-with-hdinsight-clusters"></a>Usar o Hue com clusters do HDInsight
 
-O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento em que ele está em execução. O túnel via SSH permite que o tráfego vá diretamente para o nó de cabeçalho do cluster no qual o Hue está sendo executado. Depois que o cluster tiver concluído o provisionamento, use as etapas a seguir para usar o matiz em um cluster HDInsight.
+O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento em que ele está em execução. O túnel via SSH permite que o tráfego vá diretamente para o nó de cabeçalho do cluster no qual o Hue está sendo executado. Depois que o cluster terminar o provisionamento, use as seguintes etapas para usar o Hue em um cluster HDInsight.
 
 > [!NOTE]  
 > É recomendável usar o navegador Web Firefox para seguir as instruções abaixo.
 
 1. Use as informações em [Usar túnel SSH para acessar a interface do usuário da Web do Apache Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras interfaces do usuário da Web](hdinsight-linux-ambari-ssh-tunnel.md) para criar um túnel SSH a partir do sistema de cliente para o cluster HDInsight, e em seguida, configurar seu navegador da Web para usar o túnel como um proxy.
 
-1. Use o [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando a seguir substituindo CLUSTERname pelo nome do cluster e, em seguida, digite o comando:
+1. Use [o comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao seu cluster. Edite o comando abaixo substituindo CLUSTERNAME pelo nome do seu cluster e, em seguida, digite o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -81,26 +81,26 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
    > [!NOTE]  
    > Ao fazer logon pela primeira vez, será solicitado que você crie uma conta para poder fazer logon no portal do Hue. As credenciais que você especificar aqui serão limitadas ao portal e não serão relacionadas às credenciais de usuário SSH ou de administrador que você especificou durante o provisionamento do cluster.
 
-    ![Janela de logon do portal de matiz do HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Especificar credenciais para o portal de matiz")
+    ![Janela de login do portal de matiz HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Especificar credenciais para o portal Hue")
 
 ### <a name="run-a-hive-query"></a>Executar um trabalho do Hive
 
-1. No portal de matiz, selecione **editores de consulta**e, em seguida, selecione **Hive** para abrir o editor de Hive.
+1. No portal Hue, selecione **Editores de consulta**e selecione **Hive** para abrir o editor da Colmeia.
 
-    ![Portal de matiz do HDInsight usar o editor de Hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Usar o Hive")
+    ![Portal de matiz HDInsight usa editor de colmeia](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Usar o Hive")
 
 2. Na guia **Ajuda**, em **Banco de dados**, você deverá ver **hivesampletable**. Essa é uma tabela de exemplo que é enviada juntamente com todos os clusters de Hadoop no HDInsight. Insira uma consulta de exemplo no painel direito e veja a saída na guia **Resultados** no painel abaixo, como mostrado na captura de tela.
 
-    ![Consulta de hive do portal de matiz do HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Executar consulta Hive")
+    ![Consulta da colmeia do portal HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Executar consulta Hive")
 
     Você também pode usar a guia **Gráfico** para ver uma representação visual do resultado.
 
 ### <a name="browse-the-cluster-storage"></a>Procurar no armazenamento de cluster
 
-1. No portal de matiz, selecione **navegador de arquivos** no canto superior direito da barra de menus.
-2. Por padrão, o navegador de arquivos é aberto no diretório **/user/myuser** . Selecione a barra à direita antes do diretório de usuário no caminho para ir para a raiz do contêiner de armazenamento do Azure associado ao cluster.
+1. No portal Hue, selecione **File Browser** no canto superior direito da barra de menu.
+2. Por padrão, o navegador de arquivos é aberto no diretório **/user/myuser** . Selecione a barra para a frente antes do diretório do usuário no caminho para ir até a raiz do contêiner de armazenamento Azure associado ao cluster.
 
-    ![Navegador de arquivos do portal de matiz do HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "Usar navegador de arquivos")
+    ![Navegador de arquivos do portal de matiz HDInsight](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "Usar navegador de arquivos")
 
 3. Clique com o botão direito do mouse em um arquivo ou pasta para ver as operações disponíveis. Use o botão **Carregar** no canto superior direito para carregar arquivos no diretório atual. Use o botão **Novo** para criar novos arquivos ou diretórios.
 
@@ -119,12 +119,12 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 
 1. Com clusters do Linux, você pode ter um cenário no qual os serviços estão em execução no nó de cabeçalho primário enquanto o Gerenciador de Recursos pode estar em execução no secundário. Um cenário como esse pode resultar em erros (mostrados abaixo) ao usar o Hue para exibir detalhes de trabalhos EM EXECUÇÃO no cluster. No entanto, você pode exibir os detalhes do trabalho após ele ser concluído.
 
-   ![Mensagem de exemplo de erro do portal de matiz](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Erro no portal do Hue")
+   ![Mensagem de amostra de erro do portal Hue](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Erro no portal do Hue")
 
    Isso ocorre devido a um problema conhecido. Como solução alternativa, modifique o Ambari para que o Gerenciador de Recursos ativo também seja executado no nó de cabeçalho primário.
 
 1. O Hue entende o WebHDFS, enquanto os clusters HDInsight utilizam o Armazenamento do Azure com o `wasbs://`. Portanto, o script personalizado utilizado com a ação de script instala WebWasb, que é um serviço compatível com WebHDFS para conversar com o WASB. Portanto, embora em alguns lugares o portal do Hue esteja marcado como HDFS (como quando você move o mouse sobre o **Navegador de Arquivos**), ele deve ser interpretado como WASB.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Instalar o R em clusters HDInsight](hdinsight-hadoop-r-scripts-linux.md). Use a personalização do cluster para instalar o R em clusters de Hadoop do HDInsight. R é uma linguagem e ambiente de software livre para computação estatística. Ele fornece centenas de funções estatísticas internas e sua própria linguagem de programação, que combina aspectos de programação funcional e de programação orientada a objetos. Ele também fornece recursos abrangentes de grafos.

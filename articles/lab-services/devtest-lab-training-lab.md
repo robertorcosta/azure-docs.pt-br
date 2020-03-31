@@ -1,6 +1,6 @@
 ---
 title: Usar o Azure DevTest Labs para treinamento | Microsoft Docs
-description: Este artigo fornece etapas detalhadas que você pode seguir para configurar um laboratório para treinamento em Azure DevTest Labs.
+description: Este artigo fornece etapas detalhadas que você pode seguir para configurar um laboratório para treinamento no Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 8f0a930d6e3c04548ade71f6d4e3294114eb60a2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759970"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Usar o Azure DevTest Labs para treinamento

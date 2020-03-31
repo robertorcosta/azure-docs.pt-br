@@ -12,60 +12,62 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 03/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 7cf382f511d2ba8452d77bf207f36b749cb31e94
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c8e3b616dee1ab4e6bb6e77c6a8bab5661d4e20b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848799"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460425"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas do Azure NetApp Files
 
-O Azure NetApp Files fornece métricas sobre o armazenamento alocado, a utilização de armazenamento real, taxa de transferência de volume, IOPS e latência. Analisando essas métricas, você pode obter um melhor entendimento sobre o padrão de uso e o desempenho do volume de suas contas do NetApp.  
+O Azure NetApp Files fornece métricas sobre armazenamento alocado, uso real de armazenamento, volume IOPS e latência. Analisando essas métricas, você pode obter um melhor entendimento sobre o padrão de uso e o desempenho do volume de suas contas do NetApp.  
 
-## <a name="capacity_pools"></a>Métricas de uso de pools de capacidade
+## <a name="usage-metrics-for-capacity-pools"></a><a name="capacity_pools"></a>Métricas de uso de pools de capacidade
 
 <!-- 
-- *Volume pool allocated size*  
-    The size (GiB) of the provisioned capacity pool  
+- *Pool Provisioned Size*  
+    The logical space (GiB) the capacity pool is provisioned with.  
+    This size is the size you selected during capacity pool creation. 
 --> 
-- *Pool de volume alocado usado*  
-    O total de cotas de volume (GiB) em um determinado pool de capacidade (ou seja, o total de tamanhos provisionados de volumes no pool de capacidade)  
-    Esse é o tamanho selecionado durante a criação do volume.  
-- *Tamanho lógico total do pool de volume*  
-    O total de espaço lógico (GiB) usado em volumes em um pool de capacidade  
+- *Pool alocado para tamanho de volume*  
+    O total de cotas de volume (GiB) em um pool de capacidade (ou seja, o total dos tamanhos provisionados dos volumes no pool de capacidade).  
+    Este tamanho é o tamanho selecionado durante a criação do volume.  
+- *Tamanho consumido da piscina*  
+    O total de espaço lógico (GiB) usado em volumes em uma piscina de capacidade.  
 <!-- 
-- *Volume pool total snapshot size*  
-    The total of incremental logical space used by the snapshots  
+- *Pool Consumed Snapshot Size*  
+    The total of logical space (GiB) used by snapshots across all volumes in a capacity pool. 
 -->
 
-## <a name="volumes"></a>Métricas de uso de volumes
+## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>Métricas de uso de volumes
 
-<!-- 
-- *Volume allocated size*   
-    The volume size (quota) provisioned in GiB  
---> 
-- *Tamanho do volume lógico*   
-    O espaço lógico total usado em um volume (GiB)  
+<!--
+- *Volume Quota Size*    
+    The quota size (GiB) the volume is provisioned with.   
+    This size is the size you selected during capacity pool creation. 
+-->
+- *Tamanho do volume consumido*   
+    O espaço lógico total usado em um volume (GiB).  
     Esse tamanho inclui espaço lógico usado por sistemas de arquivos ativos e instantâneos.  
 - *Tamanho do instantâneo de volume*   
-   O espaço lógico incremental usado por instantâneos em um volume  
+   O espaço lógico incremental usado por instantâneos em um volume.  
 
 ## <a name="performance-metrics-for-volumes"></a>Métricas de desempenho para volumes
 
-- *AverageReadLatency*   
-    O tempo médio para leituras do volume em milissegundos
-- *AverageWriteLatency*   
-    O tempo médio para gravações do volume em milissegundos
+- *MédiaReadLatency*   
+    O tempo médio para leituras do volume em milissegundos.
+- *Médiawritelatency*   
+    O tempo médio para gravações do volume em milissegundos.
 - *ReadIops*   
-    O número de leituras para o volume por segundo
+    O número de leituras para o volume por segundo.
 - *WriteIops*   
-    O número de gravações no volume por segundo
+    O número de gravações para o volume por segundo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Configurar um pool de capacidade](azure-netapp-files-set-up-capacity-pool.md)
-* [Criar um volume do Azure NetApp Files](azure-netapp-files-create-volumes.md)
+* [Criar um volume para Azure NetApp Files](azure-netapp-files-create-volumes.md)

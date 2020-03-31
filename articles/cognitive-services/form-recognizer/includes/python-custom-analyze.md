@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 11/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 3c6059e131eadf1144fd189c47691b2352176745
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75446428"
 ---
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analisar formulários para pares de chave-valor e tabelas
@@ -19,7 +19,7 @@ Em seguida, você usará seu modelo treinado recentemente para analisar um docum
 1. Substitua `<file path>` pelo caminho do arquivo do seu formulário (por exemplo, C:\temp\file.pdf). Também pode ser a URL de um arquivo remoto. Para este guia de início rápido, você pode usar os arquivos na pasta **Test** do [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
 1. Substitua `<model_id>` pela ID do modelo recebida na seção anterior.
 1. Substitua `<endpoint>` pelo ponto de extremidade que você obteve com a chave de assinatura do Reconhecimento de Formulários. Encontre-o na guia **Visão geral** de recursos do Reconhecimento de Formulários.
-1. Substitua `<file type>` pelo tipo do arquivo. Tipos compatíveis: `application/pdf`, `image/jpeg`, `image/png`, `image/tiff`.
+1. Substitua `<file type>` pelo tipo do arquivo. Tipos compatíveis: `application/pdf`, `image/jpeg`, `image/png` e `image/tiff`.
 1. Substitua `<subscription key>` por sua chave de assinatura.
 
     ```python

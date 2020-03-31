@@ -12,10 +12,10 @@ ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72177055"
 ---
 # <a name="call-the-computer-vision-api"></a>Chamar a API da Pesquisa Visual Computacional
@@ -25,7 +25,7 @@ Este artigo demonstra como chamar a API da Pesquisa Visual Computacional usando 
 - Como obter marcas, uma descrição e categorias
 - Como obter informações específicas do domínio ou "celebridades"
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma URL de imagem ou um caminho para uma imagem armazenada localmente
 - Métodos de entrada compatíveis: binário da imagem bruta na forma de um aplicativo/fluxo de octeto ou uma URL da imagem
@@ -182,7 +182,7 @@ Campo | Type | Conteúdo
 Marcas  | `object` | O objeto de nível superior para uma matriz de marcas.
 tags[].Name | `string`  | A palavra-chave do classificador de marcas.
 tags[].Score    | `number`  | A pontuação de confiança, entre 0 e 1.
-Descrição  | `object` | Objeto de nível superior de uma descrição.
+descrição  | `object` | Objeto de nível superior de uma descrição.
 description.tags[] |    `string`    | Lista de marcas.  Se houver confiança insuficiente na capacidade de produzir uma legenda, talvez as marcas sejam as únicas informações disponíveis para o chamador.
 description.captions[].text | `string`  | Uma frase que descreve a imagem.
 description.captions[].confidence   | `number`  | A pontuação de confiança para a frase.

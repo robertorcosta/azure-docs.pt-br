@@ -1,5 +1,5 @@
 ---
-title: Conector do Spark com Banco de dados SQL do Azure e SQL Server
+title: Conector spark com banco de dados SQL azure e servidor SQL
 description: Saiba como usar o Spark Connector para Banco de Dados SQL do Azure e SQL Server
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: denzilr
 ms.reviewer: carlrab
 ms.date: 09/25/2018
 ms.openlocfilehash: b22ec475c0281a54d65921bc450b35723aa23219
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471645"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Acelerar a análise de Big Data em tempo real com o conector do Spark para Banco de Dados SQL do Azure e SQL Server
@@ -33,7 +33,7 @@ Para começar, baixe conector Spark para BD SQL do [repositório azure-sqldb-spa
 | Scala                                | 2.10 ou posterior            |
 | Microsoft JDBC Driver para SQL Server | 6.2 ou posterior             |
 | Microsoft SQL Server                 | SQL Server 2008 ou posterior |
-| Banco de Dados SQL do Azure                   | Suportado                |
+| Banco de Dados SQL do Azure                   | Com suporte                |
 
 O conector Spark para Banco de Dados SQL do Azure e o SQL Server utilizam o Microsoft JDBC Driver para SQL Server para mover dados entre nós de trabalho Spark e Bancos de Dados SQL:
  

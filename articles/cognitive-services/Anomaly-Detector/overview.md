@@ -10,14 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 05ed7903cafbb265f23ba74a24ee0498be0effe9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9237e670dd8d43c4036f996c477948944718e3aa
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448964"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053707"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detector de Anomalias?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 A API do Detector de Anomalias permite monitorar e detectar anormalidades em seus dados de série temporal com aprendizado de máquina. A API do Detector de Anomalias adapta-se automaticamente identificando e aplicando os melhores modelos para seus dados, não importa o setor, o cenário nem o volume de dados. Usando seus dados de série temporal, a API determina os limites para detecção de anomalias, os valores esperados e quais pontos de dados são anomalias.
 
@@ -27,9 +29,9 @@ Usar o Detector de Anomalias não exige nenhuma experiência anterior em aprendi
 
 ## <a name="features"></a>Recursos
 
-Com o Detector de Anomalias, você pode detectar anomalias automaticamente em todos os seus dados de série temporal ou conforme elas ocorrem em tempo real. 
+Com o Detector de Anomalias, você pode detectar anomalias automaticamente em todos os seus dados de série temporal ou conforme elas ocorrem em tempo real.
 
-|Recurso  |DESCRIÇÃO  |
+|Recurso  |Descrição  |
 |---------|---------|
 |Detecte anomalias conforme elas ocorrem em tempo real. | Detecte anomalias em seus dados de streaming usando pontos de vistos anteriormente para determinar se pelo menos um é uma anomalia. Essa operação gera um modelo usando os pontos de dados que você envia e determina se o ponto de destino é uma anomalia. Ao chamar a API com cada novo ponto de dados que você gera, você pode monitorar seus dados conforme eles são criados. |
 |Detecte anomalias em todo o conjunto de dados como um lote. | Use sua série temporal para detectar todas as anomalias que podem existir em seus dados. Essa operação gera um modelo usando todos os seus dados de série temporal, analisando cada ponto com o mesmo modelo.         |
@@ -52,7 +54,7 @@ Para executar o Notebook, conclua as seguintes etapas:
 1. Desmarque a opção "público" na caixa de diálogo antes de concluir a operação de clonagem, caso contrário, o notebook, incluindo as chaves de assinatura, será público.
 1. Clique em **Executar em computação gratuita**
 1. Selecione um dos notebooks.
-1. Adicione sua chave de assinatura de API do Detector de Anomalias válida à variável `subscription_key`. 
+1. Adicione sua chave de assinatura de API do Detector de Anomalias válida à variável `subscription_key`.
 1. Altere a variável `endpoint` para seu ponto de extremidade. Por exemplo: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. Na barra de menus superior, clique em **Célula** e, em seguida, **Executar Tudo**.
 
