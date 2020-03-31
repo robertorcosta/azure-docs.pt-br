@@ -1,15 +1,15 @@
 ---
-title: Monitoramento no nível da plataforma de Service Fabric do Azure
+title: Monitoramento do nível da plataforma de malha de serviço do Azure
 description: Saiba mais sobre eventos e logs no nível de plataforma usados para monitorar e diagnosticar clusters do Azure Service Fabric.
 author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 720cc157111293146b796f8567f94a4f1f4830c6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75376929"
 ---
 # <a name="monitoring-the-cluster"></a>Monitoramento de cluster
@@ -20,7 +20,7 @@ O Service Fabric expõe vários eventos de plataforma estruturada, como "[Evento
 
 No Windows, eventos do Service Fabric estão disponíveis a partir de um único provedor ETW com um conjunto de `logLevelKeywordFilters` relevante usado para escolher entre os canais Operacional e Dados e Mensagens - é assim que separamos eventos do Service Fabric de saída para serem filtrados conforme necessário.
 
-* **Operacional** Operações de alto nível executadas por Service Fabric e o cluster, incluindo eventos para um nó surgindo, um novo aplicativo sendo implantado ou uma reversão de atualização, etc. Consulte a lista completa de eventos [aqui](service-fabric-diagnostics-event-generation-operational.md).  
+* **Operacional** Operações de alto nível realizadas pela Service Fabric e pelo cluster, incluindo eventos para um nó chegando, um novo aplicativo sendo implantado ou uma reversão de upgrade, etc. Veja a lista completa de eventos [aqui](service-fabric-diagnostics-event-generation-operational.md).  
 
 * **Operacional - detalhado**  
 Relatórios de integridade e decisões de balanceamento de carga.
@@ -81,13 +81,13 @@ Para obter uma lista de contadores de desempenho para coleta ao usar o Service F
 Aqui estão duas maneiras com as quais você pode configurar a coleta de dados de desempenho para o cluster:
 
 * **Usando um agente**  
-Essa é a maneira preferida de coleta de desempenho de um computador, desde que os agentes geralmente tenham uma lista de possíveis métricas de desempenho que podem ser coletadas e é um processo relativamente fácil para escolher as métricas que você deseja coletar ou alterá-las. A leitura sobre o Azure Monitor oferece Azure Monitor logs na integração dos [logs de Azure monitor](service-fabric-diagnostics-event-analysis-oms.md) do Service Fabric e [a configuração do agente de log Analytics](../log-analytics/log-analytics-windows-agent.md) para saber mais sobre o agente de log Analytics, que é um agente de monitoramento que é capaz de obter dados de desempenho para VMs de cluster e contêineres implantados.
+Essa é a maneira preferida de coleta de desempenho de um computador, desde que os agentes geralmente tenham uma lista de possíveis métricas de desempenho que podem ser coletadas e é um processo relativamente fácil para escolher as métricas que você deseja coletar ou alterá-las. O Read about the Azure Monitor oferece logs do Azure Monitor no [Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) da Service Fabric registra a integração e [configura o agente log analytics](../log-analytics/log-analytics-windows-agent.md) para saber mais sobre o agente log analytics, que é um desses agentes de monitoramento que é capaz de captar dados de desempenho para VMs de cluster e contêineres implantados.
 
 * **Contadores de desempenho para o Armazenamento de Tabelas do Azure**  
 Você também pode enviar métricas de desempenho para o mesmo armazenamento de tabela como os eventos. Isso requer alterar a configuração de Diagnóstico do Azure para acompanhar os contadores de desempenho apropriados das VMs no cluster e habilitá-lo para acompanhar as estatísticas do docker se você estiver implantando qualquer contêiner. Leia sobre como configurar os [Contadores de desempenho no WAD](service-fabric-diagnostics-event-aggregation-wad.md) no Service Fabric para configurar a coleta do contador de desempenho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* Leia sobre a [integração dos logs de Azure monitor](service-fabric-diagnostics-event-analysis-oms.md) do Service Fabric para coletar diagnósticos de cluster e criar consultas e alertas personalizados
+* Leia sobre a integração de logs do [Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) do Service Fabric para coletar diagnósticos de cluster e criar consultas e alertas personalizados
 * Saiba mais sobre o Service Fabric na experiência de diagnóstico interna, o [EventStore](service-fabric-diagnostics-eventstore.md)
 * Percorra alguns [cenários comuns de diagnóstico](service-fabric-diagnostics-common-scenarios.md) no Service Fabric

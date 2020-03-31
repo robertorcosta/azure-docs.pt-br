@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
 ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792384"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Criar mapas que transformam dados XML entre formatos nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
@@ -36,7 +36,7 @@ Depois de carregar a transformação em sua conta de integração, você poderá
 
 Agora que você cuidou dos pré-requisitos, é hora de criar seu Aplicativo lógico:  
 
-1. Crie um aplicativo lógico e [vincule-o à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md "Saiba como vincular uma conta de integração a um aplicativo lógico") que contém o mapa.
+1. Crie um aplicativo Logic e [vincule-o à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md "Aprenda a vincular uma conta de integração a um aplicativo Logic") que contém o mapa.
 2. Adicione um gatilho de **Solicitação** a seu Aplicativo lógico  
    ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Adicione a ação **Transformar XML** selecionando primeiro **Adicionar uma ação**   
@@ -52,7 +52,7 @@ Agora que você cuidou dos pré-requisitos, é hora de criar seu Aplicativo lóg
 
 7. Selecione o nome do **MAPA** que você deseja usar para executar a transformação. O mapa já deve estar em sua conta de integração. Em uma etapa anterior, você já deu ao seu Aplicativo lógico acesso à sua conta de integração que contém o mapa.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
-8. Salve seu trabalho  
+8. Salve seu trabalho   
     ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
 Neste ponto, você já configurou seu mapa. Em um aplicativo real, convém armazenar os dados transformados em um aplicativo LOB, como o SalesForce. Você pode adicionar facilmente uma ação para enviar a saída da transformação para o Salesforce. 
@@ -134,6 +134,6 @@ Por padrão, a resposta da transformação iniciará com marca de ordem de byte 
 
 
 ## <a name="learn-more"></a>Saiba mais
-* [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
-* [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md "Saiba mais sobre mapas de integração corporativa")  
+* [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Conheça o Enterprise Integration Pack")  
+* [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md "Conheça os mapas de integração empresarial")  
 

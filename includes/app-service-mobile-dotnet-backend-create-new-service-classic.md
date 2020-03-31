@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: e087a1db008422aeec8fd4e073a7476eebe4d54b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67172604"
 ---
 1. Entre no [Portal do Azure].
-2. Selecione **+NOVO** > **Web + Celular** > **Aplicativo Móvel** e, em seguida, forneça um nome para o back-end dos Aplicativos Móveis.
+2. Selecione **+NEW** > **Web + Mobile** > **Mobile App**e, em seguida, forneça um nome para o back-end dos aplicativos móveis.
 3. Em **Grupo de Recursos**, selecione um grupo de recursos existente ou crie um novo(usando o mesmo nome do seu aplicativo). 
 4. Para o **Plano do Serviço de Aplicativo**, o plano padrão (na [camada Standard](https://azure.microsoft.com/pricing/details/app-service/)) está selecionado. Você também pode selecionar um plano diferente ou [criar um novo](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). 
 
@@ -31,4 +31,4 @@ ms.locfileid: "67172604"
    Antes de continuar, aguarde alguns minutos para que o banco de dados seja implantado com êxito.
 
 <!-- URLs. -->
-[Portal do Azure]: https://portal.azure.com/
+[Portal Azure]: https://portal.azure.com/

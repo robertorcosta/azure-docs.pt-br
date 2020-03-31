@@ -7,7 +7,7 @@
     - name: Comparar as APIs de Pesquisa do Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Guias de início rápido da API REST
+- name: Inícios rápidos
   expanded: true
   items:
     - name: API REST
@@ -16,7 +16,7 @@
           href: quickstarts/csharp.md
         - name: Usando Java
           href: quickstarts/java.md
-        - name: Usando o Node.js
+        - name: Usando Node.js
           href: quickstarts/nodejs.md
         - name: Usando o PHP
           href: quickstarts/php.md

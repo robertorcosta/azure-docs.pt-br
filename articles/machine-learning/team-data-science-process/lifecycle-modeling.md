@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720462"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de modelagem do ciclo de vida do Processo de Ciência de Dados da Equipe
@@ -23,7 +23,7 @@ ms.locfileid: "76720462"
 Este artigo descreve as metas, as tarefas e os resultados associados ao estágio de modelagem do TDSP (Processo de Ciência de Dados da Equipe). Esse processo fornece um ciclo de vida recomendado que você pode usar para estruturar seus projetos de ciência de dados. O ciclo de vida descreve os estágios principais que os projetos normalmente executam, com frequência de modo iterativo:
 
    1. **Noções básicas sobre negócios**
-   2. **Aquisição de dados e entendimento**
+   2. **Aquisição e compreensão de dados**
    3. **Modelagem**
    4. **Implantação**
    5. **Aceitação do cliente**
@@ -57,7 +57,7 @@ Dependendo do tipo da pergunta que você estiver tentando responder, haverá vá
 
 O processo de treinamento do modelo inclui as seguintes etapas: 
 
-   * **Dividir os dados de entrada** aleatoriamente para modelagem em um conjunto de dados de treinamento e um conjunto de dados de teste.
+   * **Divida os dados de entrada** aleatoriamente para modelar em um conjunto de dados de treinamento e um conjunto de dados de teste.
    * **Crie os modelos** usando o conjunto de dados de treinamento.
    * **Avalie** o conjunto de dados de treinamento e de teste. Use uma série de algoritmos de aprendizado de máquina concorrentes, juntamente com os vários parâmetros de ajustes associados (conhecidos como *limpeza de parâmetros*), voltados para responder à pergunta de interesse com os dados atuais.
    * **Determine a "melhor" solução** para responder à pergunta, comparando a métrica de sucesso entre os métodos alternativos.
@@ -72,18 +72,18 @@ Fornecemos uma [ferramenta automatizada de modelagem e relatório](https://githu
 ## <a name="artifacts"></a>Artefatos
 Os artefatos produzidos neste estágio incluem:
 
-   * [Conjuntos de recursos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): os recursos desenvolvidos para a modelagem estão descritos na seção **Conjuntos de recursos** do relatório **Definição de dados**. Ele contém ponteiros para o código para gerar os recursos e uma descrição de como o recurso foi gerado.
+   * [Conjuntos de recursos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): Os recursos desenvolvidos para a modelagem são descritos na seção **'Conjuntos** de recursos' do relatório de definição de **dados.** Ele contém ponteiros para o código para gerar os recursos e uma descrição de como o recurso foi gerado.
    * [Relatório de modelo](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): para cada modelo testado, é produzido um relatório padrão baseado em modelo que fornece detalhes sobre cada experimento.
-   * **Decisão do ponto de verificação**: avalie se o modelo executa o suficiente para produção. Algumas perguntas importantes a serem feitas são:
+   * **Decisão de checkpoint**: Avalie se o modelo tem desempenho suficiente para a produção. Algumas perguntas importantes a serem feitas são:
      * O modelo responde à pergunta com confiança suficiente, considerando os dados de teste? 
      * Você deve experimentar abordagens alternativas? Você deve coletar dados adicionais, realizar mais engenharia de recursos ou fazer experimentos com outros algoritmos?
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 
    1. [Noções básicas sobre negócios](lifecycle-business-understanding.md)
-   2. [Aquisição de dados e entendimento](lifecycle-data.md)
+   2. [Aquisição e compreensão de dados](lifecycle-data.md)
    3. [Modelagem](lifecycle-modeling.md)
    4. [Implantação](lifecycle-deployment.md)
    5. [Aceitação do cliente](lifecycle-acceptance.md)

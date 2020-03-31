@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: b7a561907e3f1968eb9adead3606822d7a1321c8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266969"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Solucionar problemas de erros de autenticação quando você usa o RDP para se conectar à VM do Azure
@@ -31,15 +31,15 @@ Você obtém uma captura de tela de uma VM do Azure que mostra a tela de boas-vi
 
 ### <a name="error-message-1"></a>Mensagem de erro 1
 
-**Ocorreu um erro de autenticação. Não é possível contatar a autoridade de segurança local.**
+**Ocorreu um erro de autenticação. A Autoridade de Segurança Local não pode ser contatada.**
 
 ### <a name="error-message-2"></a>Mensagem de erro 2
 
-**O computador remoto ao qual você está tentando se conectar requer Autenticação no Nível da Rede (NLA), mas o controlador de domínio do Windows não pode ser contatado para executar o NLA. Se você for um administrador no computador remoto, poderá desabilitar o NLA usando as opções na guia remoto da caixa de diálogo Propriedades do sistema.**
+**O computador remoto ao que você está tentando se conectar requer NLA (Network Level Authentication, autenticação de nível de rede), mas seu controlador de domínio do Windows não pode ser contatado para executar o NLA. Se você é um administrador no computador remoto, você pode desativar o NLA usando as opções na guia Remota da caixa de diálogo Propriedades do sistema.**
 
 ### <a name="error-message-3-generic-connection-error"></a>Mensagem de erro 3 (erro de conexão genérico)
 
-**Este computador não pode se conectar ao computador remoto. Tente se conectar novamente, se o problema persistir, contate o proprietário do computador remoto ou o administrador da rede.**
+**Este computador não pode se conectar ao computador remoto. Tente se conectar novamente, se o problema continuar, entre em contato com o proprietário do computador remoto ou com o administrador da rede.**
 
 ## <a name="cause"></a>Causa
 
@@ -124,7 +124,7 @@ REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-T
 REG add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f
 ```
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 ### <a name="for-domain-joined-vms"></a>Para VMs ingressadas em domínio
 
@@ -246,7 +246,7 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Prot
 > [!Note]
 > Obtenha o SSH/TLS versão x.x dos Logs do SO convidado nos erros de SCHANNEL.
 
-#### <a name="fips-compliant"></a> Verificar conexões de algoritmos em conformidade com FIPs
+#### <a name="check-fips-compliant-algorithms-connections"></a><a name="fips-compliant"></a> Verificar conexões de algoritmos em conformidade com FIPs
 
 A área de trabalho remota pode ser imposta para usar somente conexões de algoritmo em conformidade com FIPs. Isso pode ser definido usando uma chave do Registro. Para fazer isso, abra uma janela de prompt de comandos com privilégios elevados e consulte as chaves a seguir:
 

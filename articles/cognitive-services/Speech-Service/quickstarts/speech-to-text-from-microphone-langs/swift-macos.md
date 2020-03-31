@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/23/2019
 ms.author: cbasoglu
 ms.openlocfilehash: 7c5611a142087cff06eefb0277b12ff786074e1a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75446823"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em Swift no macOS usando o SDK de Fala
@@ -23,7 +23,7 @@ Também estão disponíveis inícios rápidos para [sintetização de voz](~/art
 
 Neste artigo, você aprenderá a criar um aplicativo macOS em Swift usando o SDK de Fala dos Serviços Cognitivos para transcrever uma fala de um microfone.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, aqui está uma lista de pré-requisitos:
 

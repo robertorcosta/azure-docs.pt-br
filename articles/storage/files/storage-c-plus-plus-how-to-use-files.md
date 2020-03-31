@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 97af40bd1f57acb5b26d3b6216984dfb8e3a5181
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68699794"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Desenvolvimento para o Arquivos do Azure com C++
@@ -40,8 +40,8 @@ Para criar os exemplos, você precisará instalar a Biblioteca do Cliente de Arm
 
 Para instalar o Cliente de Armazenamento do Azure 2.4.0 para C++, você poderá usar os seguintes métodos:
 
-* **Linux:** Siga as instruções dadas na página README da [Biblioteca do Cliente de Armazenamento do Microsoft Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).
-* **Windows:** No Visual Studio, clique em **Ferramentas &gt; Gerenciador de Pacotes NuGet &gt; Console do Gerenciador de Pacotes**. Digite o seguinte comando no console do [Gerenciador de Pacotes do NuGet](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione **ENTER**.
+* **Linux:** siga as instruções dadas na página README da [Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
+* **Windows:** no Visual Studio, clique em **Ferramentas &gt; Gerenciador de Pacotes do NuGet &gt; Console do Gerenciador de Pacotes**. Digite o seguinte comando no console do [Gerenciador de Pacotes do NuGet](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione **ENTER**.
   
 
 ```powershell
@@ -69,7 +69,7 @@ storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_sto
 
 ## <a name="connecting-to-an-azure-storage-account"></a>Conectar-se a uma conta de armazenamento do Azure
 
-É possível usar a classe **cloud_storage_account** para representar as informações da conta de armazenamento. Para recuperar as informações da conta de armazenamento na cadeia de conexão de armazenamento, você pode usar o método **Analisar** .
+Você pode usar a classe **cloud_storage_account** para representar as informações da sua conta de armazenamento. Para recuperar as informações da conta de armazenamento na cadeia de conexão de armazenamento, você pode usar o método **Analisar** .
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -107,7 +107,7 @@ Neste ponto, **compartilhar** contém uma referência a um compartilhamento cham
 
 ## <a name="delete-an-azure-file-share"></a>Excluir um Compartilhamento de Arquivos do Azure
 
-Para excluir um compartilhamento deve-se chamar o método **delete_if_exists** em um objeto cloud_file_share. O código fornecido a seguir é um exemplo de como fazer isso.
+A exclusão de uma parte é feita chamando o método **delete_if_exists** em um objeto cloud_file_share. O código fornecido a seguir é um exemplo de como fazer isso.
 
 ```cpp
 // Get a reference to the share.
@@ -160,7 +160,7 @@ directory.delete_directory_if_exists();
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar arquivos e diretórios em um Compartilhamento de Arquivos do Azure
 
-A lista de arquivos e diretórios em um compartilhamento pode ser obtida facilmente chamando **list_files_and_directories** em uma referência **cloud_file_directory**. Para acessar o conjunto avançado de propriedades e métodos para um **list_file_and_directory_item** retornado, você deverá chamar o método **list_file_and_directory_item.as_file** a fim de obter um objeto **cloud_file** ou o método **list_file_and_directory_item.as_directory** a fim de obter um objeto **cloud_file_directory**.
+A obtenção de uma lista de arquivos e diretórios dentro de um compartilhamento é facilmente feita ligando **para list_files_and_directories** em uma referência **cloud_file_directory.** Para acessar o conjunto avançado de propriedades e métodos para um **list_file_and_directory_item** retornado, você deverá chamar o método **list_file_and_directory_item.as_file** a fim de obter um objeto **cloud_file** ou o método **list_file_and_directory_item.as_directory** a fim de obter um objeto **cloud_file_directory**.
 
 O código a seguir demonstra como recuperar e apresentar a saída do URI de cada item no diretório raiz do compartilhamento.
 
@@ -189,7 +189,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 
 No mínimo, um compartilhamento de Arquivos do Azure contém um diretório raiz no qual os arquivos podem residir. Nesta seção, você aprenderá a carregar um arquivo do armazenamento local para o diretório raiz de um compartilhamento.
 
-A primeira etapa do carregamento de um arquivo é obter uma referência para o diretório onde ele deve residir. Para isso, você deve chamar o método **get_root_directory_reference** do objeto de compartilhamento.
+A primeira etapa do carregamento de um arquivo é obter uma referência para o diretório onde ele deve residir. Você faz isso chamando o método **get_root_directory_reference** do objeto de compartilhamento.
 
 ```cpp
 //Get a reference to the root directory for the share.
@@ -220,9 +220,9 @@ file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 
 ## <a name="download-a-file"></a>Baixar um arquivo
 
-Para baixar arquivos, primeiro recupere uma referência de arquivo e chame o método **download_to_stream** a fim de transferir o conteúdo do arquivo para um objeto de fluxo, que você pode persistir em um arquivo local. Como alternativa, você pode usar o método **download_to_file** para baixar o conteúdo de um arquivo em um arquivo local. Você pode usar o método **download_text** para baixar o conteúdo de um arquivo como uma cadeia de texto.
+Para baixar arquivos, primeiro recupere uma referência de arquivo e, em seguida, chame o método **download_to_stream** para transferir o conteúdo do arquivo para um objeto de fluxo, que você pode então persistir para um arquivo local. Como alternativa, você pode usar o método **download_to_file** para baixar o conteúdo de um arquivo em um arquivo local. Você pode usar o método **download_text** para baixar o conteúdo de um arquivo como uma cadeia de texto.
 
-O exemplo a seguir usa os métodos **download_to_stream** e **download_text** para demonstrar o download dos arquivos, que foram criados nas seções anteriores.
+O exemplo a seguir usa os métodos **download_to_stream** e **download_text** para demonstrar o download dos arquivos, que foram criados em seções anteriores.
 
 ```cpp
 // Download as text
@@ -369,5 +369,5 @@ Para saber mais sobre o Armazenamento do Azure, explore estes recursos:
 
 * [Biblioteca do Cliente de Armazenamento para C++](https://github.com/Azure/azure-storage-cpp)
 * [Exemplos do Serviço de Arquivo de Armazenamento do Microsoft Azure em C++](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Gerenciador de Armazenamento do Azure](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
-* [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Explorador de armazenamento azure](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Documentação de armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)

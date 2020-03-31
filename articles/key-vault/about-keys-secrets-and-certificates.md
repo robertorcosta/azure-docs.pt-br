@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: dd8be482009e067bf9016cc8e351fc42a2db39c7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271727"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre Chaves, Segredos e Certificados
@@ -85,8 +85,8 @@ Em que:
 
 As chaves de criptografia no Key Vault são representadas como objetos de chave da Web JSON [JWK]. As especificações JWK/JWA base também são estendidas para habilitar tipos de chave exclusivos para a implementação do Key Vault. Por exemplo, a importação de chaves usando um empacotamento específico do fornecedor do HSM, permite um transporte seguro de chaves que só pode ser usado em HSMs do Key Vault.  
 
-- **Teclas "soft"** : uma chave processada no software pelo Key Vault, mas criptografada em repouso usando uma chave do sistema que está em um HSM. Os clientes podem importar uma chave RSA ou EC (Curva Elíptica) existente ou solicitar que o Key Vault gere uma.
-- **Teclas "Hard"** : uma chave processada em um HSM (Hardware Security Module). Essas chaves são protegidas em um dos Mundos de Segurança do HSM do Key Vault (existe um Mundo de Segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA ou EC, em formato flexível ou exportando de um dispositivo HSM compatível. Os clientes também podem solicitar ao Key Vault para gerar uma chave. Esse tipo de chave adiciona o atributo key_hsm ao JWK obter para transportar o material de chave HSM.
+- **Teclas "soft"**: uma chave processada no software pelo Key Vault, mas criptografada em repouso usando uma chave do sistema que está em um HSM. Os clientes podem importar uma chave RSA ou EC (Curva Elíptica) existente ou solicitar que o Key Vault gere uma.
+- ** Teclas "Hard" **: uma chave processada em um HSM (Hardware Security Module). Essas chaves são protegidas em um dos Mundos de Segurança do HSM do Key Vault (existe um Mundo de Segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA ou EC, em formato flexível ou exportando de um dispositivo HSM compatível. Os clientes também podem solicitar ao Key Vault para gerar uma chave. Este tipo de chave adiciona o atributo key_hsm ao JWK obter para transportar o material chave HSM.
 
      Para obter mais informações sobre fronteiras geográficas, consulte [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -115,10 +115,10 @@ Os módulos de criptografia usados pelo Key Vault, seja HSM ou software, são va
 
 #### <a name="signverify"></a>SIGN/VERIFY
 
--   **ES256** - resumos de ECDSA para SHA-256 e as chaves criadas com a curva p-256. Esse algoritmo é descrito em [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **ES256** - resumos de ECDSA para SHA-256 e as chaves criadas com a curva p-256. Este algoritmo é descrito em [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **ES256K** - resumos de ECDSA para SHA-256 e as chaves criadas com curva P-256_K. Este algoritmo está pendente de padronização.
--   **ES384** - resumos de ECDSA para SHA-384 e as chaves criadas com a curva p-384. Esse algoritmo é descrito em [RFC7518](https://tools.ietf.org/html/rfc7518).
--   **ES512** - ECDSA para SHA-512 resumos e as chaves criadas com a curva p-521. Esse algoritmo é descrito em [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **ES384** - resumos de ECDSA para SHA-384 e as chaves criadas com a curva p-384. Este algoritmo é descrito em [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **ES512** - ECDSA para SHA-512 resumos e as chaves criadas com a curva p-521. Este algoritmo é descrito em [RFC7518](https://tools.ietf.org/html/rfc7518).
 
 
 ###  <a name="rsa-algorithms"></a>Algoritmos RSA  
@@ -131,9 +131,9 @@ Os módulos de criptografia usados pelo Key Vault, seja HSM ou software, são va
 
 #### <a name="signverify"></a>SIGN/VERIFY
 
--   **PS256** -RSASSA-PSS usando sha-256 e MGF1 com sha-256, conforme descrito em [RFC7518](https://tools.ietf.org/html/rfc7518).
--   **PS384** -RSASSA-PSS usando sha-384 e MGF1 com sha-384, conforme descrito em [RFC7518](https://tools.ietf.org/html/rfc7518).
--   **PS512** -RSASSA-PSS usando sha-512 e MGF1 com sha-512, conforme descrito em [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **PS256** - RSASSA-PSS utilizando SHA-256 e MGF1 com SHA-256, conforme descrito em [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **PS384** - RSASSA-PSS utilizando SHA-384 e MGF1 com SHA-384, conforme descrito em [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **PS512** - RSASSA-PSS utilizando SHA-512 e MGF1 com SHA-512, conforme descrito em [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **RS256** - RSASSA-PKCS-v1_5 usando SHA-256. O valor do resumo fornecido pelo aplicativo deve ser calculado usando SHA-256 e deve ter 32 bytes de comprimento.  
 -   **RS384** - RSASSA-PKCS-v1_5 usando SHA-384. O valor do resumo fornecido pelo aplicativo deve ser calculado usando SHA-384 e deve ter 48 bytes de comprimento.  
 -   **RS512** - RSASSA-PKCS-v1_5 usando SHA-512. O valor do resumo fornecido pelo aplicativo deve ser calculado usando SHA-512 e deve ter 64 bytes de comprimento.  
@@ -173,9 +173,9 @@ Para obter mais informações sobre objetos JWK, consulte [Chave de Web JSON (JW
 
 Além do material de chave, os seguintes atributos podem ser especificados. Em uma solicitação de JSON, a palavra-chave e as chaves, '{' '}', são necessárias, mesmo se não houver nenhum atributo especificado.  
 
-- *habilitado*: booliano, opcional, o padrão é **true**. Especifica se a chave está habilitada e pode ser utilizada para operações de criptografia. O atributo *Enabled* é usado em conjunto com *NBF* e *exp*. Quando ocorrer uma operação entre *NBF* e *exp*, ele só será permitido se *habilitado* for definido como **true**. As operações fora da janela *nbf* / *exp* não são automaticamente permitidas, exceto para determinados tipos de operação em [determinadas condições](#date-time-controlled-operations).
-- *nbf*: IntDate, opcional, o padrão é agora. O atributo *nbf* (not before) identifica o tempo anterior que a chave NÃO DEVE ser usada para operações de criptografia, exceto para determinados tipos de operação em [determinadas condições](#date-time-controlled-operations). O processamento do atributo *nbf* requer que a data/hora atual DEVE ser posterior ou igual a data/hora não-anterior listada no atributo *nbf*. O Key Vault PODE fornecer alguma reserva pequena, normalmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
-- *EXP*: IntDate, opcional, o padrão é “infinito”. O atributo *exp* (expiration time) identifica o tempo de expiração em que ou depois que a chave NÃO DEVE ser usada para operações de criptografia, exceto para determinados tipos de operação em [determinadas condições](#date-time-controlled-operations). O processamento do atributo *exp* requer que a data/hora atual DEVE ser anterior a data/hora de expiração listada no atributo *exp*. O Key Vault PODE fornecer alguma reserva pequena, geralmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
+- *habilitado*: booliano, opcional, o padrão é **true**. Especifica se a chave está habilitada e pode ser utilizada para operações de criptografia. O atributo *ativado* é usado em conjunto com *nbf* e *exp*. Quando uma operação ocorrer entre *nbf* e *exp,* ela só será permitida se *for* definida como **verdadeira**. As operações fora da janela *nbf* / *exp* são automaticamente proibidas, exceto para certos tipos de operação em [condições específicas](#date-time-controlled-operations).
+- *nbf*: IntDate, opcional, default é agora. O atributo *nbf* (not before) identifica o tempo anterior que a chave NÃO DEVE ser usada para operações de criptografia, exceto para determinados tipos de operação em [determinadas condições](#date-time-controlled-operations). O processamento do atributo *nbf* requer que a data/hora atual DEVE ser posterior ou igual a data/hora não-anterior listada no atributo *nbf*. O Key Vault PODE fornecer alguma reserva pequena, normalmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
+- *exp*: IntDate, opcional, default é "para sempre". O atributo *exp* (expiration time) identifica o tempo de expiração em que ou depois que a chave NÃO DEVE ser usada para operações de criptografia, exceto para determinados tipos de operação em [determinadas condições](#date-time-controlled-operations). O processamento do atributo *exp* requer que a data/hora atual DEVE ser anterior a data/hora de expiração listada no atributo *exp*. O Key Vault PODE fornecer alguma reserva pequena, geralmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
 
 Há mais atributos somente leitura que são incluídos em qualquer resposta que inclui os atributos de chave:  
 
@@ -186,9 +186,9 @@ Para obter mais informações sobre IntDate e outros tipos de dados, consulte [T
 
 #### <a name="date-time-controlled-operations"></a>Operações de data e hora controladas
 
-Chaves expiradas e ainda não válidas, fora da janela *nbf* / *exp*, funcionarão para operações **descriptografar**, **desencapsular** e **verificar** (não retornará 403, Proibido). A lógica para usar o estado de não válido ainda é permitir que uma chave seja testada antes do uso de produção. A lógica para usar o estado expirado é permitir operações de recuperação de dados que foram criados quando a chave era válida. Além disso, você pode desabilitar o acesso a uma chave usando políticas de Cofre de Chaves, ou atualizando o atributo de chave *habilitado* para **false**.
+As chaves ainda não válidas e vencidas, fora da janela *nbf* / *exp,* funcionarão para **descriptografar,** **desembrulhar**e **verificar** operações (não retornará 403, Proibido). A lógica para usar o estado de não válido ainda é permitir que uma chave seja testada antes do uso de produção. A lógica para usar o estado expirado é permitir operações de recuperação de dados que foram criados quando a chave era válida. Além disso, você pode desabilitar o acesso a uma chave usando políticas de Cofre de Chaves, ou atualizando o atributo de chave *habilitado* para **false**.
 
-Para obter mais informações sobre tipos de dados, consulte [Tipos de dados](#data-types).
+Para obter mais informações sobre os tipos de dados, consulte [tipos de dados](#data-types).
 
 Para obter mais informações sobre outros atributos possíveis, consulte a [Chave de Web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).
 
@@ -197,13 +197,13 @@ Para obter mais informações sobre outros atributos possíveis, consulte a [Cha
 Você pode especificar mais metadados específicos do aplicativo na forma de marcas. O Key Vault oferece suporte a até 15 marcas, cada uma delas pode ter um nome de 256 caracteres e um valor de 256 caracteres.  
 
 >[!Note]
->As marcas podem ser lidas por um chamador se ele tiver a permissão *listar* ou *obter* para esse tipo de objeto; chaves, segredos ou certificados.
+>As tags são legíveis por um chamador se tiverem a *lista* ou *obterem* permissão para esse tipo de objeto (chaves, segredos ou certificados).
 
 ###  <a name="key-access-control"></a>Controle de acesso a chave
 
-O controle de acesso para chaves gerenciados pelo Cofre de Chaves é fornecido no nível de um Cofre de Chaves que atua como o contêiner de chaves. A política de controle de acesso para chaves é distinta da política de controle de acesso para segredos na mesma Key Vault. Os usuários podem criar um ou mais cofres para armazenar chaves e são solicitados a manter a segmentação e gerenciamento de chaves apropriados do cenário. O controle de acesso para chaves é independente do controle de acesso para segredos.  
+O controle de acesso para chaves gerenciados pelo Cofre de Chaves é fornecido no nível de um Cofre de Chaves que atua como o contêiner de chaves. A política de controle de acesso para chaves é distinta da política de controle de acesso para segredos no mesmo Cofre de Chaves. Os usuários podem criar um ou mais cofres para armazenar chaves e são solicitados a manter a segmentação e gerenciamento de chaves apropriados do cenário. O controle de acesso para chaves é independente do controle de acesso para segredos.  
 
-As seguintes permissões podem ser concedidas, por usuário / serviço, na entrada de controle de acesso de chaves em um cofre. Essas permissões espelham fortemente as operações permitidas em um objeto de chave.  Conceder acesso a uma entidade de serviço no Key Vault é uma operação OneTime e permanecerá o mesmo para todas as assinaturas do Azure. Você pode usá-lo para implantar quantos certificados desejar. 
+As seguintes permissões podem ser concedidas, por usuário / serviço, na entrada de controle de acesso de chaves em um cofre. Essas permissões refletem de perto as operações permitidas em um objeto-chave.  Conceder acesso a um principal de serviço no cofre de chaves é uma operação única, e permanecerá o mesmo para todas as assinaturas do Azure. Você pode usá-lo para implantar quantos certificados quiser. 
 
 - Permissões para operações de gerenciamento de chaves
   - *obter*: ler a parte pública de uma chave, além de seus atributos
@@ -256,7 +256,7 @@ Há mais atributos somente leitura que são incluídos em qualquer resposta que 
 
 Uma operação **obter** do segredo funcionará para segredos ainda não válidos e expirados, fora da janela *nbf* / *exp*. Chamar uma operação **obter** do segredo, para um segredo ainda não válido, pode ser usada para fins de teste. Recuperar (**obter**) um segredo expirado, pode ser usado para operações de recuperação.
 
-Para obter mais informações sobre tipos de dados, consulte [Tipos de dados](#data-types).  
+Para obter mais informações sobre os tipos de dados, consulte [tipos de dados](#data-types).  
 
 ### <a name="secret-access-control"></a>Controle de acesso a segredo
 
@@ -282,7 +282,7 @@ Para obter mais informações sobre como trabalhar com segredos, veja [Operaçõ
 Você pode especificar mais metadados específicos do aplicativo na forma de marcas. O Key Vault oferece suporte a até 15 marcas, cada uma delas pode ter um nome de 256 caracteres e um valor de 256 caracteres.  
 
 >[!Note]
->As marcas podem ser lidas por um chamador se ele tiver a permissão *listar* ou *obter* para esse tipo de objeto; chaves, segredos ou certificados.
+>As tags são legíveis por um chamador se tiverem a *lista* ou *obterem* permissão para esse tipo de objeto (chaves, segredos ou certificados).
 
 ## <a name="key-vault-certificates"></a>Certificados do Cofre de Chaves
 
@@ -340,7 +340,7 @@ Há mais atributos somente leitura que são incluídos em resposta:
  O dicionário de pares de valor de chave especificado pelo cliente, semelhantes às marcas em chaves e segredos.  
 
  > [!Note]
-> As marcas podem ser lidas por um chamador se ele tiver a permissão *listar* ou *obter* para esse tipo de objeto; chaves, segredos ou certificados.
+> As tags são legíveis por um chamador se tiverem a *lista* ou *obterem* permissão para esse tipo de objeto (chaves, segredos ou certificados).
 
 ### <a name="certificate-policy"></a>Política do certificado
 
@@ -381,9 +381,9 @@ A tabela a seguir representa o mapeamento de política de uso de chave x509 para
 
 Um objeto de certificado do Cofre de Chaves contém uma configuração usada para se comunicar com um provedor de emissor do certificado selecionado para solicitar certificados x509.  
 
--   Parceiros de Key Vault com os seguintes provedores de emissor de certificado para certificados TLS/SSL
+-   O Key Vault faz parceria com os seguintes provedores de emissor de certificados para certificados TLS/SSL
 
-|**Nome do Provedor**|**Locais**|
+|**Nome do provedor**|**Locais**|
 |----------|--------|
 |DigiCert|Suporte em todos os locais de serviço de Cofre de Chaves na nuvem pública e o Azure Government|
 |GlobalSign|Suporte em todos os locais de serviço de Cofre de Chaves na nuvem pública e o Azure Government|
@@ -394,7 +394,7 @@ Antes que um emissor de certificado possa ser criado em um Cofre de Chaves, as s
 
     -   Um administrador da organização deve integrar sua empresa (ex. Contoso) com pelo menos um provedor de autoridade de certificação.  
 
-2. O administrador cria credenciais do solicitante para Key Vault registrar (e renovar) certificados TLS/SSL  
+2. O Admin cria credenciais de solicitação para o Key Vault para registrar (e renovar) certificados TLS/SSL  
 
     -   Fornece a configuração a ser usado para criar um objeto de emissor do provedor no cofre de chaves  
 
@@ -478,7 +478,7 @@ As seguintes permissões podem ser usadas ao autorizar um usuário ou entidade d
 
 Para obter mais informações, confira [Operações de conta de armazenamento na referência de API REST do Key Vault](/rest/api/keyvault). Para obter informações sobre como estabelecer permissões, confira [Cofres – criar ou atualizar](/rest/api/keyvault/vaults/createorupdate) e [Cofres – atualizar política de acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-## <a name="see-also"></a>Consulte Também
+## <a name="see-also"></a>Consulte também
 
 - [Autenticação, solicitações e respostas](authentication-requests-and-responses.md)
-- [Guia do Desenvolvedor do Cofre de Chaves](/azure/key-vault/key-vault-developers-guide)
+- [Guia do Desenvolvedor do Cofre Chave](/azure/key-vault/key-vault-developers-guide)

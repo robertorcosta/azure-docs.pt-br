@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 817a11171c5b4b4ef205e5fbb04f9b6d6d85b248
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68854256"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Tutorial de design do Projeto Acústico do Unreal/Wwise
@@ -89,7 +89,7 @@ O ator do Projeto Acústico expõe muitos controles que modificam o comportament
 * **Acústica Habilitada:** Um controle de depuração para habilitar a alternância A/B rápida da simulação de Acústica. Esse controle é ignorado nas configurações de envio. O controle é útil para descobrir se um bug de áudio específico origina-se nos cálculos de acústica ou algum outro problema no projeto do Wwise.
 * **Atualizar Distâncias:** Utilize essa opção se você quiser usar as informações acústicas pré-preparadas para consultas de distância. Essas consultas são semelhantes a ray-casts, mas como são pré-calculadas consumem muito menos CPU. Um exemplo de uso é para reflexões discretas da superfície mais próxima do ouvinte. Para ter um aproveitamento total, você deverá usar código ou Blueprints para consultar as distâncias.
 * **Desenhar Estatísticas:** Embora o `stat Acoustics` do UE possa fornecer informações sobre a CPU, essa exibição de status mostrará o arquivo ACE atualmente carregado, o uso da RAM e outras informações de status no canto superior esquerdo da tela.
-* **Desenhar Voxels:** Sobreposição de voxels próximos ao ouvinte mostrando a grade de voxels usada durante a interpolação de tempo de execução. Se um emissor estiver dentro de um voxel de tempo de execução, ele falhará nas consultas acústicas.
+* **Desenhar Voxels:** Sobreposição de voxels próximos ao ouvinte mostrando a grade de voxels usada durante a interpolação de runtime. Se um emissor estiver dentro de um voxel de runtime, ele falhará nas consultas acústicas.
 * **Desenhar Sondas:** Mostra todas as sondas dessa cena. Terão cores diferentes, dependendo do estado de carga.
 * **Desenhar Distâncias:** Se Atualizar Distâncias estiver habilitado, mostrará uma caixa na superfície mais próxima do ouvinte, em direções quantizadas ao redor do ouvinte.
 

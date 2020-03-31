@@ -1,6 +1,6 @@
 ---
-title: Correções para o erro "você não pode chegar lá daqui" – Azure AD
-description: Encontre possíveis correções por que você está recebendo a mensagem de erro "você não pode chegar lá daqui".
+title: Correções para o erro "Você não pode chegar lá a partir daqui" - Azure AD
+description: Encontre correções potenciais para o motivo pelo qual você está recebendo a mensagem de erro "Você não pode chegar lá daqui".
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,13 +14,13 @@ ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: 2484de4e554d16ba049d206981a44654ede28a3f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190019"
 ---
-# <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Possíveis correções para a mensagem de erro "você não pode chegar lá daqui"
+# <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Possíveis correções para a mensagem de erro "Você não pode chegar lá a partir daqui"
 
 Ao acessar a aplicativos Web ou serviços internos da sua organização, você pode receber uma mensagem de erro que diz **Você não pode acessar esse lugar daqui**. Essa mensagem significa que sua organização aplicou uma política que está impedindo o dispositivo de acessar recursos da organização. Talvez você precise entrar em contato com o suporte técnico para corrigir esse problema, mas consulte aqui algumas coisas que você pode tentar primeiro.
 
@@ -36,9 +36,9 @@ Verifique se você está executando uma versão compatível do sistema operacion
 
 - **Windows Client.** Windows 7 ou posterior.
 
-- **Windows Server.** Windows Server 2008 R2 ou posterior.
+- **Servidor Windows.** Windows Server 2008 R2 ou posterior.
 
-- **macOS.** macOS X ou posterior
+- **Macos.** macOS X ou posterior
 
 - **Android e iOS.** Versão mais recente de sistemas operacionais móveis Android e iOS
 
@@ -68,6 +68,6 @@ Se o dispositivo não estiver adicionado à rede da sua organização, você ter
 - **Registrar seu dispositivo pessoal para trabalho.** Registre seu dispositivo pessoal, geralmente um telefone ou tablet, na rede da sua organização. Após o registro do dispositivo, ele poderá acessar os recursos restritos da sua organização. Para saber mais e obter instruções passo a passo, consulte [Registrar seu dispositivo pessoal à rede da sua organização](user-help-register-device-on-network.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-- [O que é o portal MyApps?](active-directory-saas-access-panel-introduction.md)
+- [O que é o portal do MyApps?](active-directory-saas-access-panel-introduction.md)
 
 - [Entre com seu telefone, não com sua senha](user-help-auth-app-sign-in.md)

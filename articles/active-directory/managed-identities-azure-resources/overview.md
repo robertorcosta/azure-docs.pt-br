@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/26/2019
+ms.date: 03/25/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47bd3b5da79bdb9c7dca75d521aa39d3652ab1ab
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 707b03d46615f3acfa0797d1dc0865d53ef75dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945616"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282113"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
 
@@ -143,7 +143,7 @@ Saiba como usar uma identidade gerenciada com outros serviços do Azure:
 * [Azure Data Factory](../../data-factory/data-factory-service-identity.md)
 
 
-## O recurso tem suporte de quais serviços do Azure?<a name="which-azure-services-support-managed-identity"></a>
+## <a name="what-azure-services-support-the-feature"></a>O recurso tem suporte de quais serviços do Azure?<a name="which-azure-services-support-managed-identity"></a>
 
 As identidades gerenciadas para recursos do Azure podem ser usadas para autenticar os serviços que são compatíveis com a autenticação do Azure AD. Para obter uma lista de serviços do Azure que dão suporte para identidades gerenciadas para a funcionalidade de recursos do Azure, veja [Serviços que dão suporte a identidades gerenciadas para recursos do Azure](services-support-msi.md).
 

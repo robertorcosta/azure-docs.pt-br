@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: dapine
 ms.openlocfilehash: 2b6270535c0cf69549a7412bd38d9207454e5500
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76037671"
 ---
 Neste início rápido, você usará o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para reconhecer falas em um arquivo de áudio. Depois de cumprir alguns pré-requisitos, é necessário seguir apenas algumas etapas para reconhecer a fala em um arquivo:

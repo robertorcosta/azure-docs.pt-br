@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Work.com | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Workspot Control | Microsoft Docs'
 description: Saiba como configurar o logon único para o Azure Active Directory e o Workspot Control.
 services: active-directory
 documentationCenter: na
@@ -22,7 +22,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086674"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Active Directory do Azure com o Controle do Workspot
+# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Azure Active Directory com o Workspot Control
 
 Neste tutorial, você aprenderá a integrar o Controle do Workspot ao Azure AD (Azure Active Directory). Ao integrar o Workspot Control ao Azure AD, você pode:
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a integrar o Controle do Workspot ao Azure AD (
 
 Para obter mais informações sobre a integração de aplicativo SaaS ao Azure AD, confira [Logon único em aplicativos no Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Workspot Control, você precisa dos seguintes itens:
 
@@ -248,4 +248,4 @@ Ao clicar no bloco **Workspot Control** no Painel de Acesso, você deverá ser c
 
 - [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

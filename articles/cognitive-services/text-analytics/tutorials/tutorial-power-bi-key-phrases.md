@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
 ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75378527"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI ao Serviço Cognitivo de Análise de Texto
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Use a API de Frases-chave de Análise de Texto para extrair as frases mais importantes dos comentários do cliente
 > * Criar uma nuvem de palavras com base nos comentários do cliente
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Faça download sem qualquer custo](https://powerbi.microsoft.com/get-started/).
