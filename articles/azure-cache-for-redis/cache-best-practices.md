@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 71056fd04069b861b37a595b1a4f2a8bba4a01ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 105a3996753a1d1c2d71846cc8bad574e4498acf
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75689969"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478614"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas para o Cache do Azure para Redis 
 Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempenho e o uso econômico do seu Cache Azure para a instância Redis.
@@ -42,7 +42,7 @@ Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempen
 ## <a name="memory-management"></a>Gerenciamento de memória
 Existem várias coisas relacionadas ao uso da memória dentro da instância do servidor Redis que você pode querer considerar.  Aqui estão algumas:
 
- * **Escolha uma [política de despejo](https://redis.io/topics/lru-cache) que funcione para sua aplicação.**  A política padrão do Azure Redis é *volátil-lru,* o que significa que apenas as chaves que possuem um conjunto de valor TTL serão elegíveis para despejo.  Se nenhuma tecna tiver um valor TTL, o sistema não despejará nenhuma teca.  Se você quiser que o sistema permita que qualquer chave seja despejada se estiver pressão de memória, então você pode querer considerar a política *allkeys-lru.*
+ * **Escolha uma [política de despejo](https://redis.io/topics/lru-cache) que funcione para sua aplicação.**  A política padrão do Azure Redis é *volátil-lru,* o que significa que apenas as chaves que possuem um conjunto de valor TTL serão elegíveis para despejo.  Se nenhuma tecna tiver um valor TTL, o sistema não despejará nenhuma teca.  Se você quiser que o sistema permita que qualquer chave seja despejada se estiver sob pressão de memória, então você pode querer considerar a política *allkeys-lru.*
 
  * **Defina um valor de expiração em suas chaves.**  Uma expiração removerá as chaves proativamente em vez de esperar até que haja pressão de memória.  Quando o despejo entra em ação por causa da pressão da memória, pode causar carga adicional no servidor.  Para obter mais informações, consulte a documentação dos comandos [EXPIRE](https://redis.io/commands/expire) e [EXPIREAT.](https://redis.io/commands/expireat)
  
@@ -52,7 +52,7 @@ Existem várias coisas relacionadas ao uso da memória dentro da instância do s
  * [Alface (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
- * [Php](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
+ * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
  * [Provedor de Estado de Sessão de Asp.Net](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 
@@ -67,7 +67,7 @@ Infelizmente, não há resposta fácil.  Cada aplicativo precisa decidir quais o
 Se você quiser testar como seu código funciona em condições de erro, considere usar o [recurso Reinicialização](cache-administration.md#reboot). A reinicialização permite que você veja como os blips de conexão afetam seu aplicativo.
 
 ## <a name="performance-testing"></a>Testes de desempenho
- * **Comece usando `redis-benchmark.exe` ** para ter uma noção de possível throughput/latência antes de escrever seus próprios testes perf.  A documentação redis-benchmark pode ser [encontrada aqui](https://redis.io/topics/benchmarks).  Observe que o redis-benchmark não suporta SSL, então você terá que [ativar a porta Não-SSL através do Portal](cache-configure.md#access-ports) antes de executar o teste.  [Uma versão compatível com windows do redis-benchmark.exe pode ser encontrada aqui](https://github.com/MSOpenTech/redis/releases)
+ * **Comece usando `redis-benchmark.exe` ** para ter uma noção de possível throughput/latência antes de escrever seus próprios testes perf.  A documentação redis-benchmark pode ser [encontrada aqui](https://redis.io/topics/benchmarks).  Observe que o redis-benchmark não suporta TLS, então você terá que [ativar a porta Non-TLS através do Portal](cache-configure.md#access-ports) antes de executar o teste.  [Uma versão compatível com windows do redis-benchmark.exe pode ser encontrada aqui](https://github.com/MSOpenTech/redis/releases)
  * A VM do cliente usada para testes deve estar **na mesma região que a** instância de cache Redis.
  * **Recomendamos o uso da Série Dv2 VM** para o seu cliente, pois eles têm melhor hardware e darão os melhores resultados.
  * Certifique-se de que o VM do cliente que você usa tem **pelo menos tanto computação e largura de banda* quanto o cache que está sendo testado. 

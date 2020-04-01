@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2dc78c25c2cf63a510b9451c8d694795cd8a91eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 72264755d5f0379f0ffb07852f48885126a36898
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060954"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411599"
 ---
 # <a name="use-azure-files-with-linux"></a>Usar o Arquivos do Azure com o Linux
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente de kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas maneiras de montar um compartilhamento de arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
@@ -194,6 +194,53 @@ Quando tiver terminado de usar o compartilhamento de arquivos do Azure, você po
     > [!Note]  
     > O comando de montagem acima é montado com SMB 3.0. Se a sua distribuição Linux não suportar smb 3.0 com criptografia ou se ele só suporta SMB 2.1, você só pode montar a partir de uma VM Azure dentro da mesma região que a conta de armazenamento. Para montar o compartilhamento de arquivos do Azure em uma distribuição Linux que não suporta SMB 3.0 com criptografia, você precisará desativar a [criptografia em trânsito para a conta de armazenamento](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
+### <a name="using-autofs-to-automatically-mount-the-azure-file-shares"></a>Usando autofs para montar automaticamente o compartilhamento de arquivos Azure
+
+1. **Certifique-se de que o pacote autofs está instalado.**  
+
+    O pacote autofs pode ser instalado usando o gerenciador de pacotes na distribuição Linux de sua escolha. 
+
+    Em distribuições **Ubuntu** e **Debian**, use o gerenciador de pacotes do `apt`:
+    ```bash
+    sudo apt update
+    sudo apt install autofs
+    ```
+    No **Fedora**, **Red Hat Enterprise Linux 8+** e **CentOS 8 +**, use o gerenciador de `dnf` pacotes:
+    ```bash
+    sudo dnf install autofs
+    ```
+    Nas versões mais antigas do Red `yum` Hat Enterprise **Linux** e Do **CentOS,** use o gerenciador de pacotes:
+    ```bash
+    sudo yum install autofs 
+    ```
+    No **openSUSE**, use o gerenciador de pacotes do `zypper`:
+    ```bash
+    sudo zypper install autofs
+    ```
+2. **Criar um ponto de montagem para as ações:**
+   ```bash
+    sudo mkdir /fileshares
+    ```
+3. **Creta um novo arquivo de configuração autofs personalizado**
+    ```bash
+    sudo vi /etc/auto.fileshares
+    ```
+4. **Adicione as seguintes entradas a /etc/auto.fileshares**
+   ```bash
+   echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath"" > /etc/auto.fileshares
+   ```
+5. **Adicione a seguinte entrada a /etc/auto.master**
+   ```bash
+   /fileshares /etc/auto.fileshares --timeout=60
+   ```
+6. **Reinicie autofs**
+    ```bash
+    sudo systemctl restart autofs
+    ```
+7.  **Acesse a pasta designada para o compartilhamento**
+    ```bash
+    cd /fileshares/$filesharename
+    ```
 ## <a name="securing-linux"></a>Como proteger o Linux
 Para montar um compartilhamento de arquivos Azure no Linux, a porta 445 deve estar acessível. Muitas organizações bloqueiam a porta 445 devido aos riscos de segurança inerentes ao protocolo SMB 1. SMB 1, também conhecido como CIFS (Common Internet File System), é um protocolo de sistema de arquivos legado incluído com muitas distribuições Linux. O SMB 1 é um protocolo desatualizado, ineficiente e, o mais importante, não seguro. A boa notícia é que o Azure Files não suporta SMB 1, e a partir da versão 4.18 do kernel Linux, o Linux torna possível desativar o SMB 1. Sempre [recomendamos desabilitar](https://aka.ms/stopusingsmb1) o SMB 1 em seus clientes Linux antes de usar ações de arquivos SMB na produção.
 

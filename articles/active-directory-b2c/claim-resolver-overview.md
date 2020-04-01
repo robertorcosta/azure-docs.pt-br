@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cba97b84f77bd4e2d4cfd97601fa4f8637105eb4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1c4bbd98682d964cfdf72031c7d6cb77cf42a809
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051417"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396081"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
@@ -76,7 +76,7 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 | {OIDC:Prompt} | O parâmetro de cadeia de caracteres da consulta `prompt`. | login |
 | {OIDC:RedirectUri} |O parâmetro de cadeia de caracteres da consulta `redirect_uri`. | https://jwt.ms |
 | {OIDC:Resource} |O parâmetro de cadeia de caracteres da consulta `resource`. | N/D |
-| {OIDC:scope} |O parâmetro de cadeia de caracteres da consulta `scope`. | openid |
+| {OIDC:Escopo} |O parâmetro de cadeia de caracteres da consulta `scope`. | openid |
 | {OIDC:Nome de usuário}| As [credenciais de senha do proprietário do recurso fluem](ropc-custom.md) o nome de usuário do usuário.| emily@contoso.com| 
 
 ### <a name="context"></a>Contexto
@@ -162,7 +162,7 @@ O exemplo a seguir mostra um perfil técnico RESTful com este cenário:
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
     <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" AlwaysUseDefaultValue="true" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:Scope}" AlwaysUseDefaultValue="true" />
     <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" AlwaysUseDefaultValue="true" />
   </InputClaims>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
@@ -175,7 +175,7 @@ Usando resolvedores de declaração, você pode preencher previamente o nome de 
 
 ### <a name="dynamic-ui-customization"></a>Personalização de interface do usuário dinâmica
 
-O Azure AD B2C permite que você passe parâmetros de seqüência de consulta para os pontos finais da definição de conteúdo HTML para renderizar dinamicamente o conteúdo da página. Por exemplo, isso permite modificar a imagem de fundo na página de inscrição AD B2C do Azure AD ou com base em um parâmetro personalizado que você passa do seu aplicativo web ou móvel. Para obter mais informações, confira [Configurar dinamicamente a interface do usuário usando políticas personalizadas no Azure Active Directory B2C](custom-policy-ui-customization.md). Você também pode localizar sua página HTML com base em um parâmetro de idioma, ou pode alterar o conteúdo com base na ID do cliente.
+O Azure AD B2C permite que você passe parâmetros de seqüência de consulta para os pontos finais da definição de conteúdo HTML para renderizar dinamicamente o conteúdo da página. Por exemplo, esse recurso permite modificar a imagem de fundo no acessando o Azure AD B2C ou a página de login com base em um parâmetro personalizado que você passa do seu aplicativo web ou móvel. Para obter mais informações, confira [Configurar dinamicamente a interface do usuário usando políticas personalizadas no Azure Active Directory B2C](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri). Você também pode localizar sua página HTML com base em um parâmetro de idioma, ou pode alterar o conteúdo com base na ID do cliente.
 
 O exemplo a seguir passa no parâmetro de seqüência `Hawaii`de consultas chamado **campaignId** com um valor de , um código de **idioma** de `en-US`, e **aplicativo** representando o ID do cliente:
 

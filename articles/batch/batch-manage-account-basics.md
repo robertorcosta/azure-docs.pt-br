@@ -11,15 +11,15 @@ ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 03/30/2020
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4df2ec0439e659fd8dc1448c6209c9718114791
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ecae47f6aa0ab3f179632467b7da7805f06162d6
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79479783"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397261"
 ---
 # <a name="manage-your-batch-account"></a>Gerencie sua conta em lote
 
@@ -33,13 +33,13 @@ Você pode executar várias cargas de trabalho do Lote em uma única conta do Lo
 
 A conta Batch permite que você execute trabalhos em lote de computação paralela e de alto desempenho (HPC) em larga escala de forma eficiente no Azure. Dentro da conta que você gerencia:
 
-- os aplicativos que você está executando
+- Os aplicativos que você está executando
 
-- a alocação de piscinas e nós dentro de piscinas
+- A alocação de piscinas e nós dentro de piscinas
 
-- o número e tipos de tarefas 
+- O número e os tipos de tarefas 
 
-- a entrada e saída de dados. Você não precisa instalar software adicional para gerenciar tarefas.
+- A entrada e saída de dados. Você não precisa instalar software adicional para gerenciar tarefas.
 
 - Quando você cria a conta Batch, você é solicitado a atribuir um nome a ela. Este nome é seu ID e uma vez atribuído não pode ser alterado.
 

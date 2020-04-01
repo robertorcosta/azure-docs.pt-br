@@ -4,12 +4,12 @@ description: Saiba como fazer backup de um servidor do Exchange no Backup do Azu
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 9e623b1bdce93c340ccd0e61f9f5145e7154beff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d7d28d813df82a5e1ea0fe424bba2ef5a9a2684
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78295837"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421343"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Fazer backup de um servidor do Exchange no Azure com o Servidor de Backup do Azure
 
@@ -34,7 +34,7 @@ Execute estas etapas para instalar o agente de proteção do MABS no servidor do
 4. Escolha o banco de dados do servidor do Exchange que você quer proteger e clique em **Próximo**.
 
    > [!NOTE]
-   > Se você estiver protegendo o Exchange 2013, verifique os [pré-requisitos do Exchange 2013](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn751029(v=sc.12)).
+   > Se você estiver protegendo o Exchange 2013, verifique os [pré-requisitos do Exchange 2013](https://docs.microsoft.com/system-center/dpm/back-up-exchange?view=sc-dpm-2016).
    >
    >
 
@@ -53,7 +53,7 @@ Execute estas etapas para instalar o agente de proteção do MABS no servidor do
     Depois de selecionar essa opção, a verificação da consistência do backup será executada no MABS para evitar o tráfego de I/O gerado pela execução do comando **eseutil** no servidor Exchange.
 
    > [!NOTE]
-   > Para usar essa opção, você deve copiar os arquivos Ese.dll e Eseutil.exe no diretório C:\Arquivos de Programas\Backup do Microsoft Azure\DPM\DPM\bin no servidor MAB. Caso contrário, o seguinte erro será disparado:   
+   > Para usar essa opção, você deve copiar os arquivos Ese.dll e Eseutil.exe para o diretório C:\Program Files\Microsoft Azure Backup\DPM\DPM\bin no servidor MABS. Caso contrário, o seguinte erro será disparado:   
    > ![erro de eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
@@ -66,7 +66,7 @@ Execute estas etapas para instalar o agente de proteção do MABS no servidor do
    >
 10. Configure as metas de **Backup de Curto Prazo** e clique em **Próximo**.
 11. Confira o espaço em disco disponível e clique em **Próximo**.
-12. Escolha a hora na qual o servidor MAB criará a replicação inicial e clique em **Próximo**.
+12. Selecione a hora em que o Servidor MABS criará a replicação inicial e clique em **Next**.
 13. Escolha as opções de verificação de consistência e clique em **Próximo**.
 14. Escolha o banco de dados do qual você deseja fazer backup no Azure e clique em **Próximo**. Por exemplo: 
 

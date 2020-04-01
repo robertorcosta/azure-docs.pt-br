@@ -1,22 +1,22 @@
 ---
 title: Configurar a autenticação do Google
-description: Saiba como configurar a autenticação do Google como provedor de identidade para o seu aplicativo App Service.
+description: Saiba como configurar a autenticação do Google como provedor de identidade para o aplicativo App Service ou Azure Functions.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
 ms.date: 09/02/2019
-ms.custom: seodec18
-ms.openlocfilehash: 81ce3e393d308323c8d5a3d688c16c9b45e7be9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: bb6b8eebef3247cf2c39ed4b111296e1e0521a74
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74670821"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437986"
 ---
-# <a name="configure-your-app-service-app-to-use-google-login"></a>Configure seu aplicativo App Service para usar o login do Google
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Configure seu aplicativo App Service ou Azure Functions para usar o login do Google
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Este tópico mostra como configurar o Serviço de Aplicativo do Azure para usar o Google como um provedor de autenticação.
+Este tópico mostra como configurar o Azure App Service ou funções do Azure para usar o Google como provedor de autenticação.
 
 Para concluir o procedimento neste tópico, você deve ter uma conta do Google com um endereço de email verificado. Para criar uma nova conta do Google, vá para [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
 
@@ -44,7 +44,7 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Google c
     > [!CAUTION]
     > Restringir o acesso desta forma se aplica a todas as chamadas para o seu aplicativo, o que pode não ser desejável para aplicativos que têm uma página inicial disponível publicamente, como em muitos aplicativos de página única. Para tais aplicativos, **permitir solicitações anônimas (nenhuma ação)** pode ser preferível para que o aplicativo inicie manualmente a autenticação em si. Para obter mais informações, consulte [Fluxo de Autenticação](overview-authentication-authorization.md#authentication-flow).
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Agora você está pronto para usar o Google para autenticação em seu aplicativo.
 
@@ -63,5 +63,5 @@ Agora você está pronto para usar o Google para autenticação em seu aplicativ
 
 [Google apis]: https://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[Portal Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
 

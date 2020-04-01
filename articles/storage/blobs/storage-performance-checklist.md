@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b94725d4d3eb9fd6f13a39d00486b4ab085b9ef9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255425"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473937"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade do Armazenamento de Blobs
 
@@ -267,7 +267,7 @@ Para carregar bolhas rapidamente, primeiro determine se você estará carregando
 Para carregar uma única bolha grande rapidamente, um aplicativo cliente pode carregar seus blocos ou páginas em paralelo, tendo em conta as metas de escalabilidade para bolhas individuais e a conta de armazenamento como um todo. As bibliotecas de clientes do Azure Storage suportam o upload em paralelo. Por exemplo, você pode usar as seguintes propriedades para especificar o número de solicitações simultâneas permitidas em .NET ou Java. Bibliotecas de clientes para outros idiomas suportados oferecem opções semelhantes.
 
 - Para .NET, defina a propriedade [BlobRequestOptions.ParallelOperationThreadCount.](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)
-- Para Java/Android, ligue para o método [BlobRequestOptions.setConcurrentRequestCount (final Integer concurrentRequestCount).](/java/api/com.microsoft.azure.storage.blob._blob_request_options.setconcurrentrequestcount)
+- Para Java/Android, ligue para o método [BlobRequestOptions.setConcurrentRequestCount (final Integer concurrentRequestCount).](/java/api/com.microsoft.azure.storage.blob.blobrequestoptions.setconcurrentrequestcount)
 
 ### <a name="upload-many-blobs-quickly"></a>Carregar muitas bolhas rapidamente
 

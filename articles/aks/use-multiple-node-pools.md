@@ -4,12 +4,12 @@ description: Aprenda a criar e gerenciar vários pools de nó para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 2045cb9a175bead3abf5b53120b9fe381a17b04b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 607419787bc0bab243d6cc2b8cbaa0ec22921e87
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80047717"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422323"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerenciar vários pools de nó para um cluster no Azure Kubernetes Service (AKS)
 
@@ -33,8 +33,8 @@ As seguintes limitações se aplicam quando você cria e gerencia clusters AKS q
 * O cluster AKS deve usar o balanceador de carga SKU padrão para usar vários pools de nó, o recurso não é suportado com balanceadores básicos de carga SKU.
 * O cluster AKS deve usar conjuntos de escala de máquinas virtuais para os nós.
 * O nome de uma piscina de nó só pode conter caracteres alfanuméricas minúsculos e deve começar com uma letra minúscula. Para os pools de nós Linux o comprimento deve ser entre 1 e 12 caracteres, para os pools de nó do Windows o comprimento deve ser entre 1 e 6 caracteres.
-* Todos os pools de nós devem residir na mesma rede virtual e sub-rede.
-* Ao criar vários pools de nós no tempo de criação de cluster, todas as versões kubernetes usadas por pools de nós devem corresponder à versão definida para o plano de controle. Esta versão pode ser atualizada após o cluster ter sido provisionado usando operações de pool por nó.
+* Todos os pools de nós devem residir na mesma rede virtual.
+* Ao criar vários pools de nós no tempo de criação de cluster, todas as versões kubernetes usadas por pools de nós devem corresponder à versão definida para o plano de controle. Isso pode ser atualizado após o cluster ter sido provisionado usando operações por pool de nó.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster AKS
 
@@ -120,6 +120,29 @@ O exemplo a seguir mostra que *o mynodepool* foi criado com sucesso com três n�
 
 > [!TIP]
 > Se nenhum *VmSize* for especificado quando você adicionar um pool de nós, o tamanho padrão será *Standard_DS2_v3* para pools de nós do Windows e *Standard_DS2_v2* para pools de nós Linux. Se nenhum *OrchestratorVersion* for especificado, ele será padrão para a mesma versão do plano de controle.
+
+### <a name="add-a-node-pool-with-a-unique-subnet-preview"></a>Adicione um pool de nó com uma sub-rede exclusiva (visualização)
+
+Uma carga de trabalho pode exigir a divisão dos nós de um cluster em piscinas separadas para isolamento lógico. Esse isolamento pode ser suportado com sub-redes separadas dedicadas a cada pool de nó no cluster. Isso pode atender a requisitos como ter espaço de endereço de rede virtual não contíguo para dividir em pools de nó.
+
+#### <a name="limitations"></a>Limitações
+
+* Todas as sub-redes atribuídas a nodepools devem pertencer à mesma rede virtual.
+* Os pods do sistema devem ter acesso a todos os nós do cluster para fornecer funcionalidades críticas, como a resolução DNS via coreDNS.
+* A atribuição de uma sub-rede única por pool de nó é limitada ao Azure CNI durante a pré-visualização.
+* O uso de políticas de rede com uma sub-rede única por pool de nó não é suportado durante a visualização.
+
+Para criar um pool de nó com uma sub-rede dedicada, passe o ID de recurso da sub-rede como um parâmetro adicional ao criar um pool de nó.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --node-count 3 \
+    --kubernetes-version 1.15.5
+    --vnet-subnet-id <YOUR_SUBNET_RESOURCE_ID>
+```
 
 ## <a name="upgrade-a-node-pool"></a>Atualize uma piscina de nó
 
@@ -695,20 +718,24 @@ az group deployment create \
 
 Pode levar alguns minutos para atualizar seu cluster AKS, dependendo das configurações e operações do pool de nó que você define no modelo do Gerenciador de recursos.
 
-## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Atribuir um IP público por nó em um pool de nó
+## <a name="assign-a-public-ip-per-node-for-a-node-pool-preview"></a>Atribuir um IP público por nó para um pool de nó (visualização)
 
 > [!WARNING]
 > Durante a pré-visualização da atribuição de um IP público por nó, ele não pode ser usado com o *Standard Load Balancer SKU em AKS* devido a possíveis regras de balanceador de carga conflitantes com o provisionamento de VM. Como resultado dessa limitação, os pools de agentes do Windows não são suportados com esse recurso de visualização. Durante a visualização, você deve usar o *Basic Load Balancer SKU* se precisar atribuir um IP público por nó.
 
-Os nódulos AKS não exigem seus próprios endereços IP públicos para comunicação. No entanto, alguns cenários podem exigir que os nódulos em um pool de nó tenham seus próprios endereços IP públicos. Um exemplo é o jogo, onde um console precisa fazer uma conexão direta com uma máquina virtual em nuvem para minimizar os saltos. Este cenário pode ser alcançado registrando-se para um recurso de visualização separado, Node Public IP (visualização).
+Os nódulos AKS não exigem seus próprios endereços IP públicos para comunicação. No entanto, os cenários podem exigir que os nódulos em um pool de nós recebam seus próprios endereços IP públicos dedicados. Um cenário comum é para cargas de trabalho de jogos, onde um console precisa fazer uma conexão direta com uma máquina virtual em nuvem para minimizar os saltos. Este cenário pode ser alcançado no AKS, registrando-se para um recurso de pré-visualização, Node Public IP (preview).
+
+Registre-se no recurso IP público do nó emitindo o seguinte comando Azure CLI.
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-Após o registro bem-sucedido, implante um modelo [above](#manage-node-pools-using-a-resource-manager-template) do Azure Resource `enableNodePublicIP` Manager seguindo as mesmas instruções acima e adicione a propriedade booleanvalue ao agentPoolProfiles. Defina o `true` valor como por `false` padrão, ele é definido como se não fosse especificado. Esta propriedade é uma propriedade somente de tempo de criação e requer uma versão aPI mínima de 2019-06-01. Isso pode ser aplicado tanto aos pools de nó Linux quanto Windows.
+Após o registro bem-sucedido, implante um modelo [above](#manage-node-pools-using-a-resource-manager-template) do Azure Resource `enableNodePublicIP` Manager seguindo as mesmas instruções acima e adicione a propriedade booleana ao agentPoolProfiles. Defina o `true` valor como por `false` padrão, ele é definido como se não fosse especificado. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+Esta propriedade é uma propriedade somente de tempo de criação e requer uma versão aPI mínima de 2019-06-01. Isso pode ser aplicado tanto aos pools de nó Linux quanto Windows.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Neste artigo, você criou um cluster AKS que inclui nomes baseados em GPU. Para reduzir o custo desnecessário, você pode querer excluir o *gpunodepool*ou todo o cluster AKS.
 

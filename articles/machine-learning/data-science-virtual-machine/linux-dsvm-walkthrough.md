@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 9857de0470baa35dcc8005e1622e5e593da95751
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d15d53816d916bd28841aae39255685524faa2d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128359"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477857"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma Máquina Virtual de Data Science Linux no Azure
 
@@ -29,7 +29,7 @@ Neste passo a passo, analisamos o conjunto de dados [spambase.](https://archive.
 Antes de usar um DSVM Linux, você deve ter os seguintes pré-requisitos:
 
 * **Assinatura do Azure**. Para obter uma assinatura do Azure, consulte [Criar sua conta gratuita do Azure hoje](https://azure.microsoft.com/free/).
-* [**Máquina Virtual de Ciência de Dados do Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Para obter informações sobre o provisionamento da máquina virtual, consulte [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
+* [**Máquina Virtual de Ciência de Dados do Linux**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). Para obter informações sobre o provisionamento da máquina virtual, consulte [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) instalado em seu computador com uma sessão XFCE aberta. Para obter mais informações, consulte [Instalar e configurar o cliente X2Go](linux-dsvm-intro.md#x2go).
 * Para uma experiência de rolagem mais suave, no navegador Firefox da `gfx.xrender.enabled` DSVM, alterne a bandeira em `about:config`. [Saiba mais](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere também `mousewheel.enable_pixel_scrolling` `False`a configuração para . [Saiba mais](https://support.mozilla.org/questions/981140).
 * **Conta de Aprendizado de Máquina do Azure**. Se você ainda não tiver uma, inscreva-se para uma nova conta na página inicial do [Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
@@ -385,7 +385,7 @@ Para carregar e configurar o conjunto de dados:
 
 1. Para carregar o arquivo, selecione a guia **Dados.**
 1. Escolha o seletor ao lado **de Filename**e selecione **spambaseHeaders.data**.
-1. Para carregar o arquivo. selecionar **Executar**. Você deve ver um resumo de cada coluna, incluindo seu tipo de dados identificado; seja uma entrada, um alvo ou outro tipo de variável; e o número de valores únicos.
+1. Para carregar o arquivo. Selecione **Executar**. Você deve ver um resumo de cada coluna, incluindo seu tipo de dados identificado; seja uma entrada, um alvo ou outro tipo de variável; e o número de valores únicos.
 1. O Rattle identifica corretamente a coluna de **spam** como o destino. Selecione a coluna **de spam** e, em seguida, defina o **Tipo de dados de destino** como **Categórico**.
 
 Para explorar os dados:

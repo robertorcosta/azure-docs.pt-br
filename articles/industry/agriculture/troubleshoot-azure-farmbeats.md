@@ -5,14 +5,14 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a429a1e454e73a1a9d544e308e5b2d60052d91a9
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7a31eece6629558b14b614853addce59642e698b
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349768"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422716"
 ---
-# <a name="troubleshoot"></a>Solução de problemas
+# <a name="troubleshoot"></a>Solucionar problemas
 
 Este artigo fornece soluções para problemas comuns do Azure FarmBeats.
 
@@ -38,7 +38,9 @@ Para baixar o arquivo **deployer.log,** faça o seguinte:
 **Ação corretiva:**
 
 1. Vá para o seu grupo de recursos FarmBeats Datahub.   
+
 2. Selecione o **Event Hub** (DatafeedEventHubNamespace) e verifique o número de mensagens recebidas.
+
 3. Execute um destes procedimentos:   
    - Se não houver *mensagens recebidas,* entre em contato com o parceiro do dispositivo.  
    - Se houver *mensagens recebidas,* entre em contato. farmbeatssupport@microsoft.com Anexe seus registros datahub e acelerador e telemetria capturada.
@@ -52,6 +54,7 @@ Para entender como baixar logs, vá para a seção ["Coletar logs manualmente".]
 **Ação corretiva:**
 
 1. Certifique-se de ter feito o registro do parceiro corretamente - você pode verificar isso indo para o seu datahub swagger, navegar para API /Partner, Fazer um Get e verificar se o parceiro está registrado. Caso assim, siga os [passos aqui](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) para adicionar parceiro.
+
 2. Certifique-se de que você usou o formato correto da mensagem de telemetria:
 
 ```json
@@ -83,9 +86,12 @@ Para entender como baixar logs, vá para a seção ["Coletar logs manualmente".]
 
 1. No Datahub Swagger, vá para a API do parceiro.
 2. Selecione **'Tentar** > **executá-lo** > **'''**
-3. Observe a iD do parceiro de sensor que você está interessado.
-4. Volte para a API do parceiro e selecione **>De\<Obter/ ID **.
-5. Especifique o ID do parceiro na etapa 3 e, em seguida, **selecione Executar**.
+
+> [!NOTE]
+> A id do parceiro de sensor que você está interessado.
+
+3. Volte para a API do parceiro e selecione **>De\<Obter/ ID **.
+4. Especifique o ID do parceiro na etapa 3 e, em seguida, **selecione Executar**.
 
    A resposta da API deve ter a seqüência de conexões Event Hubs.
 
@@ -240,7 +246,7 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 
 ### <a name="collect-azure-data-factory-job-logs-in-datahub"></a>Coletar registros de trabalho da Fábrica de Dados do Azure no Datahub
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Na **caixa pesquisar,** procure o grupo de recursos FarmBeats Datahub.
 
     > [!NOTE]
@@ -258,7 +264,7 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 
 ### <a name="collect-azure-data-factory-job-logs-in-accelerator"></a>Coletar registros de trabalho da Fábrica de Dados do Azure no Acelerador
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Na caixa **pesquisar,** procure o grupo de recursos FarmBeats Accelerator.
 
     > [!NOTE]
@@ -275,7 +281,7 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 
 ### <a name="collect-datahub-app-service-logs"></a>Coletar logs de serviço do aplicativo Datahub
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Na **caixa pesquisar,** procure o grupo de recursos FarmBeats Datahub.
 
     > [!NOTE]
@@ -291,7 +297,7 @@ Esse problema pode ocorrer se alguma atividade de manutenção estiver sendo fei
 
 ### <a name="collect-accelerator-app-service-logs"></a>Coletar logs de serviço de aplicativos do Accelerator
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Na caixa **pesquisar,** procure o grupo de recursos FarmBeats Accelerator.
 
     > [!NOTE]

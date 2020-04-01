@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: ea0a9de5dde02b45ae34e3e98e24b31fd01fa713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f782985d975dd137aa2da48d12757685b47e62b1
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235819"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421255"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiar dados do Azure Data Lake Storage Gen1 para Gen2 com o Azure Data Factory
 
@@ -146,7 +146,7 @@ Para avaliar a atualização do Azure Data Lake Storage Gen1 para o Azure Data L
 
 Use uma prova de conceito para verificar a solução completa e testar o throughput da cópia em seu ambiente. Principais etapas de prova de conceito: 
 
-1. Crie um pipeline de Fábrica de Dados com uma única atividade de cópia para copiar vários TBs de dados do Data Lake Storage Gen1 para o Data Lake Storage Gen2 para obter uma linha de base de desempenho de cópia. Comece com [unidades de integração de dados (DIUs)](copy-activity-performance.md#data-integration-units) como 128. 
+1. Crie um pipeline de Fábrica de Dados com uma única atividade de cópia para copiar vários TBs de dados do Data Lake Storage Gen1 para o Data Lake Storage Gen2 para obter uma linha de base de desempenho de cópia. Comece com [unidades de integração de dados (DIUs)](copy-activity-performance-features.md#data-integration-units) como 128. 
 2. Com base no throughput de cópia que você recebe na etapa 1, calcule o tempo estimado necessário para toda a migração de dados. 
 3. (Opcional) Crie uma tabela de controle e defina o filtro de arquivo para particionar os arquivos a serem migrados. A maneira de particionar os arquivos é: 
 

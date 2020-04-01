@@ -3,12 +3,12 @@ title: Azure Migrate appliance FAQ
 description: Obtenha respostas para perguntas comuns sobre o aparelho Azure Migrate.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 2ef7de3b31cb11a71ec9379232fc5ff1022cf666
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a08423637f255b973f52616f53172ef6e48d0804
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336985"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437607"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Aparelho Azure Migrate: Perguntas comuns
 
@@ -94,6 +94,9 @@ Não. Há um mapeamento de um para um entre um [aparelho Azure Migrate](migrate-
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Um projeto do Azure Migrate pode ter vários aparelhos?
 Um projeto pode ter vários aparelhos ligados a ele. No entanto, um aparelho só pode ser associado a um projeto. 
+
+## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>O aparelho Azure Migrate/Replication pode se conectar ao mesmo vCenter?
+Sim. Você pode adicionar tanto o aparelho Azure Migrate (usado para avaliação e migração de VMware sem agente) quanto o dispositivo de replicação (usado para migração baseada em agentes de VMMs vMware) para o mesmo servidor vCenter.
 
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Quantas VMs ou servidores posso descobrir com um aparelho?

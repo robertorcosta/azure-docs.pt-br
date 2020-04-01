@@ -3,21 +3,24 @@ title: Configure micro focus CICS BankDemo para Micro Focus Enterprise Developer
 description: Execute o aplicativo Micro Focus BankDemo em VMs (Azure Virtual Machines) para aprender a usar o Micro Focus Enterprise Server e o Enterprise Developer.
 author: sread
 ms.author: sread
-ms.date: 04/02/2019
+ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 4491fc137c2c85e2be605f5e58fde6fd422efbbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db9d6bab2f383102434512aa63d7566cff1f579b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67621330"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411069"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configure micro focus CICS BankDemo para Micro Focus Enterprise Developer 4.0 no Azure
 
 Quando você configura o Micro Focus Enterprise Server 4.0 e o Enterprise Developer 4.0 no Azure, você pode testar implantações de cargas de trabalho da IBM z/OS. Este artigo mostra como configurar o CICS BankDemo, um aplicativo de exemplo que vem com o Enterprise Developer.
 
 CICs significa Customer Information Control System, a plataforma de transações usada por muitos dos aplicativos de mainframe on-line. O aplicativo BankDemo é ótimo para aprender como o Enterprise Server e o Enterprise Developer operam e como gerenciar e implantar um aplicativo real completo com terminais de tela verde.
+
+> [!NOTE]
+> Em breve: Instruções para configurar [o Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) em VMs Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -209,7 +212,7 @@ A consulta deve ser executada sem erros. Quando estiver concluído, você tem o 
 > [!NOTE]
 > O primeiro passo é importante: você deve definir a Região para usar a definição de recurso XA que você acabou de criar.
 
-1. Navegue até a **região do BANDEMO CICS** o **Contêiner regiões**e selecione Editar arquivo de **inicialização** da região no painel **Ações.** Desça até as propriedades SQL e **insira demonstração bancária** para o nome do **recurso XA**ou use as elipses para selecioná-la.
+1. Navegue até a **região do BANDEMO CICS** sob o **Contêiner regiões**e selecione Editar arquivo de **inicialização** da região no painel **Ações.** Desça até as propriedades SQL e **insira demonstração bancária** para o nome do **recurso XA**ou use as elipses para selecioná-la.
 
 2. Clique no ícone **Salvar** para salvar suas alterações.
 

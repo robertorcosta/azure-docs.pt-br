@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 4edafc0c07e967acfabf7fdc5b58c481b2cfccc3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb3484d013314897ea2e9157b642d8f2b85dcd60
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75436022"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437640"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Crie e configure clusters de pacotes de segurança corporativa no Azure HDInsight
 
@@ -291,7 +291,7 @@ Use as seguintes etapas para configurar sua rede virtual Azure AD DS **(HDIFabri
     1. Em **Configurações,** selecione **servidores DNS**.
     1. Selecione **Personalizado**.
     1. Na caixa de texto, digite o primeiro endereço IP *(10.0.0.4*).
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
     1. Repita as etapas para adicionar o outro endereço IP *(10.0.0.5*).
 
 Em nosso cenário, configuramos o Azure AD DS para usar endereços IP 10.0.0.4 e 10.0.0.5, configurando o mesmo endereço IP na rede virtual Azure AD DS:
@@ -316,7 +316,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 ```
 
 > [!NOTE]  
-> Qualquer utilitário ou aplicativo que crie uma solicitação válida \#do Public Key Cryptography Standards (PKCS) 10 pode ser usado para formar a solicitação de certificado SSL.
+> Qualquer utilitário ou aplicativo que crie uma solicitação válida \#do Public Key Cryptography Standards (PKCS) 10 pode ser usado para formar a solicitação de certificado TLS/SSL.
 
 Verifique se o certificado está instalado na loja **Pessoal** do computador:
 
@@ -392,7 +392,7 @@ Esta etapa requer os seguintes pré-requisitos:
 1. Configure dns personalizados na rede virtual **HDIFabrikam-AADDSVNET.**
     1. Acesse o portal do Azure > **grupos** > de recursos**OnPremADVRG** > **HDIFabrikam-AADDSVNET** > **DNS servidores**.
     1. Selecione **Personalizado** e *digite 10.0.0.4* e *10.0.0.5*.
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
 
         ![Salve configurações de DNS personalizadas para uma rede virtual](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0123.png)
 

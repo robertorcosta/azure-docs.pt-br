@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: dapine
-ms.openlocfilehash: 96d2c2e5e3772575e681d2db079ab0122b7014e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c2d74eb7e46d9909d87a7ccadadd6129a3d48d8
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80348546"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397893"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Habilitar a voz do seu bot usando o Speech SDK
 
@@ -336,7 +336,7 @@ Aqui está uma amostra json de uma atividade que o cliente recebeu:
     },
     "replyToId":"67c823b4-4c7a-4828-9d6e-0b84fd052869",
     "serviceUrl":"urn:botframework:websocket:directlinespeech",
-    "speak":"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Echo: Hello and welcome.</voice></speak>",
+    "speak":"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)'>Echo: Hello and welcome.</voice></speak>",
     "text":"Echo: Hello and welcome.",
     "timestamp":"2019-07-19T20:03:51.1939097Z",
     "type":"message"
@@ -427,7 +427,7 @@ Agora que você fez a alteração necessária para o bot, o próximo passo é re
 4. Abra o aplicativo Cliente assistente de voz do Windows, clique no botão de `de-de` configurações (ícone de engrenagem superior direito) e certifique-se de que você ainda tem no campo Idioma.
 5. Siga as instruções em [Build the Windows Voice Assistant Client](#build-the-windows-voice-assistant-client) para se reconectar com seu bot recém-implantado, falar no novo idioma e ouvir você responder nesse idioma com a nova voz.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não vai continuar usando o echo-bot implantado neste tutorial, você pode removê-lo e todos os seus recursos associados do Azure simplesmente excluindo o grupo de recursos do Azure **SpeechEchoBotTutorial-ResourceGroup**.
 

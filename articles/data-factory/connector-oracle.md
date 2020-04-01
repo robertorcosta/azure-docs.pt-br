@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 874c685491774e2a318ae0a8b7394945a51b2f7f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 68e234b9db269c30dc9f24106ae1942c01304da7
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244505"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422499"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -213,7 +213,7 @@ Para copiar dados da Oracle, defina o `OracleSource`tipo de origem na atividade 
 |:--- |:--- |:--- |
 | type | A propriedade tipo da fonte de `OracleSource`atividade de cópia deve ser definida como . | Sim |
 | oracleReaderQuery | Utiliza a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Quando você habilita a carga particionada, você precisa conectar quaisquer parâmetros de partição incorporados correspondentes em sua consulta. Por exemplo, consulte a cópia Paralela da seção [Oracle.](#parallel-copy-from-oracle) | Não |
-| opções de partição | Especifica as opções de particionamento de dados usadas para carregar dados da Oracle. <br>Os valores permitidos são: **Nenhum** (padrão), **PhysicalPartitionsOfTable** e **DynamicRange**.<br>Quando uma opção de partição é `None`ativada (ou seja, não ), o grau de paralelismo para carregar simultaneamente dados de um banco de dados Oracle é controlado pela configuração [`parallelCopies`](copy-activity-performance.md#parallel-copy) da atividade de cópia. | Não |
+| opções de partição | Especifica as opções de particionamento de dados usadas para carregar dados da Oracle. <br>Os valores permitidos são: **Nenhum** (padrão), **PhysicalPartitionsOfTable** e **DynamicRange**.<br>Quando uma opção de partição é `None`ativada (ou seja, não ), o grau de paralelismo para carregar simultaneamente dados de um banco de dados Oracle é controlado pela configuração [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) da atividade de cópia. | Não |
 | partiçõesSettings | Especifique o grupo das configurações para particionamento de dados. <br>Aplicar quando a opção `None`de partição não for . | Não |
 | partiçãoNomes | A lista de partições físicas que precisa ser copiada. <br>Aplicar quando a `PhysicalPartitionsOfTable`opção de partição for . Se você usar uma consulta para recuperar `?AdfTabularPartitionName` os dados de origem, conecte-se à cláusula WHERE. Por exemplo, consulte a cópia Paralela da seção [Oracle.](#parallel-copy-from-oracle) | Não |
 | partiçãoColunaNome | Especifique o nome da coluna de origem **no tipo inteiro** que será usado por particionamento de intervalo para cópia paralela. Se não for especificado, a chave principal da tabela é detectada automaticamente e usada como coluna de partição. <br>Aplicar quando a `DynamicRange`opção de partição for . Se você usar uma consulta para recuperar `?AdfRangePartitionColumnName` os dados de origem, conecte-se à cláusula WHERE. Por exemplo, consulte a cópia Paralela da seção [Oracle.](#parallel-copy-from-oracle) | Não |
@@ -300,7 +300,7 @@ O conector Oracle da fábrica de dados fornece particionamento de dados incorpor
 
 ![Captura de tela de opções de partição](./media/connector-oracle/connector-oracle-partition-options.png)
 
-Quando você habilita a cópia particionada, a Fábrica de Dados executa consultas paralelas contra sua fonte Oracle para carregar dados por partições. O grau paralelo é [`parallelCopies`](copy-activity-performance.md#parallel-copy) controlado pela configuração da atividade de cópia. Por exemplo, se `parallelCopies` você definir para quatro, a Fábrica de Dados simultaneamente gera e executa quatro consultas com base na opção e configurações de partição especificadas, e cada consulta recupera uma parte dos dados do seu banco de dados Oracle.
+Quando você habilita a cópia particionada, a Fábrica de Dados executa consultas paralelas contra sua fonte Oracle para carregar dados por partições. O grau paralelo é [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) controlado pela configuração da atividade de cópia. Por exemplo, se `parallelCopies` você definir para quatro, a Fábrica de Dados simultaneamente gera e executa quatro consultas com base na opção e configurações de partição especificadas, e cada consulta recupera uma parte dos dados do seu banco de dados Oracle.
 
 Você é sugerido para habilitar cópia paralela com particionamento de dados especialmente quando você carrega grande quantidade de dados do seu banco de dados Oracle. As seguintes configurações são sugeridas para diferentes cenários. Ao copiar dados no armazenamento de dados baseado em arquivos, ele é recomandado para gravar em uma pasta como vários arquivos (apenas especificar nome da pasta), nesse caso, o desempenho é melhor do que escrever em um único arquivo.
 

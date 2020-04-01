@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 23a00c766dbb38853c57c91e7f59ec364390c44b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7a1eccd76313c5b3bc74a5b5ebdbcd202ca6841
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245376"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435760"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança na Central de Segurança do Azure
 Este documento ajuda você a gerenciar soluções de segurança já conectadas à Central de Segurança do Azure e a adicionar novas.
@@ -36,7 +36,7 @@ A Central de Segurança facilita a criação de soluções de segurança integra
 Atualmente, as soluções integradas de segurança incluem avaliação de vulnerabilidades por [Qualys](https://www.qualys.com/public-cloud/#azure) e [Rapid7](https://www.rapid7.com/products/insightvm/) e firewall de aplicativos Web do Microsoft Application Gateway.
 
 > [!NOTE]
-> O Security Center não instala o Microsoft Monitoring Agent em dispositivos virtuais parceiros porque a maioria dos fornecedores de segurança proíbe agentes externos que executam em seus aparelhos.
+> O Security Center não instala o agente Log Analytics em dispositivos virtuais parceiros porque a maioria dos fornecedores de segurança proíbe agentes externos que executam em seus aparelhos.
 >
 >
 
@@ -47,7 +47,7 @@ As soluções de segurança do Azure implantadas da Central de Segurança serão
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Gerenciar soluções de segurança integrada do Azure e outras fontes de dados
 
-1. Faça login no [portal Azure](https://azure.microsoft.com/features/azure-portal/).
+1. Entre no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 
 2. No menu **Microsoft Azure**, selecione **Central de Segurança**. **Central de Segurança - Visão geral** é aberto.
 

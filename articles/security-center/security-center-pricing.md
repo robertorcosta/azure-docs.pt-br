@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2019
 ms.author: memildin
-ms.openlocfilehash: 60a88e667918533f2c507846fa75b0e036ba5262
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd84058c8421d144678c91fac3e5671511d0fd4a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77921276"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435495"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Atualize para o nível Padrão para maior segurança
 A Central de Segurança do Azure fornece gerenciamento de segurança unificado e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, localmente e em outras nuvens. Ela proporciona visibilidade e controle sobre cargas de trabalho de nuvem híbrida, defesas ativas que reduzem a exposição a ameaças e detecção inteligente para ajudá-lo a acompanhar o ritmo veloz da evolução dos ataques cibernéticos.
@@ -29,7 +29,7 @@ A Central de Segurança é oferecida em duas camadas:
 - O **nível Free** está habilitado em todas as suas assinaturas do Azure uma vez que você visitar o painel do Azure Security Center no portal Azure pela primeira vez, ou se ativado programáticamente via API. O nível gratuito fornece política de segurança, avaliação contínua de segurança e recomendações de segurança acionáveis para ajudá-lo a proteger seus recursos do Azure.
 - O **nível Standard** estende os recursos do nível Free para cargas de trabalho em execução em nuvens privadas e outras públicas, fornecendo gerenciamento de segurança unificado e proteção contra ameaças em suas cargas de trabalho na nuvem híbrida. O nível padrão também adiciona recursos de proteção contra ameaças, que usam análises comportamentais incorporadas e aprendizado de máquina para identificar ataques e explorações de dia zero, controles de acesso e aplicativos para reduzir a exposição a ataques de rede e malware, e muito mais. Além disso, o nível padrão adiciona varredura de vulnerabilidade para suas máquinas virtuais. Você pode experimentar o nível padrão gratuitamente. O padrão do Security Center suporta recursos do Azure, incluindo VMs, conjuntos de escala de máquinavirtual, serviço de aplicativo, servidores SQL e contas de armazenamento. Se você tiver o padrão do Azure Security Center, você pode optar por não ter suporte com base no tipo de recurso. 
 
-A maioria das avaliações de segurança de nível livre para VMs, bem como muitos dos alertas de segurança de nível padrão, exigem a instalação do recurso microsoft monitoring agent (MMA). Você pode habilitar a provisão automática no Security Center para implantar automaticamente o agente para suas VMs do Azure.
+A maioria das avaliações de segurança de nível livre para VMs, bem como muitos dos alertas de segurança de nível padrão, exigem a instalação do recurso de agente Log Analytics. Você pode habilitar a provisão automática no Security Center para implantar automaticamente o agente para suas VMs do Azure.
 
 ## <a name="try-standard-tier-free-for-30-days"></a>Experimente o nível padrão grátis por 30 dias
 O nível padrão é gratuito para os primeiros 30 dias. Ao fim dos 30 dias, se você optar por continuar usando o serviço, começaremos a cobrar automaticamente pelo uso.
@@ -40,7 +40,7 @@ Para obter o nível padrão:
 
 1. Selecione **as configurações de preços &** no menu principal do Security **Center.**
 2. Selecione a assinatura que deseja atualizar para o padrão.
-3. Selecione **o nível de preços .**
+3. Selecione **Tipo de preço**.
 4. Selecione **Standard** para atualizar.
 5. Clique em **Salvar**.
 
@@ -61,7 +61,7 @@ A Central de Segurança oferece maior segurança e proteção contra ameaças pa
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, foram apresentados os preços da Central de Segurança. Para saber mais sobre a segurança aprimorada e a proteção avançada da camada Standard, consulte:
+Neste artigo, foram apresentados os preços da Central de Segurança. Para saber mais sobre a segurança aprimorada do nível Standard e a proteção avançada contra ameaças, consulte:
 
 - [Proteção contra ameaças no Centro de Segurança Do Azure](threat-protection.md)
 - [Controle de acesso VM just-in-time](security-center-just-in-time.md)

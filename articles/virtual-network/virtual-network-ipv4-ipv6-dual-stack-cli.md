@@ -11,49 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/17/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: b9021784216f02fb117f6e63e150b37b07755912
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 396c37d4c8de6a890102e435c5ec6cc70b598638
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239863"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421013"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli-preview"></a>Implantar um aplicativo de pilha dupla IPv6 usando o Basic Load Balancer - CLI (Preview)
+# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>Implantar um aplicativo de pilha dupla IPv6 usando o Basic Load Balancer - CLI
 
-Este artigo mostra como implantar um aplicativo dual stack (IPv4 + IPv6) com o Basic Load Balancer usando o Azure CLI que inclui uma rede virtual de pilha dupla com uma sub-rede de pilha dupla, um Balanceador de Carga Básico com configurações front-end duplas (IPv4 + IPv6), VMs com NICs que têm uma configuração de IP duplo, regras de grupo de segurança de rede dupla e IPs públicos duplos.
+Este artigo mostra como implantar um aplicativo dual stack (IPv4 + IPv6) com o Basic Load Balancer usando o Azure CLI que inclui uma rede virtual de pilha dupla com uma sub-rede de pilha dupla, um Balanceador de Carga Básica com configurações front-end duplas (IPv4 + IPv6), VMs com NICs que possuem uma configuração IP dupla, regras de grupo de segurança de rede dupla e IPs públicos duplos.
 
 Para implantar um aplicativo de pilha dupla (IPV4 + IPv6) usando o Standard Load Balancer, consulte [Implantar um aplicativo de pilha dupla IPv6 com o Standard Load Balancer usando o Azure CLI](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
 
-> [!Important]
-> IPv6 dual stack for Azure Virtual Network está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
 
 Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se você decidir instalar e usar o Azure CLI localmente, este quickstart requer que você use a versão 2.0.49 do Azure CLI ou posterior. Execute `az --version` para localizar a versão instalada. Para informações sobre como instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
-
-## <a name="prerequisites"></a>Pré-requisitos
-Para usar o recurso de rede virtual IPv6 for Azure, você deve configurar sua assinatura usando o Azure CLI da seguinte forma:
-
-```azurecli
-az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-Demora até 30 minutos para a conclusão do registro de recursos. Você pode verificar seu status de registro executando o seguinte comando Azure CLI:
-
-```azurecli
-az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-Após a conclusão do registro, execute o seguinte comando:
-
-```azurecli
-az provider register --namespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -387,11 +365,9 @@ Você pode visualizar a rede virtual iPv6 dual stack no portal Azure da seguinte
 
   ![Rede virtual de pilha dupla IPv6 no Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
-> [!NOTE]
-> A rede virtual IPv6 for Azure está disponível no portal Azure apenas para esta versão de pré-visualização.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, a VM e todos os recursos relacionados.
 

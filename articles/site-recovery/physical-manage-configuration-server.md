@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 25be48e9caed446be3a86a11143ce3040808065a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb7e891c031be5ac01295905d5c3304dc6818737
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294302"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478971"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerenciar servidor de configuração para recuperação de desastres do servidor físico
 
@@ -106,7 +106,7 @@ Execute o arquivo de instalação da seguinte maneira:
   ```
 
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 |Nome do Parâmetro| Type | Descrição| Valores|
 |-|-|-|-|
@@ -236,7 +236,7 @@ Atualize o servidor da seguinte maneira:
 
 > [!WARNING]
 > Verifique o seguinte antes de iniciar, encerrar o servidor de configuração.
-> 1. [Desative a proteção](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para todas as máquinas virtuais este Servidor de Configuração.
+> 1. [Desative a proteção](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para todas as máquinas virtuais sob este Servidor de Configuração.
 > 2. [Desassociar](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) e [excluir](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) todas as políticas de replicação do Servidor de configuração.
 > 3. [Exclua](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) todos os servidores vCenters/hosts vSphere associados ao Servidor de configuração.
 
@@ -290,8 +290,8 @@ Atualize o servidor da seguinte maneira:
 > [!NOTE]
 > A opção **-Force** no Remove-AzSiteRecoveryFabric pode ser usada para forçar a remoção/exclusão do servidor de configuração.
 
-## <a name="renew-ssl-certificates"></a>Renovar certificados SSL
-O servidor de configuração tem uma servidor de Web embutido, que coordena as atividades dos serviços móveis, servidores de processo e servidores de destino conectados a ele. O servidor da web usa um certificado SSL para autenticar clientes. O certificado expira depois de três anos e pode ser renovado a qualquer momento.
+## <a name="renew-tlsssl-certificates"></a>Renovar certificados TLS/SSL
+O servidor de configuração tem uma servidor de Web embutido, que coordena as atividades dos serviços móveis, servidores de processo e servidores de destino conectados a ele. O servidor web usa um certificado TLS/SSL para autenticar clientes. O certificado expira depois de três anos e pode ser renovado a qualquer momento.
 
 ### <a name="check-expiry"></a>Verificar expiração
 

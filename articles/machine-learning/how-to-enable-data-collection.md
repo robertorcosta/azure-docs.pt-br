@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c481a2e12d83e865025cd90e59e0eba572ad9a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 44acc81df9eb6dc6a6af28b5b0f4730aa93adffc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75771386"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475434"
 ---
 # <a name="collect-data-for-models-in-production"></a>Coletar dados para modelos em produção
 
@@ -129,11 +129,7 @@ Se você já tiver um serviço com as dependências instaladas no arquivo de amb
 
    ![Editar o serviço](././media/how-to-enable-data-collection/EditService.PNG)
 
-1. Em **Configurações Avançadas,** **selecione Ativar a coleta de dados do modelo**.
-
-    [![Selecione a coleta de dados](./media/how-to-enable-data-collection/CheckDataCollection.png)](././media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
-
-   Você também pode selecionar **Ativar diagnósticos do AppInsights** para acompanhar a saúde do seu serviço.
+1. Em **Configurações Avançadas,** **selecione Habilitar diagnósticos de aplicativos e coleta de dados**.
 
 1. Selecione **Atualizar** para aplicar as alterações.
 
@@ -151,9 +147,7 @@ Você pode parar de coletar dados a qualquer momento. Use o código Python ou o 
 
    [![Selecione a opção Editar](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
-1. Em **Configurações Avançadas,** **habilitar a coleta de dados do Modelo**claro .
-
-    [![Limpe a caixa de seleção de coleta de dados](./media/how-to-enable-data-collection/UncheckDataCollection.png)](././media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+1. Em **Configurações Avançadas,** **habilitar os diagnósticos e a coleta de dados do Application Insights.**
 
 1. Selecione **Atualizar** para aplicar a alteração.
 

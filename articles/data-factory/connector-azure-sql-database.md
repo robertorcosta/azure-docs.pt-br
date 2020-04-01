@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 52928b9a4d77a99f3d8b160713c7b4a7cade2d4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f5065a0f4a2a96a747a45f64e00e86f7990bfb8
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238762"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437787"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados no Banco de Dados SQL do Azure usando a fábrica de dados do Azure
 
@@ -64,7 +64,7 @@ Essas propriedades são suportadas por um serviço vinculado ao Banco de Dados S
 | connectionString | Especifique as informações necessárias para se conectar à instância do Banco de Dados SQL do Azure para a propriedade **connectionString**. <br/>Você também pode colocar uma senha ou chave principal de serviço no Azure Key Vault. Se for autenticação SQL, `password` puxe a configuração para fora da seqüência de conexão. Para obter mais informações, consulte o exemplo JSON seguindo a tabela e [as credenciais da loja no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim, quando você usa a autenticação Azure AD com um diretor de serviço |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como **SecureString** para armazená-lo com segurança na Fábrica de Dados do Azure ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim, quando você usa a autenticação Azure AD com um diretor de serviço |
-| locatário | Especifique as informações do inquilino, como o nome de domínio ou o ID do inquilino, o qual seu aplicativo reside. Recupere-o pairando o mouse no canto superior direito do portal Azure. | Sim, quando você usa a autenticação Azure AD com um diretor de serviço |
+| locatário | Especifique as informações do inquilino, como o nome de domínio ou o ID do inquilino, sob o qual seu aplicativo reside. Recupere-o pairando o mouse no canto superior direito do portal Azure. | Sim, quando você usa a autenticação Azure AD com um diretor de serviço |
 | connectVia | Esse [Integration Runtime](concepts-integration-runtime.md) é usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou um tempo de execução de integração auto-hospedado se o seu armazenamento de dados estiver localizado em uma rede privada. Se não for especificado, o tempo de execução de integração padrão do Azure é usado. | Não |
 
 Para diferentes tipos de autenticação, consulte as seções a seguir sobre pré-requisitos e amostras JSON, respectivamente:
@@ -143,7 +143,7 @@ Para usar uma autenticação de token de aplicativo do Azure AD baseada no servi
 4. Conceda ao principal de serviço as permissões necessárias, como faria normalmente para usuários do SQL ou outros. Execute o código a seguir. Para mais opções, confira [este documento](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your application name];
+    ALTER ROLE [role name] ADD MEMBER [your application name];
     ```
 
 5. Configure um serviço vinculado do Banco de Dados SQL do Azure no Azure Data Factory.
@@ -190,7 +190,7 @@ Para usar a autenticação de identidade gerenciada, siga estas etapas.
 3. Conceda à Fábrica de Dados permissões necessárias de identidade gerenciada, como você normalmente faz para usuários de SQL e outros. Execute o código a seguir. Para mais opções, confira [este documento](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your Data Factory name];
+    ALTER ROLE [role name] ADD MEMBER [your Data Factory name];
     ```
 
 4. Configure um serviço vinculado do Banco de Dados SQL do Azure no Azure Data Factory.

@@ -17,12 +17,12 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e3f021fd888bbb408fa66964c54d22f0d68e84e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53d498f4aed8ec86cc57c35824a9fb8aa471dc1d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297690"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419674"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidade Microsoft e fluxo de subvenção implícita
 
@@ -32,7 +32,7 @@ Com o ponto final da plataforma de identidade da Microsoft, você pode inscrever
 * Muitos servidores de autorização e provedores de identidade não são compatíveis com solicitações CORS.
 * Redirecionamentos para fora do aplicativo em páginas inteiras do navegador se tornam algo particularmente invasivo para a experiência do usuário.
 
-Para esses aplicativos (AngularJS, Ember.js, React.js e assim por diante), a plataforma de identidade da Microsoft suporta o fluxo de subvenção implícita OAuth 2.0. O fluxo está descrito na [Especificação do OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.2). Seu principal benefício é que ele permite que o aplicativo obtenha tokens da plataforma de identidade da Microsoft sem realizar uma troca de credenciais de servidor backend. Isso permite que o aplicativo autentique o usuário, mantenha a sessão e obtenha tokens para outras APIs da Web, tudo dentro do código JavaScript do cliente. Há algumas considerações de segurança importantes que você deve levar em conta ao usar o fluxo implícito, especificamente sobre [cliente](https://tools.ietf.org/html/rfc6749#section-10.3) e [representação de usuário](https://tools.ietf.org/html/rfc6749#section-10.3).
+Para esses aplicativos (Angular, Ember.js, React.js e assim por diante), a plataforma de identidade da Microsoft suporta o fluxo de subvenção implícita OAuth 2.0. O fluxo está descrito na [Especificação do OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.2). Seu principal benefício é que ele permite que o aplicativo obtenha tokens da plataforma de identidade da Microsoft sem realizar uma troca de credenciais de servidor backend. Isso permite que o aplicativo autentique o usuário, mantenha a sessão e obtenha tokens para outras APIs da Web, tudo dentro do código JavaScript do cliente. Há algumas considerações de segurança importantes que você deve levar em conta ao usar o fluxo implícito, especificamente sobre [cliente](https://tools.ietf.org/html/rfc6749#section-10.3) e [representação de usuário](https://tools.ietf.org/html/rfc6749#section-10.3).
 
 Este artigo descreve como programar diretamente contra o protocolo em sua aplicação.  Quando possível, recomendamos que você use as Bibliotecas de Autenticação Microsoft (MSAL) suportadas em vez de [adquirir tokens e chamar APIs da Web protegidas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Também dê uma olhada nos [aplicativos de exemplo que usam msal](sample-v2-code.md).
 
@@ -54,7 +54,7 @@ Atualmente, o método preferencial para proteger chamadas para uma API Web é us
 * Os tokens podem ser obtidos de forma confiável sem a necessidade de chamadas entre origens; o registro obrigatório do URI de redirecionamento ao qual os tokens são retornados garante que os tokens não sejam substituídos
 * Aplicativos JavaScript podem obter tantos tokens de acesso quantos forem necessários, para todas as APIs Web que direcionam, sem restrição quanto aos domínios
 * Recursos de HTML5, como armazenamento local ou por sessão, concedem controle total sobre o cache de tokens e o gerenciamento de tempo de vida, enquanto o gerenciamento de cookies é opaco para o aplicativo
-* Tokens de acesso não são suscetíveis a ataques de CSRF (solicitação intersite forjada)
+* Os tokens de acesso não são suscetíveis a ataques de falsificação de solicitação entre sites (CSRF)
 
 O fluxo de concessão implícita não emite tokens de atualização, principalmente por motivos de segurança. Um token de atualização não é tão restrito quanto os tokens de acesso, concedendo muito mais energia, infligindo muito mais dano no caso de vazar. No fluxo implícito, os tokens são entregues na URL, portanto, o risco de interceptação é maior do que na concessão do código de autorização.
 
@@ -66,9 +66,9 @@ Esse modelo concede ao aplicativo JavaScript a capacidade de renovar independent
 
 A concessão implícita apresenta mais riscos do que outras concessões e as áreas que você precisa prestar atenção estão bem documentadas (por exemplo, [Token de Acesso para Representar o Proprietário do Recurso em Fluxo Implícito][OAuth2-Spec-Implicit-Misuse]e [Modelo de Ameaça do OAuth 2.0 e Considerações de Segurança][OAuth2-Threat-Model-And-Security-Implications]). No entanto, o perfil de risco mais alto é amplamente devido ao fato de que seu objetivo é habilitar aplicativos que executam código ativo, fornecido por um recurso remoto a um navegador. Se você estiver planejando uma arquitetura SPA, não tem um componente de back-end ou pretende invocar uma API Web por meio de JavaScript, é recomendável usar o fluxo implícito para aquisição de token.
 
-Se o aplicativo é um cliente nativo, o fluxo implícito não é a melhor opção. A ausência do cookie de sessão do Azure AD no contexto de um cliente nativo priva o aplicativo dos meios de manter uma sessão com vida útil longa. Isso significa que o aplicativo se dirigirá repetidamente ao usuário ao obter tokens de acesso para novos recursos.
+Se sua aplicação é um cliente nativo, o fluxo implícito não é um grande ajuste. A ausência do cookie de sessão do Azure AD no contexto de um cliente nativo priva o aplicativo dos meios de manter uma sessão com vida útil longa. Isso significa que o aplicativo se dirigirá repetidamente ao usuário ao obter tokens de acesso para novos recursos.
 
-Se você está desenvolvendo um aplicativo Web que inclui um back-end e que consome uma API de seu código de back-end, o fluxo implícito também não é uma boa opção. Outras concessões oferecem capacidade muito maior. Por exemplo, a concessão de credenciais de cliente OAuth2 fornece a capacidade de obter tokens que refletem as permissões atribuídas ao próprio aplicativo, em vez de delegações de usuário. Isso significa que o cliente tem a capacidade de manter o acesso programático a recursos mesmo quando um usuário não está ativamente envolvido em uma sessão e assim por diante. Não apenas isso, mas essas concessões dão garantias de segurança mais alta. Por exemplo, tokens de acesso nunca transitam pelo navegador do usuário, não correm o risco de ser salvos no histórico do navegador e assim por diante. O aplicativo cliente também pode executar a autenticação forte ao solicitar um token.
+Se você está desenvolvendo um aplicativo Web que inclui um back-end e que consome uma API de seu código de back-end, o fluxo implícito também não é uma boa opção. Outras concessões oferecem capacidade muito maior. Por exemplo, a concessão de credenciais de cliente OAuth2 fornece a capacidade de obter tokens que refletem as permissões atribuídas ao próprio aplicativo, em vez de delegações de usuário. Isso significa que o cliente tem a capacidade de manter o acesso programático a recursos mesmo quando um usuário não está ativamente envolvido em uma sessão e assim por diante. Não apenas isso, mas essas concessões dão garantias de segurança mais alta. Por exemplo, os tokens de acesso nunca transitam pelo navegador do usuário, eles não correm o risco de serem salvos no histórico do navegador, e assim por diante. O aplicativo cliente também pode executar a autenticação forte ao solicitar um token.
 
 [OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
 [OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
@@ -84,7 +84,7 @@ O diagrama a seguir mostra a aparência de todo fluxo de entrada implícita e as
 Para inicialmente inscrever o usuário em seu aplicativo, você pode enviar `id_token` uma solicitação de autenticação [do OpenID Connect](v2-protocols-oidc.md) e obter um ponto final da plataforma de identidade da Microsoft.
 
 > [!IMPORTANT]
-> Para solicitar com sucesso um token de ID e/ou um token de acesso, o registro do aplicativo no [portal Azure - Página de registros de aplicativos](https://go.microsoft.com/fwlink/?linkid=2083908) deve ter o fluxo de concessão implícito correspondente ativado, selecionando **tokens de ID** e.ou **tokens de acesso** a seção de **subvenção implícita.** Se não estiver habilitado, `unsupported_response` um erro será devolvido: **O valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. Valor esperado é 'código'**
+> Para solicitar com sucesso um token de ID e/ou um token de acesso, o registro do aplicativo no [portal Azure - Página de registros de aplicativos](https://go.microsoft.com/fwlink/?linkid=2083908) deve ter o fluxo de concessão implícito correspondente ativado, selecionando **tokens de ID** e.ou **tokens de acesso** sob a seção de **subvenção implícita.** Se não estiver habilitado, `unsupported_response` um erro será devolvido: **O valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. Valor esperado é 'código'**
 
 ```
 // Line breaks for legibility only
@@ -161,7 +161,7 @@ error=access_denied
 
 Agora que você inscreveu o usuário em seu aplicativo de página única, você pode silenciosamente obter tokens de acesso para chamar APIs da Web protegidas pela plataforma de identidade da Microsoft, como o [Microsoft Graph](https://developer.microsoft.com/graph). Mesmo se já tiver recebido um token usando o response_type `token`, você poderá usar esse método para adquirir tokens para recursos adicionais sem precisar redirecionar o usuário para entrar novamente.
 
-No fluxo normal openid connect/oauth, você faria isso fazendo uma `/token` solicitação ao ponto final da plataforma de identidade da Microsoft. No entanto, o ponto final da plataforma de identidade da Microsoft não suporta solicitações cors, portanto, fazer chamadas AJAX para obter e atualizar tokens está fora de questão. Em vez disso, você pode usar o fluxo implícito em um iframe oculto para obter novos tokens para outras APIs da Web: 
+No fluxo normal openid connect/oauth, você faria isso fazendo uma `/token` solicitação ao ponto final da plataforma de identidade da Microsoft. No entanto, o ponto final da plataforma de identidade da Microsoft não suporta solicitações cors, portanto, fazer chamadas AJAX para obter e atualizar tokens está fora de questão. Em vez disso, você pode usar o fluxo implícito em um iframe oculto para obter novos tokens para outras APIs da Web:
 
 ```
 // Line breaks for legibility only
@@ -170,7 +170,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read 
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &response_mode=fragment
 &state=12345
 &nonce=678910

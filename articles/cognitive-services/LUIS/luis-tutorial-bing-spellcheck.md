@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 51b0d02443df872a7fae13116ea77b13d05055fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1e43cfc55611c432652055db2ac8411d835608b
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74225458"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396827"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corrigir palavras grafas incorretamente com a Verificação Ortográfica do Bing
 
@@ -36,7 +36,7 @@ A [primeira chave da API de Verificação Ortográfica do Bing v7](https://azure
 ## <a name="create-endpoint-key"></a>Criar chave de ponto de extremidade
 Se a chave gratuita expirou, crie uma chave de ponto de extremidade.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com). 
+1. Faça login no [portal Azure](https://portal.azure.com). 
 
 2. No canto superior esquerdo, selecione **Criar um recurso**.
 
@@ -71,7 +71,7 @@ A consulta do ponto de extremidade precisa que a chave seja passada nos parâmet
 
 A URL do ponto de extremidade tem vários valores que precisam ser passados corretamente. A API de Verificação Ortográfica do Bing v7 é apenas mais um. Você deve definir o parâmetro **spellCheck** como true e o valor de **bing-spell-check-subscription-key** para o valor da chave:
 
-`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}`
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=true&bing-spell-check-subscription-key={bingKey}&verbose=true&timezoneOffset=0&q={utterance}`
 
 ## <a name="send-misspelled-utterance-to-luis"></a>Enviar declaração incorreta para o LUIS
 1. Em um navegador da Web, copie a cadeia de caracteres anterior e substitua `region`, `appId`, `luisKey` e `bingKey` por seus próprios valores. Use a região do ponto de extremidade, se for diferente da sua [região](luis-reference-regions.md) de publicação.

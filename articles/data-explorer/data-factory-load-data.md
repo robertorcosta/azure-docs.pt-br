@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 860b1a579d9c8cee6c6e80ae4c4e7fdd7949d5c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e17a004ff866f3915000fb72b6770757062cf83
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71300592"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422909"
 ---
 # <a name="copy-data-to-azure-data-explorer-by-using-azure-data-factory"></a>Copiar dados para o Azure Data Explorer usando a fábrica de dados do Azure 
 
@@ -44,7 +44,7 @@ Neste artigo, você usa a ferramenta Data Factory Copy Data para carregar dados 
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. Faça login no [portal Azure](https://ms.portal.azure.com).
+1. Entre no [portal do Azure](https://ms.portal.azure.com).
 
 1. No painel esquerdo, selecione **Criar uma** > fábrica de dados**de análise** > **de**recursos .
 
@@ -58,8 +58,8 @@ Neste artigo, você usa a ferramenta Data Factory Copy Data para carregar dados 
    |---|---|
    | **Nome** | Na caixa, digite um nome globalmente único para sua fábrica de dados. Se você receber um erro, *o \"nome\" de fábrica de dados LoadADXDemo não está disponível,* digite um nome diferente para a fábrica de dados. Para obter regras sobre a nomeação de artefatos da Fábrica de Dados, consulte [regras de nomeação da Fábrica de Dados](/azure/data-factory/naming-rules).|
    | **Assinatura** | Na lista de paradas, selecione a assinatura do Azure para criar a fábrica de dados. |
-   | **Grupo de recursos** | Selecione **Criar novo**e, em seguida, digite o nome de um novo grupo de recursos. Se você já tiver um grupo de recursos, selecione **Usar existente**. |
-   | **Versão** | Na lista de isto, selecione **V2**. |  
+   | **Grupo de Recursos** | Selecione **Criar novo**e, em seguida, digite o nome de um novo grupo de recursos. Se você já tiver um grupo de recursos, selecione **Usar existente**. |
+   | **Versão** | Na lista de isto, selecione **V2**. |    
    | **Local** | Na lista de desporto, selecione o local da fábrica de dados. Somente os locais suportados são exibidos na lista. Os armazenamentos de dados que são usados pela fábrica de dados podem existir em outros locais ou regiões. |
 
 1. Selecione **Criar**.
@@ -78,7 +78,7 @@ Você pode carregar dados de vários tipos de [armazenamentos](/azure/data-facto
 
 Você pode carregar seus dados de qualquer uma das seguintes maneiras:
 
-* Na interface de usuário do Azure Data Factory, no painel esquerdo, selecione o ícone **Autor,** como mostrado na seção "Criar uma fábrica de dados" de Criar uma fábrica de [dados usando a interface do usuário da Fábrica de Dados do Azure](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
+* Na interface de usuário do Azure Data Factory, no painel esquerdo, selecione o ícone **Autor.** Isso é mostrado na seção "Criar uma fábrica de dados" do Criar uma fábrica de [dados usando a UI da Fábrica de Dados do Azure](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
 * Na ferramenta Azure Data Factory Copy Data, como mostrado na [ferramenta Use the Copy Data para copiar dados](/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ### <a name="copy-data-from-amazon-s3-source"></a>Copiar dados do Amazon S3 (fonte)
@@ -124,7 +124,7 @@ Você pode carregar seus dados de qualquer uma das seguintes maneiras:
 
    ![Conexão criada pelo armazenamento de dados de origem](media/data-factory-load-data/source-data-store-created-connection.png)
 
-1. No **Escolher o arquivo de entrada ou** painel de pasta, faça o seguinte:
+1. No **Escolher o arquivo de entrada ou** painel de pasta, faça as seguintes etapas:
 
     a. Navegue até o arquivo ou pasta que deseja copiar e selecione-o.
 
@@ -142,9 +142,12 @@ Você pode carregar seus dados de qualquer uma das seguintes maneiras:
 
 O novo serviço vinculado ao Azure Data Explorer foi criado para copiar os dados na tabela de destino do Azure Data Explorer (sink) especificada nesta seção.
 
+> [!NOTE]
+> Use a atividade de [comando Azure Data Factory para executar os comandos de controle do Azure Data Explorer](data-factory-command-activity.md) e usar qualquer um dos [comandos de consulta,](/azure/kusto/management/data-ingestion/ingest-from-query)como `.set-or-replace`.
+
 #### <a name="create-the-azure-data-explorer-linked-service"></a>Crie o serviço vinculado ao Azure Data Explorer
 
-Para criar o serviço vinculado ao Azure Data Explorer, faça o seguinte;
+Para criar o serviço vinculado ao Azure Data Explorer, faça as seguintes etapas:
 
 1. Para usar uma conexão de armazenamento de dados existente ou especificar um novo armazenamento de dados, no painel **do armazenamento de dados Destino,** selecione Criar nova **conexão**.
 
@@ -154,13 +157,13 @@ Para criar o serviço vinculado ao Azure Data Explorer, faça o seguinte;
 
     ![O novo painel de serviços vinculado](media/data-factory-load-data/adx-select-new-linked-service.png)
 
-1. No painel **Novo Serviço Vinculado (Azure Data Explorer),** faça o seguinte:
+1. No painel **Novo Serviço Vinculado (Azure Data Explorer),** faça as seguintes etapas:
 
     ![O painel do Novo Serviço Vinculado do Azure Data Explorer](media/data-factory-load-data/adx-new-linked-service.png)
 
    a. Na caixa **Nome,** digite um nome para o serviço vinculado ao Azure Data Explorer.
 
-   b. No **método de seleção de**contas, faça um dos seguintes: 
+   b. No **método de seleção de**contas, escolha uma das seguintes opções: 
 
     * Selecione **A assinatura do Azure** e, em seguida, nas listas de saque, selecione sua **assinatura do Azure** e seu **Cluster**. 
 
@@ -186,7 +189,7 @@ Para criar o serviço vinculado ao Azure Data Explorer, faça o seguinte;
 
 #### <a name="configure-the-azure-data-explorer-data-connection"></a>Configure a conexão de dados do Azure Data Explorer
 
-Depois de criar a conexão de serviço vinculado, o painel **do armazenamento de dados Destino** é aberto e a conexão que você criou está disponível para uso. Para configurar a conexão, faça o seguinte;
+Depois de criar a conexão de serviço vinculado, o painel **do armazenamento de dados Destino** é aberto e a conexão que você criou está disponível para uso. Para configurar a conexão, faça as seguintes etapas:
 
 1. Selecione **Avançar**.
 
@@ -214,7 +217,7 @@ Depois de criar a conexão de serviço vinculado, o painel **do armazenamento de
 
     ![O painel "Mapeamento de colunas" do conjunto de dados de destino](media/data-factory-load-data/destination-dataset-column-mapping.png)
 
-1. No painel **Configurações,** faça o seguinte:
+1. No painel **Configurações,** faça as seguintes etapas:
 
     a. Em **Configurações de tolerância a falhas,** digite as configurações relevantes.
 

@@ -2,13 +2,13 @@
 title: Funções de modelo - recursos
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: e9e1d700282652304f0bede5e697ba8625f5a5d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: 641602218aa19b790eb6e7feabdb7b46a520b590
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156286"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478264"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recursos para modelos ARM
 
@@ -34,7 +34,7 @@ extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ..
 
 Retorna o ID de recurso para um [recurso de extensão,](../management/extension-resource-types.md)que é um tipo de recurso que é aplicado a outro recurso para adicionar aos seus recursos.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -114,7 +114,7 @@ list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 
 A sintaxe dessa função varia de acordo com o nome das operações de lista. Cada implementação retorna valores para o tipo de recurso compatível com uma operação de lista. O nome da operação deve começar com `list`. Alguns usos comuns são `listKeys` e `listSecrets`.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -170,8 +170,8 @@ Os possíveis usos de lista* são mostrados na tabela a seguir.
 | Microsoft.DocumentDB/databaseAccounts | [listaschaves](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft.EventGrid/domínios | [listaschaves](/rest/api/eventgrid/domains/listsharedaccesskeys) |
-| Microsoft.EventGrid/topics | [listaschaves](/rest/api/eventgrid/topics/listsharedaccesskeys) |
+| Microsoft.EventGrid/domínios | [listaschaves](/rest/api/eventgrid/version2019-06-01/domains/listsharedaccesskeys) |
+| Microsoft.EventGrid/topics | [listaschaves](/rest/api/eventgrid/version2019-06-01/topics/listsharedaccesskeys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub/namespaces/listkeys) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub/eventhubs/listkeys) |
@@ -362,7 +362,7 @@ providers(providerNamespace, [resourceType])
 
 Retorna informações sobre um provedor de recursos e seus tipos de recursos com suporte. Se você não fornecer um tipo de recurso, a função retornará todos os tipos com suporte para o provedor de recursos.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -439,7 +439,7 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 Retorna um objeto que representa o estado de runtime de um recurso.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -754,7 +754,7 @@ resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [
 
 Retorna o identificador exclusivo de um recurso. Você pode usar essa função quando o nome do recurso é ambíguo ou não provisionado no mesmo modelo. O formato do identificador retornado varia de acordo com se a implantação acontece no escopo de um grupo de recursos, assinatura, grupo de gerenciamento ou inquilino.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -954,7 +954,7 @@ subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceN
 
 Retorna o identificador exclusivo para um recurso implantado no nível de assinatura.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1038,7 +1038,7 @@ tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
 
 Retorna o identificador exclusivo para um recurso implantado no nível do inquilino.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |

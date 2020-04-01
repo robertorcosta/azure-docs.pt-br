@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 13852acb39a420e2f0da84e18bef4df823c1fa78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5136a00421aebaa72998b1dfcdf75feb935851c6
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206258"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435448"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada contra ameaças do Microsoft Defender com o Azure Security Center
 
@@ -62,7 +62,7 @@ Para acessar servidores a bordo do Security Center, clique em **Ir ao Azure Secu
 1. Na área **onboarding,** selecione ou crie um espaço de trabalho para armazenar os dados. <br>
 2. Se você não conseguir ver todos os seus workspaces, pode ser devido à falta de permissões, verifique se que seu workspace está definido na camada Standard de Segurança do Azure. Para obter mais informações, consulte [Upgrade para o nível Padrão do Security Center para obter maior segurança](security-center-pricing.md).
     
-3. Selecione **Adicionar servidores** para exibir instruções sobre como instalar o Microsoft Monitoring Agent. 
+3. Selecione **Adicionar servidores** para exibir instruções sobre como instalar o agente Log Analytics. 
 
 4. Após a integração, monitore as máquinas **Computação e aplicativos**.
 

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 96d9a0722ae04dc150b639dced34fa290da93630
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0deace98c5be0b2ce2f29abce4c8a804145afdb1
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159398"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475613"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -167,7 +167,7 @@ Para obter mais informações sobre como trabalhar com modelos treinados fora do
 ## <a name="single-versus-multi-model-endpoints"></a>Pontos finais únicos versus multimodelos
 O Azure ML suporta a implantação de modelos únicos ou múltiplos atrás de um único ponto final.
 
-Os pontos finais de vários modelos usam um contêiner compartilhado para hospedar vários modelos. Isso ajuda a reduzir os custos gerais, melhora a utilização e permite que você acorrente módulos em conjuntos. Os modelos especificados no script de implantação são montados e disponibilizados no disco do contêiner de serviço - você pode carregá-los na memória demanda e pontuar com base no modelo específico que está sendo solicitado na hora de pontuação.
+Os pontos finais de vários modelos usam um contêiner compartilhado para hospedar vários modelos. Isso ajuda a reduzir os custos gerais, melhora a utilização e permite que você acorrente módulos em conjuntos. Os modelos especificados no script de implantação são montados e disponibilizados no disco do contêiner de serviço - você pode carregá-los na memória sob demanda e pontuar com base no modelo específico que está sendo solicitado na hora de pontuação.
 
 Para um exemplo do E2E, que mostra como usar vários modelos atrás de um único ponto final contêiner, veja [este exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model)
 
@@ -537,9 +537,9 @@ As classes para serviços locais, instâncias de contêiner Azure `azureml.core.
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-### <a name="securing-deployments-with-ssl"></a>Garantir implantações com SSL
+### <a name="securing-deployments-with-tls"></a>Garantir implantações com TLS
 
-Para obter mais informações sobre como garantir uma implantação de serviço web, consulte [Use SSL para proteger um serviço web](how-to-secure-web-service.md#enable).
+Para obter mais informações sobre como garantir uma implantação de serviço web, consulte [Ativar TLS e implantar](how-to-secure-web-service.md#enable).
 
 ### <a name="local-deployment"></a><a id="local"></a>Implantação local
 
@@ -907,6 +907,24 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
+NOTA: Os modelos que suportam predict_proba usarão esse método por padrão. Para anular isso para usar prever você pode modificar o corpo POST como abaixo:
+```python
+import json
+
+
+input_payload = json.dumps({
+    'data': [
+        [ 0.03807591,  0.05068012,  0.06169621, 0.02187235, -0.0442235,
+         -0.03482076, -0.04340085, -0.00259226, 0.01990842, -0.01764613]
+    ],
+    'method': 'predict'  # If you have a classification model, the default behavior is to run 'predict_proba'.
+})
+
+output = service.run(input_payload)
+
+print(output)
+```
+
 NOTA: Essas dependências estão incluídas no recipiente de inferência de sklearn pré-construído:
 
 ```yaml
@@ -1049,7 +1067,7 @@ Para parar o contêiner, use o seguinte comando de uma shell ou linha de comando
 docker kill mycontainer
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para excluir um serviço Web implantado, use `service.delete()`.
 Para excluir um modelo registrado, use `model.delete()`.
@@ -1154,7 +1172,7 @@ def run(request):
 
 * [Como implantar um modelo usando uma imagem Docker personalizada](how-to-deploy-custom-docker-image.md)
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)
-* [Proteger serviços Web do Azure Machine Learning com SSL](how-to-secure-web-service.md)
+* [Use o TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir um modelo de Azure Machine Learning implantado como um serviço web](how-to-consume-web-service.md)
 * [Monitore seus modelos de Aprendizado de Máquina do Azure com insights de aplicativos](how-to-enable-app-insights.md)
 * [Coletar dados para modelos em produção](how-to-enable-data-collection.md)

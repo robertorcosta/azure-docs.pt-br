@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: 5aaaf539c07a7ba2c2463d5bfd1f452853f52379
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b471fbb62862cd48ebbb239d65b563aa109ef629
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603680"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435488"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar integração da Central de Segurança do Azure usando o PowerShell
 
@@ -33,9 +33,9 @@ Neste exemplo, habilitaremos a Central de Segurança em uma assinatura com a ID:
 
 1. Defina o [nível padrão de proteção do Security Center.](https://azure.microsoft.com/pricing/details/security-center/) 
  
-2. Defina o espaço de trabalho do Log Analytics para o qual o Microsoft Monitoring Agent enviará os dados coletados nas VMs associadas à assinatura. Neste exemplo, um espaço de trabalho definido pelo usuário existente (myWorkspace).
+2. Defina o espaço de trabalho do Log Analytics para o qual o agente log analytics enviará os dados coletados nas VMs associadas à assinatura – neste exemplo, um espaço de trabalho definido pelo usuário existente (myWorkspace).
 
-3. Ative o provisionamento de agente automático da Central de Segurança que [implanta o Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
+3. Ativar o provisionamento automático de agentes do Security Center, que [implanta o agente Log Analytics](security-center-enable-data-collection.md#auto-provision-mma).
 
 5. Defina o [CISO](security-center-provide-security-contact-details.md)da organização como o contato de segurança para alertas do Security Center e eventos notáveis .
 
@@ -68,7 +68,7 @@ Essas etapas devem ser realizadas antes de executar os cmdlets da Central de Seg
         Set-AzSecurityWorkspaceSetting -Name "default" -Scope
         "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
 
-4.  Instalação do provisionamento automático do Microsoft Monitoring Agent em suas VMs do Azure:
+4.  Instalação de provisionamento automático do agente Log Analytics em suas VMs do Azure:
     
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
     

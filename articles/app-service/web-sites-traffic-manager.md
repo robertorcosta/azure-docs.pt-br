@@ -5,12 +5,12 @@ ms.assetid: dabda633-e72f-4dd4-bf1c-6e945da456fd
 ms.topic: article
 ms.date: 02/25/2016
 ms.custom: seodec18
-ms.openlocfilehash: 200effab70b369d69b4e89b1901578ecfe1a1b87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 040f84288c66f4506919e775b9ea41324b617cfa
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74684097"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437889"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controle do tráfego do Serviço de Aplicativo do Azure com o Gerenciador de Tráfego do Azure
 > [!NOTE]
@@ -32,7 +32,7 @@ O Gerenciador de Tráfego do Azure usa quatro métodos diferentes de roteamento.
 Para obter mais informações, confira [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md) (Métodos de roteamento do Gerenciador de Tráfego).
 
 ## <a name="app-service-and-traffic-manager-profiles"></a>Perfis do Serviço de Aplicativo e do Gerenciador de Tráfego
-Para configurar o controle do tráfego de aplicativos do App Service, você cria um perfil no Azure Traffic Manager que usa um dos quatro métodos de balanceamento de carga descritos anteriormente e, em seguida, adiciona os pontos finais (neste caso, Serviço de Aplicativo) para os quais você deseja controlar o tráfego para o Perfil. O status do aplicativo (em execução, parado ou excluído) é comunicado regularmente ao perfil para que o Gerenciador de Tráfego do Azure possa direcioná-lo de acordo.
+Para configurar o controle do tráfego de aplicativos do App Service, você cria um perfil no Azure Traffic Manager que usa um dos quatro métodos de balanceamento de carga descritos anteriormente e, em seguida, adiciona os pontos finais (neste caso, Serviço de Aplicativo) para os quais você deseja controlar o tráfego para o perfil. O status do aplicativo (em execução, parado ou excluído) é comunicado regularmente ao perfil para que o Gerenciador de Tráfego do Azure possa direcioná-lo de acordo.
 
 Ao usar o Gerenciador de Tráfego do Azure com o Azure, tenha em mente os seguintes pontos:
 
@@ -41,8 +41,9 @@ Ao usar o Gerenciador de Tráfego do Azure com o Azure, tenha em mente os seguin
 * Você só pode especificar um ponto de extremidade do Serviço de Aplicativo por região em um perfil. Quando você seleciona um aplicativo como um ponto de extremidade para uma região, os aplicativos restantes nessa região ficam indisponíveis para seleção para esse perfil.
 * Os pontos de extremidade do Serviço de Aplicativo que você especificar no perfil do Gerenciador de Tráfego do Azure serão exibidos na seção **Nomes de Domínio** da página Configurar do aplicativo no perfil, mas não serão configuráveis lá.
 * Depois que você adicionar um aplicativo a um perfil, a **URL do Site** no Painel da página do portal do aplicativo exibirá a URL do domínio personalizado do aplicativo se você tiver configurado uma. Caso contrário, exibe a URL do perfil do Gerenciador de Tráfego (por exemplo, `contoso.trafficmanager.net`). O nome de domínio direto do aplicativo e a URL do Gerenciador de Tráfego estarão visíveis na página Configurar do aplicativo na seção **Nomes de Domínio**.
-* Os nomes de domínio personalizados funcionam conforme esperado, mas, além de adicioná-los a seus aplicativos, você também deve configurar o mapa DNS para apontar para a URL do Gerenciador de Tráfego. Para saber mais sobre como configurar um domínio personalizado para um aplicativo do Serviço de Aplicativo, confira [Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-domain.md).
+* Os nomes de domínio personalizados funcionam conforme esperado, mas, além de adicioná-los a seus aplicativos, você também deve configurar o mapa DNS para apontar para a URL do Gerenciador de Tráfego. Para obter informações sobre como configurar um domínio personalizado para um aplicativo do App Service, consulte [Configurar um nome de domínio personalizado no Azure App Service com integração do Traffic Manager](configure-domain-traffic-manager.md).
 * Você só pode adicionar aplicativos que estejam no modo padrão ou premium para um perfil do Gerenciador de Tráfego do Azure.
+* Adicionar um aplicativo a um perfil do Traffic Manager faz com que o aplicativo seja reiniciado.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter uma visão geral conceitual e técnica do Gerenciador de Tráfego do Azure, consulte [Visão geral do Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md).

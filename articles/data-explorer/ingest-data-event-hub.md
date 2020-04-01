@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: bb9357ca4388bd1fb7ae3e3704cf4112d07c1105
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bce92eeed669628fa1b6318abd6b0c13f7e84848
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77188199"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411210"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingerir dados do Hub de Eventos no Azure Data Explorer
 
@@ -20,7 +20,7 @@ ms.locfileid: "77188199"
 > * [Portal](ingest-data-event-hub.md)
 > * [C #](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
-> * [Modelo de Gerenciador de recursos do Azure](data-connection-event-hub-resource-manager.md)
+> * [Modelo do Azure Resource Manager](data-connection-event-hub-resource-manager.md)
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O Azure Data Explorer oferece a ingestão (carregamento de dados) dos Hubs de Eventos, uma plataforma de big data streaming e um serviço de ingestão de eventos. [Os Event Hubs](/azure/event-hubs/event-hubs-about) podem processar milhões de eventos por segundo em quase tempo real. Neste artigo, você cria um hub de eventos, conecta-se a ele a partir do Azure Data Explorer e vê o fluxo de dados através do sistema.
 
@@ -33,7 +33,7 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Faça login no [portal Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Criar um Hub de Evento
 
@@ -92,7 +92,7 @@ Agora você cria uma tabela no Gerenciador de dados do Azure, para que os Hubs d
 1. Copie o seguinte comando na janela e selecione **Executar** para mapear os dados JSON de entrada para os tipos de dados e nomes de coluna da tabela (TestTable).
 
     ```Kusto
-    .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
+    .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp", "Properties": {"Path": "$.timeStamp"}},{"column":"Name", "Properties": {"Path":"$.name"}} ,{"column":"Metric", "Properties": {"Path":"$.metric"}}, {"column":"Source", "Properties": {"Path":"$.source"}}]'
     ```
 
 ## <a name="connect-to-the-event-hub"></a>Conectar-se ao hub de eventos
@@ -201,7 +201,7 @@ Agora que o aplicativo está gerando dados, você pode ver o fluxo de dados do h
     > * A ingestão do Event Hub inclui o tempo de resposta do Event Hub de 10 segundos ou 1 MB. 
     > * Configure sua tabela para suportar streaming e remova o lag no tempo de resposta. Veja [a política de streaming](/azure/kusto/concepts/streamingingestionpolicy). 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não planeja usar seu hub de eventos novamente, limpe **test-hub-rg** para evitar custos.
 

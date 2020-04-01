@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 5236fd89ed99ca14bb7fc24e40ef79e12e5177d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61d0a57c541837ab3aebf65e47d757f7ecbe7e40
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245493"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435990"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Coleta de dados na Central de Segurança do Azure
 O Security Center coleta dados de suas máquinas virtuais (VMs) do Azure, conjuntos de escala de máquinas virtuais, contêineres IaaS e computadores não-Azure (incluindo no local) para monitorar vulnerabilidades e ameaças de segurança. Os dados são coletados usando o Log Analytics Agent, que lê várias configurações relacionadas à segurança e registros de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP e usuário conectado. O Agente de Análise de Log também copia arquivos de falha para o seu espaço de trabalho.
@@ -47,7 +47,7 @@ Para habilitar o provisionamento automático do Log Analytics Agent:
 
 3. Selecione **coleta de dados**.
 4. Em **Provisionamento Automático**, selecione **Ativar** para habilitar o provisionamento automático.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
    ![Habilitar o provisionamento automático][1]
 
@@ -108,7 +108,7 @@ Para selecionar um espaço de trabalho do Log Analytics existente:
    >
    >
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 4. Após selecionar **Salvar**, será perguntado se você deseja reconfigurar as VMs monitoradas que estavam conectadas ao workspace padrão anteriormente.
 
    - Selecione **Não** se quiser que as novas configurações do espaço de trabalho se apliquem apenas em novas VMs. As novas configurações do espaço de trabalho só se aplicam a novas instalações de agentes; VMs recém-descobertos que não têm o Log Analytics Agent instalado.
@@ -186,7 +186,7 @@ Aqui está um detalhamento completo das IDs de eventos de Segurança e do AppLoc
 
 Para escolher a política de filtragem:
 1. Na página **Coleta de dados,** selecione sua política de filtragem em **Eventos de Segurança**.
-2. Selecione **Salvar**.
+2. Clique em **Salvar**.
 
    ![Escolher a política de filtragem][5]
 
@@ -220,7 +220,7 @@ Nota - Se o agente do Operations Manager versão 2012 estiver instalado, **não*
 1. Retorne ao menu principal da Central de Segurança e selecione a Política de segurança.
 2. Clique em **Editar configurações** na linha de assinatura para a qual deseja desativar o provisionamento automático.
 3. Na folha **Política de Segurança – Coleta de Dados** em **Provisionamento Automático** selecione **Desativar**.
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
    ![Desabilitar o provisionamento automático][6]
 
@@ -306,7 +306,7 @@ Você pode instalar manualmente o Log Analytics Agent, para que o Security Cente
 
 - Para identificar problemas de VMs e computadores não monitorados:
 
-    As VM ou os computadores não são monitorados pela Central de Segurança quando não estão executando a extensão do Microsoft Monitoring Agent. Uma máquina pode ter um agente local já instalado, por exemplo, o agente direto DO OMS ou o agente do Gerente de Operações do Centro de Sistema. Os computadores com esses agentes são identificados como não monitorados porque não há suporte total para esses agentes na Central de Segurança. Para aproveitar ao máximo todos os recursos da Central de Segurança, é necessária a extensão do Microsoft Monitoring Agent.
+    Uma VM ou computador não é monitorado pelo Security Center se a máquina não estiver executando a extensão do agente Log Analytics. Uma máquina pode ter um agente local já instalado, por exemplo, o agente direto DO OMS ou o agente do Gerente de Operações do Centro de Sistema. Os computadores com esses agentes são identificados como não monitorados porque não há suporte total para esses agentes na Central de Segurança. Para se beneficiar totalmente de todos os recursos do Security Center, a extensão do agente Log Analytics é necessária.
 
     Para obter mais informações sobre as razões pelas quais o Security Center não consegue monitorar com sucesso as VMs e computadores inicializados para o provisionamento automático, consulte [os problemas de saúde do agente de monitoramento](security-center-troubleshooting-guide.md#mon-agent).
 

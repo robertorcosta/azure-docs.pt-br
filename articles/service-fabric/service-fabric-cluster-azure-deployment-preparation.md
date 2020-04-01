@@ -3,12 +3,12 @@ title: Planeje uma implantação de cluster de malha de serviço do Azure
 description: Saiba mais sobre o planejamento e a preparação para uma implantação de cluster de malha de malha de serviço de produção no Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1762a6975448301957579b3437a8af5c89b3accd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad6a7a6ea9a90bea4a3b6bc553da67a46144dc03
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78193469"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422275"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planeje e prepare-se para uma implantação de cluster
 
@@ -86,6 +86,16 @@ Os discos do Sistema Operacional Efêmero não são um recurso específico do Se
             }
         }
     ```
+
+> [!NOTE]
+> Os aplicativos do usuário não devem ter nenhuma dependência/arquivo/artefato no disco do SISTEMA OPERACIONAL, pois o disco do SISTEMA OPERACIONAL seria perdido no caso de uma atualização do sistema operacional.
+> Portanto, não é recomendável usar [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) com discos efêmeros.
+>
+
+> [!NOTE]
+> O VMSS não efêmero existente não pode ser atualizado no local para usar discos efêmeros.
+> Para migrar, os usuários terão que [adicionar](./virtual-machine-scale-set-scale-node-type-scale-out.md) um novo nodeType com discos efêmeros, mover as cargas de trabalho para o novo nóType & [remover](./service-fabric-how-to-remove-node-type.md) o nodeType existente.
+>
 
 Para obter mais informações e outras opções de configuração, consulte [discos efêmeros do Sistema Operacional para VMs Azure](../virtual-machines/windows/ephemeral-os-disks.md) 
 

@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/29/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: b90910614bcd86a54198b1a0961a3378427ea87e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a751fa193c8dd530707f790af0292d536a6f47d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73164985"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420453"
 ---
-# <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure-preview"></a>Implantar conjuntos de escala de máquinavirtual com IPv6 no Azure (Preview)
+# <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure"></a>Implantar conjuntos de escala de máquinas virtuais com IPv6 no Azure
 
 Este artigo mostra como implantar um conjunto de escala de máquina virtual (IPv4 + IPv6) com um balanceador de carga externa de pilha dupla em uma rede virtual Azure. O processo para criar um conjunto de escala de máquina virtual capaz de IPv6 é quase idêntico ao processo de criação de VMs individuais descritos [aqui](ipv6-configure-standard-load-balancer-template-json.md). Você começará com as etapas que são semelhantes às descritas para VMs individuais:
-1.  Crie IPv4 e IPv6 Public IPs.
-2.  Crie um balanceador de carga de pilha dupla.  
-3.  Crie regras do grupo de segurança de rede (NSG).  
+1.    Crie IPv4 e IPv6 Public IPs.
+2.    Crie um balanceador de carga de pilha dupla.  
+3.    Crie regras do grupo de segurança de rede (NSG).  
 
 O único passo que é diferente das VMs individuais é criar a configuração de interface de rede (NIC) que usa o recurso de conjunto de escala de máquina virtual: networkProfile/networkInterfaceConfigurations. A estrutura JSON é semelhante à do objeto Microsoft.Network/networkInterfaces usado para VMs individuais com a adição de definir a CONFIGURAÇÃO NIC e a IpConfiguration iPv4 como a interface principal usando o **"principal":** atributo verdadeiro como visto no exemplo a seguir:
 

@@ -1,32 +1,54 @@
 ---
 title: Configurar a autenticação do Azure Active Directory
-description: Saiba como se conectar ao Banco de Dados SQL, instância gerenciada e Armazenamento de Dados SQL usando a autenticação do Azure Active Directory - depois de configurar o Azure AD.
+description: Aprenda a se conectar ao Banco de Dados SQL, instância gerenciada e Análise sinapse do Azure usando a autenticação do Azure Active Directory - depois de configurar o Azure AD.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: data warehouse
+ms.custom: azure-synapse
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 01/07/2020
-ms.openlocfilehash: 881c7076d5131746c730757a07da6fb938429c38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/27/2020
+ms.openlocfilehash: 0e244ea185011bbb7d9f0facad399bb9b577bbc2
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80125030"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419884"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurar e gerenciar autenticação do Azure Active Directory com SQL
 
-Este artigo mostra como criar e preencher o Azure AD e, em seguida, usar o Azure AD com o Azure [SQL Database](sql-database-technical-overview.md), [instância gerenciada](sql-database-managed-instance.md)e [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para obter uma visão geral, consulte [Autenticação do Azure Active Directory](sql-database-aad-authentication.md).
+Este artigo mostra como criar e preencher o Azure AD e, em seguida, usar o Azure AD com o Azure [SQL Database (SQL DB),](sql-database-technical-overview.md) [instância gerenciada (MI)](sql-database-managed-instance.md)e [Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para obter uma visão geral, consulte [Autenticação do Azure Active Directory](sql-database-aad-authentication.md).
 
 > [!NOTE]
-> Este artigo se aplica ao SQL Server do Azure e aos bancos de dados SQL Database e SQL Data Warehouse criados no servidor SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse.
+> Este artigo se aplica ao servidor Azure SQL e ao SQL Database e ao Azure Synapse. Para simplificar, o Banco de Dados SQL é usado quando se refere tanto ao Banco de Dados SQL quanto ao Sinapse Azure.
 
 > [!IMPORTANT]  
 > Não há suporte para conectar ao SQL Server em execução em uma VM do Azure usando uma conta do Azure Active Directory. Use um conta de domínio do Active Directory.
+
+## <a name="azure-ad-authentication-methods"></a>Métodos de autenticação do Azure AD
+
+A autenticação Azure AD suporta os seguintes métodos de autenticação:
+
+- Identidades somente em nuvem do Azure AD
+- Identidades híbridas Azure AD que suportam:
+  - Autenticação em nuvem com duas opções acopladas a um único sinal (SSO)
+    - Autenticação de hash de senha do Azure AD
+    - Autenticação de passagem do Azure AD
+  - Autenticação federada
+
+Para obter mais informações sobre os métodos de autenticação do Azure AD e qual escolher, veja o artigo:
+- [Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory](../active-directory/hybrid/choose-ad-authn.md)
+
+Para obter mais informações sobre as identidades híbridas do Azure AD, a configuração e a sincronização, consulte os seguintes artigos:
+
+- Autenticação de hash de senha - [Implementar sincronização de hash de senha com sincronização do Azure AD Connect](../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)
+- Autenticação de passagem - [Autenticação de Passagem do Diretório Ativo do Azure](../active-directory/hybrid/how-to-connect-pta-quick-start.md)
+- Autenticação federada - [Implantação de Serviços de Federação de Diretórios Ativos no Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) e [Azure AD Connect e federação](../active-directory/hybrid/how-to-connect-fed-whatis.md)
+
+Todos os métodos de autenticação acima são suportados para SQL DB (pools de banco de dados e banco de dados único), instância gerenciada e Sinapse Azure.
 
 ## <a name="create-and-populate-an-azure-ad"></a>Criar e popular um Azure AD
 
@@ -45,7 +67,7 @@ Para obter mais informações, consulte [Integrando suas identidades locais no A
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Criar um administrador do Azure AD para o Azure SQL Server
 
-Cada Servidor do Azure SQL Server (que hospeda um Banco de dados SQL ou SQL Data Warehouse) começa com uma única conta de administrador do servidor, que é o administrador de todo o Azure SQL Server. Um segundo administrador do SQL Server deve ser criado, que é uma conta do Azure AD. Essa entidade de segurança é criada como um usuário de banco de dados independente no banco de dados mestre. Como administradores, as contas de administrador do servidor são membros da função **db_owner** em todos os bancos de dados de usuários e inserem cada banco de dados de usuário como o usuário **dbo**. Para obter mais informações sobre as contas do administrador do servidor, veja [Gerenciando Bancos de Dados e Logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md).
+Cada servidor SQL do Azure (que hospeda um Banco de Dados SQL ou Synapse Do Zure) começa com uma única conta de administrador de servidor que é a administradora de todo o servidor Azure SQL. Um segundo administrador do SQL Server deve ser criado, que é uma conta do Azure AD. Essa entidade de segurança é criada como um usuário de banco de dados independente no banco de dados mestre. Como administradores, as contas de administrador do servidor são membros da função **db_owner** em todos os bancos de dados de usuários e inserem cada banco de dados de usuário como o usuário **dbo**. Para obter mais informações sobre as contas do administrador do servidor, veja [Gerenciando Bancos de Dados e Logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md).
 
 Ao usar o Azure Active Directory com a Replicação Geográfica, o administrador do Azure Active Directory deverá ser configurado para os servidores primários e secundários. Se um servidor não tiver um administrador do Azure Active Directory, os usuários e logons do Azure Active Directory obterão um erro de servidor "Não é possível conectar-se".
 
@@ -176,7 +198,7 @@ Como uma prática recomendada para os administradores Azure AD existentes para M
 
 ### <a name="powershell-for-sql-managed-instance"></a>PowerShell para instância gerenciada sql
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 
@@ -214,7 +236,7 @@ O comando a seguir remove o administrador do Azure AD para a instância gerencia
 Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGroup01" -InstanceName "ManagedInstanceName01" -Confirm -PassThru
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Você também pode provisionar um administrador Azure AD para instância gerenciada SQL, chamando os seguintes comandos CLI:
 
@@ -232,13 +254,13 @@ Para obter mais informações sobre os comandos CLI, consulte [az sql mi](/cli/a
 ## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>Provisionar um administrador do Azure Active Directory para o servidor do Banco de Dados SQL do Azure
 
 > [!IMPORTANT]
-> Apenas execute estas etapas se estiver provisionando um servidor do Banco de Dados SQL do Azure ou um Data Warehouse.
+> Siga essas etapas apenas se estiver provisionando um servidor de banco de dados SQL Do Azure ou o Azure Synapse Analytics.
 
 Os dois procedimentos a seguir mostram como provisionar um administrador do Azure Active Directory para seu servidor do Azure SQL Server no Portal do Azure e usando o PowerShell.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. No [portal do Azure](https://portal.azure.com/), no canto superior direito, selecione a conexão para exibir uma lista suspensa dos Active Directories possíveis. Escolha o Active Directory correto como o AD do Azure padrão. Esta etapa vincula o Active Directory associado à assinatura ao Azure SQL Server, verificando se a mesma assinatura é usada tanto para o Azure AD quanto para o SQL Server. (O Azure SQL Server pode hospedar o Banco de Dados SQL do Azure ou o SQL Data Warehouse do Azure.)
+1. No [portal do Azure](https://portal.azure.com/), no canto superior direito, selecione a conexão para exibir uma lista suspensa dos Active Directories possíveis. Escolha o Active Directory correto como o AD do Azure padrão. Esta etapa vincula o Active Directory associado à assinatura ao Azure SQL Server, verificando se a mesma assinatura é usada tanto para o Azure AD quanto para o SQL Server. (O servidor Azure SQL pode estar hospedando o Banco de Dados SQL do Azure ou o Azure Synapse.)
 
     ![choose-ad][8]
 
@@ -255,7 +277,7 @@ Os dois procedimentos a seguir mostram como provisionar um administrador do Azur
 
     ![Servidores SQL definem admin active directory](./media/sql-database-aad-authentication/sql-servers-set-active-directory-admin.png)  
 
-5. Na página **Adicionar administrador,** procure um usuário, selecione o usuário ou grupo para ser um administrador e, em seguida, **selecione Selecionar**. A página de administração do Active Directory mostra todos os membros e grupos do Active Directory. Usuários ou grupos que estão esmaecidos não podem ser selecionados porque eles não têm suporte como administradores do AD do Azure. (Consulte a lista de administradores suportados na seção Recursos e Limitações do **Azure AD** da autenticação do [Azure Active Directory para autenticação com banco de dados SQL ou SQL Data Warehouse](sql-database-aad-authentication.md).) O RBAC (Role-based Access Control, controle de acesso baseado em função) se aplica apenas ao portal e não é propagado para o SQL Server.
+5. Na página **Adicionar administrador,** procure um usuário, selecione o usuário ou grupo para ser um administrador e, em seguida, **selecione Selecionar**. A página de administração do Active Directory mostra todos os membros e grupos do Active Directory. Usuários ou grupos que estão esmaecidos não podem ser selecionados porque eles não têm suporte como administradores do AD do Azure. (Veja a lista de administradores suportados na seção Recursos e Limitações do **Azure AD da** autenticação do [Azure Active Directory para autenticação com o Banco de Dados SQL ou o Azure Synapse](sql-database-aad-authentication.md).) O RBAC (Role-based Access Control, controle de acesso baseado em função) se aplica apenas ao portal e não é propagado para o SQL Server.
 
     ![Selecione admin de diretório ativo do Azure](./media/sql-database-aad-authentication/select-azure-active-directory-admin.png)  
 
@@ -270,22 +292,22 @@ O processo de alteração do administrador pode levar vários minutos. O novo ad
 
 Para remover um Administrador mais tarde, na parte superior da página **Administrador do Active Directory**, selecione **Remover administrador** e, em seguida, selecione **Salvar**.
 
-### <a name="powershell-for-azure-sql-database-and-azure-sql-data-warehouse"></a>PowerShell para banco de dados SQL azure e data warehouse Azure SQL
+### <a name="powershell-for-azure-sql-database-and-azure-synapse"></a>PowerShell para banco de dados SQL Azure e Sinapse Azure
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para executar os cmdlets do PowerShell, você precisa ter o Azure PowerShell instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview). Para provisionar um administrador do AD do Azure, execute os seguintes comandos do Azure PowerShell:
 
 - Connect-AzAccount
 - Assinatura Select-Az
 
-Cmdlets usados para provisionar e gerenciar a dmin Azure AD para o Azure SQL Database e Azure SQL Data Warehouse:
+Cmdlets usados para provisionar e gerenciar a administradora Azure AD para o Banco de Dados SQL Do Azure e o Azure Synapse:
 
 | Nome do cmdlet | Descrição |
 | --- | --- |
-| [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Provisiona um administrador do Azure Active Directory para o Azure SQL Server ou o SQL Data Warehouse do Azure. (Deve ser da assinatura atual) |
-| [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Remove um administrador do Azure Active Directory para o Azure SQL Server ou para o SQL Data Warehouse do Azure. |
-| [Administrador de diretórioativo do Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Retorna informações sobre um administrador do Azure Active Directory atualmente configurado para o Azure SQL Server ou para o SQL Data Warehouse do Azure. |
+| [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Provisões um administrador do Azure Active Directory para o servidor Azure SQL ou o Azure Synapse. (Deve ser da assinatura atual) |
+| [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Remove um administrador do Azure Active Directory para o servidor Azure SQL ou o Azure Synapse. |
+| [Administrador de diretórioativo do Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Retorna informações sobre um administrador do Azure Active Directory atualmente configurado para o servidor Azure SQL ou Azure Synapse. |
 
 Use o comando PowerShell get-help para ver mais informações para cada um desses comandos. Por exemplo, `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
 
@@ -322,16 +344,16 @@ O seguinte exemplo remove um administrador do AD do Azure:
 Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Você pode provisionar um administrador ad azure chamando os seguintes comandos CLI:
 
 | Comando | Descrição |
 | --- | --- |
-|[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Provisiona um administrador do Azure Active Directory para o Azure SQL Server ou o SQL Data Warehouse do Azure. (Deve ser da assinatura atual) |
-|[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Remove um administrador do Azure Active Directory para o Azure SQL Server ou para o SQL Data Warehouse do Azure. |
-|[az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) | Retorna informações sobre um administrador do Azure Active Directory atualmente configurado para o Azure SQL Server ou para o SQL Data Warehouse do Azure. |
-|[az sql server ad-admin update](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) | Atualiza o administrador do Active Directory para um Azure SQL Server ou SQL Data Warehouse do Azure. |
+|[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Provisões um administrador do Azure Active Directory para o servidor Azure SQL ou o Azure Synapse. (Deve ser da assinatura atual) |
+|[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Remove um administrador do Azure Active Directory para o servidor Azure SQL ou o Azure Synapse. |
+|[az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) | Retorna informações sobre um administrador do Azure Active Directory atualmente configurado para o servidor Azure SQL ou Azure Synapse. |
+|[az sql server ad-admin update](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) | Atualiza o administrador do Active Directory para um servidor Azure SQL ou Azure Synapse. |
 
 Para obter mais informações sobre os comandos CLI, consulte [o servidor az sql](/cli/azure/sql/server).
 
@@ -342,7 +364,7 @@ Para obter mais informações sobre os comandos CLI, consulte [o servidor az sql
 
 ## <a name="configure-your-client-computers"></a>Configurar os computadores cliente
 
-Em todos os computadores cliente, dos quais seus aplicativos ou usuários se conectam ao Banco de Dados SQL do Azure ou ao SQL Data Warehouse do Azure usando identidades do Azure AD, você deve instalar o software a seguir:
+Em todas as máquinas clientes, das quais seus aplicativos ou usuários se conectam ao Banco de Dados SQL do Azure ou ao Azure Synapse usando identidades AD do Azure, você deve instalar o seguinte software:
 
 - .NET Framework 4.6 [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx)ou posterior a partir de .
 - Biblioteca de autenticação de diretório ativo do Azure para sql server (*ADAL. DLL*). Abaixo estão os links de download para instalar o driver SSMS, ODBC e OLE DB mais recente que contém o *ADAL. Biblioteca DLL.*
@@ -365,7 +387,7 @@ Você pode atender a esses requisitos:
 A autenticação do Active Directory do Azure exige que os usuários do banco de dados sejam criados como usuários do banco de dados independente. Um usuário de banco de dados independente com base em uma identidade do AD do Azure é um usuário de banco de dados que não tem um logon no banco de dados mestre e que mapeia para uma identidade no diretório do AD do Azure que está associada ao banco de dados. A identidade do AD do Azure pode ser uma conta de usuário individual ou um grupo. Para saber mais sobre usuários de bancos de dados independentes, veja [Usuários do bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Os usuários do banco de dados (com exceção dos administradores) não podem ser criados usando o portal do Azure. Funções de RBAC não são propagadas para o SQL Server, para o Banco de Dados SQL ou para o SQL Data Warehouse. As funções RBAC do Azure são usadas para gerenciar Recursos do Azure e não se aplicam às permissões de banco de dados. Por exemplo, a função **Colaborador do SQL Server** não concede acesso para se conectar ao Banco de Dados SQL ou ao SQL Data Warehouse. A permissão de acesso deve ser concedida diretamente no banco de dados usando instruções Transact-SQL.
+> Os usuários do banco de dados (com exceção dos administradores) não podem ser criados usando o portal do Azure. As funções RBAC não são propagadas para sql server, sql database ou azure Synapse. As funções RBAC do Azure são usadas para gerenciar Recursos do Azure e não se aplicam às permissões de banco de dados. Por exemplo, a função **SQL Server Contributor** não concede acesso para se conectar ao Banco de Dados SQL ou ao Azure Synapse. A permissão de acesso deve ser concedida diretamente no banco de dados usando instruções Transact-SQL.
 
 > [!WARNING]
 > Não há suporte para caracteres especiais como dois-pontos `:` ou E comercial `&`, quando incluídos como nomes de usuário nas instruções T-SQL CREATE LOGIN e CREATE USER.
@@ -417,7 +439,7 @@ Uma conta de usuário de domínio federado que é importado para um domínio ger
 > [!NOTE]
 > Usuários do AD do Azure são marcados nos metadados do banco de dados com tipo E (EXTERNAL_USER) e para grupos com o tipo X (EXTERNAL_GROUPS). Para obter mais informações, consulte [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
-## <a name="connect-to-the-user-database-or-data-warehouse-by-using-ssms-or-ssdt"></a>Conectar-se ao banco de dados do usuário ou data warehouse usando SSMS ou SSDT  
+## <a name="connect-to-the-user-database-or-azure-synapse-by-using-ssms-or-ssdt"></a>Conecte-se ao banco de dados do usuário ou ao Azure Synapse usando SSMS ou SSDT  
 
 Para confirmar que o administrador do Azure AD está configurado corretamente, conecte-se ao banco de dados **mestre** usando a conta de administrador do Azure AD.
 Para provisionar um usuário de banco de dados independente com base no Azure AD (que não seja o administrador do servidor que é o proprietário do banco de dados), conecte-se ao banco de dados com uma identidade do Azure AD que tenha acesso ao banco de dados.
@@ -427,35 +449,41 @@ Para provisionar um usuário de banco de dados independente com base no Azure AD
 
 ## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>Usando uma identidade do Azure AD para se conectar usando SSMS ou SSDT
 
-Os procedimentos a seguir mostram como se conectar a um Banco de Dados SQL com uma identidade do Azure AD usando o SQL Server Management Studio ou as Ferramentas de Banco de Dados do SQL Server.
+Os procedimentos a seguir mostram como se conectar a um Banco de Dados SQL com uma identidade do Azure AD usando o SQL Server Management Studio ou as Ferramentas de Banco de Dados do SQL Server. 
 
 ### <a name="active-directory-integrated-authentication"></a>Autenticação integrada do Active Directory
 
-Use este método se você efetuou logon no Windows usando suas credenciais do Azure Active Directory por meio de um domínio federado.
+Use este método se você estiver conectado ao Windows usando suas credenciais do Azure Active Directory a partir de um domínio federado ou um domínio gerenciado configurado para logon único perfeito para autenticação de hash de passagem e senha. Para saber mais, confira [Logon Único Contínuo do Azure Active Directory](../active-directory/hybrid/how-to-connect-sso.md).
 
-1. Inicie o Management Studio ou o Data Tools e, na caixa de diálogo **Conectar ao Servidor** (ou **Conectar ao Mecanismo de Banco de Dados**), na caixa **Autenticação**, selecione **Active Directory - Integrado**. Nenhuma senha é necessária ou pode ser inserida porque suas credenciais existentes serão apresentadas para a conexão.
+1. Iniciar o Management Studio ou Ferramentas de Dados e na caixa de diálogo **Conectar ao servidor** (ou conectar ao mecanismo de banco de **dados),** na caixa **de autenticação,** selecione **Azure Active Directory - Integrado**. Nenhuma senha é necessária ou pode ser inserida porque suas credenciais existentes serão apresentadas para a conexão.
 
     ![Selecione Autenticação Integrada do AD][11]
 
-2. Selecione o botão **Opções** e, na página **Propriedades de Conexão**, na caixa **Conectar ao banco de dados**, digite o nome do banco de dados de usuário ao qual você deseja se conectar. (A opção **ID de locatário ou o nome de domínio do AD**) tem suporte apenas para opções de **conexão Universal com MFA**, caso contrário, ela fica acinzentada).  
+2. Selecione o botão **Opções** e, na página **Propriedades de Conexão**, na caixa **Conectar ao banco de dados**, digite o nome do banco de dados de usuário ao qual você deseja se conectar. Para obter mais informações, consulte o artigo [Multi-factor AAD auth](sql-database-ssms-mfa-authentication.md#azure-ad-domain-name-or-tenant-id-parameter) sobre as diferenças entre as Propriedades de Conexão para SSMS 17.x e 18.x. 
 
     ![Selecione o nome do banco de dados][13]
 
-## <a name="active-directory-password-authentication"></a>Autenticação de senha do Active Directory
+### <a name="active-directory-password-authentication"></a>Autenticação de senha do Active Directory
 
-Use esse método ao se conectar com um nome de entidade do AD do Azure usando o domínio gerenciado pelo Azure AD. Você também pode usá-lo para contas federadas sem acesso ao domínio, por exemplo, ao trabalhar remotamente.
+Use esse método ao se conectar com um nome de entidade do AD do Azure usando o domínio gerenciado pelo Azure AD. Você também pode usá-lo para contas federadas sem acesso ao domínio, por exemplo, quando trabalhar remotamente.
 
-Use esse método para autenticação no BD SQL/DW com Azure AD para usuários do Azure AS nativo ou federado. Um usuário nativo é explicitamente criado no Azure AD e é autenticado usando nome de usuário e senha, enquanto um usuário federado é um usuário do Windows cujo domínio é federado com o Azure AD. O último método (usando usuário e senha) poderá ser usado quando um usuário quiser usar a credencial do Windows, mas o computador local não estiver associado ao domínio (por exemplo, usando um acesso remoto). Nesse caso, um usuário do Windows poderá indicar a conta de domínio e senha e poderá autenticar-se no BD SQL/DW usando credenciais federadas.
+Use este método para autenticar para SQL DB ou MI com usuários de identidade somente na nuvem do Azure AD, ou aqueles que usam identidades híbridas Azure AD. Este método suporta usuários que desejam usar sua credencial do Windows, mas sua máquina local não está associada ao domínio (por exemplo, usando acesso remoto). Neste caso, um usuário do Windows pode indicar sua conta de domínio e senha, e pode autenticar para SQL DB, MI ou Azure Synapse.
 
-1. Inicie o Management Studio ou o Data Tools e, na caixa de diálogo **Conectar ao Servidor** (ou **Conectar ao Mecanismo de Banco de Dados**), na caixa **Autenticação**, selecione **Active Directory - Senha**.
+1. Iniciar o Management Studio ou Ferramentas de Dados e na caixa de diálogo **Conectar ao servidor** (ou conectar ao mecanismo de banco de **dados),** na caixa **de autenticação,** selecione **Azure Active Directory - Password**.
 
-2. Na caixa Nome de **usuário,** digite o nome de usuário do Azure Active Directory no formato **nome de usuário\@domain.com**. Os nomes de usuário devem ser uma conta do Azure Active Directory ou uma conta de um federado de domínio com o Azure Active Directory.
+2. Na caixa Nome de **usuário,** digite o nome de usuário do Azure Active Directory no formato **nome de usuário\@domain.com**. Os nomes de usuário devem ser uma conta do Azure Active Directory ou uma conta de um domínio gerenciado ou federado com o Azure Active Directory.
 
-3. Na caixa **Senha** , digite sua senha de usuário para a conta do Azure Active Directory ou conta de domínio federado.
+3. Na caixa **Senha,** digite sua senha de usuário para a conta do Azure Active Directory ou conta de domínio gerenciada/federada.
 
     ![Selecione Autenticação de Senha do AD][12]
 
 4. Selecione o botão **Opções** e, na página **Propriedades de Conexão**, na caixa **Conectar ao banco de dados**, digite o nome do banco de dados de usuário ao qual você deseja se conectar. (Confira o gráfico na opção anterior.)
+
+### <a name="active-directory-interactive-authentication"></a>Autenticação interativa do Active Directory
+
+Use este método para autenticação interativa com ou sem autenticação multifatorial (MFA), com senha sendo solicitada de forma interativa. Este método pode ser usado para autenticar para SQL DB, MI e Azure Synapse para usuários de identidade somente em nuvem do Azure AD, ou aqueles que usam identidades híbridas Azure AD.
+
+Para obter mais informações, consulte [Usando autenticação AAD multifatorial com banco de dados SQL Azure e Azure Synapse Analytics (suporte a SSMS para MFA)](sql-database-ssms-mfa-authentication.md).
 
 ## <a name="using-an-azure-ad-identity-to-connect-from-a-client-application"></a>Usando uma identidade do Azure AD para conectar-se de um aplicativo cliente
 
@@ -463,9 +491,14 @@ Os procedimentos a seguir mostram como se conectar a um Banco de Dados SQL com u
 
 ### <a name="active-directory-integrated-authentication"></a>Autenticação integrada do Active Directory
 
-Para usar a autenticação integrada do Windows, o Active Directory de seu domínio deve ser federado com o Azure Active Directory. Seu aplicativo cliente (ou um serviço) conectando-se ao banco de dados deve estar em execução em uma máquina ingressada no domínio com credenciais de domínio do usuário.
+Para usar a autenticação integrada do Windows, o Active Directory do seu domínio deve ser federado com o Azure Active Directory ou deve ser um domínio gerenciado configurado para login único perfeito para autenticação de hash de passagem ou senha. Para saber mais, confira [Logon Único Contínuo do Azure Active Directory](../active-directory/hybrid/how-to-connect-sso.md).
 
-Para conectar-se a um banco de dados usando a autenticação integrada e uma identidade do AD do Azure, a palavra-chave de Autenticação na cadeia de conexão de banco de dados deve ser definida como Integrada ao Active Directory. O exemplo de código em C# a seguir usa ADO .NET.
+> [!NOTE]
+> [MSAL.NET (Microsoft.Identity.Client)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap) para a autenticação integrada do Windows não é compatível com o logon único contínuo para autenticação de passagem e de hash de senha.
+
+Seu aplicativo cliente (ou um serviço) se conectando ao banco de dados deve estar sendo executado em uma máquina de domínio situada sob as credenciais de domínio de um usuário.
+
+Para se conectar a um banco de dados usando autenticação integrada e uma identidade Azure `Active Directory Integrated`AD, a palavra-chave Autenticação na seqüência de conexões do banco de dados deve ser definida como . O exemplo de código em C# a seguir usa ADO .NET.
 
 ```csharp
 string ConnectionString = @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
@@ -477,7 +510,7 @@ Para a conexão ao Banco de Dados SQL do Azure, não há suporte para a palavra-
 
 ### <a name="active-directory-password-authentication"></a>Autenticação de senha do Active Directory
 
-Para conectar-se a um banco de dados usando a autenticação integrada e uma identidade do Azure AD, a palavra-chave de Autenticação deve ser definida como Senha do Active Directory. A cadeia de conexão deve conter valores e palavras-chave de ID/UID de Usuário e Senha/PWD. O exemplo de código em C# a seguir usa ADO .NET.
+Para se conectar a um banco de dados usando contas de usuário de identidade somente em nuvem do Azure `Active Directory Password`AD ou aqueles que usam identidades híbridas Azure AD, a palavra-chave Autenticação deve ser definida como . A cadeia de conexão deve conter valores e palavras-chave de ID/UID de Usuário e Senha/PWD. O exemplo de código em C# a seguir usa ADO .NET.
 
 ```csharp
 string ConnectionString =
@@ -490,7 +523,7 @@ Saiba mais sobre métodos de autenticação do Azure AD usando os exemplos de c�
 
 ## <a name="azure-ad-token"></a>Token do Azure AD
 
-Este método de autenticação permite que os serviços de camada intermediária se conectem ao Banco de Dados SQL do Azure ou ao SQL Data Warehouse do Azure obtendo um token do AAD (Azure Active Directory). Ele permite cenários sofisticados, incluindo a autenticação baseada em certificado. Você precisa concluir quatro etapas básicas para usar a autenticação de token do Azure AD:
+Este método de autenticação permite que serviços intermediários obtenham [JSON Web Tokens (JWT)](../active-directory/develop/id-tokens.md) para se conectar ao Azure SQL Database ou ao Azure Synapse, obtendo um token do Azure Active Directory (AAD). Esse método permite vários cenários de aplicativos, incluindo identidades de serviço, diretores de serviço e aplicativos usando autenticação baseada em certificados. Você precisa concluir quatro etapas básicas para usar a autenticação de token do Azure AD:
 
 1. Registre seu aplicativo no Azure Active Directory e obtenha o ID do cliente para o seu código.
 2. Criar um usuário de banco de dados que representa o aplicativo. (Concluída anteriormente na etapa 6).

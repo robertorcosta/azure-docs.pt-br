@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/21/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: d08ce1c382d173ac98a0e61e6117ed50b958ba44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c733538a4e730a95008a8ec1e4d50c20d6ce24ec
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76119798"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420772"
 ---
-# <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell-preview"></a>Atualize um aplicativo IPv4 para IPv6 na rede virtual Azure - PowerShell (Preview)
+# <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell"></a>Atualize um aplicativo IPv4 para IPv6 na rede virtual Azure - PowerShell
 
 Este artigo mostra como adicionar conectividade IPv6 a um aplicativo IPv4 existente em uma rede virtual Azure com um Balanceador de Carga Padrão e IP público. A atualização no local inclui:
 - Espaço de endereço IPv6 para a rede virtual e sub-rede
@@ -28,8 +28,7 @@ Este artigo mostra como adicionar conectividade IPv6 a um aplicativo IPv4 existe
 - VMs com NICs que possuem uma configuração IPv4 + IPv6
 - IPv6 Public IP para que o balanceador de carga tenha conectividade IPv6 voltada para a Internet
 
-> [!Important]
-> O suporte ao IPv6 para a Rede Virtual Azure está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -37,27 +36,6 @@ Se você optar por instalar e usar o PowerShell localmente, este artigo requer a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="register-the-service"></a>Registre o serviço
-
-Antes de implantar um aplicativo de pilha dupla no Azure, você deve configurar sua assinatura para este recurso de visualização usando o seguinte Azure PowerShell:
-
-Registre-se da seguinte forma:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-Demora até 30 minutos para a conclusão do registro de recursos. Você pode verificar seu status de registro executando o seguinte comando Azure PowerShell: Verifique o registro da seguinte forma:
-```azurepowershell
-Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-Após a conclusão do registro, execute o seguinte comando:
-
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-### <a name="create-a-standard-load-balancer"></a>Criar um Balanceador de Carga Standard
 Este artigo pressupõe que você implantou um Balancer de Carga Padrão como descrito no [Quickstart: Crie um Balancer de Carga Padrão - Azure PowerShell](../load-balancer/quickstart-create-standard-load-balancer-powershell.md).
 
 ## <a name="retrieve-the-resource-group"></a>Recuperar o grupo de recursos
@@ -176,10 +154,9 @@ Você pode visualizar a rede virtual iPv6 dual stack no portal Azure da seguinte
 
   ![Rede virtual de pilha dupla IPv6 no Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
 
-> [!NOTE]
-> A rede virtual IPv6 for Azure está disponível no portal Azure apenas para esta versão de pré-visualização.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, você poderá usar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, a VM e todos os recursos relacionados.
 

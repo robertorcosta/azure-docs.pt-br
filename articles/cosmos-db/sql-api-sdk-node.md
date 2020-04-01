@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: de1c1b93b813f71b321da0625bc60e0762a859c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 181f43e060e3b4b41babeee375365a97e1d224aa
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70207963"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411280"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Node.js do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "70207963"
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [Resto](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Executor a granel - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -318,7 +318,7 @@ Nem sempre as mudanças mais visíveis, mas ajudam nossa equipe a enviar melhor 
 ### <a name=""></a><a name="1.11.0"/>1.11.0</a>
 * Adição do suporte para consultas de agregação (COUNT, MIN, MAX, SUM e AVG).
 * Adição da opção para controlar o grau de paralelismo em consultas de partição cruzada.
-* Adição da opção para desabilitar a verificação do SSL quando executada no Emulador do Azure Cosmos DB.
+* Adicionada a opção para desativar a verificação TLS ao executar contra o Azure Cosmos DB Emulador.
 * Taxa de transferência mínima reduzida em coleções particionadas de 10.100 RU/s a 2500 RU/s.
 * Correção do bug de token de continuação para a coleta de partição única. Problema nº 107 do GitHub.
 * Correção do bug executeStoredProcedure no tratamento de 0 como parâmetro único. Problema nº 155 do GitHub.
@@ -328,7 +328,7 @@ Nem sempre as mudanças mais visíveis, mas ajudam nossa equipe a enviar melhor 
 * Limpeza de código secundária.
 
 ### <a name=""></a><a name="1.10.1"/>1.10.1</a>
-* Desabilitar verificação de SSL ao usar o SDK visando o emulator(hostname=localhost).
+* Desativar a verificação tls ao usar o SDK para direcionar o emulador (hostname=localhost).
 * Adicionado suporte para habilitar o registro em log de script durante a execução do procedimento armazenado.
 
 ### <a name=""></a><a name="1.10.0"/>1.10.0</a>

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: rogarana
-ms.openlocfilehash: deead728812a34c6f432f59666cd22ba79f5409e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: b7820bc3d1b14e87064e4120edcffb6762041db9
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281282"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411480"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Habilitar autenticação do Active Directory sobre SMB para compartilhamentos de arquivos Do Zure
 
@@ -67,11 +67,7 @@ A autenticação Azure Files AD (visualização) está disponível na [maioria d
 
 A autenticação AD do Azure Files não está disponível em:
 - Oeste dos EUA
-- Oeste dos EUA 2
-- Leste dos EUA
-- Leste dos EUA 2
-- Europa Ocidental
-- Norte da Europa
+
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
 
@@ -101,7 +97,7 @@ Para habilitar a autenticação de AD sobre smb para compartilhamentos de arquiv
 > [!IMPORTANT]
 > O `Join-AzStorageAccountForAuth` cmdlet fará modificações no seu ambiente AD. Leia a seguinte explicação para entender melhor o que está fazendo para garantir que você tenha as permissões adequadas para executar o comando e que as alterações aplicadas estejam alinhadas com as políticas de conformidade e segurança. 
 
-O `Join-AzStorageAccountForAuth` cmdlet executará o equivalente a uma adesão de domínio offline em nome da conta de armazenamento indicada. Ele criará uma conta no domínio do Seu D.A., uma conta de [computador](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) ou uma [conta de logon de serviço](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). A conta AD criada representa a conta de armazenamento no domínio AD. Se a conta AD for criada uma Unidade Organizacional AD (OU) que obriga o vencimento da senha, você deve atualizar a senha antes da idade máxima de senha. A não atualização da senha da conta AD resultará em falhas de autenticação ao acessar os compartilhamentos de arquivos do Azure. Para saber como atualizar a senha, consulte [Atualizar a senha da conta AD](#update-ad-account-password).
+O `Join-AzStorageAccountForAuth` cmdlet executará o equivalente a uma adesão de domínio offline em nome da conta de armazenamento indicada. Ele criará uma conta no domínio do Seu D.A., uma conta de [computador](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) ou uma [conta de logon de serviço](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). A conta AD criada representa a conta de armazenamento no domínio AD. Se a conta AD for criada sob uma Unidade Organizacional AD (OU) que obriga o vencimento da senha, você deve atualizar a senha antes da idade máxima de senha. A não atualização da senha da conta AD resultará em falhas de autenticação ao acessar os compartilhamentos de arquivos do Azure. Para saber como atualizar a senha, consulte [Atualizar a senha da conta AD](#update-ad-account-password).
 
 Você pode usar o script a seguir para executar o registro e habilitar o recurso ou, alternativamente, você pode executar manualmente as operações que o script faria. Essas operações são descritas na seção seguindo o script. Você não precisa fazer as duas coisas.
 
@@ -152,7 +148,7 @@ Primeiro, verifica seu ambiente. Especificamente, ele verifica se o [Active Dire
 
 Para criar essa conta manualmente, crie uma nova `New-AzStorageAccountKey -KeyName kerb1`chave kerberos para sua conta de armazenamento usando . Em seguida, use essa chave kerberos como a senha para sua conta. Esta chave só é usada durante a configuração e não pode ser usada para qualquer operação de controle ou plano de dados contra a conta de armazenamento.
 
-Depois de ter essa chave, crie uma conta de serviço ou computador o seu OU. Use a seguinte especificação: SPN: "cifs/your-storage-account-name-here.file.core.windows.net" Senha: Chave Kerberos para sua conta de armazenamento.
+Depois de ter essa chave, crie uma conta de serviço ou computador sob o seu OU. Use a seguinte especificação: SPN: "cifs/your-storage-account-name-here.file.core.windows.net" Senha: Chave Kerberos para sua conta de armazenamento.
 
 Se o seu OU forçar o vencimento da senha, você deve atualizar a senha antes da idade máxima de senha para evitar falhas de autenticação ao acessar compartilhamentos de arquivos do Azure. Consulte [a senha da conta Update AD](#update-ad-account-password) para obter detalhes.
 
@@ -202,7 +198,7 @@ Agora, você habilitou com sucesso a autenticação de AD sobre SMB e atribuiu u
 
 ## <a name="update-ad-account-password"></a>Atualizar a senha da conta AD
 
-Se você registrou a identidade/conta aD representando sua conta de armazenamento um OU que impõe o tempo de expiração da senha, você deve girar a senha antes da idade máxima de senha. A não atualização da senha da conta AD resultará em falhas de autenticação para acessar os compartilhamentos de arquivos do Azure.  
+Se você registrou a identidade/conta aD representando sua conta de armazenamento sob um OU que impõe o tempo de expiração da senha, você deve girar a senha antes da idade máxima de senha. A não atualização da senha da conta AD resultará em falhas de autenticação para acessar os compartilhamentos de arquivos do Azure.  
 
 Para ativar a rotação de `Update-AzStorageAccountADObjectPassword` senhas, você pode executar o comando a partir do módulo AzFilesHybrid. O cmdlet executa ações semelhantes à rotação da chave da conta de armazenamento. Ele recebe a segunda chave Kerberos da conta de armazenamento e usa-a para atualizar a senha da conta registrada em AD. Em seguida, ele regenera a chave Kerberos de destino da conta de armazenamento e atualiza a senha da conta registrada em AD. Você deve executar este cmdlet em um ambiente de adesão ao domínio AD.
 

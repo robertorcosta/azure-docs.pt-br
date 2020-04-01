@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 70e8bf95022f88dab54fa13769df4b051cf41c92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b55c351927a56afce697d07f41bfbe668144d68d
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247139"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475523"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -798,8 +798,8 @@ A guia Experimento no [novo portal do espaço de trabalho](https://ml.azure.com)
     + A exceção de que a coluna de carimbo de tempo não pode ser encontrada será descartada se a API relacionada a séries de horas for chamada sem a coluna de carimbo de tempo fina atribuída ou as colunas de carimbo de tempo atribuídas forem retiradas.
     + As colunas de séries de tempo devem ser atribuídas com a coluna cujo tipo é Data, caso contrário, espera-se exceção
     + Colunas de séries de tempo atribuindo a API 'with_timestamp_columns' podem levar nenhum nome de coluna de carimbo de tempo fino/grosseiro, que limpará colunas de carimbo de tempo previamente atribuídas.
-    + A exceção será descartada quando o grão grosso ou a coluna de carimbo de tempo em grão fino for descartada com indicação para o usuário de que a queda pode ser feita após a exclusão da coluna de carimbo de tempo na lista de queda ou a chamada with_time_stamp com nenhum valor para liberar o carimbo de tempo Colunas
-    + A exceção será descartada quando a coluna de grãos grossos ou de grão-de-relógio fino não estiver incluída na lista de colunas de manter com indicação para o usuário de que a manutenção pode ser feita após incluir a coluna de carimbo de tempo na lista de colunas ou with_time_stamp com Nenhum valor para liberar colunas de carimbo de tempo.
+    + A exceção será descartada quando o grão grosso ou a coluna de carimbo de tempo de grãofino fino for descartada com indicação para o usuário de que a queda pode ser feita após a exclusão da coluna de carimbo de tempo na lista de queda ou a chamada with_time_stamp com nenhum valor para liberar colunas de carimbo de tempo
+    + A exceção será descartada quando a coluna de grãos grossos ou de granulado fino não estiver incluída na lista de colunas de manutenção com indicação de que a manutenção pode ser feita após incluir a coluna de carimbo de tempo na lista de colunas ou with_time_stamp de chamada com nenhum valor para liberar colunas de carimbo de tempo.
     + Adicionado registro para o tamanho de um modelo registrado.
   + **azureml-explain-model**
     + Aviso fixo impresso no console quando o pacote python "embalagem" não estiver instalado: "Usando a versão mais antiga do lightgbm suportada, atualize para a versão maior que 2.2.1"
@@ -925,13 +925,13 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Interface atualizada para `RawDataContext` criar a para `AutoMLBaseSettings` exigir apenas os dados e o objeto.
     +  Permitir que os usuários do AutoML abandonem séries de treinamento que não são longas o suficiente durante a previsão. - Permitir que os usuários do AutoML soltem grãos do conjunto de testes que não existem no conjunto de treinamento suspreviamente previsto.
   + **azure-cli-ml**
-    + Agora você pode atualizar o certificado SSL para o ponto final de pontuação implantado no cluster AKS tanto para o certificado gerado pela Microsoft quanto para o certificado do cliente.
+    + Agora você pode atualizar o certificado TLS/SSL para o ponto final de pontuação implantado no cluster AKS tanto para o certificado gerado pela Microsoft quanto para o certificado do cliente.
   + **azureml-automl-core**
     + Corrigimos um problema no AutoML onde as linhas com etiquetas ausentes não foram removidas corretamente.
     + Registro de erros aprimorado no AutoML; mensagens de erro completas serão agora sempre escritas no arquivo de log.
     + O AutoML atualizou a `azureml-defaults`fixação do pacote para incluir , `azureml-explain-model`e `azureml-dataprep`. O AutoML não avisará mais sobre `azureml-train-automl` incompatibilidades de pacote (exceto para o pacote).
     + Corrigimos um `timeseries` problema em que as divisões de cv são de tamanho desigual, fazendo com que o cálculo do bin fracasse.
-    + Ao executar a iteração do conjunto para o tipo de treinamento de Validação Cruzada, se acabamos tendo problemas para baixar os modelos treinados em todo o conjunto de dados, estávamos tendo uma inconsistência entre os pesos do modelo e os modelos que estavam sendo alimentados na votação Conjunto.
+    + Ao executar a iteração do conjunto para o tipo de treinamento de Validação Cruzada, se acabamos tendo problemas para baixar os modelos treinados em todo o conjunto de dados, estávamos tendo uma inconsistência entre os pesos do modelo e os modelos que estavam sendo alimentados no conjunto de votação.
     + Corrigimos o erro, levantado quando os rótulos de treinamento e/ou validação (y e y_valid) são fornecidos na forma de dataframe pandas, mas não como matriz numpy.
     + Corrigimos o problema com as tarefas de previsão quando Nenhum foi encontrado nas colunas booleanas das tabelas de entrada.
     + Permitir que os usuários do AutoML abandonem séries de treinamento que não são longas o suficiente durante a previsão. - Permitir que os usuários do AutoML soltem grãos do conjunto de testes que não existem no conjunto de treinamento suspreviamente previsto.
@@ -956,7 +956,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Suportado importar arquivos HTTP csv/tsv no conjunto de dados Python SDK.
     + Preterido o método Workspace.setup(). A mensagem de aviso mostrada aos usuários sugere o uso de criar() ou obter()/from_config() em vez disso.
     + Adicionado Ambiente.add_private_pip_wheel(), que permite carregar pacotes de python personalizados privados `whl`para o espaço de trabalho e usá-los com segurança para construir/materializar o ambiente.
-    + Agora você pode atualizar o certificado SSL para o ponto final de pontuação implantado no cluster AKS tanto para o certificado gerado pela Microsoft quanto para o certificado do cliente.
+    + Agora você pode atualizar o certificado TLS/SSL para o ponto final de pontuação implantado no cluster AKS tanto para o certificado gerado pela Microsoft quanto para o certificado do cliente.
   + **azureml-explain-model**
     + Adicionado parâmetro para adicionar um ID de modelo às explicações no upload.
     + Adicionado `is_raw` marcação às explicações na memória e upload.
@@ -1122,7 +1122,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Corrigir bug no uso de InteractiveLoginAuthentication para mlflow tracking_uri
     + Melhore a utilização de recursos de corridas remotas usando azureml.mlflow.
     + Melhorar a documentação do pacote azureml-mlflow
-    + O bug de correção onde mlflow.log_artifacts(my_dir) salvaria artefatos my_dir/<caminhos de artefatos> em vez de <caminhos de artefatos>
+    + O bug de correção onde mlflow.log_artifacts("my_dir") salvaria artefatos sob "my_dir/<caminhos de artefatos>" em vez de "<caminhos de artefatos>"
   + **azureml-opendatasets**
     + `pyarrow` Pino `opendatasets` de versões antigas (<0.14.0) por causa do problema de memória recém-introduzido lá.
     + Mova conjuntos de dados abertos azureml-contrib para conjuntos de dados abertos azureml.
@@ -1877,7 +1877,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
   * log_table () e log_row () são suportados em detalhes da execução.
   * Crie automaticamente gráficos para tabelas e linhas com 1, 2 ou 3 colunas numéricas e uma coluna categórica opcional.
 
-+ **Automatizado de Machine Learning**
++ **Aprendizado automatizado de máquina**
   * Melhor tratamento e documentação de erros
   * Corrigidos problemas de desempenho de recuperação de propriedades de execução.
   * Fixo continuar a execução do problema.

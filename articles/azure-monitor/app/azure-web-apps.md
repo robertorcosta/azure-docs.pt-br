@@ -3,12 +3,12 @@ title: Monitorar desempenho dos serviços de aplicativos do Azure | Microsoft Do
 description: Monitoramento do desempenho de aplicativos para serviços de aplicativos do Azure. Mapeie o tempo de carga e o tempo de resposta, as informações de dependência e defina alertas sobre o desempenho.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 2ec503829d3e6edd7b2b6f6b36314db8a205a8cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2134e059a446c18108e8dd16bcc74504b42b15a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297615"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437162"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
@@ -28,7 +28,7 @@ Existem duas maneiras de habilitar o monitoramento de aplicativos para aplicativ
 
     * Essa abordagem é muito mais personalizável, mas requer [a adição de uma dependência dos pacotes SDK NuGet do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). Este método, também significa que você tem que gerenciar as atualizações para a versão mais recente dos pacotes você mesmo.
 
-    * Se você precisar fazer chamadas de API personalizadas para rastrear eventos/dependências não capturados por padrão com monitoramento baseado em agente, você precisará usar esse método. Confira a [API para eventos personalizados e artigo de métricas](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) para saber mais.
+    * Se você precisar fazer chamadas de API personalizadas para rastrear eventos/dependências não capturados por padrão com monitoramento baseado em agente, você precisará usar esse método. Confira a [API para eventos personalizados e artigo de métricas](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) para saber mais. Esta também é atualmente a única opção suportada para cargas de trabalho baseadas em Linux.
 
 > [!NOTE]
 > Se for detectado o monitoramento baseado em agente e a instrumentação manual baseada em SDK, apenas as configurações de instrumentação manual serão honradas. Isto é para evitar que dados duplicados sejam enviados. Para saber mais sobre isso, confira a [seção de solução de problemas](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) abaixo.

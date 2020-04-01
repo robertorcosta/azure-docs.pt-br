@@ -3,12 +3,12 @@ title: Backup de arquivos e pastas - perguntas comuns
 description: Aborda perguntas comuns sobre backup de arquivos e pastas com o Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: adcbf5c3b404de46634423f8f59c4798d44bebe0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55819ce7ec5196812d935a21c096c132144d78af
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273417"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421316"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas comuns sobre backup de arquivos e pastas
 
@@ -58,6 +58,10 @@ Os dados de backup são enviados para o datacenter do cofre no qual o servidor e
 
 Sim. O agente MARS converte os dados duplicados em dados normais quando prepara a operação de backup. Em seguida, otimiza os dados para backup, criptografa os dados e, em seguida, envia os dados criptografados para o cofre.
 
+### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>Preciso de permissões do administrador para instalar e configurar o agente MARS?
+
+Sim, a instalação do Agente MARS e a configuração de backups usando o console MARS precisam que o usuário seja um administrador local no servidor protegido.
+
 ## <a name="manage-backups"></a>Gerenciar backups
 
 ### <a name="what-happens-if-i-rename-a-windows-machine-configured-for-backup"></a>O que acontece se eu renomear uma máquina Windows configurada para backup?
@@ -81,7 +85,7 @@ O agente MARS conta com NTFS e permite [caracteres suportados](/windows/desktop/
 Esse aviso pode aparecer mesmo que você tenha configurado uma diretiva de backup, quando as configurações de agendamento de backup armazenadas no servidor local não são as mesmas que as configurações armazenadas no cofre de backup.
 
 * Quando o servidor ou as configurações forem recuperados para um estado bom conhecido, os horários de backup podem ser dessincronizados.
-* Se você receber esse aviso, [configure](backup-azure-manage-windows-server.md) a diretiva de backup novamente e execute um backup demanda para ressincronizar o servidor local com o Azure.
+* Se você receber esse aviso, [configure](backup-azure-manage-windows-server.md) a diretiva de backup novamente e execute um backup sob demanda para ressincronizar o servidor local com o Azure.
 
 ## <a name="manage-the-backup-cache-folder"></a>Gerenciar a pasta de cache de backup
 

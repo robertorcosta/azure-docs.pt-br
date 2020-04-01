@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b0b9d62e8761cfb67d0642d8e5a97e7d1f05af12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0a5e89f256b562ce5f702e9ff1388cb4d021bf5
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064444"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437686"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos históricos
 
@@ -37,37 +37,48 @@ Siga estas etapas:
 > [!NOTE]
 > Você deve ser um administrador para fazer as seguintes etapas.
 
-1. Baixe o [arquivo zip](https://aka.ms/farmbeatspartnerscriptv2)e extraia-o para a sua unidade local. Haverá um arquivo dentro do arquivo zip.
+1. Entrar no https://portal.azure.com/.
 
-2. Faça login https://portal.azure.com/ e vá para os registros do > **aplicativo**do **diretório ativo do Azure**.
+2. **Se você estiver na versão 1.2.7 ou posterior do FarmBeats, pule os passos a, b e c e vá para a etapa 3.** Você pode verificar a versão FarmBeats selecionando o ícone **Configurações** no canto superior direito da UI FarmBeats.
 
-3. Selecione o **Registro de Aplicativo** criado como parte de sua implantação do FarmBeats. Ele terá o mesmo nome do seu FarmBeats Datahub.
+      a.  Acesse os registros do > **aplicativo** do diretório ativo **do Azure**
 
-4. Selecione **Expor uma API** > Selecionar **Adicionar um aplicativo cliente** e digitar **04b07795-8ddb-461a-bbee-02f9e1bf7b46** e verificar **escopo de autorização**. Isso dará acesso ao Azure CLI (Cloud Shell) para executar as seguintes etapas:
+      b. Selecione o **Registro de Aplicativo** criado como parte de sua implantação do FarmBeats. Ele terá o mesmo nome do seu datahub FarmBeats.
 
-5. Abra o Azure Cloud Shell. Esta opção está disponível na barra de ferramentas no canto superior direito do portal Azure.
+      c. Selecione **Expor uma API** > selecionar **Adicionar um aplicativo cliente** e digitar **04b07795-8ddb-461a-bbee-02f9e1bf7b46** e verificar **escopo de autorização**. Isso dará acesso ao Azure CLI (Cloud Shell) para executar as etapas abaixo:
+
+3. Abra o Azure Cloud Shell. Esta opção está disponível na barra de ferramentas no canto superior direito do portal Azure.
 
     ![Barra de ferramentas do portal Azure](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-6. Certifique-se de que o ambiente está definido como **PowerShell**. Por padrão, está definido para Bash.
+4. Certifique-se de que o ambiente está definido como **PowerShell**. Por padrão, está definido para Bash.
 
     ![Configuração da barra de ferramentas PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-7. Faça o upload do arquivo da etapa 1 na instância do Cloud Shell.
+5. Vá para o seu diretório doméstico.
 
-    ![Carregar botão de barra de ferramentas](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+    ```azurepowershell-interactive 
+    cd  
+    ```
 
-8. Vá para o diretório onde o arquivo foi carregado. Por padrão, os arquivos são carregados para o diretório inicial o nome de usuário.
+6. Execute o comando a seguir. Isso baixará um script para o seu diretório inicial.
 
-9. Execute o seguinte script. O script pede o ID do Inquilino, que pode ser obtido na**página Visão Geral**do Diretório > Ativo do **Azure**.
+    ```azurepowershell-interactive 
 
-    ```azurepowershell-interactive
+    wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
+
+    ```
+
+7. Execute o seguinte script. O script pede o ID do Inquilino, que pode ser obtido na página > **Visão Geral** do Diretório Ativo do **Azure.**
+
+    ```azurepowershell-interactive 
 
     ./generatePartnerCredentials.ps1   
 
     ```
 
-10. Siga as instruções na tela para capturar os valores de **API Endpoint,** **ID do inquilino,** **ID do cliente,** **Client Secret**e **EventHub Connection String**.
+8. Siga as instruções na tela para capturar os valores de **API Endpoint,** **ID do inquilino,** **ID do cliente,** **Client Secret**e **EventHub Connection String**.
+
 
 ## <a name="create-device-or-sensor-metadata"></a>Criar metadados de dispositivos ou sensores
 
@@ -108,8 +119,8 @@ Siga estas etapas:
 |     Productcode| Código do produto ou nome do modelo ou número. Por exemplo, RS-CO2-N01. |
 |       SensorMeasures > Nome       | Nome da medida do sensor. Apenas minúsculas são suportadas. Para medições de diferentes profundidades, especifique a profundidade. Por exemplo, soil_moisture_15cm. Este nome deve ser consistente com os dados de telemetria.  |
 |          SensorMeasures > DataType       |Tipo de dados de telemetria. Atualmente, o dobro é suportado.|
-|    SensorMeasures > Type    |Tipo de medição dos dados de telemetria do sensor. Os tipos definidos pelo sistema são AmbientTemperature, CO2, Depth, ElectricConductivity, LeafWetness, Length, LiquidLevel, Nitrato, O2, PH, Fosfato, PointInTime, Potássio, Pressão, RainGauge, Umidade Relativa, Salinidade, Umidade do Solo, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Para adicionar mais, consulte a API /ExtendedType.|
-|        Unidade de > sensores medidas              | Unidade de dados de telemetria de sensores. As unidades definidas pelo sistema são NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercúrio, PSI, Milímetro, Centimeter, Medidor de Polegada, Pés, Milha, Quilometria, MilhasPor Hora, MilhasPorSegundo, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquare MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricionContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour Para adicionar mais, consulte a API /ExtendedType.|
+|    SensorMeasures > Type    |Tipo de medição dos dados de telemetria do sensor. Os tipos definidos pelo sistema são AmbientTemperature, CO2, Depth, ElectricConductivity, LeafWetness, Length, LiquidLevel, Nitrato, O2, PH, Fosfato, PointInTime, Potássio, Pressão, RainGauge, Umidade Relativa, Salinidade, Umidade do Solo, Temperatura do Solo, SolarIdade, Estado, Tempo, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiração, PAR. Para adicionar mais, consulte a API /ExtendedType.|
+|        Unidade de > sensores medidas              | Unidade de dados de telemetria de sensores. As unidades definidas pelo sistema são NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour Para adicionar mais, consulte o /ExtendedTypeAPI.|
 |    SensorMeasures > AgregaationType    |  Os valores não podem ser nenhum, médio, máximo, mínimo ou Desvio Padrão.  |
 |          Nome            | Nome para identificar um recurso. Por exemplo, o nome do modelo ou o nome do produto.  |
 |    Descrição        | Forneça uma descrição significativa do modelo.|
@@ -351,11 +362,11 @@ Converta o formato histórico de dados do sensor em um formato canônico que o A
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<values>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }
@@ -429,11 +440,11 @@ Aqui está um exemplo de uma mensagem de telemetria:
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: e62f6f8df51c6acf4e2ad8e28e431d264c2c99e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a4ae2932f8d294ecf71de0ae405204a1f4d7b4d
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037239"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436937"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usar o Armazenamento do Azure com clusters HDInsight
 
@@ -40,7 +40,7 @@ O compartilhamento de um recipiente blob como o sistema de arquivos padrão para
 
 ## <a name="access-files-from-within-cluster"></a>Arquivos de acesso de dentro do cluster
 
-Há várias maneiras de acessar os arquivos no Data Lake Storage em um cluster HDInsight. O esquema de URI fornece acesso sem criptografia (com o prefixo *wasb:*) e acesso criptografado SSL (com *wasbs*). Recomendamos usar *wasbs* sempre que possível, mesmo ao acessar dados que residem dentro da mesma região do Azure.
+Há várias maneiras de acessar os arquivos no Data Lake Storage em um cluster HDInsight. O esquema URI fornece acesso não criptografado (com o *wasb:* prefixo) e acesso criptografado TLS (com *wasbs*). Recomendamos usar *wasbs* sempre que possível, mesmo ao acessar dados que residem dentro da mesma região do Azure.
 
 * **Usando o nome totalmente qualificado**. Com essa abordagem, é necessário fornecer o caminho completo para o arquivo que você deseja acessar.
 
@@ -128,8 +128,8 @@ A Microsoft fornece as seguintes ferramentas para trabalhar com o Azure Storage:
 
 | Ferramenta | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
-| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
+| [Portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [CLI do Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
 

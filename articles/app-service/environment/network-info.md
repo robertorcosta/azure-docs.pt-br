@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fb931c309b5f85902d8abc9cc6da45576bff4041
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4aec7fa78292f224952dd2ae929d2b8bfd97ab9b
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259819"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477679"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente do Serviço de Aplicativo #
 
@@ -138,7 +138,7 @@ Todos esses endereços IP são visíveis no portal Azure da UI ASE. Se você tiv
 
 ### <a name="app-assigned-ip-addresses"></a>Endereços IP atribuídos ao aplicativo ###
 
-Com um ASE externo, você pode atribuir endereços IP a aplicativos individuais. Você não pode fazer isso com um ASE ILB. Para obter mais informações sobre como configurar seu aplicativo para ter seu próprio endereço IP, consulte [Proteger um nome DNS personalizado com uma vinculação SSL no Azure App Service](../configure-ssl-bindings.md).
+Com um ASE externo, você pode atribuir endereços IP a aplicativos individuais. Você não pode fazer isso com um ASE ILB. Para obter mais informações sobre como configurar seu aplicativo para ter seu próprio endereço IP, consulte [Proteger um nome DNS personalizado com uma vinculação TLS/SSL no Azure App Service](../configure-ssl-bindings.md).
 
 Quando um aplicativo tem seu próprio endereço SSL com base em IP, o ASE reserva duas portas para mapear para esse endereço IP. Uma porta é para o tráfego HTTP e a outra porta é para HTTPS. Essas portas estão listadas na interface de usuário do ASE na seção de endereços IP. O tráfego deverá ser capaz de alcançar essas portas do VIP ou os aplicativos ficarão inacessíveis. É importante lembrar-se desse requisito ao configurar NSGs (grupos de segurança de rede).
 
@@ -200,7 +200,7 @@ Para criar as mesmas rotas manualmente, siga estas etapas:
 
 3. De dentro da ui da tabela de rotas, selecione **'Adicionar** > **rotas'.**
 
-4. Defina o **Tipo do próximo salto** como **Internet** e o **Prefixo de endereço** como **0.0.0.0/0**. Selecione **Salvar**.
+4. Defina o **Tipo do próximo salto** como **Internet** e o **Prefixo de endereço** como **0.0.0.0/0**. Clique em **Salvar**.
 
     Então você verá algo semelhante ao que se segue:
 

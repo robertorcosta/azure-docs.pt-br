@@ -5,19 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 51b800dde140affd222f2bdb341c0fbf3a57d8cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 3/30/2020
+ms.openlocfilehash: 332feffead74174ba0b9b278d8de1c5957d5b9e6
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530148"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422466"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configure a replicação de dados no banco de dados Do zure para MariaDB
 
 Este artigo descreve como configurar a replicação de dados no Banco de Dados do Azure para MariaDB, configurando os servidores mestre e de réplica. Este artigo pressupõe que você tenha alguma experiência prévia com servidores e bancos de dados Do MariaDB.
 
 Para criar uma réplica no banco de dados do Azure para o serviço MariaDB, a Replicação de Dados sincroniza dados de um servidor Mestre MariaDB no local, em máquinas virtuais (VMs) ou em serviços de banco de dados em nuvem.
+
+Revise as [limitações e requisitos](concepts-data-in-replication.md#limitations-and-considerations) da replicação de Data-in antes de executar as etapas deste artigo.
 
 > [!NOTE]
 > Se o seu servidor mestre for a versão 10.2 ou mais recente, recomendamos que você configure a Replicação de Dados usando [o ID de transação global](https://mariadb.com/kb/en/library/gtid/).
@@ -36,11 +38,21 @@ Para criar uma réplica no banco de dados do Azure para o serviço MariaDB, a Re
     
     As contas de usuário não são replicadas do servidor mestre para o servidor de réplicas. Para fornecer acesso ao servidor de réplica, você deve criar manualmente todas as contas e privilégios correspondentes no recém-criado Banco de Dados Azure para o servidor MariaDB.
 
+3. Adicione o endereço IP do servidor mestre às regras de firewall da réplica. 
+
+   Atualizar regras de firewall usando o [Portal do Azure](howto-manage-firewall-portal.md) ou a [CLI do Azure](howto-manage-firewall-cli.md).
+
 ## <a name="configure-the-master-server"></a>Configurar o servidor mestre
 
 As etapas a seguir preparam e configuram o servidor MariaDB hospedado no local, em uma VM ou em um serviço de banco de dados em nuvem para replicação de dados. O servidor MariaDB é o mestre em Replicação de Dados.
 
-1. Ligue o registro binário.
+1. Revise os [requisitos](concepts-data-in-replication.md#requirements) do servidor mestre antes de prosseguir. 
+
+   Por exemplo, certifique-se de que o servidor mestre permite tráfego de entrada e saída na porta 3306 e que o servidor mestre tenha um **endereço IP público,** o DNS é acessível publicamente ou tem um nome de domínio totalmente qualificado (FQDN). 
+   
+   Teste a conectividade ao servidor mestre ao tentar conectar-se a partir de uma ferramenta como a linha de comando MySQL hospedada em outra máquina ou a partir do [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponível no portal Azure.
+
+2. Ligue o registro binário.
     
     Para ver se o registro binário está habilitado no mestre, digite o seguinte comando:
 
@@ -52,7 +64,7 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado no local, 
 
    Se `log_bin` devolver `OFF`o valor, edite o arquivo `log_bin=ON` **my.cnf** de modo que se acessa o registro binário. Reinicie o servidor para fazer com que a alteração faça efeito.
 
-2. Configure as configurações do servidor mestre.
+3. Configure as configurações do servidor mestre.
 
     A replicação de dados `lower_case_table_names` requer que o parâmetro seja consistente entre os servidores mestre e réplica. O `lower_case_table_names` parâmetro é `1` definido como padrão no Banco de Dados Azure para MariaDB.
 
@@ -60,7 +72,7 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado no local, 
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-3. Crie uma nova função de replicação e configure permissões.
+4. Crie uma nova função de replicação e configure permissões.
 
    Crie uma conta de usuário no servidor mestre configurada com privilégios de replicação. Você pode criar uma conta usando comandos SQL ou MySQL Workbench. Se você planeja replicar com SSL, você deve especificar isso ao criar a conta de usuário.
    
@@ -105,7 +117,7 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado no local, 
    ![Replicação subordinada](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Defina o servidor mestre para o modo somente leitura.
+5. Defina o servidor mestre para o modo somente leitura.
 
    Antes de despejar um banco de dados, o servidor deve ser colocado no modo somente leitura. Enquanto estiver no modo somente leitura, o mestre não pode processar nenhuma transação de gravação. Para ajudar a evitar o impacto nos negócios, agende a janela somente leitura durante um horário fora do pico.
 
@@ -114,7 +126,7 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado no local, 
    SET GLOBAL read_only = ON;
    ```
 
-5. Obtenha o nome e deslocamento do arquivo de log binário atual.
+6. Obtenha o nome e deslocamento do arquivo de log binário atual.
 
    Para determinar o nome e deslocamento do arquivo [`show master status`](https://mariadb.com/kb/en/library/show-master-status/)de log binário atual, execute o comando .
     
@@ -127,7 +139,7 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado no local, 
 
    Observe o nome do arquivo binário, porque ele será usado em etapas posteriores.
    
-6. Obtenha a posição GTID (opcional, necessária para a replicação com GTID).
+7. Obtenha a posição GTID (opcional, necessária para a replicação com GTID).
 
    Execute a [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) função para obter a posição GTID para o nome do arquivo binlog correspondente e deslocamento.
   
@@ -196,7 +208,7 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado no local, 
 
        ```sql
        SET @cert = '-----BEGIN CERTIFICATE-----
-       PLACE YOUR PUBLIC KEY CERTIFICATE'S CONTEXT HERE
+       PLACE YOUR PUBLIC KEY CERTIFICATE\'S CONTEXT HERE
        -----END CERTIFICATE-----'
        ```
 
