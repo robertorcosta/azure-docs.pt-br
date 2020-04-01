@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: ec1507e09a183f8d466a456b70151861f5f0e82c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e79f4c791d0252c719846da3aa8024b0e622dca
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159431"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477010"
 ---
 # <a name="load-balancer-health-probes"></a>Investigações de integridade do Load Balancer
 
@@ -66,7 +66,7 @@ Os valores de tempo e intervalo especificados determinam se uma instância será
 
 Podemos ilustrar ainda mais o comportamento com um exemplo. Se você tiver definido o número de respostas do teste para 2 e o intervalo para 5 segundos, isso significa que 2 falhas de tempo de intervalo do teste devem ser observadas dentro de um intervalo de 10 segundos.  Como o tempo em que um teste é enviado não é sincronizado quando seu aplicativo pode alterar o estado, podemos limitar o tempo para detectar por dois cenários:
 
-1. Se o aplicativo começar a produzir uma resposta de teste de tempo limite pouco antes da chegada do primeiro teste, a detecção desses eventos levará 10 segundos (intervalos de 2 x 5 segundos) mais a duração do aplicativo começando a sinalizar um tempo limite para quando o primeiro sonda chega.  Você pode assumir que esta detecção levará pouco mais de 10 segundos.
+1. Se o aplicativo começar a produzir uma resposta de teste de tempo limite pouco antes da chegada do primeiro teste, a detecção desses eventos levará 10 segundos (intervalos de 2 x 5 segundos) mais a duração do aplicativo começando a sinalizar um tempo limite para quando a primeira sonda chegar.  Você pode assumir que esta detecção levará pouco mais de 10 segundos.
 2. Se o aplicativo começar a produzir uma resposta de teste de tempo limite logo após a chegada do primeiro teste, a detecção desses eventos não começará até que a próxima sonda chegue (e aintervalo) mais 10 segundos (intervalos de 2 x 5 segundos).  Você pode assumir que esta detecção leva pouco menos de 15 segundos.
 
 Para este exemplo, uma vez que a detecção tenha ocorrido, a plataforma levará um pequeno tempo para reagir a essa mudança.  Isso significa que, dependendo de 
@@ -76,7 +76,10 @@ Para este exemplo, uma vez que a detecção tenha ocorrido, a plataforma levará
 3. quando a detecção foi comunicada através da plataforma 
 
 você pode assumir que a reação a uma resposta de teste de tempo limite levará entre um mínimo de pouco mais de 10 segundos e um máximo de pouco mais de 15 segundos para reagir a uma mudança no sinal do aplicativo.  Este exemplo é fornecido para ilustrar o que está ocorrendo, no entanto, não é possível prever uma duração exata além da orientação áspera acima ilustrada neste exemplo.
- 
+
+>[!NOTE]
+>A sonda de saúde sondará todas as instâncias em execução no pool de backend. Se uma instância for interrompida, ela não será sondada até que seja reiniciada.
+
 ## <a name="probe-types"></a><a name="types"></a>Tipos de investigações
 
 O protocolo utilizado pela sonda de saúde pode ser configurado para um dos seguintes:

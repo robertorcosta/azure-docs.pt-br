@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 1ddbc8e909c5ba0b720e893e87c0f495d256a886
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7b38ad40977e1042032210d3a82a73ff6169adc
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279150"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411054"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Registros de saúde e diagnóstico de back-end para gateway de aplicativos
 
@@ -91,14 +91,14 @@ O seguinte snippet mostra um exemplo da resposta:
 }
 ```
 
-## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Registros de diagnóstico
+## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Logs de diagnóstico
 
 Você pode usar tipos diferentes de logs no Azure para gerenciar e solucionar problemas de gateways de aplicativo. Você pode acessar alguns desses logs por meio do portal. Todos os logs podem ser extraídos de um Armazenamento de blobs do Azure e exibidos em diferentes ferramentas, como [logs do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), Excel e Power BI. Saiba mais sobre os tipos diferentes de logs na lista a seguir:
 
 * **Log de atividades**: você pode usar os [logs de atividades do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecidos como logs operacionais e logs de auditoria) para exibir todas as operações que estão sendo enviadas à sua assinatura do Azure, bem como seu status. As entradas do log de atividades são coletadas por padrão e podem ser exibidas no portal do Azure.
-* **Log de acesso**: Você pode usar este registro para visualizar padrões de acesso do Application Gateway e analisar informações importantes. Isso inclui o IP do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. Um registro de acesso é coletado a cada 300 segundos. Esse log contém um registro por instância do Gateway de Aplicativo. A instância do Gateway de Aplicativo é identificada pela propriedade instanceId.
+* **Log de acesso**: Você pode usar este registro para visualizar padrões de acesso do Application Gateway e analisar informações importantes. Isso inclui o IP do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. Um registro de acesso é coletado a cada 60 segundos. Esse log contém um registro por instância do Gateway de Aplicativo. A instância do Gateway de Aplicativo é identificada pela propriedade instanceId.
 * **Log de desempenho**: você pode usar esse log para exibir o desempenho das instâncias do Gateway de Aplicativo. Esse log captura informações de desempenho de cada instância, incluindo o total de solicitações atendidas, a vazão de dados em bytes, o total de solicitações atendidas, a contagem de solicitações com falha e a contagem de instâncias de back-end íntegras ou não íntegras. Um log de desempenho é coletado a cada 60 segundos. O registro performance está disponível apenas para o V1 SKU. Para o V2 SKU, use [Métricas](application-gateway-metrics.md) para dados de desempenho.
-* **Logs de firewall**: use esse log para exibir as solicitações registradas por meio do modo de detecção ou prevenção de um gateway de aplicativo configurado com o firewall do aplicativo Web.
+* **Logs de firewall**: use esse log para exibir as solicitações registradas por meio do modo de detecção ou prevenção de um gateway de aplicativo configurado com o firewall do aplicativo Web. Os registros de firewall são coletados a cada 60 segundos. 
 
 > [!NOTE]
 > Os logs estão disponíveis apenas para os recursos implantados no modelo de implantação do Azure Resource Manager. Você não pode usar logs para recursos do modelo de implantação clássico. Para obter um melhor entendimento dos dois modelos, consulte o artigo [Noções básicas sobre a implantação do Resource Manager e a implantação clássica](../azure-resource-manager/management/deployment-models.md).

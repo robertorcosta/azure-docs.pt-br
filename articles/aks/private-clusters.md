@@ -4,12 +4,12 @@ description: Saiba como criar um cluster aks (AKS) privado do Azure Kubernetes S
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: cdefcfe460a97f647afa05947e92fae0c4d07001
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87f52c5a749b531e5b0656e0b30ff0fe9c1a57bf
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79499293"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398063"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Crie um cluster privado de serviços Azure Kubernetes
 
@@ -80,6 +80,18 @@ Como mencionado, o peering VNet é uma maneira de acessar seu cluster privado. P
 7. No painel esquerdo, selecione **Peerings**.  
 8. Selecione **Adicionar,** adicionar a rede virtual da VM e, em seguida, criar o peering.  
 9. Vá para a rede virtual onde você tem a VM, selecione **Peerings,** selecione a rede virtual AKS e, em seguida, crie o peering. Se o endereço for deacordo com a rede virtual AKS e o confronto da rede virtual da VM, o peering falhará. Para obter mais informações, consulte [Peering de rede virtual][virtual-network-peering].
+
+## <a name="hub-and-spoke-with-custom-dns"></a>Hub e falou com DNS personalizado
+
+[Arquiteturas hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) são comumente usadas para implantar redes no Azure. Em muitas dessas implantações, as configurações de DNS nos VNets falados são configuradas para referenciar um encaminhador central de DNS para permitir a resolução dns no local e no Azure. Ao implantar um cluster AKS em um ambiente de rede, existem algumas considerações especiais que devem ser levadas em consideração.
+
+![Hub de cluster privado e falou](media/private-clusters/aks-private-hub-spoke.png)
+
+1. Por padrão, quando um cluster privado é provisionado, um ponto final privado (1) e uma zona DNS privada (2) são criados no grupo de recursos gerenciados por cluster. O cluster usa um registro A na região privada para resolver o IP do ponto final privado para comunicação com o servidor de API.
+
+2. A região DeDN privada está vinculada apenas ao VNet ao que os nós de cluster estão conectados (3). Isso significa que o ponto final privado só pode ser resolvido por hosts nesse VNet vinculado. Em cenários em que nenhum DNS personalizado é configurado no VNet (padrão), isso funciona sem problema como ponto de hosts em 168.63.129.16 para DNS que pode resolver registros na zona DNS privada devido ao link.
+
+3. Em cenários em que o VNet que contém seu cluster tem configurações de DNS personalizadas (4), a implantação do cluster falha a menos que a zona DNS privada esteja vinculada ao VNet que contém os resolvers DNS personalizados (5). Este link pode ser criado manualmente após a criação da zona privada durante o provisionamento de clusters ou via automação após a detecção da criação da região usando a Diretiva Azure ou outros mecanismos de implantação baseados em eventos (por exemplo, Azure Event Grid e Azure Functions).
 
 ## <a name="dependencies"></a>Dependências  
 

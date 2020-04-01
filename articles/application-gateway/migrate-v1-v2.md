@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 9909c46015fffb3bea3eef094599312e28b935c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96f3825288846e86771ef3907eb4da4e58630df3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77046191"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475181"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrar Gateway de aplicativos do Azure e firewall de aplicativos web de v1 para v2
 
@@ -40,6 +40,7 @@ Um script Do Azure PowerShell está disponível que faz o seguinte:
 * Se você tiver o modo FIPS ativado para o gateway V1, ele não será migrado para o seu novo gateway v2. O modo FIPS não é suportado em v2.
 * v2 não suporta IPv6, então os gateways V1 habilitados para IPv6 não são migrados. Se você executar o script, ele pode não completar.
 * Se o gateway v1 tiver apenas um endereço IP privado, o script criará um endereço IP público e um endereço IP privado para o novo gateway v2. Atualmente, os gateways v2 não suportam apenas endereços IP privados.
+* Cabeçalhos com nomes que contenham qualquer coisa que não seja letras, dígitos, hífens e sublinhados não são passados para o seu aplicativo. Isso só se aplica a nomes de cabeçalho, não a valores de cabeçalho. Esta é uma mudança de quebra de v1.
 
 ## <a name="download-the-script"></a>Baixe o script
 
@@ -179,7 +180,7 @@ Sim.
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-v1-gateway-to-the-newly-created-v2-gateway"></a>O script Azure PowerShell também alterna o tráfego do meu gateway v1 para o gateway v2 recém-criado?
 
-Não. O script Azure PowerShell migra apenas a configuração. A migração real do tráfego é sua responsabilidade e está seu controle.
+Não. O script Azure PowerShell migra apenas a configuração. A migração real do tráfego é sua responsabilidade e está sob seu controle.
 
 ### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>O novo gateway v2 é criado pelo script Azure PowerShell de tamanho apropriado para lidar com todo o tráfego que é atualmente servido pelo meu gateway v1?
 

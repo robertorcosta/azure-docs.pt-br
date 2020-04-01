@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 25e2b488d3b6e7e5cabd1a71d1489efaf01231b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0383a512dfb7c2bb1ae2422b9ade1e3c7387a70c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73748540"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478312"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solucionar problemas do servidor de configuração
 
@@ -42,7 +42,7 @@ O computador de origem se registra no servidor de configuração quando você in
     3. Verifique se as pastas listadas em [Exclusões de pasta do Site Recovery de programas antivírus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) foram excluídas do software antivírus.
     4. Após solucionar os problemas de rede, repita o registro seguindo as diretrizes apresentadas em [Registrar o computador de origem no servidor de configuração](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-6. Se a solicitação de postagem de **string: (7) - Não foi possível conectar-se ao servidor** não for encontrado, no mesmo arquivo de log, procure a solicitação de **string: (60) - O certificado peer não pode ser autenticado com certificados CA dados**. Esse erro pode ocorrer porque o certificado do servidor de configuração expirou ou o computador de origem não oferece suporte a TLS 1.0 ou a protocolos SSL mais recentes. Tal erro também pode ocorrer se um firewall bloquear a comunicação SSL entre o computador de origem e o servidor de configuração. Se a cadeia de caracteres for encontrada, 
+6. Se a solicitação de postagem de **string: (7) - Não foi possível conectar-se ao servidor** não for encontrado, no mesmo arquivo de log, procure a solicitação de **string: (60) - O certificado peer não pode ser autenticado com certificados CA dados**. Esse erro pode ocorrer porque o certificado de servidor de configuração expirou ou a máquina de origem não suporta protocolos TLS 1.0 ou posteriores. Também pode ocorrer se um firewall bloquear a comunicação TLS entre a máquina de origem e o servidor de configuração. Se a cadeia de caracteres for encontrada, 
     1. para resolver o problema, conecte-se ao endereço IP do servidor de configuração usando um navegador da Web no computador de origem. Use a URI https:\/\/<endereço IP do servidor de configuração\>:443/. Verifique se o computador de origem é capaz de acessar o servidor de configuração usando a porta 443.
     2. Confira se alguma regra de firewall no computador de origem precisa ser adicionada ou removida para que esse computador se comunique com o servidor de configuração. Em razão da variedade de softwares de firewall que pode estar sendo usada, não é possível listar todas as configurações de firewall necessárias. Atue em conjunto com os administradores de rede para desbloquear quaisquer problemas de conexão.
     3. Verifique se as pastas listadas em [Exclusões de pasta do Site Recovery de programas antivírus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) foram excluídas do software antivírus.  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: b2b34a6fdf96613c5bc372e585598fabbe43d53d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8767a6ee6218223280ea6219e22540c53d1e89be
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066616"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409111"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Pré-requisitos comuns para implantação da Plataforma de Contêineres OpenShift 3.11 no Azure
 
@@ -143,15 +143,15 @@ Para obter mais informações sobre entidades de serviço, confira [Criar entida
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Pré-requisitos aplicáveis apenas ao modelo de Gerenciador de Recursos
 
-Os segredos precisarão ser criados para a chave privada SSH **(sshPrivateKey),** o segredo do cliente Azure AD **(aadClientSecret),** a senha de administrador do OpenShift **(openshiftPassword)** e a senha ou chave de ativação do Red Hat Subscription Manager **(rhsmPasswordOrActivationKey).**  Além disso, se os certificados SSL personalizados forem usados, então seis segredos adicionais precisarão ser criados - **roteamento,** **roteamento,** **arquivo de tecla de roteamento,** **arquivo de mastercafile,** **mastercertfile**e **arquivo masterkey.**  Esses parâmetros serão explicados com mais detalhes.
+Os segredos precisarão ser criados para a chave privada SSH **(sshPrivateKey),** o segredo do cliente Azure AD **(aadClientSecret),** a senha de administrador do OpenShift **(openshiftPassword)** e a senha ou chave de ativação do Red Hat Subscription Manager **(rhsmPasswordOrActivationKey).**  Além disso, se forem usados certificados TLS/SSL personalizados, seis segredos adicionais precisarão ser criados - **roteamento,** **roteamento,** **arquivo de roteamento, arquivo de teclas de roteamento,** **mastercafile,** **mastercertfile**e **masterkeyfile**.  Esses parâmetros serão explicados com mais detalhes.
 
 O modelo faz referência a nomes secretos específicos, então você **deve** usar os nomes em negrito listados acima (sensível ao caso).
 
 ### <a name="custom-certificates"></a>Certificados personalizados
 
-Por padrão, o modelo implantará um cluster OpenShift usando certificados auto-assinados para o console web OpenShift e o domínio de roteamento. Se você quiser usar certificados SSL personalizados, defina 'roteamentoCertType' como 'personalizado' e 'masterCertType' como 'personalizado'.  Você precisará dos arquivos CA, Cert e Key no formato .pem para os certificados.  É possível usar certificados personalizados para um, mas não para o outro.
+Por padrão, o modelo implantará um cluster OpenShift usando certificados auto-assinados para o console web OpenShift e o domínio de roteamento. Se você quiser usar certificados TLS/SSL personalizados, defina 'roteamentoCertType' como 'personalizado' e 'masterCertType' como 'personalizado'.  Você precisará dos arquivos CA, Cert e Key no formato .pem para os certificados.  É possível usar certificados personalizados para um, mas não para o outro.
 
-Você precisará armazenar esses arquivos em segredos do Key Vault.  Use o mesmo Cofre de Chaves que o usado para a chave privada.  Em vez de exigir 6 entradas adicionais para os nomes secretos, o modelo é codificado para usar nomes secretos específicos para cada um dos arquivos de certificado SSL.  Armazene os dados do certificado usando as informações da tabela a seguir.
+Você precisará armazenar esses arquivos em segredos do Key Vault.  Use o mesmo Cofre de Chaves que o usado para a chave privada.  Em vez de exigir 6 entradas adicionais para os nomes secretos, o modelo é codificado para usar nomes secretos específicos para cada um dos arquivos de certificado TLS/SSL.  Armazene os dados do certificado usando as informações da tabela a seguir.
 
 | Nome Secreto      | Arquivo de certificado   |
 |------------------|--------------------|

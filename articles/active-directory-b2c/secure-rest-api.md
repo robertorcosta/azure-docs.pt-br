@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aa2e2fb4eb6e269f45494db6d87eef40182971a2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 37d1c181c18f69c040040da2be138eaad3a61693
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346941"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396850"
 ---
 # <a name="secure-your-restful-services"></a>Proteja seus serviços RESTful 
 
@@ -43,7 +43,7 @@ A autenticação básica HTTP é definida no [RFC 2617](https://tools.ietf.org/h
 
 Para configurar um perfil técnico da API REST com autenticação básica HTTP, crie as seguintes chaves criptográficas para armazenar o nome de usuário e a senha:
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Certifique-se de que está usando o diretório que contém seu inquilino Azure AD B2C. Selecione o filtro **de assinatura Diretório +** no menu superior e escolha o diretório Azure AD B2C.
 1. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 1. Na página de Visão Geral, selecione **Estrutura de Experiência de Identidade**.
@@ -132,7 +132,7 @@ Para ambientes não de produção, se você ainda não tiver um certificado, voc
 
 ### <a name="add-a-client-certificate-policy-key"></a>Adicione uma chave de política de certificado suinoto
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Certifique-se de que está usando o diretório que contém seu inquilino Azure AD B2C. Selecione o filtro **de assinatura Diretório +** no menu superior e escolha o diretório Azure AD B2C.
 1. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 1. Na página de Visão Geral, selecione **Estrutura de Experiência de Identidade**.
@@ -186,6 +186,8 @@ A seguir, um exemplo de um perfil técnico RESTful configurado com um certificad
 
 ## <a name="oauth2-bearer-authentication"></a>Autenticação do portador OAuth2 
 
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
+
 A autenticação do token do portador é definida no [OAuth2.0 Authorization Framework: Bearer Token Use (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). Na autenticação do token do portador, o Azure AD B2C envia uma solicitação HTTP com um token no cabeçalho de autorização.
 
 ```http
@@ -196,6 +198,7 @@ Um símbolo de portador é uma corda opaca. Pode ser um token de acesso JWT ou q
 
 - **Token do portador**. Para poder enviar o token do portador no perfil técnico Restful, sua política precisa primeiro adquirir o token do portador e, em seguida, usá-lo no perfil técnico RESTful.  
 - **Token de portador estático**. Use essa abordagem quando sua API REST emitir um token de acesso de longo prazo. Para usar um token portador estático, crie uma chave de política e faça uma referência do perfil técnico RESTful à sua chave de política. 
+
 
 ## <a name="using-oauth2-bearer"></a>Usando o Portador OAuth2  
 
@@ -303,7 +306,7 @@ Depois de adicionar os trechos acima, seu perfil técnico deve parecer o seguint
 
 Crie uma chave de política para armazenar o valor do token do portador.
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Certifique-se de que está usando o diretório que contém seu inquilino Azure AD B2C. Selecione o filtro **de assinatura Diretório +** no menu superior e escolha o diretório Azure AD B2C.
 1. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 1. Na página de Visão Geral, selecione **Estrutura de Experiência de Identidade**.

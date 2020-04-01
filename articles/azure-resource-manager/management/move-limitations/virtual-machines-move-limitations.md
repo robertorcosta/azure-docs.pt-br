@@ -2,13 +2,13 @@
 title: Mova as VMs do Azure para um novo grupo de assinatura ou recursos
 description: Use o Azure Resource Manager para mover máquinas virtuais para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
-ms.date: 10/10/2019
-ms.openlocfilehash: 97c49f90dab2aafd89de322e57ad44ff1fc9d367
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: df34268b7741f76621c290e9979cf24d828ddc09
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75479755"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478656"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Mova orientação para máquinas virtuais
 
@@ -27,18 +27,40 @@ Ainda não há suporte para os cenários a seguir:
 
 ## <a name="virtual-machines-with-azure-backup"></a>Máquinas virtuais com backup do Azure
 
-Para mover máquinas virtuais configuradas com o Backup do Azure, use a seguinte solução alternativa:
+Para mover máquinas virtuais configuradas com o Azure Backup, você deve excluir os pontos de restauração do cofre.
+
+Se [a exclusão suave](../../../backup/backup-azure-security-feature-cloud.md) estiver ativada para sua máquina virtual, você não poderá mover a máquina virtual enquanto esses pontos de restauração forem mantidos. Desabilite [a exclusão suave](../../../backup/backup-azure-security-feature-cloud.md#disabling-soft-delete) ou espere 14 dias após a exclusão dos pontos de restauração.
+
+### <a name="portal"></a>Portal
+
+1. Selecione a máquina virtual configurada para backup.
+
+1. No painel esquerdo, selecione **Backup**.
+
+1. Selecione **Stop backup**.
+
+1. Selecione **Excluir dados de volta**.
+
+1. Depois que a exclusão estiver concluída, você pode mover o cofre e a máquina virtual para a assinatura de destino. Após a mudança, você pode continuar backups.
+
+### <a name="powershell"></a>PowerShell
 
 * Localize o local de sua máquina virtual.
 * Localize um grupo de recursos com o seguinte padrão de nomenclatura: `AzureBackupRG_<location of your VM>_1` por exemplo, AzureBackupRG_westus2_1
-* Se estiver no portal do Azure, marque "Mostrar tipos ocultos"
 * Se estiver no PowerShell, use o cmdlet `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
+* Localize o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########`
+* Exclua este recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
+
+### <a name="azure-cli"></a>CLI do Azure
+
+* Localize o local de sua máquina virtual.
+* Localize um grupo de recursos com o seguinte padrão de nomenclatura: `AzureBackupRG_<location of your VM>_1` por exemplo, AzureBackupRG_westus2_1
 * Se estiver na CLI, use o `az resource list -g AzureBackupRG_<location of your VM>_1`
 * Localize o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Exclua este recurso. Esta operação exclui somente os pontos de recuperação instantânea, não os dados de backup no cofre.
-* Depois que a exclusão estiver concluída, você pode mover o cofre e a máquina virtual para a assinatura de destino. Após a movimentação, você poderá continuar backups sem perda de dados.
-* Para saber mais sobre como mover cofres do Serviço de Recuperação para o backup, veja [Limitações dos serviços de recuperação](../../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ver comandos para mover recursos, confira [Move resources to new resource group or subscription](../move-resource-group-and-subscription.md) (Mover recursos para o novo grupo de recursos ou assinatura).
+* Para ver comandos para mover recursos, confira [Move resources to new resource group or subscription](../move-resource-group-and-subscription.md) (Mover recursos para o novo grupo de recursos ou assinatura).
+
+* Para saber mais sobre como mover cofres do Serviço de Recuperação para o backup, veja [Limitações dos serviços de recuperação](../../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).

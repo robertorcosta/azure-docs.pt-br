@@ -4,12 +4,12 @@ description: Entenda como configurar e configurar o serviço proxy reverso para 
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 131440036896d323cbf821d7a220328456e1db36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e3edb0fe238dcaddb7d99cc68660591f081581c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645439"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476677"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Defina e configure o proxy reverso no Azure Service Fabric
 O proxy reverso é um serviço opcional no Azure Service Fabric que ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http. Para saber mais, confira [Proxy reverso no Azure Service Fabric](service-fabric-reverseproxy.md). Este artigo mostra como instalar e configurar o proxy reverso no cluster. 
@@ -23,7 +23,7 @@ Para configurar o proxy reverso ao [criar um cluster usando o portal do Azure](.
 1. Na **etapa 2: Configuração de Cluster**, em **configuração do tipo de nó**, selecione **Habilitar proxy reverso**.
 
    ![Habilitar proxy reverso por meio do portal](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (Opcional) Para configurar o proxy reverso seguro, você precisa configurar um certificado SSL. Na **Etapa 3: Segurança**, em **Definir configurações de segurança do cluster**, em **Tipo de configuração**, selecione **Personalizado**. Em seguida, em **Certificado SSL de Proxy reverso**, selecione **Incluir um certificado SSL para proxy reverso** e insira os detalhes do certificado.
+2. (Opcional) Para configurar um proxy reverso seguro, você precisa configurar um certificado TLS/SSL. Na **Etapa 3: Segurança**, em **Definir configurações de segurança do cluster**, em **Tipo de configuração**, selecione **Personalizado**. Em seguida, em **Certificado SSL de Proxy reverso**, selecione **Incluir um certificado SSL para proxy reverso** e insira os detalhes do certificado.
 
    ![Configurar o proxy reverso seguro no portal](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
@@ -74,7 +74,7 @@ Depois de ter um modelo do Gerenciador de Recursos, habilite o proxy reverso com
         ...
     }
     ```
-3. Para configurar certificados SSL na porta de proxy Inverso, adicione o certificado à propriedade ***reverseProxyCertificate*** na **seção tipo de recurso** [Microsoft.ServiceFabric/clusters](../resource-group-authoring-templates.md).
+3. Para configurar certificados TLS/SSL na porta para o proxy reverso, adicione o certificado à propriedade ***proxycertificate reversa*** na [seção](../resource-group-authoring-templates.md)Tipo de recurso **Microsoft.ServiceFabric/clusters** .
 
     ```json
     {

@@ -12,16 +12,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 209b4136678e6f04666b4a2b6180f4768bf6afc4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d50ddbbeeaed48c14d07c42588efcbb20bb7d79
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500821"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411164"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>O que é o serviço do Banco de Dados SQL do Azure?
 
-O Azure SQL Database é um banco de dados relacional de propósito geral, fornecido como um serviço gerenciado. Com ele, você pode criar uma camada de armazenamento de dados altamente disponível e de alto desempenho para os aplicativos e soluções no Azure. O Banco de Dados SQL pode ser a escolha certa para uma variedade de aplicações modernas em nuvem, pois permite processar dados relacionais e [estruturas não-relacionais,](sql-database-multi-model-features.md)como gráficos, JSON, espacial e XML.
+O Banco de Dados SQL do Azure é um Mecanismo de Banco de Dados de Plataforma como Serviço (PaaS) totalmente gerenciado que manipula a maioria das funções de gerenciamento de banco de dados, como atualização, correções, backups e monitoramento sem o envolvimento do usuário. O Banco de Dados SQL do Azure está sempre sendo executado na versão estável mais recente do Mecanismo de Banco de Dados do SQL Server e no SO corrigido com 99,99% de disponibilidade. Os recursos paaS incorporados ao banco de dados Azure SQL permitem que você se concentre nas atividades específicas de administração e otimização de banco de dados específicas do domínio que são essenciais para o seu negócio.
+
+Com o Banco de Dados SQL do Azure, você pode criar uma camada de armazenamento de dados altamente disponível e de alto desempenho para os aplicativos e soluções no Azure. O Banco de Dados SQL pode ser a escolha certa para uma variedade de aplicações modernas em nuvem, pois permite processar dados relacionais e [estruturas não-relacionais,](sql-database-multi-model-features.md)como gráficos, JSON, espacial e XML.
 
 É baseado na versão estável mais recente do mecanismo de banco de [dados Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Você pode usar recursos avançados de processamento de consultas, como [tecnologias de memória em memória de alto desempenho](sql-database-in-memory.md) e processamento inteligente de [consultas.](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json) Na verdade, os recursos mais novos do SQL Server são liberados primeiro para o SQL Database e, em seguida, para o próprio SQL Server. Você recebe os mais novos recursos do SQL Server sem sobrecarga para patches ou atualização, testados em milhões de bancos de dados. 
 
@@ -68,7 +70,7 @@ O Banco de Dados SQL oferece os seguintes modelos de compra:
 O Azure SQL Database oferece três níveis de serviço projetados para diferentes tipos de aplicativos:
 - [General Purpose/Standard](sql-database-service-tier-general-purpose.md) service tier projetado para cargas de trabalho comuns. Oferece opções de computação e armazenamento balanceadas orientadas ao orçamento.
 - Nível de serviço [Business Critical/Premium](sql-database-service-tier-business-critical.md) projetado para aplicativos OLTP com alta taxa de transação e I/O de menor latência. Oferece a maior resiliência às falhas usando várias réplicas isoladas.
-- Nível de serviço [de hiperescala](sql-database-service-tier-hyperscale.md) projetado para banco de dados OLTP muito grande e a capacidade de armazenamento em escala automática e dimensionar a computação de forma fluida.    
+- Nível de serviço [de hiperescala](sql-database-service-tier-hyperscale.md) projetado para banco de dados OLTP muito grande e a capacidade de escalar automaticamente o armazenamento e dimensionar a computação de forma fluida.    
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Pools elásticos para maximizar a utilização de recursos
 
@@ -107,11 +109,11 @@ O Azure fornece ferramentas de monitoramento e [alerta](sql-database-insights-al
 
 ## <a name="availability-capabilities"></a>Recursos de disponibilidade
 
-Em um ambiente tradicional do SQL Server, você geralmente tem pelo menos duas máquinas configuradas localmente. Essas máquinas têm cópias exatas e sincronicamente mantidas dos dados para proteger contra uma falha de uma única máquina ou componente. Este ambiente oferece alta disponibilidade, mas não protege contra um desastre natural que destrói seu data center.
+O Banco de Dados SQL do Azure permite que sua empresa continue operando durante interrupções. Em um ambiente tradicional do SQL Server, você geralmente tem pelo menos duas máquinas configuradas localmente. Essas máquinas têm cópias exatas e sincronicamente mantidas dos dados para proteger contra uma falha de uma única máquina ou componente. Este ambiente oferece alta disponibilidade, mas não protege contra um desastre natural que destrói seu data center.
 
 A recuperação de desastres pressupõe que um evento catastrófico seja geograficamente localizado o suficiente para ter outra máquina ou conjunto de máquinas com uma cópia de seus dados longe. No SQL Server, você pode usar always on availability groups em execução no modo async para obter esse recurso. As pessoas muitas vezes não querem esperar que a replicação aconteça tão longe antes de cometer uma transação, então há potencial para perda de dados quando você faz failovers não planejados.
 
-Bancos de dados nos níveis de serviços críticos premium e empresarial já [fazem algo muito semelhante](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) à sincronização de um grupo de disponibilidade. Bancos de dados em níveis de serviço inferiores fornecem redundância através do armazenamento usando um [mecanismo diferente, mas equivalente.](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) A lógica incorporada ajuda a proteger contra uma única falha da máquina. O recurso de georeplicação ativa oferece a capacidade de proteger contra desastres onde toda uma região é destruída.
+Bancos de dados nos níveis de serviço supérmédio e de serviços críticos de negócios já [fazem algo semelhante](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) à sincronização de um grupo de disponibilidade. Bancos de dados em níveis de serviço inferiores fornecem redundância através do armazenamento usando um [mecanismo diferente, mas equivalente.](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) A lógica incorporada ajuda a proteger contra uma única falha da máquina. O recurso de georeplicação ativa oferece a capacidade de proteger contra desastres onde toda uma região é destruída.
 
 O Azure Availability Zones tenta proteger contra a paralisação de um único edifício de datacenter em uma única região. Ele ajuda você a proteger contra a perda de energia ou rede para um edifício. No Banco de Dados SQL, você coloca as diferentes réplicas em diferentes zonas de disponibilidade (diferentes edifícios, efetivamente).
 
@@ -173,7 +175,7 @@ A Segurança de Dados Avançada do SQL é um pacote unificado de funcionalidades
 - [Detecção e classificação de dados:](sql-database-data-discovery-and-classification.md)
 
   Esse recurso fornece recursos incorporados ao Banco de Dados SQL do Azure para descobrir, classificar, rotular e proteger os dados confidenciais em seus bancos de dados. Ele fornece visibilidade ao seu estado de classificação de banco de dados e rastreia o acesso a dados confidenciais dentro do banco de dados e além de suas fronteiras.
-- [Avaliação de vulnerabilidade](sql-vulnerability-assessment.md):
+- [Avaliação de vulnerabilidades](sql-vulnerability-assessment.md):
 
   Esse serviço pode descobrir, controlar e ajudá-lo a corrigir possíveis vulnerabilidades de banco de dados. Fornece visibilidade sobre o estado de segurança e inclui etapas acionáveis para resolver problemas de segurança e aperfeiçoar as fprtificações do banco de dados.
 - [Detecção de ameaças](sql-database-threat-detection.md):

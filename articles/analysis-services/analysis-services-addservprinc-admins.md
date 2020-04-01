@@ -4,16 +4,16 @@ description: Saiba como adicionar um principal de serviço de automação à fun
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1370f65405963ebf825e986e6801607a0d96156e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 925fbbb51ac240b96486a2c0aa09c850a8d164bc
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78298081"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408638"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicionar uma entidade de serviço à função de administrador do servidor 
 
@@ -39,7 +39,7 @@ Você pode configurar administradores de servidores usando o SSMS (SSMS) de gere
     
     ![Pesquise a conta de entidade de serviço](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
-## <a name="using-a-resource-manager-template"></a>Usando um modelo de gerenciador de recursos
+## <a name="using-a-resource-manager-template"></a>Usar um modelo do Resource Manager
 
 Você também pode configurar os administradores do servidor implantando o servidor Serviços de Análise usando um modelo do Azure Resource Manager. A identidade em execução da implantação deve pertencer à função **Contribuinte** para o recurso no [RBAC (Azure Role-Based Access Control, controle de acesso baseado em função)](../role-based-access-control/overview.md).
 

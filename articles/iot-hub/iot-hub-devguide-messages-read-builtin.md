@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: e7b8f8a33b741a8dcf2d1a68ae3cf86d6e3687eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2674ca0f4808cb6f01781565e57369ca5d3ac37
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284597"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478774"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno
 
@@ -24,7 +24,7 @@ Por padrão, as mensagens são roteadas para o ponto de extremidade voltado para
 | **Contagem de partições** | Defina essa propriedade no momento da criação para determinar o número de [partições](../event-hubs/event-hubs-features.md#partitions) para inclusão do evento de dispositivo para nuvem. |
 | **Tempo de retenção**  | Esta propriedade especifica por quanto tempo, em dias, as mensagens são retidas pelo Hub IoT. O padrão é de um dia, mas pode ser aumentado para sete dias. |
 
-O IoT Hub permite a retenção de dados nos Hubs de Eventos incorporados por um máximo de 7 dias. Você pode definir o tempo de retenção durante a criação do seu IoT Hub. O tempo de retenção de dados no IoT Hub depende do seu nível de hub ioT e do tipo de unidade. Em termos de tamanho, os Hubs de Eventos incorporados podem reter mensagens do tamanho máximo da mensagem até pelo menos 24 horas de cota. Por exemplo, para 1 unidade S1 IoT Hub fornece armazenamento suficiente para reter pelo menos 400K mensagens de tamanho 4k cada. Se seus dispositivos estiverem enviando mensagens menores, elas podem ser retidas por mais tempo (até 7 dias), dependendo da quantidade de armazenamento consumido. Garantimos a retenção dos dados para o tempo de retenção especificado como mínimo.
+O IoT Hub permite a retenção de dados nos Hubs de Eventos incorporados por um máximo de 7 dias. Você pode definir o tempo de retenção durante a criação do seu IoT Hub. O tempo de retenção de dados no IoT Hub depende do seu nível de hub ioT e do tipo de unidade. Em termos de tamanho, os Hubs de Eventos incorporados podem reter mensagens do tamanho máximo da mensagem até pelo menos 24 horas de cota. Por exemplo, para 1 unidade S1 IoT Hub fornece armazenamento suficiente para reter pelo menos 400K mensagens de tamanho 4k cada. Se seus dispositivos estiverem enviando mensagens menores, elas podem ser retidas por mais tempo (até 7 dias), dependendo da quantidade de armazenamento consumido. Garantimos a retenção dos dados para o tempo de retenção especificado como mínimo. As mensagens expirarão e não estarão acessíveis após o tempo de retenção ter passado. 
 
 O Hub IoT também permite que você gerencie grupos de consumidores no ponto de extremidade de recebimento do dispositivo para a nuvem interno. Você pode ter até 20 grupos de consumidores para cada IoT Hub.
 
@@ -62,9 +62,9 @@ Os SDKs que você pode usar para se conectar ao ponto final incorporado compatí
 
 | Idioma | . | Exemplo | Observações |
 | -------- | --- | ------ | ----- |
-| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Quickstart](quickstart-send-telemetry-dotnet.md) | Usa informações compatíveis com hubs de eventos |
- Java | https://github.com/Azure/azure-event-hubs-java | [Quickstart](quickstart-send-telemetry-java.md) | Usa informações compatíveis com hubs de eventos |
-| Node.js | https://github.com/Azure/azure-event-hubs-node | [Quickstart](quickstart-send-telemetry-node.md) | Usa string de conexão IoT Hub |
+| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Guia de Início Rápido](quickstart-send-telemetry-dotnet.md) | Usa informações compatíveis com hubs de eventos |
+ Java | https://github.com/Azure/azure-event-hubs-java | [Guia de Início Rápido](quickstart-send-telemetry-java.md) | Usa informações compatíveis com hubs de eventos |
+| Node.js | https://github.com/Azure/azure-event-hubs-node | [Guia de Início Rápido](quickstart-send-telemetry-node.md) | Usa string de conexão IoT Hub |
 | Python | https://github.com/Azure/azure-event-hubs-python | https://github.com/Azure/azure-event-hubs-python/blob/master/examples/iothub_recv.py | Usa string de conexão IoT Hub |
 
 As integrações de produtos que você pode usar com o ponto final compatível com o Hub de eventos incorporado que o IoT Hub expõe incluem:

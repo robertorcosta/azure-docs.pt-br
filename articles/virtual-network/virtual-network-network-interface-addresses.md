@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: a2a85d98bf29e78d58bf0c578ce79943bae21fc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5655a58c3538ac47e8649619b079dc46ee01242
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244960"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473222"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para um adaptador de rede do Azure
 
@@ -75,7 +75,7 @@ Você pode precisar alterar o método de atribuição de endereço IPv4, alterar
 3. Em **CONFIGURAÇÕES**, selecione **Configurações de IP**.
 4. Selecione a configuração de IP que você deseja modificar na lista.
 5. Altere as configurações, conforme desejado, usando as informações sobre as configurações na etapa 5 de [Adicionar uma configuração de IP](#add-ip-addresses).
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 >[!NOTE]
 >Se o adaptador de rede primário tiver várias configurações de IP, e você alterar o endereço IP privado da configuração de IP primário, será necessário reatribuir manualmente todos os endereços IP secundários para o adaptador de rede no Windows (isso não é necessário para Linux). Para atribuir manualmente endereços IP a uma interface de rede em um sistema operacional, consulte [Atribuir vários endereços IP a máquinas virtuais](virtual-network-multiple-ip-addresses-portal.md#os-config). Confira endereços IP [privados](#private) para ver considerações especiais antes de adicionar manualmente os endereços IP ao sistema operacional de uma máquina virtual. Não adicione endereços IP públicos ao sistema operacional da máquina virtual.
@@ -120,7 +120,7 @@ Além de uma configuração de IP primário, um adaptador de rede pode ter vári
 
 - Deve ter um endereço IPv4 ou IPv6 privado atribuído a ela. Se o endereço for IPv6, o adaptador de rede poderá ter apenas uma configuração de IP secundário. Se o endereço for IPv4, o adaptador de rede poderá ter várias configurações de IP secundário atribuídas a ele. Para saber mais sobre quantos endereços IPv4 públicos e privados podem ser atribuídos a um adaptador de rede, confira o artigo [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Pode também ter um endereço IPv4 ou IPv6 público atribuído a ele. Atribuir vários endereços IPv4 a uma interface de rede é útil em cenários como:
-  - Hospede vários sites ou serviços com diferentes endereços IP e os certificados SSL em um único servidor.
+  - Hospedagem de vários sites ou serviços com diferentes endereços IP e certificados TLS/SSL em um único servidor.
   - Uma máquina virtual usada como dispositivo de rede virtual, como um firewall ou balanceador de carga.
   - A capacidade de adicionar qualquer um dos endereços IPv4 privados para qualquer um dos adaptadores de rede a um pool de back-ends do Azure Load Balancer. No passado, somente o endereço IPv4 primário para o adaptador de rede primário podia ser adicionado a um pool de back-end. Para saber mais sobre como balancear a carga de várias configurações de IPv4, confira o artigo [Balanceamento de carga de várias configurações de IP](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
   - A capacidade de balancear a carga de um endereço IPv6 atribuído a um adaptador de rede. Para saber mais sobre como balancear a carga de um endereço IPv6, confira o artigo [Balancear a carga de endereços IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

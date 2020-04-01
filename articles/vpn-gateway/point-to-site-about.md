@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78ed07560fdb15efb2de13c194549f5b433b775a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 381aad5d0a56362d9966ed54b931a8478f2f6bf2
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500612"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410495"
 ---
 # <a name="about-point-to-site-vpn"></a>Sobre VPN Ponto a Site
 
@@ -22,9 +22,9 @@ Uma conexão de gateway de VPN Ponto a Site (P2S) permite que você crie uma con
 
 VPN Ponto a Site pode usar um dos seguintes protocolos:
 
-* **Protocolo openvpn®,** um protocolo VPN baseado em SSL/TLS. Uma solução SSL VPN pode penetrar firewalls, já que a maioria dos firewalls abrem a porta TCP 443, que o SSL usa. O OpenVPN pode ser usado para se conectar a partir de dispositivos Android, iOS (versões 11.0 ou superior), Windows, Linux e Mac (versões OSX 10.13 ou superior).
+* **Protocolo openvpn®,** um protocolo VPN baseado em SSL/TLS. Uma solução TLS VPN pode penetrar firewalls, já que a maioria dos firewalls abrem a porta TCP 443, que o TLS usa. O OpenVPN pode ser usado para se conectar a partir de dispositivos Android, iOS (versões 11.0 ou superior), Windows, Linux e Mac (versões OSX 10.13 ou superior).
 
-* SSTP (Secure Socket Tunneling Protocol), que é um protocolo VPN baseado em SSL proprietário. Uma solução SSL VPN pode penetrar firewalls, já que a maioria dos firewalls abrem a porta TCP 443, que o SSL usa. SSTP só tem suporte em dispositivos com Windows. O Azure oferece suporte a todas as versões do Windows com SSTP (Windows 7 e posterior).
+* Secure Socket Tunneling Protocol (SSTP), um protocolo VPN proprietário baseado em TLS. Uma solução TLS VPN pode penetrar firewalls, já que a maioria dos firewalls abrem a porta TCP 443, que o TLS usa. SSTP só tem suporte em dispositivos com Windows. O Azure oferece suporte a todas as versões do Windows com SSTP (Windows 7 e posterior).
 
 * VPN IKEv2, uma solução de VPN IPsec baseada em padrões. VPN IKEv2 pode ser usada para se conectar de dispositivos Mac (OSX versões 10.11 e acima).
 

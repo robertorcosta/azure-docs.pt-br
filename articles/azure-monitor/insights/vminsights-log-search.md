@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 71258b04bad9a7aec4e86564d51d1d6f3f8cac76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 61a71539dc034a216689eafd8991df60db96d2a4
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283796"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396917"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar logs do Azure Monitor para VMs
 
@@ -242,7 +242,7 @@ Registros com um tipo de *VMProcess* têm dados de inventário para processos co
 |Executablepath |O caminho do executável |
 |CommandLine | A linha de comando |
 |WorkingDirectory | O diretório de trabalho |
-|Serviços | Uma série de serviços os quais o processo está sendo executado |
+|Serviços | Uma série de serviços sob os quais o processo está sendo executado |
 |UserName | A conta sob a qual o processo está sendo executado |
 |UserDomain | O domínio sob o qual o processo está sendo executado |
 |_ResourceId | O identificador exclusivo para um processo dentro do workspace |
@@ -265,7 +265,7 @@ let Today = now(); VMComputer | extend DaysSinceBoot = Today - BootTime | summar
 ### <a name="summary-of-azure-vms-by-image-location-and-sku"></a>Resumo das VMs do Azure por imagem, localização e SKU
 
 ```kusto
-VMComputer | where AzureLocation != "" | summarize by ComputerName, AzureImageOffering, AzureLocation, AzureImageSku
+VMComputer | where AzureLocation != "" | summarize by Computer, AzureImageOffering, AzureLocation, AzureImageSku
 ```
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Liste a capacidade de memória física de todos os computadores gerenciados
@@ -283,7 +283,7 @@ VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId | project Comput
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Localizar todos os processos com "sql" na linha de comando
 
 ```kusto
-VMComputer | where CommandLine contains_cs "sql" | summarize arg_max(TimeGenerated, *) by _ResourceId
+VMProcess | where CommandLine contains_cs "sql" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Localizar uma máquina (registro mais recente) por nome de recurso
@@ -307,7 +307,7 @@ VMProcess | where Machine == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summariz
 ### <a name="list-all-computers-running-sql-server"></a>Listar todos os computadores que executam o SQL Server
 
 ```kusto
-VMComputer | where AzureResourceName in ((search in (VMProcess) "\*sql\*" | distinct Machine)) | distinct Computer
+VMComputer | where AzureResourceName in ((search in (VMProcess) "*sql*" | distinct Machine)) | distinct Computer
 ```
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Listar todas as versões de produtos exclusivas de curl no meu datacenter
@@ -319,7 +319,7 @@ VMProcess | where ExecutableName == "curl" | distinct ProductVersion
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Criar um grupo de computadores de todos os computadores executando CentOS
 
 ```kusto
-VMComputer | where OperatingSystemFullName contains_cs "CentOS" | distinct ComputerName
+VMComputer | where OperatingSystemFullName contains_cs "CentOS" | distinct Computer
 ```
 
 ### <a name="bytes-sent-and-received-trends"></a>Os bytes enviaram e receberam tendências

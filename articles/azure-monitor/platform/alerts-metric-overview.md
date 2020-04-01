@@ -4,12 +4,12 @@ description: Obtenha uma visão geral do que você pode fazer com alertas de mé
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: b6d8bc69a407838025c5e78e0a1c773ab457c409
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a6860cad077b597df923274f8971f5652d4ba9e3
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480225"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397985"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
@@ -140,6 +140,10 @@ Você pode especificar o escopo de monitoramento por uma única regra de alerta 
 - todas as máquinas virtuais (em uma região do Azure) em uma assinatura
 
 Criar regras de alerta de métrica que monitorem vários recursos é como [criar qualquer outro alerta de métrica](alerts-metric.md) que monitore um único recurso. A única diferença é que você selecionaria todos os recursos que quisesse monitorar. Você também pode criar essas regras por meio de [modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Você receberá notificações individuais para cada recurso monitorado.
+
+> [!NOTE]
+>
+> Em uma regra de alerta métrica que monitora vários recursos, apenas uma condição é permitida.
 
 ## <a name="typical-latency"></a>Latência típica
 

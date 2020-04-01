@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 8b79e0fb24c15d2e9f16640e90d62f7df5c21f32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 903881a1d15c1f043e381f50e5b69d661cd08192
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74233695"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476445"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Como funcionam as relações de confiança para florestas de recursos nos serviços de domínio do Diretório Ativo do Azure
 
@@ -146,7 +146,7 @@ Se a conta não existir no banco de dados, o controlador de domínio determina s
     * Se sim, passe a solicitação de autenticação para o próximo domínio no caminho de confiança. Este controlador de domínio repete o processo verificando as credenciais do usuário em relação ao seu próprio banco de dados de contas de segurança.
     * Se não, envie ao cliente uma mensagem negada pelo logon.
 
-### <a name="kerberos-based-processing-of-authentication-requests-over-forest-trusts"></a>Pedidos de autenticação baseados em Kerberos sobre trusts florestais
+### <a name="kerberos-based-processing-of-authentication-requests-over-forest-trusts"></a>Processamento baseado em Kerberos de pedidos de autenticação sobre fundos florestais
 
 Quando duas florestas são conectadas por um fundo florestal, pedidos de autenticação feitos usando os protocolos Kerberos V5 ou NTLM podem ser roteados entre florestas para fornecer acesso a recursos em ambas as florestas.
 

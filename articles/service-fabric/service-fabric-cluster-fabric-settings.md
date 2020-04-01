@@ -3,12 +3,12 @@ title: Alterar as configurações do cluster de malha de serviço do Azure
 description: Este artigo descreve as configurações de malha e as políticas de atualização de malha que você pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: a4e64a4db70d419a3ef6441545d53abd298c85bb
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8ca40791e625f1ea5904c4e2516e3f211ba551cf
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346803"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477903"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Saiba como personalizar algumas das configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de malha para o cluster do Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager. Para obter mais informações, consulte [Atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autônomos, você personaliza as configurações atualizando o arquivo *ClusterConfig.json* e realizando uma atualização de configuração em seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -55,10 +55,10 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, o padrão é 0|Estático|O MinReplicaSetSize para BackupRestoreService |
-|PlacementConstraints|cadeia de caracteres, o padrão é ""|Estático|  O PlacementConstraints para o serviço de BackupRestore |
+|PlacementConstraints|cadeia de caracteres, o padrão é ""|Estático|    O PlacementConstraints para o serviço de BackupRestore |
 |SecretEncryptionCertThumbprint|cadeia de caracteres, o padrão é ""|Dinâmico|Impressão digital do certificado de criptografia de segredo X509 |
-|SecretEncryptionCertX509StoreName|cadeia de caracteres, o padrão é "Meu"|   Dinâmico|    Isso indica que o certificado a ser usado para criptografia e descriptografia de nome de credenciais do repositório de certificados X.509 que é usado para criptografar as credenciais do repositório de criptografia descriptografia usadas pelo serviço de restauração de Backup |
-|TargetReplicaSetSize|int, o padrão é 0|Estático| O TargetReplicaSetSize para BackupRestoreService |
+|SecretEncryptionCertX509StoreName|string, padrão é "Meu"|    Dinâmico|    Isso indica que o certificado a ser usado para criptografia e descriptografia de nome de credenciais do repositório de certificados X.509 que é usado para criptografar as credenciais do repositório de criptografia descriptografia usadas pelo serviço de restauração de Backup |
+|TargetReplicaSetSize|int, padrão é 0|Estático| O TargetReplicaSetSize para BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
 
@@ -147,8 +147,8 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, o padrão é 0|Estático|O MinReplicaSetSize para serviço EventStore |
-|PlacementConstraints|cadeia de caracteres, o padrão é ""|Estático|  O PlacementConstraints para o serviço EventStore |
-|TargetReplicaSetSize|int, o padrão é 0|Estático| O MinReplicaSetSize para o serviço EventStore |
+|PlacementConstraints|cadeia de caracteres, o padrão é ""|Estático|    O PlacementConstraints para o serviço EventStore |
+|TargetReplicaSetSize|int, padrão é 0|Estático| O MinReplicaSetSize para o serviço EventStore |
 
 ## <a name="fabricclient"></a>FabricClient
 
@@ -270,7 +270,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |CommonNameNtlmPasswordSecret|SecureString, o padrão é Common::SecureString("")| Estático|O segredo de senha usado como semente para gerar a mesma senha gerada ao usar a autenticação NTLM |
 |diskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |Tempo útil, padrão é Comum::TimeSpan::FromMinutes(5)|Dinâmico|Especifique o intervalo de tempo em segundos. O intervalo de tempo entre a verificação do espaço em disco para relatar o evento de saúde quando o disco está perto do espaço. |
 |DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |TimeSpan, o padrão é Common::TimeSpan::FromMinutes(15)|Dinâmico|Especifique o intervalo de tempo em segundos. O intervalo de tempo entre a verificação do espaço em disco para relatar o evento de saúde quando há espaço suficiente no disco. |
-|HabilitarO ImageStoreHealthReporting |bool, o padrão é TRUE |Estático|Configure para determinar se o serviço de armazenamento de arquivos deve informar sua saúde. |
+|HabilitarO ImageStoreHealthReporting |bool, o padrão é TRUE    |Estático|Configure para determinar se o serviço de armazenamento de arquivos deve informar sua saúde. |
 |FreeDiskSpaceNotificationSizeInKB|int64, padrão é\*25 1024 |Dinâmico|O tamanho do espaço livre em disco abaixo do qual pode ocorrer um aviso de saúde. O valor mínimo desta configuração e a configuração FreeDiskSpaceNotificationThresholdPercentage são usados para determinar o envio do aviso de saúde. |
 |FreeDiskSpaceNotificaçãoLimitePercentual|dobro, padrão é 0,02 |Dinâmico|A porcentagem de espaço livre em disco abaixo do qual pode ocorrer um aviso de saúde. O valor mínimo desta configuração e a configuração FreeDiskSpaceNotificationInMB são usados para determinar o envio de aviso de saúde. |
 |GenerateV1CommonNameAccount| bool, o padrão é TRUE|Estático|Especifica se deve gerar uma conta com o algoritmo de geração V1 de nome de usuário. A partir do Service Fabric versão 6.1; uma conta com a geração v2 sempre será criada. A conta V1 é necessária para atualizações de/para as versões que não dão suporte à geração V2 (antes da 6.1).|
@@ -340,7 +340,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |CreateFabricRuntimeTimeout|TimeSpan, o padrão é Common::TimeSpan::FromSeconds(120)|Dinâmico| Especifique o intervalo de tempo em segundos. O valor de tempo limite para chamada de sincronização de FabricCreateRuntime |
 |DefaultContainerRepositoryAccountName|cadeia de caracteres, o padrão é ""|Estático|Credenciais padrão usadas em vez de credenciais especificadas no applicationmanifest. XML |
 |DefaultContainerRepositoryPassword|cadeia de caracteres, o padrão é ""|Estático|Credenciais de senha padrão usadas em vez de credenciais especificadas no applicationmanifest. XML|
-|DefaultContainerRepositoryPasswordType|cadeia de caracteres, o padrão é ""|Estático|Quando a cadeia de caracteres não estiver vazia, o valor pode ser "Encrypted" ou "SecretsStoreRef".|
+|DefaultContainerRepositoryPasswordType|cadeia de caracteres, o padrão é ""|Estático|Quando não estiver vazio, o valor pode ser "Criptografado" ou "SecretsStoreRef".|
 |DefaultDnsSearchSufixEmpty|bool, o padrão é FALSE|Estático|Por padrão, o nome do serviço é anexado ao nome SF DNS para serviços de contêiner. Esse recurso interrompe esse comportamento para que nada seja anexado ao nome SF DNS por padrão na via de resolução.|
 |DeploymentMaxFailureCount|int, o padrão é 20| Dinâmico|A implantação de aplicativo será repetida por DeploymentMaxFailureCount vezes antes que a implantação desse aplicativo no nó falhe.| 
 |DeploymentMaxRetryInterval| TimeSpan, o padrão é Common::TimeSpan::FromSeconds(3600)|Dinâmico| Especifique o intervalo de tempo em segundos. Máx. intervalo de repetição para a implantação. Em cada falha contínua, o intervalo de repetição é calculado como Min( DeploymentMaxRetryInterval; Contagem de falha contínua * DeploymentRetryBackoffInterval) |
@@ -530,7 +530,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |DetailedNodeListLimit | Int, o padrão é 15 |Dinâmico| Define o número de nós por restrição a serem incluídos antes do truncamento nos relatórios de Réplica Não Alocada. |
 |DetailedPartitionListLimit | Int, o padrão é 15 |Dinâmico| Define o número de partições por entrada de diagnóstico para uma restrição a serem incluídas antes do truncamento em Diagnósticos. |
 |DetailedVerboseHealthReportLimit | Int, o padrão é 200 | Dinâmico|Define o número de vezes que uma réplica não alocada tem que ser persistentemente não alocada antes que os relatórios detalhados de integridade sejam emitidos. |
-|ImporCapacidademétrica do Usuário-Usuário|bool, o padrão é FALSE | Estático |Permite a proteção dos serviços de malha. Todos os serviços de usuário estão um objeto/cgrupo de trabalho e limitados a quantidade especificada de recursos. Isso precisa ser estático (requer reinicialização do FabricHost) como criação/remoção do objeto de trabalho do usuário e definição de limites feitos durante a abertura do Host de malha. |
+|ImporCapacidademétrica do Usuário-Usuário|bool, o padrão é FALSE | Estático |Permite a proteção dos serviços de malha. Todos os serviços de usuário estão sob um objeto/cgrupo de trabalho e limitados a quantidade especificada de recursos. Isso precisa ser estático (requer reinicialização do FabricHost) como criação/remoção do objeto de trabalho do usuário e definição de limites feitos durante a abertura do Host de malha. |
 |FaultDomainConstraintPriority | Int, o padrão é 0 |Dinâmico| Determina a prioridade da restrição de domínio de falha: 0: rígida; 1: flexível; negativa: ignorar. |
 |GlobalMovementThrottleCountingInterval | Tempo em segundos, o padrão é 600 |Estático| Especifique o intervalo de tempo em segundos. Indica o comprimento do intervalo passado para o qual rastrear movimentos de réplica por domínio (usado juntamente com GlobalMovementThrottleThreshold). Pode ser definido como 0 para ignorar a limitação global completamente. |
 |GlobalMovementThrottleThreshold | Uint, o padrão é 1000 |Dinâmico| Número máximo de movimentos permitidos na fase de balanceamento no último intervalo indicado por GlobalMovementThrottleCountingInterval. |
@@ -568,8 +568,8 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |TraceCRMReasons |Bool, o padrão é true |Dinâmico|Especifica se os motivos devem ser rastreados para movimentos emitidos pelo CRM para o canal de eventos operacionais. |
 |UpgradeDomainConstraintPriority | Int, o padrão é 1| Dinâmico|Determina a prioridade da restrição de domínio de atualização: 0: rígida; 1: flexível; negativa: ignorar. |
 |UseMoveCostReports | Bool, o padrão é false | Dinâmico|Instrui o LB a ignorar o elemento de custo da função de pontuação, resultando em uma quantidade de movimentos potencialmente grande para obter posicionamento balanceado. |
-|UseSeparateSecondaryLoad | Bool, o padrão é true | Dinâmico|Configuração que determina se uma carga secundária diferente será usada. |
-|UseSeparateSecondaryMoveCost|Bool, o padrão é FALSE | Dinâmico|Configuração que determina se o PLB deve usar custo de movimento diferente para secundário em cada nó Se UseSeparateSecondaryMoveCost for desligado: - O custo de movimento relatado para secundário em um nó resultará em overwritting custo de movimento para cada secundário (em todos os outros nós) Se UseSeparateSecondaryMoveCost é ligado: - O custo de movimento relatado para secundário em um nó terá efeito apenas nesse secundário (sem efeito em secundários em outros nados) - Se a falha de réplica acontecer - nova réplica é criada com custo de movimento padrão especificado no serviço nível - Se plb move réplica existente - o custo de movimento vai com ele |
+|UseSeparateSecondaryLoad | Bool, o padrão é true | Dinâmico|Configuração que determina se a carga separada deve ser usada para réplicas secundárias. |
+|UseSeparateSecondaryMoveCost | Bool, o padrão é false | Dinâmico|Configuração que determina se o custo de movimento separado deve ser usado para réplicas secundárias. |
 |ValidatePlacementConstraint | Bool, o padrão é true |Dinâmico| Especifica se a expressão PlacementConstraint para um serviço é validada ou não quando um ServiceDescription do serviço é atualizado. |
 |Validarrestriçãodecolocaçãoprimáriapromover| bool, o padrão é TRUE |Dinâmico|Especifica se a expressão PlacementConstraint para um serviço é avaliada para preferência primária no failover. |
 |VerboseHealthReportLimit | Int, o padrão é 20 | Dinâmico|Define o número de vezes que uma réplica precisa estar não alocada antes que um aviso de integridade seja comunicado para ela (caso o relatório de integridade detalhado esteja habilitado). |
@@ -685,13 +685,13 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |SettingsX509StoreName| cadeia de caracteres, o padrão é "MY"| Dinâmico|Repositório de certificados X509 usado pela malha para proteção da configuração |
 |UseClusterCertForIpcServerTlsSecurity|bool, o padrão é FALSE|Estático|Se usar o certificado de cluster para proteger a unidade de transporte do IPC Server TLS |
 |X509Folder|string, o padrão é /var/lib/waagent|Estático|Pasta em que as chaves privadas e os certificados X509 estão localizados |
-|TLS1_2_CipherList| string| Estático|Se definido como uma seqüência não vazia; substitui a lista de cifras suportadas para TLS1.2 e abaixo. Consulte a documentação 'openssl-ciphers' para recuperar a lista de cifras suportadas e o formato da lista Exemplo de forte lista de cifras para TLS1.2: "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384: ECDHE-RSA-AES-128-GCM-SHA256:ECDHE-ECDSA-AES256-CBC-SHA384:ECDHE-ECDSA-AES128-CBC-SHA256:ECDHE-RSA-AES256-CBC-SHA384:ECDHE-RSA-AES128-CBC-SHA256" Aplica-se apenas ao Linux. |
+|TLS1_2_CipherList| string| Estático|Se definido como uma seqüência não vazia; substitui a lista de cifras suportadas para TLS1.2 e abaixo. Consulte a documentação 'openssl-ciphers' para recuperar a lista de cifras suportadas e o formato da lista Exemplo de forte lista de cifras para TLS1.2: "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES-128-GCM-SHA256:ECDHE-ECDSA-AES256-CBC-SHA384:ECDHE-ECDSA-AES128-CBC-SHA256:ECDHE-RSA-AES256-CBC-SHA384:ECDHE-RSA-AES128-CBC-SHA256" |
 
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
 
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, o padrão é None|Dinâmico|Esta é uma lista de par de "Nome" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados tem autorizados para operações de cliente do administrador. Para um determinado "nome", "Valor" é uma lista de separada por vírgulas das impressões digitais de certificado para o emissor fixação, se não estiver vazio, o emissor direto dos certificados de cliente do administrador deve estar na lista. |
+|PropertyGroup|X509NameMap, o padrão é None|Dinâmico|Esta é uma lista do par "Nome" e "Valor". Cada "Nome" é de nome comum ou DnsName de certificados X509 autorizados para operações de clientes de admin. Para um determinado "Nome", "Valor" é uma lista separada de impressão digital de certificado para fixação do emissor, se não estiver vazia, o emissor direto de certificados de cliente de admin deve estar na lista. |
 
 ## <a name="securityclientaccess"></a>Security/ClientAccess
 
@@ -806,7 +806,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, o padrão é None|Dinâmico|Esta é uma lista de par de "Nome" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados autorizados a operações do cliente. Para um determinado "nome", "Valor" é uma lista de separada por vírgulas das impressões digitais de certificado para o emissor fixação, se não estiver vazio, o emissor direto de certificados de cliente deve estar na lista.|
+|PropertyGroup|X509NameMap, o padrão é None|Dinâmico|Esta é uma lista do par "Nome" e "Valor". Cada "Nome" é de nome comum ou DnsName de certificados X509 autorizados para operações de clientes. Para um determinado "Nome", "Valor" é uma lista separada de impressão digital de certificado para fixação do emissor, se não estiver vazia, o emissor direto dos certificados do cliente deve estar na lista.|
 
 ## <a name="securityclustercertificateissuerstores"></a>Security/ClusterCertificateIssuerStores
 
@@ -818,7 +818,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, o padrão é None|Dinâmico|Esta é uma lista de par de "Nome" e "Valor". Cada "Nome" é de nome comum de assunto ou DnsName de certificados X509 autorizados para operações de cluster. Para um determinado "Nome", "Valor" é uma lista separada por vírgula de impressões digitais de certificado para fixação de emissor, se não estiver vazia, o emissor direto de certificados de cluster deve estar na lista.|
+|PropertyGroup|X509NameMap, o padrão é None|Dinâmico|Esta é uma lista do par "Nome" e "Valor". Cada "Nome" é de nome comum ou DnsName de certificados X509 autorizados para operações de cluster. Para um determinado "Nome", "Valor" é uma lista separada de impressão digital de certificado para fixação do emissor, se não estiver vazia, o emissor direto dos certificados de cluster deve estar na lista.|
 
 ## <a name="securityservercertificateissuerstores"></a>Security/ServerCertificateIssuerStores
 
@@ -830,7 +830,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, o padrão é None|Dinâmico|Esta é uma lista de par de "Nome" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados tem autorizados para operações de servidor. Para um determinado "nome", "Valor" é uma lista de separada por vírgulas das impressões digitais de certificado para o emissor fixação, se não estiver vazio, o emissor direto dos certificados de servidor deve estar na lista.|
+|PropertyGroup|X509NameMap, o padrão é None|Dinâmico|Esta é uma lista do par "Nome" e "Valor". Cada "Nome" é de nome comum ou DnsName de certificados X509 autorizados para operações de servidor. Para um determinado "Nome", "Valor" é uma lista separada de impressão digital de certificado para fixação do emissor, se não estiver vazia, o emissor direto dos certificados de servidor deve estar na lista.|
 
 ## <a name="setup"></a>Instalação
 

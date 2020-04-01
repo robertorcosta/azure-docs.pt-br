@@ -7,12 +7,12 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 373875aee836485bb994d81e0945cec3a9b088eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e7986add466bc42b092763acfeceebc8a6523bbe
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76906498"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473994"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Quickstart: Gerenciar bolhas com Java v8 SDK
 
@@ -91,13 +91,13 @@ A primeira coisa a fazer é criar as referências aos objetos usados para acessa
 
     O objeto **CloudStorageAccount** é uma representação de sua conta de armazenamento e permite definir e acessar propriedades da conta de armazenamento de forma programática. Usando o objeto **CloudStorageAccount**, você pode criar uma instância do **CloudBlobClient**, que é necessário para acessar o serviço blob.
 
-* Crie uma instância do objeto **CloudBlobClient**, que aponta para o [serviço Blob](/java/api/com.microsoft.azure.storage.blob._cloud_blob_client) na sua conta de armazenamento.
+* Crie uma instância do objeto **CloudBlobClient**, que aponta para o [serviço Blob](/java/api/com.microsoft.azure.storage.blob.cloudblobclient) na sua conta de armazenamento.
 
     O **CloudBlobClient** fornece um ponto de acesso ao serviço blob, permitindo que você defina e acesse as propriedades de armazenamento Blob de forma programática. Usando o **CloudBlobClient** você pode criar uma instância do objeto **CloudBlobContainer**, que é necessário para criar contêineres.
 
-* Crie uma instância do objeto [CloudBlobContainer](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) que representa o contêiner que você está acessando. Use contêineres para organizar seus blobs da mesma forma que você usa pastas no computador para organizar arquivos.
+* Crie uma instância do objeto [CloudBlobContainer](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer) que representa o contêiner que você está acessando. Use contêineres para organizar seus blobs da mesma forma que você usa pastas no computador para organizar arquivos.
 
-    Assim que tiver o **CloudBlobContainer**, será possível criar uma instância do objeto [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob), que aponta para o blob específico em que você está interessado, e realizar a operação de upload, download, cópia ou outra.
+    Depois de ter o **CloudBlobContainer,** você pode criar uma instância do objeto [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob.cloudblockblob) que aponta para a bolha específica em que você está interessado e executar uma operação de upload, download, cópia ou outra operação.
 
 > [!IMPORTANT]
 > Os nomes de contêiner devem estar em minúsculas. Para saber mais sobre contêineres, veja [Nomenclatura e referência de contêineres, blobs e metadados](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
@@ -106,7 +106,7 @@ A primeira coisa a fazer é criar as referências aos objetos usados para acessa
 
 Nesta seção, você cria uma instância de objetos, cria um novo contêiner e, em seguida, define as permissões no contêiner para que os blobs sejam públicos e possam ser acessados com apenas uma URL. O contêiner é chamado de **quickstartcontainer**.
 
-Este exemplo usa [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.createifnotexists) porque queremos criar um novo contêiner cada vez que a amostra é executada. Em um ambiente de produção, onde você usa o mesmo contêiner em um aplicativo, é melhor praticar apenas chamar **CreateIfNotExists** uma vez. Como alternativa, é possível criar o contêiner antecipadamente para não precisar criá-lo no código.
+Este exemplo usa [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists) porque queremos criar um novo contêiner cada vez que a amostra é executada. Em um ambiente de produção, onde você usa o mesmo contêiner em um aplicativo, é melhor praticar apenas chamar **CreateIfNotExists** uma vez. Como alternativa, é possível criar o contêiner antecipadamente para não precisar criá-lo no código.
 
 ```java
 // Parse the connection string and create a blob client to interact with Blob storage
@@ -121,7 +121,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### <a name="upload-blobs-to-the-container"></a>Carregar blobs para o contêiner
 
-Para carregar um arquivo a um blob de blocos, obtenha a referência ao blob no contêiner de destino. Após obter a referência de blob, você pode carregar dados nele usando [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload). Essa operação cria o blob, se ele ainda não existir, ou o substitui, se ele já existir.
+Para carregar um arquivo a um blob de blocos, obtenha a referência ao blob no contêiner de destino. Após obter a referência de blob, você pode carregar dados nele usando [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblockblob.upload). Essa operação cria o blob, se ele ainda não existir, ou o substitui, se ele já existir.
 
 O código de exemplo cria um arquivo local a ser usado para o upload e para o download, armazenando o arquivo a ser carregado como **origem** e o nome do blob no **blob**. O exemplo a seguir carrega o arquivo no seu contêiner chamado **quickstartcontainer**.
 
@@ -141,13 +141,13 @@ System.out.println("Uploading the sample file ");
 blob.uploadFromFile(sourceFile.getAbsolutePath());
 ```
 
-Existem vários métodos `upload`, incluindo [upload](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload), [uploadBlock](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadblock), [uploadFullBlob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadfullblob), [uploadStandardBlobTier](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadstandardblobtier) e [uploadText](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.uploadtext), que você pode usar com o Armazenamento de Blobs. Por exemplo, caso você tenha uma cadeia de caracteres, use o método `UploadText`, em vez do método `Upload`.
+Existem vários métodos `upload`, incluindo [upload](/java/api/com.microsoft.azure.storage.blob.cloudblockblob.upload), [uploadBlock](/java/api/com.microsoft.azure.storage.blob.cloudblockblob.uploadblock), [uploadFullBlob](/java/api/com.microsoft.azure.storage.blob.cloudblockblob.uploadfullblob), [uploadStandardBlobTier](/java/api/com.microsoft.azure.storage.blob.cloudblockblob.uploadstandardblobtier) e [uploadText](/java/api/com.microsoft.azure.storage.blob.cloudblockblob.uploadtext), que você pode usar com o Armazenamento de Blobs. Por exemplo, caso você tenha uma cadeia de caracteres, use o método `UploadText`, em vez do método `Upload`.
 
 Blobs de bloco podem ser qualquer tipo de arquivo binário ou de texto. Os blobs de páginas são usados principalmente para os arquivos VHD que auxiliam as VMs IaaS. Use os blobs de acréscimo para registro em log, como quando você quer gravar em um arquivo e depois adicionar mais informações. A maioria dos objetos armazenados no Armazenamento de Blobs são blobs de blocos.
 
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs em um contêiner
 
-Você pode obter uma lista de arquivos no contêiner usando [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobs). O código a seguir recupera a lista de blobs e a percorre, mostrando os URIs dos blobs encontrados. Você pode copiar o URI da janela de comando e colá-lo em um navegador para exibir o arquivo.
+Você pode obter uma lista de arquivos no contêiner usando [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobs). O código a seguir recupera a lista de blobs e a percorre, mostrando os URIs dos blobs encontrados. Você pode copiar o URI da janela de comando e colá-lo em um navegador para exibir o arquivo.
 
 ```java
 //Listing contents of container
@@ -158,7 +158,7 @@ for (ListBlobItem blobItem : container.listBlobs()) {
 
 ### <a name="download-blobs"></a>Baixar blobs
 
-Faça download dos blobs para o disco local usando [CloudBlob.DownloadToFile](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.downloadtofile).
+Faça download dos blobs para o disco local usando [CloudBlob.DownloadToFile](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblob.downloadtofile).
 
 O código a seguir baixa o blob carregado em uma seção anterior, adicionando um sufixo de "_DOWNLOADED" ao nome do blob para que você possa ver ambos os arquivos no disco local.
 
@@ -171,9 +171,9 @@ downloadedFile = new File(sourceFile.getParentFile(), "downloadedFile.txt");
 blob.downloadToFile(downloadedFile.getAbsolutePath());
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você não precisar mais dos blobs carregados, você poderá excluir o contêiner inteiro usando [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists). Esse método também exclui os arquivos no contêiner.
+Se você não precisar mais dos blobs carregados, você poderá excluir o contêiner inteiro usando [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists). Esse método também exclui os arquivos no contêiner.
 
 ```java
 try {

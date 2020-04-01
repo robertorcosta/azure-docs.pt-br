@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 456f379e2b3c2ff411b196d45aef4663fddb0fe6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fda49ae31d7598497a3128a846a3f4e12e84ffe1
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245402"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435902"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Recursos do Centro de Aposentadoria de Segurança (julho de 2019)
 
@@ -43,7 +43,7 @@ Este artigo fornece informações detalhadas para cada recurso aposentado e as e
 
 ## <a name="events-dashboard"></a>Painel de eventos<a name="menu_events"></a>
 
-O Security Center usa o Microsoft Monitoring Agent para coletar várias configurações e eventos relacionados à segurança de suas máquinas. Ele armazena esses eventos em seus espaços de trabalho. O [painel de eventos](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) permite que você visualize esses dados e lhe dá um ponto de entrada para o Log Analytics.
+O Security Center usa o agente Log Analytics para coletar várias configurações e eventos relacionados à segurança de suas máquinas. Ele armazena esses eventos em seus espaços de trabalho. O [painel de eventos](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) permite que você visualize esses dados e lhe dá um ponto de entrada para o Log Analytics.
 
 Aposentamos o painel de eventos que apareceu quando você selecionou um espaço de trabalho:
 

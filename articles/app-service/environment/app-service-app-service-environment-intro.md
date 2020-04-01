@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f655b7793bfbb5bbeddfc2f1f8e7bc973dabeb4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd3881617227430488f8dd3f2f3d24072b24b8ce
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687373"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478735"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Introdução ao Ambiente do Serviço de Aplicativo v1
 
@@ -48,7 +48,7 @@ Todos os recursos de computação em um Ambiente de Serviço de Aplicativo são 
 
 Um Ambiente de Serviço de Aplicativo é composto de um pool de recursos de computação de front-end, bem como um a três pools de recursos de computação de trabalho.
 
-O pool de front-end contém recursos de computação responsáveis pela terminação SSL, bem como balanceamento automático de carga de solicitações do aplicativo em um ambiente de serviço de aplicativo.
+O pool front-end contém recursos de computação responsáveis pelo término do TLS, bem como o balanceamento automático de carga das solicitações de aplicativos dentro de um Ambiente de Serviço de Aplicativo.
 
 Cada pool de trabalho contém recursos de computação alocados para [Planos do Serviço de Aplicativo][AppServicePlan] que, por sua vez, contêm um ou mais aplicativos de Serviço de Aplicativo do Azure.  Como pode haver até três pools de trabalho diferentes em um ambiente de serviço de aplicativo, você tem a flexibilidade de escolher os recursos de computação diferentes para cada pool de trabalho.  
 

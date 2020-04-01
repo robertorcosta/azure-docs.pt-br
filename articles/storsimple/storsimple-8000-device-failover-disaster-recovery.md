@@ -1,5 +1,5 @@
 ---
-title: Failover e recuperação de desastres para o seu dispositivo StorSimple série 8000
+title: Failover e recuperação de desastres para dispositivo da série StorSimple 8000
 description: Saiba como fazer failover do dispositivo StorSimple para si mesmo, para outro dispositivo físico ou para um dispositivo de nuvem.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: c1acc084d5abe3385fe311873dfd64c9009e83f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 179bc5cdf982792f41e0dec209341f346959a31a
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79254957"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397517"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Failover e recuperação de desastre para seu dispositivo StorSimple da série 8000
 

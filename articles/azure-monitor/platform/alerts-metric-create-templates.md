@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 2/24/2020
 ms.subservice: alerts
-ms.openlocfilehash: 2f6e9cd4e7a035e6555b2241613cb9c46c3be550
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe1f1d2700619bfcac4512bb0e631262edf8401c
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274977"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398088"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
@@ -1518,6 +1518,10 @@ Esta seção descreverá modelos do Azure Resource Manager para três cenários 
 - Monitoramento de todas as máquinas virtuais (em uma única região do Azure) em um ou mais grupos de recursos.
 - Monitorando todas as máquinas virtuais (em uma região Azure) em uma assinatura.
 - Monitorando uma lista de máquinas virtuais (em uma região Do Zure) em uma assinatura.
+
+> [!NOTE]
+>
+> Em uma regra de alerta métrica que monitora vários recursos, apenas uma condição é permitida.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Alerta de limite estático em todas as máquinas virtuais em um ou mais grupos de recursos
 

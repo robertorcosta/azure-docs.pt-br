@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 02/04/2020
+ms.date: 03/31/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 27860b8761c565c45a604253efdff5f77606606e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 195f4b5057c0e2d644ab44cc4c32e97c8662d36d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061307"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422792"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configure proteção avançada contra ameaças para armazenamento Azure
 
@@ -24,7 +24,7 @@ A proteção avançada contra ameaças para o Azure Storage fornece uma camada a
 Os alertas de segurança são acionados quando ocorrem anomalias na atividade. Esses alertas de segurança são integrados ao [Azure Security Center](https://azure.microsoft.com/services/security-center/), e também são enviados por e-mail para administradores de assinatura, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças.
 
 > [!NOTE]
-> A proteção avançada contra ameaças para o Azure Storage está disponível atualmente apenas para armazenamento Blob. Não está disponível no governo azure e regiões de nuvens soberanas. Para obter detalhes sobre preços, incluindo um teste gratuito de 30 dias, consulte a página de preços do [Azure Security Center]( https://azure.microsoft.com/pricing/details/security-center/).
+> A proteção avançada contra ameaças para o Azure Storage está disponível atualmente apenas para armazenamento Blob. Este serviço está disponível nas nuvens do governo dos EUA, mas nenhuma outra região de nuvens do governo soberano ou azure. Para obter detalhes sobre preços, incluindo um teste gratuito de 30 dias, consulte a página de preços do [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 A proteção avançada contra ameaças para o Azure Storage ingere registros de diagnóstico de leitura, gravação e exclusão de solicitações ao armazenamento Blob para detecção de ameaças. Para investigar os alertas de proteção avançada contra ameaças, você pode visualizar atividades de armazenamento relacionadas usando o Registro de Análisede Armazenamento. Para obter mais informações, consulte **Configurar o login** no Monitor e monitorar uma conta de armazenamento no portal [Azure](storage-monitor-storage-account.md#configure-logging).
 
@@ -44,7 +44,7 @@ Você pode configurar proteção avançada contra ameaças de várias maneiras, 
 
 ### <a name="azure-security-center"></a>[Centro de Segurança Azure](#tab/azure-security-center)
 
-Quando você assina o nível Padrão no Azure Security Center, a proteção avançada contra ameaças é configurada automaticamente em todas as suas contas de armazenamento. Você pode ativar ou desativar proteção avançada contra ameaças para suas contas de armazenamento uma assinatura específica da seguinte forma:
+Quando você assina o nível Padrão no Azure Security Center, a proteção avançada contra ameaças é configurada automaticamente em todas as suas contas de armazenamento. Você pode ativar ou desativar proteção avançada contra ameaças para suas contas de armazenamento sob uma assinatura específica da seguinte forma:
 
 1. Inicie **o Azure Security Center** no portal [Azure](https://portal.azure.com).
 1. No menu principal, clique **em Configurações de preços &**.
@@ -62,9 +62,9 @@ Quando você assina o nível Padrão no Azure Security Center, a proteção avan
 
 Use um modelo do Azure Resource Manager para implantar uma conta do Azure Storage com proteção avançada de ameaças ativada. Para obter mais informações, consulte [A conta armazenamento com proteção avançada contra ameaças](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
 
-### <a name="azure-policy"></a>[Política do Azure](#tab/azure-policy)
+### <a name="azure-policy"></a>[Azure Policy](#tab/azure-policy)
 
-Use uma diretiva do Azure para permitir proteção avançada contra ameaças em contas de armazenamento um grupo específico de assinatura ou recurso.
+Use uma diretiva do Azure para permitir proteção avançada contra ameaças em contas de armazenamento sob um grupo específico de assinatura ou recurso.
 
 1. Inicie a página **Azure Policy - Definições.**
 
@@ -80,14 +80,14 @@ Use uma diretiva do Azure para permitir proteção avançada contra ameaças em 
 
     ![Página definições de políticas](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-api"></a>[REST API](#tab/rest-api)
+### <a name="rest-api"></a>[API REST](#tab/rest-api)
 
 Use comandos de API rest para criar, atualizar ou obter a configuração avançada de proteção contra ameaças para uma conta de armazenamento específica.
 
 * [Proteção avançada contra ameaças - Criar](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
 * [Proteção avançada contra ameaças - Obter](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Use os seguintes cmdlets powershell:
 

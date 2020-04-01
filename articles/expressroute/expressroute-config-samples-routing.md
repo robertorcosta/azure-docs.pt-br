@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
-ms.author: cherylmc
-ms.openlocfilehash: 2c37dadeb669fb88f858b5487379828a8dddec6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/26/2020
+ms.author: osamaz
+ms.openlocfilehash: 5304aefaf3ad70bb552b4b0d1b26fcce9867c9c0
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74076657"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397740"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Exemplos de configuração do roteador para configurar e gerenciar o roteamento
 Esta página fornece interface e modelos de configuração de roteamento para roteadores da série Cisco IOS-XE e Juniper MX ao trabalhar com o ExpressRoute. Devem ser exemplos para obter orientação apenas e não devem ser usados como estão. Você pode trabalhar com o fornecedor para exibir as configurações apropriadas para sua rede. 
@@ -91,6 +91,25 @@ Você pode usar mapas de rotas e listas de prefixo para prefixos de filtro propa
     !
     route-map <MS_Prefixes_Inbound> permit 10
      match ip address prefix-list <MS_Prefixes>
+    !
+
+### <a name="5-configuring-bfd"></a>5. Configuração de BFD
+
+Você configurará bfd em dois lugares. Um no nível de interface e outro no nível BGP. O exemplo abaixo é para interface QinQ. 
+
+    interface GigabitEthernet<Interface_Number>.<Number>
+     bfd interval 300 min_rx 300 multiplier 3
+     encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
+     ip address <IPv4_Address><Subnet_Mask>
+    
+    router bgp <Customer_ASN>
+     bgp log-neighbor-changes
+     neighbor <IP#2_used_by_Azure> remote-as 12076
+     !        
+     address-family ipv4
+      neighbor <IP#2_used_by_Azure> activate
+      neighbor <IP#2_used_by_Azure> fall-over bfd
+     exit-address-family
     !
 
 
@@ -173,7 +192,7 @@ Você pode configurar seu roteador para anunciar prefixos selecionados para a Mi
     }
 
 
-### <a name="4-route-maps"></a>4. Mapas de rota
+### <a name="4-route-policies"></a>4. Políticas de rota
 Você pode usar mapas de rotas e listas de prefixo para prefixos de filtro propagados em sua rede. Você pode usar o exemplo a seguir para realizar a tarefa. Certifique-se de que as listas de prefixo foram configuradas apropriadamente.
 
     policy-options {
@@ -203,6 +222,24 @@ Você pode usar mapas de rotas e listas de prefixo para prefixos de filtro propa
         }                                   
     }
 
+### <a name="4-configuring-bfd"></a>4. Configuração de BFD
+Você configurará bfd somente sob a seção BGP do protocolo.
+
+    protocols {
+        bgp { 
+            group <Group_Name> { 
+                peer-as 12076;              
+                neighbor <IP#2_used_by_Azure>;
+                bfd-liveness-detection {
+                       minimum-interval 3000;
+                       multiplier 3;
+                }
+            }                               
+        }                                   
+    }
+
 ## <a name="next-steps"></a>Próximas etapas
 Consulte as [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md) para obter mais detalhes.
+
+
 

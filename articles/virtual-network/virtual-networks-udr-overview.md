@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 8b95bb45436f45dc0e62fb12d6ab1b24c37372e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9ed11cd00909a104b5ea54463f8a98020837e10
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280060"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477884"
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 
@@ -122,7 +122,7 @@ Um gateway de rede local pode trocar rotas com um gateway de rede virtual do Azu
 
 Ao trocar de rotas com o Azure usando o BGP, uma rota separada é adicionada à tabela de rotas de todas as sub-redes em uma rede virtual para cada prefixo anunciado. A rota é adicionada com o *Gateway de rede virtual* listado como a fonte e o tipo do próximo salto. 
 
-A propagação de rotas de Gateway de VPN e ER pode ser desabilitada em uma sub-rede usando uma propriedade em uma tabela de rotas. Quando você troca rotas com o Azure usando BGP, as rotas não são adicionadas à tabela de rotas de todas as sub-redes com a propagação de rota de gateway de rede virtual desativada. A conectividade com conexões VPN é feita usando [rotas personalizadas](#custom-routes) com um tipo de *gateway de rede virtual* de próximo salto. Para obter detalhes, [consulte Como desativar a propagação da rota do gateway de rede virtual](manage-route-table.md#create-a-route-table).
+A propagação de rotas de Gateway de VPN e ER pode ser desabilitada em uma sub-rede usando uma propriedade em uma tabela de rotas. Quando você troca rotas com o Azure usando BGP, as rotas não são adicionadas à tabela de rotas de todas as sub-redes com a propagação de rota de gateway de rede virtual desativada. A conectividade com conexões VPN é feita usando [rotas personalizadas](#custom-routes) com um tipo de *gateway de rede virtual* de próximo salto. **A propagação da rota não deve ser desativada na GatewaySubnet. O gateway não funcionará com esta configuração desativada.** Para obter detalhes, [consulte Como desativar a propagação da rota do gateway de rede virtual](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Como o Azure seleciona uma rota
 

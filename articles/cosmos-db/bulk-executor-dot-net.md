@@ -6,17 +6,22 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/01/2019
+ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d7600267dcd196a9a5c06c29774ea21d582cd7ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40ef05107f20a3396f6710f894a2dbad2d7fa6c9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246871"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478856"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Use a biblioteca .NET do executor em massa para realizar operações em massa no Azure Cosmos DB
+
+> [!NOTE]
+> Esta biblioteca de executores em massa descrita neste artigo é mantida para aplicativos usando a versão .NET SDK 2.x. Para novos aplicativos, você pode usar o **suporte a granel** que está disponível diretamente com a [versão 3.x do .NET SDK](tutorial-sql-api-dotnet-bulk-import.md) e não requer nenhuma biblioteca externa. 
+
+> Se você estiver usando a biblioteca de executores em massa e planejando migrar para o suporte em massa no SDK mais novo, use as etapas no [guia Migração](how-to-migrate-from-bulk-executor-library.md) para migrar seu aplicativo.
 
 Este tutorial fornece instruções sobre como usar a biblioteca .NET do executor em massa para importar e atualizar documentos para um contêiner Do Azure Cosmos. Para saber mais sobre a biblioteca de executores em massa e como ela ajuda você a aproveitar o throughput e o armazenamento em massa, consulte o artigo [de visão geral da biblioteca executor a granel.](bulk-executor-overview.md) Neste tutorial, você verá uma amostra do aplicativo .NET que importa documentos gerados aleatoriamente em um contêiner do Azure Cosmos. Após a importação, ele mostra como você pode atualizar em massa os dados importados, especificando os patches como operações a serem executadas em campos de documento específicos.
 
@@ -40,7 +45,7 @@ Agora vamos mudar para trabalhar com código baixando uma amostra do aplicativo 
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-O repositório clonado contém duas amostras "BulkImportSample" e "BulkUpdateSample". Você pode abrir qualquer um dos aplicativos de exemplo, atualizar as cadeias de conexão no arquivo App.config com as suas cadeias de conexão da conta do Azure Cosmos DB, compilar a solução e executá-la.
+O repositório clonado contém duas amostras "BulkImportSample" e "BulkUpdateSample". Você pode abrir qualquer um dos aplicativos de exemplo, atualizar as strings de conexão no arquivo App.config com as strings de conexão da sua conta Azure Cosmos DB, construir a solução e executá-la.
 
 O aplicativo "BulkImportSample" gera documentos aleatórios e os importa em massa para sua conta do Azure Cosmos. O aplicativo "BulkUpdateSample" atualiza em massa os documentos importados, especificando os patches como operações a serem executadas em campos de documento específicos. Nas próximas seções, você examinará o código em cada um desses aplicativos de exemplo.
 
@@ -48,7 +53,7 @@ O aplicativo "BulkImportSample" gera documentos aleatórios e os importa em mass
 
 1. Navegue até a pasta "BulkImportSample" e abra o arquivo "BulkImportSample.sln".  
 
-2. As cadeias de conexão do Azure Cosmos DB são recuperadas do arquivo App.config, conforme mostrado no código a seguir:  
+2. As seqüências de conexão do Azure Cosmos DB são recuperadas do arquivo App.config, conforme mostrado no código a seguir:  
 
    ```csharp
    private static readonly string EndpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];

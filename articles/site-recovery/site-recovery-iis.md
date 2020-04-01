@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 513a0f28fc03cbf24e35112245c9756d5ce00783
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfed398124ca20771e169f6f9e7d08d4d799ee1e
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73954659"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478294"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação de desastre para um aplicativo Web baseado em IIS de várias camadas
 
 Software de aplicativo é o motor da produtividade comercial em uma organização. Vários aplicativos Web podem servir para propósitos diferentes em uma organização. Alguns aplicativos, como aplicativos usados para processamento da folha de pagamento, aplicativos financeiros e sites voltados ao cliente, podem ser críticos para uma organização. Para evitar perda de produtividade, é importante que a organização tenha esses aplicativos continuamente em execução. Mais importante ainda, ter esses aplicativos consistentemente disponíveis pode ajudar a prevenir danos à marca ou imagem da organização.
 
-Aplicativos Web críticos normalmente são configurados como aplicativos de várias camadas: a Web, o banco de dados e o aplicativo estão em diferentes camadas. Além de espalharem-se por várias camadas, os aplicativos também podem usar vários servidores em cada camada para balancear a carga do tráfego. Além disso, os mapeamentos entre várias camadas e no servidor Web podem estar baseados em endereços IP estáticos. Em failover, alguns desses mapeamentos precisam ser atualizados, especialmente se vários sites estiverem configurados no servidor Web. Se os aplicativos Web utilizarem SSL, será necessário atualizar as associações de certificado.
+Aplicativos Web críticos normalmente são configurados como aplicativos de várias camadas: a Web, o banco de dados e o aplicativo estão em diferentes camadas. Além de espalharem-se por várias camadas, os aplicativos também podem usar vários servidores em cada camada para balancear a carga do tráfego. Além disso, os mapeamentos entre várias camadas e no servidor Web podem estar baseados em endereços IP estáticos. Em failover, alguns desses mapeamentos precisam ser atualizados, especialmente se vários sites estiverem configurados no servidor Web. Se os aplicativos da Web usarem TLS, você deve atualizar as vinculações do certificado.
 
 Métodos de recuperação tradicionais que não são baseados na replicação envolvem o backup de vários arquivos de configuração, configurações de registro, associações, componentes personalizados (COM ou .NET), conteúdo e certificados. Os arquivos são recuperados através de um conjunto de etapas manuais. Os métodos de recuperação tradicionais de backup e recuperação manual de arquivos são complicados, propensos a erros e não escaláveis. Por exemplo, é muito fácil esquecer de fazer backup de certificados. Após o failover, não haverá outra escolha senão comprar novos certificados para o servidor.
 
@@ -118,22 +118,22 @@ Cada site consiste em informações de associação. As informações de associa
 >
 > Se você definir a associação do site para **Não atribuídas**, não será necessário atualizar essa associação pós-failover. Além disso, se o endereço IP associado a um site não for alterado pós-failover, não será necessário atualizar a associação do site. (A retenção do endereço IP depende da arquitetura de rede e sub-redes atribuídas aos sites primário e de recuperação. Atualizá-los pode não ser viável para sua organização.)
 
-![Captura de tela que mostra a configuração da associação SSL](./media/site-recovery-iis/sslbinding.png)
+![Captura de tela que mostra a configuração da vinculação TLS/SSL](./media/site-recovery-iis/sslbinding.png)
 
 Se você associou o endereço IP a um site, atualize todas as associações do site com o novo endereço IP. Para alterar as associações do site, adicione um [script de atualização da camada Web do IIS](https://aka.ms/asr-web-tier-update-runbook-classic) após o Grupo 3 no plano de recuperação.
 
 #### <a name="update-the-load-balancer-ip-address"></a>Atualizar o endereço IP do balanceador de carga
 Se você tiver uma máquina virtual de ARR, para atualizar o endereço IP adicione um [script de failover de ARR do IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) após o Grupo 4.
 
-#### <a name="ssl-certificate-binding-for-an-https-connection"></a>Associação de certificado SSL para uma conexão HTTPS
-Um site pode ter um certificado SSL associado que ajuda a garantir uma comunicação segura entre o servidor Web e o navegador do usuário. Se o site tiver uma conexão HTTPS e uma associação do site HTTPS associada ao endereço IP do servidor IIS com uma associação de certificado SSL, será necessário adicionar uma nova associação do site para o certificado com o endereço IP da máquina virtual do IIS pós-failover.
+#### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>Vinculação do certificado TLS/SSL para uma conexão HTTPS
+Um site pode ter um certificado TLS/SSL associado que ajuda a garantir uma comunicação segura entre o servidor web e o navegador do usuário. Se o site tiver uma conexão HTTPS e também tiver um site HTTPS associado vinculado ao endereço IP do servidor IIS com uma vinculação de certificado TLS/SSL, você deve adicionar uma nova vinculação do site para o certificado com o endereço IP da máquina virtual IIS pós-failover.
 
-O certificado SSL pode ser emitido em relação a esses componentes:
+O certificado TLS/SSL pode ser emitido contra esses componentes:
 
 * O nome de domínio totalmente qualificado do site.
 * O nome do servidor.
 * Um certificado curinga para o nome de domínio.  
-* Um endereço IP. Se o certificado SSL for emitido em relação ao endereço IP do servidor IIS, outro certificado SSL deverá ser emitido em relação ao endereço IP do servidor IIS no site do Azure. É necessário criar uma associação SSL adicional para esse certificado. Por isso, é recomendável não usar um certificado SSL emitido em relação ao endereço IP. Essa opção é menos utilizada, e em breve será preterida de acordo com as novas alterações de fórum do navegador/autoridade de certificação.
+* Um endereço IP. Se o certificado TLS/SSL for emitido contra o endereço IP do servidor IIS, outro certificado TLS/SSL deverá ser emitido contra o endereço IP do servidor IIS no site do Azure. Uma vinculação TLS adicional para este certificado precisa ser criada. Por causa disso, recomendamos não usar um certificado TLS/SSL emitido contra o endereço IP. Essa opção é menos utilizada, e em breve será preterida de acordo com as novas alterações de fórum do navegador/autoridade de certificação.
 
 #### <a name="update-the-dependency-between-the-web-tier-and-the-application-tier"></a>Atualizar a dependência entre a camada Web e a camada de aplicativo
 Se você tiver uma dependência específica do aplicativo baseada no endereço IP das máquinas virtuais, será necessário atualizar essa dependência pós-failover.

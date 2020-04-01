@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dfb6d72b3f8f61e1350101173ecec6134a614edf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4838597c50898748eb4b33e81ff22eaeea37b30
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687145"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476900"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrar o Ambiente do Serviço de Aplicativo do ILB com o Gateway de Aplicativo do Azure #
 
@@ -20,7 +20,7 @@ O [Ambiente do Serviço de Aplicativo](./intro.md) é uma implantação do Servi
 
 Firewalls do aplicativo Web ajudam na segurança do aplicativos Web ao inspecionar o tráfego de entrada da Web para bloquear injeções de SQL, script entre sites, uploads de malware, DDoS de aplicativo e outros ataques. Ele também inspeciona as respostas dos servidores Web back-end para DLP (Prevenção contra Perda de Dados). Você pode obter um dispositivo WAF no Microsoft Azure Marketplace ou usar o [Gateway de Aplicativo do Azure][appgw].
 
-O Gateway de Aplicativo do Azure é uma solução de virtualização que fornece proteção de balanceamento de carga de camada 7, descarregamento de SSL e WAF (firewall do aplicativo Web). Ele pode escutar em um endereço IP público e rotear tráfego para o ponto de extremidade do aplicativo. As informações a seguir descrevem como integrar um Gateway de Aplicativo com WAF configurado a um aplicativo em um ILB ASE.  
+O Azure Application Gateway é um dispositivo virtual que fornece balanceamento de carga de camada 7, descarregamento TLS/SSL e proteção waf (Web application firewall). Ele pode escutar em um endereço IP público e rotear tráfego para o ponto de extremidade do aplicativo. As informações a seguir descrevem como integrar um Gateway de Aplicativo com WAF configurado a um aplicativo em um ILB ASE.  
 
 A integração do gateway de aplicativo com o Ambiente do Serviço de Aplicativo do ILB é em um nível de aplicativo. Quando você configura o gateway de aplicativo com seu Ambiente do Serviço de Aplicativo do ILB, você faz isso para aplicativos específicos no Ambiente do Serviço de Aplicativo do ILB. Essa técnica permite hospedar aplicativos multilocatários seguros em um único Ambiente do Serviço de Aplicativo do ILB.  
 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b1d0c070a9196eaa9a2706a607baa9a2926e2db4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 615a6afb0f7a3e133603db10e7c79add3322070c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67051755"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476697"
 ---
 # <a name="publish-media-services-content-using-net"></a>Publicar o conteúdo dos Serviços de Mídia usando o .NET  
 > [!div class="op_single_selector"]
-> * [Resto](media-services-rest-deliver-streaming-content.md)
+> * [REST](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [Portal](media-services-portal-publish.md)
 > 
@@ -108,7 +108,7 @@ As saídas:
 
 
 > [!NOTE]
-> Você também pode transmitir seu conteúdo por uma conexão SSL. Para seguir essa abordagem, certifique-se de que suas URLs de streaming começam com HTTPS. Atualmente, o AMS não dá suporte ao SSL com domínios personalizados.
+> Você também pode transmitir seu conteúdo por uma conexão TLS. Para seguir essa abordagem, certifique-se de que suas URLs de streaming começam com HTTPS. Atualmente, a AMS não suporta TLS com domínios personalizados.
 > 
 > 
 

@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a4fb3ad2ce6225528910bbda9d98a38001242710
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: add2d515e4f8e8c56a98a7292e137e601332d10c
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298981"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410875"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual key vault para Linux
 
@@ -31,6 +31,7 @@ A extensão Do Key Vault VM suporta essas distribuições Linux:
 ### <a name="supported-certificate-content-types"></a>Tipos de conteúdo de certificado sustais suportados
 
 - #12 de PKCs
+- Pem
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -89,7 +90,7 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 
 Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem renovação de certificados pós-implantação. A extensão pode ser implantada em VMs individuais ou conjuntos de escala de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelo. 
 
-A configuração JSON para uma extensão de máquina virtual deve ser `"resources": []` aninhada dentro do fragmento de recurso da `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` máquina virtual do modelo, especificamente objeto para o modelo de máquina virtual e no caso de escala de máquina virtual definida objeto.
+A configuração JSON para uma extensão de máquina virtual deve ser `"resources": []` aninhada dentro do fragmento de recurso da `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` máquina virtual do modelo, especificamente objeto para o modelo de máquina virtual e no caso de escala de máquina virtual definida sob objeto.
 
 ```json
     {
@@ -198,7 +199,7 @@ Por favor esteja ciente das seguintes restrições/exigências:
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solução de problemas
+### <a name="troubleshoot"></a>Solucionar problemas
 
 Os dados sobre o estado das implantações de extensão podem ser recuperados no Portal do Azure usando o Azure PowerShell. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando o Azure PowerShell.
 

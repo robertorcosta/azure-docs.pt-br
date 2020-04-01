@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 242fc115c5b2324c770de480fb19985e8b874893
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 290467d5d20a74f8b8b2c23f6da0dcadfd74cc56
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371260"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411022"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Application Gateway
 
@@ -353,11 +353,11 @@ Atualmente, uma instância do Ingress Controller só pode ser associada a um Gat
 
 O Application Gateway fornece três logs: 
 
-* **ApplicationGatewayAccessLog**: O log de acesso contém cada solicitação enviada ao frontend do gateway do aplicativo. Os dados incluem ip do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. O registro de acesso é coletado a cada 300 segundos. Ele contém um registro por gateway de aplicativo.
+* **ApplicationGatewayAccessLog**: O log de acesso contém cada solicitação enviada ao frontend do gateway do aplicativo. Os dados incluem ip do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. Ele contém um registro por gateway de aplicativo.
 * **ApplicationGatewayPerformanceLog**: O registro de desempenho captura informações de desempenho para cada gateway de aplicativo. As informações incluem o throughput in bytes, o total de solicitações atendidas, a contagem de solicitações falhadas e a contagem de instâncias de backend saudáveis e insalubres.
 * **AplicativoGatewayFirewallLog**: Para gateways de aplicativos configurados com waf, o registro de firewall contém solicitações que são registradas através do modo de detecção ou do modo de prevenção.
 
-Para obter mais informações, consulte [a saúde do Backend, os registros de diagnóstico e as métricas do Application Gateway](application-gateway-diagnostics.md).
+Todos os registros são coletados a cada 60 segundos. Para obter mais informações, consulte [a saúde do Backend, os registros de diagnóstico e as métricas do Application Gateway](application-gateway-diagnostics.md).
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Como sei se meus membros do pool de back-end são saudáveis?
 

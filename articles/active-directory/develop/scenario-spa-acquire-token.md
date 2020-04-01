@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: d5d48a2fc7aca184cf8b6e7761584a8800ca5151
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 393c3a06a2366a7d6947faf8bbfe038d6c5982fc
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77160059"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419654"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicativo de página única: Adquira um token para chamar uma API
 
@@ -42,7 +42,7 @@ Você pode definir os escopos de API que deseja que o token de acesso inclua qua
 
 ## <a name="acquire-a-token-with-a-pop-up-window"></a>Adquira um token com uma janela pop-up
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O código a seguir combina o padrão descrito anteriormente com os métodos para uma experiência pop-up:
 
@@ -76,20 +76,40 @@ O invólucro MSAL Angular fornece o interceptador HTTP, que automaticamente adqu
 Você pode especificar os escopos `protectedResourceMap` para APIs na opção de configuração. `MsalInterceptor`solicitará esses escopos ao adquirir automaticamente tokens.
 
 ```javascript
-//In app.module.ts
+// app.module.ts
 @NgModule({
-  imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id',
-                protectedResourceMap: {"https://graph.microsoft.com/v1.0/me", ["user.read", "mail.send"]}
-            })]
-         })
-
-providers: [ ProductService, {
-        provide: HTTP_INTERCEPTORS,
-        useClass: MsalInterceptor,
-        multi: true
+  declarations: [
+    // ...
+  ],
+  imports: [
+    // ...
+    MsalModule.forRoot({
+      auth: {
+        clientId: 'Enter_the_Application_Id_Here',
+      }
+    },
+    {
+      popUp: !isIE,
+      consentScopes: [
+        'user.read',
+        'openid',
+        'profile',
+      ],
+      protectedResourceMap: [
+        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+      ]
+    })
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true
     }
-   ],
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 
 Para o sucesso e o fracasso da aquisição silenciosa do token, a MSAL Angular fornece retornos de chamada aos que você pode assinar. Também é importante lembrar de cancelar a inscrição.
@@ -103,7 +123,7 @@ Para o sucesso e o fracasso da aquisição silenciosa do token, a MSAL Angular f
 
 ngOnDestroy() {
    this.broadcastService.getMSALSubject().next(1);
-   if(this.subscription) {
+   if (this.subscription) {
      this.subscription.unsubscribe();
    }
  }
@@ -115,7 +135,7 @@ Alternativamente, você pode adquirir explicitamente tokens usando os métodos d
 
 ## <a name="acquire-a-token-with-a-redirect"></a>Adquira um token com um redirecionamento
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O padrão a seguir é descrito anteriormente, mas mostrado com um método de redirecionamento para adquirir tokens interativamente. Você precisará registrar o retorno de redirecionamento como mencionado anteriormente.
 
@@ -149,16 +169,16 @@ Você pode usar reivindicações opcionais para os seguintes propósitos:
 
 - Inclua reivindicações adicionais em tokens para sua aplicação.
 - Altere o comportamento de determinadas declarações que o Azure AD retorna em tokens.
-- Adicione e acesse as declarações personalizadas para o aplicativo. 
+- Adicione e acesse as declarações personalizadas para o aplicativo.
 
 Para solicitar reclamações `IdToken`opcionais, você pode enviar `claimsRequest` um `AuthenticationParameters.ts` objeto de reclamações stringified para o campo da classe.
 
 ```javascript
-"optionalClaims":  
+"optionalClaims":
    {
       "idToken": [
             {
-                  "name": "auth_time", 
+                  "name": "auth_time",
                   "essential": true
              }
       ],

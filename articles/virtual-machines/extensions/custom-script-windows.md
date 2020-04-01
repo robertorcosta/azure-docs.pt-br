@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 698fab470cdc8b8d04fa4319fd71c31b58d1c5a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c7cad2dfdcd55073a1cf09d79e5223b666ced5f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066885"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478158"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -55,7 +55,7 @@ Se o seu script estiver em um servidor local, então você ainda pode precisar d
 * Quando o script for executado, você só verá um status da extensão 'em transição' no portal do Azure ou no CLI. Se quiser atualizações de status mais frequentes de um script em execução, será necessário criar sua própria solução.
 * A extensão de script personalizado não dá suporte nativo para servidores proxy. No entanto, é possível usar uma ferramenta de transferência de arquivos que dá suporte a servidores proxy no script, como a *Curl*
 * Esteja ciente dos locais de diretório não padrão nos quais os scripts ou comandos podem confiar e mantenha uma lógica para lidar com essa situação.
-* A extensão de script personalizada será executada a conta localsystem
+* A extensão de script personalizada será executada sob a conta localsystem
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -106,7 +106,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 > Apenas uma versão de uma extensão pode ser instalada em uma VM em um ponto no tempo, especificando o script personalizado duas vezes no mesmo modelo do Gerenciador de recursos para a mesma VM falhará.
 
 > [!NOTE]
-> Podemos usar este esquema dentro do recurso VirtualMachine ou como um recurso autônomo. O nome do recurso deve estar neste formato "virtualMachineName/extensionName", se essa extensão for usada como um recurso autônomo no modelo ARM. 
+> Podemos usar este esquema dentro do recurso VirtualMachine ou como um recurso autônomo. O nome do recurso deve estar neste formato "virtualMachineName/extensionName", se essa extensão for usada como um recurso autônomo no modelo ARM.
 
 ### <a name="property-values"></a>Valores de propriedade
 
@@ -146,6 +146,8 @@ Usar configurações públicas talvez seja útil para depuração, mas é recome
 As configurações públicas são enviadas em texto não criptografado para a VM na qual o script será executado.  As configurações protegidas são criptografadas usando uma chave conhecida apenas pelo Azure e pela VM. As configurações são salvas na VM quando foram enviadas, ou seja, se as configurações foram criptografadas, elas serão salvas criptografadas na VM. O certificado usado para descriptografar os valores criptografados é armazenado na VM e usado para descriptografar as configurações (se necessário) no runtime.
 
 ####  <a name="property-managedidentity"></a>Propriedade: gerenciadoIdentidade
+> [!NOTE]
+> Esta propriedade **deve** ser especificada apenas em configurações protegidas.
 
 CustomScript (versão 1.10 em diante) suporta [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para baixar arquivos de URLs fornecidos na configuração "fileUris". Ele permite que o CustomScript acesse blobs ou contêineres privados do Azure Storage sem que o usuário tenha que passar segredos como tokens SAS ou chaves de conta de armazenamento.
 
@@ -306,7 +308,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solução de problemas
+### <a name="troubleshoot"></a>Solucionar problemas
 
 Os dados sobre o estado das implantações de extensão podem ser recuperados no Portal do Azure usando o módulo do Azure PowerShell. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir:
 

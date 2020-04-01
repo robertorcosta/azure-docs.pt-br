@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 03/31/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76dd07a59a9fa7c0d6231a766ff4090c11f9f5bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 957aa77e18ea8f910f258d1dc59de0d093b0eab6
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331921"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476637"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear autenticação de legado no Azure AD com acesso condicional   
 
@@ -92,7 +92,7 @@ Esses logs indicarão quais usuários ainda estão dependendo da autenticação 
 
 ### <a name="block-legacy-authentication"></a>Bloquear a autenticação herdada 
 
-Em uma política de acesso condicional, você pode definir uma condição vinculada aos aplicativos clientes que são usados para acessar seus recursos. A condição de aplicativos cliente permite restringir o escopo a aplicativos usando autenticação herdada, selecionando **Outros clientes** para **Aplicativos móveis e clientes de desktop**.
+Em uma política de acesso condicional, você pode definir uma condição vinculada aos aplicativos clientes que são usados para acessar seus recursos. A condição de aplicativos clientes permite reduzir o escopo para aplicativos usando autenticação legada selecionando **clientes Do Exchange ActiveSync** e **outros clientes** em **aplicativos móveis e clientes desktop**.
 
 ![Outros clientes](./media/block-legacy-authentication/01.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 6ea951b542d893b8fef3cdf19a964ce2ef8a034d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 8e44ce594375deeac47f037515d96c57d15c8359
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79415690"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398399"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gerencie e responda a alertas de segurança no Azure Security Center
 
@@ -73,5 +73,6 @@ A Central de segurança coleta, analisa e integra automaticamente os dados de re
 
 Neste documento, você aprendeu a configurar políticas de segurança na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
+- [O módulo Microsoft Learn sobre como usar os recursos de alerta do Azure Security Center para observar e responder a ameaças](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
 * [Alertas de segurança no Azure Security Center](security-center-alerts-overview.md).
 * [Lidar com incidentes de segurança](security-center-incident.md)

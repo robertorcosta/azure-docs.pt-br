@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 6de37daa0b9e0ebc711a5dacbdce352e3675a3db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54e44a12f593d2074eefe5b2ff890863db3199f7
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79257739"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478945"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solucionar erros ao fazer failover de VM VMWare ou de computador físico para o Azure
 
@@ -128,7 +128,7 @@ Normalmente, isso não é motivo de preocupação e geralmente pode ser ignorado
 
 Esse problema é indicado quando você não consegue ver o datastore no Azure do portal ao tentar reproteger a máquina virtual que sofreu um failover. Isso ocorre porque o destino Master não é reconhecido como uma máquina virtual em vCenters adicionados ao Azure Site Recovery.
 
-Para obter mais informações sobre como reproteger uma máquina vitual, consulte [Reprotect e fail back machines para um local no local após failover para Azure](vmware-azure-reprotect.md).
+Para obter mais informações sobre como reproteger uma máquina virtual, consulte [Reprotect e fail back machines para um site no local após failover para o Azure](vmware-azure-reprotect.md).
 
 Como resolver o problema:
 
@@ -138,7 +138,7 @@ Crie manualmente o destino Master no vCenter que gerencia sua máquina de origem
 > 
 > As operações de descoberta e atualização de tecido podem levar até 30 minutos para serem concluídas. 
 
-## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>O registro do Linux Master Target com CS falha com um erro SSL 35 
+## <a name="linux-master-target-registration-with-cs-fails-with-a-tls-error-35"></a>O registro do Linux Master Target com CS falha com um erro TLS 35 
 
 O registro de destino mestre de recuperação do site do Azure com o servidor de configuração falha devido à ativação do Proxy Autenticado no Destino Mestre. 
  

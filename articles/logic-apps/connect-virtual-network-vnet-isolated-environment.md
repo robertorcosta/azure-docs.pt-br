@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: fedc1f6ce8fbaeaf0d2cae3a1b04169192868e61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6683c1b78b0e7ecba162026708c83843e2c08180
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270687"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478876"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectar redes virtuais do Azure a partir dos Aplicativos Lógicos do Azure, usando um ISE (Ambiente de Serviço de Integração)
 
@@ -32,7 +32,7 @@ Este artigo mostra como concluir essas tarefas usando o portal Azure:
 * Crie seu ISE.
 * Adicione capacidade extra ao seu ISE.
 
-Você também pode criar um ISE usando a API Logic Apps REST, incluindo a configuração de chaves gerenciadas pelo cliente:
+Você também pode criar um ISE usando o modelo de inicialização rápida do [Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) ou usando a API Logic Apps REST, incluindo a configuração de chaves gerenciadas pelo cliente:
 
 * [Crie um ambiente de serviço de integração (ISE) usando a API Logic Apps REST](../logic-apps/create-integration-service-environment-rest-api.md)
 * [Configure chaves gerenciadas pelo cliente para criptografar dados em repouso para ISEs](../logic-apps/customer-managed-keys-integration-service-environment.md)

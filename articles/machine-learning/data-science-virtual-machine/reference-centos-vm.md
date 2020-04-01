@@ -8,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: db49a9f5e0e6675d93cb58d6af9c92fac21e8b74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05da812023e7525b87a3d7ef1ce1940339f99791
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525831"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475486"
 ---
 # <a name="reference-centos-linux-data-science-virtual-machine"></a>Referência: CentOS (Linux) Data Science Virtual Machine
 
@@ -49,7 +49,7 @@ Cientistas de dados usam várias ferramentas para concluir essas tarefas. Pode s
 
 A DSVM do Linux pode aliviar essa carga substancialmente. Use a DSVM do Linux para iniciar rapidamente seu projeto de análise. Ela ajuda você a trabalhar em tarefas em várias linguagens, incluindo R, Python, SQL, Java e C++. O Eclipse fornece um IDE fácil de usar para desenvolver e testar seu código. O SDK do Azure, incluído na DSVM, ajuda você a criar seus aplicativos usando vários serviços em Linux para a plataforma de nuvem da Microsoft. Outras linguagens são pré-instaladas, incluindo Ruby, Perl, PHP e Node.js.
 
-Não há encargos de software para essa imagem da DSVM. Você paga apenas pelos valores de uso de hardware do Azure, que são avaliadas com base no tamanho da máquina virtual que você provisiona com a imagem da DSVM. Para obter mais informações sobre os valores de computação, confira a [Listagem da Máquina Virtual de Ciência de Dados para Linux (CentOS)](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) no Azure Marketplace.
+Não há encargos de software para essa imagem da DSVM. Você paga apenas pelos valores de uso de hardware do Azure, que são avaliadas com base no tamanho da máquina virtual que você provisiona com a imagem da DSVM. Para obter mais informações sobre as taxas de computação, consulte a [lista de Data Science Virtual Machine for Linux](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) no Azure Marketplace.
 
 
 ## <a name="machine-learning-server"></a>Machine Learning Server
@@ -176,7 +176,7 @@ O banco de dados open-source PostgresSQL está disponível na DSVM, com os servi
 O SQuirreL SQL é um cliente gráfico do SQL que pode se conectar a vários bancos de dados (incluindo o SQL Server, o PostgresSQL e o MySQL) e executar consultas SQL. É possível executar o SQuirreL SQL em uma sessão de área de trabalho gráfica (usando o cliente X2Go, por exemplo) usando um ícone de área de trabalho. Ou você pode executar o cliente usando o seguinte comando no shell:
 
 ```bash
-/usr/local/squirrel-sql-3.7/squirrel-sql.sh /usr/local/squirrel-sql-3.7/squirrel-sql.sh
+/usr/local/squirrel-sql-3.7/squirrel-sql.sh    /usr/local/squirrel-sql-3.7/squirrel-sql.sh
 ```
 
 Antes do primeiro uso, configure os drivers e aliases de banco de dados. Os drivers JDBC estão localizados em /usr/share/java/jdbcdrivers.

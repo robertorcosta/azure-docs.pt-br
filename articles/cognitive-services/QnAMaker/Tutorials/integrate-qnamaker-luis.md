@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 7e1ea234bde96ce84259841bbc592bf6373bc639
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c01f5f41e61cd65855789bb753a7a297fe475885
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71802805"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396340"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Usar um bot com o QnA Maker e o LUIS para distribuir uma base de dados de conhecimento
 À medida que sua base de dados de conhecimento do QnA Maker aumentar, ficará difícil mantê-la como um único conjunto monolítico definido e haverá a necessidade de dividir a base de dados de conhecimento em partes lógicas menores.
@@ -37,13 +37,13 @@ No cenário anterior, primeiro o QnA Maker obtém a intenção do ponto de entra
 1. [Crie um aplicativo](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
 1. [Adicione uma intenção](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) para cada base de dados de conhecimento do QnA Maker. As declarações de exemplo devem corresponder às perguntas nas bases de dados de conhecimento do QnA Maker.
 1. [Treine o aplicativo LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e [publique o aplicativo LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) seu aplicativo LUIS.
-1. Na seção **Gerenciar,** anote o iD do aplicativo LUIS, a tecla de ponto final LUIS e [o nome de domínio personalizado](../../cognitive-services-custom-subdomains.md). Você precisará desses valores mais tarde. 
+1. Na seção **Gerenciar,** anote o iD do aplicativo LUIS, a tecla de ponto final LUIS e [o nome de domínio personalizado](../../cognitive-services-custom-subdomains.md). Você precisará desses valores mais tarde.
 
 ## <a name="create-qna-maker-knowledge-bases"></a>Criar bases de dados de conhecimento do QnA Maker
 
 1. Faça login no [QnA Maker](https://qnamaker.ai).
 1. [Crie](https://www.qnamaker.ai/Create) uma base de dados de conhecimento para cada intenção no aplicativo LUIS.
-1. Teste e publique as bases de dados de conhecimento. Ao publicar cada KB, anote o KB ID, o nome do recurso (subdomínio personalizado antes _de .azurewebsites.net/qnamaker)_ e a tecla de ponto final de autorização. Você precisará desses valores mais tarde. 
+1. Teste e publique as bases de dados de conhecimento. Ao publicar cada KB, anote o KB ID, o nome do recurso (subdomínio personalizado antes _de .azurewebsites.net/qnamaker)_ e a tecla de ponto final de autorização. Você precisará desses valores mais tarde.
 
     Este artigo pressupõe que os KBs foram criados na mesma assinatura do Azure QnA Maker.
 
@@ -60,7 +60,7 @@ No cenário anterior, primeiro o QnA Maker obtém a intenção do ponto de entra
 
 ## <a name="change-code-in-basicluisdialogcs"></a>Modifique o código em BasicLuisDialog.cs
 1. Na seção **Gerenciamento de Bot** da navegação do bot do aplicativo Web no portal do Azure, selecione **Compilar**.
-2. Selecione **Abrir editor de código online**. Uma nova guia do navegador é aberta com o ambiente de edição online. 
+2. Selecione **Abrir editor de código online**. Uma nova guia do navegador é aberta com o ambiente de edição online.
 3. Na seção **WWWROOT**, selecione o diretório **Caixas de Diálogo** e abra **BasicLuisDialog.cs**.
 4. Adicione dependências na parte superior do arquivo **BasicLuisDialog.cs**:
 
@@ -155,7 +155,7 @@ No cenário anterior, primeiro o QnA Maker obtém a intenção do ponto de entra
     ```
 
 
-7. Modifique a classe BasicLuisDialog. Cada intenção do LUIS deve ter um método decorado com **LuisIntent**. O parâmetro para a decoração é o nome real da intenção do LUIS. O nome do método que é decorado _deve_ ser o nome da intenção do LUIS para fins de legibilidade e manutenção, mas não precisa ser o mesmo no design ou tempo de execução.  
+7. Modifique a classe BasicLuisDialog. Cada intenção do LUIS deve ter um método decorado com **LuisIntent**. O parâmetro para a decoração é o nome real da intenção do LUIS. O nome do método que é decorado _deve_ ser o nome da intenção do LUIS para fins de legibilidade e manutenção, mas não precisa ser o mesmo no design ou tempo de execução.
 
     ```csharp
     [Serializable]
@@ -170,7 +170,7 @@ No cenário anterior, primeiro o QnA Maker obtém a intenção do ponto de entra
         // assumes all KBs are created with same Azure service
         static string qnamaker_endpointKey = "<QnA Maker endpoint KEY>";
         static string qnamaker_resourceName = "my-qnamaker-s0-s";
-        
+
         // QnA Maker Human Resources Knowledge base
         static string HR_kbID = "<QnA Maker KNOWLEDGE BASE ID>";
 
@@ -240,4 +240,4 @@ No portal do Azure, selecione **Testar no Webchat** para testar o bot. Digite me
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar um plano de continuidade de negócios para o QnA Maker](../How-To/business-continuity-plan.md)
+> [Integre sua base de conhecimento com um Agente Virtual de Energia](integrate-with-power-virtual-assistant-fallback-topic.md)

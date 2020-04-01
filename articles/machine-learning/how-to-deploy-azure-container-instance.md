@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
-ms.openlocfilehash: cb5603c12f06e4f5d5675ca27e171321ecc8827a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d460112394d7c7b7d2da4e8af41c0085b67226ec
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536438"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475466"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Implantar um modelo nas Instâncias de Contêiner do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -94,7 +94,7 @@ Veja [implantar seus modelos com código VS](tutorial-train-deploy-image-classif
 
 * [Como implantar um modelo usando uma imagem Docker personalizada](how-to-deploy-custom-docker-image.md)
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)
-* [Proteger serviços Web do Azure Machine Learning com SSL](how-to-secure-web-service.md)
+* [Use o TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir um modelo de ML implantado como um serviço Web](how-to-consume-web-service.md)
 * [Monitore seus modelos de Aprendizado de Máquina do Azure com insights de aplicativos](how-to-enable-app-insights.md)
 * [Coletar dados para modelos em produção](how-to-enable-data-collection.md)

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: e0b4bcac8494f136dde21b03422e12b72cecb8f3
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 4517f85fae278bd8bc15a9586d9dc0202e7dfe56
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366437"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475235"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Entender as saídas do Azure Stream Analytics
 
@@ -187,8 +187,8 @@ A tabela a seguir lista os nomes da propriedade e suas descrições para criar u
 | Chave da conta de armazenamento |A chave de acesso associada à conta de armazenamento. |
 | Nome da tabela |O nome da tabela. A mesa é criada se não existir. |
 | Chave de partição |O nome da coluna de saída que contém a chave de partição. A chave de partição é um identificador único para a partição dentro de uma tabela que forma a primeira parte da chave primária de uma entidade. É um valor de corda que pode ser de até 1 KB de tamanho. |
-| Chave de linha |O nome da coluna de saída que contém a tecla de linha. A tecla de linha é um identificador único para uma entidade dentro de uma partição. Ela forma a segunda parte da chave primária da entidade. A tecla de linha é um valor de string que pode ser de até 1 KB de tamanho. |
-| Tamanho do lote |É o número de registros para uma operação em lote. O padrão (100) é suficiente para a maioria dos trabalhos. Consulte a [especificação Operação do Lote de Tabela](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) para obter mais detalhes sobre a modificação desta configuração. |
+| Chave de linha |O nome da coluna de saída que contém a tecla de linha. A tecla de linha é um identificador único para uma entidade dentro de uma partição. Ele forma a segunda parte da chave primária de uma entidade. A tecla de linha é um valor de string que pode ser de até 1 KB de tamanho. |
+| Tamanho do lote |É o número de registros para uma operação em lote. O padrão (100) é suficiente para a maioria dos trabalhos. Consulte a [especificação Operação do Lote de Tabela](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation) para obter mais detalhes sobre a modificação desta configuração. |
 
 ## <a name="service-bus-queues"></a>Filas do Barramento de Serviço
 
@@ -223,7 +223,7 @@ A tabela a seguir lista os nomes da propriedade e suas descrições para criar u
 | --- | --- |
 | Alias de saída |Um nome amigável usado em consultas para direcionar a saída de consulta para este tópico de Service Bus. |
 | Namespace do Barramento de Serviço |Um contêiner para um conjunto de entidades de mensagens. Ao criar um novo hub de eventos, você também criou um namespace Barramento de Serviço. |
-| Nome do tópico |Tópicos são entidades de envio de mensagens, semelhantes a filas e hubs de eventos. Eles são projetados para coletar fluxos de eventos de dispositivos e serviços. Quando um tópico é criado, ele também recebe um nome específico. As mensagens enviadas a um tópico não estão disponíveis a menos que uma assinatura seja criada, então certifique-se de que há uma ou mais assinaturas o tópico. |
+| Nome do tópico |Tópicos são entidades de envio de mensagens, semelhantes a filas e hubs de eventos. Eles são projetados para coletar fluxos de eventos de dispositivos e serviços. Quando um tópico é criado, ele também recebe um nome específico. As mensagens enviadas a um tópico não estão disponíveis a menos que uma assinatura seja criada, então certifique-se de que há uma ou mais assinaturas sob o tópico. |
 | Nome da política de tópico |Quando você cria um tópico de Barra de Serviço, você também pode criar políticas de acesso compartilhado na guia **Configurar** do tópico. Cada política de acesso compartilhado tem um nome, permissões que você define e chaves de acesso. |
 | Chave de política de tópico |A chave de acesso compartilhado usada para autenticar o acesso ao namespace do Barramento de Serviço. |
 | Formato de serialização do evento |O formato de serialização para dados de saída. Há suporte para JSON, CSV e Avro. |
@@ -257,7 +257,7 @@ A tabela a seguir descreve as propriedades para a criação de uma saída do Azu
 | ID do documento |Opcional. O nome do campo em eventos de saída usado para especificar a chave principal na qual as operações de inserção ou atualização são baseadas.
 
 ## <a name="azure-functions"></a>Funções do Azure
-O Azure Functions é um serviço de computação sem servidor que você pode usar para executar código demanda sem ter que prover ou gerenciar infra-estrutura explicitamente. Ele permite implementar código susceptíveis de eventos que ocorrem no Azure ou serviços de parceiros. Essa capacidade das funções do Azure de responder aos gatilhos torna-a uma saída natural para o Azure Stream Analytics. Este adaptador de saída permite que os usuários conectem o Stream Analytics às funções do Azure e executem um script ou pedaço de código em resposta a uma variedade de eventos.
+O Azure Functions é um serviço de computação sem servidor que você pode usar para executar código sob demanda sem ter que prover ou gerenciar infra-estrutura explicitamente. Ele permite implementar código susceptíveis de eventos que ocorrem no Azure ou serviços de parceiros. Essa capacidade das funções do Azure de responder aos gatilhos torna-a uma saída natural para o Azure Stream Analytics. Este adaptador de saída permite que os usuários conectem o Stream Analytics às funções do Azure e executem um script ou pedaço de código em resposta a uma variedade de eventos.
 
 A saída de Funções do Azure da Stream Analytics não está disponível atualmente nas regiões azure China 21Vianet e Azure Germany (T-Systems International).
 
@@ -273,7 +273,7 @@ O Azure Stream Analytics chama o Azure Functions por meio de gatilhos de HTTP. O
 
 O Azure Stream Analytics espera o status HTTP 200 do aplicativo Functions para lotes que foram processados com sucesso.
 
-Quando o Azure Stream Analytics recebe uma exceção 413 ("http Request Entity Too Large") de uma função Azure, reduz o tamanho dos lotes que ele envia para funções do Azure. Em seu código de função do Azure, use essa exceção para certificar-se de que o Azure Stream Analytics não envie lotes muito grandes. Além disso, certifique-se de que a contagem máxima de lotes e os valores de tamanho usados na função são consistentes com os valores inseridos no portal Stream Analytics.
+Quando o Azure Stream Analytics recebe uma exceção 413 ("http Request Entity Too Large") de uma função Azure, reduz o tamanho dos lotes que ele envia para funções do Azure. Em seu código de função Azure, use essa exceção para garantir que o Azure Stream Analytics não envie lotes superdimensionados. Além disso, certifique-se de que a contagem máxima de lotes e os valores de tamanho usados na função são consistentes com os valores inseridos no portal Stream Analytics.
 
 > [!NOTE]
 > Durante a conexão de teste, o Stream Analytics envia um lote vazio para funções do Azure para testar se a conexão entre os dois funciona. Certifique-se de que o aplicativo Functions lida com solicitações vazias em lote para garantir que a conexão de teste passe.
@@ -342,18 +342,18 @@ O Azure Stream Analytics usa lotes de tamanho variável para processar eventos e
 
 A tabela a seguir explica algumas das considerações para o loteamento de saída:
 
-| Tipo de saída | Tamanho máximo de mensagem | Otimização de tamanho de lote |
+| Tipo de saída |    Tamanho máximo de mensagem | Otimização de tamanho de lote |
 | :--- | :--- | :--- |
 | Repositório Azure Data Lake | Consulte [os limites de armazenamento do lago de dados](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits). | Use até 4 MB por operação de gravação. |
 | Banco de Dados SQL do Azure | Configurável usando a contagem de lotes Max. 10.000 linhas máximas e 100 mínimas por inserção a granel por padrão.<br />Consulte [os limites do Azure SQL](../sql-database/sql-database-resource-limits.md). |  Cada lote é inicialmente inserido em massa com contagem máxima de lotes. O lote é dividido pela metade (até a contagem mínima de lotes) com base em erros retriáveis do SQL. |
 | Armazenamento de Blobs do Azure | Consulte [os limites de armazenamento do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | O tamanho máximo do bloco blob é de 4 MB.<br />A contagem máxima de bock é de 50.000. |
-| Hubs de eventos do Azure  | 256 KB ou 1 MB por mensagem. <br />Veja [os limites do Event Hubs](../event-hubs/event-hubs-quotas.md). |  Quando a particionamento de entrada/saída não está alinhada, cada evento é embalado individualmente `EventData` e enviado em um lote de até o tamanho máximo da mensagem. Isso também acontece se [as propriedades de metadados personalizadas](#custom-metadata-properties-for-output) forem usadas. <br /><br />  Quando a particionamento de entrada/saída é alinhada, vários eventos são embalados em uma única `EventData` instância, até o tamanho máximo da mensagem e enviados. |
+| Hubs de eventos do Azure    | 256 KB ou 1 MB por mensagem. <br />Veja [os limites do Event Hubs](../event-hubs/event-hubs-quotas.md). |    Quando a particionamento de entrada/saída não está alinhada, cada evento é embalado individualmente `EventData` e enviado em um lote de até o tamanho máximo da mensagem. Isso também acontece se [as propriedades de metadados personalizadas](#custom-metadata-properties-for-output) forem usadas. <br /><br />  Quando a particionamento de entrada/saída é alinhada, vários eventos são embalados em uma única `EventData` instância, até o tamanho máximo da mensagem e enviados.    |
 | Power BI | Consulte [os limites da API power bi rest](https://msdn.microsoft.com/library/dn950053.aspx). |
 | Armazenamento da tabela do Azure | Consulte [os limites de armazenamento do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | O padrão é de 100 entidades por transação única. Você pode configurá-lo para um valor menor, conforme necessário. |
-| Fila do Barramento de Serviço do Azure   | 256 KB por mensagem para o nível Padrão, 1MB para o nível Premium.<br /> Veja [os limites do Service Bus](../service-bus-messaging/service-bus-quotas.md). | Use um único evento por mensagem. |
+| Fila do Barramento de Serviço do Azure    | 256 KB por mensagem para o nível Padrão, 1MB para o nível Premium.<br /> Veja [os limites do Service Bus](../service-bus-messaging/service-bus-quotas.md). | Use um único evento por mensagem. |
 | Tópico do Barramento de Serviço do Azure | 256 KB por mensagem para o nível Padrão, 1MB para o nível Premium.<br /> Veja [os limites do Service Bus](../service-bus-messaging/service-bus-quotas.md). | Use um único evento por mensagem. |
-| Azure Cosmos DB   | Veja [os limites do Azure Cosmos DB](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits). | O tamanho do lote e a freqüência de gravação são ajustados dinamicamente com base nas respostas do Azure Cosmos DB. <br /> Não há limitações predeterminadas do Stream Analytics. |
-| Funções do Azure   | | O tamanho do lote padrão é de 262.144 bytes (256 KB). <br /> A contagem padrão de eventos por lote é de 100. <br /> O tamanho do lote é configurável e pode ser aumentado ou diminuído nas [opções de saída](#azure-functions) do Stream Analytics.
+| Azure Cosmos DB    | Veja [os limites do Azure Cosmos DB](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits). | O tamanho do lote e a freqüência de gravação são ajustados dinamicamente com base nas respostas do Azure Cosmos DB. <br /> Não há limitações predeterminadas do Stream Analytics. |
+| Funções do Azure    | | O tamanho do lote padrão é de 262.144 bytes (256 KB). <br /> A contagem padrão de eventos por lote é de 100. <br /> O tamanho do lote é configurável e pode ser aumentado ou diminuído nas [opções de saída](#azure-functions) do Stream Analytics.
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

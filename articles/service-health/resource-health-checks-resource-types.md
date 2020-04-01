@@ -3,12 +3,12 @@ title: Tipos de recurso com suporte por meio do Azure Resource Health | Microsof
 description: Tipos de recurso com suporte por meio do Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3ba7b308c0c7671df8a652194830cb910cb89acc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5cc80147730fdc97b1181690f6e70fc538d4afcc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258298"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478893"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de integridade no Azure Resource Health
 Abaixo, temos uma lista completa de todas as verificações executadas por meio do Resource Health segundo o tipo do recurso.
@@ -47,6 +47,11 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 |Verificações executadas|
 |---|
 |<ul><li>É possível alcançar a conta de dentro do datacenter?</li><li>O provedor de recursos dos Serviços Cognitivos está disponível?</li><li>O Serviço Cognitivo está disponível na região apropriada?</li><li>Operações de leitura podem ser executadas na conta de armazenamento que contém os metadados do recurso?</li><li>A cota de chamadas à API foi atingida?</li><li>O limite de leitura de chamadas à API foi atingido?</li></ul>|
+
+## <a name="microsoftcomputehostgroupshosts"></a>Microsoft.compute/hostgroups/hosts
+|Verificações executadas|
+|---|
+|<ul><li>O host está funcionando</li><li>O hardware do host está degradado?</li><li>O hospedeiro está desalocado?</li><li>O serviço de hardware host foi curado para diferentes hardwares?</li></ul>|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Verificações executadas|

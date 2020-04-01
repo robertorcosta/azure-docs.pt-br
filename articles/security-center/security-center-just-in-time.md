@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 4b2b388fb736997010a6cbbdf93b23b77c7ef3a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51985c5fa4b2296e43c0a062d0af84a1bb51e89c
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603977"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397751"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteja suas portas de gerenciamento com acesso just-in-time
 
@@ -202,53 +202,37 @@ Para usar a solução de acesso Just-In-Time à VM por meio do PowerShell, use o
 
 O exemplo a seguir define uma política de acesso Just-In-Time à VM para uma VM específica e define o seguinte:
 
-1.  Fechar as portas 22 e 3389.
+1.    Fechar as portas 22 e 3389.
 
-2.  Definir uma janela de tempo máximo de 3 horas para cada, de modo que possam ser abertas por solicitação aprovada.
-3.  Permitir que o usuário que está solicitando acesso controle os endereços IP de origem e permitir que o usuário estabeleça uma sessão com êxito mediante uma solicitação de acesso Just-In-Time aprovada.
+2.    Definir uma janela de tempo máximo de 3 horas para cada, de modo que possam ser abertas por solicitação aprovada.
+3.    Permitir que o usuário que está solicitando acesso controle os endereços IP de origem e permitir que o usuário estabeleça uma sessão com êxito mediante uma solicitação de acesso Just-In-Time aprovada.
 
 Para fazer isso, execute o seguinte no PowerShell:
 
-1.  Atribuir uma variável que contenha a política de acesso Just-In-Time à VM para uma VM:
+1.    Atribuir uma variável que contenha a política de acesso Just-In-Time à VM para uma VM:
 
-        $JitPolicy = (@{
-         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
-        ports=(@{
-             number=22;
-             protocol="*";
-             allowedSourceAddressPrefix=@("*");
-             maxRequestAccessDuration="PT3H"},
-             @{
-             number=3389;
-             protocol="*";
-             allowedSourceAddressPrefix=@("*");
-             maxRequestAccessDuration="PT3H"})})
+        $JitPolicy = (@{ id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" ports=(@{ number=22;        protocolo="*";        allowedSourceAddressPrefix=@("*););        maxRequestAccessDuration="PT3H"}, @{ number=3389;        protocolo="*";        allowedSourceAddressPrefix=@("*););        maxRequestAccessDuration="PT3H"}})
 
-2.  Inserir a política de acesso Just-In-Time à VM em uma matriz:
+2.    Inserir a política de acesso Just-In-Time à VM em uma matriz:
     
         $JitPolicyArr=@($JitPolicy)
 
-3.  Configurar a política de acesso Just-In-Time à VM na VM selecionada:
+3.    Configurar a política de acesso Just-In-Time à VM na VM selecionada:
     
-        Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
+        Set-AzJitNetworkAccessPolicy -Tipo "Básico" -Local "LOCALIZAÇÃO" -Nome "padrão" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 ### <a name="request-access-to-a-vm-via-powershell"></a>Solicite acesso a uma VM via PowerShell
 
 No exemplo a seguir, é possível ver uma solicitação de acesso Just-In-Time à VM para uma VM específica, na qual é solicitada a abertura da porta 22 para um endereço IP específico e por um período de tempo específico:
 
 Execute o seguinte no PowerShell:
-1.  Configurar as propriedades de acesso de solicitação da VM
+1.    Configurar as propriedades de acesso de solicitação da VM
 
-        $JitPolicyVm1 = (@{
-          id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
-        ports=(@{
-           number=22;
-           endTimeUtc="2018-09-17T17:00:00.3658798Z";
-           allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
-2.  Insira os parâmetros de solicitação de acesso da VM em uma matriz:
+        $JitPolicyVm1 = (@{ id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" ports=(@{ number=22;      endTimeUtc="2018-09-17T17:00.00.3658798Z";      allowedSourceAddressPrefix=@("IPV4ADDRESS")}})
+2.    Insira os parâmetros de solicitação de acesso da VM em uma matriz:
 
         $JitPolicyArr=@($JitPolicyVm1)
-3.  Enviar o acesso da solicitação (use a ID do recurso que você recebeu na etapa 1)
+3.    Enviar o acesso da solicitação (use a ID do recurso que você recebeu na etapa 1)
 
         Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
 
@@ -271,6 +255,7 @@ Nesse artigo você aprendeu como o acesso Just-In-Time à VM na Central de Segur
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
+- O módulo Microsoft Learn [Proteja seus servidores e VMs contra ataques de força bruta e malware com o Azure Security Center](https://docs.microsoft.com/learn/modules/secure-vms-with-azure-security-center/)
 - [Definir políticas de segurança](tutorial-security-policy.md) — saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 - [Gerenciamento de recomendações de segurança](security-center-recommendations.md) — saiba como as recomendações ajudam você a proteger seus recursos do Azure.
 - [Monitoramento da integridade da segurança](security-center-monitoring.md) – saiba como monitorar a integridade dos seus recursos do Azure.

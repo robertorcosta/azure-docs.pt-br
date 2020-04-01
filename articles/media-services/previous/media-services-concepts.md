@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 69e2c053c9fb874889bc3d5b08be6e0c7ce875a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 260ddccc1a1b0bd4090284025b79e20ff5ce4fdc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162898"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475254"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos dos Serviços de Mídia do Azure 
 
@@ -164,7 +164,7 @@ Para obter mais informações, consulte os seguintes artigos:
 Ao trabalhar com serviços de mídia, recomenda-se codificar seus arquivos mezaninos em um conjunto MP4 de bitrate adaptativo e, em seguida, converter o conjunto para o formato desejado usando a [Embalagem Dinâmica](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>ponto de extremidade de streaming
-Um StreamingEndpoint representa um serviço de streaming que pode fornecer conteúdo diretamente para um aplicativo do player cliente ou para uma CDN (Content Delivery Network, rede de entrega de conteúdo) para distribuição adicional (o Azure Media Services agora fornece a integração CDN do Azure.) O fluxo de saída de um serviço de ponto final de streaming pode ser uma transmissão ao vivo ou um ativo de vídeo demanda em sua conta de Serviços de Mídia. Os clientes de Serviços de Mídia escolhem um ponto de extremidade de streaming **Standard** ou um ou mais pontos de extremidade de streaming **Premium** de acordo com suas necessidades. O ponto de extremidade de streaming Standard é adequado para a maioria das cargas de trabalho de streaming. 
+Um StreamingEndpoint representa um serviço de streaming que pode fornecer conteúdo diretamente para um aplicativo do player cliente ou para uma CDN (Content Delivery Network, rede de entrega de conteúdo) para distribuição adicional (o Azure Media Services agora fornece a integração CDN do Azure.) O fluxo de saída de um serviço de ponto final de streaming pode ser uma transmissão ao vivo ou um ativo de vídeo sob demanda em sua conta de Serviços de Mídia. Os clientes de Serviços de Mídia escolhem um ponto de extremidade de streaming **Standard** ou um ou mais pontos de extremidade de streaming **Premium** de acordo com suas necessidades. O ponto de extremidade de streaming Standard é adequado para a maioria das cargas de trabalho de streaming. 
 
 O Ponto de Extremidade de Streaming Standard é adequado para a maior parte de cargas de trabalho de streaming. Os Pontos de Extremidade de Streaming Standard proporcionam flexibilidade para distribuição de conteúdo a praticamente qualquer dispositivo por meio de empacotamento dinâmico em HLS, MPEG-DASH e Smooth Streaming, bem como a criptografia dinâmica para o Microsoft PlayReady, Google Widevine, Apple Fairplay e AES128.  Eles também são dimensionados para públicos-alvo muito pequenos para muito grandes com milhares de visualizadores simultâneos por meio da integração de CDN do Azure. Se você tiver uma carga de trabalho avançada, ou os requisitos de capacidade de streaming não se ajustarem às metas de taxa de transferência do ponto de extremidade de streaming padrão, ou se você quiser controlar a capacidade do serviço StreamingEndpoint para lidar com as crescentes necessidades de largura de banda, é recomendável alocar unidades de escala (também conhecidas como unidades de streaming Premium).
 
@@ -197,10 +197,10 @@ http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba01
 ### <a name="streaming-urls"></a>URLs de streaming
 Transmitindo seu conteúdo para clientes. Para fornecer aos usuários URLs de streaming, você deve primeiro criar um localizador OnDemandOrigin. Criar o localizador oferece a você o caminho base para o ativo que contém o conteúdo que você deseja transmitir. No entanto, para poder transmitir este conteúdo você precisa modificar esse caminho ainda mais. Para construir uma URL completa para o arquivo de manifesto de streaming, você deve concatenar o valor do caminho do localizador e o nome de arquivo de manifesto (ISM). Em seguida, anexe um formato apropriado (se necessário) ao caminho do localizador.
 
-Você também pode transmitir seu conteúdo por uma conexão SSL. Para fazer isso, certifique-se de que suas URLs de streaming começam com HTTPS. Atualmente, o AMS não dá suporte ao SSL com domínios personalizados.  
+Você também pode transmitir seu conteúdo por uma conexão TLS. Para fazer isso, certifique-se de que suas URLs de streaming começam com HTTPS. Atualmente, a AMS não suporta TLS com domínios personalizados.  
 
 >[!NOTE]
->Você só poderá transmitir por SSL se o ponto de extremidade de streaming do qual você pode distribuir o conteúdo tiver sido criado depois de 10 de setembro de 2014. Se suas URLs de streaming baseiam-se nos pontos de extremidade de streaming criados após 10 de setembro, a URL conterá "streaming.mediaservices.windows.net" (o novo formato). As URLs de streaming que contêm "origin.mediaservices.windows.net" (o formato antigo) não são compatíveis com SSL. Se sua URL está no formato antigo e você deseja ser capaz de transmitir por SSL, crie um novo ponto de extremidade de streaming. Use URLs criadas com base no novo ponto de extremidade de streaming para transmitir seu conteúdo por SSL.
+>Você só pode transmitir através do TLS se o ponto final de streaming a partir do qual você entrega seu conteúdo foi criado após 10 de setembro de 2014. Se suas URLs de streaming baseiam-se nos pontos de extremidade de streaming criados após 10 de setembro, a URL conterá "streaming.mediaservices.windows.net" (o novo formato). UrLs de streaming que contêm "origin.mediaservices.windows.net" (o formato antigo) não suportam TLS. Se sua URL estiver no formato antigo e você quiser ser capaz de transmitir através de TLS, crie um novo ponto final de streaming. Use URLs criados com base no novo ponto final de streaming para transmitir seu conteúdo através de TLS.
 
 A lista a seguir descreve os diferentes formatos de streaming e fornece exemplos:
 

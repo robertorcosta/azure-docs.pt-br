@@ -12,12 +12,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
-ms.openlocfilehash: d065439839ba5db479305ae81c61892cb5cf5e70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bbd2e3376f1da3fdf5b10d654a331ce258be5cf
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929465"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422097"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM usando o Azure Data Factory
 
@@ -324,7 +324,7 @@ Para copiar dados para o Dynamics, as seguintes propriedades são suportadas na 
 | ignoreNullValues | Indica se deve ignorar valores nulos de dados de entrada (exceto campos de chave) durante uma operação de gravação.<br/>Os valores permitidos são **True** e **False**.<br>- **True**: deixa os dados no objeto de destino inalterados quando você faz uma operação upsert/atualização. Insira um valor padrão definido quando você faz uma operação insert.<br/>- **False**: atualiza os dados no objeto de destino como NULL quando você faz uma operação upsert/atualização. Insira um valor NULL quando você faz uma operação insert. | Não (padrão é falso) |
 
 >[!NOTE]
->O valor padrão da pia "**writeBatchSize**" e a atividade de cópia "**[parallelCopies](copy-activity-performance.md#parallel-copy)**" para o dissipador Dynamics são ambos 10. Portanto, 100 registros são enviados ao Dynamics simultaneamente.
+>O valor padrão da pia "**writeBatchSize**" e a atividade de cópia "**[parallelCopies](copy-activity-performance-features.md#parallel-copy)**" para o dissipador Dynamics são ambos 10. Portanto, 100 registros são enviados ao Dynamics simultaneamente.
 
 Para o Dynamics 365 online, há um limite de [2 chamadas simultâneas de lote por organização](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Se esse limite for excedido, uma falha de "Servidor ocupado" será lançada antes que a primeira solicitação seja executada. Manter "writeBatchSize" menor ou igual a 10 evitaria essa limitação de chamadas simultâneas.
 

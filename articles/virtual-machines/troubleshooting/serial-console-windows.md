@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 87ccb1c4995337b385f685797980a9fc3962bc6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 68089a86b8b832638abd30aa7c36aa1c5bd84225
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266995"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410129"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console serial azure para Windows
 
@@ -60,7 +60,7 @@ Alternativamente, para habilitar manualmente o console serial para Windows VMs/c
 
 1. Conecte-se à sua máquina virtual do Windows usando a Área de Trabalho Remota
 1. Em um prompt de comando administrativo, execute os seguintes comandos:
-    - `bcdedit /ems {current} on`
+    - `bcdedit /ems {current} on`, `bcdedit /ems '{current}' on` ou se você estiver usando powershell
     - `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 1. Reinicialize o sistema para que o console do SAC seja ativado.
 
@@ -102,15 +102,15 @@ Se você precisar ativar os prompts do carregador de inicialização do Windows 
 
     ![Conectar ao SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.  Digite `cmd` para criar um canal que tenha uma instância do CMD.
+1.    Digite `cmd` para criar um canal que tenha uma instância do CMD.
 
-1.  Digite `ch -si 1` `<esc>+<tab>` ou pressione teclas de atalho para alternar para o canal que está executando a instância do CMD.
+1.    Digite `ch -si 1` `<esc>+<tab>` ou pressione teclas de atalho para alternar para o canal que está executando a instância do CMD.
 
-1.  Pressione **Enter** e insira as credenciais de login com permissões administrativas.
+1.    Pressione **Enter** e insira as credenciais de login com permissões administrativas.
 
-1.  Depois de inserir credenciais válidas, a instância do CMD é aberta.
+1.    Depois de inserir credenciais válidas, a instância do CMD é aberta.
 
-1.  Para iniciar uma instância do PowerShell, digite `PowerShell` na instância CMD e pressione **Enter**.
+1.    Para iniciar uma instância do PowerShell, digite `PowerShell` na instância CMD e pressione **Enter**.
 
     ![Abra o PowerShell e execute](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 

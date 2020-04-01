@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6a3447a88aea1087c7ec327a956044ea94e793e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b5712094b9821dfa041cd5ba8617e86f7231bde
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79410032"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478011"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Use chaves gerenciadas pelo cliente com o Azure Key Vault para gerenciar a criptografia de armazenamento do Azure
 
@@ -51,7 +51,7 @@ As chaves gerenciadas pelo cliente podem ser habilitadas apenas em contas de arm
 
 Quando você configura uma chave gerenciada pelo cliente, o Azure Storage envolve a chave de criptografia de dados raiz da conta com a chave gerenciada pelo cliente no cofre de chaves associado. Habilitar chaves gerenciadas pelo cliente não afeta o desempenho e faz efeito imediatamente.
 
-Quando você modifica a chave que está sendo usada para criptografia de armazenamento do Azure, ativando ou desativando chaves gerenciadas pelo cliente, atualizando a versão-chave ou especificando uma chave diferente, a criptografia da chave raiz muda, mas os dados em sua conta do Azure Storage não precisam ser recriptografados.
+Quando você modifica a chave que está sendo usada para criptografia do Azure Storage, ativando ou desativando chaves gerenciadas pelo cliente, atualizando a versão-chave ou especificando uma chave diferente, a criptografia da chave raiz muda, mas os dados em sua conta do Azure Storage não precisam ser recriptografados.
 
 Quando você habilita ou desativa chaves gerenciadas pelo cliente, ou quando você modifica a chave ou a versão-chave, a proteção da chave de criptografia raiz muda, mas os dados em sua conta do Azure Storage não precisam ser recriptografados.
 
@@ -62,13 +62,13 @@ Para saber como usar as chaves gerenciadas pelo cliente com o Azure Key Vault pa
 - [Configure chaves gerenciadas pelo cliente com key vault para criptografia de armazenamento Azure do Azure CLI](storage-encryption-keys-cli.md)
 
 > [!IMPORTANT]
-> As chaves gerenciadas pelo cliente dependem de identidades gerenciadas para os recursos do Azure, um recurso do Azure AD. Identidades gerenciadas não têm suporte a cenários entre diretórios. Quando você configura chaves gerenciadas pelo cliente no portal Azure, uma identidade gerenciada é automaticamente atribuída à sua conta de armazenamento as capas. Se você posteriormente mover a conta de assinatura, grupo de recursos ou armazenamento de um diretório AD do Azure para outro, a identidade gerenciada associada à conta de armazenamento não será transferida para o novo inquilino, de modo que as chaves gerenciadas pelo cliente podem não funcionar mais. Para obter mais informações, consulte **Transferir uma assinatura entre diretórios Azure AD** em PERGUNTAS [FREQUENTES e problemas conhecidos com identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
+> As chaves gerenciadas pelo cliente dependem de identidades gerenciadas para os recursos do Azure, um recurso do Azure AD. Identidades gerenciadas não têm suporte a cenários entre diretórios. Quando você configura chaves gerenciadas pelo cliente no portal Azure, uma identidade gerenciada é automaticamente atribuída à sua conta de armazenamento sob as capas. Se você posteriormente mover a conta de assinatura, grupo de recursos ou armazenamento de um diretório AD do Azure para outro, a identidade gerenciada associada à conta de armazenamento não será transferida para o novo inquilino, de modo que as chaves gerenciadas pelo cliente podem não funcionar mais. Para obter mais informações, consulte **Transferir uma assinatura entre diretórios Azure AD** em PERGUNTAS [FREQUENTES e problemas conhecidos com identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
 ## <a name="store-customer-managed-keys-in-azure-key-vault"></a>Armazene chaves gerenciadas pelo cliente no Azure Key Vault
 
 Para habilitar as chaves gerenciadas pelo cliente em uma conta de armazenamento, você deve usar um Cofre de Chaves do Azure para armazenar suas chaves. Você deve habilitar as propriedades **Soft Delete** e **Não Expurguir** no cofre de chaves.
 
-Apenas as chaves RSA do tamanho 2048 são suportadas com criptografia de armazenamento Azure. Para obter mais informações sobre as chaves, consulte **chaves do Cofre de Chaves** em [chaves, segredos e certificados do Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Apenas as chaves RSA e RSA-HSM de 2048 bits são suportadas com criptografia de armazenamento Azure. Para obter mais informações sobre as chaves, consulte **chaves do Cofre de Chaves** em [chaves, segredos e certificados do Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="rotate-customer-managed-keys"></a>Gire as chaves gerenciadas pelo cliente
 

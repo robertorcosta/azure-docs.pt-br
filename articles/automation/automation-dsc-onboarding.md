@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 0bf70b73098427847c73b4dd962d56d44fe6ee2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 554a4c64700bb189b4b9f085bd7c259312a36b4b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283201"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410946"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure
 
@@ -42,7 +42,7 @@ As seções a seguir deste artigo descrevem como você pode embarcar nas máquin
 
 ## <a name="onboarding-azure-vms"></a>Onboarding Azure VMs
 
-A configuração do Estado de Automação do Azure permite que você abordo facilmente as VMs do Azure para gerenciamento de configuração, usando o portal Azure, os modelos do Azure Resource Manager ou o PowerShell. o capô, e sem que um administrador tenha que se controlar em uma VM, a extensão Azure VM Desired State Configuration registra a VM com a Configuração do Estado de Automação do Azure. Uma vez que a extensão do Azure é executada de forma assíncrona, as etapas para acompanhar seu progresso ou soluciona-lo são fornecidas na seção de onboarding de [máquina virtual Azure](#troubleshooting-azure-virtual-machine-onboarding) de solução de problemas deste artigo.
+A configuração do Estado de Automação do Azure permite que você abordo facilmente as VMs do Azure para gerenciamento de configuração, usando o portal Azure, os modelos do Azure Resource Manager ou o PowerShell. Sob o capô, e sem que um administrador tenha que se controlar em uma VM, a extensão Azure VM Desired State Configuration registra a VM com a Configuração do Estado de Automação do Azure. Uma vez que a extensão do Azure é executada de forma assíncrona, as etapas para acompanhar seu progresso ou soluciona-lo são fornecidas na seção de onboarding de [máquina virtual Azure](#troubleshooting-azure-virtual-machine-onboarding) de solução de problemas deste artigo.
 
 > [!NOTE]
 >A implantação do DSC em um nó Linux usa a pasta **/tmp.** Módulos como `nxautomation` são temporariamente baixados para verificação antes de instalá-los em seus locais apropriados. Para garantir que os módulos se instalem corretamente, o agente Log Analytics para Linux precisa de permissões de leitura/gravação na pasta **/tmp.**<br><br>
@@ -107,7 +107,7 @@ Você pode a bordo de servidores Linux executando no local ou em outros ambiente
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-   - Para encontrar a chave de registro e url de registro para sua conta de Automação, consulte o [Onboarding com segurança usando](#onboarding-securely-using-registration) a seção de registro se este artigo.
+   - Para encontrar a chave de registro e url de registro para sua conta de Automação, consulte o [Onboarding com segurança usando](#onboarding-securely-using-registration) a seção de registro deste artigo.
 
 3. Se os padrões do PowerShell DSC Local Configuration Manager (LCM) não corresponderem ao seu estojo de uso ou se você quiser a bordo de máquinas que só se reportam à Configuração do Estado de Automação do Azure, siga as etapas 4-7. Caso contrário, vá diretamente para a etapa 7.
 
