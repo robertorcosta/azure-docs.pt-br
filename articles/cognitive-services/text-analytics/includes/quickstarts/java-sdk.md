@@ -6,33 +6,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: 6dd2ac9c17c8e82affb647846c7650a26d784e32
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: a0e6b5b7d5cedc821ee34bdd219ae07bb9d43199
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79203384"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79481901"
 ---
 <a name="HOLTop"></a>
 
-[Documentação de referência](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Pacote](https://search.maven.org/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.3/jar) | [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Documentação de referência](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Pacote](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.3) | [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (Java Development Kit) com a versão 8 ou superior
-* Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter sua chave e seu ponto de extremidade. 
-    * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API de Análise de Texto. Você fará isso posteriormente no início rápido.
-    * Você pode usar o tipo de preço gratuito para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
+* Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter sua chave e seu ponto de extremidade.  Após a implantação, clique em **Ir para o recurso**.
+    * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API de Análise de Texto. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
+    * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configurando
 
-### <a name="create-a-new-maven-project"></a>Criar um novo projeto Maven
+### <a name="add-the-client-library"></a>Adicionar a biblioteca de clientes
 
-Adicione a dependência de análise de texto a seguir ao seu projeto. Esta versão da dependência usa a versão `3.0-preview` da API de Análise de Texto. 
+Crie um projeto Maven no IDE ou no ambiente de desenvolvimento de sua preferência. Em seguida, adicione a dependência a seguir ao arquivo *pom.xml* do projeto. Você pode encontrar a sintaxe de implementação [para outras ferramentas de build](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.3) online.
 
 ```xml
 <dependencies>
@@ -44,12 +44,10 @@ Adicione a dependência de análise de texto a seguir ao seu projeto. Esta vers�
 </dependencies>
 ```
 
-Crie um arquivo Java no seguinte diretório: `\src\main\java`.
-
 > [!TIP]
 > Deseja exibir todo o arquivo de código do início rápido de uma vez? Você pode encontrá-lo [no GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java), que contém os exemplos de código neste início rápido. 
 
-Abra o arquivo java e adicione as seguintes instruções `import`:
+Crie um arquivo Java chamado `TextAnalyticsSamples.java`. Abra o arquivo e adicione as seguintes instruções `import`:
 
 ```java
 import com.azure.ai.textanalytics.models.*;
@@ -72,7 +70,7 @@ Adicione o seguinte método principal à classe. Você definirá os métodos cha
 
 ```java
 public static void main(String[] args) {
-
+    //You will create these methods later in the quickstart.
     TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
 
     sentimentAnalysisExample(client);
@@ -99,7 +97,7 @@ O cliente de Análise de Texto é um objeto `TextAnalyticsClient` que se autenti
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Crie um método para instanciar o objeto `TextAnalyticsClient` com o `KEY` E o `ENDPOINT` criados acima.
+Crie um método para instanciar o objeto de `TextAnalyticsClient` com a chave e o ponto de extremidade para o recurso de Análise de Texto.
 
 ```java
 static TextAnalyticsClient authenticateClient(String key, String endpoint) {

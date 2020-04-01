@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 03/13/2020
 ms.author: pafarley
-ms.openlocfilehash: a641893fece37c759480ab31f505b1673f50e2b9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 666b70ba8b632cb2cadf20de384e3e615acb2b3d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973604"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79203535"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Início Rápido: Experimentar o Content Moderator na Web
 
 Neste início rápido, você usará a ferramenta de revisão online Content Moderator para testar a funcionalidade básica do Content Moderator sem precisar escrever nenhum código. Se você deseja integrar esse serviço ao seu aplicativo mais rapidamente, consulte as outras iniciações rápidas na seção [Próximas etapas](#next-steps).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Um navegador da Web
 
@@ -32,9 +32,23 @@ A Ferramenta de Revisão do Content Moderator é uma ferramenta baseada na Web q
 
 ## <a name="create-a-review-team"></a>Criar uma equipe de análise
 
-Em seguida, crie uma equipe de revisão. Em um cenário de trabalho, esse será o grupo de pessoas que analisará manualmente as decisões de moderação do serviço. Por enquanto, você só precisa criar um nome de equipe. Se você deseja convidar colegas para a equipe, pode fazê-lo digitando seus endereços de e-mail aqui.
+Em seguida, crie uma equipe de revisão. Em um cenário de trabalho, esse será o grupo de pessoas que analisará manualmente as decisões de moderação do serviço. Para criar uma equipe, você precisará selecionar uma **Região** e fornecer um **Nome da Equipe** e uma **ID da Equipe**. Se você deseja convidar colegas para a equipe, pode fazê-lo digitando seus endereços de e-mail aqui.
 
-![Convidar membro da equipe](images/QuickStart-2-small.png)
+> [!NOTE]
+> O **Nome da Equipe** é um nome amigável para sua equipe de revisão. Esse é o nome exibido no portal do Azure. A **ID da Equipe** é o que é usado para identificar programaticamente sua equipe de revisão.
+
+> [!div class="mx-imgBorder"]
+> ![Convidar membro da equipe](images/create-team.png)
+
+Se optar por criptografar dados usando uma CMK (chave gerenciada pelo cliente), você deverá fornecer a **ID do Recurso** para seu recurso do Content Moderator no tipo de preço E0. O recurso que você fornecer deverá ser novo. 
+
+> [!div class="mx-imgBorder"]
+> ![Convidar membro da equipe com a CMK](images/create-team-cmk.png)
+
+Se tentar reutilizar um recurso do Content Moderator, você verá este aviso: 
+
+> [!div class="mx-imgBorder"]
+> ![Falha da CMK](images/create-team-cmk-fail.png)
 
 ## <a name="upload-sample-content"></a>Carregar o conteúdo de exemplo
 

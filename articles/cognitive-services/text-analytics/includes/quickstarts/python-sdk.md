@@ -2,20 +2,20 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 0803a847e9e864b361917df9f1a9c6b059ca2fe9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 617ab4114fd200c0b4306e3c27825bafe06b1764
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79203385"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80240128"
 ---
 <a name="HOLTop"></a>
 
 #### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
 
-[Documentação de referência da v3](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b2/azure.ai.textanalytics.html) | [Código-fonte da biblioteca v3](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [Pacote da v3 (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [Amostras da v3](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[Documentação de referência da v3](https://aka.ms/azsdk-python-textanalytics-ref-docs) | [Código-fonte da biblioteca v3](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [Pacote da v3 (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [Amostras da v3](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 #### <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
@@ -27,9 +27,9 @@ ms.locfileid: "79203385"
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
-* Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter sua chave e seu ponto de extremidade. 
-    * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API de Análise de Texto. Você fará isso posteriormente no início rápido.
-    * Você pode usar o tipo de preço gratuito para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
+* Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter sua chave e seu ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+    * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API de Análise de Texto. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
+    * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configurando
 

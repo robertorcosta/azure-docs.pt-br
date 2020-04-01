@@ -1,22 +1,14 @@
 ---
 title: 'Tutorial: Prever intenções – LUIS'
-titleSuffix: Azure Cognitive Services
 description: Neste tutorial, crie um aplicativo personalizado que preveja a intenção do usuário. Este aplicativo é o tipo mais simples de aplicativo LUIS porque ele não extrai vários elementos de dados do texto do enunciado, como endereços de email ou datas.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 89fb76f8c5cc4323e1211524340c0965a7d0716d
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 03/24/2020
+ms.openlocfilehash: c58c96f717de77c065d7f844928714eb4fb3e4db
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262735"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80286737"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutorial: Criar um aplicativo LUIS para determinar as intenções do usuário
 
@@ -53,9 +45,13 @@ Essas intenções são categorizadas em **Intenções**.
 
 ## <a name="create-a-new-intent"></a>Criar uma nova intenção
 
-1. No portal, dentro da seção **Build** do aplicativo, selecione **+ Criar**. Insira o nome da nova intenção, `OrderPizza`, depois selecione **Concluído**.
+Uma intenção é usada para classificar enunciados do usuário com base na intenção dele, determinada com base no texto do idioma natural.
 
-    A intenção `OrderPizza` é prevista quando: um usuário quer pedir uma pizza.
+Para classificar um enunciado, a intenção precisa de exemplos de enunciados classificados com a intenção.
+
+1. Na seção **Criar**, na página **Intenções**, selecione **+ Criar** para criar uma intenção. Insira o nome da nova intenção, `OrderPizza`, depois selecione **Concluído**.
+
+    A intenção `OrderPizza` é prevista quando um usuário quer pedir uma pizza.
 
 1. Adicione vários enunciados de exemplo para esta intenção que se espera que o usuário solicite:
 
@@ -70,7 +66,7 @@ Essas intenções são categorizadas em **Intenções**.
 
     ![Adicionar enunciados de exemplo](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    Fornecendo _enunciados de exemplo_, você está treinando o LUIS sobre quais tipos de enunciados devem ser previstos para essa intenção.
+    Ao fornecer _enunciados de exemplo_, você está treinando o LUIS sobre quais tipos de enunciados devem ser previstos para essa intenção.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 

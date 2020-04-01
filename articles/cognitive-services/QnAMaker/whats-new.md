@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 02/14/2020
 ms.author: diberry
-ms.openlocfilehash: 4dca8ef9381096d83cd63a9f9a4449d9c8750933
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: c0ee1abcb99e10d57d05945f45595e5bfd76fa28
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368344"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80155980"
 ---
 # <a name="whats-new-in-qna-maker"></a>Novidades no QnA Maker
 
@@ -24,6 +24,10 @@ Conheça o que há de novo no serviço. Esses itens podem ser notas sobre a vers
 ## <a name="release-notes"></a>Notas de versão
 
 Conheça as novidades do QnA Maker.
+
+### <a name="march-2020"></a>Março de 2020
+
+* Agora o TLS 1.2 é obrigatório para todas as solicitações HTTP a este serviço. Para saber mais, confira [Segurança nos Serviços Cognitivos do Azure](../cognitive-services-security.md).
 
 ### <a name="february-2020"></a>Fevereiro de 2020
 

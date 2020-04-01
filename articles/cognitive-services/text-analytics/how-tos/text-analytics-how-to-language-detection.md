@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
 ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70387798"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exemplo: Detectar o idioma com a Análise de Texto
@@ -159,7 +159,7 @@ Em alguns casos, pode ser difícil eliminar a ambiguidade de idiomas com base na
 
 Por exemplo, "Impossible" é comum entre inglês e francês e se for fornecida com contexto limitado, a resposta será baseada na dica de país “US”. Se a origem do texto for conhecida por ser proveniente da França, isso poderá ser fornecido como uma dica.
 
-**Input**
+**Entrada**
 
 ```json
     {
@@ -228,7 +228,7 @@ Se o analisador não conseguir analisar a entrada, ele retornará `(Unknown)`. U
 
 O conteúdo de idioma misto no mesmo documento retorna o idioma com a representação maior no conteúdo, mas com uma classificação positiva inferior. A classificação reflete a força marginal da avaliação. No exemplo a seguir, a entrada é uma combinação de francês, espanhol e inglês. O analisador de contagens de caracteres em cada segmento determina o idioma predominante.
 
-**Input**
+**Entrada**
 
 ```json
     {
@@ -272,7 +272,7 @@ Neste artigo, você aprendeu os conceitos e o fluxo de trabalho para detecção 
 + A solicitação POST é feita para um ponto de extremidade `/languages` usando uma [chave de acesso personalizada e um ponto de extremidade](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que é válido para sua assinatura.
 + A saída de resposta consiste em identificadores de idioma para cada ID de documento. A saída pode ser transmitida para qualquer aplicativo que aceite JSON. Os aplicativos de exemplo incluem Excel e Power BI, para citar alguns.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
  [Visão geral da Análise de Texto](../overview.md) [Perguntas frequentes](../text-analytics-resource-faq.md)</br>
  [Página de produto de Análise de Texto do Azure Machine Learning](//go.microsoft.com/fwlink/?LinkID=759712)

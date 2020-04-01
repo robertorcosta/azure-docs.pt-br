@@ -1,35 +1,27 @@
 ---
 title: 'Início Rápido: Criar um aplicativo no portal do LUIS'
-titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você criará as partes básicas de um aplicativo, intenções e entidades, bem como um teste com enunciado de exemplo no portal do LUIS.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 55ba025b9174f727a54ce0cd63da11c8661af91c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.openlocfilehash: f0c8f0c77f832e049dfc494f82e90edb61a8cb2a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381980"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80244607"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início Rápido: Criar um aplicativo no portal do LUIS
 
-Neste início rápido, você criará um aplicativo no portal do LUIS. Primeiro, você criará as partes básicas de um aplicativo, **intenções** e **entidades**. Em seguida, você testará o aplicativo fornecendo um enunciado de usuário de exemplo no painel de teste interativo para obter a intenção prevista.
-
-A criação de um aplicativo é gratuita e não exige uma assinatura do Azure. Quando você estiver pronto para implantar seu aplicativo, confira o [início rápido para implantar um aplicativo](get-started-portal-deploy-app.md). Ele mostra como criar um recurso do Serviço Cognitivo do Azure e atribuí-lo ao aplicativo.
+Neste início rápido, você criará um aplicativo no portal do LUIS. Primeiro, crie as partes básicas de um aplicativo, **intenções** e **entidades**. Em seguida, teste o aplicativo fornecendo um enunciado de usuário de exemplo no painel de teste interativo para obter a intenção prevista.
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## <a name="create-an-app"></a>Criar um aplicativo
 
-1. Selecione **+Criar** na barra de ferramentas de contexto.
+1. Selecione **+ Novo aplicativo para conversa** na barra de ferramentas de contexto e, em seguida, selecione **Novo aplicativo para conversa**.
 
-   [![Criar aplicativo no portal do LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > [![Criar aplicativo no portal do LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
 1. Na janela pop-up, configure o aplicativo com as configurações a seguir e, em seguida, selecione **Concluído**.
 
@@ -70,7 +62,8 @@ Você adicionará enunciados de exemplo depois de criar intenções. Enunciados 
 
 Para a intenção `FindForm` deste aplicativo de exemplo, os enunciados de exemplo incluirão o número de formulário. O aplicativo cliente precisa do número de formulário para atender à solicitação do usuário, portanto, é importante incluí-lo no enunciado.
 
-[![Inserir os exemplos de enunciado para a intenção do FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![Inserir os exemplos de enunciado para a intenção do FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
 Adicione os 15 enunciados de exemplo a seguir à intenção `FindForm`.
 
@@ -147,7 +140,8 @@ Os exemplos de enunciado da intenção **Nenhum** devem ficar fora do seu domín
 
    A entidade é marcada onde ela aparece nos exemplos de enunciado. Caso deseje ver o texto original em vez do nome da entidade, ative/desative a **Exibição de Entidades** na barra de ferramentas.
 
-   [![Todos os exemplos de enunciado marcados com entidades](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > [![Todos os exemplos de enunciado marcados com entidades](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
 ## <a name="test-your-new-app-with-the-interactive-test-pane"></a>Testar seu novo aplicativo com o painel de teste interativo
 
@@ -159,7 +153,10 @@ Use o painel **Teste** interativo no portal do LUIS para validar se a entidade �
 
    ```Is there a form named hrf-234098```
 
-   ![Testar o novo enunciado no painel de teste](./media/get-started-portal-build-app/test-new-utterance.png)
+    Selecione **Inspecionar** para ver as previsões de entidade.
+
+   > [!div class="mx-imgBorder"]
+   > ![Testar o novo enunciado no painel de teste](./media/get-started-portal-build-app/test-new-utterance.png)
 
    A primeira intenção prevista é corretamente **FindForm**, com uma confiança acima de 90% (0,977). A entidade **Número de Formulário de Recursos Humanos** é extraída com um valor igual a hrf-234098.
 

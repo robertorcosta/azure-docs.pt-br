@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: ee1e3cbade33f1786e8b93a549d19b87eba189e7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: a0616a8a2cc401b6b4c42c9882c14da2f123c6df
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79203383"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79481867"
 ---
 <a name="HOLTop"></a>
 
@@ -33,9 +33,9 @@ ms.locfileid: "79203383"
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [Node.js](https://nodejs.org/).
-* Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter sua chave e seu ponto de extremidade. 
-    * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API de Análise de Texto. Você fará isso posteriormente no início rápido.
-    * Você pode usar o tipo de preço gratuito para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
+* Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter sua chave e seu ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+    * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API de Análise de Texto. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
+    * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configurando
 
@@ -44,7 +44,9 @@ ms.locfileid: "79203383"
 Em uma janela de console (como cmd, PowerShell ou Bash), crie um novo diretório para seu aplicativo e navegue até ele. 
 
 ```console
-mkdir myapp && cd myapp
+mkdir myapp 
+
+cd myapp
 ```
 
 Execute o comando `npm init` para criar um aplicativo do Node com um arquivo `package.json`. 

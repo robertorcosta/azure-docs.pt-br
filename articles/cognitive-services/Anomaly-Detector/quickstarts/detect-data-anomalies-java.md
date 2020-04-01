@@ -1,21 +1,21 @@
 ---
 title: 'Início Rápido: Detectar anomalias nos dados de série temporal usando o Java e a API REST do Detector de Anomalias'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, aprenda a usar a API do Detector de Anomalias para detectar anormalidades em sua série de dados como um lote ou em dados de streaming.
+description: Saiba como usar a API do Detector de Anomalias para detectar anormalidades na sua série de dados como um lote ou em dados de streaming.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 11/19/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 3bc406b22b7e8a684713385dfd15daed99bcf977
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e7cc969ff2c36415b8fd1cebafa1873f9efd38c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448933"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80239062"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Início Rápido: Detectar anomalias nos dados de série temporal usando o Java e a API REST do Detector de Anomalias
 
@@ -28,7 +28,7 @@ Use este início rápido para começar a usar os dois modos de detecção da API
 
  Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. Você pode encontrar o código-fonte deste Início Rápido no [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - O JDK ([Java&trade; Development Kit) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou posterior.
 - Um ponto de extremidade e uma chave do Detector de Anomalias

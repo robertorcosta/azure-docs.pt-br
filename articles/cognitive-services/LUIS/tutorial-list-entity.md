@@ -1,22 +1,14 @@
 ---
 title: 'Tutorial: Entidade de lista – LUIS'
-titleSuffix: Azure Cognitive Services
 description: Obtenha dados que correspondam a uma lista predefinida de itens. Cada item na lista pode ter sinônimos que também tenham correspondência exata
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 056c64657f42d56879928f518598206d45493f60
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/12/2020
+ms.openlocfilehash: 1cfeccbd54e8ef8ec315d53fc7a766760c92a0d1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447777"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79297400"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Tutorial: Obter dados de correspondência de texto exata de um enunciado com a entidade de lista
 
@@ -42,7 +34,7 @@ Uma entidade de lista é uma boa escolha para esse tipo de dados quando:
 
 * Os valores de dados são um conjunto conhecido.
 * O conjunto não excede os [limites](luis-boundaries.md) máximos do LUIS para esse tipo de entidade.
-* O texto no enunciado corresponde exatamente a um sinônimo ou ao nome canônico. LUIS não usa a lista além das correspondências de texto exatas. Lematização, plurais e outras variações não são resolvidas com apenas uma entidade de lista. Para gerenciar variações, considere usar um [padrão](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional.
+* O texto no enunciado é uma correspondência que não diferencia maiúsculas de minúsculas com um sinônimo ou o nome canônico. O LUIS não usa a lista além da correspondência. Lematização, plurais e outras variações não são resolvidas com apenas uma entidade de lista. Para gerenciar variações, considere usar um [padrão](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional.
 
 > [!CAUTION]
 > Se você não tiver certeza se deseja uma entidade de lista ou uma entidade aprendida por computador com uma lista de frases como um descritor, a melhor prática e a opção flexível é usar uma entidade aprendida por computador com uma lista de frases como um descritor. Esse método permite que o LUIS aprenda e estenda os valores dos dados a serem extraídos.

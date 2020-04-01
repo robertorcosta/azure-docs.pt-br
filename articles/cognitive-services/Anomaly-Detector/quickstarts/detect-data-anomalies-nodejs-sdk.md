@@ -1,21 +1,21 @@
 ---
 title: 'Início Rápido: Detectar anomalias de dados usando a biblioteca de clientes do Detector de Anomalias para Python'
 titleSuffix: Azure Cognitive Services
-description: Use a API do Detector de Anomalias para detectar anormalidades em sua série de dados como um lote ou em dados de streaming com este início rápido.
+description: Saiba como usar a API do Detector de Anomalias para detectar anormalidades na sua série de dados como um lote ou em dados de streaming.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 11/19/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 17ca1a7671718b5b96df0add7775fb82d4d97303
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: c13657b8f2dae3868c1b9820236585aa930c6be4
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770434"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80239093"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>Início Rápido: Biblioteca de clientes do Detector de Anomalias para Node.js
 
@@ -28,7 +28,7 @@ Use a biblioteca de cliente do Detector de Anomalias para Node.js para:
 
 [Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Pacote (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [Localize o código no GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [Node.js](https://nodejs.org/)
