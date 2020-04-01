@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2fce8a7a6f6d345b83c639bd69ecd70271621e9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b344886e89a10a027cba169e92056a6dda443d8d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283150"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421936"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações do provedor de recursos do Azure Resource Manager
 
@@ -621,26 +621,26 @@ Serviço azure: núcleo
 > |  | **verificarnomeDisponibilidade** |  |
 > | Ação | Microsoft.AppConfiguration/checkNameDisponibilidade/leitura | Verifique se o nome do recurso está disponível para uso. |
 > |  | **configuraçãoLojas** |  |
-> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/leitura | Obtém as propriedades do armazenamento de configuração especificado ou lista todas as configurações de armazenamento o grupo de recursos ou assinatura especificado. |
+> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/leitura | Obtém as propriedades do armazenamento de configuração especificado ou lista todas as configurações de armazenamento sob o grupo de recursos ou assinatura especificado. |
 > | Ação | Microsoft.AppConfiguração/configuraçãoLojas/gravação | Criar ou atualizar uma configuração com os parâmetros especificados. |
 > | Ação | Microsoft.AppConfiguração/configuraçãoLojas/exclusão | Exclui uma loja de configuração. |
 > | Ação | Microsoft.AppConfiguração/configuraçãoLojas/ListKeys/action | Lista as chaves de API para o armazenamento de configuração especificado. |
 > | Ação | Microsoft.AppConfiguration/configurationStores/Regenerakey/action | Regenera as tecla API para o armazenamento de configuração especificado. |
 > | Ação | Microsoft.AppConfiguração/configuraçãoLojas/ListKeyValue/action | Lista um valor-chave para o armazenamento de configuração especificado. |
-> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/PrivateEndpointConexõesAprovação/ação | Aprove automaticamente uma conexão de ponto final privado o armazenamento de configuração especificado. |
+> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/PrivateEndpointConexõesAprovação/ação | Aprove automaticamente uma conexão de ponto final privado sob o armazenamento de configuração especificado. |
 > |  | **configuraçãoLojas/eventGridFiltros** |  |
-> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/eventGridFiltros/leitura | Obtém as propriedades do filtro de grade de evento da configuração especificada ou lista todos os filtros da grade de eventos da loja de configuração a configuração especificada. |
+> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/eventGridFiltros/leitura | Obtém as propriedades do filtro de grade de evento da configuração especificada ou lista todos os filtros da grade de eventos da loja de configuração sob a configuração especificada. |
 > | Ação | Microsoft.AppConfiguração/configuraçãoLojas/eventGridFiltros/gravação | Crie ou atualize um filtro de grade de evento da configuração da loja com os parâmetros especificados. |
 > | Ação | Microsoft.AppConfiguração/configuraçãoLojas/eventGridFiltros/exclusão | Exclui um filtro de grade de eventos da loja de configuração. |
 > |  | **configuraçãoLojas/privateEndpointConnectionProxies** |  |
 > | Ação | Microsoft.AppConfiguração/configuraçãoLojas/privateEndpoint ConnectionProxies/validate/action | Valide um proxy de conexão de ponto final privado no armazenamento de configuração especificado. |
-> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/privateEndpoint ConnectionProxies/read | Obtenha um proxy de conexão de ponto final privado o armazenamento de configuração especificado. |
-> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/privateEndpoint ConnectionProxies/write | Crie ou atualize um proxy de conexão de ponto final privado o armazenamento de configuração especificado. |
+> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/privateEndpoint ConnectionProxies/read | Obtenha um proxy de conexão de ponto final privado sob o armazenamento de configuração especificado. |
+> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/privateEndpoint ConnectionProxies/write | Crie ou atualize um proxy de conexão de ponto final privado sob o armazenamento de configuração especificado. |
 > | Ação | Microsoft.AppConfiguração/configuraçãoLojas/privateEndpoint ConnectionProxies/delete | Exclua um proxy de conexão de ponto final privado no armazenamento de configuração especificado. |
 > |  | **configuraçãoLojas/privateEndpointConexões** |  |
-> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/privateEndpoint Conexões/leitura | Obtenha uma conexão de ponto final privado ou liste conexões de ponto final privado o armazenamento de configuração especificado. |
+> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/privateEndpoint Conexões/leitura | Obtenha uma conexão de ponto final privado ou liste conexões de ponto final privado sob o armazenamento de configuração especificado. |
 > | Ação | Microsoft.AppConfiguração/configuraçãoLojas/privateEndpointConexões/gravação | Aprove ou rejeite uma conexão de ponto final privado sob o armazenamento de configuração especificado. |
-> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/privateEndpointConnections/delete | Exclua uma conexão de ponto final privado o armazenamento de configuração especificado. |
+> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/privateEndpointConnections/delete | Exclua uma conexão de ponto final privado sob o armazenamento de configuração especificado. |
 > |  | **configuraçãoLojas/privateLinkResources** |  |
 > | Ação | Microsoft.AppConfiguração/configuraçãoLojas/privateLinkResources/read | Lista todos os recursos de link privados sob o armazenamento de configuração especificado. |
 > |  | **configuraçãoLojas/provedores/Microsoft.Insights/diagnosticSettings** |  |
@@ -649,7 +649,7 @@ Serviço azure: núcleo
 > |  | **configuraçãoLojas/provedores/Microsoft.Insights/metricDefinições** |  |
 > | Ação | Microsoft.AppConfiguração/configuraçãoLojas/provedores/Microsoft.Insights/metricDefinições/leitura | Recupere todas as definições métricas para configuração do aplicativo microsoft. |
 > |  | **configuraçãoLojas/sincronizaçãoTarefas** |  |
-> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/sincronizaçãoTarefas/leitura | Obtém as propriedades da tarefa de sincronização da configuração especificada ou lista todas as tarefas de sincronização da configuração da loja o armazenamento de configuração especificado. |
+> | Ação | Microsoft.AppConfiguração/configuraçãoLojas/sincronizaçãoTarefas/leitura | Obtém as propriedades da tarefa de sincronização da configuração especificada ou lista todas as tarefas de sincronização da configuração da loja sob o armazenamento de configuração especificado. |
 > | Ação | Microsoft.AppConfiguração/configuraçãoLojas/sincronizaçãoTarefas/gravação | Crie ou atualize uma tarefa de sincronização de configuração da loja com os parâmetros especificados. |
 > | Ação | Microsoft.AppConfiguração/configuraçãoLojas/sincronizaçãoTarefas/exclusão | Exclui uma tarefa de sincronização da loja de configuração. |
 > |  | **localizações/operaçõesStatus** |  |
@@ -687,7 +687,7 @@ Serviço Azure: [Gerente de Recursos do Azure](../azure-resource-manager/index.y
 > | Ação | Microsoft.Authorization/operations/read | Obtém a lista de operações |
 > |  | **Permissões** |  |
 > | Ação | Microsoft.Authorization/permissions/read | Listar todas as permissões que o chamador tem em determinado escopo. |
-> |  | **políticas** |  |
+> |  | **Políticas** |  |
 > | Ação | Microsoft.Authorization/policies/audit/action | Ação tomada como resultado da avaliação da Política Do Azure com efeito 'auditoria' |
 > | Ação | Microsoft.Authorization/policies/auditIfNotExist/action | Ação tomada como resultado da avaliação da Política Do Azure com efeito 'auditIfNotExists' |
 > | Ação | Microsoft.Authorization/policies/deny/action | Ação tomada como resultado de avaliação da Política Azure com efeito 'negar' |
@@ -1324,7 +1324,7 @@ Serviço Azure: [Rede de Entrega de Conteúdo](../cdn/index.yml)
 > | Ação | Microsoft.Cdn/operationresults/profileresults/endpointresults/originresults/delete |  |
 > |  | **Operações** |  |
 > | Ação | Microsoft.Cdn/operations/read |  |
-> |  | **perfis** |  |
+> |  | **Perfis** |  |
 > | Ação | Microsoft.Cdn/profiles/read |  |
 > | Ação | Microsoft.Cdn/profiles/write |  |
 > | Ação | Microsoft.Cdn/profiles/delete |  |
@@ -2032,7 +2032,7 @@ Serviço azure: [Serviços Cognitivos](../cognitive-services/index.yml)
 > |  | **contas/grupos de rosto/pessoa** |  |
 > | DataAction | Microsoft.CognitiveServices/contas/Face/persongroups/write | Crie um novo grupo de pessoas com personGroupId, nome e dados de usuário fornecidos pelo usuário. Atualize o nome e o usuário de um grupo de pessoas existentes. As propriedades se mantêm inalteradas se não estiverem no corpo solicitado. |
 > | DataAction | Microsoft.CognitiveServices/contas/Face/persongroups/delete | Exclua um grupo de pessoas existente com personGroupId especificado. Os dados perscedos neste grupo de pessoas serão excluídos. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Recuperar o nome do grupo de pessoas e os dados do usuário. Para obter informações pessoais esse personGroup, use o pesonGroupId, nome e userData de grupos de pessoas da Lista. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Recuperar o nome do grupo de pessoas e os dados do usuário. Para obter informações pessoais sob esse personGroup, use o pesonGroupId, nome e userData de grupos de pessoas da Lista. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Envie uma tarefa de treinamento em grupo de pessoas. O treinamento é um passo crucial que só um grupo de pessoas treinadas pode usar. |
 > | DataAction | Microsoft.CognitiveServices/contas/Face/persongroups/persons/action | Crie uma nova pessoa em um grupo de pessoas especificadas. Para adicionar rosto a essa pessoa, por favor, ligue |
 > |  | **contas/Grupos de rosto/persongroups/pessoas** |  |
@@ -2680,7 +2680,7 @@ Serviço azure: [Gerenciamento de Custos](../cost-management-billing/index.yml)
 > | Ação | Microsoft.CostManagement/reports/read | Agendar relatórios sobre dados de uso por um escopo. |
 > |  | **Inquilinos** |  |
 > | Ação | Microsoft.CostManagement/inquilinos/register/action | Registre a ação para escopo do Microsoft.CostManagement por um inquilino. |
-> |  | **modos de exibição** |  |
+> |  | **Modos de exibição** |  |
 > | Ação | Microsoft.CostManagement/views/read | Liste todas as visualizações salvas. |
 > | Ação | Microsoft.CostManagement/views/delete | Excluir visualizações salvas. |
 > | Ação | Microsoft.CostManagement/views/write | Exibir atualização. |
@@ -6111,7 +6111,7 @@ Serviço Azure: [Rede Virtual,](../virtual-network/index.yml) [Balanceador de Ca
 > | Ação | Microsoft.Network/applicationGateways/write | Criar ou atualizar um gateway de aplicativo |
 > | Ação | Microsoft.Network/applicationGateways/delete | Excluir um gateway de aplicativo |
 > | Ação | Microsoft.Network/applicationGateways/backendhealth/action | Obter uma integridade de back-end do Gateway de Aplicativo |
-> | Ação | Microsoft.Network/applicationGateways/getBackendHealthOnDemand/action | Obtém um gateway de aplicativo backend saúde demanda para dado http configuração e pool backend |
+> | Ação | Microsoft.Network/applicationGateways/getBackendHealthOnDemand/action | Obtém um gateway de aplicativo backend saúde sob demanda para dado http configuração e pool backend |
 > | Ação | Microsoft.Network/applicationGateways/start/action | Inicia um gateway de aplicativo |
 > | Ação | Microsoft.Network/applicationGateways/stop/action | Interrompe um gateway de aplicativo |
 > |  | **Pools de endereços de aplicativos/backend** |  |
@@ -6144,7 +6144,7 @@ Serviço Azure: [Rede Virtual,](../virtual-network/index.yml) [Balanceador de Ca
 > | Ação | Microsoft.Network/bastionHosts/getactivesessions/action | Obtenha sessões ativas no Host Bastion |
 > | Ação | Microsoft.Network/bastionHosts/disconnectactivesessions/action | Desconecte as sessões ativas no host bastião |
 > | Ação | Microsoft.Network/bastionHosts/getShareableLinks/action | Retorna as urls compartilháveis para as VMs especificadas em uma sub-rede Bastion desde que suas urls sejam criadas |
-> | Ação | Microsoft.Network/bastionHosts/createShareableLinks/action | Cria urls compartilháveis para as VMs um bastião e retorna as urls |
+> | Ação | Microsoft.Network/bastionHosts/createShareableLinks/action | Cria urls compartilháveis para as VMs sob um bastião e retorna as urls |
 > | Ação | Microsoft.Network/bastionHosts/deleteShareableLinks/action | Exclui urls compartilháveis para as VMs fornecidas sob um bastião |
 > |  | **bgpServiceCommunities** |  |
 > | Ação | Microsoft.Network/bgpServiceCommunities/read | Obter comunidades do serviço BGP |
@@ -8333,7 +8333,7 @@ Serviço Azure: [Gerente de Recursos do Azure](../azure-resource-manager/index.y
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
-Serviço Azure: [Agendador](../scheduler/index.md)
+Serviço Azure: [Agendador](../scheduler/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de ação | Operação | Descrição |
@@ -8433,7 +8433,7 @@ Serviço Azure: [Security Center](../security-center/index.yml)
 > | Ação | Microsoft.Security/locations/tasks/resolve/action | Resolver uma recomendação de segurança |
 > | Ação | Microsoft.Security/locations/tasks/activate/action | Ativar recomendação de segurança |
 > | Ação | Microsoft.Security/locations/tasks/dismiss/action | Ignorar recomendação de segurança |
-> |  | **políticas** |  |
+> |  | **Políticas** |  |
 > | Ação | Microsoft.Security/policies/read | Obter a política de segurança |
 > | Ação | Microsoft.Security/policies/write | Atualizar a política de segurança |
 > |  | **pricings** |  |
@@ -10004,7 +10004,7 @@ Serviço Azure: [Insights da série de tempo](../time-series-insights/index.yml)
 > | Tipo de ação | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.TimeSeriesInsights/register/action | Registrar a assinatura do provedor de recursos do Time Series Insights e habilitar a criação de ambientes do Time Series Insights. |
-> |  | **environments** |  |
+> |  | **Ambientes** |  |
 > | Ação | Microsoft.TimeSeriesInsights/environments/read | Obter as propriedades de um ambiente. |
 > | Ação | Microsoft.TimeSeriesInsights/environments/write | Criar um novo ambiente ou atualizar um ambiente existente. |
 > | Ação | Microsoft.TimeSeriesInsights/environments/delete | Excluir o ambiente. |

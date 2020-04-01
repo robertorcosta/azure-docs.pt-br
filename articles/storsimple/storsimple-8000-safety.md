@@ -1,5 +1,5 @@
 ---
-title: Segurança para seu dispositivo StorSimple | Microsoft Docs
+title: Instale com segurança & operar dispositivo da série StorSimple 8000
 description: Descreve considerações, diretrizes e convenções de segurança e explica como instalar e operar seu dispositivo StorSimple com segurança.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 66b881ab13e27ee457af4fa1bafb82ad14e9674d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c880cd18e7227a728d7e276e72a5ea8c1e421de
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60631594"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396628"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar e operar seu dispositivo StorSimple com segurança
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png)
@@ -67,7 +67,7 @@ Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 Para reduzir a probabilidade de superaquecimento ou chamas nas conexões elétricas:
 
 * Forneça uma fonte de energia adequada com a proteção contra sobrecarga elétrica para atender aos requisitos detalhados nas especificações técnicas.
-* Não use cabos de alimentação bifurcados (conectores em "Y").
+* Não use cabos de alimentação bifurcados (cabos "Y").
 * Para atender aos requisitos térmicos, de emissão e de segurança aplicáveis, nenhuma tampa deverá ser removida e todos os compartimentos devem ser preenchidos com ou módulos plug-in ou unidades em branco.
 * Certifique-se de que o equipamento seja usado da maneira especificada pelo fabricante. Se este equipamento for usado de maneira não especificada pelo fabricante, a proteção fornecida pelo equipamento poderá ser afetada.
 
@@ -96,7 +96,7 @@ Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 
 * O rack deve ter um sistema de distribuição elétrica seguro. Ele deve fornecer proteção contra sobrecarga para o compartimento e não deve ser sobrecarregado pelo número total de compartimentos instalados. A classificação de consumo de energia elétrica mostrada na placa deve ser observada.
 * O sistema de distribuição elétrica deve fornecer aterramento confiável para cada compartimento no rack.
-* O design do sistema de distribuição de energia deve levar em consideração a corrente de perda do aterramento total de todas as fontes de alimentação em todos os compartimentos. Observe que cada fonte de alimentação em cada compartimento tem uma corrente de perda de aterramento máximo de mA 1,0 a 60 Hz, 264 v. O rack pode exigir rótulos como "CORRENTE DE ALTA PERDA. O aterramento é essencial para conectar a alimentação."
+* O design do sistema de distribuição de energia deve levar em consideração a corrente de perda do aterramento total de todas as fontes de alimentação em todos os compartimentos. Observe que cada fonte de alimentação em cada compartimento tem uma corrente de perda de aterramento máximo de mA 1,0 a 60 Hz, 264 v. O rack pode exigir rotulagem com "ALTA CORRENTE DE VAZAMENTO. A conexão terrestre (terra) é essencial antes de conectar um suprimento."
 * O rack, quando configurado com os compartimentos deve atender aos requisitos de segurança UL 60950-1 e IEC 60950-1/EN 60950-1.
 
 ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**

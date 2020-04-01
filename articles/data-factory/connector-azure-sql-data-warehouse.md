@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/25/2020
-ms.openlocfilehash: 950bbc17af920f104f31af4d324f5546ff29217e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 822a981b84919670aa476567625cdf914206eaa8
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257947"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422175"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar e transformar dados no Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) usando o Azure Data Factory 
 
@@ -485,7 +485,7 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
 
 ### <a name="staged-copy-by-using-polybase"></a>Cópia organizada usando PolyBase
 
-Quando os dados de origem não forem nativamente compatíveis com o PolyBase, habilite a cópia de dados por meio de uma instância de armazenamento azure Blob provisória (não pode ser o Azure Premium Storage). Neste caso, o Azure Data Factory converte automaticamente os dados para atender aos requisitos de formato de dados do PolyBase. Em seguida, ele invoca o PolyBase para carregar dados no SQL Data Warehouse. Finalmente, ele limpa seus dados temporários do armazenamento de blobs. Consulte [Cópia preparada](copy-activity-performance.md#staged-copy) para obter detalhes sobre a cópia de dados por meio de uma instância de armazenamento de Blob do Azure de preparação.
+Quando os dados de origem não forem nativamente compatíveis com o PolyBase, habilite a cópia de dados por meio de uma instância de armazenamento azure Blob provisória (não pode ser o Azure Premium Storage). Neste caso, o Azure Data Factory converte automaticamente os dados para atender aos requisitos de formato de dados do PolyBase. Em seguida, ele invoca o PolyBase para carregar dados no SQL Data Warehouse. Finalmente, ele limpa seus dados temporários do armazenamento de blobs. Consulte [Cópia preparada](copy-activity-performance-features.md#staged-copy) para obter detalhes sobre a cópia de dados por meio de uma instância de armazenamento de Blob do Azure de preparação.
 
 Para usar esse recurso, crie um [serviço vinculado ao Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) que se refere à conta de armazenamento Do Zure com o armazenamento intermediário blob. Em seguida, especifique as `enableStaging` propriedades para `stagingSettings` a Atividade de cópia conforme mostrado no código a seguir.
 
@@ -613,7 +613,7 @@ O uso da declaração COPY suporta a seguinte configuração:
 2. As configurações de formato estão com as seguintes:
 
    1. Para **Parquet**: `compression` não pode haver **compressão,** **Snappy**ou **GZip**.
-   2. Para **ORC**: `compression` não pode haver **compressão,** **zlib**ou **Snappy**.
+   2. Para **ORC** `compression` : não pode **```zlib```** haver **compressão,** ou **Snappy**.
    3. Para **texto delimitado:**
       1. `rowDelimiter`é explicitamente definido como **caractere único** ou "**\r\n**", o valor padrão não é suportado.
       2. `nullValue`é deixado como padrão ou definido como **string vazio** ("").
@@ -705,7 +705,7 @@ As configurações específicas do Azure Synapse Analytics estão disponíveis n
 
 * Exemplo sql:```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Tamanho do lote**: Digite um tamanho de lote para repassar dados grandes em leituras.
+**Tamanho do lote**: Digite um tamanho de lote para repassar dados grandes em leituras. Nos fluxos de dados, o ADF usará essa configuração para definir o cache colunar Spark. Este é um campo de opção que usará padrões de Faísca se ele for deixado em branco.
 
 **Nível de isolamento**: O padrão para fontes SQL no mapeamento do fluxo de dados é lido sem compromisso. Você pode alterar o nível de isolamento aqui para um desses valores:
 * Leitura confirmada

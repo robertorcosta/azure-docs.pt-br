@@ -1,22 +1,22 @@
 ---
 title: Configurar a autenticação do Facebook
-description: Saiba como configurar a autenticação do Facebook como provedor de identidade para o seu aplicativo App Service.
+description: Saiba como configurar a autenticação do Facebook como provedor de identidade para o aplicativo App Service ou Azure Functions.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.topic: article
 ms.date: 06/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: cd9c8a1bab3616b9b4eb1fe97ee3a9b2307ba77b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 9a2d390a5647ed90284730e9186e981b8e699d10
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671947"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80438012"
 ---
-# <a name="configure-your-app-service-app-to-use-facebook-login"></a>Configure seu aplicativo App Service para usar o login do Facebook
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Configure seu aplicativo App Service ou Azure Functions para usar o login do Facebook
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Este artigo mostra como configurar o Azure App Service para usar o Facebook como provedor de autenticação.
+Este artigo mostra como configurar o Azure App Service ou funções do Azure para usar o Facebook como provedor de autenticação.
 
 Para concluir o procedimento neste artigo, você precisa de uma conta no Facebook que tenha um endereço de e-mail verificado e um número de telefone celular. Para criar uma nova conta do Facebook, vá para [facebook.com].
 
@@ -63,7 +63,7 @@ Para concluir o procedimento neste artigo, você precisa de uma conta no Faceboo
    > [!CAUTION]
    > Restringir o acesso desta forma se aplica a todas as chamadas para o seu aplicativo, o que pode não ser desejável para aplicativos que têm uma página inicial disponível publicamente, como em muitos aplicativos de página única. Para tais aplicativos, **permitir solicitações anônimas (nenhuma ação)** pode ser preferível para que o aplicativo inicie manualmente a autenticação em si. Para obter mais informações, consulte [Fluxo de Autenticação](overview-authentication-authorization.md#authentication-flow).
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Agora você está pronto para usar o Facebook para autenticação em seu aplicativo.
 
@@ -78,4 +78,4 @@ Agora você está pronto para usar o Facebook para autenticação em seu aplicat
 [Desenvolvedores do Facebook]: https://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Portal Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
