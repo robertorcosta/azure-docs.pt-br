@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 0c2190c29054301a8e21a9a27eb078802fbc9612
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: da476dc14949ebab1a054a9624d91acb25b9f2b4
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350852"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474473"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ajuste de desempenho com cache de conjunto de resultados  
 Quando o cache de conjunto de resultados é ativado, o SQL Analytics armazena automaticamente os resultados da consulta no banco de dados do usuário para uso repetitivo.  Isso permite que execuções de consulta subseqüentes obtenham resultados diretamente do cache persistido para que a recomputação não seja necessária.   O cache de conjunto de resultados melhora o desempenho da consulta e reduz o uso de recursos de computação.  Além disso, as consultas usando o conjunto de resultados em cache d não usam nenhum slots de simesmo e, portanto, não contam com os limites de concorrência existentes. Para segurança, os usuários só podem acessar os resultados armazenados em cache se tiverem as mesmas permissões de acesso a dados que os usuários que criam os resultados armazenados em cache.  
@@ -65,10 +65,10 @@ O conjunto de resultados armazenado em cache será reutilizado em uma consulta s
 - Há uma correspondência exata entre a nova consulta e a anterior que gerou o armazenamento em cache do conjunto de resultados.
 - Não há alterações de dados ou esquemas nas tabelas em que o conjunto de resultados armazenado em cache foi gerado.
 
-Execute esse comando para verificar se uma consulta foi executada com uma perda ou ocorrência no cache de resultado. Se houver uma ocorrência no cache, o result_cache_hit retornará 1.
+Execute esse comando para verificar se uma consulta foi executada com uma perda ou ocorrência no cache de resultado. A coluna result_set_cache retorna 1 para acerto de cache, 0 para cache miss e valores negativos por razões pelas quais o cache conjunto de resultados não foi usado. Verifique [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7) para obter detalhes.
 
 ```sql
-SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests 
+SELECT request_id, command, result_set_cache FROM sys.dm_pdw_exec_requests
 WHERE request_id = <'Your_Query_Request_ID'>
 ```
 

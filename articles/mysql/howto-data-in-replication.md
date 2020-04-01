@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 2148ce41267627d9d6e0437897a99a8dbdbe0746
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 18c1d8b42dc73951901ec4ae9b79715ddbd47617
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382759"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474031"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a replicação nos dados para o Banco de Dados do Azure para MySQL
 
-Neste artigo, você aprenderá a configurar a Replicação de Entrada de Dados no serviço Banco de Dados do Azure para MySQL, configurando os servidores mestre e de réplica. A Replicação de Entrada de Dados permite sincronizar dados de um servidor MySQL mestre em execução no local, em máquinas virtuais ou serviços de banco de dados hospedados por outros provedores de nuvem em uma réplica no serviço Banco de Dados do Azure para MySQL. 
+Este artigo descreve como configurar a replicação de dados no Banco de Dados do Azure para MySQL, configurando os servidores mestre e réplica. Este artigo pressupõe que você tenha alguma experiência prévia com servidores e bancos de dados MySQL.
 
-Este artigo pressupõe que você tem pelo menos alguma experiência anterior com servidores e bancos de dados MySQL.
+Para criar uma réplica no banco de dados Do Azure para o serviço MySQL, a Replicação de Dados sincroniza dados de um servidor MySQL mestre no local, em máquinas virtuais (VMs) ou em serviços de banco de dados em nuvem.
 
 Revise as [limitações e requisitos](concepts-data-in-replication.md#limitations-and-considerations) da replicação de Data-in antes de executar as etapas deste artigo.
 
@@ -47,7 +47,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
    Por exemplo, certifique-se de que o servidor mestre permite tráfego de entrada e saída na porta 3306 e que o servidor mestre tenha um **endereço IP público,** o DNS é acessível publicamente ou tem um nome de domínio totalmente qualificado (FQDN). 
    
-   Teste a conectividade ao servidor mestre tentando se conectar a partir de uma ferramenta como a linha de comando MySQL hospedada em outra máquina ou a partir do [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponível no portal Azure 
+   Teste a conectividade ao servidor mestre ao tentar conectar-se a partir de uma ferramenta como a linha de comando MySQL hospedada em outra máquina ou a partir do [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponível no portal Azure.
 
 2. Ligar o registro em log binário
 
@@ -71,7 +71,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
 4. Criar uma nova função de replicação e configurar permissão
 
-   Crie uma conta de usuário no servidor mestre que é configurado com privilégios de replicação. Isso pode ser feito por meio de comandos SQL ou de uma ferramenta como o Workbench do MySQL. Leve em conta se você planeja replicar com SSL, pois isso precisa ser especificado na criação do usuário. Consulte a documentação do MySQL para entender como [adicionar contas de usuário](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) ao seu servidor mestre. 
+   Crie uma conta de usuário no servidor mestre que é configurado com privilégios de replicação. Isso pode ser feito por meio de comandos SQL ou de uma ferramenta como o Workbench do MySQL. Leve em conta se você planeja replicar com SSL, pois isso precisa ser especificado na criação do usuário. Consulte a documentação do MySQL para entender como [adicionar contas de usuário](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) ao seu servidor mestre. 
 
    Nos comandos abaixo, a nova função de replicação criada é capaz de acessar o mestre de qualquer máquina, não apenas da máquina que hospeda o próprio mestre. Isso é feito especificando "syncuser@'%'" no comando create user. Confira a documentação do MySQL para saber mais sobre [como especificar nomes de conta](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
 

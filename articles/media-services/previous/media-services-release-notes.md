@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: a55ef4f814c0d13a6efbeeb8cd9a5565d2869432
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3893c8d19c89b639e0584f203cbcd1adf7e2dee
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183288"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474837"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure
 
@@ -344,9 +344,9 @@ O [SDK do .NET dos Serviços de Mídia](https://www.nuget.org/packages/windowsaz
 * Foram adicionados deslocamentos relativos para BeginDate e ExpirationDate no modelo de licença PlayReady.
 
 ## <a name="november-2014-release"></a><a id="november_changes_14"></a>Lançamento de novembro de 2014
-* Os Serviços de Mídia agora permitem que você faça a ingestão de um conteúdo ao vivo de Smooth Streaming (fMP4) em uma conexão SSL. Para inserir por SSL, certifique-se de atualizar a URL de inserção para HTTPS. Atualmente, os Serviços de Mídia não são compatíveis com o SSL com domínios personalizados. Para saber mais sobre a transmissão ao vivo, confira [Trabalhar com a Transmissão ao Vivo dos Serviços de Mídia do Azure](https://msdn.microsoft.com/library/azure/dn783466.aspx).
-* No momento, você não pode ingerir um fluxo ao vivo RTMP por uma conexão SSL.
-* Você só pode transmitir por SSL se o ponto de extremidade de streaming do qual o conteúdo é distribuído foi criado depois de 10 de setembro de 2014. Se suas URLs de streaming se baseiam nos pontos de extremidade de streaming criados após 10 de setembro de 2014, a URL contém "streaming.mediaservices.windows.net" (o novo formato). As URLs de streaming que contêm "origin.mediaservices.windows.net" (o formato antigo) não são compatíveis com SSL. Se sua URL está no formato antigo e você deseja transmitir por SSL, [crie um novo ponto de extremidade de streaming](media-services-portal-manage-streaming-endpoints.md). Use as URLs baseadas no novo ponto de extremidade de streaming para transmitir conteúdo por SSL.
+* Agora você pode usar o Media Services para ingerir conteúdo de Streaming Suave ao vivo (fMP4) através de uma conexão TLS. Para ingerir sobre TLS, certifique-se de atualizar a URL ingerida para HTTPS. Atualmente, o Media Services não suporta TLS com domínios personalizados. Para saber mais sobre a transmissão ao vivo, confira [Trabalhar com a Transmissão ao Vivo dos Serviços de Mídia do Azure](https://msdn.microsoft.com/library/azure/dn783466.aspx).
+* Atualmente, você não pode ingerr uma transmissão ao vivo RTMP por uma conexão TLS.
+* Você só pode fazer streaming no TLS se o ponto final de streaming a partir do qual você entrega seu conteúdo foi criado após 10 de setembro de 2014. Se suas URLs de streaming se baseiam nos pontos de extremidade de streaming criados após 10 de setembro de 2014, a URL contém "streaming.mediaservices.windows.net" (o novo formato). Os URLs de streaming que contêm "origin.mediaservices.windows.net" (o formato antigo) não suportam TLS. Se sua URL estiver no formato antigo e você quiser transmitir através de TLS, [crie um novo ponto final de streaming](media-services-portal-manage-streaming-endpoints.md). Para transmitir seu conteúdo através de TLS, use URLs com base no novo ponto final de streaming.
 
 ### <a name="media-services-net-sdk"></a><a id="oct_sdk"></a>.NET SDK dos Serviços de Mídia
 O SDK dos Serviços de Mídia para extensões .NET agora está na versão 2.0.0.3.

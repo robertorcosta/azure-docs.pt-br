@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2b21061e8a939b91c637ef05bbe6375c0b3f82e8
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 2b09a7765cff20fb49ce6ab3d1e7bce2e15f0e9e
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80383966"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475220"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configure um aplicativo Windows Java para o Azure App Service
 
@@ -74,7 +74,7 @@ O Azure App Service suporta a sintonia e a personalização da caixa através do
 
 - [Definir configurações de aplicativo](configure-common.md#configure-app-settings)
 - [Configurar um domínio personalizado](app-service-web-tutorial-custom-domain.md)
-- [Configurar vinculações SSL](configure-ssl-bindings.md)
+- [Configurar ligações TLS](configure-ssl-bindings.md)
 - [Adicionar uma CDN](../cdn/cdn-add-to-web-app.md)
 - [Configure o site kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
@@ -183,7 +183,7 @@ Para desativar esse recurso, crie `WEBSITE_AUTH_SKIP_PRINCIPAL` uma configuraç�
 
 ### <a name="configure-tlsssl"></a>Configurar TLS/SSL
 
-Siga as instruções no [Secure um nome DNS personalizado com uma vinculação SSL no Azure App Service](configure-ssl-bindings.md) para carregar um certificado SSL existente e vinculá-lo ao nome de domínio do aplicativo. Por padrão, o aplicativo ainda permitirá conexões HTTP – siga as etapas específicas no tutorial para impor o SSL e o TLS.
+Siga as instruções no [Secure um nome DNS personalizado com uma vinculação TLS no Azure App Service](configure-ssl-bindings.md) para carregar um certificado TLS/SSL existente e vinculá-lo ao nome de domínio do aplicativo. Por padrão, o aplicativo ainda permitirá conexões HTTP – siga as etapas específicas no tutorial para impor o SSL e o TLS.
 
 ### <a name="use-keyvault-references"></a>Use referências keyvault
 

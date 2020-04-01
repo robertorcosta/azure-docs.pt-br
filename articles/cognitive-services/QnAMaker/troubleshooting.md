@@ -4,12 +4,12 @@ description: A lista com curadoria das perguntas mais frequentes sobre o serviç
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: diberry
-ms.openlocfilehash: e002efe74bf7bcd3d944b01b0a25a731a2db3f66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 310cfe0cc8c1f647c09b8e0efb435a1ab326ff62
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284255"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474951"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solução de problemas para o Fabricante de QnA
 
@@ -30,7 +30,7 @@ Saiba mais sobre [os níveis de preços](Concepts/azure-resources.md).
 <details>
 <summary><b>Como obter o ponto final do serviço QnAMaker</b></summary>
 
-**Resposta**: O ponto final do serviço QnAMaker é útil para fins de depuração quando você entrar em contato com o QnAMaker Support ou userVoice. O ponto final é uma https://your-resource-name.azurewebsites.netURL neste formulário: .
+**Resposta**: O ponto final do serviço QnAMaker é útil para fins de depuração quando você entrar em contato com o QnAMaker Support ou userVoice. O ponto final é uma `https://your-resource-name.azurewebsites.net`URL neste formulário: .
 
 1. Acesse o serviço do QnAMaker (grupo de recursos) no [portal do Azure](https://portal.azure.com)
 

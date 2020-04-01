@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/01/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7ca6882aea7225dcb97c9f913267b2543de07fef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a73c1998203a8696b67a5e7eb3af23898239265
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133132"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477626"
 ---
 # <a name="use-an-app-service-environment"></a>Usar um Ambiente do Serviço de Aplicativo
 
@@ -88,7 +88,7 @@ Em um ASE, você pode escalar um plano de Serviço de Aplicativo até 100 instâ
 
 ## <a name="ip-addresses"></a>Endereços IP
 
-O App Service pode alocar um endereço IP dedicado a um aplicativo. Esse recurso está disponível depois de configurar o SSL baseado em IP, conforme descrito no [Vincular um certificado SSL personalizado existente ao Azure App Service][ConfigureSSL]. Em um ASE ILB, você não pode adicionar mais endereços IP para serem usados para SSL baseado em IP.
+O App Service pode alocar um endereço IP dedicado a um aplicativo. Esse recurso está disponível depois de configurar o SSL baseado em IP, conforme descrito no [Vincular um certificado TLS/SSL personalizado existente ao Azure App Service][ConfigureSSL]. Em um ASE ILB, você não pode adicionar mais endereços IP para serem usados para SSL baseado em IP.
 
 Com um ASE externo, você pode configurar o SSL baseado em IP para o seu aplicativo da mesma forma que no Serviço de Aplicativos multilocatário. Há sempre um endereço sobressalente no ASE, até 30 endereços IP. Cada vez que você usa um, outro é adicionado para que um endereço esteja sempre prontamente disponível. Um atraso de tempo é necessário para alocar outro endereço IP. Esse atraso impede a adição de endereços IP em rápida sucessão.
 
@@ -142,7 +142,7 @@ Os pontos de extremidade de publicação para aplicativos em um ASE ILB usam o d
 
 Um ASE tem 1 TB de armazenamento para todos os aplicativos da ASE. Um plano de Serviço de Aplicativo no SKU de preços isolados tem um limite de 250 GB por padrão. Se você tiver cinco ou mais planos de Serviço de Aplicativo, tenha cuidado para não exceder o limite de 1 TB da ASE. Se você precisar de mais do que o limite de 250 GB em um plano de Serviço de Aplicativo, entre em contato com o suporte para ajustar o limite do plano de serviço do aplicativo para um máximo de 1 TB. Quando o limite do plano é ajustado, ainda há um limite de 1 TB em todos os planos de Serviço de Aplicativo na ASE.
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Registro em log
 
 Você pode integrar seu ASE com o Azure Monitor para enviar logs sobre o ASE para o Azure Storage, Azure Event Hubs ou Log Analytics. Esses itens estão registrados hoje:
 

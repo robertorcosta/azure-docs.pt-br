@@ -12,16 +12,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 1a2a370ac92ea3edf925d97af6f5e721c79d0d2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8674714451f3cc686acb74d6c66ac6800b75936
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529689"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478088"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Streaming Endpoints (Origem) nos Serviços de Mídia do Azure
 
-No Microsoft Azure Media Services, um [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa um serviço dinâmico (just-in-time) de embalagem e origem que pode fornecer seu conteúdo ao vivo e demanda diretamente para um aplicativo de player cliente usando um dos protocolos comuns de mídia de streaming (HLS ou DASH). Além disso, o **Streaming Endpoint** fornece criptografia dinâmica (just-in-time) para DRMs líderes do setor. 
+No Microsoft Azure Media Services, um [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa um serviço dinâmico (just-in-time) de embalagem e origem que pode fornecer seu conteúdo ao vivo e sob demanda diretamente para um aplicativo de player cliente usando um dos protocolos comuns de mídia de streaming (HLS ou DASH). Além disso, o **Streaming Endpoint** fornece criptografia dinâmica (just-in-time) para DRMs líderes do setor. 
 
 Quando você cria uma conta de Serviços de Mídia, um Ponto de Extremidade de Streaming **padrão** é criado em um estado parado. Você não pode excluir o ponto final de streaming **padrão.** Mais pontos finais de streaming podem ser criados na conta (ver [Cotas e limitações](limits-quotas-constraints.md)).
 
@@ -109,7 +109,7 @@ Esta seção fornece detalhes sobre algumas das propriedades do Streaming Endpoi
     - `mediaservices.chinacloudapi.cn`
     - `verifydns.mediaservices.chinacloudapi.cn`
 
-    Por exemplo, `CName` um registro que mapeia 945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com para verifydns.media.azure.net prova que o ID de Serviços de Mídia 945a4c4e-28ea-45cd-8ccb-a519f6b700ad tem a propriedade do domínio contoso.com, permitindo assim que qualquer nome contoso.com seja usado como um nome de host personalizado para um ponto final de streaming essa conta. Para localizar o valor da ID do Serviço de Mídia, acesse o [portal do Azure](https://portal.azure.com/) e selecione a conta de Serviço de Mídia. O **ID** da conta aparece no canto superior direito da página.
+    Por exemplo, `CName` um registro que mapeia "945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com" para "verifydns.media.azure.net" prova que o ID de Serviços de Mídia 945a4c4e-28ea-45cd-8ccb-a519f6b700ad tem a propriedade do domínio contoso.com, permitindo assim que qualquer nome sob contoso.com seja usado como um nome de host personalizado para um ponto final de streaming sob essa conta. Para localizar o valor da ID do Serviço de Mídia, acesse o [portal do Azure](https://portal.azure.com/) e selecione a conta de Serviço de Mídia. O **ID** da conta aparece no canto superior direito da página.
 
     Se houver uma tentativa de definir um nome de `CName` host personalizado sem uma verificação adequada do registro, a resposta do DNS falhará e será armazenada em cache por algum tempo. Depois que um registro adequado estiver em vigor, poderá demorar um pouco até que a resposta armazenada em cache seja revalidada. Dependendo do provedor de DNS para o domínio personalizado, leva de alguns minutos a uma hora para revalidar o registro.
 
@@ -118,9 +118,9 @@ Esta seção fornece detalhes sobre algumas das propriedades do Streaming Endpoi
     > [!NOTE]
     > Os pontos finais de streaming localizados no mesmo data center não podem compartilhar o mesmo nome de host personalizado.
 
-    Atualmente, os Serviços de Mídia não são compatíveis com o SSL com domínios personalizados.
+    Atualmente, o Media Services não suporta TLS com domínios personalizados.
 
-- `maxCacheAge`- Substitui o cabeçalho de controle de cache HTTP padrão da idade máxima definido pelo ponto final de streaming em fragmentos de mídia e manifestos demanda. O valor é definido em segundos.
+- `maxCacheAge`- Substitui o cabeçalho de controle de cache HTTP padrão da idade máxima definido pelo ponto final de streaming em fragmentos de mídia e manifestos sob demanda. O valor é definido em segundos.
 - `resourceState` -
 
     - Parado: o estado inicial de um Endpoint de streaming após a criação
@@ -134,7 +134,7 @@ Esta seção fornece detalhes sobre algumas das propriedades do Streaming Endpoi
 
 ## <a name="why-use-multiple-streaming-endpoints"></a>Por que usar vários pontos finais de streaming?
 
-Um único ponto final de streaming pode transmitir vídeos ao vivo e demanda e a maioria dos clientes usa apenas um ponto final de streaming. Esta seção dá alguns exemplos de por que você pode precisar usar vários pontos finais de streaming.
+Um único ponto final de streaming pode transmitir vídeos ao vivo e sob demanda e a maioria dos clientes usa apenas um ponto final de streaming. Esta seção dá alguns exemplos de por que você pode precisar usar vários pontos finais de streaming.
 
 * Cada unidade reservada permite 200 Mbps de largura de banda. Se você precisar de mais de 2.000 Mbps (2 Gbps) de largura de banda, você pode usar o segundo ponto final de streaming e o saldo de carga para lhe dar largura de banda adicional.
 
@@ -150,7 +150,7 @@ Um único ponto final de streaming pode transmitir vídeos ao vivo e demanda e a
 
     Os padrões de acesso para conteúdo ao vivo e sob demanda são muito diferentes. O conteúdo ao vivo tende a receber muita demanda pelo mesmo conteúdo de uma só vez. O conteúdo de vídeo sob demanda (conteúdo de arquivamento de cauda longa, por exemplo) tem baixo uso no mesmo conteúdo. Assim, o cache funciona muito bem no conteúdo ao vivo, mas não tão bem no conteúdo da cauda longa.
 
-    Considere um cenário em que seus clientes estão assistindo principalmente conteúdo ao vivo, mas só ocasionalmente estão assistindo conteúdo demanda e ele é servido a partir do mesmo Streaming Endpoint. O baixo uso de conteúdo demanda ocuparia espaço de cache que seria melhor salvo para o conteúdo ao vivo. Neste cenário, recomendamos servir o conteúdo ao vivo de um Streaming Endpoint e o conteúdo de cauda longa de outro Streaming Endpoint. Isso melhorará o desempenho do conteúdo do evento ao vivo.
+    Considere um cenário em que seus clientes estão assistindo principalmente conteúdo ao vivo, mas só ocasionalmente estão assistindo conteúdo sob demanda e ele é servido a partir do mesmo Streaming Endpoint. O baixo uso de conteúdo sob demanda ocuparia espaço de cache que seria melhor salvo para o conteúdo ao vivo. Neste cenário, recomendamos servir o conteúdo ao vivo de um Streaming Endpoint e o conteúdo de cauda longa de outro Streaming Endpoint. Isso melhorará o desempenho do conteúdo do evento ao vivo.
     
 ## <a name="scaling-streaming-with-cdn"></a>Dimensionamento de streaming com CDN
 

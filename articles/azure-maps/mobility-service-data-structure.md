@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 30696c5dcb3353ea468aa78dbc107dae4d292edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dfc6793bba473c4046863937baa292dde7bf421
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334436"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478695"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Estruturas de dados no Azure Maps Mobility Service
 
@@ -31,13 +31,13 @@ O `metroID` é o ID de uma área metropolitana que pode ser usado para chamar a 
 
 ## <a name="stop-ids"></a>Parar iDs
 
-As paradas de trânsito podem ser referidas por dois tipos de IDs, o [General Transit Feed Specification (GFTS)](https://gtfs.org/) ID e o Azure Maps stop ID. O ID GFTS é referido como stopKey e o ID de parada do Azure Maps é referido como stopID. Quando se refere freqüentemente a paradas de trânsito, você é encorajado a usar o ID de parada do Azure Maps. stopID é mais estável e provavelmente permanecerá o mesmo enquanto a parada física existir. O GTFS stop ID é atualizado com mais freqüência. Por exemplo, o GTFS stop ID pode ser atualizado de acordo com a solicitação do provedor GTFS ou quando uma nova versão GTFS for lançada. Embora a parada física não tenha tido alteração, o GTFS stop ID pode mudar.
+As paradas de trânsito podem ser referidas por dois tipos de IDs, o [General Transit Feed Specification (GFTS)](http://gtfs.org/) ID e o Azure Maps stop ID. O ID GFTS é referido como stopKey e o ID de parada do Azure Maps é referido como stopID. Quando se refere freqüentemente a paradas de trânsito, você é encorajado a usar o ID de parada do Azure Maps. stopID é mais estável e provavelmente permanecerá o mesmo enquanto a parada física existir. O GTFS stop ID é atualizado com mais freqüência. Por exemplo, o GTFS stop ID pode ser atualizado de acordo com a solicitação do provedor GTFS ou quando uma nova versão GTFS for lançada. Embora a parada física não tenha tido alteração, o GTFS stop ID pode mudar.
 
 Para começar, você pode solicitar paradas de trânsito nas proximidades usando [a API Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit).
 
 ## <a name="line-groups-and-lines"></a>Grupos e Linhas de Linhas
 
-O Mobility Service usa um modelo de dados paralelos para linhas e grupos de linha. Este modelo é usado para lidar melhor com as mudanças herdadas das rotas [GTFS](https://gtfs.org/) e os dados de viagens.
+O Mobility Service usa um modelo de dados paralelos para linhas e grupos de linha. Este modelo é usado para lidar melhor com as mudanças herdadas das rotas [GTFS](http://gtfs.org/) e os dados de viagens.
 
 
 ### <a name="line-groups"></a>Grupos de linha
@@ -47,7 +47,7 @@ A Line Group é uma entidade que agrupa todas as linhas que fazem logicamente pa
 
 ### <a name="lines"></a>Linhas
 
-Como discutido acima, cada grupo de linhas é composto por um conjunto de linhas. Cada grupo de linhas é composto por duas linhas, e cada linha descreve uma direção.  No entanto, há casos em que mais linhas compõem um grupo de linhas. Por exemplo, há uma linha que às vezes desvia por um determinado bairro e às vezes não. Em ambos os casos, opera o mesmo número de linha. Além disso, um grupo de linha pode ser composto por uma única linha. Uma linha circular com uma única direção é um grupo ling com uma linha.
+Como discutido acima, cada grupo de linhas é composto por um conjunto de linhas. Cada grupo de linhas é composto por duas linhas, e cada linha descreve uma direção.  No entanto, há casos em que mais linhas compõem um grupo de linhas. Por exemplo, há uma linha que às vezes desvia por um determinado bairro e às vezes não. Em ambos os casos, opera sob o mesmo número de linha. Além disso, um grupo de linha pode ser composto por uma única linha. Uma linha circular com uma única direção é um grupo ling com uma linha.
 
 Para começar, você pode solicitar grupos de linha usando a [API Get Transit Line](https://aka.ms/AzureMapsMobilityTransitLine).
 

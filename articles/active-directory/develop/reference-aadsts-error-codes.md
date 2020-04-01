@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 02/19/2020
+ms.date: 03/31/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 89240102837b65ed2a09d9f4865ad47ee5d5afa2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91d285e2a839a7d6266c5d58f52901a48a7a8c84
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154552"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473179"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização do Azure AD
 
@@ -271,6 +271,8 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS700020 | InteractionRequired - A concessão de acesso requer interação. |
 | AADSTS700022 | InvalidMultipleResourcesScope - O valor fornecido para o escopo do parâmetro de entrada não é válido porque contém mais de um recurso. |
 | AADSTS700023 | InvalidResourcelessScope - O valor fornecido para o escopo do parâmetro de entrada não é válido ao solicitar um token de acesso. |
+| AADSTS7000222| InvalidClientSecretExpiredKeysProvided - As chaves secretas do cliente fornecidas estão expiradas. Visite o Portal Azure para criar novas chaves para o seu aplicativo ou considere usar credenciais de certificado para maior segurança:https://aka.ms/certCreds |
+| AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant - O Código de Autorização Fornecido destina-se a ser usado contra outros inquilinos, assim rejeitado. O Código de Autorização OAuth2 deve ser resgatado contra o mesmo inquilino para o que foi adquirido (/comum ou /{inquilino-ID} conforme apropriado) |
 | AADSTS1000000 | UserNotBoundError - A API de vinculação exige que o usuário do AD do Azure também se autentique com um IDP externo, o que ainda não aconteceu. |
 | AADSTS1000002 | BindCompleteInterruptError - A ligação foi concluída com êxito, mas o usuário deve ser informado. |
 | AADSTS7000112 | Não autorizadoClientApplicationDisabled - O aplicativo está desativado. |

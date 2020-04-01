@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 01/16/2020
-ms.openlocfilehash: db2e80ebb6cbe5f31f2d99a1403a15daf38fd877
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 792964f28ddb3fcb10932b8de9499a9c7027960f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76722349"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475388"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implantar um modelo em um cluster azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -131,7 +131,7 @@ Se você `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`definir, então o
 > [!WARNING]
 > Não crie anexos múltiplos e simultâneos ao mesmo cluster AKS do seu espaço de trabalho. Por exemplo, anexar um cluster AKS a um espaço de trabalho usando dois nomes diferentes. Cada novo anexo quebrará os anexos existentes anteriores.
 >
-> Se você quiser reconectar um cluster AKS, por exemplo, para alterar sSL ou outra configuração de configuração de cluster, primeiro você deve remover o anexo existente usando [AksCompute.desacoplado()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
+> Se você quiser reconectar um cluster AKS, por exemplo, para alterar a configuração de configuração tls ou outro cluster, primeiro você deve remover o anexo existente usando [AksCompute.desacoplado()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
 
 Para obter mais informações sobre a criação de um cluster AKS usando o Azure CLI ou portal, consulte os seguintes artigos:
 
@@ -348,7 +348,7 @@ print(token)
 * [Experimentação segura e inferência em uma rede virtual](how-to-enable-virtual-network.md)
 * [Como implantar um modelo usando uma imagem Docker personalizada](how-to-deploy-custom-docker-image.md)
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)
-* [Proteger serviços Web do Azure Machine Learning com SSL](how-to-secure-web-service.md)
+* [Use o TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir um modelo de ML implantado como um serviço Web](how-to-consume-web-service.md)
 * [Monitore seus modelos de Aprendizado de Máquina do Azure com insights de aplicativos](how-to-enable-app-insights.md)
 * [Coletar dados para modelos em produção](how-to-enable-data-collection.md)

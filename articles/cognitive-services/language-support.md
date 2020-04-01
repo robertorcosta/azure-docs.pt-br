@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 48cb1ca1427ece0ee30a124b20d3918f1ace47eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4944fd36359f35ff516aa149b357a7cda042fdae
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78274144"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477054"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Suporte a linguagem natural nos Serviços Cognitivos do Azure
 
@@ -28,9 +28,9 @@ Esses Serviços Cognitivos são agnósticos de linguagem e não têm limitaçõe
 
 ## <a name="vision"></a>Visão
 
-* [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/faq)
+* [Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/faq)
 * [Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
-
+* [Reconhecimento de Tinta Digital](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/language-support)
 ## <a name="speech"></a>Fala
 
 * [Fala Personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/customspeech-how-to-topics/cognitive-services-custom-speech-change-locale)
@@ -42,22 +42,22 @@ Esses Serviços Cognitivos são agnósticos de linguagem e não têm limitaçõe
 
 * [Verificação Ortográfica do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)
 * [Reconhecimento Vocal (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/luis-supported-languages)
-* [Fabricante de QnA](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported)
-* [Texto do Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/languages)
+* [QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported)
+* [Conversor de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/languages)
 * [Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)
 
 ## <a name="search"></a>Search
 
-* [Pesquisa na Web de Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/supported-countries-markets)
-* [Pesquisa de imagens de Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/supported-countries-markets)
-* [Pesquisa de Notícias bing](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/supported-countries-markets)
+* [Pesquisa da Web do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/supported-countries-markets)
+* [Pesquisa de Imagem do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/supported-countries-markets)
+* [Pesquisa de Notícias do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/supported-countries-markets)
 * [Sugestão Automática do Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest/bing-autosuggest-supported-languages)
-* [Pesquisa visual de Bing](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/supported-countries-markets)
-* [Pesquisa personalizada de Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/supported-countries-markets)
+* [Pesquisa Visual do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/supported-countries-markets)
+* [Pesquisa Personalizada do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/supported-countries-markets)
 
 ## <a name="decision"></a>Decisão
 
-* [Moderador de conteúdo](https://docs.microsoft.com/azure/cognitive-services/content-moderator/text-moderation-api-languages)
+* [Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/text-moderation-api-languages)
 
 ## <a name="see-also"></a>Confira também
 

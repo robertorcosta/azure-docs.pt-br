@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: d2115b1dc7e9f3150e44eb5ee9417e88ebeaa279
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56c31e03eeec0c81207dc402e864eadec2d768bd
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370840"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474068"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conecte a rede do seu laboratório com uma rede virtual de pares no Azure Lab Services 
 Este artigo fornece informações sobre como espiar sua rede de laboratórios com outra rede. 
@@ -37,7 +37,9 @@ Certas redes locais estão conectadas à Rede Virtual Azure, seja através do [E
 > Ao criar uma Rede Virtual Azure que será acompanhada por uma conta de laboratório, é importante entender como a região da rede virtual impacta onde os laboratórios de sala de aula são criados.  Para obter mais informações, consulte a seção do guia do administrador sobre [regiões\locais.](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regions-or-locations)
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurar no momento da criação da conta de laboratório
-Durante a criação da nova conta de laboratório, você pode escolher uma rede virtual existente que aparece na lista de paradas de **rede virtual Peer** na guia **Avançado.** A rede virtual selecionada está conectada (peered) a laboratórios criados a conta do laboratório. Todas as máquinas virtuais em laboratórios que são criadas após a realização dessa mudança teriam acesso aos recursos na rede virtual peered. 
+Durante a criação da nova conta de laboratório, você pode escolher uma rede virtual existente que aparece na lista de paradas de **rede virtual Peer** na guia **Avançado.** A rede virtual selecionada está conectada (peered) a laboratórios criados sob a conta do laboratório. Todas as máquinas virtuais em laboratórios que são criadas após a realização dessa mudança teriam acesso aos recursos na rede virtual peered. 
+
+Há também uma disposição para fornecer **a gama** de endereços de máquinas virtuais para os laboratórios. Se o intervalo de endereços for fornecido, todas as máquinas virtuais nos laboratórios sob a conta do laboratório serão criadas nessa faixa de endereços. O intervalo de endereços deve estar na notação CIDR (por exemplo, 10.20.0.0/20) e não se sobrepor a nenhuma faixa de endereço existente. Ao fornecer uma gama de endereços, é importante pensar no número de máquinas virtuais que serão criadas nos laboratórios e fornecer uma gama de endereços para acomodar isso. Para um determinado intervalo, o número de laboratórios que ele pode acomodar será mostrado.
 
 ![Selecione o VNet para peer](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 

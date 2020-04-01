@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 781f3788c9001276315a2baed7060450fa00d77a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1bd823d94552d1e920b367b6576b0e3bb74aefb2
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845016"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474916"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Executar a detecção de invasão de rede com o Observador de Rede e ferramentas de software livre
 
@@ -38,7 +38,7 @@ Ambas as ferramentas de software livre podem ser configuradas em uma VM do Azure
 
 ### <a name="install-suricata"></a>Instalar o Suricata
 
-Para todos os outros métodos de instalação, visite https://suricata.readthedocs.io/en/latest/install.html
+Para todos os outros métodos de instalação, visite https://suricata.readthedocs.io/en/suricata-5.0.2/quickstart.html#installation
 
 1. No terminal de linha de comando da sua VM, execute os seguintes comandos:
 
@@ -76,7 +76,7 @@ tail -f /var/log/suricata/fast.log
 
 ### <a name="set-up-the-elastic-stack"></a>Configurar o Elastic Stack
 
-Enquanto os logs que produz Suricata contêm informações importantes sobre o que está acontecendo em nossa rede, esses arquivos de log não são mais fáceis de ler e entender. Conectando Suricata com a pilha elástica, podemos criar um painel Kibana o que nos permite pesquisar, grafo, analisar e derivar informações de nossos logs.
+Embora os registros que a Suricata produz contenham informações valiosas sobre o que está acontecendo em nossa rede, esses arquivos de log não são os mais fáceis de ler e entender. Conectando Suricata com a pilha elástica, podemos criar um painel Kibana o que nos permite pesquisar, grafo, analisar e derivar informações de nossos logs.
 
 #### <a name="install-elasticsearch"></a>Instalar Elasticsearch
 
@@ -274,7 +274,7 @@ O painel de exemplo fornece várias visualizações dos logs de alerta Suricata:
 
     ![imagem 7][7]
 
-Para obter mais documentação sobre a criação de painéis e visualizações personalizadas, consulte [documentação oficial do Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html).
+Para obter mais documentação sobre a criação de visualizações e painéis personalizados, consulte [a documentação oficial da Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 
 ## <a name="conclusion"></a>Conclusão
 

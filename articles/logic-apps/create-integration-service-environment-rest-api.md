@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 2c6e35b1e7d160064998004f87c5b14d0eaeac5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0670331d2338b4b6419ffbff1452b5fbac91029f
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127665"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478836"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Crie um ambiente de serviço de integração (ISE) usando a API Logic Apps REST
 
 Este artigo mostra como criar um [ *ambiente de serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) através da API Logic Apps REST para cenários onde seus aplicativos lógicos e contas de integração precisam de acesso a uma [rede virtual Do Zure.](../virtual-network/virtual-networks-overview.md) Um ISE é um ambiente isolado que usa armazenamento dedicado e outros recursos que são mantidos separados do serviço "global" de aplicativos lógicos multilocatários. Essa separação também reduz os impactos que outros locatários do Azure podem ter no desempenho de seus aplicativos. Um ISE também fornece seus próprios endereços IP estáticos. Esses endereços IP são separados dos endereços IP estáticos que são compartilhados pelos aplicativos lógicos no serviço público e multilocatário.
 
-Para criar uma ISE usando o portal Azure, consulte [Conectar-se às redes virtuais do Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+Você também pode criar um ISE usando o [modelo de inicialinicialde recursos do Azure Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) ou usando o [portal Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
 > [!IMPORTANT]
 > Aplicativos de lógica, gatilhos incorporados, ações incorporadas e conectores que são executados em seu ISE usam um plano de preços diferente do plano de preços baseado no consumo. Para saber como funcionam os preços e o faturamento dos ISEs, consulte o [modelo de preços da Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para obter preços, consulte [preços da Logic Apps](../logic-apps/logic-apps-pricing.md).
