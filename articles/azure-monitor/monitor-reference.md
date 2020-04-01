@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: 3cd330e9c4ceba2feeb7a74cafe9f094fd03d690
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ef7e5d869ab2d7e085cbf861bfc32e57b1fad4b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249159"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408483"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços que são monitorados pelo Azure Monitor. 
@@ -177,7 +177,7 @@ Os serviços e soluções na tabela a seguir armazenam seus dados em um espaço 
 | [Automação Azure](/azure/automation/) | Gerencie atualizações do sistema operacional e acompanhe as alterações nos computadores Windows e Linux. Consulte [O gerenciamento de rastreamento e](../automation/change-tracking.md) atualização de [alterações](../automation/automation-update-management.md). |
 | [Proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/) | Classifique e proteja opcionalmente documentos e e-mails. Consulte [o relatório Central para proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Centro de Segurança Azure](/azure/security-center/) | Coletar e analisar eventos de segurança e realizar análises de ameaças. Ver [coleta de dados no Azure Security Center](/azure/security-center/security-center-enable-data-collection) |
-| [Sentinela Azure](/azure/sentinel/) | Conecta-se a diferentes fontes, incluindo o Office 365 e o Amazon Web Services Cloud Trail. Consulte [Conectar fontes de dados](/azure/sentinel/connect-data-sources). |
+| [Azure Sentinel](/azure/sentinel/) | Conecta-se a diferentes fontes, incluindo o Office 365 e o Amazon Web Services Cloud Trail. Consulte [Conectar fontes de dados](/azure/sentinel/connect-data-sources). |
 | [Análise do Cofre de Chaves](insights/azure-key-vault.md) | Analise os logs de eventos do Azure Key VaultEvent. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Crie uma configuração de diagnóstico para enviar logs para o Azure Monitor. Consulte [Enviar dados de log para armazenamento, hubs de eventos ou análises de log no Intune (visualização)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |
 | Rede  | [Monitor de desempenho de rede](insights/network-performance-monitor.md) - Monitore a conectividade e o desempenho da rede para os pontos finais de serviço e aplicativos.<br>[Gateway de aplicativo Do Azure](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) - Analise logs e métricas do Gateway de aplicativos do Azure.<br>[Traffic Analytics](/azure/network-watcher/traffic-analytics) - Analisa os registros de fluxo do Grupo de Segurança de Rede de Observadores de Rede (NSG) para fornecer insights sobre o fluxo de tráfego em sua nuvem Azure. |
@@ -198,11 +198,11 @@ Outras soluções estão disponíveis para monitorar diferentes aplicativos e se
 |:---|:---|
 | [Verificação de saúde do Diretório Ativo](insights/ad-assessment.md) | Avalie o risco e a saúde de seus ambientes de Diretório Ativo. |
 | [Status de replicação do Diretório Ativo](insights/ad-replication-status.md) | Monitora regularmente o ambiente do Active Directory para obter falhas de replicação. |
-| [Análise de log de atividades](platform/activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analisar entradas de log de atividade usando consultas e visualizações de log predefinidas. |
+| [Análise de log de atividades](platform/activity-log-view.md#azure-portal) | Exibir entradas do Registro de Atividades. |
 | [DNS Analytics (visualização)](insights/dns-analytics.md) | Coleta, analisa e correlaciona registros de análise e auditoria do Windows DNS e outros dados relacionados de seus servidores DNS. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Colete, visualize e analise as métricas de saúde e desempenho do sistema cloud foundry, em várias implantações. |
 | [Recipientes](insights/containers.md) | Exibir e gerenciar hosts de contêineres Docker e Windows. |
-| [Avaliações demanda](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Avalie e otimize a disponibilidade, a segurança e o desempenho de seus ambientes de tecnologia Microsoft no local, híbridos e em nuvem. |
+| [Avaliações sob demanda](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Avalie e otimize a disponibilidade, a segurança e o desempenho de seus ambientes de tecnologia Microsoft no local, híbridos e em nuvem. |
 | [Verificação de saúde SQL](insights/sql-assessment.md) | Avalie o risco e a saúde de seus ambientes sql server.  |
 | [Dados durante a transmissão](insights/wire-data.md) | Dados consolidados de rede e desempenho coletados de computadores conectados ao Windows e Linux com o agente Log Analytics. |
 

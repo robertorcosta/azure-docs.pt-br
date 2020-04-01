@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: bcf92838483fbb6b54802cc0d44cc44ea086d705
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93dde2e873a00303dcb8563caed4d56dbf11cc12
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282634"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435639"
 ---
 # <a name="protect-your-machines-and-applications"></a>Proteja suas máquinas e aplicativos
 Quando o Azure Security Center identifica possíveis vulnerabilidades de segurança, ele cria recomendações que o guiam durante o processo de configuração dos controles necessários para endurecer e proteger seus recursos.
@@ -84,18 +84,18 @@ Veja aqui os detalhes de segurança da VM ou do computador. Na parte inferior, v
 
 
 
-### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>Conjuntos de escala de máquinas virtuais
-O Security Center descobre automaticamente se você tem conjuntos de escalas e recomenda que você instale o Microsoft Monitoring Agent neles.
+### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>conjuntos de escala de máquina virtual
+O Security Center descobre automaticamente se você tem conjuntos de escala e recomenda que você instale o agente Log Analytics neles.
 
-Para instalar o Microsoft Monitoring Agent: 
+Para instalar o agente Log Analytics: 
 
 1. Selecione a recomendação **Instalar o agente de monitoramento no conjunto de dimensionamento de máquinas virtuais**. Uma lista de conjuntos de dimensionamento não monitorados é exibida.
 
-1. Selecione um conjunto de dimensionamento não íntegro. Siga as instruções para instalar o agente de monitoramento usando um workspace preenchido existente ou crie um novo. Certifique-se de definir o [tipo de preço](security-center-pricing.md) do workspace, se ainda não estiver definido.
+1. Selecione um conjunto de dimensionamento não íntegro. Siga as instruções para instalar o agente de monitoramento usando um workspace preenchido existente ou crie um novo. Certifique-se de definir o [nível de preços](security-center-pricing.md) do espaço de trabalho se não estiver definido.
 
    ![Instalar o MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-Para definir novos conjuntos de escala para instalar automaticamente o Microsoft Monitoring Agent:
+Para definir novos conjuntos de escala para instalar automaticamente o agente Log Analytics:
 1. Vá para Azure Policy e clique em **Definições**.
 
 1. Procure a política Implante o **agente Log Analytics para conjuntos de escala sinuosas de máquinavirtual do Windows** e clique nele.
@@ -104,7 +104,7 @@ Para definir novos conjuntos de escala para instalar automaticamente o Microsoft
 
 1. Defina o **Escopo** e o **espaço de trabalho do Log Analytics** e clique em **Atribuir**.
 
-Se você quiser definir todos os conjuntos de dimensionamento existentes para instalar o Microsoft Monitoring Agent, no Azure Policy, vá para **Correção** e aplique a política existente aos conjuntos de dimensionamento existentes.
+Se você quiser definir todos os conjuntos de escala existentes para instalar o agente Log Analytics, na Diretiva Do Azure, vá para **Remediação** e aplique a diretiva existente aos conjuntos de escala existentes.
 
 
 
@@ -195,7 +195,7 @@ Quando você clica em uma das VMs executando docker, você verá a página de de
 
 A Central de Segurança examina as configurações do Docker e fornece visibilidade sobre configurações incorretas, oferecendo uma lista de todas as regras com falha que foram avaliadas. A Central de Segurança fornece diretrizes para ajudá-lo a resolver esses problemas rapidamente e economizar tempo. A Central de Segurança avalia continuamente as configurações do Docker e fornece o estado mais recente delas.
 
-![guia contêiner](./media/security-center-container-recommendations/container-cis-benchmark.png)
+![guia contêiner](./media/security-center-virtual-machine-recommendations/container-cis-benchmark.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

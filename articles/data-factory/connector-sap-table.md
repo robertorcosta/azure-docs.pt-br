@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2019
-ms.openlocfilehash: e98ff7fd914bb86cae256bb1bf6c19086758d463
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65e51258b3a24b14b5171968645e88420e92dd5a
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371555"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421068"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiar dados de uma tabela SAP usando a Fábrica de Dados do Azure
 
@@ -230,7 +230,7 @@ Para copiar dados de uma tabela SAP, as seguintes propriedades são suportadas:
 <br/>
 >`partitionOption` Tomando `partitionOnInt` como exemplo, o número de linhas em cada partição é calculado `partitionUpperBound` `partitionLowerBound`com`maxPartitionsNumber`esta fórmula: (linhas totais caindo entre e )/ .<br/>
 <br/>
->Para carregar partições de dados em paralelo para acelerar [`parallelCopies`](copy-activity-performance.md#parallel-copy) a cópia, o grau paralelo é controlado pela configuração na atividade de cópia. Por exemplo, se `parallelCopies` você definir para quatro, a Fábrica de Dados simultaneamente gera e executa quatro consultas com base na opção e configurações de partição especificadas, e cada consulta recupera uma parte dos dados da sua tabela SAP. Recomendamos fortemente `maxPartitionsNumber` fazer um múltiplo `parallelCopies` do valor do imóvel. Ao copiar dados no armazenamento de dados baseado em arquivos, ele também é recomandado para gravar em uma pasta como vários arquivos (apenas especificar nome da pasta), nesse caso, o desempenho é melhor do que escrever em um único arquivo.
+>Para carregar partições de dados em paralelo para acelerar [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) a cópia, o grau paralelo é controlado pela configuração na atividade de cópia. Por exemplo, se `parallelCopies` você definir para quatro, a Fábrica de Dados simultaneamente gera e executa quatro consultas com base na opção e configurações de partição especificadas, e cada consulta recupera uma parte dos dados da sua tabela SAP. Recomendamos fortemente `maxPartitionsNumber` fazer um múltiplo `parallelCopies` do valor do imóvel. Ao copiar dados no armazenamento de dados baseado em arquivos, ele também é recomandado para gravar em uma pasta como vários arquivos (apenas especificar nome da pasta), nesse caso, o desempenho é melhor do que escrever em um único arquivo.
 
 Em `rfcTableOptions`, você pode usar os seguintes operadores comuns de consulta SAP para filtrar as linhas:
 

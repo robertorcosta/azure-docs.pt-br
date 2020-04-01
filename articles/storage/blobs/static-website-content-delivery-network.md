@@ -7,16 +7,16 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 01/22/2020
-ms.openlocfilehash: aaf61ccbb3577036c614aa6196d2af57124550fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8eeff5187d27cb75b9e55eba8311dede8970bc4a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76908547"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435229"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integre um site estático com o Azure CDN
 
-Você pode habilitar [o CDN (Azure Content Delivery Network, rede de entrega de conteúdo de conteúdo)](../../cdn/cdn-overview.md) para armazenar conteúdo em cache de um [site estático](storage-blob-static-website.md) hospedado em uma conta de armazenamento Do Zure. Você pode usar o CDN do Azure para configurar o ponto final de domínio personalizado para o seu site estático, provisionar certificados SSL personalizados e configurar regras de reescrita personalizadas. Configurar a CDN do Azure resulta em encargos adicionais, mas oferece baixas latências consistentes a seu site em qualquer lugar do mundo. A CDN do Azure também fornece criptografia SSL com o próprio certificado. 
+Você pode habilitar [o CDN (Azure Content Delivery Network, rede de entrega de conteúdo de conteúdo)](../../cdn/cdn-overview.md) para armazenar conteúdo em cache de um [site estático](storage-blob-static-website.md) hospedado em uma conta de armazenamento Do Zure. Você pode usar o CDN do Azure para configurar o ponto final de domínio personalizado para o seu site estático, provisionar certificados TLS/SSL personalizados e configurar regras de reescrita personalizadas. Configurar a CDN do Azure resulta em encargos adicionais, mas oferece baixas latências consistentes a seu site em qualquer lugar do mundo. O Azure CDN também fornece criptografia TLS com seu próprio certificado. 
 
 Para saber mais sobre os preços da CDN do Azure, confira [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/) (Preços da CDN do Azure).
 

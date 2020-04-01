@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de conexão de RDP da VM do Azure por ID do Evento | Microsoft Docs
-description: ''
+description: Use IDs de evento para solucionar problemas que impedem uma conexão RDP (Remote Desktop Protocol, protocolo de desktop remoto) a uma Máquina Virtual Azure (VM).
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 166648402eec7f8033c090a3f7862a902bae4be6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2073d5f91b26cd2ae53e3291a6d1dad4d711b66d
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71154203"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437055"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Solucionar problemas de conexão de RDP da VM do Azure por ID do Evento 
 
@@ -63,7 +63,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Palavras-chave:**      Clássico <br />
 **Usuário:**          N/A <br />
 **Computador:**      *computador* <br />
-**Descrição:** o servidor Host da Sessão da Área de Trabalho Remota falhou em substituir o certificado autoassinado expirado usado para a autenticação do servidor Host da Sessão da Área de Trabalho Remota em conexões SSL. O código de status relevante era O acesso foi negado.
+**Descrição:** O RD Session Host Server falhou em substituir o certificado auto-assinado expirado usado para autenticação do RD Session Host Server em conexões TLS. O código de status relevante era O acesso foi negado.
 
 **Nome do log:**      Sistema <br />
 **Origem:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
@@ -74,7 +74,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Palavras-chave:**      Clássico <br />
 **Usuário:**          N/A <br />
 **Computador:**      *computador* <br />
-**Descrição:** o servidor Host da Sessão da Área de Trabalho Remota não conseguiu criar um novo certificado autoassinado para ser usado para autenticação do servidor Host da Sessão da Área de Trabalho Remota em conexões SSL, o código de status relevante era O objeto já existe.
+**Descrição:** O servidor de host rd session falhou em criar um novo certificado auto-assinado para ser usado para autenticação do servidor host RD Session em conexões TLS, o código de status relevante já existia.
 
 **Nome do log:**      Sistema <br />
 **Origem:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
@@ -85,7 +85,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Palavras-chave:**      Clássico <br />
 **Usuário:**          N/A <br />
 **Computador:**      *computador* <br />
-**Descrição:** o servidor Host da Sessão da Área de Trabalho Remota falhou em criar um novo certificado autoassinado a ser usado para a autenticação do servidor Host da Sessão da Área de Trabalho Remota em conexões SSL. O código de status relevantes era O conjunto de chaves não existe
+**Descrição:** O RD Session Host Server falhou em criar um novo certificado auto-assinado para ser usado para autenticação do RD Session Host Server em conexões TLS. O código de status relevantes era O conjunto de chaves não existe
 
 Você também pode verificar eventos de erro do SCHANNEL 36872 e 36870 executando os comandos a seguir:
 
@@ -103,7 +103,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Keywords:**       <br />
 **Usuário:**          SYSTEM <br />
 **Computador:**      *computador* <br />
-**Descrição:** ocorreu um erro fatal ao tentar acessar a chave privada de credencial do servidor SSL. O código de erro retornado pelo módulo de criptografia é 0x8009030D.  <br />
+**Descrição:** Ocorreu um erro fatal ao tentar acessar a chave privada de credenciamento do servidor TLS. O código de erro retornado pelo módulo de criptografia é 0x8009030D.  <br />
 O estado de erro interno é 10001.
 
 ### <a name="cause"></a>Causa
@@ -186,9 +186,9 @@ Se você não conseguir renovar o certificado, siga estas etapas para tentar exc
 
 Tente acessar a VM usando RDP novamente.
 
-#### <a name="update-secure-sockets-layer-ssl-certificate"></a>Atualizar o certificado do protocolo SSL
+#### <a name="update-tlsssl-certificate"></a>Atualizar o certificado TLS/SSL
 
-Se você configurar a VM para usar um certificado SSL, execute o seguinte comando para obter a impressão digital. Em seguida, verifique se é a mesma impressão digital do certificado:
+Se você configurar a VM para usar um certificado TLS/SSL, execute o seguinte comando para obter a impressão digital. Em seguida, verifique se é a mesma impressão digital do certificado:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash

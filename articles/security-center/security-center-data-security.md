@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: a25bbd0f14d38a70624dbc58755c0e814753a181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 987cdd76ba533fa0ae4b37c2755fe84a00d14de5
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77604186"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435855"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança dos Dados da Central de Segurança do Azure
 Para ajudar os clientes a evitarem, detectarem e responderem às ameaças, a Central de Segurança do Azure coleta e processa dados relacionados à segurança, incluindo informações da configuração, metadados, logs de eventos, arquivos de despejo corrompidos e mais. A Microsoft obedece às diretrizes rígidas de conformidade e segurança — da codificação à operação de um serviço.
@@ -71,8 +71,8 @@ Os artefatos da máquina são armazenados de modo central na mesma região da VM
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>Gerenciar a coleta de dados das máquinas virtuais
 
-Quando você escolhe habilitar a Central de Segurança no Azure, a coleta de dados é ativada para cada uma de suas assinaturas do Azure. Você também pode ativar a coleta de dados para suas assinaturas na seção Política de Segurança da Central de Segurança do Azure. Quando a Coleta de dados é ativada, a Central de Segurança do Azure provisiona o Microsoft Monitoring Agent em todas as máquinas virtuais do Azure existentes com suporte e as novas criadas.
-O Microsoft Monitoring Agent examina várias configurações e eventos relacionados à segurança nos rastreamentos [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (Rastreamento de Eventos para Windows). Além disso, o sistema operacional irá gerar eventos do log de eventos no decorrer da execução da máquina. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. O Microsoft Monitoring Agent lê as entradas do registro de eventos e os vestígios de ETW e os copia para seus workspaces para análise. O Microsoft Monitoring Agent também copia os arquivos de despejo de falha para seus workspaces, habilita eventos de criação de processo e habilita a auditoria de linha de comando.
+Quando você escolhe habilitar a Central de Segurança no Azure, a coleta de dados é ativada para cada uma de suas assinaturas do Azure. Você também pode ativar a coleta de dados para suas assinaturas na seção Política de Segurança da Central de Segurança do Azure. Quando a coleta de dados é ligada, o Azure Security Center fornece o agente Log Analytics em todas as máquinas virtuais Azure suportadas existentes e quaisquer novas que forem criadas.
+O agente Log Analytics verifica várias configurações e eventos relacionados à segurança em rastreamentos de ETW [(Event Tracing for Windows).](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) Além disso, o sistema operacional irá gerar eventos do log de eventos no decorrer da execução da máquina. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. O agente do Log Analytics lê entradas de registro de eventos e o ETW rastreia e copia-os para análise em seus espaços de trabalho. O agente do Log Analytics também copia arquivos de falha para seus espaços de trabalho, habilita eventos de criação de processos e habilita a auditoria da linha de comando.
 
 Se você estiver usando a Central de Segurança do Azure Gratuita, também poderá desabilitar a coleta de dados de máquinas virtuais na Política de Segurança. A Coleta de Dados é necessária para as assinaturas na camada Standard. Os instantâneos de disco da VM e a coleção de artefatos ainda serão habilitados mesmo que a coleta de dados tenha sido desabilitada.
 

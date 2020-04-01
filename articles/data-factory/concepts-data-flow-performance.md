@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 95a60abef283984d66736358d2d02048f08d700d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4baf7974bdb0a5efe4cb556e820e9d13aeac5d8a
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246986"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409851"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeamento de fluxos de dados e guia de ajuste
 
@@ -69,7 +69,7 @@ Por padrão, ligar a depuração usará o tempo de execução padrão do Azure I
 
 Em **Opções de origem** na transformação de origem, as seguintes configurações podem afetar o desempenho:
 
-* O tamanho do lote instrui o ADF a armazenar dados em conjuntos na memória em vez de linha por linha. O tamanho do lote é uma configuração opcional e você pode ficar sem recursos nos nós de computação se eles não forem dimensionados corretamente.
+* O tamanho do lote instrui o ADF a armazenar dados em conjuntos na memória Spark em vez de linha por linha. O tamanho do lote é uma configuração opcional e você pode ficar sem recursos nos nós de computação se eles não forem dimensionados corretamente. A não configuração desta propriedade utilizará padrões de lote de cache spark.
 * A definição de uma consulta pode permitir que você filtre linhas na fonte antes que elas cheguem ao Fluxo de Dados para processamento. Isso pode tornar a aquisição inicial de dados mais rápida. Se você usar uma consulta, você pode adicionar dicas opcionais de consulta para o seu Azure SQL DB, como READ UNCOMMITTED.
 * Ler não comprometido fornecerá resultados de consulta mais rápidos sobre a transformação da fonte
 
@@ -77,7 +77,7 @@ Em **Opções de origem** na transformação de origem, as seguintes configuraç
 
 ### <a name="sink-batch-size"></a>Tamanho do lote da pia
 
-Para evitar o processamento linha por linha de seus fluxos de dados, defina o **tamanho do lote** na guia Configurações para afundamentos Azure SQL DB e Azure SQL DW. Se o tamanho do lote estiver definido, o banco de dados de processos ADF será gravado em lotes com base no tamanho fornecido.
+Para evitar o processamento linha por linha de seus fluxos de dados, defina o **tamanho do lote** na guia Configurações para afundamentos Azure SQL DB e Azure SQL DW. Se o tamanho do lote estiver definido, o banco de dados de processos ADF será gravado em lotes com base no tamanho fornecido. A não configuração desta propriedade utilizará padrões de lote de cache spark.
 
 ![Coletor](media/data-flow/sink4.png "Coletor")
 

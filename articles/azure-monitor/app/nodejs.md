@@ -3,12 +3,12 @@ title: Como monitorar os serviços Node.js com o Application Insights do Azure |
 description: Monitore o desempenho e diagnostique problemas em serviços do Node.js com o Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 320ec62e642155002e42c59d4656f51673249eb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 38336e3faf3764233dd94bffbfb24421e054496a
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670008"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411589"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Como monitorar seus serviços do Node.js e aplicativos com o Application Insights
 
@@ -16,7 +16,7 @@ ms.locfileid: "77670008"
 
 Para receber, armazenar e explorar os dados de monitoramento, incluir o SDK em seu código e, em seguida, configurar um recurso do Application Insights correspondente no Azure. O SDK envia dados a esse recurso para análise e exploração.
 
-O SDK do Node.js pode monitorar automaticamente as solicitações HTTP de entrada e saída, exceções e algumas métricas de sistema. Começando na versão 0.20, o SDK também pode monitorar alguns pacotes de terceiros comuns, como MongoDB, MySQL e Redis. Todos os eventos relacionados a uma solicitação HTTP de entrada são correlacionados para solução de problemas mais rápida.
+O SDK do Node.js pode monitorar automaticamente as solicitações HTTP de entrada e saída, exceções e algumas métricas de sistema. A partir da versão 0.20, o SDK também pode monitorar [alguns pacotes comuns de terceiros,](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules)como MongoDB, MySQL e Redis. Todos os eventos relacionados a uma solicitação HTTP de entrada são correlacionados para solução de problemas mais rápida.
 
 Você pode usar a API TelemetryClient para instrumentar e monitorar manualmente outros aspectos do aplicativo e do sistema. Descrevemos a API TelemetryClient em mais detalhes mais adiante neste artigo.
 
@@ -35,7 +35,7 @@ Antes de iniciar, verifique se você tem uma assinatura do Azure ou [obtenha uma
 ### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Configurar um recurso do Application Insights
 
 
-1. Faça login no [portal Azure][portal].
+1. Entre no [portal do Azure][portal].
 2. Selecione **Criar um recurso** > **Ferramentas de desenvolvedor Deaplicativos** > **Insights**. O recurso inclui um ponto de extremidade para receber dados de telemetria, armazenamento para esses dados, painéis e relatórios salvos, configurações de alerta e regra e muito mais.
 
 3. Na página de criação de recursos, na caixa **Tipo de Aplicativo**, selecione **Aplicativo Node.js**. O tipo de aplicativo determina os painéis e relatórios padrão a serem criados. (Qualquer recurso do Application Insights pode coletar dados de qualquer idioma e plataforma.)

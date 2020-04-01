@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 176cd9b0bf72a123bc644ebc27ee0e091aa54e97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9de94dab7000cee90f4448aa6d81196d3865e021
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245181"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474418"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereço IP e métodos de alocação no Azure
 
@@ -99,7 +99,7 @@ Os endereços IP públicos estáticos são comumente usados nas seguintes situa�
 * Quando você precisa atualizar regras de firewall para se comunicar com os recursos do Azure.
 * Resolução de nome DNS, em que uma alteração no endereço IP exigiria a atualização de registros A.
 * Seus recursos do Azure comunicam-se com outros aplicativos ou serviços que usam um endereço IP baseado em um modelo de segurança.
-* Você usa certificados SSL vinculados a um endereço IP.
+* Você usa certificados TLS/SSL vinculados a um endereço IP.
 
 > [!NOTE]
 > O Azure aloca endereços IP públicos de um intervalo exclusivo para cada região em cada nuvem do Azure. Você pode baixar a lista de intervalos (prefixos) para as nuvens [pública](https://www.microsoft.com/download/details.aspx?id=56519), do [governo dos EUA](https://www.microsoft.com/download/details.aspx?id=57063), da [China](https://www.microsoft.com/download/details.aspx?id=57062) e da [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064) do Azure.
@@ -121,7 +121,7 @@ Você pode associar um endereço IP público a uma máquina virtual [Windows](..
 
 ### <a name="internet-facing-load-balancers"></a>Balanceadores de carga para Internet
 
-Você pode associar um endereço IP público criado com um dos [SKUs](#sku) ao [Azure Load Balancer](../load-balancer/load-balancer-overview.md), atribuindo-o à configuração de **front-end** do balanceador de carga. O endereço IP público serve como um endereço IP virtual de balanceamento de carga (VIP). Você pode atribuir um endereço IP público estático ou dinâmico a um front-end de balanceador de carga. Você também pode atribuir vários endereços IP públicos a um front-end de balanceador de carga, que permite cenários [multi-VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) como um ambiente de multilocatário com sites baseados em SSL. Para saber mais sobre os SKUs do balanceador de carga do Azure, confira [SKU padrão do balanceador de carga do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Você pode associar um endereço IP público criado com um dos [SKUs](#sku) ao [Azure Load Balancer](../load-balancer/load-balancer-overview.md), atribuindo-o à configuração de **front-end** do balanceador de carga. O endereço IP público serve como um endereço IP virtual de balanceamento de carga (VIP). Você pode atribuir um endereço IP público estático ou dinâmico a um front-end de balanceador de carga. Você também pode atribuir vários endereços IP públicos a um front-end do balanceador de carga, que permite cenários [multi-VIP,](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) como um ambiente de vários locatários com sites baseados em TLS. Para saber mais sobre os SKUs do balanceador de carga do Azure, confira [SKU padrão do balanceador de carga do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="vpn-gateways"></a>Gateways VPN
 

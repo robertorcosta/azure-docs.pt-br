@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 03/30/2020
 ms.author: alzam
-ms.openlocfilehash: 60c3a7f4f12993f475b3d03fd0915971d7673a5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5500d993a4bf3c664f14182d983f9abed8ebb08a
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80143099"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398376"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Transição para o protocolo OpenVPN ou IKEv2 do SSTP
 
@@ -33,7 +33,7 @@ VPN Ponto a Site pode usar um dos seguintes protocolos:
 >O IKEv2 e o OpenVPN para P2S estão disponíveis somente para o modelo de implantação do Resource Manager. Eles não estão disponíveis para o modelo de implantação clássico. O Gateway Básico SKU não suporta protocolos IKEv2 ou OpenVPN. Se você estiver usando o SKU básico, você terá que excluir e recriar um Gateway de Rede Virtual SKU de produção.
 >
 
-## <a name="migrating-from-sspt-to-ikev2-or-openvpn"></a>Migração do SSPT para IKEv2 ou OpenVPN
+## <a name="migrating-from-sstp-to-ikev2-or-openvpn"></a>Migração de SSTP para IKEv2 ou OpenVPN
 
 Pode haver casos em que você deseja suportar mais de 128 conexões P2S simultâneas a um gateway VPN, mas estão usando SSTP. Nesse caso, você precisa mudar para o protocolo IKEv2 ou OpenVPN.
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 1d399ffec2cd702dcfa39310803bc780b85bfde1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8124e9860ba5703e96f96c90bc0cf37e42baf9c
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77187455"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398350"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Envie eventos para ou receba eventos do Azure Event Hubs usando o .NET Core (Microsoft.Azure.EventHubs)
 Esse quickstart mostra como enviar eventos e receber eventos de um hub de eventos usando a biblioteca **Microsoft.Azure.EventHubs** .NET Core.
 
 > [!WARNING]
-> Este quickstart usa o antigo pacote **Microsoft.Azure.EventHubs.** Para obter um início rápido que use a biblioteca **Azure.Messaging.EventHubs** mais recente, consulte [Enviar e receber eventos usando a biblioteca Azure.Messaging.EventHubs](get-started-dotnet-standard-send-v2.md). Para mover seu aplicativo de usar a biblioteca antiga para uma nova, consulte o [Guia para migrar do Microsoft.Azure.EventHubs para o Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+> Este quickstart usa o antigo pacote **Microsoft.Azure.EventHubs.** Para obter um início rápido que use a biblioteca **Azure.Messaging.EventHubs** mais recente, consulte [Enviar e receber eventos usando a biblioteca Azure.Messaging.EventHubs](get-started-dotnet-standard-send-v2.md). Para mover seu aplicativo de usar a biblioteca antiga para uma nova, consulte o [Guia para migrar do Microsoft.Azure.EventHubs para o Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Se você for novo nos Hubs de Eventos do Azure, confira a [Visão geral dos Hubs de Eventos](event-hubs-about.md) antes de prosseguir com este início rápido. 

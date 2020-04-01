@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: labrenne
-ms.openlocfilehash: 2cff6a0e48fc7bf58a642f509fcda6b114e002ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95f27d913cd288c186bae1a6375212b072f50bb4
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022929"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422428"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Use a Galeria de Imagens Compartilhadas para criar um pool personalizado
 
@@ -38,6 +38,9 @@ Usar uma imagem compartilhada configurada para o seu cenário pode fornecer vár
 * **Versão de imagem e agrupamento para um gerenciamento mais fácil.** A definição de agrupamento de imagens contém informações sobre por que a imagem foi criada, para que é o SO e informações sobre o uso da imagem. O agrupamento de imagens permite um gerenciamento mais fácil de imagens. Para obter mais informações, consulte [definições de imagem](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+> [!NOTE]
+> Você precisa autenticar usando o Azure AD. Se você usar o compartilhado-key-auth, você receberá um erro de autenticação.  
 
 * **Uma conta do Lote do Azure.** Para criar uma conta batch, consulte o Batch quickstarts using the [Azure portal](quick-create-portal.md) ou [Azure CLI](quick-create-cli.md).
 
@@ -86,6 +89,9 @@ Depois de criar com sucesso sua imagem gerenciada, você precisa criar uma Galer
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Crie um pool a partir de uma imagem compartilhada usando o Cli do Azure
 
 Para criar um pool a partir de sua Imagem `az batch pool create` Compartilhada usando o Azure CLI, use o comando. Especifique o ID `--image` de imagem compartilhada no campo. Certifique-se de que o tipo de Sistema operacional e SKU correspondem às versões especificadas por`--node-agent-sku-id`
+
+> [!NOTE]
+> Você precisa autenticar usando o Azure AD. Se você usar o compartilhado-key-auth, você receberá um erro de autenticação.  
 
 ```azurecli
 az batch pool create \

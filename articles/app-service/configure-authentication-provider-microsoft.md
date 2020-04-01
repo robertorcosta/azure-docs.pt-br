@@ -1,22 +1,22 @@
 ---
 title: Configurar o Microsoft authentication
-description: Saiba como configurar a autenticação da Conta Microsoft como provedor de identidade para o aplicativo App Service.
+description: Saiba como configurar a autenticação da Conta Microsoft como provedor de identidade para o aplicativo App Service ou Azure Functions.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
-ms.custom: seodec18
-ms.openlocfilehash: 95c603d4a10eb0e4d0817e20755c0f9b36baa96f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: ea745aa00f8990a2d1232a19780fdc70e2f78996
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76842326"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437956"
 ---
-# <a name="configure-your-app-service-app-to-use-microsoft-account-login"></a>Configure seu aplicativo App Service para usar o login da Microsoft Account
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Configure seu aplicativo App Service ou Azure Functions para usar o login da Conta Microsoft
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Este tópico mostra como configurar o Azure App Service para usar o AAD para suportar logins pessoais de conta da Microsoft.
+Este tópico mostra como configurar o Azure App Service ou funções do Azure para usar o AAD para suportar logins pessoais de conta da Microsoft.
 
 > [!NOTE]
 > Tanto contas pessoais da Microsoft quanto contas organizacionais usam o provedor de identidade AAD. Neste momento, não é possível configurar esse provedor de identidade para suportar ambos os tipos de logins.
@@ -50,7 +50,7 @@ Este tópico mostra como configurar o Azure App Service para usar o AAD para sup
    > [!CAUTION]
    > Restringir o acesso desta forma se aplica a todas as chamadas para o seu aplicativo, o que pode não ser desejável para aplicativos que têm uma página inicial disponível publicamente, como em muitos aplicativos de página única. Para tais aplicativos, **permitir solicitações anônimas (nenhuma ação)** pode ser preferível para que o aplicativo inicie manualmente a autenticação em si. Para obter mais informações, consulte [Fluxo de Autenticação](overview-authentication-authorization.md#authentication-flow).
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Agora você está pronto para usar uma conta da Microsoft para autenticação em seu aplicativo.
 
@@ -61,4 +61,4 @@ Agora você está pronto para usar uma conta da Microsoft para autenticação em
 <!-- URLs. -->
 
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
-[Portal Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/

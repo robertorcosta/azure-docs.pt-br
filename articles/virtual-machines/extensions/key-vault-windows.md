@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 22a4177d85cb9dbbaa9ed75e063306484c7b48a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 8e014e7a1c564377582e4503218c4129619daa91
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298964"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410726"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual de Key Vault para Windows
 
@@ -30,6 +30,7 @@ A extensão VM do Key Vault suporta versões abaixo do Windows:
 ### <a name="supported-certificate-content-types"></a>Tipos de conteúdo de certificado sustais suportados
 
 - #12 de PKCs
+- Pem
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -88,7 +89,7 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 
 Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos são ideais ao implantar uma ou mais máquinas virtuais que exigem renovação de certificados pós-implantação. A extensão pode ser implantada em VMs individuais ou conjuntos de escala de máquinas virtuais. O esquema e a configuração são comuns a ambos os tipos de modelo. 
 
-A configuração JSON para uma extensão de máquina virtual deve ser `"resources": []` aninhada dentro do fragmento de recurso da `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` máquina virtual do modelo, especificamente objeto para o modelo de máquina virtual e no caso de escala de máquina virtual definida objeto.
+A configuração JSON para uma extensão de máquina virtual deve ser `"resources": []` aninhada dentro do fragmento de recurso da `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` máquina virtual do modelo, especificamente objeto para o modelo de máquina virtual e no caso de escala de máquina virtual definida sob objeto.
 
 ```json
     {
@@ -197,7 +198,7 @@ Por favor esteja ciente das seguintes restrições/exigências:
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solução de problemas
+### <a name="troubleshoot"></a>Solucionar problemas
 
 Os dados sobre o estado das implantações de extensão podem ser recuperados no Portal do Azure usando o Azure PowerShell. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando o Azure PowerShell.
 

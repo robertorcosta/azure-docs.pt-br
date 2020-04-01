@@ -3,12 +3,12 @@ title: Instale o agente Microsoft Azure Recovery Services (MARS)
 description: Saiba como instalar o agente Mars (Microsoft Azure Recovery Services, serviços de recuperação do Microsoft Azure) para fazer backup das máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: b9a6791709d5aff82d11bbf10e5f084fd8c1a000
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3932b66dbc41ff2631e2cccbe716c0877a509d3
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247755"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422927"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instale o agente MARS de backup do Azure
 
@@ -36,6 +36,7 @@ Os dados disponíveis para backup dependem de onde o agente está instalado.
 * Revise [o que é suportado e o que você pode fazer backup](backup-support-matrix-mars-agent.md) pelo agente da MARS.
 * Certifique-se de que você tem uma conta Azure se você precisar fazer backup de um servidor ou cliente para o Azure. Se você não tem uma conta, você pode criar uma [gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos.
 * Verifique o acesso à internet nas máquinas que você deseja fazer backup.
+* Certifique-se de que o usuário que executa a instalação e configuração do agente MARS tenha privilégios de administrador local no servidor a ser protegido.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -128,7 +129,7 @@ Se você já instalou o agente em qualquer máquina, certifique-se de que você 
 
     ![Baixar as credenciais do cofre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-1. Selecione **Salvar**. O arquivo é baixado para sua pasta Downloads. Você não pode abrir o arquivo de credenciais do cofre.
+1. Clique em **Salvar**. O arquivo é baixado para sua pasta Downloads. Você não pode abrir o arquivo de credenciais do cofre.
 
 ## <a name="install-and-register-the-agent"></a>Instalar e registrar o agente
 

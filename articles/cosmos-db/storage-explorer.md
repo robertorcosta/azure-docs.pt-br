@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: fd044d4f32aefc00e1b04f7060e0fc0dc74fd6c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 914551bab47ad9db4e0bca4d53226fbae74b92f3
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72882359"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411665"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Trabalhar com os dados usando o Gerenciador de Armazenamento do Azure
 
@@ -215,14 +215,14 @@ Há alguns motivos que podem exibir esse erro. Os dois mais comuns são:
 
 + Você está por trás de um *proxy transparente, o*que significa que alguém (como seu departamento de TI) está interceptando tráfego HTTPS, descriptografando-o e, em seguida, criptografando-o usando um certificado auto-assinado.
 
-+ Você está executando software, por exemplo, um software antivírus, que está injetando certificados SSL autoassinados nas mensagens HTTPS recebidas.
++ Você está executando software, como software antivírus, que está injetando um certificado TLS/SSL auto-assinado nas mensagens HTTPS que você recebe.
 
 Quando o Gerenciador de Armazenamento encontrar um desses "certificados autoassinados", ele pode não saber se a mensagem HTTPS recebida foi adulterada. No entanto, se você tiver uma cópia do certificado autoassinado, poderá ordenar o Gerenciador de Armazenamento para confiar nele. Se você não tiver certeza de quem está injetando o certificado, tente localizá-lo por conta própria seguindo as etapas abaixo:
 
-1. Instalar o Open SSL
+1. Instalar o OpenSSL
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (qualquer uma das versões leves serve)
      - Mac e Linux: deve estar incluído com o sistema operacional
-2. Executar Open SSL
+2. Executar OpenSSL
     - Windows: vá para o diretório de instalação; em seguida, para **/bin/** e clique duas vezes em **openssl.exe**.
     - Mac e Linux: execute **openssl** em um terminal
 3. Execute `s_client -showcerts -connect microsoft.com:443`

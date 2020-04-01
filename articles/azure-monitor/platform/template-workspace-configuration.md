@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 357075caaf91769026deb839e038e5d42fb63a38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60f85a30815bc1bace409b50af6332bb6622d7ca
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054677"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477990"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerenciar o espaço de trabalho do Log Analytics usando modelos do Azure Resource Manager
 
@@ -48,6 +48,9 @@ A tabela a seguir lista a versão de API para os recursos usados neste exemplo.
 
 O exemplo a seguir cria um espaço de trabalho usando um modelo da sua máquina local. O modelo JSON está configurado para exigir apenas o nome e a localização do novo espaço de trabalho. Ele usa valores especificados para outros parâmetros de espaço de trabalho, como modo de controle de [acesso,](design-logs-deployment.md#access-control-mode)nível de precificação, retenção e nível de reserva de capacidade.
 
+> [!WARNING]
+> O modelo a seguir cria um espaço de trabalho do Log Analytics e configura a coleta de dados. Isso pode alterar suas configurações de faturamento. Revisar [Gerenciar o uso e os custos com o Azure Monitor Logs](manage-cost-storage.md) para entender o faturamento dos dados coletados em um espaço de trabalho do Log Analytics antes de aplicá-los em seu ambiente Azure.
+
 Para reserva de capacidade, você define uma reserva de capacidade selecionada `CapacityReservation` para ingerindo dados `capacityReservationLevel`especificando o SKU e um valor em GB para a propriedade . A lista a seguir detalha os valores e o comportamento suportados ao configurá-lo.
 
 - Uma vez definido o limite de reserva, você não pode mudar para um SKU diferente dentro de 31 dias.
@@ -75,7 +78,7 @@ Para reserva de capacidade, você define uma reserva de capacidade selecionada `
               "description": "Specifies the name of the workspace."
             }
         },
-      "pricingTier": {
+      "sku": {
         "type": "string",
         "allowedValues": [
           "pergb2018",
@@ -131,7 +134,7 @@ Para reserva de capacidade, você define uma reserva de capacidade selecionada `
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-          "name": "[parameters('pricingTier')]"
+                    "name": "[parameters('sku')]"
                 },
                 "retentionInDays": 120,
                 "features": {
@@ -145,15 +148,15 @@ Para reserva de capacidade, você define uma reserva de capacidade selecionada `
     }
     ```
 
-> [Informações] para configurações de reserva de capacidade, use essas propriedades em "sku":
+   >[!NOTE]
+   >Para configurações de reserva de capacidade, use essas propriedades em "sku":
+   >* "nome": "Reserva de capacidade",
+   >* "capacityReservationLevel": 100
 
->   "nome": "Reserva de capacidade",
+2. Edite o modelo para atender às suas necessidades. Considere criar um [arquivo de parâmetros do Gerenciador](../../azure-resource-manager/templates/parameter-files.md) de recursos em vez de passar parâmetros como valores inline. Revisão de referência[Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber quais propriedades e os valores são suportados. 
 
->   "capacityReservationLevel": 100
-
-
-2. Edite o modelo para atender às suas necessidades. Revisão de referência[Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber quais propriedades e os valores são suportados. 
 3. Salve esse arquivo como **deploylaworkspacetemplate.json** para uma pasta local.
+
 4. Você está pronto para implantar o modelo. Você usa o PowerShell ou a linha de comando para criar o espaço de trabalho, especificando o nome e o local do espaço de trabalho como parte do comando. O nome do espaço de trabalho deve ser globalmente único em todas as assinaturas do Azure.
 
    * No caso do PowerShell, use os seguintes comandos na pasta que contém o modelo:
@@ -197,7 +200,7 @@ O exemplo de modelo a seguir ilustra como:
         "description": "Workspace name"
       }
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "allowedValues": [
         "PerGB2018",
@@ -306,7 +309,7 @@ O exemplo de modelo a seguir ilustra como:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('sku')]"
         }
       },
       "resources": [
@@ -605,7 +608,7 @@ O exemplo de modelo a seguir ilustra como:
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').customerId]"
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').sku.name]"
     },

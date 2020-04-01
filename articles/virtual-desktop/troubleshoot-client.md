@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e3a240901ffca2c126e2b61eaee0cf287cc31d6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 595762e6e8f22dddff30f1cff8c4bb79e89624b1
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127499"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473855"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Solucionar problemas do cliente de desktop remoto
 
@@ -21,21 +21,15 @@ Este artigo descreve problemas comuns com o cliente do Remote Desktop e como cor
 
 ## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Cliente de desktop remoto para Windows 7 ou Windows 10 pára de responder ou não pode ser aberto
 
-Use os seguintes cmdlets PowerShell para limpar registros de clientes fora de banda (OOB).
+A partir da versão 1.2.790, você pode redefinir os dados do usuário da página Sobre ou usando um comando.
 
-```PowerShell
-Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
+Use o comando a seguir para remover os dados do usuário, restaurar as configurações padrão e cancelar a assinatura de todos os espaços de trabalho.
 
-#Remove RdClientRadc registry key
-Remove-Item 'HKCU:\Software\Microsoft\RdClientRadc' -Recurse
-
-#Remove all files under %appdata%\RdClientRadc
-Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
+```cmd
+msrdcw.exe /reset [/f]
 ```
 
-Navegue até **%AppData%\RdClientRadc** e exclua todo o conteúdo.
-
-Desinstale e reinstale o cliente de desktop remoto para Windows 7 e Windows 10.
+Se você estiver usando uma versão anterior do cliente Remote Desktop, recomendamos que você desinstale e reinstale o cliente.
 
 ## <a name="web-client-wont-open"></a>O cliente web não abrirá
 

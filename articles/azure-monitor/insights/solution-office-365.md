@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/08/2019
-ms.openlocfilehash: 0018ae55ab74e691577a34a397c15355587e0fac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: 5aa025fb366634e796abfb2eb9c0035d9b87dc3c
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663242"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437037"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Microsoft Azure | (Versão prévia)
 
@@ -20,7 +20,7 @@ ms.locfileid: "77663242"
 
 > [!IMPORTANT]
 > ## <a name="solution-update"></a>Atualização de soluções
-> Esta solução foi substituída pela solução [Office 365](../../sentinel/connect-office-365.md) General Availability no [Azure Sentinel](../../sentinel/overview.md) e pela [solução de relatórios e monitoramento do Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Juntos, eles fornecem uma versão atualizada da solução anterior do Azure Monitor Office 365 com uma melhor experiência de configuração. Você pode continuar a usar a solução existente até 30 de abril de 2020.
+> Esta solução foi substituída pela solução [Office 365](../../sentinel/connect-office-365.md) General Availability no [Azure Sentinel](../../sentinel/overview.md) e pela [solução de relatórios e monitoramento do Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Juntos, eles fornecem uma versão atualizada da solução anterior do Azure Monitor Office 365 com uma melhor experiência de configuração. Você pode continuar a usar a solução existente até 30 de julho de 2020.
 > 
 > O Azure Sentinel é uma solução nativa de segurança nativa da nuvem que ingere logs e fornece funcionalidades adicionais de SIEM, incluindo detecções, investigações, insights orientados para caça e aprendizado de máquina. O uso do Azure Sentinel agora fornecerá a você a ingestão de registros de gerenciamento de atividades do Office 365 SharePoint e do Exchange.
 > 
@@ -53,7 +53,7 @@ ms.locfileid: "77663242"
 > | where TimeGenerated >= ago(1d) 
 > | where OfficeWorkload == "AzureActiveDirectory"                      
 > | where Operation == 'UserLoginFailed'
-> | summarize count() by UserId 
+> | summarize count() by UserId    
 > ```
 > 
 > ```Kusto
@@ -82,10 +82,10 @@ ms.locfileid: "77663242"
 > ### <a name="q-do-i-need-azure-sentinel-to-connect-the-azure-ad-logs"></a>P: Preciso do Azure Sentinel para conectar os logs AD do Azure?
 > Você pode configurar [a integração de logs Azure AD com o Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), que não está relacionado à solução do Azure Sentinel. O Azure Sentinel fornece um conector nativo e conteúdo fora da caixa para logs AD do Azure. Para obter mais informações, consulte a pergunta abaixo sobre conteúdo orientado para segurança fora da caixa.
 >
-> ###   <a name="q-what-are-the-differences-when-connecting-azure-ad-logs-from-azure-sentinel-and-azure-monitor"></a>P: Quais são as diferenças ao conectar logs Azure AD do Azure Sentinel e do Azure Monitor?
+> ###    <a name="q-what-are-the-differences-when-connecting-azure-ad-logs-from-azure-sentinel-and-azure-monitor"></a>P: Quais são as diferenças ao conectar logs Azure AD do Azure Sentinel e do Azure Monitor?
 > O Azure Sentinel e o Azure Monitor conectam-se aos logs Azure AD com base na mesma [solução de relatórios e monitoramento do Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). O Azure Sentinel fornece um conector nativo de um clique que conecta os mesmos dados e fornece informações de monitoramento.
 >
-> ###   <a name="q-what-do-i-need-to-change-when-moving-to-the-new-azure-ad-reporting-and-monitoring-tables"></a>P: O que eu preciso mudar ao mudar para as novas tabelas de relatórios e monitoramento do Azure AD?
+> ###    <a name="q-what-do-i-need-to-change-when-moving-to-the-new-azure-ad-reporting-and-monitoring-tables"></a>P: O que eu preciso mudar ao mudar para as novas tabelas de relatórios e monitoramento do Azure AD?
 > Todas as consultas que usam dados AD do Azure, incluindo consultas em alertas, dashboards e qualquer conteúdo que você criou usando dados do Office 365 Azure AD, devem ser recriadas usando as novas tabelas.
 >
 > O Azure Sentinel e o Azure AD fornecem conteúdo embutido que você pode usar ao mover-se para a solução de emissão de relatórios e monitoramento do Azure AD. Para obter mais informações, consulte a próxima pergunta sobre conteúdo orientado para segurança fora da caixa e como usar as carteiras de [trabalho do Azure Monitor para relatórios do Azure Active Directory](../../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md). 
@@ -103,7 +103,7 @@ ms.locfileid: "77663242"
 > ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>P: O Azure Sentinel fornece conectores adicionais como parte da solução?
 > Sim, veja [o Azure Sentinel conectar fontes de dados](../../sentinel/connect-data-sources.md).
 > 
-> ###   <a name="q-what-will-happen-on-april-30-do-i-need-to-offboard-beforehand"></a>P: O que acontecerá em 30 de abril? Preciso sair do mar antes?
+> ###    <a name="q-what-will-happen-on-april-30-do-i-need-to-offboard-beforehand"></a>P: O que acontecerá em 30 de abril? Preciso sair do mar antes?
 > 
 > - Você não poderá receber dados da solução **Office365.** A solução não estará mais disponível no Marketplace
 > - Para os clientes do Azure Sentinel, a solução de espaço de trabalho Log Analytics **Office365** será incluída na solução Azure Sentinel **SecurityInsights.**
@@ -248,7 +248,7 @@ O painel inclui as colunas na tabela a seguir. Cada coluna lista os dez principa
 |:--|:--|
 | Operações | Fornece informações sobre os usuários ativos de todas as suas assinaturas do Office 365 monitoradas. Você também poderá ver o número de atividades que ocorrem ao longo do tempo.
 | Exchange | Mostra a análise das atividades do Exchange Server, como a permissão Add-Mailbox ou Set-Mailbox. |
-| SharePoint | Mostra as principais atividades que os usuários executam em documentos do SharePoint. Quando você faz drill down desse bloco, a página de pesquisa mostra os detalhes dessas atividades, como o documento de destino e o local dessa atividade. Por exemplo, para um evento Arquivo Acessado, você poderá ver o documento que está sendo acessado, o nome da sua conta associada e o endereço IP. |
+| SharePoint | Mostra as principais atividades que os usuários executam em documentos do SharePoint. Quando você faz drill down desse bloco, a página de pesquisa mostra os detalhes dessas atividades, como o documento de destino e o local dessa atividade. Por exemplo, para um evento acessado por arquivo, você poderá ver o documento que está sendo acessado, o nome da conta associada e o endereço IP. |
 | Azure Active Directory | Inclui as principais atividades do usuário, como Tentativas de Logon e de Redefinição de Senha do Usuário. Quando você fizer o drill down, poderá ver os detalhes dessas atividades como o Status do Resultado. Isso é mais útil se você desejar monitorar atividades suspeitas no Azure Active Directory. |
 
 
@@ -315,7 +315,7 @@ Esses registros são criados quando adições ou alterações são feitas aos ob
 | ActorContextId | O GUID da organização à qual pertence o ator. |
 | ActorIpAddress | O endereço IP do ator no formato de endereço IPV4 ou IPV6. |
 | InterSystemsId | O GUID que controla as ações entre componentes no serviço do Office 365. |
-| IntraSystemId |   O GUID que é gerado pelo Azure Active Directory para controlar a ação. |
+| IntraSystemId |     O GUID que é gerado pelo Azure Active Directory para controlar a ação. |
 | SupportTicketId | A ID do tíquete de suporte ao cliente para a ação em situações "agir em nome de". |
 | TargetContextId | O GUID da organização à qual o usuário de destino pertence. |
 
@@ -330,7 +330,7 @@ Esses registros são criados de dados de auditoria de Segurança do Data Center.
 | ElevationApprovedTime | O carimbo de data/hora de quando a elevação foi aprovada. |
 | ElevationApprover | O nome de um gerente Microsoft. |
 | ElevationDuration | A duração pela qual a elevação ficou ativa. |
-| ElevationRequestId |  Um identificador exclusivo para a solicitação de elevação. |
+| ElevationRequestId |     Um identificador exclusivo para a solicitação de elevação. |
 | ElevationRole | A função para a qual a elevação foi solicitada. |
 | ElevationTime | A hora de início da elevação. |
 | Start_Time | A hora de início da execução do cmdlet. |
@@ -344,11 +344,11 @@ Esses registros são criados quando são feitas alterações à configuração d
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
-| ExternalAccess |  Especifica se o cmdlet foi executado por um usuário em sua organização, por uma conta de serviço do datacenter ou pela equipe do datacenter da Microsoft ou por um administrador delegado. O valor False indica que o cmdlet foi executado por alguém de sua organização. O valor True indica que o cmdlet foi executado pela equipe do datacenter, uma conta de serviço do datacenter ou um administrador delegado. |
-| ModifiedObjectResolvedName |  Esse é o nome amigável de usuário do objeto modificado pelo cmdlet. Isso é registrado apenas se o cmdlet modificar o objeto. |
+| ExternalAccess |     Especifica se o cmdlet foi executado por um usuário em sua organização, por uma conta de serviço do datacenter ou pela equipe do datacenter da Microsoft ou por um administrador delegado. O valor False indica que o cmdlet foi executado por alguém de sua organização. O valor True indica que o cmdlet foi executado pela equipe do datacenter, uma conta de serviço do datacenter ou um administrador delegado. |
+| ModifiedObjectResolvedName |     Esse é o nome amigável de usuário do objeto modificado pelo cmdlet. Isso é registrado apenas se o cmdlet modificar o objeto. |
 | OrganizationName | O nome do locatário. |
 | OriginatingServer | O nome do servidor do qual o cmdlet foi executado. |
-| Parâmetros | O nome e o valor para todos os parâmetros que foram usados com o cmdlet identificado na propriedade Operations. |
+| parâmetros | O nome e o valor para todos os parâmetros que foram usados com o cmdlet identificado na propriedade Operations. |
 
 
 ### <a name="exchange-mailbox"></a>Caixa de correio do Exchange
@@ -366,7 +366,7 @@ Esses registros são criados quando alterações ou adições são feitas às ca
 | ClientVersion | A versão do cliente de email. |
 | InternalLogonType | Reservado para uso interno. |
 | Logon_Type | Indica o tipo de usuário que acessou a caixa de correio e executou a operação que foi registrada. |
-| LogonUserDisplayName |    O nome amigável do usuário que realizou a operação. |
+| LogonUserDisplayName |     O nome amigável do usuário que realizou a operação. |
 | LogonUserSid | O SID do usuário que realizou a operação. |
 | MailboxGuid | O GUID do Exchange da caixa de correio que foi acessada. |
 | MailboxOwnerMasterAccountSid | O SID da conta mestre da conta do proprietário da caixa de correio. |
@@ -419,7 +419,7 @@ Essas propriedades são comuns a todos os registros do SharePoint.
 | EventSource | Identifica o que ocorreu um evento no SharePoint. Os valores possíveis são SharePoint ou ObjectModel. |
 | ItemType | O tipo de objeto acessado ou modificado. Consulte a tabela ItemType para obter detalhes sobre os tipos de objetos. |
 | MachineDomainInfo | Obter informações sobre operações de sincronização do dispositivo. Essas informações só serão relatadas se estiverem presentes na solicitação. |
-| MachineId |   Obter informações sobre operações de sincronização do dispositivo. Essas informações só serão relatadas se estiverem presentes na solicitação. |
+| MachineId |     Obter informações sobre operações de sincronização do dispositivo. Essas informações só serão relatadas se estiverem presentes na solicitação. |
 | Site_ | O GUID do site em que está localizado o arquivo ou a pasta acessado pelo usuário. |
 | Source_Name | A entidade que disparou a operação auditada. Os valores possíveis são SharePoint ou ObjectModel. |
 | UserAgent | Informações sobre o cliente ou o navegador do usuário. Essas informações são fornecidas pelo cliente ou pelo navegador. |
@@ -434,7 +434,7 @@ Esses registros são criados quando são feitas alterações de configuração d
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
 | CustomEvent | Cadeia de caracteres opcional para eventos personalizados. |
-| Event_Data |  Conteúdo opcional para eventos personalizados. |
+| Event_Data |     Conteúdo opcional para eventos personalizados. |
 | ModifiedProperties | A propriedade é incluída para os eventos de administrador, como adicionar um usuário como um membro de um site ou um grupo de administração do conjunto de sites. A propriedade inclui o nome da propriedade que foi modificada (por exemplo, o grupo de Administrador do Site), o novo valor da propriedade modificada (como o usuário que foi adicionado como administrador do site) e o valor anterior do objeto modificado. |
 
 
@@ -452,9 +452,9 @@ Esses registros são criados em resposta às operações de arquivo no SharePoin
 | SharingType | O tipo de permissões de compartilhamento atribuídas ao usuário com o qual o recurso foi compartilhado. Esse usuário é identificado pelo parâmetro UserSharedWith. |
 | Site_Url | A URL do site em que está localizado o arquivo ou a pasta acessado pelo usuário. |
 | SourceFileExtension | A extensão de arquivo do arquivo que foi acessado pelo usuário. Essa propriedade ficará em branco se o objeto acessado for uma pasta. |
-| SourceFileName |  O nome do arquivo ou pasta acessado pelo usuário. |
+| SourceFileName |     O nome do arquivo ou pasta acessado pelo usuário. |
 | SourceRelativeUrl | A URL da pasta que contém o arquivo acessado pelo usuário. A combinação de valores para os parâmetros SiteURL, SourceRelativeURL e SourceFileName é a mesma que o valor para a propriedade ObjectID, que é o nome de caminho completo do arquivo acessado pelo usuário. |
-| UserSharedWith |  O usuário com o qual um recurso foi compartilhado. |
+| UserSharedWith |     O usuário com o qual um recurso foi compartilhado. |
 
 
 

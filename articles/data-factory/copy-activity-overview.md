@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 39885782b55dca9c73f10990269d912f9b5727fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: edb80c604951a140d21e3775eec3f1dc6d55af73
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257964"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421407"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia na fábrica de dados do Azure
 
@@ -134,10 +134,10 @@ O modelo a seguir de uma atividade Copiar contém uma lista completa de propried
 | source | Especifique o tipo de origem da cópia e as propriedades correspondentes para recuperar dados.<br/>Para obter mais informações, consulte a seção "Copiar propriedades de atividade" no artigo do conector listado em [armazenamentos e formatos de dados suportados](#supported-data-stores-and-formats). | Sim |
 | coletor | Especifique o tipo de soca de cópia e as propriedades correspondentes para a gravação de dados.<br/>Para obter mais informações, consulte a seção "Copiar propriedades de atividade" no artigo do conector listado em [armazenamentos e formatos de dados suportados](#supported-data-stores-and-formats). | Sim |
 | tradutor | Especifique mapeamentos de coluna explícita da origem para o coletor. Essa propriedade se aplica quando o comportamento de cópia padrão não atende às suas necessidades.<br/>Para obter mais informações, consulte [o mapeamento de Esquema na atividade de cópia](copy-activity-schema-and-type-mapping.md). | Não |
-| dataIntegrationUnits | Especifique uma medida que represente a quantidade de energia que o tempo de execução de [integração do Azure](concepts-integration-runtime.md) usa para cópia de dados. Essas unidades eram anteriormente conhecidas como Unidades de Movimentação de Dados em Nuvem (DMU). <br/>Para obter mais informações, consulte [Unidades de Integração de Dados](copy-activity-performance.md#data-integration-units). | Não |
-| parallelCopies | Especifique o paralelismo que deseja que a atividade Copiar use ao ler dados da fonte e escrever dados para o dissipador.<br/>Para obter mais informações, consulte [Cópia paralela](copy-activity-performance.md#parallel-copy). | Não |
+| dataIntegrationUnits | Especifique uma medida que represente a quantidade de energia que o tempo de execução de [integração do Azure](concepts-integration-runtime.md) usa para cópia de dados. Essas unidades eram anteriormente conhecidas como Unidades de Movimentação de Dados em Nuvem (DMU). <br/>Para obter mais informações, consulte [Unidades de Integração de Dados](copy-activity-performance-features.md#data-integration-units). | Não |
+| parallelCopies | Especifique o paralelismo que deseja que a atividade Copiar use ao ler dados da fonte e escrever dados para o dissipador.<br/>Para obter mais informações, consulte [Cópia paralela](copy-activity-performance-features.md#parallel-copy). | Não |
 | preservar | Especifique se deve preservar metadados/ACLs durante a cópia de dados. <br/>Para obter mais informações, consulte [Preservar metadados](copy-activity-preserve-metadata.md). |Não |
-| enableStaging<br/>stagingSettings | Especifique se deve encenar os dados provisórios no armazenamento Blob em vez de copiar diretamente dados da fonte para afundar.<br/>Para obter informações sobre cenários úteis e detalhes de configuração, consulte [Staged copy](copy-activity-performance.md#staged-copy). | Não |
+| enableStaging<br/>stagingSettings | Especifique se deve encenar os dados provisórios no armazenamento Blob em vez de copiar diretamente dados da fonte para afundar.<br/>Para obter informações sobre cenários úteis e detalhes de configuração, consulte [Staged copy](copy-activity-performance-features.md#staged-copy). | Não |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Escolha como lidar com linhas incompatíveis ao copiar dados da fonte para afunidar.<br/>Para obter mais informações, consulte [Tolerância a falhas](copy-activity-fault-tolerance.md). | Não |
 
 ## <a name="monitoring"></a>Monitoramento

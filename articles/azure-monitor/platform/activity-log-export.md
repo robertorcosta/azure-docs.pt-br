@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: edaa585ffb3448a80b021aa924a9d654ac829931
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12c750f96b8852cdd6a6039ebfa750c2ee792a6b
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79096281"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396711"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportar registro de atividades do Azure para armazenamento ou Hubs de Eventos Do Azure
 
 > [!IMPORTANT]
-> O método para enviar o registro de atividades do Azure para o Azure Storage e o Azure Event Hubs foi alterado para [configurações de diagnóstico](diagnostic-settings.md). Este artigo descreve o método legado que está em processo de ser preterido. Consulte Atualizar a [coleta de log de atividade do Azure e exportar](diagnostic-settings-legacy.md) para uma comparação.
+> O método para enviar o registro de atividades do Azure para o Azure Storage e o Azure Event Hubs foi alterado para [configurações de diagnóstico](diagnostic-settings.md). Este artigo descreve o método legado que está em processo de ser preterido. Consulte Atualizar para [coletar e analisar o login do Azure Activity no Azure Monitor](activity-log-collect.md) para uma comparação.
 
 
-O [Azure Activity Log](platform-logs-overview.md) fornece informações sobre eventos de nível de assinatura que ocorreram em sua assinatura do Azure. Além de visualizar o login de atividade no portal do Azure ou copiá-lo em um espaço de trabalho do Log Analytics, onde ele pode ser analisado com outros dados coletados pelo Azure Monitor, você pode criar um perfil de log para arquivar o registro de atividade em uma conta de armazenamento do Azure ou transmiti-lo para um Hub de Eventos.
+O [Azure Activity Log](platform-logs-overview.md) fornece informações sobre eventos de nível de assinatura que ocorreram em sua assinatura do Azure. Além de visualizar o login de Atividade no portal do Azure ou copiá-lo em um espaço de trabalho do Log Analytics, onde ele pode ser analisado com outros dados coletados pelo Azure Monitor, você pode criar um perfil de log para arquivar o registro de atividade em uma conta de armazenamento do Azure ou transmiti-lo para um Event Hub.
 
 ## <a name="archive-activity-log"></a>Registro de atividades de arquivamento
 Arquivar o Registro de Atividades em uma conta de armazenamento é útil se você quiser reter seus dados de registro por mais de 90 dias (com controle total sobre a política de retenção) para auditoria, análise estática ou backup. Se você só precisa reter seus eventos por 90 dias ou menos, você não precisa configurar arquivamento em uma conta de armazenamento, uma vez que os eventos do Registro de Atividades são retidos na plataforma Azure por 90 dias.

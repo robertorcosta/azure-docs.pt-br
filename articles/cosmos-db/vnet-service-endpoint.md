@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: af1032de9aabac45ad7a86cfe1f36ed2c04c0f71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1c5bdd1d210a1933699cad52dbf123b50048e01
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444612"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421325"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Acessar o Azure Cosmos DB de VNets (redes virtuais)
 
@@ -34,7 +34,7 @@ Há duas etapas necessárias para limitar o acesso à conta do Azure Cosmos a pa
 
 ### <a name="will-virtual-network-acls-and-ip-firewall-reject-requests-or-connections"></a>As ACLs de rede virtual e o Firewall IP rejeitarão solicitações ou conexões? 
 
-Quando o firewall IP ou as regras de acesso à rede virtual são adicionadas, somente solicitações de fontes permitidas obtêm respostas válidas. Outras solicitações são rejeitadas com um erro 403 (Proibido). É importante distinguir o firewall da conta do Azure Cosmos de um firewall no nível de conexão. A origem ainda pode se conectar ao serviço e as conexões em si não são rejeitadas.
+Quando o firewall IP ou as regras de acesso à rede virtual são adicionadas, somente solicitações de fontes permitidas obtêm respostas válidas. Outras solicitações são rejeitadas com um erro 403 (Proibido). É importante distinguir o firewall da conta do Azure Cosmos de um firewall no nível de conexão. A fonte ainda pode se conectar ao serviço e as conexões em si não são rejeitadas.
 
 ### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>Minhas solicitações começaram a ser bloqueadas quando eu ativei o endpoint de serviço para o Azure Cosmos DB na sub-rede. O que aconteceu?
 
@@ -50,7 +50,7 @@ A autorização valida a permissão para a ação de recursos VNet mesmo que o u
 Apenas a rede virtual e suas sub-redes adicionadas à conta do Azure Cosmos têm acesso. Suas VNets emparelhadas não podem acessar a conta até que as sub-redes em redes virtuais separadas sejam adicionadas à conta.
 
 ### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>Qual é o número máximo de sub-redes com permissão para acessar uma única conta do Cosmos? 
-Atualmente, você pode ter no máximo 64 sub-redes permitidas para uma conta do Azure Cosmos.
+Atualmente, você pode ter no máximo 256 sub-redes permitidas para uma conta do Azure Cosmos.
 
 ### <a name="can-i-enable-access-from-vpn-and-express-route"></a>Posso habilitar o acesso da VPN e do Expresso Route? 
 Para acessar a conta do Azure Cosmos na rota Express a partir do local, você precisaria ativar o peering da Microsoft. Depois de colocar as regras de firewall de IP ou de acesso à rede virtual, você poderá adicionar os endereços IP públicos usados para o emparelhamento da Microsoft em seu firewall IP da conta do Azure Cosmos para permitir acesso de serviços nas instalações à conta do Azure Cosmos. 
@@ -59,7 +59,7 @@ Para acessar a conta do Azure Cosmos na rota Express a partir do local, você pr
 As regras NSG são usadas para limitar a conectividade de e para uma sub-rede com rede virtual. Quando você adiciona o ponto de extremidade de serviço do Azure Cosmos DB à sub-rede, não há necessidade de abrir a conectividade de saída no NSG para sua conta do Azure Cosmos. 
 
 ### <a name="are-service-endpoints-available-for-all-vnets"></a>Os pontos de extremidade de serviço estão disponíveis para todas as VNets?
-Não, somente as redes virtuais do Azure Resource Manager podem ter o ponto de extremidade do serviço ativado. As redes virtuais clássicas não suportam pontos de extremidade de serviço.
+Não, somente as redes virtuais do Azure Resource Manager podem ter o ponto de extremidade do serviço ativado. As redes virtuais clássicas não suportam pontos finais de serviço.
 
 ### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Posso "Aceitar conexões de datacenters públicos do Azure" quando o acesso ao ponto de extremidade de serviço está habilitado para o Banco de Dados do Azure Cosmos?  
 Isso só é necessário quando você quiser que sua conta Azure Cosmos DB seja acessada por outros serviços de primeira parte do Azure, como a fábrica de Dados Azure, a Azure Cognitive Search ou qualquer serviço que seja implantado na região do Azure.

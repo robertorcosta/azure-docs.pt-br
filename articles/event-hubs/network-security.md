@@ -7,12 +7,12 @@ ms.service: event-hubs
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: spelluru
-ms.openlocfilehash: ab85cdb2854de5c147c68afd8e4fe5e17ac2899b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46e6a9ecc2ed09aed1076f12c1f61a966485bdad
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477935"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422776"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Segurança de rede para hubs de eventos do Azure 
 Este artigo descreve como usar os seguintes recursos de segurança com o Azure Event Hubs: 
@@ -36,14 +36,14 @@ Você pode usar tags de serviço para definir controles de acesso à rede em [gr
 ## <a name="ip-firewall"></a>Firewall de IP 
 Por padrão, os namespaces do Event Hubs são acessíveis a partir da internet, desde que a solicitação venha com autenticação e autorização válidas. Com firewall IP, você pode restringi-lo ainda mais a apenas um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
-Esse recurso é útil em cenários nos quais o Azure Event Hubs só deve ser acessível a partir de certos sites conhecidos. As regras do firewall permitem configurar regras para aceitar tráfego originário de endereços IPv4 específicos. Por exemplo, se você usar hubs de eventos com [Azure Express Route][rota expressa], você poderá criar uma regra de **firewall** para permitir o tráfego apenas de seus endereços IP de infra-estrutura no local. 
+Esse recurso é útil em cenários nos quais o Azure Event Hubs só deve ser acessível a partir de certos sites conhecidos. As regras do firewall permitem configurar regras para aceitar tráfego originário de endereços IPv4 específicos. Por exemplo, se você usar hubs de eventos com [o Azure Express Route,](/azure/expressroute/expressroute-faqs#supported-services)você poderá criar uma regra de **firewall** para permitir o tráfego apenas de seus endereços IP de infra-estrutura no local. 
 
 As regras de firewall IP são aplicadas no nível de namespace do Event Hubs. Portanto, as regras se aplicam a todas as conexões de clientes que usam qualquer protocolo com suporte. Qualquer tentativa de conexão de um endereço IP que não corresponda a uma regra IP permitida no namespace dos Hubs de Eventos será rejeitada como não autorizada. A resposta não menciona a regra IP. As regras de filtro IP são aplicadas na ordem e a primeira regra que corresponde ao endereço IP determina a ação de aceitar ou rejeitar.
 
 Para obter mais informações, consulte [Como configurar firewall IP para um hub de eventos](event-hubs-ip-filtering.md)
 
 ## <a name="network-service-endpoints"></a>Pontos finais do serviço de rede
-A integração dos Hubs de Eventos com os Pontos Finais de Serviço [VNet) da Rede Virtual [vNet][vnet-sep] permite acesso seguro aos recursos de mensagens a partir de cargas de trabalho, como máquinas virtuais vinculadas a redes virtuais, com o caminho de tráfego de rede sendo protegido ambas as extremidades.
+A integração de Hubs de Eventos com [Pontos de extremidade de serviço de VNet (rede virtual)](../virtual-network/virtual-network-service-endpoints-overview.md) permite acesso seguro a recursos de mensagens de cargas de trabalho, como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede sendo protegido em ambas as extremidades.
 
 Uma vez configurado para limitar-se a pelo menos um ponto final de serviço de sub-rede de rede virtual, o respectivo namespace Event Hubs não aceita mais tráfego de qualquer lugar, mas de sub-redes autorizadas em redes virtuais. Da perspectiva da rede virtual, a associação de um namespace de Hubs de Eventos a um ponto de extremidade de serviço configura um túnel de rede isolado da sub-rede da rede virtual para o serviço de sistema de mensagens. 
 
@@ -64,7 +64,7 @@ Isso significa que as soluções na nuvem de segurança confidencial não apenas
 
 As **regras da rede virtual** são o recurso de segurança do firewall que controla se o namespace de Hubs de Eventos do Azure aceita conexões de uma sub-rede de rede virtual específica.
 
-Associar um namespace de Hubs de Eventos a uma rede virtual é um processo de duas etapas. Primeiro, você precisa criar um **ponto final de serviço de rede virtual** na sub-rede de uma rede virtual e habilitá-lo para o **Microsoft.EventHub,** conforme explicado no artigo [visão geral do ponto de serviço][vnet-sep]. Após adicionar o ponto de extremidade de serviço, você associa o namespace de Hubs de Eventos ao ponto de extremidade com uma **regra da rede virtual**.
+Associar um namespace de Hubs de Eventos a uma rede virtual é um processo de duas etapas. Primeiro, você precisa criar um ponto final de **serviço de rede virtual** na sub-rede de uma rede virtual e habilitá-lo para o **Microsoft.EventHub,** conforme explicado no artigo de visão geral do [ponto final do serviço.](../virtual-network/virtual-network-service-endpoints-overview.md) Após adicionar o ponto de extremidade de serviço, você associa o namespace de Hubs de Eventos ao ponto de extremidade com uma **regra da rede virtual**.
 
 A regra da rede virtual é uma associação do namespace de Hubs de Eventos com uma sub-rede de rede virtual. Embora a regra exista, todas as cargas de trabalho associadas à sub-rede recebem acesso ao namespace de Hubs de Eventos. O Event Hubs em si nunca estabelece conexões de saída, não precisa ter acesso e, portanto, nunca é concedido acesso à sua sub-rede, permitindo essa regra.
 

@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f9043ae1414b63f25583d52100774f3e87754a74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54263a8be900ed381d8450b460e5cf9e6117ac54
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77661832"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436129"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Perguntas gerais sobre o Azure Security Center
 
 ## <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 O Azure Security Center ajuda você a prevenir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança de seus recursos. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
-O Security Center usa o Microsoft Monitoring Agent para coletar e armazenar dados. Para obter detalhes aprofundados, consulte [coleta de dados no Azure Security Center](security-center-enable-data-collection.md).
+O Security Center usa o agente Log Analytics para coletar e armazenar dados. Para obter detalhes aprofundados, consulte [coleta de dados no Azure Security Center](security-center-enable-data-collection.md).
 
 
 ## <a name="how-do-i-get-azure-security-center"></a>Como posso obter a Central de Segurança do Azure?

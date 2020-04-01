@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 963b86852a7df557ad7179e444e7c3a2692f57d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a14f4d548053fb7aaf6f450176fdc49bc7b119bf
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531445"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421029"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solucionar problemas no desempenho da atividade de cópia
 
@@ -36,8 +36,8 @@ Como referência, atualmente as dicas de ajuste de desempenho fornecem sugestõe
 | Categoria              | Dicas de ajuste de desempenho                                      |
 | --------------------- | ------------------------------------------------------------ |
 | Armazenamento de dados específico   | Carregando dados no **Azure Synpase Analytics (anteriormente SQL DW)**: sugiro o uso da declaração PolyBase ou COPY se não for usada. |
-| &nbsp;                | Copiar dados do Banco de **Dados SQL do Azure:** quando o DTU estiver alta utilização, sugira a atualização para um nível mais alto. |
-| &nbsp;                | Copiar dados de/para **OZure Cosmos DB**: quando o RU estiver alta utilização, sugira a atualização para ru maior. |
+| &nbsp;                | Copiar dados do Banco de **Dados SQL do Azure:** quando o DTU estiver sob alta utilização, sugira a atualização para um nível mais alto. |
+| &nbsp;                | Copiar dados de/para **OZure Cosmos DB**: quando o RU estiver sob alta utilização, sugira a atualização para ru maior. |
 | &nbsp;                | Inserindo dados do **Amazon Redshift**: sugira o uso do UNLOAD se ele não for usado. |
 | Estrangulamento do armazenamento de dados | Se uma série de operações de leitura/gravação forem estranguladas pelo armazenamento de dados durante a cópia, sugira a verificação e aumente a taxa de solicitação permitida para o armazenamento de dados ou reduza a carga de trabalho simultânea. |
 | Tempo de execução da integração  | Se você usar um **IR (Integration Time de integração auto-hospedado)** e copiar atividades esperar muito tempo na fila até que o IR tenha recursos disponíveis para executar, sugiro a escalação do seu IR. |
@@ -68,7 +68,7 @@ Quando o desempenho da atividade de cópia não atender à sua expectativa, para
 
 - **"Transfer - Listing source" experimentou longa duração de trabalho:** significa que enumerar arquivos de origem ou partições de dados de banco de dados de origem é lento.
 
-  - Ao copiar dados da fonte baseada em arquivos, se você usar **o filtro curinga** no`modifiedDatetimeStart` caminho`modifiedDatetimeEnd`da pasta ou no nome do arquivo (ou),`wildcardFolderPath` `wildcardFileName`ou usar o **filtro de tempo modificado último** arquivo (ou), note que tal filtro resultaria na atividade de cópia listando todos os arquivos a pasta especificada para o lado do cliente e, em seguida, aplicar o filtro. Essa enumeração de arquivos pode se tornar o gargalo especialmente quando apenas um pequeno conjunto de arquivos cumpriu a regra do filtro.
+  - Ao copiar dados da fonte baseada em arquivos, se você usar **o filtro curinga** no`modifiedDatetimeStart` caminho`modifiedDatetimeEnd`da pasta ou no nome do arquivo (ou),`wildcardFolderPath` `wildcardFileName`ou usar o **filtro de tempo modificado último** arquivo (ou), note que tal filtro resultaria na atividade de cópia listando todos os arquivos sob a pasta especificada para o lado do cliente e, em seguida, aplicar o filtro. Essa enumeração de arquivos pode se tornar o gargalo especialmente quando apenas um pequeno conjunto de arquivos cumpriu a regra do filtro.
 
     - Verifique se você pode [copiar arquivos com base no caminho ou nome do arquivo particionado datado .](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) Dessa forma, não traz ônus para listar o lado da fonte.
 
@@ -84,11 +84,11 @@ Quando o desempenho da atividade de cópia não atender à sua expectativa, para
 
   - Adote as práticas recomendadas de carregamento de dados específicas do conector, se for em caso de inscrição. Por exemplo, ao copiar dados do [Amazon Redshift,](connector-amazon-redshift.md)configure para usar Redshift UNLOAD.
 
-  - Verifique se o ADF relata algum erro de estrangulamento na origem ou se seu armazenamento de dados está alta utilização. Se assim for, reduza suas cargas de trabalho no armazenamento de dados ou tente entrar em contato com o administrador do seu armazenamento de dados para aumentar o limite de estrangulamento ou recurso disponível.
+  - Verifique se o ADF relata algum erro de estrangulamento na origem ou se seu armazenamento de dados está sob alta utilização. Se assim for, reduza suas cargas de trabalho no armazenamento de dados ou tente entrar em contato com o administrador do seu armazenamento de dados para aumentar o limite de estrangulamento ou recurso disponível.
 
   - Verifique a origem da sua cópia e o padrão da pia: 
 
-    - Se o seu padrão de cópia suportar maiores que 4 DIUs (Data Integration Units, unidades de integração de dados) - consulte [esta seção](copy-activity-performance.md#data-integration-units) sobre detalhes, geralmente você pode tentar aumentar os DIUs para obter um melhor desempenho. 
+    - Se o seu padrão de cópia suportar maiores que 4 DIUs (Data Integration Units, unidades de integração de dados) - consulte [esta seção](copy-activity-performance-features.md#data-integration-units) sobre detalhes, geralmente você pode tentar aumentar os DIUs para obter um melhor desempenho. 
 
     - Caso contrário, considere dividir um único conjunto de dados grandes em vários conjuntos de dados menores e permitir que esses trabalhos de cópia sejam executados simultaneamente cada uma delas aborda parte dos dados. Você pode fazer isso com o Lookup/GetMetadata + ForEach + Copy. Consulte [copiar arquivos de vários contêineres,](solution-template-copy-files-multiple-containers.md) [migrar dados do Amazon S3 para ODLS Gen2](solution-template-migration-s3-azure.md)ou copiar em massa com [modelos de](solution-template-bulk-copy-with-control-table.md) solução de tabela de controle como exemplo geral.
 
@@ -98,11 +98,11 @@ Quando o desempenho da atividade de cópia não atender à sua expectativa, para
 
   - Adote as práticas recomendadas de carregamento de dados específicas do conector, se for em caso de inscrição. Por exemplo, ao copiar dados no [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) (anteriormente SQL DW), use a declaração PolyBase ou COPY. 
 
-  - Verifique se o ADF relata algum erro de estrangulamento na pia ou se o seu armazenamento de dados está alta utilização. Se assim for, reduza suas cargas de trabalho no armazenamento de dados ou tente entrar em contato com o administrador do seu armazenamento de dados para aumentar o limite de estrangulamento ou recurso disponível.
+  - Verifique se o ADF relata algum erro de estrangulamento na pia ou se o seu armazenamento de dados está sob alta utilização. Se assim for, reduza suas cargas de trabalho no armazenamento de dados ou tente entrar em contato com o administrador do seu armazenamento de dados para aumentar o limite de estrangulamento ou recurso disponível.
 
   - Verifique a origem da sua cópia e o padrão da pia: 
 
-    - Se o seu padrão de cópia suportar maiores que 4 DIUs (Data Integration Units, unidades de integração de dados) - consulte [esta seção](copy-activity-performance.md#data-integration-units) sobre detalhes, geralmente você pode tentar aumentar os DIUs para obter um melhor desempenho. 
+    - Se o seu padrão de cópia suportar maiores que 4 DIUs (Data Integration Units, unidades de integração de dados) - consulte [esta seção](copy-activity-performance-features.md#data-integration-units) sobre detalhes, geralmente você pode tentar aumentar os DIUs para obter um melhor desempenho. 
 
     - Caso contrário, ajuste gradualmente as [cópias paralelas,](copy-activity-performance-features.md)note que muitas cópias paralelas podem até prejudicar o desempenho.
 
@@ -122,7 +122,7 @@ Quando o desempenho da cópia não atender à sua expectativa, para solucionar p
 
   - Verifique se a máquina de RI auto-hospedada tem baixa latência conectando-se ao armazenamento de dados de origem. Se a sua fonte estiver no Azure, você pode usar [esta ferramenta](http://www.azurespeed.com/Azure/Latency) para verificar a latência da máquina de IR auto-hospedada para a região do Azure, quanto menos melhor.
 
-  - Ao copiar dados da fonte baseada em arquivos, se você usar **o filtro curinga** no`modifiedDatetimeStart` caminho`modifiedDatetimeEnd`da pasta ou no nome do arquivo (ou),`wildcardFolderPath` `wildcardFileName`ou usar o **filtro de tempo modificado último** arquivo (ou), note que tal filtro resultaria na atividade de cópia listando todos os arquivos a pasta especificada para o lado do cliente e, em seguida, aplicar o filtro. Essa enumeração de arquivos pode se tornar o gargalo especialmente quando apenas um pequeno conjunto de arquivos cumpriu a regra do filtro.
+  - Ao copiar dados da fonte baseada em arquivos, se você usar **o filtro curinga** no`modifiedDatetimeStart` caminho`modifiedDatetimeEnd`da pasta ou no nome do arquivo (ou),`wildcardFolderPath` `wildcardFileName`ou usar o **filtro de tempo modificado último** arquivo (ou), note que tal filtro resultaria na atividade de cópia listando todos os arquivos sob a pasta especificada para o lado do cliente e, em seguida, aplicar o filtro. Essa enumeração de arquivos pode se tornar o gargalo especialmente quando apenas um pequeno conjunto de arquivos cumpriu a regra do filtro.
 
     - Verifique se você pode [copiar arquivos com base no caminho ou nome do arquivo particionado datado .](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) Dessa forma, não traz ônus para listar o lado da fonte.
 
@@ -148,7 +148,7 @@ Quando o desempenho da cópia não atender à sua expectativa, para solucionar p
 
     - Ao copiar dados do [Amazon Redshift,](connector-amazon-redshift.md)configure para usar Redshift UNLOAD.
 
-  - Verifique se o ADF reporta algum erro de estrangulamento na origem ou se seu armazenamento de dados está alta utilização. Se assim for, reduza suas cargas de trabalho no armazenamento de dados ou tente entrar em contato com o administrador do seu armazenamento de dados para aumentar o limite de estrangulamento ou recurso disponível.
+  - Verifique se o ADF reporta algum erro de estrangulamento na origem ou se seu armazenamento de dados está sob alta utilização. Se assim for, reduza suas cargas de trabalho no armazenamento de dados ou tente entrar em contato com o administrador do seu armazenamento de dados para aumentar o limite de estrangulamento ou recurso disponível.
 
   - Verifique a origem da sua cópia e o padrão da pia: 
 
@@ -166,7 +166,7 @@ Quando o desempenho da cópia não atender à sua expectativa, para solucionar p
 
   - Verifique se a tendência de uso de CPU e memória do IR hospedado no portal Azure - > sua página de visão geral de fábrica de dados - >. Considere [escalar o IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) se o uso da CPU estiver alto ou a memória disponível estiver baixa.
 
-  - Verifique se o ADF relata algum erro de estrangulamento na pia ou se o seu armazenamento de dados está alta utilização. Se assim for, reduza suas cargas de trabalho no armazenamento de dados ou tente entrar em contato com o administrador do seu armazenamento de dados para aumentar o limite de estrangulamento ou recurso disponível.
+  - Verifique se o ADF relata algum erro de estrangulamento na pia ou se o seu armazenamento de dados está sob alta utilização. Se assim for, reduza suas cargas de trabalho no armazenamento de dados ou tente entrar em contato com o administrador do seu armazenamento de dados para aumentar o limite de estrangulamento ou recurso disponível.
 
   - Considere afinar gradualmente as [cópias paralelas,](copy-activity-performance-features.md)note que muitas cópias paralelas podem até prejudicar o desempenho.
 

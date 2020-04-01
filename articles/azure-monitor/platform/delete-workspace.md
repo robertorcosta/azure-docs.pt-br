@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: ead0ac04fbd2244fce97dd043ebd44f24fb0f67f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dceb3db4572ecdaf504745dba1099a5eccead43
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054929"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80395779"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Excluir e recuperar o espaço de trabalho do Azure Log Analytics
 
@@ -56,6 +56,17 @@ Você pode excluir um espaço de trabalho usando [PowerShell](https://docs.micro
 ```PowerShell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
+
+### <a name="troubleshooting"></a>Solução de problemas
+
+Você deve ter permissões 'Log Analytics Contributor' para excluir o espaço de trabalho do Log Analytics.<br>
+Se você receber uma mensagem de erro '*Este nome do espaço de trabalho já está em uso*' ao criar um espaço de trabalho, pode ser desde:
+* O nome do espaço de trabalho não está disponível e está sendo usado por alguém da sua organização, ou por outro cliente.
+* O espaço de trabalho foi excluído nos últimos 14 dias e seu nome mantido reservado para o período de exclusão suave. Para substituir o soft-delete e excluir imediatamente seu espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estas etapas para recuperar o espaço de trabalho primeiro e executar a exclusão permanente:<br>
+   1. [Recupere](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) seu espaço de trabalho.
+   2. [Exclua permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) seu espaço de trabalho.
+   3. Crie um novo espaço de trabalho usando o mesmo nome do espaço de trabalho.
+
 
 ## <a name="permanent-workspace-delete"></a>Exclusão permanente do espaço de trabalho
 O método soft-delete pode não se encaixar em alguns cenários, como desenvolvimento e testes, onde você precisa repetir uma implantação com as mesmas configurações e nome do espaço de trabalho. Nesses casos, você pode excluir permanentemente seu espaço de trabalho e "substituir" o período de exclusão suave. A operação de exclusão de espaço de trabalho permanente libera o nome do espaço de trabalho e você pode criar um novo espaço de trabalho usando o mesmo nome.

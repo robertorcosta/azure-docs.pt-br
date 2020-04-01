@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 03/30/2020
 ms.author: jgao
-ms.openlocfilehash: 7ff91545b1b7ab1920f437e0c3a5410270efaac5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ef1c3d3fe0fd1ecad95e027b06ce14fd70d4d3f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153243"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437870"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Use scripts de implantação em modelos (Visualização)
 
@@ -42,7 +42,7 @@ Os benefícios do script de implantação:
 - **Uma identidade gerenciada atribuída pelo usuário com a função do contribuinte para o grupo de recursos-destino**. Essa identidade é usada para executar scripts de implantação. Para realizar operações fora do grupo de recursos, você precisa conceder permissões adicionais. Por exemplo, atribua a identidade ao nível de assinatura se quiser criar um novo grupo de recursos.
 
   > [!NOTE]
-  > O mecanismo de script de implantação cria uma conta de armazenamento e uma instância de contêiner em segundo plano.  Uma identidade gerenciada atribuída pelo usuário com a função do contribuinte no nível de assinatura é necessária se a assinatura não tiver registrado o recurso de ocorrência de armazenamento Do Zure (Microsoft.Storage) e a instância de contêiner do Azure (Microsoft.ContainerInstance) Provedores.
+  > O mecanismo de script de implantação cria uma conta de armazenamento e uma instância de contêiner em segundo plano.  Uma identidade gerenciada atribuída pelo usuário com a função do contribuinte no nível de assinatura é necessária se a assinatura não tiver registrado os provedores de recursos da conta de armazenamento Azure (Microsoft.Storage) e do Azure (Microsoft.ContainerInstance).
 
   Para criar uma identidade, consulte [Criar uma identidade gerenciada atribuída pelo usuário usando o portal Azure,](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)ou [usando o Azure CLI,](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)ou [usando o Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Você precisa da ID da identidade ao implantar o modelo. O formato da identidade é:
 
@@ -52,7 +52,7 @@ Os benefícios do script de implantação:
 
   Use o seguinte script CLI ou PowerShell para obter o ID fornecendo o nome do grupo de recursos e o nome da identidade.
 
-  # <a name="cli"></a>[Cli](#tab/CLI)
+  # <a name="cli"></a>[CLI](#tab/CLI)
 
   ```azurecli-interactive
   echo "Enter the Resource Group name:" &&
@@ -62,7 +62,7 @@ Os benefícios do script de implantação:
   az identity show -g jgaoidentity1008rg -n jgaouami --query id
   ```
 
-  # <a name="powershell"></a>[Powershell](#tab/PowerShell)
+  # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
   ```azurepowershell-interactive
   $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
@@ -101,6 +101,12 @@ O seguinte json é um exemplo.  O último esquema de modelo pode ser encontrado 
     "forceUpdateTag": 1,
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
+    "environmentVariables": [
+      {
+        "name": "someSecret",
+        "secureValue": "if this is really a secret, don't put it here... in plain text..."
+      }
+    ],
     "scriptContent": "
       param([string] $name)
       $output = 'Hello {0}' -f $name
@@ -126,6 +132,7 @@ Detalhes do valor da propriedade:
 - **forceUpdateTag**: Alterar esse valor entre implantações de modelo força o script de implantação a ser reexecutado. Use a função newGuid() ou utcNow() que precisa ser definida como padrãoValor de um parâmetro. Para saber mais, confira [Executar script mais de uma vez](#run-script-more-than-once).
 - **azPowerShellVersion**/**azCliVersion**: Especifique a versão do módulo a ser usada. Para obter uma lista de versões powershell e CLI suportadas, consulte [Pré-requisitos](#prerequisites).
 - **argumentos**: Especifique os valores dos parâmetros. os valores são separados por espaços.
+- **ambienteVariáveis**: Especifique as variáveis de ambiente para passar para o script. Para obter mais informações, consulte [Desenvolver scripts de implantação](#develop-deployment-scripts).
 - **scriptContent**: Especifique o conteúdo do script. Para executar um script `primaryScriptUri` externo, use em vez disso. Por exemplo, consulte [Usar script inline](#use-inline-scripts) e [Usar script externo](#use-external-scripts).
 - **primaryScriptUri**: Especifique uma Url acessível ao público para o script de implantação principal com extensões de arquivo suportadas.
 - **suporteScriptUris**: Especifique uma matriz de Urls acessíveis ao público para suportar arquivos que são chamados em ambos `ScriptContent` ou `PrimaryScriptUri`.
@@ -234,7 +241,7 @@ Você pode controlar como o PowerShell responde a erros não terminais usando a 
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Passe strings seguras para o script de implantação
 
-A definição de variáveis de ambiente nas suas instâncias de contêiner permitem fornecer a configuração dinâmica do aplicativo ou script executado pelo contêiner. O script de implantação lida com variáveis de ambiente não protegidas e protegidas da mesma forma que a Instância de Contêiner do Azure. Para obter mais informações, consulte [Definir variáveis de ambiente em instâncias de contêiner](../../container-instances/container-instances-environment-variables.md#secure-values).
+A definição de variáveis de ambiente (EnvironmentVariable) em suas instâncias de contêiner permite que você forneça configuração dinâmica do aplicativo ou script executado pelo contêiner. O script de implantação lida com variáveis de ambiente não protegidas e protegidas da mesma forma que a Instância de Contêiner do Azure. Para obter mais informações, consulte [Definir variáveis de ambiente em instâncias de contêiner](../../container-instances/container-instances-environment-variables.md#secure-values).
 
 ## <a name="debug-deployment-scripts"></a>Scripts de implantação de depuração
 

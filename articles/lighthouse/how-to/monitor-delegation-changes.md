@@ -1,14 +1,14 @@
 ---
 title: Monitore as mudanças de delegação em seu inquilino de gestão
 description: Saiba como monitorar a atividade da delegação desde os inquilinos do cliente até o seu inquilino gerenciador.
-ms.date: 03/16/2020
+ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 99aa05cb73326e441c0473855c27dc71212cf415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82c41c392210e088c85af510b9698e0140f660e5
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79478221"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421898"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitore as mudanças de delegação em seu inquilino de gestão
 
@@ -73,7 +73,7 @@ Depois de criar sua conta principal de serviço e atribuir a função Leitor de 
 
 Depois de criar uma nova conta principal de serviço com o acesso do Monitorando Reader ao escopo raiz do seu inquilino gerenciador, você pode usá-lo para consultar e relatar a atividade da delegação em seu inquilino. 
 
-A amostra abaixo usa o Azure PowerShell para consultar o último 1 dia de atividade e relata quaisquer delegações adicionadas ou removidas (ou tentativas que não foram bem sucedidas). Ele consulta os dados do [Registro de Atividade](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) do Inquilino e, em seguida, constrói os seguintes valores para relatar as delegações adicionadas ou removidas:
+[Este script Do Azure PowerShell](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/tools/monitor-delegation-changes) pode ser usado para consultar o último 1 dia de atividade e relata quaisquer delegações adicionadas ou removidas (ou tentativas que não foram bem sucedidas). Ele consulta os dados do [Registro de Atividade](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) do Inquilino e, em seguida, constrói os seguintes valores para relatar as delegações adicionadas ou removidas:
 
 - **DelegatedResourceId**: O ID da assinatura delegada ou grupo de recursos
 - **CustomerTenantId**: O ID do inquilino do cliente

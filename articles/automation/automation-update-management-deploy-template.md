@@ -6,13 +6,13 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/27/2020
-ms.openlocfilehash: a8b382663b56d7481da876979e33194fb0ac533d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: e69f3d7350d0da9f364983eae0935532b576bd76
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77925794"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411465"
 ---
 # <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Solução de gerenciamento de atualização a bordo usando o modelo do Azure Resource Manager
 
@@ -25,7 +25,7 @@ Você pode usar [os modelos do Azure Resource Manager](../azure-resource-manager
 
 O modelo não automatiza o onboarding de uma ou mais VMs Azure ou não-Azure.
 
-Se você já tem uma conta de espaço de trabalho e automação do Log Analytics implantada em uma região suportada em sua assinatura, elas não estão vinculadas e o espaço de trabalho ainda não tem a solução de Gerenciamento de atualizações implantada, usando esse modelo cria com sucesso o link e implanta a solução Update Management. 
+Se você já tem uma conta de espaço de trabalho e Automação do Log Analytics implantada em uma região suportada em sua assinatura, elas não estão vinculadas e o espaço de trabalho ainda não tem a solução de Gerenciamento de atualizações implantada, usando esse modelo cria com sucesso o link e implanta a solução Update Management. 
 
 ## <a name="api-versions"></a>Versões de API
 
@@ -56,6 +56,7 @@ Os seguintes parâmetros no modelo são definidos com um valor padrão para o es
 
 * SKU – assume por padrão o novo tipo de preço por GB lançado no modelo de preço de abril de 2018
 * retenção de dados - padrão para trinta dias
+* reserva de capacidade - padrão para 100 GB
 
 >[!WARNING]
 >Se criar ou configurar um espaço de trabalho do Log Analytics em uma assinatura que tiver aceitado o novo modelo de preços de abril de 2018, o único tipo de preço válido do Log Analytics **PerGB2018**.
@@ -79,7 +80,7 @@ Os seguintes parâmetros no modelo são definidos com um valor padrão para o es
                 "description": "Workspace name"
             }
         },
-        "pricingTier": {
+        "sku": {
             "type": "string",
             "allowedValues": [
                 "pergb2018",
@@ -168,7 +169,8 @@ Os seguintes parâmetros no modelo são definidos com um valor padrão para o es
             "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": { 
+                "sku": {
+                    "Name": "[parameters('sku')]",
                     "name": "CapacityReservation",
                     "capacityReservationLevel": 100
                 },
@@ -231,19 +233,19 @@ Os seguintes parâmetros no modelo são definidos com um valor padrão para o es
     }
     ```
 
-2. Edite o modelo para atender às suas necessidades.
+2. Edite o modelo para atender às suas necessidades. Considere criar um [arquivo de parâmetros do Gerenciador](../azure-resource-manager/templates/parameter-files.md) de recursos em vez de passar parâmetros como valores inline.
 
 3. Salve este arquivo como deployUMSolutiontemplate.json em uma pasta local.
 
 4. Você está pronto para implantar o modelo. Você pode usar o PowerShell ou o Azure CLI. Quando você for solicitado para um nome de conta de espaço de trabalho e automação, forneça um nome que seja globalmente único em todas as assinaturas do Azure.
 
-    **Powershell**
+    **PowerShell**
 
     ```powershell
     New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deployUMSolutiontemplate.json
     ```
 
-    **Azure CLI**
+    **CLI do Azure**
 
     ```cli
     az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json

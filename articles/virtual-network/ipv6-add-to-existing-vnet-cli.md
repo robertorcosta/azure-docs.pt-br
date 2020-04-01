@@ -11,21 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 5dc231febc2e9b605b9e7f603f5d036b8a2c62eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3f9b32ea55f0ceebf08b22ccc7e2ceec0b6227e
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240753"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420797"
 ---
-# <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli-preview"></a>Adicionar IPv6 a um aplicativo IPv4 na rede virtual Azure - Azure CLI (Preview)
+# <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Adicionar IPv6 a um aplicativo IPv4 na rede virtual Azure - Azure CLI
 
 Este artigo mostra como adicionar endereços IPv6 a um aplicativo que está usando o endereço IP público IPv4 em uma rede virtual Azure para um Balanceador de Carga Padrão usando o Azure CLI. A atualização no local inclui uma rede virtual e uma sub-rede, um Balancer de Carga Padrão com configurações frontend IPv4 + IPV6, VMs com NICs que possuem configurações IPv4 + IPv6, grupo de segurança de rede e IPs públicos.
 
-> [!Important]
-> O suporte ao IPv6 para a Rede Virtual Azure está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -33,29 +31,6 @@ Se você optar por instalar e usar a CLI do Azure localmente, este guia de iníc
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="register-the-service"></a>Registre o serviço
-
-Antes de implantar um aplicativo de pilha dupla no Azure, você deve configurar sua assinatura para este recurso de visualização usando o seguinte Azure CLI:
-
-```azurecli
-az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-Demora até 30 minutos para a conclusão do registro de recursos. Você pode verificar seu status de registro executando o seguinte comando Azure CLI:
-
-```azurecli
-az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-Após a conclusão do registro, execute o seguinte comando:
-
-```azurecli
-az provider register --namespace Microsoft.Network
-```
-
-### <a name="create-a-standard-load-balancer"></a>Criar um Balanceador de Carga Standard
 Este artigo pressupõe que você implantou um Balancer de Carga Padrão como descrito no [Quickstart: Crie um Balancer de Carga Padrão - Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
 
 ## <a name="create-ipv6-addresses"></a>Criar endereços IPv6
@@ -173,10 +148,8 @@ Você pode visualizar a rede virtual iPv6 dual stack no portal Azure da seguinte
 
   ![Rede virtual de pilha dupla IPv6 no Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
 
-> [!NOTE]
-> A rede virtual IPv6 for Azure está disponível no portal Azure apenas para esta versão de pré-visualização.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, você poderá usar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, a VM e todos os recursos relacionados.
 

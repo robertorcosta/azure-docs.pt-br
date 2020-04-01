@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 3/18/2020
-ms.openlocfilehash: a35a586a519ff78e8b32d986b92bd008b2c6b858
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.date: 3/30/2020
+ms.openlocfilehash: 59b8753007c3b9130c397dda30c571580cbb5326
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067876"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411084"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Como usar sys_schema para ajuste de desempenho e manutenção de banco de dados no Banco de Dados do Azure para MySQL
 
@@ -60,6 +60,9 @@ Neste exemplo, o Banco de Dados do Azure para MySQL gastou 53 minutos liberando 
 ## <a name="database-maintenance"></a>Manutenção de banco de dados
 
 ### <a name="sysinnodb_buffer_stats_by_table"></a>*sys.innodb_buffer_stats_by_table*
+
+[!IMPORTANT]
+> Consultar essa visualização pode afetar o desempenho. Recomenda-se realizar essa solução de problemas durante o horário comercial fora do pico.
 
 O pool de buffers InnoDB reside na memória e é o mecanismo de cache principal entre o SGBD e o armazenamento. O tamanho do pool de buffers InnoDB está vinculado ao nível de desempenho e não pode ser alterado, exceto se uma SKU do produto diferente for escolhida. Assim como acontece com a memória no sistema operacional, as páginas antigas são trocadas para criar espaço para dados mais atuais. Para localizar quais tabelas consomem a maior parte da memória do pool de buffers InnoDB, você pode consultar a exibição *sys.innodb_buffer_stats_by_table*.
 

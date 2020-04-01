@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c81d2bc499c3d9cae262ef62be2dac2d7280be7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 83a13e0b1bb4d55b889d96e42c8f3f18ce0f2b73
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183832"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408933"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico SAML em uma política personalizada do Azure Active Directory B2C
 
@@ -90,11 +90,32 @@ O atributo **Name** do elemento Protocol precisa ser definido como `SAML2`.
 
 O elemento **OutputClaims** contém uma lista de declarações retornadas pelo provedor de identidade SAML na seção `AttributeStatement`. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido no provedor de identidade. Você também pode incluir declarações que não são retornadas pelo provedor de identidade, desde que você defina o atributo `DefaultValue`.
 
-Para ler a declaração SAML **NamedId** no **Assunto** como uma declaração normalizada, defina a declaração **PartnerClaimType** em `assertionSubjectName`. Verifique se o **NameId** é o primeiro valor na declaração XML. Quando definir mais de uma asserção, o Azure AD B2C escolherá o valor do assunto da última declaração.
+### <a name="subject-name-output-claim"></a>Reivindicação de saída de nome do assunto
 
-O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** usados para modificar as declarações de saída ou gerar novas declarações.
+Para ler a afirmação SAML **NameId** no **Assunto** como uma reclamação normalizada, defina o **pedido PartnerClaimType** como valor do atributo. `SPNameQualifier` Se `SPNameQualifier`o atributo não for apresentado, defina `NameQualifier` o **pedido PartnerClaimType** como valor do atributo. 
 
-O exemplo a seguir mostra as declarações retornadas pelo provedor de identidade do Facebook:
+
+Afirmação saml: 
+
+```XML
+<saml:Subject>
+  <saml:NameID SPNameQualifier="http://your-idp.com/unique-identifier" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">david@contoso.com</saml:NameID>
+    <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+      <SubjectConfirmationData InResponseTo="_cd37c3f2-6875-4308-a9db-ce2cf187f4d1" NotOnOrAfter="2020-02-15T16:23:23.137Z" Recipient="https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer" />
+    </SubjectConfirmation>
+  </saml:SubjectConfirmation>
+</saml:Subject>
+```
+
+Declaração de saída:
+
+```XML
+<OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="http://your-idp.com/unique-identifier" />
+```
+
+Se `SPNameQualifier` ambos `NameQualifier` ou atributos não forem apresentados na afirmação `assertionSubjectName`SAML, defina a reivindicação **PartnerClaimType** para . Verifique se o **NameId** é o primeiro valor na declaração XML. Quando definir mais de uma asserção, o Azure AD B2C escolherá o valor do assunto da última declaração.
+
+O exemplo a seguir mostra as reivindicações retornadas por um provedor de identidade SAML:
 
 - A reivindicação **do emissorUserId** é mapeada para a **alegação assertionSubjectName.**
 - A declaração **first_name** é mapeada para a declaração **givenName**.
@@ -118,6 +139,8 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
   <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
 </OutputClaims>
 ```
+
+O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** usados para modificar as declarações de saída ou gerar novas declarações.
 
 ## <a name="metadata"></a>Metadados
 

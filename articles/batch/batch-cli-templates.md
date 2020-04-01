@@ -11,12 +11,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: c7459c4dc700f034feafbf133b831a52b9233d11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df7db30e987c408ff158acfc468010948c821b8d
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77020158"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397528"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usar modelos CLI do Azure de Lote e o arquivo de transferência
 
@@ -28,7 +28,7 @@ Criar e usar arquivos de modelo JSON com a CLI do Azure para criar pools de Lote
 
 Uma extensão da CLI do Azure permite que o Lote seja usado de ponta a ponta por usuários que não são desenvolvedores. Somente com comandos CLI é possível criar um pool, carregar dados de entrada, criar trabalhos e tarefas associadas e baixar os dados de saída resultantes. Nenhum código adicional é necessário. Execute os comandos CLI diretamente ou integre-os aos scripts.
 
-Os modelos do Lote compilam o [suporte do Lote existente na CLI do Azure](batch-cli-get-started.md#json-files-for-resource-creation) para que os arquivos JSON especifiquem os valores de propriedade ao criar pools, trabalhos, tarefas e outros itens. Os modelos do lote adicionam os seguintes recursos:
+Os modelos de lote baseiam-se no suporte em lote existente no [Azure CLI](batch-cli-get-started.md#json-files-for-resource-creation) para arquivos JSON para especificar valores de propriedade ao criar pools, empregos, tarefas e outros itens. Os modelos do lote adicionam os seguintes recursos:
 
 -   Parâmetros podem ser definidos. Quando o modelo é usado, somente os valores de parâmetro são especificados para criar o item, com outros valores de propriedade de item sendo especificados no corpo do modelo. Um usuário que entende o Lote e os aplicativos a serem executados pelo Lote pode criar modelos especificando os valores de propriedade de pool, de trabalho e de tarefa. Um usuário menos familiarizado com o Lote e/ou os aplicativos só precisa especificar os valores para os parâmetros definidos.
 
@@ -68,11 +68,11 @@ Os modelos do Lote do Azure são semelhantes aos modelos do Azure Resource Manag
 
 -   **Parâmetros**
 
-    -   Permitem que os valores de propriedade sejam especificados em uma seção de corpo, com necessidade de fornecer apenas os valores de parâmetro quando o modelo é usado. Por exemplo, a definição completa para um pool pode ser colocada no corpo e apenas um parâmetro definido para a ID do pool; assim, para criar um pool, é necessário fornecer apenas uma cadeia de caracteres de ID do pool.
+    -   Permitem que os valores de propriedade sejam especificados em uma seção de corpo, com necessidade de fornecer apenas os valores de parâmetro quando o modelo é usado. Por exemplo, a definição completa para um pool poderia ser colocada `poolId`no corpo e apenas um parâmetro definido para ; apenas uma seqüência de ID de pool, portanto, precisa ser fornecida para criar uma piscina.
         
     -   O corpo do modelo pode ser criado por uma pessoa com conhecimento do Lote e dos aplicativos a serem executados pelo Lote; somente os valores dos parâmetros definidos pelo autor devem ser fornecidos quando o modelo é usado. Portanto, um usuário sem o conhecimento detalhado do Lote e/ou do aplicativo pode usar os modelos.
 
--   **Variáveis**
+-   **variáveis**
 
     -   Permitem que valores de parâmetro simples ou complexos sejam especificados em um local e usado em um ou mais locais no corpo do modelo. As variáveis podem simplificar e reduzir o tamanho do modelo, além de torná-lo mais sustentável, tendo um local para alterar as propriedades.
 

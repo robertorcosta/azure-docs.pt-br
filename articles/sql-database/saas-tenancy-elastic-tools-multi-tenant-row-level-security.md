@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: a5fe5d6d4076c5d82d33737d05bb95ede0a89c00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4cf260620d4e907fdb9190a052155fa22f1c7985
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73822028"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398337"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha
 
@@ -253,7 +253,7 @@ GO
 ```
 
 > [!TIP]
-> Em um projeto complexo, talvez seja necessário adicionar o predicado em centenas de tabelas, o que pode ser entediante. Há um procedimento armazenado auxiliar que gera automaticamente uma política de segurança e adiciona um predicado em todas as tabelas em um esquema. Para obter mais informações, consulte [Aplicar segurança em nível de linha a todas as tabelas – script auxiliar (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-to-all-tables-helper-script).
+> Em um projeto complexo, talvez seja necessário adicionar o predicado em centenas de tabelas, o que pode ser entediante. Há um procedimento armazenado auxiliar que gera automaticamente uma política de segurança e adiciona um predicado em todas as tabelas em um esquema. Para obter mais informações, consulte [Aplicar segurança em nível de linha a todas as tabelas – script auxiliar (blog)](https://techcommunity.microsoft.com/t5/sql-server/apply-row-level-security-to-all-tables-helper-script/ba-p/384360).
 
 Agora, se você executar novamente o aplicativo de exemplo, os locatários verão apenas as linhas que pertencem a eles. Além disso, o aplicativo não pode inserir as linhas que pertencem aos locatários diferentes dos atualmente conectados ao banco de dados de fragmentos. Além disso, o aplicativo não pode atualizar a TenantId em todas as linhas que ele pode ver. Se o aplicativo tentar qualquer uma dessas operações, será gerada uma DbUpdateException.
 

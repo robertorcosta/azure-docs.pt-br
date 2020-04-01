@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: d4409fe61bfe1f0a9fe74171f5b1ec471b9a6a26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd10468e823201bfa67aaf7c570071bd075ec4ac
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258051"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420838"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -68,6 +68,7 @@ Rede da VM convidada: IPv6 | Não | Sim
 Rede da VM convidada: IP estático (Windows) | Sim | Sim
 Rede da VM convidada: IP estático (Linux) | Não | Não
 Rede da VM convidada: Multi-NIC | Sim | Sim
+Https Proxy | Não | Não
 
 
 

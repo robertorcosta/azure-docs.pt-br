@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 568a21cee5b50a8914c603976f5951d0235dbff7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 76ab92285cace284c187109ca48c6634777ebbc0
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79281477"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398312"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Recursos e terminologia em Hubs de Eventos do Azure
 
@@ -109,6 +109,13 @@ Um *deslocamento* é a posição de um evento dentro de uma partição. Você po
 
 Se um leitor se desconecta de uma partição, ao se reconectar, ele começa a ler no ponto de verificação que foi anteriormente enviado pelo último leitor dessa partição nesse grupo de consumidores. Quando o leitor se conecta, ele passa esse deslocamento para o hub de eventos para especificar o local para começar a ler. Assim, você pode usar o ponto de verificação para marcar eventos como "concluídos" por aplicativos de downstream e oferecer resiliência caso ocorra um failover entre leitores em execução em máquinas diferentes. É possível retornar aos dados mais antigos, especificando um deslocamento inferior desse processo de ponto de verificação. Por meio desse mecanismo, o ponto de verificação permite resiliência de failover e reprodução de fluxo de eventos.
 
+> [!NOTE]
+> Se você estiver usando o Azure Blob Storage como o armazenamento de pontos de verificação em um ambiente que suporta uma versão diferente do Storage Blob SDK do que aqueles normalmente disponíveis no Azure, você precisará usar o código para alterar a versão aPI do serviço de armazenamento para a versão específica suportada por esse ambiente. Por exemplo, se você estiver executando [hubs de eventos em uma versão 2002 do Azure Stack Hub,](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)a versão mais alta disponível para o serviço de armazenamento é a versão 2017-11-09. Neste caso, você precisa usar o código para segmentar a versão de API do serviço de armazenamento para 2017-11-09. Para obter um exemplo sobre como segmentar uma versão específica da API de armazenamento, consulte essas amostras no GitHub: 
+> - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithOlderStorageVersion.java)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.js) ou [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.ts)
+> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/event_processor_blob_storage_example_with_storage_api_version.py)
+
 ### <a name="common-consumer-tasks"></a>Tarefas comuns do consumidor
 
 Todos os consumidores de Hubs de Eventos se conectam por meio de uma sessão do AMQP 1.0, um canal de comunicação bidirecional com reconhecimento de estado. Cada partição tem uma sessão de AMQP 1.0 que facilita o transporte de eventos separados por partição.
@@ -138,7 +145,7 @@ Para saber mais sobre Hubs de Eventos, acesse os seguintes links:
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [Javascript](get-started-java-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Guia de programação dos Hubs de Eventos](event-hubs-programming-guide.md)
 * [Disponibilidade e consistência nos Hubs de Eventos](event-hubs-availability-and-consistency.md)
 * [Perguntas frequentes dos Hubs de Eventos](event-hubs-faq.md)

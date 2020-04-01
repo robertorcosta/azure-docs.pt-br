@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: d84085115816a8fe1cba65e191ea391dd91a4aed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77599360"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436002"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>PERGUNTAS FREQUENTES - Perguntas sobre máquinas virtuais
 
@@ -51,7 +51,7 @@ Abaixo estão os tempos de latência para varreduras do Security Center de vulne
 A Central de segurança normalmente procura novos dados a cada hora e atualiza as recomendações de forma adequada. 
 
 > [!NOTE]
-> O Security Center usa o Microsoft Monitoring Agent para coletar e armazenar dados. Para saber mais, veja [Migração da Plataforma Central de Segurança do Azure](security-center-platform-migration.md).
+> O Security Center usa o agente Log Analytics para coletar e armazenar dados. Para saber mais, veja [Migração da Plataforma Central de Segurança do Azure](security-center-platform-migration.md).
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Por que recebo a mensagem "O Agente de VM está ausente?"

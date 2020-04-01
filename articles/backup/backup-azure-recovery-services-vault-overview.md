@@ -3,12 +3,12 @@ title: Visão geral de cofres de Serviços de Recuperação
 description: Uma visão geral e a comparação entre os cofres de Serviços de Recuperação e os cofres de Backup do Azure.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 94a3e5a0865bcc8c0a9ecb866ca013f20a558e1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6a359287533c9ffdd688b5285b24b9c70fa7b7f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673230"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436954"
 ---
 # <a name="recovery-services-vaults-overview"></a>Visão geral dos cofres dos Serviços de Recuperação
 
@@ -18,7 +18,7 @@ Com uma assinatura do Azure, você pode criar até 500 cofres de Serviços de Re
 
 ## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Comparação de cofres de Serviços de Recuperação e cofres de Backup
 
-Se você ainda tem cofres de Backup, eles estão sendo atualizados automaticamente para cofres dos Serviços de Recuperação. Até novembro de 2017, todos os cofres de Backup foram atualizados para cofres dos Serviços de Recuperação.
+Se você ainda tiver cofres de backup, eles estão sendo atualizados automaticamente para cofres dos Serviços de Recuperação. Até novembro de 2017, todos os cofres de Backup foram atualizados para cofres dos Serviços de Recuperação.
 
 Cofres de Serviços de Recuperação são baseados no modelo do Azure Resource Manager, enquanto os cofres de Backup eram baseados no modelo do Azure Service Manager. Quando você atualiza um cofre de Backup para um cofre de Serviços de Recuperação, os dados de backup permanecem intactos durante e após o processo de atualização. Cofres de Serviços de Recuperação fornecem recursos não disponíveis a cofres de Backup, como:
 
@@ -32,11 +32,19 @@ Cofres de Serviços de Recuperação são baseados no modelo do Azure Resource M
 
 - **Restauração instantânea para VMs da IaaS**: usando os cofres de Serviços de Recuperação, você pode restaurar arquivos e pastas em uma VM IaaS sem restaurar toda a VM, o que permite tempos de restauração mais rápidos. Restauração instantânea para VMs da IaaS está disponível para VMs Linux e Windows. [Saiba mais](backup-instant-restore-capability.md)
 
+## <a name="storage-settings-in-the-recovery-services-vault"></a>Configurações de armazenamento no cofre serviços de recuperação
+
+Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups e os pontos de recuperação criados ao longo do tempo. O cofre dos Serviços de Recuperação também contém as políticas de backup associadas às máquinas virtuais protegidas.
+
+O Azure Backup lida automaticamente com o armazenamento do cofre. Veja como [as configurações de armazenamento podem ser alteradas](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).
+
+Para saber mais sobre redundância de armazenamento, consulte estes artigos sobre [geo](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) e redundância [local.](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
+
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Gerenciando os cofres de Serviços de Recuperação no portal
 
 A criação e o gerenciamento de cofres dos Serviços de Recuperação no portal do Azure são fáceis porque o serviço de Backup integra-se a outros serviços do Azure. Essa integração significa que você pode criar ou gerenciar um cofre de Serviços de Recuperação *no contexto do serviço de destino*. Por exemplo, para exibir os pontos de recuperação de uma VM, selecione a VM e clique em **Backup** no menu Operações.
 
-![O cofre de Serviços de Recuperação detalha a VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
+![Detalhes do cofre dos Serviços de Recuperação VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 
 Se a VM não tiver o backup configurado, será solicitado que você configure o backup. Se o backup estiver configurado, você verá informações de backup sobre a VM, incluindo uma lista de pontos de restauração.  
 
@@ -60,7 +68,7 @@ As seções a seguir contêm links para artigos que explicam como usar um cofre 
 
 ### <a name="manage-recovery-points"></a>Gerenciar pontos de recuperação
 
-- [Gerenciar backups da VM do Azure](backup-azure-manage-vms.md)
+- [Gerenciar backups de VM do Azure](backup-azure-manage-vms.md)
 - [Gerenciando arquivos e pastas](backup-azure-manage-windows-server.md)
 
 ### <a name="restore-data-from-the-vault"></a>Restaurar dados do cofre

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 77a451cb9f6598bbe7013f4215cfa7cab40186bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f2b192765aab4c7cf18c62988ae2f6080b4b17c
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037535"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436910"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar o cliente Apache Beeline com Apache Hive
 
@@ -65,7 +65,7 @@ Para encontrar a URL JDBC da Ambari:
 
 ### <a name="over-public-or-private-endpoints"></a>Sobre pontos finais públicos ou privados
 
-Ao se conectar a um cluster usando os pontos finais públicos ou `admin`privados, você deve fornecer o nome da conta de login do cluster (padrão ) e senha. Por exemplo, usando Beeline de um sistema de cliente para conectar-se para o `clustername.azurehdinsight.net` endereço. Essa conexão é `443`feita por porta e é criptografada usando SSL.
+Ao se conectar a um cluster usando os pontos finais públicos ou `admin`privados, você deve fornecer o nome da conta de login do cluster (padrão ) e senha. Por exemplo, usando Beeline de um sistema de cliente para conectar-se para o `clustername.azurehdinsight.net` endereço. Essa conexão é `443`feita por porta e é criptografada usando TLS/SSL.
 
 Substitua `clustername` pelo nome do cluster HDInsight. Substitua `admin` pela conta de logon do cluster de seu cluster. Para clusters ESP, use o UPN user@domain.comcompleto (por exemplo, ). Substitua `password` pela senha da conta de logon do cluster.
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 48a2ed5e4774ac07b4b8fa72a5ee0be86811cfb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3431576acbb01a0cc3a5f372460b28be05bf7ce7
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298726"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437478"
 ---
 # <a name="sensor-partner-integration"></a>Integração com parceiros de sensor
 
@@ -42,7 +42,7 @@ Os dados de telemetria são mapeados para uma mensagem canônica que é publicad
 
 **Desenvolvimento de API**
 
-As APIs contêm documentação técnica swagger. Para obter mais informações sobre as APIs e suas solicitações ou respostas correspondentes, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+As APIs contêm documentação técnica swagger. Para obter mais informações sobre as APIs e suas solicitações ou respostas correspondentes, consulte [Swagger](https://aka.ms/FarmBeatsSwagger).
 
 **Autenticação**
 
@@ -150,10 +150,10 @@ O FarmBeats Datahub possui as seguintes APIs que permitem aos parceiros de dispo
   Productcode  | Código do produto ou nome do modelo ou número. Por exemplo, RS-CO2-N01.  |
   SensorMeasures > Nome  | Nome da medida do sensor. Apenas minúsculas são suportadas. Para medições de diferentes profundidades, especifique a profundidade. Por exemplo, soil_moisture_15cm. Este nome deve ser consistente com os dados de telemetria. |
   SensorMeasures > DataType  | Tipo de dados de telemetria. Atualmente, o dobro é suportado. |
-  SensorMeasures > Type  | Tipo de medição dos dados de telemetria do sensor. A seguir estão os tipos definidos pelo sistema: Temperatura Ambiente, CO2, Profundidade, Condutividade Elétrica, Umidade da Folha, Comprimento, Líquido, Nitrato, O2, PH, Fosfato, PointInTime, Potássio, Pressão, RainGauge, Umidade Relativa, Salinidade, Umidade do Solo, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Para adicionar mais, consulte a API /ExtendedType.
-  Unidade de > sensores medidas | Unidade de dados de telemetria de sensores. A seguir estão as unidades definidas pelo sistema: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond e InchesPerHour. Para adicionar mais, consulte a API /ExtendedType.
+  SensorMeasures > Type  | Tipo de medição dos dados de telemetria do sensor. A seguir estão os tipos definidos pelo sistema: Temperatura Ambiente, CO2, Profundidade, Condutividade Elétrica, FolhaWetness, Comprimento, Líquido, Nitrato, O2, PH, Fosfato, PointInTime, Potássio, Pressão, RainGauge, Umidade Relativa, Salinidade, Umidade do Solo, SolarIdade, Estado, Tempode Duração, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiração Para adicionar mais, consulte a API /ExtendedType.
+  Unidade de > sensores medidas | Unidade de dados de telemetria de sensores. A seguir estão as unidades definidas pelo sistema: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterD Para adicionar mais, consulte a API /ExtendedType.
   SensorMeasures > AgregaationType  | Ou nenhum, médio, máximo, mínimo ou Desvio Padrão.
-  SensorMeasures > Profundidade  | A profundidade do sensor em centímetros. Por exemplo, a medição da umidade 10 cm o solo.
+  SensorMeasures > Profundidade  | A profundidade do sensor em centímetros. Por exemplo, a medição da umidade 10 cm sob o solo.
   SensorMeasures > Descrição  | Forneça uma descrição significativa da medição.
   Nome  | Nome para identificar recurso. Por exemplo, o nome do modelo ou o nome do produto.
   Descrição  | Forneça uma descrição significativa do modelo.
@@ -188,7 +188,7 @@ O Tradutor deve ter a capacidade de adicionar novos dispositivos ou sensores que
 
 ### <a name="add-new-types-and-units"></a>Adicionar novos tipos e unidades
 
-FarmBeats suporta a adição de novos tipos de medidas de sensores e unidades. Para obter mais informações sobre a API /ExtendedType, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+FarmBeats suporta a adição de novos tipos de medidas de sensores e unidades. Para obter mais informações sobre a API /ExtendedType, consulte [Swagger](https://aka.ms/FarmBeatsSwagger).
 
 ## <a name="telemetry-specifications"></a>Especificações de telemetria
 
@@ -230,11 +230,11 @@ O formato de mensagem canônica é o seguinte:
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }

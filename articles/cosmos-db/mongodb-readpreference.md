@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 10e6ed556abe8f8c438e5436fbb93c1b70b85d2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 579767a0d535605a2316c35bd413a75474b5a3de
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445171"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409995"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Como configurar distribuir globalmente as leituras usando a API do Azure Cosmos DB para MongoDB
 
@@ -86,7 +86,7 @@ Consulte a documentação detalhada [Comportamento da Preferência de Leitura do
 Com base em cenários comuns, é usar as seguintes configurações a seguir:
 
 1. Se **leituras de baixa latência** forem necessárias, utilize o modo de preferência de leitura **NEAREST**. Essa configuração direciona as operações de leitura para a região disponível mais próxima. Observe que, se a região mais próxima for a região de GRAVAÇÃO, essas operações serão direcionadas a essa região.
-2. Se **alta disponibilidade e distribuição geográfica de leituras** forem necessárias (latência não é uma restrição), utilize o modo de preferência de leitura **SECONDARY PREFERRED**. Esta configuração direciona as operações de leitura para uma região de LEITURA disponível. Se nenhuma região de LEITURA estiver disponível, as solicitações serão direcionados para a região de GRAVAÇÃO.
+2. Se for em vez de necessária **alta disponibilidade e distribuição geográfica das leituras** (a latência não é uma restrição), use o modo de preferência de leitura **PREFERENCIAl** **PRIMÁRIO** ou SECUNDÁRIO. Esta configuração direciona as operações de leitura para uma região DE WRITE ou READ disponível, respectivamente. Se a região não estiver disponível, as solicitações serão direcionadas para a próxima região disponível, de acordo com o comportamento de preferência de leitura.
 
 O snippet de código a seguir do aplicativo de exemplo mostra como configurar a Preferência de Leitura NEAREST no NodeJS:
 
@@ -161,7 +161,7 @@ Consulte o repos de aplicativo de exemplo correspondente para outras plataformas
 
 Neste artigo, você aprendeu a distribuir globalmente operações de leitura usando a Preferência de Leitura com API do Azure Cosmos DB para MongoDB.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não continuar a usar esse aplicativo, exclua todos os recursos criados por este artigo no Portal do Azure com as seguintes etapas:
 

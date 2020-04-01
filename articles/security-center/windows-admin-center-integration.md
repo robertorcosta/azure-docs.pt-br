@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5467794bf246fab4ff7ded9c445dbeee0c4093b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbbdf724b9d7fe4948553e7526410b994f491b49
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79139616"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435256"
 ---
 # <a name="integrate-azure-security-center-with-windows-admin-center"></a>Integre o Azure Security Center com o Windows Admin Center
 
@@ -48,7 +48,7 @@ Ao combinar essas duas ferramentas, o Security Center torna-se seu único painel
     * O servidor tem um espaço de trabalho para relatar e uma assinatura associada.
     * A solução padrão de Log Analytics de nível do Security Center está habilitada no espaço de trabalho. Esta solução fornece os recursos de nível padrão do Security Center para *todos os* servidores e máquinas virtuais que reportam a este espaço de trabalho.
     * O preço padrão de nível do Security Center para a Máquina Virtual está habilitado na assinatura.
-    * O Microsoft Monitoring Agent (MMA) está instalado no servidor e configurado para reportar ao espaço de trabalho selecionado. Se o servidor já reportar a outro espaço de trabalho, ele também será configurado para reportar ao espaço de trabalho recém-selecionado.
+    * O agente Log Analytics está instalado no servidor e configurado para reportar ao espaço de trabalho selecionado. Se o servidor já reportar a outro espaço de trabalho, ele também será configurado para reportar ao espaço de trabalho recém-selecionado.
 
     > [!NOTE]
     > Pode levar algum tempo depois de embarcar para que as recomendações apareçam. De fato, dependendo da atividade do servidor, você pode não receber *nenhum* alerta. Para gerar alertas de teste para testar seus alertas estão funcionando corretamente, siga as instruções no [procedimento de validação de alertas](security-center-alert-validation.md).

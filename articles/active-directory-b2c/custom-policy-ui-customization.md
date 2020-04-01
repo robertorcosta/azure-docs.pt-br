@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 87c3a3a904705b9fcb702c4745c4c80a4b447e69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e50d6d0623e87dfa68a7cc9744c3f595ff0179c6
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476715"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396375"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário do aplicativo usando uma política personalizada no Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Conclua as etapas em [Introdução às políticas personalizadas](custom-policy-
 
 [!INCLUDE [active-directory-b2c-html-how-to](../../includes/active-directory-b2c-html-how-to.md)]
 
-## <a name="4-modify-the-extensions-file"></a>4. Modifique o arquivo de extensões
+### <a name="4-modify-the-extensions-file"></a>4. Modifique o arquivo de extensões
 
 Para configurar a personalização da interface do ui, copie o **ContentDefinition** e seus elementos filho do arquivo base para o arquivo de extensões.
 
@@ -60,9 +60,9 @@ Para configurar a personalização da interface do ui, copie o **ContentDefiniti
 
 1. Salve o arquivo de extensões.
 
-## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Faça upload e teste sua política personalizada atualizada
+### <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Faça upload e teste sua política personalizada atualizada
 
-### <a name="51-upload-the-custom-policy"></a>5.1 Faça upload da política personalizada
+#### <a name="51-upload-the-custom-policy"></a>5.1 Faça upload da política personalizada
 
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
 1. Procure e selecione **Azure AD B2C**.
@@ -70,7 +70,7 @@ Para configurar a personalização da interface do ui, copie o **ContentDefiniti
 1. Selecione **Enviar política personalizada**.
 1. Carregue o arquivo de extensões que você alterou anteriormente.
 
-### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Teste a política personalizada usando **executar agora**
+#### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Teste a política personalizada usando **executar agora**
 
 1. Selecione a diretiva que você carregou e selecione **Executar agora**.
 1. Você deverá conseguir se inscrever usando um endereço de email.

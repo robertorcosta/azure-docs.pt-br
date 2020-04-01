@@ -1,18 +1,21 @@
 ---
 title: Compreender o bloqueio de recursos
 description: Conheça as opções de bloqueio no Azure Blueprints para proteger os recursos ao atribuir um projeto.
-ms.date: 02/27/2020
+ms.date: 03/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: b810e8d4ddd263f9e651704d1bf9b785ce0202db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86897ae6665f7a339b51aaae5f1c00144d8b7309
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78199692"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437745"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Entenda o bloqueio de recursos nos Blueprints do Azure
 
 A criação de ambientes consistentes em escala só é realmente valiosa se houver um mecanismo para manter essa consistência. Este artigo explica como o bloqueio de recursos funciona em Blueprints do Azure. Para ver um exemplo de bloqueio de recursos e aplicação de _atribuições_de negação, consulte o tutorial [de proteção de novos recursos.](../tutorials/protect-new-resources.md)
+
+> [!NOTE]
+> Os bloqueios de recursos implantados pelo Azure Blueprints são aplicados apenas aos recursos implantados pela atribuição do projeto. Os recursos existentes, como os de grupos de recursos que já existem, não têm bloqueios adicionados a eles.
 
 ## <a name="locking-modes-and-states"></a>Estados e modos de bloqueio
 

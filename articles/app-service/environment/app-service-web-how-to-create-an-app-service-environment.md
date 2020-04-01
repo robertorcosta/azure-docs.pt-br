@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 752334e3d594b1f95786aecaca134b74c4e264d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89dc96370f65ff20d7f8be38ff78d6c1664305d3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74688688"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477801"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Como criar um Ambiente do Serviço de Aplicativo v1 
 
@@ -45,7 +45,7 @@ Para criar um Ambiente do Serviço de Aplicativo v1, você pode pesquisar no Mic
 3. Selecione ou especifique um novo grupo de recursos. O grupo de recursos usado para seu ASE deve ser o mesmo usado para sua rede virtual. Se você selecionar uma VNet já existente, a seleção de grupo de recursos para o ASE será atualizada para refletir a de sua rede virtual.
    
     ![][2]
-4. Faça suas seleções de Rede Virtual e Local. Você pode optar por criar uma nova rede virtual ou selecionar uma rede virtual já existente. Se selecionar uma nova rede virtual, você poderá especificar um nome e local. A nova VNet terá o intervalo de endereços 192.168.250.0/23 e uma sub-rede denominada **padrão** que é definida como 192.168.250.0/24. Você pode simplesmente selecionar um VNet pré-existente clássico ou do Gerenciador de Recursos. A seleção do tipo de VIP determina se seu ASE pode ser acessado diretamente por meio da Internet (Externo) ou se ele usa um Balanceador de Carga Interno (ILB). Para saber mais sobre eles, leia [Usando um Balanceador de Carga Interno com um Ambiente de Serviço de Aplicativo][ILBASE]. Se você selecionar um tipo de VIP Externo, poderá selecionar com quantos endereços IP externos o sistema é criado para fins de IPSSL. Se selecionar Interno, você precisará especificar o subdomínio que seu ASE usará. Os ASEs podem ser implantados em redes virtuais que usam os intervalos de endereço público *ou* espaços de endereço *ou* RFC1918 (ou seja, endereços privados). Para usar uma rede virtual com um intervalo de endereços públicos, você precisará criar a VNet antecipadamente. Ao selecionar uma VNet já existente, você precisará criar uma nova sub-rede durante a criação do ASE. **Você não pode usar uma sub-rede pré-criada no portal. Você pode criar um ASE com uma sub-rede pré-existente se criar seu ASE usando um modelo de gerenciador de recursos.** Para criar um ASE por meio de um modelo, use as informações fornecidas aqui, [Criar um ambiente de serviço de aplicativo do modelo][ILBAseTemplate] e aqui, [Criar um ambiente de serviço de aplicativo do ILB do modelo][ASEfromTemplate].
+4. Faça suas seleções de Rede Virtual e Local. Você pode optar por criar uma nova rede virtual ou selecionar uma rede virtual já existente. Se selecionar uma nova rede virtual, você poderá especificar um nome e local. A nova VNet terá o intervalo de endereços 192.168.250.0/23 e uma sub-rede denominada **padrão** que é definida como 192.168.250.0/24. Você pode simplesmente selecionar um VNet pré-existente clássico ou do Gerenciador de Recursos. A seleção do tipo de VIP determina se seu ASE pode ser acessado diretamente por meio da Internet (Externo) ou se ele usa um Balanceador de Carga Interno (ILB). Para saber mais sobre eles, leia [Usando um Balanceador de Carga Interno com um Ambiente de Serviço de Aplicativo][ILBASE]. Se você selecionar um tipo VIP de Externo, você poderá selecionar quantos endereços IP externos o sistema é criado para fins de IP SSL. Se selecionar Interno, você precisará especificar o subdomínio que seu ASE usará. Os ASEs podem ser implantados em redes virtuais que usam os intervalos de endereço público *ou* espaços de endereço *ou* RFC1918 (ou seja, endereços privados). Para usar uma rede virtual com um intervalo de endereços públicos, você precisará criar a VNet antecipadamente. Ao selecionar uma VNet já existente, você precisará criar uma nova sub-rede durante a criação do ASE. **Você não pode usar uma sub-rede pré-criada no portal. Você pode criar um ASE com uma sub-rede pré-existente se criar seu ASE usando um modelo de gerenciador de recursos.** Para criar um ASE por meio de um modelo, use as informações fornecidas aqui, [Criar um ambiente de serviço de aplicativo do modelo][ILBAseTemplate] e aqui, [Criar um ambiente de serviço de aplicativo do ILB do modelo][ASEfromTemplate].
 
 ### <a name="details"></a>Detalhes
 É criado um ASE com dois Front-Ends e dois trabalhos. Os Front-Ends atuam como os pontos de extremidade HTTP/HTTPS e enviam tráfego para as Funções de Trabalho, que são funções que hospedam seus aplicativos. Você pode ajustar a quantidade após a criação do ASE e pode até mesmo configurar regras de dimensionamento automático nesses pools de recursos. Para obter mais detalhes sobre a colocação em escala manual, o gerenciamento e o monitoramento de um ambiente de serviço de aplicativo, acesse: [Como configurar um Ambiente de Serviço de Aplicativo][ASEConfig] 
