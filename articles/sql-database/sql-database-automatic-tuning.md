@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: d4762c86268353ff0464ff3919250cd86f0038d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: 7488fd5f8a572788933856f03bb0ad4351885704
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79214111"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518217"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático no Banco de Dados SQL do Microsoft Azure
 
@@ -93,3 +93,4 @@ A sintonia automática, por exemplo, de bancos de dados em uma implantação de 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre a inteligência incorporada usada na sintonia automática, consulte [os bancos de dados Azure SQL](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/)de Inteligência Artificial .
+- Para saber como funciona o ajuste automático sob o capô, consulte [Indexar automaticamente milhões de bancos de dados no Banco de Dados Microsoft Azure SQL](https://www.microsoft.com/en-us/research/uploads/prod/2019/02/autoindexing_azuredb.pdf).

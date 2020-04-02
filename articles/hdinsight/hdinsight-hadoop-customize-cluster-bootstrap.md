@@ -1,19 +1,19 @@
 ---
 title: Personalize as configurações do cluster Azure HDInsight usando bootstrap
-description: Aprenda a personalizar a configuração do cluster HDInsight de forma programática usando modelos .Net, PowerShell e Resource Manager.
+description: Aprenda a personalizar a configuração do cluster HDInsight de forma programática usando modelos .NET, PowerShell e Resource Manager.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/21/2019
-ms.openlocfilehash: e641340ac04415ee4a20cda2bc09bbdbef9802a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 796dbc53d1adf310028e06dea319b9a60d5cf54b
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272520"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529360"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight usando a Inicialização
 
@@ -125,6 +125,18 @@ Você pode usar o bootstrap no modelo do Resource Manager:
 ```
 
 ![Hadoop personaliza o modelo de gerenciador de recursos do Cluster Bootstrap Azure](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+
+Exemplo de recurso de modelo do Resource Manager para alternar a configuração em spark2-defaults para limpar periodicamente os logs de eventos do armazenamento.  
+
+```json
+"configurations": {
+    "spark2-defaults": {
+        "spark.history.fs.cleaner.enabled": "true",
+        "spark.history.fs.cleaner.interval": "7d",
+        "spark.history.fs.cleaner.maxAge": "90d"
+    }
+}
+```
 
 ## <a name="see-also"></a>Confira também
 

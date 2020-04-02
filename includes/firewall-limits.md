@@ -5,21 +5,21 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 01/22/2020
+ms.date: 04/01/2020
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 0df38533afe97f010d1050c3ee2a4a69a54d4cc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e8a5960da394b1eac1578d7f757b25995ff8faa
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335095"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80573250"
 ---
 | Recurso | Limite |
 | --- | --- |
 | Taxa de transferência de dados |30 Gbps<sup>1</sup> |
 |Regras|10,000. Todos os tipos de regras combinadas.|
-|Regras máximas de DNAT|299|
+|Regras máximas de DNAT|298<br>Se o protocolo de uma regra for configurado tanto para TCP quanto para UDP, ele conta como duas regras.|
 |Tamanho mínimo de AzureFirewallSubnet |/ 26|
 |Intervalo de portas em regras de rede e de aplicativo|0-64.000. Estamos trabalhando para flexibilizar essa limitação.|
 |Endereços IP públicos|Máximo de 100 (atualmente, as portas SNAT são adicionadas apenas para os cinco primeiros endereços IP públicos.)|

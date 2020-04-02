@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 0303f09e5e704a18576bf50d1f00007f7f86f320
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 563aa701c1403a1ef26c6073496e7e59c7c5096c
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279241"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521852"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Grupos e regras do CRS do Firewall do Aplicativo Web
 
@@ -281,6 +281,7 @@ Os seguintes grupos de regras e regras estão disponíveis ao usar o Web Applica
 |---|---|
 |942100|Ataque de injeção de SQL detectado via libinjection|
 |942110|Ataque de injeção SQL: Teste de injeção comum detectado|
+|942120|Ataque de injeção SQL: Operador SQL Detectado|
 |942130|Ataque de injeção SQL: Tautologia SQL Detectada.|
 |942140|Ataque de injeção de SQL = nomes comuns do BD detectados|
 |942150|Ataque de injeção de SQL|

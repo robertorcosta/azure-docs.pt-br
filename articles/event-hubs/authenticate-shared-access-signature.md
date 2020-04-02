@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: d17026dba26b3c1cb846d60967180c29563c425d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82773ab6decfe15ee1a9d839a1f10a158ae72c42
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74545581"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521314"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticar o acesso aos recursos do Event Hubs usando assinaturas de acesso compartilhado (SAS)
 A assinatura de acesso compartilhado (SAS) lhe dá controle granular sobre o tipo de acesso que você concede aos clientes que têm a assinatura de acesso compartilhado. Aqui estão alguns dos controles que você pode definir em um SAS: 
@@ -33,7 +33,7 @@ Este artigo abrange a autenticação do acesso aos recursos do Event Hubs usando
 
 
 ## <a name="configuring-for-sas-authentication"></a>Configuração para autenticação SAS
-Você pode configurar a regra de autorização de acesso compartilhado EventHubs em um namespace do Event Hubs ou em uma entidade (instância do hub de eventos ou Tópico Kafka em um espaço de nome habilitado para Eventos para Kafka). A configuração de uma regra de autorização de acesso compartilhado em um grupo de consumidores não é suportada no momento, mas você pode usar regras configuradas em um namespace ou entidade para garantir o acesso ao grupo de consumidores. 
+Você pode configurar a regra de autorização de acesso compartilhado EventHubs em um namespace do Event Hubs ou em uma entidade (instância do hub de eventos ou Tópico Kafka em um hub de eventos). A configuração de uma regra de autorização de acesso compartilhado em um grupo de consumidores não é suportada no momento, mas você pode usar regras configuradas em um namespace ou entidade para garantir o acesso ao grupo de consumidores. 
 
 A imagem a seguir mostra como as regras de autorização se aplicam às entidades amostrais. 
 

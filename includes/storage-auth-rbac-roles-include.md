@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 4b10955a1d3b85acbcae109836bebc03ec04c72c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d73bab76860abf3e9fa442dad44e1ddb66d147a3
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76279512"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519559"
 ---
 O Azure fornece as seguintes funções de RBAC incorporadas para autorizar o acesso a dados de blob e fila usando Azure AD e OAuth:
 
@@ -24,6 +24,8 @@ O Azure fornece as seguintes funções de RBAC incorporadas para autorizar o ace
 - [Leitor de dados da fila de armazenamento](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader): Use para conceder permissões somente de leitura para filas do Azure.
 - [Processador de mensagens de dados da fila de armazenamento](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Use para conceder permissões de peek, recuperar e excluir mensagens em filas de armazenamento do Azure.
 - [Remetente de mensagens de dados da fila de armazenamento](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Use para conceder permissões adicionais às mensagens nas filas de armazenamento do Azure.
+
+Para obter informações detalhadas sobre funções RBAC incorporadas para o Azure Storage para os serviços de dados e o serviço de gerenciamento, consulte a seção **Armazenamento** em [funções incorporadas do Azure para o Azure RBAC](../articles/role-based-access-control/built-in-roles.md#storage). Além disso, para obter informações sobre os diferentes tipos de funções que fornecem permissões no Azure, consulte [funções clássicas de administrador de assinatura, funções Do Azure RBAC e Azure AD](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!NOTE]
 > As atribuições de função RBAC podem levar até cinco minutos para se propagar.

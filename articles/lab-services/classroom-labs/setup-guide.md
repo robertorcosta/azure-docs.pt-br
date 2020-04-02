@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/18/2020
 ms.author: spelluru
-ms.openlocfilehash: d58e11551c2857c269e8985e81f84138f6d389ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b87107545761e10c6fb648e54064fbafbdbacd52
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370820"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546002"
 ---
 # <a name="classroom-lab-setup-guide"></a>Guia de configuração do laboratório de sala de aula
 
@@ -79,7 +79,7 @@ A Lab Services usa um modelo de preços de pagamento, o que significa que você 
 Cada aluno é designado seu próprio VM que é atribuído a eles para a vida do laboratório.  Eles podem escolher:
 
 - Salve diretamente na VM.
-- Economize em um repositório externo, como OneDrive, GitHub, etc.
+- Economize em um local externo, como OneDrive, GitHub, etc.
 
 Para usar o OneDrive, você pode optar por configurá-lo automaticamente para estudantes em suas VMs de laboratório.  Informações adicionais sobre isso são fornecidas abaixo.
 
@@ -133,7 +133,7 @@ Uma vez que você entenda os requisitos para o laboratório da sua classe, você
         > [!NOTE]
         > Dependendo do tipo de sistema operacional instalado, uma VM pode levar vários minutos para ser iniciada.  Para garantir que uma VM de laboratório esteja pronta para uso durante o horário programado, recomendamos que você inicie as VMs com 30 minutos de antecedência para garantir que as VMs estejam funcionando e prontas para uso.
 
-   - [Defina cotas para usuários](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) e [estabeleça cotas adicionais para um usuário específico](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quota-for-a-specific-user)
+   - [Defina cotas para usuários](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) e [estabeleça cotas adicionais para um usuário específico](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quotas-for-specific-users)
   
    - [Habilitar desligamento automático ao desconectar](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
 

@@ -1,15 +1,15 @@
 ---
 title: Limites do Azure Blockchain Service
 description: Visão geral do serviço e dos limites funcionais no Azure Blockchain Service
-ms.date: 11/22/2019
+ms.date: 03/30/2020
 ms.topic: conceptual
-ms.reviewer: janders
-ms.openlocfilehash: f4001ee520f3f3136d1bac5ca047c80526fc92e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: ravastra
+ms.openlocfilehash: c728e617ac37795988cd596c7cb0c5025aac4ccf
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74455650"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529567"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Limites no Serviço blockchain do Azure
 
@@ -17,14 +17,18 @@ O Azure Blockchain Service tem limites de serviço e funcionais, como o número 
 
 ## <a name="pricing-tier"></a>Tipo de preço
 
-Os limites máximos de transações e nós validadores dependem se você prover o Azure Blockchain Service em níveis de preços básicos ou padrão.
+Os limites máximos de transações e nós validadores dependem se você prover o Azure Blockchain Service em níveis básicos ou padrão de preços.
 
 | Tipo de preço | Nó de transação máximo | Nó seletor máximo |
 |:---|:---:|:---:|
 | Basic | 10 | 1 |
 | Standard | 10 | 2 |
 
-A alteração do nível de preços entre Básico e Padrão após a criação do membro não é suportada.
+Sua rede de consórcio deve ter pelo menos dois nodes padrão do Azure Blockchain Service. Os nós de nível padrão incluem dois nós de validação. Quatro nós validadores são necessários para atender ao consenso de [Tolerância a Falhas Bizantinas de Istambul.](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus)
+
+Use o nível básico é para desenvolvimento, teste e prova de conceitos. Use o nível padrão para implantações de grau de produção. Você também deve usar o nível *Standard* se estiver usando o Blockchain Data Manager ou enviando um alto volume de transações privadas.
+
+A alteração do nível de preços entre o básico e o padrão após a criação do membro não é suportada.
 
 ## <a name="storage-capacity"></a>Capacidade de armazenamento
 
@@ -50,7 +54,7 @@ A diminuição do tamanho do armazenamento de livros e troncos não é suportada
 
 * **Os membros removidos do consórcio não podem ser adicionados novamente**
 
-    Em vez disso, eles devem ser reconvidados para se juntar ao consórcio e criar um novo membro. Seu recurso de membro existente não é excluído para preservar transações históricas.
+    Em vez disso, eles devem ser reconvidados para se juntar ao consórcio e criar um novo membro. Seus recursos de membro existentes não são excluídos para preservar transações históricas.
 
 * **Todos os membros de um consórcio devem estar usando a mesma versão contábil**
 

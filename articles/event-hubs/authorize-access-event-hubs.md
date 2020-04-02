@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: d4304abf0ca089fbbea86f12cd03dea836db612e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f44be4e1d3d1186f0122bd4669ae800ab42e31d6
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77368362"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521303"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Autorizar o acesso aos Hubs de Eventos do Azure
 Toda vez que você publica ou consome eventos/dados de um hub de eventos, seu cliente está tentando acessar os recursos do Event Hubs. Toda solicitação a um recurso seguro deve ser autorizada para que o serviço possa garantir que o cliente tenha as permissões necessárias para publicar/consumir os dados. 
@@ -39,7 +39,7 @@ As assinaturas de acesso compartilhado (SAS) para os recursos do Event Hubs forn
 
 Autorizar usuários ou aplicativos usando um token OAuth 2.0 devolvido pelo Azure AD proporciona maior segurança e facilidade de uso sobre assinaturas de acesso compartilhado (SAS). Com o Azure AD, não há necessidade de armazenar os tokens de acesso com seu código e riscos potenciais vulnerabilidades de segurança. Embora você possa continuar a usar assinaturas de acesso compartilhado (SAS) para conceder acesso fino aos recursos do Event Hubs, o Azure AD oferece recursos semelhantes sem a necessidade de gerenciar tokens SAS ou se preocupar em revogar um SAS comprometido. 
 
-Por padrão, todos os recursos do Event Hubs são protegidos e estão disponíveis apenas para o proprietário da conta. Embora você possa usar qualquer uma das estratégias de autorização descritas acima para conceder aos clientes acesso aos recursos do Event Hub. Somente os recursos do Event Hubs criados com o modelo de implantação do Azure Resource Manager suportam a autorização do Azure AD. A Microsoft recomenda o uso do Azure AD quando possível para máxima segurança e facilidade de uso.
+Por padrão, todos os recursos do Event Hubs são protegidos e estão disponíveis apenas para o proprietário da conta. Embora você possa usar qualquer uma das estratégias de autorização descritas acima para conceder aos clientes acesso aos recursos do Event Hub. A Microsoft recomenda o uso do Azure AD quando possível para máxima segurança e facilidade de uso.
 
 Para obter mais informações sobre a autorização usando o SAS, consulte [Autorizando o acesso aos recursos do Event Hubs usando assinaturas de acesso compartilhado](authorize-access-shared-access-signature.md).
 

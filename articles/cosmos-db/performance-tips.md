@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: sngun
-ms.openlocfilehash: 68a9a7d5f90831bb2e0c9284cb71ae4b92edffad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee2743af2f8499aec04d8b6b733e1ba4c2a82083
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131416"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546068"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para o Azure Cosmos DB e .NET
 
@@ -80,7 +80,7 @@ Quando você usa o TCP no modo direto, além das portas de gateway, você precis
 |Gateway  |   HTTPS    |  Todos os SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Tabela (443), Cassandra (10350), Gráfico (443)    |
 |Direto    |     TCP    |  SDK .NET    | Portos na faixa de 10000 a 20000 |
 
-O Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto sobre HTTPS. Além disso, ele oferece um protocolo TCP eficiente que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. O protocolo TCP usa SSL para autenticação inicial e tráfego criptografado. Para ter um melhor desempenho, use o protocolo TCP quando possível.
+O Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto sobre HTTPS. Além disso, ele oferece um protocolo TCP eficiente que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. O protocolo TCP usa TLS para autenticação inicial e tráfego criptografado. Para ter um melhor desempenho, use o protocolo TCP quando possível.
 
 Para SDK V3, você configura o modo `CosmosClient` de `CosmosClientOptions`conexão ao criar a ocorrência, em . Lembre-se que o modo direto é o padrão.
 

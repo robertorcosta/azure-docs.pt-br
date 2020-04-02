@@ -2,7 +2,7 @@
 title: Projetando soluções resilientes com proteção Azure DDoS
 description: Saiba mais sobre como você pode usar os dados de log para obter informações detalhadas sobre seu aplicativo.
 services: security
-author: barclayn
+author: terrylanfear
 manager: RKarlin
 editor: TomSh
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
-ms.author: barclayn
-ms.openlocfilehash: 8d3fc809999508bf3d49c3765c90017e89e80fa7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: terrylan
+ms.openlocfilehash: 8be1f1161ac1c4611ddb2a5ec61592394014c488
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77624049"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548672"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Proteção Azure DDoS - Projetando soluções resilientes
 
@@ -179,7 +179,7 @@ Para a sua equipe de resposta de DDoS, recomendamos que use exercícios de simul
 
 ### <a name="alerts-during-an-attack"></a>Alertas durante um ataque
 
-A Proteção contra DDoS do Azure Standard identificará e mitigará os ataques de DDoS sem qualquer intervenção do usuário. Para ser notificado quando houver uma mitigação ativa para um IP público protegido, você pode [configurar um alerta](/azure/virtual-network/ddos-protection-manage-portal) na métrica ataque **DDoS ou não**. Você pode optar por criar alertas para as outras métricas de DDoS para entender a escala do ataque, o tráfego que está sendo descartado e outros detalhes.
+A Proteção contra DDoS do Azure Standard identificará e mitigará os ataques de DDoS sem qualquer intervenção do usuário. Para ser notificado quando houver uma mitigação ativa para um IP público protegido, você pode [configurar um alerta](/azure/virtual-network/ddos-protection-manage-portal) na métrica Sob ataque **DDoS ou não**. Você pode optar por criar alertas para as outras métricas de DDoS para entender a escala do ataque, o tráfego que está sendo descartado e outros detalhes.
 
 #### <a name="when-to-contact-microsoft-support"></a>Quanto entrar em contato com o Suporte da Microsoft
 

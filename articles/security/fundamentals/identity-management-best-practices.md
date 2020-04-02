@@ -3,7 +3,7 @@ title: Práticas recomendadas de segurança de identidade e acesso do Azure | Mi
 description: Este artigo fornece um conjunto de práticas recomendadas para gerenciamento de identidade e controle de acesso usando recursos internos do Azure.
 services: security
 documentationcenter: na
-author: barclayn
+author: terrylanfear
 manager: RKarlin
 editor: TomSh
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
-ms.author: barclayn
-ms.openlocfilehash: 52ef3a9b1df058d5d2e954b424094f9dbaeba15b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: terrylan
+ms.openlocfilehash: ffd9919092cdf2481767e58f10ba6525d56ca4a8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73053351"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548448"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Práticas recomendadas de Gerenciamento de Identidade do Azure e segurança de controle de acesso
 
@@ -269,7 +269,7 @@ Avalie as contas que são atribuídas ou qualificadas para a função de adminis
 **Práticas recomendadas**: Exigir que todas as contas de admin críticas sejam sem senha (preferidas) ou exijam autenticação multifatorial.
 **Detalhe**: Use o [aplicativo Microsoft Authenticator](/azure/active-directory/authentication/howto-authentication-phone-sign-in) para fazer login em qualquer conta Azure AD sem usar uma senha. Como [o Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), o Microsoft Authenticator usa autenticação baseada em chaves para permitir uma credencial de usuário vinculada a um dispositivo e usa autenticação biométrica ou pin.
 
-Exija a autenticação multifatorial do Azure no login para todos os usuários individuais que são permanentemente atribuídos a uma ou mais das funções de administração do Azure AD: Administrador Global, Administrador de Funções Privilegiadas, Administrador On-line da Exchange e SharePoint Online Administrador. [Habilite a autenticação multifatorial para suas contas de administração e certifique-se](/azure/active-directory/authentication/howto-mfa-userstates) de que os usuários da conta de administração tenham se registrado.
+Exija a autenticação multifatorial do Azure no login para todos os usuários individuais que são permanentemente atribuídos a uma ou mais das funções de administração do Azure AD: Administrador Global, Administrador de Funções Privilegiadas, Administrador On-line da Exchange e Administrador On-line do SharePoint. [Habilite a autenticação multifatorial para suas contas de administração e certifique-se](/azure/active-directory/authentication/howto-mfa-userstates) de que os usuários da conta de administração tenham se registrado.
 
 **Melhores práticas**: Para contas de admin críticas, tenha uma estação de trabalho de admin onde tarefas de produção não são permitidas (por exemplo, navegação e e-mail). Isso protegerá suas contas de admin contra vetores de ataque que usam navegação e e-mail e reduzirá significativamente o risco de um grande incidente.
 **Detalhe**: Use uma estação de trabalho de admin. Escolha um nível de segurança da estação de trabalho:

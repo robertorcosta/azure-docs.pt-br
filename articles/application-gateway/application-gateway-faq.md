@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 04/01/2020
 ms.author: victorh
-ms.openlocfilehash: 290467d5d20a74f8b8b2c23f6da0dcadfd74cc56
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: d9691a6fd5c320242b9677776cbd08be4f800921
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411022"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544500"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Application Gateway
 
@@ -112,7 +112,15 @@ A maioria das implantações que usam o V2 SKU leva cerca de 6 minutos para ser 
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Posso usar o Exchange Server como backend com o Application Gateway?
 
-Não. O Application Gateway não suporta protocolos de e-mail como SMTP, IMAP e POP3. 
+Não. O Application Gateway não suporta protocolos de e-mail como SMTP, IMAP e POP3.
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Existe alguma orientação para migrar do V1 SKU para o V2 SKU?
+
+Sim. Para obter detalhes, [migrate Azure Application Gateway e Web Application Firewall de v1 para v2](migrate-v1-v2.md).
+
+### <a name="will-the-application-gateway-v1-sku-continue-to-be-supported"></a>O Gateway de aplicativo v1 SKU continuará a ser suportado?
+
+Sim. O Application Gateway v1 SKU continuará a ser suportado. No entanto, é fortemente recomendável que você se mova para v2 para aproveitar as atualizações de recursos nesse SKU. Para obter mais informações, consulte [Autoscaling e Zone-redundant e Zone-redundant e Application Gateway v2](application-gateway-autoscaling-zone-redundant.md).
 
 ## <a name="performance"></a>Desempenho
 
@@ -203,10 +211,6 @@ Sim. Consulte [restringir o acesso a IPs de origem específicas](https://docs.mi
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Posso usar a mesma porta para ouvintes de frente para o público e para ouvintes privados?
 
 Não.
-
-### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Existe alguma orientação para migrar do V1 SKU para o V2 SKU?
-
-Sim. Para obter detalhes, [migrate Azure Application Gateway e Web Application Firewall de v1 para v2](migrate-v1-v2.md).
 
 ### <a name="does-application-gateway-support-ipv6"></a>O Gateway de aplicativo suporta IPv6?
 
@@ -329,10 +333,6 @@ Para obter mais informações, consulte [as vulnerabilidades top-10 do OWASP](ht
 ### <a name="does-waf-support-ddos-protection"></a>O WAF suporta proteção DDoS?
 
 Sim. Você pode ativar a proteção DDoS na rede virtual onde o gateway de aplicativo é implantado. Essa configuração garante que o serviço de proteção Azure DDoS também proteja o IP virtual (VIP) do gateway de aplicativo.
-
-### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Existe alguma orientação para migrar do V1 SKU para o V2 SKU?
-
-Sim. Para obter detalhes, [migrate Azure Application Gateway e Web Application Firewall de v1 para v2](migrate-v1-v2.md).
 
 ## <a name="configuration---ingress-controller-for-aks"></a>Configuração - controlador de entrada para AKS
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: f1fdb9dffbe06430ea7e3eb9339e23f5239e4e36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb78d84aa0f9a2832b6599edeac9d50e0e226437
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76310825"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546347"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrar para acesso baseado em função granular para configurações de cluster
 
@@ -131,8 +131,8 @@ Atualize para a [versão 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.
 
 Atualize para a [versão 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) ou posterior do HDInsight SDK para Java. Modificações mínimas de código podem ser necessárias se você estiver usando um método afetado por essas alterações:
 
-- [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get)**não retornará mais parâmetros sensíveis,** como chaves de armazenamento (core-site) ou credenciais HTTP (gateway).
-- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update)agora é preterido.
+- `ConfigurationsInner.get`**não retornará mais parâmetros sensíveis,** como chaves de armazenamento (core-site) ou credenciais HTTP (gateway).
+- `ConfigurationsInner.update`agora é preterido.
 
 ### <a name="sdk-for-go"></a>SDK para Ir
 
@@ -193,9 +193,9 @@ As configurações de cluster estão agora por trás `Microsoft.HDInsight/cluste
 
 ### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>Por que vejo "Privilégios insuficientes para concluir a operação" ao executar o comando Azure CLI para atribuir a função hdinsight cluster operator a outro usuário ou diretor de serviço?
 
-Além de ter a função Proprietário, o usuário ou o principal de serviço executando o comando precisa ter permissões AAD suficientes para procurar os IDs do objeto do cessionário. Esta mensagem indica permissões AAD insuficientes. Tente substituir `-–assignee` o `–assignee-object-id` argumento e forneça o ID do objeto do cessionário como parâmetro em vez do nome (ou o ID principal no caso de uma identidade gerenciada). Consulte a seção de parâmetros opcionais da [atribuição de função az criar documentação](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) para obter mais informações.
+Além de ter a função Proprietário, o usuário ou o principal de serviço executando o comando precisa ter permissões Ad suficientes do Azure para procurar os IDs do objeto do cessionário. Esta mensagem indica permissões Ad insuficientes do Azure. Tente substituir `-–assignee` o `–assignee-object-id` argumento e forneça o ID do objeto do cessionário como parâmetro em vez do nome (ou o ID principal no caso de uma identidade gerenciada). Consulte a seção de parâmetros opcionais da [atribuição de função az criar documentação](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) para obter mais informações.
 
-Se isso ainda não funcionar, entre em contato com o seu admin AAD para obter as permissões corretas.
+Se isso ainda não funcionar, entre em contato com o administrador do Azure AD para obter as permissões corretas.
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>O que acontecerá se eu não agir?
 

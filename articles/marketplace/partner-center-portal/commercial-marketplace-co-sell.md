@@ -7,26 +7,26 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: f290b08d1f625600d03c9540b28c289e9b449471
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: e73ba110128f6d4f0bea008840b06572d7aee140
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475167"
+ms.locfileid: "80517934"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opção de co-venda no Partner Center
 
-Fornecer informações sobre a guia Co-vender é totalmente opcional. É necessário para alcançar co-vender o status de Co-sell Ready e IP Co-sell Ready. As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua solução ao avaliar seu ajuste às necessidades do cliente. Não está disponível diretamente para os clientes. Para obter mais informações, consulte [vender através da Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft).
+Fornecer informações sobre a guia Co-vender é totalmente opcional. É necessário para alcançar co-vender o status de Co-sell Ready e IP Co-sell Ready. As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua solução ao avaliar seu ajuste às necessidades do cliente. Não está disponível diretamente para os clientes. Para obter mais informações, consulte [vender através da Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
 
 A opção de co-venda no Partner Center está atualmente disponível para alguns tipos de ofertas. O suporte para tipos adicionais de ofertas será disponibilizado ao longo do tempo.
 
 | **Tipo de Oferta** | **Página de co-venda disponível no Partner Center** |
 |    -----------------------    |    -----------------------------  |
-| Software como serviço (SaaS) |     Disponibilidade geral por volta de abril de 2020     |
+| Software como serviço (SaaS) |     Disponibilidade geral Abril 2020      |
 | Dinâmica 365 para engajamento do cliente & PowerApps      |     Disponível agora      |
 | Dynamics 365 for Operations     |     Disponível agora       |
-| Dynamics 365 Business Central      |  Disponibilidade geral por volta de abril de 2020    |
-| Aplicativo do Azure     |     Disponibilidade geral por volta de abril de 2020     |
+| Dynamics 365 Business Central      |  Disponibilidade geral Abril 2020     |
+| Aplicativo do Azure     |     Disponibilidade geral Abril 2020     |
 | Máquina Virtual do Azure      |     A ser anunciado       |
 | Contêiner Azure     |     A ser anunciado       |
 | Serviço de consultoria      |     A ser anunciado       |
@@ -66,8 +66,7 @@ Você pode fornecer garantias para a Microsoft usar para avaliar as necessidades
 
 | **Documentos**    | **Descrição**  |
 | :------------------- | :-------------------|
-| *Cliente de um pager* | Descrição pronta para o cliente de sua oferta. As equipes de vendas da Microsoft podem compartilhar essas informações com os clientes para ajudar a determinar se sua oferta pode ser uma boa opção e para garantir que ela esteja pronta para o cliente. <br> <br> Use um dos modelos relevantes disponíveis no Partner Center: <br> <ul> <li> Modelo de one-pager do Microsoft Azure </li> <li> Modelo de um pager da Microsoft Dynamics 365 </li> <li> Modelo de um pager do Office 365 </li> <li> Modelo de um pager do Windows 10 </li> </ul>
- |
+| *Cliente de um pager* | Descrição pronta para o cliente de sua oferta. As equipes de vendas da Microsoft podem compartilhar essas informações com os clientes para ajudar a determinar se sua oferta pode ser uma boa opção e para garantir que ela esteja pronta para o cliente. <br> <br> Use um dos modelos relevantes disponíveis no Partner Center: <br> <ul> <li> Modelo de one-pager do Microsoft Azure </li> <li> Modelo de um pager da Microsoft Dynamics 365 </li> <li> Modelo de um pager do Office 365 </li> <li> Modelo de um pager do Windows 10 </li> </ul> |
 | *Apresentação do cliente* | Deslize o deck para lançar sua solução e sua proposta de valor. Depois de garantir que sua oferta esteja pronta para o cliente, as equipes de vendas da Microsoft podem compartilhar a apresentação com os clientes para articular o valor que ambas as empresas trazem ao implantar uma solução conjunta. A apresentação deve cobrir o que sua solução faz, como ela pode ajudar os clientes, para quais indústrias a solução é e como ela se compara às soluções concorrentes. <br> <br> Use o modelo disponível no Partner Center.|
 | *Estudo de caso de cliente* | Essas informações mostram a um cliente em potencial como você e a Microsoft implantaram essa solução com sucesso em casos anteriores. <br> <br> Use o modelo disponível no Partner Center. |
 | *Cliente verificável ganha (opcional)* | Exemplos específicos de sucessos do cliente após a implantação da solução. |

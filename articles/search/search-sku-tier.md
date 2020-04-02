@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 35dbd064a09a96dae58e1b15a6d8889bda45ee0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: f103db1d0de7a9d538f56b8ade331dc856b26bce
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76899836"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547006"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um nível de preço para a Pesquisa Cognitiva do Azure
 
@@ -41,7 +41,9 @@ Os níveis são diferenciados por:
 
 O nível selecionado determina a taxa de faturamento. A captura de tela a seguir do portal Azure mostra os níveis disponíveis, menos preços (que você pode encontrar no portal e na [página de preços](https://azure.microsoft.com/pricing/details/search/). **Free**, **Basic**e **Standard** são os níveis mais comuns.
 
-**Free** cria um serviço de pesquisa limitado em um cluster, compartilhado com outros assinantes. Você pode concluir pequenos projetos, incluindo quickstarts e tutoriais, mas não pode dimensionar o serviço ou executar cargas de trabalho significativas. **Basic** e **Standard** são os níveis faturados mais usados, com o **Standard** sendo o padrão.
+**O Free** cria um serviço de pesquisa limitado para projetos menores, incluindo quickstarts e tutoriais. Internamente, réplicas e partições compartilhadas entre vários assinantes. Você não pode escalar um serviço gratuito ou executar cargas de trabalho significativas.
+
+**Basic** e **Standard** são os níveis faturados mais usados, com o **Standard** sendo o padrão. Com recursos dedicados sob seu controle, você pode implantar projetos maiores, otimizar o desempenho e definir a capacidade.
 
 ![Níveis de preços da Pesquisa Cognitiva do Azure](media/search-sku-tier/tiers.png "Níveis de preços da Pesquisa Cognitiva do Azure")
 
@@ -55,10 +57,10 @@ Você pode saber mais sobre os vários níveis na [página de preços,](https://
 
 Uma solução construída no Azure Cognitive Search pode incorrer em custos das seguintes maneiras:
 
-+ Custo base do serviço na configuração mínima (criar um serviço)
++ Custo fixo do serviço em si, rodando 24 horas por dia, 7 dias por semana, na configuração mínima (uma partição e réplica)
 + Custo incremental ao dimensionar (adicionar réplicas ou partições)
 + Taxas de largura de banda (transferência de dados de saída) 
-+ Pesquisa cognitiva (anexar Serviços Cognitivos para enriquecimento de IA, armazenamento Azure para armazenamento de conhecimento)
++ Pesquisa cognitiva (anexando serviços cognitivos para enriquecimento de IA, ou usando o armazenamento do Azure para armazenamento de conhecimento)
 
 ### <a name="service-costs"></a>Custos de serviço
 
@@ -106,13 +108,13 @@ A maioria dos clientes coloca apenas uma parte da capacidade total online, mante
 
 As seguintes sugestões podem ajudá-lo a manter os custos no mínimo:
 
-- Crie todos os recursos na mesma região, ou em o menor número possível de regiões, para minimizar ou eliminar as taxas de largura de banda.
++ Crie todos os recursos na mesma região, ou em o menor número possível de regiões, para minimizar ou eliminar as taxas de largura de banda.
 
-- Consolide todos os serviços em um único grupo de recursos, como a Pesquisa Cognitiva do Azure, serviços cognitivos e quaisquer outros serviços do Azure usados em sua solução. No portal Azure, encontre o grupo de recursos e use os comandos **de Gerenciamento de Custos** para obter informações sobre os gastos reais e projetados.
++ Consolide todos os serviços em um único grupo de recursos, como a Pesquisa Cognitiva do Azure, serviços cognitivos e quaisquer outros serviços do Azure usados em sua solução. No portal Azure, encontre o grupo de recursos e use os comandos **de Gerenciamento de Custos** para obter informações sobre os gastos reais e projetados.
 
-- Considere o Azure Web App para o seu aplicativo front-end para que as solicitações e respostas permaneçam dentro do limite do data center.
++ Considere o Azure Web App para o seu aplicativo front-end para que as solicitações e respostas permaneçam dentro do limite do data center.
 
-- Dimensione para operações com uso intensivo de recursos, como indexação, e depois reajuste para baixo para cargas de trabalho regulares de consulta. Comece com a configuração mínima para a Pesquisa Cognitiva do Azure (uma SU composta por uma partição e uma réplica) e, em seguida, monitore a atividade do usuário para identificar padrões de uso que indicariam a necessidade de mais capacidade. Se houver um padrão previsível, você pode ser capaz de sincronizar escala com atividade (você precisaria escrever código para automatizar isso).
++ Dimensione para operações com uso intensivo de recursos, como indexação, e depois reajuste para baixo para cargas de trabalho regulares de consulta. Comece com a configuração mínima para a Pesquisa Cognitiva do Azure (uma SU composta por uma partição e uma réplica) e, em seguida, monitore a atividade do usuário para identificar padrões de uso que indicariam a necessidade de mais capacidade. Se houver um padrão previsível, você pode ser capaz de sincronizar escala com atividade (você precisaria escrever código para automatizar isso).
 
 Além disso, visite [Billing e gerenciamento](https://docs.microsoft.com/azure/billing/billing-getting-started) de custos para ferramentas e recursos incorporados relacionados a gastos.
 
@@ -130,7 +132,6 @@ Na Pesquisa Cognitiva do Azure, a capacidade é estruturada como *réplicas* e *
 
 > [!NOTE]
 > Todos os níveis padrão e otimizado de armazenamento suportam [combinações flexíveis de réplicas e partições](search-capacity-planning.md#chart) para que você possa [otimizar seu sistema para velocidade ou armazenamento](search-performance-optimization.md) alterando o equilíbrio. O nível Basic oferece até três réplicas para alta disponibilidade, mas tem apenas uma partição. Os níveis gratuitos não fornecem recursos dedicados: os recursos de computação são compartilhados por vários assinantes.
-
 
 ### <a name="evaluating-capacity"></a>Avaliação da capacidade
 
@@ -152,7 +153,7 @@ Uma abordagem para calcular a capacidade é iniciar com a camada Livre. Lembre-s
 
 + [Crie um serviço gratuito.](search-create-service-portal.md)
 + Prepare um pequeno conjunto de dados representativo.
-+ [Construa um índice inicial no portal](search-create-index-portal.md) e observe seu tamanho. Recursos e atributos têm um impacto no armazenamento. Por exemplo, adicionar sugestionários (typeahead) aumentará os requisitos de armazenamento. Usando o mesmo conjunto de dados, você pode tentar criar várias versões de um índice, com atributos diferentes em cada campo, para ver como os requisitos de armazenamento variam. Para obter mais informações, consulte ["Implicações de armazenamento" em Criar um índice básico](search-what-is-an-index.md#index-size).
++ [Construa um índice inicial no portal](search-create-index-portal.md) e observe seu tamanho. Recursos e atributos têm um impacto no armazenamento. Por exemplo, adicionar sugestionários (consultas de pesquisa como você digita) aumentará os requisitos de armazenamento. Usando o mesmo conjunto de dados, você pode tentar criar várias versões de um índice, com atributos diferentes em cada campo, para ver como os requisitos de armazenamento variam. Para obter mais informações, consulte ["Implicações de armazenamento" em Criar um índice básico](search-what-is-an-index.md#index-size).
 
 Com uma estimativa aproximada em mãos, você pode dobrar esse valor para o orçamento de dois índices (desenvolvimento e produção) e, em seguida, escolher o seu nível de acordo.
 
@@ -196,7 +197,7 @@ Os recursos de nível livre e visualização não fornecem [SLAs (Service-level 
 
 + Permitir que as métricas sejam construídas em torno de consultas e coletar dados em torno de padrões de uso (consultas durante o horário comercial, indexação durante horários de pico). Use esses dados para informar as decisões de provisionamento de serviços. Embora não seja prático em uma cadência de hora em hora ou diária, você pode ajustar dinamicamente partições e recursos para acomodar mudanças planejadas nos volumes de consulta. Você também pode acomodar mudanças não planejadas, mas sustentadas se os níveis aguentarem tempo suficiente para justificar a tomada de ação.
 
-+ Lembre-se que a única desvantagem do subprovisionamento é que você pode ter que derrubar um serviço se os requisitos reais forem maiores do que suas previsões. Para evitar interrupções no serviço, você criaria um novo serviço em um nível mais alto e o executaria lado a lado até que todos os aplicativos e solicitações direcionassem o novo ponto final.
++ Lembre-se que a única desvantagem do provisionamento é que você pode ter que derrubar um serviço se os requisitos reais forem maiores do que suas previsões. Para evitar interrupções no serviço, você criaria um novo serviço em um nível mais alto e o executaria lado a lado até que todos os aplicativos e solicitações direcionassem o novo ponto final.
 
 ## <a name="next-steps"></a>Próximas etapas
 

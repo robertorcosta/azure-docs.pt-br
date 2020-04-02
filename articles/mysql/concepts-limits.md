@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: bc4694928eceed57692a0d4b0469543c1a8f9678
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/1/2020
+ms.openlocfilehash: 6ca09ab0578fb88e443d6e9e1f920c22457eb042
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79532749"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548479"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações no Banco de Dados do Azure para MySQL
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados. Consulte também as [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao mecanismo de banco de dados MySQL.
@@ -150,6 +150,10 @@ Revise a [documentação mysql](https://dev.mysql.com/doc/refman/5.7/en/server-s
 |Otimizado para memória|8|16777216|1024|536870912|
 |Otimizado para memória|16|16777216|1024|1073741824|
 |Otimizado para memória|32|16777216|1024|1073741824|
+
+### <a name="time_zone"></a>time_zone
+
+As tabelas de fuso horário `mysql.az_load_timezone` podem ser preenchidas chamando o procedimento armazenado de uma ferramenta como a linha de comando MySQL ou MySQL Workbench. Consulte os artigos do [portal Azure](howto-server-parameters.md#working-with-the-time-zone-parameter) ou [do Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) sobre como chamar o procedimento armazenado e definir os fusos horários globais ou em nível de sessão.
 
 ## <a name="storage-engine-support"></a>Suporte do mecanismo de armazenamento
 

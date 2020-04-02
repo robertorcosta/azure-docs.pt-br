@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: bc5824fcb62477d4e6dc6c2b7390b1bfa916094f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b4ec003888d75a582d25feef8ed2ce010fa7996
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77368048"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546245"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gerenciamento de autenticação de diretório ativo do Azure
 
@@ -101,7 +101,7 @@ Se a sua organização local não está com uma estratégia de resiliência de p
 
 ![fluxo de sincronização hash senha](./media/active-directory-ops-guide/active-directory-ops-img5.png)
 
-Para entender melhor suas opções de autenticação, consulte [Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+Para entender melhor suas opções de autenticação, consulte [Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/choose-ad-authn).
 
 ### <a name="programmatic-usage-of-credentials"></a>Uso programático de credenciais
 
@@ -115,7 +115,7 @@ A Microsoft também recomenda que você entre em contato com os proprietários d
 
 ### <a name="on-premises-authentication"></a>Autenticação no local
 
-Autenticação federada com autenticação integrada do Windows Authentication (IWA) ou SSO (Single Sign-On) sem emendas com sincronização de hash de senha ou autenticação de passagem é a melhor experiência do usuário quando dentro da rede corporativa com linha de visão para controladores de domínio no local. Ele minimiza a fadiga imediata da credencial e reduz o risco de os usuários serem vítimas de ataques de phishing. Se você já estiver usando autenticação gerenciada na nuvem com PHS ou PTA, mas os usuários ainda precisam digitar sua senha ao autenticar no local, então você deve implantar imediatamente [o SSO Sem Emendas](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso). Por outro lado, se você está atualmente federado com planos para eventualmente migrar para autenticação gerenciada em nuvem, então você deve implementar o SSO sem emendas como parte do projeto de migração.
+Autenticação federada com autenticação integrada do Windows Authentication (IWA) ou SSO (SSO) gerenciada com sincronização de hash de senha ou autenticação de passagem é a melhor experiência do usuário quando dentro da rede corporativa com controladores de domínio de linha de visão para controladores de domínio no local. Ele minimiza a fadiga imediata da credencial e reduz o risco de os usuários serem vítimas de ataques de phishing. Se você já estiver usando autenticação gerenciada na nuvem com PHS ou PTA, mas os usuários ainda precisam digitar sua senha ao autenticar no local, então você deve implantar imediatamente [o SSO Sem Emendas](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso). Por outro lado, se você está atualmente federado com planos para eventualmente migrar para autenticação gerenciada em nuvem, então você deve implementar o SSO sem emendas como parte do projeto de migração.
 
 ### <a name="device-trust-access-policies"></a>Políticas de acesso à confiança de dispositivos
 
@@ -230,11 +230,11 @@ Se você já possui licenças Azure AD Premium P2 que suportam o uso de risco em
 
 O Microsoft Intune Application Management (MAM) oferece a capacidade de empurrar controles de proteção de dados, como criptografia de armazenamento, PIN, limpeza de armazenamento remoto, etc. para aplicativos móveis compatíveis do cliente, como o Outlook Mobile. Além disso, políticas de acesso condicional podem ser criadas para [restringir o acesso](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) a serviços em nuvem, como o Exchange Online, de aplicativos aprovados ou compatíveis.
 
-Se seus funcionários instalarem aplicativos capazes de MAM, como aplicativos móveis do Office, para acessar recursos corporativos, como o Exchange Online ou o SharePoint Online, e você também suportar o BYOD (traga seu próprio dispositivo), recomendamos que você implante políticas de MAM de aplicativos para gerenciar a configuração do aplicativo em dispositivos de propriedade pessoal sem o registro de MDM e, em seguida, atualizar suas políticas de acesso condicional para permitir apenas o acesso de clientes capazes de MAM.
+Se seus funcionários instalarem aplicativos capazes de MAM, como aplicativos móveis do Office, para acessar recursos corporativos, como o Exchange Online ou o SharePoint Online, e você também suportar o BYOD (traga seu próprio dispositivo), recomendamos que você implante políticas mam para gerenciar a configuração do aplicativo em dispositivos de propriedade pessoal sem o registro de MDM e, em seguida, atualize suas políticas de acesso condicional para permitir apenas o acesso de clientes capazes de MAM.
 
 ![Controle de concessão de acesso condicional](./media/active-directory-ops-guide/active-directory-ops-img12.png)
 
-Se os funcionários instalarem aplicativos capazes de MAM contra recursos corporativos e o acesso for restrito em dispositivos Gerenciados intune, então você deve considerar a implantação de políticas mam de aplicativos para gerenciar a configuração de aplicativos para dispositivos pessoais e atualizar políticas de acesso condicional para permitir apenas o acesso de clientes capazes de MAM.
+Se os funcionários instalarem aplicativos capazes de MAM contra recursos corporativos e o acesso for restrito em dispositivos Gerenciados intune, então você deve considerar a implantação de políticas mam de aplicativos para gerenciar a configuração do aplicativo para dispositivos pessoais e atualizar políticas de acesso condicional para permitir apenas o acesso de clientes capazes de MAM.
 
 ### <a name="conditional-access-implementation"></a>Implementação do Acesso Condicional
 
@@ -329,7 +329,7 @@ Abaixo estão as configurações de usuário e grupo que podem ser bloqueadas se
 #### <a name="user-settings"></a>Configurações do usuário
 
 - **Usuários externos** - a colaboração externa pode acontecer organicamente na empresa com serviços como Teams, Power BI, Sharepoint Online e Azure Information Protection. Se você tiver restrições explícitas para controlar a colaboração externa iniciada pelo usuário, é recomendável que você habilite usuários externos usando [o gerenciamento de direitos AD do Azure](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) ou uma operação controlada, como através de sua help desk. Se você não quiser permitir colaboração externa orgânica para serviços, você pode [bloquear os membros de convidar usuários externos completamente](https://docs.microsoft.com/azure/active-directory/b2b/delegate-invitations). Alternativamente, você também pode [permitir ou bloquear domínios específicos](https://docs.microsoft.com/azure/active-directory/b2b/allow-deny-list) em convites de usuários externos.
-- **Registros de aplicativos** - quando os registros do Aplicativo são habilitados, os usuários finais podem embarcar nos próprios aplicativos e conceder acesso aos seus dados. Um exemplo típico de registro de aplicativos é os usuários que habilitam plug-ins do Outlook ou assistentes de voz, como Alexa e Siri, para ler seus e-mails e calendário ou enviar e-mails em seu nome. Se o cliente decidir desativar o registro do Aplicativo, as equipes infosec e IAM devem estar envolvidas no gerenciamento de exceções (registros de aplicativos que são necessários com base nos requisitos do negócio), pois eles precisariam registrar os aplicativos com uma conta de administração, e provavelmente requerem a concepção de um processo para operacionalizar o processo.
+- **Registros de aplicativos** - quando os registros do Aplicativo são habilitados, os usuários finais podem embarcar nos próprios aplicativos e conceder acesso aos seus dados. Um exemplo típico de registro de aplicativos é os usuários que habilitam plug-ins do Outlook ou assistentes de voz, como Alexa e Siri, para ler seus e-mails e calendário ou enviar e-mails em seu nome. Se o cliente decidir desativar o registro do Aplicativo, as equipes infosec e IAM devem estar envolvidas na gestão de exceções (registros de aplicativos que são necessários com base nos requisitos do negócio), pois eles precisariam registrar os aplicativos com uma conta de administrador, e provavelmente requerem o projeto de um processo para operacionalizar o processo.
 - **Portal de Administração** - as organizações podem bloquear a lâmina Azure AD no portal Azure para que os não-administradores não possam acessar o gerenciamento do Azure AD no portal Azure e ficar confusos. Vá às configurações do usuário no portal de gerenciamento do Azure AD para restringir o acesso:
 
 ![Portal de administração acesso restrito](./media/active-directory-ops-guide/active-directory-ops-img13.png)

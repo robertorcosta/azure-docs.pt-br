@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
-ms.openlocfilehash: f1846fae4cbf473df688a2b184c307d72ab2f8d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 746044aa835df52e61c234c8b5ca61164fffbbc5
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76721465"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545960"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de Tabelas do Azure com o Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -40,7 +40,7 @@ Os exemplos requerem módulos `Az.Storage (1.1.0 or greater)` Az `Az.Resources (
 Depois que o Azure PowerShell for instalado ou atualizado, você deve instalar o módulo **AzTable**, que tem os comandos para gerenciar as entidades. Para instalar esse módulo, execute o PowerShell como administrador e use o comando **Install-Module**.
 
 > [!IMPORTANT]
-> Por razões de compatibilidade com o nome do módulo, ainda estamos publicando este mesmo módulo o nome `AzureRmStorageTables` antigo na Galeria PowerShell. Este documento fará referência apenas ao novo nome.
+> Por razões de compatibilidade com o nome do módulo, ainda estamos publicando este mesmo módulo sob o nome `AzureRmStorageTables` antigo na Galeria PowerShell. Este documento fará referência apenas ao novo nome.
 
 ```powershell
 Install-Module AzTable
@@ -117,7 +117,7 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ## <a name="reference-cloudtable-property-of-a-specific-table"></a>Propriedade de Referência cloudtable de uma tabela específica
 
 > [!IMPORTANT]
-> O uso do CloudTable é obrigatório ao trabalhar com o módulo **AzTable** PowerShell. Ligue para o comando **Get-AzTableTable** para obter a referência a este objeto. Este comando também cria a tabela se ela ainda não existir.
+> O uso do CloudTable é obrigatório ao trabalhar com o módulo **AzTable** PowerShell. Ligue para o comando **Get-AzStorageTable** para obter a referência a este objeto. Este comando também cria a tabela se ela ainda não existir.
 
 Para executar operações em uma tabela usando **a AzTable,** você precisa de uma referência à propriedade CloudTable de uma tabela específica.
 
@@ -138,7 +138,7 @@ Remove-AzStorageTable –Name $tableName –Context $ctx
 Get-AzStorageTable –Context $Ctx | select Name
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você criou um novo grupo de recursos e uma conta de armazenamento no início destas instruções, remova todos os ativos criados neste exercício removendo o grupo de recursos. Esse comando exclui todos os recursos contidos no grupo, bem como o próprio grupo de recursos.
 

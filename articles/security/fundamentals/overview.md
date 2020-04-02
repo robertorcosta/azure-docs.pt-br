@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a1dbabafe32e013d526ed88a83e446ee765cdb7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3b738d95b5b777f1cf0329fb3c1bc3e2860421e
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76045871"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545963"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Visão geral
@@ -233,11 +233,11 @@ O [Gateway de Aplicativo](../../application-gateway/overview.md) do Microsoft Az
 
 ![Gateway de Aplicativo](./media/overview/azure-security-fig2.png)
 
-Ele permite que você otimize a produtividade do Web farm descarregando a terminação SSL com uso intensivo de CPU para o Gateway de Aplicativo (também conhecido como “descarregamento de SSL” ou “ponte SSL”). Ele também fornece outros recursos de roteamento de Camada 7, incluindo distribuição round robin do tráfego de entrada, afinidade de sessão, roteamento com base no caminho de URL e a capacidade de hospedar vários sites por trás de um único Gateway de Aplicativo baseado em cookie. O Gateway de Aplicativo do Azure é um balanceador de carga de camada 7.
+Ele permite otimizar a produtividade da fazenda web descarregando a terminação TLS intensiva da CPU para o Gateway de aplicativo (também conhecido como "Descarregamento TLS" ou "Ponte TLS"). Ele também fornece outros recursos de roteamento de Camada 7, incluindo distribuição round robin do tráfego de entrada, afinidade de sessão, roteamento com base no caminho de URL e a capacidade de hospedar vários sites por trás de um único Gateway de Aplicativo baseado em cookie. O Gateway de Aplicativo do Azure é um balanceador de carga de camada 7.
 
 Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local.
 
-O aplicativo fornece muitos recursos do ADC (Application Delivery Controller, controlador de entrega de aplicativos), incluindo balanceamento de carga HTTP, afinidade de sessão baseada em cookies, descarga [de SSL (Secure Sockets Layer, camada de soquetes seguros),](../../application-gateway/tutorial-restrict-web-traffic-powershell.md) testes de saúde personalizados, suporte para vários sites e muitos outros.
+O aplicativo fornece muitos recursos do ADC (Application Delivery Controller, controlador de entrega de aplicativos), incluindo balanceamento de carga HTTP, afinidade de sessão baseada em cookies, [descarregamento tls,](../../application-gateway/tutorial-restrict-web-traffic-powershell.md)testes de saúde personalizados, suporte para vários sites e muitos outros.
 
 ### <a name="web-application-firewall"></a>Firewall do Aplicativo Web
 O Firewall do aplicativo Web é um recurso do [Gateway de Aplicativo do Azure](../../application-gateway/overview.md) que fornece proteção para aplicativos Web que utilizam o gateway de aplicativo para as funções ADC (controle de entrega de aplicativos) padrão. O firewall do aplicativo Web faz isso protegendo-os contra a maioria das 10 vulnerabilidades mais comuns da Web segundo o OWASP.

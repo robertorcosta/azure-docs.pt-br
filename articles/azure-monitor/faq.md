@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2020
-ms.openlocfilehash: 777e4e1f8fdd05345d949fe8c78b4a5b1953b8b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 306d847c2bc5af72d37dbf8bf472a5bae63e9fd5
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298258"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528498"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Monitor do Azure perguntas frequentes
 
@@ -177,7 +177,7 @@ Especifique um grupo de [ação](platform/action-groups.md) existente ou novo pa
 
 
 ### <a name="what-are-the-firewall-requirements-for-azure-monitor-agents"></a>Quais são os requisitos de firewall para os agentes do Azure Monitor?
-Consulte [os requisitos de firewall da rede](platform/log-analytics-agent.md#network-firewall-requirements)para obter detalhes sobre os requisitos de firewall.
+Consulte [os requisitos de firewall da rede](platform/log-analytics-agent.md#firewall-requirements)para obter detalhes sobre os requisitos de firewall.
 
 
 ## <a name="visualizations"></a>Visualizações
@@ -501,7 +501,7 @@ A maioria dos dados do Application Insights tem uma latência inferior a cinco m
 
 Essas perguntas frequentes da Microsoft são uma lista de perguntas frequentes sobre o Azure Monitor para contêineres. Caso tenha outras dúvidas sobre a solução, acesse o [fórum de discussão](https://feedback.azure.com/forums/34192--general-feedback) e poste suas perguntas. Quando uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
 
-### <a name="what-does-other-processes-represent-under-the-node-view"></a>O que *outros processos* representam a exibição nó?
+### <a name="what-does-other-processes-represent-under-the-node-view"></a>O que *outros processos* representam sob a exibição nó?
 
 **Outros processos** visam ajudá-lo a entender claramente a causa raiz do alto uso de recursos em seu nó. Isso permite distinguir o uso entre processos containerizados versus processos não contêineres.
 

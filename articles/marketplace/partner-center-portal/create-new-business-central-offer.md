@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 9a167ac1cc9b9ca8cc8951f14f43ba4cf5d10551
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 908d0fb9d494ec048e6b254f91ec1faf56b47c90
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294423"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529410"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Crie uma nova oferta da Dynamics 365 Business Central
 
@@ -267,7 +267,7 @@ Obrigatório se sua oferta deve ser instalada juntamente com outra extensão que
 
 ### <a name="url-to-app-installation"></a>URL para instalação de aplicativos
 
-Se você selecionou **Conectar** acima, forneça a URL para a instalação do aplicativo aqui.
+Se você selecionou **Conectar** acima, forneça a URL para a instalação do aplicativo aqui. Para serviços conectados que não requerem instalação, forneça a URL para sua página de aterrissagem do serviço ou página de inscrição.
 
 ## <a name="test-drive-technical-configuration"></a>Configuração técnica do test drive
 
@@ -277,7 +277,7 @@ A página **test drive** permite configurar uma demonstração (ou "test drive")
 
 Os seguintes tipos de test drives estão disponíveis, cada um com seus próprios requisitos de configuração técnica.
 
-- [Gerente de Recursos do Azure](#technical-configuration-for-azure-resource-manager-test-drive)
+- [Azure Resource Manager](#technical-configuration-for-azure-resource-manager-test-drive)
 - [Dynamics 365](#technical-configuration-for-dynamics-365-test-drive)
 - [Aplicativo lógico](#technical-configuration-for-logic-app-test-drive)
 - [BI de](#technical-configuration-not-required-for-power-bi-test-drives) potência (configuração técnica não necessária)

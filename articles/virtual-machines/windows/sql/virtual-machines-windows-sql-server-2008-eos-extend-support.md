@@ -14,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6c27fa8f80140e6db92ea0f998852507260cc278
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: faaff9e9ad5982efac6409f2284158a3d0711331
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159533"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548400"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Estender o suporte para SQL Server 2008 e SQL Server 2008 R2 com o Azure
 
@@ -66,7 +66,7 @@ O [Serviço de Migração](/azure/dms/dms-overview) de Banco de Dados é uma op�
 
 As soluções de recuperação de desastres para o EOS SQL Server em uma VM Azure são as seguintes:
 
-- **Backups do SQL Server**: Use o Backup do Azure para ajudar a proteger o EOS SQL Server 2008 e o 2008 R2 contra ransomware, exclusão acidental e corrupção com RPO de 15 min e recuperação point-in-time. Para mais detalhes, consulte [este artigo](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support).
+- **Backups do SQL Server**: Use o Backup do Azure para ajudar a proteger o EOS SQL Server 2008 e o 2008 R2 contra ransomware, exclusão acidental e corrupção com RPO de 15 min e recuperação point-in-time. Para mais detalhes, consulte [este artigo](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support).
 - **Log de transporte**: Você pode criar uma réplica de log hipping em outra região ou região do Azure com restaurações contínuas para reduzir o RTO. Você precisa configurar manualmente o envio de log.
 - **Azure Site Recovery**: Você pode replicar sua VM entre zonas e regiões através da replicação do Azure Site Recovery. O SQL Server requer instantâneos consistentes com aplicativos para garantir a recuperação em caso de desastre. O Azure Site Recovery oferece um RPO mínimo de 1 hora e um RTO de 2 horas (mais o tempo de recuperação do SQL Server) para recuperação de desastres do EOS SQL Server.
 

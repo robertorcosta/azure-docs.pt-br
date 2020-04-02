@@ -9,26 +9,29 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 7abbdf03e85f425f65a45e6640b82529c2b9c84f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b95a3e32bc2b8df3d02453e42fa9bbc3719134b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77614063"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519110"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Criar uma Unidade Organizacional (OU) em um domínio gerenciado do Azure AD Domain Services
 
 As unidades organizacionais (OUs) no Active Directory Domain Services (AD DS) permitem que você agrupe logicamente objetos como contas de usuário, contas de serviço ou contas de computador. Em seguida, você pode atribuir administradores a OUs específicos e aplicar a diretiva de grupo para impor configurações de configuração direcionadas.
 
-Os domínios gerenciados do Azure AD DS incluem duas OUs incorporadas - *Computadores AADDC* e *Usuários AADDC*. O *AADDC Computers* OU contém objetos de computador para todos os computadores que estão unidos ao domínio gerenciado. O *Ou usuários do AADDC* inclui usuários e grupos sincronizados do inquilino Azure AD. À medida que você cria e executa cargas de trabalho que usam o Azure AD DS, você pode precisar criar contas de serviço para que os aplicativos se autentiquem. Para organizar essas contas de serviço, muitas vezes você cria um OU personalizado no domínio gerenciado pelo Azure AD DS e, em seguida, cria contas de serviço dentro desse OU.
+Os domínios gerenciados do Azure AD DS incluem os seguintes dois OUs incorporados:
+
+* *AADDC Computers* - contém objetos de computador para todos os computadores que estão unidos ao domínio gerenciado.
+* *AADDC Users* - inclui usuários e grupos sincronizados do inquilino Azure AD.
+
+À medida que você cria e executa cargas de trabalho que usam o Azure AD DS, você pode precisar criar contas de serviço para que os aplicativos se autentiquem. Para organizar essas contas de serviço, muitas vezes você cria um OU personalizado no domínio gerenciado pelo Azure AD DS e, em seguida, cria contas de serviço dentro desse OU.
 
 Em um ambiente híbrido, as OUs criadas em um ambiente AD DS no local não são sincronizadas com o Azure AD DS. Os domínios gerenciados do Azure AD DS usam uma estrutura OU plana. Todas as contas e grupos de usuários são armazenados no contêiner *Usuários AADDC,* apesar de serem sincronizados de diferentes domínios ou florestas locais, mesmo se você tiver configurado uma estrutura hierárquica de OU lá.
 
 Este artigo mostra como criar um OU no seu domínio gerenciado pelo Azure AD DS.
-
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -53,7 +56,7 @@ Quando você cria OUs personalizados em um domínio gerenciado pelo Azure AD DS,
     * Por padrão, o grupo *Administradores AAD DC* também tem controle total do OU personalizado.
 * Um OU padrão para *usuários AADDC* é criado que contém todas as contas de usuário sincronizadas do seu inquilino Azure AD.
     * Você não pode mover usuários ou grupos do OU usuários do *AADDC* para OUs personalizados que você cria. Apenas contas de usuário ou recursos criados no domínio gerenciado pelo Azure AD DS podem ser movidos para OUs personalizados.
-* Contas de usuário, grupos, contas de serviço e objetos de computador que você cria OUs personalizados não estão disponíveis no seu inquilino Azure AD.
+* Contas de usuário, grupos, contas de serviço e objetos de computador que você cria sob OUs personalizados não estão disponíveis no seu inquilino Azure AD.
     * Esses objetos não aparecem usando a API do Microsoft Graph ou na UI AD do Azure; eles só estão disponíveis no seu domínio gerenciado pelo Azure AD DS.
 
 ## <a name="create-a-custom-ou"></a>Criar um OU personalizado
@@ -68,19 +71,19 @@ Para criar um OU personalizado, você usa as Ferramentas Administrativas do Dire
 1. Para criar e gerenciar UUs, selecione **Centro Administrativo de Diretório Ativo** na lista de ferramentas administrativas.
 1. No painel esquerdo, escolha o domínio gerenciado do Azure AD DS, como *aaddscontoso.com*. Uma lista de UOs e recursos existentes é mostrada:
 
-    ![Selecione o domínio gerenciado do Azure AD DS no Centro Administrativo do Diretório Ativo](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
+    ![Selecione o domínio gerenciado do Azure AD DS no Centro Administrativo do Diretório Ativo](./media/create-ou/create-ou-adac-overview.png)
 
-1. O painel **Tarefas** é mostrado no lado direito do Centro Administrativo do Diretório Ativo. o domínio, como *aaddscontoso.com,* selecione **Nova > Unidade Organizacional**.
+1. O painel **Tarefas** é mostrado no lado direito do Centro Administrativo do Diretório Ativo. Sob o domínio, como *aaddscontoso.com,* selecione **Nova > Unidade Organizacional**.
 
-    ![Selecione a opção para criar um novo U no Centro Administrativo do Diretório Ativo](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
+    ![Selecione a opção para criar um novo U no Centro Administrativo do Diretório Ativo](./media/create-ou/create-ou-adac-new-ou.png)
 
 1. Na caixa de diálogo **Criar unidade organizacional,** especifique um **nome** para o novo OU, como *MyCustomOu*. Forneça uma breve descrição para o OU, como *ou personalizado para contas de serviço*. Se desejar, você também pode definir o campo **Gerenciado por** por ou. Para criar o OU personalizado, selecione **OK**.
 
-    ![Crie um U personalizado a partir do Centro Administrativo do Diretório Ativo](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
+    ![Crie um U personalizado a partir do Centro Administrativo do Diretório Ativo](./media/create-ou/create-ou-dialog.png)
 
 1. De volta ao Centro Administrativo do Diretório Ativo, o OU personalizado está agora listado e está disponível para uso:
 
-    ![UA personalizado disponível para uso no Centro Administrativo do Diretório Ativo](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
+    ![UA personalizado disponível para uso no Centro Administrativo do Diretório Ativo](./media/create-ou/create-ou-done.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

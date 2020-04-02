@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dff3be9a9bc7fd897f340e5fe6a4775a4914810
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea14e02920cf7ba6c5e0a7b415cb92137c915576
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65824951"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519699"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erro inesperado ao executar o consentimento para um aplicativo
 
@@ -33,8 +33,11 @@ Determinadas condições devem ser verdadeiras para que um usuário conceda as p
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Solicitação de erro de permissão não autorizada
 * O **AADSTS90093:** &lt;clientAppDisplayName&gt; está solicitando uma ou mais permissões que você não está autorizado a conceder. Contate um administrador que pode consentir pedido em seu nome.
+* **AADSTS90094:** &lt;clientAppDisplayName&gt; precisa de permissão para acessar recursos em sua organização que apenas um admin pode conceder. Peça ao administrador para conceder permissão para este aplicativo antes de usá-lo.
 
 Esse erro ocorre quando um usuário que não é um administrador de empresa tenta usar um aplicativo que está solicitando permissões, as quais somente um administrador pode conceder. Esse erro pode ser resolvido por um administrador concedendo acesso ao aplicativo em nome de sua organização.
+
+Esse erro também pode ocorrer quando um usuário é impedido de consentir com um aplicativo devido à Microsoft detectar que a solicitação de permissões é arriscada. Neste caso, um evento de auditoria também será registrado com uma categoria de "ApplicationManagement", tipo de atividade de "Consentimento para aplicação" e Razão de Status de "Aplicativo de risco detectado".
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Política impede concessão de permissões de erro
 * **AADSTS90093:** Um administrador do &lt;NomeExibiçãoLocatário&gt; definiu uma política que impede que você conceda ao &lt;nome do aplicativo&gt; as permissões solicitadas. Contate um administrador de &lt;Nome Exibiçãolocatário&gt; que pode conceder permissões para esse aplicativo em seu nome.

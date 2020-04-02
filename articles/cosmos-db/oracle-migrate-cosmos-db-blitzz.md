@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: fe132ee6ab90fdae99463f11ecf46f352690b810
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43d15a7252819a3e4f7635e37458b75e9b7ecca7
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69984349"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546280"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrar dados da Oracle para a conta API do Azure Cosmos DB Cassandra usando blitzz
 
@@ -36,7 +36,7 @@ A solução de migração da Blitzz segue uma abordagem passo a passo para migra
 
 * É tolerante a falhas e garante exatamente uma vez a entrega de dados mesmo durante uma falha de hardware ou software no sistema.
 
-* Ele protege os dados durante o trânsito usando uma variedade de metodologias de segurança, como SSL, criptografia.
+* Ele protege os dados durante o trânsito usando uma variedade de metodologias de segurança, como TLS/SSL, criptografia.
 
 * Oferece serviços para converter lógica de negócios complexa escrita em PL/SQL para lógica de negócios equivalente no Azure Cosmos DB.
 
@@ -44,7 +44,7 @@ A solução de migração da Blitzz segue uma abordagem passo a passo para migra
 
 Esta seção descreve as etapas necessárias para configurar o Blitzz e migra dados do banco de dados Oracle para o Azure Cosmos DB.
 
-1. A partir do computador onde você planeja instalar o replicante Blitzz, adicione um certificado de segurança. Este certificado é exigido pelo replicante Blitzz para estabelecer uma conexão SSL com a conta DB do Azure Cosmos especificada. Você pode adicionar o certificado com as seguintes etapas:
+1. A partir do computador onde você planeja instalar o replicante Blitzz, adicione um certificado de segurança. Este certificado é exigido pelo replicante Blitzz para estabelecer uma conexão TLS com a conta DB do Azure Cosmos especificada. Você pode adicionar o certificado com as seguintes etapas:
 
    ```bash
    wget https://cacert.omniroot.com/bc2025.crt

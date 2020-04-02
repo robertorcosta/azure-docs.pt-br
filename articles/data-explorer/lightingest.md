@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.openlocfilehash: 99517e45892cd7a6167ae83ff3058edae1377b10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 95d943685cf511acb88f9e48d36a9dd43b0a27d2
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80109557"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548012"
 ---
 # <a name="install-and-use-lightingest"></a>Instale e use o LightIngest
 
@@ -22,6 +22,9 @@ O utilitário pode extrair dados de origem de uma pasta local ou de um contêine
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * LightIngest - baixe-o como parte do [pacote Microsoft.Azure.Kusto.Tools NuGet](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Tools/)
+
+    ![Download mais iluminado](media/lightingest/lightingest-download-area.png)
+
 * WinRAR - [baixe-o](http://www.win-rar.com/download.html) de www.win-rar.com/download.html
 
 ## <a name="install-lightingest"></a>Instale o lightingest
@@ -44,16 +47,20 @@ O utilitário pode extrair dados de origem de uma pasta local ou de um contêine
     >
     >![Ajuda da linha de comando](media/lightingest/lightingest-cmd-line-help.png)
 
-1. Digite `LightIngest` seguido pela seqüência de conexões no cluster Azure Data Explorer que gerenciará a ingestão.
+1. Digite `ingest-` seguido pela seqüência de conexões no cluster Azure Data Explorer que gerenciará a ingestão.
     Ensine a seqüência de conexões em aspas duplas e siga a [especificação de strings de conexão Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto).
 
     Por exemplo: 
     ```
-    LightIngest "Data Source=https://{Cluster name and region}.kusto.windows.net;AAD Federated Security=True"  -db:{Database} -table:Trips -source:"https://{Account}.blob.core.windows.net/{ROOT_CONTAINER};{StorageAccountKey}" -pattern:"*.csv.gz" -format:csv -limit:2 -ignoreFirst:true -cr:10.0 -dontWait:true
+    ingest-{Cluster name and region}.kusto.windows.net;AAD Federated Security=True -db:{Database} -table:Trips -source:"https://{Account}.blob.core.windows.net/{ROOT_CONTAINER};{StorageAccountKey}" -pattern:"*.csv.gz" -format:csv -limit:2 -ignoreFirst:true -cr:10.0 -dontWait:true
     ```
 
-* O método recomendado `LightIngest` é trabalhar com o ponto `https://ingest-{yourClusterNameAndRegion}.kusto.windows.net`final da ingestão em . Desta forma, o serviço Azure Data Explorer pode gerenciar a carga de ingestão, e você pode facilmente se recuperar de erros transitórios. No entanto, você `LightIngest` também pode configurar para`https://{yourClusterNameAndRegion}.kusto.windows.net`trabalhar diretamente com o ponto final do motor ( ).
-* Para um ótimo desempenho de ingestão, é importante que o LightIngest saiba o tamanho dos dados brutos e assim `LightIngest` estimar o tamanho não compactado dos arquivos locais. No `LightIngest` entanto, pode não ser capaz de estimar corretamente o tamanho bruto de bolhas compactadas sem primeiro baixá-los. Portanto, ao ingerir bolhas compactadas, `rawSizeBytes` defina a propriedade nos metadados blob para tamanho de dados descompactado em bytes.
+* O método recomendado é que o LightIngest trabalhe com `https://ingest-{yourClusterNameAndRegion}.kusto.windows.net`o ponto final da ingestão em . Desta forma, o serviço Azure Data Explorer pode gerenciar a carga de ingestão, e você pode facilmente se recuperar de erros transitórios. No entanto, você também pode configurar o LightIngest`https://{yourClusterNameAndRegion}.kusto.windows.net`para trabalhar diretamente com o ponto final do motor ( ).
+
+> [!Note]
+> Se você ingerir diretamente com o ponto final do `ingest-`motor, você não precisa incluir , mas não haverá um recurso de DM para proteger o motor e melhorar a taxa de sucesso da ingestão.
+
+* Para um desempenho ideal de ingestão, é importante que o LightIngest saiba o tamanho dos dados brutos e, portanto, o LightIngest estimará o tamanho não compactado dos arquivos locais. No entanto, lightingest pode não ser capaz de estimar corretamente o tamanho bruto de bolhas compactadas sem primeiro baixá-los. Portanto, ao ingerir bolhas compactadas, `rawSizeBytes` defina a propriedade nos metadados blob para tamanho de dados descompactado em bytes.
 
 ## <a name="general-command-line-arguments"></a>Argumentos gerais de linha de comando
 
@@ -66,7 +73,7 @@ O utilitário pode extrair dados de origem de uma pasta local ou de um contêine
 |-prefixo               |             |string  |Opcional  |Quando os dados de origem para ingerir residem no armazenamento blob, este prefixo url é compartilhado por todos os blobs, excluindo o nome do contêiner. <br>Por exemplo, se os `MyContainer/Dir1/Dir2`dados estão dentro, então o prefixo deve ser `Dir1/Dir2`. Recomenda-se a fechamento em cotações duplas |
 |-padrão              |             |string  |Opcional  |Padrão pelo qual os arquivos/blobs de origem são escolhidos. Suporta curingas. Por exemplo, `"*.csv"`. Recomendado para fechar em aspas duplas |
 |-zipPattern           |             |string  |Opcional  |Expressão regular para usar ao selecionar quais arquivos em um arquivo ZIP para ingerir.<br>Todos os outros arquivos no arquivo serão ignorados. Por exemplo, `"*.csv"`. É recomendável cercá-lo em aspas duplas |
-|-formato               |-f           |string  |Opcional  |Formato de dados de origem. Deve ser um dos [formatos suportados](https://docs.microsoft.com/azure/kusto/management/data-ingestion/#supported-data-formats) |
+|-formato               |-f           |string  |Opcional  |Formato de dados de origem. Deve ser um dos [formatos suportados](https://docs.microsoft.com/azure/data-explorer/ingestion-supported-formats) |
 |-ingestionMappingPath |-mapeamentoPath |string  |Opcional  |Caminho para o arquivo de mapeamento de colunas de ingestão (obrigatório para formatos Json e Avro). Ver [mapeamentos de dados](https://docs.microsoft.com/azure/kusto/management/mappings) |
 |-ingestionMappingRef  |-mapeamentoRef  |string  |Opcional  |Nome de um mapeamento de coluna de ingestão pré-criado (obrigatório para formatos Json e Avro). Ver [mapeamentos de dados](https://docs.microsoft.com/azure/kusto/management/mappings) |
 |-criaçãoTimePattern  |             |string  |Opcional  |Quando definido, é usado para extrair a propriedade CreationTime do caminho do arquivo ou blob. Consulte [Usando o argumento CreationTimePattern](#using-creationtimepattern-argument) |
@@ -77,10 +84,16 @@ O utilitário pode extrair dados de origem de uma pasta local ou de um contêine
 ### <a name="using-creationtimepattern-argument"></a>Usando o argumento CreationTimePattern
 
 O `-creationTimePattern` argumento extrai a propriedade CreationTime do caminho do arquivo ou blob. O padrão não precisa refletir todo o caminho do item, apenas a seção que fecha o carimbo de data e hora que você deseja usar.
-O valor do argumento deve conter três seções:
+
+Os valores do argumento devem incluir:
 * Teste constante imediatamente precedendo o carimbo de data e hora, incluído em aspas únicas
 * O formato de carimbo de tempo, na notação padrão [.NET DateTime](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)
-* Texto constante imediatamente após o carimbo de data e hora Por exemplo, se os nomes blob terminarem com 'valores históricos19840101.parquet' (o carimbo de `-creationTimePattern` tempo é de quatro dígitos para o ano, dois dígitos para o mês e dois dígitos para o dia do mês), o valor correspondente para o argumento é 'valores históricos'yyyyMMdd'.parquet'.
+* Texto constante imediatamente após o carimbo de data e hora. Por exemplo, se os `historicalvalues19840101.parquet` nomes blob terminarem com (o carimbo de tempo é de quatro dígitos para o ano, `-creationTimePattern` dois dígitos para o mês e dois dígitos para o dia do mês), o valor correspondente para o argumento é:
+
+```
+ingest-{Cluster name and region}.kusto.windows.net;AAD Federated Security=True -db:{Database} -table:Trips -source:"https://{Account}.blob.core.windows.net/{ROOT_CONTAINER};{StorageAccountKey}" -creationTimePattern:"'historicalvalues'yyyyMMdd'.parquet'"
+ -pattern:"*.csv.gz" -format:csv -limit:2 -ignoreFirst:true -cr:10.0 -dontWait:true
+```
 
 ### <a name="command-line-arguments-for-advanced-scenarios"></a>Argumentos de linha de comando para cenários avançados
 
@@ -96,7 +109,7 @@ O valor do argumento deve conter três seções:
 |-devTracing           |-traço       |string  |Opcional  |Se definido, os registros de diagnóstico são gravados `RollingLogs` em um diretório local (por padrão, no diretório atual ou podem ser modificados definindo o valor do switch) |
 
 ## <a name="blob-metadata-properties"></a>Propriedades de metadados blob
-Quando usado com blobs `LightIngest` Azure, usará certas propriedades de metadados blob para aumentar o processo de ingestão.
+Quando usado com blobs Azure, o LightIngest usará certas propriedades de metadados blob para aumentar o processo de ingestão.
 
 |Propriedade de metadados                            | Uso                                                                           |
 |---------------------------------------------|---------------------------------------------------------------------------------|
@@ -169,7 +182,7 @@ LightIngest.exe "https://ingest-{ClusterAndRegion}.kusto.windows.net;Fed=True;In
 
 ### <a name="ingesting-all-blobs-in-a-container-not-including-header-rows"></a>Ingerindo todas as bolhas em um recipiente, sem incluir linhas de cabeçalho
 
-* Ingera todas as bolhas `ACCOUNT`a conta `DIR1/DIR2`de `CONT`armazenamento especificada, em pasta, em recipiente, e correspondendo ao padrão`*.csv.gz`
+* Ingera todas as bolhas sob `ACCOUNT`a conta `DIR1/DIR2`de `CONT`armazenamento especificada, em pasta, em recipiente, e correspondendo ao padrão`*.csv.gz`
 * Destino é `DB`banco `TABLE`de dados, tabela, e o mapeamento `MAPPING` de ingestão é pré-criado no destino
 * Blobs de origem contêm linha de cabeçalho, de modo que a ferramenta é instruída a soltar o primeiro registro de cada bolha
 * A ferramenta publicará os dados para ingestão e não esperará que as operações de ingestão sejam concluídas

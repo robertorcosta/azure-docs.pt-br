@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d37abd1b5d212c3d920cb68b6236029b2112ae24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113263"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549019"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Padrões de design para aplicações SaaS multilocatários e Pesquisa Cognitiva Do Azure
 Um aplicativo multilocatário é aquele que fornece os mesmos serviços e funcionalidades para qualquer número de locatários que não conseguem ver nem compartilhar os dados de qualquer outro locatário. Este documento discute estratégias de isolamento de inquilinos para aplicações multilocatários construídas com o Azure Cognitive Search.
@@ -51,7 +51,7 @@ No nível de preços S3 da Azure Cognitive Search, há uma opção para o modo d
 
 S3 HD permite que os muitos índices pequenos sejam empacotados no gerenciamento de um único serviço de pesquisa, negociando a capacidade de escalar horizontalmente índices usando partições para a capacidade de hospedar mais índices em um único serviço.
 
-Concretamente, um serviço S3 poderia ter entre 1 e 200 índices que juntos podem hospedar até 1,4 bilhão de documentos. Por outro lado, um S3 HD permitiria que índices individuais tenham apenas até 1 milhão de documentos, mas pode manipular até 1000 índices por partição (até 3000 por serviço) com uma contagem total do documento de 200 milhões por partição (até 600 milhões por serviço).
+Um serviço S3 foi projetado para hospedar um número fixo de índices (máximo de 200) e permitir que cada índice dimensione em tamanho horizontalmente à medida que novas partições são adicionadas ao serviço. Adicionar partições aos serviços S3 HD aumenta o número máximo de índices que o serviço pode hospedar. O tamanho máximo ideal para um índice S3HD individual é de cerca de 50 - 80 GB, embora não haja um limite de tamanho rígido em cada índice imposto pelo sistema.
 
 ## <a name="considerations-for-multitenant-applications"></a>Considerações para aplicativos multilocatários
 Aplicativos multilocatários devem distribuir efetivamente recursos entre locatários preservando algum nível de privacidade entre os vários locatários. Há algumas considerações ao criar a arquitetura para esse aplicativo:

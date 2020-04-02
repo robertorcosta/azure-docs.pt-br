@@ -1,15 +1,15 @@
 ---
 title: Configure o Blockchain Data Manager usando o portal Azure - Azure Blockchain Service
 description: Crie e gerencie o Blockchain Data Manager para o Azure Blockchain Service usando o portal Azure.
-ms.date: 11/04/2019
+ms.date: 03/30/2020
 ms.topic: article
-ms.reviewer: chroyal
-ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: ravastra
+ms.openlocfilehash: beacef0660a253c90afb507618e8a1742f0c9d2d
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273157"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529610"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurar o Gerenciador de Dados Blockchain usando o portal do Azure
 
@@ -22,7 +22,7 @@ Para configurar uma instância do Blockchain Data Manager, você:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Quickstart completo: Crie um membro blockchain usando o portal Azure](create-member.md) ou [Quickstart: Crie um membro blockchain do Azure Blockchain Service usando o Azure CLI](create-member-cli.md)
+* [Quickstart completo: Crie um membro blockchain usando o portal Azure](create-member.md) ou [Quickstart: Crie um membro blockchain do Azure Blockchain Service usando o Azure CLI](create-member-cli.md). O nível Padrão *de* Serviço blockchain do Azure é recomendado ao usar o Blockchain Data Manager.
 * Criar um [tópico da grade de eventos](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Aprenda sobre [Manipuladores de eventos na Grade de Eventos do Azure](../../event-grid/event-handlers.md)
 
@@ -32,7 +32,7 @@ Uma instância de Gerenciador de Dados do Blockchain conecta e monitora um nó d
 
 Uma conexão de saída envia os dados de blockchain para a Grade de Eventos do Azure. Você configura uma conexão de saída única quando cria a instância. O Gerenciador de Dados de Blockchain é compatível com várias conexões de saída aos Tópico da Grade de Eventos para qualquer instância especificada do Gerenciador de Dados de Blockchain. Você pode enviar dados de blockchain para um único destino ou para vários destinos. Para adicionar outro destino, basta adicionar conexões de saída adicionais à instância.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Vá para o membro do Azure Blockchain Service que deseja conectar-se ao Blockchain Data Manager. Selecione **Gerenciador de Dados do Blockchain**.
 1. Selecione **Adicionar**.
 

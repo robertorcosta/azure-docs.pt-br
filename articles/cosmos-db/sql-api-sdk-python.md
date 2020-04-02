@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 6bc636b751d12bdb576e54f26536ac0045839229
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 090446d286b38a0bfcbde4ed9e77235050b36417
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70137333"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547713"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Python do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "70137333"
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [Resto](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Executor a granel - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -84,7 +84,7 @@ ms.locfileid: "70137333"
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
 * Suporte adicionado para consultas de agregação (COUNT, MIN, MAX, SUM e AVG).
-* Adição de uma opção para desabilitar a verificação do SSL quando executada no Emulador do Cosmos DB.
+* Adicionada uma opção para desativar a verificação TLS ao executar contra o Cosmos DB Emulador.
 * Removida a restrição do módulo de solicitações dependentes para serem exatamente 2.10.0.
 * Taxa de transferência mínima reduzida em coleções particionadas de 10.100 RU/s a 2500 RU/s.
 * Adicionado suporte para habilitar o registro em log de script durante a execução do procedimento armazenado.

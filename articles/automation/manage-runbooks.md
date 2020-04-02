@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ad8c05b3347ed4741d574a5e6bcc1d928db08411
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad2a34691a00f217db6cf6835eefed18c8862d32
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366829"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547927"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerenciar runbooks na Automação do Azure
 
@@ -103,7 +103,7 @@ O procedimento para testar cada [tipo de livro de execução](automation-runbook
 1. Se o runbook tiver parâmetros, eles estão listados no painel esquerdo, onde você pode fornecer valores a serem usados para o teste.
 1. Se você quiser executar o teste em um [Trabalhador de runbook híbrido,](automation-hybrid-runbook-worker.md)altere **as configurações de execução** para **Hybrid Worker** e selecione o nome do grupo de destino.  Caso contrário, mantenha o padrão **Azure** para executar o teste na nuvem.
 1. Clique no botão **Iniciar** para iniciar o teste.
-1. Você pode usar os botões o painel Saída para parar ou suspender um [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) ou um runbook [gráfico](automation-runbook-types.md#graphical-runbooks) enquanto ele está sendo testado. Quando você suspende o runbook, ele conclui a atividade atual antes de ser suspenso. Após o runbook ser suspenso, você pode interrompê-lo ou reiniciá-lo.
+1. Você pode usar os botões sob o painel Saída para parar ou suspender um [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) ou um runbook [gráfico](automation-runbook-types.md#graphical-runbooks) enquanto ele está sendo testado. Quando você suspende o runbook, ele conclui a atividade atual antes de ser suspenso. Após o runbook ser suspenso, você pode interrompê-lo ou reiniciá-lo.
 1. Inspecione a saída do caderneta no painel Saída.
 
 ## <a name="publish-a-runbook"></a>Publicar um runbook
@@ -128,6 +128,19 @@ $RGName = "ResourceGroup"
 Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 -Name $runbookName -ResourceGroupName $RGName
 ```
+
+### <a name="schedule-a-runbook-in-the-azure-portal"></a>Agende um runbook no portal Azure
+
+Quando o seu livro de execução for publicado, você pode agendar para operação.
+
+1. Abra o runbook no portal do Azure.
+2. Selecione **Programações** em **Recursos**.
+3. Selecione **Adicionar um cronograma**.
+4. No painel Agendar runbook, selecione **Vincular um cronograma ao seu runbook**.
+5. Escolha **Criar um novo cronograma** no painel Agenda.
+6. Digite um nome, descrição e outros parâmetros no painel novo cronograma. 
+7. Uma vez que o cronograma é criado, destaque-o e clique em **OK**. Agora deve estar ligado ao seu manual.
+8. Procure um e-mail em sua caixa de correio para notificá-lo do status do runbook.
 
 ## <a name="next-steps"></a>Próximas etapas
 

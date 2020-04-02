@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: 40c279a4beee9fbebe2de7f272fe51d9039f071c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa2356901403c7a63aa4aa96dcb38f9c0c971e58
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668699"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528342"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Conecte computadores Linux ao Azure Monitor
 
@@ -22,7 +22,7 @@ O agente Log Analytics para Linux pode ser instalado usando um dos seguintes mé
 * [Baixe e instale manualmente](#install-the-agent-manually) o agente. Isso é necessário quando o computador Linux não tem acesso à Internet e estará se comunicando com o Azure Monitor ou a Azure Automation através do [gateway Log Analytics](gateway.md). 
 * [Instale o agente para Linux usando um script de invólucro](#install-the-agent-using-wrapper-script) hospedado no GitHub. Este é o método recomendado para instalar e atualizar o agente quando o computador tiver conectividade com a Internet, diretamente ou através de um servidor proxy.
 
-Para entender a configuração com suporte, revise [suporte para sistemas operacionais Linux](log-analytics-agent.md#supported-linux-operating-systems) e [configuração de firewall de rede](log-analytics-agent.md#network-firewall-requirements).
+Para entender a configuração com suporte, revise [suporte para sistemas operacionais Linux](log-analytics-agent.md#supported-linux-operating-systems) e [configuração de firewall de rede](log-analytics-agent.md#firewall-requirements).
 
 >[!NOTE]
 >O agente do Log Analytics para Linux não pode ser configurado para se reportar a mais de um espaço de trabalho do Log Analytics. Ele só pode ser configurado para reportar a um grupo de gerenciamento do System Center Operations Manager e ao espaço de trabalho log analytics simultaneamente, ou a qualquer um individual.
@@ -45,7 +45,7 @@ docker-cimprov | 1.0.0 | Provedor do Docker para OMI. Instalado somente se o Doc
 
 Depois de instalar o agente Log Analytics para pacotes Linux, são aplicadas as seguintes alterações adicionais de configuração em todo o sistema. Esses artefatos serão removidos quando o pacote omsagent for desinstalado.
 
-* Um usuário sem privilégios chamado: `omsagent` é criado. O daemon corre esta credencial. 
+* Um usuário sem privilégios chamado: `omsagent` é criado. O daemon corre sob esta credencial. 
 * Um sudoers *incluem* arquivo `/etc/sudoers.d/omsagent`é criado em . Isso autoriza `omsagent` a reinicialização dos daemons syslog e omsagent. Se sudo *incluir* diretivas não forem suportadas na versão instalada do sudo, essas entradas serão escritas para `/etc/sudoers`.
 * A configuração de syslog é modificada para encaminhar um subconjunto de eventos para o agente. Para obter mais informações, consulte [Configurar a coleta de dados do Syslog](data-sources-syslog.md).
 

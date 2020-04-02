@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 03/31/2020
 ms.author: b-juche
-ms.openlocfilehash: b2000c3fd3d64793f797e997d8f3c10eaed5d7aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ad9e13667791c38a8bf8be01919bcdbd0032102
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409568"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519601"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -74,6 +74,14 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 
     Consulte [Projetar a topologia do site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) sobre sites e serviços de anúncios. 
     
+* O Azure NetApp Files suporta os tipos de criptografia DES, Kerberos AES 128 e Kerberos AES 256 (do menos seguro ao mais seguro). As credenciais de usuário usadas para ingressar no Active Directory devem ter a opção de conta correspondente mais alta habilitada que corresponde aos recursos habilitados para o seu Diretório Ativo.   
+
+    Por exemplo, se o active Directory tiver apenas o recurso AES-128, você deve habilitar a opção de conta AES-128 para as credenciais do usuário. Se o active Directory tiver o recurso AES-256, você deve habilitar a opção de conta AES-256 (que também suporta AES-128). Se o seu Active Directory não tiver nenhum recurso de criptografia Kerberos, o Azure NetApp Files usará o DES por padrão.  
+
+    Você pode habilitar as opções de conta nas propriedades do console MMC do Active Directory Users and Computers:   
+
+    ![Usuários ativos de diretórios e computadores MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
+
 Consulte Azure NetApp Files [SMB FAQs](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) sobre informações adicionais de Anúncios. 
 
 ## <a name="decide-which-domain-services-to-use"></a>Decida quais serviços de domínio usar 

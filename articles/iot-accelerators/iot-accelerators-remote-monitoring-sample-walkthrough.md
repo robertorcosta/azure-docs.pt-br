@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 33005bc286f7dc2c0ebed74bd9df0309e71346f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f501eb55f72811063ddf1d8e02a0ce2137d598f3
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73824825"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546305"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Visão geral do acelerador de solução de Monitoramento Remoto
 
@@ -125,9 +125,6 @@ O [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) �
 ### <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
 O [Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) armazena a telemetria dos dispositivos conectada ao acelerador da solução. Ele também permite visualizar e consultar a telemetria do dispositivo na web de solução da interface do usuário.
-
-> [!NOTE]
-> Os Time Series Insights não estão disponíveis atualmente na nuvem do Azure China. As novas implantações do acelerador de solução de monitoramento remoto na nuvem do Azure China usam o Cosmos DB para todo o armazenamento.
 
 ### <a name="configuration-microservice"></a>Microsserviço de configuração
 

@@ -10,16 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: c6593a2746e628c89e20f6ef92a1430bd294e4fe
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: fb70600ad245968377cdebd23a7b531e552bb546
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80438301"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529313"
 ---
-# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configure o Azure Private Link para um espaço de trabalho de aprendizado de máquina do Azure
+# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configure o Azure Private Link para um espaço de trabalho de aprendizado de máquina do Azure (Preview)
 
-Neste documento, você aprende a usar o Azure Private Link com seu espaço de trabalho azure Machine Learning. O Azure Private Link permite que você se conecte ao seu espaço de trabalho usando um ponto final privado. O ponto final privado é um conjunto de endereços IP privados dentro de sua rede virtual. Em seguida, você pode limitar o acesso ao seu espaço de trabalho para ocorrer apenas sobre os endereços IP privados. O Private Link ajuda a reduzir o risco de exfiltração de dados. Para saber mais sobre os pontos finais privados, consulte o artigo [do Azure Private Link.](/azure/private-link/private-link-overview)
+Neste documento, você aprende a usar o Azure Private Link com seu espaço de trabalho azure Machine Learning. Esta capacidade está atualmente em pré-visualização, e está disponível nas regiões leste dos EUA, US West 2, US South Central. 
+
+O Azure Private Link permite que você se conecte ao seu espaço de trabalho usando um ponto final privado. O ponto final privado é um conjunto de endereços IP privados dentro de sua rede virtual. Em seguida, você pode limitar o acesso ao seu espaço de trabalho para ocorrer apenas sobre os endereços IP privados. O Private Link ajuda a reduzir o risco de exfiltração de dados. Para saber mais sobre os pontos finais privados, consulte o artigo [do Azure Private Link.](/azure/private-link/private-link-overview)
 
 > [!IMPORTANT]
 > O Azure Private Link não afeta o plano de controle do Azure (operações de gerenciamento), como a exclusão do espaço de trabalho ou o gerenciamento de recursos computacionais. Por exemplo, criar, atualizar ou excluir um alvo de computação. Essas operações são realizadas pela Internet pública normalmente.

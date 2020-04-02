@@ -1,5 +1,5 @@
 ---
-title: Exibir as latências relativas a regiões do Azure de localidades específicas | Microsoft Docs
+title: Ver latências relativas para regiões do Azure a partir de locais específicos
 description: Saiba como exibir as latências relativas entre provedores de Internet para regiões do Azure de localidades específicas.
 services: network-watcher
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: c3a85de3a201a89d6d9500e4f4b2df9e667e3537
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39f81731f20566d1a39f3f0931ff52c4e8b43ec0
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840529"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521389"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Exibir a latência relativa a regiões do Azure de localidades específicas
 
 > [!WARNING]
 > Este recurso está atualmente em pré-visualização e ainda está sendo testado para estabilidade.
 
-Neste tutorial, saiba como usar o [Observador de Rede](network-watcher-monitoring-overview.md) do Azure para ajudar você a decidir em qual região do Azure implantar seu aplicativo ou serviço, com base nos dados demográficos de seus usuários. Além disso, você pode usar isso para ajudar a avaliar as conexões dos provedores de serviços do Azure.  
+Neste tutorial, saiba como usar o [Observador de Rede](network-watcher-monitoring-overview.md) do Azure para ajudar você a decidir em qual região do Azure implantar seu aplicativo ou serviço, com base nos dados demográficos de seus usuários. Além disso, você pode usá-lo para ajudar a avaliar as conexões dos provedores de serviços ao Azure.  
         
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -45,7 +45,7 @@ New-AzNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatch
 
 ## <a name="compare-relative-network-latencies-to-a-single-azure-region-from-a-specific-location"></a>Comparar as latências de rede relativas a uma única região do Azure de um local específico
 
-Avalie os provedores de serviços, ou solucione um problema informado por um usuário, como "o site estava lento", em um local específico para a região do Azure na qual um serviço foi implantado. Por exemplo, o comando a seguir retorna as latências médias relativas do provedor de serviços de Internet entre o estado de Washington, nos Estados Unidos, e a região Oeste dos EUA 2 do Azure entre 13 a 15 de dezembro de 2017:
+Avalie os provedores de serviços ou soluciona um usuário que reporte um problema como "o site foi lento", de um local específico para a região azul onde um serviço é implantado. Por exemplo, o comando a seguir retorna as latências médias relativas do provedor de serviços de Internet entre o estado de Washington, nos Estados Unidos, e a região Oeste dos EUA 2 do Azure entre 13 a 15 de dezembro de 2017:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityReport `

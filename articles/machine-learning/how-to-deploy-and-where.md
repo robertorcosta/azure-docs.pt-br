@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 0deace98c5be0b2ce2f29abce4c8a804145afdb1
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: f6bab532b872a0974993f708edcb252d8bb54432
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475613"
+ms.locfileid: "80529701"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -1167,6 +1167,11 @@ def run(request):
 > ```shell
 > pip install azureml-contrib-services
 > ```
+
+
+> [!WARNING]
+> O Azure Machine Learning irá encaminhar apenas solicitações DE POST e GET para os contêineres que executam o serviço de pontuação. Isso pode causar erros devido aos navegadores que usam solicitações OPTIONS para solicitações cors pré-vôo.
+> 
 
 ## <a name="next-steps"></a>Próximas etapas
 

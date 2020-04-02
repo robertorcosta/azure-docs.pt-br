@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 3b7d221c2afc952f40da035c6e2c282b3b932aa5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a20b7d91a927d48a14812110ca714491cd726071
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69616753"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548772"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Dicas de desempenho para o Azure Cosmos DB e Java
 
@@ -38,7 +38,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
       O modo Gateway é compatível com todas as plataformas SDK e é o padrão configurado.  Se seu aplicativo for executado em uma rede corporativa com restrições de firewall rígidas, o Gateway será a melhor opção, já que ele usa a porta HTTPS padrão e um único ponto de extremidade. Porém, a compensação do desempenho é que o Modo gateway envolve um salto de rede adicional sempre que os dados são lidos ou gravados no Azure Cosmos DB. Por isso, o Modo DirectHttps oferece um melhor desempenho devido a menos saltos de rede. 
 
-      O SDK do Java usa HTTPS como um protocolo de transporte. O HTTPS usa SSL para a autenticação inicial e criptografar o tráfego. Ao usar o SDK do Java, apenas a porta 443 HTTPS precisa ser aberta. 
+      O SDK do Java usa HTTPS como um protocolo de transporte. O HTTPS usa O TLS para autenticação inicial e tráfego criptografado. Ao usar o SDK do Java, apenas a porta 443 HTTPS precisa ser aberta. 
 
       O ConnectionMode é configurado durante a construção da instância do DocumentClient com o parâmetro ConnectionPolicy. 
 

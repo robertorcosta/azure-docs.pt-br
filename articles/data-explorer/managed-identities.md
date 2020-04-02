@@ -7,29 +7,29 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: f9592f5d2666684e0cf5eef687b1e69cfb55066c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 900bf815917a4b7c9841860d663a2183b1ab71b3
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065555"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529667"
 ---
 # <a name="configure-managed-identities-for-your-azure-data-explorer-cluster"></a>Configure identidades gerenciadas para o cluster Azure Data Explorer
 
 Uma [identidade gerenciada do Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) permite que seu cluster acesse facilmente outros recursos protegidos por AAD, como o Azure Key Vault. A identidade é gerenciada pela plataforma Azure e não exige que você provisão ou gire quaisquer segredos. Este artigo mostra como criar uma identidade gerenciada para clusters do Azure Data Explorer. A configuração de identidade gerenciada é suportada atualmente apenas para [habilitar chaves gerenciadas pelo cliente para o cluster](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault).
 
 > [!Note]
-> As identidades gerenciadas do Azure Data Explorer não se comportarão como esperado se seu aplicativo for migrado entre assinaturas ou inquilinos. O aplicativo precisará obter uma nova identidade, o que pode ser feito [desativando](#remove-a-system-assigned-identity) e [reativando](#add-a-system-assigned-identity) o recurso. As políticas de acesso aos recursos a jusante também precisarão ser atualizadas para usar a nova identidade.
+> As identidades gerenciadas do Azure Data Explorer não se comportarão como esperado se o cluster Do Azure Data Explorer for migrado entre assinaturas ou inquilinos. O aplicativo precisará obter uma nova identidade, o que pode ser feito [desativando](#disable-a-system-assigned-identity) e [reativando](#add-a-system-assigned-identity) o recurso. As políticas de acesso aos recursos a jusante também precisarão ser atualizadas para usar a nova identidade.
 
 ## <a name="add-a-system-assigned-identity"></a>Adicionar uma identidade atribuída ao sistema
                                                                                                     
 Atribuir uma identidade atribuída ao sistema que está vinculada ao seu cluster e é excluído se o cluster for excluído. Um cluster só pode ter uma identidade atribuída ao sistema. Criar um cluster com uma identidade atribuída ao sistema requer que uma propriedade adicional seja definida no cluster. A identidade atribuída ao sistema é adicionada usando C#, modelos ARM ou o portal Azure conforme detalhado abaixo.
 
-# <a name="azure-portal"></a>[Portal Azure](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 ### <a name="add-a-system-assigned-identity-using-the-azure-portal"></a>Adicione uma identidade atribuída ao sistema usando o portal Azure
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 #### <a name="new-azure-data-explorer-cluster"></a>Novo cluster Azure Data Explorer
 
@@ -56,7 +56,7 @@ Atribuir uma identidade atribuída ao sistema que está vinculada ao seu cluster
 
     ![Identidade atribuída ao sistema em](media/managed-identities/system-assigned-identity-on.png)
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 ### <a name="add-a-system-assigned-identity-using-c"></a>Adicionar uma identidade atribuída ao sistema usando C #
 
@@ -164,15 +164,15 @@ Quando o cluster é criado, ele tem as seguintes propriedades adicionais:
 
 ---
 
-## <a name="remove-a-system-assigned-identity"></a>Remova uma identidade atribuída ao sistema
+## <a name="disable-a-system-assigned-identity"></a>Desativar uma identidade atribuída ao sistema
 
 A remoção de uma identidade atribuída ao sistema também irá excluí-la do AAD. As identidades atribuídas ao sistema também são automaticamente removidas do AAD quando o recurso de cluster é excluído. Uma identidade atribuída ao sistema pode ser removida desativando o recurso.  A identidade atribuída ao sistema é removida usando c#, modelos ARM ou o portal Azure conforme detalhado abaixo.
 
-# <a name="azure-portal"></a>[Portal Azure](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
-### <a name="remove-a-system-assigned-identity-using-the-azure-portal"></a>Remova uma identidade atribuída ao sistema usando o portal Azure
+### <a name="disable-a-system-assigned-identity-using-the-azure-portal"></a>Desativar uma identidade atribuída ao sistema usando o portal Azure
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Selecione **Configurações** > **Identidade** no painel esquerdo do portal.
 1. Na guia **'Sistema** > painel de **identidade' atribuído:**
     1. Mova o controle deslizante **de status** para **desligado**.
@@ -181,7 +181,7 @@ A remoção de uma identidade atribuída ao sistema também irá excluí-la do A
 
     ![Sistema atribuído identidade off](media/managed-identities/system-assigned-identity.png)
 
-# <a name="c"></a>[C #](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 ### <a name="remove-a-system-assigned-identity-using-c"></a>Remova uma identidade atribuída ao sistema usando C #
 

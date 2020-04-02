@@ -8,17 +8,17 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: a242da8cc98a21248c48a1b3981fa713706028ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4cef49f138b96848b8e59cb5b2d0b185d4568aa9
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064953"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520990"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autuar um aplicativo com o Azure Active Directory para acessar os recursos do Event Hubs
 O Microsoft Azure fornece gerenciamento de controle de acesso integrado para recursos e aplicativos com base no Azure Active Directory (Azure AD). Uma vantagem fundamental de usar o Azure AD com o Azure Event Hubs é que você não precisa mais armazenar suas credenciais no código. Em vez disso, você pode solicitar um token de acesso OAuth 2.0 da plataforma Microsoft Identity. O nome do recurso para `https://eventhubs.azure.net/` solicitar um token é (Para clientes Kafka, o recurso para solicitar um token é `https://<namespace>.servicebus.windows.net`). O Azure AD autentica o principal de segurança (um usuário, grupo ou diretor de serviço) executando o aplicativo. Se a autenticação for bem-sucedida, o Azure AD retorna um token de acesso ao aplicativo e, em seguida, o aplicativo poderá usar o token de acesso para autorizar a solicitação aos recursos do Azure Event Hubs.
 
-Quando uma função é atribuída a um diretor de segurança do Azure AD, o Azure concede acesso a esses recursos para esse principal de segurança. O acesso pode ser escopo para o nível de assinatura, o grupo de recursos, o namespace do Event Hubs ou qualquer recurso ele. Uma segurança Azure AD pode atribuir funções a um usuário, um grupo, um diretor de serviço de aplicativo ou uma [identidade gerenciada para os recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md). 
+Quando uma função é atribuída a um diretor de segurança do Azure AD, o Azure concede acesso a esses recursos para esse principal de segurança. O acesso pode ser escopo para o nível de assinatura, o grupo de recursos, o namespace do Event Hubs ou qualquer recurso sob ele. Uma segurança Azure AD pode atribuir funções a um usuário, um grupo, um diretor de serviço de aplicativo ou uma [identidade gerenciada para os recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 
 > [!NOTE]
 > Uma definição de função é uma coleção de permissões. O RBAC (Role-based Access Control Control, controle baseado em função) controla como essas permissões são aplicadas por meio da atribuição de papéis. Uma atribuição de função consiste em três elementos: entidade de segurança, definição de função e escopo. Para obter mais informações, consulte [Entendendo os diferentes papéis.](../role-based-access-control/overview.md)
@@ -39,7 +39,7 @@ Para saber mais sobre como gerenciar o acesso aos recursos do Azure usando o RBA
 Depois de determinar o escopo apropriado para uma atribuição de função, navegue até esse recurso no portal Azure. Exiba as configurações de controle de acesso (IAM) para o recurso e siga estas instruções para gerenciar as atribuições da função:
 
 > [!NOTE]
-> As etapas descritas abaixo atribuem uma função ao seu hub de eventos os namespaces do Event Hubs, mas você pode seguir as mesmas etapas para atribuir uma função escopo a qualquer recurso do Event Hubs.
+> As etapas descritas abaixo atribuem uma função ao seu hub de eventos sob os namespaces do Event Hubs, mas você pode seguir as mesmas etapas para atribuir uma função escopo a qualquer recurso do Event Hubs.
 
 1. No [portal Azure,](https://portal.azure.com/)navegue até o namespace do Event Hubs.
 2. Na **página Visão geral,** selecione o centro de eventos para o qual você deseja atribuir uma função.
@@ -106,7 +106,7 @@ Para obter uma lista de cenários para os quais a aquisição de tokens é supor
 ## <a name="samples"></a>Exemplos
 - [Amostras do Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    Essas amostras usam a antiga biblioteca **Microsoft.Azure.EventHubs,** mas você pode atualizá-la facilmente para usar a biblioteca mais recente **do Azure.Messaging.EventHubs.** Para mover a amostra do uso da biblioteca antiga para uma nova, consulte o [Guia para migrar do Microsoft.Azure.EventHubs para o Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+    Essas amostras usam a antiga biblioteca **Microsoft.Azure.EventHubs,** mas você pode atualizá-la facilmente para usar a biblioteca mais recente **do Azure.Messaging.EventHubs.** Para mover a amostra do uso da biblioteca antiga para uma nova, consulte o [Guia para migrar do Microsoft.Azure.EventHubs para o Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [Azure.Messaging.EventHubs amostras](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     Esta amostra foi atualizada para usar a biblioteca Mais recente **do Azure.Messaging.EventHubs.**

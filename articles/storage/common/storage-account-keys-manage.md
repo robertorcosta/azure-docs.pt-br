@@ -6,14 +6,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/18/2019
+ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: 13adf6de420b54299d04a226dab81e75cbb9fef2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4e91aa59168deb18375bf86ae77f655ca3dab47
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75975778"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521291"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gerenciar chaves de acesso à conta de armazenamento
 
@@ -52,6 +52,8 @@ Siga este processo para girar as chaves da conta de armazenamento:
 
 > [!NOTE]
 > A Microsoft recomenda usar apenas uma das chaves em todos os aplicativos ao mesmo tempo. Se você usar a Chave 1 em alguns lugares e a Chave 2 em outros, nãos será possível alternar as chaves sem que algum aplicativo perca o acesso.
+
+Para girar as chaves de acesso de uma conta, o usuário deve ser um administrador de serviçoou deve ser atribuído a uma função RBAC que inclua o **Microsoft.Storage/storageAccounts/regeneratekey/action**. Algumas funções de RBAC incorporadas que incluem essa ação são as funções de função de serviço do operador de usuário **proprietário,** **contribuinte**e **de conta de armazenamento.** Para obter mais informações sobre a função administrador de serviços, consulte [funções clássicas de administrador de assinatura, funções Do Azure RBAC e Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md). Para obter informações detalhadas sobre funções RBAC incorporadas para armazenamento Azure, consulte a seção **Armazenamento** em [funções incorporadas do Azure para o Azure RBAC](../../role-based-access-control/built-in-roles.md#storage).
 
 ## <a name="next-steps"></a>Próximas etapas
 

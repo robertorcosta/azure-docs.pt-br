@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 3ded20f37a394e6adf726ad40c01aa36d41e4e8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e155758d19b45d977fcd087bff0ceb85898f8f8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299338"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548295"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Práticas recomendadas do Azure para segurança de rede
 Este artigo discute uma coleção de práticas recomendadas do Azure para melhorar a segurança da sua rede. Essas práticas recomendadas derivam da nossa experiência de rede do Azure e da experiência de clientes como você.
@@ -153,12 +153,12 @@ Essa distribuição de tráfego aumenta a disponibilidade porque, se um dos serv
 - Aceita apenas uma conexão segura, portanto, a comunicação não criptografada com o servidor não é uma opção aceitável.
 - Exige que várias solicitações HTTP na mesma conexão TCP de longa duração sejam roteadas ou carregadas com balanceamento para diferentes servidores de back-end.
 
-**Opção de balanceamento de carga**: use o [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction), um balanceador de carga de tráfego da Web HTTP. O Application Gateway suporta criptografia SSL de ponta a ponta e [terminação SSL](/azure/application-gateway/application-gateway-introduction) no gateway. Os servidores da Web podem então ser aliviados da sobrecarga de criptografia e descriptografia e do fluxo de tráfego não criptografado para os servidores de back-end.
+**Opção de balanceamento de carga**: use o [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction), um balanceador de carga de tráfego da Web HTTP. O Application Gateway suporta criptografia TLS de ponta a ponta e [terminação TLS](/azure/application-gateway/application-gateway-introduction) no gateway. Os servidores da Web podem então ser aliviados da sobrecarga de criptografia e descriptografia e do fluxo de tráfego não criptografado para os servidores de back-end.
 
 **Cenário**: você precisa carregar as conexões de entrada da Internet entre seus servidores localizados em uma rede virtual do Azure. Os cenários são quando você:
 
 - Tiver aplicativos sem monitoração de estado que aceitam solicitações de entrada da internet.
-- Não exija sessões pegajosas ou descarga ssl. As sessões temporárias é um método usado com balanceamento de carga do aplicativo, para alcançar a afinidade do servidor.
+- Não exija sessões pegajosas ou descarregamento do TLS. As sessões temporárias é um método usado com balanceamento de carga do aplicativo, para alcançar a afinidade do servidor.
 
 **Opção de balanceamento de carga**: use o portal do Azure para[ criar um balanceador de carga externo](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) que distribua solicitações de entrada em várias VMs para fornecer um nível mais alto de disponibilidade.
 

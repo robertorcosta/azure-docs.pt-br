@@ -4,12 +4,12 @@ description: Neste artigo, saiba como criar cofres de Serviços de Recuperação
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: e722996f516d21445d8e0028df925ca44eb02bfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38f23ee458845b92c04af47307a2411b26c8ac81
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295008"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529393"
 ---
 # <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -90,6 +90,7 @@ Para este processo, há implicações de preços como está no nível de armazen
 >- Revise a matriz de [suporte](backup-support-matrix.md#cross-region-restore) para uma lista de tipos e regiões gerenciados suportados.
 >- O recurso Derdrestore (Cross Region Restore, na região) está disponível atualmente apenas nas seguintes regiões: 
 >    - Centro-Oeste dos EUA
+>    - Oeste dos EUA
 >    - Oeste dos EUA 2
 >    - Centro-Sul dos Estados Unidos
 >    - Leste dos EUA
@@ -101,11 +102,14 @@ Para este processo, há implicações de preços como está no nível de armazen
 >    - Sudeste da Austrália
 >    - Índia Central
 >    - Sul da Índia
+>    - Oeste da Índia
 >    - Leste do Japão
 >    - Oeste do Japão
 >    - Sudeste Asiático
 >    - Sul do Reino Unido
 >    - Oeste do Reino Unido
+>    - Europa Ocidental
+>    - Norte da Europa
 >    - França Central
 >    - Coreia Central
 >    - Sul da Coreia

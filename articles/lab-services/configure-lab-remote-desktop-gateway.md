@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 88daecdf4490ffd4eef45e6cd664a16f86bad113
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2cdafa9a36a5f906151ca6946e18ef82bc7f1e01
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76170292"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529414"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configure seu laboratório no Azure DevTest Labs para usar um gateway de desktop remoto
 No Azure DevTest Labs, você pode configurar um gateway de desktop remoto para o seu laboratório para garantir acesso seguro às máquinas virtuais de laboratório (VMs) sem ter que expor a porta RDP. O laboratório fornece um lugar central para os usuários do laboratório visualizarem e se conectarem a todas as máquinas virtuais a que tenham acesso. O botão **Conectar** na página **Máquina Virtual** cria um arquivo RDP específico da máquina que você pode abrir para se conectar à máquina. Você pode personalizar e proteger ainda mais a conexão RDP conectando seu laboratório a um gateway de desktop remoto. 
@@ -43,7 +43,7 @@ Essa abordagem é mais segura porque o usuário de laboratório autentica direta
 Para trabalhar com o recurso de autenticação de token do DevTest Labs, existem alguns requisitos de configuração para as máquinas de gateway, serviços de nome de domínio (DNS) e funções.
 
 ### <a name="requirements-for-remote-desktop-gateway-machines"></a>Requisitos para máquinas de gateway de desktop remotas
-- O certificado SSL deve ser instalado na máquina de gateway para lidar com o tráfego HTTPS. O certificado deve corresponder ao nome de domínio totalmente qualificado (FQDN) do balanceador de carga para a fazenda gateway ou o FQDN da própria máquina se houver apenas uma máquina. Certificados SSL curinga não funcionam.  
+- O certificado TLS/SSL deve ser instalado na máquina de gateway para lidar com o tráfego HTTPS. O certificado deve corresponder ao nome de domínio totalmente qualificado (FQDN) do balanceador de carga para a fazenda gateway ou o FQDN da própria máquina se houver apenas uma máquina. Os certificados TLS/SSL de curinga não funcionam.  
 - Um certificado de assinatura instalado em máquinas gateway(s). Crie um certificado de assinatura usando o script [Create-SigningCertificate.ps1.](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1)
 - Instale o módulo [de autenticação plugável](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) que suporta autenticação de token para o gateway de desktop remoto. Um exemplo desse módulo `RDGatewayFedAuth.msi` é o que vem com [imagens VMM (System Center Virtual Machine Manager).](/system-center/vmm/install-console?view=sc-vmm-1807) Para obter mais informações sobre o System Center, consulte [a documentação](https://docs.microsoft.com/system-center/) do System Center e [os detalhes dos preços](https://www.microsoft.com/cloud-platform/system-center-pricing).  
 - O servidor gateway pode `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`lidar com solicitações feitas para .
@@ -58,7 +58,7 @@ A função Azure lida `https://{function-app-uri}/app/host/{lab-machine-name}/po
 
 ## <a name="requirements-for-network"></a>Requisitos para rede
 
-- O DNS para o FQDN associado ao certificado SSL instalado nas máquinas gateway deve direcionar o tráfego para a máquina gateway ou para o balanceador de carga da fazenda de máquinas gateway.
+- O DNS para o FQDN associado ao certificado TLS/SSL instalado nas máquinas gateway deve direcionar o tráfego para a máquina gateway ou para o balanceador de carga da fazenda de máquinas gateway.
 - Se a máquina de laboratório usa IPs privados, deve haver um caminho de rede da máquina de gateway para a máquina de laboratório, seja através do compartilhamento da mesma rede virtual ou usando redes virtuais peered.
 
 ## <a name="configure-the-lab-to-use-token-authentication"></a>Configure o laboratório para usar a autenticação de tokens 
@@ -74,12 +74,12 @@ az resource show --name {lab-name} --resource-type 'Microsoft.DevTestLab/labs' -
 
 Configure o laboratório para usar a autenticação do token usando estas etapas:
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 1. Na lista de laboratórios, selecione seu **laboratório.**
 1. Na página do laboratório, selecione **Configuração e políticas**.
 1. No menu à esquerda, na seção **Configurações,** selecione **Configurações de Laboratório**.
-1. Na seção **de desktop remota,** digite o nome de domínio totalmente qualificado (FQDN) ou endereço IP da máquina de gateway de serviços de desktop remoto ou fazenda para o campo **hostname do Gateway.** Este valor deve corresponder ao FQDN do certificado SSL usado em máquinas gateway.
+1. Na seção **de desktop remota,** digite o nome de domínio totalmente qualificado (FQDN) ou endereço IP da máquina de gateway de serviços de desktop remoto ou fazenda para o campo **hostname do Gateway.** Esse valor deve corresponder ao FQDN do certificado TLS/SSL usado em máquinas de gateway.
 
     ![Opções de desktop remotas em configurações de laboratório](./media/configure-lab-remote-desktop-gateway/remote-desktop-options-in-lab-settings.png)
 1. Na seção **de desktop remota,** para o segredo **do gateway token,** digite o nome do segredo criado anteriormente. Este valor não é a chave de função em si, mas o nome do segredo no cofre chave do laboratório que detém a chave de função.
@@ -110,7 +110,7 @@ O [repositório Azure DevTest Labs GitHub](https://github.com/Azure/azure-devtes
 Siga essas etapas para configurar uma solução de exemplo para a fazenda de gateway de desktop remota.
 
 1. Crie um certificado de assinatura.  Executar [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1). Salve a impressão digital, a senha e a codificação Base64 do certificado criado.
-2. Obter um certificado SSL. O FQDN associado ao certificado SSL deve ser para o domínio que você controla. Salve a impressão digital, a senha e a codificação Base64 para este certificado. Para obter impressão digital usando o PowerShell, use os seguintes comandos.
+2. Obtenha um certificado TLS/SSL. O FQDN associado ao certificado TLS/SSL deve ser para o domínio que você controla. Salve a impressão digital, a senha e a codificação Base64 para este certificado. Para obter impressão digital usando o PowerShell, use os seguintes comandos.
 
     ```powershell
     $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate;
@@ -132,9 +132,9 @@ Siga essas etapas para configurar uma solução de exemplo para a fazenda de gat
     - instanceCount – Número de máquinas de gateway para criar.  
     - alwaysOn – Indica se deve manter o aplicativo Azure Functions criado em um estado quente ou não. Manter o aplicativo Azure Functions evitará atrasos quando os usuários tentarem se conectar pela primeira vez ao seu vm de laboratório, mas isso tem implicações de custos.  
     - tokenLifetime – O tempo que o token criado será válido. O formato é HH:MM:SS.
-    - sslCertificate – A codificação Base64 do certificado SSL para a máquina gateway.
-    - sslCertificatePassword – A senha do certificado SSL para a máquina gateway.
-    - sslCertificateThumbprint - A impressão digital do certificado para identificação na loja de certificados locais do certificado SSL.
+    - sslCertificate – A codificação Base64 do certificado TLS/SSL para a máquina gateway.
+    - sslCertificatePassword – A senha do certificado TLS/SSL para a máquina gateway.
+    - sslCertificateThumbprint - A impressão digital do certificado para identificação na loja de certificados locais do certificado TLS/SSL.
     - signCertificate – A codificação Base64 para assinatura de certificado para a máquina gateway.
     - signCertificatePassword – A senha para assinar certificado para a máquina gateway.
     - signCertificateThumbprint - A impressão digital do certificado para identificação na loja de certificados local do certificado de assinatura.
@@ -157,7 +157,7 @@ Siga essas etapas para configurar uma solução de exemplo para a fazenda de gat
         - A data {utc-expir-date} é a data, na UTC, na qual o token SAS expirará e o token SAS não poderá mais ser usado para acessar a conta de armazenamento.
 
     Registre os valores de gatewayFQDN e gatewayIP a partir da saída de implantação do modelo. Você também precisará salvar o valor da chave de função para a função recém-criada, que pode ser encontrada na guia Configurações do [aplicativo Função.](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
-5. Configure o DNS para que o FQDN do Cert SSL direcione para endereço IP do gatewayIP da etapa anterior.
+5. Configure o DNS para que o FQDN do Cert TLS/SSL direcione para endereço IP do gatewayIP da etapa anterior.
 
     Depois que a fazenda Remote Desktop Gateway é criada e atualizações apropriadas de DNS são feitas, ela está pronta para ser usada por um laboratório no DevTest Labs. As configurações secretas **hostname** e **gateway token** devem ser configuradas para usar as máquinas de gateway implantadas. 
 

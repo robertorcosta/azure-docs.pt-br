@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f62be94c901b383e34608508baa87ea37c893af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa0a5bfe921687ad964e9321e3874de37ccf9b98
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79283596"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549306"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Crie e execute pipelines de aprendizado de máquina com o Azure Machine Learning SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Os pipelines ML que você cria são visíveis para os membros do seu espaço de 
 
 Os gasodutos ML usam metas de computação remota para computação e o armazenamento dos dados intermediários e finais associados a esse pipeline. Eles podem ler e gravar dados para e a partir de locais de [armazenamento Azure](https://docs.microsoft.com/azure/storage/) suportados.
 
-Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -118,7 +118,7 @@ output_data1 = PipelineData(
 
 Se você tiver dados tabulares armazenados em um arquivo ou conjunto de `DataReference`arquivos, um [Conjunto TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) é uma alternativa eficiente a a . `TabularDataset`objetos suportam versões, difusores e estatísticas de resumo. `TabularDataset`s são avaliados preguiçosamente (como geradores Python) e é eficiente subdefini-los dividindo ou filtrando. A `FileDataset` classe fornece dados preguiçosas semelhantes representando um ou mais arquivos. 
 
-Você cria `TabularDataset` um uso de métodos como [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-).
+Você cria `TabularDataset` um uso de métodos como [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
 
 ```python
 from azureml.data import TabularDataset
@@ -389,7 +389,7 @@ Quando você executar um pipeline pela primeira vez, o Azure Machine Learning:
 * Baixa a imagem docker para cada passo para o destino de computação do registro de contêiner.
 * Monta o datastore `DataReference` se um objeto for especificado em uma etapa. Se não houver suporte para montagem, os dados serão copiados para o destino de computação.
 * Executa a etapa no destino de computação especificado na definição da etapa. 
-* Cria artefatos como logs, stdout e stderr, métricas e saída especificados pela etapa. Esses artefatos então são carregados e mantidos no armazenamento de dados padrão do usuário.
+* Cria artefatos como logs, stdout e stderr, métricas e saída especificados pela etapa. Esses artefatos são então carregados e mantidos no armazenamento de dados padrão do usuário.
 
 ![Diagrama de execução de um experimento como um pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 

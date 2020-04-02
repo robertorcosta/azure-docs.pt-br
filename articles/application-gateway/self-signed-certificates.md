@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 0447e87fd8685188af8008995ba938092f2b87fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0547f254a64cecc7072ee9ff79eb50204b34bc17
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80293605"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548858"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Gerar um certificado auto-assinado do Azure Application Gateway com um CA raiz personalizado
 
@@ -262,12 +262,13 @@ Add-AzApplicationGatewayRequestRoutingRule `
 
 Set-AzApplicationGateway -ApplicationGateway $gw 
 ```
+
 ### <a name="verify-the-application-gateway-backend-health"></a>Verifique o gateway de entrada de aplicativo backend health
 
 1. Clique na exibição **Backend Health** do gateway do aplicativo para verificar se a sonda está saudável.
-1.    Você deve ver que o Status é **saudável** para o teste HTTPS.
+1. Você deve ver que o Status é **saudável** para o teste HTTPS.
 
-    ![Sonda HTTPS](media/self-signed-certificates/https-probe.png)
+![Sonda HTTPS](media/self-signed-certificates/https-probe.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

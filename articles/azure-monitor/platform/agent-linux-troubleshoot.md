@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 24aa3462aef4f719e93d17389ff342084f6c7864
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2343de97d06abdefed2c2977a7341aa411429319
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668750"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520734"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Como solucionar problemas com o agente do Log Analytics para Linux 
 
@@ -76,7 +76,7 @@ Se nenhuma dessas etapas funcionar para você, os seguintes canais de suporte ta
 | --- | --- |
 | 2 | Opção inválida fornecida ao script omsadmin. Executar `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` para uso. |
 | 3 | Configuração inválida fornecida ao script omsadmin. Executar `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` para uso. |
-| 4 | Proxy inválido fornecido ao script omsadmin. Verifique o proxy e consulte nossa [documentação para usar um proxy HTTP ](log-analytics-agent.md#network-firewall-requirements). |
+| 4 | Proxy inválido fornecido ao script omsadmin. Verifique o proxy e consulte nossa [documentação para usar um proxy HTTP ](log-analytics-agent.md#firewall-requirements). |
 | 5 | 403 erro HTTP recebido do Azure Monitor. Ver a saída completa do script omsadmin para obter detalhes. |
 | 6 | Erro HTTP não-200 recebido do Azure Monitor. Ver a saída completa do script omsadmin para obter detalhes. |
 | 7 | Não é possível conectar-se ao Monitor Azure. Ver a saída completa do script omsadmin para obter detalhes. |
@@ -157,15 +157,8 @@ Abaixo do plug-in de saída, remova o comentário da seção a seguir removendo 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
 2. Examine a seção [Atualizar as configurações de proxy](agent-manage.md#update-proxy-settings) para verificar se você configurou corretamente o agente para se comunicar por meio de um servidor proxy.    
-* Verifique duas vezes se os pontos finais do Azure Monitor a seguir estão listados na lista branca:
 
-    |Recurso de agente| Portas | Direção |
-    |------|---------|----------|  
-    |*.ods.opinsights.azure.com | Porta 443| Entrada e saída |  
-    |*.oms.opinsights.azure.com | Porta 443| Entrada e saída |  
-    |*.blob.core.windows.net | Porta 443| Entrada e saída |  
-
-    Se você planeja usar o Azure Automation Hybrid Runbook Worker para se conectar e se registrar no serviço de Automação para usar runbooks ou soluções de gerenciamento em seu ambiente, ele deve ter acesso ao número da porta e às URLs descritas no [Configure sua rede para o Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+3. Verifique duas vezes se os pontos finais descritos na lista de [requisitos](log-analytics-agent.md#firewall-requirements) de firewall da rede do Azure Monitor são adicionados a uma lista de desbloqueios corretamente. Se você usar o Azure Automation, as etapas de configuração de rede necessárias também estarão vinculadas acima.
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problema: você recebe um erro 403 quando tentar integrar
 

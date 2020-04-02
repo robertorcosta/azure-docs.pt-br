@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: dcf9a278bfc0ede844f8eb59e3a256e40a47c57d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 904f93aa705a4e327f29bbec109bdf3b937f6c70
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282419"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519478"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Serviço de Importação/Exportação do Microsoft Azure: perguntas frequentes
 
@@ -99,15 +99,17 @@ Envie apenas os discos rígidos no pacote de remessa. Não inclua itens como cab
 > [!NOTE]
 > Os data centers na Índia exigem uma carta de declaração em seu papel timbrado (entrega challan) para devolver as unidades. Para organizar o passe de entrada necessário, você também deve reservar a retirada com sua operadora selecionada e compartilhar os detalhes com o datacenter.
 
-### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>Há alguma restrição ao enviar minha unidade internacionalmente?
+### <a name="are-there-any-restrictions-with-shipping-and-returning-my-drive-internationally"></a>Há alguma restrição com o transporte e o retorno da minha unidade internacionalmente?
 
 Observe que a mídia física que está enviando talvez precise cruzar fronteiras internacionais. Você é responsável por garantir que seus dados e mídia física sejam importados e/ou exportados de acordo com as leis aplicáveis. Antes de enviar a mídia física, verifique com seus consultores se a mídia e os dados podem ser enviados legalmente ao data center identificado. Isso ajudará a garantir que eles cheguem à Microsoft pontualmente.
+
+Depois que o upload é concluído, o processo de retorno da unidade para um endereço internacional pode levar mais tempo do que os 2-3 dias típicos necessários para o transporte local. Durante a etapa listada no portal Azure como Embalagem, a equipe da Data Box está garantindo que a documentação correta seja fornecida para garantir que o embarque esteja em conformidade com os diversos requisitos internacionais de importação e exportação.
 
 ### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Existem requisitos especiais para entregar meus discos em um data center?
 
 Os requisitos dependem das restrições específicas do datacenter do Azure.
 
-- Existem alguns sites que exigem que um número de ID de entrada do data center da Microsoft seja escrito na parcela por razões de segurança. Antes de enviar suas unidades ou discos para o data center, entre em contato com o Azure DataBox Operations ()adbops@microsoft.compara obter esse número. Sem esse número, o pacote será rejeitado.
+- Existem alguns sites, como Austrália, Alemanha e Reino Unido do Sul, que exigem que um número de ID de entrada do data center da Microsoft seja escrito na parcela por razões de segurança. Antes de enviar suas unidades ou discos para o data center, entre em contato com o Azure DataBox Operations ()adbops@microsoft.compara obter esse número. Sem esse número, o pacote será rejeitado.
 - Os data centers na Índia exigem os dados pessoais do motorista, como o Cartão de Identificação do Governo ou a Prova Nº. (por exemplo, PAN, AADHAR, DL), nome, contato e o número da placa do carro para obter um passe de entrada do portão. Para evitar atrasos na entrega, informe sua operadora sobre esses requisitos.
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>Ao criar um trabalho, o endereço para entrega é um local diferente do local da minha conta de armazenamento. O que devo fazer?

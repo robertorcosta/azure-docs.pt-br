@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 894ec4e543f0c68cc652141d2c1578cda61d7f42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c1f0bb715b3c3bf9b3a3350ab11e26834aa84c8
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594729"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528651"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para continuidade dos negócios e recuperação de desastres no Serviço de Kubernetes do Azure (AKS)
 
@@ -59,7 +59,7 @@ Para obter informações sobre como configurar pontos finais e roteamento, consu
 
 ### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Roteamento do aplicativo de camada 7 com o serviço da porta frontal do Azure
 
-O Gerenciador de Tráfego usa DNS (camada 3) para moldar o tráfego. [O Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) fornece uma opção de roteamento HTTP/HTTPS (camada 7). Os recursos adicionais do Azure Front Door Service incluem terminação SSL, domínio personalizado, firewall de aplicativos web, regravação de URL e afinidade de sessão. Examine as necessidades de seu tráfego de aplicativo para entender qual é a solução mais adequada.
+O Gerenciador de Tráfego usa DNS (camada 3) para moldar o tráfego. [O Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) fornece uma opção de roteamento HTTP/HTTPS (camada 7). Os recursos adicionais do Azure Front Door Service incluem terminação TLS, domínio personalizado, firewall de aplicativos web, regravação de URL e afinidade de sessão. Examine as necessidades de seu tráfego de aplicativo para entender qual é a solução mais adequada.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Interconectar regiões com peering de rede virtual global
 
@@ -122,7 +122,7 @@ A estratégia típica é fornecer um ponto de armazenamento comum onde os aplica
 Se você usar discos gerenciados do Azure, poderá escolher soluções de replicação e DR como estas:
 
 * [Velero no Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Recuperação do site do Azure](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
+* [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
 
 ### <a name="application-based-asynchronous-replication"></a>Replicação assíncrona baseada em aplicativo
 

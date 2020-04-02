@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 3/11/2020
-ms.openlocfilehash: 8a72d3dc7f7b3fddf66df8111b1e92116a62883a
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 00b9da150569db2972289468b1405e5087ee3321
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474017"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549150"
 ---
 # <a name="azure-sql-database-serverless"></a>Banco de dados Azure SQL sem servidor
 
@@ -151,7 +151,7 @@ A latência para autoresume e autopause um banco de dados sem servidor é geralm
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>Criptografia de dados transparente gerenciada pelo cliente (BYOK)
 
-Se o uso da [criptografia de dados transparente gerenciada pelo cliente](transparent-data-encryption-byok-azure-sql.md) (BYOK) e o banco de dados sem servidor for pausado automaticamente quando ocorrer a exclusão ou revogação da chave, o banco de dados permanece no estado de pausa automática.  Neste caso, quando o banco de dados for retomado, o banco de dados permanece on-line até que seu status transite para inacessível após aproximadamente 10 minutos ou menos.  Uma vez que o banco de dados se torna inacessível, o processo de recuperação é o mesmo que para bancos de dados de computação provisionados.  Se o banco de dados sem servidor estiver on-line quando ocorrer a exclusão ou revogação da chave, o banco de dados também se tornará inacessível após aproximadamente 10 minutos ou menos da mesma forma que com bancos de dados de computação provisionados.
+Se o uso da [criptografia de dados transparente gerenciada pelo cliente](transparent-data-encryption-byok-azure-sql.md) (BYOK) e o banco de dados sem servidor for pausado automaticamente quando ocorrer a exclusão ou revogação da chave, o banco de dados permanece no estado de pausa automática.  Neste caso, após a próxima retomada do banco de dados, o banco de dados fica inacessível em aproximadamente 10 minutos.  Uma vez que o banco de dados se torna inacessível, o processo de recuperação é o mesmo que para bancos de dados de computação provisionados.  Se o banco de dados sem servidor estiver on-line quando ocorrer a exclusão ou revogação da chave, o banco de dados também se tornará inacessível após aproximadamente 10 minutos ou menos da mesma forma que com bancos de dados de computação provisionados.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Onboarding em nível de computação sem servidor
 

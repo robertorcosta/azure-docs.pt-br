@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 03/10/2020
-ms.openlocfilehash: 9999d74bf6bef3e8351460add7efc8bdbfcd1045
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa85e80f1a90191a0a34a6962437c27a9d57ef65
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270024"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547545"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Crie, revise e implante modelos automatizados de aprendizado de máquina com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -178,17 +178,27 @@ O aprendizado automatizado de máquina oferece pré-processamento e guardrails d
 
 ### <a name="data-guardrails"></a>Guardrails de dados
 
-Os guardrails de dados são aplicados automaticamente para ajudá-lo a identificar possíveis problemas com seus dados (por exemplo, valores ausentes, desequilíbrio de classe) e ajudar a tomar ações corretivas para melhores resultados. Existem muitas práticas recomendadas que estão disponíveis e podem ser aplicadas para alcançar resultados confiáveis. 
-
-A tabela a seguir descreve os guardrails de dados suportados atualmente e os status associados que os usuários podem encontrar ao enviar seu experimento.
+Os guardrails de dados são aplicados quando a featurização automática é ativada ou a validação é definida como automática. Os guardrails de dados ajudam a identificar possíveis problemas com seus dados (por exemplo, valores ausentes, desequilíbrio de classe) e ajudam a tomar ações corretivas para melhores resultados. Existem muitas práticas recomendadas que estão disponíveis e podem ser aplicadas para alcançar resultados confiáveis. Os usuários podem rever guardrails de dados no estúdio dentro da guia ```show_output=True``` **Data guardrails** de uma execuçãa de ML automatizada ou configurando ao enviar um experimento usando o Python SDK. A tabela a seguir descreve os guardrails de dados suportados atualmente e os status associados que os usuários podem encontrar ao enviar seu experimento.
 
 Guardrail|Status|Condição&nbsp;&nbsp;para o gatilho
 ---|---|---
-Imputação&nbsp;de valores&nbsp;ausentes |**Aprovado** <br> <br> **Fixo**|    Não falta valor em&nbsp;nenhuma das colunas de entrada <br> <br> Algumas colunas têm valores perdidos
-Validação cruzada|**Concluído**|Se nenhum conjunto de validação explícita for fornecido
-Detecção&nbsp;de&nbsp;recursos de alta&nbsp;cardinalidade|    **Aprovado** <br> <br>**Concluído**|    Não foram detectadas características de alta cardinalidade <br><br> Colunas de entrada de alta cardinalidade foram detectadas
-Detecção de equilíbrio de classe    |**Aprovado** <br><br><br>**Alertado** |As aulas são equilibradas nos dados de treinamento; Um conjunto de dados é considerado equilibrado se cada classe tiver uma boa representação no conjunto de dados, medida pelo número e razão das amostras <br> <br> As aulas nos dados de treinamento estão desequilibradas
-Consistência de dados da série de tempo|**Aprovado** <br><br><br><br> **Fixo** |<br> Os valores selecionados {horizon, lag, rolling window} foram analisados e não foram detectados possíveis problemas fora da memória. <br> <br>Os valores selecionados {horizonte, lag, janela de rolagem} foram analisados e potencialmente farão com que seu experimento fique sem memória. A janela de atraso ou rolamento foi desligada.
+Imputação de valores de recurso ausente |**Aprovado** <br><br><br> **Concluído**| Não foram detectados valores de recurso ausentes em seus dados de treinamento. Saiba mais sobre [a imputação de valor perdido.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Os valores de recurso perdidos foram detectados em seus dados de treinamento e imputados.
+Alta cardinalidade de manuseio de características |**Aprovado** <br><br><br> **Concluído**| Suas entradas foram analisadas, e nenhuma característica de alta cardinalidade foi detectada. Saiba mais sobre [a detecção de recursos de alta cardinalidade.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Características de alta cardinalidade foram detectadas em suas entradas e foram tratadas.
+Manipulação dividida de validação |**Concluído**| *A configuração de validação foi definida como 'auto' e os dados de treinamento continham **menos** de 20.000 linhas.* <br> Cada iteração do modelo treinado foi validada por validação cruzada. Saiba mais sobre [dados de validação.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> *A configuração de validação foi definida como 'auto' e os dados de treinamento continham **mais** de 20.000 linhas.* <br> Os dados de entrada foram divididos em um conjunto de dados de treinamento e um conjunto de dados de validação para validação do modelo.
+Detecção de balanceamento de classe |**Aprovado** <br><br><br><br> **Alertado** | Suas entradas foram analisadas, e todas as classes são equilibradas em seus dados de treinamento. Um conjunto de dados é considerado equilibrado se cada classe tiver uma boa representação no conjunto de dados, medida pelo número e razão das amostras. <br><br><br> Classes desequilibradas foram detectadas em suas entradas. Para corrigir o viés do modelo, corrija o problema de equilíbrio. Saiba mais sobre [dados desequilibrados.](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml#imbalance)
+Detecção de problemas de memória |**Aprovado** <br><br><br><br> **Concluído** |<br> Os valores selecionados {horizon, lag, rolling window} foram analisados e não foram detectados possíveis problemas fora da memória. Saiba mais sobre as configurações de previsão de [séries tempois.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) <br><br><br>Os valores selecionados {horizonte, lag, janela de rolagem} foram analisados e potencialmente farão com que seu experimento fique sem memória. As configurações de lag ou janela de rolamento foram desligadas.
+Detecção de frequência |**Aprovado** <br><br><br><br> **Concluído** |<br> A série temporal foi analisada e todos os pontos de dados estão alinhados com a frequência detectada. <br> <br> A série temporal foi analisada e foram detectados pontos de dados que não se alinham com a frequência detectada. Esses pontos de dados foram removidos do conjunto de dados. Saiba mais sobre [a preparação de dados para previsão de séries tempois.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)
+
+#### <a name="data-guardrail-states"></a>Estados de Guardrail de Dados
+Os guardrails de dados exibirão um dos três estados: 'Passado', 'Feito ou 'Alertado'.
+
+Estado| Descrição
+----|----
+Aprovado| Nenhum problema de dados foi detectado e nenhuma ação do usuário é necessária. 
+Concluído| Alterações foram aplicadas aos seus dados. Encorajamos os usuários a revisar as ações corretivas que o ML automatizado tomou para garantir que as mudanças estejam alinhadas com os resultados esperados. 
+Alertado| Foi detectado um problema de dados que não pôde ser corrigido. Encorajamos os usuários a revisar e corrigir o problema. 
+
+A versão anterior do ML automatizado exibia um quarto estado: 'Fixo'. Experimentos mais novos não exibirão este estado, e todos os guardrails que exibiam o estado 'Fixo' agora exibirão 'Feito'.   
 
 ## <a name="run-experiment-and-view-results"></a>Executar experimentos e ver resultados
 

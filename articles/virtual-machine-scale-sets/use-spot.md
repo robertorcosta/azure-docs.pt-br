@@ -1,30 +1,25 @@
 ---
-title: Criar um conjunto de escalas que usa VMs do Azure Spot (Preview)
+title: Crie um conjunto de escalas que usa VMs do Azure Spot
 description: Aprenda a criar conjuntos de escala de máquinas virtuais do Azure que usam VMs spot para economizar custos.
 author: cynthn
-tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.topic: conceptual
-ms.date: 02/11/2020
+ms.topic: article
+ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 37e914fe6bafe9587be525faf3e01c897cdd8230
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7bd22032a554c83a2ea2323ffdb3ae52dfe4faf
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162677"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545930"
 ---
-# <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Visualização: VMs do Azure Spot para conjuntos de escala de máquinas virtuais 
+# <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs do Azure Spot para conjuntos de escala de máquinas virtuais 
 
 O uso do Azure Spot em conjuntos de escala permite que você aproveite nossa capacidade não utilizada com uma economia significativa de custos. A qualquer momento em que o Azure precisar da capacidade de volta, a infra-estrutura do Azure despejará instâncias do Spot. Portanto, as instâncias spot são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lote, ambientes de dev/teste, grandes cargas de trabalho computacionais e muito mais.
 
 A quantidade de capacidade disponível pode variar de acordo com o tamanho, região, hora do dia e muito mais. Ao implantar instâncias spot em conjuntos de escala, o Azure alocará a instância somente se houver capacidade disponível, mas não há SLA para esses casos. Um conjunto de escala spot é implantado em um único domínio de falha e não oferece garantias de alta disponibilidade.
 
-> [!IMPORTANT]
-> As instâncias spot estão atualmente em visualização pública.
-> Esta versão de visualização não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="pricing"></a>Preços
 
@@ -47,8 +42,8 @@ Os usuários podem optar por receber notificações in-VM através [do Azure Sch
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Implantação de VMs spot em conjuntos de escala
 
 Para implantar VMs spot em conjuntos de escala, você pode definir a nova bandeira *Priority* como *Spot*. Todas as VMs do seu conjunto de escalas serão definidas como Spot. Para criar um conjunto de escalas com VMs spot, use um dos seguintes métodos:
-- [Portal Azure](#portal)
-- [Azure CLI](#azure-cli)
+- [Portal do Azure](#portal)
+- [CLI do Azure](#azure-cli)
 - [Azure PowerShell](#powershell)
 - [Modelos do Azure Resource Manager](#resource-manager-templates)
 
@@ -172,6 +167,5 @@ Para excluir a instância depois de despejada, altere o `evictionPolicy` parâme
 **A:** Você pode postar e `azure-spot` marcar sua pergunta com [em Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você criou um conjunto de escalas com VMs Spot, tente implantar nosso [modelo de escala automática usando o Spot](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 
 Confira a [página de preços de conjunto de dimensionamento de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) para obter detalhes sobre preços.

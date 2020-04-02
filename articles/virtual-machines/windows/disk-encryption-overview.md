@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 05db717f5d3adc2429431503f588f2cc7f79aef6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e00fee8841a2d5a817a00b942bfe0733a80b2cfc
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266774"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546333"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Criptografia de disco azure para VMs windows 
 
@@ -30,11 +30,13 @@ Você pode aprender os fundamentos da Criptografia de Disco Azure para Windows e
 
 ## <a name="supported-vms-and-operating-systems"></a>VMs e sistemas operacionais suportados
 
-### <a name="supported-vm-sizes"></a>Tamanhos de VM com suporte
+### <a name="supported-vms"></a>VMs com suporte
 
 As VMs do Windows estão disponíveis em uma [variedade de tamanhos](sizes-general.md). O Azure Disk Encryption não está disponível em [VMs básicos, série A,](https://azure.microsoft.com/pricing/details/virtual-machines/series/)ou em máquinas virtuais com menos de 2 GB de memória.
 
 A Azure Disk Encryption também está disponível para VMs com armazenamento premium.
+
+A Criptografia de Disco Azure não está disponível nas [VMs da Geração 2](generation-2.md#generation-1-vs-generation-2-capabilities)) e [nas VMs da série Lsv2](../lsv2-series.md)). Para obter mais exceções, consulte [Azure Disk Encryption: Cenários sem suporte](disk-encryption-windows.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
@@ -57,7 +59,7 @@ Para habilitar a criptografia de disco do Azure, as VMs devem atender aos seguin
 
 ## <a name="group-policy-requirements"></a>Requisitos de diretiva de grupo
 
-A Criptografia de disco do Azure usa o protetor de chave externa BitLocker para VMs do Windows. Para VMs ingressado no domínio, não envie por push todas as políticas de grupo que imponham protetores TPM. Para obter informações sobre a política de grupo "Permitir BitLocker sem um TPM compatível", confira [Referência de política de grupo do BitLocker](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
+A Criptografia de disco do Azure usa o protetor de chave externa BitLocker para VMs do Windows. Para VMs ingressado no domínio, não envie por push todas as políticas de grupo que imponham protetores TPM. Para obter informações sobre a política de grupo para "Permitir o BitLocker sem um TPM compatível", consulte [a referência de diretiva do grupo BitLocker](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
 A política do BitLocker sobre máquinas virtuais de domínio com a política de grupo personalizado deve incluir a seguinte configuração: Configure o [armazenamento do usuário das informações de recuperação do BitLocker -> Permitir a chave de recuperação de 256 bits](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). O Azure Disk Encryption falha quando as configurações da política de grupo personalizada para o BitLocker são incompatíveis. Em computadores que não tinham a configuração de política correta, aplique a nova política, force a atualização da nova política (gpupdate.exe /force) e, em seguida, pode ser necessário reiniciar.
 

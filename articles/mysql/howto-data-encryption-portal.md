@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 78a290b1e2984719645fb4d4ff253ab021a0826e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: acf3e6273f98d98d5da55cfb5b044677116c44dc
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299032"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520801"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Criptografia de dados para banco de dados Azure para MySQL usando o portal Azure
 
@@ -49,7 +49,7 @@ Aprenda a usar o portal Azure para configurar e gerenciar a criptografia de dado
 
    ![Visão geral da política de acesso](media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png)
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 ## <a name="set-data-encryption-for-azure-database-for-mysql"></a>Defina a criptografia de dados para o Banco de Dados Do Azure para MySQL
 
@@ -61,11 +61,11 @@ Aprenda a usar o portal Azure para configurar e gerenciar a criptografia de dado
 
    ![Captura de tela do Banco de Dados Do Azure para MySQL, com opções de criptografia de dados destacadas](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 4. Para garantir que todos os arquivos (incluindo arquivos temporários) estejam totalmente criptografados, reinicie o servidor.
 
-## <a name="restore-or-create-a-replica-of-the-server"></a>Restaurar ou criar uma réplica do servidor
+## <a name="using-data-encryption-for-restore-or-replica-servers"></a>Usando criptografia de dados para restaurar ou replicar servidores
 
 Depois que o Banco de Dados Do Azure para MySQL é criptografado com a chave gerenciada do cliente armazenada no Key Vault, qualquer cópia recém-criada do servidor também é criptografada. Você pode fazer essa nova cópia através de uma operação local ou de georestauração, ou através de uma operação de réplica (local/região transversal). Assim, para um servidor MySQL criptografado, você pode usar as seguintes etapas para criar um servidor restaurado criptografado.
 
@@ -73,7 +73,7 @@ Depois que o Banco de Dados Do Azure para MySQL é criptografado com a chave ger
 
    ![Captura de tela do Banco de Dados Azure para MySQL, com visão geral e restauração destacadas](media/concepts-data-access-and-security-data-encryption/show-restore.png)
 
-   Ou para um servidor habilitado para replicação, o título **Configurações,** selecione **Replicação**.
+   Ou para um servidor habilitado para replicação, sob o título **Configurações,** selecione **Replicação**.
 
    ![Captura de tela do Banco de Dados Azure para MySQL, com replicação destacada](media/concepts-data-access-and-security-data-encryption/mysql-replica.png)
 
@@ -93,132 +93,6 @@ Depois que o Banco de Dados Do Azure para MySQL é criptografado com a chave ger
 4. Depois de registrar o principal de serviço, revalide a chave novamente e o servidor retoma sua funcionalidade normal.
 
    ![Captura de tela do Banco de Dados Azure para MySQL, mostrando funcionalidade restaurada](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
-
-
-## <a name="using-an-azure-resource-manager-template-to-enable-data-encryption"></a>Usando um modelo do Azure Resource Manager para permitir a criptografia de dados
-
-Além do portal Azure, você também pode habilitar a criptografia de dados em seu banco de dados Azure para servidor MySQL usando modelos do Azure Resource Manager para servidores novos e existentes.
-
-### <a name="for-a-new-server"></a>Para um novo servidor
-
-Use um dos modelos pré-criados do Azure Resource Manager para provisionar o servidor com criptografia de dados ativada: [Exemplo com criptografia de dados](https://github.com/Azure/azure-mysql/tree/master/arm-templates/ExampleWithDataEncryption)
-
-Este modelo do Azure Resource Manager cria um banco de dados Azure para o servidor MySQL e usa o **KeyVault** e **o Key** passed como parâmetros para permitir a criptografia de dados no servidor.
-
-### <a name="for-an-existing-server"></a>Para um servidor existente
-Além disso, você pode usar os modelos do Azure Resource Manager para habilitar a criptografia de dados em seu banco de dados Azure existente para servidores MySQL.
-
-* Passe o URI da chave Azure Key Vault `keyVaultKeyUri` que você copiou anteriormente sob a propriedade no objeto propriedades.
-
-* Use *a pré-visualização 2020-01-01* como a versão da API.
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "location": {
-      "type": "string"
-    },
-    "serverName": {
-      "type": "string"
-    },
-    "keyVaultName": {
-      "type": "string",
-      "metadata": {
-        "description": "Key vault name where the key to use is stored"
-      }
-    },
-    "keyVaultResourceGroupName": {
-      "type": "string",
-      "metadata": {
-        "description": "Key vault resource group name where it is stored"
-      }
-    },
-    "keyName": {
-      "type": "string",
-      "metadata": {
-        "description": "Key name in the key vault to use as encryption protector"
-      }
-    },
-    "keyVersion": {
-      "type": "string",
-      "metadata": {
-        "description": "Version of the key in the key vault to use as encryption protector"
-      }
-    }
-  },
-  "variables": {
-    "serverKeyName": "[concat(parameters('keyVaultName'), '_', parameters('keyName'), '_', parameters('keyVersion'))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.DBforMySQL/servers",
-      "apiVersion": "2017-12-01",
-      "kind": "",
-      "location": "[parameters('location')]",
-      "identity": {
-        "type": "SystemAssigned"
-      },
-      "name": "[parameters('serverName')]",
-      "properties": {
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-05-01",
-      "name": "addAccessPolicy",
-      "resourceGroup": "[parameters('keyVaultResourceGroupName')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.DBforMySQL/servers', parameters('serverName'))]"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.KeyVault/vaults/accessPolicies",
-              "name": "[concat(parameters('keyVaultName'), '/add')]",
-              "apiVersion": "2018-02-14-preview",
-              "properties": {
-                "accessPolicies": [
-                  {
-                    "tenantId": "[subscription().tenantId]",
-                    "objectId": "[reference(resourceId('Microsoft.DBforMySQL/servers/', parameters('serverName')), '2017-12-01', 'Full').identity.principalId]",
-                    "permissions": {
-                      "keys": [
-                        "get",
-                        "wrapKey",
-                        "unwrapKey"
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "[concat(parameters('serverName'), '/', variables('serverKeyName'))]",
-      "type": "Microsoft.DBforMySQL/servers/keys",
-      "apiVersion": "2020-01-01-preview",
-      "dependsOn": [
-        "addAccessPolicy",
-        "[resourceId('Microsoft.DBforMySQL/servers', parameters('serverName'))]"
-      ],
-      "properties": {
-        "serverKeyType": "AzureKeyVault",
-        "uri": "[concat(reference(resourceId(parameters('keyVaultResourceGroupName'), 'Microsoft.KeyVault/vaults/', parameters('keyVaultName')), '2018-02-14-preview', 'Full').properties.vaultUri, 'keys/', parameters('keyName'), '/', parameters('keyVersion'))]"
-      }
-    }
-  ]
-}
-
-```
 
 ## <a name="next-steps"></a>Próximas etapas
 

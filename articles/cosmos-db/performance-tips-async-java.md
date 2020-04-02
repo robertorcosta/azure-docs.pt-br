@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 89df941eb6ebaad6e078c278f1ed883db5528c7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b892b1f4ff73679ab425d0e97f5361e0f3712252
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152543"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549181"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Dicas de desempenho para o Azure Cosmos DB e Java Assíncrono
 
@@ -112,7 +112,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
         + **Use multithreading em seu aplicativo para transferência de dados TCP eficiente** - Após fazer uma solicitação, seu aplicativo deve se inscrever para receber dados em outro segmento. Não fazê-lo força uma operação "semi-duplex" não intencional e as solicitações subseqüentes são bloqueadas à espera da resposta da solicitação anterior.
 
-        + **Realize cargas de trabalho intensivas em computação em um segmento dedicado** - Por razões semelhantes à ponta anterior, operações como o processamento de dados complexos são melhor colocadas em um segmento separado. Uma solicitação que retira dados de outro armazenamento de dados (por exemplo, se o segmento utiliza os armazenamentos de dados Azure Cosmos DB e Spark simultaneamente) pode experimentar um aumento da latência e é recomendado gerar um segmento adicional que aguarda uma resposta do outro armazenamento de dados.
+        + **Realize cargas de trabalho intensivas em computação em um segmento dedicado** - Por razões semelhantes à ponta anterior, operações como o processamento de dados complexos são melhor colocadas em um segmento separado. Uma solicitação que extrai dados de outro armazenamento de dados (por exemplo, se o segmento utiliza os armazenamentos de dados Azure Cosmos DB e Spark simultaneamente) pode sofrer aumento de latência e é recomendado gerar um segmento adicional que aguarda uma resposta do outro armazenamento de dados.
 
             + O IO de rede subjacente no Async Java SDK é gerenciado pela Netty, veja essas [dicas para evitar padrões de codificação que bloqueiam os segmentos Netty IO](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
 
@@ -230,9 +230,9 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     * - nofile 100000
     ```
 
-* **Use a implementação nativa do SSL para netty**
+* **Use a implementação nativa TLS/SSL para rede**
 
-    Netty pode usar o OpenSSL diretamente para a pilha de implementação SSL para obter um melhor desempenho. Na ausência dessa configuração, o netty voltará à implementação de SSL padrão do Java.
+    Netty pode usar o OpenSSL diretamente para a pilha de implementação TLS para obter um melhor desempenho. Na ausência desta configuração netty retornará à implementação Padrão TLS do Java.
 
     no Ubuntu:
     ```bash

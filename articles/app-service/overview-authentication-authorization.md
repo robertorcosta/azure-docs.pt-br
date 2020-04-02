@@ -5,18 +5,23 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
-ms.custom: fasttrack-edit
-ms.openlocfilehash: f16b10f13c945dd7f1ae4fdc3f4e02dcd7c5a018
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: 0fe436b1da551bbc8a0064cb3cfdff864d8f9eb8
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437952"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520689"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no Azure App Service e funções Do Azure
 
 > [!NOTE]
 > Neste momento, [o Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (incluindo [o MSAL](../active-directory/develop/msal-overview.md)) não é suportado para funções azure app service e funções azure. Por favor, verifique se há atualizações.
+>
+> [!NOTE]
+> Neste momento, ASP.NET Core não suporta atualmente a população do usuário atual com o recurso Autenticação/Autorização.
 >
 
 O Serviço de Aplicativo do Azure dá suporte interno à autenticação e autorização para que você possa fazer login de usuários e acessar dados, gravando o mínimo ou nenhum código no aplicativo Web, na API RESTful e no back-end para dispositivos móveis, e também [Azure Functions](../azure-functions/functions-overview.md). Este artigo descreve como o Serviço de Aplicativo ajuda a simplificar a autenticação e autorização do aplicativo.
@@ -132,11 +137,17 @@ Com essa opção, você não precisa gravar nenhum código de autenticação no 
 > [!CAUTION]
 > Restringir o acesso desta forma se aplica a todas as chamadas para o seu aplicativo, o que pode não ser desejável para aplicativos que desejam uma página inicial disponível publicamente, como em muitos aplicativos de página única.
 
+> [!NOTE]
+> Autenticação/Autorização era anteriormente conhecida como Easy Auth.
+>
+
 ## <a name="more-resources"></a>Mais recursos
 
 [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure (Windows)](app-service-web-tutorial-auth-aad.md)  
 [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure para Linux](containers/tutorial-auth-aad.md)  
-[Personalizar autenticação e autorização no Serviço de Aplicativo](app-service-authentication-how-to.md)
+[Personalize a autenticação e a autorização no App Service](app-service-authentication-how-to.md)
+[.NET Core integração do Azure AppService EasyAuth (terceiros)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+[Obtendo autenticação do Serviço de Aplicativos Azure trabalhando com o .NET Core (terceiros)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Guias de instruções específicas do provedor:
 

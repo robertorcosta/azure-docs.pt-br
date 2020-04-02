@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 11f9097fc4875f0a4300ac56dafe7af9a0b00c97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8a8502b40410df221886cde2fa5f3db15bf3eed
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454611"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549168"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral da Camada de Nuvem
 A camada de nuvem é um recurso opcional da Sincronização de Arquivos do Azure em que arquivos acessados frequentemente são armazenados em cache localmente no servidor, enquanto todos os outros arquivos são organizados em camadas para Arquivos do Azure com base nas configurações de política. Quando um arquivo está disposto em camadas, o filtro do sistema de arquivos da Sincronização de Arquivos do Azure (StorageSync.sys) substitui o arquivo localmente por um ponteiro ou ponto de nova análise. O ponto de nova análise representa uma URL para o arquivo nos Arquivos do Azure. Um arquivo em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definidos em NTFS, de modo que aplicativos de terceiros podem identificar com segurança os arquivos dispostos em camadas.
@@ -51,7 +51,22 @@ Quando há mais de um ponto de extremidade do servidor em um volume, o limite de
 
 <a id="date-tiering-policy"></a>
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Como a política de camada de data funciona em conjunto com a política de camada de espaço livre no volume? 
-Ao habilitar a camada de nuvem em um ponto de extremidade do servidor, você define uma política de espaço livre no volume. Ela sempre tem precedência sobre qualquer outra política, incluindo a política de datas. Opcionalmente, é possível habilitar uma política de data para cada ponto de extremidade de servidor nesse volume, o que significa que somente os arquivos acessados (isto é, lidos ou gravados) dentro do intervalo de dias que essa política descreve serão mantidos locais, com quaisquer arquivos obsoletos em camadas. Lembre-se de que a política de espaço livre no volume sempre terá precedência e, quando não houver espaço livre suficiente no volume para reter o mesmo número de arquivos, conforme descrito pela política de data, a Sincronização de Arquivos do Azure continuará a disposição em camadas dos arquivos mais obsoletos até que a porcentagem de espaço livre do volume seja atingida.
+Ao habilitar a camada de nuvem em um ponto de extremidade do servidor, você define uma política de espaço livre no volume. Ela sempre tem precedência sobre qualquer outra política, incluindo a política de datas. Opcionalmente, você pode ativar uma política de data para cada ponto final do servidor nesse volume. Esta diretiva gerencia que somente os arquivos acessados (isto é, lidos ou gravados) dentro do intervalo de dias que esta diretiva descreve serão mantidos locais. Os arquivos não acessados com o número de dias especificados serão hierárquicos. 
+
+O Cloud Tiering usa o último tempo de acesso para determinar quais arquivos devem ser hierárquicos. O driver de filtro de hierarnada na nuvem (storagesync.sys) rastreia o último tempo de acesso e registra as informações no armazenamento de calor de hierarquiagem na nuvem. Você pode ver a loja de calor usando um cmdlet PowerShell local.
+
+```powershell
+Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
+Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+```
+
+> [!IMPORTANT]
+> O carimbo de tempo de última acesso não é uma propriedade rastreada pelo NTFS e, portanto, não é visível por padrão no File Explorer. Não use o último carimbo de tempo modificado em um arquivo para verificar se a política de data funciona conforme o esperado. Este carimbo de tempo só rastreia gravações, não leituras. Use o cmdlet mostrado para obter o último carimbo de tempo acessado para esta avaliação.
+
+> [!WARNING]
+> Não ative o recurso NTFS de rastreamento de carimbo de tempo de última acesso para arquivos e pastas. Esse recurso está desligado por padrão porque tem um grande impacto no desempenho. O Azure File Sync acompanhará os tempos acessados de forma automática e muito eficiente e não utilizará este recurso NTFS.
+
+Tenha em mente que a política de espaço livre de volume sempre tem precedência, e quando não há espaço livre suficiente no volume para reter o máximo de dias de arquivos como descrito pela política de data, o Azure File Sync continuará hierárquico os arquivos mais frios até que a porcentagem de espaço livre de volume seja atendida.
 
 Por exemplo, digamos que você tenha uma política de camada com base em data de 60 dias e uma política de espaço livre no volume de 20%. Se, depois de aplicar a política de data, houver menos de 20% de espaço livre no volume, a política de espaço livre no volume será ativada e substituirá a política de data. Isso resultará em mais arquivos em camadas, de modo que a quantidade de dados mantidos no servidor poderá ser reduzida de 60 dias para 45 dias. Por outro lado, essa política forçará a colocação em camadas de arquivos fora do intervalo de tempo, mesmo que não tenha atingido o limite de espaço livre e, portanto, um arquivo com 61 dias será colocado em camadas mesmo que o volume esteja vazio.
 
@@ -59,10 +74,10 @@ Por exemplo, digamos que você tenha uma política de camada com base em data de
 ### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>Como determino a quantidade apropriada de espaço livre no volume?
 A quantidade de dados que você deve manter armazenada localmente é determinada por alguns fatores: a largura de banda, o padrão de acesso do seu conjunto de dados e o orçamento. Se você tiver uma conexão com baixa largura de banda, talvez você queira manter uma parte maior de seus dados localmente para garantir que haja um atraso mínimo para seus usuários. Caso contrário, você pode baseá-lo na taxa de rotatividade durante um determinado período. Por exemplo, se você sabe que cerca de 10% do seu conjunto de dados de 1 TB são alterados ou são ativamente acessados a cada mês, então talvez você queira manter 100 GB armazenados localmente, de modo que você não fique recuperando arquivos com frequência. Se o volume é de 2 TB, é melhor que você mantenha 5% (ou 100 GB) localmente, o que significa que o restante de 95% é o percentual de espaço livre do volume. No entanto, é recomendável que você adicione um buffer para levar em conta os períodos de maior variação – em outras palavras, começando com um percentual menor de espaço livre no volume e, depois, ajustando-o mais tarde, se necessário. 
 
-Manter mais dados armazenados localmente significará custos de saída menores, já que menos arquivos serão recuperados do Azure, mas também exigirá que você mantenha uma quantidade maior de armazenamento local, o que terá o seu próprio custo. Quando você tem uma instância da Sincronização de Arquivos do Azure implantada, você pode examinar a saída de sua conta de armazenamento para medir aproximadamente se as configurações de espaço livre do volume estão apropriadas para seu uso. Supondo que a conta de armazenamento contém apenas o ponto de extremidade de nuvem da Sincronização de Arquivos do Azure (ou seja, seu compartilhamento de sincronização), então uma saída alta significa que muitos arquivos estão sendo recuperados da nuvem, e você deve considerar aumentar o seu cache local.
+Manter mais dados armazenados localmente significará custos de saída menores, já que menos arquivos serão recuperados do Azure, mas também exigirá que você mantenha uma quantidade maior de armazenamento local, o que terá o seu próprio custo. Uma vez que você tenha uma instância do Azure File Sync implantada, você pode olhar para o egresso da sua conta de armazenamento para avaliar aproximadamente se as configurações de espaço livre de volume são apropriadas para o seu uso. Supondo que a conta de armazenamento contém apenas o ponto de extremidade de nuvem da Sincronização de Arquivos do Azure (ou seja, seu compartilhamento de sincronização), então uma saída alta significa que muitos arquivos estão sendo recuperados da nuvem, e você deve considerar aumentar o seu cache local.
 
 <a id="how-long-until-my-files-tier"></a>
-### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>Eu adicionei um novo ponto de extremidade de servidor. Quanto tempo levará até que meus arquivos estejam nessa camada de servidor?
+### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>Eu adicionei um novo ponto final do servidor. Quanto tempo levará até que meus arquivos estejam nessa camada de servidor?
 Nas versões 4.0 e acima do agente Azure File Sync, uma vez que seus arquivos tenham sido carregados para o compartilhamento de arquivos do Azure, eles serão hierarquizados de acordo com suas políticas assim que a próxima sessão de hierarquiagem for executada, o que acontece uma vez por hora. Em agentes mais antigos, a disposição em camadas pode levar até 24 horas para ocorrer.
 
 <a id="is-my-file-tiered"></a>
@@ -137,4 +152,4 @@ Esse comportamento não é específico do Azure File Sync, o Windows Explorer ex
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+* [Planejamento para uma implantação de sincronização de arquivos do Azure](storage-sync-files-planning.md)

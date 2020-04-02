@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: f50115732940eab14db30842be85b47cb4a552e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88d25083a1105023279f3907a4573319fabe087c
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299477"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520758"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Criptografia do lado do servidor dos discos gerenciados do Azure
 
@@ -68,7 +68,7 @@ Por enquanto, as chaves gerenciadas pelo cliente têm as seguintes restrições:
 
 - Se esse recurso estiver habilitado para o disco, não será possível desativá-lo.
     Se você precisar contornar isso, você deve [copiar todos os dados](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) para um disco gerenciado totalmente diferente que não esteja usando chaves gerenciadas pelo cliente.
-- Apenas [as teclas RSA "macias" e "duras"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) do tamanho 2080 são suportadas, sem outras chaves ou tamanhos.
+- Apenas [as teclas RSA "macias" e "duras"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) do tamanho 2048 são suportadas, sem outras chaves ou tamanhos.
 - Os discos criados a partir de imagens personalizadas que são criptografadas usando criptografia do lado do servidor e chaves gerenciadas pelo cliente devem ser criptografados usando as mesmas chaves gerenciadas pelo cliente e devem estar na mesma assinatura.
 - Os snapshots criados a partir de discos criptografados com criptografia do lado do servidor e chaves gerenciadas pelo cliente devem ser criptografados com as mesmas chaves gerenciadas pelo cliente.
 - Imagens personalizadas criptografadas usando criptografia do lado do servidor e chaves gerenciadas pelo cliente não podem ser usadas na galeria de imagens compartilhadas.
@@ -191,12 +191,12 @@ az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId
 ```
 
 > [!IMPORTANT]
-> As chaves gerenciadas pelo cliente dependem de identidades gerenciadas para os recursos do Azure, um recurso do Azure Active Directory (Azure AD). Quando você configura as chaves gerenciadas pelo cliente, uma identidade gerenciada é automaticamente atribuída aos seus recursos as cobertas. Se você posteriormente mover a assinatura, o grupo de recursos ou o disco gerenciado de um diretório Azure AD para outro, a identidade gerenciada associada aos discos gerenciados não será transferida para o novo inquilino, de modo que as chaves gerenciadas pelo cliente podem não funcionar mais. Para obter mais informações, consulte [Transferir uma assinatura entre os diretórios AD do Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+> As chaves gerenciadas pelo cliente dependem de identidades gerenciadas para os recursos do Azure, um recurso do Azure Active Directory (Azure AD). Quando você configura as chaves gerenciadas pelo cliente, uma identidade gerenciada é automaticamente atribuída aos seus recursos sob as cobertas. Se você posteriormente mover a assinatura, o grupo de recursos ou o disco gerenciado de um diretório Azure AD para outro, a identidade gerenciada associada aos discos gerenciados não será transferida para o novo inquilino, de modo que as chaves gerenciadas pelo cliente podem não funcionar mais. Para obter mais informações, consulte [Transferir uma assinatura entre os diretórios AD do Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
 [!INCLUDE [virtual-machines-disks-encryption-portal](../../../includes/virtual-machines-disks-encryption-portal.md)]
 
 > [!IMPORTANT]
-> As chaves gerenciadas pelo cliente dependem de identidades gerenciadas para os recursos do Azure, um recurso do Azure Active Directory (Azure AD). Quando você configura as chaves gerenciadas pelo cliente, uma identidade gerenciada é automaticamente atribuída aos seus recursos as cobertas. Se você posteriormente mover a assinatura, o grupo de recursos ou o disco gerenciado de um diretório Azure AD para outro, a identidade gerenciada associada aos discos gerenciados não será transferida para o novo inquilino, de modo que as chaves gerenciadas pelo cliente podem não funcionar mais. Para obter mais informações, consulte [Transferir uma assinatura entre os diretórios AD do Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+> As chaves gerenciadas pelo cliente dependem de identidades gerenciadas para os recursos do Azure, um recurso do Azure Active Directory (Azure AD). Quando você configura as chaves gerenciadas pelo cliente, uma identidade gerenciada é automaticamente atribuída aos seus recursos sob as cobertas. Se você posteriormente mover a assinatura, o grupo de recursos ou o disco gerenciado de um diretório Azure AD para outro, a identidade gerenciada associada aos discos gerenciados não será transferida para o novo inquilino, de modo que as chaves gerenciadas pelo cliente podem não funcionar mais. Para obter mais informações, consulte [Transferir uma assinatura entre os diretórios AD do Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
 ## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Criptografia do lado do servidor versus criptografia de disco Azure
 

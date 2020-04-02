@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: c52a1212d160adce3a0a0638164833bc2907a856
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1aaf588f61b329fa3b838b8a92f3e287897315b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76514996"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521181"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guia para configurar uma máquina de modelo do Windows no Azure Lab Services
 
@@ -88,9 +88,9 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
     -Name "KFMSilentOptIn" -Value $officeTenantID -PropertyType STRING
 ```
 
-### <a name="use-onedrive-files-on-demand"></a>Use arquivos OneDrive demanda
+### <a name="use-onedrive-files-on-demand"></a>Use arquivos OneDrive sob demanda
 
-Os alunos podem ter muitos arquivos dentro de suas contas do OneDrive. Para ajudar a economizar espaço na máquina e reduzir o tempo de download, recomendamos que todos os arquivos armazenados na conta OneDrive do aluno sejam on-demand.  Os arquivos demanda só são baixados quando um usuário acessa o arquivo.
+Os alunos podem ter muitos arquivos dentro de suas contas do OneDrive. Para ajudar a economizar espaço na máquina e reduzir o tempo de download, recomendamos que todos os arquivos armazenados na conta OneDrive do aluno sejam on-demand.  Os arquivos sob demanda só são baixados quando um usuário acessa o arquivo.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive" -Force
@@ -185,7 +185,7 @@ Recomendamos que todos os aplicativos da Microsoft Store sejam atualizados para 
 3. Selecione **Baixar** e atualizar no menu suspenso.
 4. Clique no botão **Obter atualização.**
 
-Você também pode usar o Powershell para atualizar os aplicativos da Microsoft Store que já estão instalados.
+Você também pode usar o PowerShell para atualizar os aplicativos da Microsoft Store que já estão instalados.
 
 ```powershell
 (Get-WmiObject -Namespace "root\cimv2\mdm\dmmap" -Class "MDM_EnterpriseModernAppManagement_AppManagement01").UpdateScanMethod()
@@ -234,3 +234,6 @@ Instale outros aplicativos comumente usados para ensinar através do aplicativo 
 ## <a name="conclusion"></a>Conclusão
 
 Este artigo mostrou etapas opcionais para preparar seu modelo VM do Windows para uma classe eficaz.  As etapas incluem instalar o OneDrive e instalar o Office 365, instalar as atualizações para o Windows e instalar atualizações para aplicativos da Microsoft Store.  Também discutimos como definir atualizações para um cronograma que funciona melhor para sua classe.  
+
+## <a name="next-steps"></a>Próximas etapas
+Veja o artigo sobre como controlar o comportamento de desligamento do Windows para ajudar no gerenciamento de custos: [Guia para controlar o comportamento de desligamento do Windows](how-to-windows-shutdown.md)

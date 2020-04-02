@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d9cff47c61fc08305427b25f949884b1ef089fd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca3a79b0d31cc18b8ff77f02ce4ce3d517d7a638
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289661"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548695"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Linha de base de segurança do Azure para banco de dados Azure para MariaDB
 
@@ -894,9 +894,9 @@ Como fornecer autenticação do Key Vault com uma identidade gerenciada:https://
 
 **Orientação**: O banco de dados Azure para servidor MariaDB atualmente não suporta autenticação do Azure Active Directory para acessar bancos de dados.  Ao criar o Banco de Dados Azure para o servidor MariaDB, você fornece credenciais para um usuário administrador. Este administrador pode ser usado para criar usuários adicionais do MariaDB.  
 
-Para máquinas virtuais do Azure ou aplicativos da Web em execução no Azure App Service sendo usados para acessar seu banco de dados Azure para servidor MariaDB, use a Identidade de Serviço Gerenciada em conjunto com o Azure Key Vault para armazenar e recuperar credenciais para o Banco de Dados Azure para MariaDB Servidor.  Certifique-se de que o Key Vault Soft Delete esteja ativado.
+Para que as máquinas virtuais do Azure ou aplicativos da Web em execução no Azure App Service sejam usados para acessar seu banco de dados Azure para servidor MariaDB, use a Identidade de Serviço Gerenciada em conjunto com o Azure Key Vault para armazenar e recuperar credenciais para o Banco de Dados Azure para o servidor MariaDB.  Certifique-se de que o Key Vault Soft Delete esteja ativado.
 
-Use identidades gerenciadas para fornecer serviços do Azure com uma identidade gerenciada automaticamente no Azure Active Directory (AD). Identidades gerenciadas permite que você se autentique em qualquer serviço que suporte a autenticação Azure AD, incluindo O Cofre de Chaves, sem quaisquer credenciais em seu código. Como configurar identidades gerenciadas: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmHow para integrar-se com as identidades gerenciadas do Azure:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Use identidades gerenciadas para fornecer serviços do Azure com uma identidade gerenciada automaticamente no Azure Active Directory (AD). Identidades gerenciadas permite que você se autentique em qualquer serviço que suporte a autenticação Azure AD, incluindo O Cofre de Chaves, sem quaisquer credenciais em seu código. Como configurar identidades gerenciadas: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm. Como se integrar com as identidades https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identitygerenciadas do Azure: .
 
 
 

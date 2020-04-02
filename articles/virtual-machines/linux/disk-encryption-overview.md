@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff1b37c3053ffa91dcb432cd97a7dd6fd71dad1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d058ff5f9863642f73725db3472c942161447f25
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250420"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548447"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Criptografia de disco azure para VMs Linux 
 
@@ -32,7 +32,7 @@ Você pode aprender os fundamentos do Azure Disk Encryption para Linux em apenas
 
 ## <a name="supported-vms-and-operating-systems"></a>VMs e sistemas operacionais suportados
 
-### <a name="supported-vm-sizes"></a>Tamanhos de VM com suporte
+### <a name="supported-vms"></a>VMs com suporte
 
 Os VMs Linux estão disponíveis em uma [variedade de tamanhos](sizes.md). A Criptografia de disco Do Zure não está disponível em [VMs básicas, série A,](https://azure.microsoft.com/pricing/details/virtual-machines/series/)ou em máquinas virtuais que não atendam a esses requisitos mínimos de memória:
 
@@ -44,7 +44,9 @@ Os VMs Linux estão disponíveis em uma [variedade de tamanhos](sizes.md). A Cri
 
 Uma vez que o processo de criptografia de disco do SO esteja completo em máquinas virtuais Linux, a VM pode ser configurada para ser executada com menos memória. 
 
-A Azure Disk Encryption também está disponível para VMs com armazenamento premium. 
+A Azure Disk Encryption também está disponível para VMs com armazenamento premium.
+
+A Criptografia de Disco Azure não está disponível nas [VMs da Geração 2](generation-2.md#generation-1-vs-generation-2-capabilities)) e [nas VMs da série Lsv2](../lsv2-series.md)). Para obter mais exceções, consulte [Azure Disk Encryption: Cenários sem suporte](disk-encryption-linux.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 

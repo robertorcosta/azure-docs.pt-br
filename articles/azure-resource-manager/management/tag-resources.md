@@ -2,13 +2,13 @@
 title: Marque recursos, grupos de recursos e assinaturas para organização lógica
 description: Mostra como aplicar marcas para organizar os recursos do Azure para cobrança e gerenciamento.
 ms.topic: conceptual
-ms.date: 03/20/2020
-ms.openlocfilehash: ffc97df0923e26c3abf0eed8e7810f3b1dc61ed2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 76f9f61b3fe7002508bbd884f427efcfee698579
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132182"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548490"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use tags para organizar seus recursos e hierarquia de gerenciamento do Azure
 
@@ -20,7 +20,7 @@ Para obter recomendações sobre como implementar uma estratégia de marcação,
 
 ## <a name="required-access"></a>Acesso necessário
 
-Para aplicar tags a um recurso, você deve ter acesso à gravação do tipo de recurso **Microsoft.Resources/tags.** A **função Contribuinte de marca** permite que você aplique tags a uma entidade sem ter acesso à própria entidade.
+Para aplicar tags a um recurso, você deve ter acesso à gravação do tipo de recurso **Microsoft.Resources/tags.** A [função Contribuinte de marca](../../role-based-access-control/built-in-roles.md#tag-contributor) permite que você aplique tags a uma entidade sem ter acesso à própria entidade. Atualmente, a função de contribuinte de tags não pode aplicar tags a recursos ou grupos de recursos através do portal. Ele pode aplicar tags para assinaturas através do portal. Ele suporta todas as operações de tag através do PowerShell e da API REST.  
 
 A função [contribuinte](../../role-based-access-control/built-in-roles.md#contributor) também concede o acesso necessário para aplicar tags a qualquer entidade. Para aplicar marcas a apenas um tipo de recurso, use a função de colaborador para esse recurso. Por exemplo, para aplicar marcas a máquinas virtuais, use o [Colaborador da Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
@@ -28,7 +28,7 @@ A função [contribuinte](../../role-based-access-control/built-in-roles.md#cont
 
 ### <a name="apply-tags"></a>Aplicar tags
 
-O Azure PowerShell oferece dois comandos para a aplicação de tags - [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). Você deve ter o Azure PowerShell 3.6.1 ou posterior para usar esses comandos.
+O Azure PowerShell oferece dois comandos para a aplicação de tags - [New-AzTag](/powershell/module/az.resources/new-aztag) e [Update-AzTag](/powershell/module/az.resources/update-aztag). Você deve ter o módulo Az.Resources 1.12.0 ou posterior. Você pode verificar `Get-Module Az.Resources`sua versão com . Você pode instalar esse módulo ou [instalar o Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 ou posterior.
 
 O **New-AzTag** substitui todas as tags no recurso, grupo de recursos ou assinatura. Ao chamar o comando, passe no ID de recurso da entidade que deseja marcar.
 

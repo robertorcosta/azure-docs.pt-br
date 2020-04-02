@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/01/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1ee8e90d1d690315b2727a050e0383d7d28dc03
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264109"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546146"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos
 
@@ -99,7 +99,7 @@ Exporte este certificado para um arquivo usando o snap-in Do Certificado de [Usu
 
 1. Para visualizar seus certificados, em **Certificados - Usuário atual** no painel esquerdo, expanda o diretório **Pessoal.**
 1. Clique com o botão direito do mouse na cert que você criou, selecione **Todas as tarefas->Exportar**.
-1. Siga o assistente de exportação de certificados.  Exportar a chave privada, especificar uma senha para o arquivo cert e exportar para um arquivo.
+1. Siga o assistente de exportação de certificados.  Não exporte a chave privada e exporte para um . Arquivo CER.
 
 Para carregar o certificado:
 
@@ -148,7 +148,7 @@ Você deve ter permissões suficientes para registrar um aplicativo com seu inqu
 1. No painel esquerdo, selecione **Configurações do usuário**.
 1. Verifique a configuração **Registros do Aplicativo**. Esse valor só pode ser definido por um administrador. Se for definido como **Sim**, qualquer usuário no locatário do Azure AD poderá registrar um aplicativo.
 
-Se a configuração de registros de aplicativo está definida como **Não**, somente os usuários com uma função de administrador podem registrar esses tipos de aplicativos. Confira as [funções disponíveis](../users-groups-roles/directory-assign-admin-roles.md#available-roles) e as [permissões de função](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) para saber mais sobre as funções de administrador disponíveis e as permissões específicas no Azure AD fornecidas para cada função. Se sua conta for atribuída à função de Usuário, mas a configuração de registro do aplicativo estiver limitada aos usuários de administração, peça ao administrador que lhe atribua uma das funções de administrador que possa criar e gerenciar todos os aspectos dos registros do aplicativo ou para permitir que os usuários se registrem Apps.
+Se a configuração de registros de aplicativo está definida como **Não**, somente os usuários com uma função de administrador podem registrar esses tipos de aplicativos. Confira as [funções disponíveis](../users-groups-roles/directory-assign-admin-roles.md#available-roles) e as [permissões de função](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) para saber mais sobre as funções de administrador disponíveis e as permissões específicas no Azure AD fornecidas para cada função. Se sua conta for atribuída à função de Usuário, mas a configuração de registro do aplicativo estiver limitada aos usuários de administração, peça ao administrador que lhe atribua uma das funções de administrador que possa criar e gerenciar todos os aspectos dos registros do aplicativo ou para permitir que os usuários registrem aplicativos.
 
 ### <a name="check-azure-subscription-permissions"></a>Verificar permissões de assinatura do Azure
 
@@ -158,7 +158,7 @@ Para verificar suas permissões de assinatura:
 
 1. Procure e selecione **Assinaturas**ou selecione **Assinaturas** na **página** inicial.
 
-   ![Search](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Pesquisar](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Selecione a assinatura que deseja criar o principal do serviço.
 

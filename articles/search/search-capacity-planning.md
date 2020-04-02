@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: e2ba5301b81b1a6f5de696ab4587cd8ff43e3c68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: 270ff3c3e8e4cffbb1f4b1987ee497530d0c0982
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462556"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546255"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Ajuste a capacidade na Pesquisa Cognitiva do Azure
 
@@ -38,7 +38,8 @@ Um único serviço deve ter recursos suficientes para manipular todas as cargas 
 
 Como regra geral, os aplicativos de pesquisa tendem a precisar de mais réplicas do que partições, especialmente quando as operações de serviço são tendenciosas em relação às cargas de trabalho de consulta. A seção sobre [alta disponibilidade](#HA) , explica o motivo.
 
-Adicionar mais réplicas ou partições aumenta o custo de execução do serviço. Certifique-se de verificar a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para entender as implicações de faturamento de adicionar mais nós. O [gráfico abaixo](#chart) pode ajudá-lo a cruzar o número de unidades de pesquisa necessárias para uma configuração específica.
+> [!NOTE]
+> Adicionar mais réplicas ou partições aumenta o custo de execução do serviço, e pode introduzir pequenas variações na forma como os resultados são ordenados. Certifique-se de verificar a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para entender as implicações de faturamento de adicionar mais nós. O [gráfico abaixo](#chart) pode ajudá-lo a cruzar o número de unidades de pesquisa necessárias para uma configuração específica. Para obter mais informações sobre como as réplicas adicionais impactam o processamento da consulta, consulte [os resultados do Ordering](search-pagination-page-layout.md#ordering-results).
 
 ## <a name="how-to-allocate-replicas-and-partitions"></a>Como alocar réplicas e partições
 

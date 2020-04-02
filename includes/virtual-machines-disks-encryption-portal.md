@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3ba5d74aa245fbcd9d43f2b4398387d7f59e202c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6077db0a09b09f7e4bfb859902da53b173845e55
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299476"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520754"
 ---
 ### <a name="portal"></a>Portal
 
@@ -42,7 +42,7 @@ A configuração de chaves gerenciadas pelo cliente para seus discos exigirá qu
 
     ![Captura de tela do painel de configurações do Key Vault. Mostra o botão gerar/importar dentro das configurações.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
-1. Deixe ambos os **tipos de tecla** definidos para **RSA** e **RSA Key Size** definido como **2080**.
+1. Deixe ambos os **tipos de tecla** definidos para **RSA** e **RSA Key Size** definido como **2048**.
 1. Preencha as seleções restantes como quiser e selecione **Criar**.
 
     ![Captura de tela da criar uma lâmina de chave que aparece uma vez que o botão gerar/importar é selecionado](media/virtual-machines-disk-encryption-portal/sse-create-a-key-generate.png)
@@ -123,7 +123,7 @@ Para gerenciar e configurar a criptografia de disco nos discos existentes, você
     ![Captura de tela do seu exemplo VM, com a lâmina discos aberta. O disco do SISTEMA OPERACIONAL é destacado como um exemplo de disco para você selecionar.](media/virtual-machines-disk-encryption-portal/sse-existing-disk-select.png)
 
 1. Selecione **Criptografia** e selecione **Criptografia em repouso com uma chave gerenciada pelo cliente** e, em seguida, selecione o conjunto de criptografia de disco na lista de parada.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
     ![Captura de tela do seu exemplo de disco do SISTEMA OPERACIONAL. A lâmina de criptografia está aberta, a criptografia em repouso com uma chave gerenciada pelo cliente é selecionada, bem como o seu exemplo Azure Key Vault. Depois de fazer essas seleções, o botão salvar é selecionado.](media/virtual-machines-disk-encryption-portal/sse-encrypt-existing-disk-customer-managed-key.png)
 

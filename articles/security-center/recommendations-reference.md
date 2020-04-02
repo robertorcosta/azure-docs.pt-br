@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: f0e74a366e8dbb515f2f50748eb4a5c76088a723
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 8f4703330190d3907e9a6e3aead8892fe69e7c13
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398023"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521211"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança - um guia de referência
 
@@ -105,7 +105,7 @@ Seu Secure Score é baseado no número de recomendações do Security Center que
 |**As variáveis da conta de automação devem ser criptografadas**|Ativar a criptografia de ativos variáveis da conta de automação ao armazenar dados confidenciais.<br>(Política relacionada: a criptografia deve ser ativada nas variáveis da conta de automação)|Alta|N|Recursos de computação (conta de automação)|
 |**A criptografia de disco deve ser aplicada em Máquinas virtuais**|Criptografe seus discos de máquina virtual usando a Criptografia de Disco do Azure para máquinas virtuais Windows e Linux. O Azure Disk Encryption (ADE) aproveita o recurso BitLocker padrão do setor do Windows eo recurso DM-Crypt do Linux para fornecer criptografia de disco de dados e sistema operacional para ajudar a proteger e proteger seus dados e ajudar a cumprir seus compromissos de conformidade e segurança organizacional no cofre de chaves do Azure do cliente. Quando os requisitos de conformidade e segurança exigirem que você criptografe os dados de ponta a ponta usando suas chaves de criptografia, incluindo a criptografia do disco efêmero (localmente conectado temporariamente), use a criptografia de disco do Azure. Alternativamente, por padrão, os Discos Gerenciados são criptografados em repouso por padrão usando o Azure Storage Service Encryption, onde as chaves de criptografia são chaves gerenciadas pela Microsoft no Azure. Se isso atender aos seus requisitos de conformidade e segurança, você poderá aproveitar a criptografia de disco gerenciada padrão para atender aos seus requisitos.<br>(Política relacionada: a criptografia de disco deve ser aplicada em máquinas virtuais)|Alta|N|Computador|
 |**As máquinas virtuais devem ser migradas para os novos recursos do Azure Resource Manager**|Use o Azure Resource Manager para suas máquinas virtuais para fornecer melhorias de segurança, tais como: controle de acesso mais forte (RBAC), melhor auditoria, implantação e controle baseados no Resource Manager, acesso a identidades gerenciadas, acesso ao cofre chave para segredos, autenticação baseada no Azure AD e suporte para tags e grupos de recursos para facilitar o gerenciamento de segurança.<br>(Política relacionada: as máquinas virtuais devem ser migradas para novos recursos do Azure Resource Manager)|Baixo|N|Computador|
-|**A solução de avaliação de vulnerabilidades deve ser instalada em suas máquinas virtuais**|Instalar uma solução de avaliação de vulnerabilidades em suas máquinas virtuais<br>(Política relacionada: avaliação de vulnerabilidades deve ser instalada em máquinas virtuais)|Médio|N|Computador|
+|**A solução de avaliação de vulnerabilidades deve ser instalada em suas máquinas virtuais**|Instalar uma solução de avaliação de vulnerabilidades em suas máquinas virtuais<br>(Política relacionada: as vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades)|Médio|N|Computador|
 |**As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades**|As máquinas virtuais para as quais uma solução de terceiros de avaliação de vulnerabilidade é implantada estão sendo continuamente avaliadas em relação às vulnerabilidades do aplicativo e do sistema operacional. Sempre que essas vulnerabilidades forem encontradas, elas estarão disponíveis para mais informações como parte da recomendação.<br>(Política relacionada: as vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades)|Alta|N|Computador|
 |**As vulnerabilidades da configuração de segurança nas máquinas devem ser corrigidas**|Corrigir vulnerabilidades na configuração de segurança em suas máquinas para protegê-las contra ataques.<br>(Política relacionada: as vulnerabilidades na configuração de segurança em suas máquinas devem ser corrigidas)|Baixo|N|Computador|
 |**As vulnerabilidades nas configurações de segurança do contêiner devem ser corrigidas**|Corrigir vulnerabilidades na configuração de segurança em computadores com o Docker instalado para protegê-los contra ataques.<br>(Política relacionada: as vulnerabilidades nas configurações de segurança de contêineres devem ser corrigidas)|Alta|N|Computador|

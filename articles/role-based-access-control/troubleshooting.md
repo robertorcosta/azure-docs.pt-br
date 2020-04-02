@@ -15,12 +15,12 @@ ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 8aedc78772858815a18425fb1e6cb36a4600f647
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 09d5b7a126a1b8832bfe40e2e25dd4000d5d9155
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385088"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548278"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solução de problemas Azure RBAC
 
@@ -80,7 +80,7 @@ $ras.Count
 
 ## <a name="access-denied-or-permission-errors"></a>Acesso negado ou erros de permissão
 
-- Se você tiver o erro de permissões "O cliente com id de objeto não tem autorização para executar ação sobre escopo (código: AutorizaçãoFalhou)" quando você tentar criar um recurso, verifique se você está conectado a um usuário que está atribuído a uma função que tenha escrito permissão para o recurso no escopo selecionado. Por exemplo, para gerenciar máquinas virtuais em um grupo de recursos, você deverá ter a função [Colaborador da Máquina Virtual](built-in-roles.md#virtual-machine-contributor) no grupo de recursos (ou escopo pai). Para obter uma lista das permissões de cada função interna, confira [Funções internas para recursos do Azure](built-in-roles.md).
+- Se você receber o erro de permissões "O cliente com id de objeto não tem autorização para executar ação sobre escopo (código: AutorizaçãoFalhou)" quando você tentar criar um recurso, verifique se você está conectado a tualmente com um usuário que é atribuído uma função que tem permissão de gravação para o recurso no escopo selecionado. Por exemplo, para gerenciar máquinas virtuais em um grupo de recursos, você deverá ter a função [Colaborador da Máquina Virtual](built-in-roles.md#virtual-machine-contributor) no grupo de recursos (ou escopo pai). Para obter uma lista das permissões de cada função interna, confira [Funções internas para recursos do Azure](built-in-roles.md).
 - Se você receber o erro de permissões "Você não tem permissão para criar uma solicitação de suporte" ao tentar criar ou atualizar um ticket `Microsoft.Support/supportTickets/write` de suporte, verifique se você está conectado a um usuário que está atribuído a uma função que tem a permissão, como [O Contribuinte de Solicitação de Suporte](built-in-roles.md#support-request-contributor).
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>Atribuições de função com o diretor de segurança desconhecido
@@ -179,7 +179,7 @@ Estes itens exigem acesso para **gravação** no **Plano do Serviço de Aplicati
 
 Estes itens exigem acesso para **gravação** no **Grupo de recursos** inteiro que contém o seu site:  
 
-* Associações e Certificados SSL (os certificados SSL podem ser compartilhados entre sites no mesmo grupo de recursos e localização geográfica)  
+* Certificados e vinculações TLS/SSL (certificados TLS/SSL podem ser compartilhados entre sites no mesmo grupo de recursos e geolocalização)  
 * Regras de alerta  
 * Configurações de autoescala  
 * Componentes do Application insights  

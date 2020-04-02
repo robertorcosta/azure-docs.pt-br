@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: dbc17620cda836ec0ac5c4ebc5a709fb0605c958
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1ad8390bc5db72636c637c2ffb817e34674d0fa
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240036"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548841"
 ---
 # <a name="deploy-azure-data-explorer-cluster-into-your-virtual-network"></a>Implantar o cluster Azure Data Explorer em sua rede virtual
 
@@ -75,7 +75,7 @@ A implantação do cluster Azure Data Explorer em sua sub-rede permite configura
 | **Usar**   | **De**   | **Para**   | **Protocolo**   |
 | --- | --- | --- | --- |
 | Gerenciamento  |[Endereços de gerenciamento do ADX](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement(ServiceTag) | sub-rede ADX:443  | TCP  |
-| Monitoramento de integridade  | [Endereços de monitoramento de saúde ADX](#health-monitoring-addresses)  | sub-rede ADX:443  | TCP  |
+| Monitoramento da integridade  | [Endereços de monitoramento de saúde ADX](#health-monitoring-addresses)  | sub-rede ADX:443  | TCP  |
 | Comunicação interna do ADX  | Sub-rede ADX: Todas as portas  | Sub-rede ADX:Todas as portas  | Todos  |
 | Permitir entrada do balanceador de carga Do Zure (sonda de saúde)  | AzureLoadBalancer  | sub-rede ADX:80.443  | TCP  |
 
@@ -171,7 +171,7 @@ A implantação do cluster Azure Data Explorer em sua sub-rede permite configura
 | Europa Ocidental | 23.97.212.5 |
 | Oeste da Índia | 23.99.5.162 |
 | Oeste dos EUA | 23.99.5.162 |
-| Oeste dos EUA 2 | 23.99.5.162 |    
+| Oeste dos EUA 2 | 23.99.5.162, 104.210.32.14 |    
 
 #### <a name="azure-monitor-configuration-endpoint-addresses"></a>Endereços de ponto final de configuração do Azure Monitor
 

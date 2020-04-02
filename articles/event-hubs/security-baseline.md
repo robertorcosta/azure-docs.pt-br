@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f16f6ef38b221e525340858fc7ba131f8a1bdf5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10fc822f9f36512405dd4e3b5aba6270b53e163f
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289570"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549038"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Linha de base de segurança do Azure para hubs de eventos
 
@@ -72,7 +72,7 @@ Entendendo a segurança da rede fornecida pelo Azure Security Center:https://doc
 
 **Orientação**: Habilite o Padrão de Proteção DDoS nas redes virtuais associadas aos seus hubs de eventos para se proteger contra ataques de negação de serviço distribuídos (DDoS). Use o Azure Security Center Integrated Threat Intelligence para negar comunicações com endereços IP da Internet mal-intencionados ou não usados.
 
-Como configurar a proteção DDoS:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+Como configurar a proteção DDoS:[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](/azure/virtual-network/manage-ddos-protection)
 
 Para obter mais informações sobre o Azure Security Center Integrated Threat Intelligence:https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
@@ -106,7 +106,7 @@ https://azuremarketplace.microsoft.com/marketplace/?term=Firewall
 
 Como adicionar uma regra de firewall em Hubs de eventos para um endereço IP especificado:
 
- https://docs.microsoft.com/azure/event-hubs/event-hubs-tutorial-virtual-networks-firewalls#add-firewall-for-specified-ip
+ https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
 
 **Monitoramento do Azure Security Center**: Ainda não está disponível
 
@@ -140,7 +140,7 @@ Política incorporada do Azure para namespace do Event Hubs:https://docs.microso
 
 
 
-Amostras de política do Azure para rede:https://docs.microsoft.com/azure/governance/policy/samples/#network
+Amostras de política do Azure para rede:https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 
 
@@ -373,10 +373,7 @@ Como ativar o MFA no Azure:https://docs.microsoft.com/azure/active-directory/aut
 
 **Orientação**: Use o Azure Active Directory (AD) Privileged Identity Management (PIM) para geração de registros e alertas quando atividades suspeitas ou inseguras ocorrem no ambiente. Use detecções de risco Azure AD para visualizar alertas e relatórios sobre comportamentos de usuários de risco. Para registro adicional, envie alertas de detecção de risco do Azure Security Center para o Azure Monitor e configure alertas/notificações personalizados usando grupos de ação.
 
-
-
 Como implantar o PIM (Privileged Identity Management, gerenciamento de identidade privilegiado):https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
-
 
 Entenda as detecções de risco do Azure AD:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
@@ -780,7 +777,7 @@ Como configurar o Acesso Condicional para bloquear o acesso ao Azure Resource Ma
 
 - O Hub de Eventos deve usar um ponto de extremidade de serviço de rede virtual
 
-Política incorporada do Azure para namespace https://docs.microsoft.com/en-\ do Event Hubs: us/azure/governance/policy/samples/built-in-policies#event-hub
+Política incorporada do Azure para namespace do Event Hubs:https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
 Como visualizar aliases de política do Azure disponíveis:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -961,7 +958,7 @@ O anti-malware da Microsoft está habilitado no host subjacente que suporta serv
 
 **Orientação**: Configure a recuperação de desastres geográficos para hubs de eventos do Azure. Quando datacenters ou regiões inteiras do Azure (se nenhuma zona de disponibilidade for usada) enfrentam tempo de inatividade, é essencial para o processamento de dados continuar a operar em uma região ou datacenter diferente. Como tal, a recuperação geo-desastre e a georeplicação são características importantes para qualquer empresa. Os Hubs de Eventos do Azure dão suporte à recuperação de desastre de área geográfica e à replicação geográfica no nível do namespace. 
 
-Entenda a recuperação de desastres geográficos para o Azure Event Hubs:https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones-preview
+Entenda a recuperação de desastres geográficos para o Azure Event Hubs:https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones
 
 **Monitoramento do Azure Security Center**: Atualmente não disponível
 

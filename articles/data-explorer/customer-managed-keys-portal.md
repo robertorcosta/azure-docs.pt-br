@@ -7,19 +7,19 @@ ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: c014ed2c25711677617d3bf8ff5d2f0f968a3b14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 180196f2c368207b76811700fd845406098600df
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80301038"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529429"
 ---
 # <a name="configure-customer-managed-keys-using-the-azure-portal"></a>Configure chaves gerenciadas pelo cliente usando o portal Azure
 
 > [!div class="op_single_selector"]
 > * [Portal](customer-managed-keys-portal.md)
-> * [C #](customer-managed-keys-csharp.md)
-> * [Modelo de Gerenciador de recursos do Azure](customer-managed-keys-resource-manager.md)
+> * [C#](customer-managed-keys-csharp.md)
+> * [Modelo do Azure Resource Manager](customer-managed-keys-resource-manager.md)
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](../../includes/data-explorer-configure-customer-managed-keys.md)]
 
@@ -46,7 +46,7 @@ Este artigo mostra como ativar a criptografia de chaves gerenciadas pelo cliente
 
     ![Salvar a chave gerenciada pelo cliente](media/customer-managed-keys-portal/cmk-encryption-setting.png)
 
-Ao habilitar as chaves gerenciadas pelo cliente para o cluster Azure Data Explorer, você criará uma identidade atribuída ao sistema para o cluster se não existir. Além disso, você fornecerá as permissões de exibição necessárias para o cluster Azure Data Explorer no Cofre de Chaves selecionado e obterá as propriedades do Key Vault. 
+Ao habilitar as chaves gerenciadas pelo cliente para o cluster Azure Data Explorer, você criará uma identidade atribuída ao sistema para o cluster se não existir. Além disso, você fornecerá as permissões necessárias para obter, wrapKey e deswarpKey para o cluster Azure Data Explorer no Cofre chave selecionado e obter as propriedades Key Vault. 
 
 > [!NOTE]
 > Selecione **Desfazer** para remover a chave gerenciada pelo cliente depois de criada.

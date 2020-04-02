@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/13/2019
+ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 53bbee6dd75e045c2a7e95c88a0138c9859d12db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad36547b0cf9457d7ff4fdd919a0bb1362539eb5
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80374051"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80522695"
 ---
 Este artigo responde a algumas perguntas frequentes sobre o Azure Managed Disks e os discos Azure Premium SSD.
 
@@ -409,11 +409,11 @@ Não há nenhuma desvantagem em usar CORTE nos Discos do Azure Premium ou Standa
 
 **Quais regiões suportam a capacidade de estouro do tamanho de disco SSD premium aplicável?**
 
-A capacidade de estouro é atualmente suportada no Azure West Central EUA.
+A capacidade de estouro é atualmente suportada em todas as regiões da Nuvem Pública do Azure, com suporte para nuvens soberanas em breve. 
 
 **Em quais regiões são suportadas em 4/8/16 tamanhos de disco gerenciados GiB (P1/P2/P3, E1/E2/E3) suportados?**
 
-Esses novos tamanhos de disco são atualmente suportados no Azure West Central US.
+Esses novos tamanhos de disco são atualmente suportados em todas as regiões da Nuvem Pública do Azure, com suporte para nuvens soberanas em breve. 
 
 **Os tamanhos de disco P1/P2/P3 são suportados para discos não gerenciados ou bolhas de página?**
 
@@ -476,7 +476,7 @@ Você pode parar e iniciar a VM à que o disco está conectado ou, desprender e 
 
 **Em quais regiões são suportadas os tamanhos de disco gerenciados de 8 TiB, 16 TiB e 32 TiB?**
 
-Os 8 TiB, 16 TiB e 32 SKUs de disco TiB são suportados em todas as regiões o global Azure, Microsoft Azure Government e Azure China 21Vianet.
+Os 8 TiB, 16 TiB e 32 SKUs de disco TiB são suportados em todas as regiões sob o global Azure, Microsoft Azure Government e Azure China 21Vianet.
 
 **Suportamos ativar o cache do Host em todos os tamanhos de disco?**
 

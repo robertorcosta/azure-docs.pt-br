@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: 9f694f3f0ec740d0a4e8dc4e6bf8845c408802c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61a85b2554bbd69541b3081f72525d2b7deed625
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75897839"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529225"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importe ou exporte um banco de dados SQL do Azure sem permitir que os serviços do Azure acessem o servidor
 
@@ -24,7 +24,7 @@ Este artigo mostra como importar ou exportar um banco de dados Azure SQL quando 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Faça login no [portal Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-the-azure-virtual-machine"></a>Crie a máquina virtual do Azure
 
@@ -61,7 +61,7 @@ As etapas a seguir mostram como se conectar à sua máquina virtual usando uma c
 
 4. Feche o formulário **Conectar-se à máquina virtual**.
 5. Para se conectar à sua VM, abra o arquivo RDP baixado.
-6. Quando solicitado, selecione **Conectar**. Em um Mac, você precisa de um cliente RDP, como este [Cliente de Área de Trabalho Remota](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) da Mac App Store.
+6. Quando solicitado, selecione **Conectar**. Em um Mac, você precisa de um cliente RDP, como este [Cliente de Área de Trabalho Remota](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) da Mac App Store.
 
 7. Insira o nome de usuário e a senha especificados na criação da máquina virtual e escolha **OK**.
 
@@ -96,7 +96,7 @@ As etapas a seguir criam uma regra de firewall IP em nível de servidor para o e
 
 4. Escolha **Adicionar IP cliente** na barra de ferramentas para adicionar o endereço IP público da sua máquina virtual a uma nova regra de firewall IP no nível do servidor. Uma regra de firewall de IP no nível do servidor pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
 
-5. Selecione **Salvar**. Uma regra de firewall IP em nível de servidor é criada para a porta de abertura pública de endereçoIP da sua máquina virtual 1433 no servidor SQL Database.
+5. Clique em **Salvar**. Uma regra de firewall IP em nível de servidor é criada para a porta de abertura pública de endereçoIP da sua máquina virtual 1433 no servidor SQL Database.
 
 6. Feche a página **Configurações do Firewall**.
 

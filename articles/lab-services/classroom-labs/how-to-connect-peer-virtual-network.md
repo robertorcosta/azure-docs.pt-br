@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: 56c31e03eeec0c81207dc402e864eadec2d768bd
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 224526efc2152e0b788c5cbc7f3bd60bb3363c1a
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474068"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545720"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conecte a rede do seu laboratório com uma rede virtual de pares no Azure Lab Services 
 Este artigo fornece informações sobre como espiar sua rede de laboratórios com outra rede. 
@@ -34,7 +34,7 @@ Você pode precisar conectar a rede do seu laboratório com uma rede virtual de 
 Certas redes locais estão conectadas à Rede Virtual Azure, seja através do [ExpressRoute](../../expressroute/expressroute-introduction.md) ou [do Virtual Network Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Esses serviços devem ser configurados fora do Azure Lab Services. Para saber mais sobre como conectar uma rede local ao Azure usando o ExpressRoute, consulte [a visão geral do ExpressRoute](../../expressroute/expressroute-introduction.md). Para conectividade no local usando um Gateway de Rede Virtual, o gateway, a rede virtual especificada e a conta de laboratório devem estar todas na mesma região.
 
 > [!NOTE]
-> Ao criar uma Rede Virtual Azure que será acompanhada por uma conta de laboratório, é importante entender como a região da rede virtual impacta onde os laboratórios de sala de aula são criados.  Para obter mais informações, consulte a seção do guia do administrador sobre [regiões\locais.](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regions-or-locations)
+> Ao criar uma Rede Virtual Azure que será acompanhada por uma conta de laboratório, é importante entender como a região da rede virtual impacta onde os laboratórios de sala de aula são criados.  Para obter mais informações, consulte a seção do guia do administrador sobre [regiões\locais.](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regionslocations)
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurar no momento da criação da conta de laboratório
 Durante a criação da nova conta de laboratório, você pode escolher uma rede virtual existente que aparece na lista de paradas de **rede virtual Peer** na guia **Avançado.** A rede virtual selecionada está conectada (peered) a laboratórios criados sob a conta do laboratório. Todas as máquinas virtuais em laboratórios que são criadas após a realização dessa mudança teriam acesso aos recursos na rede virtual peered. 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/18/2020
 ms.author: spelluru
-ms.openlocfilehash: 7b9ef32f16369bbb6c5bb69ef500ec8bb90fde20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88b37ea4ff717689f05afbb41d33a56a8cbb2c22
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370867"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547616"
 ---
 # <a name="lab-account-setup-guide"></a>Guia de configuração de conta de laboratório
 
@@ -87,10 +87,10 @@ Uma vez que você entenda os requisitos para sua conta de laboratório, você es
    Ao criar uma conta de laboratório, você pode achar útil se familiarizar com os recursos do Azure envolvidos; consulte a lista a seguir para obter mais informações e orientações sobre a criação desses recursos:
 
    - [Assinatura](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#subscription)
-   - [Grupo de recursos](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#resource-group)
+   - [Grupo de Recursos](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#resource-group)
    - [Conta de laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#lab-account)
    - [Laboratório de Sala de Aula](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#classroom-lab)
-   - [Selecionando uma região\Localização](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regions-or-locations)
+   - [Selecionando uma região\Localização](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regionslocations)
    - [Orientação de nomeação para recursos](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#naming)
 
 2. **Adicionar usuários à função de Criador de Laboratório**

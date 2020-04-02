@@ -15,12 +15,12 @@ ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ba07a0b0d3be0366179bba14c786fafad8753dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fe3b94463da07304f2c853910ac5d2a6771d070
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280687"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545653"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
@@ -85,7 +85,7 @@ A tabela a seguir fornece uma breve descrição e o ID único de cada função i
 > | [Colaborador do Serviço de Pesquisa](#search-service-contributor) | Permite gerenciar serviços de pesquisa, mas não acessá-las. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Colaborador do Plano de Web](#web-plan-contributor) | Permite gerenciar os planos da Web para sites, mas não o acesso a eles. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Colaborador do Site](#website-contributor) | Permite gerenciar sites (não planos da Web), mas não acessá-los. | de139f84-1756-47ae-9be6-808fbbe84772 |
-> | **Recipientes** |  |  |
+> | **Contêineres** |  |  |
 > | [AcrDelete](#acrdelete) | acr excluir | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
 > | [AcrImageSigner](#acrimagesigner) | signatário de imagem ACR | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | [AcrPull](#acrpull) | acr pull | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
@@ -94,7 +94,7 @@ A tabela a seguir fornece uma breve descrição e o ID único de cada função i
 > | [AcrQuarantineWriter](#acrquarantinewriter) | gravador de dados de quarentena acr | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | [Função de Administrador do Cluster do Serviço de Kubernetes do Azure](#azure-kubernetes-service-cluster-admin-role) | Liste a ação de credencial de administrador de cluster. | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | [Função de Usuário do Cluster do Serviço de Kubernetes do Azure](#azure-kubernetes-service-cluster-user-role) | Liste a ação de credencial de usuário de cluster. | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
-> | **Bancos** |  |  |
+> | **Bancos de dados** |  |  |
 > | [Função de leitor de conta do Cosmos DB](#cosmos-db-account-reader-role) | Pode ler dados de contas do Azure Cosmos DB. Consulte [Colaborador de conta do DocumentDB](#documentdb-account-contributor) para gerenciar contas do Azure Cosmos DB. | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
 > | [Operador cosmos DB](#cosmos-db-operator) | Permite gerenciar contas Azure Cosmos DB, mas não acessar dados nelas. Impede o acesso às chaves da conta e às strings de conexão. | 230815da-be43-4ae-9cb4-875f7bd000aaa |
 > | [CosmosBackupOperator](#cosmosbackupoperator) | Pode enviar solicitação de restauração de um banco de dados Cosmos DB ou de um contêiner em uma conta | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
@@ -151,7 +151,7 @@ A tabela a seguir fornece uma breve descrição e o ID único de cada função i
 > | [Contribuinte de Avaliação de Segurança](#security-assessment-contributor) | Permite que você empurre avaliações para o Security Center | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Gerenciador de Segurança (Herdado)](#security-manager-legacy) | Esta é uma função herdada. Por favor, use o Security Admin em vez disso. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | [Leitor de segurança](#security-reader) | Pode exibir recomendações e alertas, visualizar políticas de segurança, visualizar estados de segurança, mas não pode fazer alterações. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
-> | **Devops** |  |  |
+> | **DevOps** |  |  |
 > | [Usuário do DevTest Labs](#devtest-labs-user) | Permite conectar, iniciar, reiniciar e encerrar as máquinas virtuais no Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | [Criador de laboratório](#lab-creator) | Permite a você criar, gerenciar e excluir os laboratórios gerenciados nas contas de laboratório do Azure. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
 > | **Monitor** |  |  |
@@ -4644,7 +4644,7 @@ Pode gerenciar serviços, mas não as APIs
 > | Microsoft.ApiManagement/service/managedeployments/action | Alterar SKU/unidades, adicionar/remover implantações regionais do Serviço de Gerenciamento de API |
 > | Microsoft.ApiManagement/service/read | Ler metadados de uma instância do Serviço de Gerenciamento de API |
 > | Microsoft.ApiManagement/service/restore/action | Restaurar o Serviço de Gerenciamento de API do contêiner especificado em uma conta de armazenamento fornecida pelo usuário |
-> | Microsoft.ApiManagement/service/updatecertificate/action | Carregar certificado SSL para um Serviço de Gerenciamento de API |
+> | Microsoft.ApiManagement/service/updatecertificate/action | Carregar o certificado TLS/SSL para um serviço de gerenciamento de API |
 > | Microsoft.ApiManagement/service/updatehostname/action | Configurar, atualizar ou remover nomes de domínio personalizado para um Serviço de Gerenciamento de API |
 > | Microsoft.ApiManagement/service/write | Criar ou atualizar a instância do Serviço de Gerenciamento de API |
 > | Microsoft.Authorization/*/read | Ler funções e atribuições de função |

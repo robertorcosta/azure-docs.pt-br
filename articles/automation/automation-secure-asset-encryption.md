@@ -1,6 +1,6 @@
 ---
-title: Criptografia de ativos seguros em automação
-description: A automação do Azure protege ativos seguros usando vários níveis de criptografia. Por padrão, a criptografia é feita usando chaves gerenciadas pela Microsoft. Os clientes podem configurar suas contas de automação para usar chaves gerenciadas pelo cliente para criptografia. Este artigo descreve os detalhes de ambos os modos de criptografia e como você pode alternar entre os dois.
+title: Criptografe ativos seguros no Azure Automation
+description: O Azure Automation protege ativos seguros usando vários níveis de criptografia. Por padrão, a criptografia é feita usando chaves gerenciadas pela Microsoft. Os clientes podem configurar suas contas de automação para usar chaves gerenciadas pelo cliente para criptografia. Este artigo descreve os detalhes de ambos os modos de criptografia e como você pode alternar entre os dois.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,18 +9,18 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 3c21e2fcdde9bffac91af56d49dfa0bf336e8c0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b1d194209122fa71272243c80a2d4c57f6834a1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246241"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547748"
 ---
-# <a name="secure-assets-in-azure-automation"></a>Ativos seguros na Automação Azure
+# <a name="encrypt-secure-assets-in-azure-automation"></a>Criptografe ativos seguros no Azure Automation
 
 Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos estão protegidos no Azure Automation usando vários níveis de criptografia. Com base na chave de alto nível usada para a criptografia, existem dois modelos para criptografia:
--   Usando chaves gerenciadas pela Microsoft
--   Usando chaves gerenciadas pelo cliente
+-    Usando chaves gerenciadas pela Microsoft
+-    Usando chaves gerenciadas pelo cliente
 
 ## <a name="microsoft-managed-keys"></a>Chaves gerenciadas pela Microsoft
 
@@ -40,7 +40,7 @@ Quando você habilita a criptografia com chaves gerenciadas pelo cliente para um
 
 Uma nova conta de Automação é sempre criptografada usando chaves gerenciadas pela Microsoft. Não é possível habilitar chaves gerenciadas pelo cliente no momento em que a conta é criada. As chaves gerenciadas pelo cliente são armazenadas no Azure Key Vault e o cofre de chaves deve ser provisionado com políticas de acesso que concedem permissões-chave à identidade gerenciada associada à conta Automação. A identidade gerenciada só está disponível depois que a conta de armazenamento for criada.
 
-Quando você modifica a chave usada para a criptografia de ativos seguro do Azure Automation, ativando ou desativando chaves gerenciadas pelo cliente, atualizando a versão-chave ou especificando uma chave diferente, a criptografia da chave da conta muda, mas os ativos seguros em sua conta do Azure Automation não precisa ser recriptografada.
+Quando você modifica a chave usada para a criptografia de ativos seguros do Azure Automation, ativando ou desativando chaves gerenciadas pelo cliente, atualizando a versão-chave ou especificando uma chave diferente, a criptografia da chave de criptografia da conta muda, mas os ativos seguros em sua conta Azure Automation não precisam ser recriptografados.
 
 As três seções a seguir descrevem a mecânica de habilitar chaves gerenciadas pelo cliente para uma conta de Automação. 
 

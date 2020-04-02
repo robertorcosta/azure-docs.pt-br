@@ -3,16 +3,16 @@ title: Limites e cotas IoT Plug and Play Preview | Microsoft Docs
 description: Entenda os limites, cotas e estrangulamento que se aplicam quando você usa ioT Plug and Play Preview.
 author: miagdp
 ms.author: miag
-ms.date: 12/26/2019
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 48ecaaba6d956efd9da75d0582fa06d231cb3f80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cce99b7d9de09134fd01afb36c41bce3966e8536
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75531370"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518180"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limites, cotas e limites de visualização de plug e reprodução de IoT
 
@@ -27,7 +27,7 @@ Para a visualização pública, os seguintes limites e cotas se aplicam a um hub
 | Número de modelos de capacidade de dispositivos (DCMs) ou interfaces que podem ser registradas por hub | 1500 ||
 | Número máximo de interfaces que podem ser registradas por dispositivo | 40 ||
 | Número máximo de DCMs que podem ser registrados por dispositivo | 1 ||
-| Tamanho máximo do arquivo interface/DCM | 512 chars ||
+| Tamanho máximo do arquivo interface/DCM | 512 KB ||
 | Tamanho máximo de um nome de interface | 256 chars ||
 | Tamanho máximo de um nome de propriedade  | 64 bytes, 7 níveis de profundidade (e `$iotin`o primeiro nível é reservado para ) | Personagens permitidos: a-z, A-Z, 0-9 (não como o primeiro caractere), e sublinhar. |
 | Tamanho máximo de um valor de propriedade | 512 bytes ||
@@ -39,7 +39,7 @@ Para a visualização pública, os seguintes limites e cotas se aplicam a um hub
 
 Para a visualização pública, os seguintes limites e cotas se aplicam a um repositório de modelos:
 
-| Limites, restrições e aceleradores| Valor |
+| Limites, restrições e aceleradores | Valor |
 |-----|-----|
 | Número de repositórios de modelos da empresa por inquilino do Azure Active Directory | 1 |
 | Número de chaves de autorização por repositório de modelo | 10  |

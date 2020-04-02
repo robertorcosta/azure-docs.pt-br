@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 11/26/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: cc126af67a0d8627d61e595cee56f3df8973340d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 160873fe889d7eccc7efd08b4767854a5b24c484
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613052"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518965"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configure a sincronização escopo do Azure AD para o Azure Active Directory Domain Services
 
@@ -42,18 +42,20 @@ Você usa o portal Azure ou powerShell para configurar as configurações de sin
 
 | Ação | | |
 |--|--|--|
-| Crie um domínio gerenciado pelo Azure AD DS e configure a sincronização com escopo | [Portal Azure](#enable-scoped-synchronization-using-the-azure-portal) | [Powershell](#enable-scoped-synchronization-using-powershell) |
-| Modificar sincronização escopo | [Portal Azure](#modify-scoped-synchronization-using-the-azure-portal) | [Powershell](#modify-scoped-synchronization-using-powershell) |
-| Desativar a sincronização com escopo | [Portal Azure](#disable-scoped-synchronization-using-the-azure-portal) | [Powershell](#disable-scoped-synchronization-using-powershell) |
+| Crie um domínio gerenciado pelo Azure AD DS e configure a sincronização com escopo | [Portal do Azure](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Modificar sincronização escopo | [Portal do Azure](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Desativar a sincronização com escopo | [Portal do Azure](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
-> Alterar o escopo da sincronização faz com que o domínio Gerenciado pelo Azure AD DS ressincronizar todos os dados.
+> Alterar o escopo da sincronização faz com que o domínio Gerenciado pelo Azure AD DS ressincronizar todos os dados. As seguintes considerações se aplicam:
 > 
 >  * Quando você altera o escopo de sincronização de um domínio gerenciado pelo Azure AD DS, ocorre uma ressincronização completa.
 >  * Os objetos que não são mais necessários no domínio gerenciado pelo Azure AD DS são excluídos. Novos objetos são criados no domínio gerenciado.
 >  * A ressincronização pode levar muito tempo para ser concluída. O tempo de sincronização depende do número de objetos, como usuários, grupos e membros de grupos no domínio gerenciado do Azure AD DS e no diretório Azure AD. Para diretórios grandes com várias centenas de milhares de objetos, a ressincronização pode levar alguns dias.
 
 ## <a name="enable-scoped-synchronization-using-the-azure-portal"></a>Habilite a sincronização escopo usando o portal Azure
+
+Para habilitar a sincronização escopo no portal Azure, complete as seguintes etapas:
 
 1. Siga o [tutorial para criar e configurar uma instância Azure AD DS](tutorial-create-instance-advanced.md). Complete todos os pré-requisitos e etapas de implantação que não sejam para o escopo de sincronização.
 1. Escolha **Escopo** na etapa de sincronização e selecione os grupos Azure AD para sincronizar a instância Azure AD DS.
@@ -173,7 +175,7 @@ Write-Output "******************************************************************
 
 ## <a name="enable-scoped-synchronization-using-powershell"></a>Habilite a sincronização escopo usando o PowerShell
 
-Use o PowerShell para concluir esse conjunto de etapas. Confira as instruções para [Habilitar o Azure Active Directory Domain Services usando o PowerShell](powershell-create-instance.md). Algumas das etapas neste artigo foram ligeiramente modificadas para configurar a sincronização no escopo.
+Use o PowerShell para concluir o seguinte conjunto de etapas. Confira as instruções para [Habilitar o Azure Active Directory Domain Services usando o PowerShell](powershell-create-instance.md). Algumas das etapas neste artigo foram ligeiramente modificadas para configurar a sincronização no escopo.
 
 1. Complete as seguintes tarefas do artigo para habilitar o Azure AD DS usando o PowerShell. Pare na etapa para realmente criar o domínio gerenciado. Você configura a sincronização escopo que você cria o domínio gerenciado pelo Azure AD DS.
 
