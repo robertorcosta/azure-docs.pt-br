@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 3/11/2020
 ms.custom: include file
-ms.openlocfilehash: 6ec72dfa227d62804e5cbafef0e2d1acf483e84b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: cb36863f0072b031a8c40dd3dc8efcf26a29fb58
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79370366"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80408027"
 ---
 > [!NOTE]
-> O programa de versão prévia dos Gêmeos Digitais do Azure está funcionando na capacidade máxima. Sendo assim, novos clientes não estão sendo adicionados e **nenhum recurso adicional dos Gêmeos Digitais do Azure pode ser criado no momento**. Em caso de exclusão de uma instância em algum lugar, é possível que a criação de seu recurso seja bem-sucedida e que você possa continuar normalmente, mas isso não é garantido. Continue conferindo se há atualizações desse status.
+> Agradecemos pelo seu interesse no programa de versão prévia dos Gêmeos Digitais do Azure. Devido à grande demanda, o programa de versão prévia está fechado temporariamente enquanto nos preparamos para a próxima versão das novas funcionalidades. Como resultado, talvez você não consiga criar recursos dos Gêmeos Digitais do Azure neste momento. Continue a verificar se há novas informações.
