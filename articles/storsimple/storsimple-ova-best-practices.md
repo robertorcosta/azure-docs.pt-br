@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5da0297dd97c8263bdc47f1d5a3d7d2d1f835e4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82608c98fc8ea15167b690547906c2238b1b3c04
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298827"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544334"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas do StorSimple Virtual Array
 
@@ -161,8 +161,8 @@ Tenha em mente as seguintes práticas recomendadas ao provisionar compartilhamen
 
 * Os tamanhos de arquivo relativos ao tamanho provisionado de um compartilhamento em camadas pode afetar o desempenho em camadas. Trabalhar com arquivos grandes pode resultar em um nível lento. Ao trabalhar com arquivos grandes, recomendamos que o arquivo maior seja menor que 3% do tamanho do compartilhamento.
 * Um máximo de 16 volumes/compartilhamentos pode ser criado na matriz virtual. Para obter os limites de tamanho dos volumes/compartilhamentos localmente fixados e em camadas, sempre consulte [Limites da Matriz Virtual StorSimple](storsimple-ova-limits.md).
-* Ao criar um volume, inclua o consumo de dados esperado, bem como o crescimento futuro. O volume não pode ser expandido posteriormente.
-* Assim que o volume tiver sido criado, não será possível reduzir o tamanho do volume no StorSimple.
+* Ao criar um volume, inclua o consumo de dados esperado, bem como o crescimento futuro. O volume ou compartilhamento não pode ser expandido posteriormente.
+* Uma vez criado o volume/compartilhamento, você não pode reduzir o tamanho do volume/compartilhamento no StorSimple.
 * Ao gravar em um volume em camadas no StorSimple, quando os dados do volume atingirem um certo limite (em relação ao espaço local reservado para o volume), a E/S será restringida. Continuar gravando nesse volume reduz significativamente a E/S. Embora seja possível gravar em um volume em camadas além da sua capacidade provisionada (nós não impedimos ativamente o usuário de gravar além da capacidade provisionada), você verá uma notificação de alerta informando que há um excesso de assinaturas. Quando receber o alerta, é fundamental que você tome medidas corretivas, como excluir dados do volume (atualmente, não há suporte para a expansão do volume).
 * Para casos de uso da recuperação de desastre, como o número de compartilhamentos/volumes permitidos é 16 e o número máximo de compartilhamentos/volumes que podem ser processados em paralelo também é 16, o número de compartilhamentos/volumes não influenciará o RPO e os RTOs.
 

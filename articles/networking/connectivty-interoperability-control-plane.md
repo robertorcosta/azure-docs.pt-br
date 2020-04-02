@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilidade em recursos de conectividade de back-end do Azure: análise do plano de controle | Microsoft Docs'
+title: 'Interoperabilidade em Azure : Análise de plano de controle'
 description: Este artigo fornece a análise do plano de controle da configuração do teste que é possível utilizar para analisar a interoperabilidade entre o ExpressRoute, uma VPN site a site e o emparelhamento de rede virtual no Azure.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 4921e4c4fc0da95250a0171c66d6a69093b10687
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e41bc86533815c394077bf5276d930fe958cd19
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873838"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518284"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Interoperabilidade em recursos de conectividade de back-end do Azure: análise do plano de controle
+# <a name="interoperability-in-azure--control-plane-analysis"></a>Interoperabilidade em Azure : Análise de plano de controle
 
 Este artigo descreve a análise do plano de controle da [configuração do teste][Setup]. Também é possível examinar a [configuração do teste][Configuration] e a [análise do plano de dados][Data-Analysis] da configuração do teste.
 
@@ -29,7 +29,7 @@ A figura a seguir ilustra a rede a partir da perspectiva de uma VNet (rede virtu
 
 ![1][1]
 
-O ASN do gateway do Azure ExpressRoute da VNet é diferente do ASN dos MSEEs (Microsoft Enterprise Edge Routers). Um gateway do ExpressRoute usa um ASN privado (um valor de **65515**) e os MSEEs usam um ASN público (um valor de **12076**) globalmente. Quando você configura o peering ExpressRoute, porque o MSEE é o peer, você usa **12076** como asn de pares. No lado do Azure, o MSEE estabelece o emparelhamento de eBGP com o gateway do ExpressRoute. O emparelhamento de eBGP duplo que o MSEE estabelece para cada emparelhamento do ExpressRoute é transparente no nível do plano de controle. Portanto, quando você exibe uma tabela de rotas do ExpressRoute, verá o ASN do gateway do ExpressRoute da VNet para os prefixos da VNet. 
+O ASN do gateway do Azure ExpressRoute da VNet é diferente do ASN dos MSEEs (Microsoft Enterprise Edge Routers). Um gateway do ExpressRoute usa um ASN privado (um valor de **65515**) e os MSEEs usam um ASN público (um valor de **12076**) globalmente. Quando você configura o peering ExpressRoute, porque o MSEE é o peer, você usa **12076** como asn de pares. No lado do Azure, o MSEE estabelece o emparelhamento de eBGP com o gateway do ExpressRoute. O emparelhamento de eBGP duplo que o MSEE estabelece para cada emparelhamento do ExpressRoute é transparente no nível do plano de controle. Portanto, quando você vê uma tabela de rota expressroute, você vê o gateway ExpressRoute da VNet ASN para os prefixos da VNet. 
 
 A figura a seguir mostra uma tabela de rotas do ExpressRoute: 
 
@@ -45,7 +45,7 @@ Ambas a Localização 1 local e a VNet remota são conectadas à VNet do hub via
 
 ## <a name="on-premises-location-1-and-the-branch-vnet-perspective-via-a-site-to-site-vpn"></a>Localização 1 local e a perspectiva da VNet de branch via uma VPN site a site
 
-Ambas as Localização 1 local e a VNet de branch estão conectadas a um gateway de VPN da VNet central por meio de uma conexão VPN site a site. Elas compartilham a mesma perspectiva da topologia, conforme mostrado no diagrama a seguir:
+Tanto o Local 1 quanto a filial VNet estão conectados ao gateway VPN de um hub VNet através de uma conexão VPN site-to-site. Elas compartilham a mesma perspectiva da topologia, conforme mostrado no diagrama a seguir:
 
 ![3][3]
 

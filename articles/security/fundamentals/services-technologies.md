@@ -3,7 +3,7 @@ title: Tecnologias e serviços de segurança do Azure | Microsoft Docs
 description: O artigo fornece uma lista estruturada das tecnologias e serviços de segurança do Azure.
 services: security
 documentationcenter: na
-author: barclayn
+author: terrylanfear
 manager: barbkess
 editor: TomSh
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
-ms.author: barclayn
-ms.openlocfilehash: 741e6b9cad20645fdfc085623fd9492a12ac1dfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: terrylan
+ms.openlocfilehash: 83548063a796401792bd19e7ec27be36a0efa4e4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68726555"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549199"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Tecnologias e serviços de segurança disponíveis no Azure
 
@@ -69,7 +69,7 @@ Ao longo do tempo, essa lista será alterada e aumentará, exatamente como o Azu
 |------|--------|
 | [Controle de Acesso &nbsp;com base em &nbsp;função do &nbsp;Azure](/azure/active-directory/role-based-access-control-configure)|Um recurso de controle de acesso projetado para permitir que os usuários acessem apenas os recursos necessários para acesso com base em suas funções dentro da empresa.  |
 | [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)|Um repositório de autenticação baseado em nuvem que oferece suporte a um diretório de multilocatário, baseados em nuvem e vários serviços de gerenciamento de identidade no Azure.  |
-| [Diretório Ativo Do Azure B2C](/azure/active-directory-b2c/active-directory-b2c-overview)|Um serviço de gerenciamento de identidade que permite controlar como os clientes se inscrevem, entram e gerenciam seus perfis ao usar aplicativos baseados no Azure.   |
+| [Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview)|Um serviço de gerenciamento de identidade que permite controlar como os clientes se inscrevem, entram e gerenciam seus perfis ao usar aplicativos baseados no Azure.   |
 | [Azure Active Directory Domain Services](/azure/active-directory-domain-services/overview)| Uma versão com base em nuvem e gerenciada do Active Directory Domain Services. |
 | [Autenticação Multifator do Azure](/azure/active-directory/authentication/multi-factor-authentication)| Uma provisão de segurança que emprega várias formas diferentes de autenticação e verificação antes de permitir acesso a informações protegidas. |
 

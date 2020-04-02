@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 55bfb5030d0a168e7556240212fcd5f3be30a289
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e0f0f311b7ec8adae6ddb25e01046141adadfa4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335356"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548549"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Começando com O Azure Maps Android SDK
 
@@ -267,6 +267,29 @@ Aqui está um exemplo de Mapas Azure com o idioma definido como "fr-FR" e exibi�
 </center>
 
 Uma lista completa de idiomas e exibições regionais compatíveis está documentada [aqui](supported-languages.md).
+
+## <a name="navigating-the-map"></a>Navegando pelo mapa
+
+Existem várias maneiras diferentes em que o mapa pode ser ampliado, garimpado, girado e arremessado. O seguinte detalha todas as diferentes maneiras de navegar pelo mapa.
+
+**Zoom no mapa**
+
+- Toque no mapa com dois dedos e aperte juntos para diminuir o zoom ou espalhar os dedos para ampliar.
+- Toque duas vezes no mapa para ampliar em um nível.
+- Toque duas vezes com dois dedos para ampliar o mapa em um nível.
+- Toque duas vezes; no segundo toque, segure o dedo no mapa e arraste para cima para ampliar, ou para baixo para diminuir o zoom.
+
+**Pan o mapa**
+
+- Toque no mapa e arraste em qualquer direção.
+
+**Gire o mapa**
+
+- Toque no mapa com dois dedos e gire.
+
+**Lance o mapa**
+
+- Toque no mapa com dois dedos e arraste-os para cima ou para baixo juntos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

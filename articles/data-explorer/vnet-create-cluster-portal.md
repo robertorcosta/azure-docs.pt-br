@@ -7,12 +7,12 @@ ms.reviewer: basaba
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/24/2020
-ms.openlocfilehash: 4dff471fa0f2194756409e01512ed223a1d46024
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99c32122fc48aaea7428fa559d7289713849f34e
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80241433"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548893"
 ---
 # <a name="create-an-azure-data-explorer-cluster-in-your-virtual-network"></a>Crie um cluster Azure Data Explorer em sua rede virtual
 
@@ -21,7 +21,7 @@ O Azure Data Explorer suporta a implantação de um cluster em uma sub-rede em s
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-* Faça login no [portal Azure](https://portal.azure.com/).
+* Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-network-security-group-nsg"></a>Criar o NsG (Network Security Group, grupo de segurança de rede)
 
@@ -68,7 +68,7 @@ Para criar o grupo de segurança da rede:
     | Nome | PermitirAZureDataExplorerManagement
     | | |
     
-1. Repita as duas etapas anteriores para todas as dependências de entrada e saída de acordo com [as dependências para implantação do VNet](/azure/data-explorer/vnet-deloyment#dependencies-for-vnet-deployment). Alternativamente, as regras de saída podem ser substituídas por uma regra única para *permitir* internet para as portas 443 e 80.
+1. Repita as duas etapas anteriores para todas as dependências de entrada e saída de acordo com [as dependências para implantação do VNet](/azure/data-explorer/vnet-deployment#dependencies-for-vnet-deployment). Alternativamente, as regras de saída podem ser substituídas por uma regra única para *permitir* internet para as portas 443 e 80.
     
     As regras do NSG para dependências de entrada e saída devem ser assim:
 
@@ -121,7 +121,7 @@ Para criar a rede virtual e a sub-rede:
     | | | |
 
     > [!NOTE]
-    > Para cargas de trabalho de produção, planeje o tamanho da sub-rede de acordo com o [tamanho da sub-rede do plano em seu VNet](/azure/data-explorer/vnet-deloyment#plan-subnet-size-in-your-vnet)
+    > Para cargas de trabalho de produção, planeje o tamanho da sub-rede de acordo com o [tamanho da sub-rede do plano em seu VNet](/azure/data-explorer/vnet-deployment#plan-subnet-size-in-your-vnet)
 
 1. Selecione **Revisar + criar** para examinar os detalhes do cluster e **Criar** para provisionar o cluster.
 
