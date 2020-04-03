@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 03/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3a54b096019e9e38bc800ae313016a430062dab
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 46c48d6f7d751e6d767921fad21e6213c6b1203b
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74964303"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384017"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integração do Atlassian Cloud com o Azure Active Directory
 
@@ -31,7 +30,7 @@ Neste tutorial, você aprenderá a integrar o Atlassian Cloud ao Azure Active Di
 * Permitir que os usuários sejam conectados automaticamente ao Atlassian Cloud com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,7 +46,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O Atlassian Cloud é compatível com SSO iniciado por **SP e IDP**
 * O Atlassian Cloud é compatível com [provisionamento e desprovisionamento de usuário automatizados](atlassian-cloud-provisioning-tutorial.md)
-
+* Após configurar o Atlassian Cloud, você poderá impor controle de sessão, que protege contra exfiltração e infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 ## <a name="adding-atlassian-cloud-from-the-gallery"></a>Adição do Atlassian Cloud da galeria
 
 Para configurar a integração do Atlassian Cloud ao Azure AD, você precisará adicionar o Atlassian Cloud da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -93,7 +92,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     d. Na caixa de texto **Estado de Retransmissão**, digite uma URL usando o seguinte padrão: `https://<instancename>.atlassian.net`
 
     > [!NOTE]
-    > Os valores anteriores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Você obterá esses valores reais da tela **Configuração SAML do Atlassian Cloud**, que é explicada posteriormente em **Configurar logon único do Atlassian Cloud** do tutorial.
+    > Os valores anteriores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Você obterá esses valores reais da tela **Configuração SAML do Atlassian Cloud**, que é explicada posteriormente na etapa 7 de **Configurar SSO do Atlassian Cloud** no tutorial.
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
@@ -222,8 +221,12 @@ Ao selecionar o bloco do Atlassian Cloud no Painel de Acesso, você deverá ser 
 
 - [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente o Atlassian Cloud com o Azure AD](https://aad.portal.azure.com/)
+
+- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Como proteger o Atlassian Cloud com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

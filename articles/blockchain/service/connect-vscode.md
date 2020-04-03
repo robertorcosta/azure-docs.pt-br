@@ -1,15 +1,15 @@
 ---
 title: Usar o Visual Studio Code para se conectar ao Azure Blockchain Service
 description: Conectar-se a uma rede de consórcio do Azure Blockchain Service usando a extensão Azure Blockchain Development Kit para Ethereum no Visual Studio Code
-ms.date: 12/05/2019
+ms.date: 03/26/2020
 ms.topic: quickstart
-ms.reviewer: chrisseg
-ms.openlocfilehash: 1bcdfdafa9253fc4dc20ccb7cc237cb794b0af53
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.reviewer: caleteet
+ms.openlocfilehash: 269a3e419186daddf1e6a41a54e52e688f4bc7e3
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74977041"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348576"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Início Rápido: usar o Visual Studio Code para se conectar a uma rede de consórcio do Azure Blockchain Service
 
@@ -22,9 +22,9 @@ Neste início rápido, você instala e usa a extensão Azure Blockchain Developm
 * Concluir [Início Rápido: Criar um membro do blockchain usando o portal do Azure](create-member.md) ou [Início Rápido: Criar um membro do blockchain do Azure Blockchain Service usando a CLI do Azure](create-member-cli.md)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Extensão Azure Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Node.js 10.15.x ou superior](https://nodejs.org/download)
+* [Node.js 10.15.x ou superior](https://nodejs.org)
 * [Git 2.10.x ou superior](https://git-scm.com)
-* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) Adicione o python.exe ao caminho. Colocar o Python no versão 2.7.15 no caminho é um requisito para o Azure Blockchain Development Kit.
+* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) Adicione o python.exe ao caminho. É necessário ter o Python versão 2.7.15 no caminho para o Azure Blockchain Development Kit.
 * [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
 * [CLI do Ganache 6.0.0](https://github.com/trufflesuite/ganache-cli)
 

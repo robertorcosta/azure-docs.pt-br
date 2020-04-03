@@ -5,16 +5,52 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 09fe8396b6f0033a2c01d1ef056060a855b23d0a
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: ad821036047dcf46821b2b2722e3dd17f8e318c2
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761440"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80386080"
 ---
+### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O usuário precisa ter hub e spoke com dispositivos SD-WAN/VPN para usar a WAN virtual do Azure?
+
+A WAN virtual fornece muitas funcionalidades incorporadas em um único painel de vidro, como conectividade VPN site a site/site, conectividade de Usuário/P2S, conectividade do ExpressRoute, conectividade de rede virtual, Interconectividade de VPN ExpressRoute, conectividade transitiva VNET a VNET, roteamento centralizado, firewall do Azure e segurança do gerenciador de firewall, Monitoramento, Criptografia do ExpressRoute e muitos outros recursos. Você não precisa ter todos esses casos de uso para começar a usar a WAN Virtual. Você pode simplesmente começar com apenas um caso de uso. A arquitetura da WAN virtual é uma arquitetura de hub e spoke com dimensionamento e desempenho internos em que as ramificações (dispositivos VPN/SD-WAN), os usuários (clientes VPN do Azure, clientes openVPN ou IKEv2), os circuitos de ExpressRoute, as Redes Virtuais servem como spokes para os Hubs Virtuais. Todos os hubs são conectados em malha completa em uma WAN Virtual Padrão, o que facilita para o usuário usar o backbone da Microsoft para conectividade de qualquer um para qualquer um (qualquer spoke). Para o hub e spoke com dispositivos SD-WAN/VPN, os usuários podem configurá-lo manualmente no portal da WAN Virtual do Azure ou usar o CPE do Parceiro da WAN Virtual (SD-WAN/VPN) para configurar a conectividade com o Azure. Os parceiros de WAN virtuais fornecem automação para conectividade, que é a capacidade de exportar as informações do dispositivo para o Azure, baixar a configuração do Azure e estabelecer a conectividade com o hub da WAN Virtual do Azure. Para a conectividade de VPN do usuário/ponto a site, damos suporte [cliente de VPN do Azure](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN ou IKEv2. 
+
+### <a name="what-client-does-the-azure-virtual-wan-user-vpn-point-to-site-support"></a>Com qual cliente a VPN de Usuário da WAN Virtual do Azure (ponto a site) é compatível?
+
+A WAN virtual é compatível com [cliente da VPN do Azure](https://go.microsoft.com/fwlink/?linkid=2117554), cliente OpenVPN ou qualquer cliente IKEv2. A autenticação do Azure AD é compatível com o cliente VPN do Azure. É necessário um sistema operacional cliente Windows 10 versão 17763.0 ou superior.  Os clientes OpenVPN podem ser compatíveis com autenticação baseada em certificado. Depois que a autenticação baseada em certificado for selecionada no gateway, você verá o arquivo .ovpn para baixar em seu dispositivo. O certificado e a autenticação RADIUS têm suporte com IKEv2. 
+
+### <a name="for-user-vpn-point-to-site--why-is-the-p2s-client-pool-split-into-two-routes"></a>Para VPN de usuário (ponto a site) – por que o pool de clientes P2S é dividido em duas rotas?
+
+Cada gateway tem duas instâncias, a divisão acontece para que cada instância de gateway possa alocar IPs de cliente de maneira independente para clientes conectados e o tráfego da rede virtual seja roteado de volta para a instância de gateway correta para evitar o salto de instância entre gateways.
+
+### <a name="how-do-i-add-dns-servers-for-p2s-clients"></a>Como faço para adicionar servidores DNS a clientes P2S?
+
+Há duas opções para adicionar servidores DNS aos clientes do P2S.
+
+1. Abrir um tíquete de suporte com a Microsoft para solicitar a adição de seus servidores DNS ao hub
+2. Ou, se você estiver usando o Cliente VPN do Azure para Windows 10, poderá modificar o arquivo XML do perfil baixado e adicionar as marcas **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** antes da importação.
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnsservers>
+        <dnsserver>x.x.x.x</dnsserver>
+        <dnsserver>y.y.y.y</dnsserver>
+    </dnsservers>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Para VPN de usuário (ponto a site) – há suporte para quantos clientes?
+
+Cada gateway P2S VPN de usuário tem duas instâncias e cada instância é compatível com até um número de usuários determinado à medida que a unidade de escala muda. A unidade de escala 1-3 é compatível com 500 conexões, a unidade de escala 4-6 é compatível com 1.000 conexões, a unidade de escala 7-10 é compatível com 5 mil conexões e a unidade de escala 11+ é compatível com até 10 mil conexões. Como exemplo, digamos que o usuário escolha uma unidade de escala. Cada unidade de escala implica um gateway ativo-ativo implantado, e cada uma das instâncias (neste caso, 2) seria compatível com até 500 conexões. Como você pode obter 500 conexões * 2 por gateway, isso não significa que você planeja 1.000, em vez de 500, para essa unidade de escala, pois as instâncias podem precisar ser atendidas, e durante esse tempo a conectividade para as 500 extras poderá ser interrompida se você ultrapassar a contagem de conexões recomendada.
+
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Qual é a diferença entre um gateway de rede virtual do Azure (Gateway de VPN) e um gateway de VPN da WAN Virtual do Azure?
 
 A WAN Virtual fornece conectividade site a site em larga escala e é criada visando produtividade, escalabilidade e facilidade de uso. Quando você conecta um site a um gateway de VPN de WAN Virtual, ele é diferente de um gateway de rede virtual comum que usa um tipo de gateway 'VPN'. Da mesma forma, quando você conecta um circuito de ExpressRoute a um hub de WAN Virtual, ele usa para o gateway de ExpressRoute um recurso diferente daquele usado pelo gateway de rede virtual regular, o qual usa o tipo de gateway 'ExpressRoute'. A WAN Virtual dá suporte a uma taxa de transferência de agregação de até 20 Gbps para VPN e ExpressRoute. A WAN Virtual também tem automação para conectividade com um ecossistema de parceiros de dispositivo de ramificação CPE. Os dispositivos da ramificação CPE têm automação interna que provisiona automaticamente e se conecta à WAN Virtual do Azure. Esses dispositivos estão disponíveis em um ecossistema crescente de SD-WAN e parceiros de VPN. Confira a [Lista de Parceiros Preferenciais](../articles/virtual-wan/virtual-wan-locations-partners.md).

@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 4b5934e82c14f50ef1884a6c5618f4f98d663e1f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 686b140915e90adefa15084c2e8317404b91ed09
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441428"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365903"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---mongodb-api"></a>Listar e obter bancos de dados e grafos do Azure Cosmos DB – API do MongoDB
 
@@ -38,8 +38,10 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 | Comando | Observações |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lista contas do Cosmos DB ou obtém uma conta do Cosmos DB especificada. |
+| [Get-AzCosmosDBMongoDBDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbdatabase) | Lista Bancos de Dados da API do MongoDB do Cosmos DB em uma conta ou obtém um Banco de Dados da API do MongoDB do Cosmos DB especificado em uma conta. |
+| [Get-AzCosmosDBMongoDBCollection](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollection) | Lista Coleções de APIs do MongoDB do Cosmos DB ou obtém uma Coleção de APIs do MongoDB do Cosmos DB especificada em um Banco de Dados |
 |**Grupos de recursos do Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||

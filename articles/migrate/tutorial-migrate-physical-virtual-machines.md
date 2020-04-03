@@ -4,12 +4,12 @@ description: Este artigo descreve como migrar computadores físicos para o Azure
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.custom: MVC
-ms.openlocfilehash: 908a5915cbb7f5aeb9f641da18024d5dbf497707
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 51ce45b091fe2d8845963953c2c50cd7be618f58
+ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389010"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80297992"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrar computadores como servidores físicos para o Azure
 
@@ -149,7 +149,8 @@ A primeira etapa da migração é configurar o dispositivo de replicação. Voc�
     ![Baixar provedor](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 10. Copie o arquivo de instalação do dispositivo e o arquivo de chave para o computador Windows Server 2016 que você criou para o dispositivo.
-11. Execute o arquivo de instalação do dispositivo de replicação conforme descrito no próximo procedimento.
+11. Execute o arquivo de instalação do dispositivo de replicação conforme descrito no próximo procedimento. Após a conclusão da instalação, o assistente de configuração de dispositivo será iniciado automaticamente (você também poderá iniciar o assistente manualmente usando o atalho cspsconfigtool que é criado na área de trabalho do dispositivo). Use a guia Gerenciar Contas do assistente para adicionar detalhes de conta a serem usados para a instalação por push do serviço de Mobilidade. Neste tutorial, vamos instalar manualmente o serviço de Mobilidade nos computadores a serem replicados, portanto, crie uma conta fictícia nesta etapa e continue.
+
 12. Depois que o dispositivo for reiniciado após a instalação, em **Descobrir computadores**, selecione o novo dispositivo em **Selecionar Servidor de Configuração** e clique em **Finalizar o registro**. Finalizar o registro executa algumas tarefas finais para preparar o dispositivo de replicação.
 
     ![Finalizar registro](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
@@ -223,7 +224,7 @@ Agora, selecione os computadores para migração.
 2. Em **Replicar**, > **Configurações de origem** > **Os computadores estão virtualizados?** , selecione **Não virtualizados/Outro**.
 3. Em **Dispositivo local**, selecione o nome do dispositivo de Migrações para Azure que você configurou.
 4. Em **Servidor de Processo**, selecione o nome do dispositivo de replicação.
-6. Em **Credenciais de convidado**, especifique uma conta do administrador de VM que será usada para a instalação por push do serviço de Mobilidade. Neste tutorial, estamos instalando o serviço de Mobilidade manualmente, assim, você pode adicionar qualquer conta fictícia. Em seguida, clique em **Próximo: Máquinas virtuais**.
+6. Em **Credenciais de convidado**, você especifica uma conta fictícia que será usada para instalar o serviço de Mobilidade manualmente (a instalação por push não é compatível com o servidor físico). Em seguida, clique em **Próximo: Máquinas virtuais**.
 
     ![Replicar VMs](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
@@ -314,14 +315,19 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
 
 2. Em **Replicando computadores**, clique com o botão direito do mouse na VM > **Migrar**.
 3. Em **Migrar** > **Desligar máquinas virtuais e realizar uma migração planejada sem perda de dados**, selecione **Sim** > **OK**.
-    - Por padrão, as Migrações para Azure desligam a VM local e executam uma replicação sob demanda para sincronizar as alterações de VM ocorridas desde a última replicação. Isso garante que não haja nenhuma perda de dados.
     - Se você não quiser desligar a VM, selecione **Não**
+
+    Observação: para a migração de servidor físico, a recomendação é colocar o aplicativo como parte da janela de migração (não permitir que os aplicativos aceitem conexões) e, em seguida, iniciar a migração (o servidor precisa ser mantido em execução e, portanto, as alterações restantes podem ser sincronizadas) antes da conclusão da migração.
+
 4. Um trabalho de migração é iniciado para a VM. Acompanhe o trabalho nas notificações do Azure.
 5. Após a conclusão do trabalho, você poderá exibir e gerenciar a VM na página **Máquinas Virtuais**.
 
 ## <a name="complete-the-migration"></a>Concluir a migração
 
-1. Depois que a migração for concluída, clique com o botão direito do mouse na VM > **Interromper migração**. Isso interromperá a replicação para o computador local e limpará as informações de estado da replicação da VM.
+1. Depois que a migração for concluída, clique com o botão direito do mouse na VM > **Interromper migração**. Isso faz o seguinte:
+    - Interrompe a replicação no computador local.
+    - Remove o computador da contagem de **Servidores de replicação** nas Migrações para Azure: Migração de Servidor.
+    - Limpa as informações de estado de replicação do computador.
 2. Instale o agente do [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) ou do [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) da VM do Azure nos computadores migrados.
 3. Execute todos os ajustes no aplicativo após a migração, como atualizar as cadeias de conexão de banco de dados e as configurações do servidor Web.
 4. Execute o aplicativo final e o teste de aceitação da migração no aplicativo migrado que está sendo executado no Azure.

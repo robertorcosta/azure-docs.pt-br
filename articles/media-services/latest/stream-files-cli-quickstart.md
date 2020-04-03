@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: ''
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: a51b30ad2af29871ed6998e60bb64adf91dfdbbd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 91259e10966173cb701b867f5b3ed362112beef3
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76514367"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382776"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---cli"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – CLI
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – CLI do Azure
 
 Este tutorial mostra como é fácil codificar e iniciar a transmissão de vídeos por streaming em vários navegadores e dispositivos usando os Serviços de Mídia do Azure e a CLI do Azure. Um conteúdo de entrada pode ser especificado usando HTTPS, URLs SAS ou caminhos para arquivos localizados no armazenamento de Blobs do Azure.
 
@@ -40,7 +40,7 @@ A conta dos Serviços de Mídia e todas as contas de armazenamento associadas pr
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-```azurecli
+```azurecli-interactive
 az group create -n amsResourceGroup -l westus2
 ```
 
@@ -48,15 +48,15 @@ az group create -n amsResourceGroup -l westus2
 
 Neste exemplo, criamos uma conta de uso geral v2, LRS Padrão.
 
-Caso deseje fazer experimentos com contas de armazenamento, use `--sku Standard_LRS`. No entanto, ao escolher um SKU para produção, você deverá considerar `--sku Standard_RAGRS`, que fornece replicação geográfica para a continuidade dos negócios. Para obter mais informações, confira [Contas de armazenamento](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
- 
-```azurecli
+Caso deseje fazer experimentos com contas de armazenamento, use `--sku Standard_LRS`. No entanto, ao escolher um SKU para produção, você deverá considerar `--sku Standard_RAGRS`, que fornece replicação geográfica para a continuidade dos negócios. Para obter mais informações, confira [Contas de armazenamento](/cli/azure/storage/account).
+
+```azurecli-interactive
 az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
 ```
 
 ### <a name="create-an-azure-media-services-account"></a>Criar uma conta de Serviços de Mídia do Azure
 
-```azurecli
+```azurecli-interactive
 az ams account create --n amsaccount -g amsResourceGroup --storage-account amsstorageaccount -l westus2
 ```
 
@@ -85,14 +85,13 @@ Você receberá uma resposta como esta:
 
 O comando da CLI do Azure a seguir inicia o **Ponto de Extremidade de Streaming** padrão.
 
-```azurecli
+```azurecli-interactive
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 ```
 
 Você receberá uma resposta como esta:
 
 ```
-az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 {
   "accessControl": null,
   "availabilitySetName": null,
@@ -129,7 +128,7 @@ Se o ponto de extremidade de streaming já estiver em execução, você receber�
 
 Crie uma **Transformação** para configurar tarefas comuns para codificar ou analisar vídeos. Neste exemplo, queremos fazer uma codificação de taxa de bits adaptável. Em seguida, você enviará um trabalho na transformação criada. O trabalho é a solicitação aos Serviços de Mídia para que eles apliquem a transformação a determinado conteúdo de áudio ou vídeo de entrada.
 
-```azurecli
+```azurecli-interactive
 az ams transform create --name testEncodingTransform --preset AdaptiveStreaming --description 'a simple Transform for Adaptive Bitrate Encoding' -g amsResourceGroup -a amsaccount
 ```
 
@@ -161,7 +160,7 @@ Você receberá uma resposta como esta:
 
 Cria um **Ativo** de saída que é usado como a saída do trabalho de codificação.
 
-```azurecli
+```azurecli-interactive
 az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
 ```
 
@@ -190,13 +189,13 @@ Ao enviar trabalhos para processar seus vídeos, você precisará informar os Se
 
 Ao executar `az ams job start`, você pode definir um rótulo na saída do trabalho. Em seguida, você poderá usar o rótulo para identificar para que é o ativo de saída.
 
-- Se você atribuir um valor ao rótulo, defina ‘--output-assets’ como “assetname=label”.
-- Se você não atribuir um valor ao rótulo, defina ‘--output-assets’ como “assetname=”.
+- Se você atribuir um valor ao rótulo, defina '--output-assets' como "assetname=label".
+- Se você não atribuir um valor ao rótulo, defina '--output-assets' como "assetname=".
 
   Observe que "=" é adicionado ao `output-assets`.
 
-```azurecli
-az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup 
+```azurecli-interactive
+az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup
 ```
 
 Você receberá uma resposta como esta:
@@ -238,7 +237,7 @@ Você receberá uma resposta como esta:
 
 Em 5 minutos, verifique o status do trabalho. Ele deverá indicar "Concluído". Se ele estiver concluído, verifique novamente em alguns minutos. Depois que ele indicar "Concluído", vá para a próxima etapa e crie um **Localizador de Streaming**.
 
-```azurecli
+```azurecli-interactive
 az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n testJob001
 ```
 
@@ -248,7 +247,7 @@ Depois que a codificação for concluída, a próxima etapa será disponibilizar
 
 ### <a name="create-a-streaming-locator"></a>Criar um localizador de streaming
 
-```azurecli
+```azurecli-interactive
 az ams streaming-locator create -n testStreamingLocator --asset-name testOutputAssetName --streaming-policy-name Predefined_ClearStreamingOnly  -g amsResourceGroup -a amsaccount 
 ```
 
@@ -274,7 +273,7 @@ Você receberá uma resposta como esta:
 
 ### <a name="get-streaming-locator-paths"></a>Obtenha caminhos do localizador de streaming
 
-```azurecli
+```azurecli-interactive
 az ams streaming-locator get-paths -a amsaccount -g amsResourceGroup -n testStreamingLocator
 ```
 
@@ -311,13 +310,14 @@ Você receberá uma resposta como esta:
 
 Copie o caminho da HTTP Live Streaming (HLS). Nesse caso, use `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`.
 
-## <a name="build-the-url"></a>Criar a URL 
+## <a name="build-the-url"></a>Criar a URL
 
 ### <a name="get-the-streaming-endpoint-host-name"></a>Obtém o nome de host do ponto de extremidade de streaming
 
-```azurecli
+```azurecli-interactive
 az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 ```
+
 Copie o valor `hostName`. Nesse caso, use `amsaccount-usw22.streaming.media.azure.net`.
 
 ### <a name="assemble-the-url"></a>Montar a URL
@@ -344,13 +344,12 @@ Aqui está um exemplo:
 
 Se você não precisar mais de qualquer um dos recursos em seu grupo de recursos, incluindo as contas dos Serviços de Mídia e de armazenamento que criou neste tutorial, exclua o grupo de recursos.
 
-Execute este comando CLI:
+Execute este comando da CLI do Azure:
 
-```azurecli
+```azurecli-interactive
 az group delete --name amsResourceGroup
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
 [Visão geral dos Serviços de Mídia](media-services-overview.md)
-

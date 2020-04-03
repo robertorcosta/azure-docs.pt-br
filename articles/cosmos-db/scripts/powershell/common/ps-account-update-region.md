@@ -1,20 +1,19 @@
 ---
-title: Script do PowerShell para atualizar RU/s para a API de Tabela do Azure Cosmos DB
-description: Saiba como usar um script do PowerShell para atualizar a taxa de transferência para um banco de dados ou contêiner na conta da API de Tabela do Azure Cosmos DB
+title: Script do PowerShell para atualizar as regiões da conta do Azure Cosmos
+description: Amostra de script do Azure PowerShell – Atualizar as regiões da conta do Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 03/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 101e9e5591198b84bb9bba886249b0784cc6b43e
+ms.openlocfilehash: 4a8e24b4445e2bf29b35e87600de260c523d4376
 ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365941"
+ms.locfileid: "80367169"
 ---
-# <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Atualizar as RU/s de uma tabela do Azure Cosmos DB – API de Tabela
+# <a name="update-an-azure-cosmos-accounts-regions-using-powershell"></a>Atualizar as regiões da conta do Azure Cosmos usando o PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +21,12 @@ ms.locfileid: "80365941"
 
 ## <a name="sample-script"></a>Exemplo de script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-ru-update.ps1 "Update throughput on a table for Table API")]
+> [!NOTE]
+> Não é possível modificar regiões e alterar outras propriedades da conta do Cosmos na mesma operação. Isso precisa ser feito como duas operações separadas.
+> [!NOTE]
+> Esta amostra descreve como usar uma conta da API do SQL (Core). Para usar essa amostra em outras APIs, copie as propriedades relacionadas e aplique-as ao script específico da API.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update-region.ps1 "Update Azure Cosmos account regions")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
@@ -38,8 +42,8 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 | Comando | Observações |
 |---|---|
-|**Azure Cosmos DB**| |
-| [Set-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbtable) | Cria ou atualiza uma tabela da API de Tabela do Cosmos DB. |
+|**Recursos do Azure**| |
+| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Atualiza um recurso. |
 |**Grupos de recursos do Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||

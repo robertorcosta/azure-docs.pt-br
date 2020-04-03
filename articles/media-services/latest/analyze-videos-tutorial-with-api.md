@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 02/02/2020
+ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: abd4a3a3a3e8494ea325e65a78eea7fb56b78f94
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b7864d89cc14a1473fd43e94bfe74c368bcb391d
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76988355"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80349475"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutorial: Analisar vídeos com os Serviços de Mídia v3
 
@@ -92,6 +92,8 @@ A função a seguir conclui estas ações:
 
 * Cria um ativo.
 * Obtém uma [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) gravável no [contêiner no armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) do Ativo.
+
+    Se estiver usando a função [ListContainerSas](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) do ativo para obter URLs SAS, observe que a função retorna várias URLs SAS, pois há duas chaves de conta de armazenamento para cada conta de armazenamento. Uma conta de armazenamento tem duas chaves porque permite a rotação contínua das chaves da conta de armazenamento (por exemplo, alterar a primeira enquanto se usa a outra e, em seguida, começar a usar a nova primeira chave e realizar a rotação da segunda). A primeira URL SAS representa a chave de armazenamento 1 e a segunda representa a chave de armazenamento 2.
 * Carrega o arquivo para o contêiner no armazenamento usando a URL de SAS.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]

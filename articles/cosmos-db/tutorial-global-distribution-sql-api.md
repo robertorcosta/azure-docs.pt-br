@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 541fcdd966ec1e0443fa6211d894bab3ed965f93
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 177973cf766a6215453f3062c0fb206961649272
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387124"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80295519"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: Configurar a distribuição global do Azure Cosmos DB usando a API do SQL
 

@@ -1,22 +1,19 @@
 ---
 title: Avaliar VMs do Hyper-V para migração para o Azure usando as Migrações para Azure | Microsoft Docs
-description: Descreve como avaliar as VMs locais do Hyper-V para migração para o Azure usando as Migrações para Azure.
+description: Descreve como avaliar as VMs locais do Hyper-V para migração para o Azure usando a Avaliação de Servidor de Migrações para Azure.
 ms.topic: tutorial
-ms.date: 01/23/2020
+ms.date: 03/23/2020
 ms.custom: mvc
-ms.openlocfilehash: e4c505d74ff3bebc21f696b1c4b894afcdaa9974
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cb3c29e01b7917a6d639b6b2a53fc2842efc2172
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222003"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80336765"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs do Hyper-V usando a avaliação de servidor das Migrações para Azure
 
-Este artigo mostra como avaliar as VMs locais do Hyper-V usando a ferramenta Migrações para Azure: Avaliação de Servidor.
-
-As [Migrações para Azure](migrate-services-overview.md) fornecem um hub de ferramentas que ajudam você a descobrir, avaliar e migrar aplicativos, a infraestrutura e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas das Migrações para Azure e ofertas de ISV (fornecedor independente de software) de terceiros.
-
+Este artigo mostra como avaliar as VMs locais do Hyper-V usando a ferramenta [Migrações para Azure: Avaliação de Servidor](migrate-services-overview.md#azure-migrate-server-assessment-tool).
 
 
 Este tutorial é o segundo de uma série que demonstra como avaliar e migrar VMs do Hyper-V para o Azure. Neste tutorial, você aprenderá como:
@@ -38,9 +35,9 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 - [Conclua](tutorial-prepare-hyper-v.md) o primeiro tutorial desta série. Caso contrário, as instruções deste tutorial não funcionarão.
 - Veja o que você deve ter feito no primeiro tutorial:
-    - [Configurar as permissões do Azure](tutorial-prepare-hyper-v.md#prepare-azure) para as Migrações para Azure.
-    - [Preparar](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) os clusters, hosts e VMs do Hyper-V para avaliação.
-    - [Preparar-se para a implantação](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) do dispositivo das Migrações para Azure, usado para avaliação e descoberta de VMs do Hyper-V.
+    - [Preparar o Azure](tutorial-prepare-hyper-v.md#prepare-azure) para trabalhar com as Migrações para Azure.
+    - [Preparar a avaliação de hosts](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) e VMs do Hyper-V.
+    - [Verificar](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) o que você precisa para implantar o dispositivo de Migrações para Azure para avaliação do Hyper-V.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurar um projeto das Migrações para Azure
 
@@ -52,22 +49,12 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 4. Em **Introdução**, clique em **Adicionar ferramentas**.
 5. Na guia **Migrar projeto**, selecione sua assinatura do Azure e crie um grupo de recursos, caso não tenha um.
-6. Em **Detalhes do Projeto**, especifique o nome do projeto e a região em que deseja criar o projeto.
-
-
-    ![Criar um projeto das Migrações para Azure](./media/tutorial-assess-hyper-v/migrate-project.png)
-
-    Você pode criar um projeto de Migrações para Azure nessas regiões.
-
-    **Geografia** | **Região**
-    --- | ---
-    Ásia  | Sudeste Asiático
-    Europa | Norte da Europa ou Europa Ocidental
-    United Kingdom |  Sul do Reino Unido ou Oeste do Reino Unido
-    Estados Unidos | Leste dos EUA, Oeste dos EUA 2 ou Centro-oeste dos EUA
+6. Em **Detalhes do Projeto**, especifique o nome do projeto e a região em que deseja criar o projeto. [Examine](migrate-support-matrix.md#supported-geographies) as regiões nas quais você pode criar o projeto de Migrações para Azure.
 
     - A região do projeto é usada apenas para armazenar os metadados coletados das VMs locais.
     - Você pode selecionar uma região de destino do Azure diferente ao migrar as VMs. Todas as regiões do Azure têm suporte como destino de migração.
+
+    ![Criar um projeto das Migrações para Azure](./media/tutorial-assess-hyper-v/migrate-project.png)
 
 7. Clique em **Próximo**.
 8. Em **Selecionar ferramenta de avaliação**, selecione **Migrações para Azure: Avaliação de Servidor** > **Avançar**.
@@ -78,18 +65,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 10. Em **Examinar + adicionar ferramentas**, examine as configurações e clique em **Adicionar ferramentas**.
 11. Aguarde alguns minutos até que o projeto das Migrações para Azure seja implantado. Você será levado para a página do projeto. Caso não veja o projeto, acesse-o em **Servidores** no painel das Migrações para Azure.
 
+## <a name="set-up-the-azure-migrate-appliance"></a>Configurar o dispositivo das Migrações para Azure
 
+O recurso Migrações para Azure: Avaliação do Servidor usa um dispositivo leve de Migrações para Azure. O dispositivo executa a descoberta de VM e envia os metadados de VM e os dados de desempenho para as Migrações para Azure.
+- O dispositivo pode ser configurado em uma VM do Hyper-V usando um VHD do Hyper-V baixado. Como alternativa, você pode configurar o dispositivo em uma VM ou computador físico com um script do instalador do PowerShell.
+- Este tutorial usa o VHD. Examine [este artigo](deploy-appliance-script.md) se você quiser configurar o dispositivo usando um script.
 
-
-## <a name="set-up-the-appliance-vm"></a>Configurar a VM do dispositivo
-
-A Avaliação de Servidor das Migrações para Azure executa um dispositivo leve de VM do Hyper-V.
-
-- Esse dispositivo executa a descoberta de VM e envia os metadados de VM e os dados de desempenho para as Migrações para Azure: Avaliação de Servidor.
-- Para configurar o dispositivo:
-    - Baixe um VHD compactado do Hyper-V no portal do Azure.
-    - Crie o dispositivo e verifique se ele pode se conectar à Avaliação de Servidor das Migrações para Azure.
-    - Configure o dispositivo pela primeira vez e registre-o com o projeto de Migrações para Azure.
+Depois de criar o dispositivo, você verifica se é possível conectá-lo ao Migrações para Azure: Avaliação do Servidor, configurá-lo pela primeira vez e registrá-lo com o projeto de Migrações para Azure.
 
 ### <a name="download-the-vhd"></a>Baixar o VHD
 
@@ -150,6 +132,9 @@ Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-ap
 ### <a name="configure-the-appliance"></a>Configurar o dispositivo
 
 Configure o dispositivo pela primeira vez.
+
+> [!NOTE]
+> Se você configurar o dispositivo usando um [script do PowerShell](deploy-appliance-script.md), em vez do VHD baixado, as duas primeiras etapas neste procedimento não serão relevantes.
 
 1. No Gerenciador do Hyper-V > **Máquinas Virtuais**, clique com o botão direito do mouse na VM > **Conectar**.
 2. Forneça o idioma, o fuso horário e a senha do dispositivo.

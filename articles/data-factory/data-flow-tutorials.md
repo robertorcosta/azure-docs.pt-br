@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 03/04/2020
-ms.openlocfilehash: bb996b0abc16a3d6171c8f7ab2ac0e64dd0c1075
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.date: 03/24/2020
+ms.openlocfilehash: cc0feff48e7da35535e30c6741994f48750d931a
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096803"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80293497"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Mapeamento de tutoriais em vídeo de fluxo de dados
 
@@ -107,6 +107,8 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 
 [Log e auditoria](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
+[Otimizar dinamicamente o tamanho do cluster de fluxo de dados em runtime](https://www.youtube.com/watch?v=jWSkJdtiJNM)
+
 ## <a name="mapping-data-flow-scenarios"></a>Cenários de fluxo de dados de mapeamento
 
 [Pesquisas difusas](http://youtu.be/7gdwExjHBbw)
@@ -148,3 +150,5 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 [Divisão de matrizes e instrução Case](https://www.youtube.com/watch?v=DHNH8ZO7YjI)
 
 [Diversão com parâmetros e interpolação de cadeia de caracteres](https://youtu.be/hb3-cn2CMgM)
+
+[Introdução ao script do Fluxo de Dados: copiar, colar, snippets](https://www.youtube.com/watch?v=3_1I4XdoBKQ)

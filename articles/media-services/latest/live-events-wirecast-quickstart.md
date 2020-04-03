@@ -6,13 +6,13 @@ ms.service: media-services
 ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
-ms.date: 03/06/2020
-ms.openlocfilehash: c0eaf3907cbfcd86424b1d2cbc03930a7af72786
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 03/25/2020
+ms.openlocfilehash: e5bdd75ca61d53a64f003633d74e3d8f7992a98b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78927569"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80336548"
 ---
 # <a name="create-a-azure-media-services-live-stream-with-the-portal-and-wirecast"></a>Criar uma transmissão ao vivo dos Serviços de Mídia do Azure com o portal e o Wirecast
 
@@ -43,13 +43,17 @@ Para simplificar, usaremos uma predefinição de codificação para os Serviços
 
 ## <a name="setting-up-an-azure-media-services-live-stream"></a>Como configurar uma transmissão ao vivo dos Serviços de Mídia do Azure
 
-1. Depois de navegar até a conta dos Serviços de Mídia do Azure no portal, selecione **Transmissão ao vivo** na listagem dos Serviços de Mídia.
-1. Clique em **Adicionar evento ao vivo** para criar um evento de transmissão ao vivo.
-1. Insira um nome para o novo evento, como *TestLiveEvent* no campo **Nome** do evento ao vivo.
+1. Depois de navegar até a conta dos Serviços de Mídia do Azure no portal, selecione **Transmissão ao vivo** na listagem dos Serviços de Mídia.<br/>
+![Selecionar link de Transmissão ao vivo](media/live-events-wirecast-quickstart/select-live-streaming.png)<br/>
+1. Clique em **Adicionar evento ao vivo** para criar um evento de transmissão ao vivo.<br/>
+![Adicionar ícone de evento ao vivo](media/live-events-wirecast-quickstart/add-live-event.png)<br/>
+1. Insira um nome para o novo evento, como *TestLiveEvent* no campo **Nome** do evento ao vivo.<br/>
+![Campo de texto do nome do evento ao vivo](media/live-events-wirecast-quickstart/live-event-name.png)<br/>
 1. Insira uma descrição opcional do evento no campo **Descrição**.
-1. Selecione o botão de opção **Passagem – sem codificação de nuvem**.
-1. Selecione o botão de opção **RTMP**. 
-1. Verifique se o botão de opção **Não** está selecionado para iniciar o evento ao vivo, a fim de evitar a cobrança do evento ao vivo antes que ele esteja pronto.  (A cobrança será iniciada quando o evento ao vivo for iniciado.)
+1. Selecione o botão de opção **Passagem – sem codificação de nuvem**.<br/>
+![Botão de opção de codificação de nuvem](media/live-events-wirecast-quickstart/cloud-encoding.png)
+1. Selecione o botão de opção **RTMP**.
+1. Verifique se o botão de opção **Não** está selecionado para iniciar o evento ao vivo, a fim de evitar a cobrança do evento ao vivo antes que ele esteja pronto.  (A cobrança será iniciada quando o evento ao vivo for iniciado.) ![Botão de opção para iniciar evento ao vivo](media/live-events-wirecast-quickstart/start-live-event-no.png)<br/>
 1. Clique no botão **Examinar + criar** para examinar as configurações.
 1. Clique no botão **Criar** para criar o evento ao vivo. Em seguida, você voltará à exibição de listagem de eventos ao vivo.
 1. Clique no **link para o evento ao vivo** recém-criado. Observe que o evento está parado.
@@ -58,20 +62,28 @@ Para simplificar, usaremos uma predefinição de codificação para os Serviços
 ## <a name="setting-up-a-live-stream-with-wirecast-studio"></a>Como configurar uma transmissão ao vivo com o Wirecast Studio
 
 1. Supondo que você ainda tenha o aplicativo Wirecast aberto, selecione **Criar Documento Vazio** no menu principal e, em seguida, clique em **Continuar**.
-1. Posicione o cursor sobre a primeira camada na área de camadas do Wirecast.  Clique no ícone **Adicionar** exibido e selecione a entrada de vídeo que deseja transmitir.  A caixa de diálogo Camada Mestra 1 será aberta.
-1. Selecione **Captura de vídeo** no menu e, em seguida, selecione a câmera que deseja usar. A exibição da câmera será mostrada na área Visualização.
+![Tela inicial do Wirecast](media/live-events-wirecast-quickstart/open-empty-document.png)
+1. Posicione o cursor sobre a primeira camada na área de camadas do Wirecast.  Clique no ícone **Adicionar** exibido e selecione a entrada de vídeo que deseja transmitir.  A caixa de diálogo Camada Mestra 1 será aberta.<br/>
+![Adicionar ícone do Wirecast](media/live-events-wirecast-quickstart/add-icon.png)
+1. Selecione **Captura de vídeo** no menu e, em seguida, selecione a câmera que deseja usar. Se você estiver selecionando uma câmera, a exibição da câmera será mostrada na área Visualização.
+![Tela de seleção de captura de vídeo do Wirecast](media/live-events-wirecast-quickstart/video-shot-selection.png)
 1. Posicione o cursor sobre a segunda camada na área de camadas do Wirecast. Clique no ícone **Adicionar** exibido e selecione a entrada de áudio que deseja transmitir.  A caixa de diálogo Camada Mestra 2 será aberta.
-1. Selecione **Captura de áudio** no menu e, em seguida, selecione a entrada de áudio que deseja usar. 
+1. Selecione **Captura de áudio** no menu e, em seguida, selecione a entrada de áudio que deseja usar.
+![Tela de seleção de captura de áudio do Wirecast](media/live-events-wirecast-quickstart/audio-shot-select.png)
 1. No menu principal, selecione **Configurações de saída**.  A caixa de diálogo Saída será exibida.
-1. Selecione **Serviços de Mídia do Azure** na lista suspensa da saída.  A configuração de saída dos Serviços de Mídia do Azure preencherá automaticamente a *maioria* das configurações de saída.
+1. Selecione **Serviços de Mídia do Azure** na lista suspensa da saída.  A configuração de saída dos Serviços de Mídia do Azure preencherá automaticamente a *maioria* das configurações de saída.<br/>
+![Tela de configurações de saída do Wirecast](media/live-events-wirecast-quickstart/azure-media-services.png)
 1. Na próxima seção, você voltará aos Serviços de Mídia do Azure no navegador para copiar a *URL de Entrada*, a fim de entrar nas configurações de saída.
 
 ### <a name="copy-and-paste-the-input-url"></a>Copiar e colar a URL de entrada
 
-1. De volta à página dos Serviços de Mídia do Azure do portal, clique em **Iniciar** para iniciar o evento de transmissão ao vivo. (A cobrança será iniciada agora.)
+1. De volta à página dos Serviços de Mídia do Azure do portal, clique em **Iniciar** para iniciar o evento de transmissão ao vivo. (A cobrança será iniciada agora.)<br/>
+![Ícone de iniciar](media/live-events-wirecast-quickstart/start.png)
 2. Clique na alternância **Seguro/Não seguro** para defini-la como **Não seguro**.  Isso definirá o protocolo como RTMP em vez de RTMPS.
 3. Copie a **URL de Entrada** para a área de transferência.
-4. Alterne para o aplicativo do Wirecast e cole a **URL de Entrada** no campo **Endereço** nas Configurações de saída.
+![URL de entrada](media/live-events-wirecast-quickstart/input-url.png)
+4. Alterne para o aplicativo do Wirecast e cole a **URL de Entrada** no campo **Endereço** nas Configurações de saída.<br/>
+![URL de entrada do Wirecast](media/live-events-wirecast-quickstart/input-url-wirecast.png)
 5. Clique em **OK**.
 
 ## <a name="setting-up-outputs"></a>Como configurar saídas
@@ -83,9 +95,11 @@ Essa parte vai configurar as saídas e permitir que você salve uma gravação d
 
 1. Clique no link **Criar saídas** abaixo do visualizador de vídeo das saídas.
 1. Se desejar, edite o nome da saída no campo **Nome** para algo mais amigável, de modo que seja fácil encontrá-lo posteriormente.
+![Campo de nome de saída](media/live-events-wirecast-quickstart/output-name.png)
 1. Mantenha todos os outros campos inalterados por enquanto.
 1. Clique em **Avançar** para adicionar o localizador de streaming.
 1. Altere o nome do localizador para algo mais amigável, se desejar.
+![Campo de nome do localizador](media/live-events-wirecast-quickstart/live-event-locator.png)
 1. Mantenha todos os outros campos desta tela inalterados por enquanto.
 1. Clique em **Criar**.
 
@@ -93,20 +107,26 @@ Essa parte vai configurar as saídas e permitir que você salve uma gravação d
 
 1. No Wirecast, selecione **Saída > Iniciar/Parar difusão > Iniciar os Serviços de Mídia do Azure: Serviços de Mídia do Azure** no menu principal.  Quando o fluxo for enviado para o evento ao vivo, a janela Ao vivo no Wirecast será exibida no player de vídeo de eventos ao vivo na página do evento ao vivo nos Serviços de Mídia do Azure.
 
+   ![Itens do menu Iniciar a difusão](media/live-events-wirecast-quickstart/start-broadcast.png)
+
 1. Clique no botão **Ir** na janela de visualização para começar a difundir o vídeo e o áudio selecionados para as camadas do Wirecast.
 
-> [!TIP]
-> Se houver um erro, tente recarregar o player clicando no link Recarregar player acima dele.
+   ![Botão Ir do Wirecast](media/live-events-wirecast-quickstart/go-button.png)
+
+   > [!TIP]
+   > Se houver um erro, tente recarregar o player clicando no link Recarregar player acima dele.
 
 ## <a name="running-the-default-streaming-endpoint"></a>Como executar o ponto de extremidade de streaming padrão
 
-1. Verifique se o ponto de extremidade de streaming está em execução selecionando **Pontos de extremidades de streaming** na listagem dos Serviços de Mídia. Você será levado para a página dos pontos de extremidade de streaming.
+1. Verifique se o ponto de extremidade de streaming está em execução selecionando **Pontos de extremidades de streaming** na listagem dos Serviços de Mídia. Você será levado para a página dos pontos de extremidade de streaming.<br/>
+![Item de menu do ponto de extremidade de streaming](media/live-events-wirecast-quickstart/streaming-endpoints.png)
 1. Se o status do ponto de extremidade de streaming padrão for parado, clique no ponto de extremidade de streaming **padrão**. Isso levará você à página desse ponto de extremidade.
-1. Clique em **Iniciar**.  Isso iniciará o ponto de extremidade de streaming.
+1. Clique em **Iniciar**.  Isso iniciará o ponto de extremidade de streaming.<br/>
+![Item de menu do ponto de extremidade de streaming](media/live-events-wirecast-quickstart/start.png)
 
 ## <a name="play-the-output-broadcast-with-azure-media-player"></a>Reproduzir a difusão de saída com o Player de Mídia do Azure
 
-1. Copie a **URL de Streaming** no player de vídeo da saída. 
+1. Copie a **URL de Streaming** no player de vídeo da saída.
 1. Em um navegador da Web, abra a demonstração do Player de Mídia do Azure https://ampdemo.azureedge.net/azuremediaplayer.html
 1. Cole a **URL de Streaming** no campo URL do Player de Mídia do Azure.
 1. Clique no botão **Atualizar Player**.
@@ -133,8 +153,8 @@ A saída que você criou agora está disponível para streaming sob demanda, des
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-  > [!IMPORTANT]
-  > Pare os serviços. Depois de concluir as etapas deste início rápido, interrompa o evento ao vivo e o ponto de extremidade de streaming ou você continuará sendo cobrado pelo tempo durante o qual eles permanecerem em execução. Para interromper o evento ao vivo, confira Como interromper a difusão, etapas 2 e 3 acima.
+> [!IMPORTANT]
+> Pare os serviços. Depois de concluir as etapas deste início rápido, interrompa o evento ao vivo e o ponto de extremidade de streaming ou você continuará sendo cobrado pelo tempo durante o qual eles permanecerem em execução. Para interromper o evento ao vivo, confira Como interromper a difusão, etapas 2 e 3 acima.
 
 ### <a name="stopping-the-streaming-endpoint"></a>Como interromper o ponto de extremidade de streaming
 
@@ -142,8 +162,8 @@ A saída que você criou agora está disponível para streaming sob demanda, des
 2. Clique no ponto de extremidade de streaming **padrão** iniciado anteriormente. Isso abrirá a página do ponto de extremidade.
 3. Clique em **Parar**.  Isso interromperá o ponto de extremidade de streaming.
 
->[!TIP]
->Caso não deseje manter os ativos desse evento, exclua-os para evitar a cobrança pelo armazenamento.
+> [!TIP]
+> Caso não deseje manter os ativos desse evento, exclua-os para evitar a cobrança pelo armazenamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

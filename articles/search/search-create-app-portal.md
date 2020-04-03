@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/05/2019
-ms.openlocfilehash: 9ed62ea6fdfc0732128ed340cc0bc48481eb73ec
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 03/25/2020
+ms.openlocfilehash: 248ef093601eda7a180a6465ccb97e6fc1c9fe41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76841073"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369704"
 ---
 # <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Início Rápido: Criar um aplicativo de pesquisa no portal (Azure Cognitive Search)
 
@@ -23,13 +23,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Convirá atualizar para a versão [mais recente do Microsoft Edge](https://www.microsoft.com/edge) ou usar o navegador Google Chrome para este guia de início rápido neste momento.
+Atualize para a versão [mais recente do Microsoft Edge](https://www.microsoft.com/edge) ou use o navegador Google Chrome para este guia de início rápido.
 
 [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este início rápido. 
 
 [Crie um índice](search-create-index-portal.md) para usar como base do seu aplicativo. 
 
-Este guia de início rápido usa os dados de exemplo internos de Imóvel e o índice porque tem imagens em miniatura. Para criar o índice usado neste exercício, execute o assistente **Importar dados**, escolhendo a fonte de dados *realestate-us-sample*.
+Este guia de início rápido usa o índice e os dados de exemplo internos de Imóveis porque ele tem imagens em miniatura (o assistente é compatível com a adição de imagens à página de resultados). Para criar o índice usado neste exercício, execute o assistente **Importar dados**, escolhendo a fonte de dados *realestate-us-sample*.
 
 ![página fonte de dados para dados de exemplo](media/search-create-app-portal/import-data-realestate.png)
 

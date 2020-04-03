@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 347bd6d4d9788516d51d22f43ea60a223e91c49f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 59e30de7a0f069cfc69db715115f776034e94909
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75445002"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365876"
 ---
 # <a name="create-a-database-and-collection-for-azure-cosmos-db---mongodb-api"></a>Criar um banco de dados e uma coleção do Azure Cosmos DB – API do MongoDB
 
@@ -38,8 +38,11 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 | Comando | Observações |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
+|**Azure Cosmos DB**| |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Cria uma conta do Cosmos DB. |
+| [Set-AzCosmosDBMongoDBDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbmongodbdatabase) | Cria ou atualiza um Banco de Dados da API MongoDB do Cosmos DB. |
+| [New-AzCosmosDBMongoDBIndex](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbmongodbindex) | Cria um índice de API do MongoDB. |
+| [Set-AzCosmosDBMongoDBCollection](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbmongodbcollection) | Cria ou atualiza uma Coleção do SQL do Cosmos DB. |
 |**Grupos de recursos do Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||

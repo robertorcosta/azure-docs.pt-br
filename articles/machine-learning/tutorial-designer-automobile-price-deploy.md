@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: aeccd604a4dae3b2ca83f5b599d9a6857acee34a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c3ca37fd47b6551a95f9a491053ec7863acd1eeb
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79037183"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389385"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implantar um modelo de machine learning com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -57,6 +57,8 @@ Para implantar o pipeline, primeiro, converta o pipeline de treinamento em um pi
     >
 
 1. Selecione **Enviar** e use o mesmo destino de computação e experimento usados na primeira parte.
+
+    Se for a primeira execução do pipeline, ela poderá levar até 20 minutos para ser concluída. As configurações de computação padrão têm um tamanho de nó mínimo de 0, o que significa que o designer precisa alocar recursos depois de ficar ocioso. Execuções de pipeline repetidas levarão menos tempo, já que os recursos de computação já estão alocados. Além disso, o designer usa resultados armazenados em cache para cada módulo para melhorar ainda mais a eficiência.
 
 1. Selecione **Implantar**.
 

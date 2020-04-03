@@ -1,19 +1,19 @@
 ---
-title: Script do PowerShell para criar uma conta do Azure Cosmos com o firewall de IP
-description: Amostra de script do Azure PowerShell – Criar uma conta do Azure Cosmos com o firewall de IP
+title: Script do PowerShell para criar uma conta do Azure Cosmos DB com o firewall de IP
+description: Amostra de script do Azure PowerShell – Criar uma conta do Azure Cosmos DB com o firewall de IP
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6f018815bb8afd50bd9f21f8c088fd688ace1174
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f01e8e818a1b3cf4f999afa1e0801b2341ede2bf
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75445081"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365677"
 ---
-# <a name="create-an-azure-cosmos-account-with-ip-firewall"></a>Criar uma conta do Azure Cosmos com o firewall de IP
+# <a name="create-an-azure-cosmos-db-account-with-ip-firewall"></a>Criar uma conta do Azure Cosmos DB com o firewall de IP
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -40,10 +40,9 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 | Comando | Observações |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
+|**Azure Cosmos DB**| |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Cria uma conta do Cosmos DB. |
 |**Grupos de recursos do Azure**| |
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.openlocfilehash: 14b6f07ead59f3d86b80489460956dd37fb7378b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1362844de0a6b5d8cee4555c3d24833affe71640
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78970704"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385139"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>Início Rápido: criar e criptografar uma VM do Linux com a CLI do Azure
 
@@ -20,7 +20,7 @@ A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de com
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Se você optar por instalar e usar a CLI localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI do Azure localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -45,7 +45,7 @@ az vm create \
 
 A criação da VM e dos recursos de suporte demora alguns minutos. O seguinte exemplo de saída mostra que a operação de criação de VM foi bem-sucedida.
 
-```azurecli-interactive
+```
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -85,7 +85,7 @@ az vm show --name "myVM" -g "MyResourceGroup"
 
 Quando a criptografia estiver ativada, você verá o seguinte na saída retornada:
 
-```azurecli-interactive
+```
 "EncryptionOperation": "EnableEncryption"
 ```
 

@@ -1,19 +1,19 @@
 ---
-title: Script do PowerShell para alterar a prioridade de failover para uma conta do Azure Cosmos
-description: Amostra de script do Azure PowerShell – Alterar a prioridade de failover ou disparar um failover para uma conta do Azure Cosmos
+title: Script do PowerShell para alterar a prioridade de failover para uma conta mestra única do Azure Cosmos
+description: Amostra de script do Azure PowerShell – Alterar a prioridade de failover ou disparar um failover para uma conta mestra única do Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6a742486918e5134a73256ef6c7490a823f14335
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a81938675e72d9ec3a18c920121951e38580b91e
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441516"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366113"
 ---
-# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-using-powershell"></a>Alterar a prioridade de failover ou disparar um failover para uma conta do Azure Cosmos usando o PowerShell
+# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-db-single-master-account-using-powershell"></a>Alterar a prioridade de failover ou disparar um failover para uma conta mestra única do Azure Cosmos DB usando o PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -42,8 +42,9 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 | Comando | Observações |
 |---|---|
-|**Recursos do Azure**| |
-| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | Invoca uma ação em um recurso. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lista contas do Cosmos DB ou obtém uma conta do Cosmos DB especificada. |
+| [Update-AzCosmosDBAccountFailoverPriority](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccountfailoverpriority) | Atualize a ordem de prioridade de failover das regiões de uma Conta do Cosmos DB. |
 |**Grupos de recursos do Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||

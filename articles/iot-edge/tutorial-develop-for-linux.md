@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4a127c8c77f97708729cf91d6ced214e98924fb6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 478d9c0485125870f8d5ffb4132f46476b4bb4ef
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78943019"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384357"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Linux
 
@@ -90,6 +90,7 @@ Use a documentação do Docker para instalar em seu computador de desenvolviment
 * [Instalar o Docker Desktop para Mac](https://docs.docker.com/docker-for-mac/install/)
 
 * Leia [Sobre o Docker CE](https://docs.docker.com/install/) para obter informações sobre a instalação em várias plataformas do Linux.
+  * Para o WSL (Subsistema do Windows para Linux), instale o Docker Desktop para Windows.
 
 ## <a name="set-up-vs-code-and-tools"></a>Configurar o VS Code e ferramentas
 

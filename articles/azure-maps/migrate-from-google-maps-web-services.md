@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: fae9b8a2101329383cc90c8f7f0ff225e3a9059c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d2f25f2b786686b8af9bad4ea8ce3c8aea9b589f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77913811"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371468"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Migrar serviço Web do Google Maps
 
@@ -75,7 +75,7 @@ A tabela a seguir faz referência cruzada aos parâmetros da API do Google Maps 
 Um exemplo de como usar o serviço de pesquisa está documentado [aqui](how-to-search-for-address.md). Lembre-se de examinar as [melhores práticas de pesquisa](how-to-use-best-practices-for-search.md).
 
 > [!TIP]
-> As APIs de pesquisa difusa e geocódigo de endereço com forma livre podem ser usadas no modo de preenchimento automático adicionando `&amp;typeahead=true` à URL de solicitação. Isso instruirá o servidor de que o texto de entrada é provavelmente parcial, e a pesquisa entrará no modo preditivo.
+> As APIs de pesquisa difusa e geocódigo de endereço com forma livre podem ser usadas no modo de preenchimento automático adicionando `&typeahead=true` à URL de solicitação. Isso instruirá o servidor de que o texto de entrada é provavelmente parcial, e a pesquisa entrará no modo preditivo.
 
 ## <a name="reverse-geocode-a-coordinate"></a>Geocodificação inversa de uma coordenada
 
@@ -126,7 +126,7 @@ O Azure Mapas fornece várias APIs de pesquisa para pontos de interesse:
 Atualmente, os Azure Mapas não têm uma API comparável à API de Pesquisa de Texto do Google Maps.
 
 > [!TIP]
-> As APIs de pesquisa de POI, pesquisa de categoria de POI e pesquisa difusa podem ser usadas no modo de preenchimento automático adicionando `&amp;typeahead=true` à URL de solicitação. Isso instruirá o servidor de que o texto de entrada é provavelmente parcial. A API realizará a pesquisa no modo preditivo.
+> As APIs de pesquisa de POI, pesquisa de categoria de POI e pesquisa difusa podem ser usadas no modo de preenchimento automático adicionando `&typeahead=true` à URL de solicitação. Isso instruirá o servidor de que o texto de entrada é provavelmente parcial. A API realizará a pesquisa no modo preditivo.
 
 Examine a documentação de [melhores práticas de pesquisa](how-to-use-best-practices-for-search.md).
 
@@ -221,6 +221,8 @@ A API de roteiros dos Azure Mapas traz recursos adicionais que não estão dispo
 - Especifique a velocidade máxima do veículo.
 
 Além disso, o serviço de rota dos Azure Mapas dá suporte ao [cálculo de intervalos roteáveis](https://docs.microsoft.com/rest/api/maps/route/getrouterange). O cálculo de intervalos roteáveis também é conhecido como isócronos. Isso envolve a geração de um polígono que abrange uma área que pode ser percorrida em qualquer direção, começando em um ponto de origem. Tudo isso conforme um período ou uma quantidade de carga ou combustível especificado.
+
+Examine a documentação de [melhores práticas de roteamento](how-to-use-best-practices-for-routing.md).
 
 ## <a name="retrieve-a-map-image"></a>Recuperar uma imagem do mapa
 
@@ -437,6 +439,8 @@ Esta tabela faz uma referência cruzada dos parâmetros da API do Google Maps co
 > [!TIP]
 > Todas as opções avançadas de roteiros disponíveis na API de roteiros dos Azure Mapas são compatíveis com a API de matriz de distância dos Azure Mapas. As opções avançadas de roteiros incluem: roteiros de caminhão, especificações do motor etc.
 
+Examine a documentação de [melhores práticas de roteamento](how-to-use-best-practices-for-routing.md).
+
 ## <a name="get-a-time-zone"></a>Obter um fuso horário
 
 Os Azure Mapas fornecem uma API para recuperar o fuso horário de uma coordenada. A API de fuso horário do Azure Mapas é comparável à API de fuso horário no Google Maps:
@@ -476,6 +480,7 @@ Veja a seguir documentação e recursos adicionais para os serviços REST dos Az
 
 - [Melhores práticas para pesquisar](how-to-use-best-practices-for-search.md)
 - [Pesquisar um endereço](how-to-search-for-address.md)
+- [Melhores práticas para roteamento](how-to-use-best-practices-for-routing.md)
 - [Documentação de referência da API do Serviço REST do Azure Mapas](https://docs.microsoft.com/rest/api/maps/)
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -486,7 +491,10 @@ Saiba mais sobre os serviços REST do Azure Mapas.
 > [Melhores práticas para usar o serviço de pesquisa](how-to-use-best-practices-for-search.md)
 
 > [!div class="nextstepaction"]
-> [Como usar o módulo de serviços (SDK da Web)](how-to-use-services-module.md)
+> [Melhores práticas para usar o serviço de roteamento](how-to-use-best-practices-for-search.md)
+
+> [!div class="nextstepaction"]
+> [Como usar o módulo de serviços (SDK da Web)](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
 > [Exemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)

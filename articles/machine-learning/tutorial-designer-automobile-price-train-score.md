@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: prever o preço do automóvel com o designer'
+title: 'Tutorial: Prever preço de automóvel com o designer'
 titleSuffix: Azure Machine Learning
 description: Saiba como treinar, pontuar e implantar um modelo de machine learning usando uma interface do tipo "arrastar e soltar". Este tutorial é a primeira parte de uma série de duas partes sobre a previsão de preços de automóveis usando a regressão linear.
 author: peterclu
@@ -8,15 +8,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 03/04/2020
-ms.openlocfilehash: ed3667ada834437e81ffdcb9161c2a726fe6a6dc
-ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
-ms.translationtype: MT
+ms.date: 03/12/2020
+ms.openlocfilehash: 0488002352d222abb0166737f9a042060b1a1bb1
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78933295"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389419"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: prever o preço do automóvel com o designer (versão prévia)
+# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever preço de automóvel com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Neste tutorial de duas partes, você aprenderá a usar o designer do Azure Machine Learning para treinar e implantar um modelo de machine learning que prevê o preço de qualquer carro. O designer é uma ferramenta do tipo "arrastar e soltar" que permite criar modelos de machine learning sem nenhuma linha de código.
@@ -35,7 +35,7 @@ Na [segunda parte](tutorial-designer-automobile-price-deploy.md) do tutorial, vo
 > [!NOTE]
 >Uma versão concluída deste tutorial está disponível como um pipeline de exemplo.
 >
->Para encontrá-lo, acesse o designer em seu workspace. Na seção **novo pipeline** , selecione **amostra 1-regressão: Previsão de preço de automóvel (básica)** .
+>Para encontrá-lo, acesse o designer em seu workspace. Na seção **Novo pipeline**, selecione **Amostra 1 – Regressão: Previsão de Preços de Automóveis (Básica)** .
 
 ## <a name="create-a-new-pipeline"></a>Criar um novo pipeline
 
@@ -80,7 +80,7 @@ Você pode definir um **Destino de computação padrão** para o pipeline inteir
 
 1. Insira um nome para o recurso de computação.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
     > [!NOTE]
     > A criação de um recurso de computação demora aproximadamente cinco minutos. Depois que o recurso for criado, você poderá reutilizá-lo e ignorar esse tempo de espera para execuções futuras.
@@ -103,7 +103,7 @@ Você pode visualizar os dados para entender o conjunto de dados que será usado
 
 1. Selecione o módulo **Dados de preço de automóvel (brutos)** .
 
-1. No painel de detalhes do módulo à direita da tela, selecione **Saídas**.
+1. No painel de detalhes do módulo à direita da tela, selecione **Saídas + log**.
 
 1. Selecione o ícone de grafo para visualizar os dados.
 
@@ -168,6 +168,12 @@ Seu conjunto de dados ainda tem valores ausentes após a remoção da coluna **n
 
 1. Selecione o módulo **Limpar Dados Ausentes**.
 
+1. No painel de detalhes do módulo à direita da tela, selecione **Editar Coluna**.
+
+1. Na janela **Colunas a serem limpas** que é exibida, expanda o menu suspenso ao lado de **Incluir**. Selecione **Todas as colunas**
+
+1. Selecione **Salvar**
+
 1. No painel detalhes do módulo à direita da tela, selecione **Remover linha inteira** em **Modo de limpeza**.
 
 1. No painel detalhes do módulo à direita da tela, marque a caixa de texto **Comentário** e insira *Remover linhas com valores ausentes*. 
@@ -213,9 +219,11 @@ Treine o modelo fornecendo a ele um conjunto de dados que inclua o preço. O alg
 
 1. Selecione **Regressão** > **Regressão Linear** e arraste-a para a tela do pipeline.
 
-1. Encontre e arraste o módulo **Treinar Modelo** para a tela do pipeline. 
-
 1. Conecte a saída do módulo **Regressão Linear** à entrada esquerda do módulo **Treinar Modelo**.
+
+1. Na paleta de módulos, expanda a seção **Treinamento de módulo** e arraste o módulo **Treinar Modelo** até a tela.
+
+1. Selecione o módulo **Treinar Modelo** e arraste-o para a tela do pipeline.
 
 1. Conecte-se a saída dos dados de treinamento (porta esquerda) do módulo **Dividir Dados** à entrada à direita do módulo **Treinar Modelo**.
     
@@ -224,8 +232,6 @@ Treine o modelo fornecendo a ele um conjunto de dados que inclua o preço. O alg
 
     ![Captura de tela mostrando a configuração correta do módulo Treinar Modelo. O módulo Regressão Linear se conecta à porta esquerda do módulo Treinar Modelo e o módulo Dividir Dados se conecta à porta direita do módulo Treinar Modelo](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
-1. Na paleta de módulos, expanda a seção **Treinamento de módulo** e arraste o módulo **Treinar Modelo** até a tela.
-
 1. Selecione o módulo **Treinar Modelo**.
 
 1. No painel de detalhes do módulo à direita da tela, selecione o seletor **Editar coluna**.
@@ -233,6 +239,9 @@ Treine o modelo fornecendo a ele um conjunto de dados que inclua o preço. O alg
 1. Na caixa de diálogo **Coluna de rótulo**, expanda o menu suspenso e selecione **Nomes de colunas**. 
 
 1. Na caixa de texto, insira *preço* para especificar o valor que o modelo vai prever.
+
+    >[!IMPORTANT]
+    > É necessário que você insira o nome exato da coluna. Não use letras maiúsculas em **price**. 
 
     Seu pipeline deve ter esta aparência:
 
@@ -258,22 +267,24 @@ Use o módulo **Avaliar Modelo** para avaliar a o desempenho do modelo na pontua
 
     ![Captura de tela mostrando a configuração correta do pipeline.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
 
-## <a name="run-the-pipeline"></a>Executar o pipeline
+## <a name="submit-the-pipeline"></a>Enviar o pipeline
 
-Agora que o pipeline está configurado, você pode enviar uma execução de pipeline para treinar seu modelo de aprendizado de máquina. Você pode enviar uma execução de pipeline a qualquer momento ao criar pipelines no designer. Você pode fazer isso para verificar seu trabalho conforme o uso e verificar suas funções de pipeline conforme o esperado.
+Agora que o pipeline está configurado, você poderá enviar uma execução de pipeline para treinar seu modelo de machine learning. Você pode enviar uma execução de pipeline válida a qualquer momento, que pode ser usada para examinar as alterações no pipeline durante o desenvolvimento.
 
 1. Na parte superior da tela, selecione **Enviar**.
 
-1. Na caixa de diálogo **configurar execução de pipeline** , selecione **criar novo**.
+1. Na caixa de diálogo **Configurar execução de pipeline**, selecione **Criar**.
 
     > [!NOTE]
     > Pipelines semelhantes no grupo de experimentos são executados juntos. Se executar um pipeline várias vezes, você poderá selecionar o mesmo experimento para execuções sucessivas.
 
-    1. Insira um nome descritivo para o **novo nome do experimento**.
+    1. Insira um nome descritivo para o **Nome do novo experimento**.
 
     1. Selecione **Enviar**.
     
     Você pode exibir o status e os detalhes da execução no canto superior direito da tela.
+    
+    Se for a primeira execução do pipeline, ela poderá levar até 20 minutos para ser concluída. As configurações de computação padrão têm um tamanho de nó mínimo de 0, o que significa que o designer precisa alocar recursos depois de ficar ocioso. Execuções de pipeline repetidas levarão menos tempo, já que os recursos de computação já estão alocados. Além disso, o designer usa resultados armazenados em cache para cada módulo para melhorar ainda mais a eficiência.
 
 ### <a name="view-scored-labels"></a>Exibir os rótulos pontuados
 
@@ -281,7 +292,7 @@ Depois que a execução for concluída, você poderá exibir os resultados da ex
 
 1. Selecione o módulo **Pontuar Modelo** para exibir a saída.
 
-1. No painel de detalhes do módulo à direita da tela, selecione **Saídas** > ícone de grafo ![ícone visualizar](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para exibir os resultados.
+1. No painel de detalhes do módulo à direita da tela, selecione **Saídas + logs** > ícone de grafo ![ícone visualizar](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para exibir os resultados.
 
     Aqui você poderá ver os preços previstos e os preços reais dos dados de teste.
 
@@ -293,15 +304,15 @@ Use **Avaliar Modelo** para ver como o desempenho do modelo treinado no conjunto
 
 1. Selecione o módulo **Avaliar Modelo** para exibir a saída.
 
-1. No painel de detalhes do módulo à direita da tela, selecione **Saída** > ícone de grafo ![ícone visualizar](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para exibir os resultados.
+1. No painel de detalhes do módulo à direita da tela, selecione **Saídas + logs** > ícone de grafo ![ícone visualizar](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para exibir os resultados.
 
 As seguintes estatísticas são mostradas para o modelo:
 
-* **Erro de média absoluta (Mae)** : a média de erros absolutos. Um erro é a diferença entre o valor previsto e o valor real.
-* **Erro de quadrado médio de raiz (RMSE)** : a raiz quadrada da média de erros quadrados de previsões feitas no conjunto de testes.
-* **Erro absoluto relativo**- A média de erros absolutos relativos à diferença absoluta entre os valores reais e a média de valores reais.
-* **Erro ao quadrado relativo**- A média de erros quadrados relativos à diferença quadrada entre os valores reais e a média de todos os valores reais.
-* **Coeficiente de determinação**: também conhecido como o valor de R quadrado, essa métrica estatística indica o quão bem um modelo se ajusta aos dados.
+* **MAE (Média de Erros Absolutos)** : A média de erros absolutos. Um erro é a diferença entre o valor previsto e o valor real.
+* **RMSE (Raiz Quadrada da Média de Erros Quadrados)** : a raiz quadrada da média de erros quadrados de previsões feitas no conjunto de dados de teste.
+* **Erro absoluto relativo**: a média de erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
+* **Erro ao quadrado relativo**: a média de erros quadrados relativos à diferença quadrada entre os valores reais e a média de todos os valores reais.
+* **Coeficiente de determinação**: Também conhecida como o valor de R-quadrado, essa métrica estatística indica se o modelo se ajusta bem aos dados.
 
 Para cada estatística de erro, menos é melhor. Um valor menor indica que as previsões estão mais próximas dos valores reais. Quanto ao coeficiente de determinação, quanto mais próximo o valor estiver de um (1), melhores serão as previsões.
 
@@ -311,7 +322,7 @@ Ignore esta seção se desejar prosseguir com a parte 2 do tutorial, [implantar 
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 Na segunda parte, você aprenderá a implantar seu modelo como um ponto de extremidade em tempo real.
 

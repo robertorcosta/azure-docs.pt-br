@@ -1,20 +1,20 @@
 ---
-title: Script do PowerShell para obter a taxa de transferência provisionada (RU/s) para a API do SQL (Core) do Azure Cosmos DB
-description: Script do Azure PowerShell – Obter a taxa de transferência provisionada (RU/s) do Azure Cosmos DB para a API do SQL (Core)
+title: Script do PowerShell para obter a taxa de transferência (RU/s) para o contêiner ou o banco de dados de API SQL do Azure Cosmos DB
+description: Script do Azure PowerShell para obter a taxa de transferência (RU/s) para o contêiner ou o banco de dados de API SQL do Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9b4450e18aa2666806faf2c0baed8af2285e69dc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f471b1d41314728a6c6f0c5d2ab981891e2caa87
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441339"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365632"
 ---
-# <a name="get-the-provisioned-throughput-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Obter a taxa de transferência provisionada (RU/s) de um banco de dados ou um contêiner do Azure Cosmos DB – API do SQL (Core)
+# <a name="get-throughput-rus-for-azure-cosmos-db-sql-api-database-or-container"></a>Obter taxa de transferência (RU/s) para o contêiner ou o banco de dados da API SQL do Azure Cosmos DB
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "75441339"
 
 ## <a name="sample-script"></a>Exemplo de script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-get.ps1 "Get throughput for a database or container for SQL (Core) API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-get.ps1 "Get throughput (RU/s) for Azure Cosmos DB SQL API database or container")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
@@ -38,8 +38,9 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 | Comando | Observações |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBSqlDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabasethroughput) | Obtenha a taxa de transferência provisionada em um Banco de Dados da API do SQL do Azure Cosmos DB. |
+| [Get-AzCosmosDBSqlContainerThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainerthroughput) | Obtenha a taxa de transferência provisionada em um Contêiner da API do SQL do Azure Cosmos DB. |
 |**Grupos de recursos do Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 06/27/2019
+ms.date: 03/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 594f0ed55b5ce5c31e87fd2011f3bc1522a12380
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c895a13eb9b2bed9e3a8a5a250c4e925dfa834c5
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215824"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80331803"
 ---
 # <a name="what-is-a-device-identity"></a>O que é uma identidade do dispositivo?
 
@@ -45,6 +45,7 @@ Há várias opções para colocar um dispositivo no Azure AD:
 - **Ingressado no Azure AD**
    - Os dispositivos que estão ingressados no Azure AD são de propriedade de uma organização e são conectados usando uma conta do Azure AD que pertence a essa organização. Elas existem somente na nuvem.
       - Windows 10 
+      - Windows Server 2019 (não há suporte para o núcleo do servidor)
 - **Ingressado no Azure AD híbrido**
    - Os dispositivos que estão ingressados no Azure AD híbrido são de propriedade de uma organização e são conectados usando uma conta do Azure AD que pertence a essa organização. Eles existem na nuvem e localmente.
       - no Windows 7, 8.1 ou 10

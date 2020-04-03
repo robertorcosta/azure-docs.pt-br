@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.openlocfilehash: 9bbe74bd2f3137443b4e239201c604d9de52582e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 786a906241b355cdae403c6ed08b60eb27045d6f
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "72245686"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385241"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>Início Rápido: Criar e criptografar uma VM do Windows com a CLI do Azure
 
@@ -21,7 +21,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI do Azure localmente, este início rápido exigirá a execução da CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -33,7 +33,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Crie uma VM com [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). O exemplo a seguir cria uma VM chamada *myVM*. Este exemplo usa o *azureuser* para um nome de usuário administrativo e *myPassword12* como a senha. 
+Crie uma VM com [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). O exemplo a seguir cria uma VM chamada *myVM*. Este exemplo usa o *azureuser* para um nome de usuário administrativo e *myPassword12* como a senha.
 
 ```azurecli-interactive
 az vm create \
@@ -46,7 +46,7 @@ az vm create \
 
 A criação da VM e dos recursos de suporte demora alguns minutos. O seguinte exemplo de saída mostra que a operação de criação de VM foi bem-sucedida.
 
-```azurecli-interactive
+```
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -65,7 +65,7 @@ A criptografia de disco do Azure armazena sua chave de criptografia em um Azure 
 > [!Important]
 > Cada Key Vault deve ter um nome exclusivo. O exemplo a seguir cria um Key Vault chamado *myKV*, mas você deve colocar um nome diferente.
 
-```azurecli
+```azurecli-interactive
 az keyvault create --name "myKV" --resource-group "myResourceGroup" --location eastus --enabled-for-disk-encryption
 ```
 
@@ -85,13 +85,13 @@ az vm show --name MyVM -g MyResourceGroup
 
 Você verá o seguinte retornado na saída:
 
-```azurecli-interactive
+```
 "EncryptionOperation": "EnableEncryption"
 ```
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos, a VM e o Key Vault. 
+Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos, a VM e o Key Vault.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -103,4 +103,3 @@ Neste guia de início rápido, você criou uma máquina virtual, um Key Vault ha
 
 > [!div class="nextstepaction"]
 > [Visão geral do Azure Disk Encryption](disk-encryption-overview.md)
-

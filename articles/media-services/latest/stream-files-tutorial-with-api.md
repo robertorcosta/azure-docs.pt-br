@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: f8ff3dc71727abf9e276cccc951c4d1143f4200d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4e40d26e392219fb751328bc54855d87e80bae19
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583107"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80346004"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Tutorial: Fazer upload, codificar e transmitir vídeos com os Serviços de Mídia v3
 
@@ -40,7 +40,7 @@ Este tutorial mostra como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se o Visual Studio não estiver instalado, você poderá obter o [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).<br/>Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome da conta de Serviços de Mídia.
@@ -72,7 +72,7 @@ O exemplo executa as ações a seguir:
 6. Cria um **Localizador de Streaming**.
 7. Compila as URLs de streaming.
 
-### <a name="a-idstart_using_dotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Começar a usar as APIs de Serviços de Mídia com a SDK .NET
+### <a name="start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Começar a usar as APIs de Serviços de Mídia com a SDK .NET
 
 Para começar a usar a APIs de Serviços de Mídia do Azure com o .NET, é necessário criar um objeto **AzureMediaServicesClient**. Para criar o objeto, você precisa fornecer as credenciais necessárias para o cliente se conectar ao Azure usando o Azure AD. No código que você clonou no início do artigo, a função **GetCredentialsAsync** cria o objeto ServiceClientCredentials com base nas credenciais fornecidas no arquivo de configuração local.
 
@@ -88,6 +88,8 @@ A função a seguir realiza essas ações:
 
 * Cria um **Ativo**.
 * Obtém uma [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) gravável para o [contêiner no armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) do ativo.
+
+    Se estiver usando a função [ListContainerSas](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) do ativo para obter URLs SAS, observe que a função retorna várias URLs SAS, pois há duas chaves de conta de armazenamento para cada conta de armazenamento. Uma conta de armazenamento tem duas chaves porque permite a rotação contínua das chaves da conta de armazenamento (por exemplo, alterar a primeira enquanto se usa a outra e, em seguida, começar a usar a nova primeira chave e realizar a rotação da segunda). A primeira URL SAS representa a chave de armazenamento1 e a segunda representa a chave de armazenamento2.
 * Carrega o arquivo para o contêiner no armazenamento usando a URL de SAS.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -188,7 +190,7 @@ Para testar o streaming, este artigo usa o Player de Mídia do Azure.
 
 O Player de Mídia do Azure pode ser usado para testes, mas não deve ser usado em um ambiente de produção.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não precisar mais de qualquer um dos recursos em seu grupo de recursos, incluindo as contas dos Serviços de Mídia e de armazenamento que você criou neste tutorial, exclua o grupo de recursos criados anteriormente.
 

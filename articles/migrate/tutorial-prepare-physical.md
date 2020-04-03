@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 42eb603be0152b9e8cfb36d02e8f0602c40afe54
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5f9048b08b3e77a0c8d5ae9a9d10c614a4e0af61
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77031196"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80336696"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para a avaliação e a migração de servidores físicos para o Azure
 
@@ -41,10 +41,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Você precisa configurar permissões para a implantação de Migrações para Azure.
 
-**Tarefa** | **Permissões**
---- | ---
-**Criar um projeto de Migrações para Azure** | Sua conta do Azure precisa de permissões para criar um projeto.
-**Registrar o dispositivo de Migrações para Azure** | As Migrações para Azure usam um dispositivo leve de Migrações para Azure para descobrir e avaliar servidores físicos com a avaliação de servidor das Migrações para Azure. Esse dispositivo executa a descoberta de servidores e envia os metadados e os dados de desempenho para as Migrações para Azure.<br/><br/>Durante o registro do dispositivo, os provedores de recursos a seguir são registrados com a assinatura escolhida no dispositivo: Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. Para registrar os provedores de recursos, você precisa de uma função de Colaborador ou Proprietário na assinatura.<br/><br/> Como parte da integração, as Migrações para Azure criam um aplicativo Microsoft Azure AD (Active Directory):<br/> O aplicativo Azure Active Directory é usado para comunicação (autenticação e autorização) entre os agentes em execução no dispositivo com seus respectivos serviços em execução no Azure. Esse aplicativo não tem privilégios para fazer chamadas do ARM ou acesso RBAC em qualquer recurso.
+**Tarefa** | **Detalhes** 
+--- | --- 
+**Criar um projeto de Migrações para Azure** | Sua conta do Azure precisa de permissões de Colaborador ou de Proprietário para criar um projeto. | 
+**Registrar provedores de recursos** | As Migrações para Azure usam um dispositivo leve de Migrações para Azure para descobrir e avaliar VMs do Hyper-V com a avaliação de servidor das Migrações para Azure.<br/><br/> Durante o registro do dispositivo, os provedores de recursos são registrados com a assinatura escolhida no dispositivo. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Para registrar os provedores de recursos, você precisa de uma função de Colaborador ou Proprietário na assinatura.
+**Criar um aplicativo do Azure AD** | Ao registrar o dispositivo, o recurso Migrações para Azure cria um aplicativo do Azure AD (Azure Active Directory) que é usado para a comunicação entre os agentes em execução no dispositivo com seus respectivos serviços em execução no Azure. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Você precisa de permissões para criar uma função de aplicativos do Azure AD (disponíveis na função de desenvolvedor de aplicativos).
 
 
 

@@ -1,20 +1,20 @@
 ---
 title: 'Início Rápido: Criar um blueprint no portal'
 description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos por meio do portal do Azure.
-ms.date: 11/21/2019
+ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: fa9eb8285086e35f8b23798c41a09529d0f49582
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 457f4f9c53f45077129b291c904bc1580b6d965e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436611"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282045"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Início Rápido: Definir e atribuir um blueprint no portal
 
 Aprender a criar e atribuir blueprints permite definir padrões comuns para desenvolver configurações reutilizáveis e que podem ser implantadas rapidamente com base em modelos do Azure Resource Manager, políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Azure Blueprints para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização. Essas tarefas incluem:
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
@@ -29,6 +29,8 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
    Ou, selecione **Criar** na página **Introdução** para ir direto para a criação de um blueprint.
 
    ![Criar blueprint da página de definições de blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
+
+1. Selecione **Começar com um blueprint em branco** do cartão na parte superior da lista de blueprints.
 
 1. Fornecer um **nome do blueprint** tais como **MyBlueprint**. (Use até 48 letras e números, mas sem espaços ou caracteres especiais). Deixe **descrição do blueprint** em branco por enquanto.
 

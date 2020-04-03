@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.author: tzvikei
-author: tsikiksr
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 02/04/2020
-ms.openlocfilehash: 96af942ab68d4ae738df56bf94d8410ee5d8cc34
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 03/04/2020
+ms.openlocfilehash: b5a335a3f215ad5883b1b223245ca9d3f9967c3b
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79129673"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366521"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com o ML automatizado no Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -53,7 +53,7 @@ Você cria um workspace pelo portal do Azure, um console baseado na Web para ger
 
 Conclua a configuração do experimento a seguir e execute as etapas por meio do Azure Machine Learning em https://ml.azure.com, uma interface da Web consolidada que inclui ferramentas de aprendizado de máquina para realizar cenários de ciência de dados para praticantes de ciência de dados de todos os níveis de habilidade. A interface não é compatível com navegadores Internet Explorer.
 
-1. Entre no Azure Machine Learning em https://ml.azure.com.
+1. Entre no [Azure Machine Learning](https://ml.azure.com).
 
 1. Selecione a assinatura e o workspace criado.
 
@@ -201,9 +201,9 @@ Os arquivos de implantação são maiores que os dados e os arquivos de teste, p
 
 ### <a name="delete-the-deployment-instance"></a>Excluir a instância de implantação
 
-Exclua apenas a instância de implantação do Azure Machine Learning em https://ml.azure.com/ se desejar manter o grupo de recursos e o workspace para outros tutoriais e explorações. 
+Exclua apenas a instância de implantação do Azure Machine Learning em https:\//ml.azure.com/ se desejar manter o grupo de recursos e o workspace para outros tutoriais e explorações. 
 
-1. Acesse Azure Machine Learning em https://ml.azure.com/. Navegue até o workspace e, no lado esquerdo, no painel **Ativos**, selecione **Pontos de extremidade**. 
+1. Acesse [Azure Machine Learning](https://ml.azure.com/). Navegue até o workspace e, no lado esquerdo, no painel **Ativos**, selecione **Pontos de extremidade**. 
 
 1. Selecione a implantação que você deseja excluir e selecione **Excluir**. 
 

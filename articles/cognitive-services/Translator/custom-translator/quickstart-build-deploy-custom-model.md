@@ -9,24 +9,38 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: 82f2acb811bcb239f6329ab8d8b4008e13ac6490
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a22ae3b4b11a4eac7da147cf3ad896bbad435448
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446740"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80370266"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Início Rápido: Compilar, implantar e usar um modelo personalizado para tradução
 
 Este artigo fornece instruções passo a passo para criar um sistema de tradução com o Tradutor Personalizado.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Para entrar e usar o Portal do [Tradutor Personalizado](https://portal.customtranslator.azure.ai), você precisará de uma [conta da Microsoft](https://signup.live.com) ou de uma [conta do Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (conta da organização hospedada no Azure).
 
 2. Uma assinatura da API de Tradução de Texto pelo portal do Azure. Você precisará da chave de assinatura da API de Tradução de Texto para associar ao seu workspace no Tradutor Personalizado. Confira [Como inscrever-se na API de Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
-3. Assim que você atender aos dois requisitos acima, entre no portal do [Tradutor Personalizado](https://portal.customtranslator.azure.ai). Quando estiver no portal do Tradutor Personalizado, navegue até a página Configurações, na qual você pode associar sua chave de assinatura da API de Tradução de Texto da Microsoft ao seu workspace.
+3. Quando você tiver ambos os itens acima, entre no portal do [Tradutor Personalizado](https://portal.customtranslator.azure.ai) para criar workspaces e projetos, carregar arquivos e criar/implantar modelos.
+
+## <a name="create-a-workspace"></a>Criar um workspace
+
+Se você for um usuário iniciante, será solicitado a concordar com os termos de serviço, criar um workspace e associar seu workspace à assinatura da API de Tradução de Texto da Microsoft.
+
+![Criar workspace](media/quickstart/terms-of-service.png)
+![Criar workspace](media/quickstart/create-workspace-1.png)
+![Criar workspace](media/quickstart/create-workspace-2.png)
+![Criar workspace](media/quickstart/create-workspace-3.png)
+![Criar workspace](media/quickstart/create-workspace-4.png)
+![Criar workspace](media/quickstart/create-workspace-5.png)
+![Criar workspace](media/quickstart/create-workspace-6.png)
+
+Em visitas subsequentes ao portal do Tradutor Personalizado, navegue até a página de configurações, na qual você pode gerenciar seu workspace, criar mais workspaces, associar sua chave de assinatura da API de Tradução de Texto da Microsoft a seus workspaces, adicionar coproprietários e alterar um chave de assinatura.
 
 ## <a name="create-a-project"></a>Criar um projeto
 

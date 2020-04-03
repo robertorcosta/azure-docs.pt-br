@@ -1,20 +1,20 @@
 ---
-title: Script do PowerShell para criar um contêiner sem índice em uma conta do Azure Cosmos
-description: Amostra de script do Azure PowerShell – Criar uma indexação de contêiner desligada em uma conta do Azure Cosmos
+title: Script do PowerShell para criar um contêiner com indexação desligada em uma conta do Azure Cosmos DB
+description: Exemplo de script do Azure PowerShell – criar um contêiner com indexação desligada em uma conta do Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 13bec89b0c6f713a4b8c66f7bab6cda3d6513ef9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e4cf09ede1ea532d784b6d486cdb54d510d13652
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441381"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365644"
 ---
-# <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>Criar uma indexação de contêiner desligada em uma conta do Azure Cosmos usando o PowerShell
+# <a name="create-a-container-with-indexing-turned-off-in-an-azure-cosmos-db-account-using-powershell"></a>Criar um contêiner com indexação desligada em uma conta do Azure Cosmos DB usando o PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "75441381"
 
 ## <a name="sample-script"></a>Exemplo de script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-create-index-none.ps1 "Create a container indexing turned off in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-create-index-none.ps1 "Create a container with indexing turned off in an Azure Cosmos DB account")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
@@ -38,8 +38,11 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 | Comando | Observações |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
+|**Azure Cosmos DB**| |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Cria uma conta do Cosmos DB. |
+| [Set-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqldatabase) | Cria ou atualiza um Banco de Dados SQL do Cosmos DB. |
+| [New-AzCosmosDBSqlIndexingPolicy](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlindexingpolicy) | Cria um objeto do tipo PSSqlIndexingPolicy usado como um parâmetro para Set-AzCosmosDBSqlContainer. |
+| [Set-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqlcontainer) | Cria ou atualiza um Contêiner SQL do Cosmos DB. |
 |**Grupos de recursos do Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||

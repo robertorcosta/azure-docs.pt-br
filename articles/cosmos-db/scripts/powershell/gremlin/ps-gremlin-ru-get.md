@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: de02a524e163c1843e5117e8a4471e686a2f5764
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: fa376aff9c127d5792da9e0489079ca3a1c67cf2
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441451"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366024"
 ---
 # <a name="get-throughput-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Obter a taxa de transferência (RU/s) de um banco de dados ou um grafo do Azure Cosmos DB – API do Gremlin
 
@@ -38,8 +38,9 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 | Comando | Observações |
 |---|---|
-|**Recursos do Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Cria um recurso. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBGremlinDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabasethroughput) | Obtém o valor de taxa de transferência do Banco de Dados da API do Gremlin especificado. |
+| [Get-AzCosmosDBGremlinGraphThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraphthroughput) | Obtém o valor de taxa de transferência do Grafo da API do Gremlin especificado. |
 |**Grupos de recursos do Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||

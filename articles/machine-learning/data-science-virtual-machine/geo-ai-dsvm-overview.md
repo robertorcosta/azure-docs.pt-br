@@ -10,16 +10,16 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.openlocfilehash: f5a094613b8722f96fccd1d1a6df359fa9b0ebd4
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 2cefd3c7f85e043497084e2cd2b906bd546ca10d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526054"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282266"
 ---
 # <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>O que é a Máquina Virtual de Ciência de Dados de Inteligência Artificial Geográfica?
 
-A Máquina Virtual de Ciência de Dados de Inteligência Artificial Geográfica (também conhecida como VM de Ciência de Dados de IA Geográfica ou Geo-DSVM) fornece recursos de análise geoespaciais da DSVM (Máquina Virtual de Ciência de Dados) do Azure. Especificamente, essa VM estende os kits de ferramentas de ciência de dados de IA na [DSVM](overview.md) adicionando o sistema de informações geográficas líder do setor [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview), da ERSI.
+A Máquina Virtual de Ciência de Dados de Inteligência Artificial Geográfica (também conhecida como VM de Ciência de Dados de IA Geográfica ou Geo-DSVM) fornece recursos de análise geoespaciais da DSVM (Máquina Virtual de Ciência de Dados) do Azure. Especificamente, essa VM estende os kits de ferramentas de ciência de dados de IA na [DSVM](overview.md) adicionando o sistema de informações geográficas líder do setor [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview), da ESRI.
 
  A VM de Ciência de Dados de IA Geográfica é uma oferta de produto resultante da colaboração entre a ESRI e a Microsoft. O resultado é um ambiente avançado que fornece a capacidade de:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: criar um Máquina Virtual de Ciência de Dados do Windows'
+title: 'Início Rápido: Criar uma Máquina Virtual de Ciência de Dados do Windows'
 titleSuffix: Azure Data Science Virtual Machine
 description: Configure e crie uma Máquina Virtual de Ciência de Dados no Azure para realizar a análise e o aprendizado de máquina.
 ms.service: machine-learning
@@ -8,14 +8,14 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: 1fdf8eae5d19a2d43499d1984f4dea834d8a61d8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: afcb676f68e7be9d3ebef11ea2c6876a86bbd062
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397308"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281775"
 ---
-# <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Início rápido: configurar o Máquina Virtual de Ciência de Dados para Windows
+# <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Início Rápido: Configurar a Máquina Virtual de Ciência de Dados para Windows
 
 Coloque tudo em funcionamento com uma Máquina Virtual de Ciência de Dados do Windows Server 2019.
 
@@ -29,19 +29,19 @@ Observe que as contas gratuitas do Azure não dão suporte a SKUs de máquina vi
 Para criar uma instância de DSVM:
 
 1. Acesse o [portal do Azure](https://portal.azure.com). Você pode ser solicitado a entrar na sua conta do Azure, caso ainda não esteja conectado.
-1. Encontre a listagem de máquinas virtuais digitando "máquina virtual de ciência de dados" e selecionando "Máquina Virtual de Ciência de Dados: Win 2019 (versão prévia)".
+1. Localize a listagem de máquinas virtuais digitando "máquina virtual de ciência de dados" e selecionando "Máquina Virtual de Ciência de Dados – Windows 2019".
 
 1. Selecione o botão **Criar** na parte inferior.
 
 1. Você deve ser redirecionado para a folha "Criar uma máquina virtual".
 
 1. Preencha a guia **Noções básicas**:
-      * **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que a máquina será criada e cobrada. Você deve ter privilégios de criação de recurso nessa assinatura.
-      * **Grupo de recursos**: Crie um novo grupo ou use um existente.
+      * **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado. Você deve ter privilégios de criação de recurso nessa assinatura.
+      * **Grupo de recursos**: crie um novo grupo ou use um existente.
       * **Nome da máquina virtual**: Insira o nome da máquina virtual. É assim que ela aparecerá no seu portal do Azure.
-      * **Local**: selecione o datacenter mais apropriado. Para um acesso mais rápido à rede, é o data center que contém a maioria dos seus dados ou que está mais próximo de sua localização física. Leia mais sobre as [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-      * **Imagem**: Deixe o valor padrão.
-      * **Tamanho**: isso deve ser preenchido automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre [Tamanhos de VM do Windows no Azure](../../virtual-machines/windows/sizes.md).
+      * **Localização**: selecione o datacenter mais apropriado. Para um acesso mais rápido à rede, é o data center que contém a maioria dos seus dados ou que está mais próximo de sua localização física. Leia mais sobre as [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+      * **Imagem**: Mantenha o valor padrão.
+      * **Size**: Isso deve ser preenchido automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre [Tamanhos de VM do Windows no Azure](../../virtual-machines/windows/sizes.md).
       * **Nome de usuário**: Insira o nome de usuário do administrador. Esse é o nome de usuário que você usará para fazer logon em sua máquina virtual e não precisa ser o mesmo que o seu nome de usuário do Azure.
       * **Senha**: Insira a senha que você usará para fazer logon em sua máquina virtual.    
 1. Selecione **Examinar + criar**.
@@ -65,7 +65,7 @@ Também é possível anexar uma DSVM ao Azure Notebooks para executar os Jupyter
 <a name="tools"></a>
 
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 * Explore as ferramentas na DSVM abrindo o menu **Iniciar**.
 * Para saber mais sobre o Azure Machine Learning, leia [O que é o Azure Machine Learning?](../overview-what-is-azure-ml.md) e teste os [tutoriais](../index.yml).

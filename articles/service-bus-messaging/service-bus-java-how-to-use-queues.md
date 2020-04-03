@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 01/24/2020
+ms.date: 03/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 71afce335910e4d42fb3d67f6d443510a6599b8b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ac6bc8f78bd3d526e68dba3e81825a28a9ac47f7
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918315"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80294138"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Início Rápido: Usar filas do Barramento de Serviço do Azure com Java para enviar e receber mensagens
 
@@ -41,9 +41,12 @@ Neste tutorial, você aprenderá a criar aplicativos Java para enviar mensagens 
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
-Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] antes de compilar este exemplo. Se você estiver usando o Eclipse, instale o [Kit de ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto:
+Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] antes de compilar este exemplo. 
+
+Se você estiver usando o Eclipse, instale o [Kit de ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto. Se você está usando o IntelliJ, confira [Instalar o Azure Toolkit for IntelliJ](/azure/java/intellij/azure-toolkit-for-intellij-installation). 
 
 ![Adicionar Bibliotecas do Microsoft Azure para Java a seu projeto do Eclipse](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
+
 
 Adicione as seguintes instruções `import` à parte superior do arquivo Java:
 

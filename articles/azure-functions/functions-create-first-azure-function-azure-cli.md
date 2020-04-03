@@ -3,12 +3,13 @@ title: Criar uma função no Azure que responda a solicitações HTTP
 description: Saiba como criar uma função na linha de comando e, em seguida, publicar o projeto local na hospedagem sem servidor no Azure Functions.
 ms.date: 01/28/2020
 ms.topic: quickstart
-ms.openlocfilehash: f2ec642a477348923e8f587879d4804c07fff5a0
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+zone_pivot_groups: programming-languages-set-functions
+ms.openlocfilehash: 89b6a9f31414cbaa9cc92c1a0d881a1354180990
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096249"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282725"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Início Rápido: Criar uma função no Azure que responda a solicitações HTTP
 
@@ -35,7 +36,7 @@ Antes de começar, você deverá ter o seguinte:
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-+ O [Python 3.8](https://www.python.org/downloads/release/python-382/), o [Python 3.7](https://www.python.org/downloads/release/python-375/) e o [Python 3.6](https://www.python.org/downloads/release/python-368/), compatíveis com o Azure Functions. 
++ O [Python 3.8](https://www.python.org/downloads/release/python-382/), o [Python 3.7](https://www.python.org/downloads/release/python-375/) e o [Python 3.6](https://www.python.org/downloads/release/python-368/), compatíveis com o Azure Functions (x64).
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 + [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
@@ -57,7 +58,7 @@ Antes de começar, você deverá ter o seguinte:
 ::: zone pivot="programming-language-python"
 + Execute `python --version` (Linux/MacOS) ou `py --version` (Windows) para verificar se a versão do Python é 3.8.x, 3.7.x ou 3.6.x.
 
-## <a name="create-venv"></a>Criar e ativar um ambiente virtual
+## <a name="create-and-activate-a-virtual-environment"></a><a name="create-venv"></a>Criar e ativar um ambiente virtual
 
 Em uma pasta adequada, execute os comandos a seguir para criar e ativar um ambiente virtual chamado `.venv`. Lembre-se de usar as versões 3.8, 3.7 ou 3.6 do Python, que são compatíveis com o Azure Functions.
 

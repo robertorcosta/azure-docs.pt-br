@@ -9,16 +9,21 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4a1952f5ece4c021834fb98f8a09f1a2738e6469
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 929bc0695bda2e64f77f7e9286e06cee787822ba
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789385"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388960"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar das VMs do AWS (Amazon Web Services) para o Azure
 
-Este tutorial ensina como migrar VMs (máquinas virtuais) do AWS (Amazon Web Services) para VMs do Azure, usando o Azure Site Recovery. Ao migrar instâncias de EC2 do AWS para Azure, as VMs são tratadas como computadores físicos locais. Neste tutorial, você aprenderá como:
+Este tutorial mostra como migrar VMs (máquinas virtuais) do AWS (Amazon Web Services) para VMs do Azure usando o Azure Site Recovery. Ao migrar instâncias de EC2 do AWS para Azure, as VMs são tratadas como computadores físicos locais. Neste tutorial, você aprenderá como:
+
+
+> [!TIP]
+> Agora você deve usar o serviço Migrações para Azure para migrar VMs do AWS para o Azure, em vez do serviço Azure Site Recovery. [Saiba mais](../migrate/tutorial-migrate-physical-virtual-machines.md).
+
 
 > [!div class="checklist"]
 > * Verificar pré-requisitos
@@ -32,11 +37,8 @@ Este tutorial ensina como migrar VMs (máquinas virtuais) do AWS (Amazon Web Ser
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 
-> [!NOTE]
-> Agora, você pode usar o serviço de Migrações para Azure para migrar instâncias da AWS para o Azure. [Saiba mais](../migrate/tutorial-migrate-physical-virtual-machines.md).
-
-## <a name="prerequisites"></a>Prerequisites
-- Assegure-se de que as VMs que você quer migrar estejam executando uma versão do sistema operacional com suporte. Versões com suporte incluem: 
+## <a name="prerequisites"></a>Pré-requisitos
+- Assegure-se de que as VMs que você quer migrar estejam executando uma versão do sistema operacional com suporte. As versões com suporte incluem: 
   - Windows Server 2016 
   - Windows Server 2012 R2
   - Windows Server 2012 

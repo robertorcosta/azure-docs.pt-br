@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: sample
 author: peterclu
 ms.author: peterlu
-ms.date: 03/10/2020
-ms.openlocfilehash: 82476b9cc8d92c815df602496ed3dcb33014a4fd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 03/29/2020
+ms.openlocfilehash: f9a8b0a4c51024d91e517db2f6ae10a4dba62384
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79037291"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389334"
 ---
 # <a name="designer-sample-pipelines"></a>Pipelines de exemplo do designer
 
@@ -30,6 +30,8 @@ Use os exemplos internos do designer do Azure Machine Learning para começar rap
 
 O designer salva uma cópia dos pipelines de exemplo no seu workspace do estúdio. Você pode editar o pipeline para adaptá-lo às suas necessidades e salvá-lo como o próprio. Use-os como um ponto de partida para iniciar rapidamente seus projetos.
 
+### <a name="open-a-sample-pipeline"></a>Abrir um pipeline de exemplo
+
 1. Entre em <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a> e selecione o workspace com o qual deseja trabalhar.
 
 1. Selecione **Designer**.
@@ -37,6 +39,31 @@ O designer salva uma cópia dos pipelines de exemplo no seu workspace do estúdi
 1. Selecione um pipeline de exemplo na seção **Novo pipeline**.
 
     Selecione **Mostrar mais amostras** para obter uma lista completa de amostras.
+
+### <a name="submit-a-pipeline-run"></a>Enviar uma execução de pipeline
+
+Para executar um pipeline, primeiro defina o destino de computação padrão no qual executar o pipeline.
+
+1. No painel **Configurações** à direita da tela, selecione **Selecionar de destino de computação**.
+
+1. Na caixa de diálogo exibida, selecione um destino de computação existente ou crie um. Clique em **Salvar**.
+
+1. Selecione **Enviar** na parte superior da tela para enviar uma execução de pipeline.
+
+Dependendo do pipeline de exemplo e das configurações de computação, as execuções podem levar algum tempo para serem concluídas. As configurações de computação padrão têm um tamanho de nó mínimo de 0, o que significa que o designer precisa alocar recursos depois de ficar ocioso. Execuções de pipeline repetidas levarão menos tempo, já que os recursos de computação já estão alocados. Além disso, o designer usa resultados armazenados em cache para cada módulo para melhorar ainda mais a eficiência.
+
+
+### <a name="review-the-results"></a>Revise os resultados
+
+Depois que a execução do pipeline for concluída, você poderá examinar o pipeline e exibir a saída de cada módulo para saber mais.
+
+Use as seguintes etapas para exibir as saídas do módulo:
+
+1. Selecione um módulo na tela.
+
+1. No painel de detalhes do módulo à direita da tela, selecione **Saídas + logs**. Selecione o ícone de grafo ![ícone de visualizar](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver os resultados de cada módulo. 
+
+Use os exemplos como pontos de partida para alguns dos cenários de aprendizado de máquina mais comuns.
 
 ## <a name="regression-samples"></a>Amostras de regressão
 

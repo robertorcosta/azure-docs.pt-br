@@ -56,7 +56,7 @@
     - name: Personalização
       items:
         - name: Preparar dados para Fala Personalizada
-          href: how-to-custom-speech-test-data.md
+          href: how-to-custom-speech-test-and-train.md
         - name: Inspecionar dados da Fala Personalizada
           href: how-to-custom-speech-inspect-data.md
         - name: Avaliar a precisão da Fala Personalizada
@@ -67,10 +67,6 @@
           href: how-to-custom-speech-deploy-model.md
         - name: Criar transcrições rotuladas por humanos
           href: how-to-custom-speech-human-labeled-transcriptions.md
-        - name: Diretrizes de nomenclatura de palavras-chave personalizadas
-          href: speech-devices-sdk-kws-guidelines.md
-        - name: Detecção de palavra-chave personalizada
-          href: speech-devices-sdk-create-kws.md
     - name: Referência
       items:
         - name: APIs do SDK de Fala
@@ -448,6 +444,10 @@
         - name: Contêineres de Fala em instâncias de contêiner do Azure
           displayName: 'ACI,azure container instances,container instances,containers'
           href: deploy-speech-on-container-instances.md
+    - name: Recursos
+      items:
+        - name: Perguntas frequentes sobre contêineres
+          href: speech-container-faq.md
 - name: SDK de fala
   items:
     - name: Visão geral

@@ -8,12 +8,12 @@ ms.author: babanisa
 ms.date: 11/15/2019
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a9281ba1e2bf68da2318c32ab7037515697f92a5
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 5e38571cf84537fd722093b96cd277743e8ce80c
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708839"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80292159"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Início Rápido: Rotear eventos personalizados para uma Função do Azure com a Grade de Eventos
 
@@ -124,7 +124,7 @@ O primeiro exemplo usa a CLI do Azure. Ele obtém a URL e a chave do tópico per
 ### <a name="azure-powershell"></a>Azure PowerShell
 O segundo exemplo usa o PowerShell para realizar etapas semelhantes.
 
-1. No portal do Azure, selecione **Cloud Shell** (como alternativa, acesse https://shell.azure.com/) ). Selecione **PowerShell** no canto superior esquerdo da janela do Cloud Shell. Veja a imagem da janela **Cloud Shell** de exemplo na seção da CLI do Azure.
+1. No portal do Azure, selecione **Cloud Shell** (como alternativa, acesse `https://shell.azure.com/`). Selecione **PowerShell** no canto superior esquerdo da janela do Cloud Shell. Veja a imagem da janela **Cloud Shell** de exemplo na seção da CLI do Azure.
 2. Defina as variáveis a seguir. Depois de copiar e colar cada comando, atualize o **nome do tópico** e o **nome do grupo de recursos** antes de executar o comando:
 
     ```powershell
