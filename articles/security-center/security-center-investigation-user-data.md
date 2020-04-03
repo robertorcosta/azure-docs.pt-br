@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
-ms.openlocfilehash: 9e4c6577f0b8b18aff343ac54b31ff292632f5d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa262b0be3902f6e143a53f8f1302156fc5aede6
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979233"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582978"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gerenciar dados de usuário encontrados em uma investigação da Central de Segurança do Azure
 Este artigo fornece informações sobre como gerenciar dados de usuário encontrados no recurso de investigação da Central de Segurança do Azure. Os dados da investigação são armazenados nos [registros do Monitor do Azure](../log-analytics/log-analytics-overview.md) e expostos no Security Center. O gerenciamento de dados de usuário inclui a capacidade de excluir dados ou exportar dados.
@@ -26,7 +26,7 @@ Este artigo fornece informações sobre como gerenciar dados de usuário encontr
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="searching-for-and-identifying-personal-data"></a>Pesquisar e identificar dados pessoais
-No portal do Azure, você pode usar o [recurso de investigação](../security-center/security-center-investigation.md) da Central de Segurança para pesquisar dados pessoais. O recurso de investigação está disponível em **alertas de segurança**.
+No portal do Azure, você pode usar o recurso de investigação da Central de Segurança para pesquisar dados pessoais. O recurso de investigação está disponível em **alertas de segurança**.
 
 O recurso de investigação mostra todas as entidades, informações de usuário e dados na guia **Entidades**.
 

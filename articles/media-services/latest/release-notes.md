@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 1db7009096635fc1279ce8a8358e0d8131209722
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 76ef9f92b6b6633982242ccafab1950e0ef5f410
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372578"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582794"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -49,7 +49,7 @@ Serviços de Mídia GA'ed nas seguintes regiões do governo Azure: *USGov Arizon
 
 ## <a name="december-2019"></a>Dezembro de 2019
 
-Adicionado suporte a CDN para *cabeçalhos Prefetch Origin-Assist* para streaming ao vivo e vídeo demanda; disponível para clientes que têm contrato direto com a Akamai CDN. O recurso CDN-Prefetch do Origin-Assist envolve as seguintes trocas de cabeçalho HTTP entre a origem do Akamai CDN e do Azure Media Services:
+Adicionado suporte a CDN para *cabeçalhos Prefetch Origin-Assist* para streaming ao vivo e vídeo sob demanda; disponível para clientes que têm contrato direto com a Akamai CDN. O recurso CDN-Prefetch do Origin-Assist envolve as seguintes trocas de cabeçalho HTTP entre a origem do Akamai CDN e do Azure Media Services:
 
 |Cabeçalho HTTP|Valores|Remetente|Receptor|Finalidade|
 | ---- | ---- | ---- | ---- | ----- |
@@ -177,7 +177,7 @@ Para obter mais informações, consulte [Nuvens e regiões nas quais existe o Me
 
 Atualizações adicionadas que incluem melhorias de desempenho dos Serviços de Mídia.
 
-* O tamanho máximo do arquivo suportado para processamento foi atualizado. Veja, [Cotas e limitações.](limits-quotas-constraints.md)
+* O tamanho máximo do arquivo suportado para processamento foi atualizado. Veja, [Cotas e limites.](limits-quotas-constraints.md)
 * [A codificação acelera melhorias](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
 
 ## <a name="april-2019"></a>Abril de 2019

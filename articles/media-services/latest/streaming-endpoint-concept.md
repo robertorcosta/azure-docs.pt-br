@@ -12,18 +12,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: a8674714451f3cc686acb74d6c66ac6800b75936
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 72cfdf172e4524e302ef2e22826d4f78ce32daf0
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478088"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582724"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Streaming Endpoints (Origem) nos Serviços de Mídia do Azure
 
 No Microsoft Azure Media Services, um [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa um serviço dinâmico (just-in-time) de embalagem e origem que pode fornecer seu conteúdo ao vivo e sob demanda diretamente para um aplicativo de player cliente usando um dos protocolos comuns de mídia de streaming (HLS ou DASH). Além disso, o **Streaming Endpoint** fornece criptografia dinâmica (just-in-time) para DRMs líderes do setor. 
 
-Quando você cria uma conta de Serviços de Mídia, um Ponto de Extremidade de Streaming **padrão** é criado em um estado parado. Você não pode excluir o ponto final de streaming **padrão.** Mais pontos finais de streaming podem ser criados na conta (ver [Cotas e limitações](limits-quotas-constraints.md)).
+Quando você cria uma conta de Serviços de Mídia, um Ponto de Extremidade de Streaming **padrão** é criado em um estado parado. Você não pode excluir o ponto final de streaming **padrão.** Mais pontos finais de streaming podem ser criados sob a conta (ver [Cotas e limites](limits-quotas-constraints.md)).
 
 > [!NOTE]
 > Para começar a transmitir vídeos, é necessário iniciar o **Ponto de extremidade de streaming** do qual deseja transmitir o vídeo.

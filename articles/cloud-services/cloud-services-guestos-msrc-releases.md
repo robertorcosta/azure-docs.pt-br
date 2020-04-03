@@ -10,34 +10,31 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 03/14/2020
+ms.date: 04/2/2020
 ms.author: raiye
-ms.openlocfilehash: 51c46414b5fe39da13b6ffff53c9509b482fa0d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b929481af3df8bc3bc6a9a6955e8277e3de3298
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408294"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618674"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
 
 ## <a name="march-2020-guest-os"></a>March 2020 Guest OS
 
->[!NOTE]
->O SO Guest March está sendo lançado para VMs de Serviço de Nuvem que estão configurados para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os seguintes patches estão incluídos no sistema operacional guest de março. Esta lista está sujeita a alterações.
-
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 20-03  |  [4541500]  |  Segurança do Windows  | 2.96 | 10 de março de 2020 |
-|  Rel 20-03  |  [4540671]  |  Internet Explorer  | 2.96, 3.83, 4.76 | 10 de março de 2020 |
-|  Rel 20-03  |  [4540694]  |  Segurança do Windows  | 3.83 | 10 de março de 2020 |
-|  Rel 20-03  |  [4541505]  |  Segurança do Windows  | 4.76 | 10 de março de 2020 |
-|  Rel 20-03  |  [4540670]  |  Última Atualização Cucu (Última Atualização Cucu)  | 5.41 | 10 de março de 2020 |
-|  Rel 20-03  |  [4538461]  |  Última Atualização Cucu (Última Atualização Cucu)  | 6.17 | 10 de março de 2020 |
-|  Rel 20-03  |  [4537820]  |  Rollup Mensal  | 2.96 | 11 de fevereiro de 2020 |
-|  Rel 20-03  |  [4537814]  |  Rollup Mensal  | 3.83 | 11 de fevereiro de 2020 |
-|  Rel 20-03  |  [4537821]  |  Rollup Mensal  | 4.76 | 11 de fevereiro de 2020 |
+|  Rel 20-03  |  [4541500]  |  Segurança do Windows  | [2.96] | 10 de março de 2020 |
+|  Rel 20-03  |  [4540671]  |  Internet Explorer  | [2.96,] [3.83,] [4.76] | 10 de março de 2020 |
+|  Rel 20-03  |  [4540694]  |  Segurança do Windows  | [3.83] | 10 de março de 2020 |
+|  Rel 20-03  |  [4541505]  |  Segurança do Windows  | [4.76] | 10 de março de 2020 |
+|  Rel 20-03  |  [4540670]  |  Última Atualização Cucu (Última Atualização Cucu)  | [5.41] | 10 de março de 2020 |
+|  Rel 20-03  |  [4538461]  |  Última Atualização Cucu (Última Atualização Cucu)  | [6.17] | 10 de março de 2020 |
+|  Rel 20-03  |  [4537820]  |  Rollup Mensal  | [2.96] | 11 de fevereiro de 2020 |
+|  Rel 20-03  |  [4537814]  |  Rollup Mensal  | [3.83] | 11 de fevereiro de 2020 |
+|  Rel 20-03  |  [4537821]  |  Rollup Mensal  | [4.76] | 11 de fevereiro de 2020 |
 
 [4541500]: https://support.microsoft.com/kb/4541500 
 [4540671]: https://support.microsoft.com/kb/4540671 

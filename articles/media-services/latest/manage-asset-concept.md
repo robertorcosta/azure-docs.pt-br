@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: fcdb8af770fa0068e8413d4609a56223a9a20ce2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345889"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582209"
 ---
 # <a name="manage-assets"></a>Gerenciar ativos
 
@@ -60,7 +60,7 @@ Depois que os arquivos digitais são carregados no armazenamento e associados a 
 
     **AssetContainerSas.listContainerSas** leva um parâmetro [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) `expiryTime`no qual você define . O horário deve ser definido para < 24 horas.
 
-    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) retorna vários URLs SAS, pois existem duas chaves de conta de armazenamento para cada conta de armazenamento. Uma conta de armazenamento tem duas chaves porque permite uma rotação perfeita das chaves da conta de armazenamento (por exemplo, mude uma enquanto estiver usando a outra e comece a usar a nova tecla e gire a outra tecla). A 1ª URL SAS representa a chave de armazenamento1 e a segunda chave de armazenamento2.
+    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) retorna vários URLs SAS, pois existem duas chaves de conta de armazenamento para cada conta de armazenamento. Uma conta de armazenamento tem duas chaves porque ajuda com failover e rotação perfeita de chaves da conta de armazenamento. A primeira URL SAS representa a primeira chave da conta de armazenamento e a segunda URL SAS representa a segunda chave.
 3. Use as APIs de armazenamento do Azure ou SDKs (por exemplo, a [API de armazenamento REST](../../storage/common/storage-rest-api-auth.md) ou [.NET SDK)](../../storage/blobs/storage-quickstart-blobs-dotnet.md)para carregar arquivos no contêiner Asset.
 4. Use as APIs dos Serviços de Mídia v3 para criar uma transformação e um trabalho para processar seu ativo de "entrada". Para obter mais informações, consulte [Transformações e Empregos](transform-concept.md).
 5. Transmitir o conteúdo do ativo de "saída".
@@ -143,7 +143,7 @@ Confira [Filtragem, classificação, paginação de entidades dos Serviços de M
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja os exemplos de código completo que demonstram como carregar, codificar, analisar, transmitir ao vivo e demanda: 
+Veja os exemplos de código completo que demonstram como carregar, codificar, analisar, transmitir ao vivo e sob demanda: 
 
 * [Java,](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) 
 * [.NET,](https://docs.microsoft.com/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/) 

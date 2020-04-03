@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a382ef2d93f10e69569ecbbed1399f256a7afbb3
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d10a642f9309e4bb93368564488fc75be15fa27c
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351214"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586075"
 ---
 # <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analise sua carga de trabalho no Azure Synapse Analytics
 
-Técnicas para analisar sua carga de trabalho sql analytics no Azure Synapse Analytics.
+Técnicas para analisar sua carga de trabalho Synapse SQL no Azure Synapse Analytics.
 
 ## <a name="resource-classes"></a>Classes de recursos
 
-O SQL Analytics fornece classes de recursos para atribuir recursos do sistema a consultas.  Para obter mais informações sobre classes de recursos, consulte [classes de recursos & gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).  As consultas serão aguardadas se a classe de recursos atribuída a uma consulta precisar de mais recursos do que estão disponíveis atualmente.
+O Synapse SQL fornece classes de recursos para atribuir recursos do sistema a consultas.  Para obter mais informações sobre classes de recursos, consulte [classes de recursos & gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).  As consultas serão aguardadas se a classe de recursos atribuída a uma consulta precisar de mais recursos do que estão disponíveis atualmente.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Detecção de consulta enfileirada e outros DMVs
 
@@ -63,7 +63,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-O SQL Analytics tem os seguintes tipos de espera:
+O Synapse SQL tem os seguintes tipos de espera:
 
 * **LocalQueriesConcurrencyResourceType**: consultas que ficam fora da estrutura de slot de simultaneidade. Consultas DMV e funções de sistema, como `SELECT @@VERSION` , são exemplos de consultas de locais.
 * **UserConcurrencyResourceType**: consultas que ficam dentro da estrutura de slot de simultaneidade. Consultas em tabelas do usuário final representam exemplos que usariam esse tipo de recurso.
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o gerenciamento de usuários de banco de dados e segurança, consulte [Proteger um banco de dados no SQL Analytics](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como classes de recurso maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Recriando índices para melhorar a qualidade de segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Para obter mais informações sobre o gerenciamento de usuários de banco de dados e segurança, consulte [Proteger um banco de dados no Synapse SQL](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como classes de recurso maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Recriando índices para melhorar a qualidade de segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

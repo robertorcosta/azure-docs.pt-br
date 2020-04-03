@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: f57b274715eb1c8a4d517f5655c09c366574d412
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f99c4d096bcbe1fbdc42cac80a491d6017266cb2
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445214"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583575"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Use comandos de extensão Do MongoDB para gerenciar dados armazenados na API do Azure Cosmos DB para MongoDB 
 
@@ -21,7 +21,7 @@ Ao usar a API do Azure Cosmos DB para MongoDB, você pode desfrutar dos benefíc
 
 ## <a name="mongodb-protocol-support"></a>Suporte ao protocolo MongoDB
 
-Por padrão, a API do Azure Cosmos DB para MongoDB é compatível com a versão 3.2 do servidor MongoDB, para obter mais detalhes, consulte [recursos suportados e sintaxe](mongodb-feature-support.md). Os recursos ou operadores de consulta adicionados na versão 3.4 do MongoDB estão atualmente disponíveis como uma visualização na API do Azure Cosmos DB para MongoDB. Os seguintes comandos de extensão suportam a funcionalidade específica do Azure Cosmos DB ao executar operações CRUD nos dados armazenados na API do Azure Cosmos DB para MongoDB:
+Por padrão, a API do Azure Cosmos DB para MongoDB é compatível com a versão 3.2 do servidor MongoDB, para obter mais detalhes, consulte [recursos suportados e sintaxe](mongodb-feature-support.md). Os recursos ou operadores de consulta adicionados na versão 3.4 do MongoDB estão atualmente disponíveis como uma visualização na API do Azure Cosmos DB para MongoDB. Os seguintes comandos de extensão suportam a funcionalidade ESPECÍFICA do Azure Cosmos DB ao executar operações CRUD nos dados armazenados na API do Azure Cosmos DB para MongoDB:
 
 * [Criar banco de dados](#create-database)
 * [Banco de dados de atualização](#update-database)
@@ -160,12 +160,12 @@ O comando create collection extension cria uma nova coleção MongoDB. O nome do
 
 A tabela a seguir descreve os parâmetros dentro do comando:
 
-|**Campo**|**Tipo** |**Descrição** |
-|---------|---------|---------|
-| customAction    | string | Nome do comando personalizado. Deve ser "CreateCollection"     |
-| collection      | string | Nome da coleção                                   |
-| oferecerThroughput | INT    | Throughput provisionado para definir no banco de dados. É um parâmetro opcional |
-| chave de fragmento        | string | Shard Key caminho para criar uma coleção de fragmentos. É um parâmetro opcional |
+| **Campo** | **Tipo** | **Obrigatório** | **Descrição** |
+|---------|---------|---------|---------|
+| customAction | string | Obrigatório | Nome do comando personalizado. Deve ser "CreateCollection".|
+| collection | string | Obrigatório | Nome da coleção. Não são permitidos personagens especiais.|
+| oferecerThroughput | INT | Opcional* | Throughput provisionado para definir no banco de dados. Se este parâmetro não for fornecido, ele será padrão para o mínimo, 400 RU/s. * Para especificar throughput além de 10.000 RU/s, o `shardKey` parâmetro é necessário.|
+| chave de fragmento | string | Opcional* | O caminho para a Chave fragmento para a coleção de fragmentos. Este parâmetro é necessário se você definir mais de 10.000 RU/s em `offerThroughput`.  Se for especificado, todos os documentos inseridos exigirão esse valor. |
 
 ### <a name="output"></a>Saída
 
@@ -184,7 +184,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 **Crie uma coleção de fragmentos**
 
-Para criar uma coleção com o nome "testCollection" e o throughput provisionado de 1000 RUs, use o seguinte comando:
+Para criar uma coleção com o nome "testCollection" e o throughput provisionado de 1000 RUs e uma propriedade de chave de fragmento "a.b", use o seguinte comando:
 
 ```shell
 use test

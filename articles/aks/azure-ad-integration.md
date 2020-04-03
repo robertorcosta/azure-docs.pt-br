@@ -4,12 +4,12 @@ description: Como criar clusters Azure Active Directory (AKS Service, serviço A
 services: container-service
 ms.topic: article
 ms.date: 02/02/2019
-ms.openlocfilehash: 0476acadf5af3a3e2c470fe6c08ebbd355653e22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de57a46f92fab2486aa7722daf8745a01be1f4f6
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596582"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617592"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Azure Active Directory ao Serviço de Kubernetes do Azure
 
@@ -83,7 +83,7 @@ O primeiro aplicativo Azure AD é aplicado para obter a adesão do grupo Azure A
 
     e. Selecione **Adicionar permissões** para salvar as atualizações.
 
-    f. **o consentimento de Grant,** **selecione o consentimento do grant.** Este botão não estará disponível a conta corrente que está sendo usada não está listada como um administração de inquilinos.
+    f. Sob **o consentimento de Grant,** **selecione o consentimento do grant.** Este botão não estará disponível a conta corrente que está sendo usada não está listada como um administração de inquilinos.
 
     Quando as permissões são concedidas com sucesso, a seguinte notificação é exibida no portal:
 
@@ -116,11 +116,11 @@ O segundo aplicativo Azure AD é usado quando você faz login com o Kubernetes C
     c. Selecione **A Web** para o tipo Uri redirecionar e, *https://aksazureadclient*em seguida, digite qualquer valor formatado por URI, como .
 
     >[!NOTE]
-    >Se você estiver criando um novo cluster habilitado para RBAC para suportar o Azure Monitor para contêineres, adicione as duas URLs adicionais adicionais a esta lista como tipos de aplicativos **da Web.** O valor da URL `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` de primeira base deve `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`ser e o valor da URL de segunda base deve ser .
+    >Se você estiver criando um novo cluster habilitado para RBAC para suportar o Azure Monitor para contêineres, adicione as duas URLs adicionais adicionais a esta lista como tipos de aplicativos **da Web.** O valor da URL `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` de primeira base deve ser e o valor da URL da segunda base deve ser`https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`
     >
-    >Se você estiver usando esse recurso no Azure China, `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` o valor da URL `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`de primeira base deve ser e o valor da URL de segunda base deve ser .
+    >Se você estiver usando esse recurso no Azure China, `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` o valor da URL de primeira base deve ser e o valor da URL de segunda base deve ser`https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`
     >
-    >Para obter mais informações, consulte [Como configurar o recurso Dados vivos (visualização)](../azure-monitor/insights/container-insights-livedata-setup.md) para o Monitor Azure para contêineres e as etapas para configurar a autenticação a seção Configurar a [autenticação integrada do AD.](../azure-monitor/insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication)
+    >Para obter mais informações, consulte [Como configurar o recurso Dados vivos (visualização)](../azure-monitor/insights/container-insights-livedata-setup.md) para o Monitor Azure para contêineres e as etapas para configurar a autenticação sob a seção Configurar a [autenticação integrada do AD.](../azure-monitor/insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication)
 
     d. Selecione **Registrar** quando terminar.
 
@@ -134,7 +134,7 @@ O segundo aplicativo Azure AD é usado quando você faz login com o Kubernetes C
 
     c. Selecione **Adicionar Permissões**.
 
-    d. **o consentimento de Grant,** **selecione o consentimento do grant.** Este botão não está disponível se a conta corrente não for um administração de inquilinos. Quando as permissões são concedidas, a seguinte notificação é exibida no portal:
+    d. Sob **o consentimento de Grant,** **selecione o consentimento do grant.** Este botão não está disponível se a conta corrente não for um administração de inquilinos. Quando as permissões são concedidas, a seguinte notificação é exibida no portal:
 
     ![Notificação de permissões concedidas com êxito](media/aad-integration/permissions-granted.png)
 

@@ -3,12 +3,12 @@ title: Visão geral dos recursos de segurança
 description: Aprenda sobre os recursos de segurança no Azure Backup que ajudam a proteger seus dados de backup e atender às necessidades de segurança de seus negócios.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 91a0f29862b0c9c35e562c143e28ebbc6c39cf94
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 2eec3ee50f1de695b5432ee50b0900e35b81a6eb
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80423178"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585831"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral dos recursos de segurança no Azure Backup
 
@@ -66,6 +66,8 @@ O serviço de backup do Azure usa o agente Microsoft Azure Recovery Services (MA
 * Uma camada adicional de autenticação será adicionada sempre que uma operação crítica, como a alteração de senha, for executada. Essa validação é garantir que essas operações possam ser realizadas apenas por usuários com credenciais válidas do Azure. [Saiba mais sobre os recursos que previnem ataques.](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#prevent-attacks)
 
 * Os dados de backup excluídos são retidos por mais 14 dias a partir da data de exclusão. Isso garante a recuperação dos dados dentro de um determinado período de tempo, para que não haja perda de dados mesmo se um ataque acontecer. Além disso, mais pontos de recuperação mínimos são mantidos para proteção contra dados corrompidos. [Saiba mais sobre como recuperar dados de backup excluídos](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#recover-deleted-backup-data).
+
+* Para obter o backup de dados usando o agente MARS (Microsoft Azure Recovery Services, serviços de recuperação do Microsoft Azure), uma senha é usada para garantir que os dados sejam criptografados antes de serem enviados ao Azure Backup e descriptografados somente após o download do Azure Backup. Os detalhes da senha estão disponíveis apenas para o usuário que criou a senha e para o agente que está configurado com ela. Nada é transmitido ou compartilhado com o serviço. Isso garante a segurança completa de seus dados, pois qualquer dado que seja exposto inadvertidamente (como um ataque man-in-the-middle na rede) é inutilizável sem a senha, e a senha não é enviada na rede.
 
 ## <a name="compliance-with-standardized-security-requirements"></a>Conformidade com requisitos de segurança padronizados
 

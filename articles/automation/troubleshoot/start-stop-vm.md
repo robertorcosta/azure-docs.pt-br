@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 97ea98fc38fc8d06dc1bc65ee057241da6f15488
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73a9680cc570179c47b527a4844488da69193cb3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78851389"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586092"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Solucionar problemas da solução Iniciar/Parar VMs fora do horário comercial
 
@@ -137,7 +137,7 @@ Esse erro pode ser causado por um dos seguintes motivos:
 
 Revise a lista a seguir para obter possíveis soluções para seu problema ou locais para procurar:
 
-* Ao usar o [cenário de sequência](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags) da solução Iniciar/Parar VMs fora do horário comercial, você deve verificar se cada VM que deseja iniciar ou parar tem a marca adequada. Verifique se as VMs que você deseja iniciar têm a marca `sequencestart` e as VMs que você deseja parar têm a marca `sequencestop`. Ambas as marcas necessitam de um valor inteiro positivo. Você pode usar uma consulta semelhante ao exemplo a seguir para procurar todas as VMs com as marcas e seus valores.
+* Ao usar o [cenário de sequência](../automation-solution-vm-management.md) da solução Iniciar/Parar VMs fora do horário comercial, você deve verificar se cada VM que deseja iniciar ou parar tem a marca adequada. Verifique se as VMs que você deseja iniciar têm a marca `sequencestart` e as VMs que você deseja parar têm a marca `sequencestop`. Ambas as marcas necessitam de um valor inteiro positivo. Você pode usar uma consulta semelhante ao exemplo a seguir para procurar todas as VMs com as marcas e seus valores.
 
   ```powershell-interactive
   Get-AzureRmResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
@@ -187,7 +187,7 @@ Execute as etapas a seguir para garantir que a solução esteja configurada corr
 2. Verifique se os grupos de recursos para as VMs que devem ser iniciadas ou paradas estão nas variáveis `External_Start_ResourceGroupNames` ou `External_Stop_ResourceGroupNames`, dependendo da sua situação.
 3. Teste suas alterações executando o runbook `SequencedStartStop_Parent` com o parâmetro WHATIF definido como True para visualizar as alterações.
 
-Para obter instruções adicionais e mais detalhadas sobre como usar a solução para iniciar e parar VMs em sequência, confira [Iniciar/parar VMs em sequência](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
+Para obter instruções adicionais e mais detalhadas sobre como usar a solução para iniciar e parar VMs em sequência, confira [Iniciar/parar VMs em sequência](../automation-solution-vm-management.md).
 
 ## <a name="scenario-startstop-vm-job-fails-with-403-forbidden-status"></a><a name="403"></a>Cenário: Trabalho de Start/Stop VM falha com 403 status proibido
 

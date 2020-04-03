@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a7f27215c7ba053933d9d12658253ea92aefa526
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: ace4bc2e46d9e1926da18dedb163657d4f343979
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351123"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586321"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unidades de Data Warehouse (DWUs)
 
@@ -24,7 +24,7 @@ Recomendações sobre a escolha do número ideal de unidades de data warehouse (
 
 ## <a name="what-are-data-warehouse-units"></a>O que são unidades de data warehouse
 
-Um [pool SQL](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) representa uma coleção de recursos analíticos que estão sendo provisionados ao usar [o SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse). Os recursos analíticos são definidos como uma combinação de CPU, memória e IO. Esses três recursos são agrupados em unidades de escala de computação chamadas Unidades de Data Warehouse (DWUs). Uma DWU representa uma medida abstrata normalizada de recursos de computação e desempenho. Uma alteração no seu nível de serviço altera o número de DWUs disponíveis para o sistema, que por sua vez ajusta o desempenho e o custo do seu sistema.
+Um [pool Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) representa uma coleção de recursos analíticos que estão sendo provisionados. Os recursos analíticos são definidos como uma combinação de CPU, memória e IO. Esses três recursos são agrupados em unidades de escala de computação chamadas Unidades de Data Warehouse (DWUs). Uma DWU representa uma medida abstrata normalizada de recursos de computação e desempenho. Uma alteração no seu nível de serviço altera o número de DWUs disponíveis para o sistema, que por sua vez ajusta o desempenho e o custo do seu sistema.
 
 Para um desempenho mais alto, você pode aumentar o número de unidades de data warehouse. Para menos desempenho, reduza as unidades de data warehouse. Os custos de armazenamento e computação são cobrados separadamente, para que as mudanças de unidades de data warehouse não afetem os custos de armazenamento.
 

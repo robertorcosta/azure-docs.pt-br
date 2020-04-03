@@ -1,6 +1,6 @@
 ---
 title: Importância da carga de trabalho
-description: Orientação para definir a importância para consultas sql analytics no Azure Synapse Analytics.
+description: Orientação para definir a importância para consultas de pool SQL sinapse no Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 3dde2ad4af17313bcfce28964f8be1e831317a5a
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 84f432c45729091be1264bff85d1e32fac10f3ef
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349954"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583149"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Importância da carga de trabalho do Azure Synapse Analytics
 
-Este artigo explica como a importância da carga de trabalho pode influenciar a ordem de execução das solicitações do SQL Analytics no Azure Synapse.
+Este artigo explica como a importância da carga de trabalho pode influenciar a ordem de execução para solicitações de pool Synapse Synapse no Azure Synapse.
 
 ## <a name="importance"></a>Importância
 
@@ -38,7 +38,7 @@ Além do cenário de importância básica descrito acima com vendas e dados mete
 
 ### <a name="locking"></a>Bloqueio
 
-O acesso aos bloqueios para atividade de leitura e gravação é uma área de contenção natural. Atividades como [comutação de partição](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) ou [OBJETO RENAME](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) exigem bloqueios elevados.  Sem importância de carga de trabalho, o SQL Analytics no Azure Synapse otimiza para o throughput. Otimizar para throughput significa que, ao executar e enfileirar solicitações têm as mesmas necessidades de bloqueio e recursos estão disponíveis, as solicitações enfileiradas podem contornar solicitações com maiores necessidades de bloqueio que chegaram na fila de solicitação mais cedo. Uma vez aplicada a importância da carga de trabalho às solicitações com maiores necessidades de bloqueio. Solicitação com maior importância será executada antes da solicitação com menor importância.
+O acesso aos bloqueios para atividade de leitura e gravação é uma área de contenção natural. Atividades como [comutação de partição](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) ou [OBJETO RENAME](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) exigem bloqueios elevados.  Sem importância de carga de trabalho, o pool Synapse SQL no Azure Synapse otimiza para o throughput. Otimizar para throughput significa que, ao executar e enfileirar solicitações têm as mesmas necessidades de bloqueio e recursos estão disponíveis, as solicitações enfileiradas podem contornar solicitações com maiores necessidades de bloqueio que chegaram na fila de solicitação mais cedo. Uma vez aplicada a importância da carga de trabalho às solicitações com maiores necessidades de bloqueio. Solicitação com maior importância será executada antes da solicitação com menor importância.
 
 Considere o exemplo a seguir:
 
@@ -50,7 +50,7 @@ Se o Q2 e o Q3 tiverem a mesma importância e o Q1 ainda estiver sendo executado
 
 ### <a name="non-uniform-requests"></a>Solicitações não uniformes
 
-Outro cenário em que a importância pode ajudar a atender às demandas de consulta é quando solicitações com diferentes classes de recursos são submetidas.  Como foi mencionado anteriormente, a mesma importância, o SQL Analytics no Azure Synapse otimiza para o throughput. Quando as solicitações de tamanho misto (como smallrc ou mediumrc) estiverem na fila, o SQL Analytics escolherá a solicitação de chegada mais antiga que se encaixa nos recursos disponíveis. Se a importância da carga de trabalho for aplicada, a solicitação de maior importância será agendada em seguida.
+Outro cenário em que a importância pode ajudar a atender às demandas de consulta é quando solicitações com diferentes classes de recursos são submetidas.  Como foi mencionado anteriormente, sob a mesma importância, a piscina Synapse SQL no Azure Synapse otimiza para o throughput. Quando as solicitações de tamanho misto (como smallrc ou mediumrc) estiverem na fila, o pool Synapse SQL escolherá a solicitação de chegada mais antiga que se encaixa nos recursos disponíveis. Se a importância da carga de trabalho for aplicada, a solicitação de maior importância será agendada em seguida.
   
 Considere o seguinte exemplo em DW500c:
 

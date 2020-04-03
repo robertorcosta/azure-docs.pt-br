@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 0541b12d73cc5b5f7fdf713c759069e2ecbd8c18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13985b07b4903504fde6b58031a532337d3b1971
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299624"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584607"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Criptografia do lado do servidor dos discos gerenciados do Azure
 
@@ -34,7 +34,11 @@ Por padrão, os discos gerenciados usam chaves de criptografia gerenciadas pela 
 
 ## <a name="customer-managed-keys"></a>Chaves gerenciadas pelo cliente
 
-Você pode optar por gerenciar a criptografia no nível de cada disco gerenciado, com suas próprias chaves. A criptografia do lado do servidor para discos gerenciados com chaves gerenciadas pelo cliente oferece uma experiência integrada com o Azure Key Vault. Você pode importar [suas chaves RSA](../../key-vault/key-vault-hsm-protected-keys.md) para o seu Cofre de Chaves ou gerar novas chaves RSA no Azure Key Vault. Os discos gerenciados do Azure lidam com a criptografia e a descriptografia de forma totalmente transparente usando [criptografia de envelopes](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). Ele criptografa dados usando uma chave de criptografia de dados baseada em [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 (DEK), que, por sua vez, é protegida usando suas chaves. Você tem que conceder acesso a discos gerenciados em seu Cofre de Chaves para usar suas chaves para criptografar e descriptografar o DEK. Isso permite que você tenha controle total de seus dados e chaves. Você pode desativar suas chaves ou revogar o acesso a discos gerenciados a qualquer momento. Você também pode auditar o uso da chave de criptografia com o monitoramento do Azure Key Vault para garantir que apenas discos gerenciados ou outros serviços confiáveis do Azure estejam acessando suas chaves.
+Você pode optar por gerenciar a criptografia no nível de cada disco gerenciado, com suas próprias chaves. A criptografia do lado do servidor para discos gerenciados com chaves gerenciadas pelo cliente oferece uma experiência integrada com o Azure Key Vault. Você pode importar [suas chaves RSA](../../key-vault/key-vault-hsm-protected-keys.md) para o seu Cofre de Chaves ou gerar novas chaves RSA no Azure Key Vault. 
+
+Os discos gerenciados do Azure lidam com a criptografia e a descriptografia de forma totalmente transparente usando [criptografia de envelopes](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). Ele criptografa dados usando uma chave de criptografia de dados baseada em [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 (DEK), que, por sua vez, é protegida usando suas chaves. O serviço de armazenamento gera chaves de criptografia de dados e as criptografa com chaves gerenciadas pelo cliente usando criptografia RSA. A criptografia do envelope permite que você gire (alterar) suas chaves periodicamente de acordo com suas políticas de conformidade sem afetar suas VMs. Quando você gira suas chaves, o serviço de armazenamento recriptografa as chaves de criptografia de dados com as novas chaves gerenciadas pelo cliente. 
+
+Você tem que conceder acesso a discos gerenciados em seu Cofre de Chaves para usar suas chaves para criptografar e descriptografar o DEK. Isso permite que você tenha controle total de seus dados e chaves. Você pode desativar suas chaves ou revogar o acesso a discos gerenciados a qualquer momento. Você também pode auditar o uso da chave de criptografia com o monitoramento do Azure Key Vault para garantir que apenas discos gerenciados ou outros serviços confiáveis do Azure estejam acessando suas chaves.
 
 Para SSDs premium, SSDs padrão e HDDs padrão: Quando você desativar ou excluir sua chave, quaisquer VMs com discos usando essa chave serão automaticamente desligados. Depois disso, as VMs não serão utilizáveis a menos que a chave esteja ativada novamente ou você atribua uma nova chave.
 
@@ -240,13 +244,39 @@ $Credential = New-Object System.Management.Automation.PSCredential ($VMLocalAdmi
 New-AzVmss -VirtualMachineScaleSet $VMSS -ResourceGroupName $ResourceGroupName -VMScaleSetName $VMScaleSetName
 ```
 
+#### <a name="change-the-key-of-a-diskencryptionset-to-rotate-the-key-for-all-the-resources-referencing-the-diskencryptionset"></a>Alterar a chave de um DiskEncryptionSet para girar a chave para todos os recursos que fazem referência ao DiskEncryptionSet
+
+```PowerShell
+$ResourceGroupName="yourResourceGroupName"
+$keyVaultName="yourKeyVaultName"
+$keyName="yourKeyName"
+$diskEncryptionSetName="yourDiskEncryptionSetName"
+
+$keyVault = Get-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $ResourceGroupName
+
+$keyVaultKey = Get-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName
+
+Update-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -SourceVaultId $keyVault.ResourceId -KeyUrl $keyVaultKey.Id
+```
+
+#### <a name="find-the-status-of-server-side-encryption-of-a-disk"></a>Encontre o status da criptografia do lado do servidor de um disco
+
+```PowerShell
+$ResourceGroupName="yourResourceGroupName"
+$DiskName="yourDiskName"
+
+$disk=Get-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName
+$disk.Encryption.Type
+
+```
+
 > [!IMPORTANT]
-> As chaves gerenciadas pelo cliente dependem de identidades gerenciadas para os recursos do Azure, um recurso do Azure Active Directory (Azure AD). Quando você configura as chaves gerenciadas pelo cliente, uma identidade gerenciada é automaticamente atribuída aos seus recursos as cobertas. Se você posteriormente mover a assinatura, o grupo de recursos ou o disco gerenciado de um diretório Azure AD para outro, a identidade gerenciada associada aos discos gerenciados não será transferida para o novo inquilino, de modo que as chaves gerenciadas pelo cliente podem não funcionar mais. Para obter mais informações, consulte [Transferir uma assinatura entre os diretórios AD do Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+> As chaves gerenciadas pelo cliente dependem de identidades gerenciadas para os recursos do Azure, um recurso do Azure Active Directory (Azure AD). Quando você configura as chaves gerenciadas pelo cliente, uma identidade gerenciada é automaticamente atribuída aos seus recursos sob as cobertas. Se você posteriormente mover a assinatura, o grupo de recursos ou o disco gerenciado de um diretório Azure AD para outro, a identidade gerenciada associada aos discos gerenciados não será transferida para o novo inquilino, de modo que as chaves gerenciadas pelo cliente podem não funcionar mais. Para obter mais informações, consulte [Transferir uma assinatura entre os diretórios AD do Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
 [!INCLUDE [virtual-machines-disks-encryption-portal](../../../includes/virtual-machines-disks-encryption-portal.md)]
 
 > [!IMPORTANT]
-> As chaves gerenciadas pelo cliente dependem de identidades gerenciadas para os recursos do Azure, um recurso do Azure Active Directory (Azure AD). Quando você configura as chaves gerenciadas pelo cliente, uma identidade gerenciada é automaticamente atribuída aos seus recursos as cobertas. Se você posteriormente mover a assinatura, o grupo de recursos ou o disco gerenciado de um diretório Azure AD para outro, a identidade gerenciada associada aos discos gerenciados não será transferida para o novo inquilino, de modo que as chaves gerenciadas pelo cliente podem não funcionar mais. Para obter mais informações, consulte [Transferir uma assinatura entre os diretórios AD do Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+> As chaves gerenciadas pelo cliente dependem de identidades gerenciadas para os recursos do Azure, um recurso do Azure Active Directory (Azure AD). Quando você configura as chaves gerenciadas pelo cliente, uma identidade gerenciada é automaticamente atribuída aos seus recursos sob as cobertas. Se você posteriormente mover a assinatura, o grupo de recursos ou o disco gerenciado de um diretório Azure AD para outro, a identidade gerenciada associada aos discos gerenciados não será transferida para o novo inquilino, de modo que as chaves gerenciadas pelo cliente podem não funcionar mais. Para obter mais informações, consulte [Transferir uma assinatura entre os diretórios AD do Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
 ## <a name="server-side-encryption-versus-azure-disk-encryption"></a>Criptografia do lado do servidor versus criptografia de disco Azure
 

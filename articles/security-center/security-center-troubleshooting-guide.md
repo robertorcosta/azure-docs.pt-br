@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: b5a85f8ae1564d724b826c809261e56577f4783a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 47502e693b897a57517d267924cc6c2752c10440
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435540"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585338"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de solução de problemas da Central de Segurança do Azure
 
@@ -148,7 +148,6 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 * [Validação de alertas na Central de Segurança do Azure](security-center-alert-validation.md)
 * [Notificações de Email na Central de Segurança do Azure](security-center-provide-security-contact-details.md)
 * [Tratando Incidentes de Segurança na Central de Segurança do Azure](security-center-incident.md)
-* [Investigar os incidentes e alertas na Central de Segurança do Azure](security-center-investigation.md)
 * [Recursos de detecção da Central de Segurança do Azure](security-center-detection-capabilities.md)
 * [Monitoramento de soluções de parceiros com o Azure Security Center](security-center-partner-solutions.md) — Saiba como monitorar o estado de saúde das soluções de seus parceiros.
 * [Faq do Azure Security Center](faq-general.md) — Encontre perguntas frequentes sobre o uso do serviço

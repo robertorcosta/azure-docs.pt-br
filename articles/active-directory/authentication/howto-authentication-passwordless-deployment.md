@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 145439ebedd2ddf7c081339146010c66f37fe1af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c9933e75a39af43af9e2745d5f7732d40027b34
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136527"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582468"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeje uma implantação de autenticação sem senha no Azure Active Directory
 
@@ -59,7 +59,7 @@ Os métodos de autenticação sem senha da Microsoft permitem diferentes cenári
 | **Login do aplicativo web:** <br> de um dispositivo móvel ou não-windows | **Sim** | **Não** | **Não** |
 | **Login do computador:** <br> Computador não Windows | **Não** | **Não** | **Não** |
 
-Para obter informações sobre a seleção do melhor método para sua organização, consulte [Decidir um método sem senha](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless#deciding-a-passwordless-method).
+Para obter informações sobre a seleção do melhor método para sua organização, consulte [Decidir um método sem senha](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#choose-a-passwordless-method).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -132,7 +132,7 @@ Consulte [as melhores práticas para um piloto](https://aka.ms/deploymentplans) 
 
 O aplicativo Microsoft Authenticator é um download gratuito do Google Play ou da Apple App Store. [Saiba mais sobre como baixar o aplicativo Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Faça com que os usuários baixem o aplicativo Microsoft Authenticator. e siga as instruções para ativar o login do telefone. 
 
-Ele transforma qualquer telefone iOS ou Android em uma credencial forte e sem senha. Os usuários fazem login em qualquer plataforma ou navegador recebendo uma notificação em seu telefone, correspondendo um número exibido na tela ao do telefone e, em seguida, usando a biometria ou um PIN para confirmar. [Veja detalhes sobre como funciona o aplicativo Microsoft Authenticator](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless#user-using-microsoft-authenticator-for-passwordless-sign-in). 
+Ele transforma qualquer telefone iOS ou Android em uma credencial forte e sem senha. Os usuários fazem login em qualquer plataforma ou navegador recebendo uma notificação em seu telefone, correspondendo um número exibido na tela ao do telefone e, em seguida, usando a biometria ou um PIN para confirmar. [Veja detalhes sobre como funciona o aplicativo Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#microsoft-authenticator-app).
 
 ![faça login com o aplicativo Authenticator](./media/howto-authentication-passwordless-deployment/passwordless-dp-sign-in.png)
 
@@ -233,7 +233,7 @@ Os usuários podem registrar e gerenciar [https://aka.ms/mysecurityinfo](https:/
 ### <a name="plan-security"></a>Planejar segurança
 Como parte deste plano de implantação, a Microsoft recomenda que a autenticação sem senha seja habilitada para todas as contas de admin privilegiadas.
 
-Quando os usuários ativam ou desativam a conta em uma chave de segurança ou redefinem o segundo fator para a chave de segurança em suas máquinas Windows 10, uma entrada é adicionada ao registro de segurança e estão os seguintes IDs de evento: *4670* e *5382*.
+Quando os usuários ativam ou desativam a conta em uma chave de segurança ou redefinem o segundo fator para a chave de segurança em suas máquinas Windows 10, uma entrada é adicionada ao registro de segurança e estão sob os seguintes IDs de evento: *4670* e *5382*.
 
 ### <a name="plan-testing"></a>Teste de plano
 

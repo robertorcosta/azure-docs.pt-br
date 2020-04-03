@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: f075362f976e6abb26c9781c4b0cdeb7912c0862
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75363212684bb09e84a4bc4881af26e6d2a8e7e3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76514027"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585282"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitore métricas e registros de diagnóstico do Media Services via Azure Monitor
 
@@ -54,7 +54,7 @@ Você pode monitorar as seguintes métricas da conta.
 |StreamingPolicyQuota|Cota de Política de Streaming|Cota de Políticas de Streaming em sua conta.|
 |StreamingPolicyQuotaUsedPercentage|Cota de Política de Streaming usada|O percentual da cota de Política de Streaming já foi utilizado.|
 
-Você também deve rever [as cotas e limitações da conta.](limits-quotas-constraints.md)
+Você também deve rever [as cotas e os limites da conta.](limits-quotas-constraints.md)
 
 ### <a name="streaming-endpoint"></a>Ponto de Extremidade de Streaming
 

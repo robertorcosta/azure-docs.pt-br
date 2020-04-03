@@ -13,12 +13,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: f8f5ab99086ee38e2f56247ce31f8ac0e7affc81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6191e67f097b5ab471c5b31eff11a0e570d1c990
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128997"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617036"
 ---
 # <a name="authentication-basics"></a>Noções básicas de autenticação
 
@@ -32,7 +32,7 @@ Este artigo abrange muitos dos conceitos de autenticação que você precisará 
 
 Em vez de criar aplicativos que cada um mantenha seu próprio nome de usuário e informações de senha, o que incorre em uma alta carga administrativa quando você precisa adicionar ou remover usuários em vários aplicativos, os aplicativos podem delegar essa responsabilidade a um provedor de identidade centralizado.
 
-O Azure Active Directory (Azure AD) é um provedor de identidade centralizado na nuvem. Delegar autenticação e autorização para ele permite que cenários como políticas de acesso condicional que exigem que um usuário esteja em um local específico, o uso de autenticação multifatorial, bem como permitir que um usuário faça login uma vez e, em seguida, seja automaticamente entrou em ação em todos os aplicativos web que compartilham o mesmo diretório centralizado. Esse recurso é referido como Single Sign On (SSO).
+O Azure Active Directory (Azure AD) é um provedor de identidade centralizado na nuvem. Delegar autenticação e autorização para ele permite que cenários como políticas de Acesso Condicional que exijam que um usuário esteja em um local específico, o uso de autenticação multifatorial, bem como permitir que um usuário faça login uma vez e, em seguida, seja automaticamente conectado a todos os aplicativos da Web que compartilham o mesmo diretório centralizado. Esse recurso é referido como Single Sign On (SSO).
 
 Um provedor de identidade centralizado é ainda mais importante para aplicativos que têm usuários localizados em todo o mundo que não necessariamente acessam a rede da empresa. O Azure AD autentica os usuários e fornece tokens de acesso. Um [token de acesso](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#access-token) é um token de segurança que é emitido por um servidor de autorização. Ele contém informações sobre o usuário e o aplicativo para o qual o token é destinado; que podem ser usados para acessar APIs da Web e outros recursos protegidos.
 
@@ -120,7 +120,7 @@ A plataforma de identidade da Microsoft:
 * Fornece infra-estrutura para implementar o provisionamento de aplicativos dentro do inquilino do desenvolvedor de aplicativos e para qualquer outro inquilino azure AD
 * Lida com o consentimento do usuário durante o tempo de solicitação de token e facilita o provisionamento dinâmico de aplicativos entre os inquilinos
 
-Consentimento é o processo de um proprietário de recursos concedendo autorização para um aplicativo cliente acessar recursos protegidos, permissões específicas, em nome do proprietário dos recursos. A plataforma de identidade da Microsoft:
+Consentimento é o processo de um proprietário de recursos concedendo autorização para um aplicativo cliente acessar recursos protegidos, sob permissões específicas, em nome do proprietário dos recursos. A plataforma de identidade da Microsoft:
 
 * Permite aos usuários e administradores conceder ou negar de forma dinâmica o consentimento ao aplicativo para o acesso de recursos em seu nome.
 * Permite aos administradores decidir, em última análise, o que os aplicativos têm permissão para fazer, quais usuários podem usar aplicativos específicos e como os recursos do diretório são acessados.
@@ -170,7 +170,7 @@ Esse atributo faz com que ASP.NET verifique a presença de um cookie de sessão 
 A autenticação do usuário acontece através do navegador. O protocolo OpenID usa mensagens de protocolo HTTP padrão.
 * O aplicativo web envia um HTTP 302 (redirecionamento) para o navegador para usar o Azure AD.
 * Quando o usuário é autenticado, o Azure AD envia o token para o aplicativo web usando um redirecionamento através do navegador.
-* O redirecionamento é fornecido pelo aplicativo web na forma de um URI de redirecionamento. Este URI de redirecionamento é registrado no objeto de aplicativo Azure AD. Pode haver várias URIs de redirecionamento porque o aplicativo pode ser implantado em várias URLs. Assim, o aplicativo web também precisará especificar o URi redirecionamento para usar.
+* O redirecionamento é fornecido pelo aplicativo web na forma de um URI de redirecionamento. Este URI de redirecionamento é registrado no objeto de aplicativo Azure AD. Pode haver várias URIs de redirecionamento porque o aplicativo pode ser implantado em várias URLs. Assim, o aplicativo web também precisará especificar o URI de redirecionamento para usar.
 * O Azure AD verifica se o URI de redirecionamento enviado pelo aplicativo web é uma das URIs de redirecionamento registradas para o aplicativo.
 
 ## <a name="desktop-and-mobile-app-sign-in-flow-with-azure-ad"></a>Fluxo de login de aplicativos para desktop e celular com o Azure AD

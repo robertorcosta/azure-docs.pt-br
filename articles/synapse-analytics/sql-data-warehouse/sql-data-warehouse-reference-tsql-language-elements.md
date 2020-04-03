@@ -1,6 +1,6 @@
 ---
 title: Elementos de linguagem T-SQL
-description: Links para a documentação de declarações T-SQL suportadas no SQL Analytics.
+description: Links para a documentação de declarações T-SQL suportadas no pool Synapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,21 +11,23 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 040a6d519896d71227777168ea9de9612f97ca6e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: f27a0a351e4a446dc950ac13f850bd14b2b3c65a
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351426"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586406"
 ---
-# <a name="t-sql-language-elements-supported-in-sql-analytics"></a>Elementos de linguagem T-SQL suportados no SQL Analytics
-Links para a documentação de elementos de linguagem T-SQL suportados no SQL Analytics.
+# <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>Elementos de linguagem T-SQL suportados no pool Synapse SQL
+
+Links para a documentação de elementos de linguagem T-SQL suportados no pool Synapse SQL.
 
 ## <a name="core-elements"></a>Elementos principais
+
 * [convenções de sintaxe](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
 * [regras de nomeação de objeto](https://msdn.microsoft.com/library/ms175874.aspx)
 * [palavras-chave reservadas](https://msdn.microsoft.com/library/ms189822.aspx)
-* [ordenações](https://msdn.microsoft.com/library/ff848763.aspx)
+* [Agrupamentos](https://msdn.microsoft.com/library/ff848763.aspx)
 * [Comentários](https://msdn.microsoft.com/library/ms181627.aspx)
 * [Constantes](https://msdn.microsoft.com/library/ms179899.aspx)
 * [tipos de dados](https://msdn.microsoft.com/library/ms187752.aspx)
@@ -37,6 +39,7 @@ Links para a documentação de elementos de linguagem T-SQL suportados no SQL An
 * [Usar](https://msdn.microsoft.com/library/ms188366.aspx)
 
 ## <a name="batches-control-of-flow-and-variables"></a>Lotes, controle de fluxo e variáveis
+
 * [BEGIN...END](https://msdn.microsoft.com/library/ms190487.aspx)
 * [Quebrar](https://msdn.microsoft.com/library/ms181271.aspx)
 * [Declarar@local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
@@ -48,6 +51,7 @@ Links para a documentação de elementos de linguagem T-SQL suportados no SQL An
 * [Enquanto](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## <a name="operators"></a>Operadores
+
 * [+ (Somar)](https://msdn.microsoft.com/library/ms178565.aspx)
 * [+ (Concatenação de Cordas)](https://msdn.microsoft.com/library/ms177561.aspx)
 * [- (Negativo)](https://msdn.microsoft.com/library/ms189480.aspx)
@@ -57,6 +61,7 @@ Links para a documentação de elementos de linguagem T-SQL suportados no SQL An
 * [Módulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
 ## <a name="wildcard-characters-to-match"></a>Caracteres curinga para correspondência
+
 * [= (Igual a)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (Maior que)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (Menor que)](https://msdn.microsoft.com/library/ms179873.aspx)
@@ -64,16 +69,17 @@ Links para a documentação de elementos de linguagem T-SQL suportados no SQL An
 * [>= (Menor ou igual a)](https://msdn.microsoft.com/library/ms174978.aspx)
 * [<> (Não é igual a)](https://msdn.microsoft.com/library/ms176020.aspx)
 * [!= (Não é igual a)](https://msdn.microsoft.com/library/ms190296.aspx)
-* [E](https://msdn.microsoft.com/library/ms188372.aspx)
+* [AND](https://msdn.microsoft.com/library/ms188372.aspx)
 * [Entre](https://msdn.microsoft.com/library/ms187922.aspx)
 * [Existe](https://msdn.microsoft.com/library/ms188336.aspx)
 * [Em](https://msdn.microsoft.com/library/ms177682.aspx)
 * [É [NÃO] NULO](https://msdn.microsoft.com/library/ms188795.aspx)
 * [LIKE](https://msdn.microsoft.com/library/ms179859.aspx)
 * [NOT](https://msdn.microsoft.com/library/ms189455.aspx)
-* [Ou](https://msdn.microsoft.com/library/ms188361.aspx)
+* [OU](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>Operadores bit a bit
+
 * [& (AND bit a bit)](https://msdn.microsoft.com/library/ms174965.aspx)
 * [| (Bitwise OR)](https://msdn.microsoft.com/library/ms186714.aspx)
 * [^ (OR exclusivo bit a bit)](https://msdn.microsoft.com/library/ms190277.aspx)
@@ -83,6 +89,7 @@ Links para a documentação de elementos de linguagem T-SQL suportados no SQL An
 * [&= (AND EQUALS bit a bit)](https://msdn.microsoft.com/library/cc627427.aspx)
 
 ## <a name="functions"></a>Funções
+
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)
@@ -227,12 +234,15 @@ Links para a documentação de elementos de linguagem T-SQL suportados no SQL An
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
 ## <a name="transactions"></a>Transactions
+
 * [Transações](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## <a name="diagnostic-sessions"></a>Sessões de diagnóstico
+
 * [CREATE DIAGNOSTICS SESSION](https://msdn.microsoft.com/library/mt204029.aspx)
 
 ## <a name="procedures"></a>Procedimentos
+
 * [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx)
 * [sp_columns](https://msdn.microsoft.com/library/ms176077.aspx)
 * [sp_configure](https://msdn.microsoft.com/library/ms188787.aspx)
@@ -256,6 +266,7 @@ Links para a documentação de elementos de linguagem T-SQL suportados no SQL An
 * [sp_unprepare](https://msdn.microsoft.com/library/ff848735.aspx)
 
 ## <a name="set-statements"></a>instruções SET
+
 * [SET ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
 * [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
 * [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
@@ -278,5 +289,6 @@ Links para a documentação de elementos de linguagem T-SQL suportados no SQL An
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações de referência, consulte [as instruções T-SQL no SQL Analytics](sql-data-warehouse-reference-tsql-statements.md)e [as visualizações do sistema no SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).
+
+Para obter mais informações de referência, consulte [as instruções T-SQL no pool Synapse SQL](sql-data-warehouse-reference-tsql-statements.md)e [visualizações do sistema no pool Synapse SQL](sql-data-warehouse-reference-tsql-system-views.md).
 

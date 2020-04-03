@@ -1,6 +1,6 @@
 ---
 title: Otimização de transações
-description: Aprenda a otimizar o desempenho do seu código transacional no SQL Analytics, minimizando o risco de reversões longas.
+description: Aprenda a otimizar o desempenho do seu código transacional no Synapse SQL, minimizando o risco para reversões longas.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,29 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 700f4717db652d678255aaa9fce6ff8b8ff3b52f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d97a388477c895a4a8632d7ab3d06dc4c8982857
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350582"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582135"
 ---
-# <a name="optimizing-transactions-in-sql-analytics"></a>Otimização de transações no SQL Analytics
-Aprenda a otimizar o desempenho do seu código transacional no SQL Analytics, minimizando o risco de reversões longas.
+# <a name="optimizing-transactions-in-synapse-sql"></a>Otimização de transações no Synapse SQL
+
+Aprenda a otimizar o desempenho do seu código transacional no Synapse SQL, minimizando o risco para reversões longas.
 
 ## <a name="transactions-and-logging"></a>Transações e registro em log
-As transações são um componente importante de um mecanismo de banco de dados relacional. O SQL Analytics usa transações durante a modificação de dados. Essas transações podem ser implícitas ou explícitas. Instruções INSERT, UPDATE e DELETE únicas são exemplos de transações implícitas. Transações explícitas usam BEGIN TRAN, COMMIT TRAN ou ROLLBACK TRAN. Transações explícitas são normalmente utilizadas quando várias instruções de modificação precisam ser agrupadas em uma única unidade atômica. 
 
-O SQL Analytics compromete alterações no banco de dados usando logs de transações. Cada distribuição tem seu próprio log de transações. As gravações de log de transações são automáticas. Não é necessária nenhuma configuração. No entanto, apesar desse processo garantir a gravação, ele introduz uma sobrecarga no sistema. Você pode minimizar esse impacto ao escrever um código transacionalmente eficiente. De modo geral, um código transacionalmente eficiente se enquadra em duas categorias.
+As transações são um componente importante de um mecanismo de banco de dados relacional. As transações são usadas durante a modificação de dados. Essas transações podem ser implícitas ou explícitas. Instruções INSERT, UPDATE e DELETE únicas são exemplos de transações implícitas. Transações explícitas usam BEGIN TRAN, COMMIT TRAN ou ROLLBACK TRAN. Transações explícitas são normalmente utilizadas quando várias instruções de modificação precisam ser agrupadas em uma única unidade atômica. 
+
+As alterações no banco de dados são rastreadas usando logs de transações. Cada distribuição tem seu próprio log de transações. As gravações de log de transações são automáticas. Não é necessária nenhuma configuração. No entanto, apesar desse processo garantir a gravação, ele introduz uma sobrecarga no sistema. Você pode minimizar esse impacto ao escrever um código transacionalmente eficiente. De modo geral, um código transacionalmente eficiente se enquadra em duas categorias.
 
 * Use constructos de registro em log mínimos sempre que possível
 * Processar dados usando lotes com escopo para evitar transações de longa execução singulares
 * Adotar um padrão de alternância de partições para grandes modificações de uma determinada partição
 
 ## <a name="minimal-vs-full-logging"></a>Registro mínimo em log vs. registro total em log
+
 Ao contrário de operações totalmente registradas em log, que usam o log de transações para acompanhar cada linha alterada, as operações minimamente registradas em log controlam apenas as alocações de extensão e as alterações de metadados. Portanto, o registro em log mínimo envolve o registro em log apenas das informações necessárias para reverter a transação após uma falha ou para uma solicitação explícita (ROLLBACK TRAN). Como muito menos informações são rastreadas no log de transações, uma operação minimamente registrada em log tem um desempenho melhor do que uma operação totalmente registrada em log de tamanho similar. Além disso, como ocorrem menos gravações no log de transações, uma quantidade menor de dados de log será gerada e, portanto, é mais eficiente em relação à E/S.
 
 Os limites de segurança de transação só se aplicam às operações totalmente registradas em log.
@@ -41,6 +44,7 @@ Os limites de segurança de transação só se aplicam às operações totalment
 > 
 
 ## <a name="minimally-logged-operations"></a>Operações minimamente registradas em log
+
 As seguintes operações podem ser minimamente registradas em log:
 
 * CRIAR TABELA COMO SELEÇÃO[(CTAS)](sql-data-warehouse-develop-ctas.md)
@@ -78,14 +82,13 @@ CTAS e INSERT...SELECT são ambas operações de carregamento em massa. No entan
 Vale a pena observar que todas as gravações para atualizar índices secundários ou não clusterizados sempre serão operações com log completo.
 
 > [!IMPORTANT]
-> Um banco de dados SQL Analytics tem 60 distribuições. Portanto, supondo que todas as linhas são distribuídas uniformemente e em uma única partição, o seu lote deverá conter 6.144.000 linhas ou mais para ser minimamente registrado ao gravar em um Índice Columnstore Clusterizado. Se a tabela estiver particionada e as linhas que estiverem sendo inseridas se estenderem pelos limites de partição, você precisará de 6.144.000 linhas por limite de partição, considerando uma distribuição uniforme de dados. Cada partição em cada distribuição deve exceder independentemente o limite de 102.400 linhas para a inserção ser minimamente registrada em log para a distribuição.
-> 
+> Um banco de dados synapse SQL pool tem 60 distribuições. Portanto, supondo que todas as linhas são distribuídas uniformemente e em uma única partição, o seu lote deverá conter 6.144.000 linhas ou mais para ser minimamente registrado ao gravar em um Índice Columnstore Clusterizado. Se a tabela estiver particionada e as linhas que estiverem sendo inseridas se estenderem pelos limites de partição, você precisará de 6.144.000 linhas por limite de partição, considerando uma distribuição uniforme de dados. Cada partição em cada distribuição deve exceder independentemente o limite de 102.400 linhas para a inserção ser minimamente registrada em log para a distribuição.
 > 
 
 Carregar dados em uma tabela não vazia com um índice clusterizado pode, muitas vezes, conter uma combinação de linhas total e minimamente registradas em log. Um índice clusterizado é uma árvore balanceada (árvore b) das páginas. Se a página que estiver sendo gravada já contiver linhas de outra transação, então essas gravações serão totalmente registradas em log. No entanto, se a página estiver vazia, a gravação para essa página será minimamente registrada em log.
 
 ## <a name="optimizing-deletes"></a>Otimizando exclusões
-DELETE é uma operação totalmente registrada em log.  Se você precisar excluir uma grande quantidade de dados de uma tabela ou uma partição, geralmente fará mais sentido `SELECT` (selecionar) os dados que deseja manter, que podem ser executados como uma operação minimamente registrada em log.  Para selecionar os dados, crie uma nova tabela com [CTAS](sql-data-warehouse-develop-ctas.md).  Depois de criada, use [RENAME](/sql/t-sql/statements/rename-transact-sql) para alternar sua tabela antiga com a recentemente criada.
+DELETE é uma operação totalmente registrada em log.  Se você precisar excluir uma grande quantidade de dados de uma tabela ou uma partição, geralmente fará mais sentido `SELECT` (selecionar) os dados que deseja manter, que podem ser executados como uma operação minimamente registrada em log.  Para selecionar os dados, crie uma nova tabela com [CTAS](sql-data-warehouse-develop-ctas.md).  Depois de criada, use [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para alternar sua tabela antiga com a recentemente criada.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -116,7 +119,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Otimizando atualizações
-UPDATE é uma operação totalmente registrada em log.  Se você precisar atualizar um grande número de linhas em uma tabela ou em uma partição, no geral, poderá ser muito mais proveitoso usar uma operação minimamente registrada em log, tal como [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
+UPDATE é uma operação totalmente registrada em log.  Se você precisar atualizar um grande número de linhas em uma tabela ou em uma partição, no geral, poderá ser muito mais proveitoso usar uma operação minimamente registrada em log, tal como [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 No exemplo abaixo, uma atualização completa de tabela foi convertida em um CTAS para que o registro em log mínimo seja possível.
 
@@ -177,7 +180,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> A recriação de tabelas grandes pode beneficiar do uso de recursos de gerenciamento de carga de trabalho do SQL Analytics. Para obter mais informações, consulte [Classes de recurso para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).
+> A recriação de tabelas grandes pode beneficiar do uso de recursos de gerenciamento de carga de trabalho sinapse SQL. Para obter mais informações, consulte [Classes de recurso para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md).
 > 
 > 
 
@@ -405,7 +408,8 @@ END
 ```
 
 ## <a name="pause-and-scaling-guidance"></a>Diretrizes de pausa e dimensionamento
-O SQL Analytics permite [pausar, retomar e dimensionar](sql-data-warehouse-manage-compute-overview.md) seu pool SQL demanda. Quando você pausa ou dimensiona seu pool SQL, é importante entender que quaisquer transações a bordo são encerradas imediatamente; fazendo com que quaisquer transações abertas sejam revertidas. Se sua carga de trabalho tiver emitido uma modificação de dados de longa duração e incompleta antes de a operação de dimensionamento ou pausa, o trabalho precisará ser desfeito. Essa desfaçatez pode afetar o tempo necessário para pausar ou dimensionar seu pool SQL. 
+
+O Synapse SQL permite que você [faça uma pausa, retome e dimensione](sql-data-warehouse-manage-compute-overview.md) seu pool SQL sob demanda. Quando você pausa ou dimensiona seu pool SQL, é importante entender que quaisquer transações a bordo são encerradas imediatamente; fazendo com que quaisquer transações abertas sejam revertidas. Se sua carga de trabalho tiver emitido uma modificação de dados de longa duração e incompleta antes de a operação de dimensionamento ou pausa, o trabalho precisará ser desfeito. Essa desfaçatez pode afetar o tempo necessário para pausar ou dimensionar seu pool SQL. 
 
 > [!IMPORTANT]
 > As operações `UPDATE` e `DELETE` são totalmente registradas em log e, portanto, essas operações de desfazer/refazer podem demorar significativamente mais do que as operações equivalentes minimamente registradas em log. 
@@ -414,9 +418,10 @@ O SQL Analytics permite [pausar, retomar e dimensionar](sql-data-warehouse-manag
 
 O melhor cenário é permitir que as transações de modificação de dados de voo sejam concluídas antes de pausar ou dimensionar o pool De SQL. No entanto, esse cenário nem sempre pode ser prático. Para reduzir o risco de uma longa reversão, considere uma das seguintes opções:
 
-* Regenere operações de execução longa usando [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+* Regenere operações de execução longa usando [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * Interromper a operação em partes; operando em um subconjunto das linhas
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte [Transações no SQL Analytics](sql-data-warehouse-develop-transactions.md) para saber mais sobre níveis de isolamento e limites transacionais.  Para obter uma visão geral de outras práticas recomendadas, confira [Práticas recomendadas para o Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+
+Consulte [Transações no Synapse SQL](sql-data-warehouse-develop-transactions.md) para saber mais sobre níveis de isolamento e limites transacionais.  Para obter uma visão geral de outras práticas recomendadas, confira [Práticas recomendadas para o Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

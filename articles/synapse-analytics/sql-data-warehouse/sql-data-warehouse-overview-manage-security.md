@@ -1,7 +1,6 @@
 ---
 title: Proteja um banco de dados
-description: Dicas para garantir um banco de dados e desenvolver soluções no recurso sql pool do SQL Analytics.
-services: synapse-analytics
+description: Dicas para garantir um banco de dados e desenvolver soluções em um recurso de pool Synapse SQL.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -12,14 +11,15 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6ae9580803563971764eec4bd18fcc2430cee06d
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 46d32fdca615833bd602480ac182585da898ab98
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350198"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586435"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Proteja um banco de dados no Azure Synapse
+
 > [!div class="op_single_selector"]
 > * [Visão geral da segurança](sql-data-warehouse-overview-manage-security.md)
 > * [Autenticação](sql-data-warehouse-authentication.md)
@@ -28,9 +28,10 @@ ms.locfileid: "80350198"
 > 
 > 
 
-Este artigo irá levá-lo através do básico de garantir seu pool SQL dentro do SQL Analytics. Em particular, este artigo faz com que você comece com recursos para limitar o acesso, proteger dados e monitorar atividades em um banco de dados provisionado usando pool SQL.
+Este artigo irá levá-lo através do básico de garantir o seu pool Synapse SQL. Em particular, este artigo faz com que você comece com recursos para limitar o acesso, proteger dados e monitorar atividades em um banco de dados provisionado usando pool SQL.
 
 ## <a name="connection-security"></a>Segurança da conexão
+
 A Segurança da Conexão refere-se a como você restringe e protege as conexões com o banco de dados usando regras de firewall e criptografia de conexão.
 
 As regras de firewall são usadas tanto pelo servidor quanto pelo banco de dados para rejeitar tentativas de conexão de endereços IP que não tenham sido explicitamente listados na lista branca. Para permitir conexões do endereço IP público do seu aplicativo ou computador cliente, você deve primeiro criar uma regra de firewall no nível de servidor usando o portal do Azure, a API REST ou o PowerShell. 
@@ -42,11 +43,12 @@ O Azure Synapse Analytics usa regras de firewall IP em nível de servidor. Ele n
 As conexões ao seu pool SQL são criptografadas por padrão.  A modificação das configurações de conexão para desabilitar a criptografia é ignorada.
 
 ## <a name="authentication"></a>Autenticação
+
 A Autenticação refere-se a como você comprova sua identidade durante a conexão com o banco de dados. O pool SQL atualmente suporta autenticação do servidor SQL com um nome de usuário e senha, e com o Azure Active Directory. 
 
 Quando você criou o servidor lógico do banco de dados, especificou um logon de "administrador de servidor" com um nome de usuário e uma senha. Usando essas credenciais, é possível se autenticar em qualquer banco de dados nesse servidor como o proprietário do banco de dados, ou "dbo", por meio da Autenticação do SQL Server.
 
-No entanto, como uma melhor prática, os usuários de sua organização devem usar uma conta diferente para a autenticação. Dessa forma, você pode limitar as permissões concedidas ao aplicativo e reduzir os riscos de atividades mal-intencionadas, caso o código do aplicativo seja vulnerável a um ataque de injeção de SQL. 
+No entanto, como uma prática recomendada, os usuários da sua organização devem usar uma conta diferente para autenticar. Dessa forma, você pode limitar as permissões concedidas ao aplicativo e reduzir os riscos de atividades mal-intencionadas, caso o código do aplicativo seja vulnerável a um ataque de injeção de SQL. 
 
 Para criar um usuário Autenticado do SQL Server, conecte o banco de dados **mestre** no servidor com o logon de administrador do servidor e crie um novo logon do servidor.  É uma boa ideia também criar um usuário no banco de dados principal. A criação de um usuário mestre permite que um usuário faça logon usando ferramentas, como o SSMS, sem especificar um nome de banco de dados.  Ela também permite que o usuário utilize o pesquisador de objetos para exibir todos os bancos de dados em um SQL Server.
 

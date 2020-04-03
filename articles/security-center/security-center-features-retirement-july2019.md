@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 1f923db5c730f6dec15f4fc211ab7acbd009ac7f
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 4a760fe1e5df7cf614a68f8fa8a05926326d3edf
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521428"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583229"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Recursos do Centro de Aposentadoria de Segurança (julho de 2019)
 
@@ -97,7 +97,7 @@ Todos os recursos do painel **identidade & de acesso** no Log Analytics podem se
 
 ## <a name="security-events-map"></a>Mapa de eventos de segurança<a name="menu_securityeventsmap"></a>
 
-O Security Center fornece um [mapa de alertas de segurança](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) para ajudar a identificar ameaças à segurança. O botão **Ir para eventos de segurança** no mapa abre um painel que permite visualizar eventos de segurança brutos no espaço de trabalho selecionado.
+O Security Center fornece um mapa de alertas de segurança para ajudar a identificar ameaças à segurança. O botão **Ir para eventos de segurança** no mapa abre um painel que permite visualizar eventos de segurança brutos no espaço de trabalho selecionado.
 
 Removemos o botão **Ir para o mapa de eventos de segurança** e o painel de espaço de trabalho.
 
@@ -136,7 +136,7 @@ Para obter mais informações sobre a aposentadoria de alertas personalizados, c
 
 ## <a name="security-alerts-investigation"></a>Investigação de alertas de segurança<a name="menu_investigate"></a>
 
-[O recurso de investigação](https://docs.microsoft.com/azure/security-center/security-center-investigation) no Security Center ajuda você a triagem de um possível incidente de segurança. O recurso permite que você entenda o escopo de um incidente e rastreie sua causa raiz. Removemos esse recurso do Security Center porque ele foi substituído por uma experiência melhorada no [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
+O recurso de investigação no Security Center ajuda você a triagem de um possível incidente de segurança. O recurso permite que você entenda o escopo de um incidente e rastreie sua causa raiz. Removemos esse recurso do Security Center porque ele foi substituído por uma experiência melhorada no [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
 
 ![Incidente de segurança][14]
 

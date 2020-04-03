@@ -4,12 +4,12 @@ description: Aprenda a criar e gerenciar vários pools de nó para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 607419787bc0bab243d6cc2b8cbaa0ec22921e87
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 87f066ed17e5274439082956803d269bdd5853f5
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422323"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616508"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerenciar vários pools de nó para um cluster no Azure Kubernetes Service (AKS)
 
@@ -420,7 +420,7 @@ O Agendador Kubernetes pode usar taints e tolerations para restringir quais carg
 
 Para obter mais informações sobre como usar recursos programados do Kubernetes avançados, consulte [As melhores práticas para recursos avançados do agendador em AKS][taints-tolerations]
 
-Neste exemplo, aplique uma mancha ao nó baseado em GPU usando o comando --node-taints. Especifique o nome do nó baseado em `kubectl get nodes` GPU na saída do comando anterior. A mancha é aplicada como uma *chave:valor* e, em seguida, uma opção de agendamento. O exemplo a seguir usa o *sku=gpu* pair e define pods de outra forma tem a capacidade *NoSchedule:*
+Neste exemplo, aplique uma mancha ao nó baseado em GPU usando o comando --node-taints. Especifique o nome do nó baseado em `kubectl get nodes` GPU na saída do comando anterior. A mancha é aplicada como um par *de chaves=valor* e, em seguida, uma opção de agendamento. O exemplo a seguir usa o *sku=gpu* pair e define pods de outra forma tem a capacidade *NoSchedule:*
 
 ```console
 az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
@@ -480,7 +480,7 @@ Events:
   Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
 ```
 
-Somente os pods que têm essa mancha aplicada podem ser agendados em nós em *gpunodepool*. Qualquer outra cápsula seria agendada na piscina de nó *nodepool1.* Se você criar pools adicionais de nó, você pode usar manchas adicionais e tolerâncias para limitar quais pods podem ser agendados nesses recursos de nó.
+Somente os pods que têm essa tolerância aplicada podem ser agendados em nódulos em *gpunodepool*. Qualquer outra cápsula seria agendada na piscina de nó *nodepool1.* Se você criar pools adicionais de nó, você pode usar manchas adicionais e tolerâncias para limitar quais pods podem ser agendados nesses recursos de nó.
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Especifique uma mancha, rótulo ou tag para um pool de nó
 

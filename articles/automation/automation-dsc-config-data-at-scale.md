@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1a77a366ee8e06b2d8c47eb3b47eeaf9ae809598
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 644ea1c00af7e71ff56852298fff18e5293c137b
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76028295"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585568"
 ---
 # <a name="configuration-data-at-scale"></a>Dados de configuração em escala
 
@@ -45,7 +45,7 @@ Essas informações estão organizadas no formato de arquivo que você preferir 
 Em seguida, os cmdlets são fornecidos para gerar arquivos de dados de [configuração, consolidando as informações](https://github.com/gaelcolas/Datum#datum-tree) de cada arquivo em uma única exibição de uma função servidor ou servidor.
 
 Uma vez que os arquivos de dados tenham sido gerados, você pode usá-los com [scripts de configuração DSC](/powershell/scripting/dsc/configurations/write-compile-apply-configuration) para gerar arquivos MOF e [carregar os arquivos MOF para a Automação Do Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Em seguida, registre seus servidores [no local](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) ou [no Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) para puxar configurações.
+Em seguida, registre seus servidores [no local](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) ou [no Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) para puxar configurações.
 
 Para testar o Datum, visite a [Galeria PowerShell](https://www.powershellgallery.com/packages/datum/) e baixe a solução ou clique em "Project Site" para visualizar a [documentação](https://github.com/gaelcolas/Datum#2-getting-started--concepts).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 6edea1d0de53e2dc9f764de26209dc1f3110556e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf715d872fab421de30ebcb146a1981a7d008738
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75978610"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585981"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gerenciar dados de usuário na Central de Segurança do Azure
 Este artigo fornece informações sobre como é possível gerenciar dados de usuário na Central de Segurança do Azure. O gerenciamento de dados de usuário inclui a capacidade de acessar, excluir ou exportar dados.
@@ -98,6 +98,3 @@ Um usuário da Central de Segurança pode optar por excluir seus [dados de conta
 
 ## <a name="auditing-and-reporting"></a>Auditoria e relatórios
 Os registros de auditoria de contatos de segurança, atualizações de just-in-time e alertas são mantidos nos Registros de [Atividades do Azure](../azure-monitor/platform/platform-logs-overview.md).
-
-## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre o gerenciamento de dados de usuário, consulte [Gerenciar dados de usuário localizados em uma investigação da Central de Segurança do Azure](security-center-investigation-user-data.md).

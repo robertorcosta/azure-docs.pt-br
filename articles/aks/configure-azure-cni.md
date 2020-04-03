@@ -4,12 +4,12 @@ description: Saiba como configurar a rede (avançada) CNI do Azure no AKS (Servi
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 400d5a46ad62f8ac391c573eb64a7eb22dc4062c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f194cb97850fcb24e4789ac0ba39b6f03d99e6e
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80048001"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617394"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI do Azure no AKS (Serviço de Kubernetes do Azure)
 
@@ -27,6 +27,7 @@ Este artigo mostra como usar a rede *CNI do Azure* para criar e usar uma sub-red
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 * Em vez de um diretor de serviço, você pode usar a identidade gerenciada atribuída ao sistema para permissões. Para obter mais informações, consulte [Usar identidades gerenciadas](use-managed-identity.md).
+* A sub-rede atribuída ao pool de nó AKS não pode ser uma [sub-rede delegada](../virtual-network/subnet-delegation-overview.md).
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>Planejar o endereçamento IP para o cluster
 

@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 2df83e3b62994381895315b2ef100299e40b745e
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 9fa93af72c2869efd7b6d2f1e8b96b0e667f8b16
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366515"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607543"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão do Banco de Dados SQL
 
@@ -78,6 +78,7 @@ Os seguintes recursos estão habilitados no modelo de implantação de instânci
 
 |Problema  |Data descoberta  |Status  |Data resolvida  |
 |---------|---------|---------|---------|
+|[Permissões em grupo de recursos não aplicadas à Instância Gerenciada](#permissions-on-resource-group-not-applied-to-managed-instance)|Fev 2020|Tem solução de solução||
 |[Limitação do failover manual via portal para grupos de failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Tem solução de solução||
 |[As funções do Agente SQL precisam de permissões execute explícitas para logins não-sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dez 2019|Tem solução de solução||
 |[Os trabalhos do Agente SQL podem ser interrompidos pela reinicialização do processo do Agente](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dez 2019|Sem solução de solução|Mar 2020|
@@ -101,6 +102,12 @@ Os seguintes recursos estão habilitados no modelo de implantação de instânci
 |A restauração do banco de dados point-in-time do nível Business Critical para o nível De Propósito Geral não terá sucesso se o banco de dados de origem contiver objetos OLTP na memória.||Resolvido|outubro de 2019|
 |Recurso de correio de banco de dados com servidores de e-mail externos (não-Azure) usando conexão segura||Resolvido|outubro de 2019|
 |Bancos de dados contidos não suportados em instância gerenciada||Resolvido|Ago 2019|
+
+### <a name="permissions-on-resource-group-not-applied-to-managed-instance"></a>Permissões em grupo de recursos não aplicadas à instância gerenciada
+
+A função RBAC do contribuinte de instância gerenciada quando aplicada a um grupo de recursos (RG) não é aplicada à Instância Gerenciada e não tem efeito.
+
+**Solução de solução**: Configuração função contribuinte de instância gerenciada para usuários no nível de assinatura.
 
 ### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>Limitação do failover manual via portal para grupos de failover
 
@@ -221,7 +228,7 @@ Os registros de erro disponíveis na instância gerenciada não são persistidos
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>O escopo de transação em dois bancos de dados dentro da mesma instância não é suportado
 
-A `TransactionScope` classe em .NET não funciona se duas consultas forem enviadas para dois bancos de dados na mesma instância o mesmo escopo de transação:
+A `TransactionScope` classe em .NET não funciona se duas consultas forem enviadas para dois bancos de dados na mesma instância sob o mesmo escopo de transação:
 
 ```csharp
 using (var scope = new TransactionScope())

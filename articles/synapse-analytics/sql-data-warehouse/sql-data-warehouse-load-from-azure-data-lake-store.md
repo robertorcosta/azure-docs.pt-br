@@ -1,6 +1,6 @@
 ---
 title: Dados de carga tutorial do Azure Data Lake Storage
-description: Use tabelas externas do PolyBase para carregar dados do Azure Data Lake Storage para análise sql.
+description: Use tabelas externas do PolyBase para carregar dados do Azure Data Lake Storage para synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,15 @@ ms.date: 03/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: b9e28f41b251ea526044bf88dc3e79c0374fe369
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7d599ce121b4c53662b91e5aab94130b0f3f4458
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350359"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583929"
 ---
-# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Carregar dados do Azure Data Lake Storage para Análise sql
+# <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Carregar dados do Azure Data Lake Storage para Synapse SQL
+
 Este guia descreve como usar tabelas externas do PolyBase para carregar dados do Azure Data Lake Storage. Embora você possa executar consultas adhoc sobre dados armazenados no Data Lake Storage, recomendamos importar os dados para melhor desempenho. 
 
 > [!NOTE]  

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 03/26/2020
-ms.openlocfilehash: c8743385f8c3c801b2f06e4a30a8672d1d80acc4
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 18c926d16319eb8a8736a51d5f10e434b94d0ebe
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422526"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582492"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configuração da chave gerenciada pelo cliente do Azure Monitor 
 
@@ -50,11 +50,11 @@ Os dados ingeridos nos últimos 14 dias também são mantidos em hot-cache (apoi
 
 O Azure Monitor aproveita a identidade gerenciada atribuída ao sistema para conceder acesso ao seu Cofre de Chaves Do Azure.A identidade gerenciada atribuída ao sistema só pode ser associada a um único recurso do Azure. A identidade do azure Monitor data-store (cluster ADX) é suportada no nível de cluster e isso dita que o recurso CMK é fornecido em um cluster ADX dedicado. Para suportar o CMK em vários espaços de trabalho, um novo recurso Log Analytics *(Cluster)* funciona como uma conexão de identidade intermediária entre seu Key Vault e seus espaços de trabalho do Log Analytics. Esse conceito está em conformidade com a restrição de identidade atribuída ao Sistema e a identidade é mantida entre o cluster ADX e o recurso Log Analytics *Cluster,* enquanto os dados de todos os espaços de trabalho associados são protegidos com a chave Key Vault. O armazenamento em cluster ADX de\'base usa a identidade gerenciada associada ao recurso *Cluster* para autenticar e acessar seu Azure Key Vault via Azure Active Directory.
 
-![Visão geral do CMK](media/customer-managed-keys/cmk-overview.png)
-1.  Cofre de Chaves do Cliente.
-2.  Recurso log analytics *cluster* do cliente que gerencia a identidade com permissões para o Key Vault – A identidade é suportada no nível de armazenamento de dados (cluster ADX).
-3.  Cluster ADX dedicado ao AZure Monitor.
-4.  Os espaços de trabalho do cliente associados ao recurso *Cluster* para criptografia CMK.
+![Visão geral do CMK](media/customer-managed-keys/cmk-overview-8bit.png)
+1.    Cofre de Chaves do Cliente.
+2.    Recurso log analytics *cluster* do cliente que gerencia a identidade com permissões para o Key Vault – A identidade é suportada no nível de armazenamento de dados (cluster ADX).
+3.    Cluster ADX dedicado ao AZure Monitor.
+4.    Os espaços de trabalho do cliente associados ao recurso *Cluster* para criptografia CMK.
 
 ## <a name="encryption-keys-management"></a>Gerenciamento de chaves de criptografia
 
@@ -92,7 +92,7 @@ O procedimento não é suportado na UI atualmente e o processo de provisionament
 > [!IMPORTANT]
 > Qualquer solicitação de API deve incluir um token de autorização do Portador no cabeçalho de solicitação.
 
-Por exemplo: 
+Por exemplo:
 
 ```rst
 GET
@@ -210,7 +210,7 @@ Atualize seu Key Vault com uma nova política de acesso que concede permissões 
 - Permissões de chave: selecione as permissões 'Get', 'Wrap Key' e 'Desembrulhe a chave'.
 - Selecione principal: digite o valor principal-id que retornou na resposta na etapa anterior.
 
-![conceder permissões Key Vault](media/customer-managed-keys/grant-key-vault-permissions.png)
+![conceder permissões Key Vault](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
 A permissão *Obter* é necessária para verificar se o cofre de chaves está configurado como recuperável para proteger sua chave e o acesso aos dados do Monitor do Azure.
 
@@ -224,7 +224,7 @@ Para atualizar o recurso *Cluster* com os detalhes do *identificador Key* Vault 
 
 Atualize o recurso *Cluster* KeyVaultProperties com detalhes do identificador de chaves.
 
-**Atualização**
+**Atualizar**
 
 >[!Warning]
 > Você deve fornecer um corpo completo na atualização de recursos *do Cluster* que inclua *identidade,* *sku,* *KeyVaultProperties* e *localização.* A falta dos detalhes *do KeyVaultProperties* removerá o identificador de chave do recurso *Cluster* e causará [a revogação da chave](#cmk-kek-revocation).

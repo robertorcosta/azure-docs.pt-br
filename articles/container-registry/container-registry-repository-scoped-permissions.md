@@ -3,12 +3,12 @@ title: Permissões para repositórios no Registro de Contêineres do Azure
 description: Crie um token com permissões escopo para repositórios específicos em um registro para puxar ou empurrar imagens ou executar outras ações
 ms.topic: article
 ms.date: 02/13/2020
-ms.openlocfilehash: 7d390bf4d97561e374c70f184534ac4f98a40611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9004c45401833d3070266055dd7eb99a2bb43bde
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444260"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618837"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Crie um token com permissões com escopo de repositório
 
@@ -27,6 +27,7 @@ Os cenários para criar um token incluem:
 
 * Esse recurso só está disponível em um registro de contêiner **Premium.** Para obter informações sobre os níveis e limites do serviço de registro, consulte [As SKUs de registro de contêineres do Azure](container-registry-skus.md).
 * No momento, não é possível atribuir permissões com escopo de repositório a uma identidade do Azure Active Directory, como um principal de serviço ou uma identidade gerenciada.
+* Você não pode criar um mapa de escopo em um registro habilitado para [acesso de tração anônimo](container-registry-faq.md#how-do-i-enable-anonymous-pull-access).
 
 ## <a name="concepts"></a>Conceitos
 
@@ -330,7 +331,7 @@ Saída de exemplo:
 
 ### <a name="list-scope-maps"></a>Mapas de escopo de lista
 
-Use o comando [az acr scope-map list,][az-acr-scope-map-list] ou a tela **'Visualização'** de mapas de escopo (Preview) no portal, para listar todos os mapas de escopo configurados em um registro. Por exemplo: 
+Use o comando [az acr scope-map list,][az-acr-scope-map-list] ou a tela **'Visualização'** de mapas de escopo (Preview) no portal, para listar todos os mapas de escopo configurados em um registro. Por exemplo:
 
 ```azurecli
 az acr scope-map list \
@@ -350,14 +351,14 @@ MyScopeMap           UserDefined    2019-11-15T21:17:34Z  Sample scope map
 
 ### <a name="show-token-details"></a>Mostrar detalhes do token
 
-Para visualizar os detalhes de um token, como suas datas de validade de status e senha, execute o comando [az acr token show][az-acr-token-show] ou selecione o token na tela **Tokens (Preview)** no portal. Por exemplo: 
+Para visualizar os detalhes de um token, como suas datas de validade de status e senha, execute o comando [az acr token show][az-acr-token-show] ou selecione o token na tela **Tokens (Preview)** no portal. Por exemplo:
 
 ```azurecli
 az acr scope-map show \
   --name MyScopeMap --registry myregistry
 ```
 
-Use o comando [az acr token list][az-acr-token-list] ou a tela **Tokens (Preview)** no portal para listar todos os tokens configurados em um registro. Por exemplo: 
+Use o comando [az acr token list][az-acr-token-list] ou a tela **Tokens (Preview)** no portal para listar todos os tokens configurados em um registro. Por exemplo:
 
 ```azurecli
 az acr token list --registry myregistry --output table
@@ -379,7 +380,7 @@ Para usar o portal Azure para gerar uma senha de token, consulte os passos em [C
 
 ### <a name="update-token-with-new-scope-map"></a>Atualizar token com novo mapa de escopo
 
-Se você quiser atualizar um token com um mapa de escopo diferente, execute [a az acr token update][az-acr-token-update] e especifique o novo mapa de escopo. Por exemplo: 
+Se você quiser atualizar um token com um mapa de escopo diferente, execute [a az acr token update][az-acr-token-update] e especifique o novo mapa de escopo. Por exemplo:
 
 ```azurecli
 az acr token update --name MyToken --registry myregistry \

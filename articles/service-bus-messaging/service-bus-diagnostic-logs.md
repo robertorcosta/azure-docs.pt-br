@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: c8eba538a7015648611e6054ce85b381dcfc9105
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a80fb97810fee04a4eb50c43178c168e66f29173
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760991"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618723"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Habilite registros de diagnóstico saquepara ônibus de serviço
 
@@ -76,10 +76,10 @@ As seguintes operações de gerenciamento são capturadas em registros operacion
 
 | Escopo | Operação|
 |-------| -------- |
-| Namespace | <ul> <li> Criar um Namespace</li> <li> Atualizar namespace </li> <li> Excluir namespace </li>  </ul> | 
-| Fila | <ul> <li> Criar fila</li> <li> Atualizar fila</li> <li> Excluir fila </li> </ul> | 
-| Tópico | <ul> <li> Criar tópico </li> <li> Atualizar tópico </li> <li> Excluir tópico </li> </ul> |
-| Subscription | <ul> <li> Criar Assinatura </li> <li> Atualizar Assinatura </li> <li> Excluir Assinatura </li> </ul> |
+| Namespace | <ul> <li> Criar um Namespace</li> <li> Atualizar namespace </li> <li> Excluir namespace </li> <li> Atualizar namespace sharedAccess Policy </li> </ul> | 
+| Fila | <ul> <li> Criar fila</li> <li> Atualizar fila</li> <li> Excluir fila </li> <li> Fila de exclusão automática </li> </ul> | 
+| Tópico | <ul> <li> Criar tópico </li> <li> Atualizar tópico </li> <li> Excluir tópico </li> <li> Tópico de exclusão automática </li> </ul> |
+| Subscription | <ul> <li> Criar Assinatura </li> <li> Atualizar Assinatura </li> <li> Excluir Assinatura </li> <li> Assinatura de exclusão automática </li> </ul> |
 
 > [!NOTE]
 > Atualmente, as operações *read* não são rastreadas nos registros operacionais.
@@ -109,7 +109,7 @@ Os registros operacionais são desativados por padrão. Para habilitar registros
 
     ![O painel "Configurações de diagnóstico"](./media/service-bus-diagnostic-logs/image3.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 As novas configurações fazem efeito em cerca de 10 minutos. Os logs são exibidos no alvo de arquivamento configurado, no painel **logs diagnósticos.**
 

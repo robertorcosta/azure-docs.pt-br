@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 477bb5430214b497f90e3cb6d5df69f9fcf4035f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 65100e8584eba5c31edc2f9fd8c57ad8bd14c0d1
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546154"
+ms.locfileid: "80582534"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é o gerenciamento de direitos do Azure AD?
 
@@ -38,12 +38,12 @@ As organizações corporativas geralmente enfrentam desafios ao gerenciar o aces
 - Os usuários podem não saber que acesso devem ter, e mesmo que o façam, podem ter dificuldade em localizar os indivíduos certos para aprovar seu acesso
 - Uma vez que os usuários encontrem e recebam acesso a um recurso, eles podem manter o acesso por mais tempo do que o necessário para fins comerciais
 
-Esses problemas são agravados para usuários que precisam de acesso de outra organização, como usuários externos que são de organizações da cadeia de suprimentos ou outros parceiros de negócios. Por exemplo: 
+Esses problemas são agravados para usuários que precisam de acesso de outra organização, como usuários externos que são de organizações da cadeia de suprimentos ou outros parceiros de negócios. Por exemplo:
 
 - Ninguém pode não conhecer todos os indivíduos específicos nos diretórios de outra suiça para poder convidá-los
 - Mesmo que eles fossem capazes de convidar esses usuários, ninguém nessa organização pode se lembrar de gerenciar todo o acesso do usuário de forma consistente
 
-A gestão de direitos azure AD pode ajudar a enfrentar esses desafios.  Para saber mais sobre como os clientes têm usado o gerenciamento de direitos Azure AD, você pode ler o [estudo de caso avanade](https://aka.ms/AvanadeELMCase) e o [estudo de caso Centrica](https://aka.ms/CentricaELMCase).  Este vídeo fornece uma visão geral da gestão de direitos e seu valor:
+A gestão de direitos azure AD pode ajudar a enfrentar esses desafios.  Para saber mais sobre como os clientes têm usado o gerenciamento de direitos Azure AD, você pode ler o [estudo de caso avanade](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) e o [estudo de caso Centrica](https://customers.microsoft.com/story/757467-centrica-energy-azure).  Este vídeo fornece uma visão geral da gestão de direitos e seu valor:
 
 >[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
@@ -71,7 +71,7 @@ O gerenciamento de direitos introduz ao Azure AD o conceito de um pacote de *ace
 - Atribuição aos aplicativos corporativos do Azure AD, incluindo aplicativos SaaS e aplicativos personalizados que suportam a entrada e/ou provisionamento da federação/único
 - Adesão aos sites sharepoint online
 
-Você também pode controlar o acesso a outros recursos que dependem de grupos de segurança Azure AD ou Grupos office 365.  Por exemplo: 
+Você também pode controlar o acesso a outros recursos que dependem de grupos de segurança Azure AD ou Grupos office 365.  Por exemplo:
 
 - Você pode dar aos usuários licenças para o Microsoft Office 365 usando um grupo de segurança Azure AD em um pacote de acesso e configurando [licenciamento baseado em grupo](../users-groups-roles/licensing-groups-assign.md) para esse grupo
 - Você pode dar aos usuários acesso para gerenciar recursos do Azure usando um grupo de segurança Azure AD em um pacote de acesso e criando uma [atribuição de função Azure](../../role-based-access-control/role-assignments-portal.md) para esse grupo

@@ -186,7 +186,7 @@
         - name: Codificação
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
-        - name: Fluxo
+        - name: Streaming
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-streaming.md
     - name: Migração da v2 para a v3
@@ -401,7 +401,7 @@
           href: 'https://aka.ms/ams-v3-ruby-sdk'
     - name: Gerenciador dos Serviços de Mídia do Azure
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
-    - name: Cotas e limitações
+    - name: Cotas e limites
       href: limits-quotas-constraints.md
     - name: Nuvens e regiões do Azure
       href: azure-clouds-regions.md

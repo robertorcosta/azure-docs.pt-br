@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: d061a132699e733e78a7d717ee32222b158d73b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f265cdc955becd53ae7ba61ad827b2be69b92907
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927531"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618278"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Atividade Excluir no Azure Data Factory
 
 Você pode usar a Atividade de Exclusão na Fábrica de Dados do Azure para excluir arquivos ou pastas de lojas de armazenamento no local ou armazenamento em nuvem. Use essa atividade para limpar ou arquivar os arquivos quando eles não forem mais necessários.
 
 > [!WARNING]
-> Os arquivos ou pastas excluídos não podem ser restaurados. Tenha cuidado ao usar a atividade Excluir para excluir arquivos ou pastas.
+> Arquivos ou pastas excluídos não podem ser restaurados (a menos que o armazenamento tenha a exclusão suave ativada). Tenha cuidado ao usar a atividade Excluir para excluir arquivos ou pastas.
 
 ## <a name="best-practices"></a>Práticas recomendadas
 

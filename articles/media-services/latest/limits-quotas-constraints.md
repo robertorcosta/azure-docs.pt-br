@@ -1,6 +1,6 @@
 ---
-title: Cotas e limitações nos Serviços de Mídia do Azure
-description: Este tópico descreve cotas e limitações no Microsoft Azure Media Services.
+title: Cotas e limites nos Serviços de Mídia do Azure
+description: Este tópico descreve cotas e limites no Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: 6fb2f8f9172533a2c7f4aa03e99bd08e16a1f1dc
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 2d4f5f83335f6f115362bcf66cf69d7f9de7eaa5
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545920"
+ms.locfileid: "80582315"
 ---
 # <a name="azure-media-services-quotas-and-limits"></a>Cotas e limites do Azure Media Services
 
@@ -79,7 +79,7 @@ Qualquer registro de Trabalho em sua conta com mais de 90 dias será excluído a
 | Saídas ao vivo por evento ao vivo |3 <sup>(5)</sup> |
 | Duração máxima da saída ao vivo | 25 horas |
 
-<sup>4</sup> Para obter informações detalhadas sobre as limitações do Evento Ao Vivo, consulte [comparação e limitações dos tipos de evento ao vivo](live-event-types-comparison.md).
+<sup>4</sup> Para obter informações detalhadas sobre os limites do Evento [Ao Vivo,](live-event-types-comparison.md)consulte comparação e limites dos tipos de evento ao vivo .
 
 <sup>5</sup> Saídas ao vivo começam na criação e param quando excluídas.
 
@@ -87,7 +87,7 @@ Qualquer registro de Trabalho em sua conta com mais de 90 dias será excluído a
 
 | Recurso | Limite padrão | 
 | --- | --- | 
-| [Streaming Endpoints](streaming-endpoint-concept.md) (parado ou em execução) por conta do Media Services|2 (fixo)|
+| [Streaming Endpoints](streaming-endpoint-concept.md) (parado ou em execução) por conta do Media Services|2 |
 | [Filtros de Manifesto Dinâmico](filters-dynamic-manifest-overview.md)|100|
 | [Políticas de Streaming](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | [Localizadores de streaming exclusivos](streaming-locators-concept.md) associados a um ativo ao mesmo tempo | 100<sup>(7)</sup> (fixo) |

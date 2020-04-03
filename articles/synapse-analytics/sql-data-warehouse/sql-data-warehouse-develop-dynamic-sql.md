@@ -1,6 +1,6 @@
 ---
 title: Usando SQL dinâmico
-description: Dicas para usar SQL dinâmico no SQL Data Warehouse do Azure para desenvolvimento de soluções.
+description: Dicas para soluções de desenvolvimento usando SQL dinâmico no pool Synapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,19 +11,23 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a44bec72029a50c2ef348bcdda497803e35f586d
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 5a285c273a0bc590a9f5b4ade782f2195a361cd6
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350548"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619027"
 ---
-# <a name="dynamic-sql-in-sql-data-warehouse"></a>SQL dinâmico no SQL Data Warehouse
-Dicas para usar SQL dinâmico no SQL Data Warehouse do Azure para desenvolvimento de soluções.
+# <a name="dynamic-sql-in-synapse-sql-pool"></a>SQL dinâmico no pool Synapse SQL
+Incluem-se neste artigo dicas para soluções de desenvolvimento usando SQL dinâmico no pool SQL.
 
 ## <a name="dynamic-sql-example"></a>Exemplo SQL dinâmico
 
-Ao desenvolver o código do aplicativo para o SQL Data Warehouse, talvez seja preciso usar um sql dinâmico para ajudar a fornecer soluções flexíveis, genéricas e modulares. No momento, o SQL Data Warehouse não dá suporte a tipos de dados de blob. O não suporte a tipos de dados blob pode limitar o tamanho de suas cadeias de caracteres desde que os tipos de dados blobs incluam tipos varchar (máx) e nvarchar (máx). Se você usou estes tipos no código do seu aplicativo ao compilar cadeias de caracteres muito grandes, você precisará dividir o código em partes e usar a instrução EXEC em seu lugar.
+Ao desenvolver o código de aplicação para pool SQL, você pode precisar usar sql dinâmico para ajudar a fornecer soluções flexíveis, genéricas e modulares. O pool SQL não suporta tipos de dados blob no momento. 
+
+O não suporte a tipos de dados blob pode limitar o tamanho de suas cadeias de caracteres desde que os tipos de dados blobs incluam tipos varchar (máx) e nvarchar (máx). 
+
+Se você usou esses tipos em seu código de aplicativo para construir grandes strings, você precisa quebrar o código em pedaços e usar a declaração EXEC em vez disso.
 
 Um exemplo simples:
 
@@ -38,7 +42,7 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 Se a cadeia de caracteres for curta, você poderá usar [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql) normalmente.
 
 > [!NOTE]
-> Instruções executadas como SQL dinâmico ainda estarão sujeitas a todas as regras de validação de TSQL.
+> As declarações executadas como SQL dinâmico ainda estarão sujeitas a todas as regras de validação do T-SQL.
 > 
 > 
 

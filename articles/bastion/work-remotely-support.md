@@ -2,17 +2,17 @@
 title: 'Trabalhando remotamente usando Bastião: Azure Bastion'
 description: Esta página descreve como você pode aproveitar o Azure Bastion para permitir o funcionamento remoto devido à pandemia COVID-19.
 services: bastion
-author: cherylmc
+author: mialdrid
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mialdrid
-ms.openlocfilehash: c0bba2560cccc208e2384421218ecebdfef65236
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 182195190fed70b46185f98f595de6b6c32bbffe
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80333060"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619393"
 ---
 # <a name="working-remotely-using-azure-bastion"></a>Trabalhando remotamente usando o Azure Bastion
 

@@ -4,12 +4,12 @@ description: Saiba como instalar e configurar um controlador de entrada NGINX co
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 10422595b85c71020225df694778e6b8ae7e0185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e79bbe76a751097acd5c9d3c42dbd4020b6866b
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78191343"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617282"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Crie um controlador de entrada com um endereço IP público estático no AKS (Serviço de Kubernetes do Azure)
 
@@ -48,7 +48,12 @@ Em seguida, crie um endereço IP público com o método de alocação *estático
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 ```
 
-Agora, implemente o gráfico *nginx -gresso* com o Helm. Adicione o parâmetro `--set controller.service.loadBalancerIP` e especifique seu próprio endereço IP público criado na etapa anterior. Para redundância adicional, duas réplicas dos controladores de entrada NGINX são implementadas com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de entrada, verifique se há mais de um nó em seu cluster AKS.
+Agora, implemente o gráfico *nginx -gresso* com o Helm. Para redundância adicional, duas réplicas dos controladores de entrada NGINX são implementadas com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de entrada, verifique se há mais de um nó em seu cluster AKS.
+
+Você deve passar dois parâmetros adicionais para a versão do Helm para que o controlador de ingestão seja informado tanto do endereço IP estático do balanceador de carga a ser alocado no serviço de controlador de ingestão, quanto do rótulo de nome DNS que está sendo aplicado ao recurso público de endereço IP. Para que os certificados HTTPS funcionem corretamente, um rótulo de nome DNS é usado para configurar um FQDN para o endereço IP do controlador de ingestão.
+
+1. Adicione `--set controller.service.loadBalancerIP` o parâmetro. Especifique seu próprio endereço IP público que foi criado na etapa anterior.
+1. Adicione `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` o parâmetro. Especifique um rótulo de nome DNS a ser aplicado ao endereço IP público criado na etapa anterior.
 
 O controlador de entrada também precisa ser agendado em um nó do Linux. Os nós do Windows Server (atualmente em pré-visualização no AKS) não devem executar o controlador de ingestão. Um seletor de nó é especificado usando o parâmetro `--set nodeSelector` para instruir o agendador do Kubernetes a executar o controlador de entrada NGINX em um nó baseado em Linux.
 
@@ -57,6 +62,8 @@ O controlador de entrada também precisa ser agendado em um nó do Linux. Os nó
 
 > [!TIP]
 > Se você quiser habilitar a [preservação de IP da][client-source-ip] `--set controller.service.externalTrafficPolicy=Local` fonte do cliente para solicitações de contêineres em seu cluster, adicione ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho de solicitação em *X-Forwarded-For*. Ao usar um controlador de entrada com a preservação de IP da fonte do cliente ativada, a passagem do SSL não funcionará.
+
+Atualize o seguinte script com o **endereço IP** do seu controlador de ingress e um **nome exclusivo** que você gostaria de usar para o prefixo FQDN:
 
 ```console
 # Create a namespace for your ingress resources
@@ -69,6 +76,7 @@ helm install nginx-ingress stable/nginx-ingress \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="40.121.63.72"
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="demo-aks-ingress"
 ```
 
 Quando o serviço de balanceador de carga do Kubernetes é criado para o controlador de entrada NGINX, seu endereço IP estático é atribuído, conforme mostrado na seguinte saída de exemplo:
@@ -83,27 +91,14 @@ nginx-ingress-default-backend               ClusterIP      10.0.95.248   <none> 
 
 Nenhuma regra de ingresso foi criada ainda, portanto, a página 404 padrão do controlador de entrada NGINX será exibida se você navegar para o endereço IP público. As regras de ingresso são configuradas nas etapas a seguir.
 
-## <a name="configure-a-dns-name"></a>Configurar nome DNS
-
-Para que os certificados HTTPS funcione corretamente, configure um FQDN para o endereço IP do controlador de entrada. Atualize o script com o endereço IP do controlador de entrada e o nome que você pretender usar no FQDN.
+Você pode verificar se o rótulo de nome DNS foi aplicado consultando o FQDN no endereço IP público da seguinte forma:
 
 ```azurecli-interactive
 #!/bin/bash
-
-# Public IP address of your ingress controller
-IP="40.121.63.72"
-
-# Name to associate with public IP address
-DNSNAME="demo-aks-ingress"
-
-# Get the resource-id of the public ip
-PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
-
-# Update public ip address with DNS name
-az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
+az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query $("[?name=='myAKSPublicIP'].[dnsSettings.fqdn]") -o tsv
 ```
 
-O controlador de entrada agora está acessível por meio do FQDN.
+O controlador de ingress agora está acessível através do endereço IP ou do FQDN.
 
 ## <a name="install-cert-manager"></a>Instalar o cert-manager
 
@@ -307,7 +302,7 @@ Agora, adicione o caminho */hello-world-two* para o FQDN, como *https://demo-aks
 
 ![Exemplo de aplicativo dois](media/ingress/app-two.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este artigo usou o Helm para instalar os componentes de ingresso, os certificados e os aplicativos de exemplo. Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, você pode excluir todo o namespace da amostra ou os recursos individuais.
 

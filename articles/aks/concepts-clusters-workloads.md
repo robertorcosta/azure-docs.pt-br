@@ -4,12 +4,12 @@ description: Conheça os cluster básico e os componentes de carga de trabalho d
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 019c886aba1c8fe34211e73e4d960b14e79303b9
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259637"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617432"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos de Kubernetes para o serviço de Kubernetes do Azure (AKS)
 
@@ -65,9 +65,9 @@ Para executar seus aplicativos e serviços de suporte, é necessário um Kuberne
 
 ![Máquina virtual do Azure e recursos de suporte para um nó do Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
-O tamanho da VM do Azure para seus nós define quantas CPUs, quanto de memória e tamanho e tipo de armazenamento disponível (como SSD de alto desempenho ou HDD normal). Se você antecipar a necessidade de aplicativos que exijam grandes quantidades de CPU e memória ou armazenamento de alto desempenho, planeje o tamanho do nó de acordo. Você também pode aumentar o número de nós em seu cluster AKS para atender à demanda.
+O tamanho da VM do Azure para seus nós define quantas CPUs, quanto de memória e tamanho e tipo de armazenamento disponível (como SSD de alto desempenho ou HDD normal). Se você antecipar a necessidade de aplicativos que exijam grandes quantidades de CPU e memória ou armazenamento de alto desempenho, planeje o tamanho do nó de acordo. Você também pode dimensionar o número de nódulos no seu cluster AKS para atender à demanda.
 
-No AKS, a imagem VM para os nós em seu cluster é atualmente baseada no Ubuntu Linux ou Windows Server 2019. Quando você cria um cluster AKS ou aumenta o número de nós, a plataforma do Azure cria o número solicitado de VMs e as configura. Não há configuração manual para você executar. Os nós de agente são cobrados como máquinas virtuais padrão, de modo que quaisquer descontos que você tenha no tamanho da VM que você está usando (incluindo [reservas Azure)][reservation-discounts]são automaticamente aplicados.
+No AKS, a imagem VM para os nós em seu cluster é atualmente baseada no Ubuntu Linux ou Windows Server 2019. Quando você cria um cluster AKS ou dimensiona o número de nomes, a plataforma Azure cria o número solicitado de VMs e os configura. Não há configuração manual para você executar. Os nós de agente são cobrados como máquinas virtuais padrão, de modo que quaisquer descontos que você tenha no tamanho da VM que você está usando (incluindo [reservas Azure)][reservation-discounts]são automaticamente aplicados.
 
 Se você precisar usar um SO de host diferente, um runtime do contêiner ou incluir pacotes personalizados, poderá implantar seu próprio cluster do Kubernetes usando o [aks-engine][aks-engine]. O `aks-engine` upstream libera recursos e fornece opções de configuração antes que eles tenham suporte oficial nos clusters do AKS. Por exemplo, se você deseja usar um tempo de execução de contêiner diferente do Moby, você pode usar `aks-engine` para configurar e implantar um cluster Kubernetes que atenda às suas necessidades atuais.
 
@@ -96,7 +96,7 @@ Para manter o desempenho e a funcionalidade do nó, os recursos são reservados 
 
 1. O daemon kubelet está instalado em todos os nós de agentes Kubernetes para gerenciar a criação e o término do contêiner. Por padrão no AKS, este daemon tem a seguinte regra de despejo: *memory.available<750Mi*, o que significa que um nó deve sempre ter pelo menos 750 Mi alocados em todos os momentos.  Quando um host estiver abaixo desse limiar de memória disponível, o kubelet terminará um dos pods em execução para liberar a memória na máquina host e protegê-la. Esta é uma ação reativa uma vez que a memória disponível diminui além do limiar de 750Mi.
 
-2. O segundo valor é uma taxa progressiva de reservas de memória para o daemon kubelet funcionar corretamente (kube-reservado).
+2. O segundo valor é uma taxa regressiva de reservas de memória para que o daemon kubelet funcione corretamente (kube-reservado).
     - 25% dos primeiros 4 GB de memória
     - 20% dos próximos 4 GB de memória (até 8 GB)
     - 10% dos próximos 8 GB de memória (até 16 GB)

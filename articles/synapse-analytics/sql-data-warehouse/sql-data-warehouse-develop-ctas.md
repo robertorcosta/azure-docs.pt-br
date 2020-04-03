@@ -1,6 +1,6 @@
 ---
 title: CREATE TABLE AS SELECT (CTAS)
-description: Explicação e exemplos da declaração CREATE TABLE AS SELECT (CTAS) no SQL Analytics para o desenvolvimento de soluções.
+description: Explicação e exemplos da declaração CREATE TABLE AS SELECT (CTAS) no Synapse SQL para o desenvolvimento de soluções.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: bb9ff52bd7d2e4cfd1a1df4d780a4c369380284f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e5dc8835a6d5f235cf269edd4e9f069c904e1b7e
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350611"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582157"
 ---
-# <a name="create-table-as-select-ctas-in-sql-analytics"></a>CRIAR TABELA COMO SELECT (CTAS) no SQL Analytics
+# <a name="create-table-as-select-ctas"></a>CREATE TABLE AS SELECT (CTAS)
 
-Este artigo explica a declaração De CRIAÇÃO DA TABELA COMO SELECT (CTAS) T-SQL no SQL Analytics para o desenvolvimento de soluções. O artigo também fornece exemplos de códigos.
+Este artigo explica a declaração De CRIAÇÃO TABELA COMO SELECT (CTAS) T-SQL no Synapse SQL para o desenvolvimento de soluções. O artigo também fornece exemplos de códigos.
 
 ## <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
-A declaração [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAS) é um dos recursos T-SQL mais importantes disponíveis. CTAS é uma operação paralela que cria uma nova tabela com base na saída de uma declaração SELECT. CtAS é a maneira mais simples e rápida de criar e inserir dados em uma tabela com um único comando.
+A declaração [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (CTAS) é um dos recursos T-SQL mais importantes disponíveis. CTAS é uma operação paralela que cria uma nova tabela com base na saída de uma declaração SELECT. CtAS é a maneira mais simples e rápida de criar e inserir dados em uma tabela com um único comando.
 
 ## <a name="selectinto-vs-ctas"></a>Selecione... INTO vs. CTAS
 
-CTAS é uma versão mais personalizável do [SELECT... Em](/sql/t-sql/queries/select-into-clause-transact-sql) declaração.
+CTAS é uma versão mais personalizável do [SELECT... Em](/sql/t-sql/queries/select-into-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) declaração.
 
 O seguinte é um exemplo de um simples SELECT... Em:
 
@@ -123,7 +123,7 @@ DROP TABLE FactInternetSales_old;
 
 ## <a name="use-ctas-to-work-around-unsupported-features"></a>Use ctas para contornar recursos sem suporte
 
-Você também pode usar o CTAS para contornar uma série de recursos não suportados listados abaixo. Esse método pode muitas vezes ser útil, porque não só seu código será compatível, mas muitas vezes será executado mais rápido no SQL Analytics. Este desempenho é resultado de seu design totalmente paralelo. Os cenários incluem:
+Você também pode usar o CTAS para contornar uma série de recursos não suportados listados abaixo. Este método pode muitas vezes ser útil, porque não apenas o seu código será compatível, mas muitas vezes será executado mais rápido no Synapse SQL. Este desempenho é resultado de seu design totalmente paralelo. Os cenários incluem:
 
 * ANSI JOINS em instruções UPDATE
 * ANSI JOINs em instruções DELETE
@@ -174,7 +174,7 @@ ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
 AND    [acs].[CalendarYear]                = [fis].[CalendarYear];
 ```
 
-O SQL Analytics não suporta a `FROM` adesão `UPDATE` do ANSI à cláusula de uma declaração, portanto, você não pode usar o exemplo anterior sem modificá-lo.
+O Synapse SQL não suporta a `FROM` adesão `UPDATE` do ANSI à cláusula de uma declaração, portanto você não pode usar o exemplo anterior sem modificá-lo.
 
 Você pode usar uma combinação de um CTAS e uma junta implícita para substituir o exemplo anterior:
 
@@ -208,7 +208,7 @@ DROP TABLE CTAS_acs;
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>Substituição de junção ANSI para instruções delete
 
-Às vezes, a melhor abordagem para excluir dados `DELETE` é usar CTAS, especialmente para declarações que usam sintaxe de adesão ansi. Isso porque o SQL Analytics não suporta a `FROM` adesão do ANSI à cláusula de uma `DELETE` declaração. Em vez de excluir os dados, selecione os dados que deseja manter.
+Às vezes, a melhor abordagem para excluir dados `DELETE` é usar CTAS, especialmente para declarações que usam sintaxe de adesão ansi. Isso porque o Synapse SQL não suporta a `FROM` adesão da ANSI à cláusula de uma `DELETE` declaração. Em vez de excluir os dados, selecione os dados que deseja manter.
 
 A seguir, um exemplo `DELETE` de uma declaração convertida:
 
@@ -412,7 +412,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 Você pode ver que a consistência do tipo e a manutenção de propriedades de nulidade em um CTAS é uma prática recomendada de engenharia. Ele ajuda a manter a integridade em seus cálculos, e também garante que a comutação de partição seja possível.
 
-CTAS é uma das declarações mais importantes no SQL Analytics. Certifique-se compreendê-la totalmente. Consulte a documentação do [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
+CTAS é uma das declarações mais importantes no Synapse SQL. Certifique-se compreendê-la totalmente. Consulte a documentação do [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="next-steps"></a>Próximas etapas
 

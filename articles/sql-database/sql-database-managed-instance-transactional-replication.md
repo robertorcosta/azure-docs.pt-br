@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: 41dd336bdb74fbe745ab48ebd3c168af0492ae2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a048ddefbcd76193436da13cd3ba68b8b6ffb0a
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75691010"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607588"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicação transacional do SQL Server com bancos de dados individuais, em pool e de instâncias no Banco de Dados SQL do Azure
 
@@ -51,7 +51,7 @@ O **assinante** é uma instância ou um servidor que está recebendo as alteraç
 
 | Função | Bancos de dados individuais e em pool | Bancos de dados de instâncias |
 | :----| :------------- | :--------------- |
-| **Editor** | Não | Sim | 
+| **Publicador** | Não | Sim | 
 | **Distribuidor** | Não | Sim|
 | **Assinante de pull** | Não | Sim|
 | **Assinante push**| Sim | Sim|
@@ -67,10 +67,10 @@ Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relati
 | :----| :------------- | :--------------- |
 | [**Transacional Padrão**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (somente como assinante) | Sim | 
 | [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (somente como assinante) | Sim|
-| [**Mesclar a replicação**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
+| [**Replicação de mesclagem**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
 | [**Ponto a ponto**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
 | [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
-| [**Assinaturas atualizáveis**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
+| [**Assinaturas updatable**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
@@ -80,7 +80,7 @@ Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relati
   ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Matriz de suporte para bancos de dados de instâncias e sistemas on-premises
   A matriz de suporte à replicação, por exemplo, é a mesma do SQL Server no local. 
   
-| **Editor**   | **Distribuidor** | **Assinante** |
+| **Publicador**   | **Distribuidor** | **Subscriber** |
 | :------------   | :-------------- | :------------- |
 | SQL Server 2019 | SQL Server 2019 | SQL Server 2019 <br/> Microsoft SQL Server 2017 <br/> SQL Server 2016 <br/>  |
 | Microsoft SQL Server 2017 | SQL Server 2019 <br/>Microsoft SQL Server 2017 | SQL Server 2019 <br/> Microsoft SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
@@ -95,7 +95,7 @@ Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relati
 - A conectividade usa Autenticação SQL entre os participantes da replicação. 
 - Um compartilhamento da Conta de Armazenamento do Azure para o diretório de trabalho usado pela replicação. 
 - A porta 445 (saída tcp) precisa estar aberta nas regras de segurança da sub-rede de instância gerenciada para acessar o compartilhamento de arquivos do Azure. 
-- A porta 1433 (saída tcp) precisa ser aberta se o Editor/Distribuidor estiver em uma instância gerenciada e o assinante estiver no local.
+- A porta 1433 (saída tcp) precisa ser aberta se o Editor/Distribuidor estiver em uma instância gerenciada e o assinante não estiver. Você também pode precisar alterar a regra de segurança `allow_linkedserver_outbound` de saída do NSG de `internet`instância gerenciada para a tag serviço de **destino** da porta 1433 de `virtualnetwork` para . 
 - Todos os tipos de participantes de replicação (Publisher, Distributor, Pull Subscriber e Push Subscriber) podem ser colocados em instâncias gerenciadas, mas o editor e o distribuidor devem estar tanto na nuvem quanto no local.
 - Se o editor, o distribuidor e/ou o assinante existirem em diferentes redes virtuais, então o peering vpn deve ser estabelecido entre cada entidade, de tal forma que haja peering vpn entre o editor e o distribuidor, e/ou haja VPN olhando entre o distribuidor e o assinante. 
 
@@ -124,7 +124,7 @@ O publisher e o distribuidor são configurados dentro de uma única instância g
 
 ### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>Editor com distribuidor remoto em uma instância gerenciada
 
-Nesta configuração, uma instância gerenciada publica alterações no distribuidor colocadas em outra instância gerenciada que podem atender a muitas instâncias gerenciadas por origem e distribuir alterações em um ou muitos alvos em instância gerenciada, banco de dados único, banco de dados pooled ou Servidor SQL.
+Nesta configuração, uma instância gerenciada publica alterações no distribuidor colocadas em outra instância gerenciada que podem atender a muitas instâncias gerenciadas por fonte e distribuir alterações em um ou muitos alvos em instância gerenciada, banco de dados único, banco de dados pooled ou SQL Server.
 
 ![Instâncias separadas para publicador e distribuidor](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
@@ -190,13 +190,13 @@ Para obter mais informações sobre como configurar a replicação transacional,
 
 
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Consulte Também  
 
 - [Replicação com um MI e um grupo de failover](sql-database-managed-instance-transact-sql-information.md#replication)
 - [Replicação para um Banco de Dados SQL](replication-to-sql-database.md)
 - [Replicação para instância gerenciada](replication-with-sql-database-managed-instance.md)
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Tipos de Replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
+- [Criar uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
+- [Tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
 - [Monitorando (Replicação)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
 - [Inicializar uma assinatura](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  

@@ -1,6 +1,6 @@
 ---
 title: Limites de capacidade - Azure Synapse Analytics (anteriormente SQL DW)
-description: Valores máximos permitidos para vários componentes do SQL Analytics no Azure Synapse.
+description: Valores máximos permitidos para vários componentes do pool Synapse SQL no Azure Synapse.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: a0343dd55149fa3c2c17af1f246595a56e4c6ec2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: f35a5da15ca1a672046844282626a6cb7b8ecbdf
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350074"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583523"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Azure Synapse Analytics (anteriormente SQL DW) limites de capacidade
 
@@ -27,7 +27,7 @@ Valores máximos permitidos para vários componentes do Azure Sinapse.
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
 | [DWU (Unidades de Data Warehouse)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU para uma única unidade de pool SQL (data warehouse) | Gen1: DW6000<br></br>Gen2: DW30000c |
-| [DWU (Unidades de Data Warehouse)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU padrão por servidor |54.000<br></br>Por padrão, cada servidor SQL (por exemplo, myserver.database.windows.net) possui uma Cota DTU de 54.000, que permite até DW5000c. Essa cota é simplesmente um limite de segurança. Você pode aumentar sua cota [criando um bilhete de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e selecionando *Cota* como o tipo de solicitação.  Para calcular suas necessidades de DTU, multiplique o 7.5 pelo DWU total necessário, ou multiplique 9,5 pelo cDWU total necessário. Por exemplo: <br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW5000c x 9,5 = 47.500 DTUs.<br></br>Exiba seu consumo atual de DTU na opção SQL Server no portal. Os bancos de dados em pausa e que não estão em pausa contam como a cota de DTU. |
+| [DWU (Unidades de Data Warehouse)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU padrão por servidor |54.000<br></br>Por padrão, cada servidor SQL (por exemplo, myserver.database.windows.net) possui uma Cota DTU de 54.000, que permite até DW5000c. Essa cota é simplesmente um limite de segurança. Você pode aumentar sua cota [criando um bilhete de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e selecionando *Cota* como o tipo de solicitação.  Para calcular suas necessidades de DTU, multiplique o 7.5 pelo DWU total necessário, ou multiplique 9,5 pelo cDWU total necessário. Por exemplo:<br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW5000c x 9,5 = 47.500 DTUs.<br></br>Exiba seu consumo atual de DTU na opção SQL Server no portal. Os bancos de dados em pausa e que não estão em pausa contam como a cota de DTU. |
 | Conexão de banco de dados |Sessões abertas simultâneas máximas |1024<br/><br/>O número de sessões abertas simultâneas variará de acordo com o DWU selecionado. DWU600c e acima suportam um máximo de 1024 sessões abertas. DWU500c e abaixo, suporte um limite máximo de sessão aberta simultânea de 512. Observe que há limites no número de consultas que podem ser executadas simultaneamente. Quando o limite de simultaneidade for excedido, a solicitação irá para uma fila interna onde aguardará seu processamento. |
 | Conexão de banco de dados |Memória máxima para instruções preparadas |20 MB |
 | [Gerenciamento de carga de trabalho](resource-classes-for-workload-management.md) |Máximo de consultas simultâneas |128<br/><br/>  Um máximo de 128 consultas simultâneas serão executadas e as consultas restantes serão enfileiradas.<br/><br/>O número de consultas simultâneas pode diminuir quando os usuários são atribuídos a classes de recursos mais altas ou quando a configuração da [unidade de data warehouse](memory-concurrency-limits.md) é reduzida. Algumas consultas, como consultas DMV, sempre podem ser executadas e não afetam o limite de consultas simultâneas. Para obter mais detalhes sobre a execução de consultas simultâneas, consulte o artigo [Limites máximos de simultaneidade](memory-concurrency-limits.md). |
@@ -54,7 +54,7 @@ Valores máximos permitidos para vários componentes do Azure Sinapse.
 | Estatísticas |As colunas por objeto de estatísticas. |32 |
 | Estatísticas |As estatísticas criadas em colunas por tabela. |30,000 |
 | Procedimentos armazenados |Os níveis máximos de aninhamento. |8 |
-| Visualizar |Colunas por exibição |1.024 |
+| Exibir |Colunas por exibição |1.024 |
 ||||
 
 ## <a name="loads"></a>Cargas

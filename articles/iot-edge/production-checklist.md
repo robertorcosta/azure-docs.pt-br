@@ -4,16 +4,16 @@ description: Aprenda a levar sua solução Azure IoT Edge do desenvolvimento par
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/09/2019
+ms.date: 4/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5320c9d7f1ea5ae882c67ee631f5bbafbf97b039
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd24631f8e6b4f3f87438bf22654016dd7699950
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530862"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618296"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implantar sua solução IoT Edge em produção
 
@@ -134,11 +134,25 @@ Ao passar de cenários de teste para cenários de produção, lembre-se de remov
   * Gerenciar o acesso ao seu registro de contêiner
   * Use tags para gerenciar versões
 
-### <a name="manage-access-to-your-container-registry"></a>Gerenciar o acesso ao seu registro de contêiner
+### <a name="manage-access-to-your-container-registry-with-a-service-principal"></a>Gerencie o acesso ao seu registro de contêineres com um diretor de serviço
 
 Antes de implantar módulos nos dispositivos de produção do IoT Edge, assegure-se de controlar o acesso ao seu registro de contêiner para que pessoas de fora não possam acessar ou fazer alterações em suas imagens de contêiner. Use um registro de contêiner privado, não público, para gerenciar imagens de contêiner.
 
-Nos tutoriais e em outra documentação, instruímos você a usar as mesmas credenciais de registro de contêiner no dispositivo IoT Edge que você usa na sua máquina de desenvolvimento. Essas instruções destinam-se apenas a ajudá-lo a configurar ambientes de teste e desenvolvimento mais facilmente e não devem ser seguidas em um cenário de produção. O Registro de Contêiner do Azure [autenticação com entidades de serviço](../container-registry/container-registry-auth-service-principal.md) quando aplicativos ou serviços extraem imagens de contêiner de maneira automática ou não assistida, como fazem os dispositivos IoT Edge. Crie uma entidade de serviço com acesso somente leitura ao seu registro de contêiner e forneça esse nome de usuário e senha no manifesto de implantação.
+Nos tutoriais e em outra documentação, instruímos você a usar as mesmas credenciais de registro de contêiner no dispositivo IoT Edge que você usa na sua máquina de desenvolvimento. Essas instruções destinam-se apenas a ajudá-lo a configurar ambientes de teste e desenvolvimento mais facilmente e não devem ser seguidas em um cenário de produção. O Registro de Contêineres do Azure recomenda [autenticar com os diretores de serviço](../container-registry/container-registry-auth-service-principal.md) quando aplicativos ou serviços puxam imagens de contêineres de forma automatizada ou de outra forma sem vigilância (sem cabeça), como os dispositivos IoT Edge fazem.
+
+Para criar um diretor de serviço, execute os dois scripts conforme descrito em [criar um diretor de serviço](../container-registry/container-registry-auth-aci.md#create-a-service-principal). Esses scripts fazem as seguintes tarefas:
+
+* O primeiro script cria o diretor de serviço. Ele produz o ID principal do serviço e a senha principal do Serviço. Armazene esses valores com segurança em seus registros.
+
+* O segundo script cria atribuições de função para conceder ao diretor do serviço, que podem ser executados posteriormente, se necessário. Recomendamos a aplicação da função de `role` usuário **acrPull** para o parâmetro. Para obter uma lista de funções, consulte [funções e permissões do Registro de Contêineres do Azure](../container-registry/container-registry-roles.md)
+
+Para autenticar usando um diretor de serviço, forneça o ID principal do serviço e a senha que você obteve do primeiro script.
+
+* Para o nome de usuário ou ID do cliente, especifique o ID principal do serviço.
+
+* Para obter a senha ou o segredo do cliente, especifique a senha principal do serviço.
+
+Para um exemplo de lançamento de uma instância de contêiner com o Azure CLI, consulte [Authenticate usando o principal de serviço](../container-registry/container-registry-auth-aci.md#authenticate-using-the-service-principal).
 
 ### <a name="use-tags-to-manage-versions"></a>Use tags para gerenciar versões
 
@@ -233,7 +247,7 @@ O motor do recipiente deve ser reiniciado para que as alterações entrem em vig
 
 #### <a name="option-adjust-log-settings-for-each-container-module"></a>Opção: Ajustar as configurações de log para cada módulo de contêiner
 
-Você pode fazê-lo nas **opções** de criação de cada módulo. Por exemplo: 
+Você pode fazê-lo nas **opções** de criação de cada módulo. Por exemplo:
 
 ```yml
 "createOptions": {

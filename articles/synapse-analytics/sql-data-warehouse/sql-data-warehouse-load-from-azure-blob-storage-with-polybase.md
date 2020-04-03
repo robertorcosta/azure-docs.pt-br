@@ -1,6 +1,6 @@
 ---
-title: Carregar dados de varejo da Contoso para um data warehouse do SQL Analytics
-description: Use comandos PolyBase e T-SQL para carregar duas tabelas dos dados de varejo do Contoso no Azure SQL Analytics.
+title: Carregar dados de varejo contoso para um data warehouse Synapse SQL
+description: Use comandos PolyBase e T-SQL para carregar duas tabelas dos dados de varejo do Contoso no Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62105b783577d70ae975cf514304d2c564357641
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7460a59dd2a7a5906a483195929136391657fa50
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351476"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584001"
 ---
-# <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>Carregar dados de varejo da Contoso para um data warehouse do SQL Analytics
+# <a name="load-contoso-retail-data-to-a-synapse-sql-data-warehouse"></a>Carregar dados de varejo contoso para um data warehouse Synapse SQL
 
-Neste tutorial, você aprende a usar os comandos PolyBase e T-SQL para carregar duas tabelas dos dados de varejo da Contoso em um data warehouse SQL Analytics. 
+Neste tutorial, você aprende a usar os comandos PolyBase e T-SQL para carregar duas tabelas dos dados de varejo da Contoso em um data warehouse Synapse SqL.
 
 Neste tutorial, você irá:
 
@@ -30,11 +30,11 @@ Neste tutorial, você irá:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para executar este tutorial, você precisa de uma conta do Azure que já tenha um data warehouse SQL Analytics. Se você não tiver um data warehouse provisionado, consulte [Criar um data warehouse e definir a regra de firewall em nível de servidor](create-data-warehouse-portal.md).
+Para executar este tutorial, você precisa de uma conta do Azure que já tenha um data warehouse Synapse SqL. Se você não tiver um data warehouse provisionado, consulte [Criar um data warehouse e definir a regra de firewall em nível de servidor](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Configurar a fonte de dados
 
-O PolyBase usa objetos externos do T-SQL para definir o local e os atributos dos dados externos. As definições de objetos externos são armazenadas no seu data warehouse SQL Analytics. Os dados são armazenados externamente.
+O PolyBase usa objetos externos do T-SQL para definir o local e os atributos dos dados externos. As definições de objetos externos são armazenadas no seu data warehouse Synapse SQL. Os dados são armazenados externamente.
 
 ## <a name="create-a-credential"></a>Criar uma credencial
 
@@ -121,9 +121,9 @@ GO
 
 ## <a name="create-the-external-tables"></a>Criar as tabelas externas
 
-Execute o script a seguir para criar as tabelas externas DimProduct e FactOnlineSales. Tudo o que você está fazendo aqui é definir nomes de colunas e tipos de dados, e vinculá-los à localização e formato dos arquivos de armazenamento blob do Azure. A definição é armazenada no data warehouse sql analytics e os dados ainda estão no Azure Storage Blob.
+Execute o script a seguir para criar as tabelas externas DimProduct e FactOnlineSales. Tudo o que você está fazendo aqui é definir nomes de colunas e tipos de dados, e vinculá-los à localização e formato dos arquivos de armazenamento blob do Azure. A definição é armazenada no data warehouse e os dados ainda estão no Azure Storage Blob.
 
-O parâmetro **LOCATION** é a pasta a pasta raiz no Azure Storage Blob. Cada tabela é em uma pasta diferente.
+O parâmetro **LOCATION** é a pasta sob a pasta raiz no Azure Storage Blob. Cada tabela é em uma pasta diferente.
 
 ```sql
 --DimProduct
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Otimizar a compactação columnstore
 
-Por padrão, o data warehouse do SQL Analytics armazena a tabela como um índice de columnstore agrupado. Após a conclusão do carregamento, algumas das linhas de dados não podem ser compactadas no columnstore.  Há diferentes razões pelas quais isso pode acontecer. Para obter mais informações, confira [gerenciar índices columnstore](sql-data-warehouse-tables-index.md).
+Por padrão, o data warehouse Synapse SQL armazena a tabela como um índice de columnstore agrupado. Após a conclusão do carregamento, algumas das linhas de dados não podem ser compactadas no columnstore.  Há diferentes razões pelas quais isso pode acontecer. Para obter mais informações, confira [gerenciar índices columnstore](sql-data-warehouse-tables-index.md).
 
 Para otimizar o desempenho da consulta e a compactação columnstore após um carregamento, recrie a tabela para forçar o índice columnstore a compactar todas as linhas. 
 

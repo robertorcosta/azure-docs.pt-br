@@ -11,31 +11,32 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: b1b841c7532e975f9a1ad928ffd0559231207fb2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 47ee6f7627602732800949bcb9701045fcbff1a8
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350016"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583170"
 ---
-# <a name="troubleshooting-sql-analytics-in-azure-synapse"></a>Solução de problemas SQL Analytics no Azure Synapse
+# <a name="troubleshooting-synapse-sql-pool-in-azure-synapse-analytics"></a>Solução de problemas Synapse SQL pool em Azure Synapse Analytics
+
 Este artigo lista perguntas de solução de problemas comuns.
 
 ## <a name="connecting"></a>Connecting
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Falha de logon do usuário 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, erro: 18456) | Esse erro ocorre quando um usuário do AAD tenta se conectar no banco de dados mestre, mas não tem um usuário no mestre.  Para corrigir esse problema, especifique o pool SQL ao qual deseja se conectar na hora da conexão ou adicione o usuário ao banco de dados principal.  Consulte o artigo [visão geral da segurança](sql-data-warehouse-overview-manage-security.md) para obter mais detalhes. |
-| A entidade de segurança do servidor "MyUserName" não é capaz de acessar o banco de dados "mestre" no contexto de segurança atual. Não é possível abrir o banco de dados padrão do usuário. Falha no logon. Falha de logon do usuário 'MyUserName'. (Microsoft SQL Server, erro: 916) | Esse erro ocorre quando um usuário do AAD tenta se conectar no banco de dados mestre, mas não tem um usuário no mestre.  Para corrigir esse problema, especifique o pool SQL ao qual deseja se conectar na hora da conexão ou adicione o usuário ao banco de dados principal.  Consulte o artigo [visão geral da segurança](sql-data-warehouse-overview-manage-security.md) para obter mais detalhes. |
+| Falha de logon do usuário 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, erro: 18456) | Esse erro ocorre quando um usuário do Azure AD tenta se conectar ao banco de dados principal, mas não tem um usuário no master.  Para corrigir esse problema, especifique o pool SQL ao qual deseja se conectar na hora da conexão ou adicione o usuário ao banco de dados principal.  Consulte o artigo [visão geral da segurança](sql-data-warehouse-overview-manage-security.md) para obter mais detalhes. |
+| A entidade de segurança do servidor "MyUserName" não é capaz de acessar o banco de dados "mestre" no contexto de segurança atual. Não é possível abrir o banco de dados padrão do usuário. Falha no logon. Falha de logon do usuário 'MyUserName'. (Microsoft SQL Server, erro: 916) | Esse erro ocorre quando um usuário do Azure AD tenta se conectar ao banco de dados principal, mas não tem um usuário no master.  Para corrigir esse problema, especifique o pool SQL ao qual deseja se conectar na hora da conexão ou adicione o usuário ao banco de dados principal.  Consulte o artigo [visão geral da segurança](sql-data-warehouse-overview-manage-security.md) para obter mais detalhes. |
 | Erro CTAIP                                                  | Esse erro pode ocorrer quando um login foi criado no banco de dados mestre do servidor SQL, mas não no banco de dados SQL.  Se você encontrar esse erro, examine o artigo [Visão geral de segurança](sql-data-warehouse-overview-manage-security.md) .  Este artigo explica como criar um login e um usuário no master e, em seguida, como criar um usuário no banco de dados SQL. |
 | Bloqueado pelo firewall                                          | Os pools SQL são protegidos por firewalls para garantir que apenas endereços IP conhecidos tenham acesso a um banco de dados. Os firewalls são seguros por padrão, o que significa que você deve habilitar explicitamente um endereço IP ou um intervalo de endereços antes de se conectar.  Para configurar seu firewall para acesso, siga as etapas na seção [Configurar o acesso ao servidor de firewall para o IP do cliente](create-data-warehouse-portal.md) nas [Instruções de provisionamento](create-data-warehouse-portal.md). |
-| Não é possível conectar-se com a ferramenta ou driver                           | O SQL Analytics recomenda o uso de [SSMS,](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) [SSDT para Visual Studio](sql-data-warehouse-install-visual-studio.md)ou [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) para consultar seus dados. Para obter mais informações sobre drivers e conectar-se ao Azure Synapse, consulte [Drivers for Azure Synapse](sql-data-warehouse-connection-strings.md) e [Conecte-se aos artigos do Azure Synapse.](sql-data-warehouse-connect-overview.md) |
+| Não é possível conectar-se com a ferramenta ou driver                           | O pool Synapse SQL recomenda o uso de [SSMS,](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) [SSDT para Visual Studio](sql-data-warehouse-install-visual-studio.md)ou [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) para consultar seus dados. Para obter mais informações sobre drivers e conectar-se ao Azure Synapse, consulte [Drivers for Azure Synapse](sql-data-warehouse-connection-strings.md) e [Conecte-se aos artigos do Azure Synapse.](sql-data-warehouse-connect-overview.md) |
 
 ## <a name="tools"></a>Ferramentas
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| O Pesquisador de objetos do Visual Studio não tem usuários de AAD           | Esse é um problema conhecido.  Como alternativa, exiba os usuários em [sys.database_principals](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?view=sql-server-ver15).  Consulte [Autenticação no Azure Synapse](sql-data-warehouse-authentication.md) para saber mais sobre como usar o Azure Active Directory com o SQL Analytics. |
+| Visual Studio object explorer está faltando usuários azure AD           | Esse é um problema conhecido.  Como alternativa, exiba os usuários em [sys.database_principals](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?view=sql-server-ver15).  Consulte [Autenticação no Azure Synapse](sql-data-warehouse-authentication.md) para saber mais sobre como usar o Azure Active Directory com o pool Synapse SQL. |
 | O scriptamento manual, usando o assistente de script ou a conexão via SSMS é lento, não responde ou produz erros | Certifique-se de que os usuários foram criados no banco de dados mestre. Nas opções de scripting, certifique-se também de que a edição do mecanismo seja definida como "Microsoft Azure SQL Data Warehouse Edition" e o tipo de mecanismo é "Microsoft Azure SQL Database". |
-| Gerar falhas de script no SSMS                               | A geração de um script para SQL Analytics falha se a opção "Gerar script para objetos dependentes" for definida como "True". Como solução de solução, os usuários devem ir manualmente para **Ferramentas -> Opções ->SQL Server Object Explorer -> Gerar script para opções dependentes e definir como falso** |
+| Gerar falhas de script no SSMS                               | A geração de um script para pool SqL sinapse falha se a opção "Gerar script para objetos dependentes" estiver definida como "True". Como solução de solução, os usuários devem ir manualmente para **Ferramentas -> Opções ->SQL Server Object Explorer -> Gerar script para opções dependentes e definir como falso** |
 
 ## <a name="performance"></a>Desempenho
 | Problema                                                        | Resolução                                                   |
@@ -44,7 +45,7 @@ Este artigo lista perguntas de solução de problemas comuns.
 | Problemas espaciais tempDB | Monitore o uso do espaço [TempDB.](sql-data-warehouse-manage-monitor.md#monitor-tempdb)  As causas comuns para ficar sem espaço tempDB são:<br>- Não há recursos suficientes alocados na consulta fazendo com que os dados sejam derramados no TempDB.  Ver [gerenciamento de carga de trabalho](resource-classes-for-workload-management.md) <br>- As estatísticas estão faltando ou desatualizadas causando movimentação excessiva de dados.  Consulte [A tabela de estatísticas de manutenção](sql-data-warehouse-tables-statistics.md) para obter detalhes sobre como criar estatísticas<br>- O espaço tempDB é alocado por nível de serviço.  [Dimensionar seu pool SQL](sql-data-warehouse-manage-compute-overview.md#scaling-compute) para uma configuração DWU mais alta aloca mais espaço TempDB.|
 | Planos e consultas com um desempenho ruim normalmente são o resultado da falta de estatísticas | A causa mais comum do mau desempenho é a falta de estatísticas em tabelas.  Confira [Como manter estatísticas de tabela](sql-data-warehouse-tables-statistics.md) para obter detalhes sobre como criar estatísticas e por que elas são essenciais para o desempenho. |
 | Baixa simultaneidade/consultas em fila                             | É importante entender o [Gerenciamento de carga de trabalho](resource-classes-for-workload-management.md) para compreender como equilibrar a alocação de memória com simultaneidade. |
-| Como implementar as práticas recomendadas                              | O melhor lugar para começar a aprender maneiras de melhorar o desempenho da consulta é o artigo [de práticas recomendadas do SQL Analytics.](sql-data-warehouse-best-practices.md) |
+| Como implementar as práticas recomendadas                              | O melhor lugar para começar a aprender maneiras de melhorar o desempenho da consulta é o artigo de práticas recomendadas do [Pool Synapse SQL.](sql-data-warehouse-best-practices.md) |
 | Como melhorar o desempenho com o dimensionamento                      | Às vezes, a solução para melhorar o desempenho é simplesmente adicionar mais poder de computação às suas [consultas, dimensionando seu pool SQL](sql-data-warehouse-manage-compute-overview.md). |
 | Desempenho ruim da consulta como resultado da baixa qualidade do índice     | Às vezes, as consultas podem apresentar lentidão devido à [Baixa qualidade do índice columnstore](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality).  Consulte este artigo para saber mais e para saber como [Recriar índices a fim de melhorar a qualidade do segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality). |
 
@@ -70,7 +71,7 @@ Este artigo lista perguntas de solução de problemas comuns.
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais ajuda na busca de soluções para o problema, a seguir são apresentados alguns outros recursos que você pode experimentar.
 
-* [Blogues](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
+* [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 * [Solicitações de recursos](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 * [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 * [Criar um tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md)

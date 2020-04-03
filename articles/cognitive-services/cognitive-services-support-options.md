@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 692f70e4666416f34a6e3f32fd5804d4aeb63a5b
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: d7ce77404359b32effcc7a5da3f9429e9fdf7005
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477836"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618572"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Opções de suporte e feedback dos Serviços Cognitivos do Azure
 
-Você está apenas começando a explorar a funcionalidade dos Serviços Cognitivos Do Azure? Talvez você esteja implementando um novo recurso em sua aplicação. Ou depois de usar o serviço, você tem sugestões de como melhorá-lo? Aqui estão opções para onde você pode obter suporte, manter-se atualizado e dar feedback para serviços cognitivos.
+Você está apenas começando a explorar a funcionalidade dos Serviços Cognitivos Do Azure? Talvez você esteja implementando um novo recurso em sua aplicação. Ou depois de usar o serviço, você tem sugestões de como melhorá-lo? Aqui estão opções para onde você pode obter suporte, manter-se atualizado, dar feedback e relatar bugs para serviços cognitivos.
 
 ## <a name="get-support"></a>Obtenha suporte
 
@@ -83,7 +83,7 @@ As notas de lançamento dos Serviços Cognitivos são atualizadas à medida que 
 
  - [Custom Vision](custom-vision-service/release-notes.md)
  - [Face](face/releasenotes.md)
- - [Reconhecimento Vocal (LUIS)](luis/whats-new.md)
+ - [Reconhecimento Vocal (LUIS)](LUIS/whats-new.md)
  - [Serviços de Fala](speech-service/releasenotes.md)
  - [Serviços de Fala SDK](speech-service/devices-sdk-release-notes.md)
  - [Análise de texto](text-analytics/whats-new.md)

@@ -1,6 +1,6 @@
 ---
 title: Exibições do sistema
-description: Links para a documentação para visualizações do sistema suportadas no SQL Analytics.
+description: Links para a documentação para visualizações do sistema suportadas no pool Synapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,17 +11,18 @@ ms.date: 01/06/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b3089cfbd0abb4bafe160b07fd75df877d61741b
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 1cc6627599a533238aae742b0358c13e1a7eab8a
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350262"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586351"
 ---
-# <a name="system-views-supported-in-sql-analytics"></a>Visualizações do sistema suportadas no SQL Analytics
-Links para a documentação de declarações T-SQL suportadas no SQL Analytics.
+# <a name="system-views-supported-in-synapse-sql-pool"></a>Visualizações do sistema suportadas no pool Synapse SQL
 
-## <a name="sql-analytics-catalog-views"></a>Visualizações do catálogo do SQL Analytics
+Links para a documentação de declarações T-SQL suportadas no pool Synapse SQL.
+
+## <a name="synapse-sql-pool-catalog-views"></a>Visualizações do catálogo do pool SQL synapse
 * [sys.pdw_column_distribution_properties](https://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_distributions](https://msdn.microsoft.com/library/mt203892.aspx)
 * [sys.pdw_index_mappings](https://msdn.microsoft.com/library/mt203912.aspx)
@@ -45,6 +46,7 @@ Links para a documentação de declarações T-SQL suportadas no SQL Analytics.
 * [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql)
 
 ## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>Exibições de gerenciamento dinâmico (DMVs) do SQL Data Warehouse
+
 * [sys.dm_pdw_dms_cores](https://msdn.microsoft.com/library/mt203911.aspx)
 * [sys.dm_pdw_dms_external_work](https://msdn.microsoft.com/library/mt204024.aspx)
 * [sys.dm_pdw_dms_workers](https://msdn.microsoft.com/library/mt203878.aspx)
@@ -65,14 +67,16 @@ Links para a documentação de declarações T-SQL suportadas no SQL Analytics.
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 * [sys.dm_workload_management_workload_groups_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql) (Pré-visualização)
 
-## <a name="sql-server-dmvs-applicable-to-sql-analytics"></a>DMVs do Servidor SQL aplicáveis ao SQL Analytics
-Os Seguintes DMVs são aplicáveis ao SQL Analytics, mas devem ser executados conectando-se ao banco de dados **mestre.**
+## <a name="sql-server-dmvs-applicable-to-synapse-sql-pool"></a>DMVs do servidor SQL aplicáveis ao pool Synapse SQL
+
+Os DMVs a seguir são aplicáveis ao pool Synapse SQL, mas devem ser executados conectando-se ao banco de dados **mestre.**
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
 * [sys.fn_helpcollations()](https://msdn.microsoft.com/library/ms187963.aspx)
 
 ## <a name="sql-server-catalog-views"></a>Exibições de catálogo do SQL Server
+
 * [sys.all_columns](https://msdn.microsoft.com/library/ms177522.aspx)
 * [sys.all_objects](https://msdn.microsoft.com/library/ms178618.aspx)
 * [sys.all_parameters](https://msdn.microsoft.com/library/ms190340.aspx)
@@ -145,17 +149,18 @@ Os Seguintes DMVs são aplicáveis ao SQL Analytics, mas devem ser executados co
 * [sys.types](https://msdn.microsoft.com/library/ms188021.aspx)
 * [sys.views](https://msdn.microsoft.com/library/ms190334.aspx)
 
-## <a name="sql-server-dmvs-available-in-sql-analytics"></a>DMVs do SQL Server disponíveis no SQL Analytics
-O SQL Analytics expõe muitas das visualizações dinâmicas de gerenciamento do SQL Server (DMVs). Essas visualizações, quando consultadas no SQL Analytics, estão relatando o estado dos bancos de dados SQL em execução nas distribuições.
+## <a name="sql-server-dmvs-available-in-synapse-sql-pool"></a>DMVs do Servidor SQL disponíveis no pool Synapse SQL
 
-O SQL Analytics e o PDW (Parallel Data Warehouse) usam as mesmas visualizações do sistema. Cada DMV tem uma coluna chamada pdw_node_id, que é o identificador do nó de Computação. 
+O pool Synapse SQL expõe muitas das visualizações dinâmicas de gerenciamento do SQL Server (DMVs). Essas visualizações, quando consultadas no pool Synapse SQL, estão relatando o estado dos Bancos de Dados SQL em execução nas distribuições.
+
+O pool Synapse SQL e o PDW (Parallel Data Warehouse) usam as mesmas visualizações do sistema. Cada DMV tem uma coluna chamada pdw_node_id, que é o identificador do nó de Computação. 
 
 > [!NOTE]
 > Para usar essas exibições, insira 'pdw_nodes_' no nome, conforme mostrado na tabela a seguir:
 > 
 > 
 
-| Nome do Detran no SQL Analytics | Artigo sobre o SQL Server Transact-SQL|
+| Nome do Detran no pool Synapse SQL | Artigo sobre o SQL Server Transact-SQL|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
@@ -217,8 +222,9 @@ O SQL Analytics e o PDW (Parallel Data Warehouse) usam as mesmas visualizações
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](https://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](https://msdn.microsoft.com/library/ms188778.aspx) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-sql-analytics"></a>DMVs PolyBase do SQL Server 2016 disponíveis no SQL Analytics
-Os Seguintes DMVs são aplicáveis ao SQL Analytics, mas devem ser executados conectando-se ao banco de dados **mestre.**
+## <a name="sql-server-2016-polybase-dmvs-available-in-synapse-sql-pool"></a>DMVs SQL Server 2016 PolyBase disponíveis no pool Synapse SQL
+
+Os DMVs a seguir são aplicáveis ao pool Synapse SQL, mas devem ser executados conectando-se ao banco de dados **mestre.**
 
 * [sys.dm_exec_compute_node_errors](https://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](https://msdn.microsoft.com/library/mt146382.aspx)
@@ -232,6 +238,7 @@ Os Seguintes DMVs são aplicáveis ao SQL Analytics, mas devem ser executados co
 * [sys.dm_exec_external_work](https://msdn.microsoft.com/library/mt146375.aspx)
 
 ## <a name="sql-server-information_schema-views"></a>Exibições INFORMATION_SCHEMA do SQL Server
+
 * [Check_constraints](https://msdn.microsoft.com/library/ms189772.aspx)
 * [Colunas](https://msdn.microsoft.com/library/ms188348.aspx)
 * [PARÂMETROS](https://msdn.microsoft.com/library/ms173796.aspx)
@@ -243,4 +250,5 @@ Os Seguintes DMVs são aplicáveis ao SQL Analytics, mas devem ser executados co
 * [Modos de exibição](https://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações de referência, consulte [as instruções T-SQL no SQL Analytics](sql-data-warehouse-reference-tsql-statements.md)e [elementos de linguagem T-SQL no SQL Analytics](sql-data-warehouse-reference-tsql-language-elements.md).
+
+Para obter mais informações de referência, consulte [as instruções T-SQL no pool Synapse SQL](sql-data-warehouse-reference-tsql-statements.md)e [elementos de linguagem T-SQL no pool Synapse SQL](sql-data-warehouse-reference-tsql-language-elements.md).

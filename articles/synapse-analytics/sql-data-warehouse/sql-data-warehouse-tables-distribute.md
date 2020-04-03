@@ -1,6 +1,6 @@
 ---
 title: Orientação de design de tabelas distribuídas
-description: Recomendações para projetar tabelas distribuídas por hash e round-robin no SQL Analytics.
+description: Recomendações para projetar tabelas distribuídas por hash e round-robin no pool Synapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,19 +11,21 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 35106e73a3a4a143bf22c72c4fe8ac6798ac5219
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8a93f3ada8e56853b78321bdc7d99a667cee6158
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351329"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583513"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-sql-analytics"></a>Orientação para projetar tabelas distribuídas no SQL Analytics
-Recomendações para projetar tabelas distribuídas por hash e round-robin no SQL Analytics.
+# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Orientação para projetar tabelas distribuídas no pool Synapse SQL
 
-Este artigo assume que você está familiarizado com os conceitos de distribuição de dados e movimentação de dados no SQL Analytics.Para obter mais informações, consulte [a arquitetura SQL Analytics massivamente paralela de processamento (MPP).](massively-parallel-processing-mpp-architecture.md) 
+Recomendações para projetar tabelas distribuídas por hash e round-robin em pools Synapse SQL.
+
+Este artigo pressupõe que você esteja familiarizado com os conceitos de distribuição de dados e movimentação de dados no pool Synapse SQL.Para obter mais informações, consulte [a arquitetura Azure Synapse Analytics massivamente paralela (MPP).](massively-parallel-processing-mpp-architecture.md) 
 
 ## <a name="what-is-a-distributed-table"></a>O que é uma tabela distribuída?
+
 Uma tabela distribuída é exibida como uma única tabela, mas as linhas são armazenadas em 60 distribuições. As linhas são distribuídas com um algoritmo round-robin ou hash.  
 
 **Tabelas distribuídas por hash** melhoram o desempenho de consulta em grandes tabelas de fatos e são o foco deste artigo. **Tabelas de round-robin** são úteis para melhorar a velocidade do carregamento. Essas opções de design têm um impacto significativo em melhorar o desempenho de carregamento e consulta.
@@ -34,15 +36,16 @@ Como parte do design de tabela, compreenda seus dados o tanto quanto possível e
 
 - Qual é o tamanho da tabela?   
 - Com que frequência a tabela é atualizada?   
-- Tenho tabelas de fatos e dimensões em um banco de dados do SQL Analytics?   
+- Tenho tabelas de fato e dimensão em uma piscina Synapse SQL?   
 
 
 ### <a name="hash-distributed"></a>Tabelas distribuídas por hash
+
 Uma tabela distribuída por hash distribui linhas da tabela em todos os nós de computação usando uma função de hash determinística para atribuir cada linha a uma [distribuição](massively-parallel-processing-mpp-architecture.md#distributions). 
 
 ![Tabela distribuída](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabela distribuída")  
 
-Como valores idênticos sempre têm a mesma distribuição, o SQL Analytics tem conhecimento interno dos locais da linha. O SQL Analytics usa esse conhecimento para minimizar a movimentação de dados durante as consultas, o que melhora o desempenho da consulta. 
+Como valores idênticos sempre hash para a mesma distribuição, o data warehouse tem conhecimento interno dos locais de linha. No pool Synapse SQL, esse conhecimento é usado para minimizar a movimentação de dados durante consultas, o que melhora o desempenho da consulta. 
 
 Tabelas distribuídas por hash funcionam bem para grandes tabelas de fatos em um esquema em estrela. Podem ter um grande número de linhas e ainda obter um alto desempenho. É claro, há algumas considerações de design que ajudam você a obter o desempenho que o sistema distribuído foi desenvolvido para fornecer. Escolher uma boa coluna de distribuição é uma consideração que é descrita neste artigo. 
 
@@ -52,6 +55,7 @@ Considere o uso de uma tabela distribuída por hash quando:
 - A tabela tiver operações frequentes de inserção, atualização e exclusão. 
 
 ### <a name="round-robin-distributed"></a>Distribuição round robin
+
 Uma tabela round robin distribui linhas de tabela uniformemente em todas as distribuições. A atribuição de linhas para distribuições é aleatória. Ao contrário das tabelas distribuídas por hash, não há garantia de que as linhas com valores iguais sejam atribuídas à mesma distribuição. 
 
 Como resultado, o sistema às vezes precisa chamar uma operação de movimentação de dados para organizar melhor seus dados antes de poder resolver uma consulta.  Essa etapa extra pode causar lentidão em suas consultas. Por exemplo, adicionar uma tabela de round-robin geralmente requer embaralhar linhas, que é uma queda no desempenho.
@@ -65,7 +69,7 @@ Considere usar a distribuição round robin para a sua tabela nos seguintes cen�
 - Se a junção for menos significativa do que outras junções na consulta
 - Quando a tabela é uma tabela temporária de preparo
 
-O tutorial [Load New York taxicab data](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) dá um exemplo de carregamento de dados em uma mesa de preparação de round-robin no SQL Analytics.
+O tutorial [Load New York taxicab data](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) dá um exemplo de carregamento de dados em uma mesa de encenação de round-robin.
 
 
 ## <a name="choosing-a-distribution-column"></a>Escolher uma coluna de distribuição
@@ -109,7 +113,7 @@ Para equilibrar o processamento paralelo, selecione uma coluna de distribuição
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Escolha uma coluna de distribuição que minimiza a movimentação de dados
 
-Para obter a consulta correta os resultados de consultas podem mover dados de um nó de computação para outro. Movimentação de dados geralmente acontece quando as consultas em tabelas distribuídas contêm junções e agregações. Escolher uma coluna de distribuição que ajude a minimizar a movimentação de dados é uma das estratégias mais importantes para otimizar o desempenho do seu banco de dados SQL Analytics.
+Para obter a consulta correta os resultados de consultas podem mover dados de um nó de computação para outro. Movimentação de dados geralmente acontece quando as consultas em tabelas distribuídas contêm junções e agregações. Escolher uma coluna de distribuição que ajude a minimizar a movimentação de dados é uma das estratégias mais importantes para otimizar o desempenho do seu pool Synapse SQL.
 
 Para minimizar a movimentação de dados selecione a coluna de distribuição que:
 
@@ -217,7 +221,7 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Para criar uma tabela replicada, use uma dessas instruções:
 
-- [TABELA DE CRIAÇÃO (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CRIAR TABELA COMO SELECT (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CRIAR TABELA (Pool Synapse SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CRIAR TABELA COMO SELECT (pool Synapse SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 

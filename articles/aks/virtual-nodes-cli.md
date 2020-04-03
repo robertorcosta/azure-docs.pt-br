@@ -4,12 +4,12 @@ description: Saiba como usar a CLI do Azure para criar um cluster do AKS (Servi�
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 31e8b5aceb356ca1415419650a9df3070462bde0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05e32b6b0017e945044bc7593d4d6dbc543a5b64
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475520"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616473"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Criar e configurar um cluster do AKS (Serviços de Kubernetes do Azure) para usar os nós virtuais com a CLI do Azure
 
@@ -19,7 +19,7 @@ Este artigo mostra como criar e configurar os recursos de rede virtual e o clust
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nós virtuais permitem a comunicação de rede entre pods executados em ACI e o cluster do AKS. Para fornecer essa comunicação, uma sub-rede de rede virtual é criada e permissões delegadas são atribuídas. Nós virtuais só funcionam com clusters do AKS criados usando rede *avançada*. Por padrão, os clusters do AKS são criados com rede *básica*. Este artigo mostra como criar uma rede virtual e sub-redes para então implantar um cluster do AKS que usa rede avançada.
+Os nós virtuais permitem a comunicação de rede entre pods executados no AZURE Container Instances (ACI) e no cluster AKS. Para fornecer essa comunicação, uma sub-rede de rede virtual é criada e permissões delegadas são atribuídas. Nós virtuais só funcionam com clusters do AKS criados usando rede *avançada*. Por padrão, os clusters do AKS são criados com rede *básica*. Este artigo mostra como criar uma rede virtual e sub-redes para então implantar um cluster do AKS que usa rede avançada.
 
 Se você não tiver usado anteriormente ACI, registre o provedor de serviço com sua assinatura. Você pode verificar o status do registro de provedor ACI usando o comando [lista de provedor az][az-provider-list], conforme mostrado no exemplo a seguir:
 
@@ -30,9 +30,9 @@ az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" 
 O provedor *Microsoft.ContainerInstance* deve relatar como *registrado*, conforme mostrado na saída de exemplo a seguir:
 
 ```output
-Namespace                    RegistrationState
----------------------------  -------------------
-Microsoft.ContainerInstance  Registered
+Namespace                    RegistrationState    RegistrationPolicy
+---------------------------  -------------------  --------------------
+Microsoft.ContainerInstance  Registered           RegistrationRequired
 ```
 
 Se o provedor é exibido como *NotRegistered*, registre o provedor usando o [registro de provedor az][az-provider-register] conforme mostrado no exemplo a seguir:
@@ -155,7 +155,7 @@ Implante um cluster do AKS dentro da sub-rede do AKS criada na etapa anterior. O
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Use o comando [az aks create][az-aks-create] para criar um cluster do AKS. O exemplo a seguir cria um cluster chamado *myAKSCluster* com um nó. Substitua `<subnetId>` pela ID obtida na etapa anterior e, em seguida, `<appId>` e `<password>` pelo 
+Use o comando [az aks create][az-aks-create] para criar um cluster do AKS. O exemplo a seguir cria um cluster chamado *myAKSCluster* com um nó. Substitua pelo `<subnetId>` ID obtido na etapa `<appId>` anterior `<password>` e, em seguida, pelos valores coletados na seção anterior.
 
 ```azurecli-interactive
 az aks create \
@@ -302,7 +302,7 @@ Se você não quiser mais usar nós virtuais, é possível desabilitá-los usand
 
 Se necessário, [https://shell.azure.com](https://shell.azure.com) vá para abrir o Azure Cloud Shell em seu navegador.
 
-Primeiro, exclua o pod helloworld em execução no nó virtual:
+Primeiro, exclua o `aci-helloworld` pod em execução no nó virtual:
 
 ```console
 kubectl delete -f virtual-node.yaml

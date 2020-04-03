@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 22a24d01f606cd3f76a0de950351feb3d964da54
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 2db7a25f3f463e9210544354395c9d33a75f633c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478926"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619367"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conhecidos e solução de problemas do Azure Machine Learning
 
@@ -48,16 +48,6 @@ Saiba mais sobre as [cotas de recursos](how-to-manage-quotas.md) que você pode 
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
     ```
 
-* **Mensagem de erro: Nenhuma distribuição correspondente encontrada para azureml-dataprep-native**
-
-    A distribuição Python 3.7.4 da Anaconda tem um bug que quebra a instalação azureml-sdk. Este problema é discutido neste [problema do GitHub](https://github.com/ContinuumIO/anaconda-issues/issues/11195)
-    
-    Isso pode ser trabalhado ao criar um novo Ambiente Conda usando este comando:
-    ```bash
-    conda create -n <env-name> python=3.7.3
-    ```
-    O que cria um Ambiente Conda usando python 3.7.3, que não tem o problema de instalação presente no 3.7.4.
-
 * **Falha de databricks ao instalar pacotes**
 
     A instalação do Azure Machine Learning SDK falha nos tijolos de dados do Azure quando mais pacotes são instalados. Alguns pacotes, como `psutil`, podem causar conflitos. Para evitar erros de instalação, instale pacotes congelando a versão da biblioteca. Este problema está relacionado com databricks e não com o Azure Machine Learning SDK. Você pode experimentar esse problema com outras bibliotecas, também. Exemplo:
@@ -89,10 +79,9 @@ Saiba mais sobre as [cotas de recursos](how-to-manage-quotas.md) que você pode 
 
 * **Databricks FailToSendFeather**: Se `FailToSendFeather` você vir um erro ao ler dados no cluster Azure Databricks, consulte as seguintes soluções:
     
-        * Upgrade `azureml-sdk[automl]` package to the latest version.
-        * Add `azureml-dataprep` version 1.1.8 or above.
-        * Add `pyarrow` version 0.11 or above.
-        `
+    * Upgrade `azureml-sdk[automl]` pacote para a versão mais recente.
+    * Adicione `azureml-dataprep` a versão 1.1.8 ou superior.
+    * Adicione `pyarrow` a versão 0.11 ou superior.
 
 ## <a name="create-and-manage-workspaces"></a>Crie e gerencie os workspaces
 
@@ -113,9 +102,7 @@ Se você receber `Unable to upload project files to working directory in AzureFi
 
 Se você estiver usando o compartilhamento de arquivos para outras cargas de trabalho, como transferência de dados, a recomendação é usar blobs para que o compartilhamento de arquivos seja livre para ser usado para enviar corridas. Você também pode dividir a carga de trabalho entre dois espaços de trabalho diferentes.
 
-### <a name="datasets-and-data-preparation"></a>Conjuntos de dados e preparação de dados
-
-Estes são problemas conhecidos para conjuntos de dados de aprendizado de máquina do Azure.
+### <a name="passing-data-as-input"></a>Passando dados como entrada
 
 *  **Erro de tipo: FileNotFound: Nenhum arquivo ou diretório**: Este erro ocorre se o caminho do arquivo que você fornece não estiver onde o arquivo está localizado. Você precisa ter certeza de que a maneira como você se refere ao arquivo é consistente com onde você montou seu conjunto de dados no seu alvo de computação. Para garantir um estado determinístico, recomendamos usar o caminho abstrato ao montar um conjunto de dados em um alvo de computação. Por exemplo, no código a seguir, montamos o conjunto de dados `/tmp`sob a raiz do sistema de arquivos do destino de computação, . 
     
@@ -128,8 +115,7 @@ Estes são problemas conhecidos para conjuntos de dados de aprendizado de máqui
 
     Se você não incluir a barra de avanço principal, '/', você precisará prefixar o diretório de trabalho, por exemplo, `/mnt/batch/.../tmp/dataset` no alvo de computação para indicar onde você deseja que o conjunto de dados seja montado.
 
-### <a name="data-labeling-projects-issues"></a>Problemas em projetos de rotulagem de dados
-
+### <a name="data-labeling-projects"></a>Projetos de rotulagem de dados
 
 |Problema  |Resolução  |
 |---------|---------|
@@ -138,9 +124,9 @@ Estes são problemas conhecidos para conjuntos de dados de aprendizado de máqui
 |Ao revisar imagens, imagens recém-rotuladas não são mostradas     |   Para carregar todas as imagens rotuladas, escolha o **primeiro** botão. O **primeiro** botão o levará de volta à frente da lista, mas carrega todos os dados rotulados.      |
 |Pressionar a tecla Esc durante a rotulagem para detecção de objetos cria uma etiqueta de tamanho zero no canto superior esquerdo. O envio de etiquetas neste estado falha.     |   Exclua a etiqueta clicando na marca cruzada ao lado.  |
 
-## <a name="azure-machine-learning-designer-issues"></a>Problemas de designer de Machine Learning do Azure
+## <a name="azure-machine-learning-designer"></a>Azure Machine Learning Designer
 
-Problemas conhecidos com o designer.
+Problemas conhecidos:
 
 * **Tempo de preparação de computação longo**: Pode levar alguns minutos ou até mais tempo quando você se conectar pela primeira vez ou criar um alvo de computação. 
 

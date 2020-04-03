@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c98da4b41da183f56d80fad1e8c01706d1cfcf23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b54f9f3466fe5f7e2da622077f53575d6f43f72d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970504"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585953"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Azure Disk Encryption scripts de exemplo 
 
@@ -80,7 +80,7 @@ A tabela a seguir mostra quais parâmetros podem ser usados no script do PowerSh
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Pré-requisitos para a criptografia de disco do sistema operacional
 
-* A VM deve estar usando uma distribuição compatível com a criptografia de disco DO S, conforme listado nos [sistemas operacionais suportados pela Criptografia de Disco Do Azure](disk-encryption-overview.md#supported-vm-sizes) 
+* A VM deve estar usando uma distribuição compatível com a criptografia de disco DO S, conforme listado nos [sistemas operacionais suportados pela Criptografia de Disco Do Azure](disk-encryption-overview.md#supported-vms) 
 * A VM deve ser criada com base na imagem do Marketplace no Azure Resource Manager.
 * VM do Azure com, no mínimo, 4 GB de RAM (o tamanho recomendável é de 7 GB).
 * (Para RHEL e CentOS) Desabilite o SELinux. Para desabilitar SELinux, confira "4.4.2. Desabilitando o SELinux" no [Guia do Administrador e Usuário do SELinux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) na VM.
@@ -294,7 +294,7 @@ Para configurar a criptografia para funcionar com o Azure, execute as seguintes 
    ```bash
     if [ 1 ]; then
    ```
-4. Edite /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e acrescente-o depois de “# Open LUKS device”:
+4. Editar /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e aprová-lo a "# dispositivo LUKS aberto":
 
     ```bash
     MountPoint=/tmp-keydisk-mount
@@ -375,7 +375,7 @@ Para configurar a criptografia para funcionar com o Azure, execute as seguintes 
    ```bash
     if [ 1 ]; then
    ```
-4. Edite /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e acrescente o seguinte após o "# Open LUKS device":
+4. Editar /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh e anexar o seguinte após o "# dispositivo Open LUKS":
     ```bash
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -396,7 +396,7 @@ Para configurar a criptografia para funcionar com o Azure, execute as seguintes 
     fi
     done
     ```    
-5. Execute o “/usr/sbin/dracut -f -v” para atualizar o initrd.
+5. Execute o "/usr/sbin/dracut -f -v" para atualizar o initrd.
 
     ![Instalação do CentOS 7: executar /usr/sbin/dracut -f -v](./media/disk-encryption/centos-encrypt-fig5.png)
 

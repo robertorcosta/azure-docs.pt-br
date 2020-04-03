@@ -3,14 +3,14 @@ title: Perguntas frequentes
 description: Respostas para perguntas frequentes relacionadas ao serviço de Registro de Contêineres do Azure
 author: sajayantony
 ms.topic: article
-ms.date: 07/02/2019
+ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: c0d51c9c31e4e6859eaedce371efeafaa5fd4f46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7452b5dd3c952a13a28566914d2fe513689d4751
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78403215"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618804"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registro de Contêineres do Azure
 
@@ -104,7 +104,8 @@ Leva algum tempo para propagar mudanças nas regras do firewall. Depois de alter
 - [Como ativar o TLS 1.2?](#how-to-enable-tls-12)
 - [O Registro de Contêineres do Azure suporta o Content Trust?](#does-azure-container-registry-support-content-trust)
 - [Como concedo acesso para puxar ou empurrar imagens sem permissão para gerenciar o recurso de registro?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
-- [Como habilitar quarentena automática de imagem para um registro](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [Como habilitar quarentena automática de imagem para um registro?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [Como faço para habilitar acesso de tração anônimo?](#how-do-i-enable-anonymous-pull-access)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Como acessar o Docker Registry HTTP API V2?
 
@@ -251,13 +252,18 @@ Com o uso `AcrPull` apenas `AcrPush` da função ou função, o cessionário nã
 
 A quarentena de imagens é atualmente um recurso de visualização do ACR. Você pode habilitar o modo de quarentena de um registro para que apenas as imagens que passaram com sucesso na varredura de segurança sejam visíveis para usuários normais. Para obter detalhes, consulte o [repo Do GitHub do ACR](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
+### <a name="how-do-i-enable-anonymous-pull-access"></a>Como faço para habilitar acesso de tração anônimo?
+
+A configuração de um registro de contêiner do Azure para acesso de tração anônimo (público) é atualmente um recurso de visualização. Para habilitar o acesso público, https://aka.ms/acr/support/create-ticketabra um bilhete de suporte em . Para obter detalhes, consulte o Fórum de Comentários do [Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+
+
 ## <a name="diagnostics-and-health-checks"></a>Diagnósticos e exames de saúde
 
 - [Verifique a saúde com`az acr check-health`](#check-health-with-az-acr-check-health)
 - [o docker pull falha com erro: net/http: solicitação cancelada enquanto aguarda conexão (Client.Timeout excedido enquanto aguarda cabeçalhos)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [o empurrão docker é bem sucedido, mas a atração de docker falha com erro: não autorizada: autenticação necessária](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [`az acr login`sucesso, mas comandos docker falham com erro: não autorizado: autenticação necessária](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
-- [Habilite e obtenha os logs de depuração do daemon docker](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
+- [Habilite e obtenha os logs de depuração do daemon docker](#enable-and-get-the-debug-logs-of-the-docker-daemon)    
 - [Novas permissões de usuário podem não ser eficazes imediatamente após a atualização](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [As informações de autenticação não são fornecidas no formato correto em chamadas diretas da API REST](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Por que o portal Azure não lista todos os meus repositórios ou tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
@@ -307,7 +313,7 @@ unauthorized: authentication required
 ```
 
 Para resolver o erro:
-1. Adicione a `--signature-verification=false` opção ao arquivo de `/etc/sysconfig/docker`configuração do daemon do Docker . Por exemplo: 
+1. Adicione a `--signature-verification=false` opção ao arquivo de `/etc/sysconfig/docker`configuração do daemon do Docker . Por exemplo:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -323,13 +329,13 @@ Detalhes `--signature-verification` podem ser `man dockerd`encontrados executand
 
 Certifique-se de usar uma URL de `docker push myregistry.azurecr.io/myimage:latest`servidor em minúsculas, por exemplo, mesmo que `myRegistry`o nome do recurso do registro seja maiúsculo ou caso misto, como .
 
-### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Habilite e obtenha os registros de depuração do daemon Docker  
+### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Habilite e obtenha os registros de depuração do daemon Docker    
 
 Comece `dockerd` com `debug` a opção. Primeiro, crie o arquivo de`/etc/docker/daemon.json`configuração do daemon do `debug` Docker ( ) se ele não existir e adicione a opção:
 
 ```json
-{   
-    "debug": true   
+{    
+    "debug": true    
 }
 ```
 
@@ -339,12 +345,12 @@ Então, reinicie o daemon. Por exemplo, com o Ubuntu 14.04:
 sudo service docker restart
 ```
 
-Os detalhes podem ser encontrados na documentação do [Docker.](https://docs.docker.com/engine/admin/#enable-debugging) 
+Os detalhes podem ser encontrados na documentação do [Docker.](https://docs.docker.com/engine/admin/#enable-debugging)    
 
- * Os registros podem ser gerados em diferentes locais, dependendo do seu sistema. Por exemplo, para o Ubuntu 14.04, é `/var/log/upstart/docker.log`.   
+ * Os registros podem ser gerados em diferentes locais, dependendo do seu sistema. Por exemplo, para o Ubuntu 14.04, é `/var/log/upstart/docker.log`.    
 Consulte [a documentação do Docker](https://docs.docker.com/engine/admin/#read-the-logs) para obter detalhes.    
 
- * Para Docker for Windows, os logs são gerados em %LOCALAPPDATA%/docker/. No entanto, pode não conter todas as informações de depuração ainda.   
+ * Para Docker for Windows, os logs são gerados em %LOCALAPPDATA%/docker/. No entanto, pode não conter todas as informações de depuração ainda.    
 
    Para acessar o registro completo do daemon, você pode precisar de algumas etapas extras:
 

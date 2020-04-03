@@ -4,15 +4,15 @@ description: Aprenda a se integrar ao Firewall Azure para proteger o tráfego de
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 03/31/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 84fcb9076bbc1e75d46d9a6682c96035576ae09e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3dadb57c6358623974de1a27e1601d99b28fee32
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475435"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584326"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente do Serviço de Aplicativo
 
@@ -92,7 +92,7 @@ Se você souber o intervalo de endereços do qual seu tráfego de solicitação 
 
 Esse uso do Gateway de Aplicativo é apenas um exemplo de como configurar o sistema. Se você seguiu esse caminho, você precisa adicionar uma rota à tabela de rotas da sub-rede do ASE, de modo que o tráfego de resposta enviado ao Gateway de Aplicativo acesse-o diretamente. 
 
-## <a name="logging"></a>Registrando em log 
+## <a name="logging"></a>Registro em log 
 
 O Firewall do Azure pode enviar logs para o Armazenamento do Azure, o Hub de Eventos ou os Logs do Azure Monitor. Para integrar seu aplicativo com qualquer destino compatível, acesse o portal do Firewall do Azure > Logs de Diagnóstico e habilite os logs para o destino desejado. Se você fizer a integração com os logs do Azure Monitor, poderá ver os logs de qualquer tráfego enviado para o Firewall do Azure. Para ver o tráfego que está sendo negado, abra o portal de espaços de trabalho do Log Analytics existentes &gt; Logs e insira uma consulta como 
 
@@ -215,6 +215,8 @@ Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado c
 |gmstorageprodsn1.queue.core.windows.net:443 |
 |gmstorageprodsn1.table.core.windows.net:443 |
 |rteventservice.trafficmanager.net:443 |
+|ctldl.windowsupdate.com:80 |
+|ctldl.windowsupdate.com:443 |
 
 #### <a name="wildcard-httphttps-dependencies"></a>Dependências de HTTP/HTTPS de curinga 
 
@@ -225,6 +227,8 @@ Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado c
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
 | \*Identity.azure.net:443 |
+| \*ctldl.windowsupdate.com:80 |
+| \*Ctldl.windowsupdate.com:443 |
 
 #### <a name="linux-dependencies"></a>Dependências do Linux 
 

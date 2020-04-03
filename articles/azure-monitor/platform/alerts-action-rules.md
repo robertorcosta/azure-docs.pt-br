@@ -4,18 +4,18 @@ description: Entender quais são as regras de ação no Azure Monitor e como con
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 0498325984641641d6dfc9ee6b89f66800b5c7d2
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 6585890395d7656f239ac3098cd374ecd4757842
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546477"
+ms.locfileid: "80618982"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (visualização)
 
 As regras de ação ajudam você a definir ou suprimir ações em qualquer escopo do Azure Resource Manager (assinatura do Azure, grupo de recursos ou recurso de destino). Eles têm vários filtros que ajudam você a reduzir o subconjunto específico de instâncias de alerta em que você deseja agir.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
 
 ## <a name="why-and-when-should-you-use-action-rules"></a>Por que e quando você deve usar regras de ação?
 

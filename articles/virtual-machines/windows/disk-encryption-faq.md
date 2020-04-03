@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: ea2a66a6b012664a9596a02ea32c1a0b677ee3ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5cc6a3d8d736209f762959bca6f8ad379c14203f
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74384261"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582704"
 ---
 # <a name="azure-disk-encryption-for-windows-vms-faq"></a>Criptografia de disco azure para perguntas frequentes do Windows VMs
 
@@ -36,7 +36,7 @@ Para começar, leia as [visão geral do Azure Disk Encryption](disk-encryption-o
 
 ## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>Quais tamanhos de VM e sistemas operacionais suportam criptografia de disco Azure?
 
-O [artigo de visão geral do Azure Disk Encryption](disk-encryption-overview.md) lista os tamanhos de [VM](disk-encryption-overview.md#supported-vm-sizes) e [os sistemas operacionais VM](disk-encryption-overview.md#supported-operating-systems) que suportam a criptografia de disco do Azure.
+O [artigo de visão geral do Azure Disk Encryption](disk-encryption-overview.md) lista os tamanhos de [VM](disk-encryption-overview.md#supported-vms) e [os sistemas operacionais VM](disk-encryption-overview.md#supported-operating-systems) que suportam a criptografia de disco do Azure.
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Posso criptografar volumes de dados e de inicialização com o Azure Disk Encryption?
 
@@ -53,7 +53,7 @@ Não, a Criptografia de Disco Do Azure só criptografa volumes montados.
 Para rodar segredos, basta chamar o mesmo comando que você usou originalmente para ativar a criptografia de disco, especificando um Cofre de Chaves diferente. Para girar a chave de criptografia da chave, chame o mesmo comando que você usou originalmente para habilitar a criptografia de disco, especificando a nova criptografia de chave. 
 
 >[!WARNING]
-> - Se você já usou anteriormente [o azure Disk Encryption com o aplicativo Azure AD](disk-encryption-windows-aad.md) especificando credenciais Azure AD para criptografar esta VM, você terá que continuar usando essa opção para criptografar sua VM. Não é possível usar o Azure Disk Encryption nessa VM criptografada pois esse cenário não tem suporte, o que significa que ainda não há suporte para alternar o aplicativo AAD por essa VM criptografada.
+> - Se você já usou anteriormente [o azure Disk Encryption com o aplicativo Azure AD](disk-encryption-windows-aad.md) especificando credenciais Azure AD para criptografar esta VM, você terá que continuar usando essa opção para criptografar sua VM. Você não pode usar o Azure Disk Encryption nesta VM criptografada, pois este não é um cenário suportado, o que significa que mudar para longe do aplicativo AAD para este VM criptografado ainda não é suportado.
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Como adicionar ou remover uma chave de criptografia se eu não usei originalmente uma?
 

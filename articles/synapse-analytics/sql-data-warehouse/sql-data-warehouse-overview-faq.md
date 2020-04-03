@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 766615a92e616a254cca4b2b3ce1ccde40118275
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 9ce87bac6fbcc3833684dc540c542bc14c9b4955
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350245"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586519"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (anteriormente SQL DW) Perguntas frequentes
 
@@ -23,15 +23,15 @@ ms.locfileid: "80350245"
 
 Q. O que é o Azure Synapse?
 
-a. O Azure Synapse é um serviço de análise ilimitado que reúne armazenamento de dados e análises de Big Data. Ele lhe dá a liberdade de consultar dados em seus termos, usando recursos demanda ou sem servidor - em escala. O Azure Synapse une esses dois mundos com uma experiência unificada para ingerir, preparar, gerenciar e servir dados para necessidades imediatas de BI e aprendizado de máquina. Para obter mais informações, consulte [O que é a Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+a. O Azure Synapse é um serviço de análise ilimitado que reúne armazenamento de dados e análises de Big Data. Ele lhe dá a liberdade de consultar dados em seus termos, usando recursos sob demanda ou sem servidor - em escala. O Azure Synapse une esses dois mundos com uma experiência unificada para ingerir, preparar, gerenciar e servir dados para necessidades imediatas de BI e aprendizado de máquina. Para obter mais informações, consulte [O que é a Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. O que aconteceu com o Azure SQL Data Warehouse?
 
 a. Azure Synapse é o Azure SQL Data Warehouse (SQL DW) evoluído. Nós tomamos o mesmo data warehouse líder do setor para um novo nível de desempenho e capacidades. Você pode continuar executando suas cargas de trabalho existentes do data warehouse em produção com o Azure Synapse e se beneficiar automaticamente dos novos recursos, que estão em visualização. Para obter mais informações, consulte [O que é Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-Q. O que é SQL Analytics?
+Q. O que é pool Synapse SQL?
 
-a. A Análise de SQL refere-se aos recursos corporativos de data warehousing que estão disponíveis publicamente com o Azure Synapse. Para obter mais informações, consulte [O que é a Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+a. O pool Synapse SQL refere-se aos recursos de armazenamento de dados corporativos que geralmente estão disponíveis com o Azure Synapse. Para obter mais informações, consulte [O que é a Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. Como eu começar com o Azure Synapse?
 
@@ -49,7 +49,7 @@ Q. Posso conectar o Power BI?
 
 a.  Sim! Embora o Power BI suporte consulta direta com o Azure Synapse, ele não é destinado a um grande número de usuários ou dados em tempo real. Para otimizar ainda mais o desempenho do Power BI, considere usar o Power BI em cima dos Serviços de Análise do Azure ou do Serviço de Análise IaaS.
 
-Q. Quais são os limites de capacidade do SQL Analytics?
+Q. Quais são os limites de capacidade do pool Synapse SQL?
 
 a. Consulte nossa página de [limites de capacidade](sql-data-warehouse-service-capacity-limits.md) atuais. 
 
@@ -83,16 +83,15 @@ a. Muitos recursos são suportados. Os recursos que não são suportados podem s
 
 ## <a name="tooling-and-administration"></a>Ferramentas e administração
 
-Q. O SQL Analytics suporta APIs REST?
+Q. O pool Synapse SQL suporta APIs REST?
 
-a. Sim. A maioria das funcionalidades REST que podem ser usadas com o SQL Database também está disponível com o SQL Analytics. É possível encontrar informações sobre API nas páginas de documentação do REST ou no [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-
+a. Sim. A maioria das funcionalidades REST que podem ser usadas com o SQL Database também está disponível com o pool Synapse SQL. É possível encontrar informações sobre API nas páginas de documentação do REST ou no [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 ## <a name="loading"></a>Carregando
 
 Q. Para quais drivers de cliente há suporte?
 
-a. O suporte ao driver para SQL Analytics pode ser encontrado na página [Strings de conexão](sql-data-warehouse-connection-strings.md)
+a. O suporte ao driver para pool Synapse SQL pode ser encontrado na página [Strings de conexão](sql-data-warehouse-connection-strings.md)
 
 P: Quais formatos de arquivo são suportados pelo PolyBase?
 
@@ -108,7 +107,8 @@ A: Não, o PolyBase interage apenas com os componentes de armazenamento.
 
 P: Posso me conectar ao HDI?
 
-R: O HDI pode usar o ADLS ou o WASB como a camada HDFS. Se você tiver uma camada de HDFS, você pode carregar esses dados em um data warehouse do SQL Analytics. No entanto, não é possível gerar o cálculo de aplicação para a instância HDI. 
+R: O HDI pode usar o ADLS ou o WASB como a camada HDFS. Se você tiver qualquer camada de HDFS, você pode carregar esses dados em um pool Synapse SqL. No entanto, não é possível gerar o cálculo de aplicação para a instância HDI. 
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Para obter mais informações sobre o Azure Synapse como um todo, consulte nossa página [Visão Geral.](sql-data-warehouse-overview-faq.md)

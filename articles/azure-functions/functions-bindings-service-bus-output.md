@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 7e00d03a8b3ec7ef56935ff7714fd932bc343cd3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02d9ce87d45c5f1c9a123aae18f7d710b268f03e
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79277434"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582247"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus vinculação para funções do Azure
 
@@ -21,7 +21,7 @@ Para obter informações sobre detalhes de configuração e configuração, cons
 
 ## <a name="example"></a>Exemplo
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 A exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que envia uma mensagem de fila do Barramento de Serviço:
 
@@ -86,7 +86,7 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma associação de saída de Barramento de Serviço em um arquivo *function.json* e uma [função JavaScript C#](functions-reference-node.md) que usa a associação. A função usa um gatilho de timer para enviar uma mensagem da fila a cada 15 segundos.
 
@@ -227,7 +227,7 @@ As funções Java também podem escrever para um tópico de Service Bus. O exemp
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
 
@@ -261,7 +261,7 @@ Você pode usar o atributo `ServiceBusAccount` para especificar a conta do Barra
 
 Os atributos não são suportados pelo script C#.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Os atributos não são suportados pelo JavaScript.
 
@@ -295,7 +295,7 @@ A tabela a seguir explica as propriedades de configuração de `ServiceBus` vinc
 
 No Azure Functions 1. x, o runtime criará a fila se ela não existir e você tiver definido `accessRights` como `manage`. Em Funções versão 2.x e superior, a fila ou tópico já deve existir; se você especificar uma fila ou tópico que não existe, a função falhará. 
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Use os seguintes tipos de parâmetros para a vinculação da saída:
 
@@ -329,7 +329,7 @@ Ao trabalhar com funções C#:
 
 * Para acessar o ID da [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) sessão, `sessionId` vincule a um tipo e use a propriedade.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Acesse a fila ou `context.bindings.<name from function.json>`tópico usando . Você pode atribuir uma seqüência, uma matriz de bytes ou um `context.binding.<name>`objeto JavaScript (desserializado em JSON) para .
 
@@ -383,6 +383,7 @@ Esta seção descreve as configurações globais disponíveis para essa vincula�
 
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
+|prefetchCount|0|Obtém ou define o número de mensagens que o receptor de mensagem pode solicitar simultaneamente.|
 |maxAutoRenewDuration|00:05:00|A duração máxima na qual o bloqueio de mensagem será renovado automaticamente.|
 |autoComplete|true|Se o gatilho deve marcar imediatamente a mensagem como completa (autocompletar) ou esperar que a função saia com sucesso para chamar concluído.|
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que a bomba de mensagens deve iniciar. Por padrão, o runtime do Functions processa várias mensagens simultaneamente. Para direcionar o runtime para processar uma única fila ou mensagem de tópico de cada vez, defina `maxConcurrentCalls` como 1. |

@@ -166,10 +166,10 @@
           href: backup-azure-manage-mars.md
     - name: Backup do compartilhamento de arquivos do Azure
       items:
+        - name: Visão geral
+          href: azure-file-share-backup-overview.md
         - name: No portal do Azure
           items:
-            - name: Visão geral
-              href: azure-file-share-backup-overview.md
             - name: Backup
               href: backup-afs.md
             - name: Restaurar
@@ -338,6 +338,8 @@
           href: backup-rm-template-samples.md
     - name: Segurança
       items:
+        - name: Visão geral
+          href: security-overview.md
         - name: Controle de Acesso Baseado em Função
           href: backup-rbac-rs-vault.md
         - name: Segurança para cargas de trabalho na nuvem
@@ -384,6 +386,8 @@
       href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Recursos
   items:
+    - name: Conformidade
+      href: compliance-offerings.md
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Fórum do MSDN

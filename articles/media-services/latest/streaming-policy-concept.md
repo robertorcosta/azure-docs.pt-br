@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: a813c77e81e51bfe13e75ed6c8d0e24b4d0fa645
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c80056fd62173ff1e5a6ed3979adba71b7706cc
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "66392918"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582771"
 ---
 # <a name="streaming-policies"></a>Políticas de Streaming
 
@@ -34,7 +34,7 @@ A seguinte "Árvore de decisão" ajuda você a escolher uma política de streami
 
 > [!IMPORTANT]
 > * As propriedades de **Políticas de Streaming** que são do tipo Datetime estão sempre no formato UTC.
-> * Você deve criar um conjunto limitado de políticas para sua conta de serviço de mídia e reutilizá-los para os Localizadores de Streaming sempre que as mesmas opções forem necessárias. Para saber mais, consulte [Cotas e limitações](limits-quotas-constraints.md).
+> * Você deve criar um conjunto limitado de políticas para sua conta de serviço de mídia e reutilizá-los para os Localizadores de Streaming sempre que as mesmas opções forem necessárias. Para obter mais informações, consulte [Cotas e limites](limits-quotas-constraints.md).
 
 ## <a name="decision-tree"></a>Árvore de decisão
 
@@ -48,7 +48,7 @@ Se você tiver requisitos especiais (por exemplo, se você quiser especificar di
 
 ## <a name="get-a-streaming-policy-definition"></a>Obtenha uma definição de Política de Streaming  
 
-Se você quiser ver a definição de uma política de streaming, use [Obter](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) e especificar o nome da diretiva. Por exemplo: 
+Se você quiser ver a definição de uma política de streaming, use [Obter](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) e especificar o nome da diretiva. Por exemplo:
 
 ### <a name="rest"></a>REST
 

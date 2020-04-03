@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 9252e3e41d0c639231a2abe20202499c6b3ee32a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5820778d46f5701b82bb289192350a9e13739d37
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444852"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619437"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do feed de alterações do .NET: download e notas de versão
 
@@ -26,7 +26,7 @@ ms.locfileid: "75444852"
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [Resto](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Executor a granel - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -45,6 +45,10 @@ ms.locfileid: "75444852"
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="v2-builds"></a>v2 builds
+
+### <a name="230"></a><a name="2.3.0"/>2.3.0
+* Adicionada um `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` novo método `ICheckpointPartitionProcessorFactory`e interface pública correspondente. Isso permite que `IPartitionProcessor` uma implementação da interface use mecanismo de verificação incorporado. A nova fábrica é semelhante `IPartitionProcessorFactory`à existente, exceto que seu `Create` método também leva o `ILeaseCheckpointer` parâmetro.
+* Apenas um dos dois métodos, ou `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` , `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`pode `ChangeFeedProcessorBuilder` ser usado para a mesma instância.
 
 ### <a name="228"></a><a name="2.2.8"/>2.2.8
 * Melhorias na estabilidade e na diagnósibilidade:
@@ -88,7 +92,7 @@ ms.locfileid: "75444852"
 
 ### <a name="220"></a><a name="2.2.0"/>2.2.0
 * Adicionado suporte a coleções particionadas de concessão. A chave de partição deve ser definida como /id.
-* Pequena alteração interruptiva: os métodos da interface IChangeFeedDocumentClient e a classe ChangeFeedDocumentClient foram alterados para incluir parâmetros de RequestOptions e CancellationToken. O IChangeFeedDocumentClient é um ponto avançado de extensibilidade que permite que você forneça a implementação personalizada do Cliente de Documentos para usar com o Processador de Feed de Alterações, por exemplo, decorar o DocumentClient e interceptar todas as chamadas para ele para fazer rastreamento extra, manipulação de erros Etc. Com esta atualização, o código que implementa o IChangeFeedDocumentClient precisará ser alterado para incluir novos parâmetros na implementação.
+* Pequena alteração interruptiva: os métodos da interface IChangeFeedDocumentClient e a classe ChangeFeedDocumentClient foram alterados para incluir parâmetros de RequestOptions e CancellationToken. O IChangeFeedDocumentClient é um ponto avançado de extensibilidade que permite que você forneça a implementação personalizada do Cliente de Documentos para usar com o Processador de Feed de Alterações, por exemplo, decorar o DocumentClient e interceptar todas as chamadas para ele para fazer rastreamento extra, manipulação de erros, etc. Com esta atualização, o código que implementa o IChangeFeedDocumentClient precisará ser alterado para incluir novos parâmetros na implementação.
 * Pequenos aprimoramentos de diagnóstico.
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
@@ -182,6 +186,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data de lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |2 de abril de 2020 |--- |
 | [2.2.8](#2.2.8) |28 de outubro de 2019 |--- |
 | [2.2.7](#2.2.7) |14 de maio de 2019 |--- |
 | [2.2.6](#2.2.6) |29 janeiro de 2019 |--- |

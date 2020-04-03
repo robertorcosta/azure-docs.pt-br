@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 47fd30fbb6e6836d6edf18ac68164d515f3aeb93
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8ac9ff1f46e1d2d0ddaa313499340b4723c7da07
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350744"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584259"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Gerenciamento de carga de trabalho com classes de recursos no Azure Synapse Analytics
 
-Orientação para o uso de classes de recursos para gerenciar memória e simultâneos para consultas SQL Analytics no Azure Synapse.  
+Orientação para o uso de classes de recursos para gerenciar memória e simultâneos para consultas de pool Synapse Synapse no Azure Synapse.  
 
 ## <a name="what-are-resource-classes"></a>O que são classes de recursos
 
-A capacidade de desempenho de uma consulta é determinada pela classe de recurso do usuário.  As classes de recursos são limites de recursos pré-determinados no SQL Analytics que regem os recursos de computação e a concorrência para a execução de consultas. As classes de recursos podem ajudá-lo a configurar recursos para suas consultas, definindo limites sobre o número de consultas executadas simultaneamente e nos recursos de computação atribuídos a cada consulta.  Há uma troca entre memória e simultâneo.
+A capacidade de desempenho de uma consulta é determinada pela classe de recurso do usuário.  As classes de recursos são limites de recursos pré-determinados no pool Synapse SQL que rege os recursos de computação e a simultâneo para execução de consultas. As classes de recursos podem ajudá-lo a configurar recursos para suas consultas, definindo limites sobre o número de consultas executadas simultaneamente e nos recursos de computação atribuídos a cada consulta.  Há uma troca entre memória e simultâneo.
 
 - Classes de recursos menores reduzem a memória máxima por consulta, mas aumentam a simultaneidade.
 - Classes de recursos maiores aumentam a memória máxima por consulta, mas reduzem a concorrência.
@@ -82,7 +82,7 @@ A alocação de memória para cada classe de recursos é a seguinte.
 
 Por padrão, cada usuário é um membro da classe de recursos dinâmicos **smallrc**.
 
-A classe de recurso do administrador de serviços é fixada em smallrc e não pode ser alterada.  O administrador de serviços é o usuário criado durante o processo de provisionamento.  O administrador do serviço neste contexto é o login especificado para o "login de administrador do servidor" ao criar uma nova instância do SQL Analytics com um novo servidor.
+A classe de recurso do administrador de serviços é fixada em smallrc e não pode ser alterada.  O administrador de serviços é o usuário criado durante o processo de provisionamento.  O administrador do serviço neste contexto é o login especificado para o "login de administrador do servidor" ao criar um novo pool Synapse SQL com um novo servidor.
 
 > [!NOTE]
 > Usuários ou grupos definidos como administrador do Active Directory também são administradores de serviços.
@@ -245,7 +245,7 @@ Aqui está a finalidade deste procedimento armazenado:
 Sintaxe:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
-1. @DWU:Fornecer um parâmetro NULL para extrair o DWU atual do DW DB ou fornecer qualquer DWU suportado a forma de 'DW100c'
+1. @DWU:Fornecer um parâmetro NULL para extrair o DWU atual do DW DB ou fornecer qualquer DWU suportado sob a forma de 'DW100c'
 2. @SCHEMA_NAME: Forneça um nome de esquema da tabela
 3. @TABLE_NAME: Forneça um nome de tabela dos juros
 
@@ -594,5 +594,5 @@ GO
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o gerenciamento de usuários de banco de dados e segurança, consulte [Proteger um banco de dados no SQL Analytics](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como classes de recursos maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Otimizações de memória para compressão de columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Para obter mais informações sobre o gerenciamento de usuários de banco de dados e segurança, consulte [Proteger um banco de dados no Synapse SQL](sql-data-warehouse-overview-manage-security.md). Para obter mais informações sobre como classes de recursos maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Otimizações de memória para compressão de columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 

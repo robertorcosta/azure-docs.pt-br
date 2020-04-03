@@ -1,6 +1,6 @@
 ---
 title: Instruções T-SQL
-description: Links para a documentação de declarações T-SQL suportadas no SQL Analytics.
+description: Links para a documentação de declarações T-SQL suportadas no pool Synapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,17 +11,19 @@ ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 53609049f69f0a3d50430ef512a5bf4a8ffd6d82
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 011a850a44948bf5eee28a40d59dcf7672d866e8
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351345"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586359"
 ---
-# <a name="t-sql-statements-supported-in-sql-analytics"></a>Demonstrações T-SQL suportadas no SQL Analytics
-Links para a documentação de declarações T-SQL suportadas no SQL Analytics.
+# <a name="t-sql-statements-supported-in-synapse-sql-pool"></a>Instruções T-SQL suportadas no pool Synapse SQL
+
+Links para a documentação de declarações T-SQL suportadas no pool Synapse SQL.
 
 ## <a name="data-definition-language-ddl-statements"></a>Instruções de DDL (Linguagem de Definição de Dados)
+
 * [ALTERAR BANCO DE DADOS](https://msdn.microsoft.com/library/mt204042.aspx)
 * [ALTER INDEX](https://msdn.microsoft.com/library/ms188388.aspx)
 * [ALTERAR VISÃO MATERIALIZADA](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) (Visualização) 
@@ -52,19 +54,21 @@ Links para a documentação de declarações T-SQL suportadas no SQL Analytics.
 * [DROP STATISTICS](https://msdn.microsoft.com/library/ms175075.aspx)
 * [TABELA DROP](https://msdn.microsoft.com/library/ms173790.aspx)
 * [DROP SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx)
-* [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
+* [VISTA DE QUEDA](https://msdn.microsoft.com/library/ms173492.aspx)
 * [CLASSEIFICADOR DE CARGA DE TRABALHO DE QUEDA](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
-* [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
+* [Renomear](https://msdn.microsoft.com/library/mt631611.aspx)
 * [SET RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql) 
 * [TABELA TRUNCATE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [ATUALIZAR ESTATÍSTICAS](https://msdn.microsoft.com/library/ms187348.aspx)
 
 ## <a name="data-manipulation-language-dml-statements"></a>Instruções de DML (Linguagem de Manipulação de Dados)
-* [Excluir](https://msdn.microsoft.com/library/ms189835.aspx)
+
+* [Delete (excluir)](https://msdn.microsoft.com/library/ms189835.aspx)
 * [Inserir](https://msdn.microsoft.com/library/ms174335.aspx)
 * [Atualização](https://msdn.microsoft.com/library/ms177523.aspx)
 
 ## <a name="database-console-commands"></a>Comandos de Console de Banco de Dados
+
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 * [DBCC DROPRESULTSETCACHE](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest) (Visualização)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
@@ -77,6 +81,7 @@ Links para a documentação de declarações T-SQL suportadas no SQL Analytics.
 * [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)
 
 ## <a name="query-statements"></a>Instruções de consulta
+
 * [Selecione](https://msdn.microsoft.com/library/ms189499.aspx)
 * [WITH common_table_expression](https://msdn.microsoft.com/library/ms175972.aspx)
 * [EXCEPT e INTERSECT](https://msdn.microsoft.com/library/ms188055.aspx)
@@ -95,6 +100,7 @@ Links para a documentação de declarações T-SQL suportadas no SQL Analytics.
 * [Subconsultas](https://msdn.microsoft.com/library/mt631613.aspx)
 
 ## <a name="security-statements"></a>Instruções de segurança
+
 * Permissões: [GRANT](https://msdn.microsoft.com/library/ms187965.aspx), [DENY](https://msdn.microsoft.com/library/ms188338.aspx), [REVOKE](https://msdn.microsoft.com/library/ms187728.aspx)
 * [ALTER AUTHORIZATION](https://msdn.microsoft.com/library/ms187359.aspx)
 * [ALTER CERTIFICATE](https://msdn.microsoft.com/library/ms189511.aspx)
@@ -120,4 +126,5 @@ Links para a documentação de declarações T-SQL suportadas no SQL Analytics.
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações de referência, consulte [elementos de linguagem T-SQL no SQL Analytics](sql-data-warehouse-reference-tsql-language-elements.md)e [visualizações do sistema no SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).
+
+Para obter mais informações de referência, consulte [os elementos de linguagem T-SQL no pool Synapse SQL](sql-data-warehouse-reference-tsql-language-elements.md)e [as visualizações do sistema no pool Synapse SQL](sql-data-warehouse-reference-tsql-system-views.md).

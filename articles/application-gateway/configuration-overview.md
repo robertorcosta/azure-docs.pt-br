@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: f31c24c96732ec3311ea904fc9c63344e2d14109
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f08cfab8f8de9183e6bee241959f7feabc31c8e3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371250"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585916"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do Gateway de aplicativos
 
@@ -168,8 +168,6 @@ Escolha HTTP ou HTTPS:
 
 - Se você escolher HTTP, o tráfego entre o cliente e o gateway do aplicativo será descriptografado.
 
-- Escolha HTTPS se você quiser [terminação TLS](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) ou [criptografia TLS de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/ssl-overview). O tráfego entre o cliente e o gateway de aplicativo é criptografado. E a conexão TLS termina no gateway de aplicativo. Se você quiser criptografia TLS de ponta a ponta, você deve escolher HTTPS e configurar a configuração **HTTP back-end.** Isso garante que o tráfego seja recriptografado quando ele viaja do gateway do aplicativo para o back-end.
-
 - Escolha HTTPS se você quiser [terminação TLS](features.md#secure-sockets-layer-ssltls-termination) ou [criptografia TLS de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/ssl-overview). O tráfego entre o cliente e o gateway de aplicativo é criptografado. E a conexão TLS termina no gateway de aplicativo. Se você quiser criptografia TLS de ponta a ponta, você deve escolher HTTPS e configurar a configuração **HTTP back-end.** Isso garante que o tráfego seja recriptografado quando ele viaja do gateway do aplicativo para o back-end.
 
 
@@ -296,7 +294,7 @@ O gateway de aplicativo direciona o tráfego para os servidores back-end usando 
 
 ### <a name="cookie-based-affinity"></a>Afinidade baseada em cookie
 
-O Azure Application Gateway usa cookies gerenciados por gateway para manter as sessões do usuário. Quando um usuário envia a primeira solicitação para o Application Gateway, ele define um cookie de afinidade na resposta com um valor hash que contém os detalhes da sessão, de modo que as solicitações subseqüentes que carregam o cookie de afinidade serão roteadas para o mesmo servidor backend para mantendo a pegajosa. 
+O Azure Application Gateway usa cookies gerenciados por gateway para manter as sessões do usuário. Quando um usuário envia a primeira solicitação para o Application Gateway, ele define um cookie de afinidade na resposta com um valor de hash que contém os detalhes da sessão, de modo que as solicitações subseqüentes que carregam o cookie de afinidade serão encaminhadas para o mesmo servidor backend para manter a pegajosa. 
 
 Esse recurso é útil quando você deseja manter uma sessão de usuário no mesmo servidor e quando o estado de sessão é salvo localmente no servidor para uma sessão de usuário. Se o aplicativo não puder lidar com a afinidade baseada em cookies, você não poderá usar esse recurso. Para usá-lo, certifique-se de que os clientes suportem cookies.
 

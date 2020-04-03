@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: fb2f9ff5af68575d9f9d29e9a6aca83d603395b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ff9e62ed145b7892d2997193dae8e171ae49c98
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672405"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585376"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Crie configuração de diagnóstico para coletar logs e métricas da plataforma no Azure
 [Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de atividades do Azure e registros de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e da plataforma Azure da qual dependem. Este artigo fornece detalhes sobre a criação e configuração de configurações de diagnóstico para enviar logs de plataforma para diferentes destinos.
@@ -53,7 +53,7 @@ Você pode configurar as configurações de diagnóstico no portal Azure no menu
     
         ![Configurações de Diagnóstico](media/diagnostic-settings/menu-monitor.png)
 
-    - Para o registro atividade, clique em Entrar em **atividade** no menu **Monitor do Azure** e, em seguida, **configurações de Diagnóstico**. Certifique-se de desativar qualquer configuração legado para o registro de atividades. Consulte [Desativar as configurações existentes](diagnostic-settings-legacy.md#disable-existing-settings) para obter detalhes.
+    - Para o registro atividade, clique em Entrar em **atividade** no menu **Monitor do Azure** e, em seguida, **configurações de Diagnóstico**. Certifique-se de desativar qualquer configuração legado para o registro de atividades. Consulte [Desativar as configurações existentes](/azure/azure-monitor/platform/activity-log-collect#collecting-activity-log) para obter detalhes.
 
         ![Configurações de Diagnóstico](media/diagnostic-settings/menu-activity-log.png)
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d121d6c198cb0d92cd098a40096e2f2300f65537
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14f513306b3f0bc0c06a4143e5174c3ecddaef62
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76758982"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617160"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Cenário: Um aplicativo web que chama APIs web
 
@@ -48,7 +48,7 @@ Os aplicativos da Web que chamam APIs da Web são aplicativos clienteconfidencia
 > [!NOTE]
 > Adicionar login a um aplicativo web é proteger o próprio aplicativo web. Essa proteção é alcançada usando bibliotecas *de middleware,* não a Microsoft Authentication Library (MSAL). O cenário anterior, [web app que assina em usuários,](scenario-web-app-sign-user-overview.md)cobriu esse assunto.
 >
-> Este cenário abrange como chamar APIs da Web a partir de um aplicativo web. Você deve obter tokens de acesso para essas APIs da Web. Para adquirir esses tokens, você usa bibliotecas MSAL para adquirir esses tokens.
+> Este cenário abrange como chamar APIs da Web a partir de um aplicativo web. Você deve obter tokens de acesso para essas APIs da Web. Você usa bibliotecas MSAL para adquirir esses tokens.
 
 O desenvolvimento para este cenário envolve essas tarefas específicas:
 

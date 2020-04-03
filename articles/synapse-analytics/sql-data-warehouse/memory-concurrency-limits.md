@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c868d8c159bca0c8462acde48225dc45003cf84e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c427c832eb613dddbff33ef6e67af63112e2f136
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350999"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586063"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limites de memória e simultâneos para a Azure Synapse Analytics
 Exibir os limites de memória e simultâneos alocados aos vários níveis de desempenho e classes de recursos no Azure Synapse Analytics.  
@@ -73,7 +73,7 @@ Com a introdução de grupos de [carga de trabalho,](sql-data-warehouse-workload
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Máximos de concorrência para classes de recursos
-Para garantir que cada consulta tenha recursos suficientes para ser executada de forma eficiente, o SQL Analytics no Azure Synapse rastreia a utilização de recursos atribuindo slots de concorrência a cada consulta. O sistema coloca consultas em uma fila com base na importância e slots de concorrência. As consultas esperam na fila até que existam slots suficientes para a concorrência. [Slots](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) de importância e slots de simultâneos determinam a priorização da CPU. Para saber mais, confira [Analisar sua carga de trabalho](analyze-your-workload.md)
+Para garantir que cada consulta tenha recursos suficientes para ser executada de forma eficiente, a utilização dos recursos é rastreada atribuindo slots de concorrência a cada consulta. O sistema coloca consultas em uma fila com base na importância e slots de concorrência. As consultas esperam na fila até que existam slots suficientes para a concorrência. [Slots](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) de importância e slots de simultâneos determinam a priorização da CPU. Para saber mais, confira [Analisar sua carga de trabalho](analyze-your-workload.md)
 
 **Classes de recursos estáticos**
 

@@ -4,12 +4,12 @@ description: Saiba como criar dinamicamente um volume persistente com discos Azu
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 37fea36567866af69e832a1f7e3caff2a68477a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f16a6134b1d2065668952ea11c0cab7398a3559a
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596956"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617464"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Criar e usar dinamicamente um volume persistente com discos do Azure no AKS (Serviço de Kubernetes do Azure)
 
@@ -26,14 +26,14 @@ Este artigo considera que já existe um cluster do AKS. Se você precisar de um 
 
 Você também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
-## <a name="built-in-storage-classes"></a>Interno de classes de armazenamento
+## <a name="built-in-storage-classes"></a>Classes de armazenamento incorporadas
 
 Uma classe de armazenamento é usada para definir como uma unidade de armazenamento é criada dinamicamente com um volume persistente. Para obter mais informações sobre classes de armazenamento Kubernetes, consulte [Classes de Armazenamento Kubernetes][kubernetes-storage-classes].
 
 Cada cluster AKS inclui duas classes de armazenamento criadas previamente, ambas configuradas para funcionarem com discos do Azure:
 
 * A classe de armazenamento *padrão* provisiona um disco standard do Azure.
-    * O armazenamento padrão é apoiado por HDDs e oferece armazenamento econômico e eficaz. Os discos Standard são ideais para uma carga de trabalho econômica de desenvolvimento e teste.
+    * O armazenamento padrão é apoiado por HDDs e oferece armazenamento econômico enquanto ainda está sendo realizado. Os discos padrão são ideais para um dev econômico e carga de trabalho de teste.
 * A classe de armazenamento *managed-premium* provisiona um disco premium do Azure.
     * Os discos Premium são apoiados por disco de baixa latência e alto desempenho baseado em SSD. Perfeitos para VMs que executam carga de trabalho de produção. Se os nós do AKS no cluster usarem o armazenamento premium, selecione a classe *managed-premium*.
     

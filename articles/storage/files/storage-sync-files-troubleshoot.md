@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ebe5ddf72e13b1a66ded7a90976e0b6209a26dfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d46f513fccf9921d4cf47835bc9d5be4c6ffe241
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060960"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607487"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
 
 Este artigo foi projetado para ajudá-lo a solucionar problemas e resolver problemas encontrados com a implantação da Sincronização de arquivos do Azure. Nós também descrevemos como coletar logs importantes do sistema para ajudar em uma investigação mais profunda dos problemas. Se você não vir a resposta para sua pergunta aqui, poderá entrar em contato conosco pelos seguintes canais (em ordem progressiva):
 
-1. O [Fórum do Armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+1. [Fórum de Armazenamento Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. O [UserVoice do Arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 3. O Suporte da Microsoft. Para criar uma nova solicitação de suporte, no Portal do Azure, na guia **Ajuda**, selecione o botão **Ajuda + suporte** e, em seguida, selecione **Nova solicitação de suporte**.
 
@@ -149,7 +149,7 @@ Esse erro ocorre se o caminho de ponto final do servidor especificado não for u
 Esse erro ocorre porque a Sincronização de Arquivos do Azure não é compatível com pontos de extremidade de servidor em volumes que têm uma pasta de informações de volume do sistema compactada. Para resolver esse problema, descompacte a pasta Informações de Volume do Sistema. Se a pasta Informações de Volume do Sistema for a única pasta compactada no volume, execute as seguintes etapas:
 
 1. Baixe a ferramenta [PsExec.](https://docs.microsoft.com/sysinternals/downloads/psexec)
-2. Execute o seguinte comando a partir de um prompt de comando elevado para iniciar um prompt de comando em execução a conta do sistema: **PsExec.exe -i -s -d cmd**
+2. Execute o seguinte comando a partir de um prompt de comando elevado para iniciar um prompt de comando em execução sob a conta do sistema: **PsExec.exe -i -s -d cmd**
 3. No prompt de comando em execução na conta do sistema, digite os seguintes comandos e pressione Enter:   
     **cd /d "unidade de letra:\Informações sobre o volume do sistema"**  
     **compacto /u /s**
@@ -187,7 +187,7 @@ Set-AzStorageSyncServerEndpoint `
 
 Esse problema pode ocorrer se o processo de Monitor de Sincronização de Armazenamento (AzureStorageSyncMonitor.exe) não estiver em execução ou o servidor não conseguir acessar o serviço Azure File Sync.
 
-No servidor que está sendo exibido como "Aparece offline" no portal, consulte o Event ID 9301 no registro de eventos de telemetria (localizado em Aplicativos e Serviços\Microsoft\FileSync\Agent in Event Viewer) para determinar por que o servidor não pode acessar o Azure File Sync Serviço. 
+No servidor que está sendo exibido como "Aparece offline" no portal, consulte o Event ID 9301 no registro de eventos de Telemetria (localizado em Aplicativos e Serviços\Microsoft\FileSync\Agent in Event Viewer) para determinar por que o servidor não pode acessar o serviço Azure File Sync. 
 
 - Se **getNextJob concluído com status: 0** está registrado, o servidor pode se comunicar com o serviço Azure File Sync. 
     - Abra o Gerenciador de Tarefas no servidor e verifique se o processo do Monitor de Sincronização de Armazenamento (AzureStorageSyncMonitor.exe) está em execução. Se o processo não estiver funcionando, primeiro tente reiniciar o servidor. Se a reinicialização do servidor não resolver o problema, atualize o agente de Sincronização de Arquivos do Azure para a [versão](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes). 
@@ -588,7 +588,7 @@ Se esse erro persistir por mais de algumas horas, crie uma solicitação de supo
 | **Cadeia de caracteres de erro** | CERT_E_UNTRUSTEDROOT |
 | **Correção necessária** | Sim |
 
-Esse erro pode ocorrer se sua organização estiver usando um proxy de finalização SSL ou se uma entidade mal-intencionada estiver interceptando o tráfego entre o servidor e o serviço de Sincronização de Arquivos do Azure. Se tiver certeza de que isso é esperado (porque sua organização está usando um proxy de finalização SSL), você pula a verificação de certificado com uma substituição de registro.
+Esse erro pode acontecer se sua organização estiver usando um proxy de terminação TLS ou se uma entidade maliciosa estiver interceptando o tráfego entre seu servidor e o serviço Azure File Sync. Se você tiver certeza de que isso é esperado (porque sua organização está usando um proxy de terminação TLS), você ignora a verificação do certificado com uma substituição de registro.
 
 1. Crie o valor do Registro SkipVerifyingPinnedRootCertificate.
 
@@ -602,7 +602,7 @@ Esse erro pode ocorrer se sua organização estiver usando um proxy de finaliza�
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-Ao definir esse valor do Registro, o agente do Azure File Sync aceitará qualquer certificado SSL confiável localmente ao transferir dados entre o servidor e o serviço de nuvem.
+Ao definir esse valor de registro, o agente Azure File Sync aceitará qualquer certificado TLS/SSL confiável localmente ao transferir dados entre o servidor e o serviço de nuvem.
 
 <a id="-2147012894"></a>**Não foi possível estabelecer uma conexão com o serviço.**  
 
@@ -894,7 +894,7 @@ Esse erro ocorre quando uma operação de ingestão de dados excede o tempo de i
 4. Selecione a conta de armazenamento vinculada. Se esse link falhar, a conta de armazenamento referenciada foi removida.
     ![Uma captura de tela mostrando o painel de detalhes do ponto de extremidade da nuvem com um link para a conta de armazenamento.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 # Variables for you to populate based on your configuration
 $region = "<Az_Region>"
@@ -975,7 +975,7 @@ if ($storageAccount -eq $null) {
 2. Selecione **Arquivos** para exibir a lista de compartilhamentos de arquivos.
 3. Verifique se o compartilhamento de arquivos referenciado pelo ponto de extremidade da nuvem aparece na lista de compartilhamentos de arquivos (você deve ter notado isso na etapa 1 acima).
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 $fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.AzureFileShareName -and
@@ -1002,7 +1002,7 @@ if ($fileShare -eq $null) {
     - No campo **Função**, selecione **Leitor e Acesso a Dados**.
     - No campo **Selecionar,** digite **Microsoft.StorageSync,** selecione a função e clique **em Salvar**.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
 $role = Get-AzRoleAssignment -Scope $storageAccount.Id | Where-Object { $_.DisplayName -eq "Microsoft.StorageSync" }
 
