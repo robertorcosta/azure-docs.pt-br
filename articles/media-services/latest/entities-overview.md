@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: bc5c983bc98c3b62df977c6765978cd45cd3c93b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500039"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584528"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtragem, encomenda e paginação de entidades de Serviços de Mídia
 
@@ -64,7 +64,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>Ordem por
 
-Use `$orderby` para classificar os objetos devolvidos pelo parâmetro especificado. Por exemplo:   
+Use `$orderby` para classificar os objetos devolvidos pelo parâmetro especificado. Por exemplo:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
@@ -188,4 +188,4 @@ A tabela a seguir mostra como você pode aplicar as opções de filtragem e pedi
 * [Política de streaming de listas](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 * [Localizadores de streaming de listas](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 * [Transmitir um arquivo por streaming](stream-files-dotnet-quickstart.md)
-* [Cotas e limitações](limits-quotas-constraints.md)
+* [Cotas e limites](limits-quotas-constraints.md)

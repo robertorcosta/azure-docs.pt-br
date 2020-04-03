@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7ddef1e78b4f8f62145e10b4cabc4537e28aba2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85a9cad80156dc6ac40e78610c91805d485ff3df
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74969897"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585985"
 ---
 # <a name="content-key-policies"></a>Políticas da Chave de Conteúdo
 
@@ -32,7 +32,7 @@ Normalmente, você associa sua política de chave de conteúdo com seu [localiza
 > [!IMPORTANT]
 > Por favor, revise as seguintes recomendações.
 
-* Você deve projetar um conjunto limitado de políticas para sua conta do Serviço de Mídia e reutilizá-las para seus localizadores de streaming sempre que as mesmas opções forem necessárias. Para saber mais, consulte [Cotas e limitações](limits-quotas-constraints.md).
+* Você deve projetar um conjunto limitado de políticas para sua conta do Serviço de Mídia e reutilizá-las para seus localizadores de streaming sempre que as mesmas opções forem necessárias. Para obter mais informações, consulte [Cotas e limites](limits-quotas-constraints.md).
 * As políticas-chave de conteúdo são atualizadas. Pode levar até 15 minutos para que os principais caches de entrega atualizem e peguem a política atualizada. 
 
    Ao atualizar a diretiva, você está substituindo seu cache de CDN existente, o que pode causar problema de reprodução para clientes que estão usando conteúdo em cache.  

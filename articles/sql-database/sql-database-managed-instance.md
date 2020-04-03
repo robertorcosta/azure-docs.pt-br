@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 01/21/2020
-ms.openlocfilehash: b9fdd1b25e53e1cdc8aa76564304a61adaa8d804
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 06242af6cb00e3adebbc80da722898fb8e348e36
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268776"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585364"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>O que é a instância gerenciada do Azure SQL Database?
 
@@ -67,7 +67,7 @@ Os principais recursos de instâncias gerenciadas são mostrados na tabela a seg
 | Suporte do Portal | Sim|
 | Serviço de Integração Integrado (SSIS) | Não - o SSIS faz parte da [PaaS do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Serviço de análise interna (SSAS) | Não - SSAS é separado [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
-| Serviço interno de relatório (SSRS) | Não - usar o Power BI ou no IaaS do SSRS |
+| Serviço interno de relatório (SSRS) | Não - use [relatórios paginados do Power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) ou hospede O SSRS no Azure VM. Embora a Instância Gerenciada não possa executar o SSRS como um serviço, ele pode hospedar bancos de dados de catálogo SSRS 2019 para um servidor de relatórios externo usando a autenticação do SQL Server. |
 |||
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
@@ -150,7 +150,7 @@ A tabela a seguir resume as operações e as durações gerais típicas:
 |Implantação |Primeira instância de outra geração de hardware em uma sub-rede não vazia (por exemplo, primeira instância gen 5 em uma sub-rede com instâncias Gen 4)|Criação de cluster virtual*|90% das operações terminam em 4 horas|
 |Implantação |Criação em primeira instância de 4 vCores, em uma sub-rede vazia ou não|Criação de cluster virtual**|90% das operações terminam em 4 horas|
 |Implantação |Criação de instâncias subseqüentes dentro da sub-rede não vazia (2ª, 3ª, etc. instância)|Redimensionamento de clustervirtual|90% das operações terminam em 2,5 horas|
-|**Atualização** |Alteração de propriedade de instância (senha de administrador, login AAD, bandeira azure Hybrid Benefit)|N/D|Até 1 minuto|
+|**Atualizar** |Alteração de propriedade de instância (senha de administrador, login AAD, bandeira azure Hybrid Benefit)|N/D|Até 1 minuto|
 |Atualizar |Dimensionamento de armazenamento de instâncias para cima/para baixo (nível de serviço de propósito geral)|Anexando arquivos de banco de dados|90% das operações terminam em 5 minutos|
 |Atualizar |Dimensionamento de armazenamento por instância supércal (nível de serviço crítico do business)|- Redimensionamento de clustervirtual<br>- Sempre em semeação de grupo de disponibilidade|90% das operações terminam em 2,5 horas + tempo para semear todos os bancos de dados (220 GB/hora)|
 |Atualizar |Cálculo de instância (vCores) escalando para cima e para baixo (Propósito Geral)|- Redimensionamento de clustervirtual<br>- Anexando arquivos de banco de dados|90% das operações terminam em 2,5 horas|
@@ -247,7 +247,7 @@ Há suporte para a migração de um banco de dados criptografado para a instânc
 
 ## <a name="azure-active-directory-integration"></a>Integração do Active Directory do Azure
 
-A opção de implantação de instância gerenciada dá suporte a logons e logons do mecanismo de Banco de Dados do SQL Server e logons integrados ao AAD (Azure Active Directory). As entidades de servidor do Azure AD (logons, **versão prévia pública**) são uma versão de nuvem do Azure de logons de banco de dados locais do Windows que você está usando no ambiente local. Os recursos do servidor Azure AD (logins) permitem que você especifique usuários e grupos do seu inquilino do Azure Active Directory como princípios com escopo de instância real, capazes de executar qualquer operação em nível de instância, incluindo consultas de banco de dados cruzados dentro do mesmo gerenciado Instância.
+A opção de implantação de instância gerenciada dá suporte a logons e logons do mecanismo de Banco de Dados do SQL Server e logons integrados ao AAD (Azure Active Directory). As entidades de servidor do Azure AD (logons, **versão prévia pública**) são uma versão de nuvem do Azure de logons de banco de dados locais do Windows que você está usando no ambiente local. Os princípios do servidor Azure AD (logins) permitem que você especifique usuários e grupos do inquilino do Azure Active Directory como princípios com escopo de instância real, capazes de executar qualquer operação em nível de instância, incluindo consultas de banco de dados cruzados na mesma instância gerenciada.
 
 Uma nova sintaxe é introduzida para criar os principais (logins) do servidor Azure AD, **do PROVEDOR EXTERNO**. Para obter mais informações sobre a sintaxe, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CRIAR LOGIN</a>e revise a [Provisão de um administrador do Diretório Ativo do Azure para o artigo da instância gerenciada.](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)
 

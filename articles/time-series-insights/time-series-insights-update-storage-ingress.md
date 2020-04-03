@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2f12cf303c58f0fa614c59ffe643c6c2ee5d2415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8987cbe6860422ff92119a9f3b13a0a365e6d1a4
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246194"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618313"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Entrada e armazenamento de dados na Versão Prévia do Azure Time Series Insights
 
@@ -39,7 +39,7 @@ As principais práticas de configuração, formatação e melhores práticas sã
 
 O Azure Time Series Insights Preview suporta as seguintes fontes de evento:
 
-- [Azure IoT Hub](../iot-hub/about-iot-hub.md)
+- [Hub IoT do Azure](../iot-hub/about-iot-hub.md)
 - [Hubs de eventos do Azure](../event-hubs/event-hubs-about.md)
 
 O Azure Time Series Insights Preview suporta um máximo de duas fontes de evento por instância.
@@ -59,8 +59,8 @@ Os tipos de dados suportados são:
 |---|---|
 | **bool** | Um tipo de dados com `true` `false`um dos dois estados: ou . |
 | **Datetime** | Representa um momento no tempo, geralmente expresso como uma data e hora do dia. Expresso no formato [ISO 8601.](https://www.iso.org/iso-8601-date-and-time-format.html) |
-| **Duplo** | Um ponto flutuante [IEEE 754](https://ieeexplore.ieee.org/document/8766229) de dupla precisão de 64 bits. |
-| **String** | Valores de texto, compostos de caracteres Unicode.          |
+| **double** | Um ponto flutuante [IEEE 754](https://ieeexplore.ieee.org/document/8766229) de dupla precisão de 64 bits. |
+| **cadeia de caracteres** | Valores de texto, compostos de caracteres Unicode.          |
 
 #### <a name="objects-and-arrays"></a>Objetos e matrizes
 
@@ -91,7 +91,7 @@ Em geral, as taxas de ingresssão são vistas como o fator do número de disposi
 
 *  **Número de dispositivos** × **Freqüência de emissão** de eventos × **Tamanho de cada evento**.
 
-Por padrão, a visualização do Time Series Insights pode ingerir dados de entrada a uma taxa de **até 1 megabyte por segundo (MBps) por ambiente Time Series Insights**.
+Por padrão, a visualização do Time Series Insights pode ingerir dados de entrada a uma taxa de **até 1 megabyte por segundo (MBps) por ambiente Time Series Insights**. Existem limitações adicionais [por partição do hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#hub-partitions-and-per-partition-limits).
 
 > [!TIP] 
 > * O suporte ao meio ambiente para ingerir velocidades de até 16 MBps pode ser fornecido por solicitação.
@@ -99,7 +99,7 @@ Por padrão, a visualização do Time Series Insights pode ingerir dados de entr
  
 * **Exemplo 1:**
 
-    Contoso Shipping tem 100.000 dispositivos que emitem um evento três vezes por minuto. O tamanho de um evento é de 200 bytes. Eles estão usando um Event Hub com quatro partições como fonte de evento time series insights.
+    Contoso Shipping tem 100.000 dispositivos que emitem um evento três vezes por minuto. O tamanho de um evento é de 200 bytes. Eles estão usando um Hub Iot com quatro partições como fonte de evento Time Series Insights.
 
     * A taxa de ingestão para o ambiente Time Series Insights seria: **100.000 dispositivos * 200 bytes/evento * (3/60 evento/seg) = 1 MBps**.
     * A taxa de ingestão por partição seria de 0,25 MBps.
@@ -107,11 +107,11 @@ Por padrão, a visualização do Time Series Insights pode ingerir dados de entr
 
 * **Exemplo 2:**
 
-    A Contoso Fleet Analytics possui 60.000 dispositivos que emitem um evento a cada segundo. Eles estão usando uma contagem de partição ioT Hub 24 de 4 como fonte de evento Time Series Insights. O tamanho de um evento é de 200 bytes.
+    A Contoso Fleet Analytics possui 60.000 dispositivos que emitem um evento a cada segundo. Eles estão usando um Event Hub com uma contagem de partições de 4 como fonte de evento Time Series Insights. O tamanho de um evento é de 200 bytes.
 
-    * A taxa de ingestão de ambiente seria: **20.000 dispositivos * 200 bytes/evento * 1 evento/seg = 4 MBps**.
-    * A taxa por partição seria de 1 MBps.
-    * A Contoso Fleet Analytics pode enviar uma solicitação ao Time Series Insights através do portal Azure para aumentar a taxa de ingestão para o seu ambiente.
+    * A taxa de ingestão de ambiente seria: **60.000 dispositivos * 200 bytes/evento * 1 evento/seg = 12 MBps**.
+    * A taxa por partição seria de 3 MBps.
+    * A taxa de ingestão da Contoso Fleet Analytics está acima dos limites de meio ambiente e partição. Eles podem enviar uma solicitação ao Time Series Insights através do portal Azure para aumentar a taxa de ingestão para seu ambiente e criar um Event Hub com mais partições para estar dentro dos limites de visualização.
 
 #### <a name="hub-partitions-and-per-partition-limits"></a>Partições do hub e limites por partição
 

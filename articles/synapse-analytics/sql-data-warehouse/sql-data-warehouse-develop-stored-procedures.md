@@ -1,6 +1,6 @@
 ---
 title: Usando procedimentos armazenados
-description: Dicas para implementar procedimentos armazenados no SQL Data Warehouse do Azure para desenvolvimento de soluções.
+description: Dicas para desenvolver soluções implementando procedimentos armazenados no pool Synapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,34 +11,39 @@ ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 83c3187c580bda33df8780a0e36f0fb9f2a4f484
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: a8350f8027a78ae5692e12661f2e0d2013ab4c46
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351549"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618944"
 ---
-# <a name="using-stored-procedures-in-sql-data-warehouse"></a>Usando procedimentos armazenados no SQL Data Warehouse
-Dicas para implementar procedimentos armazenados no SQL Data Warehouse do Azure para desenvolvimento de soluções.
+# <a name="using-stored-procedures-in-synapse-sql-pool"></a>Usando procedimentos armazenados no pool Synapse SQL
+Este artigo fornece dicas para o desenvolvimento de soluções de pool SQL, implementando procedimentos armazenados.
 
 ## <a name="what-to-expect"></a>O que esperar
 
-O SQL Data Warehouse é compatível com muitos recursos T-SQL usados no SQL Server. Mais importante, há recursos específicos de expansão que você pode usar para maximizar o desempenho da sua solução.
+O pool SQL suporta muitos dos recursos T-SQL que são usados no SQL Server. Mais importante, há recursos específicos de expansão que você pode usar para maximizar o desempenho da sua solução.
 
-No entanto, para manter a escala e o desempenho do SQL Data Warehouse também há alguns recursos e funcionalidades que apresentam diferenças de comportamento e outros que não têm suporte.
+Além disso, para ajudá-lo a manter a escala e o desempenho do pool SQL, existem recursos adicionais e funcionalidades que têm diferenças comportamentais.
 
 
 ## <a name="introducing-stored-procedures"></a>Apresentação dos procedimentos armazenados
-Os procedimentos armazenados são uma ótima maneira de encapsular o código SQL, armazenando-o perto de seus dados no data warehouse. Os procedimentos armazenados ajudam os desenvolvedores a modularizarem suas soluções encapsulando o código em unidades gerenciáveis; facilitando a maior reutilização do código. Cada procedimento armazenado também pode aceitar parâmetros para torná-lo ainda mais flexível.
+Os procedimentos armazenados são uma ótima maneira de encapsular seu código SQL, que é armazenado perto dos dados do pool SQL. Os procedimentos armazenados também ajudam os desenvolvedores a modular suas soluções encapsulando o código em unidades gerenciáveis, facilitando assim maior reutilização do código. Cada procedimento armazenado também pode aceitar parâmetros para torná-lo ainda mais flexível.
 
-O SQL Data Warehouse fornece uma implementação simplificada e otimizada de procedimentos armazenados. A maior diferença em comparação ao SQL Server é que o procedimento armazenado não é um código pré-compilado. Em data warehouses, o tempo de compilação é pequeno em comparação com o tempo necessário para executar consultas em grandes volumes de dados. É mais importante garantir que o código do procedimento armazenado seja otimizado corretamente para grandes consultas. A meta é poupar horas, minutos e segundos, não milissegundos. Portanto, é mais útil pensar em procedimentos armazenados como contêineres para a lógica SQL.     
+O pool SQL fornece uma implementação de procedimento armazenado simplificado e simplificado. A maior diferença em relação ao SQL Server é que o procedimento armazenado não é um código pré-compilado. 
 
-Quando o SQL Data Warehouse executa o procedimento armazenado, as instruções SQL são analisadas, traduzidas e otimizadas no tempo de execução. Durante esse processo, cada instrução é convertida em consultas distribuídas. O código SQL executado nos dados é diferente da consulta enviada.
+Em geral, para data warehouses, o tempo de compilação é pequeno em comparação com o tempo que leva para executar consultas contra grandes volumes de dados. É mais importante garantir que o código de procedimento armazenado seja corretamente otimizado para grandes consultas. 
+
+> [!TIP]
+> A meta é poupar horas, minutos e segundos, não milissegundos. Então, é útil pensar nos procedimentos armazenados como recipientes para a lógica SQL.     
+
+Quando o pool SQL executa seu procedimento armazenado, as instruções SQL são analisados, traduzidos e otimizados em tempo de execução. Durante esse processo, cada instrução é convertida em consultas distribuídas. O código SQL executado nos dados é diferente da consulta enviada.
 
 ## <a name="nesting-stored-procedures"></a>Aninhamento de procedimentos armazenados
 Quando os procedimentos armazenados chamam outros procedimentos armazenados ou executam SQL dinâmico, a invocação interna de código ou procedimento armazenado é considerada aninhada.
 
-O SQL Data Warehouse é compatível com no máximo oito níveis de aninhamento. Isso é um pouco diferente do SQL Server. O nível de aninhamento no SQL Server é de 32.
+O pool SQL suporta um máximo de oito níveis de aninhamento. Em contraste, o nível de ninho no SQL Server é de 32.
 
 A chamada de procedimento armazenado de nível superior é igual ao nível 1 de aninhamento.
 
@@ -64,15 +69,13 @@ GO
 EXEC prc_nesting
 ```
 
-Nota, o SQL Data Warehouse não suporta [atualmente @@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql). É necessário rastrear o nível de aninhamento. É improvável que você exceda o limite de oito níveis de aninhamento, mas, se você fizer isso, será necessário trabalhar novamente em seu código para ajustar os níveis de aninhamento dentro desse limite.
+O pool SQL não suporta atualmente [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql). Como tal, você precisa rastrear o nível do ninho. É improvável que você exceda o limite de nível de oito ninhos. Mas, se você fizer isso, você precisa retrabalhar seu código para se encaixar nos níveis de aninhamento dentro deste limite.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
-O SQL Data Warehouse não permite que você consuma o conjunto de resultados de um procedimento armazenado com uma instrução INSERT. No entanto, há uma abordagem alternativa. Para obter um exemplo, consulte o artigo em [tabelas temporárias](sql-data-warehouse-tables-temporary.md). 
+O pool SQL não permite que você consuma o conjunto de resultados de um procedimento armazenado com uma instrução INSERT. Há, no entanto, uma abordagem alternativa que você pode usar. Para obter um exemplo, consulte o artigo em [tabelas temporárias](sql-data-warehouse-tables-temporary.md). 
 
 ## <a name="limitations"></a>Limitações
-Há alguns aspectos de procedimentos armazenados Transact-SQL que não são implementados no SQL Data Warehouse.
-
-Eles são:
+Existem alguns aspectos dos procedimentos armazenados transact-SQL que não são implementados no pool SQL, que são os seguintes:
 
 * procedimentos armazenados temporariamente
 * procedimentos armazenados numerados

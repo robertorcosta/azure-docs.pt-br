@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Carregue os dados do Táxi de Nova York'
-description: Tutorial usa portal Azure e SQL Server Management Studio para carregar dados do Táxi de Nova York de um blob Global Azure para SQL Analytics.
+description: Tutorial usa portal Azure e SQL Server Management Studio para carregar dados do Táxi de Nova York de um blob global do Azure para Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f1614538f6ab735720d090f66fee0e017e96cf72
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e17b5be0f4f3d568bd5ec836659c4444b384b2fa
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346735"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583741"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: Carregue o conjunto de dados do Táxi de Nova York
 
@@ -41,15 +41,15 @@ Antes de iniciar este tutorial, baixe e instale a versão mais recente do [SSMS]
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 
-Faça logon no [Portal do Azure](https://portal.azure.com/).
+Faça login no [portal Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-database"></a>Criar um banco de dados vazio
 
-Um pool SQL é criado com um conjunto definido de [recursos computacionais](memory-concurrency-limits.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../../azure-resource-manager/management/overview.md) e em um [servidor lógico SQL do Azure](../../sql-database/sql-database-features.md). 
+Um pool de SQL é criado com um conjunto definido de [recursos de computação](memory-concurrency-limits.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../../azure-resource-manager/management/overview.md) e em um [servidor lógico SQL do Azure](../../sql-database/sql-database-features.md). 
 
 Siga essas etapas para criar um banco de dados em branco. 
 
-1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
+1. Selecione **Criar um recurso** no canto superior esquerdo do portal Azure.
 
 2. Selecione **Bancos** de Dados na página **Nova** e selecione **Azure Synapse Analytics** em **Destaque** na página **Nova.**
 
@@ -59,10 +59,10 @@ Siga essas etapas para criar um banco de dados em branco.
 
    | Configuração            | Valor sugerido       | Descrição                                                  |
    | ------------------ | --------------------- | ------------------------------------------------------------ |
-   | *Nome**            | meuDataWarehouseDeExemplo | Para obter nomes de banco de dados [válidos, consulte Identificadores de banco de dados](/sql/relational-databases/databases/database-identifiers). |
+   | *Nome**            | meuDataWarehouseDeExemplo | Para ver os nomes do banco de dados válidos, consulte [Identificadores do Banco de Dados](/sql/relational-databases/databases/database-identifiers). |
    | **Assinatura**   | Sua assinatura     | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
    | **Grupo de recursos** | myResourceGroup       | Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). |
-   | **Selecionar fonte**  | Banco de dados em branco        | Especifique para criar um banco de dados em branco. Observe que um data warehouse é um tipo de banco de dados. |
+   | **Selecionar a origem**  | Banco de dados em branco        | Especifique para criar um banco de dados em branco. Observe que um data warehouse é um tipo de banco de dados. |
 
     ![criar data warehouse](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
@@ -71,7 +71,7 @@ Siga essas etapas para criar um banco de dados em branco.
     | Configuração                | Valor sugerido          | Descrição                                                  |
     | ---------------------- | ------------------------ | ------------------------------------------------------------ |
     | **Nome do servidor**        | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). |
-    | **Login de admin do servidor** | Qualquer nome válido           | Para nomes de login [válidos, consulte Identificadores de banco de dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+    | **Logon de administrador do servidor** | Qualquer nome válido           | Para nomes de login [válidos, consulte Identificadores de banco de dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
     | **Senha**           | Qualquer senha válida       | Sua senha deve ter, pelo menos, oito caracteres e deve conter caracteres de três das seguintes categorias: caracteres com letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos. |
     | **Local**           | Qualquer local válido       | Para obter mais informações sobre as regiões, consulte [Regiões do Azure](https://azure.microsoft.com/regions/). |
 
@@ -117,9 +117,9 @@ Um firewall no nível do servidor que impede que aplicativos e ferramentas exter
 
 4. Selecione **Adicionar IP do cliente** na barra de ferramentas para adicionar seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
 
-5. Selecione **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
+5. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
 
-6. Selecione **OK** e, em seguida, feche a página **Configurações do Firewall**.
+6. Selecione **OK** e, em seguida, feche a página **de configurações** do Firewall.
 
 Agora é possível conectar-se ao SQL Server e a seus data warehouses usando este endereço IP. A conexão funciona no SQL Server Management Studio ou em outra ferramenta de sua escolha. Quando você se conectar, use a conta ServerAdmin criada anteriormente.  
 
@@ -130,7 +130,7 @@ Agora é possível conectar-se ao SQL Server e a seus data warehouses usando est
 
 Obtenha o nome do servidor totalmente qualificado para seu SQL Server no Portal do Azure. Posteriormente, você usará o nome totalmente qualificado ao se conectar ao servidor.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+1. Faça login no [portal Azure](https://portal.azure.com/).
 2. Selecione **Azure Synapse Analytics** no menu à esquerda e selecione seu banco de dados na página **Azure Synapse Analytics.** 
 3. No painel **Essentials**, na página do Portal do Azure de seu banco de dados, localize e copie o **Nome do servidor**. Neste exemplo, o nome totalmente qualificado é meunovoservidor-20180430.database.windows.net. 
 
@@ -603,7 +603,7 @@ Carregar usando o PolyBase e autenticar através de identidades gerenciadas é o
 
 Consulte a [seguinte documentação](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) se você quiser configurar pontos finais de serviço de rede virtual para o Azure Synapse Analytics. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Você está sendo cobrado por recursos de computação e por dados que você carregou em seu data warehouse. Eles são cobrados separadamente. 
 
@@ -614,7 +614,7 @@ Siga estas etapas para limpar os recursos conforme desejado.
 
 1. Faça login no [portal Azure,](https://portal.azure.com)selecione seu data warehouse.
 
-    ![Limpar recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar os recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Para pausar a computação, selecione o botão **Pausar**. Quando o data warehouse for pausado, você verá um botão **Iniciar**.  Para retomar a computação, selecione **Iniciar**.
 

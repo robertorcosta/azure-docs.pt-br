@@ -7,18 +7,21 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: e3f8445f68ec959ce1bb0d1ba4029807bd25907a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65f404b52a5fc06d8fa5bb5aad291e57fde8caba
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257420"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617193"
 ---
-# <a name="application-gateway-high-traffic-support"></a>Suporte de tráfego de alto tráfego do Application Gateway 
+# <a name="application-gateway-high-traffic-support"></a>Suporte a alto tráfego do Gateway de Aplicativo
 
-Este artigo descreve algumas diretrizes sugeridas para ajudá-lo a configurar seu Gateway de aplicativo para lidar com tráfego extra devido a cenários de alto volume de tráfego, como a situação COVID-19. Você pode usar o Application Gateway com o Web Application Firewall (WAF) para uma maneira escalável e segura de gerenciar o tráfego para seus aplicativos web. 
+>[!NOTE]
+> Este artigo descreve algumas diretrizes sugeridas para ajudá-lo a configurar seu Gateway de aplicativo para lidar com tráfego extra devido ao alto volume de tráfego que pode ocorrer devido à crise do COVID-19.
 
-As seguintes sugestões ajudam você a configurar o Application Gateway com o WAF para lidar com o tráfego extra. 
+Você pode usar o Application Gateway com o Web Application Firewall (WAF) para uma maneira escalável e segura de gerenciar o tráfego para seus aplicativos web.
+
+As seguintes sugestões ajudam você a configurar o Application Gateway com o WAF para lidar com o tráfego extra.
 
 ## <a name="use-the-v2-sku-over-v1-for-its-autoscaling-capabilities-and-performance-benefits"></a>Use o V2 SKU sobre v1 para seus recursos de autodimensionamento e benefícios de desempenho
 O v2 SKU oferece autodimensionamento para garantir que o Gateway de aplicativo possa aumentar à medida que o tráfego aumenta. Ele também oferece outros benefícios significativos de desempenho, como desempenho de descarga TLS 5x melhor, tempos de implantação e atualização mais rápidos, redundância de zona e muito mais quando comparado ao v1. Para obter mais informações, consulte nossa [documentação v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). 

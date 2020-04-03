@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d0b32fb2b52d2dbb126053247cff83f05781ba5e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 44dbc03a41cfde94c344ae331b21d7536778050c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350877"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619109"
 ---
 # <a name="best-practices-for-sql-analytics-in-azure-synapse-analytics-formerly-sql-dw"></a>Práticas recomendadas para SQL Analytics no Azure Synapse Analytics (anteriormente SQL DW)
 
-Este artigo é uma coleção de práticas recomendadas para ajudá-lo a obter o melhor desempenho a partir de sua implantação [do SQL Analytics.](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse)  O objetivo deste artigo é dar-lhe algumas orientações básicas e destacar áreas importantes de foco.  Cada seção apresenta um conceito e, em seguida, aponta-o para artigos mais detalhados que cobrem o conceito com mais profundidade. A sequência de tópicos está na ordem da importância. 
+Este artigo é uma coleção de práticas recomendadas para ajudá-lo a obter o melhor desempenho a partir de sua implantação [do SQL Analytics.](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse)  O objetivo deste artigo é dar-lhe algumas orientações básicas e destacar áreas importantes de foco.  Cada seção apresenta um conceito e, em seguida, aponta-o para artigos mais detalhados que cobrem o conceito com mais profundidade. A sequência de tópicos está na ordem da importância. 
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Reduzir custos com pausa e dimensionamento
 
@@ -115,7 +115,7 @@ Quando as linhas são gravadas nas tabelas columnstore sob pressão da memória,
 
 Como os segmentos de columnstore de alta qualidade são importantes, é uma boa ideia usar IDs de usuários que estão na classe de recursos médios ou grandes para carregar dados. Usar [unidades de data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) menores significa que você deseja atribuir uma classe de recursos maior ao usuário que está carregando.
 
-Uma vez que as tabelas do columnstore geralmente não empurram dados para um segmento de columnstore compactado até que haja mais de 1 milhão de linhas por tabela e cada tabela SQL Analytics seja dividida em 60 tabelas, como regra geral, as tabelas do columnstore não beneficiarão uma consulta a menos que a tabela tem mais de 60 milhões de linhas.  Para a tabela com menos de 60 milhões de linhas, talvez não faça sentido ter um índice columnstore.  Também pode não prejudicar.  
+Uma vez que as tabelas do columnstore geralmente não empurram dados para um segmento de columnstore compactado até que haja mais de 1 milhão de linhas por tabela e cada tabela SQL Analytics seja dividida em 60 tabelas, como regra geral, as tabelas do columnstore não beneficiarão uma consulta a menos que a tabela tenha mais de 60 milhões de linhas.  Para a tabela com menos de 60 milhões de linhas, talvez não faça sentido ter um índice columnstore.  Também pode não prejudicar.  
 
 Além disso, se você particionar seus dados, desejará considerar que cada partição precisará ter 1 milhão de linhas para se beneficiar de um índice columnstore clusterizado.  Se uma tabela tiver 100 partições, será necessário ter pelo menos 6 bilhões de linhas para se beneficiar de um columnstore clusterizado (60 distribuições * 100 partições * 1 milhão de linhas).  
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: 30991f17970eefe1a140cdd70e1f6b305160349c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 345fc329df1c57cab7dd66c609bf3701fa3a6124
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79537322"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619138"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Segurança no Azure Cosmos DB – visão geral
 
@@ -48,7 +48,7 @@ Recomendamos a seguinte lista de verificação de requisitos para comparação d
 E embora pareça óbvio, as [falhas recentes em grande escala de banco de dados](https://thehackernews.com/2017/01/mongodb-database-security.html) nos lembram da importância simples, mas fundamental, dos requisitos a seguir:
 
 - Servidores corrigidos que são mantidos atualizados
-- Criptografia HTTPS por padrão/SSL
+- Criptografia HTTPS por padrão/TLS
 - Contas administrativas com senhas fortes
 
 ## <a name="how-does-azure-cosmos-db-secure-my-database"></a>Como o Azure Cosmos DB protege meu banco de dados
@@ -76,7 +76,7 @@ Vamos examinar cada um deles em detalhes.
 |Criptografia HTTPS/SSL/TLS|Todas as conexões com o Azure Cosmos DB suportam HTTPS. O Azure Cosmos DB também suporta o TLS 1.2.<br>É possível impor uma versão tls mínima do lado do servidor. Para isso, entre [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com)em contato.|
 |Criptografia em repouso|Todos os dados armazenados no Azure Cosmos DB são criptografados em repouso. Saiba mais em [Criptografia em repouso do Azure Cosmos DB](./database-encryption-at-rest.md)|
 |Servidores com patches|Por ser um banco de dados gerenciado, o Azure Cosmos DB elimina a necessidade de gerenciar e corrigir servidores, o que é feito automaticamente para você.|
-|Contas administrativas com senhas fortes|É difícil de acreditar que precisamos mencionar esse requisito, mas ao contrário de alguns de nossos concorrentes, é impossível ter uma conta administrativa sem senha no Azure Cosmos DB.<br><br> A segurança via autenticação baseada em segredo de SSL e HMAC está incorporada por padrão.|
+|Contas administrativas com senhas fortes|É difícil de acreditar que precisamos mencionar esse requisito, mas ao contrário de alguns de nossos concorrentes, é impossível ter uma conta administrativa sem senha no Azure Cosmos DB.<br><br> A segurança via autenticação baseada em segredo TLS e HMAC é assada por padrão.|
 |Certificações de proteção de dados e de segurança| Para obter a lista de certificações mais atualizada, consulte o site geral [do Azure Compliance,](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) bem como o mais recente [Documento de Conformidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) com todas as certificações (procure o Cosmos). Para uma leitura mais focada, confira o post de 25 de abril de 2018 [Azure #CosmosDB: Seguro, privado, compatível com o SOCS 1/2 Tipo 2, HITRUST, PCI DSS Nível 1, ISO 27001, HIPAA, FedRAMP High, e muitos outros.
 
 A captura de tela a seguir mostra como você pode usar os logs de atividade e log de auditoria para monitorar sua conta: ![Logs de atividades do Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)

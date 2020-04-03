@@ -1,6 +1,6 @@
 ---
 title: Construir soluções integradas
-description: Ferramentas de solução e parceiros que se integram a um data warehouse provisionado usando o SQL Analytics.
+description: Ferramentas de solução e parceiros que se integram com um pool Synapse SQL.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,15 +11,16 @@ ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 680e561c08c5113e3d7f26b00422f3696bb133e9
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c8e3598e55d3f90ab2b7401380406677f56c0ce3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350234"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586494"
 ---
-# <a name="integrate-other-services-with-a-sql-analytics-data-warehouse"></a>Integre outros serviços com um data warehouse sql analytics 
-O recurso SQL Analytics no Azure Synapse Analytics permite que os usuários se integrem com muitos dos outros serviços no Azure. Usando o SQL Analytics, você pode criar um data warehouse através de seu recurso SQL Pool, que pode então utilizar vários serviços adicionais, alguns dos quais incluem:
+# <a name="integrate-other-services-with-a-synapse-sql-pool"></a>Integre outros serviços com um pool Synapse SQL
+
+O recurso de pool Synapse SQL dentro do Azure Synapse Analytics permite que os usuários se integrem com muitos dos outros serviços no Azure. Usando o Synapse SQL, você pode criar um data warehouse através de seu recurso de pool SQL, que pode então utilizar vários serviços adicionais, alguns dos quais incluem:
 
 * Power BI
 * Fábrica de dados do Azure

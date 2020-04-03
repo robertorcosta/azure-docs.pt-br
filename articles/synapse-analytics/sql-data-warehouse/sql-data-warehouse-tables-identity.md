@@ -1,6 +1,6 @@
 ---
 title: Usando identidade para criar chaves de substituto
-description: Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves de substituto em tabelas no SQL Analytics.
+description: Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves de substituto em tabelas no pool Synapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ab8f4a64f7273f0fa15c20f324e132003d5afe32
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d4a9880ed7ab26d0127026f49c0bc781cfc2a941
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351305"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586327"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-sql-analytics"></a>Usando o IDENTITY para criar chaves de substituto no SQL Analytics
+# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Usando identidade para criar chaves de substituto no pool Synapse SQL
 
-Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves de substituto em tabelas no SQL Analytics.
+Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves de substituto em tabelas no pool Synapse SQL.
 
 ## <a name="what-is-a-surrogate-key"></a>O que é uma chave de substituto
 
-Uma chave substituta em uma tabela é uma coluna com um identificador exclusivo para cada linha. A chave não é gerada de dados da tabela. Os modeladores de dados gostam de criar chaves de substituto em suas tabelas quando projetam modelos SQL Analytics. Você pode usar a propriedade IDENTITY para atingir esse objetivo de forma simples e eficiente, sem afetar o desempenho de carga.  
+Uma chave substituta em uma tabela é uma coluna com um identificador exclusivo para cada linha. A chave não é gerada de dados da tabela. Os modeladores de dados gostam de criar chaves substitutas em suas tabelas quando criam modelos de data warehouse. Você pode usar a propriedade IDENTITY para atingir esse objetivo de forma simples e eficiente, sem afetar o desempenho de carga.  
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Criando uma tabela com uma coluna IDENTITY
 
-A propriedade IDENTITY foi projetada para dimensionar todas as distribuições no banco de dados SQL Analytics sem afetar o desempenho da carga. Portanto, a implementação de IDENTITY é orientada para atingir esses objetivos.
+A propriedade IDENTITY foi projetada para dimensionar todas as distribuições no pool Synapse SQL sem afetar o desempenho da carga. Portanto, a implementação de IDENTITY é orientada para atingir esses objetivos.
 
 Você pode definir uma tabela como tendo a propriedade IDENTITY quando você cria a tabela pela primeira vez usando uma sintaxe semelhante à instrução a seguir:
 
@@ -50,7 +50,7 @@ Este restante desta seção destaca as nuances da implementação para ajudá-lo
 
 ### <a name="allocation-of-values"></a>Alocação de valores
 
-A propriedade IDENTITY não garante a ordem na qual os valores substitutos são alocados, o que reflete o comportamento do SQL Server e do Banco de Dados SQL do Azure. No entanto, no SQL Analytics, a ausência de uma garantia é mais acentuada.
+A propriedade IDENTITY não garante a ordem na qual os valores substitutos são alocados, o que reflete o comportamento do SQL Server e do Banco de Dados SQL do Azure. No entanto, na piscina Synapse SQL, a ausência de uma garantia é mais acentuada.
 
 O exemplo a seguir é uma ilustração:
 
@@ -100,7 +100,7 @@ CREATE TABLE AS SELECT (CTAS) segue o mesmo comportamento do SQL Server que est�
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserir explicitamente os valores em uma coluna IDENTITY
 
-O SQL Analytics suporta `SET IDENTITY_INSERT <your table> ON|OFF` sintaxe. Você pode usar essa sintaxe para inserir explicitamente os valores na coluna IDENTITY.
+O pool Synapse SQL suporta `SET IDENTITY_INSERT <your table> ON|OFF` sintaxe. Você pode usar essa sintaxe para inserir explicitamente os valores na coluna IDENTITY.
 
 Muitos modeladores de dados gostam de usar valores negativos predefinidos para determinadas linhas em suas dimensões. Um exemplo é de -1 ou a linha "membro desconhecido".
 
@@ -161,7 +161,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Não é possível usar `CREATE TABLE AS SELECT` atualmente ao carregar dados em uma tabela com uma coluna IDENTITY.
 >
 
-Para obter mais informações sobre o carregamento de dados, consulte [Projetando Extrato, Carga e Transformação (ELT) para práticas recomendadas de SQL Analytics](design-elt-data-loading.md) e [Loading](guidance-for-loading-data.md).
+Para obter mais informações sobre o carregamento de dados, consulte [Projetando Extrato, Carga e Transformação (ELT) para pool Synapse SQL](design-elt-data-loading.md) e [Práticas recomendadas de carregamento](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Exibições do sistema
 
@@ -195,7 +195,7 @@ A propriedade IDENTITY não pode ser usada:
 - Quando a coluna é também a chave de distribuição
 - Quando a tabela é uma tabela externa
 
-As seguintes funções relacionadas não são suportadas no SQL Analytics:
+As seguintes funções relacionadas não são suportadas no pool Synapse SQL:
 
 - [IDENTIDADE()](/sql/t-sql/functions/identity-function-transact-sql)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)
