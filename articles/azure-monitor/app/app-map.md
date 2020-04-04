@@ -4,12 +4,12 @@ description: Monitorar topologias complexas de aplicativos com o mapa do aplicat
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: dce2fdbe7e0c390309be38d2ebab4c73dbb4ed2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0823dd5d880c778f9b7a231ac14f1cbba1940927
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666268"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657386"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa do aplicativo: aplicativos distribuídos por triagem
 
@@ -85,7 +85,7 @@ Para exibir alertas ativos e as regras subjacentes que fazem com que os alertas 
 
 O Mapa do Aplicativo usa a propriedade **de nome da função nuvem** para identificar os componentes no mapa. O Application Insights SDK adiciona automaticamente a propriedade de nome de função na nuvem à telemetria emitida por componentes. Por exemplo, o SDK adicionará um nome de site ou nome de função de serviço à propriedade de nome da função na nuvem. No entanto, há casos em que você talvez queira substituir o valor padrão. Para substituir o nome da função na nuvem e alterar o que é exibido no Mapa do Aplicativo:
 
-### <a name="netnet-core"></a>Núcleo .NET/.NET
+# <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
 **Escreva telemetria inicial personalizada abaixo.**
 
@@ -153,7 +153,26 @@ Para [aplicações ASP.NET Core,](asp-net-core.md#adding-telemetryinitializers) 
 }
 ```
 
-### <a name="nodejs"></a>Node.js
+# <a name="java"></a>[Java](#tab/java)
+
+Começando com o Application Insights Java SDK 2.5.0, `<RoleName>` você `ApplicationInsights.xml` pode especificar o nome da função na nuvem adicionando ao seu arquivo, por exemplo.
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
+Se você usar o Spring Boot com o iniciador do Spring Boot do Application Insights, a única alteração necessária é definir seu nome personalizado para o aplicativo no arquivo application.properties.
+
+`spring.application.name=<name-of-app>`
+
+O starter spring boot atribuirá automaticamente o nome da função na nuvem ao valor que você inserir para a propriedade spring.application.name.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -174,26 +193,7 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 });
 ```
 
-### <a name="java"></a>Java
-
-Começando com o Application Insights Java SDK 2.5.0, `<RoleName>` você `ApplicationInsights.xml` pode especificar o nome da função na nuvem adicionando ao seu arquivo, por exemplo.
-
-```XML
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
-   <RoleName>** Your role name **</RoleName>
-   ...
-</ApplicationInsights>
-```
-
-Se você usar o Spring Boot com o iniciador do Spring Boot do Application Insights, a única alteração necessária é definir seu nome personalizado para o aplicativo no arquivo application.properties.
-
-`spring.application.name=<name-of-app>`
-
-O starter spring boot atribuirá automaticamente o nome da função na nuvem ao valor que você inserir para a propriedade spring.application.name.
-
-### <a name="clientbrowser-side-javascript"></a>JavaScript do lado do cliente/navegador
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 appInsights.queue.push(() => {
@@ -203,6 +203,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 });
 });
 ```
+---
 
 ### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Entendendo o nome da função na nuvem no contexto do Mapa de Aplicativos
 
@@ -254,7 +255,7 @@ Se você estiver tendo dificuldades para obter o Mapa do aplicativo para trabalh
 
 O Mapa do Aplicativo constrói um nó de aplicativo para cada nome único de função na nuvem presente em sua telemetria de solicitação e um nó de dependência para cada combinação única de nome de tipo, destino e função na nuvem em sua telemetria de dependência. Se houver mais de 10.000 nós em sua telemetria, o Mapa de Aplicativos não será capaz de buscar todos os nós e links, de modo que seu mapa estará incompleto. Se isso acontecer, uma mensagem de aviso aparecerá ao visualizar o mapa.
 
-Além disso, o Mapa de Aplicativos só suporta até 1000 álos separados não agrupados renderizados de uma só vez. O Mapa de Aplicativos reduz a complexidade visual agrupando dependências que têm o mesmo tipo e chamadores, mas se sua telemetria tiver muitos nomes de funções de nuvem exclusivos ou muitos tipos de dependência, esse agrupamento será insuficiente, e o mapa não será capaz de Processar.
+Além disso, o Mapa de Aplicativos só suporta até 1000 álos separados não agrupados renderizados de uma só vez. O Mapa do Aplicativo reduz a complexidade visual agrupando dependências que têm o mesmo tipo e chamadores, mas se sua telemetria tiver muitos nomes de funções de nuvem exclusivos ou muitos tipos de dependência, esse agrupamento será insuficiente e o mapa não poderá renderizar.
 
 Para corrigir isso, você precisará alterar sua instrumentação para definir corretamente o nome da função na nuvem, o tipo de dependência e os campos de destino de dependência.
 

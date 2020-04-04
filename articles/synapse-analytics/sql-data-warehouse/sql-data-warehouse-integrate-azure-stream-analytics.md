@@ -11,28 +11,28 @@ ms.date: 2/5/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: feb7b52c84e5e702202bc668cfda676d291ea82e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e281f8a1fb3959256d836134b4c59f5399deb9bd
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350430"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633291"
 ---
 # <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Use o Azure Stream Analytics com o Azure Synapse Analytics
 
-A Stream Analytics do Azure é um serviço completamente gerenciado que oferece baixa latência, alta disponibilidade e processamento escalonável de eventos complexos ao longo do fluxo de dados na nuvem. Você pode aprender as noções básicas lendo [Introdução ao Stream Analytics do Azure](../../stream-analytics/stream-analytics-introduction.md). Depois, você pode saber como criar uma solução de ponta a ponta com o Stream Analytics seguindo o tutorial [Introdução ao uso do Stream Analytics do Azure](../../stream-analytics/stream-analytics-real-time-fraud-detection.md).
+A Stream Analytics do Azure é um serviço completamente gerenciado que oferece baixa latência, alta disponibilidade e processamento escalonável de eventos complexos ao longo do fluxo de dados na nuvem. Você pode aprender as noções básicas lendo [Introdução ao Stream Analytics do Azure](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Depois, você pode saber como criar uma solução de ponta a ponta com o Stream Analytics seguindo o tutorial [Introdução ao uso do Stream Analytics do Azure](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Neste artigo, você aprenderá a usar seu data warehouse como um dissipador de saída para seus trabalhos no Azure Stream Analytics.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Azure Stream Analytics Job - Para criar um trabalho no Azure Stream Analytics, siga as etapas do Iniciar a utilização do tutorial [do Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md) para:  
+* Azure Stream Analytics Job - Para criar um trabalho no Azure Stream Analytics, siga as etapas do Iniciar a utilização do tutorial [do Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) para:  
 
     1. Criar uma entrada de Hub de eventos
     2. Configurar e iniciar o aplicativo gerador de evento
     3. Provisionar um trabalho de análise de fluxo
     4. Especifique a entrada e a consulta do trabalho
-* Armazém de dados do Pool Synapse Synapse - Para criar um novo data warehouse, siga os passos no [Quickstart para criar um novo data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal).
+* Armazém de dados do Pool Synapse Synapse - Para criar um novo data warehouse, siga os passos no [Quickstart para criar um novo data warehouse](create-data-warehouse-portal.md).
 
 ## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>Especifique a saída de streaming para apontar para o seu data warehouse
 
@@ -44,7 +44,7 @@ No portal Azure, vá para o seu trabalho de Stream Analytics e clique em **Saíd
 
 Clique no botão **Adicionar** e escolha **SQL Database** no menu suspenso.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
+![Escolha o banco de dados SQL](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
 
 ### <a name="step-3"></a>Etapa 3
 
@@ -60,7 +60,7 @@ Insira os valores a seguir:
 * *Tabela*: especifique o nome da tabela de destino no banco de dados.
 * clique no botão **Salvar**
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
+![Formulário de banco de dados SQL preenchido](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
 
 ### <a name="step-4"></a>Etapa 4
 
@@ -102,23 +102,23 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 No portal Azure para o trabalho stream analytics, clique no nome do seu trabalho.  Clique no botão ***Teste*** no painel ***Detalhes de Saída.***
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png)Quando a conexão com o banco de dados for bem sucedida, você verá uma notificação no portal.
+![Botão de teste em](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) detalhes do Outpout Quando a conexão ao banco de dados for bem sucedida, você verá uma notificação no portal.
 
 ### <a name="step-6"></a>Etapa 6
 
 Clique no menu ***Consulta*** em ***Topologia de Trabalho*** e altere a consulta para inserir dados na saída de Fluxo que você criou.  Clique no botão ***De consulta selecionada para*** testar sua consulta.  Clique no botão ***Salvar consulta*** quando o teste de consulta for bem sucedido.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaquery.png)
+![Salvar consulta](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaquery.png)
 
 ### <a name="step-7"></a>Etapa 7
 
 Inicie o trabalho do Azure Stream Analytics.  Clique no botão ***Iniciar*** no menu ***Visão geral.***
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastart.png)
+![Iniciar trabalho do Stream Analytics](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastart.png)
 
-clique no botão ***Iniciar*** no painel de inicialização do trabalho.
+Clique no botão ***Iniciar*** no painel de iniciação do trabalho.
 
-![](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
+![Clique em Iniciar](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

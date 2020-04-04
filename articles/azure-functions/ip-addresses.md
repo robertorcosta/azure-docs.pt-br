@@ -3,12 +3,12 @@ title: Endereços IP no Azure
 description: Saiba como encontrar endereços IP de entrada e saída para aplicativos de função e o que faz com que eles sejam alterados.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276485"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656779"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP no Azure
 
@@ -25,7 +25,7 @@ Os endereços IP estão associados a aplicativos de função, não a funções i
 
 Cada aplicativo de função possui um único endereço IP de entrada. Para encontrar esse endereço IP:
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Navegue até o aplicativo de função.
 3. Selecione **recursos da plataforma**.
 4. Selecione **Propriedades** e o endereço IP de entrada será exibido em **Endereço IP virtual**.
@@ -86,7 +86,7 @@ O endereço IP de entrada **pode** mudar quando você:
 
 - Exclua um aplicativo de função e recrie-o em um grupo de recursos diferente.
 - Exclua o último aplicativo de função em uma combinação de grupo de recursos e região e recrie-o.
-- Exclua uma vinculação SSL, como durante a [renovação do certificado](../app-service/configure-ssl-certificate.md#renew-certificate).
+- Exclua uma vinculação TLS, como durante a [renovação do certificado](../app-service/configure-ssl-certificate.md#renew-certificate).
 
 Quando o aplicativo de função é executado em um [plano de consumo,](functions-scale.md#consumption-plan)o endereço IP de entrada também pode mudar mesmo quando você não tiver tomado nenhuma ação como as [listadas acima](#inbound-ip-address-changes).
 
@@ -115,7 +115,7 @@ Se você precisar de endereços IP dedicados e estáticos, recomendamos [Ambient
 
 Para descobrir se seu aplicativo de função é executado em um Ambiente de Serviço de Aplicativo:
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Navegue até o aplicativo de função.
 3. Selecione o guia **Visão geral**.
 4. A camada do plano de Serviço de Aplicativo aparece em **Plano de serviço de aplicativo / camada de preço**. A camada de preços do Ambiente de Serviço de Aplicativo é **Isolado**.

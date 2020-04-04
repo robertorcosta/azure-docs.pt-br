@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2dbbe6bcd4957a108cc3eae4d41816b130cf8f07
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62125790"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633876"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos StorSimple para gerenciar volumes na Matriz Virtual StorSimple
 
@@ -44,7 +44,7 @@ Consulte a tabela a seguir para saber a capacidade máxima provisionada para cad
 | Tamanho mínimo de um volume em camadas                            | 500 GB        |
 | Tamanho máximo de um volume em camadas                            | 5 TB          |
 | Tamanho mínimo de um volume fixado localmente                    | 50 GB         |
-| Tamanho máximo de um volume fixado localmente                    | 500 GB        |
+| Tamanho máximo de um volume fixado localmente                    | 200 GB        |
 
 ## <a name="the-volumes-blade"></a>A página Volumes
 O menu **Volumes** na sua folha de resumo do serviço StorSimple exibe a lista de volumes de armazenamento em determinada matriz StorSimple e permite gerenciá-los.

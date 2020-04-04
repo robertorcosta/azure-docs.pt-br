@@ -4,19 +4,19 @@ description: Perguntas frequentes sobre o autoatendimento de redefinição de se
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e1cc9dde6bb2b6ae47affaed4c557f3746a681b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae3ace24d6f33702c15a364b913f841d90fd8872
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77061447"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654188"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -107,9 +107,9 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > **R:** A interface do usuário de redefinição de senha, as mensagens SMS e as chamadas de voz estão localizadas nos mesmos idiomas com suporte no Office 365.
   >
   >
-* **P: que partes da experiência de redefinição de senha ficam personalizadas com a marca quando eu definir os itens de marcas organizacionais na guia Configurar no meu diretório?**
+* **P: Quais partes da experiência de redefinição de senha ficam marcadas quando eu defina os itens de marca organizacional na guia configurar do meu diretório?**
 
-  > **R:** O portal de redefinição de senha mostra o logotipo de sua organização e também permite que você configure o link Contate o administrador para apontar para uma URL ou um email personalizado. Todos os emails enviados pela redefinição de senha incluem o logotipo de sua organização, as cores e o nome no corpo do email e são personalizados nas configurações desse nome específico.
+  > **R:** O portal de redefinição de senha mostra o logotipo de sua organização e também permite que você configure o link Contate o administrador para apontar para uma URL ou um email personalizado. Qualquer e-mail enviado por redefinição de senha inclui o logotipo, cores e nome da sua organização no corpo do e-mail e é personalizado a partir das configurações para esse nome em particular.
   >
   >
 * **P: como eu instruo os usuários sobre onde acessar para redefinir as suas senhas?**
@@ -124,10 +124,10 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: Você suporta desbloquear contas ativas locais do Diretório quando os usuários redefinem suas senhas?**
 
-  > **A:** Sim. Quando um usuário redefine a senha, se o write-back de senha foi implantado usando o Azure AD Connect, a conta desse usuário é desbloqueada automaticamente quando ele redefine a senha.
+  > **A:** Sim. Quando um usuário redefine sua senha, se a regravação de senha for implantada através do Azure AD Connect, a conta do usuário é desbloqueada automaticamente quando ele redefine sua senha.
   >
   >
-* **P: como posso integrar a redefinição de senha diretamente à experiência de entrada na área de trabalho do usuário?**
+* **P: Como posso integrar a redefinição de senha diretamente na experiência de login da área de trabalho do meu usuário?**
 
   > **R:** se você for um cliente do Azure AD Premium, poderá instalar o Microsoft Identity Manager sem custo adicional e implantar a solução de redefinição de senha local.
   >
@@ -266,7 +266,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > **R:** O write-back de senha funciona para contas de usuário que são sincronizadas do Active Directory no local ao Azure AD, incluindo federado, o hash de senha sincronizado e os usuários de autenticação de passagem.
   >
   >
-* **P: o write-back de senha impõe as políticas de senha do meu domínio?**
+* **P: A regravação de senha impõe as políticas de senha do meu domínio?**
 
   > **A:** Sim. O write-back de senha impõe a duração, o histórico e a complexidade da senha, filtros e qualquer outra restrição que você possa impor nas senhas no domínio local.
   >

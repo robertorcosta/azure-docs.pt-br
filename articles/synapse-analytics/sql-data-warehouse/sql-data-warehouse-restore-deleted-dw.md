@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5f0432cafee07dbed071d24aa8c24ee9b2176967
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 251fdb83e848aaac3a5391320df23149ce1bce33
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350185"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633058"
 ---
 # <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Restaurar um pool SQL excluído usando o Azure Synapse Analytics
 
@@ -39,16 +39,16 @@ Para restaurar um pool SQL excluído, use o [cmdlet Restore-AzSqlDatabase.](http
 5. Obtenha o data warehouse apagado específico.
 6. Restaurar o data warehouse excluído
     1. Para restaurar o SQL Data Warehouse excluído para um servidor lógico diferente, certifique-se de especificar o outro nome lógico do servidor.  Este servidor lógico também pode estar em um grupo de recursos diferente e região.
-    1. Para restaurar uma assinatura diferente, use o botão [Mover](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#use-the-portal) para mover o servidor lógico para outra assinatura.
-1. Verifique se o data warehouse restaurado está on-line.
-1. Depois que a restauração estiver concluída, você pode configurar seu data warehouse recuperado seguindo [configurar seu banco de dados após a recuperação](../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+    1. Para restaurar uma assinatura diferente, use o botão [Mover](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) para mover o servidor lógico para outra assinatura.
+7. Verifique se o data warehouse restaurado está on-line.
+8. Depois que a restauração estiver concluída, você pode configurar seu data warehouse recuperado seguindo [configurar seu banco de dados após a recuperação](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
 #$TargetResourceGroupName="<YourTargetResourceGroupName>" # uncomment to restore to a different logical server.
-#$TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>" 
+#$TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
 
@@ -71,7 +71,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Restaurar um banco de dados excluído usando o portal do Azure
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Navegue até o servidor SQL em que o data warehouse excluído estava hospedado.
 3. Selecione o ícone **de bancos de dados excluídos** na tabela de conteúdo.
 
@@ -86,5 +86,6 @@ $RestoredDatabase.status
     ![Especifique o Nome do Banco de Dados](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - [Restaurar um pool SQL existente](sql-data-warehouse-restore-active-paused-dw.md)
 - [Restaurar a partir de um pool SQL de backup geográfico](sql-data-warehouse-restore-from-geo-backup.md)

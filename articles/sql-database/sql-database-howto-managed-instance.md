@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: 906ae2a970ce1d5b82302d0277ca45bd93c23011
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b56375388f6293d27bcd2f2548d8b20205a92b15
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256907"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638023"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Como usar uma Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -43,6 +43,7 @@ Neste artigo, é possível encontrar vários guias, scripts e explicações que 
 
 - A [replicação transacional](replication-with-sql-database-managed-instance.md) permite que você replique seus dados entre Instâncias Gerenciadas ou do SQL Server local para a Instância Gerenciada e vice-versa. Encontre mais informações sobre como usar e configurar a replicação de transação neste guia.
 - [Configurar a detecção de ameaças](sql-database-managed-instance-threat-detection.md) – a [detecção de ameaças](sql-database-threat-detection-overview.md) é um recurso interno do Banco de Dados SQL do Azure que detecta vários ataques potenciais, como Injeção de SQL ou o acesso de locais suspeitos. Neste guia, você pode aprender como habilitar e configurar a [detecção de ameaças](sql-database-threat-detection-overview.md) para a Instância Gerenciada.
+- [A criação de alertas](sql-database-managed-instance-alerts.md) permite configurar alertas em métricas monitoradas, tais como a utilização da CPU, o consumo de espaço de armazenamento, o IOPS e outros para instância gerenciada. Neste guia você aprenderá como ativar e configurar alertas para instância gerenciada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

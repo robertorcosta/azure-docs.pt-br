@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2020
-ms.openlocfilehash: e2e1ddd031041f49107545cd0b3d3de4eaebcd6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: a5244086c185c111762496086f8044f12f52be14
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77472121"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632585"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Solucionar problemas de fluxos de dados na fábrica de dados do Azure
 
@@ -55,6 +55,18 @@ Este artigo explora métodos comuns de solução de problemas para fluxos de dad
 - **Mensagem**: O nome da coluna precisa ser especificado na consulta, defina um alias se estiver usando uma função SQL
 - **Causas**: Nenhum nome da coluna foi especificado
 - **Recomendação**: Defina um alias se usar uma função SQL como min()/max(), etc.
+
+### <a name="error-code-getcommand-outputasync-failed"></a>Código de erro: falha no GetCommand OutputAsync
+
+- **Mensagem:** Durante a depuração do fluxo de dados e a visualização de dados: GetCommand OutputAsync falhou com ...
+- **Causas**: Este é um erro de serviço back-end. Você pode tentar novamente a operação e também reiniciar sua sessão de depuração.
+- **Recomendação**: Se a tentativa e a reinicialização não resolverem o problema, entre em contato com o suporte ao cliente.
+
+### <a name="error-code-hit-unexpected-exception-and-execution-failed"></a>Código de erro: Aperte a exceção inesperada e falha na execução
+
+- **Mensagem:** Durante a execução da atividade de fluxo de dados: Aperte a exceção inesperada e a execução falhou.
+- **Causas**: Este é um erro de serviço back-end. Você pode tentar novamente a operação e também reiniciar sua sessão de depuração.
+- **Recomendação**: Se a tentativa e a reinicialização não resolverem o problema, entre em contato com o suporte ao cliente.
 
 ## <a name="general-troubleshooting-guidance"></a>Orientação geral de solução de problemas
 

@@ -4,19 +4,19 @@ description: Saiba como ativar o login da chave de segurança sem senha no Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/30/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca6ef244a887e75a0d8b9bb663d5325a33cd1e89
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b8f5d6aaa96c24eb37eb78d237a489f1d25293c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263901"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653997"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Habilite o login da chave de segurança sem senha em dispositivos Windows 10 com o Azure Active Directory (visualização)
 
@@ -80,7 +80,7 @@ As organizações podem optar por usar um ou mais dos seguintes métodos para pe
 
 Para habilitar o uso de chaves de segurança usando o Intune, complete as seguintes etapas:
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Navegue até a**inscrição** >  **do Microsoft Intune** > Device**no Windows** > **Inscrições do Windows Hello for Business** > **Properties**.
 1. Em **Configurações,** **configure Usar as teclas de segurança para o login** **ativado**.
 
@@ -90,7 +90,7 @@ A configuração das chaves de segurança para login não depende da configuraç
 
 Para segmentar grupos de dispositivos específicos para habilitar o provedor de credenciais, use as seguintes configurações personalizadas via Intune:
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Navegue até a**configuração** > do dispositivo **Microsoft Intune** > **Perfis criar** > **perfil**.
 1. Configure o novo perfil com as seguintes configurações:
    - Nome: Chaves de segurança para login do Windows
@@ -155,7 +155,7 @@ No exemplo abaixo, um usuário chamado Bala Sandhu já provisionou sua chave de 
 Se você quiser compartilhar feedback ou encontrar problemas durante a visualização deste recurso, compartilhe através do aplicativo Windows Feedback Hub usando as seguintes etapas:
 
 1. Inicie **o Feedback Hub** e certifique-se de que você está conectado.
-1. Enviar feedback a seguinte categorização:
+1. Enviar feedback sob a seguinte categorização:
    - Categoria: Segurança e Privacidade
    - Subcategoria: FIDO
 1. Para capturar logs, use a opção para **recriar meu problema**

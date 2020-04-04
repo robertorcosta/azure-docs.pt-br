@@ -3,12 +3,12 @@ title: Mova recursos para um novo grupo de assinatura ou recursos
 description: Use o Azure Resource Manager para mover recursos para um novo grupo de recursos ou uma nova assinatura.
 ms.topic: conceptual
 ms.date: 03/02/2020
-ms.openlocfilehash: 40432c55a7f7e289d2e5cbc8afe94847074e4ca8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffb5f8be81d3628084d127db404ab994d4d5b938
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248847"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631496"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou assinatura
 
@@ -107,7 +107,7 @@ Para efeitos de ilustração, temos apenas um recurso dependente.
 
 * Passo 1: Se os recursos dependentes forem distribuídos em diferentes grupos de recursos, primeiro mova-os para um grupo de recursos.
 * Passo 2: Mova os recursos e recursos dependentes juntos da assinatura de origem para a assinatura de destino.
-* Passo 3: Opcionalmente, redistribua os recursos dependentes para diferentes grupos de recursos dentro da assinatura-alvo. 
+* Passo 3: Opcionalmente, redistribua os recursos dependentes para diferentes grupos de recursos dentro da assinatura-alvo.
 
 ## <a name="validate-move"></a>Validar movimentação
 
@@ -260,8 +260,9 @@ Ao mover um recurso, seus recursos dependentes devem existir no grupo de recurso
 Por exemplo, mover uma máquina virtual pode exigir a movimentação de sete tipos de recursos com três provedores de recursos diferentes. Esses provedores e tipos de recursos são:
 
 * Microsoft.Compute
-   * virtualMachines
-   * disks
+
+  * virtualMachines
+  * disks
 * Microsoft.Network
   * networkInterfaces
   * publicIPAddresses

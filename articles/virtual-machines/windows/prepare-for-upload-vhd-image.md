@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 719a1985aeb0db7b0cf7f55a10762bf3ebb3e045
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8118ecde698b54213547e717d25613c0c3e0d3fd
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250186"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631551"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
 
-Antes de carregar uma máquina virtual do Windows (VM) do local para o Azure, você deve preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta vms de geração 1 e 2 que estão em formato de arquivo VHD e que possuem um disco de tamanho fixo. O tamanho máximo permitido para o VHD é 1.023 GB. 
+Antes de carregar uma máquina virtual do Windows (VM) do local para o Azure, você deve preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta vms de geração 1 e 2 que estão em formato de arquivo VHD e que possuem um disco de tamanho fixo. O tamanho máximo permitido para o VHD é de 2 TB.
 
 Em uma geração 1 VM, você pode converter um sistema de arquivos VHDX para VHD. Você também pode converter um disco em expansão dinâmica para um disco de tamanho fixo. No entanto, não é possível alterar a geração de uma VM. Para obter mais informações, [consulte Devo criar uma geração 1 ou 2 VM em Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) e suporte a [Azure para VMs de geração 2 (visualização)](generation-2.md).
 

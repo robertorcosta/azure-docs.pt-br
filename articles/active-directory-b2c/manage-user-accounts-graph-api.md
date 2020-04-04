@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3bd166572cea23fbb710cd053c28f51e76ba534a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42596ba5470c6062efba4fd1050c1c9745b76e80
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476664"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637338"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gerenciar contas de usuários Azure AD B2C com o Microsoft Graph
 
@@ -116,7 +116,7 @@ Em cenários de migração de usuários, se as contas que você deseja migrar ti
 
 Cada aplicativo voltado para o cliente tem requisitos exclusivos para que as informações sejam coletadas. O inquilino Azure AD B2C vem com um conjunto integrado de informações armazenadas em propriedades, como Nome dado, Sobrenome, Cidade e Código Postal. Com o Azure AD B2C, você pode estender o conjunto de propriedades armazenadas em cada conta do cliente. Para obter mais informações sobre a definição de atributos personalizados, consulte [atributos personalizados (fluxos de usuário)](user-flow-custom-attributes.md) e [atributos personalizados (políticas personalizadas).](custom-policy-custom-attributes.md)
 
-A API do Microsoft Graph suporta a criação e atualização de um usuário com atributos de extensão. Atributos de extensão na API do Graph são nomeados usando a convenção `extension_ApplicationObjectID_attributename`. Por exemplo: 
+A API do Microsoft Graph suporta a criação e atualização de um usuário com atributos de extensão. Atributos de extensão na API do Graph são nomeados usando a convenção `extension_ApplicationObjectID_attributename`. Por exemplo:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -151,7 +151,7 @@ O aplicativo exibe uma lista de comandos que você pode executar. Por exemplo, o
 
 ### <a name="code-discussion"></a>Discussão de código
 
-O código de exemplo usa o [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview), que foi projetado para simplificar a construção de aplicativos de alta qualidade, eficientes e resistentes que acessam o Microsoft Graph. Então, você não precisa fazer uma aPI direta do Microsoft Graph.
+O código de exemplo usa o [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview), que foi projetado para simplificar a construção de aplicativos de alta qualidade, eficientes e resistentes que acessam o Microsoft Graph.
 
 Qualquer solicitação à API do Microsoft Graph requer um token de acesso para autenticação. A solução faz uso do pacote [Microsoft.Graph.Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet que fornece um invólucro baseado em cenário de autenticação da Microsoft Authentication Library (MSAL) para uso com o Microsoft Graph SDK.
 

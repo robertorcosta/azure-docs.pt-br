@@ -4,19 +4,19 @@ description: Habilitar autenticação multifatorial ad ad combinada e redefiniç
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25c64d9e959b1d68de23e83e26d3495bd3939986
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f454b0296a3463d7346c2945b21162e5a38c0eb7
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425175"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652516"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Habilite o registro combinado de informações de segurança (visualização)
 
@@ -48,7 +48,7 @@ Complete estas etapas para habilitar o registro combinado:
 > A partir de março de 2019, as opções de chamadas telefônicas não estarão disponíveis para usuários de Autenticação Multifatorial e SSPR em inquilinos AD gratuitos/com teste. As mensagens SMS não são afetadas por essa alteração. As opções de chamadas telefônicas ainda estarão disponíveis para os usuários em inquilinos ad pagos do Azure.
 
 > [!NOTE]
-> Depois de habilitar o registro combinado, os usuários que se registrarem ou confirmarem seu número de telefone ou aplicativo móvel através da nova experiência podem usá-los para autenticação multifatorial e SSPR, se esses métodos estiverem habilitados na Autenticação Multifatorial e SSPR Políticas. Se você desativar essa experiência, os usuários que acessarem `https://aka.ms/ssprsetup` a página de registro sspr anterior serão obrigados a realizar a autenticação multifatorial antes que eles possam acessar a página.
+> Depois de habilitar o registro combinado, os usuários que se registrarem ou confirmarem seu número de telefone ou aplicativo móvel através da nova experiência podem usá-los para autenticação multifatorial e SSPR, se esses métodos estiverem habilitados nas políticas de Autenticação Multifatorial e SSPR. Se você desativar essa experiência, os usuários que acessarem `https://aka.ms/ssprsetup` a página de registro sspr anterior serão obrigados a realizar a autenticação multifatorial antes que eles possam acessar a página.
 
 Se você configurou a Lista de atribuição de site para região no Internet Explorer, os seguintes sites devem estar na mesma região:
 
@@ -81,7 +81,7 @@ A política a seguir se aplica a todos os usuários selecionados, que tentam se 
    1. Excluir **todos os locais confiáveis**
    1. Clique em **Feito** na lâmina Locais
    1. Clique em **Feito** na lâmina Condições
-1. **controles de** > **acesso, Grant**
+1. Sob **controles de** > **acesso, Grant**
    1. Clique **em Bloquear o acesso**
    1. Em seguida, clique em **Selecionar**
 1. Definir **ativar a política** para **on**

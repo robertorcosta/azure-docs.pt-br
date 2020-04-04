@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9b9196cde45686e42d1baf7faedf94bdb73acccc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 902734ddc7195d643c3aedb4054f57723d1a51c2
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367050"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632130"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks em um Hybrid Runbook Worker
 
@@ -177,7 +177,7 @@ A Azure Automation lida com trabalhos em Trabalhadores híbridos de runbook um p
 
 Para um manual de longa duração, você deseja ter certeza de que ele é resistente a uma possível reinicialização, por exemplo, se a máquina que hospeda o trabalhador reinicializa. Se a máquina host Hybrid Runbook Worker for reiniciada, qualquer trabalho de execução será reiniciado desde o início ou no último ponto de verificação dos runbooks do PowerShell Workflow. Depois que um trabalho de runbook é reiniciado mais de três vezes, ele é suspenso.
 
-Lembre-se que os trabalhos para trabalhadores do runbook híbrido são executados a conta do sistema local no Windows ou a conta **de automação nx** no Linux. Para o Linux, você deve garantir que a conta **nxautomation** tenha acesso ao local onde os módulos do runbook são armazenados. Ao usar o cmdlet [install-module, certifique-se](/powershell/module/powershellget/install-module) `Scope` de especificar AllUsers para o parâmetro para garantir que a conta **nxautomation** tenha acesso. Para obter mais informações sobre o PowerShell no Linux, consulte [Problemas conhecidos para PowerShell em plataformas não-windows](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
+Lembre-se que os trabalhos para trabalhadores do runbook híbrido são executados sob a conta do sistema local no Windows ou a conta **de automação nx** no Linux. Para o Linux, você deve garantir que a conta **nxautomation** tenha acesso ao local onde os módulos do runbook são armazenados. Ao usar o cmdlet [install-module, certifique-se](/powershell/module/powershellget/install-module) `Scope` de especificar AllUsers para o parâmetro para garantir que a conta **nxautomation** tenha acesso. Para obter mais informações sobre o PowerShell no Linux, consulte [Problemas conhecidos para PowerShell em plataformas não-windows](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
 
 ## <a name="starting-a-runbook-on-a-hybrid-runbook-worker"></a>Iniciando um runbook em um Trabalhador híbrido de runbook
 
@@ -252,7 +252,7 @@ $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprin
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-Quando um runbook foi assinado, você deve importá-lo para sua conta de Automação e publicá-lo com o bloco de assinatura. Para saber como importar os runbooks, consulte [Importando um runbook de um arquivo para a Automação do Azure](manage-runbooks.md#import-a-runbook).
+Quando um runbook foi assinado, você deve importá-lo para sua conta de Automação e publicá-lo com o bloco de assinatura. Para saber como importar os runbooks, consulte [Importando um runbook de um arquivo para a Automação do Azure](manage-runbooks.md#importing-a-runbook).
 
 ## <a name="working-with-signed-runbooks-on-a-linux-hybrid-runbook-worker"></a>Trabalhando com runbooks assinados em um Linux Hybrid Runbook Worker
 

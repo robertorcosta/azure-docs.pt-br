@@ -4,12 +4,12 @@ description: Saiba como definir uma rota de saída personalizada no Azure Kubern
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: fa64294939ea487b3123d1db5ef6c8a5f30fcf72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30b7b6bae92221b268d40977f5b299e9b0b267b0
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129382"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637819"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Personalize a saída de cluster com uma rota definida pelo usuário (Visualização)
 
@@ -361,6 +361,12 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
 
 ```
 
+ Use o comando [az aks get-credentials][az-aks-get-credentials] para configurar `kubectl` para se conectar ao seu recém-criado cluster Kubernetes. 
+
+ ```azure-cli
+ az aks get-credentials -g $RG -n $AKS_NAME
+ ```
+
 ### <a name="setup-the-internal-load-balancer"></a>Configurar o balanceador de carga interna
 
 A AKS implantou um balanceador de carga com o cluster que pode ser configurado como um [balanceador de carga interno](internal-lb.md).
@@ -514,7 +520,7 @@ kubernetes         ClusterIP      192.168.0.1      <none>        443/TCP        
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address <INSERT IP OF K8s SERVICE>
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 > [!NOTE]
 > Ao excluir o serviço interno do Kubernetes, se o balanceador de carga interno não estiver mais em uso por qualquer serviço, o provedor de nuvem do Azure excluirá o balanceador de carga interno. Na próxima implantação de serviço, um balanceador de carga será implantado se nenhum for encontrado com a configuração solicitada.

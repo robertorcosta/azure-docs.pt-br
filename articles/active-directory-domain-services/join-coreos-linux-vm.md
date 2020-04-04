@@ -8,15 +8,15 @@ ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: b97b542d11e405bab00519c68d2365dada6b6c7f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63dfe39b986125abc9cacf6c1a6556876bbd3a99
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78298863"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655189"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Junte uma máquina virtual CoreOS a um domínio gerenciado do Azure AD Domain Services
 
@@ -42,8 +42,8 @@ Se você tiver um CoreOS Linux VM existente no Azure, conecte-se a ele usando SS
 
 Se você precisar criar um CoreOS Linux VM, ou quiser criar uma VM de teste para uso com este artigo, você pode usar um dos seguintes métodos:
 
-* [Portal Azure](../virtual-machines/linux/quick-create-portal.md)
-* [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 Ao criar a VM, preste atenção às configurações da rede virtual para garantir que a VM possa se comunicar com o domínio gerenciado pelo Azure AD DS:

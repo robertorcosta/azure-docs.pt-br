@@ -11,21 +11,20 @@ ms.date: 03/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 0b7accec9fdce1ad81a08aee17b37d655409948b
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: 61c823aee5d8a6755a3bd7971cd7cca952cbb911
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607569"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633615"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorando a utilização de recursos e a atividade de consulta no Azure Synapse Analytics
 
-O Azure Synapse Analytics oferece uma rica experiência de monitoramento dentro do portal Azure para fornecer insights sobre a carga de trabalho do seu data warehouse. O portal do Azure é a ferramenta recomendada ao monitorar seu data warehouse, pois ele fornece períodos de retenção configuráveis, alertas, recomendações e gráficos e painéis personalizáveis para métricas e logs. O portal também permite que você se integre a outros serviços de monitoramento do Azure, como o Azure Monitor (logs) com o Log analytics, para fornecer uma experiência de monitoramento holística não apenas para o seu data warehouse, mas também para toda a sua plataforma de análise do Azure para uma experiência de monitoramento integrada. Esta documentação descreve quais recursos de monitoramento estão disponíveis para otimizar e gerenciar sua plataforma de análise. 
+O Azure Synapse Analytics oferece uma rica experiência de monitoramento dentro do portal Azure para fornecer insights sobre a carga de trabalho do seu data warehouse. O portal do Azure é a ferramenta recomendada ao monitorar seu data warehouse, pois ele fornece períodos de retenção configuráveis, alertas, recomendações e gráficos e painéis personalizáveis para métricas e logs. O portal também permite que você se integre a outros serviços de monitoramento do Azure, como o Azure Monitor (logs) com o Log analytics, para fornecer uma experiência de monitoramento holística não apenas para o seu data warehouse, mas também para toda a sua plataforma de análise do Azure para uma experiência de monitoramento integrada. Esta documentação descreve quais recursos de monitoramento estão disponíveis para otimizar e gerenciar sua plataforma de análise com o SQL Analytics.
 
 ## <a name="resource-utilization"></a>Utilização de recursos
 
-As seguintes métricas estão disponíveis no portal Azure para Synapse SQL. Essas métricas são exibidas no [Azure Monitor](../../azure-monitor/platform/data-collection.md#metrics?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-
+As seguintes métricas estão disponíveis no portal Azure para SQL Analytics. Essas métricas são exibidas no [Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics).
 
 | Nome da métrica             | Descrição                                                  | Tipo de agregação |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
@@ -55,16 +54,16 @@ Coisas a considerar ao visualizar métricas e definir alertas:
 
 ## <a name="query-activity"></a>Atividade de consulta
 
-Para uma experiência programática ao monitorar o Synapse SQL via T-SQL, o serviço fornece um conjunto de DMVs (Dynamic Management Views, visualizações dinâmicas). Essas exibições são úteis ao ativamente resolver problemas e identificar gargalos de desempenho com sua carga de trabalho.
+Para uma experiência programática ao monitorar o SQL Analytics via T-SQL, o serviço fornece um conjunto de DMVs (Dynamic Management Views, visualização dinâmica). Essas exibições são úteis ao ativamente resolver problemas e identificar gargalos de desempenho com sua carga de trabalho.
 
-Para visualizar a lista de DMVs que se aplicam ao Synapse SQL, consulte esta [documentação](sql-data-warehouse-reference-tsql-system-views.md#sql-data-warehouse-dynamic-management-views-dmvs). 
+Para visualizar a lista de DMVs que o SQL Analytics fornece, consulte esta [documentação](sql-data-warehouse-reference-tsql-system-views.md#sql-data-warehouse-dynamic-management-views-dmvs).
 
 ## <a name="metrics-and-diagnostics-logging"></a>Log de diagnósticos e métricas
 
-Ambas as métricas e logs podem ser exportados para o Azure Monitor, especificamente o componente logs do [Monitor do Azure](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e podem ser acessados de forma programática através de [consultas de log](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). A latência de registro para Synapse SQL é de cerca de 10-15 minutos. Para obter mais detalhes sobre os fatores que afetam a latência, visite a seguinte documentação.
+Ambas as métricas e logs podem ser exportados para o Azure Monitor, especificamente o componente logs do [Monitor do Azure](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e podem ser acessados de forma programática através de [consultas de log](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). A latência de log para SQL Analytics é de cerca de 10 a 15 minutos. Para obter mais detalhes sobre os fatores que afetam a latência, visite a seguinte documentação.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Os guias de instruções a seguir descrevem cenários e casos de uso comuns ao monitorar e gerenciar seu data warehouse:
 
-- [Monitorar sua carga de trabalho do data warehouse com DMVs](/sql-data-warehouse/sql-data-warehouse-manage-monitor?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
+- [Monitorar sua carga de trabalho do data warehouse com DMVs](sql-data-warehouse-manage-monitor.md)

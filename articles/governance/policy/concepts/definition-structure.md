@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de políticas são usadas para estabelecer convenções para os recursos do Azure em sua organização.
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7cb1ab7d045a0595f6949052ecedba6cd1bf694
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6b1d5c43f290fc2dd953492440670608a15faca
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239997"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638085"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -94,7 +94,7 @@ Os seguintes modos do Provedor de Recursos são suportados atualmente durante a 
 > [!NOTE]
 > Os modos do Provedor de Recursos só suportam definições de diretiva incorporadas e não suportam iniciativas durante a visualização.
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 
 Parâmetros ajudam a simplificar o gerenciamento de política, reduzindo o número de definições de política. Pense em parâmetros como os campos em um formulário – `name`, `address`, `city`, `state`. Esses parâmetros sempre permanecem iguais, porém, seus valores mudam com base no preenchimento individual do formulário.
 Os parâmetros funcionam da mesma maneira que ao criar políticas. Ao incluir parâmetros em uma definição de política, você pode reutilizar essa política para diferentes cenários usando valores diferentes.
@@ -361,7 +361,7 @@ Este exemplo de regra de política usa **valor** para verificar se o resultado d
     "policyRule": {
         "if": {
             "value": "[less(length(field('tags')), 3)]",
-            "equals": true
+            "equals": "true"
         },
         "then": {
             "effect": "deny"
@@ -578,6 +578,9 @@ Todas as [funções de modelo do Gerenciador](../../../azure-resource-manager/te
 - resourceId()
 - variables()
 
+> [!NOTE]
+> Essas funções ainda estão `details.deployment.properties.template` disponíveis na parte da implantação do modelo em uma definição de diretiva **deployIfNotExist.**
+
 A função a seguir está disponível para uso em uma regra de diretiva, mas difere do uso em um modelo do Azure Resource Manager:
 
 - `utcNow()`- Ao contrário de um modelo de Gerenciador de recursos, isso pode ser usado fora do padrãoValue.
@@ -593,10 +596,9 @@ As seguintes funções só estão disponíveis nas regras de diretiva:
   - Retorna o valor desse campo a partir do recurso que está sendo avaliado pela condição If
   - `field` é principalmente para uso com **AuditIfNotExists** e **DeployIfNotExists** para referenciar campos no recurso que estão sendo avaliados. Um exemplo desse uso pode ser visto no [exemplo DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
-  - Retorna a versão API da solicitação que desencadeou a avaliação da política (exemplo: `2019-09-01`). Esta será a versão da API que foi usada na solicitação PUT/PATCH para avaliações sobre criação/atualização de recursos. A versão mais recente da API é sempre usada durante a avaliação de conformidade nos recursos existentes.
+  - Retorna a versão API da solicitação que desencadeou a avaliação da política (exemplo: `2019-09-01`).
+    Esta será a versão da API que foi usada na solicitação PUT/PATCH para avaliações sobre criação/atualização de recursos. A versão mais recente da API é sempre usada durante a avaliação de conformidade nos recursos existentes.
   
-
-
 #### <a name="policy-function-example"></a>Exemplo de função de política
 
 Este exemplo de regra de política usa a função de recurso `resourceGroup` para obter a propriedade **name**, combinada com a matriz `concat` e o objeto de função para criar uma condição `like` que impõe o nome do recurso para iniciar com o nome do grupo de recursos.
@@ -678,7 +680,7 @@ A lista de aliases sempre está aumentando. Para descobrir quais aliases atualme
 
 ### <a name="understanding-the--alias"></a>Noções básicas sobre o alias [*]
 
-Vários dos pseudônimos disponíveis têm uma versão que aparece como um nome ** \[ \* ** 'normal' e outra que se anexou a ele. Por exemplo: 
+Vários dos pseudônimos disponíveis têm uma versão que aparece como um nome ** \[ \* ** 'normal' e outra que se anexou a ele. Por exemplo:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
@@ -707,8 +709,6 @@ Esta regra de amostra verifica quaisquer correspondências de **\[\*\]ipRules .v
     }
 }
 ```
-
-
 
 Para obter mais informações, consulte [avaliar o alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias)
 

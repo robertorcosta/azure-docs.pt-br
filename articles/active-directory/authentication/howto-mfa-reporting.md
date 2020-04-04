@@ -4,19 +4,19 @@ description: Descreve como usar o recurso de relatórios da Autenticação Multi
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47e6bac031a5f2cffc8734fee976fbf8dadc666
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5d5354f5bca7a4c9ab00066167ad19890536629
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129077"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653614"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios na Autenticação Multifator do Azure
 
@@ -32,7 +32,7 @@ A Autenticação Multifator do Azure fornece vários relatórios que podem ser u
 
 ## <a name="view-mfa-reports"></a>Exibir relatórios de MFA
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Azure Active Directory** > **Security** > **MFA**.
 3. Selecione o relatório que você deseja exibir.
 

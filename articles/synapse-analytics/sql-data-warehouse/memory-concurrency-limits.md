@@ -11,17 +11,19 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c427c832eb613dddbff33ef6e67af63112e2f136
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 56ab49949b4ea2a92bc591042b2d43a7f7b2dc63
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586063"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632677"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limites de memória e simultâneos para a Azure Synapse Analytics
+
 Exibir os limites de memória e simultâneos alocados aos vários níveis de desempenho e classes de recursos no Azure Synapse Analytics.  
 
 ## <a name="data-warehouse-capacity-settings"></a>Configurações de capacidade do banco de dados de data warehouse
+
 As tabelas a seguir mostram a capacidade máxima para o data warehouse em diferentes níveis de desempenho. Para alterar o nível de desempenho, consulte [escala de computação - portal](quickstart-scale-compute-portal.md).
 
 ### <a name="service-levels"></a>Níveis de serviço
@@ -50,7 +52,8 @@ Os níveis de serviço variam de DW100c a DW30000c.
 O nível máximo de serviço é o DW30000c, que tem 60 nodos de computação e uma distribuição por nó computacional. Por exemplo, um data warehouse de 600 TB a DW30000c processa aproximadamente 10 TB por nó de Computação.
 
 ## <a name="concurrency-maximums-for-workload-groups"></a>Máximos de concorrência para grupos de carga de trabalho
-Com a introdução de grupos de [carga de trabalho,](sql-data-warehouse-workload-isolation.md)o conceito de slots de concorrência não se aplica mais.  Os recursos por solicitação são alocados em uma base percentual e especificados na definição do grupo de carga de trabalho.  No entanto, mesmo com a remoção de slots de concorrência, há quantidades mínimas de recursos necessários por consultas com base no nível de serviço.  A tabela abaixo definiu a quantidade mínima de recursos necessários por consulta entre os níveis de serviço e a concorrência associada que pode ser alcançada. 
+
+Com a introdução de grupos de [carga de trabalho,](sql-data-warehouse-workload-isolation.md)o conceito de slots de concorrência não se aplica mais.  Os recursos por solicitação são alocados em uma base percentual e especificados na definição do grupo de carga de trabalho.  No entanto, mesmo com a remoção de slots de concorrência, há quantidades mínimas de recursos necessários por consultas com base no nível de serviço.  A tabela abaixo definiu a quantidade mínima de recursos necessários por consulta entre os níveis de serviço e a concorrência associada que pode ser alcançada.
 
 |Nível de serviço|Máximo de consultas simultâneas|Min % apoiado para REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
@@ -73,7 +76,8 @@ Com a introdução de grupos de [carga de trabalho,](sql-data-warehouse-workload
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Máximos de concorrência para classes de recursos
-Para garantir que cada consulta tenha recursos suficientes para ser executada de forma eficiente, a utilização dos recursos é rastreada atribuindo slots de concorrência a cada consulta. O sistema coloca consultas em uma fila com base na importância e slots de concorrência. As consultas esperam na fila até que existam slots suficientes para a concorrência. [Slots](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) de importância e slots de simultâneos determinam a priorização da CPU. Para saber mais, confira [Analisar sua carga de trabalho](analyze-your-workload.md)
+
+Para garantir que cada consulta tenha recursos suficientes para ser executada de forma eficiente, o SQL Analytics no Azure Synapse rastreia a utilização de recursos atribuindo slots de concorrência a cada consulta. O sistema coloca consultas em uma fila com base na importância e slots de concorrência. As consultas esperam na fila até que existam slots suficientes para a concorrência. [Slots](sql-data-warehouse-workload-importance.md) de importância e slots de simultâneos determinam a priorização da CPU. Para saber mais, confira [Analisar sua carga de trabalho](analyze-your-workload.md)
 
 **Classes de recursos estáticos**
 
@@ -121,11 +125,11 @@ A tabela a seguir mostra o número máximo de consultas simultâneas e slots de 
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-
-Quando não há slots de concorrência suficientes livres para iniciar a execução da consulta, as consultas são enfileiradas e executadas com base na importância.  Se houver importância equivalente, as consultas são executadas em uma base de primeira entrada.  À medida que uma consulta é concluída e o número de consultas e slots ficam abaixo do limite, o SQL Data Warehouse libera as consultas em fila. 
+Quando não há slots de concorrência suficientes livres para iniciar a execução da consulta, as consultas são enfileiradas e executadas com base na importância.  Se houver importância equivalente, as consultas são executadas em uma base de primeira entrada.  À medida que uma consulta é concluída e o número de consultas e slots ficam abaixo do limite, o SQL Data Warehouse libera as consultas em fila.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre como usar as classes de recursos para otimizar ainda mais a carga de trabalho, examine os seguintes artigos:
+
 * [Classes de recursos para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md)
 * [Análise de sua carga de trabalho](analyze-your-workload.md)

@@ -4,17 +4,18 @@ description: A finalidade deste documento é ajudar um usuário a validar a taxa
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
+manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: a88e339e82484c2ec1cd2276f6218fa718b990f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75860479"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631779"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar a taxa de transferência VPN para uma rede virtual
 
@@ -242,7 +243,7 @@ Mencionou as sub-redes de faixas no local que você gostaria que o Azure alcanç
 
 * **Gateway baseado em políticas**: VPNs baseadas em políticas criptografam e direcionam pacotes através de túneis IPsec com base nas combinações de prefixos de endereço entre sua rede on-premises e o Azure VNet. A política (ou o seletor de tráfego) normalmente é definida como uma lista de acesso na configuração de VPN.
 
-* **UsePolicyBasedTrafficSelector** conexões: ("UsePolicyBasedTrafficSelectors" para $True em uma conexão configurarão o gateway Azure VPN para se conectar ao firewall VPN baseado em políticas nas instalações. Se você habilitar PolicyBasedTrafficSelectors, você precisa garantir que seu dispositivo VPN tenha os seletores de tráfego correspondentes definidos com todas as combinações de prefixos de rede local (gateway de rede local) para e a partir dos prefixos de rede virtual do Azure, em vez de any-to-any.
+* **UsePolicyBasedTrafficSelector** conexões: ("UsePolicyBasedTrafficSelectors" para $True em uma conexão configurarão o gateway Azure VPN para se conectar ao firewall VPN baseado em políticas nas instalações. Se você habilitar PolicyBasedTrafficSelectors, você precisa garantir que seu dispositivo VPN tenha os seletores de tráfego correspondentes definidos com todas as combinações de prefixos de rede local (gateway de rede local) para e a partir dos prefixos de rede virtual do Azure, em vez de qualquer um.
 
 A configuração inadequada pode levar a desconexões frequentes dentro do túnel, quedas de pacotes, mau throughput e latência.
 

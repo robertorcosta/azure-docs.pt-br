@@ -4,19 +4,19 @@ description: Saiba mais sobre os cenários com suporte e os requisitos para conf
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2f9e7d71ab660c4df6f65d6bebe1d3854086bdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a042897ecbe35935c1832a53f523eb0597ebafc
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848792"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654238"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticação baseada em certificado do Azure Active Directory no iOS
 
@@ -68,7 +68,7 @@ Como melhor prática, é necessário atualizar as páginas de erro de ADFS da or
 
 Para obter mais informações, consulte [Personalizando as páginas de entrada do AD FS](https://technet.microsoft.com/library/dn280950.aspx).
 
-Alguns aplicativos do Office (com autenticação moderna habilitada) enviam '*prompt=login*' ao Azure AD na solicitação. Por padrão, o Microsoft Azure AD converte ‘*prompt=login*’ na solicitação para ADFS como ‘*wauth=usernamepassworduri*’ (solicita que o ADFS faça uma autenticação U/P) e ‘*wfresh=0*’ (solicita que o ADFS ignore o estado de SSO e faça uma nova autenticação). Se você quiser habilitar a autenticação baseada em certificado para esses aplicativos, precisará modificar o comportamento padrão do Azure AD. Basta definir o '*PromptLoginBehavior*' em suas configurações de domínio federado como '*Disabled*'.
+Alguns aplicativos do Office (com autenticação moderna ativada) enviam '*prompt=login*' para o Azure AD em sua solicitação. Por padrão, o Azure AD traduz '*prompt=login*' na solicitação ao ADFS como '*wauth=usernamepassworduri*' (pede ao ADFS para fazer U/P Auth) e '*wfresh=0*' (pede ao ADFS para ignorar o estado SSO e fazer uma nova autenticação). Se você quiser habilitar a autenticação baseada em certificado para esses aplicativos, precisará modificar o comportamento padrão do Azure AD. Basta definir o '*PromptLoginBehavior*' em suas configurações de domínio federado como '*Desativado*'.
 Você pode usar o cmdlet [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) para executar essa tarefa:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`

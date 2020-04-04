@@ -1,17 +1,17 @@
 ---
 title: Complemento de roteamento de aplicativos HTTP no AKS (Serviço de Kubernetes do Azure)
-description: Usar o complemento de roteamento de aplicativos HTTP no AKS (Serviço de Kubernetes do Azure).
+description: Use o complemento de roteamento de aplicativos HTTP para acessar aplicativos implantados no Azure Kubernetes Service (AKS).
 services: container-service
 author: lachie83
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: 5794e46f10abec1ceef4c79a881f7f353e729634
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ffc9daaf1b87fc9fb6ebbb0f2787f07282afe5e
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595681"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632397"
 ---
 # <a name="http-application-routing"></a>Roteamento de aplicativo HTTP
 
@@ -206,7 +206,7 @@ kubectl delete configmaps addon-http-application-routing-nginx-configuration --n
 
 Repita a etapa `kubectl delete` anterior para todos os recursos *addon-http-application-routing* que permaneceram no cluster.
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 Use o comando [kubectl logs][kubectl-logs] para exibir os logs de aplicativo para o aplicativo de DNS externo. Os logs devem confirmar que um registro DNS A e TXT foi criado com êxito.
 

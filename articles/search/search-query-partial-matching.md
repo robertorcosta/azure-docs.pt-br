@@ -1,38 +1,71 @@
 ---
-title: Padrões de correspondência e caracteres especiais
+title: Termos parciais, padrões e caracteres especiais
 titleSuffix: Azure Cognitive Search
-description: Use consultas curinga e prefixo para corresponder em termos inteiros ou parciais em uma solicitação de consulta de pesquisa cognitiva do Azure. Padrões difíceis de combinar que incluem caracteres especiais podem ser resolvidos usando sintaxe de consulta completa e analisadores personalizados.
+description: Use consultas curinga, regex e prefixo para corresponder em termos inteiros ou parciais em uma solicitação de consulta de pesquisa cognitiva do Azure. Padrões difíceis de combinar que incluem caracteres especiais podem ser resolvidos usando sintaxe de consulta completa e analisadores personalizados.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/14/2020
-ms.openlocfilehash: f78ba5b351a3da46d7b8b3780cf00772c4f3b2ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 3e0e0291ff855b4502224466e17696a4fe668c2a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289304"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655992"
 ---
-# <a name="match-on-patterns-and-special-characters-dashes"></a>Combinar em padrões e caracteres especiais (traços)
+# <a name="partial-term-search-in-azure-cognitive-search-queries-wildcard-regex-fuzzy-search-patterns"></a>Pesquisa parcial de prazo em consultas de Pesquisa Cognitiva Do Azure (curinga, regex, pesquisa difusa, padrões)
 
-Para consultas que incluem`-, *, (, ), /, \, =`caracteres especiais ( ), ou para padrões de consulta com base em termos parciais dentro de um termo maior, etapas adicionais de configuração são normalmente necessárias para garantir que o índice contenha o conteúdo esperado, no formato certo. 
+Uma *pesquisa de termo parcial* refere-se a consultas que consistem em fragmentos de termo, como a primeira, última ou partes interiores de uma corda, ou um padrão que consiste em uma combinação de fragmentos, muitas vezes separados por caracteres especiais, como traços ou barras. Os casos de uso comuns incluem consultas para partes de um número de telefone, URL, pessoas ou códigos de produto ou palavras compostas.
 
-Por padrão, um `+1 (425) 703-6214` número de telefone `"1"` `"425"`como `"703"` `"6214"`é tokenizado como , , . Como você pode imaginar, pesquisar em `"3-62"`termos parciais que incluem um traço, falhará porque esse conteúdo realmente não existe no índice. 
+A pesquisa parcial pode ser problemática porque o índice em si não armazena termos de uma maneira que seja propícia à correspondência parcial de strings e padrões. Durante a fase de análise de texto da indexação, caracteres especiais são descartados, as seqüências compostas e compostas são divididas, fazendo com que as consultas de padrão falhem quando nenhuma correspondência é encontrada. Por exemplo, um `+1 (425) 703-6214`número de telefone `"1"` `"425"`como `"703"` `"6214"`(tokenizado como , `"3-62"` , ) não aparecerá em uma consulta porque esse conteúdo realmente não existe no índice. 
 
-Quando você precisa pesquisar em strings parciais ou caracteres especiais, você pode substituir o analisador padrão por um analisador personalizado que opera regras de tokenização mais simples, preservando termos inteiros, necessários quando as strings de consulta incluem partes de um termo ou especial Caracteres. Dando um passo atrás, a abordagem se parece com isso:
+A solução é armazenar versões intactas dessas strings no índice para que você possa suportar cenários de pesquisa parcial. Criar um campo adicional para uma seqüência intacta, além de usar um analisador de preservação de conteúdo, é a base da solução.
 
-+ Escolha um analisador predefinido ou defina um analisador personalizado que produza a saída desejada
+## <a name="what-is-partial-search-in-azure-cognitive-search"></a>O que é pesquisa parcial na Pesquisa Cognitiva do Azure
+
+Na Pesquisa Cognitiva do Azure, a pesquisa parcial está disponível nestes formulários:
+
++ [Pesquisa por prefixo,](query-simple-syntax.md#prefix-search)como, `search=cap*`combinando em "Cap'n Jack's Waterfront Inn" ou "Gacc Capital". Você pode usar a sintaxe de consulta simples para pesquisa por prefixo.
++ [Pesquisa curinga](query-lucene-syntax.md#bkmk_wildcard) ou [expressões regulares](query-lucene-syntax.md#bkmk_regex) que procuram um padrão ou partes de uma seqüência incorporada, incluindo o sufixo. Por exemplo, dado o termo "alfanumérico",`search=/.*numeric.*/`você usaria uma pesquisa curinga ( ) para uma correspondência de consulta de sufixo nesse termo. Curinga e expressões regulares requerem a sintaxe de Lucene completa.
+
+Quando algum dos tipos de consulta acima for necessário no seu aplicativo cliente, siga as etapas deste artigo para garantir que o conteúdo necessário exista em seu índice.
+
+## <a name="solving-partial-search-problems"></a>Resolvendo problemas parciais de busca
+
+Quando você precisa pesquisar em padrões ou caracteres especiais, você pode substituir o analisador padrão por um analisador personalizado que opera sob regras de tokenização mais simples, mantendo toda a seqüência. Dando um passo atrás, a abordagem se parece com isso:
+
++ Defina um campo para armazenar uma versão intacta da string (supondo que você queira texto analisado e não analisado)
++ Escolha um analisador predefinido ou defina um analisador personalizado para produzir uma seqüência intacta
 + Atribuir o analisador ao campo
-+ Construa o índice e teste
-
-Este artigo orienta você através dessas tarefas. A abordagem descrita aqui é útil em outros cenários: curinga e consultas de expressão regulares também precisam de termos inteiros como base para a correspondência de padrões. 
++ Construa e teste o índice
 
 > [!TIP]
-> Avaliar analyers é um processo iterativo que requer reconstruções freqüentes do índice. Você pode facilitar essa etapa usando o Carteiro, as APIs REST para [Criar Índice,](https://docs.microsoft.com/rest/api/searchservice/create-index) [Excluir Índice,](https://docs.microsoft.com/rest/api/searchservice/delete-index)[Carregar Documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)e Documentos [de Pesquisa.](https://docs.microsoft.com/rest/api/searchservice/search-documents) Para documentos de carga, o órgão de solicitação deve conter um pequeno conjunto de dados representativo que você deseja testar (por exemplo, um campo com números de telefone ou códigos de produto). Com essas APIs na mesma coleção de Carteiro, você pode percorrer essas etapas rapidamente.
+> Avaliar analisadores é um processo iterativo que requer reconstruções frequentes de índices. Você pode facilitar essa etapa usando o Carteiro, as APIs REST para [Criar Índice,](https://docs.microsoft.com/rest/api/searchservice/create-index) [Excluir Índice,](https://docs.microsoft.com/rest/api/searchservice/delete-index)[Carregar Documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)e Documentos [de Pesquisa.](https://docs.microsoft.com/rest/api/searchservice/search-documents) Para documentos de carga, o órgão de solicitação deve conter um pequeno conjunto de dados representativo que você deseja testar (por exemplo, um campo com números de telefone ou códigos de produto). Com essas APIs na mesma coleção de Carteiro, você pode percorrer essas etapas rapidamente.
 
-## <a name="choosing-an-analyzer"></a>Escolhendo um analisador
+## <a name="duplicate-fields-for-different-scenarios"></a>Campos duplicados para diferentes cenários
+
+Os analisadores são atribuídos por campo, o que significa que você pode criar campos em seu índice para otimizar para diferentes cenários. Especificamente, você pode definir "featureCode" e "featureCodeRegex" para suportar a pesquisa completa regular de texto no primeiro, e correspondência avançada de padrões no segundo.
+
+```json
+{
+  "name": "featureCode",
+  "type": "Edm.String",
+  "retrievable": true,
+  "searchable": true,
+  "analyzer": null
+},
+{
+  "name": "featureCodeRegex",
+  "type": "Edm.String",
+  "retrievable": true,
+  "searchable": true,
+  "analyzer": "my_customanalyzer"
+},
+```
+
+## <a name="choose-an-analyzer"></a>Escolha um analisador
 
 Ao escolher um analisador que produz tokens a longo prazo, os seguintes analisadores são escolhas comuns:
 
@@ -42,7 +75,9 @@ Ao escolher um analisador que produz tokens a longo prazo, os seguintes analisad
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separa-se apenas em espaços brancos. Termos que incluem traços ou outros caracteres são tratados como um único token. |
 | [analisador personalizado](index-add-custom-analyzers.md) | (recomendado) A criação de um analisador personalizado permite especificar o tokenizador e o filtro de token. Os analisadores anteriores devem ser usados como estão. Um analisador personalizado permite escolher quais tokenizadores e filtros de token usar. <br><br>Uma combinação recomendada é o [tokenizador de palavras-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) com um [filtro de token minúsculo](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). Por si só, o analisador de [palavras-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) predefinido não reduz qualquer texto maiúsculo, o que pode fazer com que as consultas falhem. Um analisador personalizado lhe dá um mecanismo para adicionar o filtro de token minúsculo. |
 
-Se você estiver usando uma ferramenta de teste de API da Web como o Carteiro, você pode adicionar a [chamada Test Analyzer REST](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para inspecionar a saída tokenizada. Dado um índice existente e um campo contendo traços ou termos parciais, você pode tentar vários analisadores em termos específicos para ver quais tokens são emitidos.  
+Se você estiver usando uma ferramenta de teste de API da Web como o Carteiro, você pode adicionar a [chamada Test Analyzer REST](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para inspecionar a saída tokenizada.
+
+Você deve ter um índice existente para trabalhar. Dado um índice existente e um campo contendo traços ou termos parciais, você pode tentar vários analisadores em termos específicos para ver quais tokens são emitidos.  
 
 1. Verifique o analisador Padrão para ver como os termos são tokenizados por padrão.
 
@@ -105,15 +140,15 @@ Se você estiver usando uma ferramenta de teste de API da Web como o Carteiro, v
     }
     ```
 > [!Important]
-> Esteja ciente de que os analisadores de consulta geralmente reduzem os termos em uma expressão de pesquisa ao construir a árvore de consulta. Se você estiver usando um analisador que não reduz a entrada de texto, e você não está obtendo resultados esperados, esta pode ser a razão. A solução é adicionar um filtro de token de caixa lwower.
+> Esteja ciente de que os analisadores de consulta geralmente reduzem os termos em uma expressão de pesquisa ao construir a árvore de consulta. Se você estiver usando um analisador que não reduz a entrada de texto, e você não está obtendo resultados esperados, esta pode ser a razão. A solução é adicionar um filtro de token minúsculo, conforme descrito na seção "Use analisadores personalizados" abaixo.
 
-## <a name="analyzer-definitions"></a>Definições do analisador
+## <a name="configure-an-analyzer"></a>Configure um analisador
  
 Se você está avaliando analisadores ou avançando com uma configuração específica, você precisará especificar o analisador na definição de campo e, possivelmente, configurar o analisador em si se você não estiver usando um analisador embutido. Ao trocar analisadores, você normalmente precisa reconstruir o índice (queda, recriar e recarregar). 
 
 ### <a name="use-built-in-analyzers"></a>Use analisadores embutidos
 
-Analisadores incorporados ou predefinidos podem ser especificados por nome em uma `analyzer` propriedade de uma definição de campo, sem necessidade de configuração adicional no índice. O exemplo a seguir demonstra `whitespace` como você definiria o analisador em um campo.
+Analisadores incorporados ou predefinidos podem ser especificados por nome em uma `analyzer` propriedade de uma definição de campo, sem necessidade de configuração adicional no índice. O exemplo a seguir demonstra `whitespace` como você definiria o analisador em um campo. Para obter mais informações sobre analisadores incorporados disponíveis, consulte [lista de analisadores predefinidos](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ```json
     {
@@ -125,16 +160,15 @@ Analisadores incorporados ou predefinidos podem ser especificados por nome em um
       "analyzer": "whitespace"
     }
 ```
-Para obter mais informações sobre todos os analisadores incorporados disponíveis, consulte [lista de analisadores predefinidos](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ### <a name="use-custom-analyzers"></a>Use analisadores personalizados
 
-Se você estiver usando um [analisador personalizado,](index-add-custom-analyzers.md)defina-o no índice com uma combinação definida pelo usuário de tokenizer, tokenfilter, com possíveis configurações. Em seguida, faça referência a uma definição de campo, assim como você faria com um analisador embutido.
+Se você estiver usando um [analisador personalizado,](index-add-custom-analyzers.md)defina-o no índice com uma combinação definida pelo usuário de tokenizer, filtro de token, com possíveis configurações. Em seguida, faça referência a uma definição de campo, assim como você faria com um analisador embutido.
 
 Quando o objetivo é a tokenização a longo prazo, recomenda-se um analisador personalizado que consiste em um **tokenizador de palavras-chave** e **filtro de token minúsculo.**
 
 + O tokenizador de palavras-chave cria um único token para todo o conteúdo de um campo.
-+ O filtro de token minúsculo transforma letras maiúsculas em texto minúsculo. Os analisadores de consulta normalmente são minúsculos em qualquer entrada de texto maiúscula. A redução da caixa homogeneiza as entradas com os termos tokenizados.
++ O filtro de token minúsculo transforma letras maiúsculas em texto minúsculo. Os analisadores de consulta normalmente são minúsculos em qualquer entrada de texto maiúscula. O invólucro inferior homogeneiza as entradas com os termos tokenizados.
 
 O exemplo a seguir ilustra um analisador personalizado que fornece o tokenizador de palavras-chave e um filtro de token minúsculo.
 
@@ -169,6 +203,22 @@ O exemplo a seguir ilustra um analisador personalizado que fornece o tokenizador
 
 > [!NOTE]
 > O `keyword_v2` tokenizador e `lowercase` o filtro de token são conhecidos pelo sistema e usando suas configurações padrão, e é por isso que você pode referencia-los pelo nome sem ter que defini-los primeiro.
+
+## <a name="build-and-test"></a>Build e teste
+
+Depois de definir um índice com analisadores e definições de campo que suportam seu cenário, carregue documentos que tenham strings representativas para que você possa testar consultas parciais de strings. 
+
+As seções anteriores explicaram a lógica. Esta seção passa por cada API que você deve chamar ao testar sua solução. Como observado anteriormente, se você usar uma ferramenta de teste web interativa, como o Carteiro, você pode passar por essas tarefas rapidamente.
+
++ [O Índice de](https://docs.microsoft.com/rest/api/searchservice/delete-index) Exclusão remove um índice existente com o mesmo nome para que você possa recriá-lo.
+
++ [Criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index) cria a estrutura de índice em seu serviço de pesquisa, incluindo definições de analisadores e campos com uma especificação do analisador.
+
++ [Carregar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) importa documentos com a mesma estrutura do seu índice, bem como conteúdo pesquisável. Após esta etapa, seu índice está pronto para consultar ou testar.
+
++ [O Analisador de Teste](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) foi introduzido em [Escolher um analisador](#choose-an-analyzer). Teste algumas das strings do seu índice usando uma variedade de analisadores para entender como os termos são tokenizados.
+
++ [Documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) explicacomo construir uma solicitação de consulta, usando [sintaxe simples](query-simple-syntax.md) ou [sintaxe lucene completa](query-lucene-syntax.md) para curinga e expressões regulares.
 
 ## <a name="tips-and-best-practices"></a>Dicas e práticas recomendadas
 
@@ -227,27 +277,6 @@ Para especificar uma análise específica da função, você pode `indexAnalyzer
 "name": "featureCode",
 "indexAnalyzer":"my_customanalyzer",
 "searchAnalyzer":"standard",
-```
-
-### <a name="duplicate-fields-for-different-scenarios"></a>Campos duplicados para diferentes cenários
-
-Outra opção aproveita a atribuição do analisador por campo para otimizar para diferentes cenários. Especificamente, você pode definir "featureCode" e "featureCodeRegex" para suportar a pesquisa completa regular de texto no primeiro, e correspondência avançada de padrões no segundo.
-
-```json
-{
-  "name": "featureCode",
-  "type": "Edm.String",
-  "retrievable": true,
-  "searchable": true,
-  "analyzer": null
-},
-{
-  "name": "featureCodeRegex",
-  "type": "Edm.String",
-  "retrievable": true,
-  "searchable": true,
-  "analyzer": "my_customanalyzer"
-},
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

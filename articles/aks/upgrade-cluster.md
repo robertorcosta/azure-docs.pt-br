@@ -1,15 +1,15 @@
 ---
 title: Atualizar um cluster do Serviço de Kubernetes do Azure (AKS)
-description: Saiba como atualizar um cluster do AKS (Serviço de Kubernetes do Azure)
+description: Saiba como atualizar um cluster Azure Kubernetes Service (AKS) para obter os recursos mais recentes e atualizações de segurança.
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 4520297e83f96f95b10ecafd5af52a913dc5f450
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 183e0a85f65d24dc7133307391931bea754a456d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77621969"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632600"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Serviço de Kubernetes do Azure (AKS)
 
@@ -19,7 +19,7 @@ Para clusters AKS que usam vários grupos de nó ou nós do Windows Server (atua
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo exige que você esteja executando a versão 2.0.65 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI][azure-cli-install].
+Este artigo exige que você esteja executando a versão 2.0.65 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 > [!WARNING]
 > Uma atualização de cluster AKS aciona um cordão e dreno de seus nódulos. Se você tiver uma cota de cálculo baixa disponível, a atualização pode falhar. Consulte [aumentar as cotas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para obter mais informações.

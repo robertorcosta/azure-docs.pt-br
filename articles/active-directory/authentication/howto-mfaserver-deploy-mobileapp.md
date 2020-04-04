@@ -4,23 +4,23 @@ description: Configure o servidor MFA para enviar notificações por push para u
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f62aacf8264eb583c523b6ee785f1908f0241644
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 785c4ccf591ce6a7a50a3d144fb1740121c73ce6
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848146"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653182"
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Habilitar a autenticação de aplicativo móvel com o Servidor de Autenticação Multifator do Azure
 
-O aplicativo Microsoft Authenticator oferece uma opção de verificação adicional fora de banda. Em vez de enviar uma chamada telefônica automatizada ou um SMS para o usuário durante o logon, a Autenticação Multifator do Azure envia uma notificação por push ao aplicativo Microsoft Authenticator no smartphone ou tablet do usuário. O usuário simplesmente toca em **Verificar** (ou digita um PIN e toca em "Autenticar") no aplicativo para concluir a entrada.
+O aplicativo Microsoft Authenticator oferece uma opção de verificação adicional fora de banda. Em vez de colocar uma chamada telefônica ou SMS automatizada para o usuário durante o login, o Azure Multi-Factor Authentication empurra uma notificação para o aplicativo Microsoft Authenticator no smartphone ou tablet do usuário. O usuário simplesmente toca **em Verificar** (ou digita um PIN e toca em "Autenticar") no aplicativo para completar seu login.
 
 É preferível a utilização de um aplicativo móvel para a verificação em duas etapas quando a recepção do telefone não é confiável. Se você usar o aplicativo como um gerador de token OATH, ele não exigirá nenhuma conexão de rede ou Internet.
 

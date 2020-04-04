@@ -12,16 +12,16 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: ccc5db828a03c37d3fc4f49b13883ac3eeda2368
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: d0a246b111e4ab27a9e595952bb029fa62fe976d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584222"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633663"
 ---
 # <a name="authenticate-to-azure-synapse-analytics"></a>Autenticação para Azure Synapse Analytics
 
-Aprenda a autenticar o Synapse SQL poool no Azure Synapse usando o Azure Active Directory (Azure AD) ou a autenticação do SQL Server.
+Aprenda a autenticar o SQL Analytics no Azure Synapse usando a autenticação AaD (AAD) ou SQL Server.
 
 Para se conectar a um pool SQL, você deve passar em credenciais de segurança para fins de autenticação. Após estabelecer uma conexão, determinadas configurações de conexão são definidas como parte do estabelecimento de sua sessão de consulta.  
 
@@ -44,12 +44,10 @@ Por padrão, sua conexão se conecta ao banco de dados *mestre* e não ao seu ba
 
 > [!NOTE]
 > A instrução Transact-SQL **USE MyDatabase;** não tem suporte para alterar o banco de dados para uma conexão. Para obter orientações sobre a conexão a um pool SQL com SSDT, consulte o [artigo Consulta com visual Studio.](sql-data-warehouse-query-visual-studio.md)
-> 
-> 
 
-## <a name="azure-active-directory-azure-ad-authentication"></a>Autenticação do Azure Active Directory (Azure AD)
+## <a name="azure-active-directory-aad-authentication"></a>Autenticação do AAD (Azure Active Directory)
 
-A autenticação [do Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) é um mecanismo de conexão ao pool SQL usando identidades no Azure Active Directory (Azure AD). Com a autenticação do Azure Active Directory, você pode gerenciar centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em uma única localização central. O gerenciamento central de ID fornece um único lugar para gerenciar usuários do Azure Synapse e simplifica o gerenciamento de permissões. 
+A autenticação [do Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) é um mecanismo de conexão ao pool SQL usando identidades no Azure Active Directory (Azure AD). Com a autenticação do Azure Active Directory, você pode gerenciar centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em uma única localização central. O gerenciamento central de ID fornece um único lugar para gerenciar usuários do Azure Synapse e simplifica o gerenciamento de permissões.
 
 ### <a name="benefits"></a>Benefícios
 
@@ -62,12 +60,10 @@ Os benefícios do Azure Active Directory incluem:
 * Elimina o armazenamento de senhas permitindo a autenticação integrada do Windows e outras formas de autenticação compatíveis com o Azure Active Directory.
 * Usa usuários de banco de dados independente para autenticar identidades no nível de banco de dados.
 * Suporta autenticação baseada em token para aplicativos conectados ao pool SQL.
-* Suporta autenticação multifatorial através da autenticação universal do Active Directory para várias ferramentas, incluindo [o SQL Server Management Studio](../../sql-database/sql-database-ssms-mfa-authentication.md) e as Ferramentas de Dados do Servidor [SQL](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/sql-data-warehouse/toc.json).
+* Suporta autenticação multifatorial através da autenticação universal do Active Directory para várias ferramentas, incluindo [o SQL Server Management Studio](../../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e as Ferramentas de Dados do Servidor [SQL](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 > [!NOTE]
-> O Azure Active Directory ainda é relativamente novo e tem algumas limitações. Para garantir que o Azure Active Directory seja uma boa opção para seu ambiente, confira [Limitações e recursos do Azure AD](../../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations), especificamente as considerações adicionais.
-> 
-> 
+> O Azure Active Directory ainda é relativamente novo e tem algumas limitações. Para garantir que o Azure Active Directory seja uma boa opção para seu ambiente, confira [Limitações e recursos do Azure AD](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#azure-ad-features-and-limitations), especificamente as considerações adicionais.
 
 ### <a name="configuration-steps"></a>Etapas de configuração
 
@@ -80,12 +76,12 @@ Siga estas etapas para configurar a autenticação do Azure Active Directory.
 5. Criar usuários de banco de dados independente em seu banco de dados, mapeados para identidades do AD do Azure
 6. Conecte-se ao seu pool SQL usando identidades Azure AD
 
-Atualmente, os usuários do Azure Active Directory não são mostrados no Pesquisador de Objetos do SSDT. Como alternativa, exiba os usuários em [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+Atualmente, os usuários do Azure Active Directory não são mostrados no Pesquisador de Objetos do SSDT. Como alternativa, exiba os usuários em [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql??toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#azure-ad-features-and-limitations).
 
 ### <a name="find-the-details"></a>Localização dos detalhes
 
-* As etapas para configurar e usar a autenticação do Azure Active Directory são quase idênticas para o azure SQL Database e o pool Synapse SQL no Azure Synapse. Siga as etapas detalhadas no tópico [Conectando-se ao Banco de Dados SQL ou ao Pool SQL usando a autenticação do diretório ativo do Azure](../../sql-database/sql-database-aad-authentication.md).
-* Crie funções de banco de dados personalizadas e adicione usuários às funções. Em seguida, conceda permissões granulares para as funções. Para obter mais informações, consulte o [Guia de introdução às Permissões do Mecanismo do Banco de Dados](https://msdn.microsoft.com/library/mt667986.aspx).
+* As etapas para configurar e usar a autenticação do Azure Active Directory são quase idênticas para o Azure SQL Database e SQL Analytics no Azure Synapse. Siga as etapas detalhadas no tópico [Conectando-se ao Banco de Dados SQL ou ao Pool SQL usando a autenticação do diretório ativo do Azure](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+* Crie funções de banco de dados personalizadas e adicione usuários às funções. Em seguida, conceda permissões granulares para as funções. Para obter mais informações, consulte o [Guia de introdução às Permissões do Mecanismo do Banco de Dados](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="next-steps"></a>Próximas etapas
 

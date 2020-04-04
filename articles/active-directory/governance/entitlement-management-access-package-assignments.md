@@ -16,16 +16,23 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5a2107974cd63c0d02aaeb555430453c39990bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12e3b86f41e7188778393ab717554907ef5d44ec
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262016"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631736"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Exibir, adicionar e remover atribuições para um pacote de acesso no gerenciamento de direitos Azure AD
 
 Na gestão de direitos do Azure AD, você pode ver quem foi designado para acessar pacotes, sua política e status. Se um pacote de acesso tiver uma política apropriada, você também pode atribuir diretamente o usuário a um pacote de acesso. Este artigo descreve como visualizar, adicionar e remover atribuições para pacotes de acesso.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para usar o gerenciamento de direitos ad do Azure e atribuir aos usuários o acesso a pacotes, você deve ter uma das seguintes licenças:
+
+- Azure AD Premium P2
+- Licença do Enterprise Mobility + Security (EMS) E5
 
 ## <a name="view-who-has-an-assignment"></a>Veja quem tem uma tarefa
 

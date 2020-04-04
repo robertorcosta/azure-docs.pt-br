@@ -1,17 +1,17 @@
 ---
 title: Usar OpenFaaS com o AKS (Serviço de Kubernetes do Azure)
-description: Implantar e usar OpenFaaS com o AKS (Serviço de Kubernetes do Azure)
+description: Aprenda a implantar e usar o OpenFaaS em um cluster Azure Kubernetes Service (AKS) para construir funções sem servidor com contêineres.
 author: justindavies
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 2605489f73063cb16a588d4714955704482327ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473635"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631464"
 ---
 # <a name="using-openfaas-on-aks"></a>Usando o OpenFaaS no AKS
 

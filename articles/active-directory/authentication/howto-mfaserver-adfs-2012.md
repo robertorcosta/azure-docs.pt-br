@@ -4,19 +4,19 @@ description: Este artigo descreve como começar a usar a Autenticação Multifat
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4b463dad84f2c3ea93fefabdca5141a4b51468c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2777675d915d99b8c0e3c2a123b24ab60d41f672
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848197"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653364"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configurar o Servidor de Autenticação Multifator do Azure para trabalhar com o AD FS no Windows Server
 
@@ -51,8 +51,8 @@ Antes de começar, esteja ciente das seguintes informações:
 
    ![Instale o adaptador ADFS no console Do Servidor MFA](./media/howto-mfaserver-adfs-2012/server.png)
 
-5. Se a janela do Active Directory for exibida, isso significará duas coisas. O computador faz parte de um domínio e a configuração do Active Directory para proteger a comunicação entre o adaptador do AD FS e o serviço de Autenticação Multifator está incompleta. Clique em **Avançar** para concluir automaticamente essa configuração ou marque a caixa de seleção **Ignorar configuração automática do Active Directory e definir as configurações manualmente**. Clique em **Avançar**.
-6. Se as janelas de Grupo Local forem exibidas, isso significará duas coisas. Seu computador não faz parte de um domínio e a configuração do grupo local para proteger a comunicação entre o adaptador do AD FS e o serviço de Autenticação Multifator está incompleta. Clique em **Avançar** para concluir automaticamente essa configuração ou marque a caixa de seleção **Ignorar configuração automática do Grupo Local e definir as configurações manualmente**. Clique em **Avançar**.
+5. Se a janela do Active Directory for exibida, isso significará duas coisas. O computador faz parte de um domínio e a configuração do Active Directory para proteger a comunicação entre o adaptador do AD FS e o serviço de Autenticação Multifator está incompleta. Clique em **Avançar** para concluir automaticamente essa configuração ou marque a caixa de seleção **Ignorar configuração automática do Active Directory e definir as configurações manualmente**. Clique em **Próximo**.
+6. Se as janelas de Grupo Local forem exibidas, isso significará duas coisas. Seu computador não faz parte de um domínio e a configuração do grupo local para proteger a comunicação entre o adaptador do AD FS e o serviço de Autenticação Multifator está incompleta. Clique em **Avançar** para concluir automaticamente essa configuração ou marque a caixa de seleção **Ignorar configuração automática do Grupo Local e definir as configurações manualmente**. Clique em **Próximo**.
 7. No Assistente de instalação, clique em **Avançar**. O Servidor de Autenticação Multifator do Azure cria o grupo PhoneFactor Admins e adiciona a conta de serviço do AD FS ao grupo PhoneFactor Admins.
 8. Na página **Iniciar Instalador**, clique em **Avançar**.
 9. No instalador do adaptador do AD FS da Autenticação Multifator, clique em **Avançar**.
@@ -150,7 +150,7 @@ Para proteger seus recursos de nuvem, configure uma regra de declaração para q
 
     ![Assistente para Adicionar Regra de Declaração de Transformação](./media/howto-mfaserver-adfs-2012/configurewizard.png)
 
-9. Clique em **concluir**. Feche o Console de gerenciamento do AD FS.
+9. Clique em **Concluir**. Feche o Console de gerenciamento do AD FS.
 
 ## <a name="troubleshooting-logs"></a>Solucionar problemas de logs
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 29c1aaf18ea45d869d32a8817aeb03faa3b67c32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 02/14/2020
+ms.openlocfilehash: 096943ff796f9c12c7f8715cadce5c3085965d4d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75456579"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657130"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conectar-se a fontes de dados locais dos Aplicativos Lógicos do Azure
 
@@ -59,6 +59,9 @@ O Azure Logic Apps suporta operações de leitura e gravação através do gatew
 * Sua instalação de gateway ainda não está registrada e reivindicada por outro recurso do Gateway Do Azure.
 
   Quando você cria um recurso de gateway no portal Azure, você seleciona uma instalação de gateway, que se conecta ao recurso do gateway e apenas ao recurso gateway. Nos Aplicativos de Lógica do Azure, os gatilhos e ações no local usam o recurso gateway para se conectar a fontes de dados locais. Nesses gatilhos e ações, você seleciona sua assinatura do Azure e o recurso de gateway associado que deseja usar. Cada recurso de gateway é vinculado a apenas uma instalação de gateway, que se conecta a apenas uma conta do Azure.
+
+  > [!NOTE]
+  > Apenas o administrador de gateway pode criar o recurso gateway no portal Azure. Atualmente, os diretores de serviço não são suportados. 
 
 <a name="create-gateway-resource"></a>
 
@@ -150,7 +153,7 @@ Para criar um recurso de gateway diferente, vincule sua instalação de gateway 
 
 1. Se ainda não estiver selecionado, no menu de recursos do gateway, selecione **Gateway de Dados Local**. Na barra de ferramentas de recurso do gateway, **selecione Excluir**.
 
-   Por exemplo: 
+   Por exemplo:
 
    ![Excluir recurso de gateway no Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 

@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: ccf258594aa68fc9b5d0189c9ada640078e0ba6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77b4dd4c0efbe6d03e64865f18c2c87614aaecb5
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76514860"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632517"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do VMware para o Azure
 
@@ -35,32 +35,40 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 ![Componentes](./media/vmware-azure-architecture/arch-enhanced.png)
 
 
-
 ## <a name="replication-process"></a>Processo de replicação
 
 1. Ao habilitar a replicação para uma VM, a replicação inicial para o armazenamento do Azure começa, usando a política de replicação especificada. Observe o seguinte:
     - Para as VMs de VMware, a replicação é em nível de bloco, quase contínua, usando o agente do serviço Mobilidade em execução na VM.
     - Qualquer configuração de política de replicação é aplicada:
         - **Limiar de RPO**. Essa configuração não afeta a replicação. Isso ajuda no monitoramento. Um evento é gerado e, opcionalmente, um email enviado, se o RPO atual exceder o limite que você especificar.
-        - **Retenção do ponto de recuperação**. Essa configuração especifica o tempo retroativo da recuperação quando ocorrer uma interrupção. A retenção máxima no armazenamento Premium é de 24 horas. No armazenamento padrão, são 72 horas. 
-        - **Instantâneos consistentes com o aplicativo**. Um instantâneo consistente com o aplicativo pode de demorar de 1 a 12 horas, dependendo das necessidades do aplicativo. Instantâneos são instantâneos de blob padrão do Azure. O agente de Mobilidade executando em uma VM solicita um instantâneo de VSS de acordo com essa configuração e indica esse ponto no tempo como um ponto consistente do aplicativo no fluxo de replicação.
+        - **Retenção de ponto de recuperação**. Essa configuração especifica o tempo retroativo da recuperação quando ocorrer uma interrupção. A retenção máxima no armazenamento Premium é de 24 horas. No armazenamento padrão, são 72 horas. 
+        - **Instantâneos consistentes com o aplicativo**. O instantâneo consistente com o aplicativo pode ser tomado a cada 1 a 12 horas, dependendo das necessidades do seu aplicativo. Instantâneos são instantâneos de blob padrão do Azure. O agente de Mobilidade executando em uma VM solicita um instantâneo de VSS de acordo com essa configuração e indica esse ponto no tempo como um ponto consistente do aplicativo no fluxo de replicação.
 
 2. O tráfego é replicado para pontos de extremidade públicos do Armazenamento do Microsoft Azure pela Internet. Alternativamente, você pode usar o Azure ExpressRoute com [o peering da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Não há suporte para replicação de tráfego através de uma VPN (rede virtual privada) site a site de um site local para o Azure.
-3. Após a conclusão da replicação inicial, a replicação de alterações delta para o Azure é iniciada. As alterações controladas de uma máquina são enviadas para o servidor de processo.
+3. A operação inicial de replicação garante que dados inteiros na máquina no momento da replicação de habilitação sejam enviados ao Azure. Após a conclusão da replicação inicial, a replicação de alterações delta para o Azure é iniciada. As alterações controladas de uma máquina são enviadas para o servidor de processo.
 4. A comunicação ocorre da seguinte maneira:
 
     - As VMs se comunicam com o servidor de configuração local na porta HTTPS 443 de entrada para o gerenciamento de replicação.
     - O servidor de configuração coordena a replicação com o Azure pela porta HTTPS 443 de saída.
     - As VMs que estão sendo replicadas enviam dados de replicação para o servidor de processo (em execução no computador do servidor de configuração) na porta 9443 HTTPS de entrada. Essa porta pode ser modificada.
-    - O servidor de processo recebe dados de replicação, otimiza-os e criptografa-os e os envia para o armazenamento do Microsoft Azure pela porta 443 de saída.
+    - O servidor de processo recebe dados de replicação, otimiza e criptografa e os envia para o armazenamento Azure na porta 443.
 5. Os dados de replicação registram primeiro a terra em uma conta de armazenamento de cache no Azure. Esses logs são processados e os dados são armazenados em um Disco Gerenciado do Azure (chamado de disco de sementes asr). Os pontos de recuperação são criados neste disco.
-
-
-
 
 **Processo de replicação do VMware para o Azure**
 
 ![Processo de replicação](./media/vmware-azure-architecture/v2a-architecture-henry.png)
+
+## <a name="resynchronization-process"></a>Processo de ressincronização
+
+1. Às vezes, durante a replicação inicial ou durante a transferência de alterações delta, pode haver problemas de conectividade de rede entre a máquina de origem para o servidor de processo ou entre o servidor de processo para o Azure. Qualquer uma delas pode levar a falhas na transferência de dados para o Azure momentaneamente.
+2. Para evitar problemas de integridade de dados e minimizar os custos de transferência de dados, a Recuperação do Site marca uma máquina para ressincronização.
+3. Uma máquina também pode ser marcada para ressincronização em situações como seguir para manter a consistência entre a máquina de origem e os dados armazenados no Azure
+    - Se uma máquina sofrer um desligamento da força
+    - Se uma máquina sofrer alterações de configuração como redimensionamento de disco (modificando o tamanho do disco de 2 TB para 4 TB)
+4. A ressincronização envia apenas dados delta para o Azure. Transferência de dados entre o local e o Azure, minimizado pela computação de resumos de dados entre a máquina de origem e os dados armazenados no Azure.
+5. Por padrão, a ressincronização está agendada para execução automática fora das horas de trabalho. Se você não quiser aguardar a ressincronização fora do horário de trabalho, você poderá ressincronizar uma VM manualmente. Para isso, vá para o portal Azure, selecione o VM > **Resynchronize**.
+6. Se a ressincronização padrão falhar fora do horário de expediente e uma intervenção manual for necessária, então um erro será gerado na máquina específica no portal Azure. Você pode resolver o erro e acionar a ressincronização manualmente.
+7. Após a conclusão da ressincronização, a replicação das alterações delta será retomada.
 
 ## <a name="failover-and-failback-process"></a>Processo de failover e failback
 

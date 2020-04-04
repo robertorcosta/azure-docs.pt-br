@@ -5,15 +5,15 @@ services: active-directory
 author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 11/11/2019
+ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: c73a62b2d5feeae42a5ea35c88073dd5fcc0d78c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd716be397d9ef6b9d6132cd4470f653f3cea0f
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77192479"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655921"
 ---
 ## <a name="for-users-in-your-directory"></a>Para usuários em seu diretório
 
@@ -153,7 +153,7 @@ Use as seguintes etapas para adicionar aprovadores depois de selecionar quantos 
 
     A justificativa é visível para outros aprovadores e o solicitante.
 
-### <a name="2-stage-approval-preview"></a>Aprovação em 2 estágios (Visualização)
+### <a name="2-stage-approval"></a>Aprovação em 2 estágios
 
 Se você selecionou uma aprovação de duas etapas, você precisará adicionar um segundo aprovador.
 
@@ -167,7 +167,7 @@ Se você selecionou uma aprovação de duas etapas, você precisará adicionar u
 
     ![Pacote de acesso - Solicitações - Para usuários fora do diretório - Segundo Aprovador](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
 
-1. Especificar o número de dias que o segundo aprovador tem para aprovar a solicitação na caixa **Decisão deve ser feita em quantos dias?**. 
+1. Especificar o número de dias que o segundo aprovador tem para aprovar a solicitação na caixa sob **Decisão deve ser feita em quantos dias?**. 
 
 1. Defina a justificativa do aprovador de Exigir alternar **para Sim** ou **Não**.
 
@@ -206,4 +206,4 @@ Por exemplo, se você listou Alice e Bob como os primeiros aprovadores, liste Ca
 
     ![Pacote de acesso - Política - Ativar a configuração de diretiva](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
-1. Clique em **Avançar**.
+1. Clique em **Próximo**.

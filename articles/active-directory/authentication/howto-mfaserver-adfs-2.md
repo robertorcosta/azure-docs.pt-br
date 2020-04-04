@@ -4,19 +4,19 @@ description: Esta é a página do Azure Multi-Factor Authentication que descreve
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e71c1d28a90af72890b2399d5da24d08885f3cce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c79a42bbd60d7a1857649cffc97ed7f0103fa16
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051208"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653508"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configurar o Servidor de Autenticação Multifator do Azure para trabalhar com o AD FS 2.0
 
@@ -59,7 +59,7 @@ Para proteger o AD FS 2.0 com um proxy, instale o Servidor de Autenticação Mul
 13. Ao concluir, clique em **OK** para retornar à caixa de diálogo Adicionar Site Baseado em Formulário.
 14. Clique em **OK** para fechar a caixa de diálogo.
 15. Depois que as variáveis de URL e página forem detectadas ou inseridas, os dados do site serão exibidos no painel Baseado em Formulário.
-16. Clique na guia **Módulo Nativo** e selecione o servidor, o site em que proxy do AD FS está em execução (como “Site Padrão”) ou o aplicativo de proxy do AD FS (como “ls” em “adfs”) para habilitar o plug-in do IIS no nível desejado.
+16. Clique na guia **Módulo Nativo** e selecione o servidor, o site em que o proxy AD FS está sendo executado (como "Site padrão") ou o aplicativo proxy AD FS (como "ls" em "adfs") para ativar o plug-in DoI no nível desejado.
 17. Clique na caixa **de autenticação Ativar IIS** na parte superior da tela.
 
 Agora, a autenticação do IIS está habilitada.
@@ -85,8 +85,8 @@ Você habilitou a autenticação do IIS, mas para executar a pré-autenticação
 
 1. Em seguida, clique no ícone **Configurações** da empresa e selecione a guia **Resolução do nome de usuário.**
 2. Selecione o botão de opção **Usar atributo de identificador exclusivo LDAP para correspondência de nomes de usuário**.
-3. Se os usuários inserirem seu nome de usuário no formato "domínio\nomedousuário", o servidor precisará ser capaz de retirar o domínio de nome de usuário quando criar a consulta LDAP. Isso pode ser feito por meio de uma configuração do registro.
-4. Abra o editor de registro e vá para HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor em um servidor de 64 bits. Em um servidor de 32 bits, retire “Wow6432Node” do caminho. Crie uma chave de registro DWORD chamada “UsernameCxz_stripPrefixDomain” e defina o valor para 1. Agora a Autenticação Multifator do Azure está protegendo o proxy do AD FS.
+3. Se os usuários inserirem seu nome de usuário no formato "domain\username", o Servidor poderá remover o domínio do nome de usuário quando ele criar a consulta LDAP. Isso pode ser feito por meio de uma configuração do registro.
+4. Abra o editor de registro e vá para HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor em um servidor de 64 bits. Se em um servidor de 32 bits, tire o "Wow6432Node" do caminho. Crie uma chave de registro DWORD chamada "UsernameCxz_stripPrefixDomain" e defina o valor como 1. Agora a Autenticação Multifator do Azure está protegendo o proxy do AD FS.
 
 Verifique se os usuários foram importados do Active Directory no Servidor. Consulte a [seção IPs confiáveis](#trusted-ips) se quiser permitir endereços IP internos para que a verificação em duas etapas não seja necessária ao fazer login no site a partir desses locais.
 
@@ -107,7 +107,7 @@ Você pode proteger o AD FS quando o proxy do AD FS não é usado. Instale o Ser
    ![AD FS 2.0 Direct sem um proxy](./media/howto-mfaserver-adfs-2/noproxy.png)
 
 8. Clique em **OK**.
-9. Clique na guia **Módulo Nativo** e selecione o servidor, o site (como "Site Padrão") ou o aplicativo do AD FS (como "ls" em "adfs") para habilitar o plug-in do IIS no nível desejado.
+9. Clique na guia **Módulo Nativo** e selecione o servidor, o site (como "Site padrão") ou o aplicativo AD FS (como "ls" em "adfs") para ativar o plug-in IIS no nível desejado.
 10. Clique na caixa **de autenticação Ativar IIS** na parte superior da tela.
 
 Agora a Autenticação Multifator do Azure está protegendo o ADFS.

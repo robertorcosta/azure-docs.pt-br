@@ -4,19 +4,19 @@ description: Integre a infraestrutura VPN com Azure MFA usando a extensão do Se
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f446f1549b3efcd5f27752fac972dfd80c8650d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec8d5b66c71c558e56f3d1f48cec96d7cc487552
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425392"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654121"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar sua infraestrutura VPN com a MFA do Azure usando a extensão Servidor de Políticas de Rede para o Azure
 
@@ -67,7 +67,7 @@ Quando a extensão NPS para o Azure é integrada ao NPS, há um fluxo de autenti
 2. O servidor VPN age como um cliente RADIUS e converte a solicitação em uma mensagem de *Solicitação de Acesso* do RADIUS e a envia (com uma senha é criptografada) ao servidor RADIUS no qual a extensão NPS está instalada.
 3. A combinação de nome de usuário e senha é verificada no Active Directory. Se o nome de usuário ou a senha estiver incorreto, o servidor RADIUS enviará uma mensagem de *Rejeição de Acesso*.
 4. Se todas as condições especificadas na Solicitação de Conexão de NPS e nas Políticas de Rede forem atendidas (por exemplo, hora do dia ou restrições de associação a um grupo), a extensão NPS disparará uma solicitação de autenticação secundária com a Autenticação Multifator do Azure.
-5. A Autenticação Multifator do Azure comunica-se com o Azure Active Directory, recupera os detalhes do usuário e executa a autenticação secundária usando o método configurado pelo usuário (chamada de telefone celular, mensagem de texto ou aplicativo móvel).
+5. A Autenticação Multifatorial do Azure se comunica com o Azure Active Directory, recupera os detalhes do usuário e executa a autenticação secundária usando o método configurado pelo usuário (chamada de celular, mensagem de texto ou aplicativo móvel).
 6. Quando o desafio de MFA for bem-sucedido, a Autenticação Multifator do Azure comunicará o resultado à extensão do NPS.
 7. Após a tentativa de conexão ser autenticada e autorizada, o NPS no qual a extensão está instalada envia uma mensagem de *Aceitação de Acesso* RADIUS ao servidor VPN (cliente RADIUS).
 8. O usuário tem acesso à porta virtual no servidor VPN e estabelece um túnel VPN criptografado.
@@ -108,8 +108,8 @@ A extensão NPS requer o Windows Server 2008 R2 SP1 ou posterior, com a função
 
 As bibliotecas a seguir são instaladas automaticamente com a extensão NPS:
 
--   [Pacotes redistribuíveis do Visual C++ para Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Módulo Microsoft Azure Active Directory para Windows PowerShell versão 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+-    [Pacotes redistribuíveis do Visual C++ para Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-    [Módulo Microsoft Azure Active Directory para Windows PowerShell versão 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 Se o Módulo do PowerShell do Microsoft Azure Active Directory ainda não estiver presente, ele será instalado com um script de configuração executado como parte do processo de instalação. Não é necessário instalar esse módulo antecipadamente, caso ele ainda não esteja instalado.
 
@@ -361,7 +361,7 @@ O script executa as ações a seguir:
 * Cria um certificado autoassinado.
 * Associa a chave pública do certificado à entidade de serviço no Azure AD.
 * Armazena o certificado no repositório do computador local.
-* Concede acesso à chave privada do certificado ao usuário de rede.
+* Concede ao usuário da rede acesso à chave privada do certificado.
 * Reinicia o serviço NPS.
 
 Se você quiser usar seus próprios certificados, associe a chave pública do seu certificado à entidade de serviço no Azure AD e assim por diante.

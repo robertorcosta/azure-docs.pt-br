@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5f22de08c4eabd3f9a3d6ee29cad3f0a9e8509e0
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 644ad931879c1953560abf13ac0eda58f3d814d8
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351379"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633071"
 ---
 # <a name="powershell--rest-apis-for-azure-synapse-analytics-sql-pool"></a>PowerShell & APIs REST para o pool Synapse Analytics Do Azure Synapse
 
@@ -28,7 +28,7 @@ Muitas tarefas administrativas do pool SQL do Azure Synapse Analytics podem ser 
 
 1. Abra o Windows PowerShell.
 2. No prompt do PowerShell, execute estes comandos para entrar no Azure Resource Manager e selecione sua assinatura.
-   
+
     ```powershell
     Connect-AzAccount
     Get-AzSubscription
@@ -36,6 +36,7 @@ Muitas tarefas administrativas do pool SQL do Azure Synapse Analytics podem ser 
     ```
 
 ## <a name="pause-data-warehouse-example"></a>Exemplo de data warehouse pausa
+
 Pause um banco de dados denominado "Database02" hospedado em um servidor denominado "Server01."  O servidor está em um grupo de recursos do Azure denominado "ResourceGroup1".
 
 ```Powershell
@@ -67,27 +68,26 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 
 > [!NOTE]
 > Observe que, se o servidor for foo.database.windows.net, use "foo" como o -ServerName nos cmdlets do PowerShell.
-> 
-> 
 
 ## <a name="other-supported-powershell-cmdlets"></a>Outros cmdlets do PowerShell com suporte
+
 Esses cmdlets powershell são suportados com o data warehouse Azure Synapse Analytics.
 
-* [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase)
-* [Get-AzSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup)
-* [Get-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserestorepoint)
-* [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
-* [Remove-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabase)
-* [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)
-* [Resume-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/resume-azsqldatabase)
-* [Assinatura Select-Az](https://msdn.microsoft.com/library/dn722499.aspx)
-* [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
-* [Banco de dados suspend-AzSql](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase)
+* [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Get-AzSqlDatabaseRestorePoint](/powershell/module/az.sql/get-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Restore-AzSqlDatabase]/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Banco de dados suspend-AzSql](/powershell/module/az.sql/suspend-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Para obter mais exemplos do PowerShell, consulte:
 
 * [Crie um data warehouse usando o PowerShell](create-data-warehouse-powershell.md)
 * [Restauração do banco de dados](sql-data-warehouse-restore-points.md)
 
-Para outras tarefas que podem ser automatizadas com o PowerShell, consulte [cmdlets do Banco de Dados SQL do Azure](https://docs.microsoft.com/powershell/module/az.sql). Nem todos os cmdlets do Banco de Dados Azure SQL são suportados para o data warehouse Dozure Synapse Analytics.  Para obter uma lista de tarefas que podem ser automatizadas com rest, consulte [Operations for Azure SQL Database](/rest/api/sql/).
+Para outras tarefas que podem ser automatizadas com o PowerShell, consulte [Cmdlets do Banco de Dados Azure SQL]/powershell/module/az.sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json Nem todos os cmdlets do Banco de Dados Azure SQL são suportados para o data warehouse Dozure Synapse Analytics. Para obter uma lista de tarefas que podem ser automatizadas com rest, consulte [Operations for Azure SQL Database](/rest/api/sql/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).

@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 28ac075d043f7605b6dfdac6879063fbe9308123
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 25e6770fb38d13591186754bc5e6a7641083a899
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619053"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633505"
 ---
 # <a name="group-by-options-in-synapse-sql-pool"></a>Grupo por opções no pool Synapse SQL
 
@@ -24,7 +24,7 @@ Neste artigo, você encontrará dicas para implementar grupo por opções no poo
 
 ## <a name="what-does-group-by-do"></a>O que GROUP BY faz?
 
-A cláusula T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) agrega dados a um conjunto de linhas de resumo. Group BY tem algumas opções que o pool SQL não suporta. Essas opções têm alternativas, que são as seguintes:
+A cláusula T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) agrega dados a um conjunto de linhas de resumo. Group BY tem algumas opções que o pool SQL não suporta. Essas opções têm alternativas, que são as seguintes:
 
 * GROUP BY com ROLLUP
 * GROUPING SETS
@@ -35,6 +35,7 @@ A cláusula T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) ag
 A opção mais simples aqui é usar a UNION ALL para realizar o rollup em vez de depender da sintaxe explícita. O resultado é exatamente o mesmo.
 
 O exemplo a seguir usa a instrução GROUP BY com a opção ROLLUP:
+
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -84,9 +85,10 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 Para substituir GROUPING SETS, o princípio de exemplo se aplica. Você só precisa criar seções UNION ALL para os níveis de agregação que você deseja ver.
 
 ## <a name="cube-options"></a>Opções Cube
+
 É possível criar um GRUPO POR CUBO usando a abordagem UNION ALL. O problema é que o código pode rapidamente se tornar complicado e difícil. Para mitigar esse problema, você pode usar essa abordagem mais avançada.
 
-Usando o exemplo anterior, o primeiro passo é definir o 'cubo' que define todos os níveis de agregação que queremos criar. 
+Usando o exemplo anterior, o primeiro passo é definir o 'cubo' que define todos os níveis de agregação que queremos criar.
 
 Tome nota do CROSS JOIN das duas tabelas derivadas, pois isso gera todos os níveis para nós. O resto do código está lá para formatação:
 
@@ -182,5 +184,5 @@ ORDER BY 1,2,3
 Ao dividir o código em seções e gerar uma construção de looping, o código torna-se mais gerenciável e sustentável.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimento](sql-data-warehouse-overview-develop.md).
 
+Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimento](sql-data-warehouse-overview-develop.md).

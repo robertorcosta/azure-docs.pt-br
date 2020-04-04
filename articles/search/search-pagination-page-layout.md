@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 8543894f3f518df6b9b0054973ca1683b82e38f1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: df80668f5e4a31d6247e9e9806e3de0667fd9036
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549003"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656006"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com resultados de pesquisa na Pesquisa Cognitiva do Azure
 
@@ -39,7 +39,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
 > [!NOTE]
 > Se quiser incluir arquivos de imagem em um resultado, como uma foto ou logotipo do produto, armazene-os fora da Pesquisa Cognitiva do Azure, mas inclua um campo em seu índice para referenciar a URL de imagem no documento de pesquisa. Os índices de amostra que suportam imagens nos resultados incluem a demonstração **realestate-sample-us,** destaque neste [quickstart](search-create-app-portal.md), e o [aplicativo de demonstração New York City Jobs](https://aka.ms/azjobsdemo).
 
-## <a name="results-returned"></a>Resultados devolvidos
+## <a name="paging-results"></a>Resultados da paginação
 
 Por padrão, o mecanismo de pesquisa retorna até as primeiras 50 partidas, conforme determinado pela pontuação da pesquisa se a consulta for pesquisa de texto completa ou em uma ordem arbitrária para consultas exatas de correspondência.
 
@@ -74,19 +74,19 @@ Observe que o documento 2 é buscado duas vezes. Isso porque o novo documento 5 
 
 ## <a name="ordering-results"></a>Ordenando resultados
 
-Para consultas completas de pesquisa de texto, os resultados são automaticamente classificados por um score de pesquisa, calculado com base na frequência de termo e proximidade em um documento, com pontuações mais altas indo para documentos com mais ou mais respostas em um termo de pesquisa. Os escores de pesquisa transmitem um senso geral de relevância, em relação a outros documentos no mesmo conjunto de resultados, e não são garantidos como consistentes de uma consulta para a outra.
+Para consultas completas de pesquisa de texto, os resultados são automaticamente classificados por um score de pesquisa, calculado com base na frequência de termo e proximidade em um documento, com pontuações mais altas indo para documentos com mais ou mais respostas em um termo de pesquisa. 
 
-À medida que você trabalha com consultas, você pode notar pequenas discrepâncias nos resultados ordenados. Há várias explicações para o porquê disso ocorrer.
+As pontuações de pesquisa transmitem um senso geral de relevância, refletindo a força da correspondência em comparação com outros documentos no mesmo conjunto de resultados. As pontuações nem sempre são consistentes de uma consulta para a próxima, então, à medida que você trabalha com consultas, você pode notar pequenas discrepâncias na forma como os documentos de pesquisa são ordenados. Há várias explicações para o porquê disso ocorrer.
 
-| Condição | Descrição |
+| Causa | Descrição |
 |-----------|-------------|
-| Volatilidade de dados | O conteúdo de um índice varia conforme você adiciona, modifica ou exclui documentos. As freqüências de termo serão mudadas à medida que as atualizações de índice são processadas ao longo do tempo, afetando os escores de pesquisa dos documentos correspondentes. |
-| Local de execução de consulta | Para serviços que usam várias réplicas, as consultas são emitidas contra cada réplica em paralelo. As estatísticas de índice utilizadas para calcular um escore de pesquisa são calculadas em uma base por réplica, com resultados mesclados e ordenados na resposta de consulta. As réplicas são principalmente espelhos um do outro, mas as estatísticas podem diferir devido a pequenas diferenças de estado. Por exemplo, uma réplica pode ter excluído documentos que contribuíram para suas estatísticas, que foram mescladas a partir de outras réplicas. Geralmente, as diferenças nas estatísticas por réplica são mais perceptíveis em índices menores. |
-| Quebrando um empate entre resultados de pesquisa idênticos | Discrepâncias nos resultados ordenados também podem ocorrer quando os documentos de pesquisa têm pontuações idênticas. Neste caso, como você reexecuta a mesma consulta, não há garantia de qual documento aparecerá primeiro. |
+| Volatilidade de dados | O conteúdo do índice varia conforme você adiciona, modifica ou exclui documentos. As freqüências de termo serão mudadas à medida que as atualizações de índice são processadas ao longo do tempo, afetando os escores de pesquisa dos documentos correspondentes. |
+| Múltiplas réplicas | Para serviços que usam várias réplicas, as consultas são emitidas contra cada réplica em paralelo. As estatísticas de índice utilizadas para calcular um escore de pesquisa são calculadas em uma base por réplica, com resultados mesclados e ordenados na resposta de consulta. As réplicas são principalmente espelhos um do outro, mas as estatísticas podem diferir devido a pequenas diferenças de estado. Por exemplo, uma réplica pode ter excluído documentos que contribuíram para suas estatísticas, que foram mescladas a partir de outras réplicas. Normalmente, as diferenças nas estatísticas por réplica são mais perceptíveis em índices menores. |
+| Pontuações idênticas | Se vários documentos tiverem a mesma pontuação, qualquer um deles pode aparecer primeiro.  |
 
 ### <a name="consistent-ordering"></a>Ordem consistente
 
-Dado o flex na pontuação de pesquisa, você pode querer explorar outras opções se a consistência nas ordens de resultado for um requisito de aplicação. A abordagem mais fácil é classificar por um valor de campo, como classificação ou data. Para cenários em que você deseja classificar por um campo específico, como [ `$orderby` ](query-odata-filter-orderby-syntax.md)uma classificação ou data, você pode definir explicitamente uma expressão , que pode ser aplicada a qualquer campo que seja indexado como **Sortable**.
+Dado o flex no pedido de resultados, você pode querer explorar outras opções se a consistência é um requisito de aplicação. A abordagem mais fácil é classificar por um valor de campo, como classificação ou data. Para cenários em que você deseja classificar por um campo específico, como [ `$orderby` ](query-odata-filter-orderby-syntax.md)uma classificação ou data, você pode definir explicitamente uma expressão , que pode ser aplicada a qualquer campo que seja indexado como **Sortable**.
 
 Outra opção é usar um [perfil de pontuação personalizado.](index-add-scoring-profiles.md) Os perfis de pontuação dão mais controle sobre o ranking de itens nos resultados de pesquisa, com a capacidade de impulsionar partidas encontradas em campos específicos. A lógica adicional de pontuação pode ajudar a substituir pequenas diferenças entre as réplicas porque as pontuações de pesquisa de cada documento estão mais distantes. Recomendamos o [algoritmo de classificação](index-ranking-similarity.md) para esta abordagem.
 

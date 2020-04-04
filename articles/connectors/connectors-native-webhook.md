@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/06/2020
 tags: connectors
-ms.openlocfilehash: 1578ca030bc8bab971a44e1afcce1d1ab9e1d5e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78674034"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656292"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Crie e execute fluxos de trabalho automatizados baseados em eventos usando webhooks HTTP em Aplicativos de Lógica do Azure
 
@@ -36,7 +36,7 @@ Uma ação http webhook também é baseada em eventos e *assina* um serviço ou 
 Por exemplo, a ação de [**e-mail**](connectors-create-api-office365-outlook.md) de aprovação do Connector Send do Office 365 Outlook é um exemplo de ação de webhook que segue esse padrão. Você pode estender esse padrão para qualquer serviço usando a ação webhook.
 
 > [!NOTE]
-> O Logic Apps impõe o TLS (Transport Layer Security, segurança de camada de transporte) 1.2 ao receber a chamada de volta ao gatilho ou ação do webhook HTTP. Se você vir erros de aperto de mão SSL, certifique-se de usar o TLS 1.2. Para chamadas recebidas, aqui estão as suítes de cifra suportadas:
+> O Logic Apps impõe o TLS (Transport Layer Security, segurança de camada de transporte) 1.2 ao receber a chamada de volta ao gatilho ou ação do webhook HTTP. Se você vir erros de aperto de mão TLS, certifique-se de usar o TLS 1.2. Para chamadas recebidas, aqui estão as suítes de cifra suportadas:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -67,7 +67,7 @@ Para saber mais, consulte esses tópicos:
 
 Este gatilho incorporado chama o ponto final de assinatura no serviço de destino e registra uma URL de retorno de chamada com o serviço de destino. Seu aplicativo lógico então espera que o `HTTP POST` serviço de destino envie uma solicitação para a URL de retorno de chamada. Quando esse evento acontece, o gatilho é acionado e passa qualquer dado na solicitação junto ao fluxo de trabalho.
 
-1. Faça login no [portal Azure](https://portal.azure.com). Abra seu aplicativo de lógica em branco no Logic App Designer.
+1. Entre no [portal do Azure](https://portal.azure.com). Abra seu aplicativo de lógica em branco no Logic App Designer.
 
 1. Na caixa de pesquisa do `http webhook` designer, digite como seu filtro. Na lista **Triggers,** selecione o gatilho **HTTP Webhook.**
 
@@ -107,7 +107,7 @@ Este gatilho incorporado chama o ponto final de assinatura no serviço de destin
 
 Essa ação incorporada chama o ponto final de assinatura no serviço de destino e registra uma URL de retorno de chamada com o serviço de destino. Seu aplicativo lógico então pausa e espera que `HTTP POST` o serviço de destino envie uma solicitação para a URL de retorno de chamada. Quando esse evento acontece, a ação passa todos os dados da solicitação ao longo do fluxo de trabalho. Se a operação for concluída com sucesso, a ação cancelará a inscrição a partir do ponto final e seu aplicativo lógico continuará executando o fluxo de trabalho restante.
 
-1. Faça login no [portal Azure](https://portal.azure.com). Abra seu aplicativo lógico no Logic App Designer.
+1. Entre no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico no Logic App Designer.
 
    Este exemplo usa o gatilho HTTP Webhook como o primeiro passo.
 

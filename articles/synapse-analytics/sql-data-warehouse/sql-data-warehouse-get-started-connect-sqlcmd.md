@@ -1,6 +1,6 @@
 ---
 title: Conecte-se com sqlcmd
-description: Use o utilitário de linha de comando sqlcmd para conectar-se ao SQL Data Warehouse do Azure e fazer uma consulta.
+description: Use o utilitário de linha de comando sqlcmd para conectar e consultar um pool Synapse SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,31 +11,31 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 118997c39b56254eb47bc24350a0558e0b7620f9
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: cfb1b7558f8d7675009a0ebc729cc1a560f03d12
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350500"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633369"
 ---
-# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Conecte-se ao SQL Data Warehouse com sqlcmd
+# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Conecte-se à piscina Synapse SQL com sqlcmd
 > [!div class="op_single_selector"]
-> * [Bi de Potência](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Aprendizado de máquina do Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
-Use o utilitário de linha de comando [sqlcmd][sqlcmd] para conectar e consultar um Data Warehouse Azure SQL.  
+Use o utilitário de linha de comando [sqlcmd][sqlcmd] para conectar e consultar um pool SQL.  
 
 ## <a name="1-connect"></a>1. Conecte
-Para começar com o [sqlcmd][sqlcmd], abra o prompt de comando e digite **sqlcmd** seguido da cadeia de conexão do banco de dados SQL Data Warehouse. A cadeia de conexão precisará dos seguintes parâmetros:
+Para começar com [sqlcmd][sqlcmd], abra o prompt de comando e digite **sqlcmd** seguido pela seqüência de conexões para o banco de dados do pool SQL. A cadeia de conexão precisará dos seguintes parâmetros:
 
 * **Servidor (-S):** Servidor no formato `<`Nome do Servidor`>`.database.windows.net
 * **Banco de dados (-d):** Nome do banco de dados.
-* **Habilitar Identificadores com Cotas (-I):** os identificadores com cotas devem ser habilitados para conectarem uma instância do SQL Data Warehouse.
+* **Habilitar identificadores citados (-I):** Os identificadores citados devem ser habilitados para se conectar a uma instância de pool SQL.
 
 Para usar a Autenticação do SQL Server, você precisa adicionar os parâmetros do nome de usuário/senha:
 
@@ -84,14 +84,4 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira a [documentação do sqlcmd][sqlcmd] para obter mais detalhes sobre as opções disponíveis no sqlcmd.
-
-<!--Image references-->
-
-<!--Article references-->
-
-<!--MSDN references--> 
-[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
-[Azure portal]: https://portal.azure.com
-
-<!--Other Web references-->
+Para obter mais detalhes sobre as opções disponíveis em sqlcmd, consulte [a documentação sqlcmd](https://msdn.microsoft.com/library/ms162773.aspx) .

@@ -4,23 +4,23 @@ description: Bloqueio inteligente de Active Directory do Azure ajuda a proteger 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfd49a4429dc0d7f5db07a577016c21de8fc58d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61ae942ed189dc4245a9a0b282daf4cad5323536
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75762868"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652573"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory Sync smart lockout
 
-O bloqueio inteligente ajuda a bloquear atores mal-intencionados que estão tentando adivinhar as senhas dos usuários ou usar métodos de força bruta para entrada. Ele pode reconhecer entradas provenientes de usuários válidos e tratá-las de forma diferente do que as entradas dos invasores e de outras fontes desconhecidas. O bloqueio inteligente bloqueia os invasores, enquanto permite que os usuários continuem acessando suas contas e sendo produtivos.
+O bloqueio inteligente ajuda a bloquear os maus atores que estão tentando adivinhar as senhas de seus usuários ou usar métodos de força bruta para entrar. Ele pode reconhecer entradas provenientes de usuários válidos e tratá-las de forma diferente do que as entradas dos invasores e de outras fontes desconhecidas. O bloqueio inteligente bloqueia os invasores, enquanto permite que os usuários continuem acessando suas contas e sendo produtivos.
 
 Por padrão, o bloqueio inteligente bloqueia a conta de tentativas de login por um minuto após 10 tentativas malsucedidas. A conta é bloqueada novamente após cada tentativa de entrada com falha subsequente durante um minuto na primeira vez, e tempos mais longos em tentativas subsequentes.
 
@@ -33,7 +33,7 @@ Implantações federadas usando AD FS 2016 e AF FS 2019 podem permitir benefíci
 
 O bloqueio inteligente está sempre ativado para todos os clientes do Azure AD com as configurações padrão que oferecem a combinação certa de segurança e usabilidade. A personalização das configurações de bloqueio inteligentes, com valores específicos para sua organização, requer licenças AD pagas do Azure para seus usuários.
 
-O uso do bloqueio inteligente não garante que um usuário genuíno nunca será bloqueado. Quando o bloqueio inteligente bloqueia uma conta de usuário, tentamos o nosso melhor para não bloquear o usuário genuíno. O serviço de bloqueio tenta garantir que atores mal-intencionados não obtenham acesso a uma conta de usuário original.  
+O uso do bloqueio inteligente não garante que um usuário genuíno nunca será bloqueado. Quando o bloqueio inteligente bloqueia uma conta de usuário, tentamos o nosso melhor para não bloquear o usuário genuíno. O serviço de bloqueio tenta garantir que os maus atores não possam ter acesso a uma conta de usuário genuína.  
 
 * Cada centro de dados do Azure Active Directory rastreia o bloqueio de forma independente. Um usuário terá (threshold_limit * datacenter_count) número de tentativas, se o usuário acessar cada datacenter.
 * O Smart Lockout usa localização familiar versus local desconhecido para diferenciar entre um ator ruim e o usuário genuíno. Locais desconhecidos e familiares ambos terá contadores separados de bloqueio.
@@ -67,7 +67,7 @@ Baseado nos seus requisitos organizacionais, os valores de bloqueio inteligente 
 
 Para verificar ou modificar os valores de bloqueio inteligente para a sua organização, use os seguintes passos:
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Pesquise *Azure Active Directory* e selecione-o. Selecione**métodos** > de autenticação de **segurança** > **Proteção por senha**.
 1. Coloque o **limite de bloqueio**, baseado em quantas vezes de logins falhados é permitido em uma conta antes do primeiro bloqueio. O padrão é 10.
 1. Coloque a **duração do bloqueio em segundos**, para a duração em segundos de cada bloqueio. O padrão é 60 segundos (um minuto).

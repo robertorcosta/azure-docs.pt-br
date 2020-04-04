@@ -8,15 +8,15 @@ ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: bc5371ccbd3ba66117d5c613090b70ce7f07d51e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95373ab8ff78c5bcb856e6d7e6d67d8525cd3f7e
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78298834"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655126"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Junte-se a uma máquina virtual do Ubuntu Linux a um domínio gerenciado do Azure AD Domain Services
 
@@ -42,8 +42,8 @@ Se você tiver um Ubuntu Linux VM existente no Azure, conecte-se a ele usando SS
 
 Se você precisar criar um VM Linux Ubuntu ou quiser criar uma VM de teste para uso com este artigo, você pode usar um dos seguintes métodos:
 
-* [Portal Azure](../virtual-machines/linux/quick-create-portal.md)
-* [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 Ao criar a VM, preste atenção às configurações da rede virtual para garantir que a VM possa se comunicar com o domínio gerenciado pelo Azure AD DS:

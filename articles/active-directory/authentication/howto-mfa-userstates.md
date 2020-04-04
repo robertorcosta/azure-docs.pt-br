@@ -4,23 +4,23 @@ description: Habilite o MFA alterando estados de usuário na Autenticação Mult
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61d7227c57422cfe2228002750ec29bffa385d44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e955a3d10eea0a23154396a44fe6e1fc552a9ccb
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76756752"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653485"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como exigir a verificação em duas etapas para um usuário
 
-Você pode adotar uma das duas abordagens para solicitar a verificação em duas etapas, sendo que ambas exigem o uso de uma conta de administrador global. A primeira opção é habilitar cada usuário para a Autenticação Multifator do Azure (MFA). Quando os usuários são habilitados individualmente, eles executam a verificação em duas etapas em cada entrada (com algumas exceções, como ao entrarem a partir de endereços IP confiáveis, ou quando o recurso de _dispositivos lembrados_ estiver ativado). A segunda opção é configurar uma política de acesso condicional que exija verificação em duas etapas certas condições.
+Você pode adotar uma das duas abordagens para solicitar a verificação em duas etapas, sendo que ambas exigem o uso de uma conta de administrador global. A primeira opção é habilitar cada usuário para a Autenticação Multifator do Azure (MFA). Quando os usuários são habilitados individualmente, eles executam a verificação em duas etapas em cada entrada (com algumas exceções, como ao entrarem a partir de endereços IP confiáveis, ou quando o recurso de _dispositivos lembrados_ estiver ativado). A segunda opção é configurar uma política de acesso condicional que exija verificação em duas etapas sob certas condições.
 
 > [!TIP]
 > Habilitar a autenticação multifatorial do Azure usando políticas de acesso condicional é a abordagem recomendada. A alteração dos estados dos usuários não é mais recomendada, a menos que suas licenças não incluam acesso condicional, pois exigirá que os usuários realizem o MFA toda vez que fizerem login.

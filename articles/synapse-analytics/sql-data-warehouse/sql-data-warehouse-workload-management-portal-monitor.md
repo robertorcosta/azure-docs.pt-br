@@ -11,15 +11,17 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: f904619b1cea97849e631310cf303ed07194a01e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: b1f21a996f7394def4d6b1e8bde9a5ccdf703dbb
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349926"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632417"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring-preview"></a>Azure Synapse Analytics – Monitoramento do Portal de Gerenciamento de Cargas (Preview)
-Este artigo explica como monitorar a utilização de recursos do [grupo de carga de trabalho](sql-data-warehouse-workload-isolation.md#workload-groups) e a atividade de consulta. Para obter detalhes sobre como configurar o Azure Metrics Explorer, consulte o [artigo Do Azure Metrics Explorer.](../../azure-monitor/platform/metrics-getting-started.md)  Consulte a seção [de utilização de recursos](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) na documentação do Azure Synapse Analytics Monitoring para obter detalhes sobre como monitorar o consumo de recursos do sistema.
+
+Este artigo explica como monitorar a utilização de recursos do [grupo de carga de trabalho](sql-data-warehouse-workload-isolation.md#workload-groups) e a atividade de consulta.
+Para obter detalhes sobre como configurar o Azure Metrics Explorer, consulte o [artigo Do Azure Metrics Explorer.](../../azure-monitor/platform/metrics-getting-started.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)  Consulte a seção [de utilização de recursos](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) na documentação do Azure Synapse Analytics Monitoring para obter detalhes sobre como monitorar o consumo de recursos do sistema.
 Existem duas categorias diferentes de métricas de grupo de carga de trabalho fornecidas para monitorar o gerenciamento da carga de trabalho: alocação de recursos e atividade de consulta.  Essas métricas podem ser divididas e filtradas por grupo de carga de trabalho.  As métricas podem ser divididas e filtradas com base em se são definidas pelo sistema (grupos de carga de trabalho de classe de recursos) ou definidas pelo usuário (criadas pelo usuário com sintaxe [CREATE WORKLOAD GROUP).](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
 
 ## <a name="workload-management-metric-definitions"></a>Definições métricas de gerenciamento de carga de trabalho
@@ -35,20 +37,24 @@ Existem duas categorias diferentes de métricas de grupo de carga de trabalho fo
 |Consultas enfileiradas do grupo de trabalho | Consultas para o grupo de carga de trabalho que estão atualmente na fila esperando para iniciar a execução.  As consultas podem estar na fila porque estão esperando por recursos ou bloqueios.<br><br>As consultas podem estar esperando por inúmeras razões.  Se o sistema estiver sobrecarregado e a demanda de simultâneo for maior do que a disponível, as consultas farão fila.<br><br>Considere adicionar mais recursos ao grupo `CAP_PERCENTAGE_RESOURCE` de carga de trabalho aumentando o parâmetro na declaração [CREATE WORKLOAD GROUP.](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)  Se `CAP_PERCENTAGE_RESOURCE` for maior que a métrica *de porcentagem de recurso de limite efetivo,* o isolamento de carga de trabalho configurado para outro grupo de carga de trabalho está afetando os recursos alocados para este grupo de carga de trabalho.  Considere `MIN_PERCENTAGE_RESOURCE` a redução de outros grupos de carga de trabalho ou dimensione a instância para adicionar mais recursos. |SUM |
 
 ## <a name="monitoring-scenarios-and-actions"></a>Monitoramento de cenários e ações
+
 Abaixo estão uma série de configurações de gráficos para destacar o uso da métrica de gerenciamento de carga de trabalho para solução de problemas, juntamente com as ações associadas para resolver o problema.
 
 ### <a name="underutilized-workload-isolation"></a>Isolamento da carga de trabalho subutilizada
-Considere a seguinte configuração de grupo de `wgPriority` carga de trabalho e classificador de carga de trabalho onde um grupo de carga de trabalho nomeado é criado e *o Ceo* `membername` é mapeado para ele usando o `wcCEOPriority` classificador de carga de trabalho.  O `wgPriority` grupo de carga de trabalho tem`MIN_PERCENTAGE_RESOURCE` 25% de isolamento da carga de trabalho configurado para ele (= 25).  Cada consulta enviada pelo *CEO* recebe 5% dos`REQUEST_MIN_RESOURCE_GRANT_PERCENT` recursos do sistema (= 5).
-```sql
-CREATE WORKLOAD GROUP wgPriority 
-WITH ( MIN_PERCENTAGE_RESOURCE = 25   
-      ,CAP_PERCENTAGE_RESOURCE = 50 
-      ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 5); 
 
-CREATE WORKLOAD CLASSIFIER wcCEOPriority 
+Considere a seguinte configuração de grupo de `wgPriority` carga de trabalho e classificador de carga de trabalho onde um grupo de carga de trabalho nomeado é criado e *o Ceo* `membername` é mapeado para ele usando o `wcCEOPriority` classificador de carga de trabalho.  O `wgPriority` grupo de carga de trabalho tem`MIN_PERCENTAGE_RESOURCE` 25% de isolamento da carga de trabalho configurado para ele (= 25).  Cada consulta enviada pelo *CEO* recebe 5% dos`REQUEST_MIN_RESOURCE_GRANT_PERCENT` recursos do sistema (= 5).
+
+```sql
+CREATE WORKLOAD GROUP wgPriority
+WITH ( MIN_PERCENTAGE_RESOURCE = 25
+      ,CAP_PERCENTAGE_RESOURCE = 50
+      ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 5);
+
+CREATE WORKLOAD CLASSIFIER wcCEOPriority
 WITH ( WORKLOAD_GROUP = 'wgPriority'
       ,MEMBERNAME = 'TheCEO');
 ```
+
 O gráfico abaixo está configurado da seguinte forma:<br>
 Métrica 1: *Porcentagem de recursos min eficaz* `blue line`(agregação Avg),<br>
 Métrica 2: *Alocação do grupo de carga de trabalho por percentual* do sistema (agregação avg), `purple line`<br>
@@ -56,18 +62,20 @@ Filtro: [Grupo de carga de trabalho] =`wgPriority`<br>
 ![subutilizado-wg.png](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png) O gráfico mostra que, com 25% de isolamento da carga de trabalho, apenas 10% está sendo usado em média.  Neste caso, `MIN_PERCENTAGE_RESOURCE` o valor do parâmetro poderia ser reduzido para entre 10 ou 15 e permitir que outras cargas de trabalho no sistema consumissem os recursos.
 
 ### <a name="workload-group-bottleneck"></a>Gargalo do grupo de carga de trabalho
+
 Considere a seguinte configuração de grupo de `wgDataAnalyst` carga de trabalho e classificador de carga `wcDataAnalyst` de trabalho onde um grupo de carga de trabalho nomeado é criado e o *DataAnalyst* `membername` é mapeado para ele usando o classificador de carga de trabalho.  O `wgDataAnalyst` grupo de carga de trabalho tem`MIN_PERCENTAGE_RESOURCE` 6% de isolamento da carga`CAP_PERCENTAGE_RESOURCE` de trabalho configurado para ele (= 6) e um limite de recursos de 9% (= 9).  Cada consulta enviada pelo *DataAnalyst* recebe 3% dos`REQUEST_MIN_RESOURCE_GRANT_PERCENT` recursos do sistema (= 3).
 
 ```sql
 CREATE WORKLOAD GROUP wgDataAnalyst  
-WITH ( MIN_PERCENTAGE_RESOURCE = 6   
-      ,CAP_PERCENTAGE_RESOURCE = 9 
-      ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 3); 
+WITH ( MIN_PERCENTAGE_RESOURCE = 6
+      ,CAP_PERCENTAGE_RESOURCE = 9
+      ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 3);
 
-CREATE WORKLOAD CLASSIFIER wcDataAnalyst 
+CREATE WORKLOAD CLASSIFIER wcDataAnalyst
 WITH ( WORKLOAD_GROUP = 'wgDataAnalyst'
       ,MEMBERNAME = 'DataAnalyst');
 ```
+
 O gráfico abaixo está configurado da seguinte forma:<br>
 Métrica 1: *Porcentagem de recursos de limite* `blue line`efetivo (agregação avg),<br>
 Métrica 2: *Alocação do grupo de carga de trabalho por percentual máximo de recursos* (agregação `purple line`avg)<br>
@@ -76,8 +84,8 @@ Filtro: [Grupo de carga de trabalho] =`wgDataAnalyst`<br>
 ![bottle-necked-wg](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png) O gráfico mostra que, com um limite de 9% nos recursos, o grupo de carga de trabalho é 90%+ utilizado (da *alocação*do grupo Workload por métrica de porcentagem de recursos máximo ).  Há uma fila constante de consultas como mostrado a partir da métrica de *consultas enfileiradas*do grupo Workload .  Neste caso, aumentar `CAP_PERCENTAGE_RESOURCE` o valor para um valor superior a 9% permitirá que mais consultas sejam executadas simultaneamente.  Aumentando `CAP_PERCENTAGE_RESOURCE` as pressuésidades de que há recursos suficientes disponíveis e não isolados por outros grupos de carga de trabalho.  Verifique se a tampa foi aumentada verificando a *métrica de porcentagem de recurso de limite efetivo*.  Se mais throughput for desejado, `REQUEST_MIN_RESOURCE_GRANT_PERCENT` considere também aumentar o valor para um valor maior que 3.  Aumentar `REQUEST_MIN_RESOURCE_GRANT_PERCENT` o pode permitir que as consultas corfem mais rápido.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Partida rápida: Configure o isolamento da carga de trabalho usando O T-SQL](quickstart-configure-workload-isolation-tsql.md)<br>
-[CREATE WORKLOAD GROUP (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)<br>
-[CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)<br>
-[Monitoramento da utilização de recursos](sql-data-warehouse-concept-resource-utilization-query-activity.md)
 
+- [Partida rápida: Configure o isolamento da carga de trabalho usando O T-SQL](quickstart-configure-workload-isolation-tsql.md)<br>
+- [CREATE WORKLOAD GROUP (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)<br>
+- [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)<br>
+- [Monitoramento da utilização de recursos](sql-data-warehouse-concept-resource-utilization-query-activity.md)

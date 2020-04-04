@@ -6,19 +6,18 @@ documentationcenter: .net
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
-ms.topic: tutorial
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 04/02/2020
 ms.author: shvija
-ms.openlocfilehash: 5bd25604844ce0521b6bac2d637a2d48a6ef089b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+ms.openlocfilehash: 1b292f9b894dac7df6b9634ce1bad627c8d24fe6
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72555744"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632756"
 ---
-# <a name="connect-your-apache-spark-application-with-kafka-enabled-azure-event-hubs"></a>Conectar seu aplicativo Apache Spark aos Hubs de Eventos do Azure habilitados para Kafka
-Este tutorial orienta você sobre como conectar seu aplicativo Spark aos Hubs de Eventos habilitados para Kafka para streaming em tempo real. Essa integração permite streaming sem a necessidade de alterar os clientes de protocolo ou executar seus próprios clusters Kafka ou Zookeeper. Este tutorial requer o Apache Spark v2.4+ e o Apache Kafka v2.0+.
+# <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Conecte seu aplicativo Apache Spark com hubs de eventos do Azure
+Este tutorial orienta você a conectar seu aplicativo Spark aos Hubs de eventos para streaming em tempo real. Essa integração permite streaming sem a necessidade de alterar os clientes de protocolo ou executar seus próprios clusters Kafka ou Zookeeper. Este tutorial requer o Apache Spark v2.4+ e o Apache Kafka v2.0+.
 
 > [!NOTE]
 > Este exemplo está disponível no [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/spark/)
@@ -44,7 +43,7 @@ Antes de começar este tutorial, verifique se você possui:
 
 
 ## <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
-É necessário um namespace do Hubs de Eventos para enviar e receber de qualquer serviço de Hub de Eventos. Consulte [Criando um Hub de Eventos habilitado para Kafka](event-hubs-create.md) para obter instruções sobre como obter um ponto de extremidade Kafka nos Hubs de Eventos. Obtenha a cadeia de conexão dos Hubs de Eventos e o FQDN (nome de domínio totalmente qualificado) para uso posterior. Para obter instruções, confira [Obter uma cadeia de conexão dos Hubs de Eventos](event-hubs-get-connection-string.md). 
+É necessário um namespace do Hubs de Eventos para enviar e receber de qualquer serviço de Hub de Eventos. Consulte [Criando um hub de eventos](event-hubs-create.md) para obter instruções para criar um namespace e um hub de eventos. Obtenha a cadeia de conexão dos Hubs de Eventos e o FQDN (nome de domínio totalmente qualificado) para uso posterior. Para obter instruções, confira [Obter uma cadeia de conexão dos Hubs de Eventos](event-hubs-get-connection-string.md). 
 
 ## <a name="clone-the-example-project"></a>Clonar o projeto de exemplo
 Clone o repositório dos Hubs de Eventos do Azure e navegue até a subpasta `tutorials/spark`:
@@ -100,24 +99,12 @@ df.writeStream
 
 
 ## <a name="next-steps"></a>Próximas etapas
+Para saber mais sobre os Hubs de Eventos e Hubs de Eventos para o Kafka, confira os artigos a seguir:  
 
-Neste tutorial, você aprendeu a transmitir usando o conector Spark-Kafka e os Hubs de Eventos para Kafka. Você seguiu estas etapas: 
-
-> [!div class="checklist"]
-> * Criar um namespace de Hubs de Eventos
-> * Clonar o projeto de exemplo
-> * Executar o Spark
-> * Ler dos Hubs de Eventos para Kafka
-> * Gravar nos Hubs de Eventos para o Kafka
-
-Para saber mais sobre os Hubs de Eventos e Hubs de Eventos para o Kafka, consulte o tópico a seguir:  
-
-- [Saiba sobre os Hubs de Evento](event-hubs-what-is-event-hubs.md)
-- [Hubs de Eventos do Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [Como criar Hubs de Eventos habilitados para Kafka](event-hubs-create-kafka-enabled.md)
-- [Transmitir para Hubs de Eventos a partir de seus aplicativos Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Espelhar um agente do Kafka em um hub de eventos habilitado para Kafka](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Conectar o Apache Flink a um hub de eventos habilitado para Kafka](event-hubs-kafka-flink-tutorial.md)
-- [Integrar o Kafka Connect a um hub de eventos habilitado para Kafka](event-hubs-kafka-connect-tutorial.md)
-- [Conectar o Akka Streams a um hub de eventos habilitado para Kafka](event-hubs-kafka-akka-streams-tutorial.md)
+- [Espelhar um agente do Kafka em um hub de eventos](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Conectar o Apache Flink a um hub de eventos](event-hubs-kafka-flink-tutorial.md)
+- [Integre o Kafka Connect com um hub de eventos](event-hubs-kafka-connect-tutorial.md)
 - [Explorar exemplos em nosso GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [Conecte os Fluxos Akka a um hub de eventos](event-hubs-kafka-akka-streams-tutorial.md)
+- [Guia de desenvolvedores Apache Kafka para Azure Event Hubs](apache-kafka-developer-guide.md)
+

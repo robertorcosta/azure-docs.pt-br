@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9859c884f6a1e22a1ac2bd21106ef51ead23fa41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b282962cc713487b8ee5113b02b8533a1538fff
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080075"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631888"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como: Exigir política de proteção de aplicativos e um aplicativo cliente aprovado para acesso a aplicativos na nuvem com acesso condicional
 
@@ -59,7 +59,7 @@ As organizações devem concluir as seguintes etapas para exigir o uso de um apl
 1. Em Access**controls Grant,** selecione as **seguintes** > opções:
    - **Exigir um aplicativo cliente aprovado**
    - **Exigir uma política de proteção do aplicativo (versão prévia)**
-   - **Exija um dos controles selecionados**
+   - **Exigir todos os controles selecionados**
 1. Confirme suas configurações e **configure Ativar a diretiva** **em**.
 1. Selecione **Criar** para criar e habilitar sua política.
 
@@ -138,7 +138,7 @@ Reveja o artigo [Como criar e atribuir políticas de proteção](/intune/apps/ap
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[O que é acesso condicional?](overview.md)
+[O que é Acesso Condicional?](overview.md)
 
 [Componentes de acesso condicional](concept-conditional-access-policies.md)
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/11/2020
+ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6077db0a09b09f7e4bfb859902da53b173845e55
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: b8073240bdda38757a5e4feee66c9f54746966c4
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520754"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632068"
 ---
 ### <a name="portal"></a>Portal
 
@@ -21,7 +21,7 @@ A configuração de chaves gerenciadas pelo cliente para seus discos exigirá qu
 
 #### <a name="setting-up-your-azure-key-vault"></a>Configurando seu Cofre de Chaves Azure
 
-1. Entre no [portal do Azure](https://portal.azure.com/) e procure por Key Vault
+1. Inscreva-se no [portal Azure](https://portal.azure.com/).
 1. Procure e selecione **Key Vaults**.
 
     [![sse-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
@@ -30,7 +30,7 @@ A configuração de chaves gerenciadas pelo cliente para seus discos exigirá qu
     > O cofre de chaves do Azure, o conjunto de criptografia de disco, a VM, os discos e os snapshots devem estar todos na mesma região e assinatura para que a implantação seja bem sucedida.
 
 1. Selecione **+Adicionar** para criar um novo Key Vault.
-1. Criar um novo grupo de recursos
+1. Crie um novo grupo de recursos.
 1. Digite um nome de cofre de chave, selecione uma região e selecione um nível de preço.
 1. Selecione **'Revisar + Criar',** verificar suas escolhas e, em seguida, selecione **Criar**.
 
@@ -38,7 +38,7 @@ A configuração de chaves gerenciadas pelo cliente para seus discos exigirá qu
 
 1. Assim que o cofre principal terminar de ser implantado, selecione-o.
 1. Selecione **Teclas** em **Configurações**.
-1. Selecione **Gerar/Importar**
+1. Selecione **Gerar/Importar**.
 
     ![Captura de tela do painel de configurações do Key Vault. Mostra o botão gerar/importar dentro das configurações.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
@@ -49,15 +49,8 @@ A configuração de chaves gerenciadas pelo cliente para seus discos exigirá qu
 
 #### <a name="setting-up-your-disk-encryption-set"></a>Configuração do seu conjunto de criptografia de disco
 
-Para criar e configurar conjuntos de criptografia de https://aka.ms/diskencryptionsetsdisco, você deve usar o seguinte link: . Se você estiver nas regiões do Governo Do Microsoft Azure, você deve usar este link em vez disso: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff). A criação do conjunto de criptografia de disco ainda não está disponível no portal global do Azure.
-
-1. Abra o link de criptografia de disco apropriado para sua região:
-
-    Regiões públicas:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
-
-    Regiões do Governo Azure:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
-    
-1. Selecione **+Adicionar**.
+1. Procure por **conjuntos de criptografia de disco** e selecione-o.
+1. Nos **conjuntos de criptografia de disco,** selecione **+Add**.
 
     ![Captura de tela da tela principal do portal de criptografia de disco. Destacando o botão Adicionar](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
 
@@ -82,12 +75,6 @@ Duas notificações devem aparecer e ter sucesso. Fazer isso permitirá que voc�
 Agora que você criou e configurou seu cofre de chaves e o conjunto de criptografia de disco, você pode implantar uma VM usando a criptografia.
 O processo de implantação de VM é semelhante ao processo de implantação padrão, as únicas diferenças são que você precisa implantar a VM na mesma região que seus outros recursos e você opta por usar uma chave gerenciada pelo cliente.
 
-1. Abra o link de criptografia de disco apropriado para sua região:
-
-    Regiões públicas:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
-
-    Regiões do Governo Azure:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
-
 1. Procure **máquinas virtuais** e selecione **+ Adicione** para criar uma VM.
 1. Na guia **Basic,** selecione a mesma região que o conjunto de criptografia de disco e o Cofre de Chaves do Azure.
 1. Preencha os outros valores na guia **Básico** como quiser.
@@ -102,16 +89,8 @@ O processo de implantação de VM é semelhante ao processo de implantação pad
 
 #### <a name="enable-on-an-existing-disk"></a>Habilitar em um disco existente
 
-Para gerenciar e configurar a criptografia de disco nos discos existentes, você deve usar o seguinte link: https://aka.ms/diskencryptionsets. A ativação de chaves gerenciadas pelo cliente em discos existentes ainda não está disponível no portal global do Azure.
-
 > [!CAUTION]
 > Ativar a criptografia de disco em qualquer disco conectado a uma VM exigirá que você pare a VM.
-
-1. Abra o link de criptografia de disco apropriado para sua região:
-
-    Regiões públicas:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
-
-    Regiões do Governo Azure:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
     
 1. Navegue até uma VM que esteja na mesma região que um de seus conjuntos de criptografia de disco.
 1. Abra a VM e selecione **Stop**.

@@ -4,19 +4,19 @@ description: Saiba como ativar o login de chave de segurança sem senha para rec
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b29f84931c169ffe1c2c81d5e32201cbc63fc88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 181e8192170cd7394d6817edd655f4e8257b48a4
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78942869"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654034"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Habilite o login da chave de segurança sem senha para os recursos no local com o Azure Active Director (visualização)
 
@@ -161,7 +161,7 @@ O login com o FIDO é bloqueado se sua senha tiver expirado. A expectativa é qu
 Se você quiser compartilhar feedback ou encontrar problemas durante a visualização deste recurso, compartilhe através do aplicativo Windows Feedback Hub usando as seguintes etapas:
 
 1. Inicie **o Feedback Hub** e certifique-se de que você está conectado.
-1. Enviar feedback a seguinte categorização:
+1. Enviar feedback sob a seguinte categorização:
    - Categoria: Segurança e Privacidade
    - Subcategoria: FIDO
 1. Para capturar logs, use a opção para **recriar meu problema**

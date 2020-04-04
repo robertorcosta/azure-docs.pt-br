@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: d35c96657f48905f37c9ebe246d81ebb9545cf27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1392f69bea09996e46ad4c112474f9067ff5a63d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79283128"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656909"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta de Lucene em Azure Cognitive Search
 
@@ -161,16 +161,17 @@ O exemplo a seguir ajuda a ilustrar as diferenças. Considere um perfil de pontu
 ##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a> Pesquisa com expressão regular  
  Uma pesquisa de expressão regular encontra uma correspondência com base no conteúdo entre as barras "/", como documentado na [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
- Por exemplo, para localizar documentos que contenham "motel" ou "hotel", especifique `/[mh]otel/`.  As pesquisas com expressões regulares são comparadas com palavras individuais.   
+ Por exemplo, para localizar documentos que contenham "motel" ou "hotel", especifique `/[mh]otel/`. As pesquisas com expressões regulares são comparadas com palavras individuais.
 
 ##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a> Pesquisa com curinga  
- Você pode usar a sintaxe geralmente reconhecida para pesquisas com vários caracteres curinga (*) ou um caractere curinga (?). Observe que o analisador de consulta Lucene oferece suporte ao uso desses símbolos com um único termo e não uma frase.  
+ Você pode usar a sintaxe geralmente reconhecida para pesquisas com vários caracteres curinga (*) ou um caractere curinga (?). Observe que o analisador de consulta Lucene oferece suporte ao uso desses símbolos com um único termo e não uma frase.
 
- Por exemplo, para localizar documentos que contêm as palavras com o prefixo "anota", como "anotações" ou "bloco de anotações", especifique "anota*".  
+A pesquisa por prefixo`*`também usa o caractere asterisco ( ) Por exemplo, uma expressão `search=note*` de consulta de devoluções "notebook" ou "bloco de notas". A sintaxe completa de Lucene não é necessária para pesquisa por prefixo. A simples sintaxe apoia esse cenário.
+
+A pesquisa sufixo, onde `*` ou `?` precede a seqüência, requer sintaxe lucene completa e uma expressão regular (você não pode usar um * ou ? símbolo como o primeiro personagem de uma pesquisa). Dado o termo "alfanumérico",`search=/.*numeric.*/`uma expressão de consulta de ( ) encontrará a correspondência.
 
 > [!NOTE]  
->  Não é possível usar um símbolo * ou ? como o primeiro caractere de uma pesquisa.  
->  Nenhuma análise de texto é executada em consultas de pesquisa curinga. No momento da consulta, os termos da consulta curinga são comparados com os termos analisados no índice de pesquisa e expandidos.
+> Durante a análise da análise, as consultas formuladas como prefixo, sufixo, curinga ou expressões regulares são passadas como está na árvore de consulta, ignorando a [análise léxica](search-lucene-query-architecture.md#stage-2-lexical-analysis). As correspondências só serão encontradas se o índice contiver as strings no formato que sua consulta especifica. Na maioria dos casos, você precisará de um analisador alternativo durante a indexação que preserve a integridade das cordas para que a correspondência parcial de prazo e padrão seja bem sucedida. Para obter mais informações, consulte [Pesquisa parcial de prazo nas consultas de pesquisa cognitiva do Azure](search-query-partial-matching.md).
 
 ## <a name="see-also"></a>Confira também  
 

@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: f193580ca03d4b1805f3c044658a34f468f3f44f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 43fc32e910c51e8b70e15aa49584a18e5b703fca
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346555"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631600"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Use agendas de manutenção para gerenciar atualizações e manutenção de serviços
 
-O recurso de cronograma de manutenção integra as Notificações de Manutenção Planejada do Serviço de Saúde, o Monitor de Verificação de Saúde de Recursos e o serviço de agendamento de manutenção para o pool Synapse SQL (data warehouse) dentro do Azure Synapse Analytics. 
+O recurso de cronograma de manutenção integra as Notificações de Manutenção Planejada do Serviço de Saúde, o Monitor de Verificação de Saúde de Recursos e o serviço de agendamento de manutenção para o pool Synapse SQL (data warehouse) dentro do Azure Synapse Analytics.
 
 Você deve usar o agendamento de manutenção para escolher uma janela de tempo quando for conveniente receber novos recursos, upgrades e patches. Você precisará escolher uma janela de manutenção primária e secundária dentro de um período de sete dias, cada janela deve estar dentro de intervalos de dias separados.
 
@@ -48,52 +48,55 @@ Todos os eventos de manutenção ativos são exibidos na seção **Service Healt
 
 Mesmo que o agendamento de manutenção não esteja disponível em sua região selecionada, você poderá visualizar e editar sua programação de manutenção a qualquer momento. Quando o agendamento de manutenção estiver disponível em sua região, o cronograma identificado se tornará imediatamente ativo em seu pool Synapse SQL.
 
-## <a name="view-a-maintenance-schedule"></a>Exibir um agendamento de manutenção 
+## <a name="view-a-maintenance-schedule"></a>Exibir um agendamento de manutenção
 
 Por padrão, todas as instâncias de data warehouse recém-criadas têm uma janela de manutenção primária e secundária de oito horas aplicada durante a implantação. Como indicado acima, você pode alterar as janelas assim que a implantação estiver concluída. Nenhuma manutenção ocorrerá fora das janelas de manutenção especificadas sem notificação prévia.
 
 Para visualizar o cronograma de manutenção aplicado ao seu pool Synapse SqL, complete as seguintes etapas:
 
-1.    Faça login no [portal Azure](https://portal.azure.com/).
-2.    Selecione o pool Synapse SQL que você deseja visualizar. 
-3.    O pool Synapse SQL selecionado é aberto na lâmina de visão geral. O cronograma de manutenção aplicado ao data warehouse aparece abaixo do **cronograma de manutenção.**
+1. Entre no [portal do Azure](https://portal.azure.com/).
+2. Selecione o pool Synapse SQL que você deseja visualizar.
+3. O pool Synapse SQL selecionado é aberto na lâmina de visão geral. O cronograma de manutenção aplicado ao data warehouse aparece abaixo do **cronograma de manutenção.**
 
 ![Folha de visão geral](./media/maintenance-scheduling/clear-overview-blade.PNG)
 
-## <a name="change-a-maintenance-schedule"></a>Alterar um agendamento de manutenção 
+## <a name="change-a-maintenance-schedule"></a>Alterar um agendamento de manutenção
 
-Um agendamento de manutenção pode ser atualizado ou alterado a qualquer momento. Se a instância selecionada estiver passando por um ciclo de manutenção ativa, as configurações serão salvas. Elas estarão ativas durante o próximo período de manutenção identificado. [Saiba mais](../../service-health/resource-health-overview.md) sobre como monitorar seu data warehouse durante um evento de manutenção ativa. 
+Um agendamento de manutenção pode ser atualizado ou alterado a qualquer momento. Se a instância selecionada estiver passando por um ciclo de manutenção ativa, as configurações serão salvas. Elas estarão ativas durante o próximo período de manutenção identificado. [Saiba mais](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre como monitorar seu data warehouse durante um evento de manutenção ativa.
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>Identificando as janelas principais e secundárias
 
 As janelas principais e secundárias devem ter intervalos de dia separados. Um exemplo é uma janela principal de terça-feira – quinta-feira e um secundário da janela de domingo-sábado.
 
 Para alterar o cronograma de manutenção do seu pool Synapse SQL, complete as seguintes etapas:
-1.    Faça login no [portal Azure](https://portal.azure.com/).
-2.    Selecione o pool Synapse SQL que deseja atualizar. A página será aberta na folha de visão geral. 
-3.    Abra a página para as configurações do cronograma de manutenção selecionando o link **resumo do cronograma de manutenção** na lâmina da visão geral. Ou, selecione a opção **Agendamento de Manutenção** no menu de recursos do lado esquerdo.  
+
+1. Entre no [portal do Azure](https://portal.azure.com/).
+2. Selecione o pool Synapse SQL que deseja atualizar. A página será aberta na folha de visão geral.
+Abra a página para as configurações do cronograma de manutenção selecionando o link **resumo do cronograma de manutenção** na lâmina da visão geral. Ou, selecione a opção **Agendamento de Manutenção** no menu de recursos do lado esquerdo.
 
     ![Opções da folha Visão geral](./media/maintenance-scheduling/maintenance-change-option.png)
 
-4. Identifique o intervalo de dia preferencial para a janela de manutenção primário, usando as opções na parte superior da página. Essa seleção determina se a janela principal ocorrerá em um dia da semana ou no final de semana. Sua seleção irá atualizar os valores de lista suspensa. Durante a visualização, algumas regiões podem ainda não dar suporte ao conjunto completo de opções disponíveis de**Dia**.
+3. Identifique o intervalo de dia preferencial para a janela de manutenção primário, usando as opções na parte superior da página. Essa seleção determina se a janela principal ocorrerá em um dia da semana ou no final de semana. Sua seleção irá atualizar os valores de lista suspensa.
+Durante a visualização, algumas regiões podem ainda não dar suporte ao conjunto completo de opções disponíveis de**Dia**.
 
    ![Folha de configurações de manutenção](./media/maintenance-scheduling/maintenance-settings-page.png)
 
-5. Escolha suas janelas de manutenção preferencial de primário e secundário, usando as caixas de lista suspensa:
+4. Escolha suas janelas de manutenção preferencial de primário e secundário, usando as caixas de lista suspensa:
    - **Dia**: Dia preferido para realizar a manutenção durante a janela selecionada.
    - **Hora de início**: hora de início preferencial para a janela de manutenção.
    - **Janela de tempo**: Duração preferencial da janela de tempo.
 
-   A área do **Resumo de agendamento** na parte inferior da folha é atualizada com base nos valores que você selecionou. 
+   A área do **Resumo de agendamento** na parte inferior da folha é atualizada com base nos valores que você selecionou.
   
-6. Selecione **Salvar**. Será exibida uma mensagem confirmando que seu novo agendamento agora está ativo. 
+5. Clique em **Salvar**. Será exibida uma mensagem confirmando que seu novo agendamento agora está ativo.
 
-   Se você estiver salvando um agendamento em uma região que não dá suporte a agendamento de manutenção, a seguinte mensagem será exibida. As configurações são salvas e se tornam ativas quando o recurso estiver disponível em sua região selecionada.    
+   Se você estiver salvando um agendamento em uma região que não dá suporte a agendamento de manutenção, a seguinte mensagem será exibida. As configurações são salvas e se tornam ativas quando o recurso estiver disponível em sua região selecionada.
 
    ![Mensagem sobre a disponibilidade de região](./media/maintenance-scheduling/maintenance-not-active-toast.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Saiba mais](../../azure-monitor/platform/alerts-metric.md) sobre como criar, exibir e gerenciar alertas usando o Azure Monitor.
-- [Saiba mais](../..//azure-monitor/platform/alerts-log-webhook.md) sobre ações de webhook para regras de alerta do log.
-- [Saiba mais](../..//azure-monitor/platform/action-groups.md) Criando e Gerenciar Grupo de ações.
-- [Saiba mais](../../service-health/service-health-overview.md) sobre a Integridade do Serviço do Azure.
+
+- [Saiba mais](../../azure-monitor/platform/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre como criar, exibir e gerenciar alertas usando o Azure Monitor.
+- [Saiba mais](../..//azure-monitor/platform/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre ações de webhook para regras de alerta do log.
+- [Saiba mais](../..//azure-monitor/platform/action-groups.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Criando e Gerenciar Grupo de ações.
+- [Saiba mais](../../service-health/service-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) sobre a Integridade do Serviço do Azure.

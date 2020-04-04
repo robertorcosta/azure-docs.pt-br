@@ -11,12 +11,12 @@ ms.service: synapse-analytics
 ms.topic: article
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4714d5908fffb6f5c1440c3ec512fb8173da4b57
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 6f2af826473bfd13f8100796a540d41cbedbb037
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346755"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631579"
 ---
 # <a name="upgrade-your-sql-pool-to-gen2"></a>Atualize seu pool SQL para Gen2
 
@@ -60,8 +60,8 @@ Há duas opções ao realizar uma autoatualização.  Você pode atualizar seu p
 - [Upgrade no local](upgrade-to-latest-generation.md) - Esta opção atualizará seu pool De SQL Gen1 existente para gen2. O processo de atualização envolverá uma breve queda na conectividade (aproximadamente 5 min) à medida que reiniciamos seu pool SQL.  Uma vez que seu pool SQL tenha sido reiniciado, ele estará totalmente disponível para uso. Se você tiver problemas durante a atualização, abra uma [solicitação de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e faça referência a "upgrade gen2" como a possível causa.
 - [Upgrade do ponto de restauração](sql-data-warehouse-restore-points.md) - Crie um ponto de restauração definido pelo usuário no pool SQL do Gen1 atual e, em seguida, restaure diretamente em uma instância Gen2. A piscina SQL Gen1 existente permanecerá no local. Uma vez que a restauração tenha sido concluída, seu pool Gen2 SQL estará totalmente disponível para uso.  Depois de executar todos os processos de teste e validação na instância Gen2 restaurada, a instância Gen1 original pode ser excluída.
 
-   - Passo 1: A partir do portal Azure, [crie um ponto de restauração definido pelo usuário](sql-data-warehouse-restore-active-paused-dw.md).
-   - Passo 2: Ao restaurar a partir de um ponto de restauração definido pelo usuário, defina o "Nível de desempenho" para o nível de Gen2 preferido.
+  - Passo 1: A partir do portal Azure, [crie um ponto de restauração definido pelo usuário](sql-data-warehouse-restore-active-paused-dw.md).
+  - Passo 2: Ao restaurar a partir de um ponto de restauração definido pelo usuário, defina o "Nível de desempenho" para o nível de Gen2 preferido.
 
 Talvez você perceba um período de degradação no desempenho enquanto o processo continua atualizando os arquivos de dados em segundo plano. O tempo total para a degradação do desempenho varia de acordo com o tamanho dos seus arquivos de dados.
 
@@ -82,13 +82,14 @@ Para saber mais, confira [Atualizar para Gen2](upgrade-to-latest-generation.md).
 
 **P: Como os upgrades afetarão meus scripts de automação?**
 
-- R: Qualquer script de automação que faz referência a um Objetivo de Nível de Serviço deve ser alterado para corresponder ao equivalente Gen2.  Veja os detalhes [aqui](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
+- R: Qualquer script de automação que faz referência a um Objetivo de Nível de Serviço deve ser alterado para corresponder ao equivalente Gen2.  Veja os detalhes [aqui](upgrade-to-latest-generation.md#upgrade-in-a-supported-region-using-the-azure-portal).
 
 **P: Quanto tempo uma auto-atualização normalmente leva?**
 
-- A: Você pode atualizar no lugar ou atualizar a partir de um ponto de restauração.  
-   - A atualização no local fará com que sua piscina SQL faça uma pausa e retomada momentaneamente.  Um processo de fundo continuará enquanto o pool SQL estiver on-line.  
-   - Será mais demorado se você atualizar usando um ponto de restauração, pois a atualização passará pelo processo completo de restauração.
+- A: Você pode atualizar no lugar ou atualizar a partir de um ponto de restauração.
+
+  - A atualização no local fará com que sua piscina SQL faça uma pausa e retomada momentaneamente.  Um processo de fundo continuará enquanto o pool SQL estiver on-line.  
+  - Será mais demorado se você atualizar usando um ponto de restauração, pois a atualização passará pelo processo completo de restauração.
 
 **P: Quanto tempo levará a atualização automática?**
 
@@ -100,12 +101,14 @@ Para saber mais, confira [Atualizar para Gen2](upgrade-to-latest-generation.md).
 
 **P: O que devo fazer se meu processo de atualização de fundo parece estar preso?**
 
- - R: Inicie um reíndice de suas tabelas da Columnstore. Observe que a reindexação da tabela será offline durante essa operação.
+- R: Inicie um reíndice de suas tabelas da Columnstore. Observe que a reindexação da tabela será offline durante essa operação.
 
 **P: E se o Gen2 não tiver o Objetivo de Nível de Serviço que tenho no Gen1?**
+
 - R: Se você estiver executando um DW600 ou DW1200 no Gen1, é aconselhável usar DW500c ou DW1000c, respectivamente, já que o Gen2 fornece mais memória, recursos e desempenho superior ao Gen1.
 
 **P: Posso desativar o geobackup?**
+
 - R: Não. O backup geográfico é um recurso corporativo para preservar a disponibilidade do pool SQL caso uma região fique indisponível. Abra uma [solicitação de suporte](sql-data-warehouse-get-started-create-support-ticket.md) em caso de outras dúvidas.
 
 **P: Existe uma diferença na sintaxe T-SQL entre Gen1 e Gen2?**
@@ -124,7 +127,7 @@ Para saber mais, confira [Atualizar para Gen2](upgrade-to-latest-generation.md).
 
 - [Etapas de atualização](upgrade-to-latest-generation.md)
 - [Janelas de manutenção](maintenance-scheduling.md)
-- [Monitoramento da integridade de recursos](https://docs.microsoft.com/azure/service-health/resource-health-overview)
+- [Monitoramento da integridade de recursos](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 - [Revise o artigo Antes de começar a migração](upgrade-to-latest-generation.md#before-you-begin)
 - [Atualizar in-loco e atualizar de um ponto de restauração](upgrade-to-latest-generation.md)
 - [Crie um ponto restauração definido pelo usuário](sql-data-warehouse-restore-points.md)

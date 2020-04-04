@@ -7,12 +7,12 @@ ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: d65b81f18d4dcb0ee97a21a7edec885e308bd8d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1885d7f8713b3801ce0c9846b7a8509b3864032a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297281"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656293"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receba e responda às solicitações HTTPS de entrada no Azure Logic Apps
 
@@ -25,7 +25,7 @@ Com [o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o gatilho de so
 > [!NOTE]
 > O gatilho Solicitação suporta *apenas* o TLS (Transport Layer Security, segurança de camada de transporte) 1.2 para chamadas recebidas. As chamadas de saída continuam a suportar o TLS 1.0, 1.1 e 1.2. Para obter mais informações, consulte [Resolvendo o problema do TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
 >
-> Se você vir erros de aperto de mão SSL, certifique-se de usar o TLS 1.2. Para chamadas recebidas, aqui estão as suítes de cifra suportadas:
+> Se você vir erros de aperto de mão TLS, certifique-se de usar o TLS 1.2. Para chamadas recebidas, aqui estão as suítes de cifra suportadas:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -48,7 +48,7 @@ Com [o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o gatilho de so
 
 Este gatilho incorporado cria um ponto final HTTPS manualmente callable que pode receber *apenas* solicitações HTTPS recebidas. Quando esse evento acontece, o gatilho é acionado e executa o aplicativo lógico. Para obter mais informações sobre a definição JSON subjacente do gatilho e como chamar esse gatilho, consulte o [tipo de gatilho de solicitação](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [fluxos de trabalho de chamada, gatilho ou ninho com pontos finais HTTP no Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-1. Faça login no [portal Azure](https://portal.azure.com). Criar um aplicativo lógico em branco.
+1. Entre no [portal do Azure](https://portal.azure.com). Criar um aplicativo lógico em branco.
 
 1. Depois que o Logic App Designer for aberto, na caixa de pesquisa, digite "http request" como seu filtro. Na lista de gatilhos, selecione o **gatilho Quando uma solicitação HTTP for recebida,** que é o primeiro passo no fluxo de trabalho do aplicativo lógico.
 
@@ -216,7 +216,7 @@ Seu aplicativo lógico mantém a solicitação de entrada aberta apenas por um m
 >
 > Embora o Logic Apps não o impeça de salvar aplicativos lógicos que tenham uma ação de resposta com esses cabeçalhos, o Logic Apps ignora esses cabeçalhos.
 
-1. No Logic App Designer, o passo em que você deseja adicionar uma ação resposta, selecione **Nova etapa**.
+1. No Logic App Designer, sob o passo em que você deseja adicionar uma ação resposta, selecione **Nova etapa**.
 
    Por exemplo, usando o gatilho Solicitar anteriormente:
 

@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/01/2020
+ms.date: 04/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01956c2fee1c15bc86e8d80aa05c70db647bf593
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 60dca30496aa17ad7add00ca4eca914cb58fddd7
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616877"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655972"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -57,7 +57,7 @@ Nem todas as versões do Azure AD Connect serão disponibilizadas para atualiza�
 ### <a name="functional-changes-adsyncautoupgrade"></a>Alterações funcionais ADSyncAutoUpgrade 
 
 - Adicionado suporte para o recurso mS-DS-ConsistencyGuid para objetos de grupo. Isso permite mover grupos entre florestas ou reconectar grupos em AD para Azure AD, onde o objectID do grupo AD foi alterado, por exemplo, quando um servidor AD é reconstruído após uma calamidade. Para obter mais informações, consulte [Grupos em movimento entre florestas](how-to-connect-migrate-groups.md).
-- O atributo mS-DS-ConsistencyGuid é configurado automaticamente em grupos sincronizados al e você não precisa fazer nada para habilitar esse recurso. 
+- O atributo mS-DS-ConsistencyGuid é configurado automaticamente em todos os grupos sincronizados e você não precisa fazer nada para habilitar esse recurso. 
 - Removeu o Get-ADSyncRunProfile porque ele não está mais em uso. 
 - Alterou o aviso que você vê ao tentar usar uma conta de Administração Corporativa ou Administração de Domínio para a conta do conector AD DS para fornecer mais contexto. 
 - Adicionado um novo cmdlet para remover objetos do espaço do conector, a antiga ferramenta CSDelete.exe é removida e é substituída pelo novo cmdlet Remove-ADSyncCSObject. O cmdlet Remove-ADSyncCSObject recebe um CsObject como entrada. Este objeto pode ser recuperado usando o cmdlet Get-ADSyncCSObject.

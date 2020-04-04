@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: f74e3ea3d20ad2666b434e009cf62add6f88d200
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4604bfe7c815f79733f99a1a3727e4c68527e7ec
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219660"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656138"
 ---
-# <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Fala gratuitamente
+# <a name="try-the-speech-service-for-free"></a>Experimente o serviço de fala gratuitamente''
 
 Neste artigo, você escolhe uma opção para testar facilmente o serviço de fala gratuitamente para que você possa descobrir o que o serviço pode fazer e decidir se é certo para suas necessidades. Escolha uma das duas opções a seguir, dependendo da sua situação e do caso de uso:
 
@@ -97,4 +97,4 @@ Conclua um de nossos inícios rápidos de 10 minutos ou confira nossas amostras 
 
 > [!div class="nextstepaction"]
 > [Quickstart: Reconheça a fala em](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
-> amostras[de C# Speech SDK](speech-sdk.md#get-the-samples)
+> amostras[de C# Speech SDK](speech-sdk.md#sample-source-code)

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: b05b83086cc9d8449d9517897f347b6e2685aa95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a37e1b9bc4a0b953dc727dbab2813dd938ed576
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720343"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652227"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Perguntas frequentes
 
@@ -135,7 +135,7 @@ Sim, você pode migrar um metastore hive de um ESP para um cluster não-ESP.
 
 ### <a name="how-can-i-estimate-the-size-of-a-hive-metastore-database"></a>Como posso estimar o tamanho de um banco de dados de metaloja da Colmeia?
 
-Um metastore da Colmeia é usado para armazenar os metadados para fontes de dados que são usadas pelo servidor Hive. Os requisitos de tamanho dependem em parte do número e complexidade de suas fontes de dados da Colmeia, e não podem ser estimados antecipadamente. Como descrito nas [práticas recomendadas do metastore hive,](hdinsight-use-external-metadata-stores.md#hive-metastore-best-practices)você pode começar com um nível S2, que fornece 50 DTU e 250 GB de armazenamento, e se você ver um gargalo, você pode aumentar o banco de dados.
+Um metastore da Colmeia é usado para armazenar os metadados para fontes de dados que são usadas pelo servidor Hive. Os requisitos de tamanho dependem em parte do número e complexidade de suas fontes de dados da Colmeia, e não podem ser estimados antecipadamente. Como descrito nas diretrizes do [metastore da Hive,](hdinsight-use-external-metadata-stores.md#hive-metastore-guidelines)você pode começar com um nível S2, que fornece 50 DTU e 250 GB de armazenamento, e se você ver um gargalo, você pode aumentar o banco de dados.
 
 ### <a name="do-you-support-any-other-database-other-than-azure-sql-database-as-an-external-metastore"></a>Você suporta qualquer outro banco de dados que não seja o Azure SQL Database como um metastore externo?
 

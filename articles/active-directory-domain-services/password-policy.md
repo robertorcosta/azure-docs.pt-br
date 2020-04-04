@@ -8,15 +8,15 @@ ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: cc1863ff4200ee4cca94f18e3adfffa7ea42db96
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: b14fed07c9bd9b5fcb6a5489719481902351fc0d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80476009"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654878"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Políticas de senha e de bloqueio de conta em domínios gerenciados
 
@@ -45,6 +45,11 @@ Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
 ## <a name="default-password-policy-settings"></a>Configurações de diretiva de senha padrão
 
 As políticas de senha de grão fino (FGPPs) permitem aplicar restrições específicas para políticas de bloqueio de senha e conta a diferentes usuários em um domínio. Por exemplo, para proteger contas privilegiadas, você pode aplicar configurações mais rigorosas de bloqueio de contas do que contas não privilegiadas regulares. Você pode criar vários FGPPs dentro de um domínio gerenciado pelo Azure AD DS e especificar a ordem de prioridade para aplicá-los aos usuários.
+
+Para obter mais informações sobre políticas de senha e usar o Active Directory Administration Center, consulte os seguintes artigos:
+
+* [Saiba mais sobre políticas de senhas com grãos finos](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
+* [Configure políticas de senha de grãofino usando o AD Administration Center](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
 
 As políticas são distribuídas por meio de associação de grupo em um domínio gerenciado pelo Azure AD DS, e quaisquer alterações que você fizer são aplicadas no próximo login do usuário. Alterar a diretiva não desbloqueia uma conta de usuário que já está bloqueada.
 

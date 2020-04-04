@@ -4,18 +4,18 @@ description: Como definir alvos de armazenamento para que o cache Do Azure HPC p
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: a68bf06bad995f71bedf6a5bdedcb676737a8c61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3fbc4e683c2b0e72c3a084a59793dbf9eb4b658c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271883"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657415"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
-*Os alvos de armazenamento* são o armazenamento back-end para arquivos que são acessados através de uma instância de cache Azure HPC. Você pode adicionar armazenamento NFS (como um sistema de hardware no local) ou armazenar dados no Azure Blob.
+*Os alvos de armazenamento* são o armazenamento back-end para arquivos que são acessados através de um cache Azure HPC. Você pode adicionar armazenamento NFS (como um sistema de hardware no local) ou armazenar dados no Azure Blob.
 
 Você pode definir até dez alvos de armazenamento diferentes para um cache. O cache apresenta todos os alvos de armazenamento em um namespace agregado.
 
@@ -27,7 +27,7 @@ Adicione metas de armazenamento após a criação do cache. O procedimento é li
 
 No portal Azure, abra sua instância de cache e clique em **Alvos de armazenamento** na barra lateral esquerda. A página de destinos de armazenamento lista todos os alvos existentes e dá um link para adicionar um novo.
 
-![captura de tela do link de alvos de armazenamento na barra lateral, o título Configurar, que está entre os títulos de categoria Configurações e Monitoramento](media/hpc-cache-storage-targets-sidebar.png)
+![captura de tela do link de alvos de armazenamento na barra lateral, sob o título Configurar, que está entre os títulos de categoria Configurações e Monitoramento](media/hpc-cache-storage-targets-sidebar.png)
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Adicionar um novo alvo de armazenamento Azure Blob
 
@@ -35,9 +35,9 @@ Um novo alvo de armazenamento Blob precisa de um contêiner Blob vazio ou de um 
 
 Você pode criar um novo contêiner a partir desta página pouco antes de adicioná-lo.
 
-Para definir um contêiner Azure Blob, digite essas informações.
-
 ![captura de tela da página de destino de armazenamento adicionar, preenchida com informações para um novo alvo de armazenamento Azure Blob](media/hpc-cache-add-blob.png)
+
+Para definir um contêiner Azure Blob, digite essas informações.
 
 * **Nome de destino de** armazenamento - Defina um nome que identifique esse destino de armazenamento no cache Do Azure HPC.
 * **Tipo de destino** - Escolha **Blob**.
@@ -79,7 +79,7 @@ Etapas para adicionar as funções RBAC:
 1. No campo **Selecionar,** procure por "hpc".  Essa seqüência deve corresponder a um princípio de serviço, chamado "Provedor de recursos de cache HPC". Clique nesse princípio para selecioná-lo.
 
    > [!NOTE]
-   > Se uma pesquisa por "hpc" não funcionar, tente usar a string "storagecache" em vez disso. Os usuários que aderiram às visualizações (antes da GA) podem precisar usar o nome mais antigo para o diretor do serviço.
+   > Se uma pesquisa por "hpc" não funcionar, tente usar a string "storagecache" em vez disso. Os usuários que participaram de pré-visualizações (antes da GA) podem precisar usar o nome mais antigo para o principal do serviço.
 
 1. Clique no botão **Salvar** na parte inferior.
 
@@ -91,7 +91,10 @@ Etapas para adicionar as funções RBAC:
 
 Um alvo de armazenamento NFS tem mais campos do que o alvo de armazenamento Blob. Esses campos especificam como alcançar a exportação de armazenamento e como armazenar seus dados de forma eficiente. Além disso, um destino de armazenamento NFS permite criar vários caminhos de namespace se o host NFS tiver mais de uma exportação disponível.
 
-![Captura de tela de adicionar página-alvo de armazenamento com destino NFS definido](media/hpc-cache-add-nfs-target.png)
+![Captura de tela de adicionar página-alvo de armazenamento com destino NFS definido](media/add-nfs-target.png)
+
+> [!NOTE]
+> Antes de criar um destino de armazenamento NFS, certifique-se de que seu sistema de armazenamento esteja acessível a partir do cache Do Azure HPC e atenda aos requisitos de permissão. A criação do destino de armazenamento falhará se o cache não puder acessar o sistema de armazenamento. Leia [os requisitos de armazenamento NFS](hpc-cache-prereqs.md#nfs-storage-requirements) e [problemas de configuração nas e armazenamento NFS para obter detalhes.](troubleshoot-nas.md)
 
 Forneça essas informações para um alvo de armazenamento com backup do NFS:
 
@@ -126,7 +129,7 @@ Quando terminar, clique em **OK** para adicionar o alvo de armazenamento.
 ### <a name="choose-a-usage-model"></a>Escolha um modelo de uso
 <!-- referenced from GUI - update aka.ms link if you change this heading -->
 
-Quando você cria um alvo de armazenamento que aponta para um sistema de armazenamento NFS, você precisa escolher o *modelo de uso* para esse destino. Este modelo determina como seus dados são armazenados em cache.
+Quando você cria um alvo de armazenamento que aponta para um sistema de armazenamento NFS, você precisa escolher o modelo de uso para esse destino. Este modelo determina como seus dados são armazenados em cache.
 
 Há três opções:
 
@@ -138,7 +141,7 @@ Há três opções:
 
 * **Maior que 15% de gravações** - Esta opção acelera o desempenho de leitura e gravação. Ao usar essa opção, todos os clientes devem acessar arquivos através do Cache Azure HPC em vez de montar o armazenamento back-end diretamente. Os arquivos armazenados em cache terão alterações recentes que não são armazenadas na parte traseira.
 
-  Neste modelo de uso, os arquivos no cache não são verificados contra os arquivos no armazenamento back-end. A versão armazenada em cache do arquivo é considerada mais atual. Um arquivo modificado no cache só é gravado no sistema de armazenamento back-end depois de estar no cache por uma hora sem alterações adicionais.
+  Neste modelo de uso, os arquivos no cache não são verificados contra os arquivos no armazenamento back-end. A versão armazenada em cache do arquivo é considerada mais atual. Um arquivo modificado no cache é gravado no sistema de armazenamento back-end depois de estar no cache por uma hora sem alterações adicionais.
 
 * **Os clientes escrevem no destino NFS, ignorando o cache** - Escolha essa opção se algum cliente em seu fluxo de trabalho gravar dados diretamente no sistema de armazenamento sem antes escrever para o cache. Os arquivos que os clientes solicitam são armazenados em cache, mas quaisquer alterações nesses arquivos do cliente são repassadas imediatamente para o sistema de armazenamento back-end.
 

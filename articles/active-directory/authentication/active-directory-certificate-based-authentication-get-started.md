@@ -4,19 +4,19 @@ description: Aprenda a configurar a autenticação baseada em certificado no seu
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b57c4f474b0b9def08005f32f48225d36ea8cf1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a6c44a8253c81b44d02351b2df9c943d9f358f8
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848826"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654346"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Inicie com uma autenticação baseada em certificado do Azure Active Directory
 
@@ -40,7 +40,7 @@ Para configurar a autenticação baseada em certificado, as instruções a segui
 - A autoridade de certificação raiz e qualquer autoridade de certificação intermediária devem ser configuradas no Azure Active Directory.
 - Cada autoridade de certificação deve ter uma CRL (Lista de Certificados Revogados) que pode ser referenciada por meio de uma URL para a Internet.
 - Você deve ter pelo menos uma autoridade de certificação configurada no Azure Active Directory. Você pode encontrar etapas relacionadas na seção [Configuração de autoridades de certificação](#step-2-configure-the-certificate-authorities).
-- Para clientes do Exchange ActiveSync, o certificado de cliente deve ter o email roteável do usuário no Exchange Online, seja no valor Nome principal ou Nome RFC822 do campo Nome Alternativo da Entidade. O Azure Active Directory mapeia o valor de RFC822 para o atributo Endereço de Proxy no diretório.
+- Para clientes Exchange ActiveSync, o certificado cliente deve ter o endereço de e-mail routable do usuário no Exchange on-line no Nome Principal ou no valor de Nome RFC822 do campo Nome Alternativo do Assunto. O Azure Active Directory mapeia o valor de RFC822 para o atributo Endereço de Proxy no diretório.
 - O dispositivo do cliente deve ter acesso a pelo menos uma autoridade de certificação que emite certificados de cliente.
 - Um certificado de cliente para autenticação de cliente deve ter sido emitido para seu cliente.
 

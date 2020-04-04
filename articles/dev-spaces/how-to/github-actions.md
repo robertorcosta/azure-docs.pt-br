@@ -1,17 +1,17 @@
 ---
 title: GitHub Ações & Serviço Azure Kubernetes (visualização)
 services: azure-dev-spaces
-ms.date: 02/04/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 description: Revisar e testar alterações a partir de uma solicitação de tração diretamente no Azure Kubernetes Service usando gitHub actions e Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contêineres, GitHub Actions, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 49715e38f36d4421b7327640ec8392a83b3c2996
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a83da0ef3958748831eb0eeda1aa5e91efa7ef2e
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252370"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637942"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub Ações & Serviço Azure Kubernetes (visualização)
 
@@ -50,7 +50,7 @@ Salve o valor do servidor de *login* da saída porque ele é usado em uma etapa 
 
 ## <a name="create-a-service-principal-for-authentication"></a>Crie um princípio de serviço para autenticação
 
-Use [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] para criar um diretor de serviço. Por exemplo: 
+Use [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] para criar um diretor de serviço. Por exemplo:
 
 ```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment
@@ -101,6 +101,11 @@ Navegue até o repositório bifurcado e clique *em Configurações*. Clique em *
 > Todos esses segredos são usados pela ação GitHub e são configurados em [.github/workflows/bikes.yml][github-action-yaml].
 
 Opcionalmente, se você quiser atualizar o espaço mestre após a fusão do seu RP, adicione o segredo *GATEWAY_HOST,* que toma o formulário *<MASTER_SPACE>.gateway.<HOST_SUFFIX>*, que neste exemplo é *dev.gateway.fedcab0987.eus.azds.io*. Uma vez que você mescla suas alterações no ramo mestre em seu garfo, outra ação será executada para reconstruir e executar toda a sua aplicação no espaço de desenvolvimento mestre. Neste exemplo, o espaço mestre é *dev*. Esta ação está configurada em [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+
+Além disso, se você quiser que as mudanças em seu RP para executar em um espaço de neto, atualize os segredos *MASTER_SPACE* e *HOST.* Por exemplo, se a sua aplicação estiver sendo executada em *desenvolvimento* com um *dev/azureuser 1*do espaço infantil, para que o RP seja executado em um espaço infantil *de dev/azureuser1*:
+
+* Atualize *MASTER_SPACE* ao espaço infantil que você deseja como espaço pai, neste exemplo *azureuser1*.
+* Atualize *o HOST* para GRANDPARENT_SPACE<> APP_NAME APP_NAME *> <APP_NAME.<HOST_SUFFIX><, *neste *exemplo, dev.bikesharingweb.fedcab0987.eus.azds.io*.
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Crie um novo ramo para alterações de código
 

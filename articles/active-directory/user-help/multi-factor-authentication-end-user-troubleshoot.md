@@ -9,15 +9,15 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: c28b63749cfdbcd16b94cbd3ca7dd4023f46a351
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1703853f42b52dccc80fdfadaa09b67e18a19db8
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78897719"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632906"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comuns com verificação de dois fatores e sua conta de trabalho ou escola
 
@@ -99,6 +99,8 @@ As senhas do aplicativo substituem sua senha normal por aplicativos de desktop m
 ## <a name="i-cant-turn-two-factor-verification-off"></a>Não posso desligar a verificação de dois fatores.
 
 Se você estiver usando a verificação de dois fatores alain@contoso.comcom sua conta de trabalho ou escola (por exemplo, ), provavelmente significa que sua organização decidiu que você deve usar esse recurso de segurança adicionado. Como sua organização decidiu que você deve usar esse recurso, não há como desativá-lo individualmente. Se, no entanto, você estiver usando a verificação de dois fatores com uma conta pessoal, como, alain@outlook.comvocê tem a capacidade de ativar e desativar o recurso. Para obter instruções sobre como controlar a verificação de dois fatores para suas contas pessoais, consulte [Ligar ou desativar a verificação de dois fatores para sua conta Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+
+Se você não pode desativar a verificação de dois fatores, também pode ser por causa dos padrões de segurança que foram aplicados no nível da organização. Para obter mais informações sobre padrões de segurança, consulte [O que é defulta de segurança?](../fundamentals/concept-fundamentals-security-defaults.md)
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Não encontrei uma resposta para o meu problema
 

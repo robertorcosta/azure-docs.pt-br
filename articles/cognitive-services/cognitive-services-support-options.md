@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: d7ce77404359b32effcc7a5da3f9429e9fdf7005
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 5f9ad827fa947e645f7eb4850f90a73c61a45cd3
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618572"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637117"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Opções de suporte e feedback dos Serviços Cognitivos do Azure
 
@@ -30,7 +30,7 @@ Você está apenas começando a explorar a funcionalidade dos Serviços Cognitiv
 
 Explore a variedade de [opções de suporte do Azure e escolha o plano](https://azure.microsoft.com/support/plans) mais adequado, seja você um desenvolvedor no início do percurso na nuvem, seja uma grande organização implantando aplicativos estratégicos críticos para os negócios. Os clientes do Azure podem criar e gerenciar solicitações de suporte no portal do Azure.
 
-* [Portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portal do Azure para o governo dos Estados Unidos](https://portal.azure.us)
 
 ### <a name="search"></a>Search
@@ -87,6 +87,7 @@ As notas de lançamento dos Serviços Cognitivos são atualizadas à medida que 
  - [Serviços de Fala](speech-service/releasenotes.md)
  - [Serviços de Fala SDK](speech-service/devices-sdk-release-notes.md)
  - [Análise de texto](text-analytics/whats-new.md)
+ - [Video Indexer](../media-services/video-indexer/release-notes.md)
 
 ### <a name="azure-blog"></a>Blog do Azure
 

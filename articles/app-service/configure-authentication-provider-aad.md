@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 4b42f0966288e4ee72b689ddce6313a41e91f13e
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: dbbe58df4f1cfe93555b494e525fad18f5b02664
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80438025"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632581"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure seu aplicativo App Service ou Azure Functions para usar o login do Azure AD
 
@@ -78,7 +78,7 @@ Execute as seguintes etapas:
 1. Depois que o registro do aplicativo for criado, copie o **ID do aplicativo (cliente)** e o ID do **Diretório (inquilino)** para posterior.
 1. Selecione **Autenticação**. Em **subvenção implícita,** habilite **os tokens de ID** para permitir que o OpenID Connect conecte logins de usuário do App Service.
 1. (Opcional) Selecione **Marca**. Na **URL da página inicial,** digite a URL do aplicativo App Service e selecione **Salvar**.
-1. Selecione **Expor um conjunto de API** > **Set**. Cole na URL do seu aplicativo App Service e selecione **Salvar**.
+1. Selecione **Expor um conjunto de API** > **Set**. Para um aplicativo de inquilino único, cole na URL do seu aplicativo App Service e selecione **Salvar** e para o aplicativo multi-inquilino, cole na URL que é baseada em um dos domínios verificados pelo inquilino e, em seguida, selecione **Salvar**.
 
    > [!NOTE]
    > Este valor é o **ID de aplicativo uri** do registro do aplicativo. Se o seu aplicativo web requer acesso a uma API na nuvem, você precisa do **Recurso ID URI** do aplicativo web ao configurar o recurso de Serviço de Aplicativo em nuvem. Você pode usar isso, por exemplo, se quiser que o serviço de nuvem conceda explicitamente acesso ao aplicativo web.
@@ -133,4 +133,4 @@ Agora você configurou um aplicativo cliente nativo que pode acessar seu aplicat
 
 <!-- URLs. -->
 
-[Portal do Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

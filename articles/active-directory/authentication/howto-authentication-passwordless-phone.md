@@ -4,19 +4,19 @@ description: Habilite o login sem senha no Azure AD usando o aplicativo Microsof
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c684d6f1fbd8128ae020b6fd29da928b286aa18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 853e7143834a340b870b71ef1a287dab136e2783
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126691"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654063"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilite o login sem senha com o aplicativo Microsoft Authenticator (visualização)
 
@@ -45,7 +45,7 @@ Os recursos de registro para métodos de autenticação sem senha dependem da vi
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Habilite métodos de autenticação de login de telefone sem senha
 
-1. Entre no [portal do Azure](https://portal.azure.com)
+1. Faça login no [portal Azure](https://portal.azure.com)
 1. Pesquise *Azure Active Directory* e selecione-o. Selecione **métodos** > **Authentication methods** > de autenticação de segurança Política do método de**autenticação (Visualização)**
 1. Em **login de telefone sem senha,** escolha as seguintes opções
    1. **Habilitar** - Sim ou Não
@@ -54,7 +54,7 @@ Os recursos de registro para métodos de autenticação sem senha dependem da vi
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator-app"></a>Registro e gerenciamento de usuários do aplicativo Microsoft Authenticator
 
-1. Procurar para[https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
+1. Navegue até [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
 1. Faça login se ainda não
 1. Adicione um aplicativo autenticador clicando em **Adicionar método,** escolhendo **o aplicativo Authenticator**e clicando **em Adicionar**
 1. Siga as instruções para instalar e configurar o aplicativo Microsoft Authenticator em seu dispositivo
@@ -82,7 +82,7 @@ O admin pode optar por permitir que o usuário use o login de telefone sem senha
 
 ### <a name="ad-fs-integration"></a>Integração AD FS
 
-Quando um usuário tiver habilitado a credencial sem senha do Microsoft Authenticator, a autenticação para esse usuário sempre enviará como padrão uma notificação de aprovação. Essa lógica impede que os usuários em um locatário híbrido sejam direcionados para o ADFS para verificação de entrada sem que o usuário realize uma etapa adicional de clicar em "Usar sua senha em vez disso". Esse processo também ignorará quaisquer políticas de Acesso Condicional locais e fluxos de autenticação de Passagem. 
+Quando um usuário tiver habilitado a credencial sem senha do Microsoft Authenticator, a autenticação para esse usuário sempre enviará como padrão uma notificação de aprovação. Essa lógica impede que os usuários de um inquilino híbrido sejam direcionados ao ADFS para verificação de login sem que o usuário dê um passo adicional para clicar em "Usar sua senha em vez disso". Esse processo também ignorará quaisquer políticas de Acesso Condicional locais e fluxos de autenticação de Passagem. 
 
 Se um usuário tiver uma verificação de login de telefone sem senha sem resposta pendente e tentar entrar novamente, o usuário pode ser levado ao ADFS para inserir uma senha.  
 

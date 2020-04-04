@@ -10,21 +10,23 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a42ec523bb1f77c48f7382283a52565c9c9273b6
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: e321df3f27defdceab31fe3b425a4169928ba3f6
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584492"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631944"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura Azure Synapse Analytics (anteriormente SQL DW) 
+# <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura Azure Synapse Analytics (anteriormente SQL DW)
 
 O Azure Synapse é um serviço de análise ilimitado que reúne data warehouse empresarial e análise de Big Data. Ele oferece a liberdade para consultar dados da forma que você quiser, usando recursos sob demanda sem servidor ou provisionados em escala. O Azure Synapse une esses dois mundos com uma experiência unificada para ingerir, preparar, gerenciar e servir dados para necessidades imediatas de BI e aprendizado de máquina.
 
  O Azure Synapse tem quatro componentes:
-- Synapse SQL: Análise completa baseada em T-SQL 
-    - Pool SQL (pagamento por DWU provisionado) – Geralmente disponível
-    - SQL sob demanda (pagamento por TB processado, versão prévia)
+
+- SQL Analytics: Análise completa baseada em T-SQL
+
+  - Pool SQL (pagamento por DWU provisionado) – Geralmente disponível
+  - SQL sob demanda (pagamento por TB processado, versão prévia)
 - Faísca: Apache Spark profundamente integrado (Preview)
 - Integração de Dados: Integração de dados híbridos (Preview)
 - Estúdio: experiência unificada do usuário.  (Visualização)
@@ -37,24 +39,24 @@ O Azure Synapse é um serviço de análise ilimitado que reúne data warehouse e
 
 ![Arquitetura Synapse SQL](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-O Synapse SQL usa uma arquitetura baseada em nó. Os aplicativos conectam e emitem comandos T-SQL para um nó controle, que é o único ponto de entrada para um pool Synapse SQL. O nó Controle executa o mecanismo MPP, que otimiza as consultas para processamento paralelo e, em seguida, passa as operações para os nós de Computação para fazer seu trabalho em paralelo. 
+O SQL Analytics usa uma arquitetura baseada em nó. Os aplicativos conectam e emitem comandos T-SQL para um nó controle, que é o único ponto de entrada para o SQL Analytics. O nó Controle executa o mecanismo MPP, que otimiza as consultas para processamento paralelo e, em seguida, passa as operações para os nós de Computação para fazer seu trabalho em paralelo.
 
-Os nós de Computação armazenam todos os dados de usuário no Armazenamento do Azure e executam as consultas paralelas. O serviço de movimentação de dados (DMS) é um serviço de nível de sistema interno que move dados entre os nós, conforme necessário para executar consultas em paralelo e retornar resultados precisos. 
+Os nós de Computação armazenam todos os dados de usuário no Armazenamento do Azure e executam as consultas paralelas. O serviço de movimentação de dados (DMS) é um serviço de nível de sistema interno que move dados entre os nós, conforme necessário para executar consultas em paralelo e retornar resultados precisos.
 
 Com armazenamento e computação desacoplados, ao usar o pool Synapse SQL pode:
 
-* Utilize computação independentemente do tamanho de suas necessidades de armazenamento.
-* Cresça ou reduza o poder de computação, dentro de um pool SQL (data warehouse), sem mover dados.
-* Pause a capacidade de computação ao deixar dados intactos para que você só pague pelo armazenamento.
-* Retomar a capacidade de computação durante horas operacionais.
+- Utilize computação independentemente do tamanho de suas necessidades de armazenamento.
+- Cresça ou reduza o poder de computação, dentro de um pool SQL (data warehouse), sem mover dados.
+- Pause a capacidade de computação ao deixar dados intactos para que você só pague pelo armazenamento.
+- Retomar a capacidade de computação durante horas operacionais.
 
 ### <a name="azure-storage"></a>Armazenamento do Azure
 
 O Synapse SQL aproveita o Armazenamento Azure para manter os dados do usuário seguros.  Uma vez que seus dados são armazenados e gerenciados pelo Azure Storage, há uma taxa separada para o seu consumo de armazenamento. Os dados são resmados em **distribuições** para otimizar o desempenho do sistema. Você pode escolher qual padrão de fragmentação usar para distribuir os dados quando você define a tabela. Estes padrões de fragmentação são suportados:
 
-* Hash
-* Round Robin
-* Replicar
+- Hash
+- Round Robin
+- Replicar
 
 ### <a name="control-node"></a>Nó de controle
 
@@ -68,27 +70,29 @@ Cada nó de computação tem uma ID de nó que está visível nas exibições do
 
 ### <a name="data-movement-service"></a>Serviço de movimentação de dados
 
-O Serviço de movimentação de dados (DMS) é a tecnologia de transporte de dados que coordena a movimentação de dados entre os nós de computação. Algumas consultas exigem a movimentação de dados para garantir que as consultas paralelas retornem resultados precisos. Quando a movimentação de dados é necessária, DMS garante que os dados corretos cheguem ao local correto. 
+O Serviço de movimentação de dados (DMS) é a tecnologia de transporte de dados que coordena a movimentação de dados entre os nós de computação. Algumas consultas exigem a movimentação de dados para garantir que as consultas paralelas retornem resultados precisos. Quando a movimentação de dados é necessária, DMS garante que os dados corretos cheguem ao local correto.
 
 ## <a name="distributions"></a>Distribuições
 
-Uma distribuição é a unidade básica de armazenamento e processamento para consultas paralelas que são executadas em dados distribuídos. Quando uma consulta é executada, a obra é dividida em 60 consultas menores que são executadas em paralelo. 
+Uma distribuição é a unidade básica de armazenamento e processamento para consultas paralelas que são executadas em dados distribuídos. Quando o SQL Analytics executa uma consulta, o trabalho é dividido em 60 consultas menores que são executadas em paralelo.
 
 Cada uma das 60 consultas menores é executada em uma das distribuições de dados. Cada nó de computação gerencia um ou mais de 60 distribuições. Um pool SQL com recursos máximos de computação tem uma distribuição por nó de computação. Um pool SQL com recursos mínimos de computação tem todas as distribuições em um nó de computação.  
 
 ## <a name="hash-distributed-tables"></a>Tabelas distribuídas em hash
 
-Uma tabela de hash distribuída pode fornecer o melhor desempenho de consulta para junções e agregações em tabelas grandes. 
+Uma tabela de hash distribuída pode fornecer o melhor desempenho de consulta para junções e agregações em tabelas grandes.
+
+Uma tabela de hash distribuída pode fornecer o melhor desempenho de consulta para junções e agregações em tabelas grandes.
 
 Para fragmentos de dados em uma tabela distribuída por hash, uma função hash é usada para atribuir determinicamente cada linha a uma distribuição. Na definição de tabela, uma das colunas é designada como a coluna de distribuição. A função de hash usa valores na coluna de distribuição para atribuir cada linha a uma distribuição.
 
-O diagrama a seguir ilustra como uma (tabela não distribuída) completa é armazenada como uma tabela distribuída em hash. 
+O diagrama a seguir ilustra como uma (tabela não distribuída) completa é armazenada como uma tabela distribuída em hash.
 
 ![Tabela distribuída](./media/massively-parallel-processing-mpp-architecture/hash-distributed-table.png "Tabela distribuída")  
 
-* Cada linha pertence a uma distribuição.  
-* Um algoritmo de hash determinístico atribui cada linha a uma distribuição.  
-* O número de linhas de tabela por distribuição varia conforme mostrado pelos diferentes tamanhos de tabelas.
+- Cada linha pertence a uma distribuição.  
+- Um algoritmo de hash determinístico atribui cada linha a uma distribuição.  
+- O número de linhas de tabela por distribuição varia conforme mostrado pelos diferentes tamanhos de tabelas.
 
 Há considerações de desempenho para a seleção de uma coluna de distribuição, como distinção, distorção de dados e tipos de consultas executadas no sistema.
 
@@ -106,8 +110,17 @@ Uma tabela replicada faz cache de uma cópia completa da tabela em cada nó de c
 
 O diagrama abaixo mostra uma tabela replicada que é armazenada em cache na primeira distribuição em cada nó de computação.  
 
-![Tabela replicada](./media/massively-parallel-processing-mpp-architecture/replicated-table.png "Tabela replicada") 
+![Tabela replicada](./media/massively-parallel-processing-mpp-architecture/replicated-table.png "Tabela replicada")
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você sabe um pouco sobre o Azure Synapse, aprenda a criar rapidamente [um pool SQL](create-data-warehouse-portal.md) e [carregar dados de amostra](load-data-from-azure-blob-storage-using-polybase.md). Se você ainda não conhece o Azure, poderá achar o [Glossário do Azure](../../azure-glossary-cloud-terminology.md) útil à medida que encontrar nova terminologia. Ou olhe para alguns desses outros Recursos Sinapse Azure.  
+Agora que você sabe um pouco sobre o Azure Synapse, aprenda a criar rapidamente [um pool SQL](create-data-warehouse-portal.md) e [carregar dados de amostra](load-data-from-azure-blob-storage-using-polybase.md). Se você ainda não conhece o Azure, poderá achar o [Glossário do Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) útil à medida que encontrar nova terminologia. Ou olhe para alguns desses outros Recursos Sinapse Azure.  
+
+- [Histórias de sucesso de clientes](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
+- [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
+- [Solicitações de recursos](https://feedback.azure.com/forums/307516-sql-data-warehouse)
+- [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+- [Criar um tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md)
+- [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+- [Fórum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
+- [Twitter](https://twitter.com/hashtag/SQLDW)

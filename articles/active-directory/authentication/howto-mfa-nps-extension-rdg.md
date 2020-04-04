@@ -4,25 +4,25 @@ description: Integrar sua infraestrutura de Gateway de Área de Trabalho Remota 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d9b2332d6d78e7bde63d0fa3f5b64b588e576b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c61bea7f3ca1105edfec54501c5f0725a5a10225
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425466"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654108"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a infraestrutura do seu Gateway de Área de Trabalho Remota usando a extensão do Servidor de Políticas de Rede (NPS) e o Azure AD
 
 Este artigo fornece os detalhes para integração da infraestrutura do seu Gateway de Área de Trabalho Remota com a Autenticação Multifator do Azure (MFA) usando a extensão do Servidor de Políticas de Rede (NPS) para o Microsoft Azure.
 
-A extensão do NPS (Servidor de Políticas de Rede) para o Azure permite que os clientes protejam a autenticação do cliente do serviço RADIUS usando a [MFA (Autenticação Multifator) do Azure](multi-factor-authentication.md) baseada em nuvem. Essa solução fornece uma verificação em duas etapas para adicionar uma segunda camada de segurança para logons de usuário e transações.
+A extensão NPS (Network Policy Server) para O Zure permite que os clientes protejam a autenticação do cliente Radius (Remote Authentication Dial-In User Service, serviço de usuário dial-in) de autenticação remota usando a [Autenticação Multifatorial (MFA)](multi-factor-authentication.md)baseada na nuvem do Azure. Essa solução fornece uma verificação em duas etapas para adicionar uma segunda camada de segurança para logons de usuário e transações.
 
 Este artigo fornece instruções passo a passo para integrar a infraestrutura do NPS com a Autenticação Multifator do Azure usando a extensão do NPS do Azure. Isso permite a verificação dos usuários que tentarem entrar em um Gateway de Área de Trabalho Remota.
 
@@ -54,7 +54,7 @@ Quando a extensão do NPS para o Azure é integrada com o NPS e o Gateway de Ár
 1. O servidor de Gateway de Área de Trabalho Remota recebe uma solicitação de autenticação de um usuário de área de trabalho remota para se conectar a um recurso, como uma sessão de Área de Trabalho Remota. O servidor de Gateway de Área de Trabalho Remota age como um cliente RADIUS e converte a solicitação para uma mensagem de solicitação de acesso RADIUS e envia a mensagem para o servidor RADIUS (NPS) onde a extensão do NPS está instalada.
 1. A combinação de nome de usuário e senha é verificada no Active Directory e o usuário é autenticado.
 1. Se todas as condições conforme especificadas na Solicitação de Conexão de NPS e as Políticas de Rede forem atendidas (por exemplo, hora do dia ou restrições de associação a um grupo), a extensão NPS dispara uma solicitação de autenticação secundária com o Azure MFA.
-1. O Azure MFA comunica-se com o Azure AD, recupera os detalhes do usuário e executa a autenticação secundária usando métodos com suporte.
+1. O Azure MFA se comunica com o Azure AD, recupera os detalhes do usuário e executa a autenticação secundária usando métodos suportados.
 1. Após o desafio de MFA ter sido concluído com sucesso, o Azure MFA comunica o resultado para a extensão do NPS.
 1. O servidor NPS, no qual a extensão está instalada, envia uma mensagem Access-Accept do RADIUS para a política RD CAP para o servidor de Gateway de Área de Trabalho Remota.
 1. O usuário tem acesso ao recurso de rede solicitado por meio do Gateway de Área de Trabalho Remota.
@@ -149,7 +149,7 @@ O script executa as ações a seguir:
 * Cria um certificado autoassinado
 * Associa a chave pública do certificado à entidade de serviço no Azure AD
 * Armazena o certificado no repositório do computador local
-* Concede acesso à chave privada do certificado ao usuário de rede
+* Concede acesso à chave privada do certificado para o usuário da rede
 * Reinicia o serviço do Servidor de Políticas de Rede
 
 Se você quiser usar seus próprios certificados, será necessário associar a chave pública do seu certificado à entidade de serviço no Azure AD e assim por diante.
@@ -157,7 +157,7 @@ Se você quiser usar seus próprios certificados, será necessário associar a c
 Para usar o script, forneça a extensão com suas credenciais de administrador do Azure AD e a ID de locatário do Azure AD que você copiou anteriormente. Execute o script em cada servidor NPS onde você instalou a extensão NPS. Faremos o seguinte:
 
 1. Abra um prompt do Windows PowerShell administrativo.
-1. No prompt do PowerShell, digite `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’` e clique em **ENTER**.
+1. No prompt do PowerShell, digite `cd 'c:\Program Files\Microsoft\AzureMfa\Config'` e clique em **ENTER**.
 1. Digite`.\AzureMfaNpsExtnConfigSetup.ps1`, e aperte **ENTER**. O script verifica se o módulo do Azure Active Directory PowerShell está instalado. Se não estiver instalado, o script instala o módulo para você.
 
    ![Executando AzureMfaNpsExtnConconfigurSetup.ps1 no Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
@@ -206,7 +206,7 @@ As políticas de autorização de conexão de Área de Trabalho Remota (RD CAPs)
 
 ### <a name="configure-radius-timeout-value-on-remote-desktop-gateway-nps"></a>Configurar o valor de tempo limite do RADIUS no NPS de Gateway de Área de Trabalho Remota
 
-Para garantir que haja tempo para validar as credenciais do usuário, executar a verificação em duas etapas, receber respostas e responder a mensagens RADIUS, é necessário ajustar o valor de tempo limite do RADIUS.
+Para garantir que haja tempo para validar as credenciais dos usuários, realizar verificação em duas etapas, receber respostas e responder às mensagens RADIUS, é necessário ajustar o valor de tempo do RADIUS.
 
 1. No servidor de Gateway de Área de Trabalho Remota, abra Gerenciador do Servidor. No menu, clique em **Ferramentas** e, em seguida, clique em **Servidor de Políticas de Rede**.
 1. No console **NPS (Local)**, expanda **Clientes e Servidores RADIUS** e selecione **Servidor RADIUS remoto**.

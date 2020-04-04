@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b5d326d02587d6b5bd8fd73dcccfefdb13c47d57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 26c5c5b31d5f3f9e1a642c0bafb947190e479055
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500925"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632621"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solucionar problemas de erros com runbooks
 
@@ -33,7 +33,7 @@ Quando você tem erros na execução de runbooks no Azure Automation, você pode
 
 3. **Certifique-se de que seus nódulos e espaço de trabalho de automação tenham os módulos necessários.** 
 
-    Se o seu runbook importar quaisquer módulos, verifique se eles estão disponíveis para sua conta de Automação usando as etapas listadas nos [módulos de importação](../shared-resources/modules.md#import-modules). Atualize seus módulos para a versão mais recente seguindo as instruções nos [módulos Update Azure na Azure Automation](..//automation-update-azure-modules.md). Para obter mais informações sobre solução de [problemas, consulte módulos de solução de problemas](shared-resources.md#modules).
+    Se o seu runbook importar quaisquer módulos, verifique se eles estão disponíveis para sua conta de Automação usando as etapas listadas nos [módulos de importação](../shared-resources/modules.md#importing-modules). Atualize seus módulos para a versão mais recente seguindo as instruções nos [módulos Update Azure na Azure Automation](..//automation-update-azure-modules.md). Para obter mais informações sobre solução de [problemas, consulte módulos de solução de problemas](shared-resources.md#modules).
 
 4. **Faça se o seu manual estiver suspenso ou falhar inesperadamente.**
 
@@ -284,7 +284,7 @@ Esse erro ocorre devido a um dos seguintes problemas:
 
 ### <a name="resolution"></a>Resolução
 
-* Limite de memória, soquetes de rede. As maneiras sugeridas de trabalhar dentro dos limites de memória são dividir a carga de trabalho entre vários runbooks, processar menos dados na memória, evitar escrever saídas desnecessárias de seus runbooks e considerar quantos pontos de verificação estão escritos no seu fluxo de trabalho PowerShell runbooks. Use o método claro, como, `$myVar.clear`para limpar `[GC]::Collect` variáveis e usar para executar a coleta de lixo imediatamente. Essas ações reduzem o volume de memória do seu runbook durante o runtime.
+* Limite de memória, soquetes de rede. As maneiras sugeridas de trabalhar dentro dos limites de memória são dividir a carga de trabalho entre vários runbooks, processar menos dados na memória, evitar escrever saídas desnecessárias de seus runbooks e considerar quantos pontos de verificação são gravados em seus runbooks do fluxo de trabalho PowerShell. Use o método claro, como, `$myVar.clear`para limpar `[GC]::Collect` variáveis e usar para executar a coleta de lixo imediatamente. Essas ações reduzem o volume de memória do seu runbook durante o runtime.
 
 * Módulo Incompatível. Atualize seus módulos Do Azure seguindo as etapas de [Como atualizar os módulos Do Zure PowerShell na Automação Azure](../automation-update-azure-modules.md).
 

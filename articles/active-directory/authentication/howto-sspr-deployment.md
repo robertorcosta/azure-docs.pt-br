@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 785a8a031a10232a37b235711ba919fdc1df35d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7be99959c2ae420cff667491f68c40dfa0862a9
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77061396"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652397"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset"></a>Planeje uma redefinição de senha de autoatendimento do Azure Active Directory
 
@@ -316,7 +316,7 @@ Os registros de auditoria para registro e redefinição de senha estão disponí
 
 [O uso e os insights](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-methods-usage-insights) permitem que você entenda como os métodos de autenticação de recursos como OZure MFA e SSPR estão funcionando em sua organização. Esse recurso de relatóriofornece à sua organização os meios para entender quais métodos registram e como usá-los.
 
-### <a name="troubleshoot"></a>Solução de problemas
+### <a name="troubleshoot"></a>Solucionar problemas
 
 * Consulte a [redefinição de senha de autoatendimento de Solução de Problemas](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-troubleshoot) 
 

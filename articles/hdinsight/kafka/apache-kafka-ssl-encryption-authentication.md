@@ -2,18 +2,18 @@
 title: Autenticação de & de criptografia Apache Kafka TLS - Azure HDInsight
 description: Configure criptografia TLS para comunicação entre clientes Kafka e corretores Kafka, bem como entre corretores Kafka. Configure a autenticação SSL dos clientes.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
+ms.custom: hdinsightactive
 ms.date: 05/01/2019
-ms.author: hrasheed
-ms.openlocfilehash: 027a66f4b83225f3c776e1bff1d706f6f4dba976
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: b0154401a9233a6ea85a8e8c06ee14fcc918b2b6
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436986"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657104"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configure criptografia e autenticação TLS para Apache Kafka no Azure HDInsight
 
@@ -312,13 +312,13 @@ Os detalhes de cada etapa são dados abaixo.
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
     ```
 
-1.  Inicie o produtor do `client-ssl-auth.properties` console e forneça o caminho para como um arquivo de configuração para o produtor.
+1. Inicie o produtor do `client-ssl-auth.properties` console e forneça o caminho para como um arquivo de configuração para o produtor.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9093 --topic topic1 --producer.config ~/ssl/client-ssl-auth.properties
     ```
 
-1.  Abra outra conexão ssh para a máquina cliente `client-ssl-auth.properties` e inicie o console consumidor e forneça o caminho para como um arquivo de configuração para o consumidor.
+1. Abra outra conexão ssh para a máquina cliente `client-ssl-auth.properties` e inicie o console consumidor e forneça o caminho para como um arquivo de configuração para o consumidor.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning
@@ -332,13 +332,13 @@ Os detalhes de cada etapa são dados abaixo.
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE_0>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
     ```
 
-1.  Inicie o produtor do console e forneça o caminho para propriedades cliente-ssl-auth.como um arquivo de configuração para o produtor.
+1. Inicie o produtor do console e forneça o caminho para propriedades cliente-ssl-auth.como um arquivo de configuração para o produtor.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9092 --topic topic1 
     ```
 
-3.  Abra outra conexão ssh para a máquina cliente `client-ssl-auth.properties` e inicie o console consumidor e forneça o caminho para como um arquivo de configuração para o consumidor.
+1. Abra outra conexão ssh para a máquina cliente `client-ssl-auth.properties` e inicie o console consumidor e forneça o caminho para como um arquivo de configuração para o consumidor.
 
     ```bash
     $ /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning

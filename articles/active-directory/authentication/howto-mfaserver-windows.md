@@ -4,26 +4,26 @@ description: Implantação da Autenticação do Windows e Servidor de Autentica�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faab28a714b1a62e1e34de5b07119aa3018db24e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4abfb970ca322724adb0f8919b7509bc8a641378
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263654"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652792"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Autenticação do Windows e Servidor de Autenticação Multifator do Azure
 
 Use a seção de autenticação do Windows do servidor de Autenticação Multifator do Azure para habilitar e configurar a autenticação do Windows para aplicativos. Antes de configurar a autenticação do Windows, lembre-se a lista a seguir:
 
 * Após a instalação, reinicie a Autenticação Multifator do Azure para que os serviços de Terminal entrem em vigor.
-* Se a opção 'Exigir correspondência de usuário da Autenticação Multifator do Azure' for marcada e você não estiver na lista de usuários, não será possível fazer logon no computador após a reinicialização.
+* Se 'Exigir correspondência de usuário de autenticação multifatorial do Azure' for verificada e você não estiver na lista de usuários, você não poderá fazer login na máquina após a reinicialização.
 * IPs confiáveis dependem de o aplicativo poder fornecer o IP do cliente com a autenticação. Atualmente, apenas os Serviços de Terminal têm suporte.  
 
 > [!IMPORTANT]
