@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4301aaed0152e07eb2a941b56637239b66c33878
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7ea99e2ee8e2882c211ee17acec70222dc058a8
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127369"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637092"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Perguntas frequentes sobre o Windows 10 Enterprise de várias sessões
 
@@ -39,7 +39,7 @@ A multisessão Windows 10 Enterprise não pode ser executada em ambientes de pro
 
 Você pode iniciar uma máquina virtual (VM) no Azure com o Windows 10 Windows 10 Enterprise multi-sessão e personalizá-la instalando aplicativos LOB, sysprep/generalize e, em seguida, criar uma imagem usando o portal Azure.  
  
-Para começar, crie uma VM no Azure com windows 10 Windows 10 Enterprise multi-sessão. Em vez de iniciar o VM no Azure, você pode baixar o VHD diretamente. Depois disso, você poderá usar o VHD que você baixou para criar uma nova Geração 1 VM em um PC com Windows 10 com Hiper-V ativado.
+Para começar, crie uma VM no Azure com multi-sessão do Windows 10 Enterprise. Em vez de iniciar o VM no Azure, você pode baixar o VHD diretamente. Depois disso, você poderá usar o VHD que você baixou para criar uma nova Geração 1 VM em um PC com Windows 10 com Hiper-V ativado.
 
 Personalize a imagem para suas necessidades instalando aplicativos LOB e sysprep a imagem. Quando terminar de personalizar, carregue a imagem para o Azure com o VHD dentro. Depois disso, obtenha o Windows Virtual Desktop no Azure Marketplace e use-o para implantar um novo pool de hostcom a imagem personalizada.
  
@@ -96,7 +96,7 @@ Para desativar o aplicativo Loja:
 3. Selecione **Repositório**.
 4. Selecione **aplicativo da loja**.
 5. Selecione **Disabled,** e selecione **OK**.
-6. Selecione **Aplicar**.
+6. Escolha **Aplicar**.
  
 ## <a name="next-steps"></a>Próximas etapas
 

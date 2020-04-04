@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/2/2020
+ms.date: 04/3/2020
 ms.author: raiye
-ms.openlocfilehash: 2b929481af3df8bc3bc6a9a6955e8277e3de3298
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 758f0e3198ef83635ead3f9bd8565cd64f9d413c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618674"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656345"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
@@ -26,26 +26,25 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 20-03  |  [4541500]  |  Segurança do Windows  | [2.96] | 10 de março de 2020 |
-|  Rel 20-03  |  [4540671]  |  Internet Explorer  | [2.96,] [3.83,] [4.76] | 10 de março de 2020 |
-|  Rel 20-03  |  [4540694]  |  Segurança do Windows  | [3.83] | 10 de março de 2020 |
-|  Rel 20-03  |  [4541505]  |  Segurança do Windows  | [4.76] | 10 de março de 2020 |
-|  Rel 20-03  |  [4540670]  |  Última Atualização Cucu (Última Atualização Cucu)  | [5.41] | 10 de março de 2020 |
-|  Rel 20-03  |  [4538461]  |  Última Atualização Cucu (Última Atualização Cucu)  | [6.17] | 10 de março de 2020 |
-|  Rel 20-03  |  [4537820]  |  Rollup Mensal  | [2.96] | 11 de fevereiro de 2020 |
-|  Rel 20-03  |  [4537814]  |  Rollup Mensal  | [3.83] | 11 de fevereiro de 2020 |
-|  Rel 20-03  |  [4537821]  |  Rollup Mensal  | [4.76] | 11 de fevereiro de 2020 |
+|  Rel 20-03  |  [4541500]  |  Segurança do Windows  | [2.96] | 10 de março de 2020 |
+|  Rel 20-03  |  [4540671]  |  Internet Explorer  | [2.96,] [3.83,] [4.76] | 10 de março de 2020 |
+|  Rel 20-03  |  [4540694]  |  Segurança do Windows  | [3.83] | 10 de março de 2020 |
+|  Rel 20-03  |  [4541505]  |  Segurança do Windows  | [4.76] | 10 de março de 2020 |
+|  Rel 20-03  |  [4540670]  |  Última Atualização Cucu (Última Atualização Cucu)  | [5.41] | 10 de março de 2020 |
+|  Rel 20-03  |  [4538461]  |  Última Atualização Cucu (Última Atualização Cucu)  | [6.17] | 10 de março de 2020 |
+|  Rel 20-03  |  [4537820]  |  Rollup Mensal  | [2.96] | 11 de fevereiro de 2020 |
+|  Rel 20-03  |  [4537814]  |  Rollup Mensal  | [3.83] | 11 de fevereiro de 2020 |
+|  Rel 20-03  |  [4537821]  |  Rollup Mensal  | [4.76] | 11 de fevereiro de 2020 |
 
-[4541500]: https://support.microsoft.com/kb/4541500 
-[4540671]: https://support.microsoft.com/kb/4540671 
-[4540694]: https://support.microsoft.com/kb/4540694 
-[4541505]: https://support.microsoft.com/kb/4541505 
-[4540670]: https://support.microsoft.com/kb/4540670 
-[4538461]: https://support.microsoft.com/kb/4538461 
-[4537820]: https://support.microsoft.com/kb/4537820  
-[4537814]: https://support.microsoft.com/kb/4537814 
-[4537821]: https://support.microsoft.com/kb/4537821 
-
+[4541500]: https://support.microsoft.com/kb/4541500 
+[4540671]: https://support.microsoft.com/kb/4540671 
+[4540694]: https://support.microsoft.com/kb/4540694 
+[4541505]: https://support.microsoft.com/kb/4541505 
+[4540670]: https://support.microsoft.com/kb/4540670 
+[4538461]: https://support.microsoft.com/kb/4538461 
+[4537820]: https://support.microsoft.com/kb/4537820  
+[4537814]: https://support.microsoft.com/kb/4537814 
+[4537821]: https://support.microsoft.com/kb/4537821 
 
 [6.17]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 [5.41]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases

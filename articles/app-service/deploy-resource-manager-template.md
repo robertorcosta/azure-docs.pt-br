@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dfdfa9f69e00aa644c21fc96cb70e9fa460ca0c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a282a412823207e5f662441158000e8c6121796
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77211710"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637919"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Diretrizes sobre a implantação de aplicativos Web usando modelos do Azure Resource Manager
 
@@ -109,7 +109,7 @@ O nome do seu aplicativo Web deve ser globalmente exclusivo. Você pode usar uma
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Se o modelo incluir um recurso [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) para associação SSL e o certificado estiver armazenado em um Key Vault, você precisará garantir que a identidade do Serviço de Aplicativo pode acessar o certificado.
+Se o seu modelo incluir um recurso [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) para vinculação TLS/SSL e o certificado for armazenado em um Cofre de Chaves, você deve ter certeza de que a identidade do App Service pode acessar o certificado.
 
 No Azure global, a entidade de serviço do Serviço de Aplicativo tem a ID **abfa0a7c-a6b6-4736-8310-5855508787cd**. Para conceder acesso ao Key Vault para a entidade de serviço do Serviço de Aplicativo, use:
 

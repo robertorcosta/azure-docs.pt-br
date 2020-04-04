@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: b95e16f2d8257bfffcaf2524fe7f8ce6be565689
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7b78bdb070cdf1364fe7fbdc75f175be7ce145ff
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80366600"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656462"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar do Bing Speech para o serviço de fala
 
@@ -92,5 +92,5 @@ Para o serviço de fala, suporte a SDK e API, visite a [página de suporte ao](s
 
 ## <a name="see-also"></a>Confira também
 * [Notas de liberação do serviço de fala](releasenotes.md)
-* [O que é o Serviço de Fala](overview.md)
-* [Serviço de fala e documentação do Speech SDK](speech-sdk.md#get-the-sdk)
+* [O que é o serviço de fala](overview.md)
+* [Serviço de fala e documentação do Speech SDK](speech-sdk.md#get-the-speech-sdk)

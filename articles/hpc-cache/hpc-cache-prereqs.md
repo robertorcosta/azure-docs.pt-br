@@ -4,14 +4,14 @@ description: Pré-requisitos para usar o cache Azure HPC
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 40d282ad30a800a5e5a36a8d2211ec8da7ce63ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6da35cb60dc5f22be01ae25393bd62327db64867
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271844"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655655"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para cache Azure HPC
 
@@ -113,7 +113,7 @@ Mais informações estão incluídas na [configuração NAS de solução de prob
 
   Certifique-se de que todas as ``rpcinfo`` portas retornadas pela consulta permitem tráfego irrestrito da sub-rede do Cache Azure HPC.
 
-  * Além das portas retornadas `rpcinfo` pelo comando, certifique-se de que essas portas comumente utilizadas permitam tráfego de entrada e saída:
+  * Se você não puder `rpcinfo` usar o comando, certifique-se de que essas portas comumente usadas permitam tráfego de entrada e saída:
 
     | Protocolo | Porta  | Serviço  |
     |----------|-------|----------|
@@ -122,6 +122,8 @@ Mais informações estão incluídas na [configuração NAS de solução de prob
     | TCP/UDP  | 4045  | nlockmgr |
     | TCP/UDP  | 4046  | montado   |
     | TCP/UDP  | 4047  | status   |
+
+    Alguns sistemas usam números de portas diferentes para esses serviços - consulte a documentação do seu sistema de armazenamento para ter certeza.
 
   * Verifique as configurações do firewall para ter certeza de que eles permitem o tráfego em todas essas portas necessárias. Certifique-se de verificar firewalls usados no Azure, bem como firewalls locais em seu data center.
 
@@ -132,7 +134,7 @@ Mais informações estão incluídas na [configuração NAS de solução de prob
 
   Saiba mais sobre o acesso à listagem de diretórios no artigo de [solução de problemas de](troubleshoot-nas.md#enable-export-listing)destino de armazenamento NFS .
 
-* **Acesso raiz:** O cache se conecta ao sistema back-end como ID do usuário. Verifique essas configurações no sistema de armazenamento:
+* **Acesso raiz** (leitura/gravação): O cache se conecta ao sistema back-end como ID do usuário 0. Verifique essas configurações no sistema de armazenamento:
   
   * Habilitar `no_root_squash`. Esta opção garante que o usuário raiz remoto possa acessar arquivos de propriedade da raiz.
 

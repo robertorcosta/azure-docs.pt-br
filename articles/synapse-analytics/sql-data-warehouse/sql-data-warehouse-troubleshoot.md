@@ -11,18 +11,19 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 47ee6f7627602732800949bcb9701045fcbff1a8
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: b24706943cdf59fba89a8007c4914b628b9e34d5
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583170"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632976"
 ---
-# <a name="troubleshooting-synapse-sql-pool-in-azure-synapse-analytics"></a>Solução de problemas Synapse SQL pool em Azure Synapse Analytics
+# <a name="troubleshooting-sql-analytics-in-azure-synapse"></a>Solução de problemas SQL Analytics no Azure Synapse
 
 Este artigo lista perguntas de solução de problemas comuns.
 
 ## <a name="connecting"></a>Connecting
+
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Falha de logon do usuário 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, erro: 18456) | Esse erro ocorre quando um usuário do Azure AD tenta se conectar ao banco de dados principal, mas não tem um usuário no master.  Para corrigir esse problema, especifique o pool SQL ao qual deseja se conectar na hora da conexão ou adicione o usuário ao banco de dados principal.  Consulte o artigo [visão geral da segurança](sql-data-warehouse-overview-manage-security.md) para obter mais detalhes. |
@@ -32,6 +33,7 @@ Este artigo lista perguntas de solução de problemas comuns.
 | Não é possível conectar-se com a ferramenta ou driver                           | O pool Synapse SQL recomenda o uso de [SSMS,](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) [SSDT para Visual Studio](sql-data-warehouse-install-visual-studio.md)ou [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) para consultar seus dados. Para obter mais informações sobre drivers e conectar-se ao Azure Synapse, consulte [Drivers for Azure Synapse](sql-data-warehouse-connection-strings.md) e [Conecte-se aos artigos do Azure Synapse.](sql-data-warehouse-connect-overview.md) |
 
 ## <a name="tools"></a>Ferramentas
+
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio object explorer está faltando usuários azure AD           | Esse é um problema conhecido.  Como alternativa, exiba os usuários em [sys.database_principals](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?view=sql-server-ver15).  Consulte [Autenticação no Azure Synapse](sql-data-warehouse-authentication.md) para saber mais sobre como usar o Azure Active Directory com o pool Synapse SQL. |
@@ -39,6 +41,7 @@ Este artigo lista perguntas de solução de problemas comuns.
 | Gerar falhas de script no SSMS                               | A geração de um script para pool SqL sinapse falha se a opção "Gerar script para objetos dependentes" estiver definida como "True". Como solução de solução, os usuários devem ir manualmente para **Ferramentas -> Opções ->SQL Server Object Explorer -> Gerar script para opções dependentes e definir como falso** |
 
 ## <a name="performance"></a>Desempenho
+
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Solucionar problemas de desempenho da consulta                            | Caso você esteja tentando solucionar problemas de uma determinada consulta, comece com [Aprendendo a monitorar suas consultas](sql-data-warehouse-manage-monitor.md#monitor-query-execution). |
@@ -50,15 +53,16 @@ Este artigo lista perguntas de solução de problemas comuns.
 | Desempenho ruim da consulta como resultado da baixa qualidade do índice     | Às vezes, as consultas podem apresentar lentidão devido à [Baixa qualidade do índice columnstore](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality).  Consulte este artigo para saber mais e para saber como [Recriar índices a fim de melhorar a qualidade do segmento](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality). |
 
 ## <a name="system-management"></a>Gerenciamento do sistema
+
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Msg 40847: não foi possível executar a operação, pois o servidor excederia a cota de Unidade de Transação de Banco de Dados permitida de 45000. | Reduza a [DWU](what-is-a-data-warehouse-unit-dwu-cdwu.md) do banco de dados que você está tentando criar ou [solicite um aumento de cota](sql-data-warehouse-get-started-create-support-ticket.md). |
-| Investigação da utilização de espaço                              | Confira [Tamanhos da tabela]( ../../sql-data-warehouse/sql-data-warehouse-tables-overview.md#table-size-queries) para entender a utilização do espaço de seu sistema. |
+| Investigação da utilização de espaço                              | Confira [Tamanhos da tabela](sql-data-warehouse-tables-overview.md#table-size-queries) para entender a utilização do espaço de seu sistema. |
 | Ajuda com o gerenciamento de tabelas                                    | Confira o artigo [Visão geral da tabela](sql-data-warehouse-tables-overview.md) para obter ajuda com o gerenciamento de suas tabelas.  Este artigo também inclui links para tópicos mais detalhados, como [Tipos de dados de tabela](sql-data-warehouse-tables-data-types.md), [Distribuindo uma tabela](sql-data-warehouse-tables-distribute.md), [Indexando uma tabela](sql-data-warehouse-tables-index.md), [Particionando uma tabela](sql-data-warehouse-tables-partition.md), [Mantendo as estatísticas da tabela](sql-data-warehouse-tables-statistics.md) e [Tabelas temporárias](sql-data-warehouse-tables-temporary.md). |
 | A barra de progresso da criptografia de dados transparente (TDE) não está atualizada no portal Dozure | Você pode exibir o estado de TDE via [PowerShell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
-
 ## <a name="differences-from-sql-database"></a>Diferenças do Banco de Dados SQL
+
 | Problema                                 | Resolução                                                   |
 | :------------------------------------ | :----------------------------------------------------------- |
 | Recursos do Banco de Dados SQL sem suporte     | Confira [Recursos de tabela sem suporte](sql-data-warehouse-tables-overview.md#unsupported-table-features). |
@@ -69,6 +73,7 @@ Este artigo lista perguntas de solução de problemas comuns.
 | UDFs não oferecem suporte a instruções SELECT | Esta é uma limitação atual de nossos UDFs.  Confira [CREATE FUNCTION](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=aps-pdw-2016-au7) para ver a sintaxe para a qual damos suporte. |
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Para obter mais ajuda na busca de soluções para o problema, a seguir são apresentados alguns outros recursos que você pode experimentar.
 
 * [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

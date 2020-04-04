@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 147f43148c0f804adf70f1a792ba1b8a772fdae4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8da8cd7110cd17d0aadd52cce1263c7c0fcfdf5c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294484"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632167"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados do Windows
 
@@ -144,7 +144,7 @@ Use os seguintes trechos de procedimento e código para configurar, construir, p
 
 #### <a name="set-up"></a>Configuração
 
-Crie um arquivo settings.json sob ```.azureml``` um diretório chamado seu diretório inicial. Digite os parâmetros do espaço de trabalho Azure Machine Learning.
+Crie um arquivo settings.json sob ```.azureml``` um diretório chamado sob seu diretório inicial. Digite os parâmetros do espaço de trabalho Azure Machine Learning.
 
 Aqui está a estrutura do arquivo settings.json:
 
@@ -803,16 +803,6 @@ pd.read_sql(queryString, connection)
 ```
 
 ![Linhas superiores de dados da tabela](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
-
-#### <a name="read-data-from-hdi-by-using-azure-machine-learning-studio-classic-reader-module"></a>Leia dados da HDI usando o Azure Machine Learning Studio (clássico): módulo de leitor
-
-Você também pode usar o módulo de leitor no Azure Machine Learning Studio (clássico) para acessar o banco de dados em um cluster Hadoop. Conecte as credenciais de seus clusters HDI e conta de armazenamento Azure para permitir a construção de modelos de aprendizado de máquina usando um banco de dados em clusters HDI.
-
-![Propriedades do módulo de leitor](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
-
-Em seguida, você pode visualizar o conjunto de dados marcado:
-
-![Exibir o conjunto de dados pontuado](./media/vm-do-ten-things/AML_Model_Results.PNG)
 
 ### <a name="azure-sql-data-warehouse-and-databases"></a>Azure SQL Data Warehouse e bancos de dados
 O Azure SQL Data Warehouse é um data warehouse elástico como um serviço com uma experiência de SQL Server de classe empresarial.

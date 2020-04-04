@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: amishu
 zone_pivot_groups: programming-languages-set-twelve
-ms.openlocfilehash: 6aabd27ae38cac0bb9effad2adcadc4935a28c6e
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: bd6b500a823bde654da4442704b75451806d6a46
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409690"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637290"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Use a entrada de áudio compactada codec com o Speech SDK
 
 O serviço de fala SDK **Compactd Audio Input Stream** API fornece uma `PullStream` maneira `PushStream`de transmitir áudio compactado para o serviço Speech usando um ou .
 
-> [!IMPORTANT]
-> Streaming de áudio de entrada compactada é atualmente suportado para C#, C++, Java on Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). Ele também é suportado para Java em Android e Objective-C na plataforma iOS.
-> Fala SDK versão 1.7.0 ou superior é necessário (versão 1.10.0 ou superior para RHEL 8, CentOS 8).
+Streaming de áudio de entrada compactada é atualmente suportado para C#, C++, Java on Windows (os aplicativos UWP não são suportados) e Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). Ele também é suportado para Java em Android e Objective-C na plataforma iOS.
+* A versão 1.10.0 do Speech SDK ou posterior é necessária para OHeL 8 e CentOS 8
+* A versão 1.11.0 ou posterior do Speech SDK é necessária para o Windows.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 

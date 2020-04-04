@@ -1,17 +1,17 @@
 ---
 title: Desenvolver no Azure Kubernetes Service (AKS) com rascunho
-description: Usar o Draft com AKS e Registro de Contêiner do Azure
+description: Use o Draft com O Registro de Contêineres AKS e Azure para empacotar e executar contêineres de aplicativos em um cluster.
 services: container-service
 author: zr-msft
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: b03256ee65a3c40d8a64d70b877c49e44e68f822
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 820af2d8ddf03997eea559fbc5270e84f30a805a
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595214"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632891"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Quickstart: Desenvolva no Azure Kubernetes Service (AKS) com draft
 

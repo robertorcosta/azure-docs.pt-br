@@ -4,19 +4,19 @@ description: Implantação da Autenticação LDAP e Servidor de Autenticação M
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf7a5400fce2fce1b75cbd579830f929fcc0d0dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2df89a764bc9b92a830b13e4216412694bb95523
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454458"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653028"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>Autenticação LDAP e Servidor de Autenticação Multifator do Azure
 
@@ -79,5 +79,5 @@ Depois de concluir essas etapas, o Servidor de MFA começará a escutar nas port
 Para configurar o cliente LDAP, use as diretrizes:
 
 * Configure seu dispositivo, servidor ou aplicativo para autenticar via LDAP para o Servidor de Autenticação Multifator do Azure como se fosse seu diretório LDAP. Use as mesmas configurações que normalmente usa para se conectar diretamente ao diretório LDAP, exceto o nome do servidor ou endereço IP que será o Servidor de Autenticação Multifator do Azure.
-* Configure o tempo limite LDAP para 30 a 60 segundos de modo que haja tempo para validar as credenciais do usuário com o diretório LDAP, executar a verificação de segunda etapa, receber a resposta e responder à solicitação de acesso LDAP.
+* Configure o tempo de intervalo do LDAP para 30-60 segundos para que haja tempo para validar as credenciais do usuário com o diretório LDAP, executar a verificação em segunda etapa, receber sua resposta e responder à solicitação de acesso LDAP.
 * Se usar o LDAPS, o aparelho ou servidor que faz as consultas LDAP deve confiar no certificado TLS/SSL instalado no Servidor de Autenticação Multifatorial Do Azure.

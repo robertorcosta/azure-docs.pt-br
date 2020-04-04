@@ -1,6 +1,6 @@
 ---
 title: Solução de problemas - Trabalhadores do Runbook Híbrido de Automação do Azure
-description: Este artigo fornece informações sobre solução de problemas de trabalhadores do Runbook Híbrido de Automação do Azure
+description: Este artigo fornece informações para solução de problemas Azure Automation Hybrid Runbook Workers.
 services: automation
 ms.service: automation
 ms.subservice: ''
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 33e3e162892f1e2a148258273160ca26fa9c2efd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2587af0ada18b5c4271e7411783fe60211a3479
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153515"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637852"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Solucionar problemas de trabalhadores de runbooks híbridos
 
@@ -131,7 +131,9 @@ A fase inicial de registro do trabalhador falha e você recebe o seguinte erro (
 #### <a name="cause"></a>Causa
 
 Estas são as possíveis causas:
+
 * Há uma id de espaço de trabalho digitada mal digitada ou chave de espaço de trabalho (principal) nas configurações do agente. 
+
 * O Hybrid Runbook Worker não pode baixar a configuração, causando um erro de vinculação da conta. Quando o Azure habilita soluções, ele suporta apenas determinadas regiões para vincular um espaço de trabalho do Log Analytics e uma conta de Automação. Também é possível que uma data e/ou hora incorretas seja definida no computador. Se o tempo for de +/-15 minutos a partir do momento atual, o onboarding falhará.
 
 #### <a name="resolution"></a>Resolução
@@ -143,7 +145,7 @@ Para verificar se o ID de espaço de trabalho do agente ou a chave do espaço de
 
 Sua conta de espaço de trabalho e automação do Log Analytics deve estar em uma região vinculada. Para obter uma lista de regiões suportadas, consulte mapeamentos do [espaço de trabalho Azure Automation e Log Analytics](../how-to/region-mappings.md).
 
-Você também pode precisar atualizar a data e ou fuso horário do seu computador. Se você selecionar um intervalo de tempo personalizado, certifique-se de que o intervalo está em UTC, o que pode ser diferente do fuso horário local.
+Você também pode precisar atualizar a data e/ou fuso horário do seu computador. Se você selecionar um intervalo de tempo personalizado, certifique-se de que o intervalo está em UTC, o que pode ser diferente do fuso horário local.
 
 ## <a name="linux"></a>Linux
 
@@ -220,6 +222,35 @@ Esse problema poderá ocorrer se seu proxy ou firewall de rede estiver bloqueand
 Os logs são armazenados localmente em cada trabalhador híbrido em **C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes**. Você pode verificar se há algum aviso ou erro nos logs de **aplicativos e serviços\Microsoft-SMA\Operations** and **Application and Services Logs\Operations\Operations(Logs\Operations)\Operations** Esses registros indicam uma conectividade ou outro tipo de problema que afeta o onboarding da função para a Automação Azure, ou um problema encontrado em operações normais. Para obter ajuda adicional para solucionar problemas com o agente Log Analytics, consulte [Problemas de solução de problemas com o agente Log Analytics Windows](../../azure-monitor/platform/agent-windows-troubleshoot.md).
 
 Os trabalhadores híbridos enviam [saídas e mensagens](../automation-runbook-output-and-messages.md) do Runbook para o Azure Automation da mesma forma que os trabalhos de runbook em execução na nuvem enviam saídas e mensagens. Você pode habilitar os fluxos Verbose e Progress, assim como você faz para os runbooks.
+
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Cenário: Orchestrator.Sandbox.exe não pode se conectar ao Office 365 através de proxy
+
+#### <a name="issue"></a>Problema
+
+Um script em execução em um Trabalhador de Runbook Híbrido do Windows não pode se conectar como esperado ao Office 365 em uma caixa de areia do Orchestrator. O script está usando [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) para conexão. 
+
+Se você ajustar **Orchestrator.Sandbox.exe.config** para definir o proxy e a lista de desvio, a caixa de areia ainda não se conecta corretamente. Um arquivo **Powershell_ise.exe.config** com as mesmas configurações de proxy e lista de bypass parece funcionar como você espera. Os logs de Automação de Gerenciamento de Serviços (SMA) e os logs do PowerShell não fornecem nenhuma informação sobre proxy.
+
+#### <a name="cause"></a>Causa
+
+A conexão com o ADFS (Active Directory Federation Services, serviços de federação de diretórios ativos) no servidor não pode contornar o proxy. Lembre-se que uma caixa de areia PowerShell é executada como usuário conectado. No entanto, uma caixa de areia do Orchestrator é fortemente personalizada e pode ignorar as configurações do arquivo **Orchestrator.Sandbox.exe.config.** Ele tem código especial para manipulação de configurações de máquina ou proxy MMA, mas não para lidar com outras configurações de proxy personalizadas. 
+
+#### <a name="resolution"></a>Resolução
+
+Você pode resolver o problema para a caixa de areia do Orchestrator migrando seu script para usar os módulos Azure AD em vez do módulo MSOnline para cmdlets PowerShell. Consulte [Migração do Orquestrador para a Automação Azure (Beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+
+Se você quiser continuar a usar os cmdlets do módulo MSOnline, altere seu script para usar [O Comando Invocado](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Especifique `ComputerName` `Credential` os valores para os parâmetros. 
+
+```powershell
+$Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential
+Invoke-Command -ComputerName $env:COMPUTERNAME -Credential $Credential 
+{ Connect-MsolService … }
+```
+
+Essa alteração de código inicia uma sessão powershell totalmente nova sob o contexto das credenciais especificadas. Ele deve permitir que o tráfego flua através de um servidor proxy que está autenticando o usuário ativo.
+
+>[!NOTE]
+>Essa solução torna desnecessário manipular o arquivo de configuração da caixa de areia. Mesmo que você consiga fazer o arquivo de configuração funcionar com seu script, o arquivo é apagado cada vez que o agente Hybrid Runbook Worker é atualizado.
 
 ### <a name="scenario-hybrid-runbook-worker-not-reporting"></a><a name="corrupt-cache"></a>Cenário: Trabalhador híbrido do runbook não reportando
 

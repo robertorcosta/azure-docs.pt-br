@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 635b65d16ae9a59816506023d323243f043ce7da
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e1d0c5cd850fa0dbacf104d3fcd72d83007df878
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350384"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632246"
 ---
 # <a name="restore-an-existing-sql-pool"></a>Restaurar um pool SQL existente
 
@@ -51,7 +51,7 @@ Para restaurar um pool SQL existente a partir de um ponto de restauração, use 
 
 7. Verifique se o pool SQL restaurado está on-line.
 
-8. Depois que a restauração estiver concluída, você poderá configurar o pool SQL recuperado seguindo [a configuração do banco de dados após a recuperação](../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+8. Depois que a restauração estiver concluída, você poderá configurar o pool SQL recuperado seguindo [a configuração do banco de dados após a recuperação](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 
@@ -89,7 +89,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-an-existing-sql-pool-through-the-azure-portal"></a>Restaurar um pool SQL existente através do portal Azure
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Navegue até o pool SQL do que deseja restaurar.
 3. Na parte superior da folha Visão Geral, selecione **Restaurar**.
 
@@ -100,7 +100,6 @@ $RestoredDatabase.status
     ![Pontos de restauração automática](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - [Restaurar um pool SQL excluído](sql-data-warehouse-restore-deleted-dw.md)
 - [Restaurar a partir de um pool SQL de backup geográfico](sql-data-warehouse-restore-from-geo-backup.md)
-
- 

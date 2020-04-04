@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3c1f0bb715b3c3bf9b3a3350ab11e26834aa84c8
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 6aff60cbc4a4cab557e6e202ea1181d5b20bbd20
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80528651"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655878"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para continuidade dos negócios e recuperação de desastres no Serviço de Kubernetes do Azure (AKS)
 
-À medida que você vai gerenciando clusters no Serviço de Kubernetes do Azure (AKS), o tempo de atividade do aplicativo vai ficando mais importante. O AKS fornece alta disponibilidade usando vários nós em um conjunto de disponibilidade. Mas esses nós múltiplos não protegem seu sistema de uma falha na região. Para maximizar seu tempo de atividade, planeje com antecedência para manter a continuidade dos negócios e prepare-se para a recuperação de desastres.
+À medida que você vai gerenciando clusters no Serviço de Kubernetes do Azure (AKS), o tempo de atividade do aplicativo vai ficando mais importante. Por padrão, o AKS fornece alta disponibilidade usando vários nós em um [VMSS (Virtual Machine Scale Set, conjunto de escala de máquina virtual).](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) Mas esses nós múltiplos não protegem seu sistema de uma falha na região. Para maximizar seu tempo de atividade, planeje com antecedência para manter a continuidade dos negócios e prepare-se para a recuperação de desastres.
 
 Este artigo foca em como planejar a continuidade de negócios e a recuperação de desastres em AKS. Você aprenderá como:
 

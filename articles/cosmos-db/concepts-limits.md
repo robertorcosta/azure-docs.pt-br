@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2020
-ms.openlocfilehash: bd384f2b4dd879c30fafd2b765dd9ba0efb12447
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/03/2020
+ms.openlocfilehash: 343e94fe681d398b695e0e24c22544bca470d75a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348403"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652180"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviços do Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Este artigo oferece uma visão geral das cotas padrão oferecidas a diferentes r
 
 ## <a name="storage-and-throughput"></a>Armazenamento e throughput
 
-Depois de criar uma conta do Azure Cosmos sua assinatura, você pode gerenciar dados em sua conta [criando bancos de dados, contêineres e itens](databases-containers-items.md). Você pode provisionar throughput em um nível de contêiner ou em um nível de banco de dados em termos de unidades de [solicitação (RU/s ou RUs)](request-units.md). A tabela a seguir lista os limites para armazenamento e throughput por contêiner/banco de dados.
+Depois de criar uma conta do Azure Cosmos sob sua assinatura, você pode gerenciar dados em sua conta [criando bancos de dados, contêineres e itens](databases-containers-items.md). Você pode provisionar throughput em um nível de contêiner ou em um nível de banco de dados em termos de unidades de [solicitação (RU/s ou RUs)](request-units.md). A tabela a seguir lista os limites para armazenamento e throughput por contêiner/banco de dados.
 
 | Recurso | Limite padrão |
 | --- | --- |
@@ -70,7 +70,7 @@ Você pode [provisionar e gerenciar sua conta do Azure Cosmos](how-to-manage-dat
 > [!NOTE]
 > Os failovers regionais só se aplicam a contas de gravações de uma única região. As contas de gravação de várias regiões não exigem ou têm limites para alterar a região de gravação.
 
-O Cosmos DB faz backups de seus dados automaticamente em intervalos regulares. Para obter detalhes sobre intervalos de retenção de backup e janelas, consulte [Backup on-line e restauração de dados demanda no Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+O Cosmos DB faz backups de seus dados automaticamente em intervalos regulares. Para obter detalhes sobre intervalos de retenção de backup e janelas, consulte [Backup on-line e restauração de dados sob demanda no Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
 
 ## <a name="per-account-limits"></a>Limites por conta
 
@@ -152,6 +152,9 @@ Cosmos DB suporta itens de consulta usando [SQL](how-to-sql-query.md). A tabela 
 | Máximo de JOINs por consulta| 5<sup>*</sup>|
 | UDFs máximos por consulta| 10<sup>*</sup>|
 | Pontos máximos por polígono| 4096 |
+| Caminhos máximos incluídos por contêiner| 500 |
+| Caminhos excluídos máximos por contêiner| 500 |
+| Propriedades máximas em um índice composto| 8 |
 
 <sup>*</sup>Você pode aumentar esses limites de consulta SQL entrando em contato com o Suporte azure.
 
@@ -163,7 +166,7 @@ A tabela a seguir lista os limites específicos do suporte ao recurso MongoDB. O
 
 | Recurso | Limite padrão |
 | --- | --- |
-| Tamanho máximo da memória de consulta do MongoDB | 40 MB |
+| Tamanho máximo da memória de consulta mongoDB (essa limitação é apenas para a versão do servidor 3.2) | 40 MB |
 | Tempo máximo de execução para operações do MongoDB| 30 s |
 | Tempo de tempo de conexão ocioso para o encerramento da conexão lateral do servidor* | 30 minutos |
 

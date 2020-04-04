@@ -4,19 +4,19 @@ description: Implantação da Autenticação do RADIUS e Servidor de Autenticaç
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38341613c98bf85df8cb47ccafc3df5709a1fd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 552226c35d4d129f73b96b689871708950b7ffb1
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425210"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652959"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integrar a autenticação RADIUS com o Servidor de Autenticação Multifator do Azure
 
@@ -77,9 +77,9 @@ Você configurou o Servidor de Autenticação Multifator do Microsoft Azure. O s
 
 Para configurar o cliente RADIUS, use as diretrizes:
 
-* Configure o dispositivo/servidor para autenticar via RADIUS para o endereço IP do Servidor de Autenticação Multifator do Azure, que atua como o servidor RADIUS.
+* Configure seu aparelho/servidor para autenticar via RADIUS para o endereço IP do Servidor de Autenticação Multifatorial do Azure, que funciona como o servidor RADIUS.
 * Use o mesmo segredo compartilhado que foi configurado anteriormente.
-* Configure o tempo limite RADIUS para 30 a 60 segundos, de forma que haja tempo para validar as credenciais do usuário, executar a verificação em duas etapas, receber a resposta e responder à solicitação de acesso RADIUS.
+* Configure o intervalo do RADIUS para 30-60 segundos para que haja tempo para validar as credenciais do usuário, realizar a verificação em duas etapas, receber sua resposta e, em seguida, responder à solicitação de acesso RADIUS.
 
 ## <a name="next-steps"></a>Próximas etapas
 

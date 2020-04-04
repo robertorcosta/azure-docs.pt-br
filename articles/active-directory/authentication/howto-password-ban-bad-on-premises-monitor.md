@@ -4,19 +4,19 @@ description: Saiba como monitorar e revisar registros do Azure AD Password Prote
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb533d5565009fb22d686e4082c9b4bfaae6dc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d67d867249286ad1591b441bbe5ea2637971e104
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671650"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652604"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Monitore e revise registros para ambientes de proteção por senha ad no local
 
@@ -94,7 +94,7 @@ PasswordChangeErrors            : 0
 PasswordSetErrors               : 1
 ```
 
-O escopo da emissão de relatórios do cmdlet pode ser influenciado usando um dos parâmetros –Forest, -Domain ou – DomainController. Não especificar um parâmetro implica – Forest.
+O escopo do relatório do cmdlet pode ser influenciado usando um dos parâmetros -Forest, -Domain ou -DomainController. Não especificar um parâmetro implica – Forest.
 
 O cmdlet `Get-AzureADPasswordProtectionSummaryReport` funciona consultando o log de eventos do administrador do agente do DC e, em seguida, contando o número total de eventos que correspondem a cada categoria de resultado exibida. A tabela a seguir contém os mapeamentos entre cada resultado e seu ID de evento correspondente:
 
@@ -117,7 +117,7 @@ O cmdlet `Get-AzureADPasswordProtectionSummaryReport` é enviado em forma de scr
 > Esse cmdlet funciona abrindo uma sessão do PowerShell para cada controlador de domínio. Para ter êxito, o suporte de sessão remota do PowerShell deve estar habilitado em cada controlador de domínio e o cliente deve ter privilégios suficientes. Para obter mais informações sobre requisitos de sessão remota do PowerShell, execute "Get-Help about_Remote_Troubleshooting" em uma janela do PowerShell.
 
 > [!NOTE]
-> Esse cmdlet funciona consultando remotamente o log de eventos do administrador de cada serviço do agente DC. Se os logs de eventos contiverem um grande número de eventos, o cmdlet pode levar muito tempo para ser concluído. Além disso, consultas de rede em massa de grandes conjuntos de dados podem afetar o desempenho do controlador de domínio. Portanto, esse cmdlet deve ser usado com cuidado em ambientes de produção.
+> Este cmdlet funciona consultando remotamente o registro de eventos do Admin de cada agente DC. Se os logs de eventos contiverem um grande número de eventos, o cmdlet pode levar muito tempo para ser concluído. Além disso, consultas de rede em massa de grandes conjuntos de dados podem afetar o desempenho do controlador de domínio. Portanto, esse cmdlet deve ser usado com cuidado em ambientes de produção.
 
 ### <a name="sample-event-log-message-for-event-id-10014-successful-password-change"></a>Mensagem de registro de eventos de amostra para a ID de Evento 10014 (alteração de senha bem-sucedido)
 
@@ -265,7 +265,7 @@ HeartbeatUTC          : 2/16/2018 8:35:02 AM
 
 As várias propriedades são atualizadas por cada serviço do agente DC em uma base horária aproximada. Os dados ainda estão sujeitos à latência de replicação do Active Directory.
 
-O escopo da consulta do cmdlet pode ser influenciado usando os parâmetros –Forest ou –Domain.
+O escopo da consulta do cmdlet pode ser influenciado usando os parâmetros -Forest ou -Domain.
 
 Se o valor de HeartbeatUTC se torna obsoleto, isso pode ser um sintoma de que o Agente do DC de Proteção de Senha do Azure AD no controlador de domínio não está em execução ou foi desinstalado ou o computador foi rebaixado e não é mais um controlador de domínio.
 
@@ -357,7 +357,7 @@ HeartbeatUTC          : 12/25/2018 6:35:02 AM
 
 As várias propriedades são atualizadas por cada serviço de Proxy em uma base horária aproximada. Os dados ainda estão sujeitos à latência de replicação do Active Directory.
 
-O escopo da consulta do cmdlet pode ser influenciado usando os parâmetros –Forest ou –Domain.
+O escopo da consulta do cmdlet pode ser influenciado usando os parâmetros -Forest ou -Domain.
 
 Se o valor de HeartbeatUTC se torna obsoleto, isso pode ser um sintoma de que o Proxy de Proteção de Senha do Azure AD nesse computador não está em execução ou foi desinstalado.
 

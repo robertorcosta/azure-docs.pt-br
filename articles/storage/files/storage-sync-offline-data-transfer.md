@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9398aceeb7465392e82aeaa5760f6c0504f8e33d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d0331419de89775062f1309c5d854cd7325c68e4
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159516"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656761"
 ---
-# <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrar dados em massa para o Azure File Sync com o Azure DataBox
+# <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrar dados em massa para Sincronização de Arquivos do Azure com o Azure Data Box
 Você pode migrar dados em massa para o Azure File Sync de duas maneiras:
 
 * **Faça upload de seus arquivos usando o Azure File Sync.** Este é o método mais simples. Mova seus arquivos localmente para o Windows Server 2012 R2 ou posterior, e instale o agente Azure File Sync. Depois de configurar a sincronização, seus arquivos serão carregados do servidor. (Nossos clientes atualmente experimentam uma velocidade média de upload de 1 TiB a cada dois dias.) Para garantir que seu servidor não use muito da largura de banda para o seu data center, você pode querer configurar um [cronograma de estrangulamento da largura de banda](storage-sync-files-server-registration.md#ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter).
@@ -25,7 +25,7 @@ Este artigo explica como migrar arquivos offline de uma maneira compatível com 
 ## <a name="migration-tools"></a>Ferramentas de migração
 O processo que descrevemos neste artigo funciona não apenas para data box, mas também para outras ferramentas de migração offline. Também funciona para ferramentas como AzCopy, Robocopy ou ferramentas e serviços parceiros que funcionam diretamente pela internet. No entanto, para superar o desafio inicial de upload, siga os passos deste artigo para usar essas ferramentas de uma maneira compatível com o Azure File Sync.
 
-Em alguns casos, você precisa passar de um Servidor Windows para outro Servidor Windows antes de adotar o Azure File Sync. [O SMS (Storage Migration Service, serviço de migração](https://aka.ms/storagemigrationservice) de armazenamento) pode ajudar com isso. Se você precisa migrar para uma versão do Sistema Operacional do Servidor que é suportada pelo Azure File Sync (Windows Server 2012R2 ou você simplesmente precisa migrar porque você está comprando um novo sistema para o Azure File Sync, o SMS tem inúmeros recursos e vantagens que ajudarão a obter o seu migração feito sem problemas.
+Em alguns casos, você precisa passar de um Servidor Windows para outro Servidor Windows antes de adotar o Azure File Sync. [O SMS (Storage Migration Service, serviço de migração](https://aka.ms/storagemigrationservice) de armazenamento) pode ajudar com isso. Se você precisa migrar para uma versão do Sistema Operacional do Servidor que é suportada pelo Azure File Sync (Windows Server 2012R2 ou superior) ou simplesmente precisa migrar porque está comprando um novo sistema para o Azure File Sync, o SMS tem inúmeros recursos e vantagens que ajudarão a fazer sua migração sem problemas.
 
 ## <a name="benefits-of-using-a-tool-to-transfer-data-offline"></a>Benefícios de usar uma ferramenta para transferir dados offline
 Aqui estão os principais benefícios de usar uma ferramenta de transferência como data box para migração offline:
@@ -53,14 +53,17 @@ Veja como configurar o Azure File Sync de uma maneira compatível com ferramenta
 |---|---------------------------------------------------------------------------------------|
 | ![Etapa 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Solicite o Data Box](../../databox/data-box-deploy-ordered.md). A família Data Box oferece [vários produtos](https://azure.microsoft.com/services/storage/databox/data) para atender às suas necessidades. Ao receber sua Data Box, siga sua [documentação para copiar seus dados](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) para este caminho UNC na Caixa de Dados: * \\<DeviceIPAddres\>\<StorageAccountName_AzFile\>\<ShareName\>*. Aqui, *ShareName* é o nome da parte de encenação. Envie o Data Box para o Azure. |
 | ![Etapa 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Aguarde até que seus arquivos apareçam nos compartilhamentos de arquivos do Azure que você escolheu como ações temporárias de encenação. *Não habilite a sincronização com essas ações.* |
-| ![Etapa 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Crie um novo compartilhamento vazio para cada compartilhamento de arquivo que a Data Box criou para você. Essa nova ação deve estar na mesma conta de armazenamento que o compartilhamento data box. [Como criar um novo compartilhamento de arquivos do Azure](storage-how-to-create-file-share.md). |
-| ![Etapa 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Crie um grupo de sincronização](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) em um serviço de sincronização de armazenamento. Refira a parte vazia como um ponto final de nuvem. Repita essa etapa para cada compartilhamento de arquivos do Data Box. [Configure o Azure File Sync](storage-sync-files-deployment-guide.md). |
-| ![Etapa 5](media/storage-sync-files-offline-data-transfer/bullet_5.png) | [Adicione seu diretório do servidor ao vivo como um ponto de extremidade do servidor](storage-sync-files-deployment-guide.md#create-a-server-endpoint). No processo, especifique que você moveu os arquivos para o Azure e faça referência às partes de encenação. Você pode ativar ou desativar o hierárquico da nuvem conforme necessário. Ao criar um ponto final do servidor em seu servidor ao vivo, consulte o compartilhamento de encenação. Na **lâmina de ponto final adicionar servidor,** em **Transferência de dados offline,** selecione **Ativado**e selecione o compartilhamento de staging que deve estar na mesma conta de armazenamento que o ponto final da nuvem. Aqui, a lista de ações disponíveis é filtrada por conta de armazenamento e ações que ainda não estão sincronizadas. |
+| ![Etapa 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | <ul><li>Crie um novo compartilhamento vazio para cada compartilhamento de arquivo que a Data Box criou para você. Essa nova ação deve estar na mesma conta de armazenamento que o compartilhamento data box. [Como criar um novo compartilhamento de arquivos do Azure](storage-how-to-create-file-share.md).</li><li>[Crie um grupo de sincronização](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) em um serviço de sincronização de armazenamento. Refira a parte vazia como um ponto final de nuvem. Repita essa etapa para cada compartilhamento de arquivos do Data Box. [Configure o Azure File Sync](storage-sync-files-deployment-guide.md).</li></ul> |
+| ![Etapa 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Adicione seu diretório do servidor ao vivo como um ponto de extremidade do servidor](storage-sync-files-deployment-guide.md#create-a-server-endpoint). No processo, especifique que você moveu os arquivos para o Azure e faça referência às partes de encenação. Você pode ativar ou desativar o hierárquico da nuvem conforme necessário. Ao criar um ponto final do servidor em seu servidor ao vivo, consulte o compartilhamento de encenação. Na **lâmina de ponto final adicionar servidor,** em **Transferência de dados offline,** selecione **Ativado**e selecione o compartilhamento de staging que deve estar na mesma conta de armazenamento que o ponto final da nuvem. Aqui, a lista de ações disponíveis é filtrada por conta de armazenamento e ações que ainda não estão sincronizadas. A captura de tela a seguir desta tabela mostra como referenciar o compartilhamento do DataBox durante a criação do ponto final do servidor no portal Azure. |
+| ![Etapa 5](media/storage-sync-files-offline-data-transfer/bullet_5.png) | Depois de adicionar o ponto final do servidor na etapa anterior, os dados começam a fluir automaticamente da fonte certa. A [seção Sincronizar a divisão](#syncing-the-share) explica quando os dados fluem do compartilhamento databox ou do Windows Server |
+| |
 
 ![Captura de tela da interface de usuário do portal Azure, mostrando como ativar a transferência de dados offline ao criar um novo ponto final do servidor](media/storage-sync-files-offline-data-transfer/data-box-integration-2-600.png)
 
 ## <a name="syncing-the-share"></a>Sincronização do compartilhamento
 Depois de criar o ponto final do servidor, a sincronização será iniciada. O processo de sincronização determina se cada arquivo no servidor também existe no compartilhamento de estadiamento onde a Data Box depositou os arquivos. Se o arquivo existir lá, o processo de sincronização copia o arquivo do compartilhamento de encenação em vez de carregá-lo do servidor. Se o arquivo não existir no compartilhamento de encenação ou se uma versão mais recente estiver disponível no servidor local, o processo de sincronização faz upload do arquivo do servidor local.
+
+Ao sincronizar o compartilhamento, a sincronização irá mesclar quaisquer atributos de arquivo ausentes, permissões ou carimbos de tempo das variantes de arquivo no servidor local, combinando-os com seus contrapartes de arquivo do compartilhamento DataBox. Isso garante que cada arquivo e pasta chegue com toda a fidelidade possível de arquivos no compartilhamento de arquivos do Azure.
 
 > [!IMPORTANT]
 > Você pode habilitar o modo de migração em massa apenas enquanto estiver criando um ponto final do servidor. Depois de estabelecer um ponto final do servidor, você não pode integrar dados migrados em massa de um servidor já sincronizado no namespace.

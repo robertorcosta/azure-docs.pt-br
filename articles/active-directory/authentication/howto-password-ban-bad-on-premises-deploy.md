@@ -4,19 +4,19 @@ description: Saiba como planejar e implantar o Azure AD Password Protection em u
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/05/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a977eac19128886dd3c379e200f7cb78066a06af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ac9b76dd8d3c950b14f6d7b331f15647427ac89
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671705"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652730"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planeje e implante no local o Azure Active Directory Password Protection
 
@@ -229,7 +229,7 @@ Para instalar o serviço proxy de proteção por senha do Azure AD, complete as 
         > [!NOTE]
         > Este modo falha se a autenticação multifatorial do Azure for necessária para sua conta. Nesse caso, use um dos dois modos de autenticação anteriores ou, em vez disso, use uma conta diferente que não exija MFA.
         >
-        > Você também pode ver o MFA necessário se o Registro de Dispositivo Azure (que é usado as capas pelo Azure AD Password Protection) tiver sido configurado para exigir globalmente o MFA. Para contornar esse requisito, você pode usar uma conta diferente que suporta MFA com um dos dois modos de autenticação anteriores, ou você também pode relaxar temporariamente o requisito mfa de registro de dispositivo azure.
+        > Você também pode ver o MFA necessário se o Registro de Dispositivo Azure (que é usado sob as capas pelo Azure AD Password Protection) tiver sido configurado para exigir globalmente o MFA. Para contornar esse requisito, você pode usar uma conta diferente que suporta MFA com um dos dois modos de autenticação anteriores, ou você também pode relaxar temporariamente o requisito mfa de registro de dispositivo azure.
         >
         > Para fazer essa alteração, procure e selecione **o Diretório Ativo do Azure** no portal Azure e selecione Dispositivos > **Configurações do dispositivo**. Conjunto **Exigir Auth multi-fator para juntar dispositivos** a *No*. Certifique-se de reconfigurar essa configuração de volta para *Yes* uma vez que o registro esteja concluído.
         >
@@ -278,7 +278,7 @@ Para instalar o serviço proxy de proteção por senha do Azure AD, complete as 
         > [!NOTE]
         > Este modo falha se a autenticação multifatorial do Azure for necessária para sua conta. Nesse caso, use um dos dois modos de autenticação anteriores ou, em vez disso, use uma conta diferente que não exija MFA.
         >
-        > Você também pode ver o MFA necessário se o Registro de Dispositivo Azure (que é usado as capas pelo Azure AD Password Protection) tiver sido configurado para exigir globalmente o MFA. Para contornar esse requisito, você pode usar uma conta diferente que suporta MFA com um dos dois modos de autenticação anteriores, ou você também pode relaxar temporariamente o requisito mfa de registro de dispositivo azure.
+        > Você também pode ver o MFA necessário se o Registro de Dispositivo Azure (que é usado sob as capas pelo Azure AD Password Protection) tiver sido configurado para exigir globalmente o MFA. Para contornar esse requisito, você pode usar uma conta diferente que suporta MFA com um dos dois modos de autenticação anteriores, ou você também pode relaxar temporariamente o requisito mfa de registro de dispositivo azure.
         >
         > Para fazer essa alteração, procure e selecione **o Diretório Ativo do Azure** no portal Azure e selecione Dispositivos > **Configurações do dispositivo**. Conjunto **Exigir Auth multi-fator para juntar dispositivos** a *No*. Certifique-se de reconfigurar essa configuração de volta para *Yes* uma vez que o registro esteja concluído.
         >
@@ -332,7 +332,7 @@ O serviço proxy não suporta o uso de credenciais específicas para se conectar
 
 O software de agente DC de proteção por senha AD do Azure usa RPC sobre TCP para se comunicar com o serviço proxy. Por padrão, o serviço proxy Azure AD Password Protection ouve qualquer ponto final dinâmico do RPC disponível. Você pode configurar o serviço para ouvir em uma porta TCP específica, se necessário devido aos requisitos de topologia de rede ou firewall em seu ambiente.
 
-<a id="static" /></a>Para configurar o serviço para executar `Set-AzureADPasswordProtectionProxyConfiguration` uma porta estática, use o cmdlet da seguinte forma:
+<a id="static" /></a>Para configurar o serviço para executar sob `Set-AzureADPasswordProtectionProxyConfiguration` uma porta estática, use o cmdlet da seguinte forma:
 
 ```powershell
 Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>

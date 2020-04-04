@@ -4,19 +4,19 @@ description: Quais informações são usadas para ajudar a autenticar usuários 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bc0f0dbcd08df887b2484be6ca8c92a85962c1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f3b5af972ad6dd15b7c992d5e264ede97bd1dde
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848282"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653626"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Coleta de dados de usuário da Autenticação Multifator do Microsoft Azure
 
@@ -98,7 +98,7 @@ Blocos (usados para determinar o estado bloqueado e para relatório):
 - Bloqueio de conta
 - Alerta de fraude
 - Alerta de fraude não bloqueado
-- Idioma
+- Linguagem
 
 Bypass (usado para relatórios):
 
@@ -139,8 +139,8 @@ Para Servidor MFA versão 8.0 ou superior, o processo a seguir permite que os ad
 - Na linha de comando do Servidor MFA, execute o comando a seguir alterando o caminho de acordo com a instalação `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` para produzir um arquivo no formato JSON.
 - Os administradores também podem usar a operação GetUserGdpr do SDK de Serviço Web como uma opção para exportar todas as informações de serviço de nuvem do MFA coletadas para um determinado usuário ou incorporar em uma solução de relatório maior.
 - Pesquise `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` e quaisquer\<backups para " username>" (inclua as citações na pesquisa) para encontrar todas as instâncias do registro de usuário sendo adicionadas ou alteradas.
-   - Esses registros podem ser limitados (mas não eliminados), desmarcando **“Registrar alterações de usuário”** no UX do Servidor MFA, seção de Log, guia Arquivos de Log.
-   - Se o syslog estiver configurado e **“Registrar alterações de usuário”** estiver marcado no UX do Servidor MFA, seção de Log, guia Syslog, as entradas de log poderão ser obtidas do syslog.
+   - Esses registros podem ser limitados (mas não eliminados) desverificando **"Alterações** de usuário de registro" na guia MFA Server UX, Logging, Log Files.
+   - Se o syslog estiver configurado e **"Alterações de usuário de registro"** for verificado na seção UX do servidor MFA, registrando, guia Syslog, as entradas de log podem ser coletadas no syslog.
 - Outras ocorrências do nome de usuário no MultiFactorAuthSvc.log e outros arquivos de log do Servidor MFA referentes a tentativas de autenticação são consideradas operacionais e duplicadas para as informações fornecidas usando a exportação de MultiFactorAuthGdpr.exe ou GetUserGdpr do SDK de Serviço Web.
 
 ## <a name="delete-data-from-mfa-server"></a>Excluir dados do Servidor MFA

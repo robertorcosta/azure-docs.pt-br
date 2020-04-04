@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
-ms.openlocfilehash: 94ca609d9dc070e6e2b4dc878ecd8dfaf9331ede
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b61b51e79c71736e18aaa63ab032c05c512c8d7
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77648165"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656340"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorar e gerenciar arquivos FTP usando Aplicativos Lógicos do Azure
 
@@ -27,7 +27,7 @@ Você pode usar gatilhos que obtêm respostas de seu servidor FTP e disponibiliz
 
 ## <a name="limitations"></a>Limitações
 
-* O conector FTP suporta apenas FTP explícito sobre SSL (FTPS) e não é compatível com FTPS implícito.
+* O conector FTP suporta apenas FTP explícito sobre TLS/SSL (FTPS) e não é compatível com FTPS implícito.
 
 * Por padrão, as ações ftp podem ler ou gravar arquivos de *50 MB ou menores*. Para lidar com arquivos com mais de 50 MB, as ações FTP suportam [o reparcelamento de mensagens](../logic-apps/logic-apps-handle-large-messages.md). A ação **Obter conteúdo de arquivo** usa implicitamente o chunking.
 
@@ -73,7 +73,7 @@ Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está conc
 
    -ou-
 
-   Para aplicativos lógicos existentes, a última etapa em que você deseja adicionar uma ação, selecione **Nova etapa**e selecione Adicionar **uma ação**. Na caixa de pesquisa, insira `ftp` como o filtro. Na lista **Ações,** selecione a ação desejada.
+   Para aplicativos lógicos existentes, sob a última etapa em que você deseja adicionar uma ação, selecione **Nova etapa**e selecione Adicionar **uma ação**. Na caixa de pesquisa, insira `ftp` como o filtro. Na lista **Ações,** selecione a ação desejada.
 
    Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o**+** sinal de adição () que aparece e **selecione Adicionar uma ação**.
 
@@ -123,7 +123,7 @@ Agora que seu aplicativo lógico tem um gatilho, adicione as ações que você d
 
 A ação **Get file metadata** obtém as propriedades de um arquivo que está no seu servidor FTP e a ação **de conteúdo do arquivo Get** obtém o conteúdo do arquivo com base nas informações sobre esse arquivo no servidor FTP. Por exemplo, você pode adicionar o gatilho do exemplo anterior e essas ações para obter o conteúdo do arquivo depois que esse arquivo for adicionado ou editado.
 
-1. o gatilho ou quaisquer outras ações, selecione **Novo passo**.
+1. Sob o gatilho ou quaisquer outras ações, selecione **Novo passo**.
 
 1. Na caixa de pesquisa, insira `ftp` como o filtro. Na lista de ações, selecione esta ação: **Obtenha metadados de arquivo**
 

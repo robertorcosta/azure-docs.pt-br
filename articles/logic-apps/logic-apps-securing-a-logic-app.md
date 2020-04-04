@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: cc349e5851627ee830196982509f91a83198dfe0
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4fc4960eb3af8a3d3c9902c9b24505bb5610b709
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349587"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657170"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Acesso seguro e dados em Aplicativos lógicos do Azure
 
@@ -27,7 +27,7 @@ Para controlar o acesso e proteger dados no Azure Logic Apps, você pode configu
 
 ## <a name="access-to-request-based-triggers"></a>Acesso a gatilhos baseados em solicitação
 
-Se o seu aplicativo lógico usar um gatilho baseado em solicitação, que recebe chamadas ou solicitações recebidas, como o gatilho [Solicitação](../connectors/connectors-native-reqres.md) ou [Webhook,](../connectors/connectors-native-webhook.md) você pode limitar o acesso para que apenas clientes autorizados possam ligar para o seu aplicativo lógico. Todas as solicitações recebidas por um aplicativo lógico são criptografadas e protegidas com o protocolo SSL (Secure Sockets Layer).
+Se o seu aplicativo lógico usar um gatilho baseado em solicitação, que recebe chamadas ou solicitações recebidas, como o gatilho [Solicitação](../connectors/connectors-native-reqres.md) ou [Webhook,](../connectors/connectors-native-webhook.md) você pode limitar o acesso para que apenas clientes autorizados possam ligar para o seu aplicativo lógico. Todas as solicitações recebidas por um aplicativo lógico são criptografadas e protegidas com o TLS (Transport Layer Security, segurança de camada de transporte), anteriormente conhecido como Secure Sockets Layer (SSL), protocolo.
 
 Aqui estão opções que podem ajudá-lo a garantir o acesso a este tipo de gatilho:
 
@@ -625,7 +625,7 @@ Se a opção [Básico](../active-directory-b2c/secure-rest-api.md) estiver dispo
 | Propriedade (designer) | Property (JSON) | Obrigatório | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | Basic | O tipo de autenticação a ser usado |
-| **Username** | `username` | Sim | <*nome de usuário*>| O nome de usuário para autenticar o acesso ao ponto de extremidade de serviço de destino |
+| **Nome de Usuário** | `username` | Sim | <*nome de usuário*>| O nome de usuário para autenticar o acesso ao ponto de extremidade de serviço de destino |
 | **Senha** | `password` | Sim | <*Senha*> | A senha para autenticar o acesso ao ponto de extremidade de serviço de destino |
 ||||||
 
@@ -655,7 +655,7 @@ Se a opção [Certificado do Cliente](../active-directory/authentication/active-
 
 | Propriedade (designer) | Property (JSON) | Obrigatório | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticação** | `type` | Sim | **Certificado do Cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a ser usado para certificados do cliente do protocolo SSL. Embora haja suporte para certificados autoassinados, não há suporte para certificados autoassinados para SSL. |
+| **Autenticação** | `type` | Sim | **Certificado do Cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a ser usado para certificados clientes TLS/SSL. Embora os certificados auto-assinados sejam suportados, os certificados auto-assinados para TLS/SSL não são suportados. |
 | **Pfx** | `pfx` | Sim | <*codificado-pfx-conteúdo de arquivo*> | O conteúdo codificado na base64 do arquivo PFX (Troca de Informações Pessoais) <p><p>Para converter o arquivo PFX em formato codificado pelo base64, você pode usar o PowerShell seguindo estas etapas: <p>1. Salve o conteúdo do certificado em uma variável: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Converta o conteúdo `ToBase64String()` do certificado usando a função e salve esse conteúdo em um arquivo de texto: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Senha** | `password`| Não | <*senha-para-pfx-arquivo*> | A senha para acessar o arquivo PFX |
 |||||
@@ -684,7 +684,7 @@ Para obter mais informações sobre como proteger serviços usando a autenticaç
 * [Melhore a segurança para serviços back-end usando a autenticação de certificado sustal no Gerenciamento de API do Azure](../api-management/api-management-howto-mutual-certificates.md)
 * [Melhore a segurança do seu serviço RESTfuL usando certificados de cliente](../active-directory-b2c/secure-rest-api.md)
 * [Credenciais de certificado para autenticação do aplicativo](../active-directory/develop/active-directory-certificate-credentials.md)
-* [Usar um certificado SSL no código do aplicativo no Serviço de Aplicativo do Azure](../app-service/configure-ssl-certificate-in-code.md)
+* [Use um certificado TLS/SSL em seu código no Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
@@ -696,7 +696,7 @@ Se a opção [Active Directory OAuth](../active-directory/develop/about-microsof
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | **Active Directory OAuth** <br>ou <br>`ActiveDirectoryOAuth` | O tipo de autenticação a ser usado. Logic Apps atualmente segue o [protocolo OAuth 2.0](../active-directory/develop/v2-overview.md). |
 | **Autoridade** | `authority` | Não | <*Emissor de url-for-authority-token*> | A URL da autoridade que fornece o token de autenticação. Por padrão, esse valor é `https://login.windows.net`. |
-| **Inquilino** | `tenant` | Sim | <*inquilino-ID*> | A ID do locatário para o locatário do Azure AD |
+| **Locatário** | `tenant` | Sim | <*inquilino-ID*> | A ID do locatário para o locatário do Azure AD |
 | **Público** | `audience` | Sim | <*recurso para autorizar*> | O recurso que você deseja usar para autorização, por exemplo, `https://management.core.windows.net/` |
 | **ID do cliente** | `clientId` | Sim | <*iD cliente-iD*> | A ID do cliente para o aplicativo solicitando a autorização |
 | **Tipo de credencial** | `credentialType` | Sim | Certificado <br>ou <br>Segredo | O tipo de credencial que o cliente usa para solicitar autorização. Essa propriedade e valor não aparecem na definição subjacente do seu aplicativo lógico, mas determina as propriedades que aparecem para o tipo de credencial selecionada. |
@@ -783,8 +783,8 @@ Se a opção [Identidade Gerenciada](../active-directory/managed-identities-azur
 
    | Propriedade (designer) | Property (JSON) | Obrigatório | Valor | Descrição |
    |---------------------|-----------------|----------|-------|-------------|
-   | **Autenticação** | `type` | Sim | **Identidade gerenciada** <br>ou <br>`ManagedServiceIdentity` | O tipo de autenticação a ser usado |
-   | **Identidade gerenciada** | `identity` | Sim | * **Identidade gerenciada atribuída ao sistema** <br>ou <br>`SystemAssigned` <p><p>* <*nome de identidade atribuído pelo usuário*> | A identidade gerenciada para usar |
+   | **Autenticação** | `type` | Sim | **Identidade Gerenciada** <br>ou <br>`ManagedServiceIdentity` | O tipo de autenticação a ser usado |
+   | **Identidade Gerenciada** | `identity` | Sim | * **Identidade gerenciada atribuída ao sistema** <br>ou <br>`SystemAssigned` <p><p>* <*nome de identidade atribuído pelo usuário*> | A identidade gerenciada para usar |
    | **Público** | `audience` | Sim | <*ID de recursos de destino*> | O ID de recurso para o recurso de destino que você deseja acessar. <p>Por exemplo, `https://storage.azure.com/` torna válido os tokens de acesso para autenticação para todas as contas de armazenamento. No entanto, você também pode especificar uma URL de serviço raiz, como `https://fabrikamstorageaccount.blob.core.windows.net` para uma conta de armazenamento específica. <p>**Nota**: A propriedade **Audience** pode estar escondida em alguns gatilhos ou ações. Para tornar essa propriedade visível, no gatilho ou ação, abra a lista **Adicionar novo parâmetro** e selecione **Audiência**. <p><p>**Importante**: Certifique-se de que esse ID de recurso de destino *corresponda exatamente* ao valor que o Azure AD espera, incluindo quaisquer barras de arrasto necessárias. Assim, o `https://storage.azure.com/` ID de recurso para todas as contas do Azure Blob Storage requer uma barra de saque. No entanto, o ID de recurso para uma conta de armazenamento específica não requer uma barra de arrasto. Para encontrar esses IDs de recursos, consulte [os serviços do Azure que suportam o Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 

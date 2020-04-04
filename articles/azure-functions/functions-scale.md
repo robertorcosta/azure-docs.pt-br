@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0a54d7490fb306bfbc8e1b111e7b7d64c09d2292
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92ac0417e9d8adca168dd68e1721a1c9c890de1c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276602"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656950"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem no Azure Functions
 
@@ -109,7 +109,7 @@ Mesmo com Always On habilitado, o tempo limite de execução para funções indi
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Determine o plano de hospedagem de um aplicativo existente
 
-Para determinar o plano de hospedagem usado pelo aplicativo de funções, consulte **plano do Serviço de Aplicativo/tipo de preço** na guia **Visão geral** do aplicativo de funções no [portal do Azure](https://portal.azure.com). Para planos do Serviço de Aplicativo, o tipo de preço também é indicado.
+Para determinar o plano de hospedagem usado pelo aplicativo de função, consulte o **plano App Service** na guia Visão **geral** para o aplicativo de função no [portal Azure](https://portal.azure.com). Para ver a camada de preços, selecione o nome do Plano de Serviço do **Aplicativo**e selecione **Propriedades** no painel esquerdo.
 
 ![Exibir o plano de dimensionamento no portal](./media/functions-scale/function-app-overview-portal.png)
 
@@ -124,7 +124,7 @@ Quando a saída desse comando for `dynamic`, o aplicativo de funções estará n
 
 ## <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
 
-Em qualquer plano, um aplicativo de função requer uma conta geral do Azure Storage, que suporta o armazenamento Azure Blob, Fila, Arquivos e Tabela. Isso ocorre porque o Functions depende do Armazenamento do Microsoft Azure para operações como o gerenciamento de gatilhos e execuções de funções de registro em log, mas algumas contas de armazenamento não dão suporte a filas e tabelas. Essas contas, que incluem contas de armazenamento somente blob (incluindo armazenamento Premium) e contas de armazenamento para uso geral com replicação de armazenamento com redundância de zona, são filtradas das seleções da **Conta de Armazenamento** existente quando você cria um aplicativo de funções.
+Em qualquer plano, um aplicativo de função requer uma conta geral do Azure Storage, que suporta o armazenamento Azure Blob, Fila, Arquivos e Tabela. Isso ocorre porque as funções do Azure dependem do Armazenamento Azure para operações como gerenciamento de gatilhos e execuções de funções de registro, mas algumas contas de armazenamento não suportam filas e tabelas. Essas contas, que incluem contas de armazenamento somente blob (incluindo armazenamento Premium) e contas de armazenamento para uso geral com replicação de armazenamento com redundância de zona, são filtradas das seleções da **Conta de Armazenamento** existente quando você cria um aplicativo de funções.
 
 A mesma conta de armazenamento usada pelo seu aplicativo de função também pode ser usada por seus gatilhos e vinculações para armazenar os dados do aplicativo. No entanto, para operações de uso intensivo de armazenamento, você deve usar uma conta de armazenamento separada.  
 
@@ -134,7 +134,7 @@ A mesma conta de armazenamento usada pelo seu aplicativo de função também pod
 
 Para saber mais sobre os tipos de conta de armazenamento, consulte [Apresentando os serviços de armazenamento do Azure](../storage/common/storage-introduction.md#azure-storage-services).
 
-## <a name="how-the-consumption-and-premium-plans-work"></a>Como funcionam o consumo e os planos premium
+## <a name="how-the-consumption-and-premium-plans-work"></a>Como funcionam os planos de Consumo e Premium
 
 Nos planos Consumo e Premium, a infra-estrutura Funções do Azure dimensiona os recursos de CPU e memória adicionando instâncias adicionais do host Functions, com base no número de eventos em que suas funções são acionadas. Cada instância do host Functions no plano Consumo é limitada a 1,5 GB de memória e uma CPU.  Uma instância do host é todo o aplicativo de função, o que significa que todas as funções dentro de um recurso de compartilhamento de aplicativo de função dentro de uma instância e escala ao mesmo tempo. Aplicativos de função que compartilham o mesmo plano de consumo são dimensionados de forma independente.  No plano Premium, o tamanho do seu plano determinará a memória e a CPU disponíveis para todos os aplicativos nesse plano nessa instância.  
 
@@ -162,7 +162,7 @@ O dimensionamento pode variar em uma série de fatores e ser diferente com base 
 
 Há muitos aspectos de um aplicativo de funções que afetarão a qualidade da escala, incluindo a configuração do host, o espaço de runtime e a eficiência dos recursos.  Para obter mais informações, consulte a [seção de escalabilidade do artigo sobre considerações de desempenho](functions-best-practices.md#scalability-best-practices). Adicionalmente, é necessário que você saiba como as conexões se comportam na medida em que o aplicativo de funções é dimensionado. Para saber mais, confira [Como gerenciar conexões no Azure Functions](manage-connections.md).
 
-Para obter informações adicionais sobre o dimensionamento em Python e Node.js, consulte [o guia de desenvolvedores Python de funções do Azure - Escalae e conmoeda](functions-reference-python.md#scaling-and-concurrency) e [guia de desenvolvedor do Azure Functions Node.js - Dimensionamento e concorrência](functions-reference-node.md#scaling-and-concurrency).
+Para obter mais informações sobre o dimensionamento em Python e Node.js, consulte [o guia de desenvolvedores Python de funções do Azure - Escalae e conmoeda](functions-reference-python.md#scaling-and-concurrency) e [guia de desenvolvedor do Azure Functions Node.js - Dimensionamento e concorrência](functions-reference-node.md#scaling-and-concurrency).
 
 ### <a name="billing-model"></a>Modelo de cobrança
 

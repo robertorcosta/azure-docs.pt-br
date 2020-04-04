@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64e61b00ecebec82b465cb13c6df0e323f6c7777
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 9eacb813c3ddce028fcd9b24c86c6d32ed7a7584
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586546"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633220"
 ---
 # <a name="monitor-workload---azure-portal"></a>Monitore a carga de trabalho - Portal Azure
 
@@ -24,11 +24,11 @@ Este artigo descreve como usar o portal Azure para monitorar sua carga de trabal
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure: Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- Pool SQL: Estaremos coletando logs para um pool SQL. Se você não tiver um pool SQL provisionado, consulte as instruções em [Criar um pool SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
+- Pool SQL: Estaremos coletando logs para um pool SQL. Se você não tiver um pool SQL provisionado, consulte as instruções em [Criar um pool SQL](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar um espaço de trabalho do Log Analytics
 
-Navegue até a lâmina de navegação para espaços de trabalho do Log Analytics e crie um espaço de trabalho 
+Navegue até a lâmina de navegação para espaços de trabalho do Log Analytics e crie um espaço de trabalho
 
 ![Workspaces do Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspaces.png)
 
@@ -36,7 +36,7 @@ Navegue até a lâmina de navegação para espaços de trabalho do Log Analytics
 
 ![Adicionar espaço de trabalho do Analytics](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
-Para obter mais detalhes sobre os espaços de trabalho, visite a [seguinte documentação](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace#create-a-workspace).
+Para obter mais detalhes sobre os espaços de trabalho, visite a [seguinte documentação](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
 
 ## <a name="turn-on-diagnostic-logs"></a>Ativar registros de diagnóstico
 
@@ -47,7 +47,6 @@ Configure as configurações de diagnóstico para emitir logs do pool SQL. Os lo
 - [sys.dm_pdw_dms_workers](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=aps-pdw-2016-au7)
-
 
 ![Habilitar logs de diagnóstico](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
 
@@ -64,39 +63,38 @@ Navegue até o seu espaço de trabalho do Log Analytics, onde você pode fazer o
 - Criar alertas de log
 - Resultados da consulta de pinos para um painel
 
-Para obter detalhes sobre os recursos das consultas de log, visite a [seguinte documentação](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+Para obter detalhes sobre os recursos das consultas de log, visite a [seguinte documentação](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ![Editor de espaço de trabalho do Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
-
-
 
 ![Consultas de espaço de trabalho do Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_queries.png)
 
 ## <a name="sample-log-queries"></a>Consultas de registro de amostra
 
-
-
 ```Kusto
-//List all queries 
+//List all queries
 AzureDiagnostics
 | where Category contains "ExecRequests"
 | project TimeGenerated, StartTime_t, EndTime_t, Status_s, Command_s, ResourceClass_s, duration=datetime_diff('millisecond',EndTime_t, StartTime_t)
 ```
+
 ```Kusto
 //Chart the most active resource classes
 AzureDiagnostics
 | where Category contains "ExecRequests"
 | where Status_s == "Completed"
 | summarize totalQueries = dcount(RequestId_s) by ResourceClass_s
-| render barchart 
+| render barchart
 ```
+
 ```Kusto
 //Count of all queued queries
 AzureDiagnostics
-| where Category contains "waits" 
+| where Category contains "waits"
 | where Type_s == "UserConcurrencyResourceType"
 | summarize totalQueuedQueries = dcount(RequestId_s)
 ```
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você configurou e configurou os registros do monitor do Azure, [personalize os dashboards do Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) para compartilhar em sua equipe.

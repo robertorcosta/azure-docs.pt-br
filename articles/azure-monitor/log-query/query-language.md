@@ -6,14 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: fc943ac3cf82d22a58d0ba3390ad8d9bbee6a4c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b81aba553fc775821c80631aa83bbb3e8ac63b5
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669379"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631790"
 ---
 # <a name="azure-monitor-log-queries"></a>Consultas de log do Azure Monitor
+
 Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log do Azure Monitor usam uma versão da mesma linguagem de consulta do Kusto. A [Documentação da linguagem de consulta do Kusto](/azure/kusto/query) tem todos os detalhes da linguagem e deve ser seu principal recurso para escrever consultas de log do Azure Monitor. Esta página fornece links para outros recursos para saber mais sobre como escrever consultas e sobre diferenças na implementação da linguagem no Azure Monitor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -24,6 +25,7 @@ Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log
 - [Introdução às consultas de log do Azure Monitor](get-started-queries.md) é uma lição sobre como escrever consultas usando dados de log do Azure Monitor.
 
 ## <a name="concepts"></a>Conceitos
+
 - [Analisar dados de log no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) fornece uma breve visão geral das consultas de log e descreve como os dados de log do Azure Monitor são estruturados.
 - [Exibir e analisar dados de log no Azure Monitor](../../azure-monitor/log-query/portals.md) explica os portais nos quais você pode criar e executar consultas de log.
 
@@ -34,17 +36,14 @@ Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log
 - [Propriedades padrão nos registros de log do Azure Monitor](../../azure-monitor/platform/log-standard-properties.md) descreve as propriedades que são padrão para todos os dados de log do Azure Monitor.
 - [Executar consultas entre logs de recursos no Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) descreve como escrever consultas de log que usam dados de vários workspaces do Log Analytics e aplicativos do Application Insights.
 
-
 ## <a name="examples"></a>Exemplos
 
 - [Exemplos de consulta de log do Azure Monitor](examples.md) fornece exemplos de consultas usando dados de log do Azure Monitor.
 
-
-
 ## <a name="lessons"></a>Lições
 
 - [Trabalhar com cadeias de caracteres em consultas de log do Azure Monitor](string-operations.md) descreve como trabalhar com os dados de cadeia de caracteres.
-- [Trabalhar com valores de data/hora em consultas de log do Azure Monitor](datetime-operations.md) descreve como trabalhar com os dados de data e hora. 
+- [Trabalhar com valores de data/hora em consultas de log do Azure Monitor](datetime-operations.md) descreve como trabalhar com os dados de data e hora.
 - [Agregações em consultas de log do Azure Monitor](aggregations.md) e [Agregações avançadas em consultas de log do Azure Monitor](advanced-aggregations.md) descrevem como agregar e resumir dados.
 - [Junções em consultas de log do Azure Monitor](joins.md) descreve como unir dados de várias tabelas.
 - [Trabalhar com JSON e estruturas de dados em consultas de log do Azure Monitor](json-data-structures.md) descreve como analisar dados JSON.
@@ -53,9 +52,9 @@ Os logs do Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log
 
 ## <a name="cheatsheets"></a>Folhas de cola
 
--  [SQL para consultas de log do Azure Monitor](sql-cheatsheet.md) auxilia usuários que já estão familiarizados com o SQL.
--  [Splunk para consultas de log do Azure Monitor](splunk-cheatsheet.md) auxilia usuários que já estão familiarizados com o Splunk.
- 
+- [SQL para consultas de log do Azure Monitor](sql-cheatsheet.md) auxilia usuários que já estão familiarizados com o SQL.
+- [Splunk para consultas de log do Azure Monitor](splunk-cheatsheet.md) auxilia usuários que já estão familiarizados com o Splunk.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - Acesse a [documentação de referência completa da linguagem de consulta do Kusto](/azure/kusto/query/).

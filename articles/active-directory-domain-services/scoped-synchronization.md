@@ -8,15 +8,15 @@ ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 160873fe889d7eccc7efd08b4767854a5b24c484
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 9ef7e14cc2a290cc5583e3e599e278f98882152c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80518965"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654734"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Configure a sincronização escopo do Azure AD para o Azure Active Directory Domain Services
 
@@ -42,9 +42,9 @@ Você usa o portal Azure ou powerShell para configurar as configurações de sin
 
 | Ação | | |
 |--|--|--|
-| Crie um domínio gerenciado pelo Azure AD DS e configure a sincronização com escopo | [Portal do Azure](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
-| Modificar sincronização escopo | [Portal do Azure](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
-| Desativar a sincronização com escopo | [Portal do Azure](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
+| Crie um domínio gerenciado pelo Azure AD DS e configure a sincronização com escopo | [Azure portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Modificar sincronização escopo | [Azure portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Desativar a sincronização com escopo | [Azure portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
 > Alterar o escopo da sincronização faz com que o domínio Gerenciado pelo Azure AD DS ressincronizar todos os dados. As seguintes considerações se aplicam:

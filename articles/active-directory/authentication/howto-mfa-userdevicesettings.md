@@ -4,19 +4,19 @@ description: Como os administradores podem alterar as configurações do usuári
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07845bb5b742b1bcfbb22d260457e9a8e16edab6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25d94fa761980151c420984eb7e8c3254a3509ef
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263706"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653489"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerenciar configurações de usuário com a Autenticação Multifator do Azure na nuvem
 
@@ -32,7 +32,7 @@ Como administrador atribuído à função Administrador de Autenticação, você
 
 ![Gerenciar métodos de autenticação a partir do portal Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. À esquerda, selecione **Usuários ativos do Azure** > **Users** > **Todos os usuários**.
 1. Escolha o usuário que deseja executar uma ação e selecione **métodos de autenticação**.
    - **Redefinir senha** redefinirá a senha do usuário e atribuirá uma senha temporária que deve ser alterada no próximo login.
@@ -45,7 +45,7 @@ Essa configuração exclui todas as senhas de aplicativo que um usuário criou. 
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Como excluir senhas de aplicativo de usuários existentes
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Usuários ativos do Azure** > **Users** > **Todos os usuários**.
 3. À direita, selecione **Autenticação Multifator** na barra de ferramentas. Abre a página de autenticação multifator.
 4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de passos rápidos aparece à direita.

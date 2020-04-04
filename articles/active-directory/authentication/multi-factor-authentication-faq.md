@@ -4,19 +4,19 @@ description: Perguntas frequentes e respostas relacionadas à Autenticação Mul
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a622245a7431058582131d9ba224ddfb676d8aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 186e5a533bac5d7adac8b0423eff6c05f797c56f
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425147"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652142"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas frequentes sobre a Autenticação Multifator do Azure
 
@@ -199,15 +199,15 @@ Há vários motivos que os usuários podem ser solicitados para registrar as inf
 
 - O usuário foi habilitado para MFA pelo administrador no Azure AD, mas não tem informações de segurança ainda registradas para sua conta.
 - O usuário ativou autoatendimento para redefinição de senha no Azure AD. As informações de segurança ajudará a redefinir sua senha no futuro, se ele esquecerem.
-- O usuário acessou um aplicativo que tem uma política de acesso condicional para exigir a MFA e não foi registrado anteriormente para MFA.
+- O usuário acessou um aplicativo que tem uma política de Acesso Condicional para exigir MFA e não se registrou anteriormente no MFA.
 - O usuário está registrando um dispositivo com o Azure AD (incluindo a junção do Azure AD) e sua organização exigir MFA para registro de dispositivo, mas o usuário não foi registrado anteriormente para MFA.
-- O usuário está gerando Windows Hello para a empresa no Windows 10 (que exige MFA) e não foi registrado anteriormente para MFA.
+- O usuário está gerando o Windows Hello for Business no Windows 10 (que requer MFA) e ainda não se registrou no MFA.
 - A organização criou e ativado uma diretiva de registro de MFA que foi aplicada ao usuário.
 - O usuário registrado para MFA anteriormente, mas escolher um método de verificação que um administrador como desabilitado. O usuário, portanto, deve passar pelo registro MFA novamente para selecionar um novo método de verificação padrão.
 
 ## <a name="errors"></a>Errors
 
-**P: o que os usuários deverão fazer se receberem uma mensagem de erro "A solicitação de autenticação não é para uma conta ativada" ao usar notificações de aplicativo móvel?**
+**P: O que os usuários devem fazer se virem uma mensagem de erro "Autenticação não é para uma conta ativada" ao usar notificações de aplicativos móveis?**
 
 Diga siga este procedimento para remover a conta do aplicativo móvel e adicione-a novamente:
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 110a684cf6ad21c13411d3bc2ada84750744f00e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77191400"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656231"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentar a segurança para chamadas para APIs personalizadas de aplicativos lógicos do Azure
 
@@ -206,7 +206,7 @@ Abra a definição do aplicativo lógico na exibição de código, vá para a de
 | type | Sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
 |||| 
 
-Por exemplo: 
+Por exemplo:
 
 ``` json
 {
@@ -250,7 +250,7 @@ Na seção **Autorização,** inclua estas propriedades:
 
 | Propriedade | Obrigatório | Descrição |
 | -------- | -------- | ----------- |
-| `type` | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. |
+| `type` | Sim | O tipo de autenticação. Para certificados de cliente TLS/SSL, o valor deve ser `ClientCertificate`. |
 | `password` | Não | A senha para acessar o certificado do cliente (arquivo PFX) |
 | `pfx` | Sim | O conteúdo codificado por base64 do certificado do cliente (arquivo PFX) |
 ||||

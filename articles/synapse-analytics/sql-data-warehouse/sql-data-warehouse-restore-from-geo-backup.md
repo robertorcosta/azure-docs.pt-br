@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4390ed39c86e041d3fbd776415f0ffbe71f605bd
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 68d53d2a33b7ab705dfa88f03618a5d5a3d1bced
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350158"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633037"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Geo-restauração para pool SQL
 
@@ -38,12 +38,12 @@ Para restaurar a partir de um geo-backup, use o [cmdlet Get-AzSqlDatabaseGeoBack
 
 1. Antes de começar, certifique-se [de instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Abra o PowerShell.
-2. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
-3. Selecione a assinatura que contém o data warehouse a ser restaurado.
-4. Pegue o data warehouse que deseja recuperar.
-5. Crie a solicitação de recuperação para o data warehouse.
-6. Verifique o status do data warehouse geo-restaurado.
-7. Para configurar o data warehouse após a conclusão da restauração, veja [Configurar o banco de dados após a recuperação]( ../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+3. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
+4. Selecione a assinatura que contém o data warehouse a ser restaurado.
+5. Pegue o data warehouse que deseja recuperar.
+6. Crie a solicitação de recuperação para o data warehouse.
+7. Verifique o status do data warehouse geo-restaurado.
+8. Para configurar o data warehouse após a conclusão da restauração, veja [Configurar o banco de dados após a recuperação]( ../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -77,24 +77,25 @@ O banco de dados recuperado será habilitado para TDE se o banco de dados de ori
 Siga as etapas descritas abaixo para restaurar um pool SQL a partir de um geo-backup:
 
 1. Faça login na sua conta [do portal Azure.](https://portal.azure.com/)
-1. Clique em **+ Criar um recurso**. 
+2. Clique em **+ Criar um recurso**.
 
-![Novo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+   ![Novo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
 3. Clique **em Bancos de Dados** e, em seguida, **Azure Synapse Analytics (anteriormente SQL DW) **.
 
-![Novo DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
+   ![Novo DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 
 4. Preencha as informações solicitadas na guia **Noções básicas** e clique em **Seguir: Configurações adicionais**.
 
-![Noções básicas](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+   ![Noções básicas](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
 5. Para **Usar parâmetro de dados existente,** selecione **Backup** e selecione o backup apropriado nas opções de rolagem para baixo. Clique **em Revisar + Criar**.
- 
-![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
+
+   ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
 6. Uma vez restaurado o data warehouse, verifique se o **Status** está on-line.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - [Restaurar um pool SQL existente](sql-data-warehouse-restore-active-paused-dw.md)
 - [Restaurar um pool SQL excluído](sql-data-warehouse-restore-deleted-dw.md)

@@ -4,19 +4,19 @@ description: Esta é a página do Azure Multi-Factor Authentication que descreve
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00200436784eca970f736c4a7f2afebd652c9577
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e5949fdce9d591a9c02c5c6c4fb2f1dde94c45d2
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76155206"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654029"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protegendo os recursos de nuvem usando a Autenticação Multifator do Azure e o AD FS
 
@@ -44,7 +44,7 @@ Para proteger seus recursos de nuvem, configure uma regra de declaração para q
 7. Selecione **Referências de Métodos de Autenticação** como o tipo de declaração Entrada.
 8. Selecione **Passar por todos os valores de sinistro**.
     ![Assistente para Adicionar Regra de Declaração de Transformação](./media/howto-mfa-adfs/configurewizard.png)
-9. Clique em **concluir**. Feche o Console de gerenciamento do AD FS.
+9. Clique em **Concluir**. Feche o Console de gerenciamento do AD FS.
 
 ## <a name="trusted-ips-for-federated-users"></a>IPs confiáveis para usuários federados
 
@@ -67,7 +67,7 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 6. Na caixa ao lado do nome da regra de declaração, nomeie a regra. Por exemplo: InsideCorpNet.
 7. Na lista suspensa, ao lado do tipo de declaração de entrada, selecione **Dentro da rede corporativa**.
    ![Adicionando a reivindicação da Rede Corporativa](./media/howto-mfa-adfs/trustedip4.png)
-8. Clique em **concluir**.
+8. Clique em **Concluir**.
 9. Em Regras de transformação de emissão, clique **em Adicionar regra**.
 10. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Enviar Declarações Usando uma Regra Personalizada** da lista suspensa e clique em **Avançar**.
 11. Na caixa em Nome da regra De sinistro: *digite Manter os usuários assinados*.
@@ -76,16 +76,16 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
     ![Crie reivindicação personalizada para manter os usuários logados](./media/howto-mfa-adfs/trustedip5.png)
-13. Clique em **concluir**.
+13. Clique em **Concluir**.
 14. Clique em **Aplicar**.
-15. Clique em **Ok**.
+15. Clique em **OK**.
 16. Feche o gerenciamento do AD FS.
 
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configurar IPs confiáveis da Autenticação Multifator do Azure com usuários federados
 
 Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione locais**Security** > **nomeados** > **para**o acesso condicionado do diretório ativo do >  **Azure**.
 3. A partir da lâmina **de acesso condicional - nomeado,** selecione Configurar **IPs confiáveis mfa**
 

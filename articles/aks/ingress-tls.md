@@ -4,12 +4,12 @@ description: Saiba como instalar e configurar um controlador de ingestão NGINX 
 services: container-service
 ms.topic: article
 ms.date: 01/29/2020
-ms.openlocfilehash: 4d0edcac86bebb77495907ec43debf077448b8ac
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: ece117d60ae3d7fd70c0972bb463340c5d38c9e1
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617238"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637257"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de ingresso HTTPS no Serviço de Kubernetes do Azure (AKS)
 
@@ -33,7 +33,7 @@ Este artigo também pressupõe que você tenha [um domínio personalizado][custo
 
 Este artigo usa o Helm para instalar o NGINX ingress controller, Gerenciador de certificado e um aplicativo web de exemplo. Verifique se você está usando a versão mais recente do Helm. Para obter instruções de atualização, consulte os [docs de instalação do Helm][helm-install]. Para obter mais informações sobre a configuração e o uso do Helm, consulte [Instalar aplicativos com o Helm no Azure Kubernetes Service (AKS)][use-helm].
 
-Este artigo também exige que você esteja executando a versão 2.0.64 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI][azure-cli-install].
+Este artigo também exige que você esteja executando a versão 2.0.64 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Criar um controlador de entrada
 
@@ -163,7 +163,7 @@ spec:
 Para criar a coleção, use o `kubectl apply`comando: 
 
 ```console
-kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
+kubectl apply -f cluster-issuer.yaml
 ```
 
 ## <a name="run-demo-applications"></a>Executar aplicativos de demonstração

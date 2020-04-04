@@ -4,19 +4,19 @@ description: Como ativar a redefinição de senha de autoatendimento usando senh
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f0e5242d87bc68efd92a52619e8d48cff9ac87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a8675756aeef1140dbebd94023d7f7fb4c7af99
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77370060"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652252"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Como: Ativar redefinição de senha da tela de login do Windows
 
@@ -97,7 +97,7 @@ O log de auditoria do Microsoft Azure AD inclui informações sobre o endereço 
 
 ![Exemplo de redefinição de senha do Windows 7 no registro de auditoria do Azure AD](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-Quando os usuários redefinem sua senha da tela de login de `defaultuser1` um dispositivo Windows 10, uma conta temporária de baixo privilégio chamada é criada. Essa conta é usada para manter o processo de redefinição de senha seguro. A própria conta tem uma senha gerada aleatoriamente, não é mostrada na conexão do dispositivo e será removida automaticamente após o usuário reiniciar sua senha. Vários `defaultuser` perfis podem existir, mas podem ser ignorados com segurança.
+Quando os usuários redefinem sua senha da tela de login de `defaultuser1` um dispositivo Windows 10, uma conta temporária de baixo privilégio chamada é criada. Essa conta é usada para manter o processo de redefinição de senha seguro. A conta em si tem uma senha gerada aleatoriamente, não aparece para o login do dispositivo e será removida automaticamente após o usuário redefinir sua senha. Vários `defaultuser` perfis podem existir, mas podem ser ignorados com segurança.
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Redefinição de senha do Windows 7, 8 e 8.1
 
@@ -115,7 +115,7 @@ Quando os usuários redefinem sua senha da tela de login de `defaultuser1` um di
 > [!WARNING]
 > O TLS 1.2 deve ser habilitado, não apenas definido para negociar automaticamente
 
-### <a name="install"></a>Instalar o
+### <a name="install"></a>Instalar
 
 1. Baixe o instalador correto para a versão do Windows que você quer habilitar.
    - Software está disponível no centro de downloads da Microsoft em[https://aka.ms/sspraddin](https://aka.ms/sspraddin)
@@ -128,8 +128,8 @@ Quando os usuários redefinem sua senha da tela de login de `defaultuser1` um di
 
 #### <a name="silent-installation"></a>Instalação silenciosa
 
-- Para uma instalação silenciosa, use o comando “msiexec /i SsprWindowsLogon.PROD.msi /qn”
-- Para uma desinstalação silenciosa, use o comando “msiexec /x SsprWindowsLogon.PROD.msi /qn”
+- Para instalação silenciosa, use o comando "msiexec /i SsprWindowsLogon.PROD.msi /qn"
+- Para desinstalar silenciosamente, use o comando "msiexec /x SsprWindowsLogon.PROD.msi /qn"
 
 #### <a name="troubleshooting-windows-7-8-and-81-password-reset"></a>Solução de problemas Reinicialindo senha do Windows 7, 8 e 8.1
 
@@ -141,8 +141,8 @@ Se for necessário outro registro em log, uma chave do Registro no computador po
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- Para habilitar o registro `REG_DWORD: “EnableLogging”`verbose, crie um e defina-o como 1.
-- Para desativar o registro verbose, altere o `REG_DWORD: “EnableLogging”` 0.
+- Para habilitar o registro `REG_DWORD: "EnableLogging"`verbose, crie um e defina-o como 1.
+- Para desativar o registro verbose, altere o `REG_DWORD: "EnableLogging"` 0.
 
 ## <a name="what-do-users-see"></a>O que os usuários veem
 

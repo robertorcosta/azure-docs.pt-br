@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 568fc880711d42941fd9aef2ea19b8ac3123793a
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 7da20a0bf87b33f05ea7f1d457157c5b7ee2ec7b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384238"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631522"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -79,7 +79,7 @@ Por padrão, as tags de serviço refletem as faixas para toda a nuvem. Algumas t
 | **AzureSiteRecovery** | Recuperação do Site Do Azul.<br/><br/>*Nota:* Esta tag tem uma dependência das tags **AzureActiveDirectory,** **AzureKeyVault,** **EventHub,****GuestAndHybridManagement** e **Storage.** | Saída | Não | Não |
 | **AzureTrafficManager** | O Azure Traffic Manager testa endereços IP.<br/><br/>Para obter mais informações sobre endereços IP do teste do Traffic Manager, consulte [FAQ do Gerenciador de tráfego do Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Entrada | Não | Sim |  
 | **Gerenciamento de batchnode** | Tráfego de gerenciamento para implantações dedicadas ao Azure Batch. | Ambos | Não | Sim |
-| **CognitiveServicesManagement** | O endereço varia para tráfego para serviços cognitivos Azure. | Saída | Não | Não |
+| **CognitiveServicesManagement** | O endereço varia para tráfego para serviços cognitivos Azure. | Ambos | Não | Não |
 | **Datafactory**  | Fábrica de dados do Azure | Ambos | Não | Não |
 | **DataFactoryManagement** | Tráfego gerencial para a Fábrica de Dados Azure. | Saída | Não | Não |
 | **Dinâmica365ForMarketingEmail** | O endereço varia para o serviço de e-mail de marketing da Dynamics 365. | Saída | Sim | Não |
@@ -124,9 +124,9 @@ Você pode obter as informações atuais de tag de serviço e alcance para inclu
 ### <a name="use-the-service-tag-discovery-api-public-preview"></a>Use a API de detecção de marca de serviço (visualização pública)
 Você pode recuperar programáticamente a lista atual de tags de serviço juntamente com detalhes da gama de endereços IP:
 
-- [Resto](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
+- [REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
+- [CLI do Azure](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
 
 > [!NOTE]
 > Enquanto estiver em visualização pública, a API do Discovery pode retornar informações menos atuais do que as informações devolvidas pelos downloads do JSON. (Veja a próxima seção.)
