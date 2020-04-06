@@ -1,20 +1,20 @@
 ---
-title: Preparar a compra de uma reserva do Azure
-description: Saiba mais sobre pontos importantes antes de comprar uma reserva do Azure.
+title: Comprar uma reserva do Azure
+description: Conheça pontos importantes para ajudar você a comprar uma reserva do Azure.
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 03/30/2020
 ms.author: banders
-ms.openlocfilehash: 1f5ca2d43356eab98cffe8414c00d97e5744739a
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 3a45a04786bb9976a42269191c8b24282905f96f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80235663"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436978"
 ---
-# <a name="prepare-to-buy-a-reservation"></a>Preparar a compra de uma reserva
+# <a name="buy-a-reservation"></a>Comprar uma reserva
 
 As reservas do Azure ajudam você a economizar dinheiro confirmando os planos de um ou de três anos para muitos recursos do Azure. Antes de inserir um compromisso para comprar uma reserva, é preciso que você examine as seções a seguir para se preparar para sua compra.
 
@@ -50,6 +50,17 @@ Você sempre pode atualizar o escopo depois de comprar uma reserva. Para fazer i
 
 ![Exemplo mostrando uma alteração de escopo de reserva](./media/prepare-buy-reservation/rescope-reservation-resource-group.png)
 
+## <a name="discounted-subscription-and-offer-types"></a>Assinatura com desconto e tipos de oferta
+
+Os descontos na reserva aplicam-se às seguintes assinaturas e tipos de oferta elegíveis.
+
+- Enterprise Agreement (números da oferta: MS-AZR-0017P ou MS-AZR-0148P)
+- Assinaturas do Contrato de Cliente da Microsoft.
+- Planos individuais com tarifas de pagamento conforme o uso (números da oferta: MS-AZR-0003P ou MS-AZR-0023P)
+- Assinaturas de CSP
+
+Os recursos executados em uma assinatura com outros tipos de oferta não recebem o desconto de reserva.
+
 ## <a name="purchase-reservations"></a>Comprar reservas
 
 Você pode comprar reservas por meio do portal do Azure, das APIs, do PowerShell e da CLI. Leia os seguintes artigos, que se aplicam a você quando você está pronto para fazer uma compra de reserva:
@@ -66,6 +77,54 @@ Você pode comprar reservas por meio do portal do Azure, das APIs, do PowerShell
 - [Banco de Dados SQL](../../sql-database/sql-database-reserved-capacity.md)
 - [SQL Data Warehouse](prepay-sql-data-warehouse-charges.md)
 - [Máquinas virtuais](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+
+## <a name="buy-reservations-with-monthly-payments"></a>Comprar reservas com pagamentos mensais
+
+Você pode pagar por elas fazendo pagamentos mensais. Diferente de uma compra antecipada em que você paga o valor total, a forme de pagamento mensal divide o custo total da reserva uniformemente em cada mês do termo. O custo total das reservas antecipadas e mensais é o mesmo e você não paga nenhuma taxa adicional quando opta por pagar mensalmente.
+
+Se a reserva for comprada usando o MCA (Contrato de Cliente da Microsoft), o valor do pagamento mensal poderá variar de acordo com o câmbio da moeda local do mercado para o mês corrente.
+
+Os pagamentos mensais não estão disponíveis para: Databricks, reservas do SUSE Linux, planos de Red Hat e Computação do Red Hat OpenShift no Azure.
+
+### <a name="view-payments-made"></a>Exibir pagamentos feitos
+
+Você pode exibir os pagamentos que foram feitos usando APIs, dados de uso e análise de custo. Para reservas pagas mensalmente, o valor de frequência é mostrado como **recorrente** nos dados de uso e na API de Preços de Reserva. Para reservas pagas antecipadamente, o valor mostrado é **avulso**.
+
+A análise de custo mostra as compras mensais na exibição padrão. Aplique o filtro de **compra** para o **Tipo de preço** e **recorrente** para a **Frequência** para ver todas as compras. Para exibir somente as reservas, aplique um filtro para **Reserva**.
+
+![Exemplo mostrando os custos de compra da reserva na análise de custo](./media/prepare-buy-reservation/cost-analysis.png)
+
+### <a name="exchange-and-refunds"></a>Trocas e reembolsos
+
+Assim como outras reservas, você pode reembolsar ou trocar reservas adquiridas com cobrança mensal. 
+
+Quando você troca uma reserva paga mensalmente, o custo total do tempo de vida da nova compra deve ser maior do que os pagamentos restantes cancelados referentes à reserva devolvida. Não há outros limites ou taxas para trocas. Você pode trocar uma reserva paga antecipadamente para comprar uma nova reserva cobrada mensalmente. No entanto, o valor do tempo de vida da nova reserva deve ser maior que o valor rateado da reserva que está sendo devolvida.
+
+Se você cancelar uma reserva paga mensalmente, os pagamentos futuros cancelados se acumularão até o limite de reembolso de US$ 50.000.
+
+Para saber mais sobre trocas e reembolsos, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](exchange-and-refund-azure-reservations.md).
+
+## <a name="reservation-notifications"></a>Notificações de reserva
+
+Dependendo de como você paga por sua assinatura do Azure, são enviadas notificações de reserva por email aos usuários de sua organização a seguir. São enviadas notificações referentes a vários eventos, incluindo: 
+
+- Purchase
+- Futura expiração da reserva
+- Expiry
+- Renovação
+- Cancelamento
+- Alteração de escopo
+
+Para clientes com assinaturas EA:
+
+- São enviadas notificações somente para os contatos de notificação do EA.
+- Usuários adicionados a uma reserva usando a permissão de RBAC (IAM) não recebem nenhuma notificação por email.
+
+Para clientes com assinaturas individuais:
+
+- O comprador recebe uma notificação de compra.
+- No momento da compra, o proprietário da conta de cobrança da assinatura recebe uma notificação de compra.
+- O proprietário da conta recebe todas as outras notificações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

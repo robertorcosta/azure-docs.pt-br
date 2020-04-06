@@ -1,19 +1,19 @@
 ---
-title: Evitar custos inesperados e gerenciar a cobrança no Azure
-description: Saiba como evitar encargos inesperados em sua conta do Azure. Use recursos de gerenciamento e controle de custos para a sua conta do Azure.
+title: Evitar e analisar encargos inesperados com o Gerenciamento de Custos e a Cobrança do Azure
+description: Saiba como evitar encargos inesperados em sua fatura do Azure e usar os recursos de acompanhamento e gerenciamento de custos para sua conta do Azure.
 author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 3/11/2020
+ms.date: 3/30/2020
 ms.author: banders
-ms.openlocfilehash: 0e0003b3adfdb6ebba49bd8d014fc0ba287ca3aa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 79af6f78e8e9bf93c49deafe79f6a421cbb77d1a
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238135"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475269"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evite cobranças inesperadas com o gerenciamento de custo e a cobrança do Azure
 
@@ -112,11 +112,6 @@ Selecione **Custo** no lado esquerdo. Você verá recomendações práticas na g
 
 Examine o tutorial [Otimizar custos de recomendações](../costs/tutorial-acm-opt-recommendations.md) para obter um tutorial guiado sobre recomendações do Assistente para economia de custos.
 
-## <a name="review-charges-against-your-latest-invoice"></a>Examinar os encargos em sua última fatura
-
-No fim do período de cobrança, sua fatura estará disponível. [Baixe faturas e arquivos de uso detalhado](download-azure-invoice-daily-usage-date.md) para compará-los e verificar se você foi cobrado corretamente. Para obter mais informações sobre como comparar seu uso diário com sua fatura, consulte [Entenda sua fatura do Microsoft Azure](../understand/review-individual-bill.md).
-
-Caso esteja usando o Azure por meio de um MCA (Contrato de Cliente da Microsoft), você também poderá [comparar sua fatura com as transações](../understand/review-customer-agreement-bill.md#review-invoiced-transactions-in-the-azure-portal) para entender os encargos em sua fatura.
 
 ## <a name="integrate-with-billing-and-consumption-apis"></a>Integração às APIs de cobrança e consumo
 
@@ -178,9 +173,65 @@ Para alguns serviços, há pré-requisitos para o SLA aplicar. Por exemplo, as m
 
 Para obter mais informações, confira [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/) e a documentação [Resumo do SLA para serviços do Azure](https://azure.microsoft.com/support/legal/sla/summary/).
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
+## <a name="analyze-unexpected-charges"></a>Analisar encargos inesperados
 
-Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+A infraestrutura de recursos de nuvem que você criou para sua organização é provavelmente complexa. Muitos tipos de recursos do Azure podem ter diferentes tipos de encargos. Os recursos do Azure podem ser da propriedade de diferentes equipes em sua organização e ter tipos diferentes de modelo de cobrança que se aplicam a vários recursos. Para obter uma melhor compreensão dos encargos, comece sua análise usando uma ou mais estratégias nas seções a seguir.
+
+### <a name="review-your-invoice-and-identify-the-resource-that-is-responsible-for-the-charge"></a>Examine sua fatura e identifique o recurso responsável pelo encargo
+
+A maneira como você compra os serviços do Azure ajuda a determinar a metodologia e as ferramentas disponíveis ao identificar o recurso associado a um encargo. Para determinar qual metodologia se aplica a você, primeiro [determine o tipo de oferta do Azure](../costs/understand-cost-mgt-data.md#determine-your-offer-type). Em seguida, identifique sua categoria de cliente na lista de [ofertas do Azure com suporte](../costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
+
+Os artigos a seguir fornecem etapas detalhadas que explicam como você deve examinar sua fatura com base no seu tipo de cliente. Em cada artigo, há instruções sobre como baixar um arquivo CSV que contém detalhes de uso e de custo para um determinado período de cobrança.
+
+- [Processo de análise de fatura de pagamento conforme o uso](../understand/review-individual-bill.md#compare-invoiced-charges-with-usage-file)
+- [Processo de análise de fatura do Contrato Enterprise](../understand/review-enterprise-agreement-bill.md)
+- [Processo de análise do Contrato de Cliente da Microsoft](../understand/review-customer-agreement-bill.md#analyze-your-azure-usage-charges)
+- [Processo de análise do Contrato de Parceiro da Microsoft](../understand/review-partner-agreement-bill.md#analyze-your-azure-usage-charges)
+
+Sua fatura do Azure agrega encargos do mês por _medidor_. Medidores são usados para acompanhar o uso de um recurso ao longo do tempo e para calcular sua fatura. Quando você cria um único recurso do Azure, como uma máquina virtual, uma ou mais instâncias de medidor são criadas para o recurso.
+
+Filtre o arquivo CSV de uso com base no _MeterName_, conforme mostrado na fatura que você deseja analisar, para ver todos os itens de linha aplicáveis ao medidor. A _InstanceID_ do item de linha corresponde ao recurso real do Azure que gerou o encargo.
+
+Quando você tiver identificado o recurso em questão, poderá usar a Análise de custo no Gerenciamento de Custos do Azure para analisar ainda mais os custos relacionados ao recurso. Para saber mais sobre como usar a análise de custo, confira [Começar a analisar os custos](../costs/quick-acm-cost-analysis.md).
+
+### <a name="identify-spikes-in-cost-over-time"></a>Identificar picos de custo ao longo do tempo
+
+Às vezes, talvez você não saiba quais custos recentes resultaram em alterações nos encargos cobrados. Para entender o que mudou, você pode usar a Análise de custo para [ver um detalhamento diário ou mensal dos custos ao longo do tempo](../costs/cost-analysis-common-uses.md#view-costs-per-day-or-by-month). Depois de criar a exibição, agrupe seus encargos por **Serviço** ou **Recurso** de para identificar as alterações. Você também pode alterar sua exibição para um gráfico de **Linha** para visualizar melhor os dados.
+
+![Exemplo mostrando os custos ao longo do tempo na análise de custo](./media/getting-started/costs-over-time.png)
+
+### <a name="determine-resource-pricing-and-understand-its-billing-model"></a>Determinar o preço do recurso e compreender o modelo de cobrança dele
+
+Um único recurso pode acumular encargos entre vários produtos e serviços do Azure. Veja a página [Preço do Azure por produto](https://azure.microsoft.com/pricing/#product-pricing) para saber mais sobre o preço de cada serviço do Azure. Por exemplo, uma única VM (máquina virtual) criada no Azure pode ter os medidores a seguir criados para rastrear o uso. Cada um pode ter um preço diferente.
+
+- Calcular horas
+- Horas de endereço IP
+- Transferência de dados em
+- Transferência de dados
+- Disco gerenciado padrão
+- Operações de disco gerenciado padrão
+- Disco IO padrão
+- Leitura de blob padrão do bloco IO
+- Escrita de Blob Padrão de Bloqueio de E/S
+- Bloqueio de blobs padrão IO-Block
+
+Quando a VM é criada, cada medidor começa a emitir registros de uso. O uso e o preço do medidor são rastreados no sistema de medição do Azure. Você pode ver os medidores que foram usados para calcular sua fatura no arquivo CSV de uso.
+
+### <a name="find-the-people-responsible-for-the-resource-and-engage-them"></a>Encontrar as pessoas responsáveis pelo recurso e envolvê-las
+
+Geralmente, a equipe responsável por um determinado recurso conhecerá as alterações que foram feitas em um recurso. O envolvimento dessa equipe é útil porque você identifica por que os encargos podem aparecer. Por exemplo, a equipe proprietária pode ter criado recentemente o recurso, atualizado o SKU dele (alterando a taxa do recurso) ou aumentado a carga no recurso devido às alterações de código. Continue lendo as seções a seguir para obter mais técnicas para determinar quem tem a propriedade de um recurso.
+
+#### <a name="analyze-the-audit-logs-for-the-resource"></a>Analisar os logs de auditoria do recurso
+
+Se você tiver permissões para exibir um recurso, deverá ser capaz de acessar os logs de auditoria dele. Examine os logs para encontrar o usuário responsável pelas alterações mais recentes em um recurso. Para saber mais, confira [Exibir e recuperar eventos do Log de atividades do Azure](../../azure-monitor/platform/activity-log-view.md).
+
+#### <a name="analyze-user-permissions-to-the-resources-parent-scope"></a>Analisar as permissões do usuário para o escopo pai do recurso
+
+As pessoas que têm acesso de gravação a uma assinatura ou grupo de recursos normalmente têm informações sobre os recursos que foram criados. Elas devem ter a capacidade de explicar a finalidade de um recurso ou indicar você à pessoa que saiba. Para identificar as pessoas com as permissões para um Escopo de assinatura, confira [Exibir atribuições de função](../../role-based-access-control/check-access.md#view-role-assignments). Você pode usar um processo semelhante para grupos de recursos.
+
+### <a name="get-help-to-identify-charges"></a>Obter ajuda para identificar encargos
+
+Se você tiver usado as estratégias anteriores e ainda não entendeu por que você recebeu um encargo ou se precisar de outra ajuda com problemas de cobrança, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre como usar [limites de gastos](spending-limit.md) para impedir o gasto excessivo.

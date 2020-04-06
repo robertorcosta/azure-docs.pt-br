@@ -7,19 +7,19 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 24f7a81b267e858d16ae0805f9c7ab384be3b2fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 81b6b8a7024de9ff3361e24cb14190d479e50681
+ms.sourcegitcommit: 2a09565db8681cdb76607e7ed51eecf68f4ff8f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200635"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80258049"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar sua conta de cobrança para um Contrato de Cliente da Microsoft
 
 Caso seu registro do Contrato Enterprise tenha expirado ou esteja prestes a expirar, assine um Contrato de Cliente da Microsoft para renovar seu registro. Este artigo descreve as alterações em sua cobrança existente após a configuração e orienta você na configuração de sua nova conta de cobrança. A renovação inclui as seguintes etapas:
 
 1. Aceitar o novo Contrato de Cliente da Microsoft. Trabalhar com seu representante de campo da Microsoft para entender os detalhes e aceitar o novo contrato.
-2. Configurar a conta de cobrança que será criada para o novo Contrato de Cliente da Microsoft.
+2. Configurar a conta de cobrança criada para o novo Contrato de Cliente da Microsoft.
 
 Para configurar a conta de cobrança, você precisará fazer a transição da cobrança de assinaturas do Azure do registro do Contrato Enterprise para a nova conta. A configuração não afeta os serviços do Azure que estão em execução em suas assinaturas. No entanto, ela altera a maneira como você gerenciará a cobrança de suas assinaturas.
 
@@ -115,7 +115,7 @@ Os contatos de notificação recebem comunicações por email sobre o Contrato E
 
 ### <a name="spending-quotas"></a>Cotas de gastos
 
-As cotas de gastos definidas para os departamentos no registro do Contrato Enterprise foram substituídas por orçamentos na nova conta de cobrança. Um orçamento é criado para cada cota de gastos definida nos departamentos de seu registro. Para obter mais informações sobre orçamentos, confira [Criar e gerenciar orçamentos do Azure](../cloudyn/manage-budgets.md).
+As cotas de gastos definidas para os departamentos no registro do Contrato Enterprise foram substituídas por orçamentos na nova conta de cobrança. Um orçamento é criado para cada cota de gastos definida nos departamentos de seu registro. Para obter mais informações sobre orçamentos, confira [Tutorial: Criar e gerenciar orçamentos do Azure](../costs/tutorial-acm-create-budgets.md).
 
 ### <a name="cost-centers"></a>Centros de custo
 

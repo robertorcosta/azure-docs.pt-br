@@ -5,14 +5,14 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 03/30/2020
 ms.author: banders
-ms.openlocfilehash: 6277a7e7dc5891a3bc67c298a31344284c92e31d
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 97bd03fb2aa8f5b486ef87a04f260fec43eb81bd
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80235643"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396710"
 ---
 # <a name="what-are-azure-reservations"></a>O que são Reservas do Azure?
 
@@ -20,7 +20,7 @@ As reservas do Azure ajudam você a economizar dinheiro confirmando os planos de
 
 Você pode pagar por uma reserva de forma antecipada ou mensal. O custo total das reservas antecipadas e mensais é o mesmo e você não paga nenhuma taxa adicional quando opta por pagar mensalmente. O pagamento mensal está disponível para reservas do Azure, e não para produtos de terceiros.
 
-Você pode comprar uma instância reservada no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+Você pode comprar uma reserva no portal do Azure em [https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 ## <a name="why-buy-a-reservation"></a>Por que comprar uma reserva?
 
@@ -34,6 +34,48 @@ Para obter mais informações sobre como o desconto é aplicado, confira [Aplica
 
 Para obter mais informações sobre como funciona o escopo de reserva, confira [Reservas de escopo](prepare-buy-reservation.md#scope-reservations).
 
+## <a name="determine-what-to-purchase"></a>Determinar o que comprar 
+
+Todas as reservas, exceto as do Azure Databricks, são aplicadas a cada hora. Considere as compras de reserva com base no seu uso de base consistente. Você pode determinar qual reserva comprar analisando seus dados de uso ou usando recomendações de reserva. As recomendações estão disponíveis em:
+
+- Assistente do Azure (somente VMs)
+- Experiência de compra de reserva no portal do Azure
+- Aplicativo Power BI do Gerenciamento de Custos
+- APIs 
+
+Para obter mais informações, confira [Determinar qual reserva comprar](determine-reservation-purchase.md) 
+
+## <a name="buying-a-reservation"></a>Comprar uma reserva 
+
+Você pode comprar reservas por meio do portal do Azure, das APIs, do PowerShell e da CLI. 
+
+Acesse portal do Azure para comprar (https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) 
+
+Para obter mais informações, confira [Comprar uma reserva](prepare-buy-reservation.md) 
+
+## <a name="how-is-a-reservation-billed"></a>Como uma reserva é cobrada? 
+
+A reserva é cobrada no método de pagamento associado à assinatura. O custo de reserva é deduzido do saldo do seu compromisso monetário, se disponível. Quando o saldo do compromisso monetário não cobrir o custo da reserva, você será cobrado pelo excedente. Se você tiver uma assinatura de um plano individual com tarifas pagas conforme o uso, o cartão de crédito que você tem em sua conta será cobrado imediatamente para as compras antecipadas. Os pagamentos mensais aparecem em sua fatura e seu cartão de crédito é cobrado mensalmente. Quando for cobrado por fatura, você verá os encargos na sua próxima fatura. 
+
+## <a name="permissions-to-view-and-manage-reservations"></a>Permissões para exibir e gerenciar reservas 
+
+O usuário que compra uma reserva e o administrador da conta ou da assinatura usado para cobrar a reserva obtêm a função Proprietário no pedido da reserva e na reserva.
+
+Você pode delegar o gerenciamento de uma reserva adicionando pessoas às funções na reserva. Atribua as funções no portal do Azure ou usando APIs e o PowerShell. 
+
+Para obter mais informações, confira [Adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation) 
+
+## <a name="get-reservation-details-and-utilization-after-purchase"></a>Obter detalhes e a utilização da reserva após a compra
+
+Se você tiver permissão para exibir a reserva, poderá ver a reserva e o uso dela no portal do Azure. Você pode obter os dados usando APIs também. 
+
+Para obter mais informações sobre como ver reservas no portal do Azure, confira [Exibir reservas no portal do Azure](view-reservations.md) 
+
+## <a name="manage-reservations-after-purchase"></a>Gerenciar reservas após a compra 
+
+Após comprar uma reserva do Azure, você poderá atualizar o escopo para aplicar a reserva a uma assinatura diferente, alterar quem pode gerenciar a reserva, dividir uma reserva em partes menores ou alterar a flexibilidade de tamanho da instância. 
+
+Para obter mais informações, confira [Gerenciar reservas para recursos do Azure](manage-reserved-vm-instance.md) 
 
 ## <a name="flexibility-with-azure-reservations"></a>Flexibilidade com reservas do Azure
 
@@ -54,7 +96,7 @@ Para obter mais informações, confira [Trocas e reembolsos via autoatendimento 
 - **Banco de Dados do Azure para MySQL** – apenas os custos de computação são incluídos com uma reserva. Uma reserva não cobre custos de software, rede ou armazenamento associados à instância do servidor de Banco de Dados MySQL.
 - **Banco de Dados do Azure para PostgreSQL** – apenas os custos de computação são incluídos com uma reserva. Uma reserva não cobre custos de software, rede ou armazenamento associados à instância dos servidores de Banco de Dados PostgreSQL.
 - **Banco de Dados do Azure para MariaDB** – apenas os custos de computação são incluídos com uma reserva. Uma reserva não cobre custos de software, rede ou armazenamento associados à instância do servidor de banco de dados MariaDB.
-- **Azure Data Explorer** – uma reserva abrange os encargos de marcação. Uma reserva não abrange os encargos de computação, rede ou armazenamento associados aos clusters.
+- **Azure Data Explorer** – uma reserva abrange os encargos de marcação. Uma reserva não se aplica aos encargos de computação, rede ou armazenamento associados aos clusters.
 - **Cache do Azure para Redis**: apenas os custos de computação são incluídos com uma reserva. Uma reserva não abrange os preços de rede ou armazenamento associados às instâncias de Cache Redis.
 - **Host Dedicado do Azure** – Somente os custos de computação estão incluídos no Host Dedicado.
 - **Reservas do Armazenamento em Disco do Azure** – uma reserva cobre apenas SSDs Premium de tamanho P30 ou superior. Ela não cobre nenhum outro tipo de disco ou tamanhos menores que P30.

@@ -1,18 +1,18 @@
 ---
-title: Introdução à cobrança do Contrato de Cliente da Microsoft – Azure
+title: Introdução à conta de cobrança do Contrato de Cliente da Microsoft – Azure
 description: Entenda sua conta de cobrança do Contrato de Cliente da Microsoft
 author: bandersmsft
 ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/27/2020
 ms.author: banders
-ms.openlocfilehash: a580dd1fb9d2965a9da1e4918733bd5cf137e443
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: df54109010c694934dda005d6e8f1c219ec49efc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79139939"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371000"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Introdução à conta de cobrança do Contrato de Cliente da Microsoft
 

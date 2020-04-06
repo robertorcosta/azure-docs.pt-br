@@ -3,16 +3,16 @@ title: Usos comuns da análise de custo no Gerenciamento de Custos do Azure
 description: Este artigo explica como você pode obter resultados para tarefas comuns de análise de custo no Gerenciamento de Custos do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/21/2020
+ms.date: 03/31/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 901f271ac401cb985e59c434b9e6d7f8db03889f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a333cad51e6fc089e7e6994c7b89210b12686cd5
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79203093"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520871"
 ---
 # <a name="common-cost-analysis-uses"></a>Usos comuns da análise de custo
 
@@ -26,7 +26,7 @@ A exibição de custos por um serviço do Azure pode ajudá-lo a entender melhor
 1. Selecione **Custo por serviço** e, em seguida, agrupe por **Camada de serviço**.
 1. Altere a exibição para **Tabela**.
 
-![Detalhamento de custos por serviço do Azure](./media/cost-analysis-common-uses/breakdown-by-service.png)
+[![Detalhamento de custos por serviço do Azure](./media/cost-analysis-common-uses/breakdown-by-service.png)](./media/cost-analysis-common-uses/breakdown-by-service.png#lightbox)
 
 ## <a name="view-cost-breakdown-by-azure-resource"></a>Exibir detalhamento de custos por recurso do Azure
 
@@ -36,7 +36,7 @@ Seus serviços são criados com recursos do Azure. Examinar os custos com base n
 1. Selecione **Custo por recurso**.
 1. Altere a exibição para **Tabela**.
 
-![Exibir detalhamento de custos por recurso do Azure](./media/cost-analysis-common-uses/cost-by-resource.png)
+[![Exibir detalhamento de custos por recurso do Azure](./media/cost-analysis-common-uses/cost-by-resource.png)](./media/cost-analysis-common-uses/cost-by-resource.png#lightbox)
 
 ## <a name="view-cost-breakdown-by-selected-dimensions"></a>Exibir detalhamento de custos pelas dimensões selecionadas
 
@@ -44,19 +44,70 @@ As dimensões permitem que você organize seus custos com base em vários valore
 
 1. No portal do Azure, navegue até a análise de custo para o seu escopo. Por exemplo:  **Gerenciamento de Custos + Cobrança** > **Gerenciamento de Custos** > **Análise de custo**.
 1. Selecione o filtro **Agrupar por**.  
-    ![Selecionar um item de Agrupar por](./media/cost-analysis-common-uses/group-by.png)
+    [![Selecionar um item Agrupar por](./media/cost-analysis-common-uses/group-by.png)](./media/cost-analysis-common-uses/group-by.png#lightbox)
 1. Opcionalmente, você salva a exibição para uso posterior.
 1. Clique em um gráfico de pizza abaixo do gráfico para exibir dados mais detalhados.  
-    ![Exibir detalhamento de custos pelas dimensões selecionadas](./media/cost-analysis-common-uses/drill-down.png)
+    [![Exibir detalhamento de custos por dimensões selecionadas](./media/cost-analysis-common-uses/drill-down.png)](./media/cost-analysis-common-uses/drill-down.png#lightbox)
 
 ## <a name="view-costs-per-day-or-by-month"></a>Exibir custos por dia ou por mês
 
-A observação dos custos diários e mensais pode ajudá-lo a entender melhor se há uma hora da semana ou do ano em que os custos são maiores. Se você tiver mais tráfego de clientes em um período de Natal, isso levará a um aumento correspondente nos custos do Azure? A sexta-feira é um dia mais dispendioso do que a segunda?
+A análise dos custos diários e mensais pode ajudar você a entender melhor se há uma hora da semana ou do ano em que os custos são maiores. Se você tiver mais tráfego de clientes em um período de Natal, isso levará a um aumento correspondente nos custos do Azure? A sexta-feira é um dia mais dispendioso do que a segunda?
 
 1. No portal do Azure, navegue até a análise de custo para o seu escopo. Por exemplo:  **Gerenciamento de Custos + Cobrança** > **Gerenciamento de Custos** > **Análise de custo**.
 1. Defina a **Granularidade** como **Mensal** ou **Diária**.
 
-![Exibir os custos por dia](./media/cost-analysis-common-uses/daily-granularity.png)
+[![Exibir os custos por dia](./media/cost-analysis-common-uses/daily-granularity.png)](./media/cost-analysis-common-uses/daily-granularity.png#lightbox)
+
+
+## <a name="view-your-spot-vm-charges"></a>Exibir os encargos de VM spot
+
+As VMs spot podem fornecer grandes economias de custos para cargas de trabalho que podem lidar com interrupções. As cargas de trabalho são executadas na capacidade do Azure não utilizada. Como elas podem ser removidas a qualquer momento, as VMs spot recebem um desconto significativo. Use as etapas a seguir para exibir seus encargos de VM spot.
+
+1. No portal do Azure, navegue até a análise de custo para o seu escopo. Por exemplo, **Gerenciamento de Custos + Cobrança** > **Gerenciamento de Custos** > **Análise de custo**.
+2. Adicione um filtro para **Modelo de Preços: spot**.
+
+![Exemplo mostrando filtro de VM Spot](./media/cost-analysis-common-uses/spot-vm-filter.png)
+
+A dimensão Modelo de Preços também é usada para exibir encargos sob demanda e de reserva.
+
+## <a name="view-your-reservation-charges"></a>Exibir seus encargos de reserva
+
+As instâncias reservadas fornecem uma forma de economizar dinheiro com o Azure. Com as reservas, você gasta dinheiro com antecedência para um determinado número de recursos ao longo do tempo. A análise de custo mostra os encargos como eles aparecem na sua fatura. Os encargos são mostrados como custos reais ou amortizados no decorrer do período de reserva.
+
+1. No portal do Azure, navegue até a análise de custo para o seu escopo. Por exemplo, **Gerenciamento de Custos + Cobrança** > **Gerenciamento de Custos** > **Análise de custo**.
+1. Adicione um filtro para **Modelo de Preços: Reserva**.
+1. Em **Escopo** e ao lado do custo mostrado, clique no símbolo de seta para baixo, selecione a métrica **Custo real** ou **Custo amortizado**.
+
+![Selecionar uma métrica de custo](./media/cost-analysis-common-uses/metric-cost.png)
+
+Cada métrica afeta o modo como os dados são mostrados para seus encargos de reserva.
+
+**Custo real** – mostra a compra como ela aparece em sua fatura. Por exemplo, se você tiver comprado uma reserva de um ano de US$ 1200 em janeiro, a análise de custo mostrará um custo de US$ 1200 no mês de janeiro para a reserva. Ela não mostra um custo de reserva para os outros meses do ano. Se você agrupar os custos reais por VM, então a VM que tiver recebido o benefício de reserva para um determinado período terá custo zero para o mês.
+
+**Custo amortizado** – mostra uma divisão de compra de reserva como um custo amortizado durante o termo da reserva. Usando o mesmo exemplo acima, a análise de custo mostrará um custo de US$ 100 para cada mês ao longo do ano, se você tiver comprado uma reserva de um ano de US$ 1200 em janeiro. Se você agrupar os custos por VM neste exemplo, você verá o custo atribuído a cada VM que recebeu o benefício de reserva.
+
+## <a name="view-your-reservation-utilization"></a>Exibir sua utilização da reserva
+
+Após comprar uma reserva, é importante acompanhar a utilização dela para que você tenha o que pagou. Por exemplo, se você comprou dez VMs para um ano e usa apenas cinco delas, então basicamente metade da compra foi desperdiçada. Há duas maneiras diferentes de avaliar sua utilização:
+
+### <a name="view-unused-ri-costs-in-cost-analysis"></a>Exibir os custos de RI não utilizados na análise de custo
+
+Para identificar a quantidade de custos que está sendo desperdiçada por mês para sua compra de reserva, siga as etapas abaixo.
+
+1. No portal do Azure, navegue até análise de custo para o escopo em que sua reserva é aplicada. Por exemplo, **Gerenciamento de Custos + Cobrança** > **Gerenciamento de Custos** > **Análise de custo**.
+1. Adicione um filtro para **Modelo de Preços: Reserva**.
+1. Selecione a exibição **Custo Amortizado**.
+1. Defina a granularidade como **Mensal**.
+1. Defina o período como o ano atual ou o termo da reserva.
+1. Defina o tipo de gráfico como **Coluna (empilhado)** .
+1. Agrupar encargos por **Tipo de Encargo**.
+1. Examine os resultados para valores `unusedreservation`.
+
+[![Exemplo mostrando o uso de reserva](./media/cost-analysis-common-uses/view-reservation-cost.png)](./media/cost-analysis-common-uses/view-reservation-cost.png#lightbox)
+
+### <a name="view-utilization-in-reservations"></a>Exibir a utilização em Reservas
+
+Para obter instruções detalhadas, confira [Otimizar o uso de reserva](../reservations/manage-reserved-vm-instance.md#optimize-reservation-use).
 
 ## <a name="view-costs-for-a-specific-tag"></a>Exibir os custos de uma marca específica
 
@@ -67,7 +118,7 @@ O suporte para marcas aplica-se ao uso relatado *depois* da aplicação da marca
 1. No portal do Azure, navegue até a análise de custo para o seu escopo. Por exemplo:  **Gerenciamento de Custos + Cobrança** > **Gerenciamento de Custos** > **Análise de custo**.
 1. Selecione **Agrupar por** para sua marca.
 
-![Exibir os custos de uma marca específica](./media/cost-analysis-common-uses/tag.png)
+[![Exibir os custos de uma tag específica](./media/cost-analysis-common-uses/tag.png)](./media/cost-analysis-common-uses/tag.png#lightbox)
 
 ## <a name="download-your-usage-details"></a>Faça o download dos seus detalhes de uso
 
@@ -75,7 +126,7 @@ O arquivo de relatório de detalhes de uso, no formato CSV, fornece um detalhame
 
 1. Na portal do Azure, navegue até a guia **Uso e Encargos** para uma conta de cobrança ou assinatura para cobrança. Por exemplo:  **Gerenciamento de Custos + Cobrança** > **Cobrança** > **Uso + encargos**.
 1. Selecione o item de linha do qual baixar e clique no símbolo de download.  
-    ![Baixar uso e cobranças](./media/cost-analysis-common-uses/download1.png)
+    [![Baixar uso e cobranças](./media/cost-analysis-common-uses/download1.png)](./media/cost-analysis-common-uses/download1.png#lightbox)
 1.  Selecione o arquivo de uso para baixar.  
     ![Escolher um arquivo de uso para baixar](./media/cost-analysis-common-uses/download2.png)
 
@@ -88,9 +139,9 @@ Os custos são mostrados apenas para seu registro ativo. Se você tiver transfer
 
 1. No portal do Azure, navegue até **Gerenciamento de Custos + Cobrança** > **Visão geral**.
 1. Clique em **Detalhamento** para ver o mês atual e o seu compromisso monetário ao longo do tempo.  
-    ![Visão geral dos custos de EA – resumo do detalhamento](./media/cost-analysis-common-uses/breakdown1.png)
+    [![Visão geral dos custos de EA – resumo do detalhamento](./media/cost-analysis-common-uses/breakdown1.png)](./media/cost-analysis-common-uses/breakdown1.png#lightbox)
 1.  Clique na guia **Uso e Encargos** e veja o detalhamento do mês anterior no período de tempo escolhido.  
-    ![Guia Uso e encargos](./media/cost-analysis-common-uses/breakdown2.png)
+    [![Guia Uso e encargos](./media/cost-analysis-common-uses/breakdown2.png)](./media/cost-analysis-common-uses/breakdown2.png#lightbox)
 
 ## <a name="view-enrollment-monthly-cost-by-term"></a>Exibir o custo mensal do registro por período
 
@@ -102,7 +153,7 @@ Use uma exibição gráfica dos custos mensais do seu registro para entender as 
 
 Você pode agrupar e filtrar seus dados para uma análise mais detalhada.
 
-![Custo de registro mensal por período](./media/cost-analysis-common-uses/enrollment-term1.png)
+[![Custo de registro mensal por período](./media/cost-analysis-common-uses/enrollment-term1.png)](./media/cost-analysis-common-uses/enrollment-term1.png#lightbox)
 
 ## <a name="view-ea-enrollment-accumulated-costs"></a>Exibir custos acumulados de registro em EA
 
@@ -111,7 +162,7 @@ Exiba os encargos líquidos acumulados ao longo do tempo para entender as despes
 1. No portal do Azure, navegue até a análise de custo para o seu escopo. Por exemplo:  **Gerenciamento de Custos + Cobrança** > **Gerenciamento de Custos** > **Análise de custo**.
 1. Selecione seu registro e exiba os custos acumulados atuais.
 
-![Custos acumulados de registro](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)
+[![Custos acumulados de registro](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)](./media/cost-analysis-common-uses/cost-analysis-enrollment.png#lightbox)
 
 ## <a name="next-steps"></a>Próximas etapas
 - Se você ainda não concluiu o primeiro início rápido de Gerenciamento de Custos, leia-o em [Iniciar a análise dos custos](quick-acm-cost-analysis.md).
