@@ -3,12 +3,12 @@ title: Recursos de segurança para ajudar a proteger as cargas de trabalho na nu
 description: Saiba como usar os recursos de segurança no Azure Backup para tornar os backups mais seguros.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 57c9fd76ae32aea49f480f2a88d8296538d8052d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd7c86e18114513a264a0f9252589533fb7ff2d3
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156065"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668733"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger as cargas de trabalho na nuvem que usam o Azure Backup
 
@@ -34,7 +34,7 @@ A exclusão suave para VMs protege os backups de suas VMs contra exclusão não 
 
 ### <a name="supported-regions"></a>Regiões com suporte
 
-O Soft Delete é atualmente suportado no Centro-Oeste dos EUA, Leste da Ásia, Canadá Central, Canadá Leste, França Central, França Sul, Coréia Central, Coréia do Sul, Reino Unido Sul, Reino Unido Oeste, Austrália Leste, Austrália Sudeste, Europa Norte, EUA Ocidental, US$ 42, Central dos EUA, Sul Leste da Ásia, Norte Central dos EUA, Centro-Sul dos EUA, Japão Leste, Japão Oeste, Índia sul, Índia Central, Índia Ocidental, Leste dos EUA 2, Suíça Norte, Suíça Oeste, e todas as regiões Nacionais.
+Atualmente, o Soft Delete é suportado no Centro-Oeste dos EUA, Leste da Ásia, Canadá Central, Canadá Leste, França Central, França Do Sul, Coréia Central, Coréia do Sul, Reino Unido, Reino Unido Oeste, Austrália Leste, Austrália Sudeste, Europa Norte, EUA Ocidental, US$ 42, Central dos EUA, Sudeste Asiático, Norte Central dos EUA, Japão Leste, Japão Oeste, Índia, Índia, Índia Central, Índia Ocidental, Leste dos EUA , Suíça Norte, Suíça Oeste, Noruega Oeste, Noruega Leste e todas as regiões Nacionais.
 
 ### <a name="soft-delete-for-vms-using-azure-portal"></a>Exclusão suave para VMs usando portal Azure
 
@@ -264,7 +264,7 @@ Ao fazer backup de suas Máquinas Virtuais do Azure, agora você pode criptograf
 
 ### <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Backup de VMs de disco gerenciado criptografados usando chaves gerenciadas pelo cliente
 
-O Azure Backup também permite fazer backup das Suas VMs do Azure que usam sua chave para criptografia do lado do servidor. A chave usada para criptografar os discos é armazenada no Cofre de Chaves do Azure e gerenciada por você. A criptografia do lado do servidor usando chaves gerenciadas pelo cliente difere da criptografia de disco do Azure, uma vez que o ADE aproveita o BitLocker (para Windows) e o DM-Crypt (para Linux) para executar a criptografia no hóspede, o SSE criptografa dados no serviço de armazenamento, permitindo que você use qualquer SISTEMA OPERACIONAL ou imagens para suas VMs. Consulte a [Criptografia de discos gerenciados com chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) para obter mais detalhes.
+O Azure Backup também permite fazer backup das Suas VMs do Azure que usam sua chave para criptografia do lado do servidor. A chave usada para criptografar os discos é armazenada no Cofre de Chaves do Azure e gerenciada por você. A criptografia do lado do servidor usando chaves gerenciadas pelo cliente difere da Criptografia de Disco do Azure, uma vez que o ADE aproveita o BitLocker (para Windows) e o DM-Crypt (para Linux) para executar a criptografia no hóspede, o SSE criptografa dados no serviço de armazenamento, permitindo que você use qualquer Sistema Operacional ou imagens para suas VMs. Consulte a [Criptografia de discos gerenciados com chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) para obter mais detalhes.
 
 ### <a name="backup-of-vms-encrypted-using-ade"></a>Backup de VMs criptografados usando ADE
 

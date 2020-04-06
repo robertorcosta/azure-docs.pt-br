@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 1445d74e3050ffd6da7c45037df552f4bee9acf5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39f1137638f9cd4926b712bdd18e681d90adcdc4
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116679"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668544"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas frequentes sobre a migração do Armazenamento do Azure
 
@@ -269,7 +269,7 @@ Para dar a outras pessoas acesso aos meus recursos de armazenamento:
 
 **Como uso um domínio personalizado HTTPS com minha conta de armazenamento? Por exemplo, como faço "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" aparecer\/como "https: /www.contoso.com/images/image.gif"?**
 
-No momento, o SSL não é compatível com contas de armazenamento com domínios personalizados.
+O TLS/SSL não é suportado atualmente em contas de armazenamento com domínios personalizados.
 Mas você pode usar domínios personalizados não HTTPS. Para obter mais informações, consulte [Configurar um nome de domínio personalizado para o ponto final de armazenamento Blob](../blobs/storage-custom-domain-name.md).
 
 ## <a name="access-to-storage"></a>Acesso ao armazenamento
@@ -288,7 +288,7 @@ O armazenamento com redundância geográfica com acesso de leitura é necessári
 
 -   Se você estiver usando armazenamento com redundância geográfica com acesso de leitura, poderá acessar dados da região secundária a qualquer hora. Use um dos métodos a seguir:  
 
-    - **AzCopy**: acrescente **-secondary** ao nome da conta de armazenamento na URL para acessar o ponto de extremidade secundário. Por exemplo:   
+    - **AzCopy**: acrescente **-secondary** ao nome da conta de armazenamento na URL para acessar o ponto de extremidade secundário. Por exemplo:  
 
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 

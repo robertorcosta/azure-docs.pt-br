@@ -1,15 +1,16 @@
 ---
-title: Melhores práticas do operador - Armazenamento nos Serviços do Kubernetes do Azure (AKS)
+title: Práticas recomendadas para armazenamento e backup
+titleSuffix: Azure Kubernetes Service
 description: Aprenda as práticas recomendadas do operador de cluster para armazenamento, criptografia de dados e backups no Serviço de Kubernetes do Azure (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: b1336d10b091be4f3eb2a711401cafd3f58221fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 90abf2e36fd46c707904d87f00362091fe931743
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399483"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668109"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para armazenamento e backups no Serviço de Kubernetes do Azure (AKS)
 

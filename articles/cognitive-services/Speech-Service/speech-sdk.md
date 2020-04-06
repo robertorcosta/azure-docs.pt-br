@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: dapine
-ms.openlocfilehash: a2ff4a94c1b2941f645cd7032ef476d33dffdb00
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 440944033e4b6a8fb29cf9ace6ad784b91316526
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656645"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668764"
 ---
 # <a name="about-the-speech-sdk"></a>Sobre o SDK de Fala
 
@@ -69,21 +69,11 @@ Várias das linguagens de programação do Speech SDK suportam fluxos de entrada
 
 ## <a name="rest-api"></a>API REST
 
-Enquanto o Speech SDK cobre muitos recursos de recursos do Serviço de Fala, para alguns cenários você pode querer usar a API REST. Como exemplo, o gerenciamento de ponto final só é exposto através da API REST.
-
-> [!TIP]
-> Ao confiar na API REST, use o Swagger Editor para gerar automaticamente bibliotecas de clientes. Por exemplo, para gerar uma biblioteca de clientes de transcrição em lote.
-> 1. Copie o exemplo de URL abaixo:
->     ```http
->     https://westus.cris.ai/docs/v2.0/swagger
->     ```
-> 1. Navegue até o <a href="https://editor.swagger.io/" target="_blank">Editor <span class="docon docon-navigate-external x-hidden-focus"></span> de Swagger</a>
-> 1. Selecione**URL de importação de** **arquivos** > e cole a URL
-> 1. Selecione **Gerar cliente** e escolha a linguagem de programação desejada
+Enquanto o Speech SDK cobre muitos recursos de recursos do Serviço de Fala, para alguns cenários você pode querer usar a API REST.
 
 ### <a name="batch-transcription"></a>Transcrição de lote
 
-[A transcrição em lote](batch-transcription.md) permite a transcrição assíncrona de fala para texto de grandes volumes de dados. A transcrição em lote só é possível a partir da API REST.
+[A transcrição em lote](batch-transcription.md) permite a transcrição assíncrona de fala para texto de grandes volumes de dados. A transcrição em lote só é possível a partir da API REST. Além de converter o áudio da fala em texto, o grupo de fala em texto também permite a diarização e a análise de sentimentos.
 
 ## <a name="customization"></a>Personalização
 

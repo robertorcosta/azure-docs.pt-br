@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: c5972b602d92b2e08fd70850dd1af5c1236e2b1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 97aa446636ea3131246a06f69f74b5868abff608
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80234471"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668656"
 ---
 # <a name="connect-to-azure-storage-services"></a>Conecte-se aos serviços de armazenamento do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,7 +48,7 @@ Você precisará de:
 
 ## <a name="supported-data-storage-service-types"></a>Tipos de serviço de armazenamento de dados suportados
 
-Atualmente, os datastores suportam armazenar informações de conexão aos serviços de armazenamento listados na matriz a seguir. Neste momento, o azure Data warehouse não é suportado. 
+Atualmente, os datastores suportam armazenar informações de conexão aos serviços de armazenamento listados na matriz a seguir.
 
 | Tipo&nbsp;de armazenamento | Tipo&nbsp;de autenticação | [Estúdio de&nbsp;&nbsp;Aprendizado de Máquina Azure](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Cli de&nbsp;&nbsp;aprendizagem de máquina do Azure](reference-azure-machine-learning-cli.md) | [API&nbsp;de&nbsp;&nbsp; descanso de aprendizado de máquina do Azure](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---
@@ -287,5 +287,5 @@ A Fábrica de Dados Do Azure fornece transferência de dados eficiente e resilie
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Crie um conjunto de dados de aprendizado de máquina do Azure](how-to-create-register-datasets.md)
-* [Treine um modelo](how-to-train-ml-models.md)
+* [Treinar um modelo](how-to-train-ml-models.md)
 * [Implantar um modelo](how-to-deploy-and-where.md)

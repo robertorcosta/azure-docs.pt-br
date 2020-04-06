@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 4e3cf302437c3e4954ac977ac3f4ff6b2021a760
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4887b4359451ca5ce85042b4de42d5376bf4a730
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72330516"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667776"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Criar e gerenciar agendamentos para laboratórios de sala de aula do Azure Lab Services 
 Agendamentos permitem que você configure um laboratório de sala de aula, de modo que as VMs no laboratório iniciam e desligam automaticamente em um horário especificado. Você pode definir um agendamento único ou recorrente. Os procedimentos a seguir fornecem as etapas para criar e gerenciar agendamentos para um laboratório de sala de aula: 
@@ -28,6 +28,12 @@ Agendamentos permitem que você configure um laboratório de sala de aula, de mo
 
 ## <a name="set-a-schedule-for-the-lab"></a>Definir uma agenda para o laboratório
 Crie um evento agendado para o laboratório, de modo que as VMs no laboratório sejam iniciadas/paradas automaticamente em horários específicos. A cota de usuário especificada anteriormente é o tempo adicional atribuído a cada usuário fora desse horário agendado. 
+
+> [!NOTE]
+> Antes de começarmos, veja como os horários afetam as máquinas virtuais de laboratório: 
+>- O modelo de máquina virtual não está incluído nos horários. 
+>- Apenas máquinas virtuais designadas são iniciadas. Isso significa que, se uma máquina não for reclamada por um usuário final (aluno), a máquina não iniciará no horário programado. 
+>- Todas as máquinas virtuais (reclamadas por um usuário ou não) são interrompidas com base no cronograma do laboratório. 
 
 1. Alterne para a página **Agendamentos** e selecione **Adicionar evento agendado** na barra de ferramentas. 
 
@@ -43,7 +49,7 @@ Crie um evento agendado para o laboratório, de modo que as VMs no laboratório 
     5. Especifique a **hora de término** em que as VMs devem ser desligadas. 
     6. Especifique o **fuso horário** para as horas de início e de término especificadas. 
     2. Selecione os dias nos quais deseja que a agenda entre em vigor. No exemplo a seguir, Segunda-Quinta foi selecionado. 
-    8. Selecione **Salvar**. 
+    8. Clique em **Salvar**. 
 
         ![Definir agenda de repetição](../media/how-to-create-schedules/set-repeat-schedule.png)
 

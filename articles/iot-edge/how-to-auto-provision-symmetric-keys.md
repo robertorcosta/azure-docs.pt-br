@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 10/04/2019
+ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d9944308d00c9cfecbd38a6443efb49913148806
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 139a2cafe137d000b991cbad8b8567e005ffc728
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535911"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668667"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Criar e provisionar um dispositivo IoT Edge usando atestado de chave simétrica
 
@@ -72,13 +72,16 @@ Ao criar uma inscrição no DPS, tem a oportunidade de declarar um **Estado inic
 
    1. Selecione **True** para declarar que a inscrição é para um dispositivo IoT Edge. Para uma inscrição em grupo, todos os dispositivos devem ser dispositivos IoT Edge ou nenhum deles pode ser.
 
+   > [!TIP]
+   > Na CLI do Azure, você pode criar uma [inscrição](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) ou um grupo de [inscrição](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) e usar o sinalizador **habilitado** para borda para especificar que um dispositivo, ou grupo de dispositivos, é um dispositivo IoT Edge.
+
    1. Aceite o valor padrão da política de alocação do Serviço de Provisionamento de Dispositivos para **saber como você deseja atribuir dispositivos a hubs** ou escolher um valor diferente específico para essa inscrição.
 
    1. Escolha o **IoT Hub** vinculado que você deseja conectar o dispositivo. Você pode escolher vários hubs e o dispositivo será atribuído a um deles de acordo com a política de alocação selecionada.
 
    1. Escolha **como deseja que os dados do dispositivo sejam tratados no reprovisionamento** quando os dispositivos solicitarem provisionamento após a primeira vez.
 
-   1. Adicionar um valor de marca para o **estado inicial do dispositivo gêmeo** se desejar. Você pode usar marcas para grupos de dispositivos de destino para a implantação do módulo. Por exemplo: 
+   1. Adicionar um valor de marca para o **estado inicial do dispositivo gêmeo** se desejar. Você pode usar marcas para grupos de dispositivos de destino para a implantação do módulo. Por exemplo:
 
       ```json
       {
@@ -93,7 +96,7 @@ Ao criar uma inscrição no DPS, tem a oportunidade de declarar um **Estado inic
 
    1. **Certifique-se de que a entrada** enable está definida como **Ativação**.
 
-   1. Selecione **Salvar**.
+   1. Clique em **Salvar**.
 
 Agora que existe uma inscrição para este dispositivo, o tempo de execução do IoT Edge pode provisionar automaticamente o dispositivo durante a instalação. Certifique-se de copiar o valor principal da **chave primária** da sua inscrição para usar ao instalar o tempo de execução do IoT Edge ou se você vai criar chaves de dispositivo para uso com uma inscrição em grupo.
 

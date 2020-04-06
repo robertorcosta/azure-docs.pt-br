@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 300294f37c809b01fe8fba7e627d6bc5bdc9903a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e7070e925d12df82adbc3683da5b10e48c5d4b0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78942944"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668125"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
@@ -35,14 +35,14 @@ Para respostas para perguntas comuns sobre como usar um nome de domínio persona
 Para saber como adquirir e configurar um domínio personalizado para seu aplicativo web do Serviço de Aplicativo, consulte [Comprar e configurar um nome de domínio personalizado no Serviço de Aplicativo](manage-custom-dns-buy-domain.md).
 
 
-## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Como carregar e configurar um certificado SSL existente para meu aplicativo web?
+## <a name="how-do-i-upload-and-configure-an-existing-tlsssl-certificate-for-my-web-app"></a>Como faço para carregar e configurar um certificado TLS/SSL existente para o meu aplicativo web?
 
-Para saber como fazer upload e configurar um certificado SSL personalizado existente, consulte [Adicionar um certificado SSL ao seu aplicativo App Service](configure-ssl-certificate.md).
+Para saber como carregar e configurar um certificado TLS/SSL personalizado existente, consulte [Adicionar um certificado TLS/SSL ao seu aplicativo App Service](configure-ssl-certificate.md).
 
 
-## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>Como comprar e configurar um novo certificado SSL no Azure para meu aplicativo web?
+## <a name="how-do-i-purchase-and-configure-a-new-tlsssl-certificate-in-azure-for-my-web-app"></a>Como comprar e configurar um novo certificado TLS/SSL no Azure para o meu aplicativo web?
 
-Para saber como adquirir e configurar um certificado SSL para seu aplicativo web do Serviço de Aplicativo, consulte [Adicionar um certificado SSL ao seu aplicativo do Serviço de Aplicativo](configure-ssl-certificate.md).
+Para saber como comprar e configurar um certificado TLS/SSL para o seu aplicativo web App Service, consulte [Adicionar um certificado TLS/SSL ao seu aplicativo App Service](configure-ssl-certificate.md).
 
 
 ## <a name="how-do-i-move-application-insights-resources"></a>Como mover recursos do Application Insights?
@@ -63,7 +63,7 @@ Para definir o fuso horário do servidor para o meu aplicativo web:
 2. Em **Configurações do aplicativo**, adicionar essa configuração:
     * Chave = WEBSITE_TIME_ZONE
     * Valor = *o fuso horário que você deseja*
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 Para os serviços do App que são executados no Windows, consulte a coluna **Fuso horário** no artigo [Zonas horários padrão](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) para valores aceitos. Para os serviços do App que são executados no Linux, defina o nome do [banco de dados TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) como o valor do fuso horário. Aqui está um exemplo do nome do banco de dados TZ: America/Adak.
 
@@ -84,7 +84,7 @@ Para saber como obter seu endereço IP de saída se seu site estiver hospedado e
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>Como obter um endereço IP de entrada dedicado ou reservado para meu aplicativo Web?
 
-Para configurar um endereço IP dedicado ou reservado para chamadas de entrada feitas para o site de aplicativo do Azure, instale e configure um certificado SSL com base em IP.
+Para configurar um endereço IP dedicado ou reservado para chamadas de entrada feitas no site do aplicativo Azure, instale e configure um certificado TLS/SSL baseado em IP.
 
 Observe que, para usar um endereço IP dedicado ou reservado para chamadas de entrada, o plano do Serviço de Aplicativo deve ser em um plano de serviço básico ou superior.
 

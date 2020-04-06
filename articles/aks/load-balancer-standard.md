@@ -1,17 +1,18 @@
 ---
-title: Use um balanceador de carga SKU padrão no Azure Kubernetes Service (AKS)
+title: Use um balanceador de carga SKU padrão
+titleSuffix: Azure Kubernetes Service
 description: Aprenda a usar um balanceador de carga com um SKU padrão para expor seus serviços com o Azure Kubernetes Service (AKS).
 services: container-service
 author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9c414572e1c3b2f046ae9a14139885e9927ab3bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 17e474de9c221126d67cc2982ba11c6ff75e7aa3
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252903"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668507"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Use um balanceador de carga SKU padrão no Azure Kubernetes Service (AKS)
 
@@ -25,7 +26,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o CLI localmente, este artigo requer que você esteja executando a versão 2.0.81 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI][install-azure-cli].
+Se você optar por instalar e usar o CLI localmente, este artigo requer que você esteja executando a versão 2.0.81 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -188,7 +189,7 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 
 A saída de exemplo mostra o valor padrão de *AllocatedOutboundPorts* e *IdleTimeoutOutInMinutes*. Um valor de 0 para *AllocatedOutboundPorts* define o número de portas de saída usando atribuição automática para o número de portas de saída com base no tamanho do pool de backend. Por exemplo, se o cluster tiver 50 ou menos nós, 1024 portas para cada nó serão alocadas.
 
-Considere alterar a configuração de *BoundboundPorts alocado* ou *IdleTimeoutInMinutes* se você espera enfrentar a exaustão do SNAT com base na configuração padrão acima. Cada endereço IP adicional permite 64.000 portas adicionais para alocação, no entanto, o Azure Standard Load Balancer não aumenta automaticamente as portas por nó quando mais endereços IP são adicionados. Você pode alterar esses valores definindo os *parâmetros de saída do balanceador de carga* e do *balanceador de carga- ocioso.* Por exemplo: 
+Considere alterar a configuração de *BoundboundPorts alocado* ou *IdleTimeoutInMinutes* se você espera enfrentar a exaustão do SNAT com base na configuração padrão acima. Cada endereço IP adicional permite 64.000 portas adicionais para alocação, no entanto, o Azure Standard Load Balancer não aumenta automaticamente as portas por nó quando mais endereços IP são adicionados. Você pode alterar esses valores definindo os *parâmetros de saída do balanceador de carga* e do *balanceador de carga- ocioso.* Por exemplo:
 
 ```azurecli-interactive
 az aks update \
@@ -201,7 +202,7 @@ az aks update \
 > [!IMPORTANT]
 > Você deve [calcular sua cota necessária][calculate-required-quota] antes de personalizar o *OutboundPorts alocado* para evitar problemas de conectividade ou de dimensionamento. O valor especificado para *alocadoOutboundPorts* também deve ser um múltiplo de 8.
 
-Você também pode usar os parâmetros de *saída-balancer de carga* e de tempo limite *de carga-balancer-ocioso* ao criar um cluster, mas também deve especificar os ip-ip-ip-ip gerenciados pelo *balanceador de carga,* *os ip-ip-balanceadores de carga*ou os prefixos de *saída-balancer ou de load-balancer-out-ip-.*  Por exemplo: 
+Você também pode usar os parâmetros de *saída-balancer de carga* e de tempo limite *de carga-balancer-ocioso* ao criar um cluster, mas também deve especificar os ip-ip-ip-ip gerenciados pelo *balanceador de carga,* *os ip-ip-balanceadores de carga*ou os prefixos de *saída-balancer ou de load-balancer-out-ip-.*  Por exemplo:
 
 ```azurecli-interactive
 az aks create \

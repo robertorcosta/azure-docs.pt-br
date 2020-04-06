@@ -9,12 +9,12 @@ ms.date: 03/06/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 48c8179af4a4b69924fb943ac98918b48d3a2008
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4d247f151240da8c3f0d38bbd22e43e230a1b95
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79537356"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668625"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Criar e provisionar um dispositivo IoT Edge usando certificados X.509
 
@@ -73,6 +73,9 @@ Ao criar uma inscrição no DPS, tem a oportunidade de declarar um **Estado inic
 
 Para obter mais informações sobre inscrições no Serviço de Provisionamento de Dispositivos, consulte [Como gerenciar as inscrições de dispositivos](../iot-dps/how-to-manage-enrollments.md).
 
+   > [!TIP]
+   > Na CLI do Azure, você pode criar uma [inscrição](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) ou um grupo de [inscrição](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) e usar o sinalizador **habilitado** para borda para especificar que um dispositivo, ou grupo de dispositivos, é um dispositivo IoT Edge.
+
 1. No [portal Azure,](https://portal.azure.com)navegue até a sua instância de Serviço de Provisionamento de Dispositivos IoT Hub.
 
 1. Em **Configurações**, selecione **Gerenciar registros**.
@@ -91,7 +94,7 @@ Para obter mais informações sobre inscrições no Serviço de Provisionamento 
 
    * **Selecione os hubs de IoT aos quais este dispositivo pode ser atribuído:** Escolha o hub IoT vinculado ao qual deseja conectar seu dispositivo. Você pode escolher vários hubs e o dispositivo será atribuído a um deles de acordo com a política de alocação selecionada.
 
-   * **Dispositivo inicial Estado gêmeo**: Adicione um valor de tag a ser adicionado ao dispositivo gêmeo, se quiser. Você pode usar tags para grupos de destino de dispositivos para implantação automática. Por exemplo: 
+   * **Dispositivo inicial Estado gêmeo**: Adicione um valor de tag a ser adicionado ao dispositivo gêmeo, se quiser. Você pode usar tags para grupos de destino de dispositivos para implantação automática. Por exemplo:
 
       ```json
       {
@@ -104,7 +107,7 @@ Para obter mais informações sobre inscrições no Serviço de Provisionamento 
       }
       ```
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Agora que existe uma inscrição para este dispositivo, o tempo de execução do IoT Edge pode provisionar automaticamente o dispositivo durante a instalação. Continue até instalar a seção [De tempo de execução IoT Edge](#install-the-iot-edge-runtime) para configurar seu dispositivo IoT Edge.
 
@@ -130,7 +133,7 @@ Quando você cria um grupo de inscrição, você tem a opção de usar um certif
 
    Se você estiver usando os certificados `<wrkdir>/certs/azure-iot-test-only.root.ca.cert.pem` de demonstração, faça upload do certificado.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 1. Seu certificado agora deve ser listado na página **Certificados.** Selecione-o para abrir os detalhes do certificado.
 
@@ -176,7 +179,7 @@ Para obter mais informações sobre inscrições no Serviço de Provisionamento 
 
    * **Selecione os hubs de IoT aos quais este dispositivo pode ser atribuído:** Escolha o hub IoT vinculado ao qual deseja conectar seu dispositivo. Você pode escolher vários hubs e o dispositivo será atribuído a um deles de acordo com a política de alocação selecionada.
 
-   * **Dispositivo inicial Estado gêmeo**: Adicione um valor de tag a ser adicionado ao dispositivo gêmeo, se quiser. Você pode usar tags para grupos de destino de dispositivos para implantação automática. Por exemplo: 
+   * **Dispositivo inicial Estado gêmeo**: Adicione um valor de tag a ser adicionado ao dispositivo gêmeo, se quiser. Você pode usar tags para grupos de destino de dispositivos para implantação automática. Por exemplo:
 
       ```json
       {
@@ -189,7 +192,7 @@ Para obter mais informações sobre inscrições no Serviço de Provisionamento 
       }
       ```
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Agora que existe uma inscrição para este dispositivo, o tempo de execução do IoT Edge pode provisionar automaticamente o dispositivo durante a instalação. Continue até a próxima seção para configurar seu dispositivo IoT Edge.
 
@@ -212,7 +215,7 @@ Use o link a seguir para instalar o tempo de execução do Azure IoT Edge em seu
 
 [Instale o tempo de execução do Azure IoT Edge no Linux](how-to-install-iot-edge-linux.md)
 
-Quando você adiciona o certificado X.509 e as informações-chave ao arquivo config.yaml, os caminhos devem ser fornecidos como URIs de arquivo. Por exemplo: 
+Quando você adiciona o certificado X.509 e as informações-chave ao arquivo config.yaml, os caminhos devem ser fornecidos como URIs de arquivo. Por exemplo:
 
 * `file:///<path>/identity_certificate.pem`
 * `file:///<path>/identity_key.pem`

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/12/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 23550c83e76631e44d5036e0a038f01b61a79f1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f71c039aa6666cec1b871a158d84a6f5a2a107c
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79208240"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666838"
 ---
-## <a name="assign-access-permissions-to-an-identity"></a>Atribuir permissões de acesso a uma identidade
+## <a name="2-assign-access-permissions-to-an-identity"></a>2. Atribuir permissões de acesso a uma identidade
 
-Para acessar os recursos do Azure Files com autenticação baseada em identidade, uma identidade (um usuário, grupo ou diretor de serviço) deve ter as permissões necessárias no nível de compartilhamento. Esse processo é semelhante à especificação de permissões de compartilhamento do Windows, onde você especifica o tipo de acesso que um usuário em particular tem a um compartilhamento de arquivos. As orientações nesta seção demonstram como atribuir ler, gravar ou excluir as permissões para um compartilhamento de arquivos para uma identidade.
+Para acessar os recursos do Azure Files com autenticação baseada em identidade, uma identidade (um usuário, grupo ou diretor de serviço) deve ter as permissões necessárias no nível de compartilhamento. Esse processo é semelhante à especificação de permissões de compartilhamento do Windows, onde você especifica o tipo de acesso que um usuário em particular tem a um compartilhamento de arquivos. A recomendação geral é usar a permissão de nível de compartilhamento para gerenciamento de acesso de alto nível para uma equipe ou grupo e, em seguida, aproveitar as permissões NTFS para controle de acesso granular no nível de diretório/arquivo. As orientações nesta seção demonstram como atribuir ler, gravar ou excluir as permissões para um compartilhamento de arquivos para uma identidade. 
 
 Introduzimos três funções incorporadas do Azure para conceder permissões de nível de compartilhamento aos usuários:
 
@@ -68,7 +68,7 @@ Antes de executar o seguinte script de exemplo, lembre-se de substituir os valor
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
-## <a name="configure-ntfs-permissions-over-smb"></a>Configurar permissões NTFS em SMB 
+## <a name="3-configure-ntfs-permissions-over-smb"></a>3. Configure permissões NTFS sobre SMB 
 Depois de atribuir permissões no nível de compartilhamento com o RBAC, você deve atribuir permissões de NTFS corretas no nível raiz, de diretório ou de arquivo. Pense em permissões de nível de compartilhamento como o gatekeeper de alto nível que determina se um usuário pode acessar o compartilhamento. Considerando que as permissões NTFS agem em um nível mais granular para determinar quais operações o usuário pode fazer no diretório ou nível de arquivo.
 
 Os arquivos do Azure dá suporte a todo o conjunto de permissões de NTFS básicos e avançados. Você pode visualizar e configurar permissões NTFS em diretórios e arquivos em um compartilhamento de arquivos Do Azure, montando o compartilhamento e, em seguida, usando o Windows File Explorer ou executando o comando Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) ou [Set-ACL.](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) 
@@ -102,7 +102,7 @@ Usar o Windows **net use** comando para montar o compartilhamento de arquivos do
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
 ```
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Configure permissões NTFS com o Windows File Explorer
-Use o Windows File Explorer para conceder permissão total a todos os diretórios e arquivos o compartilhamento de arquivos, incluindo o diretório raiz.
+Use o Windows File Explorer para conceder permissão total a todos os diretórios e arquivos sob o compartilhamento de arquivos, incluindo o diretório raiz.
 
 1. Abra o Windows File Explorer e clique com o botão direito do mouse no arquivo/diretório e selecione **Propriedades**
 2. Clique na guia **Segurança**
@@ -113,9 +113,9 @@ Use o Windows File Explorer para conceder permissão total a todos os diretório
 8.  Na guia Segurança, selecione todas as permissões que deseja conceder ao usuário recém-adicionado
 9.  Clique em **Aplicar**
 
-## <a name="mount-a-file-share-from-a-domain-joined-vm"></a>Montar um compartilhamento de arquivos de uma VM ingressada no domínio
+## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4. Monte um compartilhamento de arquivos de uma VM com um domínio
 
-O processo a seguir verifica se as permissões de compartilhamento e acesso do arquivo foram configuradas corretamente e que você pode acessar um compartilhamento de arquivos Do Azure a partir de uma VM com um domínio:
+O processo a seguir verifica se as permissões de compartilhamento e acesso do arquivo foram configuradas corretamente e que você pode acessar um compartilhamento de arquivos Do Zure a partir de uma VM com um domínio. Esteja ciente de que a atribuição de função RBAC de nível de compartilhamento pode levar algum tempo para estar em vigor. 
 
 Faça login na VM usando a identidade Azure AD à qual você concedeu permissões, conforme mostrado na imagem a seguir. Se você habilitou a autenticação AD para arquivos Azure, use a credencial AD. Para autenticação Azure AD DS, faça login com credencial Azure AD.
 

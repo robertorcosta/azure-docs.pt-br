@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c251569cfe6a2f27f86421ffe6a446ace52b435
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f884f4c0ea3a610f28a8fdbb34b081f0b0a64d08
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051163"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666958"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar sua infraestrutura do NPS existente à Autenticação Multifator do Azure
 
@@ -78,6 +78,7 @@ O servidor NPS precisa ser capaz de se comunicar com as seguintes URLs por porta
 
 - https:\//adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
+- https:\//credentials.azure.com
 
 Além disso, a conectividade com as SEGUINTES URLs é necessária para concluir a [configuração do adaptador usando o script PowerShell fornecido](#run-the-powershell-script)
 
@@ -125,7 +126,7 @@ Há dois fatores que afetam quais métodos de autenticação estão disponíveis
       > [!NOTE]
       > Quando você implanta a extensão do NPS, use esses fatores para avaliar quais métodos estão disponíveis para os usuários. Se o cliente RADIUS dá suporte a PAP, mas a experiência do cliente não tem campos de entrada para um código de verificação, chamada telefônica e notificação do aplicativo móvel são as duas opções com suporte.
       >
-      > Além disso, se o UX do seu cliente VPN fizer suporte ao campo de entrada e você tiver configurado a Diretiva de Acesso à Rede - a autenticação pode ter sucesso, no entanto, nenhum dos atributos RADIUS configurados na Diretiva de rede será aplicado nem ao Dispositivo de Acesso à Rede, como o servidor RRAS, nem o cliente VPN. Como resultado, o cliente VPN pode ter mais acesso do que o desejado ou menos sem acesso.
+      > Além disso, se o UX do seu cliente VPN tiver suporte ao campo de entrada e você tiver configurado a Diretiva de Acesso à Rede - a autenticação pode ter sucesso, no entanto, nenhum dos atributos RADIUS configurados na Diretiva de Rede será aplicado nem ao Dispositivo de Acesso à Rede, como ao servidor RRAS, nem ao cliente VPN. Como resultado, o cliente VPN pode ter mais acesso do que o desejado ou menos sem acesso.
       >
 
 2. Os métodos de entrada que o aplicativo cliente (VPN, servidor Netscaler ou outros) pode manipular. Por exemplo, o cliente VPN tem algum meio de permitir que o usuário digite um código de verificação de um texto ou aplicativo móvel?
@@ -323,7 +324,7 @@ Verifique se https://adnotifications.windowsazure.com pode ser alcançado no ser
 
 Se o certificado de computador anterior expirou e um novo certificado foi gerado, você deve excluir quaisquer certificados vencidos. Ter certificados vencidos pode causar problemas com o início da Extensão NPS.
 
-Para verificar se você tem um certificado válido, verifique a Loja de Certificados da Conta de Computador local usando o MMC e certifique-se de que o certificado não tenha passado sua data de validade. Para gerar um certificado recém-válido, execute as etapas a seção[Execute o script PowerShell](#run-the-powershell-script)
+Para verificar se você tem um certificado válido, verifique a Loja de Certificados da Conta de Computador local usando o MMC e certifique-se de que o certificado não tenha passado sua data de validade. Para gerar um certificado recém-válido, execute as etapas sob a seção "[Execute o script PowerShell](#run-the-powershell-script)"
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Como gerenciar protocolos TLS/SSL e conjuntos de codificação
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 764567bffd2a08ebb5beb17e3063998848b3f110
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e56aa5ec073aadc2a16d53c266d33255a34077cb
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127343"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668799"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migre seus recursos de IaaS para o Azure Resource Manager até 1º de março de 2023 
 
@@ -45,6 +45,6 @@ Os seguintes serviços e funcionalidades do Azure **NÃO** serão impactados por
 
 - Para obter mais informações, consulte as [perguntas frequentes sobre a migração clássica do Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq)
 
-- Para dúvidas técnicas e problemas, [suporte de contato.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+- Para perguntas técnicas, problemas e [suporte de contato](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)de lista de assinaturas.
 
 - Para outras perguntas que não fazem parte das perguntas frequentes e do feedback, comente abaixo.

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1392f69bea09996e46ad4c112474f9067ff5a63d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: ed7686bbef7dc1342528475226d11b8b8b8fb640
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656909"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668601"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta de Lucene em Azure Cognitive Search
 
@@ -104,7 +104,7 @@ O agrupamento de campo é semelhante, mas tem como escopo o agrupamento para um 
 
 ### <a name="or-operator-or-or-"></a>Operador OR `OR` ou `||`
 
-O operador OR é uma barra vertical ou um caractere de pipe. Por exemplo: `wifi || luxury` irá procurar documentos que contenham "wifi" ou "luxo", ou ambos. Porque OR é o operador de conjunção padrão, que também pode ser deixado de fora, de modo que `wifi luxury` é o equivalente de `wifi || luxuery`.
+O operador OR é uma barra vertical ou um caractere de pipe. Por exemplo: `wifi || luxury` irá procurar documentos que contenham "wifi" ou "luxo", ou ambos. Porque OR é o operador de conjunção padrão, que também pode ser deixado de fora, de modo que `wifi luxury` é o equivalente de `wifi || luxury`.
 
 ### <a name="and-operator-and--or-"></a>Operador AND `AND`, `&&` ou `+`
 
@@ -162,6 +162,8 @@ O exemplo a seguir ajuda a ilustrar as diferenças. Considere um perfil de pontu
  Uma pesquisa de expressão regular encontra uma correspondência com base no conteúdo entre as barras "/", como documentado na [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
  Por exemplo, para localizar documentos que contenham "motel" ou "hotel", especifique `/[mh]otel/`. As pesquisas com expressões regulares são comparadas com palavras individuais.
+
+Algumas ferramentas e idiomas impõem requisitos adicionais de caráter de fuga. Para JSON, as strings que incluem uma barra para a `search=/.*microsoft.com\/azure\/.*/` `search=/.* <string-placeholder>.*/` frente são escapadas `microsoft.com\/azure\/` com uma barra para trás: "microsoft.com/azure/" torna-se onde configura a expressão regular, e é a corda com uma barra de avanço escapou.
 
 ##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a> Pesquisa com curinga  
  Você pode usar a sintaxe geralmente reconhecida para pesquisas com vários caracteres curinga (*) ou um caractere curinga (?). Observe que o analisador de consulta Lucene oferece suporte ao uso desses símbolos com um único termo e não uma frase.

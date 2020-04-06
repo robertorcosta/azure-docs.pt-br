@@ -1,15 +1,16 @@
 ---
-title: Melhores práticas do operador - Identidade nos Serviços do Kubernetes do Azure (AKS)
+title: Melhores práticas para gerenciar identidade
+titleSuffix: Azure Kubernetes Service
 description: Aprenda as práticas recomendadas do operador de cluster sobre como gerenciar autenticação e autorização para clusters no Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 5ff5bdaced46a20dec3e7c5d7fb029f9428a12f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e3569be769fcf70a65cbfee62a3b80a5abdc3b5
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594763"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668308"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para autenticação e autorização no Azure Kubernetes Service (AKS)
 
@@ -119,7 +120,7 @@ Este artigo de práticas recomendadas enfocou a autenticação e a autorização
 
 Para obter mais informações sobre operações de cluster no AKS, consulte as seguintes práticas recomendadas:
 
-* [Isolamento de multi locação e cluster][aks-best-practices-cluster-isolation]
+* [Isolamento de multilocação e cluster][aks-best-practices-cluster-isolation]
 * [Recursos básicos de Agendador Kubernetes][aks-best-practices-scheduler]
 * [Recursos avançados de Agendador Kubernetes][aks-best-practices-advanced-scheduler]
 

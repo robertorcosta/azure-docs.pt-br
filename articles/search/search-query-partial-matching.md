@@ -8,29 +8,32 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 3e0e0291ff855b4502224466e17696a4fe668c2a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 7f001a0d443e4ec668aedaabb7505884163bf37e
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655992"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666777"
 ---
-# <a name="partial-term-search-in-azure-cognitive-search-queries-wildcard-regex-fuzzy-search-patterns"></a>Pesquisa parcial de prazo em consultas de Pesquisa Cognitiva Do Azure (curinga, regex, pesquisa difusa, padrões)
+# <a name="partial-term-search-and-patterns-with-special-characters---azure-cognitive-search-wildcard-regex-patterns"></a>Busca parcial de termo e padrões com caracteres especiais - Azure Cognitive Search (curinga, regex, padrões)
 
-Uma *pesquisa de termo parcial* refere-se a consultas que consistem em fragmentos de termo, como a primeira, última ou partes interiores de uma corda, ou um padrão que consiste em uma combinação de fragmentos, muitas vezes separados por caracteres especiais, como traços ou barras. Os casos de uso comuns incluem consultas para partes de um número de telefone, URL, pessoas ou códigos de produto ou palavras compostas.
+Uma *pesquisa de termo parcial* refere-se a consultas que consistem em fragmentos de termo, como a primeira, última ou partes interiores de uma string. Um *padrão* pode ser uma combinação de fragmentos, às vezes com caracteres especiais, como traços ou barras que fazem parte da consulta. Os casos de uso comuns incluem consultas para partes de um número de telefone, URL, pessoas ou códigos de produto ou palavras compostas.
 
-A pesquisa parcial pode ser problemática porque o índice em si não armazena termos de uma maneira que seja propícia à correspondência parcial de strings e padrões. Durante a fase de análise de texto da indexação, caracteres especiais são descartados, as seqüências compostas e compostas são divididas, fazendo com que as consultas de padrão falhem quando nenhuma correspondência é encontrada. Por exemplo, um `+1 (425) 703-6214`número de telefone `"1"` `"425"`como `"703"` `"6214"`(tokenizado como , `"3-62"` , ) não aparecerá em uma consulta porque esse conteúdo realmente não existe no índice. 
+A pesquisa parcial pode ser problemática se o índice não tiver termos no formato necessário para a correspondência de padrões. Durante a fase de análise de texto da indexação, usando o analisador padrão padrão, caracteres especiais são descartados, as seqüências compostas e compostas são divididas, fazendo com que as consultas de padrão falhem quando nenhuma correspondência é encontrada. Por exemplo, um `+1 (425) 703-6214`número de telefone `"1"` `"425"`como `"703"` `"6214"`(tokenizado como , `"3-62"` , ) não aparecerá em uma consulta porque esse conteúdo realmente não existe no índice. 
 
-A solução é armazenar versões intactas dessas strings no índice para que você possa suportar cenários de pesquisa parcial. Criar um campo adicional para uma seqüência intacta, além de usar um analisador de preservação de conteúdo, é a base da solução.
+A solução é invocar um analisador que preserve uma seqüência completa, incluindo espaços e caracteres especiais, se necessário, para que você possa suportar termos e padrões parciais. Criar um campo adicional para uma seqüência intacta, além de usar um analisador de preservação de conteúdo, é a base da solução.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>O que é pesquisa parcial na Pesquisa Cognitiva do Azure
 
-Na Pesquisa Cognitiva do Azure, a pesquisa parcial está disponível nestes formulários:
+Na Pesquisa Cognitiva do Azure, a pesquisa parcial e o padrão estão disponíveis nestes formulários:
 
 + [Pesquisa por prefixo,](query-simple-syntax.md#prefix-search)como, `search=cap*`combinando em "Cap'n Jack's Waterfront Inn" ou "Gacc Capital". Você pode usar a sintaxe de consulta simples para pesquisa por prefixo.
-+ [Pesquisa curinga](query-lucene-syntax.md#bkmk_wildcard) ou [expressões regulares](query-lucene-syntax.md#bkmk_regex) que procuram um padrão ou partes de uma seqüência incorporada, incluindo o sufixo. Por exemplo, dado o termo "alfanumérico",`search=/.*numeric.*/`você usaria uma pesquisa curinga ( ) para uma correspondência de consulta de sufixo nesse termo. Curinga e expressões regulares requerem a sintaxe de Lucene completa.
 
-Quando algum dos tipos de consulta acima for necessário no seu aplicativo cliente, siga as etapas deste artigo para garantir que o conteúdo necessário exista em seu índice.
++ [Pesquisa curinga](query-lucene-syntax.md#bkmk_wildcard) ou [expressões regulares](query-lucene-syntax.md#bkmk_regex) que procuram um padrão ou partes de uma seqüência incorporada, incluindo o sufixo. Curinga e expressões regulares requerem a sintaxe de Lucene completa. 
+
+  Alguns exemplos de pesquisa a termo parcial incluem o seguinte. Para uma consulta de sufixo, dado o termo "alfanumérico", você usaria uma pesquisa curinga (`search=/.*numeric.*/`) para encontrar uma correspondência. Para um termo parcial que inclui caracteres, como um fragmento de URL, você pode precisar adicionar caracteres de fuga. Em JSON, uma `/` barra para a `\`frente é escapada com uma barra para trás . Como tal, `search=/.*microsoft.com\/azure\/.*/` é a sintaxe do fragmento de URL "microsoft.com/azure/".
+
+Como observado, todos os acima requerem que o índice contenha strings em um formato propício à correspondência de padrões, que o analisador padrão não fornece. Seguindo as etapas deste artigo, você pode garantir que o conteúdo necessário exista para suportar esses cenários.
 
 ## <a name="solving-partial-search-problems"></a>Resolvendo problemas parciais de busca
 

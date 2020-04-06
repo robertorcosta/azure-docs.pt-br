@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 8e6a1c3472c6b20b27cf181edbeeb96ab71eb58d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12be766f36a0901079a5a26f20ea7dacc75268de
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73242485"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667869"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Diretrizes para planejamento de rede do Azure NetApp Files
 
@@ -39,10 +39,11 @@ Os recursos abaixo não têm suporte para arquivos do Azure NetApp:
 * Rotas definidas pelo usuário (UDRs) com prefixo de endereço como sub-rede de arquivos Azure NetApp
 * Políticas do Azure (por exemplo, políticas de nomeação personalizadas) na interface Arquivos do Azure NetApp
 * Balanceadores de carga para tráfego de arquivos do Azure NetApp
+* Azure NetApp Files não é suportado com WAN virtual do Azure
 
 As seguintes restrições de rede se aplicam aos arquivos do Azure NetApp:
 
-* O número de IPs em uso em um VNet com Arquivos Azure NetApp (incluindo VNets peered) não pode exceder 1000. Estamos trabalhando para aumentar esse limite para atender às demandas da escala do cliente. Nesse ínterim, se você precisar de mais IPs, entre em contato com nossa equipe de suporte com seu estojo de uso e limite necessário.
+* O número de IPs em uso em um VNet com Arquivos Azure NetApp (incluindo VNets peered) não pode exceder 1000. Estamos trabalhando para aumentar esse limite para atender às demandas da escala do cliente. 
 * Em cada VNet (Rede virtual do Azure), apenas uma sub-rede pode ser delegada para o Azure NetApp Files.
 
 
@@ -123,8 +124,8 @@ Na topologia ilustrada acima, a rede local é conectada a um hub VNet no Azure, 
 * Recursos no local Os recursos VM 1 e VM 2 podem se conectar ao Volume 2 ou Volume 3 através de uma VPN local-para-local e peering vnet regional.
 * VM 3 no hub VNet pode se conectar ao Volume 2 em vnet falou 1 e volume 3 em falou VNet 2.
 * VM 4 de falou VNet 1 e VM 5 de falou VNet 2 pode se conectar ao Volume 1 no hub VNet.
-
-VM 4 em spoke VNet 1 não pode se conectar ao Volume 3 no VNet 2 falado. Além disso, a VM 5 em spoke VNet2 não pode se conectar ao Volume 2 no VNet 1 falado. Este é o caso porque os VNets falados não são peered e _o roteamento de trânsito não é suportado por peering VNet_.
+* VM 4 em spoke VNet 1 não pode se conectar ao Volume 3 no VNet 2 falado. Além disso, a VM 5 em spoke VNet2 não pode se conectar ao Volume 2 no VNet 1 falado. Este é o caso porque os VNets falados não são peered e _o roteamento de trânsito não é suportado por peering VNet_.
+* Na arquitetura acima, se houver um gateway no VNET falado também, a conectividade com o volume ANF a partir da conexão on-prem sobre o gateway no Hub será perdida. Pelo design, a preferência seria dada ao gateway no VNet falado e, portanto, apenas as máquinas que se conectam sobre esse gateway podem se conectar ao volume ANF.
 
 ## <a name="next-steps"></a>Próximas etapas
 

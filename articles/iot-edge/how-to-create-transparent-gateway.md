@@ -4,16 +4,16 @@ description: Usar um dispositivo Azure IoT Edge como gateway transparente que po
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/30/2019
+ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6069e0782f69d0dfb73d9be2998cbb11d59d7d22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b3aeff595671c5f924d01599b572b6b938ef09d
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529162"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666657"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para agir como gateway transparente
 
@@ -31,7 +31,7 @@ Existem três etapas gerais para configurar uma conexão de gateway transparente
 2. O dispositivo a jusante precisa ter uma identidade de dispositivo para ser capaz de autenticar com o IoT Hub, e saber se comunicar através de seu dispositivo gateway. Para obter mais informações, consulte [Authenticate um dispositivo downstream no Azure IoT Hub](how-to-authenticate-downstream-device.md).
 3. O dispositivo a jusante precisa se conectar ao dispositivo gateway com segurança. Para obter mais informações, consulte [Cnectar um dispositivo downstream a um gateway do Azure IoT Edge](how-to-connect-downstream-device.md).
 
-Para que um dispositivo funcione como um gateway, ele precisa ser capaz de se conectar com segurança aos seus dispositivos a jusante. Azure IoT Edge permite que você use a infraestrutura de chave pública (PKI) para configurar conexões seguras entre dispositivos. Neste caso, nós estamos permitindo um dispositivo downstream conectar-se a um dispositivo IoT Edge atuando como um gateway transparente. Para manter a segurança razoável, o dispositivo a jusante deve confirmar a identidade do dispositivo gateway. Essa verificação de identidade impede que seus dispositivos se conectem a gateways potencialmente maliciosos.
+Para que um dispositivo funcione como um gateway, ele precisa ser capaz de se conectar com segurança aos seus dispositivos a jusante. Azure IoT Edge permite que você use a infraestrutura de chave pública (PKI) para configurar conexões seguras entre dispositivos. Neste caso, estamos permitindo que um dispositivo a jusante se conecte a um dispositivo IoT Edge agindo como um gateway transparente. Para manter a segurança razoável, o dispositivo a jusante deve confirmar a identidade do dispositivo gateway. Essa verificação de identidade impede que seus dispositivos se conectem a gateways potencialmente maliciosos.
 
 Um dispositivo downstream em um cenário de gateway transparente pode ser qualquer aplicativo ou plataforma que tenha uma identidade criada com o serviço de nuvem [Azure IoT Hub.](https://docs.microsoft.com/azure/iot-hub) Em muitos casos, esses aplicativos usam o [SDK do dispositivo IoT do Azure](../iot-hub/iot-hub-devguide-sdks.md). Para todos os fins práticos, um dispositivo downstream pode até ser um aplicativo em execução no próprio dispositivo de gateway IoT Edge. No entanto, um dispositivo IoT Edge não pode ser a jusante de um gateway IoT Edge.
 
@@ -42,7 +42,7 @@ Você pode criar qualquer infraestrutura de certificado que permite a relação 
 >[!NOTE]
 >O termo "CA raiz" utilizado ao longo deste artigo refere-se ao certificado público de maior autoridade da cadeia de certificados PKI, e não necessariamente a raiz do certificado de uma autoridade de certificado sindicalizado. Em muitos casos, é na verdade um certificado público de AC intermediário.
 
-O gateway apresenta seu certificado CA do dispositivo IoT Edge para o dispositivo a jusante durante o início da conexão. O dispositivo a jusante verifica se o certificado CA do dispositivo IoT Edge é assinado pelo certificado DE CA raiz. Esse processo permite que o dispositivo downstream confirme que o gateway vem de uma fonte confiável.
+O daemon de segurança IoT Edge usa o certificado CA do dispositivo IoT Edge para assinar um certificado CA de carga de trabalho, que por sua vez assina um certificado de servidor para o hub IoT Edge. O gateway apresenta seu certificado de servidor ao dispositivo downstream durante o início da conexão. O dispositivo a jusante verifica se o certificado do servidor faz parte de uma cadeia de certificados que rola até o certificado DE CA raiz. Esse processo permite que o dispositivo downstream confirme que o gateway vem de uma fonte confiável. Para obter mais informações, consulte [Entenda como o Azure IoT Edge usa certificados](iot-edge-certs.md).
 
 As etapas a seguir acompanham o processo de criação dos certificados e instalá-los nos lugares certos no gateway. Você pode usar qualquer computador para gerar os certificados e, em seguida, copiá-los para seu dispositivo IoT Edge.
 
@@ -115,7 +115,7 @@ Para saber mais sobre o roteamento de mensagens, consulte [Implantar módulos e 
 
 A partir da [versão v1.0.4](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) do tempo de execução do IoT Edge, o dispositivo gateway e os dispositivos downstream que se conectam a ele podem ser configurados para uma operação offline estendida.
 
-Com esse recurso, os módulos locais ou dispositivos a jusante podem reautenticar com o dispositivo IoT Edge conforme necessário e se comunicar uns com os outros usando mensagens e métodos mesmo quando desconectados do hub IoT. Para obter mais informações, consulte [compreender estendido recursos offline para o IoT Edge dispositivos, módulos e dispositivos filho](offline-capabilities.md).
+Com esse recurso, os módulos locais ou dispositivos a jusante podem se reautenticar com o dispositivo IoT Edge conforme necessário e se comunicar uns com os outros usando mensagens e métodos mesmo quando desconectados do hub IoT. Para obter mais informações, consulte [compreender estendido recursos offline para o IoT Edge dispositivos, módulos e dispositivos filho](offline-capabilities.md).
 
 Para habilitar recursos off-line estendidos, você estabelece uma relação pai-filho entre um dispositivo gateway IoT Edge e dispositivos a jusante que se conectarão a ele. Essas etapas são explicadas com mais detalhes no [Authenticate um dispositivo downstream para o Azure IoT Hub](how-to-authenticate-downstream-device.md).
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 839e13dffc7d15b8cd258dd4b7dda6776223d052
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37ddf57057b736cd76a74276e5593a865e7df8cc
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051733"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666864"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalize a interface do usuário no Azure Active Directory B2C
 
@@ -91,7 +91,10 @@ Revise as seguintes orientações antes de usar seus próprios arquivos HTML e C
 
 Ao usar seus próprios arquivos HTML e CSS para personalizar a iu, você pode hospedar seu conteúdo de IU em qualquer ponto final HTTPS disponível publicamente que suporte o CORS. Por exemplo, [armazenamento Azure Blob,](../storage/blobs/storage-blobs-introduction.md)servidores web, CDNs, AWS S3 ou sistemas de compartilhamento de arquivos.
 
-O ponto importante é que você hospeda o conteúdo em um ponto de extremidade HTTPS disponível publicamente com CORS habilitado. Você deve usar uma URL absoluta ao especificá-lo em seu conteúdo.
+O ponto importante é que você hospeda o conteúdo em um ponto final HTTPS disponível [publicamente](https://enable-cors.org/server.html)com cors ativado . Você deve usar uma URL absoluta ao especificá-lo em seu conteúdo.
+
+> [!NOTE]
+> Para obter detalhes sobre a criação de conteúdo HTML, o upload de conteúdo para o armazenamento Do Azure Blob e a configuração do CORS, consulte a seção passo a passo de [conteúdo da página Personalizada](custom-policy-ui-customization.md#custom-page-content-walkthrough) no artigo de personalização da UI.
 
 ## <a name="get-started-with-custom-html-and-css"></a>Comece com HTML personalizado e CSS
 
@@ -166,7 +169,7 @@ Para personalizar as páginas de fluxo do usuário, primeiro configure a marca d
 
 Comece definindo o logotipo do banner, a imagem de fundo e a cor de fundo dentro **da marca da empresa.**
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No portal Azure, procure e selecione **Azure AD B2C**.
 1. Em **Gerenciar,** selecione **Marca da empresa**.
@@ -187,7 +190,7 @@ Depois de configurar a marca da empresa, habilite-a nos fluxos de usuário.
 1. Selecione o fluxo de usuário para o qual você gostaria de ativar a marca da empresa. A marca da empresa não é **suportada** para os tipos de fluxo de usuário *Sign in v1* e *Profile.*
 1. Em **Personalizar,** selecione **Layouts de**página e selecione o layout que deseja marcar. Por exemplo, selecione **'Inscreva-se' ou faça login na página**.
 1. Para a **versão de layout de página (Preview)**, escolha a versão **1.2.0** ou superior.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Se você quiser marcar todas as páginas no fluxo de usuário, defina a versão de layout da página para cada layout de página no fluxo do usuário.
 

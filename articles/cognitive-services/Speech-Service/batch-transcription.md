@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: ee7fbddade055c11f5870aa5a588a2fd02f10a23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb39f1ec83416ee8ab2a33b514971110db0c0b17
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131594"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668844"
 ---
 # <a name="what-is-batch-transcription"></a>O que é transcrição do lote?
 
@@ -37,9 +37,9 @@ A transcrição assíncrona de fala para texto é apenas uma das característica
 
 
 
-Você pode revisar e testar a API detalhada, que está `Custom Speech transcriptions`disponível como um [documento Swagger,](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A)o título.
+Você pode revisar e testar a API detalhada, que está `Custom Speech transcriptions`disponível como um [documento Swagger,](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A)sob o título .
 
-Os trabalhos de transcrição em lote são agendados com o melhor esforço. Atualmente, não há estimativa de quando um emprego muda para o estado em execução. carga normal do sistema, deve acontecer em poucos minutos. Uma vez no estado de execução, a transcrição real é processada mais rápido do que o áudio em tempo real.
+Os trabalhos de transcrição em lote são agendados com o melhor esforço. Atualmente, não há estimativa de quando um emprego muda para o estado em execução. Sob carga normal do sistema, deve acontecer em poucos minutos. Uma vez no estado de execução, a transcrição real é processada mais rápido do que o áudio em tempo real.
 
 Ao lado da API fácil de usar, você não precisa implantar pontos finais personalizados e não tem requisitos de concorrência para observar.
 
@@ -304,9 +304,6 @@ O serviço de transcrição pode lidar com um grande número de transcrições s
 ## <a name="sample-code"></a>Código de exemplo
 
 As amostras completas estão disponíveis no [repositório de amostras do GitHub](https://aka.ms/csspeech/samples) dentro do `samples/batch` subdiretório.
-
-> [!NOTE]
-> A funcionalidade de transcrição em lote é exposta através da API REST descrita acima. Assim, a transcrição em lote pode ser usada a partir de quase qualquer linguagem de programação ou ambiente que suporte REST. Os exemplos abaixo e as amostras no GitHub são meramente representativos e **não** conotam limites sobre onde a API pode ser usada.
 
 Você precisa personalizar o código de exemplo com as informações de assinatura, a região de serviço, o URI de SAS que aponta para o arquivo de áudio a transcrever e IDs de modelo caso deseje usar um modelo de linguagem ou acústico personalizado.
 

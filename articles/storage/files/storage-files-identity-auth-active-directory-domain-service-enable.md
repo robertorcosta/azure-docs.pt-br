@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e2e3c7763a13c8850554b079a426ed4172b74d28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb173bcbf7cd163dca16c211d45018e0fe056edd
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77599269"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666844"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Habilite a autenticação de serviços de domínio do diretório ativo do Azure em arquivos do Azure
 
@@ -61,16 +61,16 @@ Antes de ativar a autenticação Azure AD DS sobre smb para compartilhamentos de
 
 Em seguida, faça as seguintes coisas para conceder acesso aos recursos do Azure Files com credenciais Ad do Azure:
 
-- Habilite a autenticação Azure AD DS sobre SMB para sua conta de armazenamento para registrar a conta de armazenamento com a implantação ad DS do Azure associada.
-- Atribuir permissões de acesso para um compartilhamento a uma identidade do Azure AD (um usuário, grupo ou responsável pelo serviço).
-- Configurar permissões NTFS em SMB para diretórios e arquivos.
-- Montar um compartilhamento de arquivos do Azure de uma VM associada ao domínio.
+1. Habilite a autenticação Azure AD DS sobre SMB para sua conta de armazenamento para registrar a conta de armazenamento com a implantação ad DS do Azure associada.
+2. Atribuir permissões de acesso para um compartilhamento a uma identidade do Azure AD (um usuário, grupo ou responsável pelo serviço).
+3. Configurar permissões NTFS em SMB para diretórios e arquivos.
+4. Montar um compartilhamento de arquivos do Azure de uma VM associada ao domínio.
 
 O diagrama a seguir ilustra o fluxo de trabalho de ponta a ponta para habilitar a autenticação Azure AD DS sobre SMB para Arquivos Azure.
 
 ![Diagrama mostrando o fluxo de trabalho do Azure AD sobre SMB para arquivos do Azure](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
-## <a name="enable-azure-ad-ds-authentication-for-your-account"></a>Habilite a autenticação do Azure AD DS para sua conta
+## <a name="1-enable-azure-ad-ds-authentication-for-your-account"></a>1. Habilite a autenticação do Azure AD DS para sua conta
 
 Para habilitar a autenticação do Azure AD DS sobre smb para arquivos Azure, você pode definir uma propriedade em contas de armazenamento usando o portal Azure, Azure PowerShell ou Azure CLI. Definir essa propriedade implicitamente "domain joins" da conta de armazenamento com a implantação ad DS do Azure associada. A autenticação Azure AD DS sobre SMB é então habilitada para todos os compartilhamentos de arquivos novos e existentes na conta de armazenamento.
 
@@ -83,7 +83,7 @@ Para habilitar a autenticação Azure AD DS via SMB com o [portal Azure,](https:
 1. No portal Azure, vá para sua conta de armazenamento existente ou [crie uma conta de armazenamento](../common/storage-account-create.md).
 1. Na seção **Configurações**, selecione **Configuração**.
 1. Em **acesso baseado em identidade para compartilhamentos de arquivos,** alterne o alternador do **Azure Active Directory Domain Service (AAD DS)** para **Habilitado**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 A imagem a seguir mostra como ativar a autenticação do Azure AD DS sobre SMB para sua conta de armazenamento.
 
@@ -135,7 +135,7 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --e
 
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 
-Agora, você habilitou com sucesso a autenticação Azure AD DS sobre SMB e atribuiu uma função personalizada que fornece acesso a um compartilhamento de arquivos Azure com uma identidade Azure AD. Para conceder aos usuários adicionais acesso ao seu compartilhamento de arquivos, siga as instruções nas [permissões de acesso Atribuir](#assign-access-permissions-to-an-identity) para usar uma identidade e [configure permissões NTFS sobre seções SMB](#configure-ntfs-permissions-over-smb).
+Agora, você habilitou com sucesso a autenticação Azure AD DS sobre SMB e atribuiu uma função personalizada que fornece acesso a um compartilhamento de arquivos Azure com uma identidade Azure AD. Para conceder aos usuários adicionais acesso ao seu compartilhamento de arquivos, siga as instruções nas [permissões de acesso Atribuir](#2-assign-access-permissions-to-an-identity) para usar uma identidade e [configure permissões NTFS sobre seções SMB](#3-configure-ntfs-permissions-over-smb).
 
 ## <a name="next-steps"></a>Próximas etapas
 
