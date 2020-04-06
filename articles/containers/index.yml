@@ -1,80 +1,165 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure para Contêineres
+### YamlMime:Hub
+title: Documentação dos serviços de contêiner
+summary: Saiba como usar os serviços de contêiner do Azure para gerenciar e desenvolver aplicativos de contêiner baseados em nuvem.
+brand: azure
 metadata:
-  title: 'Azure para contêineres – guias início rápido, tutoriais, referência de API'
-  description: 'Introdução ao gerenciamento e à implantação de aplicativos de contêiner com o Azure usando guias de início rápido, tutoriais e ferramentas para contêineres.'
-  keywords: 'Azure, Contêineres, Docker, API, Kubernetes'
-  author: dlepow
-  ms.author: danlep
-  ms.date: 01/08/2019
-  ms.topic: article
-  ms.prod: azure
-  featureFlags:
-    - clicktale
-  ms.technology: azure
-  ms.devlang: multiple
-  ms.service: multiple
-sections:
-  - items:
-      - type: markdown
-        text: |
-          Introdução ao gerenciamento e à implantação de aplicativos de contêiner com as ferramentas e os serviços do Azure para contêineres. 
-  - title: Guias de início rápido de 5 minutos
-    items:
-      - type: paragraph
-        text: Saiba como usar contêineres com os serviços do Azure.
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 2
-        items:
-          - href: ../aks/kubernetes-walkthrough.md
-            title: Criar um cluster Kubernetes com o Serviço de Kubernetes do Azure (AKS)
-            image:
-              src: /azure/media/index/ContainerService.svg
-          - href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers'
-            title: Implantar um aplicativo de contêiner do Windows com o Service Fabric
-            image:
-              src: /azure/media/index/Fabric.svg
-          - href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go'
-            title: Criar um aplicativo em contêiner com o Aplicativo Web para Contêineres do Azure
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
-          - href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
-            title: Criar um registro Docker privado no Registro de Contêiner do Azure
-            image:
-              src: /azure/media/index/container-registry.svg
-          - href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
-            title: Executar aplicativo de contêiner sob demanda nas Instâncias de Contêiner do Azure
-            image:
-              src: /azure/media/index/containerinstances.svg
-  - title: Tutoriais passo a passo
-    items:
-      - type: paragraph
-        text: 'Saiba como implantar, gerenciar e atualizar aplicativos de contêiner usando os serviços do Azure'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Criar e implantar um contêiner no Serviço de Kubernetes do Azure</a>
-          - html: <a href="/azure/service-fabric/service-fabric-host-app-in-a-container">Criar e implantar um aplicativo de contêiner do .NET no Azure Service Fabric</a>
-          - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Criar um aplicativo de vários contêineres no Aplicativo Web para Contêineres</a>
-          - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Criar e implantar imagens de contêiner com as Tarefas do Registro de Contêiner do Azure</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Criar e implantar um contêiner nas Instâncias de Contêiner do Azure</a>
-          - html: <a href="/azure/openshift/tutorial-create-cluster">Criar um cluster do Red Hat OpenShift no Azure</a>
-  - title: Desenvolva suas habilidades com o Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Executar contêineres do Docker com Instâncias de Contêiner do Azure
-            href: /learn/modules/run-docker-with-azure-container-instances/
-            image:
-              src: /learn/achievements/run-docker-with-azure-container-instances.svg
-              href: /learn/modules/run-docker-with-azure-container-instances/
-          - title: Criar e armazenar imagens de contêiner com o Registro de Contêiner do Azure
-            href: /learn/modules/build-and-store-container-images/
-            image:
-              src: /learn/achievements/build-and-store-container-images.svg
-              href: /learn/modules/build-and-store-container-images/
+  title: Documentação dos serviços de contêiner do Microsoft Azure | Microsoft Docs
+  description: Saiba como usar os serviços de contêiner do Azure para gerenciar e desenvolver aplicativos de contêiner baseados em nuvem.
+  ms.topic: hub-page
+  ms.openlocfilehash: 740b95a28e8437defb1929003a74c53cacdcaa70
+  ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 04/01/2020
+  ms.locfileid: "80478144"
+highlightedContent:
+  items:
+  - itemType: whats-new
+    title: Quais são as novidades dos contêineres do Azure?
+    url: https://azure.microsoft.com/updates/?category=containers
+  - itemType: concept
+    title: Uma abordagem de microsserviços para aplicativos
+    url: /azure/service-fabric/service-fabric-overview-microservices
+  - itemType: concept
+    title: Noções básicas do Kubernetes
+    url: /azure/aks/concepts-clusters-workloads
+conceptualContent:
+  items:
+  - title: Implantar o Kubernetes no Azure
+    links:
+    - url: /azure/aks/intro-kubernetes
+      itemType: overview
+      text: O que é o Serviço de Kubernetes do Azure?
+    - url: /azure/aks/tutorial-kubernetes-prepare-app
+      itemType: tutorial
+      text: Preparar um aplicativo para o AKS
+    - url: /azure/aks/kubernetes-walkthrough
+      itemType: tutorial
+      text: Criar um cluster do AKS (CLI)
+    footerLink:
+      url: /azure/aks/
+      text: Ver mais
+  - title: Testar e desenvolver aplicativos do AKS
+    links:
+    - url: /azure/dev-spaces/about
+      itemType: overview
+      text: O que é o Azure Dev Spaces?
+    - url: /azure/dev-spaces/quickstart-netcore
+      itemType: quickstart
+      text: Executar e depurar um microsserviço
+    - url: /azure/dev-spaces/quickstart-team-development
+      itemType: quickstart
+      text: Colaborar em um conjunto de microsserviços com uma equipe
+    footerLink:
+      url: /azure/dev-spaces/
+      text: Ver mais
+  - title: Criar aplicativos de nuvem para a Web e móvel
+    links:
+    - url: /azure/app-service/overview
+      itemType: overview
+      text: O que é o Serviço de Aplicativo?
+    - url: /azure/app-service/app-service-web-tutorial-custom-domain
+      itemType: get-started
+      text: Mapear um domínio personalizado para um aplicativo
+    - url: /azure/app-service/configure-ssl-bindings
+      itemType: tutorial
+      text: Proteger um domínio personalizado com uma associação SSL
+    - url: /azure/app-service/app-service-web-get-started-windows-container
+      itemType: get-started
+      text: Executar um contêiner personalizado do Windows
+    - url: /azure/app-service/quickstart-docker
+      itemType: quickstart
+      text: Executar um contêiner personalizado do Linux
+    - url: /azure/app-service/quickstart-multi-container
+      itemType: quickstart
+      text: Criar um aplicativo multicontêiner do Linux
+    footerLink:
+      url: /azure/app-service/
+      text: Ver mais
+  - title: Executar contêineres no Azure
+    links:
+    - url: /azure/container-instances/container-instances-overview
+      itemType: overview
+      text: Visão geral das Instâncias de Contêiner
+    - url: https://docs.microsoft.com/learn/modules/run-docker-with-azure-container-instances/
+      itemType: learn
+      text: Executar aplicativos em contêineres usando o Docker com as Instâncias de Contêiner do Azure
+    - url: /azure/container-instances/container-instances-using-azure-container-registry
+      itemType: how-to-guide
+      text: Implantar uma imagem do Registro de Contêiner do Azure
+    - url: /azure/container-registry/container-registry-quick-task-cli
+      itemType: get-started
+      text: Criar, enviar uma imagem por push e executá-la usando a CLI do Azure
+    footerLink:
+      url: /azure/container-instances/
+      text: Ver mais
+  - title: Agendamento de trabalho e gerenciamento de computação
+    links:
+    - url: /azure/batch/batch-technical-overview
+      itemType: overview
+      text: O que é o Lote?
+    - url: /azure/batch/quick-create-cli
+      itemType: get-started
+      text: Executar o primeiro trabalho em Lote com a CLI do Azure
+    - url: /azure/batch/tutorial-parallel-dotnet
+      itemType: tutorial
+      text: Executar uma carga de trabalho paralela com o Lote do Azure usando a API do .NET
+    footerLink:
+      url: /azure/batch/
+      text: Ver mais
+  - title: Desenvolvimento de microsserviços e orquestração de contêineres
+    links:
+    - url: /azure/service-fabric/service-fabric-overview
+      itemType: overview
+      text: O que é o Azure Service Fabric?
+    - url: /azure/service-fabric/service-fabric-quickstart-dotnet
+      itemType: quickstart
+      text: Implantar um aplicativo Reliable Services em .NET no Service Fabric
+    - url: /azure/service-fabric/service-fabric-cluster-creation-for-windows-server
+      itemType: how-to-guide
+      text: Criar um cluster autônomo em execução no Windows Server
+    footerLink:
+      url: /azure/service-fabric/
+      text: Ver mais
+  - title: Armazenar e gerenciar imagens de contêiner
+    links:
+    - url: /azure/container-registry/container-registry-intro
+      itemType: overview
+      text: O que é o Registro de Contêiner do Azure?
+    - url: /azure/container-registry/container-registry-get-started-azure-cli
+      itemType: get-started
+      text: Criar um registro de contêiner particular usando a CLI do Azure
+    - url: /azure/container-registry/container-registry-quick-task-cli
+      itemType: get-started
+      text: Criar, enviar uma imagem por push e executá-la usando a CLI do Azure
+    footerLink:
+      url: /azure/container-registry/
+      text: Ver mais
+  - title: Serviço OpenShift gerenciado
+    links:
+    - url: /azure/openshift/intro-openshift
+      itemType: overview
+      text: O que é o Red Hat OpenShift no Azure?
+    - url: /azure/openshift/howto-setup-environment
+      itemType: how-to-guide
+      text: Configurar seu ambiente de desenvolvimento do Red Hat OpenShift no Azure
+    - url: /azure/openshift/tutorial-create-cluster
+      itemType: tutorial
+      text: Criar um cluster do Red Hat OpenShift no Azure
+    footerLink:
+      url: /azure/openshift/
+      text: Ver mais
+  - title: Desenvolvimento de aplicativos sem servidor
+    links:
+    - url: /azure/azure-functions/functions-overview
+      itemType: overview
+      text: Introdução ao Azure Functions
+    - url: /azure/azure-functions/functions-create-first-function-vs-code
+      itemType: quickstart
+      text: Criar sua primeira função
+    - url: /azure/azure-functions/functions-triggers-bindings
+      itemType: overview
+      text: Integração com outros serviços do Azure
+    footerLink:
+      url: /azure/azure-functions/
+      text: Ver mais

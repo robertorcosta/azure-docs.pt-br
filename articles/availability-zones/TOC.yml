@@ -85,6 +85,10 @@
           items:
             - name: Criar uma instância do Azure Active Directory Domain Services
               href: ../active-directory-domain-services/tutorial-create-instance.md
+    - name: Documentação das zonas de borda
+      items:
+        - name: O que são zonas de borda?
+          href: ../networking/edge-zones-overview.md
 - name: Recuperação de desastre
   items:
     - name: Como usar o Azure Site Recovery

@@ -1,0 +1,35 @@
+### YamlMime:Landing
+title: Documentação do SQL Server Stretch Database do Azure
+summary: Saiba como usar o SQL Server Stretch Database para migrar os dados frios de forma transparente e segura para a nuvem do Azure. Você pode configurar uma disponibilidade econômica para os bancos de dados com os dados que sejam pouco usados sem exigir alterações em consultas ou aplicativos existentes.
+metadata:
+  title: Documentação do SQL Server Stretch Database do Azure
+  description: Saiba como usar o SQL Server Stretch Database para migrar os dados frios de forma transparente e segura para a nuvem do Azure. Você pode configurar uma disponibilidade econômica para os bancos de dados com os dados que sejam pouco usados sem exigir alterações em consultas ou aplicativos existentes.
+  services: sql-server-stretch-database
+  ms.service: sql-server-stretch-database
+  ms.topic: landing-page
+  author: craigg-msft
+  ms.author: craigg
+  ms.date: 03/30/2020
+  ms.openlocfilehash: 7795ebe8e988cfe2cea41e7fcadf955a354d9a5e
+  ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 03/31/2020
+  ms.locfileid: "80422937"
+landingContent:
+- title: Introdução
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o SQL Server Stretch Database do Azure?
+      url: https://docs.microsoft.com/sql/sql-server/stretch-database/stretch-database
+  - linkListType: video
+    links:
+    - text: Vídeos do SQL Server Stretch Database do Azure
+      url: https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database
+  - linkListType: how-to-guide
+    links:
+    - text: Identificar bancos de dados e tabelas do Stretch Database com o Assistente de Migração de Dados
+      url: https://docs.microsoft.com/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
+    - text: Comece executando o Assistente para Habilitar o Banco de Dados para Alongamento
+      url: https://docs.microsoft.com/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard

@@ -26,6 +26,8 @@
     - name: Aplicativos de página única
       displayName: SPA
       items:
+        - name: Angular
+          href: quickstart-v2-angular.md
         - name: JavaScript
           href: quickstart-v2-javascript.md
     - name: Aplicativos Web
@@ -69,6 +71,8 @@
     - name: Aplicativos de página única
       displayName: SPA
       items:
+        - name: Angular
+          href: tutorial-v2-angular.md
         - name: JavaScript
           href: tutorial-v2-javascript-spa.md
     - name: Aplicativos Web
@@ -219,8 +223,12 @@
               href: scenario-mobile-app-configuration.md
             - name: Configuração específica de plataformas móveis
               items:
+                - name: Plug-in de SSO do Microsoft Enterprise para dispositivos Apple
+                  href: apple-sso-plugin.md
                 - name: Modo de dispositivo compartilhado para dispositivos Android
-                  href: shared-device-mode.md
+                  href: msal-android-shared-devices.md
+                - name: Modo de dispositivo compartilhado para dispositivos iOS
+                  href: msal-ios-shared-devices.md
                 - name: Xamarin Android
                   href: msal-net-xamarin-android-considerations.md
                 - name: Navegador do sistema no Android
@@ -308,6 +316,17 @@
           href: msal-handling-exceptions.md
         - name: Registro em log
           href: msal-logging.md
+        - name: Dispositivos compartilhados
+          items:
+            - name: Visão geral – dispositivos compartilhados
+              href: msal-shared-devices.md
+              displayName: 'shared device mode, firstline worker, frontline worker'
+            - name: Modo de dispositivo compartilhado para dispositivos iOS
+              href: msal-ios-shared-devices.md
+              displayName: 'firstline worker, frontline worker'
+            - name: Modo de dispositivo compartilhado para dispositivos Android
+              href: msal-android-shared-devices.md
+              displayName: 'firstline worker, frontline worker'
         - name: Logon único
           displayName: SSO
           items:

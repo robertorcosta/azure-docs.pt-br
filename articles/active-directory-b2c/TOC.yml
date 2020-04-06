@@ -74,6 +74,8 @@
           href: custom-policy-overview.md
     - name: Contas de usuário
       href: user-overview.md
+    - name: Atributos de perfil do usuário
+      href: user-profile-attributes.md
 - name: Guias de instruções
   items:
     - name: Integração de aplicativo
@@ -231,18 +233,16 @@
               href: direct-signin.md
         - name: Adicionar sua própria lógica de negócios
           items:
+            - name: Integrar API REST
+              href: custom-policy-rest-api-intro.md
             - name: Valide a entrada do usuário
               href: custom-policy-rest-api-claims-validation.md
               displayName: 'rest claims validation, validate'
             - name: Obter declarações adicionais
               href: custom-policy-rest-api-claims-exchange.md
               displayName: rest claims exchange
-            - name: Adicione sua própria API RESTful
-              href: rest-api-claims-exchange-dotnet.md
-            - name: Proteger APIs RESTful com autenticação básica
-              href: secure-rest-api-dotnet-basic-auth.md
-            - name: Proteger APIs RESTful com autenticação de certificado
-              href: secure-rest-api-dotnet-certificate-auth.md
+            - name: Proteger API REST
+              href: secure-rest-api.md
         - name: Definir atributos personalizados
           href: custom-policy-custom-attributes.md
         - name: Solução de problemas
@@ -309,13 +309,15 @@
                   items:
                     - name: Sobre perfis técnicos
                       href: technical-profiles-overview.md
+                    - name: Sobre perfis técnicos de validação
+                      href: validation-technical-profile.md
+                    - name: Application Insights
+                      href: application-insights-technical-profile.md
+                    - name: Azure Active Directory
+                      href: active-directory-technical-profile.md
                     - name: Autenticação Multifator do Azure
                       href: multi-factor-auth-technical-profile.md
                       displayName: mfa
-                    - name: Resolvedores de declarações
-                      href: claim-resolver-overview.md
-                    - name: Azure Active Directory
-                      href: active-directory-technical-profile.md
                     - name: Transformação de declarações
                       href: claims-transformation-technical-profile.md
                     - name: Emissor do token JWT
@@ -329,6 +331,8 @@
                       displayName: otp
                     - name: OpenID Connect
                       href: openid-connect-technical-profile.md
+                    - name: Fator de telefone
+                      href: phone-factor-technical-profile.md
                     - name: REST
                       href: restful-technical-profile.md
                     - name: SAML
@@ -340,12 +344,12 @@
                     - name: Sessão de SSO
                       href: custom-policy-reference-sso.md
                       displayName: single sign-on
-                    - name: Validação
-                      href: validation-technical-profile.md
             - name: UserJourneys
               href: userjourneys.md
             - name: RelyingParty
               href: relyingparty.md
+            - name: Resolvedores de declarações
+              href: claim-resolver-overview.md
     - name: Usar b2clogin.com
       items:
         - name: Visão geral do b2clogin.com
@@ -389,28 +393,28 @@
           href: user-migration.md
 - name: Referência
   items:
-    - name: Notas sobre a versão do Identity Experience Framework
-      href: custom-policy-developer-notes.md
+    - name: Modelo de cobrança
+      href: billing.md
     - name: Exemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'
-    - name: Versões do layout da página
-      href: page-layout.md
     - name: Definições de cookie
       href: cookie-definitions.md
       displayName: 'cookies, SameSite'
     - name: Códigos do Erro
       href: error-codes.md
+    - name: Aplicativo das extensões
+      href: extensions-app.md
+    - name: Notas sobre a versão do IEF
+      href: custom-policy-developer-notes.md
     - name: Operações de API do Microsoft Graph
       href: microsoft-graph-operations.md
+    - name: Versões do layout da página
+      href: page-layout.md
     - name: Disponibilidade de região e residência de dados
       href: data-residency.md
-    - name: Modelo de cobrança
-      href: billing.md
     - name: Gerenciamento de ameaças
       href: threat-management.md
       displayName: security
-    - name: Aplicativo das extensões
-      href: extensions-app.md
     - name: Versões de fluxo do usuário
       href: user-flow-versions.md
 - name: Recursos

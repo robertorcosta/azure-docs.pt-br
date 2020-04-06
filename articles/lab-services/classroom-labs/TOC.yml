@@ -102,6 +102,8 @@
               href: how-to-enable-nested-virtualization-template-vm-using-script.md
         - name: Preparar uma VM modelo do Windows
           href: how-to-prepare-windows-template.md
+        - name: Controlar o comportamento de desligamento do Windows
+          href: how-to-windows-shutdown.md
         - name: Exibir informações de suporte (instrutor)
           href: lab-creator-support-information.md
     - name: Conectar a VMs nos laboratórios de sala de aula (aluno)

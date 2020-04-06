@@ -1,5 +1,5 @@
-- name: Documentação do Agendador
-  href: index.md
+- name: Documentação do Agendador do Azure
+  href: index.yml
 - name: Visão geral
   items:
     - name: O que é o Agendador do Azure?

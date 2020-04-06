@@ -93,6 +93,8 @@
           href: security-audit-events.md
         - name: Analisar eventos de auditoria com Pastas de Trabalho do Azure Monitor
           href: use-azure-monitor-workbooks.md
+        - name: Proteger o acesso remoto às VMs
+          href: secure-remote-vm-access.md
     - name: Ingressar VMs em domínios
       items:
         - name: VM do Windows Server com base no modelo
@@ -143,13 +145,9 @@
       href: faqs.md
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
-    - name: Software de terceiros compatível
-      href: compatible-software.md
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/active-directory-ds/'
     - name: Fórum de comentários do Azure AD
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: Fale conosco
-      href: contact-us.md
     - name: Usar Azure AD Domain Services nas assinaturas do Azure CSP
       href: csp.md
