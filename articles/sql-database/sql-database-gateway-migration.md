@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: fe35dc4c22f3852934cde0d6f33084b56266d514
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e3c33bb7493f07d9fbf19710f21d0114e7abec8
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73807697"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757073"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migração de tráfego do Banco de Dados Azure SQL para gateways mais novos
 
@@ -54,7 +54,7 @@ Você não será impactado se tiver:
 
 Recomendamos que você permita tráfego de saída para endereços IP para todos os [endereços IP do gateway de banco de dados Azure SQL](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) na região na porta TCP 1433 e na faixa de porta 11000-11999. Essa recomendação é aplicável aos clientes que se conectam a partir de locais e também àqueles que se conectam via Service Endpoints. Para obter mais informações sobre as faixas de porta, consulte [A diretiva Conexão](sql-database-connectivity-architecture.md#connection-policy).
 
-Conexões feitas a partir de aplicativos usando o Microsoft JDBC Driver abaixo da versão 4.0 podem falhar na validação do certificado. Versões inferiores do Microsoft JDBC dependem do Nome Comum (CN) no campo Assunto do certificado. A mitigação é para garantir que a propriedade hostNameInCertificate esteja definida como *.database.windows.net. Para obter mais informações sobre como definir a propriedade hostNameInCertificate, consulte [Conectando com criptografia SSL](/sql/connect/jdbc/connecting-with-ssl-encryption).
+Conexões feitas a partir de aplicativos usando o Microsoft JDBC Driver abaixo da versão 4.0 podem falhar na validação do certificado. Versões inferiores do Microsoft JDBC dependem do Nome Comum (CN) no campo Assunto do certificado. A mitigação é para garantir que a propriedade hostNameInCertificate esteja definida como *.database.windows.net. Para obter mais informações sobre como definir a propriedade hostNameInCertificate, consulte [Conectando com criptografia](/sql/connect/jdbc/connecting-with-ssl-encryption).
 
 Se a mitigação acima não funcionar, faça uma solicitação de suporte para o Banco de Dados SQL usando a seguinte URL:https://aka.ms/getazuresupport
 

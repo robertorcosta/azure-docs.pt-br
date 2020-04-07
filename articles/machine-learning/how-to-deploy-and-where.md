@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: f6bab532b872a0974993f708edcb252d8bb54432
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 3fe13dcb35e6985d160f52b7ee3f9da4accd7806
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529701"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756676"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -961,7 +961,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-Depois de criar um pacote, você pode usar `package.pull()` para puxar a imagem para o ambiente Docker local. A saída deste comando exibirá o nome da imagem. Por exemplo:  
+Depois de criar um pacote, você pode usar `package.pull()` para puxar a imagem para o ambiente Docker local. A saída deste comando exibirá o nome da imagem. Por exemplo: 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 
@@ -1121,6 +1121,16 @@ def run(request):
 > ```shell
 > pip install azureml-contrib-services
 > ```
+
+A `AMLRequest` classe só permite que você acesse os dados postados brutos no score.py, não há componente do lado do cliente. De um cliente, você posta dados normalmente. Por exemplo, o código Python a seguir lê um arquivo de imagem e posta os dados:
+
+```python
+import requests
+# Load image data
+data = open('example.jpg', 'rb').read()
+# Post raw data to scoring URI
+res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
+```
 
 <a id="cors"></a>
 

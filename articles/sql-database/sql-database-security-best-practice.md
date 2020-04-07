@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 9c1260bb1fab23ede2d1a96725c3086dc128fffc
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 39747ac0a7133562bed526f44e30bf4a656127c0
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387641"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673602"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Livro de jogadas para atender aos requisitos comuns de segurança com o banco de dados SQL do Azure
 
@@ -174,7 +174,7 @@ Os métodos de autenticação baseados em senha são uma forma mais fraca de aut
 **Melhores práticas:**
 
 - Use [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
-  - [Identidade gerenciada atribuída ao sistema](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md) 
+  - [Identidade gerenciada atribuída pelo sistema](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md) 
   - [Identidade gerenciada atribuída pelo usuário](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
   - [Use o Banco de Dados SQL do Azure do serviço de aplicativo com identidade gerenciada (sem alterações de código)](https://github.com/Azure-Samples/app-service-msi-entityframework-dotnet)
 
@@ -466,7 +466,7 @@ Ao usar o CLE:
 
 Tenha em mente que o Always Encrypted foi projetado principalmente para proteger dados confidenciais em uso de usuários de alto privilégio do Azure SQL Database (operadores de nuvem, DBAs) - consulte [Proteger dados confidenciais em uso de usuários altamente privilegiados e não autorizados](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users). Esteja ciente dos seguintes desafios ao usar o Always Encrypted para proteger dados de usuários de aplicativos:
 
-- Por padrão, todos os drivers clientes da Microsoft que suportam always encrypted mantêm um cache global (um por aplicativo) de chaves de criptografia de coluna. Uma vez que um driver cliente adquire uma chave de criptografia de coluna de texto simples entrando em contato com uma loja de chaves segurando uma chave-mestre da coluna, a chave de criptografia da coluna plaintext é armazenada em cache. Isso torna desafiador o isolamento de dados dos usuários de um aplicativo multiusuário. Se o aplicativo se passar por usuários finais ao interagir com uma loja-chave (como o Azure Key Vault), depois que a consulta de um usuário preencher o cache com uma chave de criptografia de coluna, uma consulta subsequente que requer a mesma chave, mas é acionada por outro usuário usará o chave armazenada em cache. O driver não ligará para a loja de chaves e não verificará se o segundo usuário tem permissão para acessar a chave de criptografia da coluna. Como resultado, o usuário poderá ver os dados criptografados mesmo que o usuário não tenha acesso às chaves. Para alcançar o isolamento dos usuários dentro de um aplicativo multiusuário, você pode desativar o cache da chave de criptografia da coluna. A desativação do cache causará sobrecargas adicionais de desempenho, pois o driver precisará entrar em contato com o armazenamento de chaves para cada operação de criptografia ou descriptografia de dados.
+- Por padrão, todos os drivers clientes da Microsoft que suportam always encrypted mantêm um cache global (um por aplicativo) de chaves de criptografia de coluna. Uma vez que um driver cliente adquire uma chave de criptografia de coluna de texto simples entrando em contato com uma loja de chaves segurando uma chave-mestre da coluna, a chave de criptografia da coluna plaintext é armazenada em cache. Isso torna desafiador o isolamento de dados dos usuários de um aplicativo multiusuário. Se o aplicativo se passar por usuários finais ao interagir com uma loja-chave (como o Azure Key Vault), depois que uma consulta do usuário preencher o cache com uma chave de criptografia de coluna, uma consulta subsequente que requer a mesma chave, mas é acionada por outro usuário, usará a chave armazenada em cache. O driver não ligará para a loja de chaves e não verificará se o segundo usuário tem permissão para acessar a chave de criptografia da coluna. Como resultado, o usuário poderá ver os dados criptografados mesmo que o usuário não tenha acesso às chaves. Para alcançar o isolamento dos usuários dentro de um aplicativo multiusuário, você pode desativar o cache da chave de criptografia da coluna. A desativação do cache causará sobrecargas adicionais de desempenho, pois o driver precisará entrar em contato com o armazenamento de chaves para cada operação de criptografia ou descriptografia de dados.
 
 ### <a name="protect-data-against-unauthorized-viewing-by-application-users-while-preserving-data-format"></a>Proteger os dados contra visualizações não autorizadas por usuários de aplicativos, preservando o formato de dados
 Outra técnica para impedir que usuários não autorizados visualizam dados é ofuscar ou mascarar os dados, preservando os tipos e formatos de dados para garantir que os aplicativos do usuário possam continuar a manusear e exibir os dados.
@@ -735,7 +735,7 @@ Monitore quem acessa dados confidenciais e capture consultas sobre dados confide
 **Como implementar:**
 
 - Use a auditoria SQL e a classificação de dados em combinação. 
-  - No seu registro [de auditoria do banco de dados SQL,](sql-database-auditing.md) você pode rastrear o acesso especificamente a dados confidenciais. Você também pode visualizar informações como os dados que foram acessados, bem como seu rótulo de sensibilidade. Para obter mais informações, consulte [Auditing access to sensitive data](sql-database-data-discovery-and-classification.md#subheading-3). 
+  - No seu registro [de auditoria do banco de dados SQL,](sql-database-auditing.md) você pode rastrear o acesso especificamente a dados confidenciais. Você também pode visualizar informações como os dados que foram acessados, bem como seu rótulo de sensibilidade. Para obter mais informações, consulte [Data Discovery & Classification](sql-database-data-discovery-and-classification.md) and [Auditing access to sensitive data](sql-database-data-discovery-and-classification.md#audit-sensitive-data). 
 
 **Melhores práticas:**
 

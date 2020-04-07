@@ -4,14 +4,14 @@ description: Saiba como migrar seu aplicativo usando a biblioteca de executores 
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 04/06/2020
 ms.author: maquaran
-ms.openlocfilehash: e1a2a5d849d3c94d62b8645c41f288ba130aa6a4
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 820a5398d84122659b1676b7d5722bce08b1837d
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479325"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755982"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migre da biblioteca de executores em massa para o suporte em massa no Azure Cosmos DB .NET V3 SDK
 
@@ -33,15 +33,15 @@ Por exemplo, se sua entrada inicial for uma lista de itens onde cada item tem o 
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
-Se você quiser fazer importação em massa (semelhante ao uso de BulkExecutor.BulkImportAsync), você precisa ter chamadas simultâneas para `CreateItemAsync` cada valor de item. Por exemplo: 
+Se você quiser fazer importação em massa (semelhante ao uso de BulkExecutor.BulkImportAsync), você precisa ter chamadas simultâneas para `CreateItemAsync` cada valor de item. Por exemplo:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
-Se você quiser fazer *atualização* em massa (semelhante ao uso [do BulkExecutor.BulkUpdateAsync),](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)você precisa ter chamadas simultâneas para o `ReplaceItemAsync` método após atualizar o valor do item. Por exemplo: 
+Se você quiser fazer *atualização* em massa (semelhante ao uso [do BulkExecutor.BulkUpdateAsync),](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)você precisa ter chamadas simultâneas para o `ReplaceItemAsync` método após atualizar o valor do item. Por exemplo:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-E se você quiser fazer *a exclusão* em massa (semelhante ao uso [bulkExecutor.BulkDeleteAsync),](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)você precisa ter chamadas simultâneas para, `DeleteItemAsync`com a `id` chave e partição de cada item. Por exemplo: 
+E se você quiser fazer *a exclusão* em massa (semelhante ao uso [bulkExecutor.BulkDeleteAsync),](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)você precisa ter chamadas simultâneas para, `DeleteItemAsync`com a `id` chave e partição de cada item. Por exemplo:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 
@@ -73,6 +73,15 @@ O `BulkOperationResponse` contém:
 1. O número de operações bem sucedidas.
 1. O total de unidades de solicitação consumidas.
 1. Se houver falhas, ele exibe uma lista de tuplas que contêm a exceção e o item associado para fins de registro e identificação.
+
+## <a name="retry-configuration"></a>Configuração de retentativa
+
+A biblioteca de executores em `MaxRetryWaitTimeInSeconds` `MaxRetryAttemptsOnThrottledRequests` massa tinha [orientação](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) que mencionava para definir o e de [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) para `0` delegar o controle à biblioteca.
+
+Para suporte em massa no .NET SDK, não há comportamento oculto. Você pode configurar as opções de repetição diretamente através do [CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) e [CosmosClientOptions.MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
+
+> [!NOTE]
+> Nos casos em que as unidades de solicitação provisionadas são muito inferiores ao esperado com base na quantidade de dados, você pode considerar defini-los como valores elevados. A operação em massa levará mais tempo, mas tem uma chance maior de ter sucesso total devido às tentativas mais altas.
 
 ## <a name="performance-improvements"></a>Melhorias de desempenho
 

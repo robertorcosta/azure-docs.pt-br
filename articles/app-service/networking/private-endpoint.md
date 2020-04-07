@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c2717b1f29af39c6fdc4602b11acba131d959f03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d139cfa50afa94621066995314737fac70bbafe
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79534381"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756286"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Usando pontos finais privados para o aplicativo Web Do Azure (Preview)
 
@@ -25,7 +25,7 @@ Você pode usar o Private Endpoint para o seu Azure Web App para permitir que os
 
 Usar o Private Endpoint para o seu Aplicativo web permite:
 
-- Proteja seu Aplicativo web configurando o Ponto Final de Serviço, eliminando a exposição pública.
+- Proteja seu Aplicativo web configurando o Ponto Final Privado, eliminando a exposição pública.
 - Conecte-se com segurança ao Web App a partir de redes locais que se conectam à VNet usando uma VPN ou peering privado ExpressRoute.
 
 Se você só precisa de uma conexão segura entre seu VNet e seu Aplicativo Web, um Ponto Final de Serviço é a solução mais simples. Se você também precisa acessar o aplicativo web a partir de locais através de um gateway Azure, um VNet regionalmente peered ou um VNet com peerly globalmente, private endpoint é a solução.  

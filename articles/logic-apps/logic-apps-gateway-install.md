@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 12/05/2019
-ms.openlocfilehash: 797cd82327d68003d4e5f007d1f16e9534092ac0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2f8b9f207993c49201d03d3d1fed3c5800e8780
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79283986"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673824"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para os Aplicativos Lógicos do Azure
 
@@ -22,7 +22,7 @@ Antes de [se conectar a fontes de dados locais do Azure Logic Apps](../logic-app
 * [Gateway de dados do Microsoft Power Apps no local](/powerapps/maker/canvas-apps/gateway-reference)
 * [Gateway de dados local do Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
-Este artigo mostra como baixar, instalar e configurar seu gateway de dados no local para que você possa acessar fontes de dados locais do Azure Logic Apps. Você também pode aprender mais sobre [como o gateway de dados funciona](#gateway-cloud-service) mais tarde neste tópico. Para obter mais informações sobre o gateway, consulte [O que é um gateway no local?](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)
+Este artigo mostra como baixar, instalar e configurar seu gateway de dados no local para que você possa acessar fontes de dados locais do Azure Logic Apps. Você também pode aprender mais sobre [como o gateway de dados funciona](#gateway-cloud-service) mais tarde neste tópico. Para obter mais informações sobre o gateway, consulte [O que é um gateway no local?](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem) Para automatizar as tarefas de instalação e gerenciamento de gateway, visite a galeria PowerShell para obter os [cmdlets DataGateway PowerShell](https://www.powershellgallery.com/packages/DataGateway/3000.15.15).
 
 <a name="requirements"></a>
 

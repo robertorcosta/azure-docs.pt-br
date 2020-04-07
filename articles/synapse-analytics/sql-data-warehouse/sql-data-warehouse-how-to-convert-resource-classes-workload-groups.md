@@ -11,12 +11,12 @@ ms.date: 11/4/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a249dfc4f04fbd7b6b73a0e9f37d53106bf82efd
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 8cee874106598c7d81b923d7dd32ba91902d9326
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633337"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745177"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Converter classes de recursos em grupos de carga de trabalho
 
@@ -53,7 +53,7 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 
 ## <a name="create-the-classifier"></a>Criar o Classificador
 
-Anteriormente, o mapeamento de consultas às classes de recursos era feito com [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Para obter a mesma funcionalidade e mapear solicitações para grupos de carga de trabalho, use a sintaxe [CREATE WORKLOAD CLASSIFIER.](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)  O uso sp_addrolemember só permitia mapear recursos para uma solicitação com base em um login.  Um classificador oferece opções adicionais além do login, tais como:
+Anteriormente, o mapeamento de consultas às classes de recursos era feito com [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Para obter a mesma funcionalidade e mapear solicitações para grupos de carga de trabalho, use a sintaxe [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  O uso sp_addrolemember só permitia mapear recursos para uma solicitação com base em um login.  Um classificador oferece opções adicionais além do login, tais como:
     - label
     - sessão
     - tempo O exemplo abaixo atribui `AdfLogin` consultas do login que também `factloads` têm o `wgDataLoads` [RÓTULO OPÇÃO](sql-data-warehouse-develop-label.md) definido para o grupo de carga de trabalho criado acima.

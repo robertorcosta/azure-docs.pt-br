@@ -3,17 +3,17 @@ title: Criar um cluster do Service Fabric no portal do Azure
 description: Saiba como configurar um cluster seguro do Service Fabric no Azure usando o portal do Azure e o Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e2de920ce9517e156934a636559a6fd6f5a71eb5
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258792"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754095"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no usando o portal do Azure
 > [!div class="op_single_selector"]
-> * [Gerente de Recursos do Azure](service-fabric-cluster-creation-via-arm.md)
-> * [Portal Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+> * [Portal do Azure](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -36,13 +36,13 @@ Se esta for a primeira vez em que estiver criando um cluster de Service Fabric o
 Esse certificado é necessário para proteger um cluster e impedir o acesso não autorizado a ele. Ele fornece segurança de cluster de duas maneiras:
 
 * **Autenticação de cluster:** Autentica comunicação nó-a-nó para federação de clusters. Somente os nós que podem provar sua identidade com esse certificado podem ingressar no cluster.
-* **Autenticação do servidor:** Autentica os pontos finais de gerenciamento de cluster para um cliente de gerenciamento, para que o cliente de gerenciamento saiba que está conversando com o cluster real. Esse certificado também fornece SSL para a API de gerenciamento de HTTPS e para o Service Fabric Explorer sobre HTTPS.
+* **Autenticação do servidor:** Autentica os pontos finais de gerenciamento de cluster para um cliente de gerenciamento, para que o cliente de gerenciamento saiba que está conversando com o cluster real. Este certificado também fornece TLS para a API de gerenciamento HTTPS e para o Service Fabric Explorer em HTTPS.
 
 Para servir a essas finalidades, o certificado deverá atender a estes requisitos:
 
 * O certificado deve conter uma chave privada.
 * O certificado deve ser criado para troca de chaves, exportável para um arquivo Troca de Informações Pessoais (.pfx).
-* O nome do assunto do certificado **deve corresponder ao domínio** usado para acessar o cluster Service Fabric. Isso é necessário para fornecer SSL para pontos de extremidade de gerenciamento de HTTPS e Service Fabric Explorer do cluster. Você não pode obter um certificado SSL de uma autoridade de certificação (CA) para o domínio `.cloudapp.azure.com` . Adquira um nome de domínio personalizado para seu cluster. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para seu cluster.
+* O nome do assunto do certificado **deve corresponder ao domínio** usado para acessar o cluster Service Fabric. Isso é necessário para fornecer TLS para os pontos finais de gerenciamento HTTPS do cluster e o Service Fabric Explorer. Não é possível obter um certificado TLS/SSL de `.cloudapp.azure.com` uma autoridade de certificado (CA) para o domínio. Adquira um nome de domínio personalizado para seu cluster. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para seu cluster.
 
 #### <a name="client-authentication-certificates"></a>Certificados de autenticação de cliente
 Os certificados de cliente adicionais autenticam os administradores para tarefas de gerenciamento de cluster. O Service Fabric tem dois níveis de acesso: **administrador** e **usuário somente leitura**. No mínimo, um único certificado para acesso administrativo deve ser usado. Para acesso de nível de usuário adicional, deve ser fornecido um certificado diferente. Para obter mais informações sobre as funções de acesso, consulte [Controle de acesso baseado em função para clientes do Service Fabric][service-fabric-cluster-security-roles].
@@ -68,7 +68,7 @@ Criar um cluster de produção para atender às necessidades de seu aplicativo e
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>Pesquise o recurso de cluster do Service Fabric
 
-Faça login no [portal Azure][azure-portal].
+Entre no [portal do Azure][azure-portal].
 Clique em **Criar um recurso** para adicionar um novo modelo de recurso. Procure o modelo Cluster do Service Fabric no **Marketplace** em **Tudo**.
 Selecione **Cluster do Service Fabric** na lista.
 
@@ -86,7 +86,7 @@ Na folha Básico, você precisa fornecer os detalhes básicos do seu cluster.
 1. Insira o nome do seu cluster.
 2. Insira um **nome de usuário** e uma **senha** para a Área de Trabalho Remota para as VMs.
 3. Selecione a **Assinatura** desejada para a implantação do cluster, especialmente se você tiver várias assinaturas.
-4. Crie um **novo grupo de recursos**. É melhor dar a ele o mesmo nome do cluster, pois ajuda a encontrá-los mais tarde, especialmente quando você estiver tentando fazer alterações em sua implantação ou excluir o cluster.
+4. Crie um novo **grupo de recursos**. É melhor dar a ele o mesmo nome do cluster, pois ajuda a encontrá-los mais tarde, especialmente quando você estiver tentando fazer alterações em sua implantação ou excluir o cluster.
    
    > [!NOTE]
    > Embora você possa optar por usar um grupo de recursos existente, é uma boa prática criar um novo grupo de recursos. Isso facilita a excluir clusters e todos os recursos que ele usa.

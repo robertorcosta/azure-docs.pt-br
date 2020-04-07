@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e5ad5f6f2f5be239af23ee4802cf09c388c93ae9
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: e170a789727fb0de36705895245cc638d30ee3d7
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632918"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745502"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Práticas recomendadas para carregar dados usando o pool Synapse SQL
 
@@ -104,7 +104,7 @@ Quando há pressão de memória, o índice columnstore pode não ser capaz de al
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumente o tamanho do lote ao usar a API ou bcp sqLBulkCopy
 
-O carregamento com o PolyBase fornecerá o maior throughput com o pool SQL. Se você não puder usar o PolyBase para carregar e usar a API ou [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15) [SqLBulkCopy,](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx) você deve considerar aumentar o tamanho do lote para uma melhor produção.
+O carregamento com o PolyBase fornecerá o maior throughput com o pool SQL. Se você não puder usar o PolyBase para carregar e usar a API ou [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [SqLBulkCopy,](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) você deve considerar aumentar o tamanho do lote para uma melhor produção.
 
 > [!TIP]
 > Um tamanho de lote entre linhas de 100 K a 1M é a linha de base recomendada para determinar a capacidade ideal de tamanho do lote.
@@ -120,7 +120,7 @@ Um registro de dados é considerado sujo se atender a uma das seguintes condiç�
 
 Para corrigir os registros sujos, verifique se a tabela externa e as definições de formato de arquivo externo estão corretas e se os dados externos são compatíveis com essas definições.
 
-Se um subconjunto de registros de dados externos estiver sujo, você pode optar por rejeitar esses registros para suas consultas usando as opções de rejeição em [CREATE EXTERNAL TABLE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15).
+Se um subconjunto de registros de dados externos estiver sujo, você pode optar por rejeitar esses registros para suas consultas usando as opções de rejeição em [CREATE EXTERNAL TABLE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="inserting-data-into-a-production-table"></a>Inserindo dados em uma tabela de produção
 

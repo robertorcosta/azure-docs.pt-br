@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ee3501e7feec77c842f3784f6c2820af05637e6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43bb34a80d8d62cfa2bde445b94fb97da25ccda3
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286380"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745468"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Criar uma oferta de Aplicativo do Power BI
+
+>[!Important]
+>A partir de 30 de março de 2020, começaremos a mover o gerenciamento das ofertas do seu aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [visão geral de criação de aplicativos do Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerenciar suas ofertas migradas.
 
 Este artigo lista as etapas necessárias para criar uma nova oferta de Aplicativo do Power BI para o [AppSource](https://appsource.microsoft.com). Cada oferta aparece como sua própria entidade no AppSource. Ao criar uma nova oferta no [Portal do Cloud Partner](https://cloudpartner.azure.com/), você deve fornecer quatro grupos de ativos para sua oferta.
 

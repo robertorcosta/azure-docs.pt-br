@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd5b9e1f2640e68f7c819a49ad34d9c051c582c5
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: c11521ec074b63843b873c39102b68bf185d2821
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80667326"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676734"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planeje a implantação de redefinição de senha do Azure Active Directory
 
@@ -343,7 +343,7 @@ Os registros de auditoria para registro e redefinição de senha estão disponí
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para começar a implantar o SSPR, consulte [Ativar redefinir a senha de autoatendimento do Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr.md)
+* Para começar a implantar o SSPR, consulte [Ativar redefinir a senha de autoatendimento do Azure AD](tutorial-enable-sspr.md)
 
 * [Considere implementar a proteção por senha do Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
 

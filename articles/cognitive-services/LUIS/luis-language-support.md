@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 4b6d954d06f09bef5240bddc4860ddbc83513d69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82efa70b30e829cfedd0b1fa7a21fd06949aa6d5
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79220848"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744151"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para o LUIS
 
@@ -30,23 +30,30 @@ Se você precisar de um aplicativo de cliente LUIS com vários idiomas, como um 
 
 O LUIS compreende declarações nos seguintes idiomas:
 
-| Idioma |Local  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
+| Linguagem |Local  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês americano |`en-US` | ✔ | ✔  |✔|✔|
 | Árabe (visualização - árabe padrão moderno) |`ar-AR`|-|-|-|-|
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Holandês |`nl-NL` |✔|  -   |-|✔|
+| Holandês |`nl-NL` |✔|-|-|✔|
 | Francês (França) |`fr-FR` |✔| ✔ |✔ |✔|
-| Francês (Canadá) |`fr-CA` |-|   -   |-|✔|
+| Francês (Canadá) |`fr-CA` |-|-|-|✔|
 | Alemão |`de-DE` |✔| ✔ |✔ |✔|
-| Híndi | `hi-IN`|-|-|-|-|
+| Guzerate | `gu-IN`|-|-|-|-|
+| Híndi | `hi-IN`|-|✔|-|-|
 | Italiano |`it-IT` |✔| ✔ |✔|✔|
 | *[Japonês](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Somente frase principal|
-| Coreano |`ko-KR` |✔|   -   |-|Somente frase principal|
+| Coreano |`ko-KR` |✔|-|-|Somente frase principal|
+| Marati | `mr-IN`|-|-|-|-|
 | Português (Brasil) |`pt-BR` |✔| ✔ |✔ |nem todas as subculturas|
 | Espanhol (Espanha) |`es-ES` |✔| ✔ |✔|✔|
-| Espanhol (México)|`es-MX` |-|  -   |✔|✔|
-| Turco | `tr-TR` |✔|-|-|Sentimento, somente|
+| Espanhol (México)|`es-MX` |-|-|✔|✔|
+| Tâmil | `ta-IN`|-|-|-|-|
+| Télugo | `te-IN`|-|-|-|-|
+| Turco | `tr-TR` |✔|✔|-|Sentimento, somente|
+
+
+
 
 O suporte aos idiomas varia para [entidades predefinidas](luis-reference-prebuilt-entities.md) e [domínios predefinidos](luis-reference-prebuilt-domains.md).
 
@@ -77,22 +84,28 @@ Os idiomas híbridos combinam palavras de duas culturas, como inglês e chinês.
 ## <a name="tokenization"></a>Geração de tokens
 Para executar o aprendizado de máquina, o LUIS divide uma declaração em [tokens](luis-glossary.md#token) com base na cultura.
 
-|Idioma|  cada espaço ou caractere especial | nível do caractere|palavras compostas|[entidade tokenizada retornou](luis-concept-data-extraction.md#tokenized-entity-returned)
-|--|:--:|:--:|:--:|:--:|
-|Árabe|||||
-|Chinês||✔||✔|
-|Holandês|||✔|✔|
-|Inglês (en-us)|✔ ||||
-|Francês (fr-FR)|✔||||
-|Francês (fr-CA)|✔||||
-|Alemão|||✔|✔|
-| Híndi |✔|-|-|-|-|
-|Italiano|✔||||
-|Japonês||||✔|
-|Coreano||✔||✔|
-|Português (Brasil)|✔||||
-|Espanhol (es-ES)|✔||||
-|Espanhol (es-MX)|✔||||
+|Linguagem|  cada espaço ou caractere especial | nível do caractere|palavras compostas
+|--|:--:|:--:|:--:|
+|Árabe|✔|||
+|Chinês||✔||
+|Holandês|✔||✔|
+|Inglês (en-us)|✔ |||
+|Francês (fr-FR)|✔|||
+|Francês (fr-CA)|✔|||
+|Alemão|✔||✔|
+|Guzerate|✔|||
+|Híndi|✔|||
+|Italiano|✔|||
+|Japonês|||✔
+|Coreano||✔||
+|Marati|✔|||
+|Português (Brasil)|✔|||
+|Espanhol (es-ES)|✔|||
+|Espanhol (es-MX)|✔|||
+|Tâmil|✔|||
+|Télugo|✔|||
+|Turco|✔|||
+
 
 ### <a name="custom-tokenizer-versions"></a>Versões de tokenizador personalizado
 
@@ -101,7 +114,10 @@ As culturas a seguir têm versões de tokenizer personalizadas:
 |Cultura|Versão|Finalidade|
 |--|--|--|
 |Alemão<br>`de-de`|1.0.0|Tokeniza palavras dividindo-as usando um tokenizador baseado em aprendizado de máquina que tenta dividir palavras compostas em seus componentes únicos.<br>Se um `Ich fahre einen krankenwagen` usuário entra como um enunciado, ele é voltado para `Ich fahre einen kranken wagen`. Permitindo a `kranken` marcação e `wagen` independentemente como entidades diferentes.|
-|Alemão<br>`de-de`|1.0.2|Tokeniza palavras dividindo-as em espaços.<br> se um `Ich fahre einen krankenwagen` usuário entra como um enunciado, ele permanece um único token. Assim `krankenwagen` é marcada como uma única entidade. |
+|Alemão<br>`de-de`|1.0.2|Tokeniza palavras dividindo-as em espaços.<br> Se um `Ich fahre einen krankenwagen` usuário entra como um enunciado, ele permanece um único token. Assim `krankenwagen` é marcada como uma única entidade. |
+|Holandês<br>`de-de`|1.0.0|Tokeniza palavras dividindo-as usando um tokenizador baseado em aprendizado de máquina que tenta dividir palavras compostas em seus componentes únicos.<br>Se um `Ik ga naar de kleuterschool` usuário entra como um enunciado, ele é voltado para `Ik ga naar de kleuter school`. Permitindo a `kleuter` marcação e `school` independentemente como entidades diferentes.|
+|Holandês<br>`de-de`|1.0.1|Tokeniza palavras dividindo-as em espaços.<br> Se um `Ik ga naar de kleuterschool` usuário entra como um enunciado, ele permanece um único token. Assim `kleuterschool` é marcada como uma única entidade. |
+
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migração entre versões de tokenizer
 <!--

@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8a93f3ada8e56853b78321bdc7d99a667cee6158
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 04255fb6fdf83e7249fad01c75425943b580393c
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583513"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742871"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Orientação para projetar tabelas distribuídas no pool Synapse SQL
 
 Recomendações para projetar tabelas distribuídas por hash e round-robin em pools Synapse SQL.
 
-Este artigo pressupõe que você esteja familiarizado com os conceitos de distribuição de dados e movimentação de dados no pool Synapse SQL.Para obter mais informações, consulte [a arquitetura Azure Synapse Analytics massivamente paralela (MPP).](massively-parallel-processing-mpp-architecture.md) 
+Este artigo pressupõe que você esteja familiarizado com os conceitos de distribuição de dados e movimentação de dados no pool Synapse SQL.Para obter mais informações, consulte [a arquitetura Azure Synapse Analytics massivamente paralela (MPP).](massively-parallel-processing-mpp-architecture.md)
 
 ## <a name="what-is-a-distributed-table"></a>O que é uma tabela distribuída?
 
@@ -30,33 +30,32 @@ Uma tabela distribuída é exibida como uma única tabela, mas as linhas são ar
 
 **Tabelas distribuídas por hash** melhoram o desempenho de consulta em grandes tabelas de fatos e são o foco deste artigo. **Tabelas de round-robin** são úteis para melhorar a velocidade do carregamento. Essas opções de design têm um impacto significativo em melhorar o desempenho de carregamento e consulta.
 
-Outra opção de armazenamento de tabela é replicar uma pequena tabela em todos os nós de computação. Para obter mais informações, confira [Criação de diretrizes para tabelas replicadas](design-guidance-for-replicated-tables.md). Para escolher rapidamente entre as três opções, consulte tabelas distribuídas na [visão geral de tabelas](sql-data-warehouse-tables-overview.md). 
+Outra opção de armazenamento de tabela é replicar uma pequena tabela em todos os nós de computação. Para obter mais informações, confira [Criação de diretrizes para tabelas replicadas](design-guidance-for-replicated-tables.md). Para escolher rapidamente entre as três opções, consulte tabelas distribuídas na [visão geral de tabelas](sql-data-warehouse-tables-overview.md).
 
 Como parte do design de tabela, compreenda seus dados o tanto quanto possível e a maneira como eles são consultados.Por exemplo, considere estas perguntas:
 
-- Qual é o tamanho da tabela?   
-- Com que frequência a tabela é atualizada?   
-- Tenho tabelas de fato e dimensão em uma piscina Synapse SQL?   
-
+- Qual é o tamanho da tabela?
+- Com que frequência a tabela é atualizada?
+- Tenho tabelas de fato e dimensão em uma piscina Synapse SQL?
 
 ### <a name="hash-distributed"></a>Tabelas distribuídas por hash
 
-Uma tabela distribuída por hash distribui linhas da tabela em todos os nós de computação usando uma função de hash determinística para atribuir cada linha a uma [distribuição](massively-parallel-processing-mpp-architecture.md#distributions). 
+Uma tabela distribuída por hash distribui linhas da tabela em todos os nós de computação usando uma função de hash determinística para atribuir cada linha a uma [distribuição](massively-parallel-processing-mpp-architecture.md#distributions).
 
 ![Tabela distribuída](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabela distribuída")  
 
-Como valores idênticos sempre hash para a mesma distribuição, o data warehouse tem conhecimento interno dos locais de linha. No pool Synapse SQL, esse conhecimento é usado para minimizar a movimentação de dados durante consultas, o que melhora o desempenho da consulta. 
+Como valores idênticos sempre hash para a mesma distribuição, o data warehouse tem conhecimento interno dos locais de linha. No pool Synapse SQL, esse conhecimento é usado para minimizar a movimentação de dados durante consultas, o que melhora o desempenho da consulta.
 
-Tabelas distribuídas por hash funcionam bem para grandes tabelas de fatos em um esquema em estrela. Podem ter um grande número de linhas e ainda obter um alto desempenho. É claro, há algumas considerações de design que ajudam você a obter o desempenho que o sistema distribuído foi desenvolvido para fornecer. Escolher uma boa coluna de distribuição é uma consideração que é descrita neste artigo. 
+Tabelas distribuídas por hash funcionam bem para grandes tabelas de fatos em um esquema em estrela. Podem ter um grande número de linhas e ainda obter um alto desempenho. É claro, há algumas considerações de design que ajudam você a obter o desempenho que o sistema distribuído foi desenvolvido para fornecer. Escolher uma boa coluna de distribuição é uma consideração que é descrita neste artigo.
 
 Considere o uso de uma tabela distribuída por hash quando:
 
 - O tamanho da tabela no disco é maior de 2 GB.
-- A tabela tiver operações frequentes de inserção, atualização e exclusão. 
+- A tabela tiver operações frequentes de inserção, atualização e exclusão.
 
 ### <a name="round-robin-distributed"></a>Distribuição round robin
 
-Uma tabela round robin distribui linhas de tabela uniformemente em todas as distribuições. A atribuição de linhas para distribuições é aleatória. Ao contrário das tabelas distribuídas por hash, não há garantia de que as linhas com valores iguais sejam atribuídas à mesma distribuição. 
+Uma tabela round robin distribui linhas de tabela uniformemente em todas as distribuições. A atribuição de linhas para distribuições é aleatória. Ao contrário das tabelas distribuídas por hash, não há garantia de que as linhas com valores iguais sejam atribuídas à mesma distribuição.
 
 Como resultado, o sistema às vezes precisa chamar uma operação de movimentação de dados para organizar melhor seus dados antes de poder resolver uma consulta.  Essa etapa extra pode causar lentidão em suas consultas. Por exemplo, adicionar uma tabela de round-robin geralmente requer embaralhar linhas, que é uma queda no desempenho.
 
@@ -71,11 +70,11 @@ Considere usar a distribuição round robin para a sua tabela nos seguintes cen�
 
 O tutorial [Load New York taxicab data](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) dá um exemplo de carregamento de dados em uma mesa de encenação de round-robin.
 
-
 ## <a name="choosing-a-distribution-column"></a>Escolher uma coluna de distribuição
+
 Uma tabela distribuída por hash tem uma coluna de distribuição que é a chave de hash. Por exemplo, o código a seguir cria uma tabela distribuída por hash com ProductKey como a coluna de distribuição.
 
-```SQL
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -91,12 +90,13 @@ WITH
 ,  DISTRIBUTION = HASH([ProductKey])
 )
 ;
-``` 
+```
 
-Escolher uma coluna de distribuição é uma decisão de design importante como os valores nesta coluna determinam como as linhas são distribuídas. A melhor escolha depende de vários fatores e geralmente envolve as vantagens e desvantagens. No entanto, se você não escolher a melhor coluna na primeira vez, você pode usar [Criar tabela como selecionar (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para recriar a tabela com uma coluna de distribuição diferente. 
+Escolher uma coluna de distribuição é uma decisão de design importante como os valores nesta coluna determinam como as linhas são distribuídas. A melhor escolha depende de vários fatores e geralmente envolve as vantagens e desvantagens. No entanto, se você não escolher a melhor coluna na primeira vez, você pode usar [Criar tabela como selecionar (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para recriar a tabela com uma coluna de distribuição diferente.
 
 ### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Escolha uma coluna de distribuição que não necessita de atualizações
-Você não pode atualizar uma coluna de distribuição, a menos que você exclua a linha e insira uma nova linha com os valores atualizados. Portanto, selecione uma coluna com valores estáticos. 
+
+Você não pode atualizar uma coluna de distribuição, a menos que você exclua a linha e insira uma nova linha com os valores atualizados. Portanto, selecione uma coluna com valores estáticos.
 
 ### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Escolha uma coluna de distribuição com dados que distribui uniformemente
 
@@ -108,8 +108,8 @@ Para melhor desempenho, todas as distribuições devem ter aproximadamente o mes
 Para equilibrar o processamento paralelo, selecione uma coluna de distribuição que:
 
 - **Tem muitos valores exclusivos.** A coluna pode ter alguns valores duplicados. No entanto, todas as linhas com o mesmo valor são atribuídas para a mesma distribuição. Como há 60 distribuições, a coluna deve ter pelo menos 60 valores exclusivos.  Normalmente, o número de valores exclusivos é muito maior.
-- **Não tem valores nulos ou tem apenas alguns valores nulos.** Para obter um exemplo extremo, se todos os valores na coluna forem NULL, todas as linhas são atribuídas para a mesma distribuição. Como resultado, o processamento de consulta é afetado por uma distribuição e não se beneficia com processamento paralelo. 
-- **Não é uma coluna de datas.** Todos os dados para a mesma data chegam na mesma distribuição. Se vários usuários são filtrados na mesma data, apenas 1 das 60 distribuições faz todo o trabalho de processamento. 
+- **Não tem valores nulos ou tem apenas alguns valores nulos.** Para obter um exemplo extremo, se todos os valores na coluna forem NULL, todas as linhas são atribuídas para a mesma distribuição. Como resultado, o processamento de consulta é afetado por uma distribuição e não se beneficia com processamento paralelo.
+- **Não é uma coluna de datas.** Todos os dados para a mesma data chegam na mesma distribuição. Se vários usuários são filtrados na mesma data, apenas 1 das 60 distribuições faz todo o trabalho de processamento.
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Escolha uma coluna de distribuição que minimiza a movimentação de dados
 
@@ -118,20 +118,22 @@ Para obter a consulta correta os resultados de consultas podem mover dados de um
 Para minimizar a movimentação de dados selecione a coluna de distribuição que:
 
 - É usada nas cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER`, e `HAVING`. Quando duas grandes tabelas de fatos têm junções frequentes, o desempenho da consulta melhora quando você distribui ambas as tabelas em uma das colunas de junção.  Quando uma tabela não é usada em junções, considere distribuir a tabela em uma coluna que é frequentemente na cláusula `GROUP BY`.
-- *Não* é `WHERE` usado em cláusulas. Isso pode restringir a consulta para não executar em todas as distribuições. 
+- *Não* é `WHERE` usado em cláusulas. Isso pode restringir a consulta para não executar em todas as distribuições.
 - *Não* é uma coluna de dados. Geralmente, cláusulas WHERE filtram por data.  Quando isso acontece, todo o processamento pode ser executado em apenas algumas distribuições.
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>O que fazer quando nenhuma das colunas são em uma boa coluna de distribuição
 
 Se nenhuma das suas colunas tiver valores distintos suficientes para uma coluna de distribuição, será possível criar uma nova coluna como uma composição de um ou mais valores. Para evitar a movimentação de dados durante a execução da consulta, use a coluna de distribuição de composição como uma coluna de junção em consultas.
 
-Quando você cria uma tabela distribuída por hash, a próxima etapa é carregar dados na tabela.  Para carregar as diretrizes, consulte [Visão geral de carregamento](design-elt-data-loading.md). 
+Quando você cria uma tabela distribuída por hash, a próxima etapa é carregar dados na tabela.  Para carregar as diretrizes, consulte [Visão geral de carregamento](design-elt-data-loading.md).
 
 ## <a name="how-to-tell-if-your-distribution-column-is-a-good-choice"></a>Como saber se a coluna de distribuição é uma boa opção
-Depois que os dados são carregados em uma tabela distribuída por hash, verifique para ver como as linhas são distribuídas uniformemente entre as distribuições de 60. As linhas por distribuição podem variar até 10% sem um impacto significativo no desempenho. 
+
+Depois que os dados são carregados em uma tabela distribuída por hash, verifique para ver como as linhas são distribuídas uniformemente entre as distribuições de 60. As linhas por distribuição podem variar até 10% sem um impacto significativo no desempenho.
 
 ### <a name="determine-if-the-table-has-data-skew"></a>Determinar se a tabela tem distorção de dados
-Uma maneira rápida de verificar a distorção de dados é usar [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). O código SQL a seguir retorna o número de linhas da tabela que são armazenados em cada uma das 60 distribuições. Para um desempenho mais equilibrado, as linhas na tabela distribuída devem ser divididas uniformemente entre todas as distribuições.
+
+Uma maneira rápida de verificar a distorção de dados é usar [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). O código SQL a seguir retorna o número de linhas da tabela que são armazenados em cada uma das 60 distribuições. Para um desempenho mais equilibrado, as linhas na tabela distribuída devem ser divididas uniformemente entre todas as distribuições.
 
 ```sql
 -- Find data skew for a distributed table
@@ -159,6 +161,7 @@ order by two_part_name, row_count
 ```
 
 ### <a name="check-query-plans-for-data-movement"></a>Planos de consulta de seleção para a movimentação de dados
+
 Uma boa coluna de distribuição permite junções e agregações para que o movimento de dados seja mínimo. Isso afeta a maneira que as junções devem ser gravadas. Para obter o movimento de dados mínimo de uma junção em duas tabelas distribuídas por hash, uma das colunas de junção deve ser a coluna de distribuição.  Quando duas tabelas distribuídas por hash são integradas em uma coluna de distribuição do mesmo tipo de dados, a junção não exige a movimentação de dados. Junções podem usar colunas adicionais sem incorrer em movimento de dados.
 
 Para evitar a movimentação de dados durante uma junção:
@@ -170,8 +173,8 @@ Para evitar a movimentação de dados durante uma junção:
 
 Para ver se consultas estão com a movimentação de dados, você pode examinar o plano de consulta.  
 
-
 ## <a name="resolve-a-distribution-column-problem"></a>Resolver um problema de coluna de distribuição
+
 Não é necessário resolver todos os casos de distorção de dados. A distribuição de dados é uma questão de encontrar o equilíbrio certo entre minimizar a distorção de dados e minimizar a movimentação de dados. Nem sempre é possível minimizar a distorção de dados e a movimentação de dados. Às vezes, o benefício de ter o mínimo de movimentação de dados pode superar o impacto de ter a distorção de dados.
 
 Para decidir se deve resolver a distorção de dados em uma tabela, você deve compreender o máximo possível sobre os volumes de dados e consultas na carga de trabalho. Você pode usar as etapas no artigo [Monitoramento de consulta](sql-data-warehouse-manage-monitor.md) para monitorar o impacto de distorção no desempenho da consulta. Especificamente, procure quanto tempo grandes consultas demoram para ser concluída em distribuições individuais.
@@ -179,7 +182,8 @@ Para decidir se deve resolver a distorção de dados em uma tabela, você deve c
 Como você não pode alterar a coluna de distribuição em uma tabela existente, uma forma comum de resolver distorção de dados é recriar a tabela com uma coluna de distribuição diferente.  
 
 ### <a name="re-create-the-table-with-a-new-distribution-column"></a>Criar novamente a tabela com uma nova coluna de distribuição
-Este exemplo usa [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) para recriar uma tabela com uma coluna de distribuição de hash diferente.
+
+Este exemplo usa [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para recriar uma tabela com uma coluna de distribuição de hash diferente.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]
@@ -221,7 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Para criar uma tabela replicada, use uma dessas instruções:
 
-- [CRIAR TABELA (Pool Synapse SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CRIAR TABELA COMO SELECT (pool Synapse SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
-
-
+- [CRIAR TABELA (Pool Synapse SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CRIAR TABELA COMO SELECT (pool Synapse SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

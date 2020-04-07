@@ -3,12 +3,12 @@ title: Fazer backup e recuperar VMs do Azure com powershell
 description: Descreve como fazer backup e recuperar VMs do Azure usando backup do Azure com powershell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 733a06a84aa170f1361ea74d126ec9752586fce2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d1074eea3d530b17904e2f49fba7c0d24e84e59
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247976"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743282"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs azure com powershell
 
@@ -199,7 +199,7 @@ Uma política de proteção de backup está associada a pelo menos uma política
 Por padrão, um tempo de início é definido no Objeto de diretiva de agendamento. Use o exemplo a seguir para alterar o tempo de início para o tempo de início desejado. O horário de início desejado deve ser na UTC também. O exemplo abaixo pressupõe que a hora de início desejada seja 01:00 AM UTC para backups diários.
 
 ```powershell
-$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM" -VaultId $targetVault.ID
+$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM" 
 $UtcTime = Get-Date -Date "2019-03-20 01:00:00Z"
 $UtcTime = $UtcTime.ToUniversalTime()
 $schpol.ScheduleRunTimes[0] = $UtcTime
@@ -211,7 +211,7 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 O exemplo a seguir armazena a política de agendamento e a política de retenção em variáveis. O exemplo usa essas variáveis para definir os parâmetros ao criar uma política de proteção, *NewPolicy*.
 
 ```powershell
-$retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM" -VaultId $targetVault.ID
+$retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM" 
 New-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType "AzureVM" -RetentionPolicy $retPol -SchedulePolicy $schPol -VaultId $targetVault.ID
 ```
 
@@ -324,6 +324,20 @@ Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVau
 ````
 
 O valor padrão será 2, o usuário pode definir o valor com um min de 1 e máximo de 5. Para políticas de backup semanais, o período é definido como 5 e não pode ser alterado.
+
+#### <a name="creating-azure-backup-resource-group-during-snapshot-retention"></a>Criando o grupo de recursos do Azure Backup durante a retenção de instantâneos
+
+> [!NOTE]
+> A partir da versão 3.7.0 do Azure PS em diante, pode-se criar e editar o grupo de recursos criado para armazenar instantâneos instantâneos.
+
+Para entender mais sobre as regras de criação de grupos de recursos e outros detalhes relevantes, consulte o [grupo de recursos do Azure Backup para documentação de Máquinas Virtuais.](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines)
+
+```powershell
+$bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -name "DefaultPolicyForVMs"
+$bkpPol.AzureBackupRGName="Contosto_"
+$bkpPol.AzureBackupRGNameSuffix="ForVMs"
+Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+```
 
 ### <a name="trigger-a-backup"></a>Disparar um backup
 

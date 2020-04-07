@@ -3,17 +3,16 @@ title: Entender ciclo de vida de um blueprint
 description: Conheça o ciclo de vida pelo qual uma definição de projeto passa e detalhes sobre cada etapa, incluindo atualização e remoção de atribuições do projeto.
 ms.date: 07/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46da42ec97f16af91ef8e41362a085d466bbb887
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74404584"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677378"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Blueprint do Azure
 
-Como muitos recursos no Azure, um blueprint no Azure Blueprints tem um ciclo de vida típico e natural. Eles são criados, implantados e finalmente excluídos quando não forem mais necessários ou relevantes.
-Blueprints oferecem suporte a operações de ciclo de vida padrão. Ele cria, em seguida, após a eles para fornecer níveis de status adicionais que dão suporte a pipelines de implantação contínua e integração contínua comuns para as organizações que gerenciam sua infraestrutura como código – um elemento fundamental em DevOps.
+Como muitos recursos no Azure, um blueprint no Azure Blueprints tem um ciclo de vida típico e natural. Eles são criados, implantados e finalmente excluídos quando não forem mais necessários ou relevantes. O Azure Blueprints suporta operações padrão do ciclo de vida. Ele cria, em seguida, após a eles para fornecer níveis de status adicionais que dão suporte a pipelines de implantação contínua e integração contínua comuns para as organizações que gerenciam sua infraestrutura como código – um elemento fundamental em DevOps.
 
 Para entender completamente um blueprint e os estágios, vamos abordar um ciclo de vida padrão:
 

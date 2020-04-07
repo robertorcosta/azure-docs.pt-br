@@ -3,12 +3,12 @@ title: Funções de modelo - recursos
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 641602218aa19b790eb6e7feabdb7b46a520b590
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 23c0463649e748b35917c959a73536147e91f60b
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478264"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745000"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recursos para modelos ARM
 
@@ -444,12 +444,12 @@ Retorna um objeto que representa o estado de runtime de um recurso.
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | resourceName ou resourceIdentifier |Sim |string |Nome ou identificador exclusivo de um recurso. Ao referenciar um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Ao fazer referência a um recurso implantado anteriormente ou quando o nome do recurso for ambíguo, forneça o ID de recurso. |
-| apiVersion |Não |string |Versão da API do recurso especificado. Inclua esse parâmetro quando o recurso não estiver provisionado no mesmo modelo. Normalmente, no formato **aaaa-mm-dd**. Para versões de API válidas para o recurso, consulte [referência de modelo](/azure/templates/). |
+| apiVersion |Não |string |Versão da API do recurso especificado. **Esse parâmetro é necessário quando o recurso não é provisionado dentro do mesmo modelo.** Normalmente, no formato **aaaa-mm-dd**. Para versões de API válidas para o recurso, consulte [referência de modelo](/azure/templates/). |
 | 'Full' |Não |string |Valor que especifica se o objeto de recurso completo deve ser retornado. Se você não especificar `'Full'`, apenas o objeto de propriedades do recurso será retornado. O objeto completo inclui valores como a ID do recurso e o local. |
 
 ### <a name="return-value"></a>Valor retornado
 
-Cada tipo de recurso retorna propriedades diferentes para a função de referência. A função não retorna um único formato predefinido. Além disso, o valor retornado será diferente caso você tenha especificado o objeto completo. Para ver as propriedades de um tipo de recurso, retorne o objeto na seção de saída, conforme mostra o exemplo.
+Cada tipo de recurso retorna propriedades diferentes para a função de referência. A função não retorna um único formato predefinido. Além disso, o valor devolvido difere com `'Full'` base no valor do argumento. Para ver as propriedades de um tipo de recurso, retorne o objeto na seção de saída, conforme mostra o exemplo.
 
 ### <a name="remarks"></a>Comentários
 
@@ -514,7 +514,7 @@ Ao fazer referência a um recurso implantado no mesmo modelo, forneça o nome do
 "value": "[reference(parameters('storageAccountName'))]"
 ```
 
-Ao fazer referência a um recurso que não está implantado no mesmo modelo, forneça o ID de recurso.
+Ao referenciar um recurso que não está implantado no mesmo `apiVersion`modelo, forneça o ID de recurso e .
 
 ```json
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
@@ -530,7 +530,7 @@ Ao construir uma referência totalmente qualificada a um recurso, a ordem para c
 
 **{resource-provider-namespace}/{name-name/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}].**
 
-Por exemplo: 
+Por exemplo:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt`está correto, `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` não está correto
 

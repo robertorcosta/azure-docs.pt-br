@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a8675756aeef1140dbebd94023d7f7fb4c7af99
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d4f08161daf1d9c1a4431d9e3fba3ca741d88b16
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652252"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743351"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Como: Ativar redefinição de senha da tela de login do Windows
 
@@ -43,7 +43,7 @@ Para máquinas que executam o Windows 7, 8, 8.1 e 10, você pode permitir que os
 - A combinação das três configurações específicas a seguir pode fazer com que esse recurso não funcione.
     - Logon interativo: Não requeira CTRL+ALT+DEL = Desativado
     - DesativarLockScreenAppNotifications = 1 ou Ativado
-    - IsContentDeliveryPolicyEnforced = 1 ou True
+    - Windows SKU não é edição home ou profissional
 
 ## <a name="windows-10-password-reset"></a>Redefinição de senha do Windows 10
 
@@ -115,7 +115,7 @@ Quando os usuários redefinem sua senha da tela de login de `defaultuser1` um di
 > [!WARNING]
 > O TLS 1.2 deve ser habilitado, não apenas definido para negociar automaticamente
 
-### <a name="install"></a>Instalar
+### <a name="install"></a>Instalar o
 
 1. Baixe o instalador correto para a versão do Windows que você quer habilitar.
    - Software está disponível no centro de downloads da Microsoft em[https://aka.ms/sspraddin](https://aka.ms/sspraddin)

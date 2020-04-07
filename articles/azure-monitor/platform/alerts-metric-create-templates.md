@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 2/24/2020
 ms.subservice: alerts
-ms.openlocfilehash: fe1f1d2700619bfcac4512bb0e631262edf8401c
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 02424d7df24305d6642c364f12e3ed6e8674a01d
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398088"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677002"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
@@ -563,7 +563,7 @@ az group deployment create \
 
 ## <a name="template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria"></a>Modelo para um alerta métrico de limiar estático que monitora vários critérios
 
-Alertas de métrica novos oferecem suporte a alertas em métricas multidimensionais, bem como suporte a vários critérios. Você pode usar o modelo a seguir para criar uma regra de alerta métrica mais avançada sobre métricas dimensionais e especificar vários critérios.
+Alertas métricos mais novos suportam alertas sobre métricas multidimensionais, bem como suporte para definir vários critérios (até 5 critérios por regra de alerta). Você pode usar o modelo a seguir para criar uma regra de alerta métrica mais avançada sobre métricas dimensionais e especificar vários critérios.
 
 Observe as seguintes restrições ao usar dimensões em uma regra de alerta que contém vários critérios:
 - Você só pode selecionar um valor por dimensão dentro de cada critério.

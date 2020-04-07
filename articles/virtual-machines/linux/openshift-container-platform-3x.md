@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/14/2019
+ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 615d9a3c5c359174ef15028e82044a85da0dd733
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd1c381ecd2b7dba4c77a025cb0332ace4147bf
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75561279"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673656"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implantar plataforma de contêineres OpenShift 3.11 no Azure
 
@@ -303,7 +303,7 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 | `masterClusterType` | Especifique se o cluster usa nós mestres privados ou públicos. Se for escolhido o privado, os nós mestres não serão expostos à Internet através de um IP público. Em vez disso, ele usará o IP privado especificado no`masterPrivateClusterIp` | públicos <br> particulares | públicos |
 | `masterPrivateClusterIp` | Se os nós mestres privados forem selecionados, então um endereço IP privado deve ser especificado para uso pelo balanceador de carga interno para nós mestres. Este IP estático deve estar dentro do bloco CIDR para a sub-rede mestre e ainda não está em uso. Se os nós mestres públicos forem selecionados, esse valor não será usado, mas ainda deve ser especificado |  | 10.1.0.200 |
 | `routerClusterType` | Especifique se o cluster usa nós infra-tés privados ou públicos. Se for escolhido o privado, os nós infra não serão expostos à Internet através de um IP público. Em vez disso, ele usará o IP privado especificado no`routerPrivateClusterIp` | públicos <br> particulares | públicos |
-| `routerPrivateClusterIp` | Se os nós infra privados forem selecionados, então um endereço IP privado deve ser especificado para uso pelo balanceador de carga interno para nós infra. Este IP estático deve estar dentro do bloco CIDR para a sub-rede mestre e ainda não está em uso. Se os nós de infra-estar públicos forem selecionados, esse valor não será usado, mas ainda deve ser especificado |  | 10.2.0.200 |
+| `routerPrivateClusterIp` | Se os nós infra privados forem selecionados, então um endereço IP privado deve ser especificado para uso pelo balanceador de carga interno para nós infra. Este IP estático deve estar dentro do bloco CIDR para a sub-rede infra e ainda não está em uso. Se os nós de infra-estar públicos forem selecionados, esse valor não será usado, mas ainda deve ser especificado |  | 10.2.0.200 |
 | `routingCertType` | Use certificado personalizado para roteamento de domínio ou o certificado auto-assinado padrão - siga as instruções na seção **Certificados Personalizados** | auto-assinado <br> personalizado | auto-assinado |
 | `masterCertType` | Use o certificado personalizado para domínio mestre ou o certificado auto-assinado padrão - siga as instruções na seção **Certificados Personalizados** | auto-assinado <br> personalizado | auto-assinado |
 
@@ -341,7 +341,7 @@ Quando a implantação for concluída, recupere a conexão da seção de saída 
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados.
 

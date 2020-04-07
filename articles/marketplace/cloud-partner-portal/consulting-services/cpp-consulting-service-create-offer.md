@@ -5,16 +5,19 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: c2700339a7ac8342da0250227cff898c20e60118
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1298a6d277f072491d05945b272925a2aba52e02
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278545"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745663"
 ---
 # <a name="create-a-consulting-offer"></a>Crie uma oferta de consultoria
+
+>[!Important]
+>A partir de 30 de março de 2020, começaremos a movimentar a gestão de suas ofertas de serviços de Consultoria para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Visão geral de criação de serviços de consultoria](https://aka.ms/AzureCreateConsultingService) para gerenciar suas ofertas migradas.
 
 Este artigo descreve como criar e publicar uma oferta de serviço de consultoria.
 
@@ -34,5 +37,5 @@ Para criar uma nova oferta, siga estas etapas.
 
 A página **Nova Oferta** para o tipo de oferta de serviço de consultoria oferece um conjunto de guias e campos de formulário que você usa para criar uma oferta. Os artigos a seguir explicam como usar a guia para definir as configurações da oferta e os detalhes da vitrine para sua nova oferta:
 
--   [Definir configurações de oferta](./cpp-consulting-service-define-offer-settings.md)
--   [Insira os detalhes da vitrine e se deseja publicar no Azure Marketplace ou no AppSource](./cpp-consulting-service-storefront-details.md)
+-    [Definir configurações de oferta](./cpp-consulting-service-define-offer-settings.md)
+-    [Insira os detalhes da vitrine e se deseja publicar no Azure Marketplace ou no AppSource](./cpp-consulting-service-storefront-details.md)

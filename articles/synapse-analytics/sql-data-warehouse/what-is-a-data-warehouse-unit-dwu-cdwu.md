@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 01a05755fc18a85a95e9c1bec1c470d37af656d1
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 62cf1f369cbde372e82e7c3ffe26473f09668bc7
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632228"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742546"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unidades de Data Warehouse (DWUs)
 
@@ -24,9 +24,9 @@ Recomendações sobre a escolha do número ideal de unidades de data warehouse (
 
 ## <a name="what-are-data-warehouse-units"></a>O que são unidades de data warehouse
 
-Um [pool Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) representa uma coleção de recursos analíticos que estão sendo provisionados. Os recursos analíticos são definidos como uma combinação de CPU, memória e IO. 
+Um [pool Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) representa uma coleção de recursos analíticos que estão sendo provisionados. Os recursos analíticos são definidos como uma combinação de CPU, memória e IO.
 
-Esses três recursos são agrupados em unidades de escala de computação chamadas Unidades de Data Warehouse (DWUs). Uma DWU representa uma medida abstrata normalizada de recursos de computação e desempenho. 
+Esses três recursos são agrupados em unidades de escala de computação chamadas Unidades de Data Warehouse (DWUs). Uma DWU representa uma medida abstrata normalizada de recursos de computação e desempenho.
 
 Uma alteração no seu nível de serviço altera o número de DWUs disponíveis para o sistema, que por sua vez ajusta o desempenho e o custo do seu sistema.
 
@@ -72,7 +72,7 @@ Etapas para encontrar a melhor DWU para sua carga de trabalho:
 2. Monitore o desempenho do seu aplicativo à medida que testa as cargas de dados no sistema, observando o número de DWUs selecionadas comparado ao desempenho que você observar.
 3. Identifique quaisquer requisitos adicionais para períodos de atividade de pico temporários. Cargas de trabalho que mostram picos e cochos significativos em atividade podem precisar ser dimensionadas com freqüência.
 
-O pool SQL é um sistema de escala-out que pode prover grandes quantidades de dados de computação e consulta. 
+O pool SQL é um sistema de escala-out que pode prover grandes quantidades de dados de computação e consulta.
 
 Para ver seus verdadeiros recursos para dimensionamento, especialmente em DWUs maiores, é recomendável dimensionar o conjunto de dados ao dimensionar para garantir que você tenha dados suficientes para alimentar as CPUs. Para testar o dimensionamento, é recomendável usar pelo menos 1 TB.
 
@@ -82,7 +82,7 @@ Para ver seus verdadeiros recursos para dimensionamento, especialmente em DWUs m
 
 ## <a name="permissions"></a>Permissões
 
-Alterar as unidades de data warehouse exige as permissões descritas em [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-database-transact-sql).
+Alterar as unidades de data warehouse exige as permissões descritas em [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Funções internas para recursos do Azure, como Colaborador do BD SQL e Colaborador do SQL Server, podem alterar as configurações da DWU.
 
@@ -134,7 +134,7 @@ Com O T-SQL, você pode visualizar as configurações dwu atuais, alterar as con
 Para alterar as DWUs:
 
 1. Conecte-se ao banco de dados mestre associado ao seu servidor lógico do Banco de Dados SQL.
-2. Use a declaração TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). O exemplo a seguir define o objetivo de nível de serviço para DW1000c para o banco de dados MySQLDW.
+2. Use a declaração TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). O exemplo a seguir define o objetivo de nível de serviço para DW1000c para o banco de dados MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW

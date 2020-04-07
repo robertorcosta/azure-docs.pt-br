@@ -4,12 +4,12 @@ description: Resume o suporte à recuperação de desastres do Azure VMs para um
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 0b4a654093e0842e66e1f8b0924edfa6c9c215e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f61f32ddc0a1cc6575907bc72522228b77552947
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80276641"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673798"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação de desastres da Azure VM entre as regiões do Azure
 
@@ -20,10 +20,10 @@ Este artigo resume o suporte e os pré-requisitos para a recuperação de desast
 
 **Implantação** |  **Suporte**
 --- | ---
-**Portal Azure** |  Com suporte.
-**Powershell** |  Com suporte. [Saiba mais](azure-to-azure-powershell.md)
-**REST API** |  Com suporte.
-**Cli** | Sem suporte no momento
+**Portal do Azure** |  Com suporte.
+**PowerShell** |  Com suporte. [Saiba mais](azure-to-azure-powershell.md)
+**API REST** |  Com suporte.
+**CLI** | Sem suporte no momento
 
 
 ## <a name="resource-support"></a>Suporte de recurso
@@ -44,13 +44,13 @@ Este artigo resume o suporte e os pré-requisitos para a recuperação de desast
 **Cluster geográfico** | **Regiões azure**
 -- | --
 Sul | Leste do Canadá, Canadá Central, Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, EUA Central, Centro-Norte dos EUA
-Europa | Reino Unido Oeste, Reino Unido Sul, Norte da Europa, Europa Ocidental, França Central, França Sul, África do Sul Oeste, África do Sul Norte, Noruega Leste, Noruega Oeste
-Ásia | Índia do Sul, Índia Central, Índia Ocidental, Sudeste Asiático, Leste da Ásia, Japão Leste, Japão Oeste, Coréia Central, Coréia do Sul, Emirados Central dos Emirados Americanos Norte
+Europa | Reino Unido Oeste, Reino Unido Sul, Norte da Europa, Europa Ocidental, África do Sul Oeste, África do Sul Norte, Noruega Leste, Noruega Oeste
+Ásia | Índia do Sul, Índia Central, Índia Ocidental, Sudeste Asiático, Leste da Ásia, Japão Leste, Japão Oeste, Coréia Central, Coréia do Sul
 Austrália    | Leste da Austrália, Sudeste da Austrália, Austrália Central, Austrália Central 2
 Azure Government    | US Gov Virginia, US Gov Iowa, US Gov – Arizona, US Gov – Texas, Leste do US DoD, Região Central do US DoD
 Alemanha    | Centro da Alemanha, Nordeste da Alemanha
 China | Leste da China, Norte da China, Norte da China2, Leste da China2
-Regiões restritas reservadas para recuperação de desastres no país |Alemanha Norte reservado para alemanha Centro-Oeste, Suíça Oeste reservado para Suíça Norte, França Sul reservado para clientes Da França Central
+Regiões restritas reservadas para recuperação de desastres no país |Alemanha Norte reservado para alemanha Centro-Oeste, Suíça Oeste reservado para suíça norte, França Sul reservado para França Central, Emirados Unidos Central restrito para clientes norte dos Emirados Unidos
 
 >[!NOTE]
 >
@@ -80,7 +80,7 @@ O Site Recovery oferece suporte à replicação de VMs do Azure que executam os 
 ### <a name="windows"></a>Windows
 
 
-**Sistema Operacional** | **Detalhes**
+**Sistema operacional** | **Detalhes**
 --- | ---
 Windows Server 2019 | Suportado para server core, servidor com experiência de desktop.
 Windows Server 2016  | Núcleo de servidor suportado, servidor com experiência de desktop.
@@ -96,7 +96,7 @@ Windows 7 (x64) com SP1 em diante | A partir da versão [9.30](https://support.m
 
 #### <a name="linux"></a>Linux
 
-**Sistema Operacional** | **Detalhes**
+**Sistema operacional** | **Detalhes**
 --- | ---
 Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6,[7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8.0,](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery)8.1
 CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 8.0, 8.1

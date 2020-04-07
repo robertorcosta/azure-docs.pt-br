@@ -3,12 +3,12 @@ title: Configurar relatórios de Backup do Azure
 description: Configure e visualize relatórios para backup do Azure usando log analytics e workbooks do Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 651d1383f0f292895ed95c91bafd5206d4f04c2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 497d70c1bcc577faa467720b959eb828e785a26a
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78161194"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672658"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
@@ -21,7 +21,7 @@ Hoje, o Azure Backup fornece uma solução de relatórios que aproveita [os logs
 * Os Relatórios de Backup são suportados para VMs Azure, SQL em VMs Azure, SAP HANA/ASE em VMs Azure, Azure Backup Agent (MARS), Azure Backup Server (MABS) e System Center DPM.
 * Para cargas de trabalho dpm, os relatórios de backup são suportados para dpm versão 5.1.363.0 ou superior, e Agent Versão 2.0.9127.0 ou superior.
 * Para cargas de trabalho MABS, os Relatórios de Backup são suportados para a versão 13.0.415.0 ou superior do MABS e para a versão do agente 2.0.9170.0 ou superior.
-* Os Relatórios de backup podem ser visualizados em todos os itens de backup, cofres, assinaturas e regiões, desde que seus dados sejam enviados para um Espaço de Trabalho do Log Analytics (LA) ao que o usuário tenha acesso. 
+* Os Relatórios de backup podem ser visualizados em todos os itens de backup, cofres, assinaturas e regiões, desde que seus dados sejam enviados para um Espaço de Trabalho do Log Analytics (LA) ao que o usuário tenha acesso. Observe que para visualizar relatórios para um conjunto de cofres, você só precisa ter **acesso do leitor ao Espaço de Trabalho la** para o qual os cofres estão enviando seus dados. Você **não precisa** ter acesso aos cofres individuais.
 * Se você é um usuário [do Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) com acesso delegado às assinaturas de seus clientes, você pode usar esses relatórios com o Azure Lighthouse para visualizar relatórios em todos os seus inquilinos.
 * Os dados para trabalhos de backup de log não são exibidos atualmente nos relatórios.
 
@@ -80,7 +80,7 @@ Abaixo está uma descrição das várias guias que o relatório contém:
 
 ![Guia Trabalhos](./media/backup-azure-configure-backup-reports/jobs.png)
 
-* **Políticas** - A guia Políticas permite que você visualize informações sobre todas as suas políticas ativas, como o número de itens associados e o armazenamento total em nuvem consumido por itens copiados uma determinada política. Clicar em uma diretiva específica permite que você visualize informações sobre cada um de seus itens de backup associados.
+* **Políticas** - A guia Políticas permite que você visualize informações sobre todas as suas políticas ativas, como o número de itens associados e o armazenamento total em nuvem consumido por itens copiados sob uma determinada política. Clicar em uma diretiva específica permite que você visualize informações sobre cada um de seus itens de backup associados.
 
 ![Guia políticas](./media/backup-azure-configure-backup-reports/policies.png)
 
@@ -90,7 +90,7 @@ Clicar no botão de seta para baixo no canto superior direito de qualquer widget
 
 ## <a name="pinning-to-dashboard"></a>Fixando-se no painel
 
-Clique no ícone pin na parte superior de cada widget para fixar o widget no painel do portal Azure. Isso ajuda você a criar painéis personalizados medida para exibir as informações mais importantes que você precisa.
+Clique no ícone pin na parte superior de cada widget para fixar o widget no painel do portal Azure. Isso ajuda você a criar painéis personalizados sob medida para exibir as informações mais importantes que você precisa.
 
 ## <a name="cross-tenant-reports"></a>Relatórios de inquilinos cruzados
 

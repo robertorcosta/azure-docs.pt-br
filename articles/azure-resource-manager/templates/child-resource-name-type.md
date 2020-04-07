@@ -3,18 +3,18 @@ title: Recursos infantis em modelos
 description: Descreve como definir o nome e o tipo de recursos de criança em um modelo do Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 6de2b476fe19a057a62e4a54963dd8fde0d11579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77207886"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743839"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Definir nome e tipo para recursos infantis
 
 Recursos infantis são recursos que existem apenas no contexto de outro recurso. Por exemplo, uma [extensão de máquina virtual](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) não pode existir sem uma [máquina virtual.](/azure/templates/microsoft.compute/2019-03-01/virtualmachines) O recurso de extensão é filho da máquina virtual.
 
-Em um modelo de Manjedoura de recursos, você pode especificar o recurso filho dentro do recurso pai ou fora do recurso pai. O exemplo a seguir mostra o recurso filho incluído na propriedade de recursos do recurso pai.
+Em um modelo de Gerenciador de recursos, você pode especificar o recurso filho dentro do recurso pai ou fora do recurso pai. O exemplo a seguir mostra o recurso filho incluído na propriedade de recursos do recurso pai.
 
 ```json
 "resources": [

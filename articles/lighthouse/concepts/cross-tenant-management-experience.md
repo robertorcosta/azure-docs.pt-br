@@ -1,14 +1,14 @@
 ---
 title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 03/12/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0e55923e688d1062adc5838a88e8d3202864282a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ac5d62fbf6b6ee418cd4b2f2b00dfc12e05f809
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218381"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754139"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -84,7 +84,7 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 - Os clientes veem políticas criadas pelo provedor de serviços junto com políticas que eles mesmos criaram
 - É possível [corrigir deployIfNotExists ou modificar atribuições no locatário do cliente](../how-to/deploy-policy-remediation.md)
 
-[Azure Resource Graph](../../governance/resource-graph/index.yml):
+[Gráfico de recursos do Azure](../../governance/resource-graph/index.yml):
 
 - Agora inclui a ID do locatário em resultados de consulta retornados, permitindo que você identifique se uma assinatura pertence ao locatário do cliente ou ao locatário do provedor de serviços
 
@@ -105,7 +105,7 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
   - Verifique se os servidores estão executando apenas os aplicativos e processos que eles devem estar com controles de aplicativo adaptáveis
   - Monitore alterações em arquivos importantes e entradas do Registro com o FIM (Monitoramento de Integridade do Arquivo)
 
-[Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
+[Sentinela Azure](../../sentinel/multiple-tenants-service-providers.md):
 
 - Gerencie os recursos do Azure Sentinel [em inquilinos de clientes](../../sentinel/multiple-tenants-service-providers.md)
 - [Rastreie ataques e visualize alertas de segurança em vários inquilinos de clientes](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
@@ -141,6 +141,7 @@ Com todos os cenários, esteja ciente das seguintes limitações atuais:
 - As atribuições de função devem usar funções internas de [RBAC](../../role-based-access-control/built-in-roles.md) (controle de acesso baseado em função). Atualmente, todas as funções internas têm suporte com o gerenciamento de recursos delegados do Azure, exceto para a função Proprietário ou quaisquer funções internas com a permissão [DataActions](../../role-based-access-control/role-definitions.md#dataactions). A função de Administrador de Acesso do Usuário tem suporte apenas para uso limitado na [atribuição de funções a identidades gerenciadas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  As funções personalizadas e as [funções de administrador de assinatura clássica](../../role-based-access-control/classic-administrators.md) não têm suporte.
 - Embora você possa a bordo de assinaturas que usam o Azure Databricks, os usuários do inquilino gerencial não podem lançar espaços de trabalho do Azure Databricks em uma assinatura delegada neste momento.
 - Embora você possa integrar assinaturas e grupos de recursos para o gerenciamento de recursos delegados do Azure que tenham bloqueios de recursos, esses bloqueios não impedirão que as ações sejam executadas por usuários no locatário de gerenciamento. [Negar atribuições](../../role-based-access-control/deny-assignments.md) que protegem recursos gerenciados pelo sistema, como aqueles criados por aplicativos gerenciados pelo Azure ou projetos do Azure (atribuições de negação atribuídas pelo sistema), impedem que os usuários do inquilino gerenciado atuem nesses recursos; no entanto, neste momento os usuários do inquilino do cliente não podem criar suas próprias atribuições de negação (atribuições de negação atribuídas pelo usuário).
+- Os usuários do inquilino gerenciador não terão acesso para visualizar informações de cobrança para uma assinatura de cliente delegada, mesmo que tenham uma função incorporada que normalmente permitiria o acesso. Isso porque o acesso às informações de cobrança requer etapas adicionais que atualmente são suportadas apenas para usuários dentro do mesmo inquilino.
 
 ## <a name="next-steps"></a>Próximas etapas
 

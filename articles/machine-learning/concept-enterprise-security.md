@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 359fd7fc787db5710deca75dd562215d25ed9148
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 4fbb3e83692ec058c03b22654e82d4093fe3541d
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437485"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756576"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança corporativa para aprendizado de máquina do Azure
 
@@ -134,7 +134,15 @@ Você também pode habilitar o Azure Private Link para o seu espaço de trabalho
 ### <a name="encryption-at-rest"></a>Criptografia em repouso
 
 > [!IMPORTANT]
-> Se o seu espaço de trabalho contiver dados confidenciais, recomendamos definir o [hbi_workspace flag](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) enquanto cria seu espaço de trabalho. Isso controla a quantidade de dados que a Microsoft coleta para fins de diagnóstico e permite criptografia adicional em ambientes gerenciados pela Microsoft.
+> Se o seu espaço de trabalho contiver dados confidenciais, recomendamos definir o [hbi_workspace flag](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) enquanto cria seu espaço de trabalho. 
+
+O `hbi_workspace` sinalizador controla a quantidade de dados que a Microsoft coleta para fins de diagnóstico e permite criptografia adicional em ambientes gerenciados pela Microsoft. Além disso, ele habilita o seguinte:
+
+* Começa a criptografar o disco de arranhão local em seu cluster Amlcompute, desde que você não tenha criado nenhum cluster anterior nessa assinatura. Caso outra coisa, você precisa levantar um ticket de suporte para ativar a criptografia do disco de risco de seus clusters de computação 
+* Limpa seu disco de arranhão local entre as corridas
+* Passa com segurança credenciais para sua conta de armazenamento, registro de contêiner e conta SSH da camada de execução para seus clusters de computação usando seu cofre-chave
+* Permite a filtragem de IP para garantir que os pools de lotes subjacentes não possam ser chamados por outros serviços externos que não sejam o AzureMachineLearningService
+
 
 Para obter mais informações sobre como a criptografia em repouso funciona no Azure, consulte a criptografia de [dados do Azure em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 

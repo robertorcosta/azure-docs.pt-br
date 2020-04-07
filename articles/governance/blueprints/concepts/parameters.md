@@ -3,12 +3,12 @@ title: Use parâmetros para criar blueprints dinâmicos
 description: Aprenda sobre parâmetros estáticos e dinâmicos e como usá-los para criar projetos seguros e dinâmicos.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36735d71b746301819e5079aba1697b55fe5e183
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264707"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677578"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando blueprints dinâmicos por meio de parâmetros
 
@@ -20,7 +20,7 @@ Um exemplo simples é o artefato do grupo de recursos. Quando um grupo de recurs
 > Não é um problema o fato de dois blueprints diferentes incluírem um grupo de recursos com o mesmo nome.
 > Se um grupo de recursos incluído em um blueprint já existir, o blueprint continuará criando os artefatos relacionados nesse grupo de recursos. Isso poderia causar um conflito, pois dois recursos com o mesmo nome e tipo de recurso não podem existir dentro de uma assinatura.
 
-A solução para esse problema é parâmetros. Blueprints permite que você defina o valor de cada propriedade do artefato durante a atribuição a uma assinatura. O parâmetro possibilita a reutilização de um blueprint que cria um grupo de recursos e outros recursos em uma única assinatura sem conflito.
+A solução para esse problema é parâmetros. O Azure Blueprints permite definir o valor de cada propriedade do artefato durante a atribuição de uma assinatura. O parâmetro possibilita a reutilização de um blueprint que cria um grupo de recursos e outros recursos em uma única assinatura sem conflito.
 
 ## <a name="blueprint-parameters"></a>Parâmetros de blueprint
 

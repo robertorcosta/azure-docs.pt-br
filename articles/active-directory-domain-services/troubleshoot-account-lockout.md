@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 04/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 2e274aa353f6c3e485ae10a6a67ee2940eb88b08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d2e22804c06f589c7990bf8f19319b897363a93
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246298"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743457"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-ad-domain-services-managed-domain"></a>Solucionar problemas de bloqueio de contas com um domínio gerenciado do Azure AD Domain Services
 
@@ -33,11 +33,11 @@ Os limites de bloqueio de conta padrão são configurados usando a política de 
 
 ### <a name="fine-grained-password-policy"></a>Política de senha de grãofino
 
-As políticas de senha de grão fino (FGPPs) permitem aplicar restrições específicas para políticas de bloqueio de senha e conta a diferentes usuários em um domínio. O FGPP afeta apenas os usuários criados no Azure AD DS. Usuários de nuvem e usuários de domínio sincronizados no domínio gerenciado do Azure AD DS do Azure AD não são afetados pelas políticas de senha.
+As políticas de senha de grão fino (FGPPs) permitem aplicar restrições específicas para políticas de bloqueio de senha e conta a diferentes usuários em um domínio. O FGPP afeta apenas os usuários dentro de um domínio gerenciado pelo Azure AD DS. Usuários de nuvem e usuários de domínio sincronizados no domínio gerenciado do Azure AD DS do Azure AD são afetados apenas pelas políticas de senha dentro do Azure AD DS. Suas contas no Azure AD ou em um diretório local não são impactadas.
 
 As políticas são distribuídas por meio da associação de grupos no domínio gerenciado pelo Azure AD DS, e quaisquer alterações que você fizer são aplicadas no próximo login do usuário. Alterar a diretiva não desbloqueia uma conta de usuário que já está bloqueada.
 
-Para obter mais informações sobre políticas de senha sinuosas, consulte [Configurar políticas de bloqueio][configure-fgpp]de senha e conta .
+Para obter mais informações sobre políticas de senha sinuosas e as diferenças entre os usuários criados diretamente no Azure AD DS versus sincronizados no Azure AD, consulte Configurar políticas de bloqueio de [senha e conta][configure-fgpp].
 
 ## <a name="common-account-lockout-reasons"></a>Razões comuns de bloqueio de contas
 

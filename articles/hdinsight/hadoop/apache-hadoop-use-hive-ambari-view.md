@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: 6c199a0dd75b89d9c9368e799c97a28b73758d06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/06/2020
+ms.openlocfilehash: 787d88d336abcf3b0ba9b14c3d3798850b665eca
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73097111"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745099"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Use o Apache Ambari Hive View com o Apache Hadoop no HDInsight
 
@@ -23,14 +23,13 @@ Saiba como executar as consultas do Hive usando o Apache Ambari Hive View. A Exi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster Hadoop no HDInsight. Veja [Get Started com hdinsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
-* Um navegador da Web
+Um cluster Hadoop no HDInsight. Veja [Get Started com hdinsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="run-a-hive-query"></a>Executar um trabalho do Hive
 
-1. No [portal Azure,](https://portal.azure.com/)selecione seu cluster.  Consulte [Lista e mostre clusters](../hdinsight-administer-use-portal-linux.md#showClusters) para obter instruções. O cluster é aberto em uma nova folha de portal.
+1. No [portal Azure,](https://portal.azure.com/)selecione seu cluster.  Consulte [Lista e mostre clusters](../hdinsight-administer-use-portal-linux.md#showClusters) para obter instruções. O cluster é aberto em uma nova visão de portal.
 
-1. Em **cluster dashboards,** selecione **exibições Ambari**. Quando solicitado a autenticar, use o nome e senha da conta de logon de cluster (padrão `admin`) que você forneceu ao criar o cluster. Alternativamente, navegue até `https://CLUSTERNAME.azurehdinsight.net/#/main/views` `CLUSTERNAME` o seu navegador onde está o nome do seu cluster.
+1. Em **cluster dashboards,** selecione **exibições Ambari**. Quando solicitado a autenticar, use o nome e senha da conta de logon de cluster (padrão `admin`) que você forneceu ao criar o cluster. Você também pode `https://CLUSTERNAME.azurehdinsight.net/#/main/views` navegar para `CLUSTERNAME` o seu navegador onde está o nome do seu cluster.
 
 1. Na lista de exibições, selecione __Exibição de Hive__.
 
@@ -59,18 +58,15 @@ Saiba como executar as consultas do Hive usando o Apache Ambari Hive View. A Exi
         GROUP BY t4;
     ```
 
-    Essas instruções executam as seguintes ações:
+    Essas declarações fazem as seguintes ações:
 
-   * `DROP TABLE`: exclui a tabela e o arquivo de dados, caso a tabela já exista.
-
-   * `CREATE EXTERNAL TABLE`: cria uma nova tabela "externa" no Hive.
-     As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.
-
-   * `ROW FORMAT`: mostra como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
-
-   * `STORED AS TEXTFILE LOCATION`: mostra o local em que os dados são armazenados e se estão armazenados como texto.
-
-   * `SELECT`: seleciona uma contagem de todas as linhas em que a coluna t4 contém o valor [ERROR].
+    |de | Descrição |
+    |---|---|
+    |DROP TABLE|Exclui a tabela e o arquivo de dados, caso a tabela já exista.|
+    |CRIAR TABELA EXTERNA|Cria uma nova tabela "externa" no Hive. As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.|
+    |FORMATO DA LINHA|Mostra como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.|
+    |ARMAZENADO COMO LOCAL DE ARQUIVO DE TEXTO|Mostra o local em que os dados são armazenados e se estão armazenados como texto.|
+    |SELECT|Seleciona uma contagem de todas as linhas em que a coluna t4 contém o valor [ERROR].|
 
    > [!IMPORTANT]  
    > Deixe a seleção __Banco de dados__ em __padrão__. Os exemplos neste documento usam o banco de dados padrão incluído no HDInsight.
@@ -116,7 +112,7 @@ Você pode usar a guia __tabelas__ para trabalhar com tabelas em um banco de dad
 
 Na guia **Consulta,** você pode, opcionalmente, salvar consultas. Depois de salvar uma consulta, você pode reutilizá-la da guia __Consultas Salvas__.
 
-![Guia de consultas salvas da Colmeia Apache](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+![Apache Hive visualiza guia de consultas salvas](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > Consultas salvas são armazenadas no armazenamento de cluster padrão. Você pode encontrar as consultas salvas no caminho `/user/<username>/hive/scripts`. Elas são armazenadas como arquivos de texto sem formatação `.hql`.
@@ -131,7 +127,7 @@ Declare e salve um conjunto de UDFs usando a guia **UDF** na parte superior da e
 
 ![Exibição da guia Apache Hive UDFs](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
-Depois de adicionar uma UDF à exibição do Hive, um botão **Inserir udfs** será exibido na parte inferior do **Editor de Consultas**. Ao selecionar essa entrada, uma lista suspensa de UDFs definidas na Exibição do Hive será exibida. A seleção de uma UDF adiciona instruções HiveQL à sua consulta para habilitar a UDF.
+Um botão **Inserir udfs** é exibido na parte inferior do **Editor de consulta**. Esta entrada exibe uma lista de sossegitos das UDFs definidas na Exibição colmeia. A seleção de uma UDF adiciona instruções HiveQL à sua consulta para habilitar a UDF.
 
 Por exemplo, se você definiu um UDF com as seguintes propriedades:
 
@@ -155,13 +151,13 @@ Você pode usar a UDF em sua consulta. Por exemplo, `SELECT myawesomeudf(name) F
 Para saber mais sobre como usar UDFs com Hive no HDInsight, consulte os seguintes artigos:
 
 * [Usar o Python com Apache Hive e Apache Pig no HDInsight](python-udf-hdinsight.md)
-* [Como adicionar uma UDF personalizada do Apache Hive ao HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Usar um Java UDF com Apache Hive no HDInsight](./apache-hadoop-hive-java-udf.md)
 
 ## <a name="hive-settings"></a>Configurações do Hive
 
 Você pode alterar diversas configurações do Hive, por exemplo, alterar o mecanismo de execução do Hive de Tez (o padrão) para MapReduce.
 
-## <a name="next-steps"></a><a id="nextsteps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Para informações gerais sobre o Hive no HDInsight:
 

@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 86cc081ef47eb2ac2e8e0a49bc79e8973f34baf1
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: c2ac05cb2a6b3bd185d5e3a84df4f3d9a01c5bef
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633705"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743274"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Gerenciamento de carga de trabalho com classes de recursos no Azure Synapse Analytics
 
@@ -162,13 +162,13 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 Classes de recursos são implementadas atribuindo usuários a funções de banco de dados. Quando um usuário executa uma consulta, a consulta é executada com a classe de recurso do usuário. Por exemplo, se um usuário é um membro da função de banco de dados staticrc10, suas consultas são executadas com pequenas quantidades de memória. Se um usuário de banco de dados for um membro das funções de banco de dados xlargerc ou staticrc80, suas consultas serão executadas com grandes quantidades de memória.
 
-Para aumentar a classe de recursos de um usuário, use [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) para adicionar o usuário a uma função de banco de dados de uma grande classe de recursos.  O código abaixo adiciona um usuário à função de banco de dados largerc.  Cada pedido recebe 22% da memória do sistema.
+Para aumentar a classe de recursos de um usuário, use [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para adicionar o usuário a uma função de banco de dados de uma grande classe de recursos.  O código abaixo adiciona um usuário à função de banco de dados largerc.  Cada pedido recebe 22% da memória do sistema.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-Para diminuir a classe de recurso, use [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  Se 'loaduser' não for um membro ou qualquer outra classe de recursos, eles entrarão na classe de recursos smallrc padrão com uma concessão de memória de 3%.  
+Para diminuir a classe de recurso, use [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Se 'loaduser' não for um membro ou qualquer outra classe de recursos, eles entrarão na classe de recursos smallrc padrão com uma concessão de memória de 3%.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';

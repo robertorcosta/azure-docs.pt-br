@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9ea88da0a575647eecacbfd8a476202f814b821
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 2834fd3d4901b6394eabe000f9efc572c2efd497
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631804"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755087"
 ---
 # <a name="conditional-access-block-access"></a>Acesso Condicional: Acesso ao bloco
 
@@ -33,7 +33,7 @@ As políticas de acesso condicional são ferramentas poderosas, recomendamos exc
 
 * **Acesso de emergência** ou **contas de vidro de quebra** para evitar o bloqueio de contas em todo o inquilino. No cenário improvável em que todos os administradores estão bloqueados do seu inquilino, sua conta administrativa de acesso de emergência pode ser usada para entrar no inquilino para recuperar o acesso.
    * Mais informações podem ser encontradas no artigo, [Gerenciar contas de acesso de emergência no Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Contas de** serviço e **princípios de serviço,** como a Conta Sincronizada do Azure AD Connect. Contas de serviço são contas não interativas que não estão vinculadas a nenhum usuário em particular. Eles são normalmente usados por serviços back-end que permitem acesso programático aos aplicativos, mas também são usados para fazer login em sistemas para fins administrativos. Contas de serviço como essas devem ser excluídas, uma vez que o MFA não pode ser concluído programáticamente.
+* **Contas de** serviço e **princípios de serviço,** como a Conta Sincronizada do Azure AD Connect. Contas de serviço são contas não interativas que não estão vinculadas a nenhum usuário em particular. Eles são normalmente usados por serviços back-end que permitem acesso programático aos aplicativos, mas também são usados para fazer login em sistemas para fins administrativos. Contas de serviço como essas devem ser excluídas, uma vez que o MFA não pode ser concluído programáticamente. As chamadas feitas pelos diretores do serviço não são bloqueadas pelo Conditional Access.
    * Se sua empresa tiver essas contas em uso em scripts ou código, considere substituí-las [por identidades gerenciadas](../managed-identities-azure-resources/overview.md). Como uma solução temporária, você pode excluir essas contas específicas da política de linha de base.
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de Acesso Condicional

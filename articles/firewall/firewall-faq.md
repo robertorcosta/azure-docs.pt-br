@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 45276884d59ac8d1d876e2225ac02bb51c3f74fc
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 5ddbb58837fbda0f14a07186d5a3053055954454
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437720"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677444"
 ---
 # <a name="azure-firewall-faq"></a>Perguntas frequentes do Firewall do Azure
 
@@ -88,7 +88,7 @@ Consulte [os preços do Firewall Do Azure](https://azure.microsoft.com/pricing/d
 
 Use os métodos *deallocate* e *allocate* do Azure PowerShell.
 
-Por exemplo: 
+Por exemplo:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -212,4 +212,8 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Por que um ping TCP e ferramentas similares podem se conectar com sucesso a um FQDN de destino mesmo quando nenhuma regra no Azure Firewall permite esse tráfego?
 
-Um ping TCP não está realmente se conectando ao FQDN de destino. Isso acontece porque o proxy transparente do Azure Firewall ouve na porta 80/443 para tráfego de saída. O ping TCP estabelece uma conexão com o firewall, que então derruba o pacote e registra a conexão. Esse comportamento não tem nenhum impacto na segurança. No entanto, para evitar confusão estamos investigando possíveis mudanças nesse comportamento. 
+Um ping TCP não está realmente se conectando ao FQDN de destino. Isso acontece porque o proxy transparente do Azure Firewall ouve na porta 80/443 para tráfego de saída. O ping TCP estabelece uma conexão com o firewall, que então derruba o pacote e registra a conexão. Esse comportamento não tem nenhum impacto na segurança. No entanto, para evitar confusão estamos investigando possíveis mudanças nesse comportamento.
+
+## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Existem limites para o número de endereços IP suportados por grupos IP?
+
+Sim. Para obter mais informações, consulte os limites de assinatura e serviço do [Azure, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)

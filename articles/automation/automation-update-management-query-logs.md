@@ -3,14 +3,14 @@ title: Registros de gerenciamento de atualização do Azure de consulta
 description: Este artigo descreve como consultar os logs de gerenciamento de atualizações em seu espaço de trabalho do Log Analytics.
 services: automation
 ms.subservice: update-management
-ms.date: 03/31/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 863016bbeda9b4aec3bf2b4e12830bd30098150f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 81e12e775306cc8637dedd534f50e8a14bc09a26
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437839"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743875"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Registros de atualização de consulta para gerenciamento de atualizações no Azure Monitor Logs
 
@@ -38,7 +38,7 @@ Um registro com `RequiredUpdate` um tipo de é criado que representa atualizaç�
 | SourceSystem | *OperationsManager* | 
 | TenantId | Identificador exclusivo representando a instância de suas organizações do Azure Active Directory. | 
 | TimeGenerated | Data e hora de criação do registro. | 
-| Type | *Atualização* | 
+| Type | *Atualizar* | 
 | UpdateClassification | Indica o tipo de atualizações que podem ser aplicadas. Para Windows:<br> *Atualizações críticas*<br> *Atualizações de segurança*<br> *Pacotes cumulativos de atualização*<br> *Feature packs*<br> *Service packs*<br> *Atualizações de definição*<br> *Ferramentas*<br> *Atualizações*. Para Linux:<br> *Atualizações críticas ou de segurança*<br> *Outros* |
 | AtualizaçãoSeverity | Classificação de gravidade para a vulnerabilidade. Os valores são:<br> *Crítico*<br> *Importante*<br> *Moderado*<br> *Baixo* |
 | UpdateTitle | O título da atualização.|
@@ -63,7 +63,7 @@ Um registro com `Update` um tipo de é criado que representa atualizações disp
 | Opcional | *Verdadeiro* ou *Falso* | 
 | RebootBehavior | O comportamento de reinicialização após a instalação/desinstalação de uma atualização. |
 | _ResourceId | Identificador exclusivo para o recurso com o qual o registro está associado. |
-| Type | *Atualização* |
+| Type | *Atualizar* |
 | VMUUID | Identificador exclusivo para a máquina virtual. |
 | MG | Identificador exclusivo para o grupo de gerenciamento ou espaço de trabalho log analytics. | 
 | TenantId | Identificador exclusivo representando a instância de suas organizações do Azure Active Directory. | 
@@ -97,7 +97,7 @@ Um registro com `UpdateAgent` um tipo de é criado que fornece detalhes do agent
 | SourceSystem | *OperationsManager* | 
 | TenantId | Identificador exclusivo representando a instância de suas organizações do Azure Active Directory. |
 | TimeGenerated | Data e hora de criação do registro. |
-| Type | *Atualização* | 
+| Type | *Atualizar* | 
 | WindowsUpdateAgentVersion | Versão do agente Windows Update. |
 | WSUSServer | Mostra erros se o agente do Windows Update tiver um problema para ajudar na solução de problemas. |
 
@@ -112,7 +112,7 @@ Um registro com `UpdateRunProgress` um tipo de é criado que fornece o status de
 | CorrelationId | Identificador exclusivo do runbook job run para a atualização. |
 | EndTime | O tempo em que o processo de sincronização terminou. | 
 | ErrorResult | Código de erro do Windows Update gerado se uma atualização não for instalada. | 
-| Status de instalação | Os possíveis estados de instalação de uma atualização no computador cliente, *Em andamento*, Bem sucedido, *Parcialmente* *falhou*. |
+| Status de instalação | Os possíveis estados de instalação de uma atualização no computador cliente,<br> *NotStarted* - trabalho ainda não acionado.<br> *FailedToStart* - incapaz de iniciar o trabalho na máquina.<br> *Falhou* - o trabalho começou, mas falhou com uma exceção.<br> *InProgress* - trabalho em andamento.<br> *MaintenanceWindowExceeded* - se a execução foi restante, mas o intervalo da janela de manutenção alcançado.<br> *Sucesso* - trabalho bem sucedido.<br> *InstalaçãoFalha* - atualização não foi instalada com sucesso.<br> *Não incluído*<br> *Excluído* |
 | KBID | ID do artigo base de conhecimento para a atualização do Windows. | 
 | ManagementGroupName | Nome do grupo de gerenciamento do Gerente de Operações ou espaço de trabalho do Log Analytics. |
 | OSType | Especifica o tipo de sistema operacional, *Windows* ou *Linux*. | 

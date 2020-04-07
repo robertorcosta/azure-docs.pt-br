@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7e5f70d0323aa5c502491ab99db303fde31ade83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f0c4da7caf71670746e84d5cfaa457ebae57156
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528618"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755035"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração do StorSimple 8100 e 8600 para o Azure File Sync
 
@@ -146,7 +146,10 @@ O tamanho geral dos dados é menos um gargalo - é o número de itens que você 
 > Certifique-se de que a VM está implantada na mesma região do Azure que o aparelho virtual StorSimple 8020. Se, como parte dessa migração, você também precisar alterar a região de seus dados de nuvem da região em que está armazenado hoje, você pode fazer isso em uma etapa posterior, quando você prover compartilhamentos de arquivos do Azure.
 
 > [!IMPORTANT]
-> Para otimizar o desempenho, implante um **disco de SISTEMA OPERACIONAL muito rápido** para sua VM na nuvem. Você armazenará o banco de dados de sincronização no disco do SO para todos os volumes de dados. Além disso, certifique-se de criar um **grande disco do Sistema Operacional**. Dependendo do número de itens (arquivos e pastas) em seus volumes StorSimple, o disco do SISTEMA OPERACIONAL pode precisar de **várias centenas** de GiB de espaço para acomodar o banco de dados de sincronização.
+> Muitas vezes, um Windows Server no local é usado para fazer frente ao seu aparelho StorSimple no local. Em tal configuração, é possível ativar o recurso "[Deduplicação de Dados](https://docs.microsoft.com/windows-server/storage/data-deduplication/install-enable)" naquele Windows Server. **Se você usou a duplicação de dados com seus dados StorSimple, certifique-se de ativar a duplicação de dados nesta VM Azure também.** Não confunda essa deduplicação em nível de arquivo com a deduplicação de nível de bloco incorporada do StorSimples, para a qual nenhuma ação é necessária.
+
+> [!IMPORTANT]
+> Para otimizar o desempenho, implante um **disco rápido do SISTEMA OPERACIONAL** para sua VM na nuvem. Você armazenará o banco de dados de sincronização no disco do SO para todos os volumes de dados. Além disso, certifique-se de criar um **grande disco do Sistema Operacional**. Dependendo do número de itens (arquivos e pastas) em seus volumes StorSimple, o disco do SISTEMA OPERACIONAL pode precisar de **várias centenas** de GiB de espaço para acomodar o banco de dados de sincronização.
 
 ### <a name="expose-the-storsimple-8020-volumes-to-the-azure-vm"></a>Exponha os volumes StorSimple 8020 à VM Do Zure
 
@@ -244,7 +247,7 @@ Configurar o Azure VM é um processo quase idêntico, com uma etapa adicional. A
 ### <a name="get-the-vm-ready-for-azure-file-sync"></a>Prepare a VM para o Azure File Sync
 
 O Azure File Sync é usado para mover os arquivos dos volumes do iSCSI StorSimples montados para os compartilhamentos de arquivos Azure de destino.
-Durante este processo de migração, você montará vários clones de volume em sua VM, a mesma letra de unidade. O Azure File Sync deve ser configurado para ver o próximo clone de volume que você montou como uma versão mais recente dos arquivos e pastas e atualizar os compartilhamentos de arquivos do Azure conectados via Azure File Sync. 
+Durante este processo de migração, você montará vários clones de volume em sua VM, sob a mesma letra de unidade. O Azure File Sync deve ser configurado para ver o próximo clone de volume que você montou como uma versão mais recente dos arquivos e pastas e atualizar os compartilhamentos de arquivos do Azure conectados via Azure File Sync. 
 
 > [!IMPORTANT]
 > Para que isso funcione, uma chave de registro deve ser definida no servidor antes que o Azure File Sync seja configurado.
@@ -424,7 +427,7 @@ Consulte os arquivos de registro de robocopia para ver se os arquivos foram deix
 
 É provável que seja necessário criar os compartilhamentos de SMB no Windows Server que você tinha nos dados do StorSimple antes. Você pode carregar a frente desta etapa e fazê-lo mais cedo para não perder tempo aqui, mas você deve garantir que antes deste ponto, não ocorram alterações nos arquivos no servidor windows.
 
-Se você tiver uma implantação DFS-N, você pode apontar os espaços de nome DFN para os novos locais da pasta do servidor. Se você não tiver uma implantação DFS-N e você tiver o seu aparelho 8100 8600 localmente com um Servidor Windows, você pode tirar esse servidor do domínio e o domínio juntar seu novo Servidor Windows com AFS para o domínio, dar-lhe o mesmo nome de servidor que o servidor antigo e os mesmos nomes de compartilhamento, em seguida, o corte para o novo servidor permanece transparente para seus usuários, diretiva de grupo ou scripts.
+Se você tiver uma implantação DFS-N, você pode apontar os espaços de nome DFN para os novos locais da pasta do servidor. Se você não tiver uma implantação DFS-N e você tiver o seu aparelho 8100 8600 localmente com um Servidor Windows, você poderá tirar esse servidor do domínio e o domínio se juntar ao seu novo Servidor Windows com OFS para o domínio, dar-lhe o mesmo nome de servidor que o servidor antigo e os mesmos nomes de compartilhamento, em seguida, o corte para o novo servidor permanece transparente para seus usuários , política de grupo, ou scripts.
 
 ## <a name="phase-7-deprovision"></a>Fase 7: Deprovision
 

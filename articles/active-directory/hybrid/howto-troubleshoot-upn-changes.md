@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 695773da624bc8d4ccff09119d64fc43319ff488
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d11be1d971922095d4a1ace1c81c763134b4e58c
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246425"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743327"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planejar e solucionar problemas do nome principal do usuário no Diretório Ativo do Azure
 
@@ -58,11 +58,11 @@ Bsimon@contoso.com paraBritta.Simon@contoso.com
 
    * Britta.Simon@contoso.com em Britta.Simon@contosolabs.com <br>
      Ou<br>
-    *   Britta.Simon@corp.contoso.com em Britta.Simon@labs.contoso.com 
+    * Britta.Simon@corp.contoso.com em Britta.Simon@labs.contoso.com 
 
 Altere a UPN do usuário toda vez que o endereço de e-mail principal de um usuário for atualizado. Não importa o motivo da alteração de e-mail, a UPN deve estar sempre atualizada para corresponder.
 
-Durante a sincronização inicial do Active Directory para o Azure AD, certifique-se de que os e-mails dos usuários são idênticos aos seus UPNs
+Durante a sincronização inicial do Active Directory para o Azure AD, certifique-se de que os e-mails dos usuários sejam idênticos aos seus UPNs.
 
 ### <a name="upns-in-active-directory"></a>UPNs em Diretório Ativo
 
@@ -100,7 +100,7 @@ Se o valor do atributo userPrincipalName não corresponder a um domínio verific
 
 ### <a name="roll-out-bulk-upn-changes"></a>Alterações de UPN em massa de roll-out
 
-Siga as melhores práticas para um piloto para[mudanças](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans) upn a granel. Também tenha um plano de reversão testado para reverter UPNs se você encontrar problemas que não podem ser resolvidos rapidamente. Uma vez que o piloto esteja sendo executado, você pode começar a segmentar pequenos conjuntos de usuários com várias funções organizacionais e seus conjuntos específicos de aplicativos ou dispositivos.
+Siga as melhores práticas para um piloto para [mudanças](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans) upn a granel. Também tenha um plano de reversão testado para reverter UPNs se você encontrar problemas que não podem ser resolvidos rapidamente. Uma vez que o piloto esteja sendo executado, você pode começar a segmentar pequenos conjuntos de usuários com várias funções organizacionais e seus conjuntos específicos de aplicativos ou dispositivos.
 
 Passar por esse primeiro subconjunto de usuários lhe dará uma boa idéia do que os usuários devem esperar como parte da mudança. Inclua essas informações nas comunicações do usuário.
 
@@ -108,7 +108,7 @@ Crie um procedimento definido para alterar UPNs em usuários individuais como pa
 
 As seções a seguir detalham possíveis problemas conhecidos e soluções-primas quando as UPNs são alteradas.
 
-## <a name="user-provisioning-known-issues-and-workarounds"></a>provisionamento de usuários problemas conhecidos e soluçãos
+## <a name="apps-known-issues-and-workarounds"></a>Aplicativos conhecidos problemas e soluçãos
 
 Os aplicativos [de software como serviço (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) e Linha de Negócios (LoB) geralmente dependem de UPNs para encontrar usuários e armazenar informações de perfil do usuário, incluindo funções. Aplicativos que usam [provisionamento Just in Time](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) para criar um perfil de usuário quando os usuários fazem login no aplicativo pela primeira vez podem ser afetados por alterações na UPN.
 
@@ -117,6 +117,7 @@ Alterar a UPN de um usuário pode quebrar a relação entre o usuário do Azure 
 
 **Solução alternativa**<br>
 [O Azure AD Automated User Provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) permite criar, manter e remover automaticamente suas identidades de usuário em aplicativos de nuvem suportados. A configuração do provisionamento automatizado do usuário em seus aplicativos atualiza automaticamente as UPNs nos aplicativos. Teste os aplicativos como parte da implantação progressiva para validar que eles não são afetados pelas alterações da UPN.
+Se você é um desenvolvedor, considere [adicionar suporte ao SCIM ao seu aplicativo](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) para permitir o provisionamento automático do usuário do Azure Active Directory. 
 
 ## <a name="managed-devices-known-issues-and-workarounds"></a>Dispositivos gerenciados problemas conhecidos e soluçãos
 
@@ -130,7 +131,7 @@ Os dispositivos [azure AD são](https://docs.microsoft.com/azure/active-director
 Os usuários podem ter problemas de login único com aplicativos que dependem do Azure AD para autenticação.
 
 **Solução alternativa** <br>
-Permitir tempo suficiente para que a alteração UPN sincronize com o Azure AD. Depois de verificar se a nova UPN está refletida no Portal Azure AD, peça ao usuário para selecionar o azulejo "Outro usuário" para fazer login com sua nova UPN. você também pode verificar através do [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). Depois de fazer login com sua nova UPN, as referências à UPN antiga ainda podem aparecer na configuração do Windows "Acesso ao trabalho ou à escola".
+Permitir tempo suficiente para que a alteração UPN sincronize com o Azure AD. Depois de verificar se a nova UPN está refletida no Portal Azure AD, peça ao usuário para selecionar o azulejo "Outro usuário" para fazer login com sua nova UPN. Você também pode verificar através do [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). Depois de fazer login com sua nova UPN, as referências à UPN antiga ainda podem aparecer na configuração do Windows "Acesso ao trabalho ou à escola".
 
 ![Captura de tela de domínios verificados](./media/howto-troubleshoot-upn-changes/other-user.png)
 
@@ -142,7 +143,7 @@ Os dispositivos [adeptos do Azure AD híbrido saem](https://docs.microsoft.com/a
 
 Os dispositivos azure híbridos do Windows 10 provavelmente sofrerão reinicializações inesperadas e problemas de acesso.
 
-Se os usuários fizerem login no Windows antes que o novo UPN tenha sido sincronizado com o Ad do Azure ou continuarem a usar uma sessão do Windows existente, eles poderão ter problemas de logon único com aplicativos que usam o Azure AD para autenticação se o Acesso Condicional tiver sido configurado para impor o uso de dispositivos Híbrido-Unidos para acessar recursos. 
+Se os usuários fizerem login no Windows antes que o novo UPN tenha sido sincronizado com o Azure AD ou continuarem a usar uma sessão do Windows existente, eles poderão ter problemas de logon único com aplicativos que usam o Azure AD para autenticação se o Acesso Condicional tiver sido configurado para impor o uso de dispositivos Hybrid Joined para acessar recursos. 
 
 Além disso, a seguinte mensagem aparecerá, forçando uma reinicialização após um minuto. 
 
@@ -166,7 +167,7 @@ O [aplicativo Microsoft Authenticator](https://docs.microsoft.com/azure/active-d
 
 * Aja como um Corretor de Autenticação em dispositivos iOS e Android para fornecer login único para aplicativos que usam [autenticação intermediada](https://docs.microsoft.com/azure/active-directory/develop/brokered-auth)
 
-* Registro de dispositivos (também conhecido como Workplace Joined) para o Azure AD, que é um requisito para outros recursos como Intune App Protection e Device Registration/Management,
+* Registro de dispositivos (também conhecido como Workplace Join) para o Azure AD, que é um requisito para outros recursos como Intune App Protection e Device Registration/Management,
 
 * Faça login telefônico, o que requer MFA e registro de dispositivos.
 
@@ -174,15 +175,13 @@ O [aplicativo Microsoft Authenticator](https://docs.microsoft.com/azure/active-d
 
 O aplicativo Microsoft Authenticator oferece uma opção de verificação fora da banda. Em vez de colocar uma chamada telefônica ou SMS automatizada para o usuário durante o login, o [MFA (Multi-Factor Authentication, autenticação multifatorial)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) solicita uma notificação ao aplicativo Microsoft Authenticator no smartphone ou tablet do usuário. O usuário simplesmente toca em Aprovar (ou digita um PIN ou biométrico e toca em "Autenticar") no aplicativo para completar seu login.
 
-Quando você altera a UPN de um usuário, os dispositivos móveis podem experimentar os seguintes problemas:
-
 **Problemas conhecidos** 
 
-A UPN antiga ainda é exibida na conta de usuário e uma notificação pode não ser recebida. [Os códigos de verificação](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-faq) continuam funcionando.
+Quando você altera a UPN de um usuário, a UPN antiga ainda é exibida na conta do usuário e uma notificação pode não ser recebida. [Os códigos de verificação](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-faq) continuam funcionando.
 
 **Solução alternativa**
 
-Se uma notificação for recebida, instrua o usuário a rejeitar a notificação, abra o aplicativo Authenticator, toque na opção "Verificar notificações" e aprove o prompt do MFA. Depois disso, a UPN exibida na conta será atualizada. Observe que o UPN atualizado pode ser exibido como uma nova conta, isso é devido a outras funcionalidades do Authenticator sendo usadas. Para obter mais informações, outros problemas conhecidos neste artigo.
+Se uma notificação for recebida, instrua o usuário a rejeitar a notificação, abra o aplicativo Authenticator, toque na opção "Verificar notificações" e aprove o prompt do MFA. Depois disso, a UPN exibida na conta será atualizada. Observe que o UPN atualizado pode ser exibido como uma nova conta, isso é devido a outras funcionalidades do Authenticator sendo usadas. Para obter mais informações, consulte os problemas conhecidos adicionais neste artigo.
 
 ### <a name="brokered-authentication"></a>Autenticação intermediada
 

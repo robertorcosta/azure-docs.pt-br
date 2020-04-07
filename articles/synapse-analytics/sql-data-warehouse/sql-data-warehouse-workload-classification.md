@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 67f863826a2e9eb1bffcb316754ad5c40a2f2bb1
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: e7aa0c402878c994aabe4e12d811a99e300d7e67
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583132"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743643"
 ---
 # <a name="azure-synapse-analytics-workload-classification"></a>Classificação da carga de trabalho do Azure Synapse Analytics
 
@@ -36,7 +36,7 @@ Nem todas as declarações são classificadas, pois não exigem recursos ou prec
 
 ## <a name="classification-process"></a>Processo de classificação
 
-A classificação para o pool Synapse SQL no Azure Synapse é alcançada hoje atribuindo os usuários a uma função que tem uma classe de recursos correspondente atribuída a ele usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). A capacidade de caracterizar solicitações além de um login em uma classe de recursos é limitada com esse recurso. Um método mais rico para classificação está agora disponível com a sintaxe [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql)  Com essa sintaxe, os usuários do pool Synapse SQL podem atribuir importância `workload_group` e quanto sustais são atribuídos a uma solicitação através do parâmetro. 
+A classificação para o pool Synapse SQL no Azure Synapse é alcançada hoje atribuindo os usuários a uma função que tem uma classe de recursos correspondente atribuída a ele usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). A capacidade de caracterizar solicitações além de um login em uma classe de recursos é limitada com esse recurso. Um método mais rico para classificação está agora disponível com a sintaxe [CREATE WORKLOAD CLASSIFIER.](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Com essa sintaxe, os usuários do pool Synapse SQL podem atribuir importância `workload_group` e quanto sustais são atribuídos a uma solicitação através do parâmetro.
 
 > [!NOTE]
 > A classificação é avaliada por solicitação. Várias solicitações em uma única sessão podem ser classificadas de forma diferente.
@@ -76,7 +76,7 @@ Considere o cenário a seguir.
 - Para testar a nova sintaxe de classificação, a função de banco de dados DBARole (da qual o DBAUser é membro), possui um classificador criado para eles mapeá-los para mediumrc e alta importância.
 - Quando o DBAUser fizer login e executá-lo uma consulta, a consulta será atribuída ao biggerc. Porque um usuário tem prioridade sobre uma associação de papéis.
 
-Para simplificar a má classificação, recomendamos que você remova mapeamentos de função de classe de recursos à medida que cria classificadores de carga de trabalho.  O código abaixo retorna as adesões de função de classe de recursos existentes.  Execute [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) para cada nome de membro retornado da classe de recursos correspondente.
+Para simplificar a má classificação, recomendamos que você remova mapeamentos de função de classe de recursos à medida que cria classificadores de carga de trabalho.  O código abaixo retorna as adesões de função de classe de recursos existentes.  Execute [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para cada nome de membro retornado da classe de recursos correspondente.
 
 ```sql
 SELECT  r.name AS [Resource Class]
@@ -92,7 +92,7 @@ sp_droprolemember '[Resource Class]', membername
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações sobre a criação de um classificador, consulte o [CLASSIFIER DE CARGA DE TRABALHO (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Para obter mais informações sobre a criação de um classificador, consulte o [CLASSIFIER DE CARGA DE TRABALHO (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
 - Consulte o Quickstart sobre como criar um classificador de carga de trabalho [Criar um classificador de carga de trabalho](quickstart-create-a-workload-classifier-tsql.md).
 - Consulte os artigos de como configurar a [importância da carga de trabalho](sql-data-warehouse-how-to-configure-workload-importance.md) e como gerenciar e monitorar o gerenciamento da carga de [trabalho](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
-- Confira [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para exibir consultas e a importância atribuída.
+- Confira [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para exibir consultas e a importância atribuída.

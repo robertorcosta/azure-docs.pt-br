@@ -4,12 +4,12 @@ description: Neste artigo, saiba como criar cofres de Serviços de Recuperação
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 38f23ee458845b92c04af47307a2411b26c8ac81
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 439f102e8f13bff63ab388be8f10df07ab2dc7d2
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529393"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672859"
 ---
 # <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -88,31 +88,7 @@ Para este processo, há implicações de preços como está no nível de armazen
 >Antes de começar:
 >
 >- Revise a matriz de [suporte](backup-support-matrix.md#cross-region-restore) para uma lista de tipos e regiões gerenciados suportados.
->- O recurso Derdrestore (Cross Region Restore, na região) está disponível atualmente apenas nas seguintes regiões: 
->    - Centro-Oeste dos EUA
->    - Oeste dos EUA
->    - Oeste dos EUA 2
->    - Centro-Sul dos Estados Unidos
->    - Leste dos EUA
->    - Leste dos EUA 2
->    - Centro-Norte dos EUA
->    - Canadá Central
->    - Leste do Canadá
->    - Leste da Austrália
->    - Sudeste da Austrália
->    - Índia Central
->    - Sul da Índia
->    - Oeste da Índia
->    - Leste do Japão
->    - Oeste do Japão
->    - Sudeste Asiático
->    - Sul do Reino Unido
->    - Oeste do Reino Unido
->    - Europa Ocidental
->    - Norte da Europa
->    - França Central
->    - Coreia Central
->    - Sul da Coreia
+>- O recurso Cross Region Restore (CRR) agora é visualizado em todas as regiões públicas do Azure.
 >- CRR é um recurso de opt-in nível de cofre para qualquer cofre GRS (desligado por padrão).
 >- Por favor, use o seguinte comando para embarcar na sua assinatura para este recurso:<br>
 >  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`

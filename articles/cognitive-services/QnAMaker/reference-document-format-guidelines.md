@@ -2,13 +2,13 @@
 title: Diretrizes de formato de documento de importação - QnA Maker
 description: Entenda como os tipos de URLs são usados para importar e criar conjuntos de QnA.
 ms.topic: reference
-ms.date: 01/02/2020
-ms.openlocfilehash: 6a954f2fd607b70c6db256ab6dcc1dbcd7a5a473
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 1e006520ce5c61f2da3f425af2332b0d41cc3881
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651834"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754895"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Diretrizes de formato para documentos importados e URLs
 
@@ -20,6 +20,8 @@ Depois de importar um arquivo ou URL, o QnA Maker converte e armazena seu conte�
 
 Se você adicionar ou editar seu conteúdo diretamente em sua base de conhecimento, use a **formatação de marcação** para criar conteúdo de texto rico ou alterar o conteúdo do formato de marcação que já está na resposta. O QnA Maker suporta grande parte do formato de marcação para trazer recursos de texto ricos ao seu conteúdo. No entanto, o aplicativo cliente, como um bot de bate-papo, pode não suportar o mesmo conjunto de formatos de marcação. É importante testar a exibição de respostas do aplicativo cliente.
 
+Veja uma lista completa de tipos de [conteúdo e exemplos](./Concepts/content-types.md#file-and-url-data-types).
+
 ## <a name="basic-document-formatting"></a>Formatação básica de documentos
 
 O QnA Maker identifica seções e subseções e relacionamentos no arquivo com base em pistas visuais como:
@@ -28,12 +30,6 @@ O QnA Maker identifica seções e subseções e relacionamentos no arquivo com b
 * estilo de fonte
 * Numeração
 * cores
-
-|Exemplos de documento|
-|--|
-||
-
-
 
 ## <a name="product-manuals"></a>Manuais de produtos
 
@@ -116,7 +112,8 @@ Importar uma base de dados de conhecimento substitui o conteúdo da base de dado
 * O primeiro caractere da posição deve ser capitalizado.
 * Não termine um título com `?`um ponto de interrogação, .
 
+**Documentos de amostra:**<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso Benefícios (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso Benefícios (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
 
-|Exemplos de documento|
-|--|
-||
+## <a name="next-steps"></a>Próximas etapas
+
+Veja uma lista completa de tipos de [conteúdo e exemplos](./Concepts/content-types.md#file-and-url-data-types)

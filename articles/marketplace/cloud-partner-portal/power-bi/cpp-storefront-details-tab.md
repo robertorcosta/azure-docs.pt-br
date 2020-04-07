@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b69ef8aa57393c5be8d23aaf4af1821697295235
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1bcf06056dd7fdaf22716409f53d86da7321b94d
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281673"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745597"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Guia Detalhes do aplicativo Power BI Storefront
+
+>[!Important]
+>A partir de 30 de março de 2020, começaremos a mover o gerenciamento das ofertas do seu aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [visão geral de criação de aplicativos do Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerenciar suas ofertas migradas.
 
 Na página **Nova Oferta,** use a guia Detalhes do **Storefront** para fornecer informações de marketing, vendas e legais para seus potenciais clientes. Nesta guia você também pode configurar o gerenciamento de leads que o Azure Marketplace gera. Este formulário longo é dividido em seis seções: **Detalhes da oferta, detalhes** **de listagem,** **artefatos de marketing,** **legal,** **suporte ao cliente**e gerenciamento de **chumbo.**  Um asterisco (*) no final de uma etiqueta de campo significa que o campo é necessário.
 
@@ -67,9 +70,9 @@ Para completar os campos nesta seção, use a tabela a seguir. Os campos obrigat
 | **Logotipo de oferta (formato png, 216x216)\*** | Faça upload de um logotipo para exibir na página de detalhes do seu aplicativo.  O AppSource suporta apenas o formato PNG, com uma resolução de 216 x 216 px.  |
 | *Vídeos*                             |                                                                   |
 | **Nome**                             | Digite o nome ou título do seu aplicativo.                                          |
-| **Url**                              | Digite a URL de um vídeo hospedado no YouTube ou Vimeo.                              |
+| **URL**                              | Digite a URL de um vídeo hospedado no YouTube ou Vimeo.                              |
 | **Miniatura**                        | Adicione uma imagem em miniatura do aplicativo.  O AppSource suporta apenas o formato PNG, com uma resolução de 1280 x 720 px.   |
-| *Documentos*                          | Adicione até três documentos para exibir no AppSource, o título **Saiba mais.**  |
+| *Documentos*                          | Adicione até três documentos para exibir no AppSource, sob o título **Saiba mais.**  |
 | **Nome**                             | Digite o nome ou título de um documento de suporte.                              |
 | **Arquivo**                             | Faça upload de um arquivo PDF.                             |
 | *Screenshots\**                      | Adicione até cinco capturas de tela.                        |

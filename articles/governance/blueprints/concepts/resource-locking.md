@@ -3,12 +3,12 @@ title: Compreender o bloqueio de recursos
 description: Conheça as opções de bloqueio no Azure Blueprints para proteger os recursos ao atribuir um projeto.
 ms.date: 03/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 86897ae6665f7a339b51aaae5f1c00144d8b7309
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 9c4e2f4c6fd8f5fb574002217ca71d1e7d130ff7
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437745"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676745"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Entenda o bloqueio de recursos nos Blueprints do Azure
 
@@ -20,20 +20,20 @@ A criação de ambientes consistentes em escala só é realmente valiosa se houv
 ## <a name="locking-modes-and-states"></a>Estados e modos de bloqueio
 
 O modo de bloqueio se aplica à atribuição do projeto e tem três opções: **Não bloquear,** **Ler apenas**ou Não **Excluir**. O modo de bloqueio é configurado durante a implantação de artefato em uma atribuição de blueprint. Um modo de bloqueio diferente pode ser definido pela atualização da atribuição de blueprint.
-No entanto, os modos de bloqueio não podem ser alterados fora dos blueprints.
+Os modos de bloqueio, no entanto, não podem ser alterados fora do Azure Blueprints.
 
 Os recursos criados por artefatos em uma atribuição de projeto têm quatro estados: **Não bloqueado,** **Somente leitura,** **não pode editar / excluir**ou não **pode excluir**. Cada tipo de artefato pode estar no estado **Não Bloqueado**. A seguinte tabela pode ser usada para determinar o estado de um recurso:
 
 |Mode|Tipo de recurso do artefato|Estado|Descrição|
 |-|-|-|-|
-|Não Bloquear|*|Não Bloqueado|Os recursos não são protegidos pelos blueprints. Esse estado também é usado para recursos adicionados a um artefato do grupo de recursos **Somente Leitura** ou **Não Excluir** fora de uma atribuição de blueprint.|
+|Não Bloquear|*|Não Bloqueado|Os recursos não são protegidos pelo Azure Blueprints. Esse estado também é usado para recursos adicionados a um artefato do grupo de recursos **Somente Leitura** ou **Não Excluir** fora de uma atribuição de blueprint.|
 |Somente leitura|Resource group|Não é Possível Editar/Excluir|O grupo de recursos é somente leitura e as marcas no grupo de recursos não podem ser modificadas. Os recursos **Não Bloqueados** podem ser adicionados, movidos, alterados ou excluídos desse grupo de recursos.|
 |Somente leitura|Não grupo de recursos|Somente leitura|O recurso não pode ser alterado de forma alguma – sem alterações e não pode ser excluído.|
 |Não exclua|*|Não é Possível Excluir|Os recursos podem ser alterados, mas não podem ser excluídos. Os recursos **Não Bloqueados** podem ser adicionados, movidos, alterados ou excluídos desse grupo de recursos.|
 
 ## <a name="overriding-locking-states"></a>Substituindo os estados de bloqueio
 
-Normalmente, é possível que alguém com o [controle de acesso baseado em função](../../../role-based-access-control/overview.md) (RBAC) apropriado na assinatura, como a função de 'Proprietário', possa alterar ou excluir qualquer recurso. Esse acesso não é o caso quando o Blueprints aplica o bloqueio como parte de uma atribuição implantada. Se a atribuição foi definida com a opção **Somente Leitura** ou **Não Excluir**, nem mesmo o proprietário da assinatura pode executar a ação bloqueada no recurso protegido.
+Normalmente, é possível que alguém com o [controle de acesso baseado em função](../../../role-based-access-control/overview.md) (RBAC) apropriado na assinatura, como a função de 'Proprietário', possa alterar ou excluir qualquer recurso. Esse acesso não é o caso quando o Azure Blueprints aplica o bloqueio como parte de uma atribuição implantada. Se a atribuição foi definida com a opção **Somente Leitura** ou **Não Excluir**, nem mesmo o proprietário da assinatura pode executar a ação bloqueada no recurso protegido.
 
 Isso protege a consistência do plano gráfico em definido e o ambiente em que ele foi projetado para criar a partir de exclusão acidental ou através de programação ou de alteração.
 
@@ -97,11 +97,11 @@ Se for necessário modificar ou excluir um recurso protegido por uma atribuiçã
 - Atualizar a atribuição de blueprint para um modo de bloqueio igual a **Não Bloquear**
 - Excluir a atribuição de blueprint
 
-Quando a atribuição é removida, os bloqueios criados por planos gráficos são removidos. No entanto, o recurso é deixado para trás e precisaria ser excluído por meios normais.
+Quando a atribuição é removida, as fechaduras criadas pelo Azure Blueprints são removidas. No entanto, o recurso é deixado para trás e precisaria ser excluído por meios normais.
 
 ## <a name="how-blueprint-locks-work"></a>Como o plano gráfico bloqueios trabalho
 
-Uma ação de negação [negar atribuições](../../../role-based-access-control/deny-assignments.md) do RBAC é aplicada aos recursos de artefato durante a atribuição de um blueprint se a atribuição selecionou a opção **Somente Leitura** ou **Não Excluir**. A ação de negação é adicionada pela identidade gerenciada da atribuição de blueprint e só pode ser removida dos recursos de artefato pela mesma identidade gerenciada. Essa medida de segurança impõe o mecanismo de bloqueio e impede a remoção do bloqueio do blueprint fora do Blueprints.
+Uma ação de negação [negar atribuições](../../../role-based-access-control/deny-assignments.md) do RBAC é aplicada aos recursos de artefato durante a atribuição de um blueprint se a atribuição selecionou a opção **Somente Leitura** ou **Não Excluir**. A ação de negação é adicionada pela identidade gerenciada da atribuição de blueprint e só pode ser removida dos recursos de artefato pela mesma identidade gerenciada. Esta medida de segurança impõe o mecanismo de bloqueio e impede a remoção do bloqueio do projeto fora do Azure Blueprints.
 
 ![Projeto nega atribuição em grupo de recursos](../media/resource-locking/blueprint-deny-assignment.png)
 

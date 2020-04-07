@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 692834903899448707200b24a955301e29e14f90
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 56c53b9e2388cc0594076a5ef35b072216aec20d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478461"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672753"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gerenciar o servidor de configuração para recuperação de desastres vmware/servidor físico vmware
 
@@ -45,7 +45,7 @@ Você pode acessar o servidor de configuração da seguinte maneira:
 
 Também é possível modificar as credenciais por meio de CSPSConfigtool.exe.
 
-1. Fazer logon no servidor de configuração e iniciar o CSPSCconfigtool.exe
+1. Faça login no servidor de configuração e inicie cspsConfigtool.exe
 2. Escolha a conta que você deseja modificar e clique em **Editar**.
 3. Insira as credenciais modificadas e clique em **Ok**
 
@@ -93,6 +93,32 @@ O modelo Open Virtualization Format (OVF) implanta a VM do servidor de configura
 - Você pode [adicionar um adaptador adicional à VM,](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter)mas você deve adicioná-lo antes de registrar o servidor de configuração no cofre.
 - Para adicionar um adaptador depois de registrar o servidor de configuração no cofre, adicione o adaptador nas propriedades da VM. Então você precisa [reregistrar](#reregister-a-configuration-server-in-the-same-vault) o servidor no cofre.
 
+## <a name="how-to-renew-ssl-certificates"></a>Como renovar certificados SSL
+
+O servidor de configuração possui um servidor web embutido, que orquestra atividades dos agentes de mobilidade em todas as máquinas protegidas, servidores de processo embutidos/dimensionados e servidores de destino mestre conectados a ele. O servidor da web usa um certificado SSL para autenticar clientes. O certificado expira depois de três anos e pode ser renovado a qualquer momento.
+
+### <a name="check-expiry"></a>Verificar expiração
+
+A data de expiração aparece sob **Integridade do servidor de configuração**. Para implantações de servidor de configuração antes de maio de 2016, a expiração do certificado foi definida para um ano. Se você tiver um certificado prestes a expirar, ocorrerá o seguinte:
+
+- Quando a data de expiração é de dois meses ou menos, o serviço começa a enviar notificações no portal e por email (se você tiver assinado as notificações do Site Recovery).
+- Uma faixa de notificação será exibida na página de recursos do cofre. Para obter mais informações, selecione a faixa.
+- Se você vir um botão **Atualizar agora**, isso indica que alguns componentes em seu ambiente não foram atualizados para a versão 9.4.xxxx.x ou superiores. Atualize os componentes antes de renovar o certificado. Não é possível renovar versões mais antigas.
+
+### <a name="if-certificates-are-yet-to-expire"></a>Se os certificados ainda estão para expirar
+
+1. Para renovar, no cofre, abra o Servidor**de Configuração de Configuração** **de Recuperação** > do Site . Selecione o servidor de configuração necessário.
+2. Certifique-se de que todos os servidores de processo de escala de componentes, servidores de destino mestre e agentes de mobilidade em todas as máquinas protegidas estejam em versões mais recentes e estejam em estado conectado.
+3. Agora, **selecione Renovar Certificados**.
+4. Siga cuidadosamente as instruções nesta página e clique em okay para renovar certificados no servidor de configuração selecionado e seus componentes associados.
+
+### <a name="if-certificates-have-already-expired"></a>Se os certificados já tiverem expirado
+
+1. Após o vencimento, os certificados **não podem ser renovados do portal Azure**. Antes de prosseguir, certifique-se de que todos os servidores de processo de escala de componentes, servidores-alvo mestre e agentes de mobilidade em todas as máquinas protegidas estejam em versões mais recentes e estejam em estado conectado.
+2. **Siga este procedimento somente se os certificados já tiverem expirado.** Faça login no servidor de configuração, navegue até c unidade > Programa de dados > recuperação de site > casa > svsystems > bin e execute a ferramenta executor "RenewCerts" como administrador.
+3. Uma janela de execução do PowerShell aparece e aciona a renovação dos certificados. Isso pode demorar até 15 minutos. Não feche a janela até a conclusão da renovação.
+
+:::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="Renovar certificados":::
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Registrar um servidor de configuração no mesmo cofre
 
@@ -112,7 +138,7 @@ Você pode registrar novamente o servidor de configuração no mesmo cofre se ne
    ```
 
     >[!NOTE]
-    >Para **puxar os certificados mais recentes** do servidor de configuração para o servidor de processo de escala, execute o comando " *\<Instalação Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    >Para **puxar os certificados mais recentes** do servidor de configuração para o servidor de processo de escala, execute o comando " *\<Instalação Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>"-- registermt*
 
 8. Finalmente, reinicie o obengine executando o seguinte comando.
    ```
@@ -138,7 +164,7 @@ Você pode registrar novamente o servidor de configuração no mesmo cofre se ne
 
 ## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
 
-Você executa pacotes cumulativos de atualização para atualizar o servidor de configuração. As atualizações podem ser aplicadas até versões N-4. Por exemplo: 
+Você executa pacotes cumulativos de atualização para atualizar o servidor de configuração. As atualizações podem ser aplicadas até versões N-4. Por exemplo:
 
 - Se executar 9.7, 9.8, 9.9 ou 9.10, você poderá atualizar diretamente para 9.11.
 - Se executar 9.6 ou anterior e quiser atualizar para 9.11, você deverá primeiramente atualizar para a versão 9.7. antes de 9.11.
@@ -269,24 +295,6 @@ Opcionalmente, você pode excluir o servidor de configuração usando o PowerShe
 2. Para alterar o diretório para a pasta bin, execute o comando **cd %ProgramData%\ASR\home\svsystems\bin**
 3. Para gerar o arquivo de frase secreta, execute **genpassphrase.exe -v > MobSvc.passphrase**.
 4. A frase secreta será armazenada no arquivo localizado em **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
-
-## <a name="renew-tlsssl-certificates"></a>Renovar certificados TLS/SSL
-
-O servidor de configuração tem uma servidor de Web embutido, que coordena as atividades do Serviço de Mobilidade, dos servidores de processo e do servidores de destino mestre conectados a ele. O servidor web usa um certificado TLS/SSL para autenticar clientes. O certificado expira depois de três anos e pode ser renovado a qualquer momento.
-
-### <a name="check-expiry"></a>Verificar expiração
-
-Para implantações de servidor de configuração antes de maio de 2016, a expiração do certificado foi definida para um ano. Se você tiver um certificado prestes a expirar, ocorrerá o seguinte:
-
-- Quando a data de expiração é de dois meses ou menos, o serviço começa a enviar notificações no portal e por email (se você tiver assinado as notificações do Site Recovery).
-- Uma faixa de notificação será exibida na página de recursos do cofre. Para obter mais informações, selecione a faixa.
-- Se você vir um botão **Atualizar agora**, isso indica que alguns componentes em seu ambiente não foram atualizados para a versão 9.4.xxxx.x ou superiores. Atualize os componentes antes de renovar o certificado. Não é possível renovar versões mais antigas.
-
-### <a name="renew-the-certificate"></a>Renovar o certificado
-
-1. No cofre, abra o servidor de**configuração de configuração de** **recuperação** > do site . Selecione o servidor de configuração necessário.
-2. A data de expiração aparece sob **Integridade do servidor de configuração**.
-3. Selecione **Renovar Certificados**.
 
 ## <a name="refresh-configuration-server"></a>Atualizar servidor de configuração
 

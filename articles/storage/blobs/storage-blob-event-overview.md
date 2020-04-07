@@ -3,29 +3,29 @@ title: Reagir aos eventos de armazenamento de Blobs do Azure | Microsoft Docs
 description: Use a Grade de Eventos do Azure para assinar eventos de Armazenamento de Blobs.
 author: normesta
 ms.author: normesta
-ms.date: 01/30/2018
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: 5281dab8fd42326d88964614fd20a81621b5e9dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4dd6bab6198546dc5acab78ec59d92387328dbb
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268490"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755007"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir aos eventos de armazenamento de Blobs
 
-Os eventos do Azure Storage permitem que os aplicativos reajam a eventos, como a criação e exclusão de blobs. Isso é feito sem a necessidade de código complicado ou serviços de sondagem caros e ineficientes.
+Os eventos do Azure Storage permitem que os aplicativos reajam a eventos, como a criação e exclusão de blobs. Isso é feito sem a necessidade de código complicado ou serviços de sondagem caros e ineficientes. A melhor parte é que você só paga pelo que usa.
 
-Os eventos são empurrados usando [o Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para assinantes como Funções Azure, Azure Logic Apps ou até mesmo para seu próprio ouvinte http. A melhor parte é que você só paga pelo que usa.
+Os eventos de armazenamento blob são empurrados usando [o Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para assinantes como Funções Azure, Azure Logic Apps ou até mesmo para seu próprio ouvinte http. Event Grid fornece entrega de eventos confiáveis para seus aplicativos através de políticas de reavaliação ricas e letras mortas.
 
-O armazenamento Blob envia eventos para a Event Grid, que fornece entrega confiável de eventos para seus aplicativos através de políticas de reavaliação ricas e letras mortas.
+Consulte o artigo do esquema de eventos de [armazenamento Blob](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para visualizar a lista completa dos eventos que o armazenamento Blob suporta.
 
 Os cenários comuns de eventos de armazenamento de Blobs incluem processamento de vídeo ou imagem, indexação de pesquisa ou qualquer fluxo de trabalho orientado a arquivos. Os carregamentos de arquivo assíncronos são uma excelente opção para eventos. Quando as alterações não forem frequentes, mas seu cenário exigir uma capacidade de resposta imediata, a arquitetura baseada em eventos pode ser especialmente eficaz.
 
-Se você quiser experimentar isso agora, consulte qualquer um desses artigos de início rápido:
+Se você quiser experimentar eventos de armazenamento blob, consulte qualquer um desses artigos de início rápido:
 
 |Se você quiser usar esta ferramenta:    |Veja este artigo: |
 |--|-|
@@ -39,7 +39,7 @@ Para ver exemplos aprofundados de reação a eventos de armazenamento Blob usand
 - [Tutorial: Automatize redimensionar imagens enviadas usando event grid](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
 
 >[!NOTE]
-> Somente contas de armazenamento do tipo **StorageV2 (v2 de uso geral)** e **BlobStorage** dão suporte à integração de eventos. Contas do tipo **Armazenamento (v1 de uso geral)***não* dão suporte à integração com a Grade de Eventos.
+> Apenas contas de armazenamento do tipo **StorageV2 (objetivo geral v2),** **BlockBlobStorage**e **blobStorage** suportam integração de eventos. Contas do tipo **Armazenamento (v1 de uso geral)***não* dão suporte à integração com a Grade de Eventos.
 
 ## <a name="the-event-model"></a>O modelo do evento
 
@@ -98,6 +98,7 @@ Aplicativos que manipulam eventos de Armazenamento de Blobs devem seguir algumas
 > * Da mesma forma, verifique se o eventType é do tipo que você está preparado para processar, e não suponha que todos os eventos recebidos serão os tipos esperados.
 > * Como as mensagens podem chegar após algum atraso, use os campos de etag para entender se suas informações sobre objetos ainda estão atualizadas. Para saber como usar o campo etag, consulte [Gerenciando a concorrência no armazenamento Blob](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
 > * Como as mensagens podem sair fora de ordem, use os campos sequenciadores para entender a ordem dos eventos em qualquer objeto em particular. O campo sequenciador é um valor de seqüência que representa a seqüência lógica de eventos para qualquer nome blob em particular. Você pode usar a comparação de string padrão para entender a seqüência relativa de dois eventos no mesmo nome blob.
+> Eventos de armazenamento garantem, pelo menos uma vez, a entrega aos assinantes, o que garante que todas as mensagens sejam saídas. No entanto, devido a tentativas ou disponibilidade de assinaturas, mensagens duplicadas podem ocorrer ocasionalmente.
 > * Use o campo blobType para entender os tipos de operações permitidos no blob, e quais tipos de biblioteca de cliente você deve usar para acessar o blob. Os valores válidos são `BlockBlob` ou `PageBlob`. 
 > * Use o campo de url com os construtores `CloudBlockBlob` e `CloudAppendBlob` para acessar o blob.
 > * Ignore os campos que você não entende. Essa prática ajudará você a manter-se resiliente a novos recursos que possam ser adicionados no futuro.
@@ -109,4 +110,5 @@ Aplicativos que manipulam eventos de Armazenamento de Blobs devem seguir algumas
 Saiba mais sobre a Grade de Eventos e experimente os eventos do Armazenamento de Blobs:
 
 - [Sobre a Grade de Eventos](../../event-grid/overview.md)
+- [Esquema de eventos de armazenamento blob](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Route Blob storage Eventos para um ponto final da Web personalizado](storage-blob-event-quickstart.md)

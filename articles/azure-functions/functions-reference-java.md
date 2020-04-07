@@ -3,12 +3,12 @@ title: Referência de desenvolvedor Java para funções do Azure
 description: Entenda como desenvolver funções usando Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 4af2a860657f6066112146e1f88d81861d9430ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b1f39ff4fd48a3ed99b34391e9cc6efdad86a5d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276745"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672995"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor de Java do Azure Functions
 
@@ -16,7 +16,7 @@ O tempo de execução do Azure Functions suporta [Java SE 8 LTS (zulu8.31.0.2-jr
 
 Como acontece com outros idiomas, um Aplicativo de Função pode ter uma ou mais funções. Uma função Java `public` é um método, decorado `@FunctionName`com a anotação. Este método define a entrada para uma função Java, e deve ser único em um pacote específico. Um aplicativo de função escrito em Java pode ter várias `@FunctionName`classes com vários métodos públicos anotados com .
 
-Este artigo pressupõe que você já tenha lido a [Referência do desenvolvedor do Azure Functions](functions-reference.md). Você também deve completar as funções de início rápido para criar sua primeira função, usando [Visual Studio Code](functions-create-first-function-vs-code.md) ou [Maven](functions-create-first-java-maven.md).
+Este artigo pressupõe que você já tenha lido a [Referência do desenvolvedor do Azure Functions](functions-reference.md). Você também deve completar as funções de início rápido para criar sua primeira função, usando [Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) ou [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).
 
 ## <a name="programming-model"></a>Modelo de programação 
 
@@ -30,7 +30,7 @@ Para facilitar a criação de funções Java, existem ferramentas e arquétipos 
 
 Os seguintes ambientes de desenvolvedor têm ferramentas de funções do Azure que permitem criar projetos de função Java: 
 
-+ [Código visual do estúdio](https://code.visualstudio.com/docs/java/java-azurefunctions)
++ [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)
 + [Eclipse](functions-create-maven-eclipse.md)
 + [IntelliJ](functions-create-maven-intellij.md)
 
@@ -38,28 +38,31 @@ Os links do artigo acima mostram como criar suas primeiras funções usando seu 
 
 ### <a name="project-scaffolding"></a>Andaimes do Projeto
 
-Se você preferir o desenvolvimento da linha de comando a partir do Terminal, `Apache Maven` a maneira mais simples de andaimes projetos de funções baseados em Java é usar arquétipos. Existem atualmente dois arquétipos de funções para Maven:
+Se você preferir o desenvolvimento da linha de comando a partir do Terminal, `Apache Maven` a maneira mais simples de andaimes projetos de funções baseados em Java é usar arquétipos. O arquétipo Java Maven for Azure Functions é publicado sob o seguinte _groupId_:_artifactId_: [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
 
-+ **Java Archetype**: publicado o seguinte groupId e artifactId [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/):
+O comando a seguir gera um novo projeto de função Java usando este arquétipo:
 
-    ```
-    mvn archetype:generate \
-        -DarchetypeGroupId=com.microsoft.azure \
-        -DarchetypeArtifactId=azure-functions-archetype 
-    ```
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-archetype 
+```
 
-    Para começar a usar este arquétipo, consulte o [Java quickstart](functions-create-first-java-maven.md). 
+Para começar a usar este arquétipo, consulte o [Java quickstart](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java). 
 
-+ **Archetype Kotlin (Preview)** publicado o seguinte groupId e artifactId [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/):
+## <a name="create-kotlin-functions-preview"></a>Criar funções Kotlin (visualização)
 
-    ```
-    mvn archetype:generate \
-        -DarchetypeGroupId=com.microsoft.azure \
-        -DarchetypeArtifactId=azure-functions-kotlin-archetype
-    ```
+Há também um arquétipo Maven para gerar funções Kotlin. Este arquétipo, atualmente em pré-visualização, é publicado sob o seguinte _groupId_:_artifactId_: [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/). 
 
-O código fonte desses arquétipos pode ser encontrado no [repositório Azure Maven Archetypes GitHub](https://github.com/microsoft/azure-maven-archetypes).
+O comando a seguir gera um novo projeto de função Java usando este arquétipo:
 
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-kotlin-archetype
+```
+
+Para começar a usar este arquétipo, consulte o [Kotlin quickstart](functions-create-first-kotlin-maven.md).
 
 ## <a name="folder-structure"></a>Estrutura de pastas
 

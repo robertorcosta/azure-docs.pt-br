@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07ba38a5d7e8e8a89ba122efb1734c1f13a94d48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 402eaecbf03fd52fbb5e871fdd196da2bc9a3e1f
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80332178"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743528"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem senha para o Azure Active Directory
 
@@ -97,7 +97,7 @@ O processo a seguir é usado quando um usuário faz o sinal com uma chave de seg
 8. O Azure AD verifica o nonce assinado usando a chave pública FIDO2.
 9. O Azure AD retorna o PRT para permitir o acesso aos recursos locais.
 
-Embora existam muitas chaves certificadas fido2 pela FIDO Alliance, a Microsoft requer algumas extensões opcionais da especificação FIDO2 Client-to-Authenticator Protocol (CTAP) para serem implementadas pelo fornecedor para garantir a máxima segurança e o melhor Experiência.
+Embora existam muitas chaves certificadas fido2 pela FIDO Alliance, a Microsoft requer algumas extensões opcionais da especificação FIDO2 Client-to-Authenticator Protocol (CTAP) para serem implementadas pelo fornecedor para garantir a máxima segurança e a melhor experiência.
 
 Uma chave de segurança **DEVE** implementar os seguintes recursos e extensões do protocolo FIDO2 CTAP para ser compatível com a Microsoft:
 
@@ -142,7 +142,7 @@ A escolha entre essas três opções sem senha depende da segurança, plataforma
 
 Aqui estão alguns fatores para você considerar ao escolher a tecnologia sem senha da Microsoft:
 
-||**Configurar o Hello for Business**|**Login sem senha com o aplicativo Microsoft Authenticator**|**Chaves de segurança FIDO2**|
+||**Windows Hello for Business**|**Login sem senha com o aplicativo Microsoft Authenticator**|**Chaves de segurança FIDO2**|
 |:-|:-|:-|:-|
 |**Pré-requisito**| Windows 10, versão 1809 ou posterior<br>Azure Active Directory| Aplicativo Microsoft Authenticator<br>Telefone (dispositivos iOS e Android rodando Android 6.0 ou superior.)|Windows 10, versão 1809 ou posterior<br>Azure Active Directory|
 |**Modo**|Plataforma|Software|Hardware|

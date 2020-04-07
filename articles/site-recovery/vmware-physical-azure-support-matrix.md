@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de vMware/desastre físico na recupe
 description: Resume o suporte para recuperação de desastres de VMware VMs e servidor físico para o Azure usando o Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.openlocfilehash: b4cf19f4f74ba24951efb806a9f2e3d88fcad7bc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: fbd5d87b219cbb482569dc5e45adc9c81181670c
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478419"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672446"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -36,7 +36,7 @@ Hosts vSphere | Versão 6.7, 6.5, 6.0 ou 5.5 | Recomendamos que os hosts vSphere
 
 O servidor de configuração é um computador local que executa componentes do Site Recovery, incluindo o servidor de configuração, servidor de processo e o servidor de destino mestre.
 
-- Para VMware VMs, você define o servidor de configuração baixando um modelo OVF para criar um VMware VM.
+- Para VMware VMs, você define o servidor de configuração baixando um modelo OVF para criar uma VMware VM.
 - Para servidores físicos, você configura a máquina do servidor de configuração manualmente.
 
 **Componente** | **Requisitos**
@@ -51,7 +51,7 @@ Localidade do sistema operacional | Inglês (en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Não é necessário para a configuração do servidor versão [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) ou posterior.
 Funções do Windows Server | Não habilite serviços de domínio de diretório ativo; Serviços de Informação da Internet (IIS) ou Hiper-V.
 Políticas de grupo| - Impedir o acesso ao prompt de comando. <br/> - Impedir o acesso às ferramentas de edição do registro. <br/> - Lógica de confiança para anexos de arquivo. <br/> - Ativar a execução do script. <br/> - [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | Verifique se você:<br/><br/> - Não tem um site padrão preexistente <br/> - Habilitar [autenticação anônima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br/> - Habilitar configuração [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br/> - Não tem site/aplicativo preexistente ouvindo na porta 443<br/>
+IIS | Verifique se você:<br/><br/> - Não tenha um site padrão pré-existente <br/> - Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Habilitar configuração [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br/> - Não tem site/aplicativo preexistente ouvindo na porta 443<br/>
 Tipo de NIC | VMXNET3 (quando implantado como uma VM VMware)
 Tipo de endereço IP | Estático
 Portas | 443 usado para orquestração de canais de controle<br/>9443 para transporte de dados
@@ -66,7 +66,8 @@ O Site Recovery dá suporte para replicação de qualquer carga de trabalho em e
 **Componente** | **Detalhes**
 --- | ---
 Configurações do computador | Os computadores que são replicados para o Azure precisam atender aos [requisitos do Azure](#azure-vm-requirements).
-Carga de trabalho do computador | O Site Recovery dá suporte para replicação de qualquer carga de trabalho em execução em um computador com suporte. [Saiba mais](site-recovery-workload.md).
+Carga de trabalho do computador | O Site Recovery dá suporte para replicação de qualquer carga de trabalho em execução em um computador com suporte. [Saiba mais](https://aka.ms/asr_workload).
+Nome do computador | Certifique-se de que o nome de exibição da máquina não caia em [nomes de recursos reservados do Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-reserved-resource-name)<br/><br/> Nomes de volume lógicos não são sensíveis a maiúsculas e minúsculas. Certifique-se de que nenhum volume em um dispositivo tenha o mesmo nome. Ex: Volumes com nomes "voLUME1", "volume1" não podem ser protegidos através da Recuperação do Site do Azure.
 Windows Server 2019 | Suportado a partir de [Update rollup 34](https://support.microsoft.com/help/4490016) (versão 9.22 do serviço de mobilidade) em diante.
 Windows Server 2016 64 bits | Suportado para server core, servidor com experiência de desktop.
 Windows Server 2012 R2 / Windows Server 2012 |  Com suporte.
@@ -118,28 +119,28 @@ Debian 8 | [9.29][9.29 UR] | 3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.32][9.32 UR] | Todos os [kernels SUSE 12 SP1, SP2,SP3,SP4](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) são suportados.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.34-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.31][9.31 UR] | Todos os [kernels SUSE 12 SP1, SP2,SP3,SP4](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) são suportados.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.29-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.30][9.30 UR] | Todos os [kernels SUSE 12 SP1, SP2,SP3,SP4](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) são suportados.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.26-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.29][9.29 UR] | Todos os [kernels SUSE 12 SP1, SP2,SP3,SP4](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) são suportados.</br></br> 4.4.138-4.7-azure para 4.4.180-4.31-azure,</br>4.12.14-6.3-azure para 4.12.14-6.23-azure  |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.28][9.28 UR] | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.118-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.117-default</br></br>SP3 4.4.73-5-default para 4.4.180-94.100-default</br></br>SP3 4.4.138-4.7-azure para 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.29-default</br>SP4 4.12.14-6.3-azure para 4.12.14-6.23-azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.27][9.27 UR] | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.115-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.114-default</br></br>SP3 4.4.73-5-default para 4.4.180-94.97-default</br></br>SP3 4.4.138-4.7-azure para 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.19-default</br>SP4 4.12.14-6.3-azure para 4.12.14-6.15-azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.26][9.26 UR] | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.110-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.109-default</br></br>SP3 4.4.73-5-default para 4.4.178-94.91-default</br></br>SP3 4.4.138-4.7-azure para 4.4.178-4.28-azure</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.16-default</br>SP4 4.12.14-6.3-azure para 4.12.14-6.9-azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.25][9.25 UR] | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.104-default</br></br>SP3 4.4.73-5-default para 4.4.176-94.88-default</br></br>SP3 4.4.138-4.7-azure para 4.4.176-4.25-azure</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.13-default</br>SP4 4.12.14-6.3-azure para 4.12.14-6.9-azure |
 
 ### <a name="suse-linux-enterprise-server-15-supported-kernel-versions"></a>SUSE Linux Enterprise Server 15 versões de kernel suportadas
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Todos os [sUSE 15 e 15 núcleos](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15) de estoque são suportados.</br></br> 4.12.14-5.5-azure para 4.12.14-8.22-azure |
+SUSE Linux Enterprise Server 15 e 15 SP1 | [9.32](https://support.microsoft.com/help/4550047/) | Todos os [sUSE 15 e 15 núcleos](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15) de estoque são suportados. </br></br> 4.12.14-5.5-azure para 4.12.14-8.22-azure
 
 ## <a name="linux-file-systemsguest-storage"></a>Sistemas de arquivos Linux/armazenamento convidado
 
-**Componente** | **Suportado**
+**Componente** | **Com suporte**
 --- | ---
 Sistemas de arquivos | ext3, ext4, XFS, BTRFS (condições aplicáveis conforme esta tabela)
 Gerenciador de volumes | - O LVM é suportado.<br/> - /boot on LVM é suportado a partir de [Update Rollup 31](https://support.microsoft.com/help/4478871/) (versão 9.20 do serviço Mobility) em diante. Não é suportado em versões anteriores do serviço Mobility.<br/> - Vários discos do sistema operacional não são suportados.
 Dispositivos de armazenamento paravirtualizados | Não há suporte para dispositivos exportados por drivers paravirtualizados.
 Dispositivos de E/S de bloqueio de várias filas | Sem suporte.
 Servidores físicos com o controlador de armazenamento CCISS da HP | Sem suporte.
-Convenção de nomenclatura de ponto de montagem/dispositivo | O nome do dispositivo ou o nome do ponto de montagem deve ser exclusivo.<br/> Certifique-se de que nenhum dispositivo/pontos de montagem tenha nomes sensíveis a maiúsculas e minúsculas. Por exemplo, dispositivos de nomeação para a mesma VM do *dispositivo1* e *device1* não são suportados.
-Diretórios | Se você estiver executando uma versão do serviço Mobility antes da versão 9.20 (lançada no [Update Rollup 31),](https://support.microsoft.com/help/4478871/)então essas restrições se aplicam:<br/><br/> - Esses diretórios (se configurados como partições separadas/sistemas de arquivos) devem estar no mesmo disco do SISTEMA OPERACIONAL no servidor de origem: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - O diretório /boot deve estar em uma partição de disco e não ser um volume LVM.<br/><br/> A partir da versão 9.20 em diante, essas restrições não se aplicam.
+Convenção de nomenclatura de ponto de montagem/dispositivo | O nome do dispositivo ou o nome do ponto de montagem deve ser exclusivo.<br/> Certifique-se de que nenhum dispositivo/pontos de montagem tenha nomes sensíveis a maiúsculas e minúsculas. Por exemplo, dispositivos de nomeação para a mesma VM *do dispositivo1* e *do Dispositivo1* não são suportados.
+Diretórios | Se você estiver executando uma versão do serviço Mobility antes da versão 9.20 (lançada no [Update Rollup 31),](https://support.microsoft.com/help/4478871/)então essas restrições se aplicam:<br/><br/> - Esses diretórios (se configurados como partições separadas/sistemas de arquivos) devem estar no mesmo disco do SISTEMA OPERACIONAL no servidor de origem: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - O diretório /boot deve estar em uma partição de disco e não ser um volume LVM.<br/><br/> A partir da versão 9.20 em diante, essas restrições não se aplicam. 
 Diretório de inicialização | - Os discos de inicialização não devem estar no formato de partição GPT. Esta é uma limitação de arquitetura Azure. Os discos GPT são suportados como discos de dados.<br/><br/> Vários discos de inicialização em uma VM não são suportados<br/><br/> - /inicialização em um volume LVM em mais de um disco não é suportado.<br/> - Uma máquina sem um disco de inicialização não pode ser replicada.
 Requisitos de espaço livre| 2 GB na /partição raiz <br/><br/> 250 MB na pasta de instalação
 XFSv5 | Os recursos xFSv5 em sistemas de arquivos XFS, como o soma de verificação de metadados, são suportados (versão 9.10 do serviço de mobilidade em diante).<br/> Use o utilitário xfs_info para verificar o superbloco XFS da partição. Se `ftype` estiver definido como 1, os recursos XFSv5 estão em uso.
@@ -154,7 +155,7 @@ Adicionar disco na VM replicada | Sem suporte.<br/> Desativar a replicação da 
 
 ## <a name="network"></a>Rede
 
-**Componente** | **Suportado**
+**Componente** | **Com suporte**
 --- | ---
 Agrupamento NIC da rede do host | Compatível com VMs da VMware. <br/><br/>Sem suporte para a replicação de computador físico.
 VLAN da rede do host | Sim.
@@ -170,7 +171,7 @@ Várias NICs da rede do convidado/servidor | Sim.
 
 ## <a name="azure-vm-network-after-failover"></a>Rede VM do Azure (após o failover)
 
-**Componente** | **Suportado**
+**Componente** | **Com suporte**
 --- | ---
 Azure ExpressRoute | Sim
 ILB | Sim
@@ -184,7 +185,7 @@ Pontos de extremidade de serviço de rede virtual do Azure<br/> | Sim
 Redes aceleradas | Não
 
 ## <a name="storage"></a>Armazenamento
-**Componente** | **Suportado**
+**Componente** | **Com suporte**
 --- | ---
 Dados dinâmicos | O disco do SISTEMA OPERACIONAL deve ser um disco básico. <br/><br/>Os discos de Dados podem ser discos dinâmicos
 Configuração de disco do Docker | Não
@@ -214,7 +215,7 @@ Inicialização EFI/UEFI do servidor | - Suportado para Windows Server 2012 ou p
 
 ## <a name="replication-channels"></a>Canais de replicação
 
-|**Tipo de replicação**   |**Suportado**  |
+|**Tipo de replicação**   |**Com suporte**  |
 |---------|---------|
 |Transferências de dados descarregadas (ODX)    |       Não  |
 |Semeamento offline        |   Não      |
@@ -222,7 +223,7 @@ Inicialização EFI/UEFI do servidor | - Suportado para Windows Server 2012 ou p
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
 
-**Componente** | **Suportado**
+**Componente** | **Com suporte**
 --- | ---
 Armazenamento com redundância local | Sim
 Armazenamento com redundância geográfica | Sim
@@ -231,7 +232,7 @@ Armazenamento frio | Não
 Armazenamento quente| Não
 Blobs de bloco | Não
 Criptografia em repouso (SSE)| Sim
-Criptografia em repouso (CMK)| Sim (via módulo Powershell Az 3.3.0 em diante)
+Criptografia em repouso (CMK)| Sim (via módulo PowerShell Az 3.3.0 em diante)
 Armazenamento Premium | Sim
 Serviço de importação/exportação | Não
 Firewalls de armazenamento Azure para VNets | Sim.<br/> Configurado na conta de armazenamento/armazenamento de cache de destino (usada para armazenar dados de replicação).
@@ -239,7 +240,7 @@ Contas de armazenamento v2 de uso geral (níveis quentes e legais) | Sim (os cus
 
 ## <a name="azure-compute"></a>Computação do Azure
 
-**Recurso** | **Suportado**
+**Recurso** | **Com suporte**
 --- | ---
 Conjuntos de disponibilidade | Sim
 Zonas de disponibilidade | Não
@@ -296,7 +297,7 @@ Variação máxima de dados por dia com suporte de um Servidor de Processo | 2 T
 
 ## <a name="vault-tasks"></a>Tarefas do Vault
 
-**Ação** | **Suportado**
+**Ação** | **Com suporte**
 --- | ---
 Mover cofre entre grupos de recursos | Não
 Mova o cofre dentro e através de assinaturas | Não

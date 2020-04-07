@@ -2,13 +2,13 @@
 title: Tipos de recursos de extensão
 description: Listas dos tipos de recursos do Azure são usadas para ampliar os recursos de outros tipos de recursos.
 ms.topic: conceptual
-ms.date: 01/20/2020
-ms.openlocfilehash: c14cf6fec2da11534a7358599c79961a3258470b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 3a3fbc531750bec4b16e38f1fe79f613c1b94f5e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76515361"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754860"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipos de recursos que ampliam recursos de outros recursos
 
@@ -81,7 +81,6 @@ Um recurso de extensão é um recurso que adiciona aos recursos de outro recurso
 - Microsoft.GuestConfiguration/software
 - Microsoft.GuestConfiguration/softwareUpdateProfile
 - Microsoft.GuestConfiguration/softwareAtualizações
-- microsoft.insights/automatedExportSettings
 - microsoft.insights/linha de base
 - microsoft.insights/calculatebaseline
 - microsoft.insights/dataCollectionRuleAssociations
@@ -114,7 +113,7 @@ Um recurso de extensão é um recurso que adiciona aos recursos de outro recurso
 - Microsoft.PolicyInsights/policyTrackedResources
 - Microsoft.PolicyInsights/remediações
 - Microsoft.RecoveryServices/backupItens protegidos
-- Microsoft.RecoveryServices/replicationElegibilidadeResultados de elegibilidade  
+- Microsoft.RecoveryServices/replicationElegibilidadeResultados de elegibilidade    
 - Microsoft.ResourceHealth/disponibilidadeStatuss
 - Microsoft.ResourceHealth/childAvailabilityStatuses
 - Microsoft.ResourceHealth/childResources
@@ -131,7 +130,6 @@ Um recurso de extensão é um recurso que adiciona aos recursos de outro recurso
 - Microsoft.Security/avaliações
 - Microsoft.Security/complianceResultados
 - Microsoft.Security/dataCollectionAgents
-- Microsoft.Security/dataCollectionResults
 - Microsoft.Security/deviceSecurityGroups
 - Microsoft.Security/networkData
 - Microsoft.Security/serverAvaliações de vulnerabilidade
@@ -141,13 +139,14 @@ Um recurso de extensão é um recurso que adiciona aos recursos de outro recurso
 - Microsoft.SecurityInsights/marcadores
 - Microsoft.SecurityInsights/cases
 - Microsoft.SecurityInsights/dataConnectors
+- Microsoft.SecurityInsights/dataConectoresVerificamrequisitos
 - Microsoft.SecurityInsights/entidades
 - Microsoft.SecurityInsights/entityQueries
+- Microsoft.SecurityInsights/incidentes
 - Microsoft.SecurityInsights/officeConsents
 - Microsoft.SecurityInsights/configurações
 - Microsoft.SoftwarePlan/híbridoUsebenefícios
 - Microsoft.Subscription/CreateSubscription
-- microsoft.support/createsupportticket
 - microsoft.support/supporttickets
 - Microsoft.WorkloadMonitor/componentes
 - Microsoft.WorkloadMonitor/monitorInstâncias

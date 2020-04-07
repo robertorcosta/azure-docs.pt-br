@@ -32,8 +32,6 @@
       href: tutorial-sql-backup.md
     - name: Fazer backup de bancos de dados do SAP HANA em VMs do Azure
       href: tutorial-backup-sap-hana-db.md
-    - name: Backup de compartilhamentos de Arquivos do Azure
-      href: tutorial-backup-azure-files.md
     - name: Fazer backup do Windows Server
       href: tutorial-backup-windows-server-to-azure.md
     - name: Restaurar arquivos para o Windows Server
