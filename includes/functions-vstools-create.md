@@ -5,25 +5,25 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/06/2020
+ms.date: 03/26/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 034e966d259f1ca5f22eec5935013de32c883b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 477f3cf270377bc1341e65ab500093e05277afa8
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80056664"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657604"
 ---
 O modelo de projeto do Azure Functions no Visual Studio cria um projeto que você pode publicar em um aplicativo de funções no Azure. Você pode usar um aplicativo de funções para agrupar funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos.
 
-1. No Visual Studio, no menu **Arquivo**, selecione **Novo** > **Projeto**.
+1. No menu do Visual Studio, selecione **Arquivo** > **Novo** > **Projeto**.
 
-1. Em **Criar um projeto**, insira *funções* na caixa de pesquisa e escolha o modelo **Azure Functions**.
+1. Em **Criar um projeto**, insira *funções* na caixa de pesquisa, escolha o modelo **Azure Functions** e, em seguida, selecione **Próximo**.
 
 1. Em **Configurar seu novo projeto**, insira um **Nome de projeto** para seu projeto e, em seguida, selecione **Criar**. O nome do aplicativo de funções deve ser válido como um namespace do C# e, portanto, não use outros caracteres não alfanuméricos, hífens ou sublinhados.
 
-1. Nas configurações **Novo Projeto – &lt;nome do seu projeto&gt;** , use os valores da tabela a seguir:
+1. Para as configurações de **Criar um aplicativo do Azure Functions**, use os valores da seguinte tabela:
 
     | Configuração      | Valor  | Descrição                      |
     | ------------ |  ------- |----------------------------------------- |
@@ -38,4 +38,4 @@ O modelo de projeto do Azure Functions no Visual Studio cria um projeto que voc�
 
     Defina os **Direitos de acesso** como **Anônimo**. Se você escolher o nível padrão da **Função**, será necessário que você apresente a [chave da função](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) em solicitações para acessar seu ponto de extremidade da função.
 
-1. Selecione **OK** para criar o projeto de função e a função de gatilho HTTP.
+1. Selecione **Criar** para criar o projeto de função e a função de gatilho HTTP.

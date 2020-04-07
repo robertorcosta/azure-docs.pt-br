@@ -77,6 +77,8 @@
           href: troubleshoot-guide-critical-process-died.md
         - name: Falha de serviço crítico
           href: troubleshoot-critical-service-failed-boot-error.md
+        - name: A VM fica sem responder ao aplicar a política de usuários e grupos locais
+          href: troubleshoot-vm-unresponsive-group-policy-local-users.md
         - name: Não é um disco inicializável
           href: troubleshoot-guide-not-bootable-disk.md
         - name: Reinicializar loop
@@ -87,6 +89,8 @@
           href: troubleshoot-vm-boot-configure-update.md
         - name: Não é possível inicializar a VM devido ao gerenciador de inicialização do Windows
           href: troubleshoot-guide-windows-boot-manager-menu.md
+        - name: A VM não responde devido à atualização
+          href: unresponsive-vm-apply-windows-update.md
 - name: Não é possível conectar-se à minha VM
   items:
     - name: RDP

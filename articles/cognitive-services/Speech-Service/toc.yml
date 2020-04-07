@@ -456,8 +456,6 @@
           href: speech-sdk.md
         - name: Disponibilidade do cenário
           href: scenario-availability.md
-        - name: Enviar um aplicativo
-          href: ship-application.md
     - name: Guia de Início Rápido
       items:
         - name: Configurar o SDK de Fala
@@ -472,6 +470,9 @@
         - name: Configurar o OpenSSL para Linux
           displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
           href: how-to-configure-openssl-linux.md
+        - name: Configurar o RHEL/CentOS 7
+          href: how-to-configure-rhel-centos-7.md
+          displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentOS'
     - name: Exemplos
       items:
         - name: Amostras do SDK de Fala (GitHub)
