@@ -124,7 +124,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-## <a name="configure-skills-workflow-sso"></a>Configurar SSO do fluxo de trabalho de habilidades
+## <a name="configure-skills-workflow-sso"></a>Configurar SSO do Skills Workflow
 
 Para configurar o logon único no lado do **Skills Workflow**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Skills Workflow](mailto:support@skillsworkflow.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
