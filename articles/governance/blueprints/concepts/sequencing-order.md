@@ -3,12 +3,12 @@ title: Entender a ordem da sequência de implantação
 description: Saiba mais sobre a ordem padrão em que os artefatos de projeto são implantados durante uma atribuição de projeto e como personalizar a ordem de implantação.
 ms.date: 08/22/2019
 ms.topic: conceptual
-ms.openlocfilehash: 51026862c989f15acf6d3e21702cfcfc8b2b27b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41b1b1ada5b7c6c919f227927001570332eeccbf
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74128826"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677572"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Entenda a sequência de implantação nos Blueprints do Azure
 
@@ -42,7 +42,7 @@ Em cada artefato do **grupo de recursos**, a seguinte ordem de sequência é usa
 
 ## <a name="customizing-the-sequencing-order"></a>Personalizando o pedido de sequenciamento
 
-Ao compor grandes definições de projeto, pode ser necessário que os recursos sejam criados em uma ordem específica. O padrão de uso mais comum deste cenário é quando uma definição de projeto inclui vários modelos do Azure Resource Manager. Blueprints lida com esse padrão permitindo que a ordem de sequenciamento seja definida.
+Ao compor grandes definições de projeto, pode ser necessário que os recursos sejam criados em uma ordem específica. O padrão de uso mais comum deste cenário é quando uma definição de projeto inclui vários modelos do Azure Resource Manager. O Azure Blueprints lida com esse padrão permitindo que a ordem de seqüenciamento seja definida.
 
 A ordenação é realizada definindo uma propriedade `dependsOn` no JSON. A definição do projeto, para grupos de recursos e objetos de artefato, suportam essa propriedade. `dependsOn` é uma matriz de cadeia de caracteres de nomes de artefatos que o artefato específico precisa ser criado antes de ser criado.
 

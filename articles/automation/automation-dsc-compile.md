@@ -3,14 +3,14 @@ title: Configurações de compilação na Configuração do Estado de Automaçã
 description: Este artigo descreve como compilar as configurações da DSC (Configuração de Estado Desejado) para Automação do Azure.
 services: automation
 ms.subservice: dsc
-ms.date: 09/10/2018
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48593920bdfcf743fceaeaeec891c0d5c4f2e108
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b366777cce4dd4212a2e3ec0cdcd180e0d7164f4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80057628"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757181"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilação das configurações DSC na Configuração do Estado de Automação do Azure
 
@@ -27,7 +27,7 @@ Você pode compilar configurações de Configuração de Estado Desejado (DSC) n
   - Trabalhe com dados de nó e não nó em escala
   - Melhora significativa do desempenho
 
-Para obter detalhes da compilação, consulte [a extensão configuração do estado desejado com os modelos do Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details).
+Você também pode usar os modelos do Azure Resource Manager com a extensão DSC (Desired State Configuration, configuração do estado desejado) do Azure para empurrar configurações para suas VMs do Azure. A extensão de DSC do Azure usa a estrutura do Agente de VM do Azure para entregar, aplicar e gerar relatórios sobre configurações da DSC executadas em VMs do Azure. Para obter detalhes de compilação usando os modelos do Azure Resource Manager, consulte [a extensão de configuração de estado desejado com os modelos do Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details). 
 
 ## <a name="compiling-a-dsc-configuration-in-azure-state-configuration"></a>Compilando uma configuração dSC na configuração do estado do Azure
 
@@ -187,7 +187,7 @@ As referências de ativos são as mesmas tanto na configuração do estado de au
 - [Certificados](automation-certificates.md)
 - [Conexões](automation-connections.md)
 - [Credenciais](automation-credentials.md)
-- [Variáveis](automation-variables.md)
+- [variáveis](automation-variables.md)
 
 #### <a name="credential-assets"></a>Ativos de credencial
 

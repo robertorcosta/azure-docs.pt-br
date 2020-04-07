@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 04/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43ae866959dd2112bacbb6b56e5683e7b3b851a0
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 17312e44714c8bdb20e22ad9aeb950e46eb71e3e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631909"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755268"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acesso Condicional: Usuários e grupos
 
@@ -35,9 +35,9 @@ As seguintes opções estão disponíveis para incluir ao criar uma política de
 - todos os usuários
    - Todos os usuários que existem no diretório, incluindo convidados B2B.
 - Selecionar Usuários e grupos
-   - Todos os usuários convidados e externos (visualização)
+   - Todos os usuários convidados e externos
       - Esta seleção inclui quaisquer convidados B2B `user type` e usuários `guest`externos, incluindo qualquer usuário com o atributo definido para . Essa seleção também se aplica a qualquer usuário externo conectado de uma organização diferente, como um CSP (Cloud Solution Provider, provedor de soluções em nuvem). 
-   - Funções de diretório (pré-visualização)
+   - Funções de diretório
       - Permite que os administradores selecionem funções específicas de diretório Azure AD usadas para determinar a atribuição. Por exemplo, as organizações podem criar uma política mais restritiva sobre os usuários atribuídos à função de administrador global.
    - Usuários e grupos
       - Permite a segmentação de conjuntos específicos de usuários. Por exemplo, as organizações podem selecionar um grupo que contenha todos os membros do departamento de RH quando um aplicativo de RH é selecionado como o aplicativo em nuvem. Um grupo pode ser qualquer tipo de grupo no Azure AD, incluindo grupos de segurança e distribuição dinâmicos ou atribuídos.
@@ -51,9 +51,9 @@ Quando as organizações incluem e excluem um usuário ou grupo, o usuário ou g
 
 As seguintes opções estão disponíveis para excluir ao criar uma política de acesso condicional.
 
-- Todos os usuários convidados e externos (visualização)
+- Todos os usuários convidados e externos
    - Esta seleção inclui quaisquer convidados B2B `user type` e usuários `guest`externos, incluindo qualquer usuário com o atributo definido para . Essa seleção também se aplica a qualquer usuário externo conectado de uma organização diferente, como um CSP (Cloud Solution Provider, provedor de soluções em nuvem). 
-- Funções de diretório (pré-visualização)
+- Funções de diretório
    - Permite que os administradores selecionem funções específicas de diretório Azure AD usadas para determinar a atribuição. Por exemplo, as organizações podem criar uma política mais restritiva sobre os usuários atribuídos à função de administrador global.
 - Usuários e grupos
    - Permite a segmentação de conjuntos específicos de usuários. Por exemplo, as organizações podem selecionar um grupo que contenha todos os membros do departamento de RH quando um aplicativo de RH é selecionado como o aplicativo em nuvem. Um grupo pode ser qualquer tipo de grupo no Azure AD, incluindo grupos de segurança e distribuição dinâmicos ou atribuídos.

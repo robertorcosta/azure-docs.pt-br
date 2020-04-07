@@ -3,21 +3,24 @@ title: Restaurar arquivos Azure com PowerShell
 description: Neste artigo, saiba como restaurar arquivos Do Azure usando o serviço de backup do Azure e o PowerShell.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 99aeaa6173bb5336e6e1719a9fc0df0c668374e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12bff49bc249b23542534d218b13b517411f461b
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77086834"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756198"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Restaurar arquivos Azure com PowerShell
 
-Este artigo explica como restaurar um compartilhamento inteiro de arquivos, ou arquivos específicos, a partir de um ponto de restauração criado pelo serviço de backup do [Azure](backup-overview.md) usando o Azure Powershell.
+Este artigo explica como restaurar um compartilhamento inteiro de arquivos, ou arquivos específicos, a partir de um ponto de restauração criado pelo serviço de backup do [Azure](backup-overview.md) usando o Azure PowerShell.
 
 Você pode restaurar um compartilhamento inteiro de arquivos ou arquivos específicos sobre o compartilhamento. Você pode restaurar para o local original, ou para um local alternativo.
 
 > [!WARNING]
-> Certifique-se de que a versão ps seja atualizada para a versão mínima de 'Az.RecoveryServices 2.6.0' para backups AFS. Para obter mais detalhes, consulte [a seção](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) que descreve o requisito para esta alteração.
+> Certifique-se de que a versão ps seja atualizada para a versão mínima de 'Az.RecoveryServices 2.6.0' para backups AFS. Para obter mais informações, consulte [a seção](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) que descreve o requisito para essa alteração.
+
+>[!NOTE]
+>O Azure Backup agora suporta restaurar vários arquivos ou pastas para o local original ou alternativo usando o PowerShell. Consulte [esta seção](#restore-multiple-files-or-folders-to-original-or-alternate-location) do documento para saber como.
 
 ## <a name="fetch-recovery-points"></a>Buscar pontos de recuperação
 
@@ -62,7 +65,7 @@ Use o [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershe
 
 * **TargetStorageAccountName**: A conta de armazenamento para a qual o conteúdo de backup é restaurado. A conta de armazenamento de destino deve estar no mesmo local que o cofre.
 * **TargetFileShareName**: O arquivo compartilha dentro da conta de armazenamento de destino para a qual o conteúdo de backup é restaurado.
-* **TargetFolder**: A pasta o compartilhamento de arquivos para o qual os dados são restaurados. Se for para restaurar o conteúdo do backup em uma pasta raiz, forneça os valores da pasta de destino como uma cadeia de caracteres vazia.
+* **TargetFolder**: A pasta sob o compartilhamento de arquivos para o qual os dados são restaurados. Se for para restaurar o conteúdo do backup em uma pasta raiz, forneça os valores da pasta de destino como uma cadeia de caracteres vazia.
 * **ResolverConflito**: Instrução se houver um conflito com os dados restaurados. Aceita **Overwrite** ou **Skip**.
 
 Execute o cmdlet com os parâmetros a seguir:
@@ -85,7 +88,7 @@ Use o [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershe
 
 * **TargetStorageAccountName**: A conta de armazenamento para a qual o conteúdo de backup é restaurado. A conta de armazenamento de destino deve estar no mesmo local que o cofre.
 * **TargetFileShareName**: O arquivo compartilha dentro da conta de armazenamento de destino para a qual o conteúdo de backup é restaurado.
-* **TargetFolder**: A pasta o compartilhamento de arquivos para o qual os dados são restaurados. Se for para restaurar o conteúdo do backup em uma pasta raiz, forneça os valores da pasta de destino como uma cadeia de caracteres vazia.
+* **TargetFolder**: A pasta sob o compartilhamento de arquivos para o qual os dados são restaurados. Se for para restaurar o conteúdo do backup em uma pasta raiz, forneça os valores da pasta de destino como uma cadeia de caracteres vazia.
 * **SourceFilePath**: O caminho absoluto do arquivo, a ser restaurado dentro do compartilhamento de arquivos, como uma seqüência. Esse caminho é o mesmo que foi usado no cmdlet **Get-AzStorageFile** do PowerShell.
 * **SourceFileType**: Se um diretório ou um arquivo está selecionado. Aceita **diretório** ou **arquivo**.
 * **ResolverConflito**: Instrução se houver um conflito com os dados restaurados. Aceita **Overwrite** ou **Skip**.
@@ -102,17 +105,67 @@ Este comando retorna um trabalho com um ID a ser rastreado, como mostrado na se�
 
 Quando você restaura um local original, você não precisa especificar parâmetros relacionados ao destino e ao destino. Somente **ResolveConflict** deve ser fornecido.
 
-#### <a name="overwrite-an-azure-file-share"></a>Substituir um compartilhamento de arquivos do Azure
+### <a name="overwrite-an-azure-file-share"></a>Substituir um compartilhamento de arquivos do Azure
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -ResolveConflict Overwrite
 ```
 
-#### <a name="overwrite-an-azure-file"></a>Substituir um arquivo do Azure
+### <a name="overwrite-an-azure-file"></a>Substituir um arquivo do Azure
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
 ```
+
+## <a name="restore-multiple-files-or-folders-to-original-or-alternate-location"></a>Restaurar vários arquivos ou pastas para local original ou alternativo
+
+Use o comando [Restore-AzRecoveryServicesBackupItem,](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) passando o caminho de todos os arquivos ou pastas que deseja restaurar como um valor para o parâmetro **MultipleSourceFilePath.**
+
+### <a name="restore-multiple-files"></a>Restaurar vários arquivos
+
+No script a seguir, estamos tentando restaurar os arquivos *FileSharePage.png* e *MyTestFile.txt.*
+
+```powershell
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "azurefiles" -Name "azurefilesvault"
+
+$Container = Get-AzRecoveryServicesBackupContainer -ContainerType AzureStorage -Status Registered -FriendlyName "afsaccount" -VaultId $vault.ID
+
+$BackupItem = Get-AzRecoveryServicesBackupItem -Container $Container -WorkloadType AzureFiles -VaultId $vault.ID -FriendlyName "azurefiles"
+
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -VaultId $vault.ID
+
+$files = ("FileSharePage.png", "MyTestFile.txt")
+
+Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -MultipleSourceFilePath $files -SourceFileType File -ResolveConflict Overwrite -VaultId $vault.ID -VaultLocation $vault.Location
+```
+
+### <a name="restore-multiple-directories"></a>Restaurar vários diretórios
+
+No script a seguir, estamos tentando restaurar os diretórios *zrs1_restore* e *Restore.*
+
+```powershell
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "azurefiles" -Name "azurefilesvault"
+
+$Container = Get-AzRecoveryServicesBackupContainer -ContainerType AzureStorage -Status Registered -FriendlyName "afsaccount" -VaultId $vault.ID
+
+$BackupItem = Get-AzRecoveryServicesBackupItem -Container $Container -WorkloadType AzureFiles -VaultId $vault.ID -FriendlyName "azurefiles"
+
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -VaultId $vault.ID
+
+$files = ("Restore","zrs1_restore")
+
+Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -MultipleSourceFilePath $files -SourceFileType Directory -ResolveConflict Overwrite -VaultId $vault.ID -VaultLocation $vault.Location
+```
+
+A saída será semelhante ao seguinte:
+
+```output
+WorkloadName         Operation         Status          StartTime                EndTime       JobID
+------------         ---------         ------          ---------                -------       -----
+azurefiles           Restore           InProgress      4/5/2020 8:01:24 AM                    cd36abc3-0242-44b1-9964-0a9102b74d57
+```
+
+Se você quiser restaurar vários arquivos ou pastas para localização alternativa, use os scripts acima especificando os valores de parâmetro suscitados ao local de destino, conforme explicado acima em [Restaurar um arquivo Azure para um local alternativo](#restore-an-azure-file-to-an-alternate-location).
 
 ## <a name="next-steps"></a>Próximas etapas
 

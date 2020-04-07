@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 03/05/2020
-ms.openlocfilehash: 17a4652604c0faa804d24530869aac0848c972b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 530647c3d32b62f0cac250795ccce580b182fa92
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399145"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756596"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gerenciar e solicitar cotas para recursos do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -60,7 +60,7 @@ Recursos disponíveis:
 
 + Os clusters por região têm um limite padrão de 200. Estes são compartilhados entre um cluster de treinamento e uma instância de computação (que é considerado como um único cluster de nós para fins de cota). Contate o suporte do Azure se desejar solicitar um aumento além desse limite.
 
-+ Existem **outros limites rígidos que não podem ser excedidos uma vez atingidos.
++ Há outros limites rigorosos que não podem ser ultrapassados uma vez atingidos.
 
 | **Recurso** | **Limite máximo** |
 | --- | --- |

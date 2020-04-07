@@ -3,12 +3,12 @@ title: 'Quickstart: Crie, treine e publique base de conhecimento - QnA Maker'
 description: É possível criar uma KB (base de dados de conhecimento) do QnA Maker com base no seu próprio conteúdo, como perguntas frequentes ou manuais de produto. Este artigo inclui um exemplo de como criar uma base de dados de conhecimento do QnA Maker com base em uma página da Web simples de perguntas frequentes para responder a perguntas sobre o QnA Maker.
 ms.topic: conceptual
 ms.date: 02/08/2020
-ms.openlocfilehash: b1f80006e2dc72b5b623f4c29c093c734dc1efea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a3cd4a66ae3a7148b517050c3d1a8c6c8e7a712
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79220573"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756831"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Quickstart: Crie, treine e publique sua base de conhecimento qnA Maker
 
@@ -135,13 +135,13 @@ Quando você faz alterações na base de dados de conhecimento e republica, não
 
 ## <a name="what-did-you-accomplish"></a>O que você realizou?
 
-Você criou uma base de dados de conhecimento, adicionou uma URL pública à base de dados de conhecimento, adicionou seu conjunto do QnA, treinou, testou e publicou a base de dados de conhecimento.
+Você criou uma nova base de conhecimento, adicionou uma URL pública à base de conhecimento, adicionou seu próprio par de QnA, treinou, testou e publicou a base de conhecimento.
 
 Depois de publicar a base de dados de conhecimento, você criou e testou um bot.
 
 Isso tudo foi feito em alguns minutos, sem a necessidade de escrever nenhum código nem de limpar o conteúdo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não for prosseguir para o próximo início rápido, exclua os recursos do QnA Maker e do Bot Framework no portal do Azure.
 

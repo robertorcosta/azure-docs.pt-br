@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: df0708ff964595181d00d8402f1162e0832c70eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0079c5a9409aafd4d6341ec9febb5115dc4023a1
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286363"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745409"
 ---
 # <a name="create-power-bi-app-offer-technical-assets"></a>Criar ativos técnicos para uma oferta de Aplicativo do Power BI
+
+>[!Important]
+>A partir de 30 de março de 2020, começaremos a mover o gerenciamento das ofertas do seu aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [visão geral de criação de aplicativos do Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerenciar suas ofertas migradas.
 
 O principal ativo técnico necessário para esse tipo de oferta é um aplicativo do Power BI. Um aplicativo do Power BI é uma coleção de conjuntos de dados primários, relatórios ou painéis e conjuntos de dados integrados e serviços conectados opcionais. Ele evoluiu de um tipo de ativo anteriormente conhecido como um [pacote de conteúdo](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). Para obter mais informações sobre como desenvolver este tipo de aplicativo, consulte [O que são modelos de aplicativo do Power BI?](https://go.microsoft.com/fwlink/?linkid=2028636).
 

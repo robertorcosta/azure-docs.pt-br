@@ -8,28 +8,28 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 91bcdc65a7ff3bcaf09f12d69ba4c7aaeb84ffa7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 900853b1ca68c1c540223db670b1173f5bb2fa2b
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132851"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754435"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas com o Gerenciamento de Atualizações
 
-Este artigo discute soluções para problemas que você pode encontrar quando usa o Gerenciamento de Atualizações.
+Este artigo discute soluções para problemas que você pode encontrar ao usar o Gerenciamento de Atualizações.
 
 Há um agente solucionador de problemas para o agente do Trabalhador Híbrido determinar o problema subjacente. Para saber mais sobre a solução de problemas, consulte [solucionar problemas do agente de atualização](update-agent-issues.md). Para todos os outros problemas, use a seguinte orientação de solução de problemas.
 
-Se você encontrar problemas enquanto tenta embarcar a solução em uma máquina virtual (VM), verifique o registro do **Gerente de Operações** em Registros de `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`Aplicativos e **Serviços** na máquina local para eventos com iD de evento 4502 e detalhes de eventos que contenham .
+Se você encontrar problemas ao embarcar na solução em uma máquina virtual (VM), verifique o registro do **Gerente de Operações** em **Registros de Aplicativos e Serviços** na máquina local. Procure eventos com id de evento 4502 e detalhes do evento que contenham `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
-A seção a seguir destaca mensagens de erro específicas e possíveis resoluções para cada um. Para outros problemas de onboarding, consulte [Solução de solução de solução de solução de solução onboarding](onboarding.md).
+A seção a seguir destaca mensagens de erro específicas e possíveis resoluções para cada um. Para outros problemas de onboarding, consulte [Solução de solução de solução de solução de solução de sope](onboarding.md).
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a>Cenário: Você recebe o erro "Falha ao ativar a solução Atualizar"
 
 ### <a name="issue"></a>Problema
 
-Quando você tenta ativar a solução Update Management em sua conta de Automação, você encontra o seguinte erro:
+Quando você tenta ativar a solução Update Management em sua conta de Automação, você recebe o seguinte erro:
 
 ```error
 Error details: Failed to enable the Update solution
@@ -39,11 +39,11 @@ Error details: Failed to enable the Update solution
 
 Esse erro pode ocorrer por um dos seguintes motivos:
 
-* Os requisitos de firewall de rede para o agente Log Analytics podem não estar configurados corretamente, fazendo com que o agente falhe ao resolver as URLs DNS.
+* Os requisitos de firewall de rede para o agente Log Analytics podem não estar configurados corretamente. Isso pode fazer com que o agente falhe ao resolver as URLs DNS.
 
 * A segmentação da solução está mal configurada e a máquina não está recebendo atualizações como esperado.
 
-* Você também pode notar que a `Non-compliant` máquina mostra um status de em **Conformidade**. Ao mesmo tempo, a **prontidão da atualização do agente** relata o agente como `Disconnected`. .
+* Você também pode notar que a `Non-compliant` máquina mostra um status de em **Conformidade**. Ao mesmo tempo, o Agent Desktop `Disconnected` **Analytics** informa o agente como .
 
 ### <a name="resolution"></a>Resolução
 
@@ -53,7 +53,7 @@ Esse erro pode ocorrer por um dos seguintes motivos:
 
 * Vá para [o planejamento de rede](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) para saber quais endereços e portas devem ser permitidos para que o agente do Log Analytics funcione.
 
-* Verifique se há problemas de configuração de escopo. [A configuração do escopo](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quais máquinas são configuradas para a solução. Se sua máquina estiver aparecendo em seu espaço de trabalho, mas não no portal **de gerenciamento de atualizações,** você precisará definir a configuração do escopo para segmentar as máquinas. Para saber mais sobre a configuração do escopo, consulte [máquinas onboard no espaço de trabalho](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+* Verifique se há problemas de configuração de escopo. [A configuração do escopo](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quais máquinas são configuradas para a solução. Se sua máquina estiver aparecendo no seu espaço de trabalho, mas não no Portal de Gerenciamento de Atualizações **, você precisará definir a configuração do escopo para atingir as máquinas. Para saber mais sobre a configuração do escopo, consulte [máquinas onboard no espaço de trabalho](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
 * Remova a configuração do trabalhador seguindo as etapas de [exclusão do executo híbrido](../automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker). 
 
@@ -61,7 +61,7 @@ Esse erro pode ocorrer por um dos seguintes motivos:
 
 ### <a name="issue"></a>Problema
 
-Atualizações antigas estão aparecendo no Gerenciamento de Atualizações na conta automação como faltando, mesmo que tenham sido substituídas. Uma atualização substituída é aquela que não precisa ser instalada porque uma atualização posterior que corrija a mesma vulnerabilidade está disponível. O Update Management ignora a atualização substituída e torna-a não aplicável em favor da atualização de suinagem. Para obter informações sobre um problema relacionado, consulte [Atualização é substituída](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
+Atualizações antigas estão aparecendo no Gerenciamento de Atualizações na conta automação como faltando, mesmo que tenham sido substituídas. Uma atualização substituída é aquela que você não precisa instalar porque uma atualização posterior que corrige a mesma vulnerabilidade está disponível. O Update Management ignora a atualização substituída e torna-a não aplicável em favor da atualização de suinagem. Para obter informações sobre um problema relacionado, consulte [Atualização é substituída](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
 
 ### <a name="cause"></a>Causa
 
@@ -69,7 +69,7 @@ As atualizações substituídas não estão sendo corretamente indicadas como re
 
 ### <a name="resolution"></a>Resolução
 
-Quando uma atualização substituída se torna 100% não aplicável, você deve `Declined`alterar o estado de aprovação dessa atualização para . Para fazer isso para todas as suas atualizações:
+Quando uma atualização substituída se torna 100% não aplicável, você deve `Declined`alterar o estado de aprovação dessa atualização para . Para alterar o estado de aprovação de todas as suas atualizações:
 
 1. Na conta Automação, selecione **Atualizar gerenciamento** para visualizar o status da máquina. Consulte [Ver Exibir avaliações de atualização](../manage-update-multi.md#view-an-update-assessment).
 
@@ -83,7 +83,7 @@ Quando uma atualização substituída se torna 100% não aplicável, você deve 
 
 6. Execute o assistente de limpeza para excluir arquivos das atualizações recusadas. 
 
-7. Para o WSUS, limpe manualmente todas as atualizações substituídas para atualizar a infra-estrutura.
+7. Para o Windows Server Update Services (WSUS), limpe manualmente todas as atualizações substituídas para atualizar a infra-estrutura.
 
 8. Repita este procedimento regularmente para corrigir o problema do display e minimizar a quantidade de espaço em disco usado para o gerenciamento de atualizações.
 
@@ -109,22 +109,22 @@ Você pode ter definido uma cota em seu espaço de trabalho que foi alcançada e
 
 ### <a name="resolution"></a>Resolução
 
-* Execute o solucionador de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) ou [Linux,](update-agent-issues-linux.md#troubleshoot-offline)dependendo do sistema operacional.
+1. Execute o solucionador de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) ou [Linux,](update-agent-issues-linux.md#troubleshoot-offline)dependendo do sistema operacional.
 
-* Certifique-se de que sua máquina está reportando ao espaço de trabalho correto. Para obter orientações sobre como verificar esse aspecto, consulte [Verificar a conectividade do agente ao Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Certifique-se também de que este espaço de trabalho esteja vinculado à sua conta do Azure Automation. Para confirmar, vá para sua conta de Automação e selecione **o espaço de trabalho Vinculado** em Recursos **Relacionados**.
+2. Certifique-se de que sua máquina está reportando ao espaço de trabalho correto. Para obter orientações sobre como verificar esse aspecto, consulte [Verificar a conectividade do agente ao Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Certifique-se também de que este espaço de trabalho esteja vinculado à sua conta do Azure Automation. Para confirmar, vá para sua conta de Automação e selecione **o espaço de trabalho Vinculado** em Recursos **Relacionados**.
 
-* Certifique-se de que as máquinas apareçam no espaço de trabalho do Log Analytics. Execute a seguinte consulta no espaço de trabalho do Log Analytics vinculado à sua conta de Automação:
+3. Certifique-se de que as máquinas apareçam no espaço de trabalho do Log Analytics. Execute a seguinte consulta no espaço de trabalho do Log Analytics vinculado à sua conta de Automação:
 
   ```loganalytics
   Heartbeat
   | summarize by Computer, Solutions
   ```
- 
-  Se você não ver sua máquina nos resultados da consulta, ela não fez check-in recentemente, o que significa que provavelmente há um problema de configuração local e você deve [reinstalar o agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). Se a máquina aparecer nos resultados da consulta, você precisa verificar a configuração de escopo especificada no próximo item com a cabeça nesta lista.
 
-* Verifique se há problemas de configuração de escopo. [A configuração do escopo](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quais máquinas são configuradas para a solução. Se sua máquina estiver aparecendo em seu espaço de trabalho, mas não no portal **de gerenciamento de atualizações,** você precisará configurar a configuração de escopo para segmentar as máquinas. Para aprender como fazer isso, consulte [máquinas a bordo no espaço de trabalho](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+4. Se você não ver sua máquina nos resultados da consulta, ela não fez check-in recentemente. Provavelmente há um problema de configuração local e você deve [reinstalar o agente.](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows) 
 
-* No seu espaço de trabalho, execute a seguinte consulta:
+5. Se a máquina aparecer nos resultados da consulta, verifique se há problemas de configuração de escopo. [A configuração do](../automation-onboard-solutions-from-automation-account.md#scope-configuration) escopo determina quais máquinas estão configuradas para a solução. Se sua máquina estiver aparecendo no seu espaço de trabalho, mas não no Portal de Gerenciamento de Atualizações **, você deve configurar a configuração do escopo para segmentar as máquinas. Para aprender como fazer isso, consulte [máquinas a bordo no espaço de trabalho](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+
+6. No seu espaço de trabalho, execute a seguinte consulta:
 
   ```loganalytics
   Operation
@@ -132,33 +132,71 @@ Você pode ter definido uma cota em seu espaço de trabalho que foi alcançada e
   | sort by TimeGenerated desc
   ```
 
-  Se você `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` conseguir um resultado, há uma cota definida em seu espaço de trabalho que foi alcançada e que impediu que os dados fossem salvos. Em seu espaço de trabalho, vá para **o uso e estimado gerenciamento de** > volume de dados de**custos** e verifique sua cota ou remova-a.
+7. Se você `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` conseguir um resultado, há uma cota definida em seu espaço de trabalho que foi alcançada e que impediu que os dados fossem salvos. Em seu espaço de trabalho, vá para o **gerenciamento de volume de dados** sob uso e custos **estimados** e verifique sua cota ou remova-a.
 
-* Se essas etapas não resolverem seu problema, siga as etapas em [Implantar um Trabalhador de Runbook Híbrido do Windows](../automation-windows-hrw-install.md) para reinstalar o Hybrid Worker for Windows. Para Linux, siga os passos em [Implantar um Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
+8. Se o seu problema ainda não estiver resolvido, siga as etapas em [Implantar um Trabalhador de Runbook Híbrido do Windows](../automation-windows-hrw-install.md) para reinstalar o Hybrid Worker para Windows. Para Linux, siga os passos em [Implantar um Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
-## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Cenário: Não é possível registrar o Provedor de Recursos de Automação para assinaturas
+## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Cenário: Não é possível registrar provedor de recursos de automação para assinaturas
 
 ### <a name="issue"></a>Problema
 
-Quando você trabalha com soluções em sua conta de Automação, você encontra o seguinte erro:
+Quando você trabalha com soluções em sua conta de Automação, ocorre o seguinte erro:
 
 ```error
-Error details: Unable to register Automation Resource Provider for subscriptions:
+Error details: Unable to register Automation Resource Provider for subscriptions
 ```
 
 ### <a name="cause"></a>Causa
 
-O Provedor de Recursos de Automação não está registrado na assinatura.
+O provedor de recursos de Automação não está registrado na assinatura.
 
 ### <a name="resolution"></a>Resolução
 
-Para registrar o Provedor de Recursos de Automação, siga estas etapas no portal do Azure:
+Para registrar o provedor de recursos de Automação, siga estas etapas no portal do Azure:
 
 1. Na lista de serviços do Azure na parte inferior do portal, selecione **Todos os serviços**e selecione Assinaturas no grupo de **serviços** Gerais.
 2. Selecione sua assinatura.
 3. Em **Configurações,** selecione **Provedores de recursos**.
 4. Na lista de provedores de `Microsoft.Automation` recursos, verifique se o provedor de recursos está registrado.
 5. Se ele não estiver listado, registre o `Microsoft.Automation` provedor seguindo as etapas em Resolver erros para registro do provedor de [recursos](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+
+## <a name="scenario-scheduled-update-with-a-dynamic-schedule-missed-some-machines"></a><a name="update-missed-machines"></a>Cenário: Atualização programada com um cronograma dinâmico perdeu algumas máquinas
+
+### <a name="issue"></a>Problema
+
+As máquinas visualizadas incluídas em uma atualização não aparecem todas na lista de máquinas corrigidas durante uma execução programada.
+
+### <a name="cause"></a>Causa
+
+Este problema pode ter uma das seguintes causas:
+
+* As assinaturas definidas no escopo em uma consulta dinâmica não estão configuradas para o provedor de recursos de Automação registrado. 
+* As máquinas não estavam disponíveis ou não tinham as etiquetas apropriadas quando o cronograma foi executado.
+
+### <a name="resolution"></a>Resolução
+
+#### <a name="subscriptions-not-configured-for-registered-automation-resource-provider"></a>Assinaturas não configuradas para provedor de recursos de automação registrado
+
+Se sua assinatura não estiver configurada para o provedor de recursos de Automação, você não poderá consultar ou buscar informações sobre máquinas nessa assinatura. Use as seguintes etapas para garantir o registro da assinatura.
+
+1. No [Portal Azure,](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)acesse a lista de serviços do Azure.
+2. Selecione **Todos os serviços**e selecione Assinaturas no grupo de **serviços** gerais. 
+3. Encontre a assinatura definida no escopo de sua implantação.
+4. Em **Configurações,** escolha **Provedores de recursos**.
+5. Verifique se `Microsoft.Automation` o provedor de recursos está registrado.
+6. Se ele não estiver listado, registre o `Microsoft.Automation` provedor seguindo as etapas em Resolver erros para registro do provedor de [recursos](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+
+#### <a name="machines-not-available-or-not-tagged-correctly-when-schedule-executed"></a>Máquinas não disponíveis ou não marcadas corretamente quando o cronograma executado
+
+Use o procedimento a seguir se sua assinatura estiver configurada para o provedor de recursos de Automação, mas executando o cronograma de atualização com os [grupos dinâmicos](../automation-update-management-groups.md) especificados perdeu algumas máquinas.
+
+1. No portal Azure, abra a conta automação e selecione **Gerenciamento de atualizações**.
+2. Verifique [o histórico do gerenciamento de atualizações](https://docs.microsoft.com/azure/automation/manage-update-multi#view-results-of-an-update-deployment) para determinar a hora exata em que a implantação da atualização foi executada. 
+3. Para máquinas que você suspeita ter sido perdidas pelo Update Management, use o Gráfico de Recursos do Azure para [localizar alterações na máquina](https://docs.microsoft.com/azure/governance/resource-graph/how-to/get-resource-changes#find-detected-change-events-and-view-change-details). 
+4. Procure mudanças durante um período considerável, como um dia, antes da implantação da atualização ser executada.
+5. Verifique os resultados da pesquisa para obter quaisquer alterações sistêmicas, como excluir ou atualizar alterações, para as máquinas neste período. Essas alterações podem alterar o status da máquina ou tags para que as máquinas não sejam selecionadas na lista da máquina quando as atualizações forem implantadas.
+6. Ajuste as máquinas e as configurações de recursos conforme necessário para corrigir os problemas de status da máquina ou tag.
+7. Reexecute o cronograma de atualização para garantir que a implantação com os grupos dinâmicos especificados inclua todas as máquinas.
 
 ## <a name="scenario-components-for-update-management-solution-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>Cenário: Componentes para solução de gerenciamento de atualização ativados, enquanto a VM continua a mostrar como sendo configurada
 
@@ -291,7 +329,7 @@ Quando aplicável, use [grupos dinâmicos](../automation-update-management-group
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
 
-* Depois de encontrar as máquinas afetadas, edite as implantações de atualização `SourceComputerId` que visam essas máquinas e, em seguida, remova-as e adicione-as novamente para que isso reflita o valor correto.
+* Depois de encontrar as máquinas afetadas, edite as implantações de atualização `SourceComputerId` que visam essas máquinas e, em seguida, remova-as e leia-as de modo que reflete o valor correto.
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Cenário: Atualizações são instaladas sem uma implantação
 
@@ -403,12 +441,14 @@ O Update Agent (Windows Update Agent on Windows; o gerenciador de pacotes para u
 
 ### <a name="resolution"></a>Resolução
 
-Tente realizar atualizações localmente na máquina. Se isso falhar, normalmente significa que há um erro de configuração com o agente de atualização.
+Tente realizar atualizações localmente na máquina. Se esta operação falhar, normalmente significa que há um erro de configuração do agente de atualização.
 
-Esse problema é frequentemente causado por problemas de configuração de rede e firewall. Experimente o seguinte:
+Esse problema é frequentemente causado por problemas de configuração de rede e firewall. Use as seguintes verificações para corrigir o problema.
 
 * Para linux, verifique a documentação apropriada para ter certeza de que você pode chegar ao ponto final da rede do seu repositório de pacotes.
+
 * Para o Windows, verifique a configuração do seu agente conforme listado em [Atualizações não estão baixando do ponto final da intranet (WSUS/SCCM)](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm).
+
   * Se as máquinas estiverem configuradas para o Windows Update, certifique-se de que você pode alcançar os pontos finais descritos em [Problemas relacionados ao HTTP/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
   * Se as máquinas estiverem configuradas para o Windows Server Update Services (WSUS), certifique-se de que você pode alcançar o servidor WSUS configurado pela [chave de registro WUServer](/windows/deployment/update/waas-wu-settings).
 
@@ -420,7 +460,7 @@ Se você vir um HRESULTADO, clique duas vezes na exceção exibida em vermelho p
 |`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Isso indica problemas de conectividade de rede. Certifique-se de que sua máquina tenha conectividade de rede com o Gerenciamento de Atualizações. Consulte a seção [de planejamento](../automation-update-management.md#ports) de rede para obter uma lista de portas e endereços necessários.        |
 |`0x8024001E`| A operação de atualização não foi concluída porque o serviço ou sistema estava sendo desligado.|
 |`0x8024002E`| O serviço Windows Update está desativado.|
-|`0x8024402C`     | Se você estiver usando um servidor WSUS, `WUServer` certifique-se de que os valores de registro para e `WUStatusServer` a `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` chave de registro especifiquem o servidor WSUS correto.        |
+|`0x8024402C`     | Se você estiver usando um servidor WSUS, `WUServer` certifique-se de que os valores de registro para e `WUStatusServer` sob a `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` chave de registro especifiquem o servidor WSUS correto.        |
 |`0x80072EE2`|Há um problema de conectividade de rede ou um problema em falar com um servidor WSUS configurado. Verifique as configurações do WSUS e certifique-se de que o serviço está acessível a partir do cliente.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Certifique-se de que o serviço Windows Update (wuauserv) está em execução e não está desativado.        |
 |`0x80070005`| Um erro de acesso negado pode ser causado por qualquer um dos seguintes:<br> Computador infectado<br> Configurações do Windows Update não configuradas corretamente<br> Erro de permissão de arquivo com %WinDir%\Pasta de distribuição de software<br> Espaço em disco insuficiente na unidade do sistema (C:).
@@ -453,9 +493,9 @@ Possíveis causas:
 
 Se ocorrerem falhas durante uma execução de atualização após o início do [trabalho, verifique a saída](../manage-update-multi.md#view-results-of-an-update-deployment) de trabalho da máquina afetada na execução. Você pode encontrar mensagens de erro específicas de suas máquinas que você pode pesquisar e tomar medidas. O Gerenciamento de Atualizações requer que o gerenciador de pacotes seja saudável para implantações de atualização bem-sucedidas.
 
-Se patches, pacotes ou atualizações específicas forem vistos imediatamente antes do trabalho falhar, você pode tentar [excluí-los](../automation-tutorial-update-management.md#schedule-an-update-deployment) da próxima implantação de atualização. Para coletar informações de log do Windows Update, consulte [arquivos de log do Windows Update](/windows/deployment/update/windows-update-logs).
+Se patches, pacotes ou atualizações específicas forem vistos imediatamente antes do trabalho falhar, você pode tentar [excluir](../automation-tutorial-update-management.md#schedule-an-update-deployment) esses itens da próxima implantação de atualização. Para coletar informações de log do Windows Update, consulte [arquivos de log do Windows Update](/windows/deployment/update/windows-update-logs).
 
-Se você não puder resolver um problema de patches, faça uma cópia do seguinte arquivo de log e preserve-o para fins de solução de problemas antes que a próxima implantação de atualização comece:
+Se você não puder resolver um problema de patches, faça uma cópia do arquivo de log a seguir e preserve-o para fins de solução de problemas antes que a próxima implantação de atualização seja iniciada.
 
 ```bash
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log

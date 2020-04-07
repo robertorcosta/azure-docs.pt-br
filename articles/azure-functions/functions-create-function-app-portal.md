@@ -1,15 +1,15 @@
 ---
 title: Crie um aplicativo de função a partir do Portal Azure
 description: Crie um novo aplicativo de função no Azure a partir do portal.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 086a543e75d083094d4dfa789e71afaba5da6d6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c17dc28d7eea4897759c1c832fdb1aba7f1e445
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368733"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756535"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Criar um aplicativo de funções no portal do Azure
 

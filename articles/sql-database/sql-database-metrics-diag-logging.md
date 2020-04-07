@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 880072c9865e38e181869506e35968767fa95e8a
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.date: 04/06/2020
+ms.openlocfilehash: 9c9f069ad38c65aa0bbfdcde9eef3fed32585d9e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387896"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756420"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Configurar a exportação de streaming da telemetria de diagnóstico do Banco de Dados Azure SQL
 
@@ -95,7 +95,7 @@ Você pode usar o menu **de configurações diagnósticos** no portal Azure para
 
 Selecione uma das seguintes guias para obter orientação passo a passo para configurar a exportação de streaming de telemetria de diagnóstico no portal Azure e para scripts para realizar o mesmo com o PowerShell e o Azure CLI.
 
-# <a name="azure-portal"></a>[Portal Azure](#tab/azure-portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
 ### <a name="elastic-pools"></a>Pools elásticos
 
@@ -126,7 +126,7 @@ Para permitir o streaming de telemetria de diagnóstico para um recurso elástic
 7. Selecione a caixa de seleção para telemetria de diagnóstico de piscina elástica: Métricas **básicas.**
    ![Configura o diagnóstico para pools elásticos](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 9. Além disso, configure o streaming de telemetria de diagnóstico para cada banco de dados dentro do pool elástico que você deseja monitorar seguindo as etapas descritas na próxima seção.
 
 > [!IMPORTANT]
@@ -155,7 +155,7 @@ Para permitir o streaming de telemetria de diagnóstico para um único ou um ban
 8. Para obter uma experiência de monitoramento avançada de um minuto, selecione a caixa de seleção para métricas **básicas.**
 
    ![Configurar o diagnóstico de bancos de dados individuais, de instância ou em pool](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
-9. Selecione **Salvar**.
+9. Clique em **Salvar**.
 10. Repita essas etapas para cada banco de dados que deseja monitorar.
 
 > [!TIP]
@@ -191,7 +191,7 @@ Para habilitar o streaming de telemetria de diagnóstico para um recurso de inst
 
    ![Configurar o diagnóstico para a instância gerenciada](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 9. Além disso, configure o streaming de telemetria de diagnóstico para cada banco de dados de instância dentro da instância gerenciada que você deseja monitorar seguindo as etapas descritas na próxima seção.
 
 > [!IMPORTANT]
@@ -219,13 +219,13 @@ Para permitir o streaming de telemetria de diagnóstico para um banco de dados d
 5. Selecione um recurso de destino para os dados de diagnóstico de streaming: **Arquive para conta de armazenamento,** **Transmita para um hub de eventos**ou Envie para o Log **Analytics**.
 6. Selecione as caixas de seleção para telemetria de diagnóstico de banco de dados: **SQLInsights,** **QueryStoreRuntimeStatistics,** **QueryStoreWaitStatistics**e **Errors**.
    ![Configurar o diagnóstico para bancos de dados de instância](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 8. Repita essas etapas para cada banco de dados de instâncias que você deseja monitorar.
 
 > [!TIP]
 > Repita essas etapas para cada banco de dados de instâncias que você deseja monitorar.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -283,7 +283,7 @@ Insira a ID de recurso do workspace \<$WSID\> como um parâmetro ao executar o s
 
   Substitua \<subID\> pela ID de assinatura \<RG_NAME\> com o nome do grupo de recursos e \<WS_NAME\> com o nome do workspace.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Você pode habilitar o log de diagnóstico e métricas usando a CLI do Azure.
 
@@ -454,9 +454,15 @@ Consulte a tabela a seguir para obter detalhes sobre métricas avançadas.
 
 |**Métrica**|**Nome de exibição da métrica**|**Descrição**|
 |---|---|---|
-|tempdb_data_size| Tamanho do arquivo de dados tempdb Kilobytes |Tamanho do arquivo de dados tempdb Kilobytes. Não aplicável a data warehouses. Esta métrica estará disponível para bancos de dados usando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para modelos de compras baseados em DTU. Esta métrica não está disponível no momento para bancos de dados Hyperscale.|
-|tempdb_log_size| Tamanho do arquivo de log tempdb Kilobytes |Tamanho do arquivo de log tempdb Kilobytes. Não aplicável a data warehouses. Esta métrica estará disponível para bancos de dados usando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para modelos de compras baseados em DTU. Esta métrica não está disponível no momento para bancos de dados Hyperscale.|
-|tempdb_log_used_percent| Registro percentual de tempdb usado |Registro percentual de tempdb usado. Não aplicável a data warehouses. Esta métrica estará disponível para bancos de dados usando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para modelos de compras baseados em DTU. Esta métrica não está disponível no momento para bancos de dados Hyperscale.|
+|sqlserver_process_core_percent<sup>1</sup>|Porcentagem do núcleo do processo do SQL Server|Porcentagem de uso da CPU para o processo sql server, medida pelo sistema operacional.|
+|sqlserver_process_memory_percent<sup>1</sup> |Porcentagem de memória do processo do SQL Server|Porcentagem de uso de memória para o processo SQL Server, medida pelo sistema operacional.|
+|tempdb_data_size<sup>2</sup>| Tamanho do arquivo de dados tempdb Kilobytes |Tamanho do arquivo de dados tempdb Kilobytes.|
+|tempdb_log_size<sup>2</sup>| Tamanho do arquivo de log tempdb Kilobytes |Tamanho do arquivo de log tempdb Kilobytes.|
+|tempdb_log_used_percent<sup>2</sup>| Registro percentual de tempdb usado |Registro percentual de tempdb usado.|
+
+<sup>1</sup> Esta métrica está disponível para bancos de dados usando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para modelos de compras baseados em DTU. 
+
+<sup>2</sup> Esta métrica está disponível para bancos de dados usando o modelo de compra vCore com 2 vCores e superior, ou 200 DTU e superior para modelos de compras baseados em DTU. Essa métrica não está disponível atualmente para bancos de dados hyperscale ou data warehouses.
 
 ### <a name="basic-logs"></a>Registros básicos
 

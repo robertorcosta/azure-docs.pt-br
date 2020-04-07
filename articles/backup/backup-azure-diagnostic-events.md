@@ -3,12 +3,12 @@ title: Usando configurações de diagnóstico para cofres de serviços de recupe
 description: Um artigo descrevendo como usar os eventos de diagnóstico antigos e novos para o Azure Backup
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: e3919d120e5f741af6cd30dd27e5a1dfa2b06cf2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d10bedf3818559971eff12624152d0e797f6c3cc
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136932"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672778"
 ---
 # <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Usar configurações de diagnóstico para os Cofres dos Serviços de Recuperação
 
@@ -39,28 +39,60 @@ Alinhando-se com o roteiro do Azure Log Analytics, o Azure Backup agora permite 
 
 Para enviar os dados de diagnóstico do cofre para LA:
 
-1.  Navegue até o cofre e clique em **Configurações de diagnóstico**. Clique **+ Adicionar configuração de diagnóstico**.
-2.  Dê um nome à configuração Diagnósticos.
-3.  Marque a caixa **Envie para o Log Analytics** e selecione um espaço de trabalho do Log Analytics.
-4.  Selecione **recurso específico** no alternar e verifique os seis eventos a seguir - **CoreAzureBackup**, **AddonAzureBackupAlerts,** **AddonAzureBackupProtectedInstance,** **AddonAzureBackupJobs,** **AddonAzureBackupPolicy**e **AddonAzureBackupStorage**.
-5.  Clique em **Salvar**.
+1.    Navegue até o cofre e clique em **Configurações de diagnóstico**. Clique **+ Adicionar configuração de diagnóstico**.
+2.    Dê um nome à configuração Diagnósticos.
+3.    Marque a caixa **Envie para o Log Analytics** e selecione um espaço de trabalho do Log Analytics.
+4.    Selecione **recurso específico** no alternar e verifique os seis eventos a seguir - **CoreAzureBackup**, **AddonAzureBackupAlerts,** **AddonAzureBackupProtectedInstance,** **AddonAzureBackupJobs,** **AddonAzureBackupPolicy**e **AddonAzureBackupStorage**.
+5.    Clique em **Salvar**.
 
 ![Modo específico do recurso](./media/backup-azure-diagnostics-events/resource-specific-blade.png)
 
 Uma vez que os dados fluam para o Espaço de Trabalho de LA, tabelas dedicadas para cada um desses eventos são criadas em seu espaço de trabalho. Você pode consultar qualquer uma dessas tabelas diretamente e também realizar adesões ou sindicatos entre essas tabelas, se necessário.
 
 > [!IMPORTANT]
-> Os seis eventos acima, ou seja, CoreAzureBackup, AddonAzureBackupAlerts, AddonAzureBackupProtectedInstance, AddonAzureBackupJobs, AddonAzureBackupPolicy e AddonAzureBackupStorage, são suportados **apenas** no modo específico de recursos. **Observe que se você tentar enviar dados para esses seis eventos no Modo Diagnóstico Do Azure, nenhum dado fluirá para o Espaço de Trabalho de LA.**
+> Os seis eventos acima, ou seja, CoreAzureBackup, AddonAzureBackupAlerts, AddonAzureBackupProtectedInstance, AddonAzureBackupJobs, AddonAzureBackupPolicy e AddonAzureBackupStorage, são suportados **apenas** no modo específico de recursos em [relatórios de backup](https://docs.microsoft.com/azure/backup/configure-reports). **Observe que se você tentar enviar dados para esses seis eventos no Modo Diagnóstico do Azure, nenhum dado será visível nos Relatórios de Backup.**
 
 ## <a name="legacy-event"></a>Evento Legado
 
 Tradicionalmente, todos os dados de diagnóstico relacionados ao backup de um cofre foram contidos em um único evento chamado 'AzureBackupReport'. Os seis eventos descritos acima são, em essência, uma decomposição de todos os dados contidos no AzureBackupReport. 
 
-Atualmente, continuamos a suportar o evento AzureBackupReport para retrocompatibilidade, nos casos em que os usuários têm consultas personalizadas existentes neste evento, por exemplo, alertas de log personalizados, visualizações personalizadas etc. No entanto, **recomendamos a mudança para os novos eventos o mais cedo possível,** uma vez que isso torna os dados muito mais fáceis de trabalhar em consultas de log, proporciona melhor a descoberta de esquemas e sua estrutura, melhora o desempenho tanto em tempos de latência de ingestão quanto de consulta. **O suporte para usar o modo Diagnóstico sinuoso será eventualmente eliminado e, portanto, a escolha dos novos eventos pode ajudá-lo a evitar migrações complexas em uma data posterior**.
+Atualmente, continuamos a suportar o evento AzureBackupReport para retrocompatibilidade, nos casos em que os usuários têm consultas personalizadas existentes neste evento, por exemplo, alertas de log personalizados, visualizações personalizadas etc. No entanto, **recomendamos a mudança para os [novos eventos](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users) o mais cedo possível,** uma vez que isso torna os dados muito mais fáceis de trabalhar em consultas de log, proporciona melhor a descoberta de esquemas e sua estrutura, melhora o desempenho tanto em tempos de latência de ingestão quanto de consulta. 
 
-Use a diretiva integrada do Azure Backup para adicionar uma nova configuração de diagnóstico com os 6 novos eventos, para todos os seus cofres em um escopo especificado: [Configure configurações de diagnóstico de cofre em escala](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
+**O evento legado no modo Diagnóstico sinuoso será eventualmente preterido e, portanto, a escolha dos novos eventos pode ajudá-lo a evitar migrações complexas em uma data posterior**. Nossa [solução de emissão de relatórios](https://docs.microsoft.com/azure/backup/configure-reports) que aproveita o Log Analytics também deixará de suportar dados do evento legado.
 
-Você pode optar por criar configurações de diagnóstico separadas para o AzureBackupReport e os seis novos eventos, até que você tenha migrado todas as suas consultas personalizadas para usar dados das novas tabelas. A imagem abaixo mostra um exemplo de um cofre com duas configurações de diagnóstico. A primeira configuração, chamada **Setting1,** envia dados do evento AzureBackupReport para um modo LA Workspace no modo AzureDiagnostics. A segunda configuração, chamada **Configuração2,** envia dados dos seis novos eventos de backup do Azure para um espaço de trabalho la no modo Específico de Recursos.
+### <a name="steps-to-move-to-new-diagnostics-settings-to-log-analytics-workspace"></a>Etapas para mover para novas configurações de diagnóstico (para espaço de trabalho do Log Analytics)
+
+1. Identifique quais cofres estão enviando dados para o Log Analytics Workspace(s) usando o evento legado e as assinaturas a que pertencem. Execute os espaços de trabalho abaixo para identificar esses cofres e assinaturas:
+
+    ````Kusto
+    let RangeStart = startofday(ago(3d));
+    let VaultUnderAzureDiagnostics = (){
+        AzureDiagnostics
+        | where TimeGenerated >= RangeStart | where Category == "AzureBackupReport" and OperationName == "Vault" and SchemaVersion_s == "V2"
+        | summarize arg_max(TimeGenerated, *) by ResourceId    
+        | project ResourceId, Category};
+    let VaultUnderResourceSpecific = (){
+        CoreAzureBackup
+        | where TimeGenerated >= RangeStart | where OperationName == "Vault" 
+        | summarize arg_max(TimeGenerated, *) by ResourceId
+        | project ResourceId, Category};
+        // Some Workspaces will not have AzureDiagnostics Table, hence you need to use isFuzzy
+    let CombinedVaultTable = (){
+        CombinedTable | union isfuzzy = true 
+        (VaultUnderAzureDiagnostics() ),
+        (VaultUnderResourceSpecific() )
+        | distinct ResourceId, Category};
+    CombinedVaultTable | where Category == "AzureBackupReport"
+    | join kind = leftanti ( 
+    CombinedVaultTable | where Category == "CoreAzureBackup"
+    ) on ResourceId
+    | parse ResourceId with * "SUBSCRIPTIONS/" SubscriptionId:string "/RESOURCEGROUPS" * "MICROSOFT.RECOVERYSERVICES/VAULTS/" VaultName:string
+    | project ResourceId, SubscriptionId, VaultName
+    ````
+
+2. Use a [diretiva azure incorporada do Azure](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics) Backup para adicionar uma nova configuração de diagnóstico para todos os cofres em um escopo especificado. Esta diretiva adiciona uma nova configuração de diagnóstico aos cofres que ou não têm uma configuração de diagnóstico (ou) têm apenas uma configuração de diagnóstico legado. Esta política pode ser atribuída a uma assinatura inteira ou grupo de recursos por vez. Observe que você precisará de acesso 'Proprietário' a cada assinatura para a qual a diretiva é atribuída.
+
+Você pode optar por ter configurações de diagnóstico separadas para o AzureBackupReport e os seis novos eventos, até que você tenha migrado todas as suas consultas personalizadas para usar dados das novas tabelas. A imagem abaixo mostra um exemplo de um cofre com duas configurações de diagnóstico. A primeira configuração, chamada **Setting1,** envia dados do evento AzureBackupReport para um modo LA Workspace no modo AzureDiagnostics. A segunda configuração, chamada **Configuração2,** envia dados dos seis novos eventos de backup do Azure para um espaço de trabalho la no modo Específico de Recursos.
 
 ![Duas configurações](./media/backup-azure-diagnostics-events/two-settings-example.png)
 

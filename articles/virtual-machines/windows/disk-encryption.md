@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: d8e6f4b58cf17a7502e2c0d67e4fa67af7cdb3f5
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 25b8df0d8565686737b33aac16d4bf698ce43280
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632943"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757218"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Criptografia do lado do servidor dos discos gerenciados do Azure
 
@@ -91,6 +91,9 @@ Por enquanto, as chaves gerenciadas pelo cliente têm as seguintes restrições:
 
     Ao criar a instância do Cofre de Chaves, você deve ativar a proteção de exclusão suave e purga. A exclusão suave garante que o Cofre de Chaves mantenha uma chave excluída para um determinado período de retenção (padrão de 90 dias). A proteção contra expurgo garante que uma chave excluída não possa ser excluída permanentemente até que o período de retenção seja apagado. Essas configurações protegem você de perder dados devido à exclusão acidental. Essas configurações são obrigatórias ao usar um Key Vault para criptografar discos gerenciados.
 
+    > [!IMPORTANT]
+    > Não caso a região, se você fizer isso, você pode ter problemas ao atribuir discos adicionais ao recurso no portal Azure.
+    
     ```powershell
     $ResourceGroupName="yourResourceGroupName"
     $LocationName="westcentralus"

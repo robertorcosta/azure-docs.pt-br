@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: 3ef1c3d3fe0fd1ecad95e027b06ce14fd70d4d3f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: aa49b313f0fb10175dc6c0003f1a919f61731269
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437870"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743305"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Use scripts de implantação em modelos (Visualização)
 
@@ -33,6 +33,8 @@ Os benefícios do script de implantação:
 - Permita especificar as identidades usadas para executar os scripts. Atualmente, apenas [a identidade gerenciada atribuída pelo usuário do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) é suportada.
 - Permitir a passagem de argumentos de linha de comando para o script.
 - Pode especificar saídas de script e passá-las de volta para a implantação.
+
+O recurso de script de implantação só está disponível nas regiões onde a Instância de Contêiner do Azure está disponível.  Consulte [a disponibilidade de recursos para instâncias de contêineres do Azure nas regiões do Azure](../../container-instances/container-instances-region-availability.md).
 
 > [!IMPORTANT]
 > Dois recursos de script de implantação, uma conta de armazenamento e uma instância de contêiner são criados no mesmo grupo de recursos para execução de script e solução de problemas. Esses recursos geralmente são excluídos pelo serviço de script quando a execução do script de implantação fica em um estado terminal. Você será cobrado pelos recursos até que eles sejam excluídos. Para saber mais, consulte [recursos de script de implantação de limpeza](#clean-up-deployment-script-resources).
@@ -180,7 +182,7 @@ A saída se parece com isso:
 
 ## <a name="use-external-scripts"></a>Use scripts externos
 
-Além de scripts inline, você também pode usar arquivos de script externos. Apenas scripts powershell primários com a extensão de arquivo **ps1** são suportados. Para scripts CLI, os scripts principais podem ter quaisquer extensões (ou sem uma extensão), desde que os scripts sejam scripts de bash válidos. Para usar arquivos de `scriptContent` `primaryScriptUri`script externos, substitua por . Por exemplo: 
+Além de scripts inline, você também pode usar arquivos de script externos. Apenas scripts powershell primários com a extensão de arquivo **ps1** são suportados. Para scripts CLI, os scripts principais podem ter quaisquer extensões (ou sem uma extensão), desde que os scripts sejam scripts de bash válidos. Para usar arquivos de `scriptContent` `primaryScriptUri`script externos, substitua por . Por exemplo:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -189,6 +191,8 @@ Além de scripts inline, você também pode usar arquivos de script externos. Ap
 Para ver um exemplo, selecione [aqui](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
 Os arquivos de script externos devem estar acessíveis.  Para proteger os arquivos de script armazenados em contas de armazenamento do Azure, consulte [Tutorial: Secure artifacts in Azure Resource Manager implantações de modelos](./template-tutorial-secure-artifacts.md).
+
+Você é responsável por garantir a integridade dos scripts referenciados pelo script de implantação, seja **PrimaryScriptUri** ou **SupportScriptUris**.  Referência apenas scripts em que você confia.
 
 ## <a name="use-supporting-scripts"></a>Use scripts de suporte
 
