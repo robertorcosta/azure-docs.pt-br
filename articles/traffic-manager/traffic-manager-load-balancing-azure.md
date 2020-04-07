@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: rohink
-ms.openlocfilehash: b77248813463f51d4bd2c5186e421aec43ffaf52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cccd4a6b0b52608a6a17b73688e18f27088df5b0
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76939219"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757194"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Usando os serviços de balanceamento de carga no Azure
 
@@ -38,7 +38,7 @@ Em um nível conceitual, cada um desses serviços desempenha uma função distin
   * Roteamento de vários valores que permite enviar endereços IP de mais de um ponto de extremidade do aplicativo em uma única resposta DNS.
 
   O cliente se conecta diretamente ao ponto de extremidade retornado pelo Gerenciador de Tráfego. O Gerenciador de Tráfego do Azure detecta quando um ponto de extremidade não está íntegro e redireciona os clientes para outra instância íntegra. Consulte a [documentação do Gerenciador de Tráfego do Azure](traffic-manager-overview.md) para saber mais sobre o serviço.
-* O **Gateway de Aplicativo** fornece o ADC (Controlador de Entrega de Aplicativos) como um serviço, oferecendo vários recursos de balanceamento de carga de camada 7 para o aplicativo. Ele permite que os clientes otimizem a produtividade do web farm descarregando a terminação SSL com uso intensivo de CPU para o Gateway de Aplicativo. Outros recursos de roteamento de camada 7 incluem distribuição round robin do tráfego de entrada, afinidade de sessão, roteamento com base no caminho de URL e capacidade de hospedar vários sites com um único Gateway de Aplicativo baseado em cookie. O Gateway de Aplicativo pode ser configurado como um gateway voltado para a Internet, um gateway apenas interno ou uma combinação de ambos. O Gateway de Aplicativo é totalmente gerenciado pelo Azure, escalonável e altamente disponível. Ele fornece um conjunto avançado de recursos de log e diagnósticos para melhor capacidade de gerenciamento.
+* O **Gateway de Aplicativo** fornece o ADC (Controlador de Entrega de Aplicativos) como um serviço, oferecendo vários recursos de balanceamento de carga de camada 7 para o aplicativo. Ele permite que os clientes otimizem a produtividade da fazenda web descarregando a terminação TLS intensiva em CPU para o gateway de aplicativo. Outros recursos de roteamento de camada 7 incluem distribuição round robin do tráfego de entrada, afinidade de sessão, roteamento com base no caminho de URL e capacidade de hospedar vários sites com um único Gateway de Aplicativo baseado em cookie. O Gateway de Aplicativo pode ser configurado como um gateway voltado para a Internet, um gateway apenas interno ou uma combinação de ambos. O Gateway de Aplicativo é totalmente gerenciado pelo Azure, escalonável e altamente disponível. Ele fornece um conjunto avançado de recursos de log e diagnósticos para melhor capacidade de gerenciamento.
 * **O Balancer** de carga é parte integrante da pilha SDN do Azure, fornecendo serviços de balanceamento de carga de alta latência e baixa latência para todos os protocolos UDP e TCP. Ele gerencia conexões de entrada e saída. Você pode configurar pontos de extremidade públicos e internos com balanceamento de carga e definir regras para mapear as conexões de entrada para destinos de pool de back-end usando opções TCP e HTTP de investigação de integridade para gerenciar a disponibilidade do serviço.
 
 ## <a name="scenario"></a>Cenário
@@ -59,7 +59,7 @@ O diagrama a seguir mostra a arquitetura desse cenário:
 ![Diagrama de arquitetura de balanceamento de carga](./media/traffic-manager-load-balancing-azure/scenario-diagram.png)
 
 > [!NOTE]
-> Este exemplo é apenas uma das muitas configurações possíveis dos serviços de balanceamento de carga oferecidos pelo Azure. O Gateway de Aplicativo, o Balanceador de Carga e o Gerenciador de Tráfego podem ser associados e combinados para melhor atender às necessidades de balanceamento de carga. Por exemplo, se o descarregamento de SSL ou o processamento de camada 7 não forem necessários, o balanceador de carga pode ser usado no lugar de Gateway de Aplicativo.
+> Este exemplo é apenas uma das muitas configurações possíveis dos serviços de balanceamento de carga oferecidos pelo Azure. O Gateway de Aplicativo, o Balanceador de Carga e o Gerenciador de Tráfego podem ser associados e combinados para melhor atender às necessidades de balanceamento de carga. Por exemplo, se a descarga tls ou o processamento da camada 7 não fornecessário, o Balancer de carga pode ser usado no lugar do Gateway de aplicativo.
 
 ## <a name="setting-up-the-load-balancing-stack"></a>Configurando a pilha de balanceamento de carga
 
