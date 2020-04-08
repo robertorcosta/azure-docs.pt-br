@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 29d837446960b7535b26284efdfab7a1c59ea968
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fece1155d2f707f11dda9f3896bd8a08deff1557
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132509"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802376"
 ---
 # <a name="http-features"></a>Recursos HTTP
 
@@ -41,11 +41,11 @@ Consulte o [artigo HTTP APIs](durable-functions-http-api.md) para obter uma desc
 
 A [vinculação do cliente de orquestração](durable-functions-bindings.md#orchestration-client) expõe APIs que podem gerar cargas de resposta HTTP convenientes. Por exemplo, ele pode criar uma resposta contendo links para APIs de gerenciamento para uma instância específica de orquestração. Os exemplos a seguir mostram uma função http-trigger que demonstra como usar esta API para uma nova instância de orquestração:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 **index.js**
 
@@ -114,7 +114,7 @@ Começando com funções duráveis 2.0, as orquestrações podem consumir nativa
 
 O código de exemplo a seguir mostra uma função orquestradora fazendo uma solicitação HTTP de saída:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -134,7 +134,7 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -172,7 +172,7 @@ As funções duráveis suportam nativamente chamadas para APIs que aceitam token
 
 O código a seguir é um exemplo de uma função orquestradora .NET. A função faz chamadas autenticadas para reiniciar uma máquina virtual usando as máquinas virtuais Do Azure Resource Manager [REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RestartVm")]
@@ -198,7 +198,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -232,7 +232,7 @@ Em tempo de execução, a fonte de token configurada retorna automaticamente um 
 * Os tokens nunca são armazenados no estado de orquestração durável.
 * Você não precisa escrever nenhum código para gerenciar a aquisição de tokens.
 
-Você pode encontrar um exemplo mais completo na [amostra c# RestartVMs pré-compilada](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs).
+Você pode encontrar um exemplo mais completo na [amostra c# RestartVMs pré-compilada](https://github.com/Azure/azure-functions-durable-extension/blob/dev/samples/precompiled/RestartVMs.cs).
 
 As identidades gerenciadas não se limitam ao gerenciamento de recursos do Azure. Você pode usar identidades gerenciadas para acessar qualquer API que aceite tokens portadores do Azure AD, incluindo serviços Azure da Microsoft e aplicativos web de parceiros. O aplicativo web de um parceiro pode até ser outro aplicativo de função. Para obter uma lista de serviços Azure da Microsoft que suportam autenticação com o Azure AD, consulte [os serviços do Azure que suportam a autenticação Azure AD](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 

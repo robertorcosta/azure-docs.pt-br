@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce0a170a629f347e2687a2e9f63fb3438fe2bd2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18469c94b66acab27b58243e8d15eb924843319b
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280164"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811125"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configure um aplicativo de serviço de aplicativo no portal Azure
 
@@ -35,7 +35,7 @@ Outras pilhas de idiomas, da mesma forma, obtêm as configurações do aplicativ
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [Php](containers/configure-language-php.md#access-environment-variables)
+- [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
 - [Ruby](containers/configure-language-ruby.md#access-environment-variables)
@@ -96,16 +96,17 @@ Para outras pilhas de idiomas, é melhor usar [as configurações](#configure-ap
 
 Em tempo de execução, as strings de conexão estão disponíveis como variáveis de ambiente, prefixadas com os seguintes tipos de conexão:
 
-* SQL Server: `SQLCONNSTR_`
-* MySQL: `MYSQLCONNSTR_`
-* Banco de Dados SQL: `SQLAZURECONNSTR_`
+* Sqlserver:`SQLCONNSTR_`  
+* MySQL: `MYSQLCONNSTR_` 
+* SQLAzure:`SQLAZURECONNSTR_` 
 * Personalizado: `CUSTOMCONNSTR_`
+* Postgresql:`POSTGRESQLCONNSTR_`  
 
 Por exemplo, uma seqüência de conexões MySql chamada `MYSQLCONNSTR_connectionString1` *connectionstring1* pode ser acessada como a variável de ambiente . Para obter etapas específicas de pilha de idiomas, consulte:
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [Php](containers/configure-language-php.md#access-environment-variables)
+- [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
 - [Ruby](containers/configure-language-ruby.md#access-environment-variables)
@@ -173,7 +174,7 @@ Aqui, você pode configurar algumas configurações comuns para o aplicativo. Al
     - **Versão gerenciada do pipeline**: O [modo de pipeline]IIS . Defina-o **como Classic** se você tiver um aplicativo legado que requer uma versão mais antiga do IIS.
     - **Versão HTTP**: Configurado como **2.0** para habilitar o suporte ao protocolo [HTTPS/2.](https://wikipedia.org/wiki/HTTP/2)
     > [!NOTE]
-    > A maioria dos navegadores modernos dá suporte para protocolo HTTP/2 somente em TLS, enquanto o tráfego não criptografado continua usando HTTP / 1.1. Para garantir que os navegadores clientes se conectem ao seu aplicativo com HTTP/2, [proteja seu nome DNS personalizado com uma vinculação SSL no Azure App Service](configure-ssl-bindings.md).
+    > A maioria dos navegadores modernos dá suporte para protocolo HTTP/2 somente em TLS, enquanto o tráfego não criptografado continua usando HTTP / 1.1. Para garantir que os navegadores clientes se conectem ao seu aplicativo com HTTP/2, proteja seu nome DNS personalizado. Para obter mais informações, consulte [Proteger um nome DNS personalizado com uma vinculação TLS/SSL no Azure App Service](configure-ssl-bindings.md).
     - **Afinidade ARR**: Em uma implantação em várias instâncias, certifique-se de que o cliente seja encaminhado para a mesma instância durante a vida útil da sessão. Você pode definir esta opção como **Off** para aplicativos apátridas.
 - **Depuração**: Habilite a depuração remota para [aplicativos ASP.NET,](troubleshoot-dotnet-visual-studio.md#remotedebug) [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure)ou [Node.js.](containers/configure-language-nodejs.md#debug-remotely) Esta opção desliga-se automaticamente após 48 horas.
 - **Certificados de cliente de entrada**: requerem certificados de cliente em [autenticação mútua](app-service-web-configure-tls-mutual-auth.md).
@@ -235,7 +236,7 @@ Para aplicativos Linux, veja:
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md)
 - [Node.js](containers/configure-language-nodejs.md)
-- [Php](containers/configure-language-php.md)
+- [PHP](containers/configure-language-php.md)
 - [Python](containers/how-to-configure-python.md)
 - [Java](containers/configure-language-java.md)
 - [Ruby](containers/configure-language-ruby.md)
@@ -248,7 +249,7 @@ Consulte [Configurar um contêiner Linux personalizado para o Azure App Service]
 
 - [Configure um nome de domínio personalizado no Azure App Service]
 - [Configurar ambientes de preparo no Serviço de Aplicativo do Azure]
-- [Proteger um nome DNS personalizado com uma associação SSL no Serviço de Aplicativo do Azure](configure-ssl-bindings.md)
+- [Proteja um nome DNS personalizado com uma vinculação TLS/SSL no Serviço de Aplicativos Do Azure](configure-ssl-bindings.md)
 - [Habilitar logs de diagnóstico](troubleshoot-diagnostic-logs.md)
 - [Dimensionar um aplicativo no Serviço de Aplicativo do Azure]
 - [Conceitos básicos de monitoramento no Serviço de Aplicativo do Azure]

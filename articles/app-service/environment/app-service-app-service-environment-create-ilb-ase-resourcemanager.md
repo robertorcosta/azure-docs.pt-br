@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 1a0ec9465be3b714e90bfca6a15b60423d6065a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f05780610a2a6033b069721b143aca5e5efa6c35
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295570"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804513"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Como criar um ASE ILB usando modelos do Azure Resource Manager
 
@@ -28,8 +28,8 @@ Ambientes de Serviço de Aplicativo podem ser criados com um endereço interno d
 Há três etapas envolvidas na automatização da criação de um ASE ILB:
 
 1. Primeiro o ASE base é criado em uma rede virtual usando um endereço de balanceador de carga interno em vez de um VIP público.  Como parte dessa etapa, um nome de domínio raiz é atribuído ao ASE ILB.
-2. Depois que o ILB ASE é criado, um certificado SSL é carregado.  
-3. O certificado SSL carregado foi atribuído explicitamente à ASE ILB como o certificado SSL "padrão".  Este certificado SSL será usado para tráfego SSL para aplicativos no ILB ASE quando os aplicativos forem endereçados usando o domínio raiz comum atribuído ao ASE (por `https://someapp.mycustomrootcomain.com`exemplo)
+2. Uma vez que o ILB ASE é criado, um certificado TLS/SSL é carregado.  
+3. O certificado TLS/SSL carregado é explicitamente atribuído ao ILB ASE como seu certificado TLS/SSL "padrão".  Este certificado TLS/SSL será usado para tráfego TLS para aplicativos no ILB ASE quando os aplicativos forem endereçados usando o domínio raiz comum atribuído ao ASE (por `https://someapp.mycustomrootcomain.com`exemplo)
 
 ## <a name="creating-the-base-ilb-ase"></a>Criando o ASE ILB base
 Um modelo do Azure Resource Manager de exemplo e seu arquivo de parâmetros associado estão disponíveis no GitHub [aqui][quickstartilbasecreate].
@@ -49,17 +49,17 @@ Quando o arquivo *azuredeploy.parameters.json* for preenchido para um ASE ILB, o
 
 Depois que o modelo do Azure Resource Manager for enviado, levará algumas horas para o ASE ILB ser criado.  Uma vez concluída a criação, o ASE ILB aparecerá no portal de experiência do usuário na lista de Ambientes de Serviço de Aplicativo para a assinatura que disparou a implantação.
 
-## <a name="uploading-and-configuring-the-default-ssl-certificate"></a>Carregando e configurando o certificado SSL "Padrão"
-Quando o ILB ASE é criado, um certificado SSL deve ser associado ao ASE como o certificado SSL “padrão” usado para estabelecer conexões SSL com aplicativos.  Continuando com o exemplo hipotético da Contoso Corporation, se o sufixo DNS padrão do ASE for *internal-contoso.com*, então, uma conexão com *https://some-random-app.internal-contoso.com* exigirá um certificado SSL válido para **.internal-contoso.com*. 
+## <a name="uploading-and-configuring-the-default-tlsssl-certificate"></a>Upload e configuração do certificado TLS/SSL "Padrão"
+Uma vez que o ILB ASE é criado, um certificado TLS/SSL deve ser associado ao ASE como o uso do certificado TLS/SSL "padrão" para estabelecer conexões TLS/SSL a aplicativos.  Continuando com o hipotético exemplo da Contoso Corporation, se o sufixo *https://some-random-app.internal-contoso.com* DNS padrão da ASE for *internal-contoso.com,* então uma conexão requer um certificado TLS/SSL válido para **.internal-contoso.com*. 
 
-Há várias maneiras de obter um certificado SSL válido, incluindo CAs internos, adquirir certificado de um emissor externo e usar um certificado autoassinado.  Independentemente da origem do certificado SSL, os seguintes atributos de certificado devem ser configurados corretamente:
+Existem várias maneiras de obter um certificado TLS/SSL válido, incluindo CAs internos, compra de um certificado de um emissor externo e uso de um certificado auto-assinado.  Independentemente da origem do certificado TLS/SSL, os seguintes atributos de certificado precisam ser configurados corretamente:
 
 * *Assunto*: esse atributo deve ser definido para **.domínio-raiz-aqui.com*
-* *Nome Alternativo da Entidade*: esse atributo deve incluir **.your-root-domain-here.com* e **.scm.your-root-domain-here.com*.  O motivo para a segunda entrada é que as conexões SSL para o site SCM/Kudu associado a cada aplicativo serão feitas usando um endereço do formulário *nome-do-aplicativo.scm.seu-domínio-raiz-aqui.com*.
+* *Nome Alternativo da Entidade*: esse atributo deve incluir **.your-root-domain-here.com* e **.scm.your-root-domain-here.com*.  A razão para a segunda entrada é que as conexões TLS ao site SCM/Kudu associadas a cada aplicativo serão feitas usando um endereço do formulário *your-app-name.scm.your-root-domain-here.com*.
 
-Com um certificado SSL válido em mãos, são necessárias mais duas etapas preparatórias.  O certificado SSL deve ser convertido/salvo como um arquivo.pfx.  Lembre-se de que o arquivo .pfx deve incluir todos os certificados intermediários e raiz e também precisa ser protegido com uma senha.
+Com um certificado TLS/SSL válido em mãos, são necessárias duas etapas preparatórias adicionais.  O certificado TLS/SSL precisa ser convertido/salvo como um arquivo .pfx.  Lembre-se de que o arquivo .pfx deve incluir todos os certificados intermediários e raiz e também precisa ser protegido com uma senha.
 
-Em seguida, o arquivo .pfx resultante deve ser convertido em uma cadeia de caracteres de base64 porque o certificado SSL será carregado usando um modelo do Azure Resource Manager.  Já que os modelos do Azure Resource Manager são arquivos de texto, o arquivo .pfx deve ser convertido em uma cadeia de caracteres de base64 para poder ser incluída como um parâmetro do modelo.
+Em seguida, o arquivo .pfx resultante precisa ser convertido em uma seqüência base64 porque o certificado TLS/SSL será carregado usando um modelo do Azure Resource Manager.  Já que os modelos do Azure Resource Manager são arquivos de texto, o arquivo .pfx deve ser convertido em uma cadeia de caracteres de base64 para poder ser incluída como um parâmetro do modelo.
 
 O snippet de código do Powershell abaixo mostra um exemplo de como gerar um certificado autoassinado, exportar o certificado como um arquivo .pfx, converter o arquivo .pfx em uma cadeia de caracteres codificada em base64 e salvar essa cadeia de caracteres em um arquivo separado.  O código do PowerShell para a codificação de base64 foi adaptado do [Blog de Scripts do PowerShell][examplebase64encoding].
 
@@ -75,7 +75,7 @@ O snippet de código do Powershell abaixo mostra um exemplo de como gerar um cer
     $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
     $fileContentEncoded | set-content ($fileName + ".b64")
 
-Depois que o certificado SSL for gerado com êxito e convertido em uma cadeia de caracteres codificada em base64, o modelo do Azure Resource Manager de exemplo no GitHub para [configurar o certificado SSL padrão][configuringDefaultSSLCertificate] poderá ser usado.
+Uma vez que o certificado TLS/SSL tenha sido gerado e convertido com sucesso em uma seqüência codificada base64, o exemplo do azure Resource Manager no GitHub para [configurar o certificado TLS/SSL padrão][configuringDefaultSSLCertificate] pode ser usado.
 
 Os parâmetros no arquivo *azuredeploy.parameters.json* estão listados abaixo:
 
@@ -84,7 +84,7 @@ Os parâmetros no arquivo *azuredeploy.parameters.json* estão listados abaixo:
 * *pfxBlobString*: A representação de string codificada com base64 do arquivo .pfx.  Usando o snippet de código mostrado anteriormente, copie a cadeia de caracteres contida no "exportedcert.pfx.b64" e cole-a como o valor do atributo *pfxBlobString*.
 * *password*: a senha usada para proteger o arquivo .pfx.
 * *certificadoImpressão de polegar*: Impressão digital do certificado.  Se você recuperar esse valor do Powershell (por exemplo, *$certificate.Thumbprint* do snippet de código anterior), poderá usar o valor como estiver.  No entanto se você copiar o valor da caixa de diálogo Certificado Windows, lembre-se de retirar os espaços estranhos.  O *certificadoThumbprint* deve ser algo parecido com: AF3143EB61D43F672784215BB7F17BBCECAE
-* *certificateName*: Um identificador de seqüência amigável de sua própria escolha usado para identificar o certificado.  O nome é usado como parte do identificador exclusivo do Azure Resource Manager para a entidade *Microsoft.Web/certificates* que representa o certificado SSL.  O nome **deve** terminar com o \_seguinte sufixo: yourASENameHere_InternalLoadBalancingASE.  Esse sufixo é usado pelo portal como um indicador de que o certificado é usado para proteger um ASE habilitado por ILB.
+* *certificateName*: Um identificador de seqüência amigável de sua própria escolha usado para identificar o certificado.  O nome é usado como parte do identificador exclusivo do Azure Resource Manager para a entidade *Microsoft.Web/certificates* representando o certificado TLS/SSL.  O nome **deve** terminar com o \_seguinte sufixo: yourASENameHere_InternalLoadBalancingASE.  Esse sufixo é usado pelo portal como um indicador de que o certificado é usado para proteger um ASE habilitado por ILB.
 
 Um exemplo abreviado de *azuredeploy.parameters.json* é mostrado abaixo:
 
@@ -113,7 +113,7 @@ Um exemplo abreviado de *azuredeploy.parameters.json* é mostrado abaixo:
          }
     }
 
-Quando o arquivo *azuredeploy.parameters.json* tiver sido preenchido, o certificado SSL padrão poderá ser configurado usando o snippet de código do Powershell a seguir.  Altere os CAMINHOS do arquivo para corresponder ao local em que os arquivos do modelo do Azure Resource Manager estão localizados no seu computador.  Além disso, lembre-se de fornecer seus próprios valores para o nome de implantação do Azure Resource Manager e para o nome do grupo de recursos.
+Uma vez que o arquivo *azuredeploy.parameters.json* tenha sido preenchido, o certificado TLS/SSL padrão pode ser configurado usando o seguinte trecho de código Powershell.  Altere os CAMINHOS do arquivo para corresponder ao local em que os arquivos do modelo do Azure Resource Manager estão localizados no seu computador.  Além disso, lembre-se de fornecer seus próprios valores para o nome de implantação do Azure Resource Manager e para o nome do grupo de recursos.
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
@@ -122,9 +122,9 @@ Quando o arquivo *azuredeploy.parameters.json* tiver sido preenchido, o certific
 
 Depois que o modelo do Azure Resource Manager for enviado, levará aproximadamente quarenta minutos por front-end do ASE para aplicar a alteração.  Por exemplo, com um ASE padrão dimensionado usando dois front-ends, o modelo levará aproximadamente uma hora e vinte minutos para concluir.  Enquanto o modelo estiver em execução, o ASE não poderá ser dimensionado.  
 
-Quando o modelo for concluído, os aplicativos no ASE ILB poderão ser acessados via HTTPS e as conexões serão protegidas usando o certificado SSL padrão.  O certificado SSL padrão será usado quando aplicativos no ASE ILB forem endereçados utilizando uma combinação de nome do aplicativo com o nome de host padrão.  Por *https://mycustomapp.internal-contoso.com* exemplo, usaria o certificado SSL padrão para **.internal-contoso.com*.
+Uma vez que o modelo seja concluído, os aplicativos no ILB ASE podem ser acessados via HTTPS e as conexões serão protegidas usando o certificado TLS/SSL padrão.  O certificado TLS/SSL padrão será usado quando os aplicativos no ILB ASE forem endereçados usando uma combinação do nome do aplicativo mais o nome de host padrão.  Por *https://mycustomapp.internal-contoso.com* exemplo, usaria o certificado TLS/SSL padrão para **.internal-contoso.com*.
 
-No entanto, assim como os aplicativos em execução no serviço público multilocatário, os desenvolvedores podem também configurar nomes de host personalizados para aplicativos individuais e configurar associações de certificado SSL SNI exclusivas para aplicativos individuais.  
+No entanto, assim como aplicativos em execução no serviço público multi-inquilino, os desenvolvedores também podem configurar nomes de host personalizados para aplicativos individuais e, em seguida, configurar vinculações exclusivas de certificadoS SNI TLS/SSL para aplicativos individuais.  
 
 ## <a name="getting-started"></a>Introdução
 Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Introdução ao ambiente do serviço de aplicativo](app-service-app-service-environment-intro.md)

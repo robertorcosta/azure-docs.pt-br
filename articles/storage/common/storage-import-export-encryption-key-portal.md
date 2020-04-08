@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ca1327a547e8550e47ff37e4ba100fcbd2b7a79f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7077b5e94800d93833f259fefd0cd4c168ec867
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282453"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811448"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Use chaves gerenciadas pelo cliente no Azure Key Vault para o serviço de importação/exportação
 
@@ -103,7 +103,7 @@ Se você receber quaisquer erros relacionados à chave gerenciada pelo cliente, 
 | CmkErrorAccessRevogado | Aplicou uma chave gerenciada pelo cliente, mas o acesso à chave é atualmente revogado. Para obter mais informações, consulte como [ativar o acesso à chave](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Sim, veja se: <ol><li>O cofre-chave ainda tem o MSI na política de acesso.</li><li>A política de acesso fornece permissões para obter, embrulhar, desembrulhar.</li><li>Se o cofre de chaves estiver em um vNet atrás do firewall, verifique se **o Allow Microsoft Trusted Services** está ativado.</li></ol>                                                                                            |
 | CmkErrorDisabled      | Aplicou uma chave gerenciada pelo cliente, mas a chave está desativada. Para obter mais informações, consulte como [ativar a chave](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Sim, ativando a versão-chave     |
 | CmkErrorNãoencontrado      | Aplicou uma chave gerenciada pelo cliente, mas não consigo encontrar a chave. <br>Se a chave for excluída e eliminada após o período de retenção, você não poderá recuperar a chave. Se você fez backup da chave, você pode restaurar a chave para resolver esse problema. | Não, a chave foi excluída e também foi eliminada após o período de retenção. <br>Sim, só se o cliente tiver a chave apoiada e restaurá-la.  |
-| CmkErrorVaultNãoencontrado | Aplicou uma chave gerenciada pelo cliente, mas não consegue encontrar o cofre de chaves associado à chave.<br>Se você excluiu o cofre da chave, não poderá recuperar a chave gerenciada pelo cliente.  Se você migrou o cofre de chaves para um inquilino diferente, consulte [Alterar um ID de inquilino do cofre chave após um movimento de assinatura](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Não, se o cliente apagou o cofre da chave.<br> Sim, se o cofre-chave sofreu uma migração de inquilinos, então faça um de: <ol><li>mover de volta o cofre chave para o antigo inquilino.</li><li>definir Identidade = Nenhum e, em seguida, voltar para Identidade = SistemaAtribuído, isso exclui e recria a identidade</li></ol><br>Nota: O caso de migração do inquilino é baseado em compreensão limitada, necessidade de testar e confirmar o comportamento real, podendo ser revisto posteriormente. |
+| CmkErrorVaultNãoencontrado | Aplicou uma chave gerenciada pelo cliente, mas não consegue encontrar o cofre de chaves associado à chave.<br>Se você excluiu o cofre da chave, não poderá recuperar a chave gerenciada pelo cliente.  Se você migrou o cofre de chaves para um inquilino diferente, consulte [Alterar um ID de inquilino do cofre chave após um movimento de assinatura](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Não, se o cliente apagou o cofre da chave.<br> Sim, se o cofre-chave sofreu uma migração de inquilinos, então faça um de: <ol><li>mover de volta o cofre chave para o antigo inquilino.</li><li>definir Identidade = Nenhum e, em seguida, voltar para Identidade = SistemaAtribuído, isso exclui e recria a identidade</li></ol>|
 
 ## <a name="next-steps"></a>Próximas etapas
 

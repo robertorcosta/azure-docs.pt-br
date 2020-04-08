@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a0de94cdce1d7f0e9da9d2844b300956ad6f6970
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 041fb8d881307b52fb170a11618f930debc522a4
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80330834"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803153"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Habilitar o KMSI (Mantenha-me conectado) no Azure Active Directory B2C
 
@@ -54,7 +54,7 @@ Para habilitar o KMSI, defina o `DataUri` elemento de definição de conteúdo p
 
 ## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Adicione os metadados ao perfil técnico auto-afirmado
 
-Para adicionar a caixa de seleção KMSI à página `setting.enableRememberMe` de inscrição e login, defina os metadados como falsos. Substituir os perfis técnicos SelfAsserted-LocalAccountSignin-Email no arquivo de extensão.
+Para adicionar a caixa de seleção KMSI à página `setting.enableRememberMe` de inscrição e login, defina os metadados como verdadeiros. Substituir os perfis técnicos SelfAsserted-LocalAccountSignin-Email no arquivo de extensão.
 
 1. Localize o elemento ClaimsProviders. Se o elemento não existir, adicione-o.
 1. Adicione o seguinte provedor de sinistros ao elemento Provedores de Sinistros:

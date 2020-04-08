@@ -4,12 +4,12 @@ description: A lista com curadoria das perguntas mais frequentes sobre o serviç
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: diberry
-ms.openlocfilehash: 310cfe0cc8c1f647c09b8e0efb435a1ab326ff62
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 7847e21dbcf07f669d6802fffdd1e43623a72340
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474951"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804343"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solução de problemas para o Fabricante de QnA
 
@@ -142,7 +142,7 @@ Todas as exclusões são permanentes, incluindo pares de perguntas e respostas, 
 * Arquivos - não suportados
 
 #### <a name="answer-text-in-markdown"></a>Responder texto na marcação
-Uma vez que os conjuntos de QnA estejam na base de conhecimento, você pode editar o texto de marcação de uma resposta para incluir links para mídia disponíveis em URLs públicas.
+Uma vez que os pares de QnA estejam na base de conhecimento, você pode editar o texto de marcação de uma resposta para incluir links para mídia disponíveis em URLs públicas.
 
 
 </details>

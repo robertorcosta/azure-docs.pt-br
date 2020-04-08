@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 741cbc82f2ed3ffffb553b146d981b4e35a273f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 630304bec17dd34befab4e5bd9f1cfdfb6505645
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68726671"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811417"
 ---
 # <a name="azure-customer-data-protection"></a>Proteção de dados do cliente do Azure   
 O acesso aos dados de clientes pela equipe de operações e suporte da Microsoft é negado por padrão. Quando é concedido acesso aos dados do cliente, é necessária a aprovação de liderança e, em seguida, o acesso é cuidadosamente gerenciado e registrado. Os requisitos de controle de acesso são estabelecidos pela seguinte Política de Segurança do Azure:
@@ -45,7 +45,7 @@ O Azure fornece aos clientes segurança de dados forte, por padrão e como opç�
 - O cliente e a nuvem.
 - Internamente entre sistemas do Azure e datacenters.
 
-**Criptografia**: a criptografia de dados em armazenamento e em trânsito pode ser implantada pelos clientes como uma prática recomendada para garantir a confidencialidade e a integridade dos dados. É simples para os clientes configurar seus serviços de nuvem do Azure para usar SSL para proteger as comunicações da Internet e até mesmo entre suas VMs hospedadas no Azure.
+**Criptografia**: a criptografia de dados em armazenamento e em trânsito pode ser implantada pelos clientes como uma prática recomendada para garantir a confidencialidade e a integridade dos dados. É simples que os clientes configurem seus serviços de nuvem do Azure para usar o TLS para proteger as comunicações da internet e até mesmo entre suas VMs hospedadas no Azure.
 
 **Redundância de dados**: a Microsoft ajuda a garantir que os dados estejam protegidos se houver um ataque cibernético ou danos físicos em um datacenter. Os clientes podem optar por:
 

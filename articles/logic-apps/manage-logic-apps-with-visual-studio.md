@@ -7,16 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
-ms.openlocfilehash: 6319d2d72df69cc9633bd2b2ff8e777c2a48966a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73df5b7f10e038b6894996eb83dec7b6914a4536
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270245"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803183"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerenciar aplicativos lógicos com Visual Studio
 
 Embora você possa criar, editar, gerenciar e implantar aplicativos lógicos no [portal Azure,](https://portal.azure.com)você também pode usar o Visual Studio quando quiser adicionar seus aplicativos lógicos ao controle de origem, publicar diferentes versões e criar modelos [do Azure Resource Manager](../azure-resource-manager/management/overview.md) para vários ambientes de implantação. Com o Microsoft Visual Studio Cloud Explorer, é possível localizar e gerenciar os aplicativos lógicos junto com outros recursos do Azure. Por exemplo, é possível abrir, baixar, editar, executar, exibir histórico de execução, desabilitar e habilitar aplicativos lógicos que já estejam implantados no Portal do Azure. Se você não tiver experiência em trabalhar com Aplicativo Lógico do Azure no Visual Studio, aprenda [como criar aplicativos lógicos com Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+
+Você também pode [gerenciar seus aplicativos lógicos no portal Azure](manage-logic-apps-with-azure-portal.md).
 
 > [!IMPORTANT]
 > A implantação ou publicação de um aplicativo lógico do Visual Studio substitui a versão desse aplicativo no Portal do Azure. Portanto, se você fizer alterações no Portal do Azure que deseja manter, certifique-se de [atualizar o aplicativo lógico no Visual Studio](#refresh) do Portal do Azure, antes da próxima implantação ou publicação pelo Visual Studio.
@@ -63,7 +65,7 @@ No Visual Studio, é possível localizar todos os aplicativos lógicos associado
 
 1. Abra o Visual Studio. No menu **Exibir**, selecione **Cloud Explorer**.
 
-1. No Cloud Explorer, selecione **Gerenciamento de contas**. Selecione a assinatura do Azure associada aos seus aplicativos lógicos e, em seguida, **selecione Aplicar**. Por exemplo: 
+1. No Cloud Explorer, selecione **Gerenciamento de contas**. Selecione a assinatura do Azure associada aos seus aplicativos lógicos e, em seguida, **selecione Aplicar**. Por exemplo:
 
    ![Selecione "Gerenciamento de contas"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -226,7 +228,7 @@ Para verificar o status e diagnosticar problemas com execuções de aplicativos 
 
    ![Abra o histórico de execução do seu aplicativo lógico](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
-1. Para visualizar os detalhes de uma execução específica, clique duas vezes em uma execução. Por exemplo: 
+1. Para visualizar os detalhes de uma execução específica, clique duas vezes em uma execução. Por exemplo:
 
    ![Exibir informações sobre execução específica](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   

@@ -5,12 +5,12 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 357ea2cc598bca3e008a74f021895e1e45a3874f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2f6dd455024aba184cbb16b5b9c7cfffd032dc70
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300989"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811737"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configure a autenticação mútua TLS para o Serviço de Aplicativos Azure
 
@@ -32,7 +32,7 @@ az webapp update --set clientCertEnabled=true --name <app_name> --resource-group
 
 ## <a name="exclude-paths-from-requiring-authentication"></a>Exclua caminhos de exigir autenticação
 
-Quando você habilita o auth mútuo para o seu aplicativo, todos os caminhos a raiz do seu aplicativo exigirão um certificado de cliente para acesso. Para permitir que certos caminhos permaneçam abertos para acesso anônimo, você pode definir caminhos de exclusão como parte da configuração do aplicativo.
+Quando você habilita o auth mútuo para o seu aplicativo, todos os caminhos sob a raiz do seu aplicativo exigirão um certificado de cliente para acesso. Para permitir que certos caminhos permaneçam abertos para acesso anônimo, você pode definir caminhos de exclusão como parte da configuração do aplicativo.
 
 Os caminhos de exclusão podem ser configurados selecionando**Configurações Gerais** de **Configuração** > e definindo um caminho de exclusão. Neste exemplo, qualquer `/public` coisa no caminho para sua solicitação não solicitaria um certificado de cliente.
 
@@ -41,7 +41,7 @@ Os caminhos de exclusão podem ser configurados selecionando**Configurações Ge
 
 ## <a name="access-client-certificate"></a>Acesse o certificado do cliente
 
-No App Service, o término da solicitação ssl acontece no balanceador de carga frontend. Ao encaminhar a solicitação para o código do aplicativo com os `X-ARR-ClientCert` [certificados do cliente ativados,](#enable-client-certificates)o App Service injeta um cabeçalho de solicitação com o certificado do cliente. O App Service não faz nada com este certificado de cliente além de encaminhá-lo para o seu aplicativo. Seu código de aplicativo é responsável pela validação do certificado do cliente.
+No App Service, o término da solicitação do TLS acontece no balanceador de carga frontend. Ao encaminhar a solicitação para o código do aplicativo com os `X-ARR-ClientCert` [certificados do cliente ativados,](#enable-client-certificates)o App Service injeta um cabeçalho de solicitação com o certificado do cliente. O App Service não faz nada com este certificado de cliente além de encaminhá-lo para o seu aplicativo. Seu código de aplicativo é responsável pela validação do certificado do cliente.
 
 Para ASP.NET, o certificado do cliente está disponível através da propriedade **HttpRequest.ClientCertificate.**
 

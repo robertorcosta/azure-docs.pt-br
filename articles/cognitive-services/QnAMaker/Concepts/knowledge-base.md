@@ -3,12 +3,12 @@ title: Importação de fontes de dados - QnA Maker
 description: Uma base de conhecimento qnA Maker consiste em um conjunto de conjuntos de perguntas e respostas (QnA) e metadados opcionais associados a cada par de QnA.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: e7772b2c76dfb92ced4d2c0d4b8dae97a59d1b83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f648e15be803159dadb3f8bd047b2f46885eec91
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79457814"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804275"
 ---
 # <a name="importing-from-data-sources"></a>Importar de fontes de dados
 
@@ -56,7 +56,7 @@ O **displayOrder** é numérico e o **displayText** é um texto que não deve in
 
 ## <a name="export-as-example"></a>Exportar como exemplo
 
-Se você não tiver certeza de como `.tsv` representar seu qnA definido no arquivo:
+Se você não tiver certeza de como `.tsv` representar seu par de QnA no arquivo:
 * Use este [exemplo para download do GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true)
 * Ou crie o conjunto no portal QnA Maker, salve e exporte a base de conhecimento para um exemplo de como representar o conjunto.
 
@@ -72,9 +72,9 @@ Use a referência QnA Maker [Markdown](../reference-markdown-format.md) para aju
 [Visão geral do QnA Maker](../Overview/overview.md)
 
 Crie e edite uma base de conhecimento com:
-* [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)
-* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
+* [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)
+* [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
 
 Gerar uma resposta com:
-* [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
-* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)
+* [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
+* [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)

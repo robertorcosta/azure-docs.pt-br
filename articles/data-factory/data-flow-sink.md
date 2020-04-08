@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: a0b9d424c1995fba075c05ffe5058e297d764775
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8941c097fbb2d05c3a28be87d216b7a2679ebc68
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531253"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804887"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do dissipador no mapeamento do fluxo de dados
 
@@ -39,7 +39,9 @@ A Fábrica de Dados Azure tem acesso a mais de [90 conectores nativos](connector
 
 ## <a name="sink-settings"></a>Configurações do dissipador
 
-Depois de adicionar uma pia, configure através da guia **'Afundar'.** Aqui você pode escolher ou criar o conjunto de dados que sua pia grava para 
+Depois de adicionar uma pia, configure através da guia **'Afundar'.** Aqui você pode escolher ou criar o conjunto de dados para o que sua pia grava. Abaixo está um vídeo explicando uma série de diferentes opções do Sink para tipos de arquivos delimitados de texto:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tf7T]
 
 ![Configurações do dissipador](media/data-flow/sink-settings.png "Configurações da pia")
 

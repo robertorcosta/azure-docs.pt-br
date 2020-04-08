@@ -1,17 +1,18 @@
 ---
-title: Práticas recomendadas do desenvolvedor – gerenciamento de recursos em serviços de Kubernetes do Azure (AKS)
+title: Práticas recomendadas de gerenciamento de recursos
+titleSuffix: Azure Kubernetes Service
 description: Aprenda as práticas recomendadas do desenvolvedor para o gerenciamento de recursos em serviços de Kubernetes do Azure (AKS)
 services: container-service
 author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 66676c90e73d1886c86d8afda8cbbecce239a005
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0052657c947f8a9ff9c9d6aef86ff16d9a22adae
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259520"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803476"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os desenvolvedores de aplicativos gerenciarem os recursos no serviço de Kubernetes do Azure (AKS)
 
@@ -107,7 +108,7 @@ Este artigo sobre práticas recomendadas se concentra em como executar suas carg
 
 Para implementar algumas dessas práticas recomendadas, consulte os seguintes artigos:
 
-* [Desenvolver com Dev Spaces][dev-spaces]
+* [Desenvolver com o Dev Spaces][dev-spaces]
 * [Verifique se há problemas com o kube-advisor][aks-kubeadvisor]
 
 <!-- EXTERNAL LINKS -->

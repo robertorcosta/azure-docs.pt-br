@@ -2,13 +2,13 @@
 title: Suporte de marcação para recursos
 description: Mostra quais tipos de recursos do Azure suportam tags. Fornece detalhes para todos os serviços do Azure.
 ms.topic: conceptual
-ms.date: 02/26/2020
-ms.openlocfilehash: 6100c667c7df0b3e1740777565d260af9fa818a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: e012126995136bec15dc360be5e91007b6f69f09
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77657566"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802485"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](tag-resources.md). A coluna **'Suportes' indica** se o tipo de recurso tem uma propriedade para a tag. A coluna rotulada **Tag in cost report** indica se esse tipo de recurso passa a tag para o relatório de custos. Você pode visualizar os custos por tags na análise de [custos de Gerenciamento de Custos](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) e na fatura de faturamento do [Azure e dados de uso diário.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
@@ -38,6 +38,7 @@ Pule para um namespace do provedor de recursos:
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
 > - [Microsoft.Blockchain](#microsoftblockchain)
+> - [Microsoft.BlockchainTokens](#microsoftblockchaintokens)
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
 > - [Microsoft.Cache](#microsoftcache)
@@ -55,7 +56,6 @@ Pule para um namespace do provedor de recursos:
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft.CustomProviders](#microsoftcustomproviders)
@@ -83,6 +83,7 @@ Pule para um namespace do provedor de recursos:
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
+> - [Microsoft.Falcon](#microsoftfalcon)
 > - [Microsoft.Features](#microsoftfeatures)
 > - [Microsoft.Gallery](#microsoftgallery)
 > - [Microsoft.Genomics](#microsoftgenomics)
@@ -99,11 +100,13 @@ Pule para um namespace do provedor de recursos:
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
+> - [Microsoft.Kubernetes](#microsoftkubernetes)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
 > - [Microsoft.Logic](#microsoftlogic)
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft.Maintenance](#microsoftmaintenance)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
 > - [Microsoft.ManagedServices](#microsoftmanagedservices)
 > - [Microsoft.Management](#microsoftmanagement)
@@ -129,6 +132,7 @@ Pule para um namespace do provedor de recursos:
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
 > - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
+> - [Microsoft.Quantum](#microsoftquantum)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.RemoteApp](#microsoftremoteapp)
@@ -220,9 +224,7 @@ Pule para um namespace do provedor de recursos:
 > | alertasMetaData | Não | Não |
 > | alertsSummary | Não | Não |
 > | alertsSummaryList | Não | Não |
-> | comentários | Não | Não |
 > | smartDetectorAlertRules | Sim | Sim |
-> | smartDetectorRuntimeEnvironments | Não | Não |
 > | smartGroups | Não | Não |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
@@ -331,7 +333,6 @@ Pule para um namespace do provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | híbridoDataManagers | Sim | Sim |
 > | postgresInstâncias | Sim | Sim |
-> | sqlBigDataClusters | Sim | Sim |
 > | sqlInstances | Sim | Sim |
 > | Sqlserverregistrations | Sim | Sim |
 > | sqlServerInscrições / sqlServers | Não | Não |
@@ -341,10 +342,10 @@ Pule para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporte de Tags | Tag in relatório de custos |
 > | ------------- | ----------- | ----------- |
+> | cloudManifestFiles | Não | Não |
 > | registrations | Sim | Sim |
 > | registros / assinaturas de clientes | Não | Não |
 > | registros /produtos | Não | Não |
-> | verificaçãoChaves | Não | Não |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -459,6 +460,17 @@ Pule para um namespace do provedor de recursos:
 > | membros corda | Sim | Sim |
 > | Observadores | Sim | Sim |
 
+## <a name="microsoftblockchaintokens"></a>Microsoft.BlockchainTokens
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Suporte de Tags | Tag in relatório de custos |
+> | ------------- | ----------- | ----------- |
+> | TokenServices | Sim | Sim |
+> | TokenServices / BlockchainNetworks | Não | Não |
+> | TokenServices / Grupos | Não | Não |
+> | TokenServices / Grupos / Contas | Não | Não |
+> | TokenServices / TokenTemplates | Não | Não |
+
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tableFixed"]
@@ -528,6 +540,7 @@ Pule para um namespace do provedor de recursos:
 > | perfis | Sim | Sim |
 > | perfis / pontos finais | Sim | Sim |
 > | perfis / endpoints / domínios personalizados | Não | Não |
+> | perfis / endpoints / grupos de origem | Não | Não |
 > | perfis / endpoints / origens | Não | Não |
 > | validateProbe | Não | Não |
 
@@ -648,9 +661,12 @@ Pule para um namespace do provedor de recursos:
 > | proximidadeGrupos de colocação | Sim | Sim |
 > | restorePointCollections | Sim | Sim |
 > | restaurarPointCollections / restauraçãoPontos | Não | Não |
+> | extensões compartilhadasVM | Sim | Sim |
+> | compartilhadoVMExtensões/ versões | Não | Não |
 > | sharedVMImages | Sim | Sim |
 > | compartilhadoVMImages / versões | Não | Não |
 > | snapshots | Sim | Sim |
+> | sshPublicKeys | Sim | Sim |
 > | virtualMachines | Sim | Sim |
 > | Máquinas virtuais / extensões | Sim | Sim |
 > | máquinas virtuais / métricaDefinições | Não | Não |
@@ -701,6 +717,7 @@ Pule para um namespace do provedor de recursos:
 > | Tipo de recurso | Suporte de Tags | Tag in relatório de custos |
 > | ------------- | ----------- | ----------- |
 > | registries | Sim | Sim |
+> | registros / agentPools | Sim | Sim |
 > | registros / construções | Não | Não |
 > | registros / construções / cancelamento | Não | Não |
 > | registros / builds / getLogLink | Não | Não |
@@ -739,13 +756,6 @@ Pule para um namespace do provedor de recursos:
 > | containerServices | Sim | Sim |
 > | managedClusters | Sim | Sim |
 > | openShiftClusters gerenciados | Sim | Sim |
-
-## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Suporte de Tags | Tag in relatório de custos |
-> | ------------- | ----------- | ----------- |
-> | accounts | Sim | Sim |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
@@ -939,6 +949,7 @@ Pule para um namespace do provedor de recursos:
 > | servidores / virtualNetworkRules | Não | Não |
 > | servidores / esperaEstatísticas | Não | Não |
 > | servidoresv2 | Sim | Sim |
+> | servidores únicos | Sim | Sim |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
@@ -1075,13 +1086,22 @@ Pule para um namespace do provedor de recursos:
 > | namespaces / eventhubs / grupos de consumidores | Não | Não |
 > | namespaces / conjuntos de regras de rede | Não | Não |
 
+## <a name="microsoftfalcon"></a>Microsoft.Falcon
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Suporte de Tags | Tag in relatório de custos |
+> | ------------- | ----------- | ----------- |
+> | namespaces | Sim | Sim |
+
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporte de Tags | Tag in relatório de custos |
 > | ------------- | ----------- | ----------- |
+> | provedores de recursos | Não | Não |
 > | recursos | Não | Não |
 > | providers | Não | Não |
+> | assinaturaRegistros de características | Não | Não |
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
 
@@ -1216,6 +1236,13 @@ Pule para um namespace do provedor de recursos:
 > | cofres / eventGridFiltros | Não | Não |
 > | cofres / segredos | Não | Não |
 
+## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Suporte de Tags | Tag in relatório de custos |
+> | ------------- | ----------- | ----------- |
+> | clusters conectados | Sim | Sim |
+
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
@@ -1227,6 +1254,7 @@ Pule para um namespace do provedor de recursos:
 > | clusters / bancos de dados / conexões de dados | Não | Não |
 > | clusters / bancos de dados / conexões eventhub | Não | Não |
 > | clusters / bancos de dados / principaisatribuições | Não | Não |
+> | clusters / conexões de dados | Não | Não |
 > | clusters / principaisatribuições | Não | Não |
 > | clusters / identidades compartilhadas | Não | Não |
 
@@ -1268,6 +1296,16 @@ Pule para um namespace do provedor de recursos:
 > | espaços de trabalho / computação | Não | Não |
 > | espaços de trabalho / eventGridFilters | Não | Não |
 
+## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Suporte de Tags | Tag in relatório de custos |
+> | ------------- | ----------- | ----------- |
+> | aplicarAtualizações | Não | Não |
+> | configuraçõesAtribuições | Não | Não |
+> | configurações de manutenção | Sim | Sim |
+> | atualizações | Não | Não |
+
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tableFixed"]
@@ -1304,6 +1342,7 @@ Pule para um namespace do provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | accounts | Sim | Sim |
 > | contas / eventGridFilters | Não | Não |
+> | contas / privateAtlases | Sim | Sim |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
 
@@ -1320,10 +1359,13 @@ Pule para um namespace do provedor de recursos:
 > | offerTipos / editores / ofertas / planos / configs / importaçãoImagem | Não | Não |
 > | privategalleryitems | Não | Não |
 > | privateStoreClient | Não | Não |
+> | privateStores | Não | Não |
+> | privateStores / ofertas | Não | Não |
 > | products | Não | Não |
 > | publishers | Não | Não |
 > | editores / ofertas | Não | Não |
 > | editores / ofertas / alterações | Não | Não |
+> | register | Não | Não |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
@@ -1390,7 +1432,6 @@ Pule para um namespace do provedor de recursos:
 > | objectCompreensãodecontas | Sim | Sim |
 > | controle remotoRenderizandocontas | Sim | Sim |
 > | espacialAnchorsContas | Sim | Sim |
-> | superfícieReconstruçãoContas | Sim | Sim |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
@@ -1398,6 +1439,7 @@ Pule para um namespace do provedor de recursos:
 > | Tipo de recurso | Suporte de Tags | Tag in relatório de custos |
 > | ------------- | ----------- | ----------- |
 > | netAppContas | Sim | Não |
+> | netAppContas / contaBackups | Não | Não |
 > | netAppContas / capacityPools | Sim | Não |
 > | netAppContas / capacitaçãoPools / volumes | Sim | Não |
 > | netAppContas / capacityPools / volumes / snapshots | Não | Não |
@@ -1536,9 +1578,7 @@ Pule para um namespace do provedor de recursos:
 > | espaços de trabalho / dadosExporta | Não | Não |
 > | espaços de trabalho / dataSources | Não | Não |
 > | espaços de trabalho / linkedServices | Não | Não |
-> | espaços de trabalho / privateEndpointConnectionProxies | Não | Não |
-> | espaços de trabalho / privateEndpointConnections | Não | Não |
-> | espaços de trabalho / privateLinkResources | Não | Não |
+> | espaços de trabalho / linkedArmazenamentoContas | Não | Não |
 > | espaços de trabalho/ consulta | Não | Não |
 > | espaços de trabalho / escopoPrivateLinkProxies | Não | Não |
 
@@ -1604,6 +1644,13 @@ Pule para um namespace do provedor de recursos:
 > | Tipo de recurso | Suporte de Tags | Tag in relatório de custos |
 > | ------------- | ----------- | ----------- |
 > | accounts | Sim | Sim |
+
+## <a name="microsoftquantum"></a>Microsoft.Quantum
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Suporte de Tags | Tag in relatório de custos |
+> | ------------- | ----------- | ----------- |
+> | Workspaces | Sim | Sim |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
@@ -1726,6 +1773,10 @@ Pule para um namespace do provedor de recursos:
 > | normas de conformidade regulamentar | Não | Não |
 > | normas de conformidade/ regulamentaçãoConformidadeControls | Não | Não |
 > | normas de conformidade/ regulamentaçãoConformidadeS/regulamentaçãoConformidades | Não | Não |
+> | secureScoreControlDefinições | Não | Não |
+> | secureScoreControls | Não | Não |
+> | secureScores | Não | Não |
+> | secureScores / secureScoreControls | Não | Não |
 > | securityContacts | Não | Não |
 > | securitySolutions | Não | Não |
 > | securitySolutionsReferenceData | Não | Não |
@@ -1998,6 +2049,7 @@ Pule para um namespace do provedor de recursos:
 > | renomear | Não | Não |
 > | SubscriptionDefinitions | Não | Não |
 > | SubscriptionDefinitions | Não | Não |
+> | subscriptions | Não | Não |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
@@ -2028,6 +2080,7 @@ Pule para um namespace do provedor de recursos:
 > | Fornecedores | Não | Não |
 > | fornecedores / skus | Não | Não |
 > | fornecedores / vnfs | Não | Não |
+> | virtualNetworkFunctionSkus | Não | Não |
 > | vnfs | Sim | Sim |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
@@ -2055,6 +2108,7 @@ Pule para um namespace do provedor de recursos:
 > | hostingAmbientes / eventGridFilters | Não | Não |
 > | hostingAmbientes / multiRolePools | Não | Não |
 > | hospedagemAmbientes / workerPools | Não | Não |
+> | kubeAmbientes | Sim | Sim |
 > | publishingUsers | Não | Não |
 > | filmes | Não | Não |
 > | resourceHealthMetadata | Não | Não |

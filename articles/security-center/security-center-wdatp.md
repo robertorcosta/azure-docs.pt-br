@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: 5136a00421aebaa72998b1dfcdf75feb935851c6
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: a502541a5a01ec3304338054239fc3b50f4d3c61
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435448"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810299"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada contra ameaças do Microsoft Defender com o Azure Security Center
 
@@ -36,7 +36,7 @@ Quando você usa o Microsoft Defender ATP, você recebe:
 
 Os seguintes recursos estão agora disponíveis no Azure Security Center:
 
-- **Onboarding automatizado**: O sensor MICROSOFT Defender ATP é ativado automaticamente para servidores Windows que estão a bordo do Azure Security Center.
+- **Onboarding automatizado**: O sensor ATP do Microsoft Defender é ativado automaticamente para servidores Windows que estão a bordo do Azure Security Center (com exceção daqueles que estão executando o Windows Server 2019).
 
 - **Painel único de vidro**: O console Azure Security Center exibe alertas microsoft Defender ATP.
 
@@ -60,7 +60,7 @@ O Microsoft Defender ATP no Security Center suporta a detecção no Windows Serv
 Para acessar servidores a bordo do Security Center, clique em **Ir ao Azure Security Center para acessar servidores** a bordo do servidor ATP do Microsoft Defender.
 
 1. Na área **onboarding,** selecione ou crie um espaço de trabalho para armazenar os dados. <br>
-2. Se você não conseguir ver todos os seus workspaces, pode ser devido à falta de permissões, verifique se que seu workspace está definido na camada Standard de Segurança do Azure. Para obter mais informações, consulte [Upgrade para o nível Padrão do Security Center para obter maior segurança](security-center-pricing.md).
+2. Se você não puder ver todos os seus espaços de trabalho, pode ser devido à falta de permissões, certifique-se de que seu espaço de trabalho está definido como o nível Azure Security Standard. Para obter mais informações, consulte [Upgrade para o nível Padrão do Security Center para obter maior segurança](security-center-pricing.md).
     
 3. Selecione **Adicionar servidores** para exibir instruções sobre como instalar o agente Log Analytics. 
 
@@ -107,11 +107,11 @@ Para gerar um alerta de teste ATP do Microsoft Defender benigno:
 
    ![Uma janela do prompt de comando com o comando acima](media/security-center-wdatp/image4.jpeg)
 
-3. Se o comando for bem sucedido, você verá um novo alerta no painel do Azure Security Center e no portal microsoft defender ATP. Esse alerta pode levar alguns minutos para aparecer.
+1. Se o comando for bem sucedido, você verá um novo alerta no painel do Azure Security Center e no portal microsoft defender ATP. Esse alerta pode levar alguns minutos para aparecer.
 
-4. Para revisar o alerta no Security Center, vá para **alertas** > de segurança**suspeitos PowerShell CommandLine**.
+1. Para revisar o alerta no Security Center, vá para **alertas** > de segurança**suspeitos PowerShell CommandLine**.
 
-5. Na janela de investigação, selecione o link para ir ao portal do Microsoft Defender ATP.
+1. Na janela de investigação, selecione o link para ir ao portal do Microsoft Defender ATP.
 
 ## <a name="next-steps"></a>Próximas etapas
 

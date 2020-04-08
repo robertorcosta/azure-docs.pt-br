@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 02/17/2020
-ms.openlocfilehash: b80b58d64ea27df95c2704243d8a89fa6ca12e2a
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/06/2020
+ms.openlocfilehash: 1f339d987d67047f5857679b440e93e6c3730059
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548503"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810459"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criação e uso de georeplicação ativa
 
@@ -101,7 +101,7 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 
 - **Failover e failback controlados pelo usuário**
 
-  Um banco de dados secundário pode ser explicitamente alternado para a função primária a qualquer momento pelo aplicativo ou pelo usuário. Durante uma interrupção real a opção "não planejada" deve ser usada, o que promoverá imediatamente um secundário para primário. Quando o primário com falha se recuperar e estiver disponível novamente, o sistema o marcará automaticamente como um secundário e o atualizará de acordo com o novo primário. Devido à natureza assíncrona da replicação, uma pequena quantidade de dados poderá ser perdida durante failovers não planejados se o primário falhar antes de replicar as alterações mais recentes para o secundário. Quando um primário com vários secundários passar por failover, o sistema automaticamente reconfigurará as relações de replicação e vinculará os secundários restantes para o primário recém-promovido, sem a necessidade de intervenção do usuário. Depois que a interrupção que causou o failover for reduzida, poderá ser desejável retornar o aplicativo para a região primária. Para fazer isso, o comando de failover deve ser invocado com a opção "planejada".
+  Um banco de dados secundário pode ser explicitamente alternado para a função primária a qualquer momento pelo aplicativo ou pelo usuário. Durante uma paralisação real, deve ser usada a opção "não planejada", que imediatamente promove um secundário para ser o principal. Quando o primário com falha se recuperar e estiver disponível novamente, o sistema o marcará automaticamente como um secundário e o atualizará de acordo com o novo primário. Devido à natureza assíncrona da replicação, uma pequena quantidade de dados poderá ser perdida durante failovers não planejados se o primário falhar antes de replicar as alterações mais recentes para o secundário. Quando um primário com vários secundários passar por failover, o sistema automaticamente reconfigurará as relações de replicação e vinculará os secundários restantes para o primário recém-promovido, sem a necessidade de intervenção do usuário. Depois que a interrupção que causou o failover for reduzida, poderá ser desejável retornar o aplicativo para a região primária. Para isso, o comando failover deve ser invocado com a opção "planejada".
 
 ## <a name="preparing-secondary-database-for-failover"></a>Preparando banco de dados secundário para failover
 
@@ -113,14 +113,19 @@ Para garantir que seu aplicativo possa acessar imediatamente o novo principal ap
 
 ## <a name="configuring-secondary-database"></a>Configuração do banco de dados secundário
 
-Os bancos de dados primário e secundário devem ter a mesma camada de serviço. Também é altamente recomendável que o banco de dados secundário seja criado com o mesmo tamanho da computação (DTUs ou vCores) que o primário. Se o banco de dados principal estiver experimentando uma carga de trabalho de gravação pesada, um secundário com menor tamanho de computação pode não ser capaz de acompanhá-lo. Isso causará a defasagem do redo na indisponibilidade secundária e potencial. Um banco de dados secundário que está atrasado em relação às primárias também corre o risco de uma grande perda de dados caso seja necessário um failover forçado. Para mitigar esses riscos, uma georeplicação ativa eficaz reduzirá a taxa de registro do primário para permitir que seus secundários se atualizem. A outra consequência de uma configuração secundária desequilibrada é que após o failover o desempenho do aplicativo sofrerá devido à capacidade computacional insuficiente do novo primário. Será necessário atualizar para um cálculo mais alto para o nível necessário, o que não será possível até que a paralisação seja atenuada. 
+Os bancos de dados primário e secundário devem ter a mesma camada de serviço. Também é altamente recomendável que o banco de dados secundário seja criado com o mesmo tamanho da computação (DTUs ou vCores) que o primário. Se o banco de dados principal estiver experimentando uma carga de trabalho de gravação pesada, um secundário com menor tamanho de computação pode não ser capaz de acompanhá-lo. Isso causará defasagem no secundário e potencial indisponibilidade do secundário. Um banco de dados secundário que está atrasado em relação ao primário também corre o risco de uma grande perda de dados, caso seja necessário um failover forçado. Para mitigar esses riscos, a georeplicação ativa reduzirá a taxa de registro do primário, se necessário, para permitir que seus secundários se atualizem. 
 
+A outra consequência de uma configuração secundária desequilibrada é que, após o failover, o desempenho do aplicativo pode sofrer devido à capacidade computacional insuficiente do novo primário. Nesse caso, será necessário ampliar o objetivo de serviço de banco de dados para o nível necessário, o que pode levar tempo significativo e computar recursos, e exigirá um [failover](sql-database-high-availability.md) de alta disponibilidade no final do processo de scale-up.
 
 > [!IMPORTANT]
-> O RPO publicado = 5 segundos não pode ser garantido a menos que o banco de dados secundário esteja configurado com o mesmo tamanho de computação que o principal. 
+> O RPO SLA publicado de 5 segundos não pode ser garantido a menos que o banco de dados secundário esteja configurado com o mesmo ou maior tamanho de computação que o principal. 
 
+Se você decidir criar o secundário com menor tamanho de computação, o gráfico percentual de IO de log no portal Azure fornece uma boa maneira de estimar o tamanho mínimo do cálculo do secundário necessário para sustentar a carga de replicação. Por exemplo, se o seu banco de dados principal é P6 (1000 DTU) e sua porcentagem de gravação de log é de 50%, o secundário precisa ser pelo menos P4 (500 DTU). Para recuperar dados históricos de IO de registro, use a exibição [sys.resource_stats.](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) Para recuperar dados recentes de gravação de log com maior granularidade que melhor reflete picos de curto prazo na taxa de log, use [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view. 
 
-Se você decidir criar o secundário com tamanho da computação inferior, o gráfico de percentual de E/S do log no portal do Azure fornecerá uma boa maneira de estimar o tamanho da computação mínimo do secundário necessário para sustentar a carga de replicação. Por exemplo, se o banco de dados Primário for P6 (1000 DTUS) e seu percentual de E/S de log for 50%, o secundário precisará ser pelo menos P4 (500 DTU). Você também pode recuperar os dados de E/S de log usando as exibições de banco de dados [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  O estrangulamento é relatado como um estado de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO nas visualizações do banco de dados [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_os_wait_stats.](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 
+O estrangulamento da taxa de registro de transações no principal devido ao menor tamanho de computação em um secundário é relatado usando o tipo de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visível nas visualizações do banco de dados [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_os_wait_stats.](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 
+
+> [!NOTE]
+> A taxa de registro de transações na principal pode ser estrangulada por razões não relacionadas ao menor tamanho de computação em um secundário. Esse tipo de estrangulamento pode ocorrer mesmo que o secundário tenha o mesmo tamanho de computação ou maior que o principal. Para obter detalhes, incluindo tipos de espera para diferentes tipos de estrangulamento da taxa de log, consulte [O controle da taxa de log de transações](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).
 
 Para obter mais informações sobre os tamanhos da computação do Banco de Dados SQL, confira [Quais são as Camadas de Serviço do Banco de Dados SQL](sql-database-purchase-models.md).
 

@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 68cabbd00dd0b738590109cc39d8df82f5b7362d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d40f5db65ce9ca90ae978bac4491bdebccc2a328
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280749"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811716"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerenciar um plano do Serviço de Aplicativo no Azure
 
@@ -61,7 +61,7 @@ Você pode mover um aplicativo para outro plano de Serviço de Aplicativo, desde
 4. Se você criar um plano, você pode selecionar a camada de preços do novo plano. Em **Pricing Tier**, selecione o nível existente para alterá-lo. 
    
    > [!IMPORTANT]
-   > Se você está movendo um aplicativo de um plano de nível mais alto para um plano de nível inferior, como de **D1** para **F1,** o aplicativo pode perder certas capacidades no plano-alvo. Por exemplo, se o aplicativo usar certificados SSL, você poderá ver esta mensagem de erro:
+   > Se você está movendo um aplicativo de um plano de nível mais alto para um plano de nível inferior, como de **D1** para **F1,** o aplicativo pode perder certas capacidades no plano-alvo. Por exemplo, se o aplicativo usar certificados TLS/SSL, você poderá ver esta mensagem de erro:
    >
    > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 50dbca0b3a761b72134eaa6cfed57e231be4ef13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6f61de23ab4b637cfb5b8ee365ddea9764bf515
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74421038"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810194"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implantar um serviço de mesclagem dividida para mover dados entre bancos de dados compartilhados
 
@@ -38,7 +38,7 @@ Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Crie um banco de dados do Banco de Dados SQL do Azure que será usado como o banco de dados de status de divisão e mesclagem. Vá para o [portal Azure.](https://portal.azure.com) Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
+1. Crie um banco de dados do Banco de Dados SQL do Azure que será usado como o banco de dados de status de divisão e mesclagem. Vá para o [Portal do Azure](https://portal.azure.com). Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
 
 1. Certifique-se de que o servidor de Banco de Dados SQL do Azure permite que os Serviços do Azure se conectem a ele. No portal, em **Configurações de Firewall**, verifique se a configuração **Permitir acesso aos Serviços do Azure** foi definida como **Ativada**. Clique no botão “Salvar”.
 
@@ -107,7 +107,7 @@ Execute o seguinte comando na mesma janela onde o makecert foi executado; use a 
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Carregue o arquivo PFX para o serviço de nuvem
 
-1. Vá para o [portal Azure.](https://portal.azure.com)
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Selecione os **Serviços de nuvem**.
 3. Selecione o serviço de nuvem criado anteriormente para o serviço de Divisão/Mesclagem.
 4. Clique em **Certificados** no menu superior.
@@ -150,7 +150,7 @@ Observe que para implantações de produção devem ser usados certificados sepa
 
 ## <a name="troubleshoot-the-deployment"></a>Solucionar problemas de implantação
 
-Se sua função web não ficar online, provavelmente é um problema com a configuração de segurança. Verifique se o SSL está configurado como descrito acima.
+Se sua função web não ficar online, provavelmente é um problema com a configuração de segurança. Verifique se o TLS/SSL está configurado conforme descrito acima.
 
 Se sua função de trabalho não fica online, mas sua função web tiver êxito, provavelmente é um problema na conexão com o banco de dados de status que você criou anteriormente.
 
@@ -254,7 +254,7 @@ Os arquivos de script incluídos são:
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Execute o script *ExecuteMergeMerge.ps1* para executar uma operação dividida (movendo metade dos dados do primeiro fragmento para o segundo fragmento) e, em seguida, uma operação de fusão (movendo os dados de volta para o primeiro fragmento). Se você configurou o SSL e deixou o ponto de extremidade http desabilitado, verifique se, ao invés disso, usou o ponto de extremidade https://.
+5. Execute o script *ExecuteMergeMerge.ps1* para executar uma operação dividida (movendo metade dos dados do primeiro fragmento para o segundo fragmento) e, em seguida, uma operação de fusão (movendo os dados de volta para o primeiro fragmento). Se você configurou o TLS e deixou o ponto final http desativado, certifique-se de usar o ponto final https://.
 
    Linha de comando de exemplo:
 
@@ -333,7 +333,7 @@ Você pode ver a mensagem abaixo ao executar os scripts do powershell de exemplo
 
    `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.`
 
-Esse erro significa que o certificado SSL não está corretamente configurado. Siga as instruções na seção 'Conectando-se com um navegador da Web'.
+Este erro significa que seu certificado TLS/SSL não está configurado corretamente. Siga as instruções na seção 'Conectando-se com um navegador da Web'.
 
 Se não for possível enviar solicitações, você verá isso:
 

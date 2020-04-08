@@ -3,14 +3,14 @@ title: Configuração de serviço - QnA Maker
 description: Entenda como e onde configurar recursos.
 ms.topic: reference
 ms.date: 02/21/2020
-ms.openlocfilehash: 8ef6fecbfeb119d0c68ec5bc3bbc90ec449dbb7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3be32d1778604121c2acac88415cbfbc4bdbca3d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651856"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804253"
 ---
-# <a name="service-configuration"></a>Configuração do serviço
+# <a name="service-configuration"></a>Configuração de serviço
 
 O QnA Maker usa vários recursos (serviços) do Azure, incluindo Pesquisa Cognitiva, Serviço de Aplicativo, Plano de Serviço de Aplicativo e Insights de Aplicativos.
 
@@ -27,8 +27,8 @@ Você pode definir uma configuração individual através da lista Configuraçõ
 
 |Recurso|Configuração|
 |--|--|
-|AzureSearchAdminKey|Pesquisa Cognitiva - usada para armazenamento de conjuntos QnA e ranker #1|
-|AzureSearchName|Pesquisa Cognitiva - usada para armazenamento de conjuntos QnA e ranker #1|
+|AzureSearchAdminKey|Pesquisa Cognitiva - usada para armazenamento de pares QnA e Ranker #1|
+|AzureSearchName|Pesquisa Cognitiva - usada para armazenamento de pares QnA e Ranker #1|
 |Resposta padrão|Texto de resposta quando nenhuma correspondência é encontrada|
 |UserAppInsightsAppId|Registro de bate-papo e telemetria|
 |UserAppInsightsKey|Registro de bate-papo e telemetria|

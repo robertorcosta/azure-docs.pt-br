@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: b8f95f22553a3b4639b1aba6576ce844116ae20b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71528385563b29ce70edf396434be0174beac105
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73679872"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804836"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade ForEach no Azure Data Factory
 A atividade ForEach define um fluxo de controle repetitivo no seu pipeline. Essa atividade é usada para iterar em uma coleção e executa atividades especificadas em um loop. A implementação dessa atividade em loop é semelhante à estrutura em loop Foreach nas linguagens de programação.
@@ -73,7 +73,7 @@ Propriedade | Descrição | Valores permitidos | Obrigatório
 name | Nome da atividade for-each. | String | Sim
 type | Deve ser definido como **ForEach** | String | Sim
 isSequential | Especifica se o loop deve ser executado em sequência ou em paralelo.  O máximo de 20 iterações de loop pode ser executado ao mesmo tempo em paralelo. Por exemplo, se você tiver uma atividade ForEach iterando sobre uma atividade de cópia com 10 conjuntos de dados de origem e de coletor diferentes com **isSequential** definido como False, todas as cópias serão executadas ao mesmo tempo. O padrão é Falso. <br/><br/> Se "isSequential" for definido como False, certifique-se de que há uma configuração correta para executar vários executáveis. Caso contrário, essa propriedade deverá ser usada com cuidado para evitar incorrer em conflitos de gravação. Para obter mais informações, consulte a seção [Execução paralela](#parallel-execution). | Boolean | Não. O padrão é Falso.
-batchCount | Contagem de lotes a ser usada para controlar o número de execução paralela (quando isSequential estiver definido como false). | Inteiro (máximo de 50) | Não. O padrão é 20.
+batchCount | Contagem de lotes a ser usada para controlar o número de execução paralela (quando isSequential estiver definido como false). Este é o limite superior da concorrência, mas a atividade para cada atividade nem sempre será executada neste número | Inteiro (máximo de 50) | Não. O padrão é 20.
 Itens | Uma expressão que retorna uma matriz JSON a ser iterada. | Expressão (que retorna uma matriz JSON) | Sim
 Atividades | As atividades a serem executadas. | Lista de atividades | Sim
 

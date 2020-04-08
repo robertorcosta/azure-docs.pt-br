@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: 550d9f4f5396b2165260e39cd28222b083dd6756
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279982"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810240"
 ---
 # <a name="azure-application-gateway-features"></a>Recursos do Gateway do Aplicativo Azure
 
@@ -26,14 +26,14 @@ O Gateway de aplicativos inclui os seguintes recursos:
 - [Autoscaling](#autoscaling)
 - [Redundância da zona](#zone-redundancy)
 - [VIP estático](#static-vip)
-- [Firewall de aplicativos web](#web-application-firewall)
+- [Firewall do Aplicativo Web](#web-application-firewall)
 - [Controlador de entrada para AKS](#ingress-controller-for-aks)
 - [Roteamento baseado em URL](#url-based-routing)
 - [Hospedagem de vários sites](#multiple-site-hosting)
 - [Redirecionamento](#redirection)
 - [Afinidade de sessão](#session-affinity)
 - [Tráfego do WebSocket e HTTP/2](#websocket-and-http2-traffic)
-- [Drenagem de conexão](#connection-draining)
+- [Descarregamento de conexão](#connection-draining)
 - [Páginas de erro personalizadas](#custom-error-pages)
 - [Reescrever cabeçalhos HTTP](#rewrite-http-headers)
 - [Dimensionamento](#sizing)
@@ -160,6 +160,10 @@ A tabela a seguir mostra uma produtividade de desempenho médio para cada instâ
 
 > [!NOTE]
 > Esses valores são valores aproximados para uma produtividade do Gateway de Aplicativo. A produtividade real depende de diversos detalhes de ambiente, como o tamanho médio da página, a localização das instâncias de back-end e o tempo de processamento para fornecer de uma página. Para obter números de desempenho exatos, você deve executar seus próprios testes. Esses valores são fornecidos apenas para a orientação do planejamento de capacidade.
+
+## <a name="version-feature-comparison"></a>Comparação de recursos de versão
+
+Para obter uma comparação de recursos do Gateway de aplicativo v1-v2, consulte [Autoscaling e Zone-redundante Application Gateway v2](application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku)
 
 ## <a name="next-steps"></a>Próximas etapas
 

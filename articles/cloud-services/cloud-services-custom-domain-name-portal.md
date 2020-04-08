@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: b1f75a5f7a97907bf5b8bb460ff2df420d053f9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e764e6a474b9843d43f9e8af9cf3b6a8ddf37189
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75386792"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811638"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurando um nome de domínio personalizado para um serviço de nuvem do Azure
 Quando você cria um Serviço de Nuvem, o Azure o atribui a um subdomínio do **cloudapp.net**. Por exemplo, se o Serviço de Nuvem for nomeado "contoso", os usuários poderão acessar o aplicativo usando uma URL como `http://contoso.cloudapp.net`. O Azure também fornece um endereço IP virtual.
@@ -30,7 +30,7 @@ Você já entendeu o que são os registros CNAME e A? [Pule a explicação](#add
 <p/>
 
 > [!TIP]
-> Comece a trabalhar com mais agilidade: use o NOVO [guia passo a passo do Azure](https://support.microsoft.com/kb/2990804)!  Ele torna rápido a associação de um nome de domínio personalizado E a proteção da comunicação (SSL) com os Serviços de Nuvem do Azure.
+> Comece a trabalhar com mais agilidade: use o NOVO [guia passo a passo do Azure](https://support.microsoft.com/kb/2990804)!  Ele torna a associação de um nome de domínio personalizado e a comunicação de segurança (TLS) com o Azure Cloud Services ou os sites do Azure um snap.
 > 
 > 
 
@@ -62,7 +62,7 @@ Para criar um registro CNAME, você deve adicionar uma nova entrada na tabela DN
 
        ![seção rapidamente mostrando a URL do site][csurl]
 
-       **Ou**
+       **OU**
    * Instale e configure o [Azure Powershell](/powershell/azure/overview)e use o seguinte comando:
 
        ```powershell
@@ -95,7 +95,7 @@ Para criar um registro, primeiro você deve encontrar o endereço IP do seu serv
 
        ![seção rapidamente mostrando a VIP][vip]
 
-       **Ou**
+       **OU**
    * Instale e configure o [Azure Powershell](/powershell/azure/overview)e use o seguinte comando:
 
        ```powershell
@@ -128,14 +128,14 @@ Este exemplo demonstra como criar um registro A para o domínio raiz. Se você q
 * [Como mapear o conteúdo da CDN para um domínio personalizado](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuração geral do serviço de nuvem](cloud-services-how-to-configure-portal.md).
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
-* Configure [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
+* Configure [certificados TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Portal Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
 

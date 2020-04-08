@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 75890efebc42b74c56fb95ed1803152b516588b9
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 55c6d374c8a3c308323c0d003726492477e33ff8
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385207"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811246"
 ---
 # <a name="develop-a-secure-web-app"></a>Desenvolver um aplicativo Web seguro
 
@@ -104,11 +104,11 @@ Este aplicativo utilizado:
 - [Cli Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para implantação.
 - [Docker Hub](https://hub.docker.com/) como registro de contêineres.
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
 ### <a name="network"></a>Rede
 
-O aplicativo de exemplo usa criptografia SSL de ponta a ponta para dados em trânsito que entram e saem da rede. O gateway é configurado com um certificado auto-assinado.
+O aplicativo de exemplo usa criptografia TLS/SSL de ponta a ponta para dados em trânsito que entram e saem da rede. O gateway é configurado com um certificado auto-assinado.
 > [!IMPORTANT]
 > Um certificado auto-assinado é usado nesta demonstração. Em um ambiente de produção, você deve obter certificados de uma Autoridade de Certificado (CA) verificada.
 
@@ -363,7 +363,7 @@ END;
 $$ LANGUAGE PLPGSQL;
 ```
 
-Para obter mais informações sobre como configurar a verificação de SSL e Certificate Authority (CA) para PostgreSQL, consulte [Configurar a conectividade SSL no Banco de Dados Azure para PostgreSQL](/azure/postgresql/concepts-ssl-connection-security).
+Para obter mais informações sobre como configurar a verificação de TLS e Certificate Authority (CA) para PostgreSQL, consulte [Configure conectividade TLS no Banco de Dados Azure para PostgreSQL](/azure/postgresql/concepts-ssl-connection-security).
 
 Um certificado raiz está incluído no recipiente. As medidas tomadas para obter o certificado são:
 
@@ -375,7 +375,7 @@ Um certificado raiz está incluído no recipiente. As medidas tomadas para obter
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-Leia mais sobre como configurar a segurança SSL para PostgreSQL aqui [Configure a segurança de conexão SSL](/azure/postgresql/concepts-ssl-connection-security).
+Leia mais sobre como configurar a segurança TLS para PostgreSQL aqui [Configure a segurança de conexão TLS](/azure/postgresql/concepts-ssl-connection-security).
 
 #### <a name="deploy-azure-web-apps-on-linux"></a>Implantar aplicativos Web do Azure no Linux
 
@@ -920,7 +920,7 @@ Para criar este espaço de trabalho:
 
       *Adicionar diagnósticos do Gateway de aplicativos*
 
-   4. Na página Configurações de **Diagnóstico,** selecione o espaço de trabalho log analytics que você criou e selecione todas as métricas que deseja coletar e envie para o Azure Sentinel. Selecione **Salvar**.
+   4. Na página Configurações de **Diagnóstico,** selecione o espaço de trabalho log analytics que você criou e selecione todas as métricas que deseja coletar e envie para o Azure Sentinel. Clique em **Salvar**.
 
         ![Configurações do conector Azure Sentinel](./media/secure-web-app/sentinel-connector-settings.png)
 

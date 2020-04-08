@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: e4dd6bab6198546dc5acab78ec59d92387328dbb
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: d9c666fd6fcf020908b6fc5bdd639261853ad9c6
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755007"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811550"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir aos eventos de armazenamento de Blobs
 
@@ -98,7 +98,7 @@ Aplicativos que manipulam eventos de Armazenamento de Blobs devem seguir algumas
 > * Da mesma forma, verifique se o eventType é do tipo que você está preparado para processar, e não suponha que todos os eventos recebidos serão os tipos esperados.
 > * Como as mensagens podem chegar após algum atraso, use os campos de etag para entender se suas informações sobre objetos ainda estão atualizadas. Para saber como usar o campo etag, consulte [Gerenciando a concorrência no armazenamento Blob](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
 > * Como as mensagens podem sair fora de ordem, use os campos sequenciadores para entender a ordem dos eventos em qualquer objeto em particular. O campo sequenciador é um valor de seqüência que representa a seqüência lógica de eventos para qualquer nome blob em particular. Você pode usar a comparação de string padrão para entender a seqüência relativa de dois eventos no mesmo nome blob.
-> Eventos de armazenamento garantem, pelo menos uma vez, a entrega aos assinantes, o que garante que todas as mensagens sejam saídas. No entanto, devido a tentativas ou disponibilidade de assinaturas, mensagens duplicadas podem ocorrer ocasionalmente.
+> * Eventos de armazenamento garantem, pelo menos uma vez, a entrega aos assinantes, o que garante que todas as mensagens sejam saídas. No entanto, devido a tentativas ou disponibilidade de assinaturas, mensagens duplicadas podem ocorrer ocasionalmente. Para saber mais sobre entrega e repetição de mensagens, consulte [a entrega e a repetição da mensagem Event Grid](../../event-grid/delivery-and-retry.md).
 > * Use o campo blobType para entender os tipos de operações permitidos no blob, e quais tipos de biblioteca de cliente você deve usar para acessar o blob. Os valores válidos são `BlockBlob` ou `PageBlob`. 
 > * Use o campo de url com os construtores `CloudBlockBlob` e `CloudAppendBlob` para acessar o blob.
 > * Ignore os campos que você não entende. Essa prática ajudará você a manter-se resiliente a novos recursos que possam ser adicionados no futuro.

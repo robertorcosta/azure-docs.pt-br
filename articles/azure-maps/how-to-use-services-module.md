@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: e985fdda4638529e8ade2c700456d595ff355e8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e9d1f35d021c3381f9c2887dfb1c150bb720871
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76988729"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804649"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Use o módulo de serviços do Azure Maps
 
@@ -159,7 +159,7 @@ O Web SDK do Azure Maps fornece um *módulo de serviços.* Este módulo é uma b
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Usando o Módulo de Serviços" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Usando o Módulo de Serviços" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte a caneta usando o módulo de<a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>serviços</a> pelo Azure Maps ( ) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a9f12849525daeea69ece6e81077446f062e8889
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: f5588503825281f407ddbbc2c1c57cd94a9c7ee6
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384391"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804700"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Use o Azure Active Directory para autenticar com postgreSQL
 
@@ -24,7 +24,9 @@ Este artigo irá mostrar as etapas de como configurar o acesso ao Azure Active D
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Configuração do usuário admin Azure AD
 
-Apenas um usuário do AdMin Azure AD pode criar/habilitar usuários para autenticação baseada no Azure AD. Para criar e o usuário admin Addazure, siga as seguintes etapas
+Apenas os usuários do administrador do Azure AD podem criar/habilitar usuários para autenticação baseada no Azure AD. Recomendamos não usar o administrador do Azure AD para operações regulares de banco de dados, pois possui permissões de usuário elevadas (por exemplo, CREATEDB).
+
+Para definir o administrador azure AD (você pode usar um usuário ou um grupo), siga as seguintes etapas
 
 1. No portal Azure, selecione a instância do Banco de Dados Azure para PostgreSQL que você deseja habilitar para o Azure AD.
 2. Em Configurações, selecione O Admin de diretório ativo:
@@ -37,36 +39,6 @@ Apenas um usuário do AdMin Azure AD pode criar/habilitar usuários para autenti
 > Ao configurar o administrador, um novo usuário é adicionado ao banco de dados Do Zure para servidor PostgreSQL com permissões completas de administrador. O usuário do Azure AD Ad Ad min no Banco `azure_ad_admin`de Dados Azure para PostgreSQL terá a função .
 
 Apenas um administrador Azure AD pode ser criado por servidor PostgreSQL e a seleção de outro substituirá o administrador Azure AD existente configurado para o servidor. Você pode especificar um grupo Azure AD em vez de um usuário individual para ter vários administradores. Observe que você entrará com o nome do grupo para fins de administração.
-
-## <a name="creating-azure-ad-users-in-azure-database-for-postgresql"></a>Criando usuários azure AD no banco de dados Azure para PostgreSQL
-
-Para adicionar um usuário Azure AD ao banco de dados Do Azure para banco de dados PostgreSQL, execute as seguintes etapas após a conexão (veja a seção posterior sobre como se conectar):
-
-1. Primeiro certifique-se de que `<user>@yourtenant.onmicrosoft.com` o usuário Azure AD é um usuário válido no inquilino Azure AD.
-2. Faça login no seu banco de dados do Azure para a ocorrência do PostgreSQL como usuário do AdMin Do Azure AD.
-3. Criar `<user>@yourtenant.onmicrosoft.com` função no Banco de Dados Azure para PostgreSQL.
-4. Faça `<user>@yourtenant.onmicrosoft.com` um membro do papel azure_ad_user. Isso só deve ser dado aos usuários do Azure AD.
-
-**Exemplo:**
-
-```sql
-CREATE ROLE "user1@yourtenant.onmicrosoft.com" WITH LOGIN IN ROLE azure_ad_user;
-```
-
-> [!NOTE]
-> A autenticação de um usuário através do Azure AD não dá ao usuário quaisquer permissões para acessar objetos dentro do banco de dados Azure para banco de dados PostgreSQL. Você deve conceder manualmente ao usuário as permissões necessárias.
-
-## <a name="creating-azure-ad-groups-in-azure-database-for-postgresql"></a>Criando grupos Ad do Azure no banco de dados Azure para PostgreSQL
-
-Para habilitar um grupo Azure AD para acesso ao seu banco de dados, use o mesmo mecanismo que para usuários, mas, em vez disso, especifique o nome do grupo:
-
-**Exemplo:**
-
-```sql
-CREATE ROLE "Prod DB Readonly" WITH LOGIN IN ROLE azure_ad_user;
-```
-
-Ao fazer login, os membros do grupo usarão seus tokens de acesso pessoal, mas assinarão com o nome do grupo especificado como nome de usuário.
 
 ## <a name="connecting-to-azure-database-for-postgresql-using-azure-ad"></a>Conectando-se ao banco de dados do Azure para PostgreSQL usando o Azure AD
 
@@ -167,6 +139,36 @@ psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgre
 ```
 
 Agora você está autenticado no servidor PostgreSQL usando a autenticação Azure AD.
+
+## <a name="creating-azure-ad-users-in-azure-database-for-postgresql"></a>Criando usuários azure AD no banco de dados Azure para PostgreSQL
+
+Para adicionar um usuário Azure AD ao banco de dados Do Azure para banco de dados PostgreSQL, execute as seguintes etapas após a conexão (veja a seção posterior sobre como se conectar):
+
+1. Primeiro certifique-se de que `<user>@yourtenant.onmicrosoft.com` o usuário Azure AD é um usuário válido no inquilino Azure AD.
+2. Faça login no seu banco de dados do Azure para a ocorrência do PostgreSQL como usuário do AdMin Do Azure AD.
+3. Criar `<user>@yourtenant.onmicrosoft.com` função no Banco de Dados Azure para PostgreSQL.
+4. Faça `<user>@yourtenant.onmicrosoft.com` um membro do papel azure_ad_user. Isso só deve ser dado aos usuários do Azure AD.
+
+**Exemplo:**
+
+```sql
+CREATE ROLE "user1@yourtenant.onmicrosoft.com" WITH LOGIN IN ROLE azure_ad_user;
+```
+
+> [!NOTE]
+> A autenticação de um usuário através do Azure AD não dá ao usuário quaisquer permissões para acessar objetos dentro do banco de dados Azure para banco de dados PostgreSQL. Você deve conceder manualmente ao usuário as permissões necessárias.
+
+## <a name="creating-azure-ad-groups-in-azure-database-for-postgresql"></a>Criando grupos Ad do Azure no banco de dados Azure para PostgreSQL
+
+Para habilitar um grupo Azure AD para acesso ao seu banco de dados, use o mesmo mecanismo que para usuários, mas, em vez disso, especifique o nome do grupo:
+
+**Exemplo:**
+
+```sql
+CREATE ROLE "Prod DB Readonly" WITH LOGIN IN ROLE azure_ad_user;
+```
+
+Ao fazer login, os membros do grupo usarão seus tokens de acesso pessoal, mas assinarão com o nome do grupo especificado como nome de usuário.
 
 ## <a name="token-validation"></a>Validação de tokens
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: 550c315023c0ae907c369778c81b16e137004bec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: afb30a17d7a1450f169402c18f41ce249415e89d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067256"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804819"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Limites de recursos do Banco de Dados SQL e governança de recursos
 
@@ -103,7 +103,7 @@ Para impor limites de recursos, o Azure SQL Database usa uma implementação de 
 
 Além de usar o Resource Governor para governar recursos dentro do processo do SQL Server, o Azure SQL Database também usa o Windows [Job Objects](https://docs.microsoft.com/windows/win32/procthread/job-objects) para a governança de recursos de nível de processo e o [FSRM (Windows File Server Resource Manager, gerente de recursos do servidor de arquivos)](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) para gerenciamento de cotas de armazenamento.
 
-A governança de recursos do Banco de Dados Azure SQL tem natureza hierárquica. De cima para baixo, os limites são aplicados no nível do Sistema Operacional e no nível de volume de armazenamento usando mecanismos de governança de recursos do sistema operacional e Governador de Recursos, em seguida, no nível de pool de recursos usando O Governador de Recursos e, em seguida, no nível de grupo de carga de trabalho usando Governador de recursos. Os limites de governança de recursos em vigor para o banco de dados atual ou pool elástico são divulgados na visão [sys.dm_user_db_resource_governance.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 
+A governança de recursos do Banco de Dados Azure SQL tem natureza hierárquica. De cima para baixo, os limites são aplicados no nível do Sistema Operacional e no nível de volume de armazenamento usando mecanismos de governança de recursos do sistema operacional e Governador de Recursos, em seguida, no nível de pool de recursos usando O Governador de Recursos e, em seguida, no nível de grupo de carga de trabalho usando O Governador de Recursos. Os limites de governança de recursos em vigor para o banco de dados atual ou pool elástico são divulgados na visão [sys.dm_user_db_resource_governance.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 
 
 ### <a name="data-io-governance"></a>Governança de Data IO
 
@@ -134,7 +134,7 @@ As taxas de log são definidas de forma que possam ser alcançadas e sustentadas
 
 As taxas reais de geração de log impostas no tempo de execução também podem ser influenciadas por mecanismos de feedback, reduzindo temporariamente as taxas de log permitidas para que o sistema possa se estabilizar. O gerenciamento de espaço de arquivos de registro, evitando correr para fora das condições de espaço de registro e mecanismos de replicação do Grupo de Disponibilidade pode diminuir temporariamente os limites gerais do sistema.
 
-A modelagem do tráfego do governador de taxa de log é superficial através dos seguintes tipos de espera (expostos no [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) Detran):
+A modelagem do tráfego do governador da taxa de log é superficial através dos seguintes tipos de espera (expostos nas vistas [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_os_wait_stats):](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)
 
 | Tipo de Espera | Observações |
 | :--- | :--- |
@@ -143,6 +143,7 @@ A modelagem do tráfego do governador de taxa de log é superficial através dos
 | INSTANCE_LOG_RATE_GOVERNOR | Limitação do nível de instância |  
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Controle de feedback, replicação física do grupo de disponibilidade no Premium/Business Critical não acompanhando |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Controle de feedback, taxas de limitação para evitar uma condição de espaço fora do registro |
+| HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO | Controle de feedback de replicação geogeográfica, limitando a taxa de registro para evitar alta latência de dados e indisponibilidade de geosecundários|
 |||
 
 Ao encontrar um limite de taxa de log que esteja dificultando a escalabilidade desejada, considere as seguintes opções:

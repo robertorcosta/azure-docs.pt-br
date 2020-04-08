@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8b396b782c1254b3229aeeb8e51b61cc744d6318
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 300f44daeeea5e8a774575dabcb00686906bb5de
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190375"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804360"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteger uma API usando OAuth 2.0 com o Azure Active Directory e o Gerenciamento de API
 
@@ -137,7 +137,7 @@ Neste exemplo, o Console do Desenvolvedor é o aplicativo cliente. As etapas a s
 
 1. Se você usar pontos finais **v1,** adicione um parâmetro corporal chamado **recurso**. Para o valor deste parâmetro, use **o ID** do aplicativo back-end. 
 
-1. Se você usar pontos finais **v2,** use o escopo criado para o aplicativo backend no campo **de escopo Padrão.**
+1. Se você usar pontos finais **v2,** use o escopo criado para o aplicativo backend no campo **de escopo Padrão.** Além disso, certifique-se de [`accessTokenAcceptedVersion`](/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) definir `2` o valor do imóvel para o [seu manifesto de aplicação](/azure/active-directory/develop/reference-app-manifest).
 
 1. Em seguida, especifique as credenciais do cliente. Essas são as credenciais para o aplicativo cliente.
 
@@ -165,7 +165,7 @@ A próxima etapa é habilitar a autorização de usuário do OAuth 2.0 para a su
 
 4. Em **Segurança**, escolha **OAuth 2.0** e selecione o servidor OAuth 2.0 configurado anteriormente. 
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>Chamar com êxito a API do portal do desenvolvedor
 
@@ -174,7 +174,7 @@ A próxima etapa é habilitar a autorização de usuário do OAuth 2.0 para a su
 
 Agora que a autorização do usuário OAuth 2.0 está ativada em sua API, o Console do Desenvolvedor obterá um token de acesso em nome do usuário, antes de chamar a API.
 
-1. Navegue para qualquer operação a API no portal do desenvolvedor e **selecione Experimentá-lo**. Isso o levará ao Console do Desenvolvedor.
+1. Navegue para qualquer operação sob a API no portal do desenvolvedor e **selecione Experimentá-lo**. Isso o levará ao Console do Desenvolvedor.
 
 2. Observe um novo item na seção **Autorização,** correspondente ao servidor de autorização que você acabou de adicionar.
 

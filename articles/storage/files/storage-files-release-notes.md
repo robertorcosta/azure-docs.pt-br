@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/16/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 5b247e8f4a611ace227f5adcef7e0e27de341c96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 578d00d4bd65b3ffbfb6cdac439762344604e6b8
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454628"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804870"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão para o agente de Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. As instalações do Windows Server são transformadas em um cache rápido do seu compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS). Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -35,9 +35,7 @@ As seguintes versões têm suporte pela Sincronização de arquivos do Azure:
 | Rollup de atualização de junho de 2019 - [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 de junho de 2019 | Suportado - A versão do agente expirará em 21 de abril de 2020 |
 | Rollup de atualização de maio de 2019 - [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 de maio de 2019 | Suportado - A versão do agente expirará em 21 de abril de 2020 |
 | Versão V6 - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 de abril de 2019 | Suportado - A versão do agente expirará em 21 de abril de 2020 |
-| Rollup de atualização de abril de 2019 - [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 de abril de 2019 | Suportado - A versão do agente expirará em 18 de março de 2020 |
-| Rollup de atualização de março de 2019 - [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 de março de 2019 | Suportado - A versão do agente expirará em 18 de março de 2020 |
-| Versão V5 – [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 de fevereiro de 2019 | Suportado - A versão do agente expirará em 18 de março de 2020 |
+| Versão V5 | 5.0.2.0 - 5.2.0.0 | N/D | Não Suportado - Versões do agente expiradas em 18 de março de 2020 |
 | Lançamento V4 | 4.0.1.0 - 4.3.0.0 | N/D | Não Suportado - Versões do agente expiradas em 6 de novembro de 2019 |
 | Versão V3 | 3.1.0.0 - 3.4.0.0 | N/D | Não Suportado - Versões do agente expiradas em 19 de agosto de 2019 |
 | Agentes pré-GA | 1.1.0.0 – 3.0.13.0 | N/D | Sem suporte – versão de agente expiradas em 1 de outubro de 2018 |
@@ -244,7 +242,7 @@ As seguintes notas de versão são para a versão 7.0.0.0 do agente Azure File S
 - Restauração aprimorada do nível de arquivo do Azure Backup
     - Arquivos individuais restaurados usando o Azure Backup são agora detectados e sincronizados com o ponto final do servidor mais rapidamente.
 - Melhor nível de hierarquiagem da nuvem capacidade de recuperação cmdlet 
-    - O cmdlet Invoke-StorageSyncRecall agora permite que os clientes especifiquem por contagem de repetição de arquivo e por atraso de tentativa de arquivo semelhante à robocopy. Anteriormente, este cmdlet recordaria todos os arquivos hierárquicos um determinado caminho em ordem aleatória. Com o novo parâmetro -Order, este cmdlet lembrará os dados mais quentes primeiro e honrará a política de hierarquamento na nuvem (pare de lembrar se a política de data é atendida ou o espaço livre de volume saturado; o que acontecer primeiro).
+    - O cmdlet Invoke-StorageSyncRecall agora permite que os clientes especifiquem por contagem de repetição de arquivo e por atraso de tentativa de arquivo semelhante à robocopy. Anteriormente, este cmdlet recordaria todos os arquivos hierárquicos sob um determinado caminho em ordem aleatória. Com o novo parâmetro -Order, este cmdlet lembrará os dados mais quentes primeiro e honrará a política de hierarquamento na nuvem (pare de lembrar se a política de data é atendida ou o espaço livre de volume saturado; o que acontecer primeiro).
 - Suporte apenas para TLS 1.2 (TLS 1.0 e 1.1 está desativado)
     - O Azure File Sync agora suporta o uso do TLS 1.2 apenas em servidores que possuem TLS 1.0 e 1.1 desativados. Antes dessa melhoria, o registro do servidor falharia se o TLS 1.0 e o 1.1 fossem desativados no servidor.
 - Melhorias de desempenho e confiabilidade diversas para sincronização e hierquiagem em nuvem

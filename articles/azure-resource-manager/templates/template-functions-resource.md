@@ -2,13 +2,13 @@
 title: Funções de modelo - recursos
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: 23c0463649e748b35917c959a73536147e91f60b
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.date: 04/06/2020
+ms.openlocfilehash: 90cee78c29c26c88d808cdef798e74a2184a5fcf
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745000"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804751"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recursos para modelos ARM
 
@@ -496,7 +496,9 @@ Use `'Full'` quando precisar de valores de recurso que não fizerem parte do esq
 
 ### <a name="valid-uses"></a>Usos válidos
 
-A função de referência pode ser usada somente nas propriedades de uma definição de recurso e na seção de saídas de um modelo ou uma implantação. Quando usado com [iteração de propriedade,](copy-properties.md) `input` você pode usar a função de referência para porque a expressão é atribuída à propriedade do recurso. Você não pode usá-lo com `count` porque a contagem deve ser determinada antes que a função de referência seja resolvida.
+A função de referência pode ser usada somente nas propriedades de uma definição de recurso e na seção de saídas de um modelo ou uma implantação. Quando usado com [iteração de propriedade,](copy-properties.md) `input` você pode usar a função de referência para porque a expressão é atribuída à propriedade do recurso.
+
+Você não pode usar a função de `count` referência para definir o valor da propriedade em um loop de cópia. Você pode usar para definir outras propriedades no loop. A referência é bloqueada para a propriedade de contagem porque essa propriedade deve ser determinada antes que a função de referência seja resolvida.
 
 Você não pode usar a função de referência nas saídas de um [modelo aninhado](linked-templates.md#nested-template) para retornar um recurso que você implantou no modelo aninhado. Em vez disso, use um [modelo vinculado](linked-templates.md#linked-template).
 

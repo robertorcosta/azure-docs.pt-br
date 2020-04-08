@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 2293618b0685fe71ae553a95797fe8bfe1fe968c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75749944"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811087"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança de rede do Azure
 
@@ -160,7 +160,7 @@ Você poderá permitir que os desenvolvedores individuais ou a equipe de operaç
 
 A conexão VPN ponto-a-site permite que você configure uma conexão privada e segura entre o usuário e a rede virtual. Quando a conexão VPN é estabelecida, o usuário poderá utilizar RDP ou SSH através da conexão VPN em qualquer máquina virtual em uma rede virtual. (Isso pressupõe que o usuário pode autenticar e está autorizado.) Suporte de VPN ponto a ponto:
 
-* SSTP (Secure Socket Tunneling Protocol), que é um protocolo VPN baseado em SSL proprietário. Uma solução de SSL VPN pode invadir firewalls, desde que a maioria dos firewalls abra a porta TCP 443, usada pelo SSL. SSTP só tem suporte em dispositivos com Windows. O Azure oferece suporte a todas as versões do Windows com SSTP (Windows 7 e posterior).
+* SSTP (Secure Socket Tunneling Protocol), que é um protocolo VPN baseado em SSL proprietário. Uma solução SSL VPN pode penetrar firewalls, já que a maioria dos firewalls abrem a porta TCP 443, que o TLS/SSL usa. SSTP só tem suporte em dispositivos com Windows. O Azure oferece suporte a todas as versões do Windows com SSTP (Windows 7 e posterior).
 
 * VPN IKEv2, uma solução de VPN IPsec baseada em padrões. VPN IKEv2 pode ser usada para se conectar de dispositivos Mac (OSX versões 10.11 e acima).
 
@@ -232,7 +232,7 @@ Com frequência, as organizações que executam serviços baseados na Web deseja
 O Gateway de Aplicativo do Azure fornece balanceamento de carga baseado em HTTP para seus serviços baseados na Web. O Gateway de Aplicativo dá suporte a:
 
 * Afinidade de sessão baseada em cookie. Essa funcionalidade garante que as conexões estabelecidas com um dos servidores por trás do balanceador de carga permanecem intactas entre o cliente e o servidor. Isso assegura a estabilidade das transações.
-* Descarregamento SSL. Quando um cliente se conecta com o balanceador de carga, essa sessão é criptografada usando o protocolo HTTPS (SSL). No entanto, para aumentar o desempenho, você pode usar o protocolo HTTP (não criptografado) para a conexão entre o balanceador de carga e o servidor Web por trás do balanceador de carga. Isso é chamado de "descarregamento de SSL", pois os servidores Web por trás do balanceador de carga não enfrentam a sobrecarga de processador envolvida com a criptografia. Os servidores Web podem, portanto, atender às solicitações mais rapidamente.
+* TLS descarregar. Quando um cliente se conecta com o balanceador de carga, essa sessão é criptografada usando o protocolo HTTPS (TLS). No entanto, para aumentar o desempenho, você pode usar o protocolo HTTP (não criptografado) para a conexão entre o balanceador de carga e o servidor Web por trás do balanceador de carga. Isso é chamado de "descarregamento TLS", porque os servidores web por trás do balanceador de carga não experimentam a sobrecarga do processador envolvida com a criptografia. Os servidores Web podem, portanto, atender às solicitações mais rapidamente.
 * Roteamento de conteúdo baseado em URL. Esse recurso possibilita que o balanceador de carga tome decisões sobre o local para onde serão encaminhadas as conexões de acordo com a URL de destino. Isso oferece muito mais flexibilidade do que as soluções que tomam decisões de balanceamento de carga de acordo com os endereços IP.
 
 Saiba mais:
@@ -336,7 +336,7 @@ Saiba mais:
 
 ## <a name="azure-front-door"></a>Porta da frente do Azure
 
-O serviço de porta frontal do Azure permite definir, gerenciar e monitorar o roteamento global do tráfego da Web. Ele otimiza o roteamento do seu tráfego para melhor desempenho e alta disponibilidade. O Azure Front Door permite que você crie regras WAF (firewall do aplicativo Web) personalizadas para obter controle de acesso a fim de proteger sua carga de trabalho HTTP/HTTPS contra exploração com base em endereços IP do cliente, o código do país e parâmetros http. Além disso, o Front Door também permite que você crie regras limitadoras de taxa para combater o tráfego de bots maliciosos, incluindo o descarregamento de SSL e solicitações por HTTP / HTTPS, processamento da camada de aplicativos.
+O serviço de porta frontal do Azure permite definir, gerenciar e monitorar o roteamento global do tráfego da Web. Ele otimiza o roteamento do seu tráfego para melhor desempenho e alta disponibilidade. O Azure Front Door permite que você crie regras WAF (firewall do aplicativo Web) personalizadas para obter controle de acesso a fim de proteger sua carga de trabalho HTTP/HTTPS contra exploração com base em endereços IP do cliente, o código do país e parâmetros http. Além disso, o Front Door também permite que você crie regras de limitação de taxa para combater o tráfego de bots mal-intencionados, ele inclui o descarregamento do TLS e a solicitação por HTTP/HTTPS, processamento de camada de aplicativo.
 
 A própria plataforma Front Door é protegida pelo Azure DDoS Protection Basic. Para aumentar a proteção, a Proteção contra DDoS do Azure Standard pode ser habilitada em suas VNETs e proteger recursos contra ataques de camada de rede (TCP/UDP) por meio do ajuste automático e atenuação. A Front Door é um proxy reverso da camada 7, que permite apenas que o tráfego da web passe para os servidores back-end e bloqueie outros tipos de tráfego por padrão.
 
@@ -391,7 +391,7 @@ Saiba mais:
 
 * [TAP de rede virtual](../../virtual-network/virtual-network-tap-overview.md)
 
-### <a name="logging"></a>Registrando em log
+### <a name="logging"></a>Registro em log
 
 O log em um nível de rede é uma função essencial em qualquer cenário de segurança de rede. No Azure, é possível registrar as informações obtidas dos NSGs para obter informações de log no nível de rede. Com o log do NSG, você obtém informações dos seguintes:
 

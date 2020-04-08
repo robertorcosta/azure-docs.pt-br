@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aa43d44a691fa9151959e8817596bdfc9bba65f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 857b2b00aadced567bc8ac191cdd9908f7bea7a3
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687385"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804394"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo
 ## <a name="overview"></a>Visão geral
@@ -31,10 +31,10 @@ Antes de bloquear o tráfego de rede de entrada com um grupo de segurança de re
 
 A seguir está uma lista de portas usadas por um Ambiente de Serviço de Aplicativo. Todas as portas são **TCP**, a menos que indicado o claramente contrário:
 
-* 454: **Porta necessária** usada pela infra-estrutura do Azure para gerenciar e manter ambientes de serviço de aplicativos via SSL.  Não bloqueie o tráfego para essa porta.  Essa porta é sempre associada ao VIP público de um ASE.
-* 455: **Porta necessária** usada pela infra-estrutura do Azure para gerenciar e manter ambientes de serviço de aplicativos via SSL.  Não bloqueie o tráfego para essa porta.  Essa porta é sempre associada ao VIP público de um ASE.
+* 454: **Porta necessária** usada pela infra-estrutura do Azure para gerenciar e manter ambientes de serviço de aplicativos via TLS.  Não bloqueie o tráfego para essa porta.  Essa porta é sempre associada ao VIP público de um ASE.
+* 455: **Porta necessária** usada pela infra-estrutura do Azure para gerenciar e manter ambientes de serviço de aplicativos via TLS.  Não bloqueie o tráfego para essa porta.  Essa porta é sempre associada ao VIP público de um ASE.
 * 80: porta padrão para tráfego HTTP de entrada para aplicativos executados em Planos de Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
-* 443: porta padrão para tráfego SSL de entrada para aplicativos executados em Planos de Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
+* 443: Porta padrão para tráfego TLS de entrada para aplicativos em execução em Planos de Serviço de Aplicativo em um ambiente de serviço de aplicativo.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
 * 21: canal de controle para FTP.  Essa porta pode ser bloqueada com segurança se o FTP não está sendo usado.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
 * 990: canal de controle para FTPS.  Essa porta poderá ser bloqueada com segurança se o FTPS não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
 * 10001-10020: canais de dados para FTP.  Assim como acontece com o canal de controle, essas portas podem ser bloqueadas com segurança se o FTP não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB do ASE.
@@ -62,7 +62,7 @@ A seguir, demonstra-se como criar um grupo de segurança de rede:
 
 Depois de um grupo de segurança de rede ter sido criado, uma ou mais regras de segurança de rede são adicionadas a ele.  Já que o conjunto de regras pode ser alterado ao longo do tempo, recomenda-se espaçar o esquema de numeração usado para as prioridades de regra, para tornar mais fácil inserir regras adicionais ao longo do tempo.
 
-O exemplo a seguir mostra uma regra que concede explicitamente o acesso às portas de gerenciamento requeridas pela infraestrutura do Azure para gerenciar e manter um ambiente de serviço de aplicativo.  Observe que todo o tráfego de gerenciamento passa por SSL e é protegido por certificados de cliente, portanto, mesmo que as portas estejam abertas elas são inacessíveis por qualquer entidade que não seja a infraestrutura de gerenciamento do Azure.
+O exemplo a seguir mostra uma regra que concede explicitamente o acesso às portas de gerenciamento requeridas pela infraestrutura do Azure para gerenciar e manter um ambiente de serviço de aplicativo.  Observe que todo o tráfego de gerenciamento flui sobre o TLS e é protegido por certificados de cliente, portanto, mesmo que os portos sejam abertos, eles são inacessíveis por qualquer entidade que não seja a infra-estrutura de gerenciamento do Azure.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 

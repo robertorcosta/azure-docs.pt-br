@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: e65681aefc047ba540d4ad0d91ef6e4d2af5f3ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce2891201331ee1efd861d2f13cec78c0551b6ba
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190271"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804564"
 ---
 # <a name="clustering-point-data"></a>Dados de ponto de agrupamento
 
@@ -62,7 +62,7 @@ Para exibir o tamanho do cluster no topo da bolha, use uma camada de símbolo co
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Agrupamento básico de camadas de bolha" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Agrupamento básico de camadas de bolha" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte o <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>agrupamento de camadas de</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>bolha Base da Caneta pelo Azure Maps ( ) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -74,7 +74,7 @@ Use clustering para mostrar a densidade dos pontos de dados enquanto mantém uma
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Camada de símbolo agrupado" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Camada de símbolo agrupado" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte a <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>camada Símbolo agrupado de canetas</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -84,7 +84,7 @@ Mapas de calor são uma ótima maneira de exibir a densidade de dados no mapa. E
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Mapa de calor ponderado em cluster" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Mapa de calor ponderado em cluster" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte o Mapa de <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Calor ponderado</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>do Cluster caneta por Mapas Azure ( ) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -103,7 +103,7 @@ Este exemplo pega uma camada de bolha que renderiza pontos de cluster e adiciona
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Cluster getClusterExpansionZoom" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Cluster getClusterExpansionZoom" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte o Cluster caneta <a href='https://codepen.io/azuremaps/pen/moZWeV/'>getClusterExpansionZoom</a> by<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps ( ) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -113,7 +113,7 @@ Os dados de ponto que um cluster representa estão espalhados por uma área. Nes
 
 <br/>
 
- <iframe height="500" style="width: 100%;" scrolling="no" title="Casco convexo da área de cluster" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+ <iframe height="500" style="width: 100%;" scrolling="no" title="Casco convexo da área de cluster" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte o <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>casco convexo da área do Cluster</a> da Caneta pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -123,7 +123,7 @@ Muitas vezes os clusters são representados usando um símbolo com o número de 
 
 A amostra a seguir usa uma expressão agregada. O código calcula uma contagem com base na propriedade do tipo entidade de cada ponto de dados em um cluster. Quando um usuário clica em um cluster, um pop-up aparece com informações adicionais sobre o cluster.
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Agregados de cluster" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Agregados de cluster" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte os <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>agregados</a> do Cluster de<a href='https://codepen.io/azuremaps'>@azuremaps</a>Caneta saqueados pelo Azure Maps ( ) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

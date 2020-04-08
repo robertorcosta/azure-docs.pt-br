@@ -1,24 +1,24 @@
 ---
-title: Use o certificado SSL em código
+title: Use um certificado TLS/SSL em código
 description: Saiba como usar os certificados do cliente em seu código. Autenticar com recursos remotos com um certificado de cliente ou executar tarefas criptográficas com eles.
 ms.topic: article
 ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d783b61c372c7d0f8cca13106bf297ab9b55c424
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671890"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811703"
 ---
-# <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Use um certificado SSL em seu código no Azure App Service
+# <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Use um certificado TLS/SSL em seu código no Azure App Service
 
 No código do aplicativo, você pode acessar os [certificados públicos ou privados que você adiciona ao App Service](configure-ssl-certificate.md). Seu código de aplicativo pode atuar como um cliente e acessar um serviço externo que requer autenticação de certificado, ou pode precisar realizar tarefas criptográficas. Este guia de como fazer mostra como usar certificados públicos ou privados no código do aplicativo.
 
-Essa abordagem de usar certificados em seu código faz uso da funcionalidade SSL no App Service, que exige que seu aplicativo esteja no nível **Básico** ou acima. Se o aplicativo estiver no **nível Gratuito** ou **Compartilhado,** você pode [incluir o arquivo de certificado no repositório do aplicativo.](#load-certificate-from-file)
+Essa abordagem de usar certificados em seu código faz uso da funcionalidade TLS no App Service, que exige que seu aplicativo esteja no nível **Básico** ou acima. Se o aplicativo estiver no **nível Gratuito** ou **Compartilhado,** você pode [incluir o arquivo de certificado no repositório do aplicativo.](#load-certificate-from-file)
 
-Ao permitir que o Serviço de Aplicativo gerencie os certificados SSL, é possível manter os certificados e o código do aplicativo separados e proteger seus dados confidenciais.
+Quando você permite que o App Service gerencie seus certificados TLS/SSL, você pode manter os certificados e o código do aplicativo separadamente e proteger seus dados confidenciais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,25 +58,32 @@ Em código C#, você acessa o certificado pela impressão digital do certificado
 
 ```csharp
 using System;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 
-...
-X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUser);
-certStore.Open(OpenFlags.ReadOnly);
-X509Certificate2Collection certCollection = certStore.Certificates.Find(
-                            X509FindType.FindByThumbprint,
-                            // Replace below with your certificate's thumbprint
-                            "E661583E8FABEF4C0BEF694CBC41C28FB81CD870",
-                            false);
-// Get the first cert with the thumbprint
-if (certCollection.Count > 0)
+string certThumbprint = "E661583E8FABEF4C0BEF694CBC41C28FB81CD870";
+bool validOnly = false;
+
+using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUser))
 {
-    X509Certificate2 cert = certCollection[0];
-    // Use certificate
-    Console.WriteLine(cert.FriendlyName);
+  certStore.Open(OpenFlags.ReadOnly);
+
+  X509Certificate2Collection certCollection = certStore.Certificates.Find(
+                              X509FindType.FindByThumbprint,
+                              // Replace below with your certificate's thumbprint
+                              certThumbprint,
+                              validOnly);
+  // Get the first cert with the thumbprint
+  X509Certificate2 cert = certCollection.OfType<X509Certificate>().FirstOrDefault();
+
+  if (cert is null)
+      throw new Exception($"Certificate with thumbprint {certThumbprint} was not found");
+
+  // Use certificate
+  Console.WriteLine(cert.FriendlyName);
+  
+  // Consider to call Dispose() on the certificate after it's being used, avaliable in .NET 4.6 and later
 }
-certStore.Close();
-...
 ```
 
 No código Java, você acessa o certificado da loja "Windows-MY" usando o campo Nome Comum sujeito (consulte [Certificado de chave pública](https://en.wikipedia.org/wiki/Public_key_certificate)). O código a seguir mostra como carregar um certificado de chave privada:
@@ -102,7 +109,7 @@ Para idiomas que não suportam ou oferecem suporte insuficiente para a loja de c
 
 ## <a name="load-certificate-in-linux-apps"></a>Certificado de carga em aplicativos Linux
 
-As `WEBSITE_LOAD_CERTIFICATES` configurações do aplicativo tornam os certificados especificados acessíveis aos seus aplicativos hospedados no Linux (incluindo aplicativos de contêiner personalizados) como arquivos. Os arquivos são encontrados os seguintes diretórios:
+As `WEBSITE_LOAD_CERTIFICATES` configurações do aplicativo tornam os certificados especificados acessíveis aos seus aplicativos hospedados no Linux (incluindo aplicativos de contêiner personalizados) como arquivos. Os arquivos são encontrados sob os seguintes diretórios:
 
 - Certificados privados - `/var/ssl/private` (arquivos) `.p12`
 - Certificados públicos `/var/ssl/certs` `.der` - (arquivos)
@@ -111,16 +118,17 @@ Os nomes dos arquivos do certificado são as impressões digitais do certificado
 
 ```csharp
 using System;
+using System.IO;
 using System.Security.Cryptography.X509Certificates;
 
 ...
-var bytes = System.IO.File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
+var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
 var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate
 ```
 
-Para ver como carregar um certificado SSL de um arquivo em Node.js, PHP, Python, Java ou Ruby, consulte a documentação para a respectiva linguagem ou plataforma web.
+Para ver como carregar um certificado TLS/SSL de um arquivo em Node.js, PHP, Python, Java ou Ruby, consulte a documentação para a respectiva linguagem ou plataforma web.
 
 ## <a name="load-certificate-from-file"></a>Certificado de carga do arquivo
 
@@ -133,26 +141,27 @@ Se você precisar carregar um arquivo de certificado que você carrega manualmen
 > az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 > ```
 >
-> Essa abordagem de usar certificados em seu código faz uso da funcionalidade SSL no App Service, que exige que seu aplicativo esteja no nível **Básico** ou acima.
+> Essa abordagem de usar certificados em seu código faz uso da funcionalidade TLS no App Service, que exige que seu aplicativo esteja no nível **Básico** ou acima.
 
 O exemplo C# a seguir carrega um certificado público de um caminho relativo em seu aplicativo:
 
 ```csharp
 using System;
+using System.IO;
 using System.Security.Cryptography.X509Certificates;
 
 ...
-var bytes = System.IO.File.ReadAllBytes("~/<relative-path-to-cert-file>");
+var bytes = File.ReadAllBytes("~/<relative-path-to-cert-file>");
 var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate
 ```
 
-Para ver como carregar um certificado SSL de um arquivo em Node.js, PHP, Python, Java ou Ruby, consulte a documentação para a respectiva linguagem ou plataforma web.
+Para ver como carregar um certificado TLS/SSL de um arquivo em Node.js, PHP, Python, Java ou Ruby, consulte a documentação para a respectiva linguagem ou plataforma web.
 
 ## <a name="more-resources"></a>Mais recursos
 
-* [Proteger um nome DNS personalizado com uma associação SSL](configure-ssl-bindings.md)
+* [Proteja um nome DNS personalizado com uma vinculação TLS/SSL no Serviço de Aplicativos Do Azure](configure-ssl-bindings.md)
 * [Impor HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Impor o TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
 * [FAQ: Certificados de Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

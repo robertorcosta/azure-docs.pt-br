@@ -1,6 +1,6 @@
 ---
-title: Configurar SSL para um serviço de nuvem | Microsoft Docs
-description: Saiba como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo. Esses exemplos usam o portal do Azure.
+title: Configure o TLS para um serviço em nuvem | Microsoft Docs
+description: Saiba como especificar um ponto final HTTPS para uma função web e como carregar um certificado TLS/SSL para proteger seu aplicativo. Esses exemplos usam o portal do Azure.
 services: cloud-services
 documentationcenter: .net
 author: tgore03
@@ -8,16 +8,16 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
-ms.openlocfilehash: 6ddb7001f770a9d8aea38d1a4698e15c167aeaa4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d397279ac7e5949398d695db615d9a003ab7acd
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273131"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811688"
 ---
-# <a name="configuring-ssl-for-an-application-in-azure"></a>Configurando SSL para um aplicativo no Azure
+# <a name="configuring-tls-for-an-application-in-azure"></a>Configurando TLS para um aplicativo no Azure
 
-A criptografia SSL (Secure Socket Layer) é o método mais usado para proteger dados enviados pela Internet. Esta tarefa comum aborda como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo.
+O TLS (Transport Layer Security, segurança de camada de transporte), anteriormente conhecido como criptografia Secure Socket Layer (SSL), é o método mais usado para proteger dados enviados pela Internet. Essa tarefa comum discute como especificar um ponto final HTTPS para uma função web e como carregar um certificado TLS/SSL para proteger seu aplicativo.
 
 > [!NOTE]
 > Os procedimentos descritos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para os Serviços de Aplicativos, veja [isto](../app-service/configure-ssl-bindings.md).
@@ -27,14 +27,14 @@ Essa tarefa usa uma implantação de produção. Informações sobre o uso de um
 
 Leia [isto](cloud-services-how-to-create-deploy-portal.md) primeiro se você ainda não tiver criado um serviço de nuvem.
 
-## <a name="step-1-get-an-ssl-certificate"></a>Etapa 1: Obter um certificado SSL
-Para configurar SSL de um aplicativo, você deve primeiro obter um certificado SSL assinado por uma Autoridade de Certificação (CA), um terceiro confiável que emita certificados com essa finalidade. Se ainda não tiver um, você precisará obtê-lo junto a uma empresa que venda certificados SSL.
+## <a name="step-1-get-a-tlsssl-certificate"></a>Passo 1: Obtenha um certificado TLS/SSL
+Para configurar o TLS para um aplicativo, primeiro você precisa obter um certificado TLS/SSL que tenha sido assinado por uma Autoridade de Certificado (CA), um terceiro confiável que emite certificados para este fim. Se você ainda não tem um, você precisa obter um de uma empresa que vende certificados TLS/SSL.
 
-O certificado deve atender aos seguintes requisitos para certificados SSL no Azure:
+O certificado deve atender aos seguintes requisitos para certificados TLS/SSL no Azure:
 
 * O certificado deve conter uma chave privada.
 * O certificado deve ser criado para troca de chaves, exportável para um arquivo Troca de Informações Pessoais (.pfx).
-* O nome de assunto do certificado deve corresponder ao domínio usado para acessar o serviço de nuvem. Você não pode obter um certificado SSL de uma autoridade de certificação (CA) para o domínio cloudapp.net. Você deve adquirir um nome de domínio personalizado para usar quando acessar o serviço. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para acessar o aplicativo. Por exemplo, se o seu nome de domínio personalizado for **contoso.com,** você solicitará um certificado do seu CA para ***.contoso.com** ou **\.www contoso.com**.
+* O nome de assunto do certificado deve corresponder ao domínio usado para acessar o serviço de nuvem. Não é possível obter um certificado TLS/SSL de uma autoridade de certificado (CA) para o domínio cloudapp.net. Você deve adquirir um nome de domínio personalizado para usar quando acessar o serviço. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para acessar o aplicativo. Por exemplo, se o seu nome de domínio personalizado for **contoso.com,** você solicitará um certificado do seu CA para ***.contoso.com** ou **\.www contoso.com**.
 * O certificado deve usar, no mínimo, uma criptografia de 2048 bits.
 
 Para fins de teste, você pode [criar](cloud-services-certs-create.md) e usar um certificado autoassinado. Um certificado autoassinado não é autenticado por meio de uma autoridade de certificação e pode usar o domínio cloudapp.net como a URL do site. Por exemplo, a tarefa a seguir usa um certificado autoassinado na qual o nome comum (CN) utilizado no certificado é **sslexample.cloudapp.net**.
@@ -166,7 +166,7 @@ Agora que sua implantação está ativa e em execução no Azure, você pode se 
    ![Visualização de site](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
    > [!TIP]
-   > Se quiser usar SSL em uma implantação de preparação em lugar de uma implantação da produção, você precisará determinar primeiro o URL usado na implantação de preparação. Após o serviço de nuvem ter sido implantado, a URL para o ambiente de preparo será determinada pelo GUID da **ID da Implantação** neste formato: `https://deployment-id.cloudapp.net/`  
+   > Se você quiser usar o TLS para uma implantação de estágio em vez de uma implantação de produção, primeiro você precisará determinar a URL usada para a implantação do estágio. Após o serviço de nuvem ter sido implantado, a URL para o ambiente de preparo será determinada pelo GUID da **ID da Implantação** neste formato: `https://deployment-id.cloudapp.net/`  
    >
    > Criar um certificado com o nome comum (CN) igual à URL baseada em GUID (por exemplo, **328187776e774ceda8fc57609d404462.cloudapp.net**). Use o portal para adicionar o certificado ao serviço de nuvem preparado. Em seguida, adicione as informações de certificado aos arquivos CSDEF e CSCFG, reempacote seu aplicativo e atualize a implantação preparada usando o novo pacote.
    >

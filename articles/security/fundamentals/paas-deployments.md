@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 8fd5a063683d09cb94b45205426871d880119cc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0643ae792c890b65f239d9a0c16a05639dd4f8b9
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77138030"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811481"
 ---
 # <a name="securing-paas-deployments"></a>Proteção de implantações de PaaS
 
@@ -101,7 +101,7 @@ A tabela a seguir lista as ameaças STRIDE e fornece algumas mitigações de exe
 | Ameaça | Propriedade de segurança | Possível migrações para a plataforma Azure |
 | --- | --- | --- |
 | Falsificação | Autenticação | Exigir conexões HTTPS. |
-| Violação | Integridade | Validar certificados SSL. |
+| Violação | Integridade | Valide os certificados TLS/SSL. |
 | Repúdio | Não repúdio | Habilitar o [monitoramento e diagnóstico](/azure/architecture/best-practices/monitoring) do Azure. |
 | Divulgação de informações confidenciais | Confidencialidade | Criptografar dados confidenciais em repouso usando [certificados de serviço](/rest/api/appservice/certificates). |
 | Negação de serviço | Disponibilidade | Monitorar as métricas de desempenho quanto a possíveis condições de negação de serviço. Implementar filtros de conexão. |
@@ -153,9 +153,9 @@ O teste fuzz é um método para encontrar falhas de programa (erros de código) 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, nos concentramos nas vantagens de segurança de uma implantação de PaaS do Azure e nas práticas recomendadas de segurança para aplicativos em nuvem. Em seguida, aprenda as práticas recomendadas para proteger suas soluções Web e móveis de PaaS usando serviços específicos do Azure. Começaremos com o Serviço de Aplicativo do Azure, o Banco de Dados SQL do Azure, o SQL Data Warehouse do Azure e o Armazenamento do Azure. Conforme os artigos sobre práticas recomendadas para outros serviços do Azure forem disponibilizados, os links serão fornecidos na lista a seguir:
 
-- [Serviço de aplicativo do Azure](paas-applications-using-app-services.md)
+- [Serviço de Aplicativo do Azure](paas-applications-using-app-services.md)
 - [Banco de Dados SQL do Azure e SQL Data Warehouse do Azure](paas-applications-using-sql.md)
-- [Armazenamento Azure](paas-applications-using-storage.md)
+- [Armazenamento do Azure](paas-applications-using-storage.md)
 - Cache Redis do Azure
 - Barramento de Serviço do Azure
 - Firewalls de aplicativo Web
