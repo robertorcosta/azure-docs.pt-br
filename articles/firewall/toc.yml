@@ -5,7 +5,6 @@
     - name: O que é o Firewall do Azure?
       href: overview.md
 - name: Tutoriais
-  expanded: true
   items:
     - name: Implantar e configurar
       href: tutorial-firewall-deploy-portal.md
@@ -15,6 +14,12 @@
       href: tutorial-firewall-dnat.md
     - name: Logs de diagnóstico do Monitor
       href: tutorial-diagnostics.md
+- name: Inícios rápidos
+  expanded: true
+  items:
+    - name: Implantar com grupos de IPS
+      displayName: Resource Manager
+      href: quick-create-ipgroup-template.md
 - name: Exemplos
   items:
     - name: Azure PowerShell

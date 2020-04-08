@@ -225,7 +225,7 @@
     - name: Ordem sequencial da implantação de um blueprint
       displayName: customize
       href: ./concepts/sequencing-order.md
-    - name: Bloqueio de recursos em blueprints
+    - name: Bloqueio de recursos no Azure Blueprints
       displayName: 'mode, state, read only, edit, denyAssignments'
       href: ./concepts/resource-locking.md
 - name: Guias de instruções

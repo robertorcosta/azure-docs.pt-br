@@ -1,0 +1,12 @@
+- name: Mapeamento de material para formatos de modelo
+  href: material-mapping.md
+- name: Regiões
+  href: regions.md
+- name: Requisitos de rede
+  href: network-requirements.md
+- name: limites
+  href: limits.md
+- name: repositório arrClient (GitHub)
+  href: 'https://dev.azure.com/arrClient/arrClient/_git/arrClient'
+- name: API REST do Gerenciamento de Recursos da Realidade Misturada do Azure
+  href: 'https://docs.microsoft.com/rest/api/mixedreality/'
