@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: c8ef6a87e839e6d8dfb296e7b24f3d0d95843d1c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 97551ac63066f7064c16a001d9ce1f6bc31465ec
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78675473"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586576"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Início Rápido: Habilitar o SSH e o RDP em fluxos de dispositivos do Hub IoT usando o aplicativo proxy do C# (versão prévia)
 
@@ -30,7 +30,7 @@ Este artigo descreve primeiro a configuração do SSH (usando a porta 22) e, em 
 
 A figura a seguir ilustra como os aplicativos proxy locais do dispositivo e do serviço nesta amostra permitem a conectividade de ponta a ponta entre os processos do cliente SSH e do daemon SSH. Aqui, presumimos que o daemon esteja em execução no mesmo dispositivo do aplicativo proxy local do dispositivo.
 
-![Configuração do aplicativo proxy local](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg)
+![Configuração do aplicativo proxy local](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.png)
 
 1. O aplicativo proxy local do serviço se conecta ao hub IoT e inicia um fluxo de dispositivos para o dispositivo de destino.
 
