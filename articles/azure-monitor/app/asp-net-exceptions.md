@@ -3,12 +3,12 @@ title: Diagnosticar falhas e exceções com o Azure Application Insights
 description: Capture exceções de aplicativos do ASP.NET junto com a telemetria de solicitação.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: ccfcb354e27d36f40810b114a1729cf6addf8fb6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f24f09e7d2ef0a3e5f3a8f6546a9115118473ab
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294700"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892335"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções em seus aplicativos Web com o Application Insights
 Exceções em seu aplicativo Web ao vivo são relatadas pelo [Application Insights](../../azure-monitor/app/app-insights-overview.md). Você pode correlacionar solicitações com falha com exceções e outros eventos no cliente e no servidor, para poder diagnosticar as causas rapidamente.
@@ -19,14 +19,14 @@ Exceções em seu aplicativo Web ao vivo são relatadas pelo [Application Insigh
   * A zure VM e Azure virtual série de aplicativos hospedados no IIS: Adicione a [extensão de monitoramento](../../azure-monitor/app/azure-vm-vmss-apps.md) de aplicativos
   * Instale o[ SDK do Application Insights](../../azure-monitor/app/asp-net.md) no aplicativo ou
   * Servidores Web IIS: executar o [Agente do Application Insights](../../azure-monitor/app/monitor-performance-live-website-now.md) ou
-  * Aplicativos Web Java: instalar o [Agente Java](../../azure-monitor/app/java-agent.md)
+  * Aplicativos web Java: Habilite o [agente Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 * Instale o [snippet de JavaScript](../../azure-monitor/app/javascript.md) em suas páginas da Web para capturar exceções de navegador.
 * Em algumas estruturas de aplicativo ou com algumas configurações, você precisa executar algumas etapas adicionais para capturar mais exceções:
   * [Formulários da Web](#web-forms)
   * [MVC](#mvc)
   * [API Web 1.*](#web-api-1x)
   * [API Web 2.*](#web-api-2x)
-  * [Wcf](#wcf)
+  * [WCF](#wcf)
 
   Este artigo é especificamente focado em aplicativos .NET Framework a partir de uma perspectiva de exemplo de código. Alguns dos métodos que funcionam para o .NET Framework são obsoletos no .NET Core SDK. Consulte a [documentação do .NET Core SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) se você tiver um aplicativo .NET Core.
 
@@ -199,7 +199,7 @@ Mas se você tiver redirecionamentos ativos, adicione as seguintes linhas para a
 ## <a name="mvc"></a>MVC
 Começar com o SDK do Application Insights Web versão 2.6 (beta3 e posterior), exceções de coleta sem tratamento do Application Insights lançadas automaticamente nos métodos de controladores MVC 5+. Se você já adicionou um manipulador personalizado para controlar essas exceções (conforme descrito nos exemplos a seguir), você pode remover para evitar o controle duplo de exceções.
 
-Há um número de casos que não podem lidar com os filtros de exceção. Por exemplo: 
+Há um número de casos que não podem lidar com os filtros de exceção. Por exemplo:
 
 * Exceções geradas por construtores de controlador.
 * Exceções geradas por manipuladores de mensagens.
@@ -291,7 +291,7 @@ Registre AiHandleErrorAttribute como um filtro global em FilterConfig.cs:
 ## <a name="web-api"></a>API Web
 Começar com o SDK do Application Insights Web versão 2.6 (beta3 e posterior), exceções de coleta sem tratamento do Application Insights lançadas automaticamente nos métodos de controladores para WebAPI 2+. Se você já adicionou um manipulador personalizado para controlar essas exceções (conforme descrito nos exemplos a seguir), você pode remover para evitar o controle duplo de exceções.
 
-Há um número de casos que não podem lidar com os filtros de exceção. Por exemplo: 
+Há um número de casos que não podem lidar com os filtros de exceção. Por exemplo:
 
 * Exceções geradas por construtores de controlador.
 * Exceções geradas por manipuladores de mensagens.

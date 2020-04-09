@@ -3,12 +3,12 @@ title: Filtrando e pré-processando no SDK do Azure Application Insights | Micro
 description: Escreva Processadores de Telemetria e Inicializadores de Telemetria para o SDK filtrar ou adicionar propriedades aos dados antes da telemetria ser enviada ao portal do Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: 53b6ecc51961feba35d571eab3115c8e7ccf9964
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 8f2064f73821a017046cbb552a8dcf592ce13267
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366303"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983751"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrando e pré-processando a telemetria no SDK do Application Insights
 
@@ -21,7 +21,7 @@ Você pode escrever e configurar plug-ins para o Application Insights SDK para p
 
 Antes de iniciar:
 
-* Instale o SDK apropriado para o seu aplicativo: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core,](worker-service.md) [Java](../../azure-monitor/app/java-get-started.md) ou [JavaScript](javascript.md)
+* Instale o SDK apropriado para sua aplicação: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md)ou [JavaScript](javascript.md)
 
 <a name="filtering"></a>
 
@@ -203,7 +203,7 @@ public void Process(ITelemetry item)
    ```JS
    var filteringFunction = (envelope) => {
      if (envelope.data.someField === 'tobefilteredout') {
-        return false;
+         return false;
      }
   
      return true;
@@ -227,7 +227,7 @@ Se você fornecer um inicializador de telemetria, ele é chamado sempre que qual
 
 **Definir seu inicializador**
 
-*C #*
+*C#*
 
 ```csharp
 using System;
@@ -307,28 +307,8 @@ Para aplicativos escritos usando [ASP.NET Core](asp-net-core.md#adding-telemetry
     services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
 }
 ```
-
-### <a name="java-telemetry-initializers"></a>Inicializadores de telemetria do Java
-
-[Documentação do SDK do Java](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.telemetryinitializer?view=azure-java-stable)
-
-```Java
-public interface TelemetryInitializer
-{ /** Initializes properties of the specified object. * @param telemetry The {@link com.microsoft.applicationinsights.telemetry.Telemetry} to initialize. */
-
-void initialize(Telemetry telemetry); }
-```
-
-Em seguida, registre o inicializador personalizado em seu arquivo applicationinsights. XML.
-
-```xml
-<Add type="mypackage.MyConfigurableContextInitializer">
-    <Param name="some_config_property" value="some_value" />
-</Add>
-```
-
 ### <a name="javascript-telemetry-initializers"></a>Inicializadores de telemetria JavaScript
-*Javascript*
+*JavaScript*
 
 Insira um inicializador de telemetria logo após o código de inicialização que você obteve do portal:
 
@@ -544,5 +524,5 @@ Qual é a diferença entre os processadores de telemetria e inicializadores de t
 
 ## <a name="next-steps"></a><a name="next"></a>Próximas etapas
 * [Pesquisar eventos e logs](../../azure-monitor/app/diagnostic-search.md)
-* [Amostragem](../../azure-monitor/app/sampling.md)
+* [amostragem](../../azure-monitor/app/sampling.md)
 * [Solução de problemas](../../azure-monitor/app/troubleshoot-faq.md)

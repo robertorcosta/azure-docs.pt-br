@@ -7,15 +7,18 @@ manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.openlocfilehash: 3d7015d5e1c3b67b271e89b5653f56415bfb722e
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.date: 04/08/2020
+ms.openlocfilehash: de6e08534722deccb8be11248dd8af3ca2e66739
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674196"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983204"
 ---
 # <a name="create-a-new-managed-service-offer"></a>Crie uma nova oferta de serviço gerenciado
+
+> [!IMPORTANT]
+> Estamos mudando o gerenciamento de suas ofertas de serviços gerenciados do Portal de Parceiros em Nuvem para o Partner Center. Até que suas ofertas sejam migradas, siga as instruções em [Publicar uma oferta de serviço gerenciado ao Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) para gerenciar suas ofertas.
 
 O Serviço Gerenciado oferece ajuda para habilitar cenários [do Farol Do Azure.](../../lighthouse/overview.md) Quando um cliente aceita uma oferta de Serviço Gerenciado, ele é capaz de embarcar recursos para [o gerenciamento de recursos delegados do Azure.](../../lighthouse/concepts/azure-delegated-resource-management.md)
 

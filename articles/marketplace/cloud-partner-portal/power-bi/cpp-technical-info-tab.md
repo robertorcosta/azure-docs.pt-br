@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 92bc172fd9a47d3b140e60a4083d65a2f532769a
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d814ebc34193f5d7c0c3828d32aa3d2af29f3679
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745565"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981351"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Guia de informações técnicas sobre aplicativos do Power BI
 
 >[!Important]
->A partir de 30 de março de 2020, começaremos a mover o gerenciamento das ofertas do seu aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [visão geral de criação de aplicativos do Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerenciar suas ofertas migradas.
+>A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas do seu aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [visão geral de criação de aplicativos do Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerenciar suas ofertas migradas.
 
 Na página **Nova Oferta,** use a guia **Informações Técnicas** para fornecer a URL do pacote do instalador do Power BI e outras informações que você precisa para validar a nova oferta.  Para a versão inicial, todos os aplicativos Power BI são gratuitos e estão disponíveis para download no AppSource. Por causa disso, você não pode definir unidades de manutenção de estoque (SKUs) para este tipo de oferta.
 

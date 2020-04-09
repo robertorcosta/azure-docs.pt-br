@@ -1,15 +1,15 @@
 ---
-title: Pré-visualização - Crie um contêiner do Windows Server em um cluster Azure Kubernetes Service (AKS)
+title: Executar o contêiner do Windows Server no cluster Azure Kubernetes Service
 description: Aprenda a criar rapidamente um cluster Kubernetes, implante um aplicativo em um contêiner do Windows Server no Azure Kubernetes Service (AKS) usando o Azure CLI.
 services: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.openlocfilehash: 259728da5ea7f71110ce183ae25bb47a0f873614
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d2a91f63815e7ba4bcbe4084b80a06fa7779099
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475503"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886714"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Visualização - Crie um contêiner do Windows Server em um cluster Azure Kubernetes Service (AKS) usando o Azure CLI
 
@@ -25,7 +25,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o CLI localmente, este artigo requer que você esteja executando a versão 2.0.61 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI][azure-cli-install].
+Se você optar por instalar e usar o CLI localmente, este artigo requer que você esteja executando a versão 2.0.61 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="before-you-begin"></a>Antes de começar
 

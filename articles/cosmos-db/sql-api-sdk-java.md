@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: sngun
-ms.openlocfilehash: 514982727509788918c159e07f8061962df32336
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e57029e53365fbf99054e2d926296ccca3360663
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77558921"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983595"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -24,9 +24,9 @@ ms.locfileid: "77558921"
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [Resto](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [Sql](sql-api-query-reference.md)
 > * [Executor a granel - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -39,7 +39,7 @@ O Java SDK da API do SQL dá suporte a operações síncronas. Para obter suport
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**Introdução**|[Introdução ao SDK do Java](sql-api-java-get-started.md)|
 |**Tutorial do aplicativo Web**|[Desenvolvimento de aplicativos web com O Azure Cosmos DB](sql-api-java-application.md)|
-|**runtime mínimo com suporte**|[Java Development Kit (JDK) 7 +](https://aka.ms/azure-jdks)|
+|**runtime mínimo com suporte**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
 
 ## <a name="release-notes"></a>Notas de versão
 
@@ -131,7 +131,7 @@ O Java SDK da API do SQL dá suporte a operações síncronas. Para obter suport
 
 ### <a name="1150"></a><a name="1.15.0"/>1.15.0
 * Melhor desempenho de serialização Json.
-* Esta versão do SDK requer a versão mais recente do Emulador do Azure Cosmos DB disponível para fazer o download em https://aka.ms/cosmosdb-emulator.
+* Esta versão do SDK requer a versão mais recente do [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
 
 ### <a name="1140"></a><a name="1.14.0"/>1.14.0
 * Alterações internas para bibliotecas de amigos da Microsoft.

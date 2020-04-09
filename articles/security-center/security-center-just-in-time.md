@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 51985c5fa4b2296e43c0a062d0af84a1bb51e89c
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: cc4e267c6912b8938db1ba5497a27f9c0026bd79
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397751"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887326"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteja suas portas de gerenciamento com acesso just-in-time
 
@@ -74,7 +74,7 @@ No Security Center, você pode configurar uma política JIT e solicitar acesso a
 
      1. Clique em **OK**.
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 > [!NOTE]
 >Quando o JIT VM Access está habilitado para uma VM, o Azure Security Center cria regras de "negar todo o tráfego de entrada" para as portas selecionadas nos grupos de segurança de rede associados e no Firewall do Azure com ele. Se outras regras foram criadas para as portas selecionadas, então as regras existentes terão prioridade sobre as novas regras de "negar todo o tráfego de entrada". Se não houver regras existentes nas portas selecionadas, as novas regras de "negar todos os tráfegos de entrada" terão prioridade máxima nos Grupos de Segurança de Rede e no Firewall Do Azure.
@@ -211,7 +211,7 @@ Para fazer isso, execute o seguinte no PowerShell:
 
 1.    Atribuir uma variável que contenha a política de acesso Just-In-Time à VM para uma VM:
 
-        $JitPolicy = (@{ id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" ports=(@{ number=22;        protocolo="*";        allowedSourceAddressPrefix=@("*););        maxRequestAccessDuration="PT3H"}, @{ number=3389;        protocolo="*";        allowedSourceAddressPrefix=@("*););        maxRequestAccessDuration="PT3H"}})
+        $JitPolicy = (@{ id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME" ports=(@{ number=22;        protocolo="\*";        allowedSourceAddressPrefix=@("\*););        maxRequestAccessDuration="PT3H"}, @{ number=3389;        protocolo="\*";        allowedSourceAddressPrefix=@("\*););        maxRequestAccessDuration="PT3H"}})
 
 2.    Inserir a política de acesso Just-In-Time à VM em uma matriz:
     

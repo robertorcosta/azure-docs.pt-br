@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
-ms.openlocfilehash: bcdd938365e50da1f5ae0e830e86692f1b915123
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: e0e5806ec59cd2d75111db213d8511488d043eec
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618921"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982847"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Trabalhando remotamente usando serviços de rede Do Azure
 
@@ -80,16 +80,16 @@ Para suas implantações em outras nuvens públicas, a Microsoft pode fornecer c
 
 Os artigos a seguir discutem como diferentes recursos de rede do Azure podem ser usados para dimensionar os usuários para trabalhar remotamente:
 
-| **Artigo** | **Última atualização** |
+| **Artigo** | **Descrição** |
 | --- | --- |
-| [Como permitir que os usuários trabalhem remotamente](../vpn-gateway/work-remotely-support.md) | 23 de março de 2020 |
-| [Lutando para atender às necessidades domésticas? Aqui é onde o Azure Virtual WAN pode ajudar](../virtual-wan/work-remotely-support.md) | 23 de março de 2020 |
-| [Suporte a alto tráfego do Gateway de Aplicativo](../application-gateway/high-traffic-support.md) | 23 de março de 2020 |
-| [Considerações do Network Virtual Appliance (NVA) para o trabalho remoto](../vpn-gateway/nva-work-remotely-support.md)| 23 de março de 2020 |
-| [Transição para o protocolo OpenVPN ou IKEv2 do SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | 23 de março de 2020 |
-| [Trabalhando remotamente usando o Azure Bastion](../bastion/work-remotely-support.md) | 23 de março de 2020 |
-| [Usando o Azure ExpressRoute para criar conectividade híbrida para suportar usuários remotos](../expressroute/work-remotely-support.md) | 23 de março de 2020 |
-| [Suporte de trabalho remoto do Azure Firewall](../firewall/remote-work-support.md)|25 de março de 2020|
+| [Como permitir que os usuários trabalhem remotamente](../vpn-gateway/work-remotely-support.md) | Revise as opções disponíveis para configurar o acesso remoto para os usuários ou para complementar suas soluções existentes com capacidade adicional para sua organização.|
+| [Lutando para atender às necessidades domésticas? Aqui é onde o Azure Virtual WAN pode ajudar](../virtual-wan/work-remotely-support.md) | Use o Azure Virtual WAN para atender às necessidades de conectividade remota da sua organização.|
+| [Suporte a alto tráfego do Gateway de Aplicativo](../application-gateway/high-traffic-support.md) | Use o Application Gateway com o Web Application Firewall (WAF) para uma maneira escalável e segura de gerenciar o tráfego para seus aplicativos web. |
+| [Considerações do Network Virtual Appliance (NVA) para o trabalho remoto](../vpn-gateway/nva-work-remotely-support.md)|Revise as orientações sobre como aproveitar NVAs no Azure para fornecer soluções de acesso remoto. |
+| [Transição para o protocolo OpenVPN ou IKEv2 do SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | Supere o limite de conexão simultânea de 128 do SSTP, passando para o protocolo OpenVPN ou IKEv2.|
+| [Trabalhando remotamente usando o Azure Bastion](../bastion/work-remotely-support.md) | Fornecer conectividade RDP/SSH segura e perfeita para máquinas virtuais dentro da rede virtual Azure, diretamente no portal Azure, sem o uso de um endereço IP público. |
+| [Usando o Azure ExpressRoute para criar conectividade híbrida para suportar usuários remotos](../expressroute/work-remotely-support.md) | Use o ExpressRoute para conectividade híbrida para permitir que os usuários da sua organização trabalhem remotamente.|
+| [Suporte de trabalho remoto do Azure Firewall](../firewall/remote-work-support.md)|Proteja os recursos de rede virtual do Azure usando o Firewall Do Azure. |
 
 <!--Link References-->
 [VNet-peer]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview

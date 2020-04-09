@@ -2,20 +2,22 @@
 title: Coletar & analisar registros de recursos
 description: Saiba como enviar registros de recursos e dados de eventos de grupos de contêineres em instâncias de contêiner do Azure para logs do Monitor do Azure
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 04/07/2020
 ms.author: danlep
-ms.openlocfilehash: 304e98fff386911b878877d2f03d489d0eef5dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75770536"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892386"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Grupo de contêineres e registro de instâncias com logs do Monitor Do Azure
 
 Os espaços de trabalho do Log Analytics fornecem um local centralizado para armazenar e consultar dados de log não apenas dos recursos do Azure, mas também de recursos e recursos locais em outras nuvens. As Instâncias de Contêiner do Azure incluem suporte interno para enviar dados de eventos e logs aos logs do Azure Monitor.
 
-Para enviar dados de registro e eventos de grupos de contêineres para logs do Azure Monitor, especifique um ID de espaço de trabalho do Log Analytics existente e uma chave de espaço de trabalho ao criar um grupo de contêineres. As seções a seguir descrevem como criar um grupo de contêiner ativado por registro e como consultar logs.
+Para enviar dados de registro e eventos de grupos de contêineres para logs do Azure Monitor, especifique um ID do espaço de trabalho do Log Analytics existente e uma chave de espaço de trabalho ao configurar um grupo de contêineres. 
+
+As seções a seguir descrevem como criar um grupo de contêiner ativado por registro e como consultar logs. Você também pode [atualizar um grupo de contêineres](container-instances-update.md) com um ID de espaço de trabalho e uma chave de espaço de trabalho para ativar o registro.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

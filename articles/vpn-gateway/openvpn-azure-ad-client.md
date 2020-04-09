@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 04/07/2020
 ms.author: alzam
-ms.openlocfilehash: 9250464e3d28bdac20840aa9f69cfac707f73b30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7bc28a03476e773325d14808e1c7ac99103b2d5d
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371475"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879438"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configure um cliente VPN para conexões de protocolo P2S OpenVPN: autenticação Azure AD
 
@@ -192,7 +192,7 @@ Você pode modificar o arquivo XML do perfil baixado e adicionar os ** \<dnsserv
 ```
 
 > [!NOTE]
-> O cliente AD do OpenVPN Azure utiliza entradas NRPT (DNT) de política de resolução `ipconfig /all`de nomes DNS, o que significa que os servidores DNS não serão listados a saída de. Para confirmar as configurações de DNS em uso, consulte [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) no PowerShell.
+> O cliente AD do OpenVPN Azure utiliza entradas NRPT (DNT) de política de resolução `ipconfig /all`de nomes DNS, o que significa que os servidores DNS não serão listados sob a saída de . Para confirmar as configurações de DNS em uso, consulte [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) no PowerShell.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Como adicionar rotas personalizadas ao cliente VPN?
@@ -230,6 +230,16 @@ Você pode modificar o arquivo XML do perfil baixado e adicionar as ** \<rotas d
 </clientconfig>
 </azvpnprofile>
 ```
+
+### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Posso importar o perfil de um prompt de linha de comando?
+
+Você pode importar o perfil de um prompt de linha de comando colocando o arquivo **azurevpn.xml** baixado no **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** folder e executando o seguinte comando:
+
+```
+azurevpn -i azurevpnconfig.xml 
+```
+para forçar a importação usar o interruptor **-f** também
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

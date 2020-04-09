@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/29/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 871a3edf70690a09d3747703e8bc999dfcce967c
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 84736b7f1dcdf8b186fddbced5dd773e008c0dd2
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385173"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887416"
 ---
 O estouro de disco é suportado para SSDs premium. O estouro é suportado em qualquer tamanho de disco SSD premium <= 512 GiB (P20 ou abaixo). Esses tamanhos de disco suportam estourar com o melhor esforço e utilizam um sistema de crédito para gerenciar o estouro. Os créditos se acumulam em um balde estourado sempre que o tráfego de disco está abaixo da meta de desempenho provisionada para o tamanho do disco e consomem créditos quando o tráfego estoura além do alvo. O tráfego de disco é rastreado contra iOPS e largura de banda no alvo provisionado. A explosão de disco não contornará as limitações de tamanho da máquina virtual (VM) no IOPS ou no throughput.
 
@@ -46,8 +46,8 @@ O estouro de disco está disponível em todas as regiões da Nuvem Pública.
 
 Para você ter uma ideia melhor de como isso funciona, aqui estão alguns exemplos de cenários:
 
-- Um cenário comum que pode se beneficiar do estouro do disco é o inicialização mais rápido da VM e o lançamento de aplicativos em discos do SO. Tome um VM Linux com uma imagem de 8 GiB OS como exemplo. Se usarmos um disco P2 como disco do SO, o alvo provisionado é 120 IOPS e 25 MBps. Quando a VM começar, haverá um pico de leitura no disco do SISTEMA OPERACIONAL carregando os arquivos de inicialização. Com a introdução do estouro, você pode ler a velocidade máxima de explosão de 3500 IOPS e 170 MBps, acelerando o tempo de carga em pelo menos 6x. Após a inicialização da VM, o nível de tráfego no disco do SISTEMA OPERACIONAL geralmente é baixo, já que a maioria das operações de dados pelo aplicativo será contra os discos de dados conectados. Se o tráfego estiver abaixo da meta provisionada, você acumulará créditos.
+- Um cenário comum que pode se beneficiar do estouro do disco é o inicialização mais rápido da VM e o lançamento de aplicativos em discos do SO. Tome um VM Linux com uma imagem de 8 GiB OS como exemplo. Se usarmos um disco P2 como disco do SO, o alvo provisionado é 120 IOPS e 25 MiB. Quando a VM começar, haverá um pico de leitura no disco do SISTEMA OPERACIONAL carregando os arquivos de inicialização. Com a introdução do estouro, você pode ler a velocidade máxima de explosão de 3500 IOPS e 170 MiB, acelerando o tempo de carga em pelo menos 6x. Após a inicialização da VM, o nível de tráfego no disco do SISTEMA OPERACIONAL geralmente é baixo, já que a maioria das operações de dados pelo aplicativo será contra os discos de dados conectados. Se o tráfego estiver abaixo da meta provisionada, você acumulará créditos.
 
 - Se você estiver hospedando um ambiente de área de trabalho virtual remota, sempre que um usuário ativo lança um aplicativo como o AutoCAD, o tráfego de leitura para o disco do SO aumenta significativamente. Neste caso, o tráfego estourado consumirá créditos acumulados, permitindo que você ultrapasse o alvo provisionado e lance o aplicativo muito mais rápido.
 
-- Um disco P1 tem um alvo provisionado de 120 IOPS e 25 MBps. Se o tráfego real no disco foi de 100 IOPS e 20 MBps no último intervalo de 1 segundo, então os 20 IOs e 5 MB não utilizados são creditados ao balde de estouro do disco. Os créditos na caçamba estourada podem ser usados posteriormente quando o tráfego exceder a meta provisionada, até o limite máximo de estouro. O limite máximo de estouro define o teto do tráfego de disco, mesmo que você tenha créditos estourados para consumir. Neste caso, mesmo que você tenha 10.000 IOs no balde de crédito, um disco P1 não pode emitir mais do que o estouro máximo de 3.500 IO por segundo.  
+- Um disco P1 tem um alvo provisionado de 120 IOPS e 25 MiB. Se o tráfego real no disco foi de 100 IOPS e 20 MiB no último intervalo de 1 segundo, então os 20 IOs e 5 MB não utilizados são creditados ao balde de estouro do disco. Os créditos na caçamba estourada podem ser usados posteriormente quando o tráfego exceder a meta provisionada, até o limite máximo de estouro. O limite máximo de estouro define o teto do tráfego de disco, mesmo que você tenha créditos estourados para consumir. Neste caso, mesmo que você tenha 10.000 IOs no balde de crédito, um disco P1 não pode emitir mais do que o estouro máximo de 3.500 IO por segundo.  

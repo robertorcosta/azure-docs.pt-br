@@ -3,7 +3,6 @@ title: Adicione funções de aplicativo e obtenha-as a partir de um token | Azur
 titleSuffix: Microsoft identity platform
 description: Saiba como adicionar funções de aplicativo em um aplicativo registrado no Azure Active Directory, atribuir usuários e grupos a essas funções e recebê-las na declaração `roles` no token.
 services: active-directory
-documentationcenter: ''
 author: kkrishna
 manager: CelesteDG
 ms.service: active-directory
@@ -14,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3a911db36fd03ebcb5e0fc53d4d7f36d68648249
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 144fad249011d547ac6a8cf2d404cb3f8fe74f96
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399095"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884249"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como adicionar funções de aplicativo em seu aplicativo e recebê-las no token
 
@@ -35,7 +34,7 @@ Essas funções de aplicativo são definidas no [portal do Azure](https://portal
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Declarar funções de aplicativo usando o portal do Azure
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal.
 1. Na lista **Favoritos** ou **Todos os Diretórios,** escolha o inquilino do Active Directory onde deseja registrar sua inscrição.
 1. Na portal do Azure, procure e selecione **Azure Active Directory**.

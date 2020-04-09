@@ -1,5 +1,5 @@
 ---
-title: Implantar uma instância prometheus autônoma em um cluster Azure Red Hat OpenShift | Microsoft Docs
+title: Implantar a instância Prometheus no cluster Azure Red Hat OpenShift
 description: Crie uma instância Prometheus em um cluster Azure Red Hat OpenShift para monitorar as métricas do seu aplicativo.
 author: makdaam
 ms.author: b-lejaku
@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: prometeu, aro, openshift, métricas, chapéu vermelho
-ms.openlocfilehash: f81a993caa31578e689fb3a90108f3cf0ca81fc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f22df587f51af735e0ea663e53f6eef14d60692
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69875132"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886881"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Implantar uma instância prometheus autônoma em um cluster Azure Red Hat OpenShift
 
@@ -192,7 +192,7 @@ oc get route prom -n prometheus-project
 
 A página **Status > Service Discovery** mostrará 0/0 alvos ativos.
 
-Para implantar um aplicativo de exemplo, que expõe métricas básicas do Python o ponto final /métricas, execute os seguintes comandos:
+Para implantar um aplicativo de exemplo, que expõe métricas básicas do Python sob o ponto final /métricas, execute os seguintes comandos:
 ```
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example1 -n app-project1
 

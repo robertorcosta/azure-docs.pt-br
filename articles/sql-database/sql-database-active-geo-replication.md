@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 1f339d987d67047f5857679b440e93e6c3730059
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: cc9d129894cefaf2fab853d2099d754d68238e5f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80810459"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887343"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criação e uso de georeplicação ativa
 
@@ -113,14 +113,11 @@ Para garantir que seu aplicativo possa acessar imediatamente o novo principal ap
 
 ## <a name="configuring-secondary-database"></a>Configuração do banco de dados secundário
 
-Os bancos de dados primário e secundário devem ter a mesma camada de serviço. Também é altamente recomendável que o banco de dados secundário seja criado com o mesmo tamanho da computação (DTUs ou vCores) que o primário. Se o banco de dados principal estiver experimentando uma carga de trabalho de gravação pesada, um secundário com menor tamanho de computação pode não ser capaz de acompanhá-lo. Isso causará defasagem no secundário e potencial indisponibilidade do secundário. Um banco de dados secundário que está atrasado em relação ao primário também corre o risco de uma grande perda de dados, caso seja necessário um failover forçado. Para mitigar esses riscos, a georeplicação ativa reduzirá a taxa de registro do primário, se necessário, para permitir que seus secundários se atualizem. 
+Os bancos de dados primário e secundário devem ter a mesma camada de serviço. Também é altamente recomendável que o banco de dados secundário seja criado com o mesmo tamanho da computação (DTUs ou vCores) que o primário. Se o banco de dados principal estiver experimentando uma carga de trabalho de gravação pesada, um secundário com menor tamanho de computação pode não ser capaz de acompanhá-lo. Isso causará defasagem no secundário e potencial indisponibilidade do secundário. Para mitigar esses riscos, a georeplicação ativa reduzirá a taxa de registro de transações primária, se necessário, para permitir que seus secundários se atualizem. 
 
-A outra consequência de uma configuração secundária desequilibrada é que, após o failover, o desempenho do aplicativo pode sofrer devido à capacidade computacional insuficiente do novo primário. Nesse caso, será necessário ampliar o objetivo de serviço de banco de dados para o nível necessário, o que pode levar tempo significativo e computar recursos, e exigirá um [failover](sql-database-high-availability.md) de alta disponibilidade no final do processo de scale-up.
+Outra consequência de uma configuração secundária desequilibrada é que após o failover, o desempenho do aplicativo pode sofrer devido à capacidade computacional insuficiente do novo primário. Nesse caso, será necessário ampliar o objetivo de serviço de banco de dados para o nível necessário, o que pode levar tempo significativo e computar recursos, e exigirá um [failover](sql-database-high-availability.md) de alta disponibilidade no final do processo de scale-up.
 
-> [!IMPORTANT]
-> O RPO SLA publicado de 5 segundos não pode ser garantido a menos que o banco de dados secundário esteja configurado com o mesmo ou maior tamanho de computação que o principal. 
-
-Se você decidir criar o secundário com menor tamanho de computação, o gráfico percentual de IO de log no portal Azure fornece uma boa maneira de estimar o tamanho mínimo do cálculo do secundário necessário para sustentar a carga de replicação. Por exemplo, se o seu banco de dados principal é P6 (1000 DTU) e sua porcentagem de gravação de log é de 50%, o secundário precisa ser pelo menos P4 (500 DTU). Para recuperar dados históricos de IO de registro, use a exibição [sys.resource_stats.](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) Para recuperar dados recentes de gravação de log com maior granularidade que melhor reflete picos de curto prazo na taxa de log, use [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view. 
+Se você decidir criar o secundário com menor tamanho de computação, o gráfico percentual de IO de log no portal Azure fornece uma boa maneira de estimar o tamanho mínimo do cálculo do secundário necessário para sustentar a carga de replicação. Por exemplo, se o seu banco de dados principal é P6 (1000 DTU) e sua porcentagem de gravação de log é de 50%, o secundário precisa ser pelo menos P4 (500 DTU). Para recuperar dados históricos de IO de registro, use a exibição [sys.resource_stats.](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) Para recuperar dados recentes de gravação de log com maior granularidade que melhor reflete picos de curto prazo na taxa de log, use [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view.
 
 O estrangulamento da taxa de registro de transações no principal devido ao menor tamanho de computação em um secundário é relatado usando o tipo de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visível nas visualizações do banco de dados [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_os_wait_stats.](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 
 

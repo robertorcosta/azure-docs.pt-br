@@ -4,16 +4,16 @@ description: Veja como ativar o suporte a identidades gerenciadas em um cluster 
 ms.topic: article
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: cb6e4ab00afd80cba41881e46296f7046a905919
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 396978546b301884087c4ea51e242258d64a6b0b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934957"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983799"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster-preview"></a>Configure o suporte de identidade gerenciado em um cluster de malha de serviço existente (visualização)
 
-Para usar [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) em seus aplicativos de malha de serviço, primeiro habilite o *Serviço de Token de Identidade Gerenciado* no cluster. Este serviço é responsável pela autenticação de aplicativos de Malha de Serviço usando suas identidades gerenciadas e pela obtenção de tokens de acesso em seu nome. Uma vez ativado o serviço, você pode vê-lo no Service Fabric Explorer na seção **Sistema** no painel esquerdo, executando o nome **de tecido:/System/ManagedIdentityTokenService**.
+Para usar [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) em seus aplicativos de malha de serviço, primeiro habilite o *Serviço de Token de Identidade Gerenciado* no cluster. Este serviço é responsável pela autenticação de aplicativos de Malha de Serviço usando suas identidades gerenciadas e pela obtenção de tokens de acesso em seu nome. Uma vez ativado o serviço, você pode vê-lo no Service Fabric Explorer na seção **Sistema** no painel esquerdo, executando sob o nome **de tecido:/System/ManagedIdentityTokenService**.
 
 > [!NOTE]
 > A versão em tempo de execução do Service Fabric 6.5.658.9590 ou superior é necessária para habilitar o **Serviço de Token de Identidade Gerenciado**.  
@@ -40,7 +40,7 @@ Para habilitar o Serviço de Token de Identidade Gerenciado em um cluster existe
 ]
 ```
 
-Para que as alterações entrem em vigor, você também precisará alterar a política de upgrade para especificar uma reinicialização vigorosa do tempo de execução do Service Fabric em cada nó à medida que a atualização progride através do cluster. Essa reinicialização garante que o serviço do sistema recém-habilitado seja iniciado e executado em cada nó. No trecho abaixo, `forceRestart` está a configuração essencial; use seus valores existentes para o restante das configurações.  
+Para que as alterações entrem em vigor, você também precisará alterar a política de upgrade para especificar uma reinicialização vigorosa do tempo de execução do Service Fabric em cada nó à medida que a atualização progride através do cluster. Essa reinicialização garante que o serviço do sistema recém-habilitado seja iniciado e executado em cada nó. No trecho abaixo, `forceRestart` está a configuração essencial para ativar a reinicialização. Para os demais parâmetros, use os valores descritos abaixo ou use valores personalizados já especificados para o recurso de cluster. As configurações personalizadas da Política de Atualização de Malha ('upgradeDescription') podem ser visualizadas no Portal Azure selecionando a opção 'Upgrades de malha' no recurso 'Malha de serviço' ou resources.azure.com. As opções padrão para a política de upgrade ('upgradeDescription') não podem ser visualizadas no powershell ou resources.azure.com. Consulte [ClusterUpgradePolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet) para obter informações adicionais.  
 
 ```json
 "upgradeDescription": {

@@ -5,7 +5,6 @@ description: Saiba como configurar a declaração de função emitida no token S
 services: active-directory
 author: jeevansd
 manager: CelesteDG
-ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
@@ -13,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: a70abd1cddb866037926bbbc881682d50599366b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8db27819b7eef6cdf05ea3f6645ae930ebc4ef58
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76699250"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884742"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
@@ -174,7 +173,7 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
     e. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
 
-    f. Selecione **Salvar**.
+    f. Clique em **Salvar**.
 
 10. Para testar seu aplicativo em um logon único iniciado por um provedor de identidade, entre no [Painel de Acesso](https://myapps.microsoft.com) e selecione o bloco do aplicativo. No token SAML, você deve ver todas as funções atribuídas ao usuário com o nome da declaração fornecido.
 

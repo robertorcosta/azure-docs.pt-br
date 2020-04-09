@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 04/07/2020
 ms.subservice: app-mgmt
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9ecd193282ed9b7333df44689530b4d057ad7f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f027fbce66a73306165a0ad35d1ba3faa7a5c0bc
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68693896"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983884"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Proxy do aplicativo Azure AD: histórico de lançamento de versão
 Este artigo lista as versões e recursos do Proxy de aplicativo do Azure Active Directory (Azure AD) que foram lançados. A equipe do Azure AD atualiza regularmente o Proxy do aplicativo com novos recursos e funcionalidades. Os conectores proxy do aplicativo são atualizados automaticamente quando uma nova versão é lançada. 
@@ -35,6 +35,22 @@ Recurso |  Detalhes
 Como ativar o Proxy de aplicativos | Pré-requisitos para habilitar o Proxy de aplicativos e instalar e registrar um conector são descritos neste [tutorial](application-proxy-add-on-premises-application.md).
 Noções básicas sobre conectores de Proxy de Aplicativo Azure AD | Saiba mais sobre o [gerenciamento do conector](application-proxy-connectors.md) e como os conectores [atualizam automaticamente](application-proxy-connectors.md#automatic-updates).
 Download do conector proxy do aplicativo Azure AD |  [Baixe o conector mais recente](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
+
+## <a name="1515260"></a>1.5.1526.0
+
+### <a name="release-status"></a>Status de liberação
+
+07 de Abril de 2020: Liberado para download
+
+### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
+-   Os conectores só usam O TLS 1.2 para todas as conexões. Consulte [os pré-requisitos do Connector](application-proxy-add-on-premises-application.md#before-you-begin) para obter mais detalhes.
+- Sinalização melhorada entre os serviços Connector e Azure. Isso inclui o suporte a sessões confiáveis para comunicação WCF entre os serviços Connector e Azure e melhorias de cache DNS para comunicações WebSocket.
+- Suporte para configurar um proxy entre o Conector e o aplicativo back-end. Para obter mais informações, [consulte Trabalhar com servidores proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md).
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+- Removido recuando para a porta 8080 para comunicações dos serviços Connector para Azure.
+- Adicionados traços de depuração para comunicações webSocket. 
+- Resolveu preservar o atributo SameSite ao definir cookies de aplicativos back-end.
 
 ## <a name="156120"></a>1.5.612.0
 

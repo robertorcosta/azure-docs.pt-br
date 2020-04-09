@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/28/2019
-ms.openlocfilehash: 69acfd4f2edab9be1b1dcfbb52eafbd00aec712f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: dea7e8d5679c8c5a14d6a4253b8a4b36343e6ed8
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75934575"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887088"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalar e usar o Hue em clusters de Hadoop do HDInsight
 
@@ -51,7 +51,7 @@ Use as informações na tabela abaixo para sua Ação de Script. Consulte [Perso
 
 ## <a name="use-hue-with-hdinsight-clusters"></a>Usar o Hue com clusters do HDInsight
 
-O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento em que ele está em execução. O túnel via SSH permite que o tráfego vá diretamente para o nó de cabeçalho do cluster no qual o Hue está sendo executado. Depois que o cluster terminar o provisionamento, use as seguintes etapas para usar o Hue em um cluster HDInsight.
+Você só pode ter uma conta de usuário com hue em clusters regulares. Para acesso a vários usuários, habilite [o Enterprise Security Package](./domain-joined/hdinsight-security-overview.md) no cluster. SSH Tunneling é a única maneira de acessar Hue no cluster uma vez que ele está funcionando. O túnel via SSH permite que o tráfego vá diretamente para o nó de cabeçalho do cluster no qual o Hue está sendo executado. Depois que o cluster terminar o provisionamento, use as seguintes etapas para usar o Hue em um cluster HDInsight.
 
 > [!NOTE]  
 > É recomendável usar o navegador Web Firefox para seguir as instruções abaixo.
@@ -113,9 +113,9 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 
 1. Durante a instalação, vários serviços do Hadoop (HDFS, YARN, MR2, Oozie) são reiniciados para atualizar a configuração. Depois que o script termina de instalar o Hue, pode levar algum tempo para que outros serviços do Hadoop sejam iniciados. Isso pode, inicialmente, afetar o desempenho do Hue. Depois que todos os serviços tiverem sido iniciados, o Hue estará totalmente funcional.
 
-1. A matiz não reconhece os trabalhos do Apache Tez, que é o padrão atual do Hive. Se você quiser usar o MapReduce como o mecanismo de execução do Hive, atualize o script para usar o comando a seguir em seu script:
+1. Hue não entende os empregos apache tez, que é o padrão atual para Hive. Se você quiser usar o MapReduce como o mecanismo de execução do Hive, atualize o script para usar o comando a seguir em seu script:
 
-        set hive.execution.engine=mr;
+         set hive.execution.engine=mr;
 
 1. Com clusters do Linux, você pode ter um cenário no qual os serviços estão em execução no nó de cabeçalho primário enquanto o Gerenciador de Recursos pode estar em execução no secundário. Um cenário como esse pode resultar em erros (mostrados abaixo) ao usar o Hue para exibir detalhes de trabalhos EM EXECUÇÃO no cluster. No entanto, você pode exibir os detalhes do trabalho após ele ser concluído.
 

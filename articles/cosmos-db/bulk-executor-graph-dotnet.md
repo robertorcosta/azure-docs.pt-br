@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: cf51d418a008d332bfcea01a7a9dc1a265116e29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adf512fc521ef553f0bbd6ef6dd8ee19e398b37b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442177"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982696"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Usar a biblioteca .NET bulk executor do grafo para executar operações em massa na API Gremlin do Azure Cosmos DB
 
 Este tutorial fornece instruções sobre como usar a biblioteca .NET bulk executor do Azure Cosmos DB para importar e atualizar objetos gráficos para o contêiner da API Gremlin do Azure Cosmos DB. Esse processo usa a classe Graph na [biblioteca bulk executor](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) para criar programaticamente objetos de vértice e de borda para, em seguida, inserir vários deles quando houver solicitações de rede. Esse comportamento pode ser configurado pela biblioteca bulk executor para otimizar o uso de recursos do banco de dados e da memória local.
 
-Em vez de enviar consultas do Gremlin para um banco de dados, onde o comando é avaliado e, em seguida, executado um a um, o uso da biblioteca bulk executor exigirá a criação e a validação dos objetos localmente. Depois de criar os objetos, a biblioteca permitirá que você envie objetos gráficos para o serviço de banco de dados em sequência. Com esse método, as velocidades de ingestão de dados podem ser aumentadas em até 100 vezes, tornando-o o método ideal para migrações de dados iniciais ou operações periódicas de movimentação de dados. Saiba mais visitando a página do GitHub do [aplicativo de exemplo do Graph bulk executor do Azure Cosmos DB](https://aka.ms/graph-bulkexecutor-sample).
+Em vez de enviar consultas do Gremlin para um banco de dados, onde o comando é avaliado e, em seguida, executado um a um, o uso da biblioteca bulk executor exigirá a criação e a validação dos objetos localmente. Depois de criar os objetos, a biblioteca permitirá que você envie objetos gráficos para o serviço de banco de dados em sequência. Com esse método, as velocidades de ingestão de dados podem ser aumentadas em até 100 vezes, tornando-o o método ideal para migrações de dados iniciais ou operações periódicas de movimentação de dados. Saiba mais visitando a página do GitHub do [aplicativo de exemplo do Graph bulk executor do Azure Cosmos DB](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started).
 
 ## <a name="bulk-operations-with-graph-data"></a>Operações em massa com dados do gráfico
 
@@ -120,7 +120,7 @@ e.AddProperty("customProperty", "value");
 * Git. Para mais informações, confira a [página Downloads do Git](https://git-scm.com/downloads).
 
 ### <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
-Neste tutorial, seguiremos as etapas de introdução usando o [exemplo do Graph bulk executor do Azure Cosmos DB](https://aka.ms/graph-bulkexecutor-sample) hospedado no GitHub. Este aplicativo consiste em uma solução .NET que gera aleatoriamente objetos de vértice e de borda e, em seguida, executa inserções em massa na conta especificada do banco de dados gráfico. Para obter o aplicativo, execute o comando `git clone` a seguir:
+Neste tutorial, seguiremos as etapas de introdução usando o [exemplo do Graph bulk executor do Azure Cosmos DB](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started) hospedado no GitHub. Este aplicativo consiste em uma solução .NET que gera aleatoriamente objetos de vértice e de borda e, em seguida, executa inserções em massa na conta especificada do banco de dados gráfico. Para obter o aplicativo, execute o comando `git clone` a seguir:
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started.git

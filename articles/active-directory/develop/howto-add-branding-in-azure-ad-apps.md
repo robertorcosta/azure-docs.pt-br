@@ -5,7 +5,6 @@ description: Um guia abrangente para recursos para desenvolvedores do Azure Acti
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
@@ -14,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 37d6cd03c07c10bfac5b25e3850c7d3af97bcec7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5b63fb0b66c78b33fb073eca919ed55bd05107c
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76697482"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884419"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de identidade visual para aplicativos
 
@@ -68,7 +67,7 @@ Após o consentimento dos admins ao seu aplicativo, eles podem optar por adicion
 
 ![Botão que mostra o logotipo da Microsoft e o texto "Adicionar à minha organização"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-No entanto, recomendamos que você escreva um texto explicativo em vez de depender de botões. Por exemplo: 
+No entanto, recomendamos que você escreva um texto explicativo em vez de depender de botões. Por exemplo:
 
 > *Se você já usa o Office 365 ou outro serviço de negócios da Microsoft, você pode conceder <your_app_name> acesso aos dados da sua organização. Isso permitirá que seus usuários acessem <your_app_name> com suas contas de trabalho existentes.*
 

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 090446d286b38a0bfcbde4ed9e77235050b36417
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: b81a3921ec11d589dadbdebd698ab9ad67d7649c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547713"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982898"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Python do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "80547713"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [Sql](sql-api-query-reference.md)
 > * [Executor a granel - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor a granel - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -71,7 +71,7 @@ ms.locfileid: "80547713"
 * Documentação atualizada para fazer referência ao Azure Cosmos DB em vez do Azure DocumentDB.
 
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
-* Esta versão do SDK requer a versão mais recente do Emulador do Azure Cosmos DB disponível para fazer o download em https://aka.ms/cosmosdb-emulator.
+* Esta versão do SDK requer a versão mais recente do [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
 
 ### <a name="221"></a><a name="2.2.1"/>2.2.1
 * Correção de bug de dicionário de agregação.

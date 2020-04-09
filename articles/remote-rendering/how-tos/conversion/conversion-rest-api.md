@@ -5,14 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 064a7b8adaec6f47a153743b58f4e1caf50db723
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 38116efc9e87eca8e2514a0a84045a69b8d42326
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80681500"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887037"
 ---
-# <a name="use-the-model-conversion-rest-api"></a>Use a API de conversão de modelo REST
+# <a name="use-the-model-conversion-rest-api"></a>Usar a API REST de conversão de modelo
 
 O serviço [de conversão do modelo](model-conversion.md) é controlado através de uma [API REST](https://en.wikipedia.org/wiki/Representational_state_transfer). Este artigo descreve os detalhes da API do serviço de conversão.
 
@@ -47,7 +47,7 @@ Sua conta de renderização remota do Azure precisa ter acesso à conta de armaz
 
 | Ponto de extremidade | Método |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversion/create | POST |
+| /v1/accounts/**accountID**/conversões/create | POST |
 
 Retorna o ID da conversão em curso, embrulhado em um documento JSON. O nome de campo é "conversionId".
 
@@ -77,7 +77,7 @@ Se sua conta ARR não estiver vinculada à sua conta de armazenamento, esta inte
 
 | Ponto de extremidade | Método |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversion/createWithSharedAccessSignature | POST |
+| /v1/accounts/**accountID**/conversões/createWithSharedAccessSignature | POST |
 
 Retorna o ID da conversão em curso, embrulhado em um documento JSON. O nome de campo é "conversionId".
 
@@ -128,5 +128,5 @@ Se o status for "Falha", haverá um campo adicional de "erro" com um subcampo de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Use o Armazenamento Azure Blob para conversão de modelos](blob-storage.md)
+- [Usar o armazenamento de Blobs do Azure para conversão de modelo](blob-storage.md)
 - [Conversão de modelo](model-conversion.md)

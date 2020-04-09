@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 03/10/2020
-ms.openlocfilehash: 6302a7d6ffe7218d339121ec98a624f8e98356f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/13/2020
+ms.openlocfilehash: 3fe5a58046776d00ce68189cf724a995380869eb
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065588"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887277"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração auto-hospedada
 
@@ -62,11 +62,14 @@ Use as seguintes etapas para criar um IR auto-hospedado usando a UI azure Data F
 
    ![Criar um Integration Runtime](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
 
-1. Na janela **de configuração de tempo de execução Integração,** selecione **Executar atividades de movimentação e envio de dados para comparações externas**e selecione **Continuar**.
+1. Na página **de configuração de tempo de execução Integração,** **selecione Azure, Self-Hosted**e selecione **Continuar**. 
+
+1. Na página seguinte, **selecione Self-Hosted** para criar um IR auto-hospedado e, em seguida, **selecione Continuar**.
+   ![Criar um IR auto-hospedado](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
 
 1. Digite um nome para o seu IR e selecione **Criar**.
 
-1. Selecione o link na **Opção 1** para abrir a configuração expressa no seu computador. Ou siga as etapas da **Opção 2** para configurar manualmente. As seguintes instruções são baseadas na configuração manual:
+1. Na página **de configuração de tempo de execução Integração,** selecione o link na **Opção 1** para abrir a configuração expressa no computador. Ou siga as etapas da **Opção 2** para configurar manualmente. As seguintes instruções são baseadas na configuração manual:
 
    ![Configuração do runtime de integração](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 
@@ -364,7 +367,7 @@ Você pode usar a ferramenta gerenciador de configuração para visualizar e atu
 ![Exibir e atualizar o proxy](media/create-self-hosted-integration-runtime/view-proxy.png)
 
 > [!NOTE]
-> Se você configurar um servidor proxy com autenticação NTLM, o serviço de host em tempo de execução de integração será executado a conta de domínio. Se você alterar posteriormente a senha da conta de domínio, lembre-se de atualizar as configurações do serviço e reiniciar o serviço. Por causa desse requisito, sugerimos que você acesse o servidor proxy usando uma conta de domínio dedicada que não exige que você atualize a senha com freqüência.
+> Se você configurar um servidor proxy com autenticação NTLM, o serviço de host em tempo de execução de integração será executado sob a conta de domínio. Se você alterar posteriormente a senha da conta de domínio, lembre-se de atualizar as configurações do serviço e reiniciar o serviço. Por causa desse requisito, sugerimos que você acesse o servidor proxy usando uma conta de domínio dedicada que não exige que você atualize a senha com freqüência.
 
 ### <a name="configure-proxy-server-settings"></a>Definir configurações do servidor proxy
 

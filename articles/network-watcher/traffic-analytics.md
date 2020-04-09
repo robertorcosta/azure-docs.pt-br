@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 83164a615cacc067e5f1ea6a1dd6ce0f0fd9d540
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adba282a96f9d250569e090e186859c04e89ebda
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298844"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981538"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -183,8 +183,8 @@ Selecione as opções a seguir, conforme mostrado na imagem:
 
 1. Selecione *Ativado* para **Status**
 2. Selecione *a versão 2* para a versão Flow **Logs**. A versão 2 contém estatísticas de sessão de fluxo (bytes e pacotes)
-3. Selecione uma conta de armazenamento existente na qual armazenar os logs de fluxo. Se você deseja armazenar os dados indefinidamente, defina o valor como *0*. Incorrem em taxas de armazenamento do Azure para a conta de armazenamento. Certifique-se de que seu armazenamento não tenha "Data Lake Storage Gen2 Hierarchical Namespace Enabled" definido como true.
-4. Defina a **Retenção** para o número de dias que você deseja armazenar os dados.
+3. Selecione uma conta de armazenamento existente na qual armazenar os logs de fluxo. Certifique-se de que seu armazenamento não tenha "Data Lake Storage Gen2 Hierarchical Namespace Enabled" definido como true.
+4. Defina a **Retenção** para o número de dias que você deseja armazenar os dados. Se você deseja armazenar os dados indefinidamente, defina o valor como *0*. Incorrem em taxas de armazenamento do Azure para a conta de armazenamento. 
 5. Selecione *Ativado* para **Status de Análise de Tráfego**.
 6. Selecione o intervalo de processamento. Com base na sua escolha, os registros de fluxo serão coletados da conta de armazenamento e processados pelo Traffic Analytics. Você pode escolher um intervalo de processamento a cada 1 hora ou a cada 10 minutos. 
 7. Selecione um workspace do Log Analytics (OMS) existente ou selecione **Criar novo workspace** para criar um novo. Um espaço de trabalho do Log Analytics é usado pela Análise de Tráfego para armazenar os dados agregados e indexados que são usados para gerar a análise. Se você selecionar um workspace existente, ele deve existir em uma das [regiões com suporte](#supported-regions-log-analytics-workspaces) e ter sido atualizado para a nova linguagem de consulta. Se você não desejar atualizar um workspace existente ou não tem um workspace em uma região com suporte, crie um novo. Para obter mais informações sobre linguagens de consulta, consulte [Atualização do Azure Log Analytics para a nova pesquisa de logs ](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
@@ -192,7 +192,7 @@ Selecione as opções a seguir, conforme mostrado na imagem:
 > [!NOTE]
 >O espaço de trabalho do Log Analytics que hospeda a solução de Análise de Tráfego e os NSGs não precisa estar na mesma região. Por exemplo, você pode ter Análise de Tráfego em um workspace na região Europa Ocidental e ter os NSGs no Leste dos EUA e Oeste dos EUA. Podem ser configurados vários NSGs no mesmo workspace.
 
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 
     ![Seleção de conta de armazenamento, espaço de trabalho do Log Analytics e habilitação da Análise de Tráfego](./media/traffic-analytics/ta-customprocessinginterval.png)
 

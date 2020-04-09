@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2019
+ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: e50eb561bcbb924ea093722d6c61bbe51747b328
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811280"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981300"
 ---
 # <a name="security-management-in-azure"></a>Gerenciamento de segurança no Azure
 Os assinantes do Azure podem gerenciar ambientes de nuvem de vários dispositivos, incluindo estações de trabalho, computadores de desenvolvedores e até mesmo dispositivos de usuário final com privilégios que têm permissões de tarefas específicas. Em alguns casos, as funções administrativas são executadas por meio de consoles baseado na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Em outros casos, pode haver conexões diretas ao Azure de sistemas locais por meio de VPNs (Redes Virtuais Privadas), Serviços de Terminal, protocolos de aplicativos de cliente ou (programaticamente) a SMAPI (API de Gerenciamento de Serviços do Azure). Além disso, os pontos de extremidade do cliente podem ser unidos ao domínio ou isolados e não gerenciados, como tablets ou smartphones.
@@ -145,9 +145,6 @@ Recomendamos três configurações principais para uma estação de trabalho pro
 | - | Clara separação de funções | - |
 | Computador corporativo como máquina virtual |Menor custo de hardware | - |
 | - | Segregação de funções e aplicativos | - |
-| Windows To Go com criptografia de unidade de disco BitLocker  |Compatibilidade com a maioria dos computadores |Acompanhamento de ativos |
-| - | Economia e portabilidade | - |
-| - | Ambiente de gerenciamento isolado |- |
 
 É importante que a estação de trabalho protegida seja o host, não o convidado, sem nada entre o sistema operacional do host e o hardware. Seguir o "princípio de origem limpa" (também conhecido como "origem segura") significa que o host deve ser o mais protegido. Caso contrário, a estação de trabalho protegida (convidado) estará sujeita a ataques no sistema em que está hospedada.
 
@@ -170,15 +167,6 @@ Em casos em que uma estação de trabalho protegida autônoma separada tem custo
 Para evitar vários riscos de segurança que podem ocorrer devido ao uso de uma estação de trabalho para gerenciamento de sistemas e outras tarefas de trabalho diário, você pode implantar uma máquina virtual Hyper-V do Windows para a estação de trabalho protegida. A máquina virtual pode ser usada como o computador corporativo. O ambiente de computador corporativo pode permanecer isolado do host, o que reduz a superfície de ataque e impede a coexistência das atividades diárias do usuário (como email) com tarefas administrativas confidenciais.
 
 A máquina de virtual do computador corporativo é executada em um espaço protegido e fornece aplicativos do usuário. O host permanece como uma "origem limpa" e impõe políticas de rede estritas no sistema operacional raiz (por exemplo, bloqueando o acesso a RDP da máquina virtual).
-
-### <a name="windows-to-go"></a>Windows To Go
-Uma alternativa à exigência de uma estação de trabalho protegida autônoma é usar uma unidade [Windows To Go](https://technet.microsoft.com/library/hh831833.aspx), um recurso que dá suporte a uma funcionalidade de inicialização USB do lado do cliente. O Windows To Go habilita os usuários a inicializar um computador compatível para uma imagem do sistema isolada em execução por meio de uma unidade flash USB criptografada. Ele fornece controles adicionais para pontos de extremidade de administração remotos, pois a imagem pode ser totalmente gerenciada por um grupo de TI corporativo, com políticas de segurança estritas, uma compilação mínima do sistema operacional e suporte a TPM.
-
-Na figura a seguir, a imagem portátil é um sistema unido ao domínio que é pré-configurado para se conectar apenas ao Azure, requer a autenticação multifator e bloqueia todo o tráfego que não é de gerenciamento. Se um usuário inicializar o mesmo computador para a imagem corporativa padrão e tentar acessar o Gateway de Área de Trabalho Remota para as ferramentas de gerenciamento do Azure, a sessão será bloqueada. O Windows To Go torna-se o sistema operacional de nível raiz, e não são necessárias camadas adicionais (sistema operacional host, hipervisor, máquina virtual) que possam ser mais vulneráveis a ataques externos.
-
-![](./media/management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png)
-
-É importante observar que as unidades flash USB são mais facilmente perdidas do que um computador desktop médio. O uso do BitLocker para criptografar todo o volume, juntamente com uma senha forte, reduz a probabilidade de que um invasor use a imagem da unidade para fins prejudicais. Além disso, se a unidade flash USB for perdida, a revogação e a [emissão de um novo certificado de gerenciamento](https://technet.microsoft.com/library/hh831574.aspx), juntamente com uma redefinição de senha rápida, poderão reduzir a exposição. Os logs de auditoria administrativos residem no Azure, não no cliente, reduzindo ainda mais a perda de dados potencial.
 
 ## <a name="best-practices"></a>Práticas recomendadas
 Considere as diretrizes adicionais a seguir ao gerenciar aplicativos e dados no Azure.
@@ -215,7 +203,7 @@ Minimizar o número de tarefas que os administradores podem executar em uma esta
 * Política de Grupo. Crie uma política administrativa global que seja aplicada a qualquer estação de trabalho do domínio usada para gerenciamento (e bloqueie o acesso de todas as outras) e às contas de usuário autenticadas nessas estações de trabalho.
 * Provisionamento com segurança avançada. Proteja a imagem da estação de trabalho protegida de linha de base para evitar violações. Use medidas de segurança como criptografia e isolamento para armazenar imagens, máquinas virtuais e scripts e restringir o acesso (talvez com o uso de um processo de check-in/check-out auditável).
 * Aplicação de patches. Mantenha uma compilação consistente (ou tenha imagens separadas para desenvolvimento, operações e outras tarefas administrativas), verifique rotineiramente se há alterações e malware, mantenha a compilação atualizada e ative os computadores apenas quando eles forem necessários.
-* Criptografia. Verifique se as estações de trabalho têm um TPM para habilitar com mais segurança o [EFS](https://technet.microsoft.com/library/cc700811.aspx) (Encrypting File System) e o BitLocker. Se estiver usando o Windows To Go, use somente chaves USB criptografadas junto com o BitLocker.
+* Criptografia. Verifique se as estações de trabalho têm um TPM para habilitar com mais segurança o [EFS](https://technet.microsoft.com/library/cc700811.aspx) (Encrypting File System) e o BitLocker.
 * Governança. Use GPOs do AD DS para controlar todas as interfaces do Windows dos administradores, como o compartilhamento de arquivos. Inclua as estações de trabalho de gerenciamento em processos de auditoria, monitoramento e registro em log. Acompanhe todo o acesso e uso de administradores e desenvolvedores.
 
 ## <a name="summary"></a>Resumo

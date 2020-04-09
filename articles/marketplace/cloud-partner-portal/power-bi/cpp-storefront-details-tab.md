@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 1bcf06056dd7fdaf22716409f53d86da7321b94d
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: f4fb5fba78cdea7996d006d34b2f07f3ac5e58fa
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745597"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981283"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Guia Detalhes do aplicativo Power BI Storefront
 
 >[!Important]
->A partir de 30 de março de 2020, começaremos a mover o gerenciamento das ofertas do seu aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [visão geral de criação de aplicativos do Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerenciar suas ofertas migradas.
+>A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas do seu aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [visão geral de criação de aplicativos do Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerenciar suas ofertas migradas.
 
 Na página **Nova Oferta,** use a guia Detalhes do **Storefront** para fornecer informações de marketing, vendas e legais para seus potenciais clientes. Nesta guia você também pode configurar o gerenciamento de leads que o Azure Marketplace gera. Este formulário longo é dividido em seis seções: **Detalhes da oferta, detalhes** **de listagem,** **artefatos de marketing,** **legal,** **suporte ao cliente**e gerenciamento de **chumbo.**  Um asterisco (*) no final de uma etiqueta de campo significa que o campo é necessário.
 
@@ -114,7 +114,7 @@ Na seção **Gerenciamento de leads,** configure seu sistema para coletar os lea
 |------------------------|--------------------------------------            |
 |  **Nenhum**              | Não colete pistas. Essa é a opção padrão.  |
 | **Blobs do Azure (preterido)** | Especifique [o armazenamento do Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) usando um nome de contêiner e uma seqüência de conexão.  Essa escolha é preterida. Use **a Tabela Azure** em vez disso.  |
-| **Tabela Azure**        | Especifique [o armazenamento da tabela Azure](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) usando uma seqüência de conexões.  |
+| **tabela do Azure**        | Especifique [o armazenamento da tabela Azure](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) usando uma seqüência de conexões.  |
 | **Dinâmica CRM Online** | Especifique [a Dinâmica 365](https://dynamics.microsoft.com/) usando uma URL e credenciais de autenticação. |
 | **Ponto final HTTPS**     | Especifique o ponto final HTTPS usando uma carga útil JSON.   |
 | **Marketo**            | Especifique uma instância [do Marketo](https://www.marketo.com/) usando um ID de servidor, id munchkin e id de formulário.   |

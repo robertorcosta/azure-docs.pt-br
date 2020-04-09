@@ -3,12 +3,12 @@ title: Suporte de marcação para recursos
 description: Mostra quais tipos de recursos do Azure suportam tags. Fornece detalhes para todos os serviços do Azure.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: e012126995136bec15dc360be5e91007b6f69f09
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: b8b1c0b738bb8b94ee53433141f1ae3dbbb3f942
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80802485"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982320"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](tag-resources.md). A coluna **'Suportes' indica** se o tipo de recurso tem uma propriedade para a tag. A coluna rotulada **Tag in cost report** indica se esse tipo de recurso passa a tag para o relatório de custos. Você pode visualizar os custos por tags na análise de [custos de Gerenciamento de Custos](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) e na fatura de faturamento do [Azure e dados de uso diário.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
@@ -1493,6 +1493,7 @@ Pule para um namespace do provedor de recursos:
 > | networkSecurityGroups | Sim | Sim |
 > | networkWatchers | Sim | Não |
 > | observadores de rede / monitores de conexão | Sim | Não |
+> | networkWatchers / flowLogs | Não | Não |
 > | networkWatchers / lentes | Sim | Não |
 > | networkWatchers / pingMeshes | Sim | Não |
 > | p2sVpnGateways | Sim | Sim |

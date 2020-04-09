@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a71c5328c6fa85f85db4bd7e6103f6470b86d99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 723411191d0990583d039a0fc9651437480807b4
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258321"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983255"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure Active Directory Connect: configurar o local de dados preferencial para recursos do Office 365
 O objetivo deste tópico é mostrar como configurar o atributo para localização de dados preferidos no Azure Active Directory (Azure AD) Conectar sincronização. Quando alguém usa recursos Multi-Geo no Office 365, você usa esse atributo para designar a geolocalização dos dados do Office 365 do usuário. (Os termos *região* e *área geográfica* são usados de maneira intercambiável.)
@@ -51,6 +51,7 @@ As áreas geográficas no Office 365, disponíveis para replicação Multigeogr�
 | Japão | JPN |
 | Coreia do Sul | KOR |
 | África do Sul | ZAF |
+| Suíça | Che |
 | Emirados Árabes Unidos | ARE |
 | United Kingdom | GBR |
 | Estados Unidos | NAM |
@@ -145,7 +146,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
     | Descrição | *Forneça uma descrição personalizada* |  |
     | Sistema Conectado | *Selecione o Active Directory Connector local* |  |
     | Tipo de Objeto do Sistema Conectado | **Usuário** |  |
-    | Tipo de Objeto de Metaverso | **Pessoa** |  |
+    | Tipo de Objeto de Metaverso | **Person** |  |
     | Tipo de link | **Ingressar** |  |
     | Precedência | *Escolha um número entre 1 e 99* | 1 a 99 são reservados para regras de sincronização personalizadas. Não selecione um valor que seja usado por outra regra de sincronização. |
 
@@ -174,7 +175,7 @@ A regra de sincronização de saída permite que o valor de atributo flua do met
     | Descrição | *Forneça uma descrição* ||
     | Sistema Conectado | *Selecionar o Azure AD Connector* ||
     | Tipo de Objeto do Sistema Conectado | **Usuário** ||
-    | Tipo de Objeto de Metaverso | **Pessoa** ||
+    | Tipo de Objeto de Metaverso | **Person** ||
     | Tipo de link | **Ingressar** ||
     | Precedência | *Escolha um número entre 1 e 99* | 1 a 99 são reservados para regras de sincronização personalizadas. Não selecione um valor que seja usado por outra regra de sincronização. |
 
