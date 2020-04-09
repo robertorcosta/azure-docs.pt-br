@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/07/2020
 ms.author: banders
-ms.openlocfilehash: 3a45a04786bb9976a42269191c8b24282905f96f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 1f44b0a0e2278bfcfbbf7cde1a3605fe334eaa3f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436978"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886510"
 ---
 # <a name="buy-a-reservation"></a>Comprar uma reserva
 
@@ -43,8 +43,6 @@ Ao aplicar descontos de reserva ao seu uso, o Azure processa a reserva na seguin
 1. Reservas que estão no escopo de um grupo de recursos
 2. Reservas de escopo único
 3. Reservas de escopo compartilhado
-
-Um único grupo de recursos pode obter descontos de reserva provenientes de várias reservas, dependendo de como você define o escopo de suas reservas.
 
 Você sempre pode atualizar o escopo depois de comprar uma reserva. Para fazer isso, vá para a reserva, clique em **Configuração** e redefina o escopo da reserva. A redefinição do escopo de uma reserva não é uma transação comercial. O termo da reserva não é alterado. Para saber mais sobre como atualizar o escopo, confira [Atualizar o escopo depois de comprar uma reserva](manage-reserved-vm-instance.md#change-the-reservation-scope).
 

@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: f2019f8538b6997d8fe802a1e90069e88274eb0c
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 55b00af9afeafb2a3fa7992cc457819dc1dcb2b2
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349132"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631277"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Folha de referências do Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 
-Esta folha de referências fornece dicas úteis e melhores práticas para a compilação das soluções do Azure Synapse. 
+Esta folha de referências fornece dicas úteis e melhores práticas para a compilação das soluções do Azure Synapse.
 
 O gráfico a seguir mostra o processo de criação de um data warehouse:
 
@@ -28,6 +28,7 @@ O gráfico a seguir mostra o processo de criação de um data warehouse:
 ## <a name="queries-and-operations-across-tables"></a>Consultas e operações entre tabelas
 
 Ao conhecer antecipadamente as principais operações e consultas a serem executadas no seu data warehouse, você poderá priorizar sua arquitetura de data warehouse para essas operações. Essas consultas e operações podem incluir:
+
 * Junção de uma ou duas tabelas de fatos com tabelas de dimensão, filtragem de tabela combinada e, em seguida, acrescentar os resultados em um data mart.
 * Fazer atualizações grandes ou pequenas em suas vendas de fato.
 * Acrescentar apenas os dados às tabelas.
@@ -36,7 +37,7 @@ Saber os tipos de operações antecipadamente ajuda-o a otimizar o design de sua
 
 ## <a name="data-migration"></a>Migração de dados
 
-Primeiro, carregue seus dados no [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md) ou no Armazenamento de Blobs do Azure. Em seguida, use o PolyBase para carregar seus dados em tabelas de preparo. Use a seguinte configuração:
+Primeiro, carregue seus dados no [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou no Armazenamento de Blobs do Azure. Em seguida, use o PolyBase para carregar seus dados em tabelas de preparo. Use a seguinte configuração:
 
 | Design | Recomendação |
 |:--- |:--- |
@@ -45,7 +46,7 @@ Primeiro, carregue seus dados no [Azure Data Lake Storage](../../data-factory/co
 | Particionamento | Nenhum |
 | Classe de recurso | largerc ou xlargerc |
 
-Saiba mais sobre [migração de dados](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [carregamento de dados](design-elt-data-loading.md) e o [processo ELT (Extrair, Carregar e Transformar)](design-elt-data-loading.md). 
+Saiba mais sobre [migração de dados](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [carregamento de dados](design-elt-data-loading.md) e o [processo ELT (Extrair, Carregar e Transformar)](design-elt-data-loading.md).
 
 ## <a name="distributed-or-replicated-tables"></a>Tabelas replicadas ou distribuídas
 
@@ -58,12 +59,13 @@ Use as seguintes estratégias, dependendo das propriedades da tabela:
 | Hash | * Tabelas de fatos<br></br>* Tabelas de dimensões grandes |* A chave de distribuição não pode ser atualizada |
 
 **Dicas:**
+
 * Comece com Round Robin, mas almeje uma estratégia de distribuição hash para aproveitar uma arquitetura paralela massiva.
 * Certifique-se de que as chaves de hash comuns tenham o mesmo formato de dados.
 * Não distribua no formato varchar.
 * As tabelas de dimensão com chave de hash comum para uma tabela de fatos com operações join frequentes podem ser distribuídas por hash.
-* Use *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql)* para analisar qualquer distorção nos dados.
-* Use *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)* para analisar as movimentações de dados por trás das consultas, monitorar o tempo que as operações de difusão e organização em ordem aleatória levam. Isso é útil para examinar a estratégia de distribuição.
+* Use *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* para analisar qualquer distorção nos dados.
+* Use *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* para analisar as movimentações de dados por trás das consultas, monitorar o tempo que as operações de difusão e organização em ordem aleatória levam. Isso é útil para examinar a estratégia de distribuição.
 
 Saiba mais sobre [tabelas replicadas](design-guidance-for-replicated-tables.md) e [tabelas distribuídas](sql-data-warehouse-tables-distribute.md).
 
@@ -78,7 +80,8 @@ A indexação é útil para a ler as tabelas rapidamente. Há um conjunto único
 | CCI (Índice Columnstore Clusterizado) (Padrão) | * Tabelas grandes (mais de 100 milhões de linhas) | * Usado em uma tabela replicada<br></br>* Você faz operações de atualização enormes na tabela<br></br>* Você particiona a tabela em excesso: os grupos de linhas não se estendem entre diferentes partições e nós de distribuição |
 
 **Dicas:**
-* Na parte superior de um índice clusterizado, convém adicionar o índice não clusterizado a uma coluna usada para o filtro. 
+
+* Na parte superior de um índice clusterizado, convém adicionar o índice não clusterizado a uma coluna usada para o filtro.
 * Tenha cuidado com como gerenciar a memória em uma tabela com um CCI. Quando você carrega dados, deseja que o usuário (ou a consulta) se beneficie de uma classe de recursos grande. Certifique-se de evitar corte e criação de muitos pequenos grupos de linhas compactadas.
 * Na Gen2, as tabelas CCI são armazenadas em cache local nos nós de computação para maximizar o desempenho.
 * Para CCI, o desempenho lento pode acontecer devido à compressão ruim dos grupos de linhas. Se isso ocorrer, recompile ou reorganize o CCI. Você deseja pelo menos 100.000 linhas por grupos de linhas compactadas. O ideal é 1 milhão de linhas em um grupo de linhas.
@@ -88,6 +91,7 @@ A indexação é útil para a ler as tabelas rapidamente. Há um conjunto único
 Saiba mais sobre [Índices](sql-data-warehouse-tables-index.md).
 
 ## <a name="partitioning"></a>Particionamento
+
 Você pode particionar a tabela quando tiver uma tabela de fatos grande (maior que 1 bilhão de linhas). Em 99% dos casos, a chave de partição deve ser baseada na data. Tenha cuidado para não particionar excessivamente, especialmente quando você tiver um índice columnstore clusterizado.
 
 Com tabelas de preparo que exigem ELT, você pode se beneficiar do particionamento. Ele facilita o gerenciamento de ciclo de vida de dados.
@@ -104,26 +108,26 @@ Se você for carregar incrementalmente os dados, primeiro certifique-se de aloca
 Para obter um grande lote de atualizações em seus dados históricos, considere usar um [CTAS](sql-data-warehouse-develop-ctas.md) para escrever os dados que você deseja manter em uma tabela, em vez de usar INSERT, UPDATE e DELETE.
 
 ## <a name="maintain-statistics"></a>Manter as estatísticas
- Até que as estatísticas automáticas estejam em disponibilidade geral, será necessária a manutenção manual das estatísticas. É importante atualizar as estatísticas quando ocorrem alterações *significativas* em seus dados. Isso ajuda a otimizar seus planos de consulta. Se você achar que demora demais para manter todas as estatísticas, seja mais seletivo sobre quais colunas têm estatísticas. 
+
+ Até que as estatísticas automáticas estejam em disponibilidade geral, será necessária a manutenção manual das estatísticas. É importante atualizar as estatísticas quando ocorrem alterações *significativas* em seus dados. Isso ajuda a otimizar seus planos de consulta. Se você achar que demora demais para manter todas as estatísticas, seja mais seletivo sobre quais colunas têm estatísticas.
 
 Você também pode definir a frequência das atualizações. Por exemplo, convém atualizar as colunas de data, onde novos valores podem ser adicionados, diariamente. Você obterá mais benefícios se tiver estatísticas em colunas envolvidas em junções, colunas usadas na cláusula WHERE e colunas encontradas em GROUP BY.
 
 Saiba mais sobre [estatísticas](sql-data-warehouse-tables-statistics.md).
 
 ## <a name="resource-class"></a>classe de recurso
+
 Os grupos de recursos são usados como uma maneira de alocar memória para as consultas. Se você precisar de mais memória para melhorar a consulta ou a velocidade de carregamento, aloque classes de recursos superiores. Por outro lado, usar classes de recursos maiores afeta a simultaneidade. Você deseja considerar isso antes de mover todos os seus usuários para classes de recursos maiores.
 
 Se você notar que as consultas demoram muito, verifique se seus usuários não são executados em classes de recursos grandes. Classes de recursos grandes consomem vários slots de simultaneidade. Eles podem fazer com que outras consultas sejam colocadas em fila.
 
-Por fim, ao usar a Gen2 do [pool do SQL](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse), cada classe de recursos obtém 2,5 vezes mais memória do que a Gen1.
+Por fim, ao usar a Gen2 do [pool do SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse), cada classe de recursos obtém 2,5 vezes mais memória do que a Gen1.
 
 Saiba mais sobre como trabalhar com [classes de recursos e simultaneidade](resource-classes-for-workload-management.md).
 
 ## <a name="lower-your-cost"></a>Reduzir seu custo
-Um recurso-chave do Azure Synapse é a capacidade de [gerenciar recursos de computação](sql-data-warehouse-manage-compute-overview.md). Você poderá pausar o pool do SQL quando ele não estiver em uso e isso interromperá a cobrança dos recursos de computação. Você pode dimensionar os recursos para atender às suas exigências de desempenho. Para pausar, use o [portal do Azure](../../synapse-analytics/sql-data-warehouse/pause-and-resume-compute-portal.md) ou [PowerShell](../../synapse-analytics/sql-data-warehouse/pause-and-resume-compute-powershell.md). Para dimensionar, use o [portal do Azure](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), ou um [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
-
-Um recurso-chave do Azure Synapse é a capacidade de [gerenciar recursos de computação](sql-data-warehouse-manage-compute-overview.md). Você poderá pausar o pool do SQL quando ele não estiver em uso e isso interromperá a cobrança dos recursos de computação. Você pode dimensionar os recursos para atender às suas exigências de desempenho. Para pausar, use o [portal do Azure](../../sql-data-warehouse/pause-and-resume-compute-portal.md) ou [PowerShell](../../sql-data-warehouse/pause-and-resume-compute-powershell.md). Para dimensionar, use o [portal do Azure](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), ou um [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+Um recurso-chave do Azure Synapse é a capacidade de [gerenciar recursos de computação](sql-data-warehouse-manage-compute-overview.md). Você poderá pausar o pool do SQL quando ele não estiver em uso e isso interromperá a cobrança dos recursos de computação. Você pode dimensionar os recursos para atender às suas exigências de desempenho. Para pausar, use o [portal do Azure](pause-and-resume-compute-portal.md) ou [PowerShell](pause-and-resume-compute-powershell.md). Para dimensionar, use o [portal do Azure](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), ou um [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Dimensione automaticamente no momento que desejar com o Azure Functions:
 
