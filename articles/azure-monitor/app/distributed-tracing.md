@@ -6,12 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: c2f384370c3ceaf24164e4a27adc05b1a1e1ddf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294970"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892250"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é o Rastreamento distribuído?
 
@@ -27,17 +27,17 @@ O Azure Monitor também oferece uma exibição de [mapa de aplicativo](https://d
 
 ## <a name="how-to-enable-distributed-tracing"></a>Como habilitar o rastreamento distribuído
 
-Habilitar o rastreamento distribuído nos serviços em um aplicativo é tão simples quanto adicionar o SDK ou biblioteca adequada a cada serviço, com base na linguagem de implementação do serviço.
+Permitir o rastreamento distribuído entre os serviços em um aplicativo é tão simples quanto adicionar o agente adequado, SDK ou biblioteca a cada serviço, com base na linguagem em que o serviço foi implementado.
 
-## <a name="enabling-via-application-insights-sdks"></a>Habilitação via SDKs do Application Insights
+## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>Habilitando via Insights de Aplicativos através de instrumentação automática ou SDKs
 
-Os SDKs do Application Insights para .NET, .NET Core, Java, Node.js e JavaScript oferecem suporte nativo ao rastreamento distribuído. Veja abaixo as instruções para instalar e configurar cada SDK do Application Insights:
+Os agentes do Application Insights e/ou SDKs para .NET, .NET Core, Java, Node.js e JavaScript suportam rastreamento distribuído nativamente. Veja abaixo as instruções para instalar e configurar cada SDK do Application Insights:
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
-* [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
+* [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [Javascript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
 * [Python](opencensus-python.md)
 
 Com SDK adequado do Application Insights instalado e configurado, as informações de rastreamento são coletadas automaticamente para estruturas, bibliotecas e tecnologias populares pelos coletores automáticos de dependência do SDK. A lista completa de tecnologias com suporte está disponível na [documentação de coleta automática de dependência](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).

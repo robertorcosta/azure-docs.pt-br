@@ -11,14 +11,15 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: fa0a5bfe921687ad964e9321e3874de37ccf9b98
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: d175a2cea685585da3767acdb0ab77a99c541d09
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549306"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873864"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Crie e execute pipelines de aprendizado de máquina com o Azure Machine Learning SDK
+
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, você aprenderá a criar, publicar, executar e controlar um [pipeline de aprendizado de máquina](concept-ml-pipelines.md) usando o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Use **os pipelines ML** para criar um fluxo de trabalho que costure várias fases ml e, em seguida, publique esse pipeline no seu espaço de trabalho azure Machine Learning para acessar mais tarde ou compartilhar com outros.  Os pipelines ML são ideais para cenários de pontuação em lote, usando vários cálculos, reutilizando etapas em vez de reexecutá-los, bem como compartilhar fluxos de trabalho ML com outros.
@@ -48,14 +49,13 @@ from azureml.core import Workspace, Datastore
 ws = Workspace.from_config()
 ```
 
-
 ## <a name="set-up-machine-learning-resources"></a>Configurar recursos de aprendizado de máquina
 
 Crie os recursos necessários para executar um pipeline ML:
 
 * Configurar um repositório de dados usado para acessar os dados necessários nas etapas de pipeline.
 
-* Configure um objeto `DataReference` para apontar para dados que residem ou podem ser acessados em um repositório de dados.
+* Configure `Dataset` um objeto para apontar para dados persistentes em que vive ou está acessível em um datastore. Configure `PipelineData` um objeto para dados temporários passados entre as etapas do pipeline. 
 
 * Configure os [destinos de computação](concept-azure-machine-learning-architecture.md#compute-targets) em que suas etapas de pipeline serão executadas.
 
@@ -90,17 +90,18 @@ Um pipeline consiste em uma ou mais etapas. Uma etapa é uma unidade executada e
 
 Para saber mais sobre como conectar seu pipeline aos seus dados, consulte os artigos [Como acessar dados](how-to-access-data.md) e como registrar [conjuntos de dados](how-to-create-register-datasets.md). 
 
-### <a name="configure-data-reference"></a>Configurar referência de dados
+### <a name="configure-data-using-dataset-and-pipelinedata-objects"></a>Configure dados `Dataset` `PipelineData` usando e objetos
 
-Você acabou de criar uma fonte de dados que pode ser referenciada em um pipeline como entrada para uma etapa. Uma fonte de dados em um pipeline é representada por um objeto [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference). O objeto `DataReference` aponta para dados que residem ou podem ser acessados de um repositório de dados.
+Você acabou de criar uma fonte de dados que pode ser referenciada em um pipeline como entrada para uma etapa. A maneira preferida de fornecer dados a um pipeline é um objeto [Dataset.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) O `Dataset` objeto aponta para dados que vivem ou estão acessíveis a partir de um datastore ou em uma URL da Web. A `Dataset` classe é abstrata, então você criará `FileDataset` uma instância de um (referindo-se a um ou mais arquivos) ou um `TabularDataset` que é criado por um ou mais arquivos com colunas delimitadas de dados.
+
+`Dataset`objetos suportam versões, difusores e estatísticas de resumo. `Dataset`s são avaliados preguiçosamente (como geradores Python) e é eficiente subdefini-los dividindo ou filtrando. 
+
+Você cria `Dataset` um uso de métodos como [from_file](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) ou [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
 
 ```python
-from azureml.data.data_reference import DataReference
+from azureml.core import Dataset
 
-blob_input_data = DataReference(
-    datastore=def_blob_store,
-    data_reference_name="test_data",
-    path_on_datastore="20newsgroups/20news.pkl")
+iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 'train-dataset/tabular/iris.csv')])
 ```
 
 Dados intermediários (ou a saída de uma etapa) são representados por um objeto [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` é produzido como a saída de uma etapa e usado como a entrada de um ou mais etapas futuras. O `PipelineData` introduz uma dependência de dados entre etapas e cria uma ordem de execução implícita no pipeline. Este objeto será usado mais tarde ao criar etapas do pipeline.
@@ -114,25 +115,11 @@ output_data1 = PipelineData(
     output_name="output_data1")
 ```
 
-### <a name="configure-data-using-datasets"></a>Configurar dados usando conjuntos de dados
+Mais detalhes e código de amostra para trabalhar com conjuntos de dados e dados do pipeline podem ser encontrados em [Moving datainto e entre as etapas do pipeline ML (Python)](how-to-move-data-in-out-of-pipelines.md).
 
-Se você tiver dados tabulares armazenados em um arquivo ou conjunto de `DataReference`arquivos, um [Conjunto TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) é uma alternativa eficiente a a . `TabularDataset`objetos suportam versões, difusores e estatísticas de resumo. `TabularDataset`s são avaliados preguiçosamente (como geradores Python) e é eficiente subdefini-los dividindo ou filtrando. A `FileDataset` classe fornece dados preguiçosas semelhantes representando um ou mais arquivos. 
+## <a name="set-up-a-compute-target"></a>Configurar um destino de computação
 
-Você cria `TabularDataset` um uso de métodos como [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
-
-```python
-from azureml.data import TabularDataset
-
-iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 'train-dataset/tabular/iris.csv')])
-```
-
- Você cria `FileDataset` um from_files de [uso](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
-
- Você pode aprender mais sobre como trabalhar com conjuntos de dados do [Add & registrar conjuntos de dados](how-to-create-register-datasets.md) ou este caderno de [amostras](https://aka.ms/train-datasets).
-
-## <a name="set-up-compute-target"></a>Configurar destino de computação
-
-No Azure Machine Learning, o termo __computação__ (ou __destino computacional)__ refere-se às máquinas ou clusters que executam as etapas computacionais em seu pipeline de aprendizado de máquina.   Veja [destinos de computação para treinamento do modelo](how-to-set-up-training-targets.md) para obter uma lista completa de destinos de computação e como criá-los e anexá-los ao seu workspace.  O processo para criar e/ou anexar um destino de computação é o mesmo, não importa se você está treinando um modelo ou executando uma etapa do pipeline. Depois de criar e anexar seu destino de computação, use o objeto `ComputeTarget` em na [etapa do pipeline](#steps).
+No Azure Machine Learning, o termo __computação__ (ou __destino de computação__) refere-se a computadores ou clusters que executam as etapas computacionais no pipeline de aprendizado de máquina.   Veja [destinos de computação para treinamento do modelo](how-to-set-up-training-targets.md) para obter uma lista completa de destinos de computação e como criá-los e anexá-los ao seu workspace.  O processo para criar e/ou anexar um destino de computação é o mesmo, não importa se você está treinando um modelo ou executando uma etapa do pipeline. Depois de criar e anexar seu destino de computação, use o objeto `ComputeTarget` em na [etapa do pipeline](#steps).
 
 > [!IMPORTANT]
 > Não há suporte para operações de gerenciamento em destinos de computação de dentro de trabalhos remotos. Como os pipelines de aprendizado de máquina são enviados como um trabalho remoto, não use operações de gerenciamento em destinos de computação de dentro do pipeline.
@@ -287,13 +274,16 @@ Depois de criar e anexar um destino de computação ao workspace, você está pr
 ```python
 from azureml.pipeline.steps import PythonScriptStep
 
+ds_input = my_dataset.as_named_input('input1')
+
 trainStep = PythonScriptStep(
     script_name="train.py",
-    arguments=["--input", blob_input_data, "--output", output_data1],
-    inputs=[blob_input_data],
+    arguments=["--input", ds_input.as_download(), "--output", output_data1],
+    inputs=[ds_input],
     outputs=[output_data1],
     compute_target=compute_target,
-    source_directory=project_folder
+    source_directory=project_folder,
+    allow_reuse=True
 )
 ```
 
@@ -339,8 +329,6 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 
 ### <a name="use-a-dataset"></a>Use um conjunto de dados 
 
-Para usar `TabularDataset` um `FileDataset` ou em seu pipeline, você precisa transformá-lo em um objeto [DatasetConsumptionConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_consumption_config.datasetconsumptionconfig?view=azure-ml-py) chamando [as_named_input(nome)](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#as-named-input-name-). Você passa `DatasetConsumptionConfig` este objeto `inputs` como um dos passos para o seu oleoduto. 
-
 Conjuntos de dados criados a partir do armazenamento Azure Blob, Arquivos Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database e Azure Database para PostgreSQL podem ser usados como entrada para qualquer etapa do pipeline. Com exceção da saída de gravação para um [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) ou [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py), os dados de saída[(PipelineData)](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)só podem ser gravados para os armazenamentos de dados de compartilhamento de arquivos Azure Blob e Azure.
 
 ```python
@@ -363,7 +351,15 @@ iris_dataset = run_context.input_datasets['iris_data']
 dataframe = iris_dataset.to_pandas_dataframe()
 ```
 
-Para obter mais informações, consulte o [pacote azure-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) e a referência [da classe Pipeline.](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py)
+A `Run.get_context()` linha merece destaque. Esta função recupera `Run` um representando a execução experimental atual. Na amostra acima, usamos-o para recuperar um conjunto de dados registrado. Outro uso comum do `Run` objeto é recuperar tanto o experimento em si quanto o espaço de trabalho em que o experimento reside: 
+
+```python
+# Within a PythonScriptStep
+
+ws = Run.get_context().experiment.workspace
+```
+
+Para obter mais detalhes, incluindo formas alternativas de passar e acessar dados, consulte [Movendo dados para dentro e entre as etapas do pipeline ML (Python)](how-to-move-data-in-out-of-pipelines.md).
 
 ## <a name="submit-the-pipeline"></a>Enviar o pipeline
 
@@ -387,7 +383,7 @@ Quando você executar um pipeline pela primeira vez, o Azure Machine Learning:
 * Baixa o instantâneo do projeto para o destino de computação do armazenamento de Blobs associado ao workspace.
 * Cria uma imagem do Docker correspondente a cada etapa no pipeline.
 * Baixa a imagem docker para cada passo para o destino de computação do registro de contêiner.
-* Monta o datastore `DataReference` se um objeto for especificado em uma etapa. Se não houver suporte para montagem, os dados serão copiados para o destino de computação.
+* Configura acesso `Dataset` e `PipelineData` objetos. Para `as_mount()` como modo de acesso, o FUSE é usado para fornecer acesso virtual. Se a montagem não for suportada ou `as_download()`se o usuário tiver especificado o acesso como , os dados serão copiados para o destino de computação.
 * Executa a etapa no destino de computação especificado na definição da etapa. 
 * Cria artefatos como logs, stdout e stderr, métricas e saída especificados pela etapa. Esses artefatos são então carregados e mantidos no armazenamento de dados padrão do usuário.
 
@@ -464,6 +460,7 @@ response = requests.post(published_pipeline1.endpoint,
 ```
 
 ## <a name="create-a-versioned-pipeline-endpoint"></a>Criar um ponto final de pipeline versionado
+
 Você pode criar um Pipeline Endpoint com vários pipelines publicados por trás dele. Isso pode ser usado como um pipeline publicado, mas lhe dá um ponto final REST fixo à medida que você itera e atualiza seus pipelines ML.
 
 ```python
@@ -475,19 +472,24 @@ pipeline_endpoint = PipelineEndpoint.publish(workspace=ws, name="PipelineEndpoin
 ```
 
 ### <a name="submit-a-job-to-a-pipeline-endpoint"></a>Submeta um trabalho a um ponto final do gasoduto
+
 Você pode enviar um trabalho para a versão padrão de um ponto final do pipeline:
+
 ```python
 pipeline_endpoint_by_name = PipelineEndpoint.get(workspace=ws, name="PipelineEndpointTest")
 run_id = pipeline_endpoint_by_name.submit("PipelineEndpointExperiment")
 print(run_id)
 ```
+
 Você também pode enviar um trabalho para uma versão específica:
+
 ```python
 run_id = pipeline_endpoint_by_name.submit("PipelineEndpointExperiment", pipeline_version="0")
 print(run_id)
 ```
 
 O mesmo pode ser realizado usando a API REST:
+
 ```python
 rest_endpoint = pipeline_endpoint_by_name.endpoint
 response = requests.post(rest_endpoint, 
@@ -512,19 +514,17 @@ Você também pode executar um pipeline publicado do estúdio:
 
 1. Selecione um pipeline específico para executar, consumir ou revisar os resultados das corridas anteriores do ponto final do pipeline.
 
-
 ### <a name="disable-a-published-pipeline"></a>Desativar um pipeline publicado
 
 Para ocultar um pipeline da sua lista de pipelines publicados, desabilitá-lo, seja no estúdio ou no SDK:
 
-```
+```python
 # Get the pipeline by using its ID from Azure Machine Learning studio
 p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
 Você pode habilitá-lo novamente com `p.enable()`. Para obter mais informações, consulte a referência [da classe PublishedPipeline.](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py)
-
 
 ## <a name="caching--reuse"></a>Reutilização de & caching  
 

@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 555fb39836054be05102f4c28167d72016805639
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 241d90981ed9ba54d253e6c22c00f9e5a9197863
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481493"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884878"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
@@ -67,7 +67,7 @@ Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de 
 
 Para o provisionamento de saída do Azure AD para um aplicativo SaaS, depender [de atribuições de usuários ou grupos](../manage-apps/assign-user-or-group-access-portal.md) é a maneira mais comum de determinar quais usuários estão no escopo do provisionamento. Como as atribuições do usuário também são usadas para habilitar o logon único, o mesmo método pode ser usado para gerenciar tanto o acesso quanto o provisionamento. O escopo baseado em atribuição não se aplica a cenários de provisionamento de entrada, como Workday e Successfactors.
 
-* **Grupos.** Com um plano de licença Azure AD Premium, você pode usar grupos para atribuir acesso a um aplicativo SaaS. Em seguida, quando o escopo de provisionamento for definido apenas para **Sincronizar usuários e grupos atribuídos,** o serviço de provisionamento Azure AD irá provisionar ou desprovisionar os usuários com base em se eles são membros de um grupo atribuído ao aplicativo. O objeto de grupo em si não é provisionado a menos que o aplicativo suporte objetos de grupo.
+* **Grupos.** Com um plano de licença Azure AD Premium, você pode usar grupos para atribuir acesso a um aplicativo SaaS. Em seguida, quando o escopo de provisionamento for definido apenas para **Sincronizar usuários e grupos atribuídos,** o serviço de provisionamento Azure AD irá provisionar ou desprovisionar os usuários com base em se eles são membros de um grupo atribuído ao aplicativo. O objeto de grupo em si não é provisionado a menos que o aplicativo suporte objetos de grupo. Certifique-se de que os grupos atribuídos ao seu aplicativo tenham a propriedade "SecurityEnabled" definida como "Falsa".
 
 * **Grupos dinâmicos.** O serviço de provisionamento de usuários Azure AD pode ler e provisionar usuários em [grupos dinâmicos](../users-groups-roles/groups-create-rule.md). Tenha essas ressalvas e recomendações em mente:
 

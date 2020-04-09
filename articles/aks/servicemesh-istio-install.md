@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/19/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: f0fe4ab46bfe5c0c0c2ea67aa2e2694321628be5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1d02cb42a86023e5c341daab678c39f22f75dda
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136356"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877687"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalar e usar o Istio no AKS (Serviço de Kubernetes do Azure)
 
@@ -97,7 +97,10 @@ A abordagem de instalação [do Helm][helm] para Istio será preterida no futuro
 > Istio atualmente deve ser programado para ser executado em nós Linux. Se você tiver nós do Windows Server em seu cluster, você deve garantir que os pods Istio só estejam programados para serem executados em nós Linux. Usaremos [seletores de nó][kubernetes-node-selectors] para garantir que os pods estejam programados para os nós corretos.
 
 > [!CAUTION]
-> Os [recursos do SDS (serviço de descoberta secreta)][istio-feature-sds] e [istio CNI][istio-feature-cni] Istio estão atualmente em [Alpha][istio-feature-stages], então o pensamento deve ser dado antes de habilitá-los. Além disso, o recurso [Service Account Token Volume Projection][kubernetes-feature-sa-projected-volume] Kubernetes (um requisito para SDS) não está habilitado nas versões atuais do AKS.
+> Os [recursos do SDS (serviço de descoberta secreta)][istio-feature-sds] e [istio CNI][istio-feature-cni] Istio estão atualmente em [Alpha][istio-feature-stages], então o pensamento deve ser dado antes de habilitá-los. 
+>
+> Observe que o recurso [Service Account Token Volume Projection][kubernetes-feature-sa-projected-volume] Kubernetes (um requisito para SDS) está agora **habilitado** para todas as versões Kubernetes 1.13 e superiores no AKS.
+
 Crie um `istio.aks.yaml` arquivo chamado com o seguinte conteúdo. Este arquivo manterá os [detalhes da especificação do plano de controle Istio][istio-control-plane] para configurar istio.
 
 ```yaml

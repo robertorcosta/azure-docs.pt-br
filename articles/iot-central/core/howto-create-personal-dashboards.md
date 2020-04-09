@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: db886006ff5b9adf3de0932951f6cce4958e8ebd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06225e284000d7f10f575be08cd683488abec339
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158122"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985483"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Crie e gerencie vários dashboards
 
-O **Painel de Controle** é a página que carrega quando você navega pela primeira vez para o seu aplicativo. Um **construtor** em seu aplicativo define o painel de aplicativos padrão para todos os usuários. Você pode substituir este painel padrão por seu próprio painel de aplicativos personalizado. Você pode ter vários dashboards que exibem dados diferentes e alternam entre eles. 
+O **Painel de Controle** é a página que carrega quando você navega pela primeira vez para o seu aplicativo. Um **construtor** em seu aplicativo define o painel de aplicativos padrão para todos os usuários. Além disso, você pode criar seu próprio painel de aplicativos personalizado. Você pode ter vários dashboards que exibem dados diferentes e alternam entre eles.
 
 Se você é **um admin** do aplicativo, você também pode criar até 10 dashboards de nível de aplicativo para compartilhar com outros usuários do aplicativo. Apenas **os admins** têm a capacidade de criar, editar e excluir painéis de nível de aplicativo. 
 

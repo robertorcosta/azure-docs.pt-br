@@ -1,24 +1,24 @@
 ---
 title: Azure HDInsight para Visual Studio Code
-description: Aprenda a usar o Spark & Hive Tools (Azure HDInsight) para criar e enviar consultas e scripts.
+description: Aprenda a usar as ferramentas de colmeia Spark & (Azure HDInsight) para visual studio code. Use as ferramentas para criar e enviar consultas e scripts.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 9a81868d678b4c0277e904e879c73185a378bf70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/07/2020
+ms.openlocfilehash: de433d85c2f04a7140fbcb918730218ac3a05e54
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75435677"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878622"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use ferramentas de colmeia spark & para o código visual do estúdio
 
-Aprenda a usar o Spark & Hive Tools for Visual Studio Code para criar e enviar trabalhos em lote do Apache Hive, consultas interativas de Colmeia e scripts PySpark para Apache Spark. Primeiro descreveremos como instalar ferramentas de colmeia Spark & no Visual Studio Code, e depois vamos mostrar como enviar trabalhos para a Spark & Hive Tools.  
+Aprenda a usar as ferramentas de colmeia de & Despark Apache para o Visual Studio Code. Use as ferramentas para criar e enviar trabalhos em lote da Colmeia Apache, consultas interativas de Colmeia e scripts PySpark para Apache Spark. Primeiro vamos descrever como instalar o Spark & Hive Tools no Visual Studio Code. Em seguida, vamos mostrar como enviar empregos para Spark & Ferramentas colmeias.  
 
-As Ferramentas do Spark & Hive podem ser instaladas em plataformas com suporte do Visual Studio Code, que incluem Windows, Linux e macOS. Observe os seguintes pré-requisitos para diferentes plataformas.
+Spark & Hive Tools podem ser instalados em plataformas que são suportadas pelo Visual Studio Code. Observe os seguintes pré-requisitos para diferentes plataformas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -70,13 +70,13 @@ Para um usuário nacional de nuvem, siga estas etapas para definir primeiro o am
 
 ## <a name="connect-to-an-azure-account"></a>Conecte-se a uma conta do Azure
 
-Antes de enviar scripts para seus clusters do Visual Studio Code, você deve se conectar à sua conta do Azure ou vincular um cluster (usando o nome de usuário apache Ambari e credenciais de senha ou uma conta de domínio). Siga estas etapas para se conectar ao Azure:
+Antes de enviar scripts para seus clusters do Visual Studio Code, você deve se conectar à sua conta do Azure ou vincular um cluster. Use o nome de usuário apache Ambari e credenciais de senha ou uma conta de domínio. Siga estas etapas para se conectar ao Azure:
 
 1. Na barra de menus, navegue até **Exibir** > **paleta de comando...** e **digite Azure: Faça login**:
 
     ![Spark & Ferramentas de Colmeia para login visual studio code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-2. Siga as instruções de login para entrar no Azure. Depois de conectado, o nome da conta do Azure é mostrado na barra de status na parte inferior da janela Visual Studio Code.  
+2. Siga as instruções de login para entrar no Azure. Depois de conectado, o nome da conta do Azure aparece na barra de status na parte inferior da janela Visual Studio Code.  
 
 ## <a name="link-a-cluster"></a>Vincular um cluster
 
@@ -125,7 +125,7 @@ Você pode vincular um cluster normal usando um nome de usuário gerenciado pelo
 
 2. Selecione a assinatura que você deseja.
 
-3. Examine a exibição **SAÍDA**. Esta exibição mostra seu cluster vinculado (ou clusters) e todos os clusters sua assinatura do Azure:
+3. Examine a exibição **SAÍDA**. Esta exibição mostra seu cluster vinculado (ou clusters) e todos os clusters sob sua assinatura do Azure:
 
     ![Definir uma configuração de cluster padrão](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
@@ -260,7 +260,7 @@ Após você enviar um trabalho do Python, os logs de envio aparecem na janela de
 
 ## <a name="apache-livy-configuration"></a>Configuração do Apache Livy
 
-A configuração [apache livy](https://livy.incubator.apache.org/) é suportada. Você pode configurá-lo no **. ARQUIVO VSCode\settings.json** na pasta workspace. Atualmente, a configuração do Livy dá suporte apenas ao script de Python. Para obter mais detalhes, consulte [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
+A configuração [apache livy](https://livy.incubator.apache.org/) é suportada. Você pode configurá-lo no **. ARQUIVO VSCode\settings.json** na pasta workspace. Atualmente, a configuração do Livy dá suporte apenas ao script de Python. Para obter mais informações, consulte [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
 
 <a id="triggerlivyconf"></a>**Como ativar a configuração livy**
 
@@ -269,7 +269,7 @@ Método 1
 2. Na caixa **De configurações de pesquisa,** digite **HDInsight Job Submission: Livy Conf**.  
 3. Selecione **Editar em settings.json** para o resultado da pesquisa relevante.
 
-Método 2 Envie um arquivo e observe que a pasta .vscode foi adicionada automaticamente à pasta de trabalho. Você pode ver a configuração De Livy selecionando **.vscode\settings.json**.
+Método 2 Envie um arquivo `.vscode` e observe que a pasta foi adicionada automaticamente à pasta de trabalho. Você pode ver a configuração De Livy selecionando **.vscode\settings.json**.
 
 + As configurações do projeto:
 
@@ -283,7 +283,7 @@ Método 2 Envie um arquivo e observe que a pasta .vscode foi adicionada automati
     **POST /lotes** Solicitar corpo
 
     | name | descrição | type |
-    | :- | :- | :- |
+    | --- | --- | --- |
     | file | Arquivo que contém o aplicativo a ser executado | Caminho (obrigatório) |
     | proxyUser | Usuário a representar ao executar o trabalho | String |
     | className | Classe principal de Java/Spark do aplicativo | String |
@@ -304,9 +304,9 @@ Método 2 Envie um arquivo e observe que a pasta .vscode foi adicionada automati
     Corpo de resposta O objeto Batch criado.
 
     | name | descrição | type |
-    | :- | :- | :- |
-    | id | Id da sessão | Int |
-    | appId | Id de aplicação desta sessão | String |
+    | --- | ---| --- |
+    | ID | ID da sessão | Int |
+    | appId | ID de aplicação desta sessão | String |
     | appInfo | Informações detalhadas do aplicativo | Mapa de chave = valor |
     | log | Linhas de log | Lista de strings |
     | state |Estado do lote | String |
@@ -340,8 +340,8 @@ Você pode visualizar a Tabela Colmeia em seus clusters diretamente através do 
 
 - Painel MENSAGENS
    1. Quando o número de linhas na tabela é maior que 100, você vê a seguinte mensagem: "As primeiras 100 linhas são exibidas para a tabela Colmeia".
-   2. Quando o número de linhas na tabela é menor ou igual a 100, você vê uma mensagem como a seguinte: "60 linhas são exibidas para a tabela Colmeia".
-   3. Quando não há conteúdo na tabela, você vê a seguinte mensagem: "0 linhas são exibidas para a tabela Colmeia".
+   2. Quando o número de linhas na tabela é menor ou igual a 100, você vê a seguinte mensagem: "60 linhas são exibidas para a tabela Colmeia".
+   3. Quando não há conteúdo na tabela, você vê`0 rows are displayed for Hive table.`a seguinte mensagem: "
 
         >[!NOTE]
         >
@@ -364,7 +364,7 @@ Spark & Hive for Visual Studio Code também suporta os seguintes recursos:
 
 ## <a name="reader-only-role"></a>Função somente leitura
 
-Os usuários que são atribuídos à função somente para leitor para o cluster não podem mais enviar trabalhos para o cluster HDInsight, nem podem visualizar o banco de dados Hive. Entre em contato com o administrador de clusters para atualizar sua função para [**HDInsight Cluster Operator**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) no [portal Azure](https://ms.portal.azure.com/). Se você tiver credenciais Ambari válidas, você pode vincular manualmente o cluster usando a seguinte orientação.
+Os usuários que são atribuídos à função somente para leitor para o cluster não podem enviar trabalhos para o cluster HDInsight, nem visualizar o banco de dados Hive. Entre em contato com o administrador de clusters para atualizar sua função para [**HDInsight Cluster Operator**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) no [portal Azure](https://ms.portal.azure.com/). Se você tiver credenciais Ambari válidas, você pode vincular manualmente o cluster usando a seguinte orientação.
 
 ### <a name="browse-the-hdinsight-cluster"></a>Navegue pelo cluster HDInsight  
 
@@ -393,11 +393,11 @@ Ao enviar o trabalho para um cluster HDInsight, você é solicitado a vincular o
 
 ### <a name="browse-a-data-lake-storage-gen2-account"></a>Navegue por uma conta Data Lake Storage Gen2
 
-Quando você seleciona o explorador Azure HDInsight para expandir uma conta Data Lake Storage Gen2, você é solicitado a inserir a chave de acesso ao armazenamento se sua conta do Azure não tiver acesso ao armazenamento Gen2. Depois que a chave de acesso é validada, a conta Data Lake Storage Gen2 é expandida automaticamente.
+Selecione o explorador Azure HDInsight para expandir uma conta Data Lake Storage Gen2. Você é solicitado a inserir a chave de acesso de armazenamento se sua conta do Azure não tiver acesso ao armazenamento Gen2. Depois que a chave de acesso é validada, a conta Data Lake Storage Gen2 é expandida automaticamente.
 
 ### <a name="submit-jobs-to-an-hdinsight-cluster-with-data-lake-storage-gen2"></a>Enviar trabalhos para um cluster HDInsight com Data Lake Storage Gen2
 
-Quando você envia um trabalho para um cluster HDInsight usando data lake storage Gen2, você é solicitado a inserir a chave de acesso de armazenamento se sua conta Do Azure não tiver acesso à gravação ao armazenamento Gen2. Depois que a chave de acesso for validada, o trabalho será submetido com sucesso.
+Envie um trabalho para um cluster HDInsight usando data lake storage Gen2. Você é solicitado a inserir a chave de acesso de armazenamento se sua conta do Azure não tiver acesso à gravação ao armazenamento Gen2. Depois que a chave de acesso for validada, o trabalho será submetido com sucesso.
 
 ![Spark & Ferramentas de Colmeia para Visual Studio Code AccessKey](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)
 

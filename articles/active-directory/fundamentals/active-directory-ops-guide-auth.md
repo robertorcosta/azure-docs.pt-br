@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 8b4ec003888d75a582d25feef8ed2ce010fa7996
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: f25abb70a95f559cf0cc14efa6cf9f0e81ec9ec0
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546245"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876285"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gerenciamento de autenticação de diretório ativo do Azure
 
@@ -64,7 +64,7 @@ Use a tabela abaixo para encontrar a solução recomendada para mitigar o proble
 | Nenhum mecanismo para proteger contra senhas fracas | Habilite a redefinição de senha de autoatendimento do Azure AD [(SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) e [proteção por senha](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) |
 | Nenhum mecanismo para detectar senhas vazadas | Habilite o PHS [(Password Hash Sync, sincronização de hash)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) para obter insights |
 | Usando AD FS e incapaz de se mover para autenticação gerenciada | Habilitar [o Bloqueio Inteligente AD FS Extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) e/ou [o Azure AD Smart Lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout) |
-| A política de senha usa regras baseadas em complexidade, como comprimento, vários conjuntos de caracteres ou expiração | Reconsidere a favor das [Práticas Recomendadas](https://aka.ms/passwordguidance) da Microsoft e mude sua abordagem para o gerenciamento de senhas e implante [a proteção por senha do Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad). |
+| A política de senha usa regras baseadas em complexidade, como comprimento, vários conjuntos de caracteres ou expiração | Reconsidere a favor das [Práticas Recomendadas](https://www.microsoft.com/research/publication/password-guidance/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F265143%2Fmicrosoft_password_guidance.pdf) da Microsoft e mude sua abordagem para o gerenciamento de senhas e implante [a proteção por senha do Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad). |
 | Os usuários não estão registrados para usar autenticação multifatorial (MFA) | [Registre todas as informações de segurança do usuário](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-mfa-policy) para que ela possa ser usada como um mecanismo para verificar a identidade do usuário junto com sua senha |
 | Não há revogação de senhas com base no risco do usuário | Implantar políticas de [risco de usuário do](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy) Azure AD Identity Protection para forçar alterações de senha em credenciais vazadas usando SSPR |
 | Não há mecanismo de bloqueio inteligente para proteger a autenticação maliciosa de maus atores provenientes de endereços IP identificados | Implantar autenticação gerenciada na nuvem com sincronização de hash de senha ou [autenticação de passagem](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) (PTA) |
@@ -101,11 +101,11 @@ Se a sua organização local não está com uma estratégia de resiliência de p
 
 ![fluxo de sincronização hash senha](./media/active-directory-ops-guide/active-directory-ops-img5.png)
 
-Para entender melhor suas opções de autenticação, consulte [Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/choose-ad-authn).
+Para entender melhor suas opções de autenticação, consulte [Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory](../hybrid/choose-ad-authn.md).
 
 ### <a name="programmatic-usage-of-credentials"></a>Uso programático de credenciais
 
-Scripts Azure AD usando PowerShell ou aplicativos usando a API do Microsoft Graph exigem autenticação segura. O mau gerenciamento de credenciais executando esses scripts e ferramentas aumenta o risco de roubo de credenciais. Se você estiver usando scripts ou aplicativos que dependem de senhas ou senhas codificadas, você deve primeiro revisar senhas em arquivos config ou código-fonte, em seguida, substitua essas dependências e use Identidades Gerenciadas do Azure, Autenticação Integrada do Windows ou [certificados](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates) sempre que possível. Para aplicações onde as soluções anteriores não são possíveis, considere usar [o Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Scripts Azure AD usando PowerShell ou aplicativos usando a API do Microsoft Graph exigem autenticação segura. O mau gerenciamento de credenciais executando esses scripts e ferramentas aumenta o risco de roubo de credenciais. Se você estiver usando scripts ou aplicativos que dependem de senhas ou senhas codificadas, você deve primeiro revisar senhas em arquivos config ou código-fonte, em seguida, substitua essas dependências e use Identidades Gerenciadas do Azure, Autenticação Integrada do Windows ou [certificados](../reports-monitoring/tutorial-access-api-with-certificates.md) sempre que possível. Para aplicações onde as soluções anteriores não são possíveis, considere usar [o Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 Se você determinar que existem diretores de serviço com credenciais de senha e não tiver certeza de como essas credenciais de senha são protegidas por scripts ou aplicativos, entre em contato com o proprietário do aplicativo para entender melhor os padrões de uso.
 
@@ -115,7 +115,7 @@ A Microsoft também recomenda que você entre em contato com os proprietários d
 
 ### <a name="on-premises-authentication"></a>Autenticação no local
 
-Autenticação federada com autenticação integrada do Windows Authentication (IWA) ou SSO (SSO) gerenciada com sincronização de hash de senha ou autenticação de passagem é a melhor experiência do usuário quando dentro da rede corporativa com controladores de domínio de linha de visão para controladores de domínio no local. Ele minimiza a fadiga imediata da credencial e reduz o risco de os usuários serem vítimas de ataques de phishing. Se você já estiver usando autenticação gerenciada na nuvem com PHS ou PTA, mas os usuários ainda precisam digitar sua senha ao autenticar no local, então você deve implantar imediatamente [o SSO Sem Emendas](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso). Por outro lado, se você está atualmente federado com planos para eventualmente migrar para autenticação gerenciada em nuvem, então você deve implementar o SSO sem emendas como parte do projeto de migração.
+Autenticação federada com autenticação integrada do Windows Authentication (IWA) ou SSO (SSO) gerenciada com sincronização de hash de senha ou autenticação de passagem é a melhor experiência do usuário quando dentro da rede corporativa com controladores de domínio de linha de visão para controladores de domínio no local. Ele minimiza a fadiga imediata da credencial e reduz o risco de os usuários serem vítimas de ataques de phishing. Se você já estiver usando autenticação gerenciada na nuvem com PHS ou PTA, mas os usuários ainda precisam digitar sua senha ao autenticar no local, então você deve implantar imediatamente [o SSO Sem Emendas](../hybrid/how-to-connect-sso.md). Por outro lado, se você está atualmente federado com planos para eventualmente migrar para autenticação gerenciada em nuvem, então você deve implementar o SSO sem emendas como parte do projeto de migração.
 
 ### <a name="device-trust-access-policies"></a>Políticas de acesso à confiança de dispositivos
 
@@ -123,66 +123,66 @@ Como um usuário na sua organização, um dispositivo é uma identidade importan
 
 - Evitando atritos, por exemplo, com MFA, quando o dispositivo é confiável
 - Bloqueando o acesso de dispositivos não confiáveis
-- Para dispositivos Com Windows 10, forneça [o login único nos recursos locais perfeitamente](https://docs.microsoft.com/azure/active-directory/devices/azuread-join-sso).
+- Para dispositivos Com Windows 10, forneça [o login único nos recursos locais perfeitamente](../devices/azuread-join-sso.md).
 
 Você pode realizar esse objetivo trazendo identidades de dispositivos e gerenciando-as no Azure AD usando um dos seguintes métodos:
 
 - As organizações podem usar o [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) para gerenciar o dispositivo e aplicar políticas de conformidade, atestar a saúde do dispositivo e definir políticas de acesso condicional com base em se o dispositivo está em conformidade. O Microsoft Intune pode gerenciar dispositivos iOS, desktops Mac (integração Via JAMF), desktops Windows (usando nativamente o Gerenciamento de Dispositivos Móveis para Windows 10 e co-gerenciamento com o Microsoft Endpoint Configuration Manager) e dispositivos móveis Android.
-- [O Ad do Hybrid Azure](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) fornece gerenciamento com políticas de grupo ou gerenciador de configuração de ponto final do Microsoft em um ambiente com dispositivos de computador escaneados pelo domínio do Active Directory. As organizações podem implantar um ambiente gerenciado através do PHS ou do PTA com SSO sem emendas. Trazer seus dispositivos para o Azure AD maximiza a produtividade do usuário através do SSO através dos recursos de nuvem e local, permitindo que você garanta acesso seguro aos recursos da nuvem e on-premises com o [Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) ao mesmo tempo.
+- [O Ad do Hybrid Azure](../devices/hybrid-azuread-join-managed-domains.md) fornece gerenciamento com políticas de grupo ou gerenciador de configuração de ponto final do Microsoft em um ambiente com dispositivos de computador escaneados pelo domínio do Active Directory. As organizações podem implantar um ambiente gerenciado através do PHS ou do PTA com SSO sem emendas. Trazer seus dispositivos para o Azure AD maximiza a produtividade do usuário através do SSO através dos recursos de nuvem e local, permitindo que você garanta acesso seguro aos recursos da nuvem e on-premises com o [Conditional Access](../conditional-access/overview.md) ao mesmo tempo.
 
-Se você tiver dispositivos Windows com domínio que não estão registrados na nuvem ou dispositivos Windows com domínio registrados na nuvem, mas sem políticas de acesso condicional, então você deve registrar os dispositivos não registrados e, em ambos os casos, usar o [Hybrid Azure AD como um controle](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) em suas políticas de acesso condicional.
+Se você tiver dispositivos Windows com domínio que não estão registrados na nuvem ou dispositivos Windows com domínio registrados na nuvem, mas sem políticas de acesso condicional, então você deve registrar os dispositivos não registrados e, em ambos os casos, usar o [Hybrid Azure AD como um controle](../conditional-access/require-managed-devices.md) em suas políticas de acesso condicional.
 
 ![Uma captura de tela de concessão na política de acesso condicional que exige dispositivo híbrido](./media/active-directory-ops-guide/active-directory-ops-img6.png)
 
-Se você está gerenciando dispositivos com MDM ou Microsoft Intune, mas não usando controles de dispositivos em suas políticas de acesso condicional, então recomendamos que [o uso do dispositivo seja marcado como compatível](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices#require-device-to-be-marked-as-compliant) como um controle nessas políticas.
+Se você está gerenciando dispositivos com MDM ou Microsoft Intune, mas não usando controles de dispositivos em suas políticas de acesso condicional, então recomendamos que [o uso do dispositivo seja marcado como compatível](../conditional-access/require-managed-devices.md#require-device-to-be-marked-as-compliant) como um controle nessas políticas.
 
 ![Uma captura de tela de concessão na política de acesso condicional que exige a conformidade do dispositivo](./media/active-directory-ops-guide/active-directory-ops-img7.png)
 
 #### <a name="device-trust-access-policies-recommended-reading"></a>Políticas de acesso de confiança de dispositivos recomendadas leitura
 
-- [Como: Planeje seu Diretório Ativo azure híbrido aderir à implementação](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
+- [Como: Planeje seu Diretório Ativo azure híbrido aderir à implementação](../devices/hybrid-azuread-join-plan.md)
 - [Configurações de acesso à identidade e ao dispositivo](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>Windows Hello for Business
 
 No Windows 10, [o Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) substitui senhas por forte autenticação de dois fatores em PCs. O Windows Hello for Business permite uma experiência MFA mais simplificada para os usuários e reduz sua dependência de senhas. Se você ainda não começou a lançar dispositivos Windows 10, ou apenas parcialmente implantá-los, recomendamos que você atualize para o Windows 10 e [habilite o Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) em todos os dispositivos.
 
-Se você quiser saber mais sobre autenticação sem senha, consulte [Um mundo sem senhas com o Azure Active Directory](https://aka.ms/passwordlessdoc).
+Se você quiser saber mais sobre autenticação sem senha, consulte [Um mundo sem senhas com o Azure Active Directory](../authentication/concept-authentication-passwordless.md).
 
 ## <a name="application-authentication-and-assignment"></a>Autenticação e atribuição de aplicativos
 
 ### <a name="single-sign-on-for-apps"></a>Único login para aplicativos
 
-Fornecer um mecanismo de sinalização único padronizado para toda a empresa é crucial para a melhor experiência do usuário, redução de risco, capacidade de relatório e governança. Se você estiver usando aplicativos que suportam SSO com o Azure AD, mas estão configurados atualmente para usar contas locais, você deve reconfigurar esses aplicativos para usar o SSO com o Azure AD. Da mesma forma, se você estiver usando quaisquer aplicativos que suportam SSO com o Azure AD, mas estiver usando outro Provedor de Identidade, você deve reconfigurar esses aplicativos para usar o SSO com o Azure AD também. Para aplicativos que não suportam protocolos da federação, mas suportam autenticação baseada em formulários, recomendamos que você configure o aplicativo para usar [o cofre de senhas](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting) com o Azure AD Application Proxy.
+Fornecer um mecanismo de sinalização único padronizado para toda a empresa é crucial para a melhor experiência do usuário, redução de risco, capacidade de relatório e governança. Se você estiver usando aplicativos que suportam SSO com o Azure AD, mas estão configurados atualmente para usar contas locais, você deve reconfigurar esses aplicativos para usar o SSO com o Azure AD. Da mesma forma, se você estiver usando quaisquer aplicativos que suportam SSO com o Azure AD, mas estiver usando outro Provedor de Identidade, você deve reconfigurar esses aplicativos para usar o SSO com o Azure AD também. Para aplicativos que não suportam protocolos da federação, mas suportam autenticação baseada em formulários, recomendamos que você configure o aplicativo para usar [o cofre de senhas](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) com o Azure AD Application Proxy.
 
 ![Login baseado em senha do AppProxy](./media/active-directory-ops-guide/active-directory-ops-img8.png)
 
 > [!NOTE]
 > Se você não tiver um mecanismo para descobrir aplicativos não gerenciados em sua organização, recomendamos implementar um processo de detecção usando uma solução de corretor de segurança de acesso à nuvem (CASB), como [o Microsoft Cloud App Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security).
 
-Finalmente, se você tem uma galeria de aplicativos Azure AD e usa aplicativos que suportam SSO com Azure AD, recomendamos [listar o aplicativo na galeria de aplicativos](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing).
+Finalmente, se você tem uma galeria de aplicativos Azure AD e usa aplicativos que suportam SSO com Azure AD, recomendamos [listar o aplicativo na galeria de aplicativos](../azuread-dev/howto-app-gallery-listing.md).
 
 #### <a name="single-sign-on-recommended-reading"></a>Leitura recomendada de sinal único
 
-- [O que é acesso ao aplicativo e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [O que é acesso ao aplicativo e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ### <a name="migration-of-ad-fs-applications-to-azure-ad"></a>Migração de aplicativos AD FS para Azure AD
 
-[A migração de aplicativos do AD FS para o Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure) permite recursos adicionais em segurança, gerenciabilidade mais consistente e uma melhor experiência de colaboração. Se você tiver aplicativos configurados no AD FS que suportam SSO com o Azure AD, então você deve reconfigurar esses aplicativos para usar o SSO com o Azure AD. Se você tiver aplicativos configurados no AD FS com configurações incomuns não suportadas pelo Azure AD, você deve entrar em contato com os proprietários do aplicativo para entender se a configuração especial é um requisito absoluto do aplicativo. Se não for necessário, então você deve reconfigurar o aplicativo para usar o SSO com o Azure AD.
+[A migração de aplicativos do AD FS para o Azure AD](../manage-apps/migrate-adfs-apps-to-azure.md) permite recursos adicionais em segurança, gerenciabilidade mais consistente e uma melhor experiência de colaboração. Se você tiver aplicativos configurados no AD FS que suportam SSO com o Azure AD, então você deve reconfigurar esses aplicativos para usar o SSO com o Azure AD. Se você tiver aplicativos configurados no AD FS com configurações incomuns não suportadas pelo Azure AD, você deve entrar em contato com os proprietários do aplicativo para entender se a configuração especial é um requisito absoluto do aplicativo. Se não for necessário, então você deve reconfigurar o aplicativo para usar o SSO com o Azure AD.
 
 ![Azure AD como o principal provedor de identidade](./media/active-directory-ops-guide/active-directory-ops-img9.png)
 
 > [!NOTE]
-> [O Azure AD Connect Health for ADFS](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs) pode ser usado para coletar detalhes de configuração sobre cada aplicativo que podem ser potencialmente migrados para o Azure AD.
+> [O Azure AD Connect Health for ADFS](../hybrid/how-to-connect-health-adfs.md) pode ser usado para coletar detalhes de configuração sobre cada aplicativo que podem ser potencialmente migrados para o Azure AD.
 
 ### <a name="assign-users-to-applications"></a>Atribuir usuários a aplicativos
 
-[Atribuir usuários a aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) é melhor mapeado usando grupos porque eles permitem maior flexibilidade e capacidade de gerenciar em escala. Os benefícios do uso de grupos incluem [a adesão de grupo dinâmico baseado em atributos](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership) e [delegação aos proprietários de aplicativos](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners). Portanto, se você já está usando e gerenciando grupos, recomendamos que você tome as seguintes ações para melhorar a gestão em escala:
+[Atribuir usuários a aplicativos](../manage-apps/assign-user-or-group-access-portal.md) é melhor mapeado usando grupos porque eles permitem maior flexibilidade e capacidade de gerenciar em escala. Os benefícios do uso de grupos incluem [a adesão de grupo dinâmico baseado em atributos](../users-groups-roles/groups-dynamic-membership.md) e [delegação aos proprietários de aplicativos](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Portanto, se você já está usando e gerenciando grupos, recomendamos que você tome as seguintes ações para melhorar a gestão em escala:
 
 - Delegar gerenciamento de grupo e governança para proprietários de aplicativos.
 - Permitir acesso de autoatendimento ao aplicativo.
 - Defina grupos dinâmicos se os atributos do usuário puderem determinar consistentemente o acesso aos aplicativos.
-- Implementar atestado para grupos usados para acesso a aplicativos usando [avaliações de acesso a Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview).
+- Implementar atestado para grupos usados para acesso a aplicativos usando [avaliações de acesso a Azure AD](../governance/access-reviews-overview.md).
 
 Por outro lado, se você encontrar aplicativos que tenham atribuição a usuários individuais, certifique-se de implementar [a governança](https://docs.microsoft.com/azure/active-directory/governance/index) em torno desses aplicativos.
 
@@ -223,12 +223,12 @@ Se você já possui licenças Azure AD Premium P2 que suportam o uso de risco em
 
 #### <a name="risk-based-access-policies-recommended-reading"></a>Políticas de acesso baseadas em riscos recomendaram leitura
 
-- [Como: configurar a política de risco de entrada](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)
-- [Como configurar a política de risco do usuário](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)
+- [Como: configurar a política de risco de entrada](../identity-protection/howto-identity-protection-configure-risk-policies.md)
+- [Como configurar a política de risco do usuário](../identity-protection/howto-identity-protection-configure-risk-policies.md)
 
 ### <a name="client-application-access-policies"></a>Políticas de acesso a aplicativos de cliente
 
-O Microsoft Intune Application Management (MAM) oferece a capacidade de empurrar controles de proteção de dados, como criptografia de armazenamento, PIN, limpeza de armazenamento remoto, etc. para aplicativos móveis compatíveis do cliente, como o Outlook Mobile. Além disso, políticas de acesso condicional podem ser criadas para [restringir o acesso](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) a serviços em nuvem, como o Exchange Online, de aplicativos aprovados ou compatíveis.
+O Microsoft Intune Application Management (MAM) oferece a capacidade de empurrar controles de proteção de dados, como criptografia de armazenamento, PIN, limpeza de armazenamento remoto, etc. para aplicativos móveis compatíveis do cliente, como o Outlook Mobile. Além disso, políticas de acesso condicional podem ser criadas para [restringir o acesso](../conditional-access/app-based-conditional-access.md) a serviços em nuvem, como o Exchange Online, de aplicativos aprovados ou compatíveis.
 
 Se seus funcionários instalarem aplicativos capazes de MAM, como aplicativos móveis do Office, para acessar recursos corporativos, como o Exchange Online ou o SharePoint Online, e você também suportar o BYOD (traga seu próprio dispositivo), recomendamos que você implante políticas mam para gerenciar a configuração do aplicativo em dispositivos de propriedade pessoal sem o registro de MDM e, em seguida, atualize suas políticas de acesso condicional para permitir apenas o acesso de clientes capazes de MAM.
 
@@ -245,10 +245,10 @@ O Acesso Condicional é uma ferramenta essencial para melhorar a postura de segu
 - Evite usar todos os **usuários** como filtro e adicionar inadvertidamente **convidados**
 - **Migre todas as políticas de "legado" para o portal Azure**
 - Veja todos os critérios para usuários, dispositivos e aplicativos
-- Use políticas de acesso condicional para [implementar o MFA,](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access)em vez de usar um **MFA por usuário**
+- Use políticas de acesso condicional para [implementar o MFA,](../conditional-access/plan-conditional-access.md)em vez de usar um **MFA por usuário**
 - Tenha um pequeno conjunto de políticas principais que podem se aplicar a vários aplicativos
 - Defina grupos de exceção vazios e adicione-os às políticas para ter uma estratégia de exceção
-- Plano para quebrar contas [de vidro](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#break-glass-what-to-do-in-an-emergency) sem controles MFA
+- Plano para quebrar contas [de vidro](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) sem controles MFA
 - Garantir uma experiência consistente entre os aplicativos clientes do Office 365, por exemplo, Teams, OneDrive for Business, Outlook, etc.) implementando o mesmo conjunto de controles para serviços como Exchange Online e Sharepoint Online
 - A atribuição de políticas deve ser implementada através de grupos, não indivíduos
 - Faça revisões regulares dos grupos de exceção usados em políticas para limitar o tempo que os usuários estão fora da postura de segurança. Se você possui o Azure AD P2, então você pode usar avaliações de acesso para automatizar o processo
@@ -309,7 +309,7 @@ Abaixo estão uma lista de aplicativos com permissões que você pode querer exa
 | | Mail.Read.Shared |
 | | Mail.ReadWrite |
 
-- Os aplicativos concederam a personificação total do usuário do usuário inscrito. Por exemplo: 
+- Os aplicativos concederam a personificação total do usuário do usuário inscrito. Por exemplo:
 
 |Recurso | Permissão |
 | :- | :- |

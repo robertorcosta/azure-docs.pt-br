@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17e6708225262349d56c6e261895882e9c31677f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4538afcef85c4a6eaef4213133963ecab9987e1f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262211"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876210"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implantação do Azure Active Directory
 Procurando orientação de ponta a ponta sobre a implantação de recursos do Azure Active Directory (Azure AD) ? Os planos de implantação do Azure AD o investigam sobre o valor do negócio, as considerações de planejamento e os procedimentos operacionais necessários para implantar com sucesso os recursos comuns do Azure AD.
@@ -54,45 +54,45 @@ Um piloto permite que você teste com um pequeno grupo antes de ligar uma capaci
 
 Na sua primeira onda, direcione a TI, a usabilidade e outros usuários apropriados que podem testar e fornecer feedback. Esse feedback deve ser usado para desenvolver ainda mais as comunicações e instruções enviadas aos seus usuários e para fornecer insights sobre os tipos de problemas que sua equipe de suporte pode ver. 
 
-A ampliação da implantação para grupos maiores de usuários deve ser realizada aumentando o escopo dos grupos direcionados. Isso pode ser feito através da [adesão dinâmica do grupo](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)ou adicionando manualmente os usuários ao grupo-alvo( s).
+A ampliação da implantação para grupos maiores de usuários deve ser realizada aumentando o escopo dos grupos direcionados. Isso pode ser feito através da [adesão dinâmica do grupo](../users-groups-roles/groups-dynamic-membership.md)ou adicionando manualmente os usuários ao grupo-alvo( s).
 
 
 ## <a name="deploy-authentication"></a>Implantar autenticação
 
 | Recurso | Descrição|
 | -| -|
-| [Autenticação Multifator](https://aka.ms/deploymentplans/mfa)| A Autenticação Multifator do Azure é uma solução de verificação em duas etapas da Microsoft. Usando métodos de autenticação aprovados pelo administrador, o Azure MFA ajuda a proteger o acesso aos seus dados e aplicativos, ao mesmo tempo em que atende à demanda por um simples processo de login. |
-| [Acesso Condicional](https://aka.ms/deploymentplans/ca)| Com o Conditional Access, você pode implementar decisões automatizadas de controle de acesso para quem pode acessar seus aplicativos na nuvem, com base nas condições. |
-| [Redefinição de senha de autoatendimento](https://aka.ms/deploymentplans/sspr)| A redefinição da senha de autoatendimento ajuda seus usuários a redefinir suas senhas sem intervenção do administrador, quando e onde eles precisam. |
-| [Sem senha](https://aka.ms/deploymentplans/passwordless) | Implemente autenticação sem senha usando o aplicativo Microsoft Authenticator ou as chaves FIDO2 Security em sua organização |
+| [Autenticação Multifator](../authentication/howto-mfa-getstarted.md)| A Autenticação Multifator do Azure é uma solução de verificação em duas etapas da Microsoft. Usando métodos de autenticação aprovados pelo administrador, o Azure MFA ajuda a proteger o acesso aos seus dados e aplicativos, ao mesmo tempo em que atende à demanda por um simples processo de login. |
+| [Acesso Condicional](../conditional-access/plan-conditional-access.md)| Com o Conditional Access, você pode implementar decisões automatizadas de controle de acesso para quem pode acessar seus aplicativos na nuvem, com base nas condições. |
+| [Redefinição de senha de autoatendimento](../authentication/howto-sspr-deployment.md)| A redefinição da senha de autoatendimento ajuda seus usuários a redefinir suas senhas sem intervenção do administrador, quando e onde eles precisam. |
+| [Sem senha](../authentication/howto-authentication-passwordless-deployment.md) | Implemente autenticação sem senha usando o aplicativo Microsoft Authenticator ou as chaves FIDO2 Security em sua organização |
 
 ## <a name="deploy-application-management"></a>Implantar o gerenciamento de aplicativos
 
 | Recurso | Descrição|
 | -| - |
-| [Logon único](https://aka.ms/deploymentplans/sso)| O logon único ajuda seus usuários a acessar os aplicativos e recursos de que precisam para fazer negócios enquanto fazem login apenas uma vez. Depois de fazerem o registro, eles podem ir do Microsoft Office ao SalesForce to Box para aplicativos internos sem serem obrigados a inserir credenciais uma segunda vez. |
-| [Painel de acesso](https://aka.ms/deploymentplans/accesspanel)| Oferece a seus usuários um hub simples para descobrir e acessar todos os seus aplicativos. Permitir que eles sejam mais produtivos com recursos de autoatendimento, como solicitar acesso a aplicativos e grupos ou gerenciar o acesso a recursos em nome de terceiros. |
+| [Logon único](../manage-apps/plan-sso-deployment.md)| O logon único ajuda seus usuários a acessar os aplicativos e recursos de que precisam para fazer negócios enquanto fazem login apenas uma vez. Depois de fazerem o registro, eles podem ir do Microsoft Office ao SalesForce to Box para aplicativos internos sem serem obrigados a inserir credenciais uma segunda vez. |
+| [Painel de acesso](../manage-apps/access-panel-deployment-plan.md)| Oferece a seus usuários um hub simples para descobrir e acessar todos os seus aplicativos. Permitir que eles sejam mais produtivos com recursos de autoatendimento, como solicitar acesso a aplicativos e grupos ou gerenciar o acesso a recursos em nome de terceiros. |
 
 
 ## <a name="deploy-hybrid-scenarios"></a>Implantar cenários híbridos
 
 | Recurso | Descrição|
 | -| -|
-| [ADFS para sincronização de hash de senha](https://aka.ms/deploymentplans/adfs2phs)| Com a sincronização do Hash password, os hashes das senhas de usuário são sincronizados do Active Directory on-premises para o Azure AD, permitindo que o Azure AD autentique usuários sem interação com o Active Directory no local |
-| [ADFS para autenticação de passagem](https://aka.ms/deploymentplans/adfs2pta)| A autenticação de passagem do AD do Azure ajuda seus usuários a entrar em aplicativos no local e na nuvem usando as mesmas senhas. Esse recurso oferece aos usuários uma experiência melhor - uma senha a menos para lembrar - e reduz os custos do helpdesk de TI porque os usuários são menos propensos a esquecer como fazer login. Quando as pessoas entram usando o Azure AD, esse recurso valida as senhas dos usuários diretamente no Active Directory local. |
-| [Proxy de Aplicativo do Azure AD](https://aka.ms/deploymentplans/appproxy)| Os funcionários de hoje querem ser produtivos em qualquer lugar, a qualquer momento e com qualquer dispositivo. Eles precisam acessar aplicativos SaaS na nuvem e aplicativos corporativos no local. O proxy do Aplicativo Azure AD permite esse acesso robusto sem vpns (vpns) ou zonas desmilitarizadas (DMZs) de redes virtuais caras e complexas. |
+| [ADFS para sincronização de hash de senha](../hybrid/plan-migrate-adfs-password-hash-sync.md)| Com a sincronização do Hash password, os hashes das senhas de usuário são sincronizados do Active Directory on-premises para o Azure AD, permitindo que o Azure AD autentique usuários sem interação com o Active Directory no local |
+| [ADFS para autenticação de passagem](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| A autenticação de passagem do AD do Azure ajuda seus usuários a entrar em aplicativos no local e na nuvem usando as mesmas senhas. Esse recurso oferece aos usuários uma experiência melhor - uma senha a menos para lembrar - e reduz os custos do helpdesk de TI porque os usuários são menos propensos a esquecer como fazer login. Quando as pessoas entram usando o Azure AD, esse recurso valida as senhas dos usuários diretamente no Active Directory local. |
+| [Proxy de Aplicativo do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan.md) |Os funcionários de hoje querem ser produtivos em qualquer lugar, a qualquer momento e com qualquer dispositivo. Eles precisam acessar aplicativos SaaS na nuvem e aplicativos corporativos no local. O proxy do Aplicativo Azure AD permite esse acesso robusto sem vpns (vpns) ou zonas desmilitarizadas (DMZs) de redes virtuais caras e complexas. |
 | [SSO contínuo](../hybrid/how-to-connect-sso-quick-start.md)| O SSO Contínuo do Azure AD (Logon Único Contínuo do Azure Active Directory) conecta usuários automaticamente quando estiverem nos respectivos dispositivos corporativos conectados à sua rede corporativa. Com esse recurso, os usuários não precisarão digitar suas senhas para fazer login no Azure AD e geralmente não precisarão inserir seus nomes de usuário. Esse recurso fornece aos usuários autorizados acesso fácil aos seus aplicativos baseados na nuvem sem precisar de componentes adicionais no local. |
 
 ## <a name="deploy-user-provisioning"></a>Implantar provisionamento de usuários
 
 | Recurso | Descrição|
 | -| -|
-| [Provisionamento do usuário](https://aka.ms/deploymentplans/userprovisioning)| O Azure AD ajuda a automatizar a criação, a manutenção e a remoção de identidades de usuário em aplicativos em nuvem (SaaS) como Dropbox, Salesforce, ServiceNow e outros. |
-| [Provisionamento de usuários de RH na nuvem](https://aka.ms/deploymentplans/cloudhr)| O provisionamento de usuários de RH em nuvem para o Active Directory cria uma base para a governança contínua da identidade e melhora a qualidade dos processos de negócios que dependem de dados de identidade autorizados. Usando esse recurso com seu produto de RH na nuvem, como Workday ou Successfactors, você pode gerenciar perfeitamente o ciclo de vida da identidade de funcionários e funcionários contingentes, configurando regras que mapeiam processos do Joiner-Mover-Leaver (como New Hire, Terminate, Transferir) para ações de provisionamento de TI (como Criar, Habilitar, Desativar) |
+| [Provisionamento do usuário](../app-provisioning/plan-auto-user-provisioning.md)| O Azure AD ajuda a automatizar a criação, a manutenção e a remoção de identidades de usuário em aplicativos em nuvem (SaaS) como Dropbox, Salesforce, ServiceNow e outros. |
+| [Provisionamento de usuários de RH na nuvem](../app-provisioning/plan-cloud-hr-provision.md)| O provisionamento de usuários de RH em nuvem para o Active Directory cria uma base para a governança contínua da identidade e melhora a qualidade dos processos de negócios que dependem de dados de identidade autorizados. Usando esse recurso com seu produto de RH na nuvem, como Workday ou Successfactors, você pode gerenciar perfeitamente o ciclo de vida de identidade de funcionários e funcionários contingentes, configurando regras que mapeiam processos do Joiner-Mover-Leaver (como Novo Contrato, Término, Transferência) para ações de provisionamento de TI (como Criar, Ativar, Desativar) |
 
 ## <a name="deploy-governance-and-reporting"></a>Implantar governança e relatórios
 
 | Recurso | Descrição|
 | -| -|
-| [Gestão privilegiada de identidade](https://aka.ms/deploymentplans/pim)| O Azure AD Privileged Identity Management (PIM) ajuda você a gerenciar funções administrativas com privilégios entre o Azure AD, recursos do Azure e outros Serviços Online da Microsoft. O PIM fornece soluções como acesso just-in-time, solicitação de fluxos de trabalho de aprovação e revisões de acesso totalmente integradas para que você possa identificar, descobrir e impedir atividades maliciosas de funções com privilégios em tempo real. |
-| [Relatórios e Monitoramento](https://aka.ms/deploymentplans/reporting)| O projeto da solução de emissão e monitoramento de relatórios e monitoramento do Azure AD depende de seus requisitos legais, de segurança e operacionais, bem como do ambiente e dos processos existentes. Este artigo apresenta as várias opções de design e orienta você para a estratégia de implantação correta. |
+| [Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)| O Azure AD Privileged Identity Management (PIM) ajuda você a gerenciar funções administrativas com privilégios entre o Azure AD, recursos do Azure e outros Serviços Online da Microsoft. O PIM fornece soluções como acesso just-in-time, solicitação de fluxos de trabalho de aprovação e revisões de acesso totalmente integradas para que você possa identificar, descobrir e impedir atividades maliciosas de funções com privilégios em tempo real. |
+| [Relatórios e Monitoramento](../reports-monitoring/plan-monitoring-and-reporting.md)| O projeto da solução de emissão e monitoramento de relatórios e monitoramento do Azure AD depende de seus requisitos legais, de segurança e operacionais, bem como do ambiente e dos processos existentes. Este artigo apresenta as várias opções de design e orienta você para a estratégia de implantação correta. |

@@ -6,13 +6,13 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 01/22/2020
-ms.openlocfilehash: 8eeff5187d27cb75b9e55eba8311dede8970bc4a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/07/2020
+ms.openlocfilehash: 4516e9f48174a0f1f5201c46cf114badf13d99d6
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435229"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878792"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integre um site estático com o Azure CDN
 
@@ -26,19 +26,17 @@ Você pode habilitar o CDN do Azure para seu site estático diretamente da sua c
 
 1. Localize sua conta de armazenamento no portal do Azure e exiba a visão geral da conta.
 
-2. Selecione **CDN do Azure** no menu **Serviço Blob** para configurar a CDN do Azure.
+1. No menu **Blob Service,** selecione **Azure CDN** para abrir a página **CDN do Azure:**
 
-    A página **CDN do Azure** é exibida.
+    ![Criar ponto de extremidade da CDN](media/storage-blob-static-website-custom-domain/cdn-storage-new.png)
 
-    ![Criar ponto de extremidade da CDN](../../cdn/media/cdn-create-a-storage-account-with-cdn/cdn-storage-new-endpoint-creation.png)
+1. Na seção **de perfil CDN,** especifique se criará um novo perfil de CDN ou usará um já existente. Um perfil CDN é uma coleção de pontos finais de CDN que compartilham um nível de preço e provedor. Em seguida, digite um nome para o CDN que é único dentro de sua assinatura.
 
-3. Na seção **Perfil CDN**, especifique um perfil CDN novo ou existente. 
+1. Especifique um tipo de preço para o ponto de extremidade CDN. Para saber mais sobre preços, consulte [os preços da Rede de Entrega de Conteúdo](https://azure.microsoft.com/pricing/details/cdn/). Para obter mais informações sobre os recursos disponíveis em cada camada, consulte [os recursos do produto Compare Azure CDN](../../cdn/cdn-features.md).
 
-4. Especifique um tipo de preço para o ponto de extremidade CDN. Para saber mais sobre preços, consulte [os preços da Rede de Entrega de Conteúdo](https://azure.microsoft.com/pricing/details/cdn/). Para obter mais informações sobre os recursos disponíveis em cada camada, consulte [os recursos do produto Compare Azure CDN](../../cdn/cdn-features.md).
+1. No campo **Nome do ponto de extremidade CDN**, especifique um nome para o ponto de extremidade CDN. O ponto final do CDN deve ser único em todo o Azure e fornece a primeira parte da URL de ponto final. O formulário valida que o nome do ponto final é único.
 
-5. No campo **Nome do ponto de extremidade CDN**, especifique um nome para o ponto de extremidade CDN. O ponto de extremidade CDN precisa ser exclusivo no Azure.
-
-6. Especifique o ponto de extremidade do site estático no campo **Nome do host de origem**. 
+1. Especifique o ponto final do site estático no campo **Nome de host Origin.** 
 
    Para encontrar o ponto de extremidade do site estático, navegue até as configurações de **Site estático** de sua conta de armazenamento.  Copie o ponto final principal e cole-o na configuração do CDN.
 
@@ -49,15 +47,15 @@ Você pode habilitar o CDN do Azure para seu site estático diretamente da sua c
 
    ![Captura de tela mostrando uma configuração de ponto de extremidade CDN de exemplo](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
 
-7. Selecione **Criar**e, em seguida, aguarde que ele se propague. Depois que o ponto de extremidade é criado, ele aparece na lista de pontos de extremidade.
+1. Selecione **Criar**e, em seguida, aguarde a provisão do CDN. Depois que o ponto de extremidade é criado, ele aparece na lista de pontos de extremidade. (Se você tiver algum erro no formulário, um ponto de exclamação aparecerá ao lado desse campo.)
 
-8. Para verificar se o ponto de extremidade CDN está configurado corretamente, clique no ponto de extremidade para navegar até as configurações. Na visão geral da CDN de sua conta de armazenamento, localize o nome do host do ponto de extremidade e navegue até o ponto de extremidade, conforme mostrado na imagem a seguir. O formato do ponto de extremidade CDN será semelhante a `https://staticwebsitesamples.azureedge.net`.
+1. Para verificar se o ponto de extremidade CDN está configurado corretamente, clique no ponto de extremidade para navegar até as configurações. Na visão geral da CDN de sua conta de armazenamento, localize o nome do host do ponto de extremidade e navegue até o ponto de extremidade, conforme mostrado na imagem a seguir. O formato do ponto de extremidade CDN será semelhante a `https://staticwebsitesamples.azureedge.net`.
 
     ![Captura de tela mostrando uma visão geral do ponto de extremidade CDN](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
 
-9. Após a conclusão da propagação do ponto de extremidade CDN, navegar até o ponto de extremidade CDN exibirá o conteúdo do arquivo index.html que você carregou anteriormente no site estático.
+1. Uma vez que o ponto final do CDN esteja provisionado, navegar até o ponto final do CDN exibe o conteúdo do arquivo index.html que você carregou anteriormente para o seu site estático.
 
-10. Para examinar as configurações de origem do ponto de extremidade CDN, navegue até **Origem** na seção **Configurações** do ponto de extremidade CDN. Você verá que o campo **Tipo de origem** é definido como *Origem Personalizada* e que o campo **Nome do host de origem** exibe o ponto de extremidade do site estático.
+1. Para examinar as configurações de origem do ponto de extremidade CDN, navegue até **Origem** na seção **Configurações** do ponto de extremidade CDN. Você verá que o campo **Tipo de origem** é definido como *Origem Personalizada* e que o campo **Nome do host de origem** exibe o ponto de extremidade do site estático.
 
     ![Captura de tela mostrando as Configurações de origem para o ponto de extremidade CDN](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
 

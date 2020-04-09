@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: 345fc329df1c57cab7dd66c609bf3701fa3a6124
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: c92f045f2c8d4443d596697596363bda3d0df975
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619138"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985279"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Segurança no Azure Cosmos DB – visão geral
 
@@ -23,7 +23,7 @@ A criptografia em repouso agora está disponível para documentos e backups arma
 
 ## <a name="how-do-i-secure-my-database"></a>Como faço para proteger meu banco de dados
 
-A segurança dos dados é uma responsabilidade compartilhada por você, o cliente e seu provedor de banco de dados. Dependendo do provedor de banco de dados que você escolher, o tamanho da responsabilidade pode variar. Se você escolher uma solução local, precisará fornecer tudo, desde a proteção do ponto de extremidade até a segurança física do seu hardware, o que não é uma tarefa fácil. Se você escolher um provedor de banco de dados em nuvem PaaS, como o Azure Cosmos DB, sua área de interesse será consideravelmente reduzida. A imagem a seguir, retirada do white paper [Responsabilidades compartilhadas para a computação em nuvem](https://aka.ms/sharedresponsibility) da Microsoft, mostra como sua responsabilidade diminui com um provedor de PaaS, como o Azure Cosmos DB.
+A segurança dos dados é uma responsabilidade compartilhada por você, o cliente e seu provedor de banco de dados. Dependendo do provedor de banco de dados que você escolher, o tamanho da responsabilidade pode variar. Se você escolher uma solução local, precisará fornecer tudo, desde a proteção do ponto de extremidade até a segurança física do seu hardware, o que não é uma tarefa fácil. Se você escolher um provedor de banco de dados em nuvem PaaS, como o Azure Cosmos DB, sua área de interesse será consideravelmente reduzida. A imagem a seguir, retirada do white paper [Responsabilidades compartilhadas para a computação em nuvem](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91) da Microsoft, mostra como sua responsabilidade diminui com um provedor de PaaS, como o Azure Cosmos DB.
 
 ![Responsabilidades do cliente e do provedor de banco de dados](./media/database-security/nosql-database-security-responsibilities.png)
 
@@ -70,7 +70,7 @@ Vamos examinar cada um deles em detalhes.
 |Restaurar dados excluídos|Os backups online automatizados podem ser usados para recuperar dados que você pode ter excluído acidentalmente até 30 dias após o evento. <br><br>Saiba mais em [backup e restauração on-line automáticos com o Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md)|
 |Proteger e isolar dados confidenciais|Todos os dados nas regiões listadas em Novidades agora serão criptografados em repouso.<br><br>Dados pessoais e outros dados confidenciais podem ser isolados em contêineres específicos, e o acesso de leitura/gravação ou somente leitura pode ser limitado a usuários específicos.|
 |Monitorar ataques|Usando [registros de auditoria e registros de atividades,](logging.md)você pode monitorar sua conta para atividades normais e anormais. Veja as operações que foram executadas em seus recursos, quem iniciou a operação, quando a operação ocorreu, o status da operação e muito mais conforme mostrado na captura de tela após esta tabela.|
-|Responder a ataques|Depois de contatar o suporte do Azure para relatar um possível ataque, começa um processo de resposta ao incidente com cinco etapas. O objetivo do processo de cinco etapas é restaurar a segurança normal do serviço e as operações o mais rápido possível após a detecção de um problema e o início de uma investigação.<br><br>Saiba mais em [Resposta da segurança do Microsoft Azure na nuvem](https://aka.ms/securityresponsepaper).|
+|Responder a ataques|Depois de contatar o suporte do Azure para relatar um possível ataque, começa um processo de resposta ao incidente com cinco etapas. O objetivo do processo de cinco etapas é restaurar a segurança normal do serviço e as operações o mais rápido possível após a detecção de um problema e o início de uma investigação.<br><br>Saiba mais em [Resposta da segurança do Microsoft Azure na nuvem](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).|
 |Isolamento geográfico|O Azure Cosmos DB garante a governança de dados em regiões soberanas (por exemplo, Alemanha, China, US Gov).|
 |Instalações protegidas|Os dados do Azure Cosmos DB são armazenados em SSDs, nos data centers protegidos do Azure.<br><br>Saiba mais em [Datacenters globais da Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |Criptografia HTTPS/SSL/TLS|Todas as conexões com o Azure Cosmos DB suportam HTTPS. O Azure Cosmos DB também suporta o TLS 1.2.<br>É possível impor uma versão tls mínima do lado do servidor. Para isso, entre [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com)em contato.|

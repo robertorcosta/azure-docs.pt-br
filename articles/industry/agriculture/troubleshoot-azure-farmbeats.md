@@ -5,16 +5,19 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 2270ee7c850c528bd24fa2e58c2b1684acfc24d6
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 74522502f5405b56a3a604f20a695de83ef3c3a5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585290"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886476"
 ---
 # <a name="troubleshoot"></a>Solucionar problemas
 
 Este artigo fornece soluções para problemas comuns do Azure FarmBeats. Para obter ajuda adicional, entre em farmbeatssupport@microsoft.comcontato com nosso Fórum de [Suporte](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) ou envie um e-mail para nós.
+
+> [!NOTE]
+  > Se você instalou o FarmBeats durante abril e seus trabalhos estão falhando com uma mensagem de erro vazia, sua instalação pode não ter sido alocada em qualquer cota de lote devido a todos os recursos que estão sendo direcionados para emergências, cuidados de saúde e outras necessidades críticas. Você precisará solicitar que as VMs sejam alocadas na conta Batch.
 
 ## <a name="install-issues"></a>Instalar problemas
 
@@ -198,7 +201,7 @@ Se você já teve acesso e enfrentando esse erro, tente novamente atualizando a 
 
   **Atualizar nome de usuário do Sentinel**
 
-    1. Faça login no [portal Azure](https://portal.azure.com).
+    1. Entre no [Portal do Azure](https://portal.azure.com).
     2. Na **caixa pesquisar,** procure o grupo de recursos FarmBeats Datahub.
     3. Selecione Armazenamento de contas de armazenamento***** > **Contêineres** > **arquivos de preparação em** > lote**to_vm** > **config.ini**
     4. Selecione **Editar**
@@ -206,7 +209,7 @@ Se você já teve acesso e enfrentando esse erro, tente novamente atualizando a 
 
   **Atualizar senha do Sentinel**
 
-    1. Faça login no [portal Azure](https://portal.azure.com).
+    1. Entre no [Portal do Azure](https://portal.azure.com).
     2. Na **caixa pesquisar,** procure o grupo de recursos FarmBeats Datahub.
     3. Selecione keyvault-*****
     4. Selecione políticas de acesso em configurações

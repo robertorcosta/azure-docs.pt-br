@@ -5,12 +5,12 @@ description: Aprenda as práticas recomendadas do operador de cluster para armaz
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 90abf2e36fd46c707904d87f00362091fe931743
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 843b775f7761af7cd40140c9bf34768d63eb5a50
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668109"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877891"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para armazenamento e backups no Serviço de Kubernetes do Azure (AKS)
 
@@ -40,7 +40,7 @@ A tabela a seguir descreve os tipos de armazenamento disponíveis e suas funcion
 
 Os dois principais tipos de armazenamento fornecidos para volumes no AKS são apoiados pelos Discos do Azure ou Arquivos do Azure. Para melhorar a segurança, os dois tipos de armazenamento usam a Criptografia do Serviço de Armazenamento do Azure (SSE) por padrão, que criptografa os dados em repouso. No momento, os discos não podem ser criptografados usando a Criptografia de Disco do Azure no nível do nó do AKS.
 
-Os Arquivos do Azure estão atualmente disponíveis no nível de desempenho padrão. Os Discos do Azure estão disponíveis nos níveis de desempenho Standard e Premium:
+Tanto os arquivos Azure quanto os discos Azure estão disponíveis nos níveis de desempenho Padrão e Premium:
 
 - Os discos *Premium* são apoiados por discos de estado sólido e alto desempenho (SSDs). Os discos Premium são recomendados para todas as cargas de trabalho de produção.
 - Os discos *Standard* são apoiados por discos giratórios regulares (HDDs) e são bons para arquivamento ou dados pouco acessados.

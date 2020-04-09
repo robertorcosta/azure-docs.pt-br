@@ -1,7 +1,7 @@
 ---
 title: Use o MSAL com o Diretório Ativo Do Azure B2CLearn | Azure
 titleSuffix: Microsoft identity platform
-description: A MSAL (Biblioteca de Autenticação da Microsoft) permite que aplicativos interoperem com o Azure AD B2C e adquiram tokens para chamar APIs Web seguras. Essas APIs Web podem ser o Microsoft Graph, outras APIs da Microsoft, APIs Web de terceiros ou sua própria API Web.
+description: A Microsoft Authentication Library for JavaScript (MSAL.js) permite que os aplicativos trabalhem com o Azure AD B2C e adquiram tokens para chamar APIs da Web seguras. Essas APIs Web podem ser o Microsoft Graph, outras APIs da Microsoft, APIs Web de terceiros ou sua própria API Web.
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -13,112 +13,132 @@ ms.date: 09/16/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: e25564e64410701754390024a5bcfd39321343e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc8a330bc09f37f7941534ed7c17d1ffd14d08c5
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76696445"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875955"
 ---
-# <a name="use-microsoft-authentication-library-to-interoperate-with-azure-active-directory-b2c"></a>Use a Biblioteca de Autenticação da Microsoft para interoperar com o Azure Active Directory B2C
+# <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-active-directory-b2c"></a>Use a Biblioteca de Autenticação da Microsoft para JavaScript para trabalhar com o Azure Active Directory B2C
 
-A MSAL (Biblioteca de Autenticação da Microsoft) permite que os desenvolvedores de aplicativos autentiquem os usuários com identidades sociais e locais usando o [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). O Azure AD B2C é um serviço de gerenciamento de identidades. Usando-o, você pode personalizar e controlar como os clientes se inscrevem, entram e gerenciam seus perfis quando usam seus aplicativos.
+[A Biblioteca de Autenticação da Microsoft para JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) permite que os desenvolvedores JavaScript autentiquem usuários com identidades sociais e locais usando [o Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). Ao usar o Azure AD B2C como um serviço de gerenciamento de identidade, você pode personalizar e controlar como os clientes se inscrevem, fazem login e gerenciam seus perfis quando usam seus aplicativos.
 
-O Azure AD B2C também permite definir a marca e personalizar a interface do usuário de seus aplicativos para fornecer uma experiência unificada para o cliente.
+O Azure AD B2C também permite que você marque e personalize a interface do usuário durante o processo de autenticação, a fim de proporcionar uma experiência perfeita aos seus clientes.
 
-Este tutorial demonstra como usar a MSAL para interoperar com o Azure AD B2C.
+Este artigo demonstra como usar o MSAL.js para trabalhar com o Azure AD B2C e resume pontos-chave que você deve estar ciente. Para uma discussão completa e tutorial, consulte [a documentação Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se você ainda não criou seu próprio [locatário do Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant), crie um agora. Também é possível usar um locatário existente do Azure AD B2C.
+Se você ainda não criou seu próprio [inquilino Azure AD B2C,](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)comece a criar um agora (você também pode usar um inquilino Azure AD B2C existente se você já tiver um).
 
-## <a name="javascript"></a>JavaScript
+Esta demonstração contém duas partes:
 
-As etapas a seguir demonstram como um aplicativo de página única pode usar o Azure AD B2C para inscrição e conexão, bem como para chamar uma API Web protegida.
+- como proteger uma API web.
+- como registrar um aplicativo de uma página única para autenticar e chamar *essa* API web.
+
+## <a name="nodejs-web-api"></a>Node.js Web API
+
+> [!NOTE]
+> Neste momento, o MSAL.js for Node ainda está em desenvolvimento (veja o [roteiro](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)). Enquanto isso, sugerimos o uso [do passport-azure-ad](https://github.com/AzureAD/passport-azure-ad), uma biblioteca de autenticação para Node.js desenvolvida e suportada pela Microsoft.
+
+As etapas a seguir demonstram como uma **API web** pode usar o Azure AD B2C para se proteger e expor escopos selecionados a um aplicativo cliente.
 
 ### <a name="step-1-register-your-application"></a>Etapa 1: Registrar seu aplicativo
 
-Para implementar a autenticação, primeiro você precisará registrar seu aplicativo. Confira [Registrar seu aplicativo](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#step-4-register-your-own-web-application-with-azure-ad-b2c) para ver as etapas detalhadas.
+Para proteger sua API web com o Azure AD B2C, primeiro você precisa registrá-la. Confira [Registrar seu aplicativo](https://docs.microsoft.com/azure/active-directory-b2c/add-web-application?tabs=applications) para ver as etapas detalhadas.
 
 ### <a name="step-2-download-the-sample-application"></a>Passo 2: Baixe o aplicativo de amostra
 
 Baixe o exemplo como um arquivo zip ou clone-o do GitHub:
 
+```console
+git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
 ```
+
+### <a name="step-3-configure-authentication"></a>Passo 3: Configurar autenticação
+
+1. Abra o arquivo `config.js` no exemplo.
+
+2. Configure a amostra com as credenciais de aplicativo que você obteve anteriormente ao registrar seu aplicativo. Altere as seguintes linhas de código substituindo os valores pelos nomes do seu clienteID, host, tenantId e nome da política.
+
+```JavaScript
+const clientID = "<Application ID for your Node.js Web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
+const b2cDomainHost = "<Domain of your B2C host eg. fabrikamb2c.b2clogin.com>";
+const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (GUID)
+const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
+```
+
+Para obter mais informações, confira esta [amostra de API web Node.js B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
+
+---
+
+## <a name="javascript-spa"></a>JavaScript SPA
+
+As etapas a seguir demonstram como um **aplicativo de uma página única** pode usar o Azure AD B2C para se inscrever, fazer login e chamar uma API da Web protegida.
+
+### <a name="step-1-register-your-application"></a>Etapa 1: Registrar seu aplicativo
+
+Para implementar a autenticação, primeiro você precisará registrar seu aplicativo. Confira [Registrar seu aplicativo](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications) para ver as etapas detalhadas.
+
+### <a name="step-2-download-the-sample-application"></a>Passo 2: Baixe o aplicativo de amostra
+
+Baixe o exemplo como um arquivo zip ou clone-o do GitHub:
+
+```console
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
 
 ### <a name="step-3-configure-authentication"></a>Passo 3: Configurar autenticação
 
-1. Abra o arquivo **index.html** no exemplo.
+Existem dois pontos de interesse na configuração do seu aplicativo:
 
-1. Configure a amostra com o ID do cliente e a chave que você gravou anteriormente ao registrar seu aplicativo. Altere as linhas de código a seguir substituindo os valores pelos nomes do diretório e de APIs:
+- Configurar o ponto final da API e os escopos expostos
+- Configure parâmetros de autenticação e escopos de token
+
+1. Abra o arquivo `apiConfig.js` no exemplo.
+
+2. Configure a amostra com os parâmetros que você obteve anteriormente ao registrar sua API web. Altere as seguintes linhas de código substituindo os valores pelo endereço da sua API web e os escopos expostos.
 
    ```javascript
-   // The current application coordinates were pre-registered in a B2C tenant.
-
-    var appConfig = {
-        b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
-        webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
+    // The current application coordinates were pre-registered in a B2C tenant.
+    const apiConfig = {
+        b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"], //API scopes you exposed during api registration
+        webApi: "https://fabrikamb2chello.azurewebsites.net/hello" 
     };
+   ```
 
+3. Abra o arquivo `authConfig.js` no exemplo.
+
+4. Configure a amostra com os parâmetros obtidos anteriormente ao registrar seu aplicativo de página única. Altere as seguintes linhas de código substituindo os valores pelos escopos clientId, metadados de autoridade e solicitação de tokens.
+
+   ```javascript
+    // Config object to be passed to Msal on creation.
     const msalConfig = {
         auth: {
-            clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902" //This is your client/application ID
-            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi", //This is your tenant info
+            clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902",
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/B2C_1_signupsignin1",
             validateAuthority: false
         },
         cache: {
-            cacheLocation: "localStorage",
-            storeAuthStateInCookie: true
+            cacheLocation: "localStorage", // This configures where your cache will be stored
+            storeAuthStateInCookie: false // Set this to "true" to save cache in cookies
         }
     };
-    // create UserAgentApplication instance
-    const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 
+    // Add here scopes for id token to be used at the MS Identity Platform endpoint
+    const loginRequest = {
+        scopes: ["openid", "profile"],
+    };
    ```
 
-O nome do [fluxo de usuário](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) neste tutorial é **B2C_1_signupsignin1**. Se estiver usando um nome de fluxo de usuário diferente, configure o valor da **autoridade** como o nome em questão.
+Para obter mais informações, confira esta [amostra de aplicativo de página única JavaScript B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp).
 
-### <a name="step-4-configure-your-application-to-use-b2clogincom"></a>Passo 4: Configure seu aplicativo para usar`b2clogin.com`
-
-Você pode usar `b2clogin.com` em vez de `login.microsoftonline.com` como URL de redirecionamento. Isso é feito em seu aplicativo do Azure AD B2C quando você configura um provedor de identidade para inscrição e entrada.
-
-Usar `b2clogin.com` no contexto de `https://your-tenant-name.b2clogin.com/your-tenant-guid` tem os seguintes efeitos:
-
-- Os serviços da Microsoft consomem menos espaço no cabeçalho do cookie.
-- As URLs não incluem mais uma referência à Microsoft. Por exemplo, seu aplicativo do Azure AD B2C provavelmente refere-se a `login.microsoftonline.com`.
-
- Para usar `b2clogin.com`, você precisa atualizar a configuração de seu aplicativo.  
-
-- Defina a propriedade **validateAuthority** como `false` para que redirecionamentos que usam `b2clogin.com` possam ocorrer.
-
-O exemplo a seguir mostra como definir a propriedade:
-
-```javascript
-// The current application coordinates were pre-registered in a B2C directory.
-
-const msalConfig = {
-    auth:{
-        clientId: "Enter_the_Application_Id_here",
-        authority: "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_signupsignin1",
-        b2cScopes: ["https://contoso.onmicrosoft.com/demoapi/demo.read"],
-        webApi: 'https://contosohello.azurewebsites.net/hello',
-        validateAuthority: false;
-
-};
-// create UserAgentApplication instance
-const myMSALObj = new UserAgentApplication(msalConfig);
-```
-
-> [!NOTE]
-> O aplicativo Azure AD B2C provavelmente faz referência `login.microsoftonline.com` em vários locais, como as referências de fluxo de usuário e ponto de extremidade de token. Certifique-se de que o ponto de extremidade de autorização, ponto de extremidade de token e emissor foram atualizados para usar `your-tenant-name.b2clogin.com`.
-
-Siga [este exemplo de JavaScript da MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#single-page-application-built-on-msaljs-with-azure-ad-b2c) de como usar a Versão Prévia da MSAL para JavaScript (MSAL.js). O exemplo obtém um token de acesso e chama uma API protegida pelo Azure AD B2C.
+---
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre:
-
-- [Políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
-- [Personalização da interface do usuário](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-overview)
+- [Fluxos de usuários](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows)
+- [Políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started)
+- [Personalização de experiência do usuário](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input)

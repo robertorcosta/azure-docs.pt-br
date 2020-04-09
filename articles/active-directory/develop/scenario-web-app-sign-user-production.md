@@ -2,24 +2,21 @@
 title: Mover web app que assina em usuários para produção - plataforma de identidade Microsoft | Azure
 description: Saiba como construir um aplicativo web que faça sinais nos usuários (mude para produção)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6c486e59f32afd09a9934ae2298172ccb4ee2414
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c5fd444c55a20441325088912a07eb051219b84
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76768099"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881461"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Web app que assina nos usuários: Mova-se para a produção
 
@@ -41,7 +38,7 @@ Certifique-se de entender possíveis problemas com novas versões do navegador C
 Depois que seu aplicativo web assina nos usuários, ele pode chamar APIs da Web em nome dos usuários inscritos. Chamar APIs da Web a partir do aplicativo web é o objeto do seguinte cenário:
 
 > [!div class="nextstepaction"]
-> [Aplicativo web que chama APIs da Web](scenario-web-app-call-api-overview.md)
+> [Aplicativo Web que chama as APIs Web](scenario-web-app-call-api-overview.md)
 
 ## <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Mergulho profundo: tutorial do aplicativo web ASP.NET Core
 

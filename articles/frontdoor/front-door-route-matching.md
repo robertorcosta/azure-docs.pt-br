@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 605974e76c3ca878784129f7c9827a78d0642da6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471584"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878588"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Como o Front Door faz a correspondência com uma regra de roteamento
 
-Depois de estabelecer uma conexão e fazer um handshake SSL, quando uma solicitação chega em um ambiente de Front Door, uma das primeiras ações que o Front Door realiza é determinar, entre todas as configurações, qual regra de roteamento específica corresponde à solicitação para, em seguida, executar a ação definida. O documento a seguir explica como o Front Door determina qual configuração de Rota usar ao processar uma solicitação HTTP.
+Depois de estabelecer uma conexão e fazer um aperto de mão TLS, quando uma solicitação pousa em um ambiente front door uma das primeiras coisas que o Front Door faz é determinar a partir de todas as configurações, qual regra de roteamento específica para corresponder à solicitação e, em seguida, tomar a ação definida. O documento a seguir explica como o Front Door determina qual configuração de Rota usar ao processar uma solicitação HTTP.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Estrutura de uma configuração de rota do Front Door
 Uma configuração de regra de roteamento do Front Door é composta por duas partes principais: um "lado esquerdo" e um "lado direito". Fazemos a correspondência da solicitação de entrada om o lado esquerdo da rota enquanto o lado direito define como podemos processar a solicitação.

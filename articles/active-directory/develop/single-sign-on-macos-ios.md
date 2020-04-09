@@ -3,26 +3,22 @@ title: Configure SSO no macOS e iOS
 titleSuffix: Microsoft identity platform
 description: Saiba como configurar o single sign on (SSO) no macOS e iOS.
 services: active-directory
-documentationcenter: dev-center-name
 author: mmacy
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/03/2020
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 91a55520b37c549c8f1d94ba6cf08ecd24db85b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262445"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881241"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Como: Configurar sSO no macOS e iOS
 
@@ -69,7 +65,7 @@ Para habilitar o SSO em seus aplicativos, você precisará fazer as seguintes et
 
 Para que a plataforma de identidade da Microsoft saiba quais aplicativos podem compartilhar tokens, esses aplicativos precisam compartilhar o mesmo ID do Cliente ou ID do aplicativo. Esse é o identificador exclusivo fornecido para você quando você registrou seu primeiro aplicativo no portal.
 
-A maneira como a plataforma de identidade da Microsoft informa aos aplicativos que usam o mesmo ID de aplicativo à parte é por suas **URIs redirecionadas**. Cada aplicativo pode ter vários URIs de Redirecionamento registrados no portal de integração. Cada aplicativo em seu pacote terá um URI de redirecionamento diferente. Por exemplo: 
+A maneira como a plataforma de identidade da Microsoft informa aos aplicativos que usam o mesmo ID de aplicativo à parte é por suas **URIs redirecionadas**. Cada aplicativo pode ter vários URIs de Redirecionamento registrados no portal de integração. Cada aplicativo em seu pacote terá um URI de redirecionamento diferente. Por exemplo:
 
 URI de Redirecionamento do App1: `msauth.com.contoso.mytestapp1://auth`  
 URI de Redirecionamento do App2: `msauth.com.contoso.mytestapp2://auth`  
@@ -149,7 +145,7 @@ A MSAL oferece suporte para autenticação intermediada com o Microsoft Authenti
 
 As etapas a seguir são como você habilita o SSO usando um corretor de autenticação para o seu aplicativo:
 
-1. Registre um formato URI compatível com corretor para o aplicativo no Info.plist do seu aplicativo. O formato URI de `msauth.<app.bundle.id>://auth`redirecionamento compatível com corretor é . Substitua '<app.bundle.id>'' pelo ID do pacote do seu aplicativo. Por exemplo: 
+1. Registre um formato URI compatível com corretor para o aplicativo no Info.plist do seu aplicativo. O formato URI de `msauth.<app.bundle.id>://auth`redirecionamento compatível com corretor é . Substitua '<app.bundle.id>'' pelo ID do pacote do seu aplicativo. Por exemplo:
 
     ```xml
     <key>CFBundleURLSchemes</key>

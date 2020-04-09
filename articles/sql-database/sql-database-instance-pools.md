@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0938fbe94cb0d1e6dae3dcb84950a11f90dd9db8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256205"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878146"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>O que são pools de instâncias do Banco de Dados SQL (visualização)?
 
@@ -59,7 +59,7 @@ A lista a seguir fornece os principais casos de uso em que os pools de instânci
 
 ## <a name="architecture-of-instance-pools"></a>Arquitetura de pools de instâncias
 
-Os pools de instâncias têm arquitetura semelhante às instâncias gerenciadas regulares *(instâncias únicas).* Para oferecer suporte [a implantações dentro de Redes Virtuais (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) do Azure e para fornecer isolamento e segurança para os clientes, os pools de instâncias também contam com [clusters virtuais](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Os clusters virtuais representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da sub-rede virtual do cliente.
+Os pools de instâncias têm arquitetura semelhante às instâncias gerenciadas regulares *(instâncias únicas).* Para oferecer suporte [a implantações dentro de Redes Virtuais (VNets)](../virtual-network/virtual-network-for-azure-services.md) do Azure e para fornecer isolamento e segurança para os clientes, os pools de instâncias também contam com [clusters virtuais](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Os clusters virtuais representam um conjunto dedicado de máquinas virtuais isoladas implantadas dentro da sub-rede virtual do cliente.
 
 A principal diferença entre os dois modelos de implantação é que os pools de instâncias permitem várias implantações de processos do SQL Server no mesmo nó de máquina virtual, que são regidos por recursos usando [o Windows Job Objects,](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects)enquanto as instâncias únicas estão sempre sozinhas em um nó de máquina virtual.
 
@@ -112,7 +112,7 @@ Os recursos ou recursos opcionais que exigem que você escolha valores específi
 
 Embora as instâncias gerenciadas dentro dos pools tenham vCore e RAM dedicados, eles compartilham recursos de disco local (para uso temporário) e rede. Não é provável, mas é possível experimentar o efeito *vizinho barulhento* se várias instâncias no pool tiverem alto consumo de recursos ao mesmo tempo. Se você observar esse comportamento, considere implantar essas instâncias em um pool maior ou em instâncias únicas.
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
 Como as instâncias implantadas em um pool compartilham a mesma máquina virtual, você pode considerar desativar recursos que introduzem riscos de segurança mais altos ou controlar firmemente as permissões de acesso a esses recursos. Por exemplo, integração CLR, backup e restauração nativas, e-mail de banco de dados, etc.
 

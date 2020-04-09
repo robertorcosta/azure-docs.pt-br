@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 04/08/2020
 ms.author: juliako
-ms.openlocfilehash: e6f2ad2c5c30e3c75e8d3588e386ea14e8e3350b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a00f7c0ec76510cc521966acf98b7250e723697
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065953"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985891"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo em serviços de mídia
 
@@ -112,14 +112,17 @@ Você pode usar URLs intuitivas ou não intuitivas.
 * URL intuitiva
 
     O modo vanity é preferido por grandes emissoras de mídia que usam codificadores de transmissão de hardware e não querem reconfigurar seus codificadores quando iniciam o Evento Ao Vivo. Eles querem uma URL preditiva, que não muda com o tempo.
+    
+    > [!NOTE]
+    > No portal Azure, a URL de vaidade é chamada de "*URL de entrada persistente*".
 
-    Para especificar este `vanityUrl` modo, você define `true` `false`como no momento da criação (padrão é ). Você também precisa passar seu próprio`LiveEventInput.accessToken`token de acesso () no momento da criação. Você especifica o valor do token para evitar um token aleatório na URL. O token de acesso tem que ser uma seqüência GUID válida (com ou sem os hífens). Uma vez que o modo está definido, ele não pode ser atualizado.
+    Para especificar este modo na `vanityUrl` `true` API, defina-se no momento da criação (padrão é `false`). Você também precisa passar seu próprio`LiveEventInput.accessToken`token de acesso () no momento da criação. Você especifica o valor do token para evitar um token aleatório na URL. O token de acesso tem que ser uma seqüência GUID válida (com ou sem os hífens). Uma vez que o modo está definido, ele não pode ser atualizado.
 
     O token de acesso precisa ser único em seu data center. Se o seu aplicativo precisar usar uma URL de vaidade, é recomendável criar sempre uma nova instância GUID para o seu token de acesso (em vez de reutilizar qualquer GUID existente).
 
     Use as SEGUINTES APIs para ativar a URL de vaidade `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`e definir o token de acesso a um GUID válido (por exemplo, ).  
 
-    |Idioma|Habilitar url de vaidade|Definir token de acesso|
+    |Linguagem|Habilitar url de vaidade|Definir token de acesso|
     |---|---|---|
     |REST|[propriedades.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--vaidade-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--token de acesso](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|

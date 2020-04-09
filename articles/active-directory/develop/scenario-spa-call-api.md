@@ -2,24 +2,21 @@
 title: Construa um aplicativo de página única chamando uma API web - plataforma de identidade da Microsoft | Azure
 description: Saiba como criar um aplicativo de uma página única que chama uma API web
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.openlocfilehash: ccece6c840033913ec6d96b446dcb98c4befb32f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b70b109f43e80fc3ec68f52aef2dba6823033bb
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77159991"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882124"
 ---
 # <a name="single-page-application-call-a-web-api"></a>Aplicativo de uma página: Chame uma API web
 
@@ -27,9 +24,9 @@ Recomendamos que você `acquireTokenSilent` ligue para o método para adquirir o
 
 ## <a name="call-a-web-api"></a>Chamar uma API da Web
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Use o token de acesso adquirido como portador em uma solicitação HTTP para chamar qualquer API web, como a API do Microsoft Graph. Por exemplo: 
+Use o token de acesso adquirido como portador em uma solicitação HTTP para chamar qualquer API web, como a API do Microsoft Graph. Por exemplo:
 
 ```javascript
     var headers = new Headers();

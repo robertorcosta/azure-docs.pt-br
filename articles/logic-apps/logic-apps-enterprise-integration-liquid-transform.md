@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 04/01/2020
-ms.openlocfilehash: 0ab9297e772a3b75a077da1c2ae74e5058b2731f
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d2598dfe9d7972dcb764abf4a1239613a1e8417a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657283"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879166"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Realize transformações avançadas de JSON com modelos Liquid em Aplicativos Lógicos do Azure
 
@@ -33,7 +33,7 @@ Antes de realizar uma transformação Liquid em seu aplicativo lógico, você de
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Criar um modelo ou mapa Liquid para sua conta de integração
 
-1. Para este exemplo, crie o modelo Liquid de amostra descrito nesta etapa. No modelo Liquid, você pode usar [filtros Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), que usam convenções de nomeação [DotLiquid](https://dotliquidmarkup.org/) e C#.
+1. Para este exemplo, crie o modelo Liquid de amostra descrito nesta etapa. No modelo Liquid, você pode usar [filtros Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), que usam convenções de nomeação [DotLiquid](https://github.com/dotliquid/dotliquid) e C#.
 
    > [!NOTE]
    > Certifique-se de que os nomes do filtro *usem o invólucro de frase sinuoso* em seu modelo. Caso contrário, os filtros não funcionarão. Além disso, os mapas têm [limites de tamanho de arquivo.](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits)

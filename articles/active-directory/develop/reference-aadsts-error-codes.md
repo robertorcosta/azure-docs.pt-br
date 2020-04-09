@@ -2,26 +2,22 @@
 title: Códigos de erro de autenticação & autorização do Azure AD
 description: Saiba mais sobre os códigos de erro do AADSTS que são retornados do serviço de token de segurança (STS) do Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 03/31/2020
+ms.date: 04/07/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 91d285e2a839a7d6266c5d58f52901a48a7a8c84
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 40a7406ea91c95daad2f180b9d0f4620cdbbf454
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473179"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875921"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização do Azure AD
 
@@ -133,6 +129,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS50180 | WindowsIntegratedAuthMissing - É necessária uma autenticação integrada do Windows. Habilite o locatário para um SSO contínuo. |
 | AADSTS50187 | DeviceInformationNotProvided - O serviço não conseguiu executar a autenticação do dispositivo. |
 | AADSTS50196 | LoopDetected - Um loop do cliente foi detectado. Verifique a lógica do aplicativo para garantir que o cache de token seja implementado e que as condições de erro sejam tratadas corretamente.  O aplicativo fez muitas das mesmas solicitações em um período muito curto, indicando que está em um estado defeituoso ou está solicitando abusivamente tokens. |
+| AADSTS50197 | Identidades conflitantes - O usuário não pôde ser encontrado. Tente entrar de novo. |
 | AADSTS50199 | CmsiInterrupt - Por razões de segurança, a confirmação do usuário é necessária para esta solicitação.  Como este é um erro de "interaction_required", o cliente deve fazer auth interativo.  Isso ocorre porque uma webview do sistema foi usada para solicitar um token para um aplicativo nativo - o usuário deve ser solicitado a perguntar se este era realmente o aplicativo em que eles pretendiam assinar.|
 | AADSTS51000 | RequiredFeatureNotEnabled - O recurso está desativado. |
 | AADSTS51001 | DomainHintMustbePresent - A dica de domínio deve estar presente com o identificador de segurança local ou o UPN local. |

@@ -2,13 +2,13 @@
 title: Funções de modelo
 description: Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 1d2789e59c091b4e6c39be48b83fe610a592abe1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: fbd82f89ed9a97a3f376a9ed6eaa8ae3760759ff
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156252"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982371"
 ---
 # <a name="arm-template-functions"></a>Funções do modelo ARM
 
@@ -41,8 +41,8 @@ A maioria das funções funciona da mesma forma quando implantada em um grupo de
 O Resource Manager fornece diversas funções para trabalhar com matrizes e objetos.
 
 * [Matriz](template-functions-array.md#array)
-* [coalesce](template-functions-array.md#coalesce)
-* [concat](template-functions-array.md#concat)
+* [Coalesce](template-functions-array.md#coalesce)
+* [Concat](template-functions-array.md#concat)
 * [Contém](template-functions-array.md#contains)
 * [createArray](template-functions-array.md#createarray)
 * [empty](template-functions-array.md#empty)
@@ -52,7 +52,7 @@ O Resource Manager fornece diversas funções para trabalhar com matrizes e obje
 * [Última](template-functions-array.md#last)
 * [comprimento](template-functions-array.md#length)
 * [Min](template-functions-array.md#min)
-* [max](template-functions-array.md#max)
+* [Max](template-functions-array.md#max)
 * [Gama](template-functions-array.md#range)
 * [skip](template-functions-array.md#skip)
 * [Levar](template-functions-array.md#take)
@@ -77,6 +77,13 @@ O Resource Manager fornece várias funções para fazer comparações em seus mo
 <a id="deployment" aria-hidden="true" />
 <a id="parameters" aria-hidden="true" />
 <a id="variables" aria-hidden="true" />
+
+## <a name="date-functions"></a>Funções de data
+
+O Gerenciador de Recursos fornece as seguintes funções para trabalhar com datas.
+
+* [dateTimeAdd](template-functions-date.md#datetimeadd)
+* [utcNow](template-functions-date.md#utcnow)
 
 ## <a name="deployment-value-functions"></a>Funções de valor de implantação
 
@@ -124,7 +131,7 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com núm
 * [Flutuar](template-functions-numeric.md#float)
 * [Int](template-functions-numeric.md#int)
 * [Min](template-functions-numeric.md#min)
-* [max](template-functions-numeric.md#max)
+* [Max](template-functions-numeric.md#max)
 * [Mod](template-functions-numeric.md#mod)
 * [mul](template-functions-numeric.md#mul)
 * [Sub](template-functions-numeric.md#sub)
@@ -195,7 +202,7 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 * [base64](template-functions-string.md#base64)
 * [base64ToJson](template-functions-string.md#base64tojson)
 * [base64ToString](template-functions-string.md#base64tostring)
-* [concat](template-functions-string.md#concat)
+* [Concat](template-functions-string.md#concat)
 * [Contém](template-functions-string.md#contains)
 * [dataUri](template-functions-string.md#datauri)
 * [dataUriToString](template-functions-string.md#datauritostring)
@@ -214,8 +221,8 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 * [skip](template-functions-string.md#skip)
 * [split](template-functions-string.md#split)
 * [Startswith](template-functions-string.md#startswith)
-* [String](template-functions-string.md#string)
-* [substring](template-functions-string.md#substring)
+* [cadeia de caracteres](template-functions-string.md#string)
+* [Subsequência](template-functions-string.md#substring)
 * [Levar](template-functions-string.md#take)
 * [Tolower](template-functions-string.md#tolower)
 * [Toupper](template-functions-string.md#toupper)
@@ -224,7 +231,6 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 * [Uri](template-functions-string.md#uri)
 * [uriComponent](template-functions-string.md#uricomponent)
 * [uriComponentToString](template-functions-string.md#uricomponenttostring)
-* [utcNow](template-functions-string.md#utcnow)
 
 ## <a name="next-steps"></a>Próximas etapas
 

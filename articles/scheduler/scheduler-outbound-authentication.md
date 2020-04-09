@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: bcd14e618323aec1c7ce47fcebb25099fa96be81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898506"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878962"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticação de saída para Agendador do Azure
 
@@ -47,8 +47,8 @@ Ao adicionar a autenticação usando o modelo `ClientCertificate`, especifique e
 
 | Elemento | Obrigatório | Descrição |
 |---------|----------|-------------|
-| **autenticação (elemento pai)** | Objeto de autenticação para usar um certificado de cliente SSL |
-| **type** | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`. |
+| **autenticação (elemento pai)** | O objeto de autenticação para usar um certificado de cliente SSL/TLS |
+| **type** | Sim | O tipo de autenticação. Para certificados clienteSL/TLS, o `ClientCertificate`valor é . |
 | **Pfx** | Sim | Conteúdo codificado na base64 do arquivo PFX |
 | **senha** | Sim | A senha para acessar o arquivo PFX |
 ||| 
@@ -59,8 +59,8 @@ Quando uma solicitação é enviada com as informações de autenticação, a re
 
 | Elemento | Descrição | 
 |---------|-------------| 
-| **autenticação (elemento pai)** | Objeto de autenticação para usar um certificado de cliente SSL |
-| **type** | O tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`. |
+| **autenticação (elemento pai)** | O objeto de autenticação para usar um certificado de cliente SSL/TLS |
+| **type** | O tipo de autenticação. Para certificados clienteSL/TLS, o `ClientCertificate`valor é . |
 | **Certificatethumbprint** |A impressão digital do certificado |
 | **certificateSubjectName** |O nome distinto da entidade do certificado |
 | **certificateExpiration** | A data de validade do certificado |

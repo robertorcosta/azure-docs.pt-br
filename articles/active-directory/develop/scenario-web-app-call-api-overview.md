@@ -2,24 +2,21 @@
 title: Construa um aplicativo web que chame APIs web - plataforma de identidade da Microsoft | Azure
 description: Saiba como criar um aplicativo web que chama APIs da Web (visão geral)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 14f513306b3f0bc0c06a4143e5174c3ecddaef62
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 5af9e34baf6115e801fbfe35e6e3895e48b360e7
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617160"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881716"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Cenário: Um aplicativo web que chama APIs web
 
@@ -32,7 +29,7 @@ Saiba como criar um aplicativo web que inscreva usuários na plataforma de ident
 Este cenário pressupõe que você já passou pelo seguinte cenário:
 
 > [!div class="nextstepaction"]
-> [Aplicativo web que assina em usuários](scenario-web-app-sign-user-overview.md)
+> [Aplicativo Web que conecta os usuários](scenario-web-app-sign-user-overview.md)
 
 ## <a name="overview"></a>Visão geral
 

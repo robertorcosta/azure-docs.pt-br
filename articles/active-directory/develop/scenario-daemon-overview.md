@@ -2,25 +2,21 @@
 title: Crie um aplicativo daemon que chama APIs web - plataforma de identidade da Microsoft | Azure
 description: Aprenda a construir um aplicativo daemon que chama APIs da Web
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5718a23e5669de6ba16354a718d72b68d14bbf49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df06c4c55941f4424d6b90d2846af17bf055b2e4
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78894547"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885456"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Cenário: Aplicativo Daemon que chama APIs da Web
 
@@ -42,7 +38,7 @@ Aqui estão alguns exemplos de casos de uso para aplicativos daemon:
 - Aplicativos de desktop (como serviços do Windows no Windows ou processos daemon no Linux) que realizam trabalhos em lote, ou um serviço de sistema operacional que é executado em segundo plano
 - APIs da Web que precisam manipular diretórios, não usuários específicos
 
-Há outro caso comum em que aplicativos não-daemon usam credenciais de clientes: mesmo quando agem em nome dos usuários, eles precisam acessar uma API web ou um recurso sua própria identidade por razões técnicas. Um exemplo é o acesso a segredos no Azure Key Vault ou em um banco de dados SQL do Azure para um cache.
+Há outro caso comum em que aplicativos não-daemon usam credenciais de clientes: mesmo quando agem em nome dos usuários, eles precisam acessar uma API web ou um recurso sob sua própria identidade por razões técnicas. Um exemplo é o acesso a segredos no Azure Key Vault ou em um banco de dados SQL do Azure para um cache.
 
 Aplicações que adquirem um token para suas próprias identidades:
 

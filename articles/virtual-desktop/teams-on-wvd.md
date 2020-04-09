@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 702df1bfaf0701a40e514f8a47151f96917adf38
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: cfec30e56b0fd523896cbc1a7e84e92f639075a8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811587"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879047"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Use o Microsoft Teams no windows virtual desktop
 
@@ -40,7 +40,7 @@ Para habilitar a instalação de equipes por máquina, defina a seguinte chave d
 ```shell
   [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams\IsWVDEnvironment]
   Type: REG_DWORD
-  Value: 0x1
+  Value: 1
 ```
 
 ### <a name="install-microsoft-teams"></a>Instale as equipes da Microsoft
@@ -66,4 +66,4 @@ Você pode implantar o aplicativo de desktop Teams usando uma instalação por m
       ```
 
       > [!NOTE]
-      > Se você instalar Equipes com a configuração MSI ALLUSERS=1, as atualizações automáticas serão desativadas. Recomendamos que você certifique-se de atualizar equipes pelo menos uma vez por mês.
+      > Se você instalar Equipes com a configuração MSI ALLUSER=1, as atualizações automáticas serão desativadas. Recomendamos que você certifique-se de atualizar equipes pelo menos uma vez por mês.

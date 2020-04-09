@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
-ms.openlocfilehash: 74d696c19ac2a2d0d367f5a018fde8cd3a0eedb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 454138f8e0d92935126f446455810a444b0a053a
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535197"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984139"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP usados pelo Application Insights e pelo Log Analytics
 O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) usa vários endereços IP. Talvez seja necessário conhecer esses endereços se o aplicativo que você está monitorando estiver hospedado atrás de um firewall.
@@ -55,6 +55,8 @@ Configuração do Monitor de Status - necessária somente ao fazer alterações.
 ## <a name="availability-tests"></a>Testes de disponibilidade
 Esta é a lista de endereços a partir dos quais [testes da web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) são executados. Se você deseja executar testes da Web em seu aplicativo, mas o servidor Web está restrito a servir clientes específicos, você precisa permitir o tráfego de entrada dos nossos servidores de teste de disponibilidade.
 
+### <a name="service-tag"></a>Tag de serviço
+
 Se você estiver usando grupos de segurança de rede do Azure, basta adicionar uma regra de **porta de entrada** para permitir o tráfego a partir de testes de disponibilidade do Application Insights, selecionando a Tag de **serviço** como a Marca **de Origem** e **o AplicativoInsightsComo** a **tag de serviço Origem**.
 
 >[!div class="mx-imgBorder"]
@@ -64,6 +66,11 @@ Se você estiver usando grupos de segurança de rede do Azure, basta adicionar u
 >![Adicionar guia de regra de segurança de entrada](./media/ip-addresses/add-inbound-security-rule2.png)
 
 Abra as portas 80 (http) e 443 (https) para o tráfego de entrada destes endereços (endereços IP são agrupados por local):
+
+### <a name="addresses-grouped-by-location"></a>Endereços agrupados por localização
+
+> [!NOTE]
+> Esses endereços são listados usando a notação DE Roteamento Interdomínio (CIDR) sem classe. Isso significa que `51.144.56.112/28` uma entrada como é equivalente `51.144.56.112` a `51.144.56.127`16 IPs começando e terminando em .
 
 ```
 Australia East

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 9/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 348633ffc91bc25a226b05743a18d2c87533a01d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2895944dea6417949488076186135680523e19db
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280636"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874935"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de uso do cliente do parceiro do Azure
 
@@ -186,7 +186,7 @@ Depois de adicionar o GUID ao seu modelo ou no agente do usuário e registrar o 
 
 1. Para registrar mais de um GUID, selecione **Adicionar GUID de Rastreamento** novamente. Caixas adicionais aparecerão na página.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 
 ## <a name="verify-the-guid-deployment"></a>Verificar a implantação de GUID
@@ -232,7 +232,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Relatório
 
-Você pode encontrar o relatório para atribuição de uso do cliente no painel de análise do Partner Center. ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Para ver o relatório, você tem que usar suas credenciais do Partner Center para fazer login. Se você encontrar quaisquer problemas com relatório ou login, crie uma solicitação de suporte após a instrução na seção Obter suporte.
+Você pode encontrar o relatório para atribuição de uso[https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)do cliente no painel do Partner Center ( ). Para ver o relatório, você tem que usar suas credenciais do Partner Center para fazer login. Se você encontrar quaisquer problemas com relatório ou login, crie uma solicitação de suporte após a instrução na seção Obter suporte.
 
 Escolha Modelo rastreado na lista suspensa do Tipo de Associação de Parceiros para ver o relatório.
 
@@ -250,7 +250,7 @@ Quando você implanta esse modelo, a Microsoft consegue identificar a instalaç�
 
 Quando você implanta o software \<PARTNER>, a Microsoft pode identificar a instalação do software \< PARTNER> com os recursos do Azure implantados. Microsoft é capaz de correlacionar os recursos do Azure que são usados para dar suporte ao software. A Microsoft coleta essas informações para fornecer as melhores experiências com seus produtos e operar seus negócios. Os dados são coletados e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter.
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
 Existem dois canais de suporte dependendo dos problemas que você está enfrentando.
 
@@ -267,7 +267,7 @@ Se você precisar de assistência para a atribuição de uso do Marketplace Onbo
 1. Escolha o **categoria** para seu problema:
 
    - Para problemas de uso de associação, selecione **outros**.
-   - Para problemas de acesso com o Azure Marketplace CPP, selecione **problema de acesso**.
+   - Para problemas de acesso com o Azure Marketplace, selecione **Problema de acesso**.
 
      ![Escolha a categoria do problema](media/marketplace-publishers-guide/lu-article-incident.png)
 
@@ -315,7 +315,7 @@ Sim, um cliente ou parceiro de implementação pode personalizar o modelo e alte
 
 **Posso acompanhar modelos implantados de um repositório não Microsoft como o GitHub?**
 
-Sim, desde que o GUID esteja presente quando o modelo for implantado, o uso será rastreado. Os parceiros são obrigados a ter um perfil no CPP para registrar GUIDs usados para a implantação fora do Azure Marketplace.
+Sim, desde que o GUID esteja presente quando o modelo for implantado, o uso será rastreado. Os parceiros são obrigados a ter um perfil no mercado comercial de inscrição no Partner Center para registrar GUIDs usados para a implantação fora do Azure Marketplace.
 
 **O cliente que recebe a emissão de relatórios também?**
 

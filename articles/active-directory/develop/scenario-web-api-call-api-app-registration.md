@@ -2,24 +2,21 @@
 title: Registre uma API web que chama APIs web - plataforma de identidade Microsoft | Azure
 description: Aprenda a construir uma API web que chama APIs web downstream (registro de aplicativos).
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bafd71f34602535bb6193a8d8114a1182e4e8f40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 048f7d41bd9d106121859e6b1fc013258067af9c
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76701783"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885116"
 ---
 # <a name="a-web-api-that-calls-web-apis-app-registration"></a>Uma API web que chama APIs web: registro de aplicativos
 

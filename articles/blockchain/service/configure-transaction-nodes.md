@@ -4,12 +4,12 @@ description: Como configurar os ates de transação do Azure Blockchain Service
 ms.date: 11/20/2019
 ms.topic: article
 ms.reviewer: janders
-ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8fa18496d0c1aa59beb55569e731967d5ebea427
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252253"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876922"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configure os adeptos de transação do Azure Blockchain Service
 
@@ -17,7 +17,7 @@ Nós de transações são usados para enviar transações blockchain para o Azur
 
 Para exibir os detalhes do nó de transação padrão:
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Navegue para o membro do serviço Azure Blockchain. Selecione **nós de transação**.
 
     ![Selecionar o nó de transação padrão](./media/configure-transaction-nodes/nodes.png)
@@ -54,7 +54,7 @@ Para visualizar os detalhes do ponto final de um nó de transação:
 
     ![Pontos de extremidade](./media/configure-transaction-nodes/endpoints.png)
 
-Os pontos finais do nó de transação são seguros e requerem autenticação. Você pode se conectar a um ponto final de transação usando autenticação Azure AD, autenticação básica HTTPS e usando uma chave de acesso em HTTPS ou Websocket via SSL.
+Os pontos finais do nó de transação são seguros e requerem autenticação. Você pode se conectar a um ponto final de transação usando autenticação Azure AD, autenticação básica HTTPS e usando uma chave de acesso em HTTPS ou Websocket via TLS.
 
 ### <a name="azure-active-directory-access-control"></a>Controle de acesso do Azure Active Directory
 

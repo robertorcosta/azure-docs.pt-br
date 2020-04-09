@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
-ms.openlocfilehash: 8c261a010a1e8f4d1be9b3883510eb38c37a15ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1b70aaef49cc2b993c873509dc935d71069efa2
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296898"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985908"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Inicie, monitore e cancele as corridas de treinamento em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -264,16 +264,41 @@ Para criar muitas corridas de [`create_children()`](https://docs.microsoft.com/p
 
 ### <a name="submit-child-runs"></a>Enviar corridas de crianças
 
-As corridas de crianças também podem ser enviadas a partir de uma corrida dos pais. Isso permite que você crie hierarquias de corridas de pais e filhos, cada uma executando em diferentes alvos de computação, conectadas por ID de execução de pais comuns.
+As corridas de crianças também podem ser enviadas a partir de uma corrida dos pais. Isso permite que você crie hierarquias de corridas de pais e filhos. 
 
-Use o método ['submit_child()'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) para enviar uma criança executada dentro de uma corrida dos pais. Para fazer isso no script de execução dos pais, ``submit_child`` obtenha o contexto de execução e envie a execução do filho usando o método da instância de contexto.
+Você pode desejar que seu filho execute para usar uma configuração de execução diferente da execução dos pais. Por exemplo, você pode usar uma configuração menos poderosa, baseada em CPU para o pai, enquanto usa configurações baseadas em GPU para seus filhos. Outro desejo comum é passar a cada filho diferentes argumentos e dados. Para personalizar a corrida `RunConfiguration` de uma criança, `ScriptRunConfig` passe um objeto para o construtor da criança. Este exemplo de código, que `ScriptRunConfig` seria parte do script do objeto pai:
+
+- Cria `RunConfiguration` uma recuperação de um recurso de computação nomeado`"gpu-compute"`
+- Itera sobre diferentes valores de `ScriptRunConfig` argumento a serem passados para os objetos das crianças
+- Cria e envia uma nova execução de filhos, usando o recurso e argumento de computação personalizado
+- Blocos até que toda a criança corra completa
 
 ```python
-## In parent run script
-parent_run = Run.get_context()
-child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
-parent_run.submit_child(child_run_config)
+# parent.py
+# This script controls the launching of child scripts
+from azureml.core import Run, ScriptRunConfig, RunConfiguration
+
+run_config_for_aml_compute = RunConfiguration()
+run_config_for_aml_compute.target = "gpu-compute"
+run_config_for_aml_compute.environment.docker.enabled = True 
+
+run = Run.get_context()
+
+child_args = ['Apple', 'Banana', 'Orange']
+for arg in child_args: 
+    run.log('Status', f'Launching {arg}')
+    child_config = ScriptRunConfig(source_directory=".", script='child.py', arguments=['--fruit', arg], run_config = run_config_for_aml_compute)
+    # Starts the run asynchronously
+    run.submit_child(child_config)
+
+# Experiment will "complete" successfully at this point. 
+# Instead of returning immediately, block until child runs complete
+
+for child in run.get_children():
+    child.wait_for_completion()
 ```
+
+Para criar muitas corridas de crianças com configurações, argumentos [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) e entradas idênticas de forma eficiente, use o método. Como cada criação resulta em uma chamada de rede, criar um lote de corridas é mais eficiente do que criá-los um por um.
 
 Dentro de uma corrida de crianças, você pode visualizar o ID de execução dos pais:
 

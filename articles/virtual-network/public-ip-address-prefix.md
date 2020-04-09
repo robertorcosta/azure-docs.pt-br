@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 04/08/2020
 ms.author: anavin
-ms.openlocfilehash: 12fb7e03062600745cd8511d37b439ce44f2ef78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9604d5567e74ef470c3e798b6a3df9e48d6fde5d
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75640713"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985296"
 ---
 # <a name="public-ip-address-prefix"></a>Prefixo de endereço IP público
 
@@ -56,7 +56,7 @@ Quando você cria recursos públicos de endereço IP, o Azure atribui um endere�
 ## <a name="constraints"></a>Restrições
 
 - Você não pode especificar os endereços IP do prefixo. O Azure aloca os endereços IP para o prefixo, com base no tamanho que você especifica.
-- Você pode criar um prefixo de até 16 endereços IP ou um /28. Para obter mais informações, confira [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- Você pode criar um prefixo de até 16 endereços IP ou um /28 por padrão. Revisar [limites da rede aumentam as solicitações](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) e os limites do [Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para obter mais informações.
 - Você não poderá alterar o intervalo depois de criar o prefixo.
 - Somente endereços IP públicos estáticos criados com o SKU Standard podem ser atribuídos do intervalo do prefixo. Para saber mais sobre os SKUs do endereço IP público, confira [endereço IP público](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 - Os endereços do intervalo só podem ser atribuídos aos recursos do Azure Resource Manager. Os endereços não podem ser atribuídos aos recursos no modelo de implantação clássico.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: fd1f06bcb92ea97e0e9e9a6eefeac957031575a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a088e52f742f96a13ba61969c2d7a6697c96b145
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471550"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879285"
 ---
 # <a name="routing-architecture-overview"></a>Visão geral da arquitetura de roteamento
 
@@ -35,7 +35,7 @@ O roteamento para ambientes do Azure Front Door aproveita o [Anycast](https://en
 [TCP de divisão](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) é uma técnica para reduzir latências e problemas de TCP dividindo em partes menores uma conexão que poderia apresentar um tempo longo de viagem de ida e volta.  Colocando os ambientes do Front Door mais próximos dos usuários finais e encerrando as conexões TCP dentro do ambiente do Front Door, uma conexão TCP com um RTT (tempo da viagem de ida e volta) longo até o back-end do aplicativo é dividida em duas conexões TCP. A conexão curta entre o usuário final e o ambiente front door significa que a conexão se estabelece ao longo de três viagens de ida e volta curtas em vez de três longas ida e volta, economizando latência.  A conexão longa entre o ambiente do Front Door e o back-end pode ser pré-estabelecida e reutilizada em várias chamadas do usuário final, novamente reduzindo o tempo de conexão TCP.  O efeito é multiplicado ao estabelecer uma conexão SSL/protocolo TLS, pois há mais viagens de ida e volta para proteger a conexão.
 
 ## <a name="processing-request-to-match-a-routing-rule"></a>Processando a solicitação para corresponder a uma regra de roteamento
-Depois de estabelecer uma conexão e fazer um handshake SSL, quando uma solicitação chega em um ambiente do Front Door, a correspondência a uma regra de roteamento é a primeira etapa. Essa correspondência é basicamente determinar de todas as configurações no Front Door, a qual regra de roteamento específica a solicitação corresponde. Leia sobre como o Front Door faz a [correspondência de rota](front-door-route-matching.md) para saber mais.
+Depois de estabelecer uma conexão e fazer um aperto de mão TLS, quando uma solicitação pousa em um ambiente front door, combinar uma regra de roteamento é o primeiro passo. Essa correspondência é basicamente determinar de todas as configurações no Front Door, a qual regra de roteamento específica a solicitação corresponde. Leia sobre como o Front Door faz a [correspondência de rota](front-door-route-matching.md) para saber mais.
 
 ## <a name="identifying-available-backends-in-the-backend-pool-for-the-routing-rule"></a>Identificando back-ends disponíveis no pool de back-ends para a regra de roteamento
 Depois que o Front Door encontrar uma correspondência a uma regra de roteamento com base na solicitação de entrada e se não houver nenhum cache, a próxima etapa será obter o status de investigação de integridade do pool de back-end associado à rota correspondente. Leia sobre como o Front Door monitora a integridade do back-end usando [Investigações de Integridade](front-door-health-probes.md) para saber mais.

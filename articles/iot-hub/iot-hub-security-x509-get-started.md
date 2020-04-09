@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 968241eff1bcab449f9a4def7a394a508461ec95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a22808b1d7ab2b2451f50470e8da3770d07407a5
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271168"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985653"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurar a segurança de X.509 em seu Hub IoT do Azure
 
@@ -38,6 +38,9 @@ Você pode escolher qualquer uma das seguintes maneiras de obter seus certificad
 * Crie seus próprios certificados X.509 usando uma ferramenta de terceiros, como [o OpenSSL](https://www.openssl.org/). Esta técnica é boa para fins de teste e desenvolvimento. Veja [Gerenciar certificados de Autoridade de Certificação de teste para exemplos e tutoriais](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para obter informações sobre como gerar certificados de autoridade de certificação de teste usando o PowerShell ou Bash. O restante deste tutorial usa certificados de autoridade de certificação de teste gerados seguindo as instruções em [Gerenciar certificados de Autoridade de Certificação de teste para exemplos e tutoriais](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
 * Gerar um [certificado CA intermediário X.509](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) assinado por um certificado de CA raiz existente e carregá-lo para o hub. Uma vez que o certificado intermediário é carregado e verificado, conforme instruído abaixo, ele pode ser usado no lugar de um certificado de CA raiz mencionado abaixo. Ferramentas como OpenSSL ([openssl req](https://www.openssl.org/docs/man1.1.0/man1/req.html) e [openssl ca](https://www.openssl.org/docs/man1.1.0/man1/ca.html)) podem ser usadas para gerar e assinar um certificado de CA intermediário.
+
+> [!NOTE]
+> Não carregue a raiz de terceiros se não for exclusiva para você, pois isso permitiria que outros clientes da terceira parte conectassem seus dispositivos ao seu IoT Hub.
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>Registrar certificados de AC X.509 para o Hub IoT
 
@@ -191,7 +194,7 @@ Para saber mais sobre como proteger sua solução IoT, confira:
 
 * [Arquitetura de segurança IoT](../iot-fundamentals/iot-security-architecture.md)
 
-* [Proteger sua implantação IoT](../iot-fundamentals/iot-security-deployment.md)
+* [Proteger sua implantação de IoT](../iot-fundamentals/iot-security-deployment.md)
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 

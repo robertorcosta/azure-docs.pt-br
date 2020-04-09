@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: bf2a2385b3129ddf24ede7f6d851701186b0e33c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5c6562c6def1fa588724b3bc5da502536b16aa9
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445706"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985636"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Use a biblioteca bulk executor Java para executar operações em massa no Azure Cosmos DB
 
-Este tutorial fornece instruções sobre como usar a biblioteca BulkExecutor Java do Azure Cosmos DB para importar e atualizar documentos do Azure Cosmos DB. Para saber mais sobre a biblioteca bulk executor e como ela ajuda a aproveitar armazenamento e taxa de transferência em massa, consulte o artigo [visão geral da Biblioteca bulk executor](bulk-executor-overview.md). Neste tutorial, você constrói um aplicativo Java que gera documentos aleatórios e eles são importados em massa para um contêiner Do Azure Cosmos. Após a importação, você será em massa atualizar algumas propriedades de um documento. 
+Este tutorial fornece instruções sobre como usar a biblioteca Java do executor em massa do Azure Cosmos DB para importar e atualizar documentos Azure Cosmos DB. Para saber mais sobre a biblioteca bulk executor e como ela ajuda a aproveitar armazenamento e taxa de transferência em massa, consulte o artigo [visão geral da Biblioteca bulk executor](bulk-executor-overview.md). Neste tutorial, você constrói um aplicativo Java que gera documentos aleatórios e eles são importados em massa para um contêiner Do Azure Cosmos. Após a importação, você será em massa atualizar algumas propriedades de um documento. 
 
 Atualmente, a biblioteca de executores em massa é suportada apenas por contas API AQL DB SQL e API Gremlin do Azure Cosmos. Este artigo descreve como usar a biblioteca Java executor a granel com contas API SQL. Para saber mais sobre como usar a biblioteca do .NET de executor em massa com a API do Gremlin, consulte [executar operações em massa na API do Gremlin do Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
@@ -28,7 +28,7 @@ Atualmente, a biblioteca de executores em massa é suportada apenas por contas A
 
 * Você pode [experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, gratuitamente e compromissos. Ou você pode usar o [Emulador do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o ponto de extremidade de `https://localhost:8081`. A Chave Primária é fornecida nas [Solicitações de autenticação](local-emulator.md#authenticating-requests).  
 
-* [Kit de desenvolvimento Java (JDK) 1.7+](https://aka.ms/azure-jdks)  
+* [Kit de desenvolvimento Java (JDK) 1.7+](/java/azure/jdk/?view=azure-java-stable)  
   - No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.  
 
   - Defina a variável de ambiente JAVA_HOME para apontar para a pasta onde o JDK está instalado.
@@ -51,7 +51,7 @@ O repositório clonado contém dois exemplos "bulkimport" e "bulkupdate" relativ
 
 ## <a name="bulk-import-data-to-azure-cosmos-db"></a>Importar dados em massa no Azure Cosmos DB
 
-1. As cadeias de caracteres de conexão do Azure Cosmos DB são lidas como argumentos e atribuídas a variáveis definidas no arquivo CmdLineConfiguration.java.  
+1. As seqüências de conexão do Azure Cosmos DB são lidas como argumentos e atribuídas a variáveis definidas no arquivo CmdLineConfiguration.java.  
 
 2. Em seguida, o objeto de DocumentClient é inicializado usando as instruções a seguir:  
 
@@ -130,7 +130,7 @@ O repositório clonado contém dois exemplos "bulkimport" e "bulkupdate" relativ
 6. Depois que as dependências de destino são geradas, você pode chamar o aplicativo importador em massa usando o seguinte comando:  
 
    ```java
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB’s endpoint>*  -masterKey *<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
    O importador em massa cria um novo banco de dados e uma coleção com o nome do banco de dados, nome da coleção e os valores de taxa de transferência especificados no arquivo App.config. 
@@ -150,7 +150,7 @@ Você pode atualizar os documentos existentes usando a API BulkUpdateAsync. Nest
    updateOperations.add(descriptionUpdate);
 
    List<UpdateItem> updateItems = new ArrayList<>(cfg.getNumberOfDocumentsForEachCheckpoint());
-   IntStream.range(0, cfg.getNumberOfDocumentsForEachCheckpoint()).mapToObj(j -> {                      
+   IntStream.range(0, cfg.getNumberOfDocumentsForEachCheckpoint()).mapToObj(j -> {                        
     return new UpdateItem(Long.toString(prefix + j), Long.toString(prefix + j), updateOperations);
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
@@ -182,7 +182,7 @@ Você pode atualizar os documentos existentes usando a API BulkUpdateAsync. Nest
    |int getNumberOfDocumentsUpdated()  |   O número total de documentos que foram atualizados com êxito sem os documentos fornecidos para a chamada de API de atualização em massa.      |
    |double getTotalRequestUnitsConsumed() |  O total de unidades de solicitação (RU) consumidas pela chamada de API de atualização em massa.       |
    |Duration getTotalTimeTaken()  |   O tempo total gasto pela chamada de API de atualização em massa para concluir a execução.      |
-   |\<Exceção de> de obtererros()   |    Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada à API de atualização em massa que não falharam em ser inseridos.      |
+   |\<Exceção de> de obtererros()   |       Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada à API de atualização em massa que não falharam em ser inseridos.      |
 
 3. Depois de ter o aplicativo de atualização em massa pronto, compile a ferramenta de linha de comando da origem usando o comando 'mvn clean package'. Este comando gera um arquivo jar na pasta de destino:  
 
@@ -193,7 +193,7 @@ Você pode atualizar os documentos existentes usando a API BulkUpdateAsync. Nest
 4. Depois que as dependências de destino são geradas, você pode chamar o aplicativo de atualização em massa usando o seguinte comando:
 
    ```
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB’s endpoint>* -masterKey **<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
 ## <a name="performance-tips"></a>Dicas de desempenho 
@@ -203,7 +203,7 @@ Considere os seguintes pontos para melhor desempenho ao usar a biblioteca bulk e
 * Para ter o melhor desempenho, execute o aplicativo de uma VM do Azure na mesma região da sua região de gravação da conta do Cosmos DB.  
 * Para alcançar maior taxa de transferência:  
 
-   * Defina o tamanho do heap da JVM para um número grande o suficiente para evitar qualquer problema de memória na manipulação de número grande de documentos. Tamanho do heap sugerido: max (3GB, 3 * tamanho de (todos os documentos passados para API de importação em massa em um lote)).  
+   * Defina o tamanho da pilha do JVM para um número grande o suficiente para evitar qualquer problema de memória no manuseio de um grande número de documentos. Tamanho do heap sugerido: max (3GB, 3 * tamanho de (todos os documentos passados para API de importação em massa em um lote)).  
    * Há um tempo de pré-processamento, devido ao qual você obterá maior taxa de transferência ao executar operações em massa com um grande número de documentos. Portanto, se você deseja importar 10.000.000 documentos, executar a importação em massa 10 vezes em 10 lotes de documentos, cada um de tamanho 1.000.000, é preferível do que a execução da importação em massa 100 vezes em 100 lotes de documentos, cada um de tamanho 100.000 documentos.  
 
 * Recomenda-se instanciar um único objeto DocumentBulkExecutor para toda a aplicação dentro de uma única máquina virtual que corresponda a um contêiner Azure Cosmos específico.  

@@ -3,25 +3,21 @@ title: Registro de aplicativos de API web protegido | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como construir uma API web protegida e as informações que você precisa para registrar o aplicativo.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2d9e5d051f101288b8528b47fa88b4783a040950
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2cdf3ff45a400d4b8d0b2605bf7ddc364aff1fe6
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262497"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882379"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protegida: registro de aplicativos
 
@@ -151,7 +147,7 @@ Para adicionar essa maior segurança:
    >
    > Mas, como explicado na seção anterior, sua API web sempre pode verificar se o aplicativo tem a função certa, que é autorizada pelo admin inquilino. A API realiza essa verificação validando que o token de acesso tem uma reclamação de funções e que o valor para esta reclamação está correto. Na amostra JSON anterior, `access_as_application`o valor é .
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

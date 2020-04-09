@@ -11,30 +11,30 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
+ms.date: 03/16/2020
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: e1249913300be532cc6514f1478bbc6f4183c001
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5d5ebda850163989e6ef1af94ec623d2d758f07
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300546"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878282"
 ---
-# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluções de aplicativos Oracle integrando o Microsoft Azure e o Oracle Cloud Infrastructure (visualização)
+# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Soluções de aplicativos Oracle integrando a Infra-estrutura de nuvem Microsoft Azure e Oracle
 
 A Microsoft e a Oracle fizeram uma parceria para fornecer baixa latência, alta conectividade entre nuvens de throughput, permitindo que você aproveite o melhor de ambas as nuvens. 
 
 Usando essa conectividade entre nuvens, você pode particionar um aplicativo de vários níveis para executar seu nível de banco de dados no Oracle Cloud Infrastructure (OCI), e o aplicativo e outros níveis no Microsoft Azure. A experiência é semelhante a executar toda a pilha de soluções em uma única nuvem. 
-
-> [!IMPORTANT]
-> Esse recurso de nuvem cruzada está atualmente em visualização, e [as limitações se aplicam](#region-availability). Para estabelecer conectividade de baixa latência entre o Azure e o OCI, sua assinatura do Azure deve primeiro ser habilitada para esse recurso. Você deve se inscrever na pré-visualização preenchendo este formulário de [pesquisa](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu)curto . Após a inscrição da sua assinatura, você receberá um email. Você somente poderá usar a funcionalidade quando receber um email de confirmação. Você também pode entrar em contato com o representante da Microsoft para ser habilitado para esta pré-visualização. O acesso ao recurso de visualização está sujeito à disponibilidade e restrito pela Microsoft a seu exclusivo critério. A conclusão da pesquisa não garante o acesso. Esta visualização é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Consulte os [Termos de Uso Suplementares para](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) visualizações do Microsoft Azure para obter detalhes. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
 
 Se você estiver interessado em implantar soluções Oracle inteiramente na infra-estrutura do Azure, consulte [imagens Oracle VM e sua implantação no Microsoft Azure](oracle-vm-solutions.md).
 
 ## <a name="scenario-overview"></a>Visão geral do cenário
 
 A conectividade entre nuvens fornece uma solução para você executar os aplicativos líderes do setor da Oracle e seus próprios aplicativos personalizados, em máquinas virtuais do Azure, enquanto desfruta dos benefícios dos serviços de banco de dados hospedados no OCI. 
+
+> [!IMPORTANT]
+> A Oracle certificará esses aplicativos para serem executados no Azure ao usar a solução de interconexão Azure/Oracle Cloud até maio de 2020.
 
 Os aplicativos que você pode executar em uma configuração entre nuvens incluem:
 

@@ -8,16 +8,22 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f3d6580b738a77de9654de0df9b4ce1120fc6eb
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: ae3743530440c9df9094a0b9784922d2d6a3dfdf
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584033"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985398"
 ---
-# <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Perguntas frequentes do Azure Disk Encryption para VMs de IaaS
+# <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Criptografia de disco azure para máquinas virtuais Linux FAQ
 
-Este artigo fornece respostas a perguntas frequentes (FAQ) sobre a Criptografia de Disco Azure para VMs Linux. Para obter mais informações sobre este serviço, consulte [a visão geral da criptografia de disco do Azure](disk-encryption-overview.md).
+Este artigo fornece respostas a perguntas frequentes (FAQ) sobre a Criptografia de Disco Azure para máquinas virtuais Linux (VMs). Para obter mais informações sobre este serviço, consulte [a visão geral da criptografia de disco do Azure](disk-encryption-overview.md).
+
+## <a name="what-is-azure-disk-encryption-for-linux-vms"></a>O que é criptografia de disco Azure para VMs Linux?
+
+A Azure Disk Encryption para VMs Linux usa o recurso dm-crypt do Linux para fornecer criptografia de disco completo do disco DO SISTEMA OPERACIONAL* e discos de dados. Além disso, ele fornece criptografia do disco de recursos efêmeros ao usar o [recurso EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms). O conteúdo flui criptografado da VM para o backend de armazenamento. Assim, fornecendo criptografia de ponta a ponta com uma chave gerenciada pelo cliente.
+ 
+Consulte [VMs e sistemas operacionais suportados.](disk-encryption-overview.md#supported-vms-and-operating-systems)
 
 ## <a name="where-is-azure-disk-encryption-in-general-availability-ga"></a>Onde o Azure Disk Encryption está na GA (disponibilidade geral)?
 
@@ -48,6 +54,20 @@ Depois de criptografar o volume do Sistema Operacional, desativar a criptografia
 ## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>Posso criptografar um volume desmontado com criptografia de disco Do Zure?
 
 Não, a Criptografia de Disco Do Azure só criptografa volumes montados.
+
+## <a name="what-is-storage-server-side-encryption"></a>O que é criptografia do lado do servidor de armazenamento?
+
+A criptografia do lado do servidor de armazenamento criptografa os discos gerenciados do Azure no Azure Storage. Os discos gerenciados são criptografados por padrão com criptografia do lado do servidor com uma chave gerenciada pela plataforma (a partir de 10 de junho de 2017). Você pode gerenciar a criptografia de discos gerenciados com suas próprias chaves especificando uma chave gerenciada pelo cliente. Para obter mais informações, consulte: [Criptografia do lado do servidor dos discos gerenciados do Azure](disk-encryption.md).
+ 
+## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Como a criptografia de disco do Azure é diferente da criptografia do lado do servidor de armazenamento com a chave gerenciada pelo cliente e quando devo usar cada solução?
+
+O Azure Disk Encryption fornece criptografia de ponta a ponta para o disco do SISTEMA OPERACIONAL, discos de dados e o disco de recursos efêmeros com uma chave gerenciada pelo cliente.
+- Se seus requisitos incluem criptografar toda a criptografia acima e de ponta a ponta, use a Criptografia de Disco do Azure. 
+- Se seus requisitos incluem criptografar apenas dados em repouso com a chave gerenciada pelo cliente, use [criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md). Não é possível criptografar um disco com criptografia de disco Azure e criptografia do lado do servidor de armazenamento com chaves gerenciadas pelo cliente. 
+- Se a distro do Linux não estiver listada em [sistemas operacionais suportados para criptografia de disco Azure](disk-encryption-overview.md#supported-operating-systems) ou estiver usando um cenário chamado nos [cenários não suportados para Windows,](disk-encryption-linux.md#unsupported-scenarios)considere a [criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md).
+- Se a política da sua organização permitir que você criptografe conteúdo em repouso com uma chave gerenciada pelo Azure, então nenhuma ação é necessária - o conteúdo é criptografado por padrão. Para discos gerenciados, o conteúdo dentro do armazenamento é criptografado por padrão com criptografia do lado do servidor com chave gerenciada pela plataforma. A chave é gerenciada pelo serviço de armazenamento Azure. 
+
+
 
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Como faço para rodar segredos ou chaves de criptografia?
 
@@ -141,6 +161,6 @@ Você pode fazer perguntas ou fornecer comentários no [Fórum do Azure Disk Enc
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu mais sobre as perguntas mais frequentes relativas ao Azure Disk Encryption. Para obter mais informações sobre esse serviço, veja os seguintes artigos:
 
-- [Visão geral do Azure Disk Encryption](disk-encryption-overview.md)
+- [Visão geral da criptografia de disco do Azure](disk-encryption-overview.md)
 - [Aplicar a criptografia de disco na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [Criptografia de dados em repouso do Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)

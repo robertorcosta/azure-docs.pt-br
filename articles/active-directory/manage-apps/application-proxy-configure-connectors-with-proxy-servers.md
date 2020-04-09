@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 04/07/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fe3a63e119fed6825982b9de13bc78cb7da5415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0aafb971ca1ce812a68045f7d0c0c2ab7f532133
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481391"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877381"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabalhar com servidores proxy locais existentes
 
@@ -27,6 +27,7 @@ Começamos analisando este principais cenários de implantação:
 
 * Configure os conectores para ignorar os proxies de saída locais.
 * Configure os conectores para usar um proxy de saída para acessar o Proxy do Aplicativo do Azure AD.
+* Configure usando um proxy entre o conector e o aplicativo back-end.
 
 Para saber mais sobre como funcionam os conectores, consulte [Noções básicas sobre conectores de proxy de aplicativo do Azure AD](application-proxy-connectors.md).
 
@@ -137,6 +138,23 @@ O conector faz conexões baseadas em TLS de saída usando o método CONNECT. Bas
 #### <a name="tls-inspection"></a>Inspeção TLS
 
 Não utilize a inspeção TLS para o tráfego do conector, pois causa problemas para o tráfego do conector. O conector usa um certificado para autenticar ao serviço Proxy de aplicativo, e esse certificado pode ser perdido durante a inspeção TLS.
+
+## <a name="configure-using-a-proxy-between-the-connector-and-backend-application"></a>Configure usando um proxy entre o conector e o aplicativo backend
+O uso de um proxy avançado para a comunicação em relação ao aplicativo backend pode ser um requisito especial em alguns ambientes.
+Para habilitar isso, siga os próximos passos:
+
+### <a name="step-1-add-the-required-registry-value-to-the-server"></a>Passo 1: Adicionar o valor de registro necessário ao servidor
+1. Para habilitar o proxy padrão, adicione o `UseDefaultProxyForBackendRequests = 1` seguinte valor de registro (DWORD) à chave de registro de configuração do Connector localizada em "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft App Proxy Connector".
+
+### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>Passo 2: Configure o servidor proxy manualmente usando o comando netsh
+1.  Habilite a política de grupo Faça configurações de proxy por máquina. Isso é encontrado em: Configuração do computador\Policies\Modelos administrativos\Componentes do Windows\Internet Explorer. Isso precisa ser definido em vez de ter essa política definida como por usuário.
+2.  Execute `gpupdate /force` no servidor ou reinicie o servidor para garantir que ele use as configurações de diretiva de grupo atualizadas.
+3.  Inicie um prompt de comando elevado com `control inetcpl.cpl`direitos de admin e entre .
+4.  Configure as configurações de proxy necessárias. 
+
+Essas configurações fazem com que o conector use o mesmo proxy para a comunicação com o Azure e para o aplicativo back-end. Se o conector para a comunicação do Azure não exigir proxy avançado ou um proxy avançado diferente, você pode configurá-lo com a modificação do arquivo ApplicationProxyConnectorService.exe.config conforme descrito nas seções Bypass outbound proxies ou Use o servidor proxy de saída.
+
+O serviço de atualização do conector também usará o proxy da máquina. Esse comportamento pode ser alterado modificando o arquivo ApplicationProxyConnectorUpdaterService.exe.config.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Solucionar problemas do proxy do conector e problemas de conectividade do serviço
 

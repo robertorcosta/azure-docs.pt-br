@@ -7,18 +7,18 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7e96f9484c103ebe75e21705b94cf35b9e16c54f
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: b51f7a8b62d7131b7bbfc77101e60fab22e1f148
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529328"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985789"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários de Azure Disk Encryption em VMs Windows
 
-O Azure Disk Encryption usa o protetor de chave externo bitlocker para fornecer criptografia de volume para o SISTEMA OPERACIONAL e discos de dados de máquinas virtuais (VMs) do Azure, e é integrado com o Azure Key Vault para ajudá-lo a controlar e gerenciar as chaves e segredos de criptografia de disco. Para obter uma visão geral do serviço, consulte [Azure Disk Encryption for Windows VMs](disk-encryption-overview.md).
+O Azure Disk Encryption para máquinas virtuais Windows (VMs) usa o recurso Bitlocker do Windows para fornecer criptografia de disco completo do disco WindOS e do disco de dados. Além disso, ele fornece criptografia do disco de recursos efêmeros quando o parâmetro VolumeType é All.
 
-Existem muitos cenários de criptografia de disco, e as etapas podem variar de acordo com o cenário. As seções a seguir cobrem os cenários com mais detalhes para VMs do Windows.
+O Azure Disk Encryption é [integrado ao Azure Key Vault](disk-encryption-key-vault.md) para ajudá-lo a controlar e gerenciar as chaves e segredos de criptografia de disco. Para obter uma visão geral do serviço, consulte [Azure Disk Encryption for Windows VMs](disk-encryption-overview.md).
 
 Você só pode aplicar criptografia de disco a máquinas virtuais de [tamanhos de VM suportados e sistemas operacionais](disk-encryption-overview.md#supported-vms-and-operating-systems). Você também deve atender aos seguintes pré-requisitos:
 
@@ -39,9 +39,6 @@ Você só pode aplicar criptografia de disco a máquinas virtuais de [tamanhos d
 
 ## <a name="enable-encryption-on-an-existing-or-running-windows-vm"></a>Habilite a criptografia em um VM existente ou executando o Windows
 Nesse cenário, é possível habilitar a criptografia usando o modelo do Resource Manager, os cmdlets do PowerShell ou os comandos da CLI. Se você precisar de informações de esquema para a extensão de máquina virtual, consulte o [Azure Disk Encryption para extensão do artigo Windows](../extensions/azure-disk-enc-windows.md).
-
-## <a name="enable-encryption-on-existing-or-running-iaas-windows-vms"></a> Habilitar criptografia em VMs do Windows da IaaS existentes ou em execução
-Você pode habilitar a criptografia usando um modelo, cmdlets PowerShell ou comandos CLI. Se você precisar de informações de esquema para a extensão de máquina virtual, consulte o [Azure Disk Encryption para extensão do artigo Windows](../extensions/azure-disk-enc-windows.md).
 
 ### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a> Habilitar criptografia em VMs existentes ou em execução com Azure PowerShell 
 Use o [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) para habilitar a criptografia em uma máquina virtual IaaS em execução no Azure. 
@@ -256,6 +253,6 @@ O Azure Disk Encryption não funciona para os seguintes cenários, recursos e te
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Visão geral da criptografia de disco do Azure](disk-encryption-overview.md)
+- [Visão geral do Azure Disk Encryption](disk-encryption-overview.md)
 - [Azure Disk Encryption scripts de exemplo](disk-encryption-sample-scripts.md)
 - [Guia de solução de problemas do Azure Disk Encryption](disk-encryption-troubleshooting.md)

@@ -3,12 +3,12 @@ title: Monitorar recursos delegados em escala
 description: Aprenda a usar efetivamente os Logs do Monitor do Azure de forma escalável entre os inquilinos do cliente que você está gerenciando.
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 217df3c55ab54b6569bae8cacb338764ecb7125d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a600cec524c9f715ada9da09dea35f3baa98151
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77122890"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985194"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorar recursos delegados em escala
 
@@ -28,7 +28,7 @@ Você pode criar um espaço de trabalho do Log Analytics usando o [portal Azure,
 
 Depois de criar seus espaços de trabalho do Log Analytics, você pode implantar [a Diretiva Azure](../../governance/policy/index.yml) em suas hierarquias de clientes para que os dados de diagnóstico sejam enviados para o espaço de trabalho apropriado em cada inquilino. As políticas exatas que você implanta podem variar dependendo dos tipos de recursos que você deseja monitorar.
 
-Para saber mais sobre a criação de políticas, consulte [Tutorial: Crie e gerencie políticas para impor a conformidade](../../governance/policy/tutorials/create-and-manage.md). Esta [ferramenta da comunidade](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/tools/azure-diagnostics-policy-generator) fornece um script para ajudá-lo a criar políticas para monitorar os tipos de recursos específicos que você escolher.
+Para saber mais sobre a criação de políticas, consulte [Tutorial: Crie e gerencie políticas para impor a conformidade](../../governance/policy/tutorials/create-and-manage.md). Esta [ferramenta da comunidade](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/azure-diagnostics-policy-generator) fornece um script para ajudá-lo a criar políticas para monitorar os tipos de recursos específicos que você escolher.
 
 Quando você determinar quais políticas implantar, você pode [implantá-las em suas assinaturas delegadas em escala](policy-at-scale.md).
 

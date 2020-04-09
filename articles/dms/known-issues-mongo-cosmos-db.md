@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 194da036260a78b27748dfc7f755212ab4f30b1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae5d5f2d282c546f5172ca1c8cb0e420d3b6e96b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78256026"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878044"
 ---
 # <a name="known-issuesmigration-limitations-with-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Problemas/limitações de migração conhecidas com migrações do MongoDB para a API do Azure Cosmos DB para MongoDB
 
@@ -45,7 +45,7 @@ Problemas e limitações conhecidas associadas às migrações do MongoDB para a
 
 | Causa         | Resolução |
 | ------------- | ------------- |
-| Você tenta migrar para o Azure Cosmos DB a partir de uma versão sem suporte do MongoDB. | À medida que novas versões do MongoDB são lançadas, elas são testadas para garantir a compatibilidade com o Azure Database Migration Service, e o serviço está sendo atualizado periodicamente para aceitar as versões mais recentes. Se houver uma necessidade imediata de migração, como solução em solução, você pode exportar os bancos de dados/coleções para o Azure Storage e o ponto da origem para o dump resultante. Crie o SAS no recipiente blob no Storage Explorer e, em seguida, use a URL com informações do SAS do contêiner como a seqüência de conexão de detalhes de origem.<br><br> |
+| Você tenta migrar para o Azure Cosmos DB a partir de uma versão sem suporte do MongoDB. | À medida que novas versões do MongoDB são lançadas, elas são testadas para garantir a compatibilidade com o Azure Database Migration Service, e o serviço está sendo atualizado periodicamente para aceitar as versões mais recentes. Se houver uma necessidade imediata de migrar, como uma solução de solução, você pode exportar os bancos de dados/coleções para o Azure Storage e, em seguida, apontar a fonte para o dump resultante. Crie o SAS no recipiente blob no Storage Explorer e, em seguida, use a URL com informações do SAS do contêiner como a seqüência de conexão de detalhes de origem.<br><br> |
 
 ## <a name="next-steps"></a>Próximas etapas
 

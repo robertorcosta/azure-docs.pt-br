@@ -1,15 +1,16 @@
 ---
-title: Proteger os pods com políticas de rede no Serviço de Kubernetes do Azure (AKS)
+title: Tráfego de pod seguro com a política de rede
+titleSuffix: Azure Kubernetes Service
 description: Saiba como proteger o tráfego que flui dentro e fora dos pods usando as políticas de rede kubernetes no Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 37b6ebd1c8b147db0a9cead4678a0b2bb4ed234d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01ba9e7353b6783d1b4fd1649291a64405fd9382
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473601"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886680"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteger o tráfego entre os pods usando as políticas de rede no Serviço de Kubernetes do Azure (AKS)
 
@@ -24,7 +25,7 @@ Você precisa da versão 2.0.61 do Azure CLI ou posteriormente instalada e confi
 > [!TIP]
 > Se você usou o recurso de diretiva de rede durante a visualização, recomendamos que você [crie um novo cluster](#create-an-aks-cluster-and-enable-network-policy).
 > 
-> Se você deseja continuar usando clusters de teste existentes que usaram a política de rede durante a visualização, atualize seu cluster para uma nova versão do Kubernetes para a versão ga mais recente e, em seguida, implante o manifesto YAML a seguir para corrigir o servidor de métricas de falha e kubernetes Painel. Esta correção só é necessária para clusters que usaram o mecanismo de diretiva de rede Calico.
+> Se você deseja continuar usando clusters de teste existentes que usaram a política de rede durante a visualização, atualize seu cluster para uma nova versão do Kubernetes para a versão ga mais recente e, em seguida, implante o manifesto YAML a seguir para corrigir o servidor de métricas de falha e o painel Kubernetes. Esta correção só é necessária para clusters que usaram o mecanismo de diretiva de rede Calico.
 >
 > Como uma prática recomendada de segurança, [revise o conteúdo deste manifesto YAML][calico-aks-cleanup] para entender o que é implantado no cluster AKS.
 >
@@ -56,7 +57,7 @@ Ambas as implementações usam *IPTables Linux* para aplicar as políticas espec
 | Conformidade com a especificação kubernetes | Todos os tipos de políticas suportadas |  Todos os tipos de políticas suportadas |
 | Recursos adicionais                      | Nenhum                       | Modelo de política estendida composto por Política de Rede Global, Conjunto de Rede Global e Ponto Final do Host. Para obter mais `calicoctl` informações sobre o uso da CLI para gerenciar esses recursos estendidos, consulte [a referência do usuário calicoctl][calicoctl]. |
 | Suporte                                  | Apoiado pela equipe de suporte e Engenharia do Azure | Apoio da comunidade de Calico. Para obter mais informações sobre suporte pago adicional, consulte [as opções de suporte do Project Calico][calico-support]. |
-| Registrando em log                                  | As regras adicionadas / excluídas no IPTables são registradas em cada host em */var/log/azure-npm.log* | Para obter mais informações, consulte [os registros de componentes da Calico][calico-logs] |
+| Registro em log                                  | As regras adicionadas / excluídas no IPTables são registradas em cada host em */var/log/azure-npm.log* | Para obter mais informações, consulte [os registros de componentes da Calico][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Cria um cluster do AKS e habilita a política de rede
 
@@ -448,7 +449,7 @@ Saia da sessão de terminal anexada. A cápsula de teste é automaticamente excl
 exit
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Neste artigo, criamos dois namespaces e aplicamos uma política de rede. Para limpar esses recursos, use o comando [kubectl delete][kubectl-delete] e especifique os nomes dos recursos:
 

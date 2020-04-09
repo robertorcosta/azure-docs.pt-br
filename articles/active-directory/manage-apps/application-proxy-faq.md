@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 31587777ba22dd8b4cebf81f0ff98979bb30fade
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: ec9eeb0c35d96ee777771260686178faa536e909
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80410709"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877296"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) Proxy de aplicativos frequentemente fez perguntas
 
@@ -48,10 +48,6 @@ Não, este cenário não é suportado. As configurações padrão são:
 ### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>Meu aplicativo back-end está hospedado em vários servidores da Web e requer persistência de sessão do usuário (stickiness). Como posso alcançar a persistência da sessão? 
 
 Para recomendações, consulte [Alta disponibilidade e balanceamento de carga dos conectores e aplicativos proxy do aplicativo](application-proxy-high-availability-load-balancing.md).
-
-### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>Posso colocar um dispositivo proxy avançado entre o servidor conector e o servidor de aplicativo back-end?
-
-Não, este cenário não é suportado. Apenas os serviços de conector e atualização podem ser configurados para usar um proxy avançado para tráfego de saída para o Azure. Consulte [Trabalhar com servidores proxy existentes no local](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)
 
 ### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>O término do TLS (inspeção ou aceleração TLS/HTTPS) no tráfego dos servidores conectores para o Azure é suportado?
 

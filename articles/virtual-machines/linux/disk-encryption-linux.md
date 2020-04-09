@@ -8,18 +8,19 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: cf6f53639cff23a9e709b44a1ddf1332df2164b7
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: d860b557c5c2d6b73fad53cdf84ee8b32182d1ee
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586039"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985449"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários de Azure Disk Encryption em VMs Linux
 
-O Azure Disk Encryption usa o recurso DM-Crypt do Linux para fornecer criptografia de volume para o SISTEMA OPERACIONAL e discos de dados de máquinas virtuais (VMs) do Azure, e é integrado com o Azure Key Vault para ajudá-lo a controlar e gerenciar as chaves e segredos de criptografia de disco. Para obter uma visão geral do serviço, consulte [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md).
 
-Existem muitos cenários de criptografia de disco, e as etapas podem variar de acordo com o cenário. As seções a seguir cobrem os cenários com mais detalhes para VMs Linux.
+O Azure Disk Encryption para máquinas virtuais Linux (VMs) usa o recurso DM-Crypt do Linux para fornecer criptografia de disco completo do disco do SO e discos de dados. Além disso, ele fornece criptografia do disco de recursos efêmeros ao usar o recurso EncryptFormatAll.
+
+O Azure Disk Encryption é [integrado ao Azure Key Vault](disk-encryption-key-vault.md) para ajudá-lo a controlar e gerenciar as chaves e segredos de criptografia de disco. Para obter uma visão geral do serviço, consulte [Azure Disk Encryption for Windows VMs](disk-encryption-overview.md).
 
 Você só pode aplicar criptografia de disco a máquinas virtuais de [tamanhos de VM suportados e sistemas operacionais](disk-encryption-overview.md#supported-vms-and-operating-systems). Você também deve atender aos seguintes pré-requisitos:
 
@@ -413,6 +414,6 @@ O Azure Disk Encryption não funciona para os seguintes cenários, recursos e te
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Visão geral da criptografia de disco do Azure](disk-encryption-overview.md)
+- [Visão geral do Azure Disk Encryption](disk-encryption-overview.md)
 - [Azure Disk Encryption scripts de exemplo](disk-encryption-sample-scripts.md)
 - [Guia de solução de problemas do Azure Disk Encryption](disk-encryption-troubleshooting.md)

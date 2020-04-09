@@ -3,12 +3,12 @@ title: Matriz de suporte do Backup do Azure
 description: Fornece um resumo de configurações compatíveis e limitações do serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: d036e527880a98d323e8de2f3a8721d7e12dbb07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 120882b15dcf9f27c280984ff6d0df31e38ebb73
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273261"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878945"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup do Azure
 
@@ -43,7 +43,7 @@ A tabela a seguir descreve as características dos cofres dos Serviços de Recup
 
 Aqui está o que é suportado se você quiser fazer backup de máquinas no local:
 
-**Computador** | **O que está em backup** | **Local** | **Características**
+**Computador** | **O que está em backup** | **Localidade** | **Recursos**
 --- | --- | --- | ---
 **Backup direto de computador Windows com o agente MARS** | Arquivos, pastas, estado do sistema | Volte para o cofre dos Serviços de Recuperação. | Recue três vezes por dia<br/><br/> Sem backup com reconhecimento de aplicativos<br/><br/> Restaurar arquivo, pasta, volume
 **Backup direto de computador Linux com o agente MARS** | Backup não suportado
@@ -63,7 +63,7 @@ Aqui está o que é suportado se você quiser fazer backup de máquinas no local
 
 Aqui está o que é suportado se você quiser fazer backup das VMs do Azure:
 
-**Computador** | **O que está em backup** | **Local** | **Características**
+**Computador** | **O que está em backup** | **Localidade** | **Recursos**
 --- | --- | --- | ---
 **Backup do Azure VM usando extensão VM** | Toda a VM | Volte para o cofre. | Extensão instalada quando você habilita o backup de uma VM.<br/><br/> Recue uma vez por dia.<br/><br/> Backup com reconhecimento de aplicativos para VMs do Windows; backup consistente com arquivos para VMs Linux. Você pode configurar a consistência do aplicativo para máquinas Linux usando scripts personalizados.<br/><br/> Restaurar VM ou disco.<br/><br/> Não é possível fazer backup de uma VM Azure para um local no local.
 **Backup do Azure VM usando o agente MARS** | Arquivos, pastas, estado do sistema | Volte para o cofre. | Recue três vezes por dia.<br/><br/> Se você quiser fazer backup de arquivos ou pastas específicas em vez de toda a VM, o agente MARS pode ser executado ao lado da extensão VM.
@@ -116,7 +116,7 @@ O Azure Backup suporta criptografia para dados em trânsito e em repouso.
 **Computador** | **Em trânsito** | **Em repouso**
 --- | --- | ---
 **Computadores Windows locais sem o DPM/MABS** | ![Sim][green] | ![Sim][green]
-**Azure VMs** | ![Sim][green] | ![Sim][green]
+**VMs do Azure** | ![Sim][green] | ![Sim][green]
 **Máquinas Windows ou VMs Azure com DPM** | ![Sim][green] | ![Sim][green]
 **Máquinas Windows ou VMs Azure com MABS** | ![Sim][green] | ![Sim][green]
 
@@ -135,13 +135,13 @@ O backup suporta a compactação do tráfego de backup, conforme resumido na tab
 
 ## <a name="retention-limits"></a>Limites de retenção
 
-**Configuração** | **Limites**
+**Configuração** | **limites**
 --- | ---
 **Máximo de pontos de recuperação por instância protegida (máquina ou carga de trabalho)** | 9,999
 **Tempo máximo de expiração para um ponto de recuperação** | Sem limite
 **Frequência máxima de backup para o DPM/MABS** | A cada 15 minutos para o SQL Server<br/><br/> Uma vez por hora para outras cargas de trabalho
 **Frequência máxima de backup para o cofre** | **Máquinas Windows ou VMs Azure em execução de MARS:** Três por dia.<br/><br/> **DPM/MABS:** Dois por dia.<br/><br/> **Backup do Azure VM:** Um por dia
-**Retenção de ponto de recuperação** | Diária, semanal, mensal, anual
+**Retenção do ponto de recuperação** | Diária, semanal, mensal, anual
 **Período de retenção máximo** | Depende da frequência de backup
 **Pontos de recuperação no disco do DPM/MABS** | 64 para servidores de arquivos; 448 para servidores de aplicativos <br/><br/>Pontos de recuperação de fita ilimitados para DPM no local
 
@@ -151,7 +151,7 @@ O Azure Backup adicionou o recurso De restauração de região cruzada para fort
 
 | Tipo de gerenciamento de backup | Com suporte                                                    | Regiões com Suporte |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| VM do Azure               | Sim. Visualização limitada pública suportada para VMs e VMs criptografadas com discos menores que 4 TB | Centro-Oeste dos EUA   |
+| VM do Azure               | Sim.   Suportado para VMs e VMs criptografados com discos menores que 4 TB | Todas as regiões públicas do Azure.  |
 | Agente MARS/Nas instalações | Não                                                           | N/D               |
 | SQL /SAP HANA          | Não                                                           | N/D               |
 | Afs                    | Não                                                           | N/D               |
