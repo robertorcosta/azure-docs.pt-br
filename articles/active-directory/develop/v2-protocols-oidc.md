@@ -2,27 +2,22 @@
 title: Protocolo OpenID Connect - Plataforma de identidade Microsoft | Azure
 description: Crie aplicativos web usando a implementação da plataforma de identidade Microsoft do protocolo de autenticação OpenID Connect.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0ed1cb6a080a35fa81c6a859f88d987020c8504c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf268bef4401026084b26002c24730bc2a92e003
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262289"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886187"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidade Microsoft e protocolo OpenID Connect
 
@@ -90,7 +85,7 @@ Quando o aplicativo Web precisa autenticar o usuário, ele pode direcionar o usu
 > [!IMPORTANT]
 > Para solicitar com sucesso um token de ID no ponto final da autorização, o registro do aplicativo no [portal](https://portal.azure.com) de `oauth2AllowIdTokenImplicitFlow` registro deve ter `true`a concessão implícita de id_tokens habilitada na guia Autenticação (que define o sinalizador no manifesto de [solicitação](reference-app-manifest.md) para ). Se não estiver habilitado, `unsupported_response` um erro será devolvido: "O valor fornecido para o parâmetro de entrada 'response_type' não é permitido para este cliente. O valor esperado é 'code' "
 
-Por exemplo: 
+Por exemplo:
 
 ```
 // Line breaks are for legibility only.

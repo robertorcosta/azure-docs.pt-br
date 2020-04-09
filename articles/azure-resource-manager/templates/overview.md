@@ -2,15 +2,15 @@
 title: Visão geral de modelos
 description: Descreve os benefícios usando modelos do Azure Resource Manager para implantação de recursos.
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 4570f5471ef6baf6f3f4a920be4d93c3f5a90438
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 02602b4d12ae4333c88b352e4c13923d67f2c591
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258117"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885728"
 ---
-# <a name="what-are-arm-templates"></a>Quais são os modelos do ARM?
+# <a name="what-are-arm-templates"></a>O que são modelos ARM?
 
 Com a mudança para a nuvem, muitas equipes adotaram métodos de desenvolvimento ágeis. Essas equipes iteram rapidamente. Eles precisam implantar repetidamente suas soluções na nuvem, e saber que sua infra-estrutura está em um estado confiável. Como a infra-estrutura se tornou parte do processo iterativo, a divisão entre operações e desenvolvimento desapareceu. As equipes precisam gerenciar a infra-estrutura e o código de aplicativos através de um processo unificado.
 
@@ -30,11 +30,17 @@ Se você está tentando decidir entre usar modelos ARM e uma das outras infra-es
 
    ![Comparação de implantação de modelos](./media/overview/template-processing.png)
 
-* **Validação incorporada**: Seu modelo é implantado somente após passar na validação. O Gerenciador de recursos verifica o modelo antes de iniciar a implantação para garantir que a implantação será bem sucedida. Sua implantação é menos provável de parar em um estado semi-acabado.
-
 * **Arquivos modulares**: Você pode quebrar seus modelos em componentes menores e reutilizáveis e vinculá-los no momento da implantação. Você também pode aninhar um modelo dentro de outros modelos.
 
 * **Crie qualquer recurso do Azure**: Você pode usar imediatamente novos serviços e recursos do Azure em modelos. Assim que um provedor de recursos introduz novos recursos, você pode implantar esses recursos através de modelos. Você não precisa esperar que ferramentas ou módulos sejam atualizados antes de usar os novos serviços.
+
+* **Extensibilidade**: Com [scripts de implantação,](deployment-script-template.md)você pode adicionar scripts PowerShell ou Bash aos seus modelos. Os scripts de implantação ampliam sua capacidade de configurar recursos durante a implantação. Um script pode ser incluído no modelo, ou armazenado em uma fonte externa e referenciado no modelo. Os scripts de implantação dão a você a capacidade de concluir sua configuração de ambiente de ponta a ponta em um único modelo ARM.
+
+* **Teste**: Você pode certificar-se de que seu modelo segue as diretrizes recomendadas testando-o com o kit de ferramentas de modelo ARM (arm-ttk). Este kit de teste é um script PowerShell que você pode baixar do [GitHub](https://github.com/Azure/arm-ttk). O kit de ferramentas facilita o desenvolvimento de conhecimentos usando a linguagem do modelo.
+
+* **Visualizar alterações**: Você pode usar a [operação e se](template-deploy-what-if.md) para obter uma visualização das alterações antes de implantar o modelo. Com o e-if, você vê quais recursos serão criados, atualizados ou excluídos, e quaisquer propriedades de recursos que serão alteradas. A operação e se verifica o estado atual do seu ambiente e elimina a necessidade de gerenciar o estado.
+
+* **Validação incorporada**: Seu modelo é implantado somente após passar na validação. O Gerenciador de recursos verifica o modelo antes de iniciar a implantação para garantir que a implantação será bem sucedida. Sua implantação é menos provável de parar em um estado semi-acabado.
 
 * **Implantações rastreadas**: No portal Azure, você pode rever o histórico de implantações e obter informações sobre a implantação do modelo. Você pode ver o modelo que foi implantado, os valores de parâmetro passados e quaisquer valores de saída. Outras infra-estruturas como serviços de código não são rastreadas através do portal.
 

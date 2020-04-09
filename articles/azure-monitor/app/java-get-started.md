@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: efa498ba600a664beab4b9a49eae2b2c3f1c8397
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2355cb7ab995cab3060c7a94c9e7ea344bd9e92b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298305"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984633"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Quickstart: Comece com o Application Insights em um projeto web Java
 
@@ -25,7 +25,7 @@ Application Insights é um serviço de análise extensível para desenvolvedores
 
 ## <a name="get-an-application-insights-instrumentation-key"></a>Obter uma chave de instrumentação do Application Insights
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. No portal do Azure, crie um recurso Application Insights. Defina o tipo de aplicativo para aplicativo Web Java.
 
 3. Localize a chave de instrumentação do novo recurso. Você precisará colar essa chave no código de seu projeto em breve.
@@ -223,7 +223,7 @@ E para nomeação automática de operação.
 
 O SDK do Java do Application Insights passou a dar suporte ao [rastreamento distribuído do W3C](https://w3c.github.io/trace-context/).
 
-A configuração do SDK de entrada será mais bem explicada em nosso artigo sobre [correlação](correlation.md#telemetry-correlation-in-the-java-sdk).
+A configuração do SDK de entrada será mais bem explicada em nosso artigo sobre [correlação](correlation.md).
 
 A configuração do SDK de saída é definida no arquivo [AI-Agent.xml](java-agent.md).
 
@@ -258,7 +258,7 @@ Você pode especificar contadores de desempenho adicionais a serem coletados.
 * `displayName` – o nome exibido no portal do Application Insights.
 * `objectName` – o nome do objeto JMX.
 * `attribute` – o atributo do nome do objeto JMX a buscar
-* `type` (opcional) - o tipo do atributo do objeto JMX:
+* `type`(opcional) - O tipo de atributo do objeto JMX:
   * Padrão: um tipo simples como “int” ou “long”.
   * `composite`: os dados do contador de desempenho estão no formato “Attribute.Data”
   * `tabular`: os dados do contador de desempenho estão no formato de uma linha de tabela

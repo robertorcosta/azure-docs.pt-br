@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 43bb34a80d8d62cfa2bde445b94fb97da25ccda3
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: c396468bff0edef5cfceccd3d3c3394662111c10
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745468"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984837"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Criar uma oferta de Aplicativo do Power BI
 
 >[!Important]
->A partir de 30 de março de 2020, começaremos a mover o gerenciamento das ofertas do seu aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [visão geral de criação de aplicativos do Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerenciar suas ofertas migradas.
+>A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas do seu aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [visão geral de criação de aplicativos do Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerenciar suas ofertas migradas.
 
 Este artigo lista as etapas necessárias para criar uma nova oferta de Aplicativo do Power BI para o [AppSource](https://appsource.microsoft.com). Cada oferta aparece como sua própria entidade no AppSource. Ao criar uma nova oferta no [Portal do Cloud Partner](https://cloudpartner.azure.com/), você deve fornecer quatro grupos de ativos para sua oferta.
 
@@ -44,7 +44,7 @@ Após entrar no Portal do Cloud Partner, selecione **Nova Oferta** no painel à 
 
 Os artigos a seguir explicam as guias na página **Nova Oferta** para um tipo de oferta de aplicativo do Power BI. Cada artigo descreve os grupos de ativos e os serviços de suporte para sua nova oferta de Aplicativo do Power BI.
 
--  [Guia Configurações de oferta](./cpp-offer-settings-tab.md)
+-  [Guia Configurações da Oferta](./cpp-offer-settings-tab.md)
 -  [Guia Informações Técnicas](./cpp-technical-info-tab.md)
 -  [Guia Detalhes da Vitrine](./cpp-storefront-details-tab.md)
 -  [Guia Contatos](./cpp-contacts-tab.md)

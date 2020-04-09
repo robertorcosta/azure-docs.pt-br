@@ -2,13 +2,13 @@
 title: Funções de modelo - string
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para trabalhar com cadeias de caracteres.
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: 070133c3db538e5df76644b62c25ced916adc4af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: c0517375b273384f263e8ba421995d4afb6c193b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156269"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982407"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funções de string para modelos ARM
 
@@ -17,7 +17,7 @@ O Resource Manager fornece as seguintes funções para trabalhar com strings em 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
-* [concat](#concat)
+* [Concat](#concat)
 * [Contém](#contains)
 * [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
@@ -36,8 +36,8 @@ O Resource Manager fornece as seguintes funções para trabalhar com strings em 
 * [skip](#skip)
 * [split](#split)
 * [Startswith](#startswith)
-* [String](#string)
-* [substring](#substring)
+* [cadeia de caracteres](#string)
+* [Subsequência](#substring)
 * [Levar](#take)
 * [Tolower](#tolower)
 * [Toupper](#toupper)
@@ -46,7 +46,6 @@ O Resource Manager fornece as seguintes funções para trabalhar com strings em 
 * [Uri](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
-* [utcNow](#utcnow)
 
 ## <a name="base64"></a>base64
 
@@ -54,7 +53,7 @@ O Resource Manager fornece as seguintes funções para trabalhar com strings em 
 
 Retorna a representação base64 da cadeia de caracteres de entrada.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -119,7 +118,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte uma representação base64 em um objeto JSON.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -184,7 +183,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte uma representação base64 em uma cadeia de caracteres.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -249,7 +248,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Combina vários valores de cadeia de caracteres e retorna a cadeia de caracteres concatenada ou combina várias matrizes e retorna a matriz concatenada.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -339,7 +338,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cadeia de caracteres contém uma subcadeia de caracteres. A comparação de cadeia de caracteres diferencia maiúsculas de minúsculas. No entanto, ao testar se um objeto contém uma chave, a comparação não diferencia maiúsculas de minúsculas.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -420,7 +419,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte um valor em um URI de dados.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -475,7 +474,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte um valor formatado como um URI de dados em uma cadeia de caracteres.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -530,7 +529,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Determina se uma matriz, objeto ou uma cadeia de caracteres está vazio.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -595,7 +594,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Determina se uma cadeia de caracteres termina com um valor. A comparação não diferencia maiúsculas de minúsculas.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -661,7 +660,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna o primeiro caractere da cadeia de caracteres ou o primeiro elemento da matriz.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -713,7 +712,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Cria uma seqüência formatada a partir de valores de entrada.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -770,7 +769,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Cria um valor no formato de um identificador global exclusivo com base nos valores fornecidos como parâmetros.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -841,7 +840,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 Retorna a primeira posição de um valor em uma cadeia de caracteres. A comparação não diferencia maiúsculas de minúsculas.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -902,7 +901,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna o último caractere da cadeia de caracteres ou o último elemento da matriz.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -954,7 +953,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna a última posição de um valor em uma cadeia de caracteres. A comparação não diferencia maiúsculas de minúsculas.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1015,7 +1014,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna o número de caracteres em uma seqüência, elementos em uma matriz ou propriedades de nível raiz em um objeto.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1096,6 +1095,8 @@ Retorna um valor no formato de um identificador globalmente único. **Esta funç
 Você só pode usar esta função dentro de uma expressão para o valor padrão de um parâmetro. Usar esta função em qualquer outro lugar em um modelo retorna um erro. A função não é permitida em outras partes do modelo porque retorna um valor diferente cada vez que é chamada. Implantar o mesmo modelo com os mesmos parâmetros não produziria os mesmos resultados de forma confiável.
 
 A função newGuid difere da função [guid](#guid) porque não tem parâmetros. Quando você chama guid com o mesmo parâmetro, ele retorna o mesmo identificador todas as vezes. Use guia quando precisar gerar o mesmo GUID de forma confiável para um ambiente específico. Use o newGuid quando precisar de um identificador diferente cada vez, como a implantação de recursos em um ambiente de teste.
+
+A função newGuid usa a [estrutura Guid](/dotnet/api/system.guid) no .NET Framework para gerar o identificador globalmente único.
 
 Se você usar a [opção para reimplantar uma implantação bem-sucedida anteriormente,](rollback-on-error.md)e a implantação anterior incluir um parâmetro que usa newGuid, o parâmetro não será reavaliado. Em vez disso, o valor do parâmetro da implantação anterior é automaticamente reutilizado na implantação de reversão.
 
@@ -1188,7 +1189,7 @@ A saída do exemplo anterior varia para cada implantação, mas será semelhante
 
 Retorna uma cadeia de caracteres alinhada à direita adicionando caracteres à esquerda até alcançar o comprimento total especificado.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1238,7 +1239,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma nova cadeia de caracteres com todas as instâncias de uma cadeia de caracteres substituídas por outra cadeia de caracteres.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1291,7 +1292,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma cadeia de caracteres com todos os caracteres após o número especificado de caracteres ou uma matriz com todos os elementos após o número especificado de elementos.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1359,7 +1360,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma matriz de cadeias de caracteres que contém as subcadeias de caracteres da cadeia de caracteres de entrada que são delimitadas por delimitadores especificados.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1418,7 +1419,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Determina se uma cadeia de caracteres começa com um valor. A comparação não diferencia maiúsculas de minúsculas.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1484,7 +1485,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte o valor especificado em uma cadeia de caracteres.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1555,7 +1556,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma subcadeia de caraceteres que começa na posição do caractere especificado e contém o número especificado de caracteres.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1616,7 +1617,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma cadeia de caracteres com o número especificado de caracteres desde o início da cadeia de caracteres ou uma matriz com o número especificado de elementos desde o início da matriz.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1684,7 +1685,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte a cadeia de caracteres especificada em letras minúsculas.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1735,7 +1736,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte a cadeia de caracteres especificada em maiúsculas.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1786,7 +1787,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Remove todos os caracteres de espaço em branco à esquerda e à direita da cadeia de caracteres especificada.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1832,7 +1833,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Cria uma cadeia de caracteres de hash determinístico com base nos valores fornecidos como parâmetros. 
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1876,7 +1877,7 @@ O exemplo a seguir mostra como criar um nome exclusivo para uma conta de armazen
     ...
 ```
 
-Se você precisar criar um novo nome único cada vez que implantar um modelo e não pretende atualizar o recurso, você pode usar a função [utcNow](#utcnow) com uniqueString. Você poderia usar essa abordagem em um ambiente de teste. Por exemplo, veja [utcNow](#utcnow).
+Se você precisar criar um novo nome único cada vez que implantar um modelo e não pretende atualizar o recurso, você pode usar a função [utcNow](template-functions-date.md#utcnow) com uniqueString. Você poderia usar essa abordagem em um ambiente de teste. Por exemplo, veja [utcNow](template-functions-date.md#utcnow).
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1910,7 +1911,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 Cria um URI absoluto, combinando o baseUri e a cadeia de caracteres relativeUri.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -1990,7 +1991,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Codifica um URI.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -2045,7 +2046,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma cadeia de caracteres de um valor codificado em URI.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -2093,115 +2094,6 @@ A saída do exemplo anterior com os valores padrão é:
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
 | toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-
-## <a name="utcnow"></a>utcNow
-
-`utcNow(format)`
-
-Retorna o valor de data-hora atual (UTC) no formato especificado. Se nenhum formato for fornecido, o formato ISO 8601 (yyyyMddTHHmmssZ) é usado. **Esta função só pode ser usada no valor padrão de um parâmetro.**
-
-### <a name="parameters"></a>Parâmetros
-
-| Parâmetro | Obrigatório | Type | Descrição |
-|:--- |:--- |:--- |:--- |
-| format |Não |string |O valor codificado em URI a ser convertido em uma cadeia de caracteres. Use [strings de formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [strings de formato personalizados](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
-
-### <a name="remarks"></a>Comentários
-
-Você só pode usar esta função dentro de uma expressão para o valor padrão de um parâmetro. Usar esta função em qualquer outro lugar em um modelo retorna um erro. A função não é permitida em outras partes do modelo porque retorna um valor diferente cada vez que é chamada. Implantar o mesmo modelo com os mesmos parâmetros não produziria os mesmos resultados de forma confiável.
-
-Se você usar a [opção para reimplantar uma implantação bem-sucedida anteriormente,](rollback-on-error.md)e a implantação anterior incluir um parâmetro que usa utcNow, o parâmetro não será reavaliado. Em vez disso, o valor do parâmetro da implantação anterior é automaticamente reutilizado na implantação de reversão.
-
-Tenha cuidado ao reimplantar um modelo que dependa da função utcNow por um valor padrão. Quando você reimplanta e não fornece um valor para o parâmetro, a função é reavaliada. Se você quiser atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro da implantação anterior.
-
-### <a name="return-value"></a>Valor retornado
-
-O valor atual de data-hora da UTC.
-
-### <a name="examples"></a>Exemplos
-
-O modelo de exemplo a seguir mostra diferentes formatos para o valor da data.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcValue": {
-            "type": "string",
-            "defaultValue": "[utcNow()]"
-        },
-        "utcShortValue": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "utcCustomValue": {
-            "type": "string",
-            "defaultValue": "[utcNow('M d')]"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "utcOutput": {
-            "type": "string",
-            "value": "[parameters('utcValue')]"
-        },
-        "utcShortOutput": {
-            "type": "string",
-            "value": "[parameters('utcShortValue')]"
-        },
-        "utcCustomOutput": {
-            "type": "string",
-            "value": "[parameters('utcCustomValue')]"
-        }
-    }
-}
-```
-
-A saída do exemplo anterior varia para cada implantação, mas será semelhante a:
-
-| Nome | Type | Valor |
-| ---- | ---- | ----- |
-| utcSaída | string | 20190305T175318Z |
-| utcShortOutput | string | 05/03/2019 |
-| utcCustomOutput | string | 3 5 |
-
-O próximo exemplo mostra como usar um valor da função ao definir um valor de marcação.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcShort": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "rgName": {
-            "type": "string"
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/resourceGroups",
-            "apiVersion": "2018-05-01",
-            "name": "[parameters('rgName')]",
-            "location": "westeurope",
-            "tags":{
-                "createdDate": "[parameters('utcShort')]"
-            },
-            "properties":{}
-        }
-    ],
-    "outputs": {
-        "utcShort": {
-            "type": "string",
-            "value": "[parameters('utcShort')]"
-        }
-    }
-}
-```
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter uma descrição das seções em um modelo do Azure Resource Manager, consulte [Os modelos do Azure Resource Manager](template-syntax.md).

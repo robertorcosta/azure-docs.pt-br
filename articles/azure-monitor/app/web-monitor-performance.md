@@ -4,12 +4,12 @@ description: Introdução ao Application Insights. Analise o uso, disponibilidad
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: e398f23559729580ae4ad8b6507c2f09328052b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 873fc41585c387246d83008a8f97d6c4d9a32c3b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275614"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985058"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitore o desempenho em aplicativos da web
 
@@ -26,8 +26,7 @@ Se você ainda não tem o Application Insights adicionado ao seu projeto (ou sej
 * [Aplicativos Web ASP.NET](../../azure-monitor/app/asp-net.md)
   * [Adicionar monitoramento de exceção](../../azure-monitor/app/asp-net-exceptions.md)
   * [Adicionar monitoramento de dependência](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Aplicativos da web de Java EE](../../azure-monitor/app/java-get-started.md)
-  * [Adicionar monitoramento de dependência](../../azure-monitor/app/java-agent.md)
+* [Aplicativos da web de Java EE](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 
 ## <a name="exploring-performance-metrics"></a><a name="view"></a>Explorando métricas de desempenho
 No [portal do Azure](https://portal.azure.com), navegue até o recurso do Application Insights que você configurou para seu aplicativo. A folha de visão geral mostra os dados de desempenho básicos:

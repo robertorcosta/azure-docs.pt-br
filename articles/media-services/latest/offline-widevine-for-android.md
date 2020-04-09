@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 04/07/2020
 ms.author: willzhan
-ms.openlocfilehash: 64cd93acc78f4cb5b7ebc4266e7359aec662890c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94edec8261d9916b7575fb247e1698273f244130
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295429"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887190"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Streaming Widevine offline para Android com Serviços de Mídia v3
 
@@ -153,65 +153,13 @@ O aplicativo PWA de software livre acima foi criado no Node.js. Se deseja hosped
     - O certificado precisa ter uma AC confiável e um certificado autoassinado de desenvolvimento não funciona
     - O certificado precisa ter uma correspondência entre o CN e o nome DNS do servidor Web ou do gateway
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="faqs"></a>Perguntas frequentes
 
-### <a name="question"></a>Pergunta
-
-Como fornecer licenças persistentes (habilitadas offline) para alguns clientes/usuários e licenças não persistentes (desabilitadas offline) para outros? É necessário duplicar o conteúdo e usar uma chave de conteúdo separada?
-
-### <a name="answer"></a>Resposta
-Uma vez que os Serviços de Mídia v3 permitem que um Ativo tenha vários StreamingLocators. Você pode ter
-
-1.    Uma ContentKeyPolicy com o license_type = "persistent", ContentKeyPolicyRestriction com a declaração em "persistente", e seu StreamingLocator;
-2.    Outra ContentKeyPolicy com o license_type="nonpersistent", ContentKeyPolicyRestriction com a declaração em "nonpersistent", e seu StreamingLocator.
-3.    Os dois StreamingLocators têm uma ContentKey diferente.
-
-Dependendo da lógica de negócios do STS personalizado, diferentes declarações são emitidas no token JWT. Com o token, apenas a licença correspondente pode ser obtida e apenas a URL correspondente pode ser reproduzida.
-
-### <a name="question"></a>Pergunta
-
-Para os níveis de segurança widevine, o doc "Widevine DRM Architecture Overview" do Google define três níveis de segurança diferentes. No entanto, na [documentação dos Serviços de Mídia do Azure no modelo de licença do Widevine](widevine-license-template-overview.md), são descritos cinco níveis de segurança diferentes. Qual é a relação ou o mapeamento entre os dois conjuntos diferentes de níveis de segurança?
-
-### <a name="answer"></a>Resposta
-
-O doc "Widevine DRM Architecture Review" do Google define os três níveis de segurança a seguir:
-
-1.  Nível de Segurança 1: todo o processamento, criptografia e controle de conteúdo é realizado no TEE (Ambiente de Execução Confiável). Em alguns modelos de implementação, o processamento da segurança pode ser feito em diferentes chips.
-2.  Nível de Segurança 2: faz a criptografia (mas não o processamento de vídeo) no TEE: os buffers descriptografados são retornados para o domínio do aplicativo e processados por meio de um hardware ou software de vídeo separado. No entanto, no nível 2, as informações de criptografia ainda são processadas somente no TEE.
-3.  Nível de Segurança 3: não tem um TEE no dispositivo. Podem ser tomadas medidas apropriadas para proteger as informações de criptografia e o conteúdo descriptografado no sistema operacional do host. Uma implementação de Nível 3 também pode incluir um mecanismo de criptografia de hardware, mas isso melhora apenas o desempenho, não a segurança.
-
-Ao mesmo tempo, na [documentação dos Serviços de Mídia do Azure no modelo de licença do Widevine](widevine-license-template-overview.md), a propriedade security_level de content_key_specs pode ter os cinco seguintes valores diferentes (requisitos de robustez do cliente para reprodução):
-
-1.  A criptomoeda baseada em software é necessária.
-2.  A criptografia de software e um decodificador oculto são obrigatórios.
-3.  As operações de criptografia e material de chave precisam ser executadas em um TEE com suporte de hardware.
-4.  A criptografia e a decodificação do conteúdo precisam ser feitas em um TEE com suporte de hardware.
-5.  A criptografia, a decodificação e qualquer manipulação da mídia (compactada e descompactada) precisam ser feitas em um TEE com suporte de hardware.
-
-Ambos os níveis de segurança são definidos pelo Google Widevine. A diferença está em seu nível de uso: nível da arquitetura ou nível da API. Os cinco níveis de segurança são usados na API do Widevine. O objeto content_key_specs, que contém security_level, é desserializado e passado para o serviço de entrega global do Widevine pelo serviço de licença do Widevine nos Serviços de Mídia do Azure. A tabela abaixo mostra o mapeamento entre os dois conjuntos de níveis de segurança.
-
-| **Níveis de segurança definidos na arquitetura do Widevine** |**Níveis de segurança usados na API do Widevine**|
-|---|---| 
-| **Nível de segurança 1**: Todo o processamento, criptografia e controle de conteúdo são realizados dentro do Ambiente de Execução Confiável (TEE). Em alguns modelos de implementação, o processamento da segurança pode ser feito em diferentes chips.|**security_level=5**: a criptografia, a decodificação e qualquer manipulação da mídia (compactada e descompactada) precisam ser feitas em um TEE com suporte de hardware.<br/><br/>**security_level=4**: a criptografia e a decodificação do conteúdo precisam ser feitas em um TEE com suporte de hardware.|
-**Nível de Segurança 2**: faz a criptografia (mas não o processamento de vídeo) no TEE: os buffers descriptografados são retornados para o domínio do aplicativo e processados por meio de um hardware ou software de vídeo separado. No entanto, no nível 2, as informações de criptografia ainda são processadas somente no TEE.| **security_level=3**: as operações de criptografia e material de chave precisam ser executadas em um TEE com suporte de hardware. |
-| **Nível de Segurança 3**: não tem um TEE no dispositivo. Podem ser tomadas medidas apropriadas para proteger as informações de criptografia e o conteúdo descriptografado no sistema operacional do host. Uma implementação de Nível 3 também pode incluir um mecanismo de criptografia de hardware, mas isso melhora apenas o desempenho, não a segurança. | **security_level=2**: É necessário cripto de software e um decodificador ofuscado.<br/><br/>**security_level=1**: a criptografia whitebox baseada em software é obrigatória.|
-
-### <a name="question"></a>Pergunta
-
-Por que o download de conteúdo leva muito tempo?
-
-### <a name="answer"></a>Resposta
-
-Há duas maneiras para melhorar a velocidade do download:
-
-1.  Habilitar a CDN, de modo que seja mais provável que os usuários finais acessem a CDN, em vez da origem e/ou do ponto de extremidade de streaming para o download de conteúdo. Se o usuário acessar o ponto de extremidade de streaming, cada segmento de HLS ou fragmento de DASH será empacotado e criptografado dinamicamente. Embora essa latência esteja na escala de milissegundos para cada segmento/fragmento, quando você tem um vídeo com duração de uma hora, a latência acumulada pode ser grande, levando a um download mais longo.
-2.  Fornecer aos usuários finais a opção de baixar seletivamente camadas de qualidade de vídeo e faixas de áudio, em vez de todo o conteúdo. Para o modo offline, não faz sentido baixar todas as camadas de qualidade. Há duas maneiras de fazer isso:
-    1.  Controlado pelo cliente: o aplicativo de player seleciona automaticamente ou o usuário seleciona a camada de qualidade de vídeo e as faixas de áudio a serem baixadas;
-    2.  Controlado pelo serviço: é possível usar o recurso de Manifesto Dinâmico nos Serviços de Mídia do Azure para criar um filtro (global), que limita a playlist de HLS ou o DASH MPD a uma única camada de qualidade de vídeo e faixas de áudio selecionadas. Em seguida, a URL de download apresentada aos usuários finais incluirá esse filtro.
+Para obter mais informações, consulte [as perguntas frequentes da Widevine](frequently-asked-questions.md#widevine-streaming-for-android).
 
 ## <a name="additional-notes"></a>Observações adicionais
 
-* O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
 ## <a name="summary"></a>Resumo
 

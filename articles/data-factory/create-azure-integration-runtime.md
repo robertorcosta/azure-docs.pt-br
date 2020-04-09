@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 03/13/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 87633abaaae1f6034709c6e552be6647533115ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf3bb7e6733ef55a85d0b4ae26a4ce05059a8fb9
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260755"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887123"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o Integration Runtime do Azure
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter mais informações sobre o IR, consulte [Integration Runtime](concepts-integration-runtime.md).
@@ -30,6 +30,10 @@ Este documento apresenta como você pode criar e configurar o Integration Runtim
 Por padrão, cada data factory tem um IR do Azure no back-end que dá suporte a operações em armazenamentos de dados na nuvem e serviços de computação na rede pública. O local desse IR do Azure é resolvido automaticamente. Se a propriedade **connectVia** não for especificada na definição do serviço vinculado, o IR do Azure padrão será usado. Você precisa criar explicitamente um IR do Azure apenas quando deseja definir explicitamente o local do IR ou se desejar agrupar virtualmente as execuções de atividade em diferentes IRs para fins de gerenciamento. 
 
 ## <a name="create-azure-ir"></a>Criar IR do Azure
+
+Para criar e configurar um Azure IR, você pode usar os seguintes procedimentos.
+
+### <a name="create-an-azure-ir-via-azure-powershell"></a>Criar um Azure IR via Azure PowerShell
 Integração O tempo de execução pode ser criado usando o **cmdlet Set-AzDataFactoryV2IntegrationRuntime** PowerShell. Para criar um IR do Azure, você especifica o nome, o local e o tipo para o comando. Aqui está um exemplo de comando para criar um IR do Azure com o local definido como "Europa Ocidental":
 
 ```powershell
@@ -39,9 +43,30 @@ Para o IR do Azure, o tipo deve ser definido como **Managed**. Você não precis
 
 Você pode configurar um Azure IR existente para alterar sua localização usando o cmdlet Set-AzDataFactoryV2IntegrationRuntime PowerShell. Para obter mais informações sobre o local de um IR do Azure, consulte [Introdução ao Integration Runtime](concepts-integration-runtime.md).
 
+### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Criar um Azure IR via Azure Data Factory UI
+Use as seguintes etapas para criar um Azure IR usando a UI da Fábrica de Dados do Azure.
+
+1. Na página **Let's get started** da UI Azure Data Factory, selecione a guia **Autor** no painel esquerdo.
+
+   ![O botão autor da página inicial](media/doc-common-process/get-started-page-author-button.png)
+
+1. Selecione **Conexões** na parte inferior do painel esquerdo e selecione **Tempos de execução de Integração** na janela **Conexões.** Selecione **+Novo**.
+
+   ![Criar um Integration Runtime](media/create-azure-integration-runtime/new-integration-runtime.png)
+
+1. Na página **de configuração de tempo de execução Integração,** **selecione Azure, Self-Hosted**e selecione **Continuar**. 
+
+1. Na página seguinte, **selecione Azure** para criar um IR do Azure e, em seguida, selecione **Continuar**.
+   ![Criar um Integration Runtime](media/create-azure-integration-runtime/new-azure-ir.png)
+
+1. Digite um nome para o seu Azure IR e selecione **Criar**.
+   ![Criar um Azure IR](media/create-azure-integration-runtime/create-azure-ir.png)
+
+1. Você verá uma notificação pop-up quando a criação for concluída. Na página **Tempos de execução integração,** certifique-se de ver o IR recém-criado na lista.
+
 ## <a name="use-azure-ir"></a>Usar o IR do Azure
 
-Depois de criar um IR do Azure, você pode referenciá-lo em sua definição de Serviço Vinculado. Abaixo está um exemplo de como você pode referenciar o Integration Runtime do Azure criado acima de um Serviço Vinculado do Armazenamento do Azure:  
+Depois de criar um IR do Azure, você pode referenciá-lo em sua definição de Serviço Vinculado. Abaixo está um exemplo de como você pode referenciar o Integration Runtime do Azure criado acima de um Serviço Vinculado do Armazenamento do Azure:
 
 ```json
 {

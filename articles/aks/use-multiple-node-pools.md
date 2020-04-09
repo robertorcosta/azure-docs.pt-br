@@ -3,13 +3,13 @@ title: Use vários pools de nó no Azure Kubernetes Service (AKS)
 description: Aprenda a criar e gerenciar vários pools de nó para um cluster no Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/10/2020
-ms.openlocfilehash: 87f066ed17e5274439082956803d269bdd5853f5
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.date: 04/08/2020
+ms.openlocfilehash: 26fd541552ee203216af5a08d948644d82061191
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616508"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984905"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerenciar vários pools de nó para um cluster no Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ Este artigo mostra como criar e gerenciar vários pools de nó em um cluster AKS
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisa da versão 2.2.0 do Azure CLI ou posterior instalada e configurada posteriormente. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI][install-azure-cli].
+Você precisa da versão 2.2.0 do Azure CLI ou posterior instalada e configurada posteriormente. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="limitations"></a>Limitações
 
@@ -513,9 +513,9 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     ...
     "provisioningState": "Creating",
     ...
-    "nodeTaints":  {
-      "sku": "gpu:NoSchedule"
-    },
+    "nodeTaints":  [
+      "sku=gpu:NoSchedule"
+    ],
     ...
   },
  ...

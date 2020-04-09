@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: aa49b313f0fb10175dc6c0003f1a919f61731269
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: f84707adfa406011989c8f9bfdf1e8d9270698a6
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743305"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984786"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Use scripts de implantação em modelos (Visualização)
 
@@ -313,7 +313,7 @@ O ciclo de vida desses recursos é controlado pelas seguintes propriedades no mo
 
 A execução do script de implantação é uma operação idempotente. Se nenhuma das propriedades de recurso deploymentScripts (incluindo o script inline) for alterada, o script não será executado quando você reimplantar o modelo. O serviço de script de implantação compara os nomes de recursos no modelo com os recursos existentes no mesmo grupo de recursos. Existem duas opções se você quiser executar o mesmo script de implantação várias vezes:
 
-- Alterar o nome do recurso deploymentScripts. Por exemplo, use a função de modelo [utcNow](./template-functions-string.md#utcnow) como o nome do recurso ou como parte do nome do recurso. Alterar o nome do recurso cria um novo recurso deploymentScripts. É bom para manter uma história de execução de roteiro.
+- Alterar o nome do recurso deploymentScripts. Por exemplo, use a função de modelo [utcNow](./template-functions-date.md#utcnow) como o nome do recurso ou como parte do nome do recurso. Alterar o nome do recurso cria um novo recurso deploymentScripts. É bom para manter uma história de execução de roteiro.
 
     > [!NOTE]
     > A função utcNow só pode ser usada no valor padrão de um parâmetro.

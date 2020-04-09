@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 2a7f5d5eacb2d03e64ae95d34e1cf0bd37bbc7f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07b071b0e8efc5d664dada133a214d778c6531d0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259247"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984939"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço
 
@@ -33,7 +33,7 @@ O Barramento de Serviço Premium oferece suporte à recuperação de desastre ge
 
 ### <a name="availability-zones"></a>Zonas de Disponibilidades
 
-O SKU do Barramento de Serviço Premium oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro da mesma região do Azure.
+O SKU do Barramento de Serviço Premium oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro da mesma região do Azure. Service Bus gerencia três cópias da loja de mensagens (1 primária e 2 secundárias). Service Bus mantém todas as três cópias em sincronia para operações de dados e gerenciamento. Se a cópia principal falhar, uma das cópias secundárias é promovida para primária sem tempo de inatividade percebido. Se os aplicativos verem desconexões transitórias do Service Bus, a lógica de repetição no SDK se reconectará automaticamente ao Service Bus. 
 
 > [!NOTE]
 > O suporte a Zonas de Disponibilidade para o Barramento de Serviço Premium do Azure só é oferecido nas [regiões do Azure](../availability-zones/az-overview.md#services-support-by-region) em que existem zonas de disponibilidade.

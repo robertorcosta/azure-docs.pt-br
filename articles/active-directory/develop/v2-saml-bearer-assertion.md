@@ -2,27 +2,22 @@
 title: Plataforma de identidade da Microsoft & fluxo de afirmação do portador saml | Azure
 description: Aprenda a obter dados do Microsoft Graph sem solicitar ao usuário credenciais usando o fluxo de afirmação do portador do SAML.
 services: active-directory
-documentationcenter: ''
 author: umeshbarapatre
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 16f30473ded5f1de5dc94c1cff9da96165b1a01c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1cd79b1f9e4cd3afadee250da0c184c0c5b8ac07
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76700202"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886170"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidade Microsoft e fluxo de afirmação do portador OAuth 2.0 SAML
 O fluxo de afirmação do portador DoI Auth 2.0 Permite que você solicite um token de acesso OAuth usando uma afirmação SAML quando um cliente precisa usar uma relação de confiança existente. A assinatura aplicada à afirmação SAML fornece autenticação do aplicativo autorizado. Uma afirmação SAML é um token de segurança XML emitido por um provedor de identidade e consumido por um provedor de serviços. O provedor de serviços conta com seu conteúdo para identificar o assunto da afirmação para fins relacionados à segurança.

@@ -1,28 +1,23 @@
 ---
-title: Protocolos de consentimento de autorização da plataforma de identidade da Microsoft | Microsoft Docs
+title: Protocolos de consentimento de consentimento da plataforma de identidade da Microsoft
 description: Uma descrição da autorização no ponto final da plataforma de identidade da Microsoft, incluindo escopos, permissões e consentimento.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 8f98cbf0-a71d-4e34-babf-e642ad9ff423
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b9d6ab0fc2f2bf500f17161de7e090a6f60c0feb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9f633e0d205adaf5cefb2e3c036ce7f48253651
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76700729"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886374"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentimento do admin na plataforma de identidade da Microsoft
 

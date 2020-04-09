@@ -1,36 +1,36 @@
 ---
-title: Habilite o SSL com o recipiente sidecar
+title: Habilite o TLS com o recipiente sidecar
 description: Crie um ponto final SSL ou TLS para um grupo de contêineres em execução em Instâncias de Contêiner Azure executando o Nginx em um contêiner sidecar
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 43b39c7c13d6d5e52aae2ce1706e4880ab27d225
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9ea9367219db694b89d6bf4a1e52efb373c71c4
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294953"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984599"
 ---
-# <a name="enable-an-ssl-endpoint-in-a-sidecar-container"></a>Habilite um ponto final SSL em um recipiente sidecar
+# <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Habilite um ponto final TLS em um recipiente sidecar
 
-Este artigo mostra como criar um [grupo de contêineres](container-instances-container-groups.md) com um contêiner de aplicativo e um contêiner sidecar executando um provedor SSL. Ao configurar um grupo de contêineres com um ponto final SSL separado, você habilita conexões SSL para seu aplicativo sem alterar o código do aplicativo.
+Este artigo mostra como criar um [grupo de contêineres](container-instances-container-groups.md) com um contêiner de aplicativo e um contêiner sidecar executando um provedor TLS/SSL. Ao configurar um grupo de contêineres com um ponto final TLS separado, você habilita conexões TLS para seu aplicativo sem alterar o código do aplicativo.
 
 Você configura um grupo de contêineres de exemplo composto por dois contêineres:
 * Um contêiner de aplicativo que executa um simples aplicativo web usando a imagem pública da Microsoft [aci-helloworld.](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) 
-* Um contêiner sidecar executando a imagem [pública Nginx,](https://hub.docker.com/_/nginx) configurado para usar SSL. 
+* Um contêiner sidecar executando a imagem [pública Nginx,](https://hub.docker.com/_/nginx) configurado para usar TLS. 
 
 Neste exemplo, o grupo de contêineres só expõe a porta 443 para Nginx com seu endereço IP público. A Nginx encaminha solicitações HTTPS para o aplicativo web companheiro, que ouve internamente na porta 80. Você pode adaptar o exemplo para aplicativos de contêiner que ouvem em outras portas. 
 
-Consulte [os próximos passos](#next-steps) para outras abordagens para habilitar o SSL em um grupo de contêineres.
+Consulte [os próximos passos](#next-steps) para outras abordagens para habilitar o TLS em um grupo de contêineres.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Você pode usar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir esse arquivo. Se você quer usá-lo localmente, recomendamos usar a versão 2.0.55 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI](/cli/azure/install-azure-cli).
+Você pode usar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir esse arquivo. Se você quer usá-lo localmente, recomendamos usar a versão 2.0.55 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
-Para configurar o Nginx como um provedor SSL, você precisa de um certificado SSL. Este artigo mostra como criar e configurar um certificado SSL auto-assinado. Para os cenários de produção, você deve obter um certificado de uma autoridade de certificado.
+Para configurar o Nginx como provedor De TLS, você precisa de um certificado TLS/SSL. Este artigo mostra como criar e configurar um certificado TLS/SSL auto-assinado. Para os cenários de produção, você deve obter um certificado de uma autoridade de certificado.
 
-Para criar um certificado SSL auto-assinado, use a ferramenta [OpenSSL](https://www.openssl.org/) disponível no Azure Cloud Shell e muitas distribuições Linux, ou use uma ferramenta cliente comparável em seu sistema operacional.
+Para criar um certificado TLS/SSL auto-assinado, use a ferramenta [OpenSSL](https://www.openssl.org/) disponível no Azure Cloud Shell e muitas distribuições Linux, ou use uma ferramenta cliente comparável em seu sistema operacional.
 
 Primeiro crie uma solicitação de certificado (arquivo.csr) em um diretório de trabalho local:
 
@@ -40,7 +40,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 
 Siga as instruções para adicionar as informações de identificação. Para Nome Comum, digite o nome de host associado ao certificado. Quando solicitado para obter uma senha, pressione Enter sem digitar, para pular a adição de uma senha.
 
-Execute o seguinte comando para criar o certificado auto-assinado (arquivo.crt) a partir da solicitação de certificado. Por exemplo: 
+Execute o seguinte comando para criar o certificado auto-assinado (arquivo.crt) a partir da solicitação de certificado. Por exemplo:
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
@@ -48,11 +48,11 @@ openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
 
 Agora você deve ver três arquivos no diretório: a solicitação de certificado (`ssl.csr`), a chave privada (`ssl.key`), e o certificado auto-assinado (`ssl.crt`). Você `ssl.key` usa `ssl.crt` e em passos posteriores.
 
-## <a name="configure-nginx-to-use-ssl"></a>Configure o Nginx para usar o SSL
+## <a name="configure-nginx-to-use-tls"></a>Configure o Nginx para usar o TLS
 
 ### <a name="create-nginx-configuration-file"></a>Criar arquivo de configuração Nginx
 
-Nesta seção, você cria um arquivo de configuração para o Nginx usar o SSL. Comece copiando o texto a seguir `nginx.conf`em um novo arquivo chamado . No Azure Cloud Shell, você pode usar o Visual Studio Code para criar o arquivo em seu diretório de trabalho:
+Nesta seção, você cria um arquivo de configuração para o Nginx usar o TLS. Comece copiando o texto a seguir `nginx.conf`em um novo arquivo chamado . No Azure Cloud Shell, você pode usar o Visual Studio Code para criar o arquivo em seu diretório de trabalho:
 
 ```console
 code nginx.conf
@@ -93,7 +93,7 @@ http {
         ssl_ciphers                ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:ECDHE-RSA-RC4-SHA:ECDHE-ECDSA-RC4-SHA:AES128:AES256:RC4-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!3DES:!MD5:!PSK;
         ssl_prefer_server_ciphers  on;
 
-        # Optimize SSL by caching session parameters for 10 minutes. This cuts down on the number of expensive SSL handshakes.
+        # Optimize TLS/SSL by caching session parameters for 10 minutes. This cuts down on the number of expensive TLS/SSL handshakes.
         # The handshake is the most CPU-intensive operation, and by default it is re-negotiated on every new/parallel connection.
         # By enabling a cache (of type "shared between all Nginx workers"), we tell the client to re-use the already negotiated state.
         # Further optimization can be achieved by raising keepalive_timeout, but that shouldn't be done unless you serve primarily HTTPS.
@@ -124,7 +124,7 @@ http {
 
 ### <a name="base64-encode-secrets-and-configuration-file"></a>Segredos e arquivo de configuração da Base64
 
-O arquivo de configuração Do N64, o certificado SSL e a tecla SSL. Na próxima seção, digite o conteúdo codificado em um arquivo YAML usado para implantar o grupo de contêineres.
+O arquivo de configuração Do Base64, o certificado TLS/SSL e a tecla TLS. Na próxima seção, digite o conteúdo codificado em um arquivo YAML usado para implantar o grupo de contêineres.
 
 ```console
 cat nginx.conf | base64 > base64-nginx.conf
@@ -193,7 +193,7 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="deploy-the-container-group"></a>Implantar o grupo de contêineres
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create):
+Crie um grupo de recursos com o comando [az group create:](/cli/azure/group#az-group-create)
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
@@ -221,7 +221,7 @@ Name          ResourceGroup    Status    Image                                  
 app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     westus
 ```
 
-## <a name="verify-ssl-connection"></a>Verifique a conexão SSL
+## <a name="verify-tls-connection"></a>Verifique a conexão TLS
 
 Use seu navegador para navegar até o endereço IP público do grupo de contêineres. O endereço IP mostrado `52.157.22.76`neste exemplo é **https://52.157.22.76**, portanto, a URL é . Você deve usar HTTPS para ver o aplicativo em execução, por causa da configuração do servidor Nginx. As tentativas de conexão sobre HTTP falham.
 
@@ -234,11 +234,11 @@ Use seu navegador para navegar até o endereço IP público do grupo de contêin
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo mostrou como configurar um contêiner Nginx para habilitar conexões SSL a um aplicativo web em execução no grupo de contêineres. Você pode adaptar este exemplo para aplicativos que ouvem em portas diferentes da porta 80. Você também pode atualizar o arquivo de configuração Nginx para redirecionar automaticamente as conexões do servidor na porta 80 (HTTP) para usar HTTPS.
+Este artigo mostrou como configurar um contêiner Nginx para habilitar conexões TLS a um aplicativo web em execução no grupo de contêineres. Você pode adaptar este exemplo para aplicativos que ouvem em portas diferentes da porta 80. Você também pode atualizar o arquivo de configuração Nginx para redirecionar automaticamente as conexões do servidor na porta 80 (HTTP) para usar HTTPS.
 
-Enquanto este artigo usa Nginx no sidecar, você pode usar outro provedor SSL, como [o Caddy](https://caddyserver.com/).
+Enquanto este artigo usa Nginx no sidecar, você pode usar outro provedor DeT, como [o Caddy](https://caddyserver.com/).
 
-Se você implantar seu grupo de contêineres em uma [rede virtual Do Azure,](container-instances-vnet.md)você poderá considerar outras opções para habilitar um ponto final SSL para uma instância de contêiner back-end, incluindo:
+Se você implantar seu grupo de contêineres em uma [rede virtual Do Azure,](container-instances-vnet.md)você poderá considerar outras opções para habilitar um ponto final TLS para uma instância de contêiner backend, incluindo:
 
 * [Proxies de funções do Azure](../azure-functions/functions-proxies.md)
 * [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md)

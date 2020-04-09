@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/08/2020
 ms.author: aschhab
-ms.openlocfilehash: 3a4fca0b3b60fcb76bcdc4f5f2d53df816c5053b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8020b12ca892fbf7dec6fed6259526d958fb110f
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76756362"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891757"
 ---
 # <a name="message-counters"></a>Contadores de mensagens
 
@@ -43,6 +43,11 @@ Saber a contagem de mensagens ativas é útil para determinar se uma fila cria u
 -   [TransferMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transfermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferMessageCount): as mensagens pendentes são transferidas para outra fila ou tópico.
 
 Se um aplicativo desejar dimensionar os recursos com base no comprimento da fila, ele deverá fazer isso com um ritmo calculado. A aquisição dos contadores de mensagem é uma operação cara dentro do agente de mensagens e executá-la com frequência afeta de forma direta e adversa o desempenho da entidade.
+
+> [!NOTE]
+> As mensagens enviadas para um tópico de Service Bus são encaminhadas para assinaturas para esse tópico. Assim, a contagem de mensagens ativas sobre o tópico em si é 0, pois essas mensagens foram encaminhadas com sucesso para a assinatura. Obtenha a contagem de mensagens na assinatura e verifique se ela é maior que 0. Mesmo que você veja mensagens na assinatura, elas são realmente armazenadas em um armazenamento de propriedade do tópico. 
+
+Se você olhar para as assinaturas, então elas teriam uma contagem de mensagens não zero (que somam 323MB de espaço para toda essa entidade).
 
 ## <a name="next-steps"></a>Próximas etapas
 

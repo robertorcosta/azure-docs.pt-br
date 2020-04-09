@@ -5,44 +5,38 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 898dfe7a619981b93af98effa942fdecbeb42dde
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e36e95aeb25c83ccd94f11e25bfe9f1b8f7bfdad
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368121"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984854"
 ---
-# <a name="change-feed-in-azure-cosmos-db---overview"></a>Feed de alterações no Azure Cosmos DB – visão geral
+# <a name="change-feed-in-azure-cosmos-db"></a>Feed de alterações no Azure Cosmos DB
 
-O suporte para feed de alterações no Azure Cosmos DB funciona ouvindo um contêiner do Azure Cosmos DB para quaisquer alterações. Ele gera a lista classificada de documentos que foram alterados na ordem em que eles foram modificados. As alterações são mantidas, podem ser processadas de maneira assíncrona e incremental e a saída pode ser distribuída em um ou mais consumidores para processamento paralelo. 
+O suporte para feed de alterações no Azure Cosmos DB funciona ouvindo um contêiner do Azure Cosmos DB para quaisquer alterações. Ele gera a lista classificada de documentos que foram alterados na ordem em que eles foram modificados. As alterações são mantidas, podem ser processadas de maneira assíncrona e incremental e a saída pode ser distribuída em um ou mais consumidores para processamento paralelo.
 
-O Azure Cosmos DB é adequado para IoT, jogos, varejo e aplicativos de log operacional. Um padrão de design comum nesses aplicativos é usar as alterações nos dados para disparar ações adicionais. Os exemplos de ações adicionais incluem:
-
-* Disparar uma notificação ou uma chamada a uma API, quando um item é inserido ou atualizado.
-* Processamento de fluxo em tempo real para IoT ou processamento de análise em tempo real em dados operacionais.
-* Movimentação de dados adicional por meio da sincronização com um cache, com um mecanismo de pesquisa ou com um data warehouse ou do arquivamento de dados para armazenamento frio.
-
-O feed de alterações no Azure Cosmos DB permite que você crie soluções eficientes e escalonáveis para cada um desses padrões, conforme mostra a imagem a seguir:
-
-![Usando o feed de alterações do Azure Cosmos DB para capacitar a análise em tempo real e cenários de computação orientada a eventos](./media/change-feed/changefeedoverview.png)
+Saiba mais sobre [os padrões de design de feed de mudanças](change-feed-design-patterns.md).
 
 ## <a name="supported-apis-and-client-sdks"></a>SDKs do cliente e APIs com suporte
 
 No momento, o recurso é compatível com os seguintes SDKs do cliente e APIs do Azure Cosmos DB.
 
-| **Drivers do cliente** | **Azure CLI** | **SQL API** | **AA DO Azure Cosmos DB para Cassandra** | **API do Azure Cosmos DB para MongoDB** | **Gremlin API**|**API de tabela** |
+| **Drivers do cliente** | **SQL API** | **AA DO Azure Cosmos DB para Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin**|**API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | NA | Sim | Sim | Sim | Sim | Não |
-|Java|NA|Sim|Sim|Sim|Sim|Não|
-|Python|NA|Sim|Sim|Sim|Sim|Não|
-|Nó/JS|NA|Sim|Sim|Sim|Sim|Não|
+| .NET | Sim | Sim | Sim | Sim | Não |
+|Java|Sim|Sim|Sim|Sim|Não|
+|Python|Sim|Sim|Sim|Sim|Não|
+|Nó/JS|Sim|Sim|Sim|Sim|Não|
 
 ## <a name="change-feed-and-different-operations"></a>Feed de alterações e operações diferentes
 
-Hoje você pode ver todas as operações no feed de alterações. A funcionalidade em que é possível controlar o feed de alterações, para operações específicas como apenas atualizações e não inserções ainda não está disponível. Você pode adicionar um "marcador macio" no item para atualizações e filtrar com base nisso ao processar itens no feed de alterações. Atualmente, o feed de alterações não registra exclusões. Semelhante ao exemplo anterior, é possível adicionar um marcador suave nos itens que estão sendo excluídos, por exemplo, é possível adicionar um atributo no item chamado "excluído" e defini-lo como "true" e definir uma TTL no item para que ele possa ser excluído automaticamente. Você pode ler o feed de alterações para itens históricos (a alteração mais recente correspondente ao item, não inclui as alterações intermediárias), por exemplo, itens que foram adicionados há cinco anos. Se o item não for excluído, será possível ler o feed de alterações no que diz respeito à origem do seu contêiner.
+Hoje, você vê todas as inserções e atualizações no feed de alterações. Você não pode filtrar a alimentação de alteração para um tipo específico de operação. Uma alternativa possível, é adicionar um "marcador macio" no item para atualizações e filtrar com base nisso ao processar itens na alimentação de alteração.
+
+Atualmente, o feed de alterações não registra exclusões. Semelhante ao exemplo anterior, você pode adicionar um marcador suave nos itens que estão sendo excluídos. Por exemplo, você pode adicionar um atributo no item chamado "excluído" e defini-lo como "verdadeiro" e definir um TTL no item, para que ele possa ser excluído automaticamente. Você pode ler o feed de alterações para itens históricos (a alteração mais recente correspondente ao item, não inclui as alterações intermediárias), por exemplo, itens que foram adicionados há cinco anos. Você pode ler o feed de alteração até a origem do seu recipiente, mas se um item for excluído, ele será removido da alimentação de alteração.
 
 ### <a name="sort-order-of-items-in-change-feed"></a>Ordem de classificação de itens no feed de alterações
 
@@ -64,35 +58,6 @@ Se uma propriedade TTL (vida útil) for definida em um item como -1, o feed de a
 
 O formato de _etag é interno e você não deve assumir uma dependência dele, porque ele pode ser alterado a qualquer momento. _ts é um carimbo de data/hora de modificação ou de criação. Você pode usar o _ts para comparação cronológica. _lsn é um ID de lote que é adicionado apenas para alimentação de alterações; representa o ID da transação. Muitos itens podem ter a mesma _lsn. O ETag no FeedResponse é diferente do _etag que você vê no item. O _etag é um identificador interno e usado para controle de simultaneidade; ele informa sobre a versão do item, enquanto o ETag é usado para o sequenciamento do feed.
 
-## <a name="change-feed-use-cases-and-scenarios"></a>Casos de uso e cenários do feed de alterações
-
-O feed de alterações permite o processamento eficiente de grandes conjuntos de dados com um alto volume de gravações. O feed de alterações também oferece uma alternativa para consultar todo um conjunto de dados para identificar o que foi alterado.
-
-### <a name="use-cases"></a>Casos de uso
-
-Por exemplo, com o feed de alterações, é possível executar as seguintes tarefas com eficiência:
-
-* Atualizar um cache, um índice de pesquisa ou um data warehouse com os dados armazenados no Azure Cosmos DB.
-
-* Implementar uma camada de dados e arquivamento do nível do aplicativo, por exemplo, armazenar "dados quentes" no Azure Cosmos DB e arquivar dados frios em outros sistemas de armazenamento, por exemplo, [Armazenamento de Blobs do Azure](../storage/common/storage-introduction.md).
-
-* Realizar migrações com tempo de inatividade zero para outra conta ou para outro contêiner do Azure Cosmos com uma chave de partição lógica diferente.
-
-* Implementar uma [arquitetura lambda](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) usando o Azure Cosmos DB, em que o Azure Cosmos DB dá suporte a camadas de serviço de consulta e de lote em tempo real, permitindo, assim, uma arquitetura lambda com baixo TCO.
-
-* Receber e armazenar dados de evento de dispositivos, sensores, infraestrutura e aplicativos, além de processar esses eventos em tempo real, por exemplo, usando o [Spark](../hdinsight/spark/apache-spark-overview.md).  A imagem a seguir mostra como é possível implementar a arquitetura lambda usando o Azure Cosmos DB por meio do feed de alterações:
-
-![Pipeline lambda baseado no Azure Cosmos DB para ingestão e consulta](./media/change-feed/lambda.png)
-
-### <a name="scenarios"></a>Cenários
-
-Veja a seguir alguns dos cenários que você pode implementar com o feed de alterações facilmente:
-
-* Em aplicativos Web e móveis [sem servidor](https://azure.microsoft.com/solutions/serverless/), é possível acompanhar eventos como todas as alterações no perfil, nas preferências ou na localização do cliente e disparar determinadas ações, como enviar notificações por push para seus dispositivos usando o [Azure Functions](change-feed-functions.md).
-
-* Se você estiver usando o Azure Cosmos DB para criar um jogo, poderá, por exemplo, usar o feed de alterações para implementar placares em tempo real de acordo com as pontuações dos jogos concluídos.
-
-
 ## <a name="working-with-change-feed"></a>Trabalhando com o feed de alterações
 
 É possível trabalhar com o feed de alterações usando as seguintes opções:
@@ -110,7 +75,7 @@ O feed de alterações está disponível para cada chave de partição lógica d
 
 * É possível usar a [taxa de transferência provisionada](request-units.md) para ler o feed de alterações, assim como qualquer outra operação do Azure Cosmos DB, em qualquer uma das regiões associadas ao banco de dados do Azure Cosmos.
 
-* O feed de alterações inclui inserções e operações de atualização feitas em itens dentro do contêiner. É possível capturar exclusões definindo um sinalizador de "exclusão suave" dentro dos seus itens (por exemplo, documentos) no lugar de exclusões. Como alternativa, é possível definir um período de expiração finito para seus itens com a [funcionalidade TTL](time-to-live.md). Por exemplo, 24 horas e use o valor dessa propriedade para a captura ser excluída. Com essa solução, é necessário processar alterações em um intervalo de tempo menor do que o período de expiração da TTL. 
+* O feed de alterações inclui inserções e operações de atualização feitas em itens dentro do contêiner. É possível capturar exclusões definindo um sinalizador de "exclusão suave" dentro dos seus itens (por exemplo, documentos) no lugar de exclusões. Como alternativa, é possível definir um período de expiração finito para seus itens com a [funcionalidade TTL](time-to-live.md). Por exemplo, 24 horas e use o valor dessa propriedade para a captura ser excluída. Com essa solução, é necessário processar alterações em um intervalo de tempo menor do que o período de expiração da TTL.
 
 * Cada alteração em um item aparece exatamente uma vez no feed de alterações, sendo que os clientes devem gerenciar a lógica do ponto de verificação. Se você quiser evitar a complexidade do gerenciamento de pontos de verificação, o processador de feed de alteração fornece verificação automática e semântica "pelo menos uma vez". Consulte [o uso do feed de alterações com o processador de alimentação de mudança](change-feed-processor.md).
 
@@ -122,7 +87,7 @@ O feed de alterações está disponível para cada chave de partição lógica d
 
 * As alterações estão disponíveis em paralelo para todas as chaves de partição lógica de um contêiner do Azure Cosmos. Essa funcionalidade permite que alterações de grandes contêineres sejam processadas em paralelo por vários consumidores.
 
-* Os aplicativos podem solicitar várias alterações no mesmo recipiente simultaneamente. ChangeFeedOptions.StartTime pode ser usado para fornecer um ponto de partida. Por exemplo, para localizar o token de continuação correspondente a uma determinada hora. O ContinuationToken, se especificado, supera os valores de StartTime e StartFromBeginning. A precisão de ChangeFeedOptions.StartTime é de aproximadamente 5 segundos. 
+* Os aplicativos podem solicitar várias alterações no mesmo recipiente simultaneamente. ChangeFeedOptions.StartTime pode ser usado para fornecer um ponto de partida. Por exemplo, para localizar o token de continuação correspondente a uma determinada hora. O ContinuationToken, se especificado, tem precedência sobre os valores StartTime e StartFromBeginning. A precisão de ChangeFeedOptions.StartTime é de aproximadamente 5 segundos.
 
 ## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Alterar feed em APIs para Cassandra e MongoDB
 
