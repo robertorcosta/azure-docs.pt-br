@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/09/2019
+ms.date: 04/04/2020
 ms.author: chlandsi
-ms.openlocfilehash: e204308ecbf17338e97b76362fd8828ba4d2d78c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 3758b035e7840c63c895417d0ed3d8dca0ab618f
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78924756"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671574"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,7 +23,7 @@ Antes de começar, é preciso:
 
 > [!div class="checklist"]
 > * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=python)
+> * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=python&pivots=programming-language-python)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 

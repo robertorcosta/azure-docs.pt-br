@@ -49,7 +49,7 @@
           href: ./samples/pattern-logical-operators.md
         - name: Campos
           href: ./samples/pattern-fields.md
-        - name: parâmetros
+        - name: Parâmetros
           href: ./samples/pattern-parameters.md
         - name: Detalhes do efeito
           href: ./samples/pattern-effect-details.md
@@ -151,6 +151,12 @@
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
         - name: Definições de Política
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+    - name: SDK do Azure para Java
+      items:
+        - name: Atribuições
+          href: /java/api/com.microsoft.azure.management.resources.policyassignment?view=azure-java-stable
+        - name: Definições de Política
+          href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
     - name: SDK do Azure para Node
       items:
         - name: Política

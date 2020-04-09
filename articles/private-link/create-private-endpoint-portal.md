@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 485eb14938fc7e490ea2d68c9090cdfdbf01cc8f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1bdc089bb89a732e329bf7d3ffd3d5b5c09ba408
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78252570"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637255"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Início Rápido: Criar um ponto de extremidade privado usando portal do Azure
 
@@ -39,9 +39,9 @@ Nesta seção, você precisará substituir os seguintes parâmetros nas etapas p
 | **\<resource-group-name>**  | myResourceGroup |
 | **\<virtual-network-name>** | myVirtualNetwork          |
 | **\<region-name>**          | Centro-Oeste dos EUA    |
-| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<IPv4-address-space>**   | 10.1.0.0/16          |
 | **\<subnet-name>**          | mySubnet        |
-| **\<subnet-address-range>** | 10.1.0.0\24          |
+| **\<subnet-address-range>** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

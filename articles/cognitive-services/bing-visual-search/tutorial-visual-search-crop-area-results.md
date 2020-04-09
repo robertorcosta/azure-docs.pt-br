@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 11/29/2019
+ms.date: 03/31/2019
 ms.author: aahi
-ms.openlocfilehash: 7adca44f1710431ad1095cbd0da897d4c7c7f325
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 4778a4089c7374c1ac6a9312064dcfb1e0325b63
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689344"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478488"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Tutorial: Recortar uma imagem no SDK da Pesquisa Visual do Bing para C#
 
@@ -31,7 +31,7 @@ Esse tutorial ilustra como:
 > * Receber e lidar com a resposta
 > * Encontrar as URLs de itens de ação na resposta
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Qualquer edição do [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Se você estiver usando Linux/MacOS, este aplicativo poderá ser executado usando [Mono](https://www.mono-project.com/).
@@ -112,5 +112,5 @@ Obter as URLs de imagem real requer que uma conversão que lê um `ActionType` c
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de página única da Pesquisa Visual](tutorial-bing-visual-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 > [O que é a API da Pesquisa Visual do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)

@@ -3,12 +3,12 @@ title: O que é o Azure Lighthouse?
 description: O Azure Lighthouse permite que os provedores de serviços forneçam serviços gerenciados para seus clientes com maior automação e eficiência em escala.
 ms.date: 11/11/2019
 ms.topic: overview
-ms.openlocfilehash: 0bec1f5b727ca3ecd604d2654358ca9a5507abe4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1d4d33238f30c2a579c6a0da6a39238207db4f4a
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75646187"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982779"
 ---
 # <a name="what-is-azure-lighthouse"></a>O que é o Azure Lighthouse?
 
@@ -32,7 +32,7 @@ O Azure Lighthouse inclui várias maneiras de ajudar a simplificar a participaç
 
 - **Gerenciamento de recursos delegados do Azure**: gerencie os recursos do Azure dos seus clientes com segurança de dentro do seu próprio locatário sem precisar alternar os planos de contexto e de controle. Para saber mais, confira [Gerenciamento de recursos delegados do Azure](concepts/azure-delegated-resource-management.md).
 - **Novas experiências do portal do Azure**: veja as informações entre locatários na nova página **Meus clientes** no [portal do Azure](https://portal.azure.com). Uma folha **Provedores de serviços** correspondente permite que seus clientes vejam e gerenciem o acesso do provedor de serviços. Para saber mais, confira [Exibir e gerenciar clientes](./how-to/view-manage-customers.md) e [Exibir e gerenciar provedores de serviços](how-to/view-manage-service-providers.md).
-- **Modelos do Azure Resource Manager**: execute tarefas de gerenciamento com mais facilidade, incluindo a integração de clientes para o gerenciamento de recursos delegados do Azure. Para saber mais, confira nosso [repositório de exemplos](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates) e [Integrar um cliente ao gerenciamento de recursos delegados do Azure](how-to/onboard-customer.md).
+- **Modelos do Azure Resource Manager**: execute tarefas de gerenciamento com mais facilidade, incluindo a integração de clientes para o gerenciamento de recursos delegados do Azure. Para saber mais, confira nosso [repositório de exemplos](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates) e [Integrar um cliente ao gerenciamento de recursos delegados do Azure](how-to/onboard-customer.md).
 - **Ofertas de serviços gerenciados no Azure Marketplace**: ofereça seus serviços aos clientes por meio de ofertas privadas ou públicas e faça com que eles sejam automaticamente integrados ao gerenciamento de recursos delegados do Azure como uma alternativa à integração usando modelos do Azure Resource Manager. Para saber mais, confira [Ofertas de serviços gerenciados no Azure Marketplace](concepts/managed-services-offers.md).
 - **Aplicativos gerenciados do Azure**: empacote e envie aplicativos fáceis para seus clientes implantarem e usarem em suas próprias assinaturas. O aplicativo é implantado em um grupo de recursos que você acessa de seu locatário, permitindo que você gerencie o serviço como parte da experiência geral do Azure Lighthouse. Para saber mais, confira [Visão geral de aplicativos gerenciados do Azure](../azure-resource-manager/managed-applications/overview.md).
 

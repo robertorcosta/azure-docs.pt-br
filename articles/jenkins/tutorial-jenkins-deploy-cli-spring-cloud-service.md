@@ -3,12 +3,12 @@ title: Implantar aplicativos no Azure Spring Cloud usando o Jenkins e a CLI do A
 description: Saiba como usar a CLI do Azure em um pipeline de implantação e integração contínua para implantar microsserviços no serviço Azure Spring Cloud
 ms.topic: tutorial
 ms.date: 01/07/2020
-ms.openlocfilehash: 67ad97bb762ed302ef52c404d47c5755ea4b245b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bc48eecc9e73b95fd9112d645135409c24369e10
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75732849"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810212"
 ---
 # <a name="tutorial-deploy-apps-to-azure-spring-cloud-using-jenkins-and-the-azure-cli"></a>Tutorial: Implantar aplicativos no Azure Spring Cloud usando o Jenkins e a CLI do Azure
 
@@ -28,7 +28,7 @@ Este tutorial pressupõe um conhecimento intermediário dos principais serviços
 >[!Note]
 > Atualmente, o Azure Spring Cloud é oferecido como visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.  Para saber mais sobre o suporte durante as visualizações, confira as [Perguntas frequentes](https://azure.microsoft.com/support/faq/) ou envie uma [Solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) para saber mais.
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
 * Uma conta do GitHub. Se você ainda não tem uma conta do GitHub, crie uma [conta gratuita](https://github.com/) antes de começar.
 

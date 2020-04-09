@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 878960738830dbe2f94b977e98215a681c4a79d2
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222943"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802545"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: configurar manualmente dispositivos ingressados no Azure Active Directory híbrido
 
@@ -85,7 +85,7 @@ Use a tabela a seguir para ter uma visão geral das etapas necessárias para o s
 | Configurar o ponto de conexão de serviço | ![Verificação][1] | ![Verificação][1] | ![Verificação][1] |
 | Configurar a emissão de declarações |     | ![Verificação][1] | ![Verificação][1] |
 | Permitir que dispositivos não Windows 10 |       |        | ![Verificação][1] |
-| Verificar dispositivos ingressados | ![Verificação][1] | ![Verificação][1] | [Verificação][1] |
+| Verificar dispositivos ingressados | ![Verificação][1] | ![Verificação][1] | ![Verificação][1] |
 
 ## <a name="configure-a-service-connection-point"></a>Configurar um ponto de conexão de serviço
 

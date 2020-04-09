@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a77041c0e53c2f0f8b6d0891a0f755e8ca474923
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 03aa3919e1da982bb8a8c235bb598f5b94df1ebf
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75945988"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986756"
 ---
 
 Use a biblioteca de clientes do QnA Maker para python para:
@@ -17,7 +17,7 @@ Use a biblioteca de clientes do QnA Maker para python para:
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -68,7 +68,7 @@ Crie variáveis para a chave e o ponto de extremidade do Azure do recurso. Se vo
 
 |Variável de ambiente|variável|Exemplo|
 |--|--|--|
-|`QNAMAKER_SUBSCRIPTION_KEY`|`subscription_key`|A chave é uma cadeia de 32 caracteres e está disponível no portal do Azure, no recurso do QnA Maker, na página Início Rápido. Isso não é o mesmo que a chave de ponto de extremidade de previsão.|
+|`QNAMAKER_KEY`|`subscription_key`|A chave é uma cadeia de 32 caracteres e está disponível no portal do Azure, no recurso do QnA Maker, na página Início Rápido. Isso não é o mesmo que a chave de ponto de extremidade de previsão.|
 |`QNAMAKER_HOST`|`host`| Seu ponto de extremidade de criação, no formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, inclui o seu **nome do recurso**. Essa não é a mesma URL usada para consultar o ponto de extremidade de previsão.|
 
 [!code-python[Azure resource variables](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=resourcekeys)]

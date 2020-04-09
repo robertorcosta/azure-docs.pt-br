@@ -39,6 +39,8 @@
       href: streaming-technologies.md
     - name: Escolher uma ferramenta de desenvolvimento do trabalho
       href: feature-comparison.md
+    - name: Desenvolver localmente
+      href: develop-locally.md
     - name: Tipos de entrada para um trabalho
       items:
         - name: Visão geral das entradas
