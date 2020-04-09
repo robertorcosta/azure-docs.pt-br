@@ -45,7 +45,7 @@ O [Visual Studio Code](https://code.visualstudio.com/docs) é um editor de códi
 
 Certifique-se de instalar o [Visual Studio Code](https://code.visualstudio.com/Download) mais recente e carregar a [extensão mssql](https://aka.ms/mssql-marketplace). Para obter diretrizes sobre como instalar a extensão mssql, confira [Instalar o VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) e [mssql para Visual Studio Code ](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
-## <a name="configure-visual-studio-code"></a>Configurar o código do Visual Studio
+## <a name="configure-visual-studio-code"></a>Configurar o Visual Studio Code
 
 ### <a name="mac-os"></a>**Mac OS**
 
@@ -110,7 +110,7 @@ Use o Visual Studio Code para estabelecer uma conexão com seu servidor do Banco
    | **Nome do servidor** | O nome do servidor totalmente qualificado | Algo como: **mynewserver20170313.database.windows.net**. |
    | **Nome do banco de dados** | mySampleDatabase | O banco de dados ao qual se conectar. |
    | **Autenticação** | Logon do SQL| Este tutorial usa a autenticação do SQL. |
-   | **Nome de usuário** | Nome de usuário | O nome de usuário da conta do administrador de servidor usado para criar o servidor. |
+   | **Nome de usuário** | Nome de usuário | O nome de usuário da conta do administrador de servidor usada para criar o servidor. |
    | **Senha (Logon do SQL)** | Senha | A senha de usuário da conta do administrador de servidor usada para criar o servidor. |
    | **Salvar senha?** | Sim ou não | Selecione **Sim** se não desejar inserir a senha toda vez. |
    | **Inserir um nome para este perfil** | Um nome do perfil, como **mySampleProfile** | Um perfil salvo acelera sua conexão nos logons subsequentes. |

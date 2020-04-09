@@ -22,7 +22,7 @@ ms.locfileid: "77062567"
 Você pode configurar um aplicativo autenticador para enviar uma notificação ao seu dispositivo móvel ou enviar um código de verificação como seu método de verificação de segurança. Não é obrigatório usar o aplicativo Microsoft Authenticator. Você poderá selecionar um aplicativo diferente durante o processo de configuração. No entanto, este artigo usa o aplicativo Microsoft Authenticator.
 
 >[!Important]
->Antes de poder adicionar sua conta, você deverá baixar e instalar o aplicativo Microsoft Authenticator. Se você ainda não tiver feito isso, siga as etapas no artigo [Baixar e instalar o aplicativo](user-help-auth-app-download-install.md).
+>Para poder adicionar sua conta, você deverá baixar e instalar o aplicativo Microsoft Authenticator. Se você ainda não tiver feito isso, siga as etapas no artigo [Baixar e instalar o aplicativo](user-help-auth-app-download-install.md).
 
 >[!Note]
 > Caso a opção de Aplicativo móvel esteja esmaecida, é possível que sua organização não permita que você use um aplicativo de autenticação para verificação. Nesse caso, você precisará selecionar outro método ou contatar o administrador para obter mais ajuda.

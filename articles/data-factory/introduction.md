@@ -16,17 +16,17 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 03/26/2020
 ms.locfileid: "73672694"
 ---
-# <a name="what-is-azure-data-factory"></a>O que é o Data Factory do Azure?
+# <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory?
 
 No mundo de Big Data, os dados brutos e não organizados são, muitas vezes, armazenados em sistemas relacionais, não relacionais e outros sistemas de armazenamento. No entanto, os dados brutos em si não possuem o contexto ou significado apropriados para fornecer uma visão adequada para os analistas, cientistas de dados ou responsáveis por decisões de negócio. 
 
-O Big Data requer um serviço que possa orquestrar e operacionalizar processos para refinar esses enormes repositórios de dados brutos em visões de negócio acionáveis. O Azure Data Factory é um serviço de nuvem gerenciado que foi criado para esses projetos híbridos complexos para extrair, transformar e carregar (ETL), extrair, carregar e transformar (ELT) e de integração de dados.
+O Big Data requer um serviço que possa orquestrar e operacionalizar processos para refinar esses enormes repositórios de dados brutos em insights de negócio acionáveis. O Azure Data Factory é um serviço de nuvem gerenciado que foi criado para esses projetos híbridos complexos para extrair, transformar e carregar (ETL), extrair, carregar e transformar (ELT) e de integração de dados.
 
 Por exemplo, imagine uma empresa de jogos que coleta petabytes de logs de jogos que são gerados por jogos na nuvem. A empresa deseja analisar esses logs para saber as preferências dos clientes, a faixa demográfica e o comportamento de uso. Ela também deseja identificar as oportunidades de venda adicional e venda cruzada, desenvolver recursos novos e cativantes para estimular o crescimento do negócio, e fornecer uma melhor experiência para os clientes.
 
 Para analisar esses logs, a empresa precisa usar os dados de referência, como as informações sobre o cliente, sobre o jogo e sobre a campanha de marketing, que estão em um armazenamento de dados local. A empresa deseja usar esses dados provenientes do repositório de dados local, combinando-os com os dados de log adicionais que ela possui no repositório de dados na nuvem. 
 
-Para extrair informações, ela espera processar os dados associados usando um cluster Spark na nuvem (Azure HDInsight) e publicar os dados transformados em um data warehouse de nuvem como o SQL Data Warehouse do Azure para gerar um relatório de forma fácil. A empresa deseja automatizar esse fluxo de trabalho, e monitorá-lo e gerenciá-lo diariamente. Ela também deseja executá-lo quando entram arquivos no contêiner de armazenamento de blobs.
+Para extrair insights, ela espera processar os dados associados usando um cluster Spark na nuvem (Azure HDInsight) e publicar os dados transformados em um data warehouse de nuvem como o SQL Data Warehouse do Azure para gerar um relatório de forma fácil. A empresa deseja automatizar esse fluxo de trabalho, e monitorá-lo e gerenciá-lo diariamente. Ela também deseja executá-lo quando entram arquivos no contêiner de armazenamento de blobs.
 
 O Azure Data Factory é a plataforma que resolve esses cenários de dados. É o *serviço de integração de dados e ETL baseado em nuvem que lhe permite criar fluxos de trabalho orientados a dados para orquestrar a movimentação e a transformação de dados em escala*. Usando o Azure Data Factory, é possível criar e agendar fluxos de trabalho orientados a dados (chamados de pipelines) que podem ingerir dados de diferentes repositórios de dados. Você pode criar processos de ETL complexos que transformam os dados visualmente com fluxos de dados ou usando serviços de computação, como o Azure HDInsight Hadoop, o Azure Databricks e o Banco de Dados SQL do Azure. 
 
@@ -40,7 +40,7 @@ O Data Factory contém uma série de sistemas interconectados que fornecem uma p
 
 ### <a name="connect-and-collect"></a>Conectar e coletar
 
-As empresas possuem dados de vários tipos que estão localizados em diferentes fontes locais, na nuvem, estruturadas, não estruturadas e semi-estruturadas, todos chegando em diferentes intervalos e velocidades. 
+As empresas possuem dados de vários tipos que estão localizados em diferentes fontes locais, na nuvem, estruturadas, não estruturadas e semiestruturadas, todos chegando em diferentes intervalos e velocidades. 
 
 A primeira etapa ao criar um sistema de geração de informações é conectar todas as diferentes fontes de dados e processamento necessárias, como os serviços de software como serviço (SaaS), bancos de dados, compartilhamentos de arquivos e serviços Web FTP. A etapa seguinte é mover os dados conforme necessário para um local central para que estes sejam processados posteriormente.
 
@@ -54,10 +54,10 @@ Depois que os dados estiverem presentes em um armazenamento de dados centralizad
 Se você preferir codificar as transformações manualmente, o ADF é compatível com atividades externas para executar suas transformações em serviços de computação, tais como HDInsight Hadoop, Spark, Data Lake Analytics e Machine Learning.
 
 ### <a name="cicd-and-publish"></a>CI/CD e publicar
-O Data Factory oferece total compatibilidade para CI/CD de seus pipelines de dados usando o Azure DevOps e o GitHub. Isso permite que você desenvolva e entregue incrementalmente seus processos de ETL antes de publicar o produto acabado. Após os dados brutos terem sido refinados para uma forma consumível pronta para negócios, carregue-os no Data Warehouse do Azure, Banco de Dados SQL do Azure, Azure CosmosDB ou qualquer mecanismo analítico para o qual os seus usuários empresariais possam apontar a partir de suas respectivas ferramentas de business intelligence.
+O Data Factory oferece total compatibilidade para CI/CD de seus pipelines de dados usando o Azure DevOps e o GitHub. Isso permite que você desenvolva e entregue incrementalmente seus processos de ETL antes de publicar o produto acabado. Após os dados brutos terem sido refinados para uma forma consumível pronta para negócios, carregue-os no Data Warehouse do Azure, no Banco de Dados SQL do Azure, no Azure CosmosDB ou em qualquer mecanismo analítico que os seus usuários empresariais possam acessar por meio de suas respectivas ferramentas de business intelligence.
 
 ### <a name="monitor"></a>Monitoramento
-Após ter criado e implantado com sucesso o pipeline de integração de dados, fornecendo valor empresarial a partir de dados refinados, monitore as atividades e pipelines agendados para saber as taxas de sucesso e falha. O Azure Data Factory tem suporte interno para monitoramento de pipelines por meio do Azure Monitor, da API, do PowerShell, dos logs do Azure Monitor e dos painéis de integridade no portal do Azure.
+Após ter criado e implantado com sucesso o pipeline de integração de dados, fornecendo valor empresarial com base em dados refinados, monitore as atividades e pipelines agendados para saber as taxas de sucesso e falha. O Azure Data Factory tem suporte interno para monitoramento de pipelines por meio do Azure Monitor, da API, do PowerShell, dos logs do Azure Monitor e dos painéis de integridade no portal do Azure.
 
 ## <a name="top-level-concepts"></a>Conceitos de nível superior
 Uma assinatura do Azure pode ter uma ou mais instâncias do Azure Data Factory (ou data factories). O Azure Data Factory é composto de quatro componentes principais. Esses componentes trabalham juntos para oferecer a plataforma na qual você pode compor fluxos de trabalho orientados a dados com etapas para mover e transformar dados.
@@ -91,21 +91,21 @@ Os gatilhos representam a unidade de processamento que determina quando uma exec
 ### <a name="pipeline-runs"></a>Execuções de pipeline
 Uma execução de pipeline é uma instância da execução do pipeline. As execuções de pipeline normalmente são instanciadas por meio da transmissão de argumentos para os parâmetros que são definidos em pipelines. Os argumentos podem ser passados manualmente ou na definição do gatilho.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 Os parâmetros são pares chave-valor da configuração somente leitura.  Os parâmetros são definidos no pipeline. Os argumentos para os parâmetros definidos são passados durante a execução por um contexto de execução criado por um gatilho ou por um pipeline executado manualmente. As atividades no pipeline consomem os valores de parâmetro.
 
 Um conjunto de dados é um parâmetro fortemente tipado e uma entidade reutilizável/referenciável. Uma atividade pode referenciar conjuntos de dados e consumir as propriedades que são estabelecidas na definição do conjunto de dados.
 
 Um serviço vinculado também é um parâmetro fortemente tipado que contém as informações de conexão para um armazenamento de dados ou para um ambiente de computação. Ele também é uma entidade reutilizável/referenciável.
 
-### <a name="control-flow"></a>Controlar fluxo
-O fluxo de controle é uma orquestração de atividades do pipeline que inclui o encadeamento de atividades em uma sequência, ramificação, definindo parâmetros no nível do pipeline, e passando argumentos durante a invocação do pipeline sob demanda ou a partir de um gatilho. Também inclui transmissão de estado personalizada e contêineres de looping, ou seja, iteradores for-each.
+### <a name="control-flow"></a>Fluxo de controle
+O fluxo de controle é uma orquestração de atividades do pipeline que inclui o encadeamento de atividades em uma sequência, ramificação, definindo parâmetros no nível do pipeline, e passando argumentos durante a invocação do pipeline sob demanda ou por meio de um gatilho. Também inclui transmissão de estado personalizada e contêineres de looping, ou seja, iteradores for-each.
 
-### <a name="variables"></a>variáveis
+### <a name="variables"></a>Variáveis
 As variáveis podem ser usadas dentro dos pipelines para armazenar valores temporários e também podem ser usadas em conjunto com parâmetros para habilitar a passagem de valores entre pipelines, fluxos de dados e outras atividades.
 
 ## <a name="next-steps"></a>Próximas etapas
-Aqui estão os documentos importantes da próxima etapa a serem explorados:
+Aqui estão os documentos importantes das próximas etapas a serem explorados:
 
 - [Conjuntos de dados e serviços vinculados](concepts-datasets-linked-services.md)
 - [Pipelines e atividades](concepts-pipelines-activities.md)
