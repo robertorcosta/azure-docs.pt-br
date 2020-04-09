@@ -3,20 +3,20 @@ title: Instalar e executar contêineres - Text Analytics
 titleSuffix: Azure Cognitive Services
 description: Como baixar, instalar e executar contêineres para Análise de Texto neste tutorial passo a passo.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: dapine
-ms.openlocfilehash: 65033f9b6599d690b1097b4b78aa01148a40fc39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 2d44df1bb828140e662b06ffbe5fb14f207f68e0
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037516"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876944"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contêineres da Análise de Texto
 
@@ -51,7 +51,7 @@ Você deve cumprir os seguintes pré-requisitos antes de usar os contêineres de
 
 A tabela a seguir descreve os núcleos de CPU mínimos e recomendados, pelo menos 2,6 gigahertz (GHz) ou mais rápidos, bem como a memória, em gigabytes (GB), para alocar para cada contêiner de Análise de Texto.
 
-# <a name="key-phrase-extraction"></a>[Extração de Frases-chave](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extração de Frases-Chave](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
 
@@ -74,7 +74,7 @@ Memória e núcleo correspondem às configurações `--cpus` e `--memory`, que s
 
 As imagens de contêiner para análise de texto estão disponíveis no Microsoft Container Registry.
 
-# <a name="key-phrase-extraction"></a>[Extração de Frases-chave](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extração de Frases-Chave](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-container-repository](../includes/key-phrase-extraction-container-repository.md)]
 
@@ -92,7 +92,7 @@ As imagens de contêiner para análise de texto estão disponíveis no Microsoft
 
 ### <a name="docker-pull-for-the-text-analytics-containers"></a>Docker puxar para os contêineres text analytics
 
-# <a name="key-phrase-extraction"></a>[Extração de Frases-chave](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extração de Frases-Chave](#tab/keyphrase)
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
@@ -119,7 +119,7 @@ Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/
 
 [Exemplos](../text-analytics-resource-container-config.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
 
-# <a name="key-phrase-extraction"></a>[Extração de Frases-chave](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extração de Frases-Chave](#tab/keyphrase)
 
 [!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
@@ -175,7 +175,7 @@ Para obter mais informações sobre essas opções, consulte [Configurar contêi
 Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar e executar os contêineres de Análise de Texto. Em resumo:
 
 * O Text Analytics fornece três contêineres Linux para Docker, encapsulando vários recursos:
-   * *Extração de Frases-chave*
+   * *Extração de Frases-Chave*
    * *Detecção de Idioma*
    * *Análise de Sentimentos*
 * Imagens de contêiner são baixadas de um MCR (Registro de Contêiner da Microsoft) no Azure.

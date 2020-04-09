@@ -3,19 +3,19 @@ title: Executar contêiner de detecção de idiomas no Serviço Kubernetes
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Implante o contêiner de detecção de idioma, com o exemplo em execução, no Serviço de Kubernetes do Azure e teste-o em um navegador da Web.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: dapine
-ms.openlocfilehash: 1968bc03bfddb9d6f6c8fe743a2a1a99722c074d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: cdd1cf255c943c8dc6d55a5b749b30357bdcd373
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399168"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876718"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Implantar o contêiner de detecção de linguagem text analytics no Serviço Azure Kubernetes
 
@@ -389,7 +389,7 @@ Abra um navegador e navegue até o IP externo do contêiner `language` da seçã
 
 Altere a URL no navegador para o IP externo do contêiner `language-frontend` usando o seguinte formato: `http://<external-ip>/helloworld`. O texto de cultura inglesa de `helloworld` está previsto como `English`.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você concluir o cluster, exclua o grupo de recursos do Azure.
 

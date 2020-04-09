@@ -3,19 +3,19 @@ title: Limitações de contêineres - LUIS
 titleSuffix: Azure Cognitive Services
 description: As línguas de contêiner LUIS que são suportadas.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: dapine
-ms.openlocfilehash: bd8a7a63113bcf4e972ab08655aa58b35ddff03d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 7fe773b35c5aba31b2fea66bd2be7b2745eac3ee
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73507853"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879234"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Limitações de contêiner de compreensão de linguagem (LUIS)
 
@@ -46,7 +46,7 @@ Configurações de aplicativo sem suporte|Detalhes|
 
 Os contêineres LUIS suportam um subconjunto das [línguas suportadas](luis-language-support.md#languages-supported) pelo próprio LUIS. Os contêineres LUIS são capazes de compreender expressões nas seguintes línguas:
 
-| Idioma | Local | Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
+| Linguagem | Local | Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês americano | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |

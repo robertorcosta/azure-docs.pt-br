@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 03/26/2020
-ms.openlocfilehash: 18c926d16319eb8a8736a51d5f10e434b94d0ebe
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.date: 04/08/2020
+ms.openlocfilehash: 5b99e2f31d82630e2adc138c11485201a617af81
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582492"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892318"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configuração da chave gerenciada pelo cliente do Azure Monitor 
 
@@ -111,6 +111,34 @@ Você pode adquirir o token usando um desses métodos:
     1. Copie e adicione à sua chamada de API de acordo com os exemplos abaixo.
 3. Navegue até o site de documentação do Azure REST. Pressione "Experimente" em qualquer API e copie o token bearer.
 
+### <a name="asynchronous-operations-and-status-check"></a>Operações assíncronas e verificação de status
+
+Algumas das operações neste procedimento de configuração são executadas de forma assíncrona porque não podem ser concluídas rapidamente. A resposta para operação assíncrona retorna inicialmente um código de status HTTP 200 (OK) e um cabeçalho com a propriedade *Azure-AsyncOperation* quando aceito:
+```json
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview"
+```
+
+Você pode verificar o status da operação assíncrona enviando uma solicitação GET para o valor do cabeçalho *Azure-AsyncOperation:*
+```rst
+GET "https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview
+Authorization: Bearer <token>
+```
+
+O corpo da resposta da operação contém informações sobre a operação e a propriedade *Status* indica seu estado. As operações assíncronas neste procedimento de configuração e seus status são:
+
+**Criando um recurso *de cluster***
+* ProvisioningAccount - O cluster ADX está em provisionamento 
+* Bem sucedido - O provisionamento de cluster SDX é concluído
+
+**Concessão de permissões ao seu Cofre de Chaves**
+* Atualização - A atualização dos detalhes do identificador de chaves está em andamento
+* Sucesso - Atualização concluída
+
+**Associando espaços de trabalho do Log Analytics**
+* Vinculação - Associação de espaço de trabalho para cluster está em andamento
+* Sucesso - Associação concluída
+
+
 ### <a name="subscription-whitelisting"></a>Whitelisting de assinatura
 
 O recurso CMK é um recurso de acesso antecipado. As assinaturas onde você planeja criar recursos *do Cluster* devem ser listadas antecipadamente pelo grupo de produtos Azure. Use seus contatos na Microsoft para fornecer seus IDs de assinaturas.
@@ -136,6 +164,8 @@ Você deve especificar o nível de reserva de capacidade (sku) ao criar um recur
 
 **Criar**
 
+Esta solicitação do Gerenciador de Recursos é uma operação assíncrona.
+
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
 Authorization: Bearer <token>
@@ -159,10 +189,11 @@ A identidade é atribuída ao recurso *Cluster* no momento da criação.
 
 **Resposta**
 
-202 Aceito. Esta é uma resposta padrão do Resource Manager para operações assíncronas.
-
+200 OK e cabeçalho quando aceito.
 >[!Important]
-> Leva um tempo para concluir o provisionamento do cluster ADX subjacente. Você pode verificar o estado de provisionamento ao realizar a chamada da API GET REST sobre o recurso *Cluster* e analisar o valor do *ProvisionamentoEstado.* É *ProvisionamentoConta* durante o provisionamento e *teve sucesso* quando concluído.
+> Durante o período de acesso inicial do recurso, o cluster ADX é provisionado manualmente. Embora leve o provisionamento do cluster ADX subjacente por um tempo para ser concluído, você pode verificar o estado de provisionamento de duas maneiras:
+> 1. Copie o valor de URL *Azure-AsyncOperation* da resposta e use-o para a verificação de status da operação em [operações assíncronas](#asynchronous-operations-and-status-check)
+> 2. Envie uma solicitação GET sobre o recurso *Cluster* e veja o valor do *provisionamentoState.* É *ProvisionamentoConta* durante o provisionamento e *teve sucesso* quando concluído.
 
 ### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>Provisionamento do cluster Azure Monitor (cluster ADX)
 
@@ -177,6 +208,7 @@ Authorization: Bearer <token>
 > Copie e salve a resposta, pois você precisará de seus detalhes em etapas posteriores
 
 **Resposta**
+
 ```json
 {
   "identity": {
@@ -216,7 +248,7 @@ A permissão *Obter* é necessária para verificar se o cofre de chaves está co
 
 ### <a name="update-cluster-resource-with-key-identifier-details"></a>Atualizar recurso do Cluster com detalhes do identificador chave
 
-Esta etapa se aplica por atualizações iniciais e futuras da versão chave em seu Key Vault. Ele informa o Azure Monitor Storage sobre a versão-chave a ser usada para criptografia de dados. Quando atualizada, sua nova chave está sendo usada para embrulhar e desembrulhar a chave de armazenamento (AEK).
+Esta etapa é realizada durante as atualizações iniciais e futuras da versão principal em seu Key Vault. Ele informa o Azure Monitor Storage sobre a versão-chave a ser usada para criptografia de dados. Quando atualizada, sua nova chave está sendo usada para embrulhar e desembrulhar a chave de armazenamento (AEK).
 
 Para atualizar o recurso *Cluster* com os detalhes do *identificador Key* Vault Key, selecione a versão atual da sua chave no Azure Key Vault para obter os detalhes do identificador Key.
 
@@ -225,6 +257,8 @@ Para atualizar o recurso *Cluster* com os detalhes do *identificador Key* Vault 
 Atualize o recurso *Cluster* KeyVaultProperties com detalhes do identificador de chaves.
 
 **Atualizar**
+
+Esta solicitação do Gerenciador de Recursos é uma operação assíncrona.
 
 >[!Warning]
 > Você deve fornecer um corpo completo na atualização de recursos *do Cluster* que inclua *identidade,* *sku,* *KeyVaultProperties* e *localização.* A falta dos detalhes *do KeyVaultProperties* removerá o identificador de chave do recurso *Cluster* e causará [a revogação da chave](#cmk-kek-revocation).
@@ -256,6 +290,14 @@ Content-type: application/json
 
 **Resposta**
 
+200 OK e cabeçalho quando aceito.
+>[!Important]
+> Leva alguns minutos para a propagação do identificador Key ser concluída. Você pode verificar o estado de provisionamento de duas maneiras:
+> 1. Copie o valor de URL *Azure-AsyncOperation* da resposta e use-o para a verificação de status da operação em [operações assíncronas](#asynchronous-operations-and-status-check)
+> 2. Envie uma solicitação GET no recurso *Cluster* e veja as propriedades *KeyVaultProperties.* Seus detalhes de identificador de chave recentemente atualizados devem retornar na resposta.
+
+Uma resposta à solicitação GET no recurso *Cluster* deve ser semelhante a esta quando a atualização do identificador de chave estiver concluída:
+
 ```json
 {
   "identity": {
@@ -286,19 +328,22 @@ Content-type: application/json
 ```
 
 ### <a name="workspace-association-to-cluster-resource"></a>Associação do espaço de trabalho ao recurso *cluster*
-
 Para a configuração cmk do Application Insights, siga o conteúdo do apêndice para esta etapa.
 
-> [!IMPORTANT]
-> Esta etapa deve ser executada somente após o provisionamento de cluster ADX. Se você associar espaços de trabalho e ingerir dados antes do provisionamento, os dados ingeridos serão descartados e não serão recuperáveis.
-> Para verificar se o cluster ADX está provisionado, execute o recurso *Cluster* Obtenha a API REST e verifique se o valor do *provisionamentoEstado* é *bem sucedido*.
+Esta solicitação do Gerenciador de Recursos é uma operação assíncrona.
 
 Você precisa ter permissões de 'gravação' para o seu espaço de trabalho e recurso *cluster* para executar esta operação, que incluem essas ações:
 
 - No espaço de trabalho: Microsoft.OperationalInsights/workspaces/write
 - Em *recurso de cluster:* Microsoft.OperationalInsights/clusters/write
 
+> [!IMPORTANT]
+> Esta etapa deve ser executada somente após o provisionamento de cluster ADX. Se você associar espaços de trabalho e ingerir dados antes do provisionamento, os dados ingeridos serão descartados e não serão recuperáveis.
+
 **Associar um espaço de trabalho**
+
+Esta solicitação do Gerenciador de Recursos é uma operação assíncrona.
+
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2019-08-01-preview 
 Authorization: Bearer <token>
@@ -313,21 +358,12 @@ Content-type: application/json
 
 **Resposta**
 
-```json
-{
-  "properties": {
-    "WriteAccessResourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
-    },
-  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name/linkedservices/cluster",
-  "name": "workspace-name/cluster",
-  "type": "microsoft.operationalInsights/workspaces/linkedServices",
-}
-```
+200 OK e cabeçalho quando aceito.
+>[!Important]
+> Pode funcionar até 90 minutos para ser concluído. Os dados ingeridos em seus espaços de trabalho são armazenados criptografados com sua chave gerenciada somente após uma associação de espaços de trabalho bem-sucedida.
+> Para verificar o estado de associação do espaço de trabalho, copie o valor de URL *do Azure-AsyncOperation* da resposta e use-o para a verificação do status da operação em [operações assíncronas](# asynchronous-operations-and-status-check)
 
-A associação de espaço de trabalho é realizada através de operações assíncronas do Resource Manager, que podem levar até 90 minutos para serem concluídas. O próximo passo mostra como o estado da associação do espaço de trabalho pode ser verificado. Após a associação de espaços de trabalho, os dados ingeridos em seus espaços de trabalho são armazenados criptografados com sua chave gerenciada.
-
-### <a name="workspace-association-verification"></a>Verificação da associação do espaço de trabalho
-Você pode verificar se um espaço de trabalho está associado a um recurso *de Cluster* olhando para os Espaços de Trabalho [– Obtenha](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) resposta. Os espaços de trabalho associados terão uma propriedade 'clusterResourceId' com um ID de recurso *do Cluster.*
+Você pode verificar o recurso *Cluster* associado ao seu espaço de trabalho enviando uma solicitação GET para [workspaces – Obtenha](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) e observando a resposta. O *clusterResourceId* indica no ID de recurso *do Cluster.*
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview
