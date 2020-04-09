@@ -3,19 +3,19 @@ title: Use o recipiente Computer Vision com Kubernetes e Helm
 titleSuffix: Azure Cognitive Services
 description: Implante o contêiner Computer Vision em uma instância de contêiner do Azure e teste-o em um navegador da Web.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: dapine
-ms.openlocfilehash: 126060875c09d70b8680447d78b7cf6ccdd782af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 9aac374de5af748eafbe4c22e5fc89f64e483c2a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79458011"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877959"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Use o recipiente Computer Vision com Kubernetes e Helm
 
@@ -120,7 +120,7 @@ read:
 > [!IMPORTANT]
 > Se `billing` os `apikey` valores e valores não forem fornecidos, os serviços expirarão após 15 min. Da mesma forma, a verificação falhará, pois os serviços não estarão disponíveis.
 
-Crie uma pasta *de modelos* o diretório *de leitura.* Copie e cole o YAML a `deployment.yaml`seguir em um arquivo chamado . O `deployment.yaml` arquivo servirá como um modelo helm.
+Crie uma pasta *de modelos* sob o diretório *de leitura.* Copie e cole o YAML a `deployment.yaml`seguir em um arquivo chamado . O `deployment.yaml` arquivo servirá como um modelo helm.
 
 > Os modelos geram arquivos manifestos, que são descrições de recursos formatados pela YAML que os Kubernetes podem entender. [- Guia de modelo de gráfico de leme][chart-template-guide]
 

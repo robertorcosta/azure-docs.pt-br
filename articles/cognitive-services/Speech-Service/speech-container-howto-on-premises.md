@@ -3,19 +3,19 @@ title: Use contêineres de serviço de fala com Kubernetes e Helm
 titleSuffix: Azure Cognitive Services
 description: Usando Kubernetes e Helm para definir as imagens de contêiner de texto para texto e texto-para-fala, criaremos um pacote Kubernetes. Este pacote será implantado em um cluster Kubernetes no local.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: dapine
-ms.openlocfilehash: 6ad5a843c8cc287834305e09b48cd3fafe09ca51
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 3c183f6d0e2d80ed497654448a726a1562bd046c
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474757"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874325"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Use contêineres de serviço de fala com Kubernetes e Helm
 
@@ -39,7 +39,7 @@ Consulte os detalhes do computador host [do serviço speech][speech-container-ho
 
 | Serviço | CPU / Container | Memória / Recipiente |
 |--|--|--|
-| **Fala-a-texto** | um decodificador requer um mínimo de 1.150 miligramas. Se `optimizedForAudioFile` o estiver ativado, então são necessários 1.950 miligramas. (padrão: dois decodificadores) | Necessário: 2 GB<br>Limitado: 4 GB |
+| **Conversão de fala em texto** | um decodificador requer um mínimo de 1.150 miligramas. Se `optimizedForAudioFile` o estiver ativado, então são necessários 1.950 miligramas. (padrão: dois decodificadores) | Necessário: 2 GB<br>Limitado: 4 GB |
 | **Conversão de texto em fala** | um pedido simultâneo requer um mínimo de 500 miligramas. Se `optimizeForTurboMode` o estiver ativado, então 1.000 milicores são necessários. (padrão: duas solicitações simultâneas) | Necessário: 1 GB<br> Limitado: 2 GB |
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>Conecte-se ao cluster Kubernetes

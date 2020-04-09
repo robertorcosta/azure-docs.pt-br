@@ -3,19 +3,19 @@ title: Usar o Docker Compose para implantar vários contêineres
 titleSuffix: Azure Cognitive Services
 description: Aprenda a implantar vários contêineres de Serviços Cognitivos. Este artigo mostra como orquestrar várias imagens de contêiner Docker usando docker compose.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: dapine
-ms.openlocfilehash: bfbaa03469ee04ff900a215aadd8c814efcba761
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 458cda927a6a123fcd9962efc6ab705e13f43286
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037528"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878775"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Usar o Docker Compose para implantar vários contêineres
 
@@ -80,7 +80,7 @@ services:
 ```
 
 > [!IMPORTANT]
-> Crie os diretórios na máquina host especificadas o nó **volumes.** Essa abordagem é necessária porque os diretórios devem existir antes de tentar montar uma imagem usando amarras de volume.
+> Crie os diretórios na máquina host especificadas sob o nó **volumes.** Essa abordagem é necessária porque os diretórios devem existir antes de tentar montar uma imagem usando amarras de volume.
 
 ## <a name="start-the-configured-docker-compose-services"></a>Inicie os serviços de Composição do Docker configurados
 
@@ -95,7 +95,7 @@ A partir da interface de linha de comando, execute o seguinte comando para inici
 docker-compose up
 ```
 
-A primeira vez que o Docker executa o comando **docker-compose up** usando essa configuração, ele puxa as imagens configuradas o nó **de serviços** e, em seguida, baixa e monta:
+A primeira vez que o Docker executa o comando **docker-compose up** usando essa configuração, ele puxa as imagens configuradas sob o nó **de serviços** e, em seguida, baixa e monta:
 
 ```console
 Pulling forms (containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:)...

@@ -3,19 +3,19 @@ title: Instalar recipientes de fala - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Instale e execute recipientes de fala. A conversão de fala em texto transcreve, em tempo real, fluxos de áudio em texto que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. A conversão de texto em fala converte o texto de entrada em uma fala sintetizada semelhante à humana.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: dapine
-ms.openlocfilehash: 2beee81bc365d00e59a62cacabacc5f5d6b62a42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 2caae4fecdf13a1833f23cf9423cf3ded67f6f72
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474774"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878996"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instale e execute recipientes de serviço de fala (Preview)
 
@@ -73,7 +73,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 A tabela a seguir descreve a alocação mínima e recomendada de recursos para cada recipiente de Fala.
 
-# <a name="speech-to-text"></a>[Fala-a-texto](#tab/stt)
+# <a name="speech-to-text"></a>[Conversão de fala em texto](#tab/stt)
 
 | Contêiner | Mínimo | Recomendadas |
 |-----------|---------|-------------|
@@ -85,7 +85,7 @@ A tabela a seguir descreve a alocação mínima e recomendada de recursos para c
 |-----------|---------|-------------|
 | Discurso personalizado para texto | 2 núcleos, memória de 2 GB | 4 núcleos, memória de 4 GB |
 
-# <a name="text-to-speech"></a>[Texto-para-fala](#tab/tts)
+# <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tts)
 
 | Contêiner | Mínimo | Recomendadas |
 |-----------|---------|-------------|
@@ -110,7 +110,7 @@ Memória e núcleo correspondem às configurações `--cpus` e `--memory`, que s
 
 As imagens de contêiner para fala estão disponíveis no seguinte Registro de Contêiner.
 
-# <a name="speech-to-text"></a>[Fala-a-texto](#tab/stt)
+# <a name="speech-to-text"></a>[Conversão de fala em texto](#tab/stt)
 
 | Contêiner | Repositório |
 |-----------|------------|
@@ -122,7 +122,7 @@ As imagens de contêiner para fala estão disponíveis no seguinte Registro de C
 |-----------|------------|
 | Discurso personalizado para texto | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
-# <a name="text-to-speech"></a>[Texto-para-fala](#tab/tts)
+# <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tts)
 
 | Contêiner | Repositório |
 |-----------|------------|
@@ -140,7 +140,7 @@ As imagens de contêiner para fala estão disponíveis no seguinte Registro de C
 
 ### <a name="docker-pull-for-the-speech-containers"></a>Docker puxar para os recipientes de Discurso
 
-# <a name="speech-to-text"></a>[Fala-a-texto](#tab/stt)
+# <a name="speech-to-text"></a>[Conversão de fala em texto](#tab/stt)
 
 #### <a name="docker-pull-for-the-speech-to-text-container"></a>Docker puxar para o recipiente Speech-to-text
 
@@ -182,7 +182,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-spee
 > [!NOTE]
 > Os `locale` `voice` recipientes de fala personalizados são determinados pelo modelo personalizado ingerido pelo recipiente.
 
-# <a name="text-to-speech"></a>[Texto-para-fala](#tab/tts)
+# <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tts)
 
 #### <a name="docker-pull-for-the-text-to-speech-container"></a>Docker puxar para o recipiente texto-para-fala
 
@@ -240,7 +240,7 @@ Depois que o contêiner estiver no [computador host](#the-host-computer), use o 
 
 Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para executar o contêiner. Consulte os [parâmetros necessários](#gathering-required-parameters) para `{Endpoint_URI}` obter `{API_Key}` detalhes sobre como obter os valores e valores. Exemplos [adicionais](speech-container-configuration.md#example-docker-run-commands) `docker run` do comando também estão disponíveis.
 
-# <a name="speech-to-text"></a>[Fala-a-texto](#tab/stt)
+# <a name="speech-to-text"></a>[Conversão de fala em texto](#tab/stt)
 
 Para executar o contêiner *Fala-para-texto,* execute o seguinte `docker run` comando.
 
@@ -311,7 +311,7 @@ Esse comando:
 * Se o modelo personalizado foi baixado anteriormente, o `ModelId` é ignorado.
 * Remove automaticamente o contêiner depois que ele sai. A imagem de contêiner ainda fica disponível no computador host.
 
-# <a name="text-to-speech"></a>[Texto-para-fala](#tab/tts)
+# <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tts)
 
 Para executar o *contêiner texto-para-voz,* execute o seguinte `docker run` comando.
 
@@ -428,9 +428,9 @@ Para obter mais informações sobre essas opções, consulte [Configurar contêi
 Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar e executar contêineres de Speech. Em resumo:
 
 * O Speech fornece quatro contêineres Linux para Docker, encapsulando vários recursos:
-  * *Fala-a-texto*
+  * *Conversão de fala em texto*
   * *Discurso personalizado para texto*
-  * *Texto-para-fala*
+  * *Conversão de texto em fala*
   * *Texto-para-fala personalizado*
 * As imagens do contêiner são baixadas do registro de contêineres no Azure.
 * Imagens de contêiner são executadas no Docker.

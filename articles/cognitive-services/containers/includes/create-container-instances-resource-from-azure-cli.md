@@ -3,18 +3,18 @@ title: Suporte a contêiner
 titleSuffix: Azure Cognitive Services
 description: Aprenda a criar um recurso de instância de contêiner Do Azure a partir do Azure CLI.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/06/2020
-ms.author: dapine
-ms.openlocfilehash: 700a04b58c13a9c7fd5301875226ca234cabeb96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: e3542b976921aa45794d62cad9517984c8348ce3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75689441"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875092"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Crie um recurso Azure Container Instance a partir da CLI do Azure
 

@@ -3,19 +3,19 @@ title: Executar contêiner de reconhecimento de formulário em instâncias de co
 titleSuffix: Azure Cognitive Services
 description: Implante o contêiner Reconhecerr de formulário em uma instância de contêiner do Azure e teste-o em um navegador da Web.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: dapine
-ms.openlocfilehash: 9a3456eb4d30aa8d163488f558b571dd97c73bf4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: acba4d9fab784181fda5728c30831c8c1838b91f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77605108"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879523"
 ---
 # <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Implantar o contêiner Reconhecimento de formulário em instâncias de contêiner do Azure
 

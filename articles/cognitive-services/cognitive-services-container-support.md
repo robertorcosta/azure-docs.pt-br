@@ -3,19 +3,19 @@ title: Suporte a contêiner
 titleSuffix: Azure Cognitive Services
 description: Saiba como os contêineres do Docker podem tornar os Serviços Cognitivos mais próximos de seus dados.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 01/10/2020
-ms.author: dapine
-ms.openlocfilehash: d75962b98543991a065f6b165279215614175925
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 7a38ec47d416027e8ea3fa772ae01e4f6264197a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219407"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876804"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte de contêiner nos Serviços Cognitivos do Azure
 
@@ -23,7 +23,7 @@ O suporte a contêineres no Azure Cognitive Services permite que os desenvolvedo
 
 > [!div class="checklist"]
 > * [Detector de Anomalias][ad-containers]
-> * [Pesquisa Visual Computacional][cv-containers]
+> * [Visual Computacional][cv-containers]
 > * [Face][fa-containers]
 > * [Reconhecimento de Formulários][fr-containers]
 > * [Reconhecimento Vocal (LUIS)][lu-containers]
@@ -52,13 +52,13 @@ Os contêineres dos Serviços Cognitivos do Azure fornecem o seguinte conjunto d
 | Serviço | Nível de preços suportado | Contêiner | Descrição |
 |---------|----------|----------|-------------|
 |[Detector de anomalias][ad-containers] |F0, S0|**Detector de anomalias** |A API do Detector de Anomalias permite monitorar e detectar anormalidades em seus dados de série temporal com aprendizado de máquina.<br>[Solicitar acesso](https://aka.ms/adcontainer)|
-|[Pesquisa Visual Computacional][cv-containers] |F0, S1|**Ler** |Extrai texto impresso de imagens de vários objetos com diferentes superfícies e planos de fundo como recibos, pôsters e cartões de visita. O contêiner Ler também *detecta texto manuscrito* em imagens e fornece suporte a PDF/TIFF/multipáginas.<br/><br/>**Importante:** O contêiner Read atualmente funciona apenas com inglês.|
+|[Visual Computacional][cv-containers] |F0, S1|**Ler** |Extrai texto impresso de imagens de vários objetos com diferentes superfícies e planos de fundo como recibos, pôsters e cartões de visita. O contêiner Ler também *detecta texto manuscrito* em imagens e fornece suporte a PDF/TIFF/multipáginas.<br/><br/>**Importante:** O contêiner Read atualmente funciona apenas com inglês.|
 |[Face][fa-containers] |F0, S0|**Face** |Detecta rostos humanos em imagens e identifica atributos, incluindo referências faciais (como narizes e olhos), sexo, idade e outras características faciais previstas pelo computador. Além de detectar, a Detecção Facial pode verificar se duas faces na mesma imagem ou imagens diferentes são iguais usando uma pontuação de confiança, ou comparar faces em relação a um banco de dados para ver se uma face semelhante ou idêntica já existe. Além disso, também pode organizar rostos semelhantes em grupos, usando traços visuais compartilhados.<br>[Solicitar acesso](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Reconhecimento de formulário][fr-containers] |F0, S0|**Reconhecimento de Formulários** |O Form Understanding aplica a tecnologia de aprendizado de máquina para identificar e extrair pares e tabelas de valor-chave de formulários.<br>[Solicitar acesso](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[Luis][lu-containers] |F0, S0|**LUIS** ([imagem](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Carrega um modelo de reconhecimento vocal treinado ou publicado, também conhecido como um aplicativo LUIS, para um contêiner do Docker e fornece acesso às previsões de consulta dos pontos de extremidade da API do contêiner. Você pode coletar logs de consulta do contêiner e carregá-los novamente no [portal do LUIS](https://www.luis.ai) para aumentar a precisão da previsão do aplicativo.|
-|[API do Serviço de Fala][sp-containers-stt] |F0, S0|**Fala-a-texto** |Transcreve fala em tempo real contínua em texto.|
+|[API do Serviço de Fala][sp-containers-stt] |F0, S0|**Conversão de fala em texto** |Transcreve fala em tempo real contínua em texto.|
 |[API do Serviço de Fala][sp-containers-cstt] |F0, S0|**Discurso personalizado para texto** |Transcreve a fala contínua em tempo real em texto usando um modelo personalizado.|
-|[API do Serviço de Fala][sp-containers-tts] |F0, S0|**Texto-para-fala** |Converte o texto em fala que soa natural.|
+|[API do Serviço de Fala][sp-containers-tts] |F0, S0|**Conversão de texto em fala** |Converte o texto em fala que soa natural.|
 |[API do Serviço de Fala][sp-containers-ctts] |F0, S0|**Texto-para-fala personalizado** |Converte texto em fala natural usando um modelo personalizado.|
 |[Análise de texto][ta-containers-keyphrase] |F0|**Extração de Frases-Chave** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extrai frases-chave para identificar os principais pontos. Por exemplo, para o texto de entrada "A comida estava deliciosa e a equipe era maravilhosa", a API retorna os principais pontos de discussão: "comida" e "equipe maravilhosa". |
 |[Análise de texto][ta-containers-language]|F0|**Detecção de Idioma** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |Para até 120 idiomas, detecta em qual idioma o texto de entrada está escrito e informa um código de idioma único para cada documento enviado na solicitação. O código de idioma é emparelhado com uma pontuação que indica a intensidade da pontuação. |

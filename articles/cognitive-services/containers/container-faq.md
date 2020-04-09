@@ -3,18 +3,18 @@ title: Contêineres de Serviços Cognitivos frequentemente perguntas (FAQ)
 titleSuffix: Azure Cognitive Services
 description: Perguntas e respostas freqüentes.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.author: dapine
-ms.openlocfilehash: 33b99d50db4384c7de818a7dd0bb8492c86bef97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 8aae650065e8de11ccdc55a8a056c379a219fcb4
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73961886"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876499"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Contêineres do Azure Cognitive Services frequentemente fizeram perguntas (FAQ)
 
@@ -26,7 +26,7 @@ ms.locfileid: "73961886"
 
 > [!div class="checklist"]
 > * [Detector de Anomalias][ad-containers]
-> * [Pesquisa Visual Computacional][cv-containers]
+> * [Visual Computacional][cv-containers]
 > * [Face][fa-containers]
 > * [Reconhecimento de Formulários][fr-containers]
 > * [Reconhecimento Vocal (LUIS)][lu-containers]
@@ -108,7 +108,7 @@ Explore as seguintes tags para obter possíveis perguntas e respostas que esteja
 **A:** Os clientes são cobrados com base no consumo, semelhante à nuvem de Serviços Cognitivos. Os contêineres precisam ser configurados para enviar dados de medição para o Azure, e as transações serão cobradas em conformidade. Os recursos utilizados nos serviços hospedados e locais adicionarão à cota única com preços hierárquicos, contando com ambos os usos. Para obter mais detalhes, consulte a página de preços da oferta correspondente.
 
 * [Detector de Anomalias][ad-containers-billing]
-* [Pesquisa Visual Computacional][cv-containers-billing]
+* [Visual Computacional][cv-containers-billing]
 * [Face][fa-containers-billing]
 * [Reconhecimento de Formulários][fr-containers-billing]
 * [Reconhecimento Vocal (LUIS)][lu-containers-billing]
@@ -135,7 +135,7 @@ Explore as seguintes tags para obter possíveis perguntas e respostas que esteja
 **A:** Os contêineres cognitive services são contêineres baseados em x64 que podem executar qualquer nó Linux compatível, VM e dispositivo edge que suporte os contêineres X64 Linux Docker. Todos eles requerem processadores de CPU. As configurações mínimas e recomendadas para cada oferta de contêineres estão disponíveis abaixo:
 
 * [Detector de Anomalias][ad-containers-recommendations]
-* [Pesquisa Visual Computacional][cv-containers-recommendations]
+* [Visual Computacional][cv-containers-recommendations]
 * [Face][fa-containers-recommendations]
 * [Reconhecimento de Formulários][fr-containers-recommendations]
 * [Reconhecimento Vocal (LUIS)][lu-containers-recommendations]

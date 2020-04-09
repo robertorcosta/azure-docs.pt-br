@@ -3,19 +3,19 @@ title: Executar serviço Azure Kubernetes - Análise de texto
 titleSuffix: Azure Cognitive Services
 description: Implante a imagem do contêiner Text Analytics no Azure Kubernetes Service e teste-a em um navegador da Web.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: dapine
-ms.openlocfilehash: 3264ec5a83277e6bb4befad46cd1337175e911c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 155f32ee76f69fe0f16e7698123381fdc12efd0e
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74383461"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877793"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Implantar um contêiner Text Analytics no Azure Kubernetes Service
 
@@ -37,7 +37,7 @@ Este procedimento requer várias ferramentas que devem ser instaladas e executad
 
 [!INCLUDE [Create a Text Analytics container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
 
-#### <a name="key-phrase-extraction"></a>[Extração de Frases-chave](#tab/keyphrase)
+#### <a name="key-phrase-extraction"></a>[Extração de Frases-Chave](#tab/keyphrase)
 
 [!INCLUDE [Key Phrase Extraction Kubernetes config and deploy steps](../includes/key-phrase-extraction-kubernetes-config-deploy.md)]
 

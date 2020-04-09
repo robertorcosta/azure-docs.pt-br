@@ -3,19 +3,19 @@ title: Como configurar um recipiente para API do Detector de Anomalias
 titleSuffix: Azure Cognitive Services
 description: O ambiente de tempo de execução do contêiner `docker run` API do Detector de Anomalias é configurado usando os argumentos de comando. Esse contêiner tem várias configurações obrigatórias e outras configurações opcionais.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
-ms.openlocfilehash: f7e04a16fa35d492b8e5e6c53a05220e8b96a38a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 569499002c5e047d7030575342790e9a074b9404
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73795843"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875173"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurar contêineres do Detector de Anomalias
 
@@ -33,7 +33,7 @@ Esse contêiner tem as seguintes configurações:
 |Sim|[Eula](#eula-setting)| Indica que você aceitou a licença para o contêiner.|
 |Não|[Fluentd](#fluentd-settings)|Gravar log e, opcionalmente, dados telemétricos em um servidor do Fluentd.|
 |Não|[Proxy HTTP](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer solicitações de saída.|
-|Não|[Registrando em log](#logging-settings)|Fornece suporte a registro de log do ASP.NET Core para seu contêiner. |
+|Não|[Registro em log](#logging-settings)|Fornece suporte a registro de log do ASP.NET Core para seu contêiner. |
 |Não|[Mounts](#mount-settings)|Lê e grava dados do computador host para o contêiner e do contêiner de volta para o computador host.|
 
 > [!IMPORTANT]

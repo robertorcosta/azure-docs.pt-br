@@ -3,20 +3,20 @@ title: Configurar contêineres - Análise de texto
 titleSuffix: Azure Cognitive Services
 description: A Análise de Texto fornece uma estrutura de configuração comum a cada contêiner para que você possa facilmente definir e gerenciar configurações de armazenamento, registro em log, telemetria e segurança de seus contêineres.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
-ms.openlocfilehash: 8a39327275dca43ddb6ce0e46a3e3bb51ec4555b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: f062fb2f3a653bc1b2845b92e373fdb67ba583d8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73795302"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878642"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurar contêineres de docker de Análise de Texto
 
@@ -100,7 +100,7 @@ Substitua {_argument_name_} pelos seus próprios valores:
 > As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](how-tos/text-analytics-how-to-install-containers.md#billing).
 > O valor do ApiKey é a `Text Analytics` **chave** da página chaves do Azure Resource. 
 
-#### <a name="key-phrase-extraction"></a>[Extração de Frases-chave](#tab/keyphrase)
+#### <a name="key-phrase-extraction"></a>[Extração de Frases-Chave](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-docker-examples](includes/key-phrase-extraction-docker-examples.md)]
 

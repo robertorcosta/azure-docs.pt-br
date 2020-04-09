@@ -3,19 +3,19 @@ title: Contêineres de serviço de fala frequentemente perguntas (FAQ)
 titleSuffix: Azure Cognitive Services
 description: Instale e execute recipientes de fala. a fala-para-texto transcreve fluxos de áudio para texto em tempo real que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. A conversão de texto em fala converte o texto de entrada em uma fala sintetizada semelhante à humana.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 2afb7c84c4d737703917d12a43aa7c3bb799836b
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 9b0fd89693517bdb63ba6f4265fddf2b0aa57ba5
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80537016"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874476"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Contêineres de serviço de fala frequentemente perguntas (FAQ)
 
@@ -97,7 +97,7 @@ O custo de manutenção pago à Microsoft depende do nível de serviço e do con
 
 **Resposta:** O `speech_recognition_language=<YOUR_LANGUAGE>` deve ser explicitamente configurado na solicitação se eles estiverem usando o cliente Carbon.
 
-Por exemplo: 
+Por exemplo:
 
 ```python
 if not recognize_once(
@@ -560,7 +560,7 @@ Eles são para propósitos diferentes e são usados de forma diferente.
 Em C# para habilitar o `SpeechConfig.EnableDictation()` ditado, invoque a função.
 
 ### <a name="fromendpoint-apis"></a>`FromEndpoint`Apis
-| Idioma | Detalhes da API |
+| Linguagem | Detalhes da API |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -581,7 +581,7 @@ Em C# para habilitar o `SpeechConfig.EnableDictation()` ditado, invoque a funç�
 
 ### <a name="fromhost-apis"></a>`FromHost`Apis
 
-| Idioma | Detalhes da API |
+| Linguagem | Detalhes da API |
 |--|:-|
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |

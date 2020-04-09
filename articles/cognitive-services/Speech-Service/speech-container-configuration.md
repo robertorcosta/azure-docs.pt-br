@@ -3,19 +3,19 @@ title: Configurar recipientes de fala
 titleSuffix: Azure Cognitive Services
 description: O serviço de fala fornece a cada contêiner uma estrutura de configuração comum, para que você possa configurar e gerenciar facilmente o armazenamento, o registro e a telemetria e as configurações de segurança dos seus contêineres.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.author: dapine
-ms.openlocfilehash: dd5a531e4a979cba9c2a766c7774762a0427ad02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 5c74aa48b18661236eb55278d1e5a05215b2432c
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037320"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877568"
 ---
 # <a name="configure-speech-service-containers"></a>Configurar contêineres de serviço de fala
 
@@ -130,7 +130,7 @@ Substitua {_argument_name_} pelos seus próprios valores:
 
 Os exemplos de Docker a seguir são para o contêiner Speech.
 
-## <a name="speech-to-text"></a>[Fala-a-texto](#tab/stt)
+## <a name="speech-to-text"></a>[Conversão de fala em texto](#tab/stt)
 
 ### <a name="basic-example-for-speech-to-text"></a>Exemplo básico para Fala-para-texto
 
@@ -180,7 +180,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="text-to-speech"></a>[Texto-para-fala](#tab/tss)
+## <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tss)
 
 ### <a name="basic-example-for-text-to-speech"></a>Exemplo básico para texto-para-fala
 
