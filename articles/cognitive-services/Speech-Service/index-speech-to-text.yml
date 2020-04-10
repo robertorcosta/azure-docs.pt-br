@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentação de fala para texto
+title: Documentação de conversão de fala em texto
 summary: A fala-para-texto do serviço Speech, também conhecido como reconhecimento de fala, permite a transcrição em tempo real e em lote de fluxos de áudio em texto.
 metadata:
   title: Documentação de fala para texto - Tutoriais, Referência de API - Serviços Cognitivos Azure | Microsoft Docs
@@ -11,22 +11,22 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/19/2020
   ms.author: dapine
-  ms.openlocfilehash: dd42fd57d8daa00d5507405a0d5e3145b335de84
-  ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+  ms.openlocfilehash: 28bd088965364411f7943f5bf50b5d245c49668e
+  ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/30/2020
-  ms.locfileid: "80397768"
+  ms.lasthandoff: 04/09/2020
+  ms.locfileid: "80991357"
 landingContent:
 - title: Sobre a fala-para-texto
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é discurso em tempo real?
+    - text: O que é a conversão de fala em texto em tempo real?
       url: speech-to-text.md
-    - text: O que é discurso em lote para texto?
+    - text: O que é a conversão de fala em texto em lote?
       url: batch-transcription.md
-    - text: O básico do reconhecimento de fala?
+    - text: Noções básicas de reconhecimento de fala
       url: speech-to-text-basics.md
   - linkListType: quickstart
     links:
@@ -54,7 +54,7 @@ landingContent:
       url: tutorial-tenant-model.md
   - linkListType: concept
     links:
-    - text: Preparar dados para discurso personalizado
+    - text: Preparar dados para Fala Personalizada
       url: how-to-custom-speech-test-and-train.md
     - text: Treinar um modelo para Fala Personalizada
       url: how-to-custom-speech-train-model.md
