@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/22/2019
+ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46e29fff3308f35b16dbff2f9cead82abc222a5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 595c87d2b8182c9044baeb2662e34871d9e52c52
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266540"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991238"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Logs de atividades do Azure AD no Monitor Do Azure
 
@@ -179,7 +179,7 @@ Esta seção responde a perguntas frequentes e discute problemas conhecidos com 
 
 **P: quais ferramentas de SIEM têm suporte atualmente?** 
 
-**A:** Atualmente, o Azure Monitor é suportado por [Splunk,](tutorial-integrate-activity-logs-with-splunk.md)QRadar e [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Para obter mais informações sobre como funcionam os conectores, consulte [Transmitir dados de monitoramento do Azure por stream a um hub de eventos para consumo por uma ferramenta externa](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+**A**: **A:** Atualmente, o Azure Monitor é suportado por [Splunk,](tutorial-integrate-activity-logs-with-splunk.md)IBM QRadar, [Sumo Logic,](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory) [ArcSight,](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight)LogRhythm e Logz.io. Para obter mais informações sobre como funcionam os conectores, consulte [Transmitir dados de monitoramento do Azure por stream a um hub de eventos para consumo por uma ferramenta externa](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 

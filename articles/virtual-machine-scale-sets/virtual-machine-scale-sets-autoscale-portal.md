@@ -1,19 +1,19 @@
 ---
 title: Conjuntos de escala de máquinas virtuais de autoescala no portal Azure
 description: Como criar regras de dimensionamento automático para conjuntos de dimensionamento de máquinas virtuais no portal do Azure
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: ecd80f49f0161c8bbc6ab7309f2af89e2ded1fe9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: 1915b144aec5a5447504c70d18dbf420d255a08e
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278193"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010283"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais no portal do Azure
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo.

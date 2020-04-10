@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/14/2019
+ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0d081a8cec088f4743bd0dc7d3cc37a9fade61d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfb094bc9f84e7129a3e1c733a054c5f6cd96372
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80117042"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008613"
 ---
 Os discos ultra azure oferecem alta capacidade de transmissão, IOPS elevado e armazenamento consistente de disco de baixa latência para máquinas virtuais Azure IaaS (VMs). Essa nova oferta fornece o melhor em desempenho de linha, nos mesmos níveis de disponibilidade que nossas ofertas de discos atuais. Um grande benefício dos discos ultra é a capacidade de alterar dinamicamente o desempenho do SSD junto com suas cargas de trabalho sem a necessidade de reiniciar suas VMs. Os discos Ultra são adequados para cargas de trabalho de grande volume de dados, como SAP HANA, bancos de dados de camada superior e cargas de trabalho de transações pesadas.
 
@@ -23,9 +23,11 @@ Os discos ultra azure oferecem alta capacidade de transmissão, IOPS elevado e a
 
 ## <a name="determine-vm-size-and-region-availability"></a>Determine o tamanho da VM e a disponibilidade da região
 
+### <a name="vms-using-availability-zones"></a>VMs usando zonas de disponibilidade
+
 Para aproveitar os discos ultra, você precisa determinar em qual zona de disponibilidade você está. Nem todas as regiões suportam todos os tamanhos de VM com ultra discos. Para determinar se o tamanho da região, região e VM suporta manuais ultra, execute qualquer um dos seguintes comandos, certifique-se de substituir os valores de **região,** **vmSize**e **assinatura** primeiro:
 
-CLI:
+#### <a name="cli"></a>CLI
 
 ```azurecli
 $subscription = "<yourSubID>"
@@ -37,7 +39,7 @@ $vmSize = "<yourVMSize>"
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].locationInfo[0].zoneDetails[0].Name" --subscription $subscription
 ```
 
-PowerShell:
+#### <a name="powershell"></a>PowerShell
 
 ```powershell
 $region = "southeastasia"
@@ -57,6 +59,55 @@ Preserve o valor **de Regiões,** ele representa sua zona de disponibilidade e v
 > Se não houve resposta do comando, então o tamanho de VM selecionado não será suportado com discos ultra na região selecionada.
 
 Agora que você sabe para qual zona implantar, siga as etapas de implantação neste artigo para implantar uma VM com um disco ultra conectado ou anexar um disco ultra a uma VM existente.
+
+### <a name="vms-with-no-redundancy-options"></a>VMs sem opções de redundância
+
+Os discos ultra implantados no Oeste dos EUA devem ser implantados sem opções de redundância, por enquanto. No entanto, nem todo tamanho de disco que suporta discos ultra podem estar nesta região. Para determinar quais nos EUA ocidentais suportam discos ultra, você pode usar qualquer um dos seguintes trechos de código. Certifique-se de `vmSize` `subscription` substituir os valores e valores primeiro:
+
+```azurecli
+$subscription = "<yourSubID>"
+$region = "westus"
+# example value is Standard_E64s_v3
+$vmSize = "<yourVMSize>"
+
+az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].capabilities" --subscription $subscription
+```
+
+```azurepowershell
+$region = "westus"
+$vmSize = "Standard_E64s_v3"
+(Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
+```
+
+A resposta será semelhante à `UltraSSDAvailable   True` forma a seguir, indica se o tamanho da VM suporta discos ultra nesta região.
+
+```
+Name                                         Value
+----                                         -----
+MaxResourceVolumeMB                          884736
+OSVhdSizeMB                                  1047552
+vCPUs                                        64
+HyperVGenerations                            V1,V2
+MemoryGB                                     432
+MaxDataDiskCount                             32
+LowPriorityCapable                           True
+PremiumIO                                    True
+VMDeploymentTypes                            IaaS
+vCPUsAvailable                               64
+ACUs                                         160
+vCPUsPerCore                                 2
+CombinedTempDiskAndCachedIOPS                128000
+CombinedTempDiskAndCachedReadBytesPerSecond  1073741824
+CombinedTempDiskAndCachedWriteBytesPerSecond 1073741824
+CachedDiskBytes                              1717986918400
+UncachedDiskIOPS                             80000
+UncachedDiskBytesPerSecond                   1258291200
+EphemeralOSDiskSupported                     True
+AcceleratedNetworkingEnabled                 True
+RdmaEnabled                                  False
+MaxNetworkInterfaces                         8
+UltraSSDAvailable                            True
+```
 
 ## <a name="deploy-an-ultra-disk-using-azure-resource-manager"></a>Implantar um disco ultra usando o Azure Resource Manager
 
@@ -109,7 +160,7 @@ Alternativamente, se a VM existente estiver em uma região/zona de disponibilida
 
 ![ultra-opções-sim-habilitar.png](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
 
-- Selecione **Salvar**.
+- Clique em **Salvar**.
 - Selecione **Adicionar disco de dados** em seguida, na série **'Nome'** Select **Criar disco**.
 
 ![criar e anexar-novo-ultra-disco.png](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
@@ -135,7 +186,7 @@ Os discos ultra oferecem um recurso único que permite ajustar seu desempenho. V
 ![selecionando-ultra-disco-para-modificar.png](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
 
 - Selecione **Configuração** e, em seguida, faça suas modificações.
-- Selecione **Salvar**.
+- Clique em **Salvar**.
 
 ![configuração-ultra-disco-desempenho e tamanho.png](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
 
@@ -149,6 +200,18 @@ Substitua ou defina as variáveis **$vmname,** **$rgname**, **$diskname** **,** 
 
 ```azurecli-interactive
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location
+```
+
+### <a name="enable-ultra-disk-compatibility-on-an-existing-vm"></a>Habilite a compatibilidade de disco ultra em uma VM existente
+
+Se a VM atender aos requisitos descritos no [escopo e limitações do GA](#ga-scope-and-limitations) e estiver na zona apropriada para sua [conta,](#determine-vm-size-and-region-availability)então você poderá ativar a compatibilidade de disco ultra em sua VM.
+
+Para ativar a compatibilidade de disco ultra, você deve parar a VM. Depois de parar a VM, você pode ativar a compatibilidade, anexar um disco ultra e reiniciar a VM:
+
+```azurecli
+az vm deallocate -n $vmName -g $rgName
+az vm update -n $vmName -g $rgName --ultra-ssd-enabled true
+az vm start -n $vmName -g $rgName
 ```
 
 ### <a name="create-an-ultra-disk-using-cli"></a>Crie um ultra disco usando cli
@@ -214,9 +277,22 @@ New-AzVm `
     -Name $vmName `
     -Location "eastus2" `
     -Image "Win2016Datacenter" `
-    -EnableUltraSSD `
+    -EnableUltraSSD $true `
     -size "Standard_D4s_v3" `
     -zone $zone
+```
+
+### <a name="enable-ultra-disk-compatibility-on-an-existing-vm"></a>Habilite a compatibilidade de disco ultra em uma VM existente
+
+Se a VM atender aos requisitos descritos no [escopo e limitações do GA](#ga-scope-and-limitations) e estiver na zona apropriada para sua [conta,](#determine-vm-size-and-region-availability)então você poderá ativar a compatibilidade de disco ultra em sua VM.
+
+Para ativar a compatibilidade de disco ultra, você deve parar a VM. Depois de parar a VM, você pode ativar a compatibilidade, anexar um disco ultra e reiniciar a VM:
+
+```azurepowershell
+#stop the VM
+$vm1 = Get-AzureRMVM -name $vmName -ResourceGroupName $rgName
+Update-AzureRmVM -ResourceGroupName $rgName -VM $vm1 -UltraSSDEnabled 1
+#start the VM
 ```
 
 ### <a name="create-an-ultra-disk-using-powershell"></a>Crie um disco ultra usando o PowerShell
@@ -265,7 +341,3 @@ Os discos ultra têm um recurso único que permite ajustar seu desempenho, o com
 $diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000
 Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate $diskupdateconfig
 ```
-
-## <a name="next-steps"></a>Próximas etapas
-
-Se você quiser experimentar o novo tipo de [disco, solicite acesso com esta pesquisa](https://aka.ms/UltraDiskSignup).

@@ -1,27 +1,38 @@
 ---
 title: Funções definidas pelo usuário (UDFs) no Azure Cosmos DB
 description: Saiba mais sobre funções definidas pelo usuário no Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: b67202da7293ef55cfe3390ca676f7944da80fba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/09/2020
+ms.author: tisande
+ms.openlocfilehash: 455f44fb365152b75a3811563b646c6243f686db
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69614324"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011116"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Funções definidas pelo usuário (UDFs) no Azure Cosmos DB
 
 A API SQL fornece suporte para funções definidas pelo usuário (UDFs). Com UDFs escalares, você pode passar em zero ou muitos argumentos e retornar um único resultado de argumento. A API verifica cada argumento por serem valores JSON legais.  
 
-A API estende a sintaxe SQL para suportar a lógica de aplicativos personalizados usando UDFs. Você pode registrar UDFs com a API SQL e referencia-los em consultas SQL. Na verdade, as UDFs são projetadas de maneira especial para serem chamadas por consultas. Como corolário, os UDFs não têm acesso ao objeto de contexto como outros tipos JavaScript, como procedimentos armazenados e gatilhos. As consultas são somente leitura e podem ser executadas em réplicas primárias ou secundárias. Os UDFs, ao contrário de outros tipos javaScript, são projetados para serem executados em réplicas secundárias.
+## <a name="udf-use-cases"></a>Casos de uso da UDF
 
-O exemplo a seguir registra um UDF em um contêiner de itens no banco de dados Cosmos. O exemplo cria um UDF cujo nome é `REGEX_MATCH`. Ele aceita dois valores de `input` `pattern`seqüência JSON e , e verifica se o `string.match()` primeiro corresponde ao padrão especificado no segundo usando a função JavaScript.
+A API estende a sintaxe SQL para suportar a lógica de aplicativos personalizados usando UDFs. Você pode registrar UDFs com a API SQL e referencia-los em consultas SQL. Ao contrário dos procedimentos e gatilhos armazenados, os UDFs são somente leitura.
+
+Usando UDFs, você pode estender a linguagem de consulta do Azure Cosmos DB. As UDFs são uma ótima maneira de expressar uma lógica de negócios complexa na projeção de uma consulta.
+
+No entanto, recomendamos evitar UDFs quando:
+
+- Uma [função](sql-query-system-functions.md) de sistema equivalente já existe no Azure Cosmos DB. As funções do sistema sempre usarão menos RU's do que o UDF equivalente.
+- O UDF é o `WHERE` único filtro na cláusula da sua consulta. Os UDF's não utilizam o índice, portanto, avaliar o UDF exigirá o carregamento de documentos. A combinação de predicados adicionais de filtro que usam o `WHERE` índice, em combinação com um UDF, na cláusula reduzirá o número de documentos processados pela UDF.
+
+Se você deve usar o mesmo UDF várias vezes em uma consulta, você deve referenciar o UDF em uma [subconsulta,](sql-query-subquery.md#evaluate-once-and-reference-many-times)permitindo que você use uma expressão JOIN para avaliar o UDF uma vez, mas referencia-lo muitas vezes.
 
 ## <a name="examples"></a>Exemplos
+
+O exemplo a seguir registra um UDF em um contêiner de itens no banco de dados Cosmos. O exemplo cria um UDF cujo nome é `REGEX_MATCH`. Ele aceita dois valores de `input` `pattern`seqüência JSON e , e verifica se o `string.match()` primeiro corresponde ao padrão especificado no segundo usando a função JavaScript.
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction

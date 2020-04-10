@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/25/2019
-ms.openlocfilehash: b01dcad71747da6b7aa770e3993cb82892ae55fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d536b706db85603624e0fa2362df7c537958f6f2
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929446"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991596"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Copiar dados do Google AdWords usando a Fábrica de Dados do Azure
 
@@ -55,7 +55,7 @@ As propriedades a seguir são compatíveis com o serviço vinculado do Google Ad
 | clientSecret | O segredo do cliente do aplicativo Google usado para adquirir o token de atualização. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou então armazenar a senha no Azure Key Vault e permitir que o ADF copie o pull de atividade desse local ao executar a cópia de dados – saiba mais sobre como [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Não |
 | email | A ID de e-mail da conta de serviço que é usada para ServiceAuthentication e que só pode ser usada em IR auto-hospedado.  | Não |
 | keyFilePath | O caminho completo para o arquivo chave .p12 que é usado para autenticar o endereço de e-mail da conta de serviço e que só pode ser usado em IR auto-hospedado.  | Não |
-| trustedCertPath | O caminho completo do arquivo .pem que contém certificados de autoridade de certificação confiáveis para verificar o servidor ao se conectar via SSL. Essa propriedade só pode ser definida ao usar o SSL em IR auto-hospedado. O valor padrão é o arquivo de cacerts.pem instalado com o IR.  | Não |
+| trustedCertPath | O caminho completo do arquivo .pem contendo certificados CA confiáveis para verificar o servidor ao se conectar através do TLS. Esta propriedade só pode ser definida ao usar TLS em IR auto-hospedado. O valor padrão é o arquivo de cacerts.pem instalado com o IR.  | Não |
 | useSystemTrustStore | Especifica se deve usar um certificado de autoridade de certificação do repositório de confiança de sistema ou de um arquivo PEM especificado. O valor padrão é false.  | Não |
 
 **Exemplo:**

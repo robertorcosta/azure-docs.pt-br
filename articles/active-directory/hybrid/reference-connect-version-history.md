@@ -12,12 +12,12 @@ ms.date: 04/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60dca30496aa17ad7add00ca4eca914cb58fddd7
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 5d2e3f8da4a05feedb8c1ab585fabcc74edbc71a
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655972"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998741"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -48,6 +48,13 @@ Nem todas as versões do Azure AD Connect serão disponibilizadas para atualiza�
 >
 >Consulte [este artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para saber mais sobre como atualizar o Azure AD Connect para a versão mais recente.
 
+## <a name="15200"></a>1.5.20.0
+
+### <a name="release-status"></a>Status de liberação
+04/09/2020: Liberado para download
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+Esta compilação hotfix corrige um problema com a build 1.5.18.0 se você tiver o recurso de filtragem de grupo ativado e usar o mS-DS-ConsistencyGuid como âncora de origem.
 
 ## <a name="15180"></a>1.5.18.0
 

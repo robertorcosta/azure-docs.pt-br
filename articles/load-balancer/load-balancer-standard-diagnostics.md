@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 1d6fa75beabdc36750525310008add9594562228
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 951f24ad06014f6d95f10c91e1bad8e99bbbc736
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887105"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991766"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Standard Load Balancer com métricas, alertas e integridade de recursos
 
@@ -86,6 +86,7 @@ Para configurar alertas:
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Cenários comuns de diagnósticos e modos de exibição recomendados
 
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>O caminho de dados está disponível e funcionando para o VIP do balanceador de carga?
+<details><summary>Expanda</summary>
 
 A métrica de disponibilidade do VIP descreve a integridade do caminho de dados dentro da região para o host de computação onde se encontram suas VMs. A métrica é uma reflexão da integridade da infraestrutura do Azure. É possível usar a métrica para:
 - Monitorar a disponibilidade externa do seu serviço
@@ -113,9 +114,11 @@ A disponibilidade de VIP falha pelos seguintes motivos:
 Para fins diagnósticos, você pode usar a [métrica de disponibilidade do caminho de dados juntamente com o status do teste de saúde](#vipavailabilityandhealthprobes).
 
 Use **Média** como a agregação para a maioria dos cenários.
+</details>
 
 #### <a name="are-the-back-end-instances-for-my-vip-responding-to-probes"></a>As instâncias de back-end para o VIP estão respondendo às investigações?
-
+<details>
+  <summary>Expanda</summary>
 A métrica de status de investigação de integridade descreve a integridade da implantação do aplicativo, conforme configurado por você ao configurar a investigação de integridade do balanceador de carga. O balanceador de carga usa o status da investigação de integridade para determinar para onde enviar novos fluxos. As investigações de integridade se originam de um endereço de infraestrutura do Azure e são visíveis no sistema operacional convidado da VM.
 
 Para obter o status do teste de saúde para os recursos do Balanceador de carga padrão:
@@ -127,9 +130,11 @@ As investigações de integridade falham pelos seguintes motivos:
 - Sua investigação não é permitida pelo Grupo de Segurança de Rede, o firewall do SO convidado da VM ou os filtros da camada do aplicativo.
 
 Use **Média** como a agregação para a maioria dos cenários.
+</details>
 
 #### <a name="how-do-i-check-my-outbound-connection-statistics"></a>Como verificar as minhas estatísticas de conexão de saída? 
-
+<details>
+  <summary>Expanda</summary>
 A métrica de conexões SNAT descreve o volume de conexões bem-sucedidas e com falha para [fluxos de saída](https://aka.ms/lboutbound).
 
 Um volume de conexões com falha maior que zero indica o esgotamento da porta SNAT. É necessário investigar mais para determinar o que pode estar causando essas falhas. O esgotamento de porta SNAT manifesta-se como uma falha para estabelecer um [fluxo de saída](https://aka.ms/lboutbound). Examine o artigo sobre conexões de saída para entender os cenários e mecanismos no trabalho e para saber como minimizar e criar para evitar o esgotamento da porta SNAT. 
@@ -140,11 +145,13 @@ Para obter estatísticas de conexão SNAT:
 
 ![Conexão SNAT](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
-*Figura: contagem de conexões SNAT do Load Balancer*
+*Figura: Contagem de conexões SNAT do Balanceador de carga*
+</details>
 
 
 #### <a name="how-do-i-check-my-snat-port-usage-and-allocation"></a>Como faço para verificar o uso e a alocação da minha porta SNAT?
-
+<details>
+  <summary>Expanda</summary>
 A métrica de uso do SNAT indica quantos fluxos exclusivos são estabelecidos entre uma fonte de internet e um conjunto de escala de vm ou máquina virtual backend que está por trás de um balanceador de carga e não tem um endereço IP público. Comparando isso com a métrica de alocação snat, você pode determinar se seu serviço está experimentando ou em risco de exaustão do SNAT e consequente falha de fluxo de saída. 
 
 Se suas métricas indicarem risco de falha no [fluxo de saída,](https://aka.ms/lboutbound) consulte o artigo e tome medidas para mitigar isso para garantir a saúde do serviço.
@@ -166,20 +173,24 @@ Para exibir o uso e a alocação da porta SNAT:
 ![Uso de SNAT por instância backend](./media/load-balancer-standard-diagnostics/snat-usage-split.png)
 
 *Figura: Uso da porta TCP SNAT por instância backend*
+</details>
 
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Como verificar as tentativas de conexão de entrada/saída para meu serviço?
-
+<details>
+  <summary>Expanda</summary>
 Uma métrica de pacotes SYN descreve o volume de pacotes TCP SYN, que chegaram ou foram enviados (para [fluxos de saída](https://aka.ms/lboutbound)) associados a um front-end específico. É possível usar essa métrica para entender as tentativas de conexão TCP com seu serviço.
 
 Use **Total** como a agregação para a maioria dos cenários.
 
 ![Conexão SYN](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
-*Figura: contagem de SYN do Load Balancer*
+*Figura: Contagem de SYN do balanceador de carga*
+</details>
 
 
 #### <a name="how-do-i-check-my-network-bandwidth-consumption"></a>Como verificar o consumo de largura de banda da rede? 
-
+<details>
+  <summary>Expanda</summary>
 A métrica de contadores de pacote e de bytes descreve o volume de bytes e de pacotes enviados ou recebidos pelo seu serviço por front-end.
 
 Use **Total** como a agregação para a maioria dos cenários.
@@ -192,10 +203,12 @@ Para obter estatísticas de contagem de bytes ou de pacotes:
 
 ![Contagem de Bytes](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-*Figura: contagem de bytes do Load Balancer*
+*Figura: Contagem de bytes do balanceador de carga*
+</details>
 
 #### <a name="how-do-i-diagnose-my-load-balancer-deployment"></a><a name = "vipavailabilityandhealthprobes"></a>Como posso diagnosticar a implantação do meu balanceador de carga?
-
+<details>
+  <summary>Expanda</summary>
 Usando uma combinação das métricas de investigação de integridade e disponibilidade do VIP em um único gráfico, é possível identificar onde procurar o problema e resolvê-lo. É possível obter a garantia de que o Azure está funcionando corretamente e usar esse conhecimento para determinar conclusivamente que a configuração ou o aplicativo é a causa raiz.
 
 Você pode usar métricas de investigação de integridade para entender como o Azure exibe a integridade de sua implantação de acordo com a configuração que você forneceu. Olhar para investigações de integridade é sempre uma excelente primeira etapa no monitoramento ou determinação de uma causa.
@@ -211,6 +224,7 @@ O gráfico exibe as seguintes informações:
 - O estado da sonda de saúde (disponibilidade do DIP), indicado pelo traço roxo, está em 0% no início do gráfico. A área circundada em verde destaca onde o status da sonda de saúde (disponibilidade do DIP) se tornou saudável, e nesse ponto a implantação do cliente foi capaz de aceitar novos fluxos.
 
 O gráfico permite que os clientes resolvam problemas da implantação sozinhos sem a necessidade de adivinhar ou perguntar ao suporte se outros problemas estão ocorrendo. O serviço não estava disponível porque as investigações de integridade estavam falhando devido a um erro de configuração ou a um aplicativo com falha.
+</details>
 
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Status de integridade de recurso
 

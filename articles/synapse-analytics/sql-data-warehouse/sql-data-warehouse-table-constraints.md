@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 881e4f0110e3c0f35301e2ae6be40f2510f42539
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: f97163d02836442430037e18439bcf0724046332
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583486"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990762"
 ---
 # <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Chave primária, chave estrangeira e chave única no pool Synapse SQL
 
@@ -28,7 +28,10 @@ O pool Synapse SQL suporta essas restrições de tabela:
 - Key PRIMARY só é suportado quando não agrupados e NÃO APLICADOs são usados.    
 - A restrição UNIQUE só é suportada com NÃO APLICADO é usado.
 
+Para obter sintaxe, consulte [TABELA ALTER](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) e [TABELA CRIAR](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
+
 A restrição FOREIGN KEY não é suportada no pool Synapse SQL.  
+
 
 ## <a name="remarks"></a>Comentários
 

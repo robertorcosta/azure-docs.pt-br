@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12abfc0d345c937ae886f9bfacfb8ce30227cc45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd3580ca03fa49d428904c6da78fdf9cda202c7
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399295"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991255"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para acessar a API de relatório do Azure Active Directory
 
@@ -33,9 +33,10 @@ A API de relatório usa [OAuth](https://docs.microsoft.com/azure/api-management/
 Para preparar seu acesso à API de relatório, você precisa:
 
 1. [Atribuir funções](#assign-roles)
-2. [Registre um aplicativo](#register-an-application)
-3. [Permissões de concessão](#grant-permissions)
-4. [Reunir definições de configuração](#gather-configuration-settings)
+2. [Requisitos de licença](#license-requirements)
+3. [Registrar um aplicativo](#register-an-application)
+4. [Permissões de concessão](#grant-permissions)
+5. [Reunir definições de configuração](#gather-configuration-settings)
 
 ## <a name="assign-roles"></a>Atribuir funções
 
@@ -46,6 +47,10 @@ Para obter acesso aos dados de relatórios por meio da API, você precisa ter um
 - Administrador de segurança
 
 - Administrador global
+
+## <a name="license-requirements"></a>Requisitos de licença
+
+Para acessar os relatórios de login de um inquilino, um inquilino azure AD deve ter a licença Azure AD Premium associada. A licença Azure AD Premium P1 (ou acima) é necessária para acessar relatórios de login para qualquer inquilino Azure AD. Alternativamente, se o tipo de diretório for Azure AD B2C, os relatórios de login são acessíveis através da API sem qualquer exigência adicional de licença. 
 
 
 ## <a name="register-an-application"></a>Registrar um aplicativo
@@ -183,7 +188,7 @@ Você precisa desses valores ao configurar chamadas para a API de relatórios.
 
     b. Como **Expira**, selecione **Em 2 anos**.
 
-    c. Clique em **Salvar**.
+    c. Clique em **Save** (Salvar).
 
     d. Copie o valor da chave.
 

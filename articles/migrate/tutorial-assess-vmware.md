@@ -1,24 +1,19 @@
 ---
-title: Avaliar as VMs do VMware para migração para o Azure usando a Avaliação de Servidor das Migrações para Azure
-description: Descreve como avaliar as VMs locais do VMware para migração para o Azure usando as Migrações para Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Avaliar VMs do VMware para migração para o Azure
+description: Descreve como avaliar as VMs locais do VMware para migração para o Azure usando a Avaliação de Servidor de Migrações para Azure.
 ms.topic: tutorial
-ms.date: 11/19/2019
-ms.author: hamusa
-ms.openlocfilehash: 7f161afe13bad8c548806d4b4ceb9372dc511cc3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 03/23/2019
+ms.openlocfilehash: 944b7c12a353a29a172576974261eece63ebf668
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223283"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548738"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Avaliar as VMs do VMware usando a Avaliação de Servidor das Migrações para Azure
 
-Este artigo mostra como avaliar as VMs (máquinas virtuais) VMware locais usando a ferramenta de Avaliação de Servidor nas Migrações para Azure.
+Este artigo mostra como avaliar as VMs (máquinas virtuais) do VMware locais usando a ferramenta [Migrações para Azure: Avaliação do Servidor](migrate-services-overview.md#azure-migrate-server-assessment-tool).
 
-As [Migrações para Azure](migrate-services-overview.md) fornecem um hub de ferramentas que ajudam você a descobrir, avaliar e migrar aplicativos, a infraestrutura e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas de Migrações para Azure e ofertas de ISV (fornecedor independente de software) de parceiros da Microsoft.
 
 Este tutorial é o segundo de uma série que demonstra como avaliar e migrar VMs do VMware para o Azure. Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -35,17 +30,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Conclua o primeiro tutorial](tutorial-prepare-vmware.md) desta série. Caso contrário, as instruções deste tutorial não funcionarão.
-
-Veja o que você deve ter feito no primeiro tutorial:
-
-- [Configurar as permissões do Azure](tutorial-prepare-vmware.md#prepare-azure) para as Migrações para Azure.
-- [Preparar o VMware](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) para avaliação:
-   - [Verificar](migrate-support-matrix-vmware.md#vmware-requirements) as configurações do VMware.
-   - Configurar permissões no VMware para criar uma VM do VMware com um modelo OVA.
-   - Configurar uma [conta para descoberta da VM](migrate-support-matrix-vmware.md#vmware-requirements). 
-   - Disponibilizar as [portas necessárias](migrate-support-matrix-vmware.md#port-access).
-   - Lembre-se das [URLs necessárias](migrate-replication-appliance.md#url-access) para o acesso ao Azure.
+- [Conclua o primeiro tutorial](tutorial-prepare-vmware.md) desta série. Caso contrário, as instruções deste tutorial não funcionarão.
+- Veja o que você deve ter feito no primeiro tutorial:
+    - [Preparar o Azure](tutorial-prepare-vmware.md#prepare-azure) para trabalhar com as Migrações para Azure.
+    - [Preparar o VMware para a avaliação](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) para avaliação. Isso inclui verificar as configurações do VMware, configurando uma conta que o Migrações para Azure possa usar para acessar o vCenter Server.
+    - [Verificar](tutorial-prepare-vmware.md#verify-appliance-settings-for-assessment) o que você precisa para implantar o dispositivo de Migrações para Azure para avaliação do VMware.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurar um projeto das Migrações para Azure
 
@@ -74,17 +63,15 @@ Configure um novo projeto das Migrações para Azure, conforme descrito a seguir
 1. Em **Examinar + adicionar ferramentas**, examine as configurações e selecione **Adicionar ferramentas**.
 1. Aguarde alguns minutos até que o projeto das Migrações para Azure seja implantado. Você será levado para a página do projeto. Caso não veja o projeto, acesse-o em **Servidores** no painel das Migrações para Azure.
 
-## <a name="set-up-the-appliance-vm"></a>Configurar a VM do dispositivo
+## <a name="set-up-the-azure-migrate-appliance"></a>Configurar o dispositivo das Migrações para Azure
 
-A Avaliação de Servidor das Migrações para Azure executa um dispositivo leve de VM VMware. Esse dispositivo executa a descoberta de VM e reúne os metadados de VM e os dados de desempenho.
+O recurso Migrações para Azure: Avaliação do Servidor usa um dispositivo leve de Migrações para Azure. O dispositivo executa a descoberta de VM e envia os metadados de VM e os dados de desempenho para as Migrações para Azure.
+- O dispositivo pode ser configurado em uma VM VMware usando um modelo OVA baixado. Como alternativa, você pode configurar o dispositivo em uma VM ou computador físico com um script do instalador do PowerShell.
+- Este tutorial usa o modelo OVA. Examine [este artigo](deploy-appliance-script.md) se você quiser configurar o dispositivo usando um script.
 
-Para configurar o dispositivo:
+Depois de criar o dispositivo, você verifica se é possível conectá-lo ao Migrações para Azure: Avaliação do Servidor, configurá-lo pela primeira vez e registrá-lo com o projeto de Migrações para Azure.
 
-- Baixe um arquivo de modelo OVA e importe-o para o vCenter Server.
-- Crie o dispositivo e verifique se ele pode se conectar à Avaliação de Servidor das Migrações para Azure.
-- Configure o dispositivo pela primeira vez e registre-o com o projeto de Migrações para Azure.
 
-Você pode configurar vários dispositivos para um único projeto das Migrações para Azure. Em todos os dispositivos, a Avaliação de Servidor é compatível com a descoberta de até 35.000 VMs. Ela pode descobrir o máximo de 10.000 servidores por dispositivo.
 
 ### <a name="download-the-ova-template"></a>Baixar o modelo OVA
 
@@ -134,7 +121,10 @@ Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-ap
 
 ### <a name="configure-the-appliance"></a>Configurar o dispositivo
 
-Configure o dispositivo usando as seguintes etapas:
+Configure o dispositivo pela primeira vez.
+
+> [!NOTE]
+> Se você configurar o dispositivo usando um [script do PowerShell](deploy-appliance-script.md), em vez do OVA baixado, as duas primeiras etapas neste procedimento não serão relevantes.
 
 1. No console do cliente do vSphere, clique com o botão direito do mouse na VM e selecione **Abrir console**.
 1. Forneça o idioma, o fuso horário e a senha do dispositivo.
@@ -164,77 +154,30 @@ Configure o dispositivo usando as seguintes etapas:
 1. Especifique um nome para o dispositivo. O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Selecione **Registrar**.
 
+
 ## <a name="start-continuous-discovery"></a>Iniciar a descoberta contínua
 
 O dispositivo precisa se conectar ao vCenter Server para descobrir a configuração e os dados de desempenho das VMs.
 
 ### <a name="specify-vcenter-server-details"></a>Especificar detalhes do vCenter Server
 1. Em **Especificar detalhes do vCenter Server**, especifique o nome (FQDN) ou o endereço IP da instância do vCenter Server. Você pode manter a porta padrão ou especificar uma porta personalizada na qual o vCenter Server escutará.
-1. Em **Nome de usuário** e **Senha**, especifique as credenciais de conta do vCenter Server que o dispositivo usará para descobrir VMs na instância do vCenter Server. 
+2. Em **Nome de usuário** e **Senha**, especifique as credenciais de conta do vCenter Server que o dispositivo usará para descobrir VMs na instância do vCenter Server. 
 
-   Verifique se a conta tem as [permissões necessárias para a descoberta](migrate-support-matrix-vmware.md#vmware-requirements). Você pode [definir o escopo da descoberta](tutorial-assess-vmware.md#set-the-scope-of-discovery) limitando o acesso à conta do vCenter.
-1. Selecione **Validar conexão** para garantir que o dispositivo possa se conectar ao vCenter Server.
+    - Você deve ter configurado uma conta com as permissões necessárias no [tutorial anterior](tutorial-prepare-vmware.md#set-up-an-account-for-assessment).
+    - Se você quiser definir o escopo da descoberta para objetos específicos do VMware (data centers, clusters, uma pasta de clusters, hosts, uma pasta de hosts ou VMs individuais do vCenter Server), examine as instruções [neste artigo](set-discovery-scope.md) para restringir a conta usada por Migrações para Azure.
 
-### <a name="specify-vm-credentials"></a>Especificar credenciais de VM
-Para a descoberta de aplicativos, funções e recursos e para visualizar dependências das VMs, você pode fornecer credenciais de VM que tenham acesso às VMs VMware. Você pode adicionar uma credencial para VMs do Windows e uma credencial para VMs do Linux. [Saiba mais](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) sobre as permissões de acesso necessárias.
+3. Selecione **Validar conexão** para garantir que o dispositivo possa se conectar ao vCenter Server.
+4. Em **Descobrir aplicativos e dependências de VMs**, opcionalmente, clique em **Adicionar credenciais** e especifique o sistema operacional para o qual as credenciais são relevantes e o nome de usuário e a senha das credenciais. Então clique em **Adicionar**.
 
-> [!NOTE]
-> Essa entrada é opcional, mas você precisará dela caso deseje habilitar a descoberta de aplicativos e a visualização de dependência sem agente.
+    - Opcionalmente, adicione credenciais aqui se você tiver criado uma conta a ser usada para o [recurso de descoberta de aplicativo](how-to-discover-applications.md) ou o [recurso de análise de dependência sem agente](how-to-create-group-machine-dependencies-agentless.md).
+    - Se você não estiver usando esses recursos, poderá ignorar essa configuração.
+    - Examine as credenciais necessárias para [descoberta do aplicativo](migrate-support-matrix-vmware.md#application-discovery) ou para [análise sem agente](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements).
 
-1. Em **Descobrir aplicativos e dependências em VMs**, selecione **Adicionar credenciais**.
-1. Faça uma seleção para **Sistema Operacional**.
-1. Informar um nome amigável para a credencial.
-1. Em **Nome de usuário** e **Senha**, especifique uma conta que tenha pelo menos acesso de convidado nas VMs.
-1. Selecione **Adicionar**.
+5. **Salve e inicie a descoberta** para iniciar a descoberta de VM.
 
-Depois de especificar a instância do vCenter Server e as credenciais de VM (opcionais), selecione **Salvar e iniciar a descoberta** para iniciar a descoberta do ambiente local.
-
-São necessários cerca de 15 minutos para que os metadados das VMs descobertas sejam exibidos no portal. A descoberta de aplicativos, funções e recursos instalados leva algum tempo. A duração depende do número de VMs sendo descobertas. Para as VMs 500, leva aproximadamente 1 hora para o inventário de aplicativos aparecer no portal de Migrações para Azure.
-
-### <a name="set-the-scope-of-discovery"></a>Definir o escopo da descoberta
-
-O escopo da descoberta pode ser definido limitando o acesso da conta do vCenter usada para a descoberta. Você pode definir o escopo para datacenters, clusters, uma pasta de clusters, hosts, uma pasta de hosts ou VMs individuais do vCenter Server.
-
-Para definir o escopo, execute os procedimentos a seguir.
-
-#### <a name="1-create-a-vcenter-user-account"></a>1. Criar uma conta de usuário do vCenter
-1.  Faça logon no cliente Web vSphere como o administrador do vCenter Server.
-1.  Selecione **Administração** > **Usuários e grupos de SSO** e, em seguida, selecione a guia **Usuários**.
-1.  Selecione o ícone **Novo Usuário**.
-1.  Preencha as informações necessárias para criar um usuário e selecione **OK**.
-
-#### <a name="2-define-a-new-role-with-required-permission"></a>2. Definir uma nova função com a permissão necessária
-Esse procedimento é necessário para a migração de servidor sem agente.
-1.  Faça logon no cliente Web vSphere como o administrador do vCenter Server.
-1.  Navegue até **Administração** > **Gerenciador de Funções**.
-1.  Selecione a instância do vCenter Server no menu suspenso.
-1.  Selecione **Criar função**.
-1.  Insira um nome para a nova função (como <em>Azure_Migrate</em>).
-1.  Atribua [permissões](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) à função recém-definida.
-1.  Selecione **OK**.
-
-#### <a name="3-assign-permissions-on-vcenter-objects"></a>3. Atribuir permissões em objetos do vCenter
-
-Há duas abordagens para atribuir permissões em objetos de inventário no vCenter à conta de usuário do vCenter com uma função atribuída a ela.
-
-Para a Avaliação do Servidor, você deve aplicar a função **Somente leitura** à conta de usuário do vCenter para todos os objetos pai em que as VMs a serem descobertas estão hospedadas. Todos os objetos pai serão incluídos: host, pasta de hosts, cluster e pasta de clusters na hierarquia até o datacenter. Essas permissões serão propagadas para objetos filho na hierarquia.
-
-Da mesma forma que para a Migração do Servidor, você deve aplicar uma função definida pelo usuário com [permissões](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) para a conta de usuário do vCenter para todos os objetos pai em que as VMs a serem migradas são hospedadas. Essa função pode ser nomeada como  <em>Azure _Migrate</em>.
-
-![Atribuir permissões](./media/tutorial-assess-vmware/assign-perms.png)
-
-A abordagem alternativa deve receber a conta e a função do usuário no nível do datacenter e propagá-las para os objetos filho. Depois, forneça à conta uma função **Sem acesso** para todos os objetos (como uma VM) que você não deseja descobrir/migrar. 
-
-Essa configuração alternativa é complicada. Ela expõe controles de acesso acidentais, pois cada novo objeto filho também recebe automaticamente o acesso herdado do pai. Portanto, é recomendável usar a primeira abordagem.
-
-> [!NOTE]
-> No momento, a Avaliação de Servidor não poderá descobrir VMs se a conta do vCenter tiver acesso concedido no nível de pasta da VM do vCenter. Se você quiser definir o escopo de sua descoberta por pastas de VM, poderá fazê-lo usando o procedimento a seguir. Ele garante que a conta do vCenter tenha acesso somente leitura atribuído em um nível de VM.
->
-> 1. Atribua permissões somente leitura em todas as VMs nas pastas de VM em que você deseja definir o escopo da descoberta.
-> 1. Permita acesso somente leitura a todos os objetos pai nos quais as VMs estão hospedadas. Todos os objetos pai (host, pasta de hosts, cluster, pasta de clusters) na hierarquia até o datacenter serão incluídos. Não é necessário propagar as permissões para todos os objetos filho.
-> 1. Use as credenciais para descoberta selecionando o datacenter como **Escopo da Coleção**. O controle de acesso baseado em função configurado garante que o usuário do vCenter correspondente tenha acesso apenas às VMs específicas do locatário.
->
-> Observe que as pastas de hosts e clusters são compatíveis.
+A descoberta funciona da seguinte maneira:
+- São necessários cerca de 15 minutos para que os metadados das VMs descobertas sejam exibidos no portal.
+- A descoberta de aplicativos, funções e recursos instalados leva algum tempo. A duração depende do número de VMs sendo descobertas. Para as VMs 500, leva aproximadamente uma hora para o inventário de aplicativos aparecer no portal de Migrações para Azure.
 
 ### <a name="verify-vms-in-the-portal"></a>Verifique as VMs no portal
 

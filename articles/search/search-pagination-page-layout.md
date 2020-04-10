@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: df80668f5e4a31d6247e9e9806e3de0667fd9036
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 451e83fa6ab547536a4cfd85304930e749a8247f
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656006"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998386"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com resultados de pesquisa na Pesquisa Cognitiva do Azure
 
@@ -94,7 +94,11 @@ Outra opção é usar um [perfil de pontuação personalizado.](index-add-scorin
 
 O destaque de acerto refere-se à formatação de texto (como destaques em negrito ou amarelo) aplicada ao termo correspondente em um resultado, facilitando a marcação da partida. As instruções de destaque de acerto são fornecidas na [solicitação de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents). O mecanismo de pesquisa inclui o `highlightPreTag` termo `highlightPostTag`correspondente em tags e, e seu código lida com a resposta (por exemplo, aplicando uma fonte em negrito).
 
-A formatação é aplicada a consultas de termos inteiros. No exemplo a seguir, os termos "arenoso", "areia", "praias", "praia" encontradas no campo Descrição são marcados para destaque. Consultas em termos parciais, como pesquisa difusa ou pesquisa curinga que resultam em expansão de consulta no motor, não podem usar o destaque de hit.
+A formatação é aplicada a consultas de termos inteiros. No exemplo a seguir, os termos "arenoso", "areia", "praias", "praia" encontradas no campo Descrição são marcados para destaque. Consultas que desencadeiam a expansão da consulta no motor, como pesquisa difusa e curinga, têm suporte limitado para destaque de acerto.
+
+```http
+GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 
+```
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 

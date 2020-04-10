@@ -5,22 +5,22 @@ manager: cpoulain
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/15/2020
+ms.date: 04/04/2020
 ms.author: ralphe
-ms.openlocfilehash: c6291a714083df8954d5162ad38d31b2e3caee76
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 92fc7aeec87015a9ddbe4e52f870334582e28c14
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925253"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671319"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, é preciso:
 
 > [!div class="checklist"]
 > * [Criar um recurso de Fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=dotnet)
+> * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 

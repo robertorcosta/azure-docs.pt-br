@@ -1,20 +1,20 @@
 ---
 title: Crie um conjunto de escala sinuoso que usa zonas de disponibilidade
 description: Saiba como criar conjunto de dimensionamento de máquinas virtuais do Azure que usam Zonas de Disponibilidade para aumentar a redundância contra interrupções
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.author: cynthn
-ms.openlocfilehash: 11695eb889a10dc689b00399a37382a3b9772eae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: c8795f46e47b2ab43898f6f436b9ee6026a22fa7
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76274417"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011558"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de dimensionamento de máquinas virtuais que use Zonas de Disponibilidade
 
@@ -39,7 +39,7 @@ Quando você implanta um conjunto de escala, você também tem a opção de impl
 
 ### <a name="zone-balancing"></a>Balanceamento de zona
 
-Por fim, para conjuntos de dimensionamento implantados em várias regiões, você também tem a opção de escolher "melhor balanceamento de zona possível" ou "balanceamento de zona estrito". Um conjunto de dimensionamento é considerado "balanceado" se em cada zona tiver o mesmo número de VMs ou +\\- 1 VM em todas as outras zonas para o conjunto de dimensionamento. Por exemplo: 
+Por fim, para conjuntos de dimensionamento implantados em várias regiões, você também tem a opção de escolher "melhor balanceamento de zona possível" ou "balanceamento de zona estrito". Um conjunto de dimensionamento é considerado "balanceado" se em cada zona tiver o mesmo número de VMs ou +\\- 1 VM em todas as outras zonas para o conjunto de dimensionamento. Por exemplo:
 
 - Um conjunto de dimensionamento com 2 VMs na zona 1, 3 VMs na zona 2 e 3 VMs na zona 3 é considerado balanceado. Há apenas uma zona com uma contagem de VM diferente e ela é apenas 1 a menos do que outras zonas. 
 - Um conjunto de dimensionamento com 1 VM na zona 1, 3 VMs na zona 2 e 3 VMs na zona 3 é considerado não balanceado. Zona 1 tem 2 VMs a menos do que as zonas 2 e 3.
@@ -58,7 +58,7 @@ Quando você cria um conjunto de dimensionamento em uma única zona, você contr
 
 Para usar Zonas de Disponibilidade, seu conjunto de dimensionamento deve ser criado em uma [região do Azure com suporte](../availability-zones/az-overview.md#services-support-by-region). Você pode criar um conjunto de dimensionamento que usa Zonas de Disponibilidade com um dos seguintes métodos:
 
-- [Portal Azure](#use-the-azure-portal)
+- [Azure portal](#use-the-azure-portal)
 - CLI do Azure
 - [Azure PowerShell](#use-azure-powershell)
 - [Modelos do Azure Resource Manager](#use-azure-resource-manager-templates)

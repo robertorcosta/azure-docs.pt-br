@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 04/09/2020
 ms.author: jingwang
-ms.openlocfilehash: f2e70a7b900ad918cda05ce34204e2de1e6e67ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47d26ad452b8494e591ee919076e5ade8bf19cd7
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75830183"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011388"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato de texto delimitado na fábrica de dados do Azure
 
@@ -30,14 +30,14 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | A propriedade do tipo do conjunto de dados deve ser definida **como DelimitedText**. | Sim      |
 | local         | Configurações de localização dos arquivos(s). Cada conector baseado em arquivo tem seu próprio `location`tipo de localização e propriedades suportadas em .  | Sim      |
-| columnDelimiter  | Os caracteres(s) usados para separar colunas em um arquivo. Atualmente, o delimitador multi-char é suportado apenas para mapear o fluxo de dados, mas não a atividade do Copiar. <br>O valor padrão é **comma `,` **, Quando o delimitador da coluna é definido como string vazio, o que significa que não há delimitador, toda a linha é tomada como uma única coluna. | Não       |
-| rowDelimiter     | O caractere único ou "\r\n" usado para separar linhas em um arquivo.<br>O valor padrão é qualquer um dos seguintes valores **na leitura: ["\r\n", "\r", "\n"]** e **"\n" ou "\r\n" na gravação,** mapeando o fluxo de dados e a atividade copiar, respectivamente. <br>Quando `rowDelimiter` é definido como nenhum delimitador `columnDelimiter` (string vazio), o deve ser definido como nenhum delimitador (string vazio) também, o que significa tratar todo o conteúdo como um único valor. | Não       |
+| columnDelimiter  | Os caracteres(s) usados para separar colunas em um arquivo. <br>O valor padrão é **a comma `,` **. Quando o delimitador da coluna é definido como string vazio, o que significa que não há delimitador, toda a linha é tomada como uma única coluna.<br>Atualmente, o delimitador de coluna como string vazio ou multi-char é suportado apenas para mapear o fluxo de dados, mas não a atividade copiar.  | Não       |
+| rowDelimiter     | O caractere único ou "\r\n" usado para separar linhas em um arquivo. <br>O valor padrão é qualquer um dos seguintes valores **na leitura: ["\r\n", "\r", "\n"]** e **"\n" ou "\r\n" na gravação,** mapeando o fluxo de dados e a atividade copiar, respectivamente. <br>Quando o delimitador da linha estiver definido como nenhum delimitador (string vazio), o delimitador da coluna deve ser definido como nenhum delimitador (string vazio) também, o que significa tratar todo o conteúdo como um único valor.<br>Atualmente, o delimitador de linha como string vazio é suportado apenas para mapear o fluxo de dados, mas não a atividade copiar. | Não       |
 | quoteChar        | O caractere único para citar valores da coluna se contiver delimitador de coluna. <br>O valor padrão é **as paspas duplas** `"`. <br>Para mapear o `quoteChar` fluxo de dados, não pode ser uma seqüência vazia. <br>Para a atividade `quoteChar` Copiar, quando é definida como string vazia, significa que não `escapeChar` há char de citação e valor da coluna não é citado, e é usado para escapar do delimitador da coluna e em si. | Não       |
 | escapeChar       | O único caractere para escapar das citações dentro de um valor citado.<br>O valor padrão é **barra invertida `\` **. <br>Para mapear o `escapeChar` fluxo de dados, não pode ser uma seqüência vazia. <br/>Para a atividade `escapeChar` Copiar, quando for `quoteChar` definida como string vazia, a string deve ser definida como string vazia também, nesse caso, certifique-se de que todos os valores da coluna não contenham delimitadores. | Não       |
 | firstRowAsHeader | Especifica se deve tratar/fazer a primeira linha como uma linha de cabeçalho com nomes de colunas.<br>Os valores permitidos são **verdadeiros** e **falsos** (padrão). | Não       |
 | nullValue        | Especifica a representação de string de valor nulo. <br>O valor padrão é **string vazio**. | Não       |
-| encodingName     | O tipo de codificação usado para ler/gravar arquivos de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", " IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM870", "IBM 011140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149" , "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859 -6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".<br>Note que o fluxo de dados de mapeamento não suporta codificação UTF-7. | Não       |
-| compressionCodec | O codec de compactação usado para ler/gravar arquivos de texto. <br>Os valores permitidos são **bzip2,** **gzip,** **deflate**, **ZipDeflate,** **snappy,** ou **lz4**. para usar ao salvar o arquivo. <br>Nota atualmente A atividade de cópia não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate". <br>Nota ao usar a atividade de cópia para descompactar arquivos ZipDeflate e gravar no armazenamento `<path specified in dataset>/<folder named as source zip file>/`de dados do sink baseado em arquivos, os arquivos serão extraídos para a pasta: . | Não       |
+| encodingName     | O tipo de codificação usado para ler/gravar arquivos de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7" ", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM855", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM863", "IBM864", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", 0", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01144", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR". 8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13". , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".<br>Note que o fluxo de dados de mapeamento não suporta codificação UTF-7. | Não       |
+| compressionCodec | O codec de compactação usado para ler/gravar arquivos de texto. <br>Os valores permitidos são **bzip2,** **gzip,** **deflate**, **ZipDeflate,** **snappy,** ou **lz4**. O padrão não é compactado. <br>**Nota** atualmente A atividade de cópia não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate". <br>**Nota** ao usar a atividade de cópia para descompactar arquivos ZipDeflate e gravar no armazenamento `<path specified in dataset>/<folder named as source zip file>/`de dados do sink baseado em arquivos, os arquivos serão extraídos para a pasta: . | Não       |
 | compactaçãoNível | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos**.<br>- **O mais rápido:** A operação de compactação deve ser concluída o mais rápido possível, mesmo que o arquivo resultante não esteja compactado de forma ideal.<br>- **Ideal**: A operação de compressão deve ser compactada de forma ideal, mesmo que a operação deva mais tempo para ser concluída. Para saber mais, veja o tópico [Nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Não       |
 
 Abaixo está um exemplo de conjunto de dados de texto delimitado no Azure Blob Storage:
@@ -60,6 +60,7 @@ Abaixo está um exemplo de conjunto de dados de texto delimitado no Azure Blob S
             },
             "columnDelimiter": ",",
             "quoteChar": "\"",
+            "escapeChar": "\"",
             "firstRowAsHeader": true,
             "compressionCodec": "gzip"
         }

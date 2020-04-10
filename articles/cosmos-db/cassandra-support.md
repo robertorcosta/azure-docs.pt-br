@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 0a2ace3f73379cff0b9289a8cebb10cb7930348d
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
-ms.translationtype: MT
+ms.openlocfilehash: 223544f7ceddce6bc2071d561da1cff1c0d4b53b
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128911"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420145"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Recursos do Apache Cassandra compatíveis com a API do Cassandra do Azure Cosmos DB 
 
-O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Você pode se comunicar com a API do Cassandra do Azure Cosmos DB por meio de [drivers](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) de cliente do Cassandra de software livre em conformidade com o [protocolo de transmissão](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) da CQL (linguagem de consulta do Cassandra) v4. 
+O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Você pode se comunicar com a API do Cassandra do Azure Cosmos DB por meio de [drivers](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) de cliente do Cassandra de software livre em conformidade com o [protocolo de transmissão](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) da CQL (linguagem de consulta do Cassandra) v4. 
 
 Ao usar a API do Cassandra do Azure Cosmos DB, você pode aproveitar os benefícios das APIs do Apache Cassandra, bem como as funcionalidades empresariais que o Azure Cosmos DB fornece. As funcionalidades empresariais incluem [distribuição global](distribute-data-globally.md), [particionamento com expansão automática](partition-data.md), garantias de disponibilidade e latência, criptografia em repouso, backups e muito mais.
 
@@ -42,21 +42,21 @@ As seguintes versões de drivers Cassandra são compatíveis com a API do Cassan
 A API do Cassandra do Azure Cosmos DB é compatível com os seguintes tipos de dados do CQL:
 
 * ascii  
-* bigint  
+* BIGINT  
 * blob  
 * booleano  
 * contador  
 * date  
 * decimal  
 * double  
-* float  
+* FLOAT  
 * frozen  
 * inet  
-* int  
-* {1&gt;list&lt;1}  
+* INT  
+* list  
 * set  
 * SMALLINT  
-* texto  
+* text  
 * time  
 * timestamp  
 * timeuuid  
@@ -96,7 +96,7 @@ A API do Cassandra do Azure Cosmos DB é compatível com as seguintes funções 
 
 ## <a name="cassandra-api-limits"></a>Limites de API do Cassandra
 
-A API do Cassandra do Azure Cosmos DB não tem limites para o tamanho dos dados armazenados em uma tabela. Centenas de terabytes ou petabytes de dados podem ser armazenados, com a garantia de que os limites de chave de partição sejam respeitados. Da mesma forma, todas as entidades ou linhas equivalentes não têm nenhum limite no número de colunas. No entanto, o tamanho total da entidade não deve ultrapassar 2 MB. Os dados por chave de partição não podem exceder 20 GB como em todas as outras APIs.
+A API do Cassandra do Azure Cosmos DB não tem limites para o tamanho dos dados armazenados em uma tabela. Centenas de terabytes ou petabytes de dados podem ser armazenados, com a garantia de que os limites de chave de partição sejam respeitados. Da mesma forma, todas as entidades ou linhas equivalentes não têm nenhum limite no número de colunas. No entanto, o tamanho total da entidade não deve ultrapassar 2 MB. Os dados por chave de partição não podem exceder 20 GB, como em todas as outras APIs.
 
 ## <a name="tools"></a>Ferramentas 
 
@@ -126,7 +126,7 @@ keytool -importcert -alias bc2025ca -file bc2025.crt
 
 # Install the Cassandra libraries in order to get CQLSH:
 echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
-curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -
+curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install cassandra
 
@@ -145,15 +145,15 @@ O Azure Cosmos DB dá suporte aos seguintes comandos de banco de dados em contas
 
 * CREATE KEYSPACE (as configurações de replicação para este comando são ignoradas)
 * CREATE TABLE 
-* CRIAR índice (sem especificar o nome do índice e índices descongelados completos ainda não têm suporte)
-* PERMITIR FILTRAGEM
+* CREATE INDEX (sem especificar o nome do índice, e ainda não há suporte a índices totalmente congelados)
+* ALLOW FILTERING
 * ALTER TABLE 
 * USE 
 * INSERT 
 * SELECT 
 * UPDATE 
 * BATCH – Somente comandos não registrados são compatíveis 
-* DELETE
+* Delete (excluir)
 
 Todas as operações CRUD que são executadas por meio de um SDK compatível com CQL v4, retornarão informações adicionais sobre erros e unidades de solicitação consumidas. Os comandos DELETE e UPDATE devem ser tratados com a governança de recursos levada em consideração para garantir o uso mais eficiente da taxa de transferência provisionada.
 
@@ -181,7 +181,7 @@ O Azure Cosmos DB dá suporte ao controle de acesso baseado em função (RBAC) p
 
 ## <a name="keyspace-and-table-options"></a>Opções de tabela e de keyspace
 
-As opções para nome da região, classe, replication_factor e datacenter no comando "CREATE KEYSPACE" são ignoradas atualmente. O sistema usa o método de replicação de [distribuição global](global-dist-under-the-hood.md) da Azure Cosmos DB subjacente para adicionar as regiões. Se você precisar da presença de dados entre regiões, poderá habilitá-la no nível da conta com o PowerShell, a CLI ou o portal. Para saber mais, confira o artigo [como adicionar regiões](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Durable_writes não podem ser desabilitadas porque o Azure Cosmos DB garante que cada gravação seja durável. Em todas as regiões, o Azure Cosmos DB replica os dados no conjunto de réplicas composto por quatro réplicas e essa [configuração](global-dist-under-the-hood.md) de conjunto de réplicas não pode ser modificada.
+As opções para nome da região, classe, replication_factor e datacenter no comando "CREATE KEYSPACE" são ignoradas atualmente. O sistema usa o método de replicação de [distribuição global](global-dist-under-the-hood.md) subjacente do Azure Cosmos DB para adicionar as regiões. Se você precisar da presença de dados entre regiões, poderá habilitá-la no nível da conta com o PowerShell, a CLI ou o portal. Para saber mais, confira o artigo [como adicionar regiões](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Durable_writes não podem ser desabilitadas porque o Azure Cosmos DB garante que cada gravação seja durável. Em todas as regiões, o Azure Cosmos DB replica os dados no conjunto de réplicas composto por quatro réplicas e essa [configuração](global-dist-under-the-hood.md) de conjunto de réplicas não pode ser modificada.
  
 Todas as opções são ignoradas ao criar a tabela com a exceção de gc_grace_seconds, que deve ser definida como zero.
 O keyspace e a tabela têm uma opção extra chamada "cosmosdb_provisioned_throughput", com um valor mínimo de 400 RU/s. A taxa de transferência do keyspace permite o compartilhamento de taxa de transferência em várias tabelas e é útil para cenários em que todas as tabelas não estão utilizando a taxa de transferência provisionada. O comando ALTER TABLE permite alterar a taxa de transferência provisionada entre as regiões. 
@@ -200,7 +200,7 @@ ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 O Azure Cosmos DB é um sistema controlado por recursos. Isso significa que você pode fazer um determinado número de operações em um determinado segundo com base nas unidades de solicitação consumidas pelas operações. Se um aplicativo exceder esse limite em um determinado segundo, as solicitações serão limitadas por taxa e exceções serão geradas. A API do Cassandra do Azure Cosmos DB converte essas exceções em erros de sobrecarga no protocolo nativo do Cassandra. Para garantir que seu aplicativo possa interceptar e repetir solicitações na limitação da taxa de caso, as extensões [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) e [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) são fornecidas. Se você usar outros SDKs para acessar API do Cassandra no Azure Cosmos DB, crie uma política de conexão para tentar novamente ao encontrar essas exceções.
 
-## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
+## <a name="next-steps"></a>Próximas etapas
 
 - Introdução à [criação de uma conta de API do Cassandra, banco de dados e uma tabela](create-cassandra-api-account-java.md) pelo uso de um aplicativo Java
 

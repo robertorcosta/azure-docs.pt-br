@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 6c7c041565f6376e7f8b8b84f5076b30c1eec7bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2821ee637b2562b5287dd3d59cf943b3dcb7ef97
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278110"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010878"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar suporte de Rede Virtual para um Cache do Azure Premium para Redis
 O Cache do Azure para Redis apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache, incluindo recursos da camada Premium como clustering, persistência e suporte de rede virtual. Uma VNet é uma rede privada na nuvem. Quando uma instância do Cache do Azure para Redis é configurada com uma rede virtual, ela não é endereçável publicamente e somente pode ser acessada de máquinas virtuais e aplicativos dentro da rede virtual. Este artigo descreve como configurar suporte de rede virtual para uma instância do Cache do Azure Premium para Redis.
@@ -118,7 +118,7 @@ Há nove requisitos de porta de saída. As solicitações de saída nessas faixa
 
 #### <a name="geo-replication-peer-port-requirements"></a>Requisitos de porta de pares de replicação geográfica
 
-Se você estiver usando a georeplicação entre caches em Redes Virtuais Do Azure, observe que a configuração recomendada é desbloquear as portas 15000-15999 para toda a sub-rede em direções de entrada e saída para ambos os caches, de modo que todos os componentes da réplica na sub-rede pode se comunicar diretamente uns com os outros mesmo no caso de um futuro geo-failover.
+Se você estiver usando a georeplicação entre caches em Redes Virtuais Do Azure, observe que a configuração recomendada é desbloquear as portas 15000-15999 para toda a sub-rede em direções de entrada e saída para ambos os caches, para que todos os componentes de réplica na sub-rede possam se comunicar diretamente entre si mesmo no caso de um futuro geo-failover.
 
 #### <a name="inbound-port-requirements"></a>Requisitos de porta de entrada
 
@@ -142,7 +142,7 @@ Há oito requisitos de intervalo de portas de entrada. As solicitações de entr
 Há requisitos de conectividade de rede para o Cache do Azure para Redis que podem não ser atendidos inicialmente em uma rede virtual. O Cache do Azure para Redis requer que todos os itens a seguir funcionem corretamente quando usados em uma rede virtual.
 
 * Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo. Isso inclui pontos de extremidade localizados na mesma região que a instância do Cache do Azure para Redis, bem como pontos de extremidade de armazenamento localizados em **outras** regiões do Azure. Os pontos de extremidade do Armazenamento do Azure são resolvidos nos seguintes domínios DNS: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* e *file.core.windows.net*. 
-* Conectividade de rede de saída para *ocsp.msocsp.com*, *mscrl.microsoft.com* e *crl.microsoft.com*. Essa conectividade é necessária para dar suporte à funcionalidade SSL.
+* Conectividade de rede de saída para *ocsp.msocsp.com*, *mscrl.microsoft.com* e *crl.microsoft.com*. Essa conectividade é necessária para suportar a funcionalidade TLS/SSL.
 * A configuração DNS para a rede virtual deve ser capaz de resolver todos os pontos de extremidade e domínios mencionados nos pontos anteriores. Esses requisitos de DNS podem ser atendidos, garantindo que uma infraestrutura de DNS válida seja configurada e mantida para a rede virtual.
 * Conectividade de rede de saída para os seguintes pontos de extremidade do Azure Monitoring resolvidos nos domínios DNS a seguir: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net, shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net.
 
@@ -157,7 +157,7 @@ Uma vez configurados os requisitos de porta conforme descrito na seção anterio
 
 - [Reinicialize](cache-administration.md#reboot) todos os nós de cache. Se todas as dependências de cache necessárias não podem ser acessadas (conforme documentado em [Requisitos de porta de entrada](cache-how-to-premium-vnet.md#inbound-port-requirements) e [Requisitos de porta de saída](cache-how-to-premium-vnet.md#outbound-port-requirements)), não será possível reiniciar o cache com êxito.
 - Uma vez que os nós de cache tenham reinicializado (conforme relatado pelo status de cache no portal do Azure), você poderá executar os testes a seguir:
-  - Execute o ping no ponto de extremidade do cache (usando a porta 6380) de um computador que esteja na mesma VNET que o cache, usando [tcping](https://www.elifulkerson.com/projects/tcping.php). Por exemplo: 
+  - Execute o ping no ponto de extremidade do cache (usando a porta 6380) de um computador que esteja na mesma VNET que o cache, usando [tcping](https://www.elifulkerson.com/projects/tcping.php). Por exemplo:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -180,7 +180,7 @@ Evite usar o endereço IP semelhante à seguinte cadeia de caracteres de conexã
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Se não for possível resolver o nome DNS, algumas bibliotecas de cliente incluem opções como `sslHost` que é fornecido pelo cliente StackExchange.Redis. Isso permite que você substitua o nome do host usado para validação de certificado. Por exemplo: 
+Se não for possível resolver o nome DNS, algumas bibliotecas de cliente incluem opções como `sslHost` que é fornecido pelo cliente StackExchange.Redis. Isso permite que você substitua o nome do host usado para validação de certificado. Por exemplo:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

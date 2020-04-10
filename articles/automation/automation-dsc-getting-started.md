@@ -1,5 +1,5 @@
 ---
-title: Introdução à Configuração de Estado da Automação do Azure
+title: Comece com a configuração do estado de automação do Azure
 description: Explicação e exemplos das tarefas mais comuns na Configuração de Estado da Automação do Azure (DSC)
 services: automation
 ms.service: automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9fce9a769dd6d88c9926913d22716666284938c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c33fbed6c547897847c79cc1260d2bdc9ec6b17
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74850951"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010317"
 ---
-# <a name="getting-started-with-azure-automation-state-configuration"></a>Introdução à Configuração de Estado da Automação do Azure
+# <a name="get-started-with-azure-automation-state-configuration"></a>Comece com a configuração do estado de automação do Azure
 
 Este artigo explica como executar as tarefas mais comuns com a Configuração de Estado da Automação do Azure como criar, importar e compilar configurações, integrar computadores para gerenciar e exibir relatórios. Para obter uma visão geral do que é a Configuração de Estado da Automação do Azure, consulte [Visão geral da Configuração de Estado da Automação do Azure](automation-dsc-overview.md). Para a documentação da DSC (Desired State Configuration), consulte [Visão geral da Desired State Configuration do Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 
@@ -67,7 +67,7 @@ Esta configuração chama um recurso em cada bloco de nó, o [recurso WindowsFea
 
 Em seguida, importe a configuração para a conta de Automação.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, no nome de sua conta de Automação.
 1. Na página **da conta Automação,** selecione **Configuração de Estado (DSC)** em **Gerenciamento de Configuração**.
 1. Na página **Configuração de estado (DSC)**, clique na guia **Configurações** e, em seguida, em **+ Adicionar**.
@@ -81,7 +81,7 @@ Em seguida, importe a configuração para a conta de Automação.
 
 Depois de importar uma configuração, você pode vê-la no Portal do Azure.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, no nome de sua conta de Automação.
 1. Na página **Conta de Automação**, selecione **Configuração de estado (DSC)** em **Gerenciamento de Configuração**.
 1. Na página **Configuração de estado (DSC)**, clique na guia **Configurações** e, em seguida, clique em **TestConfig** (esse é o nome da configuração que você importou no procedimento anterior).
@@ -96,7 +96,7 @@ Depois de importar uma configuração, você pode vê-la no Portal do Azure.
 Antes de aplicar um estado desejado a um nó, uma configuração DSC definindo esse estado deve ser compilada em uma ou mais configurações de nó (documento MOF) e colocada no servidor de pull do DSC de Automação. Para obter uma descrição mais detalhada da compilação de configurações na Configuração do Estado da Automação do Azure, consulte [Compilar configurações na Configuração de Estado da Automação do Azure](automation-dsc-compile.md).
 Para obter mais informações sobre a compilação das configurações, consulte [Configurações da DSC](/powershell/scripting/dsc/configurations/configurations).
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, no nome de sua conta de Automação.
 1. Na página **Conta de Automação**, clique em **Configuração de estado (DSC)** em **Gerenciamento de Configuração**.
 1. Na página **Configuração de estado (DSC)**, clique na guia **Configurações** e, em seguida, clique em **TestConfig** (o nome da configuração importada anteriormente).
@@ -111,7 +111,7 @@ Para obter mais informações sobre a compilação das configurações, consulte
 
 Após iniciar uma compilação, você poderá visualizá-la no bloco **Trabalhos de Compilação** na página **Configuração**. O bloco **Trabalhos de Compilação** mostra os trabalhos atualmente em execução, concluídos e com falha. Quando você abre uma página de trabalho de compilação, ela mostra informações sobre esse trabalho, incluindo quaisquer erros ou avisos encontrados, parâmetros de entrada usados na configuração e logs de compilação.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, no nome de sua conta de Automação.
 1. Na página **Conta de Automação**, clique em **Configuração de estado (DSC)** em **Gerenciamento de Configuração**.
 1. Na página **Configuração de estado (DSC)**, clique na guia **Configurações** e, em seguida, clique em **TestConfig** (o nome da configuração importada anteriormente).
@@ -125,7 +125,7 @@ Após iniciar uma compilação, você poderá visualizá-la no bloco **Trabalhos
 
 A conclusão com êxito de um trabalho de compilação cria uma ou mais novas configurações de nó. Uma configuração de nó é um documento MOF que é implantado no servidor de pull e está pronto para ser submetido ao pull e aplicado por um ou mais nós. É possível exibir as configurações de nós na conta de Automação na página **Configuração de estado (DSC)**. Uma configuração de nó tem um nome com o formato *NomeConfiguração*.*NomeNó*.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, no nome de sua conta de Automação.
 1. Na folha **Conta de Automação**, clique em **Configuração de estado (DSC)** em **Gerenciamento de Configuração**.
 1. Na página **Configuração de estado (DSC)**, clique na guia **Configurações compiladas**.
@@ -138,7 +138,7 @@ A conclusão com êxito de um trabalho de compilação cria uma ou mais novas co
 
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-state-configuration"></a>Para integrar uma VM do Azure Resource Manager para gerenciamento por Configuração de Estado da Automação do Azure
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, no nome de sua conta de Automação.
 1. Na folha **Conta de Automação**, clique em **Configuração de estado (DSC)** em **Gerenciamento de Configuração**.
 1. Na página **Configuração de estado (DSC)**, na guia **Nós**, clique em **+ Adicionar**.
@@ -164,7 +164,7 @@ O Azure inicia o processo de integração da VM. Quando estiver concluída, a VM
 
 É possível exibir a lista de todos os computadores que foram integrados para gerenciamento na conta de Automação na guia **Nós** da página **Configuração de estado (DSC)**.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, no nome de sua conta de Automação.
 1. Na folha **Conta de Automação**, clique em **Configuração de estado (DSC)** em **Gerenciamento de Configuração**.
 1. Na página **Configuração de estado (DSC)**, clique na guia **Nós**.
@@ -173,7 +173,7 @@ O Azure inicia o processo de integração da VM. Quando estiver concluída, a VM
 
 Sempre que a Configuração de Estado da Automação do Azure executar uma verificação de consistência em um nó gerenciado, o nó enviará um relatório de status de volta ao servidor de pull. Exiba esses relatórios na página do nó.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, no nome de sua conta de Automação.
 1. Na folha **Conta de Automação**, clique em **Configuração de estado (DSC)** em **Gerenciamento de Configuração**.
 1. Na página Configuração Estado (DSC), clique na guia **'''''''''''''''''''''''''''''''''''''''''''** **State configuration (DSC)** Aqui, você pode ver a visão geral do estado de configuração e os detalhes de cada nó.
@@ -203,7 +203,7 @@ Pode levar algum tempo depois de um nó ser integrado até que o primeiro relat�
 
 Você pode atribuir um nó para usar uma configuração de nó diferente daquela que inicialmente atribuída.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, no nome de sua conta de Automação.
 1. Na folha **Conta de Automação**, clique em **Configuração de estado (DSC)** em **Gerenciamento de Configuração**.
 1. Na página **Configuração de estado (DSC)**, clique na guia **Nós**.
@@ -220,7 +220,7 @@ Você pode atribuir um nó para usar uma configuração de nó diferente daquela
 
 Se você não desejar mais que um nó seja gerenciado pelo DSC de Automação do Azure, você poderá cancelar o registro dele.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, no nome de sua conta de Automação.
 1. Na folha **Conta de Automação**, clique em **Configuração de estado (DSC)** em **Gerenciamento de Configuração**.
 1. Na página **Configuração de estado (DSC)**, clique na guia **Nós**.

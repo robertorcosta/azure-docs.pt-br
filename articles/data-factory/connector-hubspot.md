@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 9ef8d6a8d97b2f2c2cff62c629219efb43077c77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb0e20a96bebec22dff99d89c6be0a6d294c80a1
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75754142"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992140"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copiar dados de HubSpot utilizando o Azure Data Factory (versão prévia)
 
@@ -55,8 +55,8 @@ As propriedades a seguir têm suporte para o serviço vinculado de HubSpot:
 | accessToken | O token de acesso obtido ao autenticar inicialmente sua integração do OAuth. Saiba como obter o token de acesso com seu id cliente e secreto a partir [daqui](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens). Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | refreshToken | O token de atualização obtido ao autenticar inicialmente sua integração do OAuth. Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é verdadeiro.  | Não |
-| useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é verdadeiro.  | Não |
-| usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é verdadeiro.  | Não |
+| useHostVerification | Especifica se é necessário exigir o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar ao TLS. O valor padrão é verdadeiro.  | Não |
+| usePeerVerification | Especifica se deve verificar a identidade do servidor ao se conectar por TLS. O valor padrão é verdadeiro.  | Não |
 
 **Exemplo:**
 

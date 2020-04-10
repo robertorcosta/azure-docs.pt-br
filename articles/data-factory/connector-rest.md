@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 3e0dd6e0bb81aef340dc83288e6e5c0af0bf11c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca913a4c197e04e20c962c4a4a7a1e479a3cdf92
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75867363"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990881"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade REST usando o Azure Data Factory
 
@@ -60,7 +60,7 @@ As seguintes propriedades são suportadas para o serviço vinculado REST:
 |:--- |:--- |:--- |
 | type | A propriedade **do tipo** deve ser definida como **RestService**. | Sim |
 | url | A URL base do serviço REST. | Sim |
-| enableServerCertificateValidation | Se para validar o certificado SSL do lado do servidor ao se conectar ao ponto final. | Não<br /> (o padrão é **verdadeiro**) |
+| enableServerCertificateValidation | Se para validar o certificado TLS/SSL do lado do servidor ao se conectar ao ponto final. | Não<br /> (o padrão é **verdadeiro**) |
 | authenticationType | Tipo de autenticação usado para se conectar ao serviço REST. Os valores permitidos são **Anônimo**, **Básico**, **Windows** e **ManagedServiceIdentity**. Consulte respectivamente as seções correspondentes abaixo em mais propriedades e exemplos. | Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos.](#prerequisites) Se não especificado, essa propriedade usará o Azure Integration Runtime padrão. |Não |
 
@@ -383,7 +383,7 @@ O modelo contém duas atividades:
 
 O modelo define dois parâmetros:
 - **SinkContainer** é o caminho da pasta raiz para onde os dados são copiados no Armazenamento do Lago de Dados do Azure. 
-- **SinkDirectory** é o caminho do diretório a raiz onde os dados são copiados para o Azure Data Lake Storage. 
+- **SinkDirectory** é o caminho do diretório sob a raiz onde os dados são copiados para o Azure Data Lake Storage. 
 
 ### <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
 

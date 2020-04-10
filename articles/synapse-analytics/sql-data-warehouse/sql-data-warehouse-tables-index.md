@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0d63f2c29bfdbdf320185647bd33ec30500ed874
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 8cb4af8faccb68c455928c0d3c5405ef2d3e70df
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742700"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011014"
 ---
 # <a name="indexing-tables-in-synapse-sql-pool"></a>Tabelas de indexação no pool Synapse SQL
 
@@ -52,9 +52,9 @@ Há alguns cenários em que columnstore clusterizado pode não ser uma boa opç�
 
 ## <a name="heap-tables"></a>Tabelas de heap
 
-Quando você está aterrissando temporariamente os dados no pool Synapse SQL, você pode descobrir que o uso de uma tabela de pilha torna o processo geral mais rápido. Isso ocorre porque carregamentos de heaps são mais rápidos que as tabelas de índice e, em alguns casos, a leitura subsequente pode ser feita no cache.  Se estiver carregando os dados apenas para prepará-los antes de executar mais transformações, carregar a tabela na tabela de heap é muito mais rápido que carregar os dados em uma tabela columnstore clusterizado. Além disso, o carregamento de dados em uma [tabela temporária](sql-data-warehouse-tables-temporary.md) carrega mais rapidamente do que o carregamento de uma tabela em um armazenamento permanente.  
+Quando você está aterrissando temporariamente os dados no pool Synapse SQL, você pode descobrir que o uso de uma tabela de pilha torna o processo geral mais rápido. Isso ocorre porque carregamentos de heaps são mais rápidos que as tabelas de índice e, em alguns casos, a leitura subsequente pode ser feita no cache.  Se estiver carregando os dados apenas para prepará-los antes de executar mais transformações, carregar a tabela na tabela de heap é muito mais rápido que carregar os dados em uma tabela columnstore clusterizado. Além disso, o carregamento de dados em uma [tabela temporária](sql-data-warehouse-tables-temporary.md) carrega mais rapidamente do que o carregamento de uma tabela em um armazenamento permanente.  Após o carregamento de dados, você pode criar índices na tabela para obter um desempenho mais rápido da consulta.  
 
-Para pequenas mesas de busca, menos de 60 milhões de linhas, muitas vezes as mesas de pilha saem bem.  As tabelas de columnstore do cluster começam a obter uma compressão ideal quando há mais de 60 milhões de linhas.
+As tabelas de columnstore do cluster começam a obter uma compressão ideal quando há mais de 60 milhões de linhas.  Para pequenas tabelas de visualização, menos de 60 milhões de linhas, considere usar o HEAP ou o índice agrupado para um desempenho mais rápido de consulta. 
 
 Para criar uma tabela de heap, basta especificar HEAP na cláusula WITH:
 

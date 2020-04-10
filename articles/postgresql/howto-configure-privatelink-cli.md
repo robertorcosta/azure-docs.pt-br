@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: d4288b901a0e6e132e32f8391d108e79861fc331
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a6baf8b4609382be4a5a31d12cac581da2c17de6
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371028"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011660"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Criar e gerenciar o Private Link for Azure Database para PostgreSQL - Servidor único usando CLI
 
@@ -118,7 +118,7 @@ az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
  
 #Create DNS records 
 az network private-dns record-set a create --name myserver --zone-name privatelink.postgres.database.azure.com --resource-group myResourceGroup  
-az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.postgres.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
+az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.postgres.database.azure.com --resource-group myResourceGroup -a <Private IP Address>
 ```
 
 > [!NOTE] 
@@ -132,7 +132,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 1. Selecione o botão **Conectar**. Depois de selecionar o botão **Conectar**, **Conectar-se à máquina virtual** abre.
 
-1. Selecione **Baixar arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
+1. Selecione **Baixar Arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
 
 1. Abra o arquivo *downloaded.rdp*.
 
@@ -141,7 +141,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
     1. Insira o nome de usuário e a senha que você especificou ao criar a VM.
 
         > [!NOTE]
-        > Você pode precisar selecionar **Mais opções** > **Use uma conta diferente,** para especificar as credenciais inseridas quando criou a VM.
+        > Talvez seja necessário selecionar **Mais escolhas** > **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM.
 
 1. Selecione **OK**.
 
@@ -185,7 +185,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 8. Feche a conexão remota da área de trabalho para myVm.
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando não for mais necessário, você poderá usar az group delete para remover o grupo de recursos e todos os recursos que ele contém: 
 
 ```azurecli-interactive

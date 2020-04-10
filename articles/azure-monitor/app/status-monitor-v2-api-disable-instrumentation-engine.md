@@ -1,16 +1,16 @@
 ---
-title: Referência de API do Azure Application Insights Agent
+title: Azure Application Insights Agent Disable-InstrumentationEngine
 description: Referência de API do Agente de Insights de Aplicativos. Desabilitar-InstrumentationEngine. Monitore o desempenho do site sem reimplantar o site. Funciona com ASP.NET aplicativos web hospedados no local, em VMs ou no Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: dafa12db95a10df467bf0d042cfd9395720648b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c52d429b527c437db5bb8aaf7e3cc1f1c52af57
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671368"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998379"
 ---
 # <a name="application-insights-agent-api-disable-instrumentationengine"></a>API do agente de insights de aplicativos: Disable-InstrumentationEngine
 
@@ -29,7 +29,7 @@ Reinicie o IIS para que as alterações entrem em vigor.
 PS C:\> Disable-InstrumentationEngine
 ```
 
-## <a name="parameters"></a>Parâmetros 
+## <a name="parameters"></a>parâmetros 
 
 ### <a name="-verbose"></a>-Verbose
 **Parâmetro comum.** Use este interruptor para produzir logs detalhados de saída.

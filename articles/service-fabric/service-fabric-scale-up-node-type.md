@@ -3,12 +3,12 @@ title: Dimensione um tipo de nó de malha de serviço azure
 description: Aprenda como dimensionar um cluster do Microsoft Azure Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 33d535cb093eeb95e0ce95bdd5722bfd21150a40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dbb9e4fbfeb27c5b8b13f70207888cf37bbb0e0
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75464231"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998937"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Dimensionar um tipo de nó primário do cluster do Service Fabric
 Este artigo descreve como dimensionar um tipo de nó primário de cluster do Service Fabric aumentando os recursos da máquina virtual. Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente. Após criar um cluster do Service Fabric, será possível dimensionar verticalmente um tipo de nó de cluster (alterar os recursos dos nós) ou atualizar o sistema operacional das VMs do tipo de nó.  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
@@ -34,7 +34,7 @@ Este é o processo para atualizar o tamanho da VM e o sistema operacional das VM
     Para localizar o novo conjunto de dimensionamento configurado no modelo, pesquise o recurso "Microsoft.Compute/virtualMachineScaleSets" nomeado pelo parâmetro *vmNodeType2Name*.  O novo conjunto de dimensionamento é adicionado ao tipo de nó primário usando a configuração propriedades-> virtualMachineProfile-> extensionProfile-> extensões-> propriedades-> configurações-> nodeTypeRef.
 4. Verifique a integridade do cluster e se todos os nós estão íntegros.
 5. Desabilite os nós no antigo conjunto de dimensionamento do tipo de nó primário com a intenção de remover o nó. É possível desabilitar todos de uma vez e as operações serão enfileiradas. Aguarde até que todos os nós estejam desabilitados, o que pode demorar algum tempo.  Como os nós mais antigos no tipo de nó estão desabilitados, os serviços do sistema e os nós de propagação migram para as VMs do novo conjunto de dimensionamento configurado no tipo de nó primário.
-6. Remova o conjunto de dimensionamento mais antigo do tipo de nó primário.
+6. Remova o conjunto de dimensionamento mais antigo do tipo de nó primário. (Depois que os nós forem desativados como na etapa 5, na lâmina de conjunto de escala de máquina virtual no portal Azure, desaloque os nós do nó antigo tipo um por um.)
 7. Remova o balanceador de carga associado ao antigo conjunto de dimensionamento. O cluster não estará disponível enquanto o novo endereço IP público e o balanceador de carga estiverem configurados para o novo conjunto de dimensionamento.  
 8. Armazene as configurações de DNS do endereço IP público associado ao antigo conjunto de dimensionamento do tipo de nó primário em uma variável e remova esse endereço IP público.
 9. Substitua as configurações de DNS do endereço IP público associado ao novo conjunto de dimensionamento do tipo de nó primário com as configurações de DNS do endereço IP público excluído.  O cluster agora está acessível novamente.

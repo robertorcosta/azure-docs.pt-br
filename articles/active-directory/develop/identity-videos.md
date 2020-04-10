@@ -1,6 +1,6 @@
 ---
 title: Vídeos da plataforma de identidade da Microsoft | Azure
-description: Uma lista de vídeos sobre a plataforma de identidade da Microsoft
+description: Uma lista de vídeos sobre autenticação moderna e a plataforma de identidade da Microsoft
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -8,24 +8,73 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/29/2020
+ms.date: 04/08/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: 22149ccfa258852b36da61ffbabde5e1856df9de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8c7ec6cf1d15e414a6db54d5bc2ad7e4994cd82
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77085201"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991289"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Vídeos da plataforma de identidade da Microsoft
 
-Conheça a plataforma de identidade da Microsoft e as bibliotecas de autenticação da Microsoft (MSAL). Normalmente têm 1-2 minutos de duração.
+Aprenda os fundamentos da autenticação moderna, da plataforma de identidade Microsoft e das Bibliotecas de Autenticação microsoft (MSAL).
+
+## <a name="authentication-fundamentals"></a>Fundamentos de autenticação
+
+Se você é novo em conceitos como provedores de identidade, tokens de segurança, reivindicações e audiência, esta série de vídeos é um bom lugar para começar.
+___
+
+:::row:::
+    :::column:::
+        1 - Noções básicas: Os conceitos de autenticação moderna (4:33)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+     :::column:::
+        2 - Autenticação moderna para aplicações web (6:02)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        3 - Web single sign-on (4:13)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/51B-jSOBF8U?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+    :::column:::
+        4 - Autenticação web federada (6:19)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        5 - Aplicações nativas do cliente - Parte 1 (8:12)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/OGMDnuDrAcQ?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+    :::column:::
+        6 - Aplicações nativas do cliente - Parte 2 (5:33)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/2RE6IhXfmHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+:::row-end:::
 
 ## <a name="microsoft-identity-platform-basics"></a>Noções básicas da plataforma de identidade da Microsoft
 
-**Conheça os conceitos básicos da plataforma de identidade da Microsoft**
+Conheça os componentes da plataforma de identidade microsoft, as Bibliotecas de Autenticação da Microsoft (MSAL) e como esses componentes interagem com o Azure Active Directory. Os vídeos de One Dev Question têm 1-2 minutos de duração.
+___
 
 :::row:::
     :::column:::
@@ -112,7 +161,8 @@ Conheça a plataforma de identidade da Microsoft e as bibliotecas de autenticaç
 
 ## <a name="migrate-from-v10-to-v20"></a>Migrar de v1.0 para v2.0
 
-**Saiba mais sobre a migração para a versão mais recente da plataforma de identidade da Microsoft**
+Saiba mais sobre a migração para a versão mais recente da plataforma de identidade da Microsoft, incluindo a mudança da Biblioteca de Autenticação de Diretório Ativo (ADAL) para a MSAL.
+___
 
 :::row:::
     :::column:::

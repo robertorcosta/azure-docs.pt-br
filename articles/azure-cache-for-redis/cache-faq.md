@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: ddf7999153e9d9722e627d148b116750fe3aaecf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ba292850c057284fff265c8a77386d21374942a
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278708"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010215"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Perguntas frequentes sobre o Cache Redis do Azure
 Conheça as respostas a perguntas, padrões e práticas recomendadas comuns do Cache do Azure para Redis.
@@ -54,7 +54,7 @@ As perguntas frequentes a seguir abordam os conceitos básicos e as perguntas so
 * [Quais são os bancos de dados do Redis?](#what-are-redis-databases)
 
 ## <a name="security-faqs"></a>Perguntas frequentes sobre segurança
-* [Quando devo habilitar a porta não SSL para conexão ao Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
+* [Quando devo habilitar a porta não-TLS/SSL para conexão com Redis?](#when-should-i-enable-the-non-tlsssl-port-for-connecting-to-redis)
 
 ## <a name="production-faqs"></a>Perguntas frequentes sobre produção
 * [Quais são algumas práticas recomendadas de produção?](#what-are-some-production-best-practices)
@@ -112,7 +112,7 @@ Veja abaixo as considerações para a escolha de uma oferta de Cache.
 <a name="cache-performance"></a>
 
 ### <a name="azure-cache-for-redis-performance"></a>Desempenho do Cache do Azure para Redis
-A tabela a seguir mostra os valores máximos de largura de banda observados durante o teste de vários tamanhos de caches Standard e Premium usando `redis-benchmark.exe` de uma VM de IaaS no ponto de extremidade do Cache do Azure para Redis. Para a taxa de transferência SSL, o redis-benchmark é usado com stunnel para se conectar ao ponto de extremidade do Cache do Azure para Redis.
+A tabela a seguir mostra os valores máximos de largura de banda observados durante o teste de vários tamanhos de caches Standard e Premium usando `redis-benchmark.exe` de uma VM de IaaS no ponto de extremidade do Cache do Azure para Redis. Para o throughput TLS, o redis-benchmark é usado com stunnel para conectar ao Cache Do Azure para ponto final Redis.
 
 >[!NOTE] 
 >Esses valores não são garantidos e que não há nenhum SLA para esses números, mas eles devem ser típicos. Você deve realizar teste de carga em seu próprio aplicativo para determinar o tamanho de cache certo para ele.
@@ -196,7 +196,7 @@ Normalmente, os valores padrão do cliente são suficientes. Você pode realizar
   * Use uma única instância de ConnectionMultiplexer para o aplicativo. Você pode usar uma LazyConnection para criar uma única instância que é retornada por uma propriedade Connection, conforme mostrado em [Conectar-se ao cache usando a classe ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Defina a propriedade `ConnectionMultiplexer.ClientName` como um nome exclusivo de instância de aplicativo para fins de diagnóstico.
   * Usar várias instâncias de `ConnectionMultiplexer` para cargas de trabalho personalizadas.
-      * Você pode seguir este modelo se tem variação de carga em seu aplicativo. Por exemplo: 
+      * Você pode seguir este modelo se tem variação de carga em seu aplicativo. Por exemplo:
       * Você pode ter um multiplexador para lidar com chaves grandes.
       * Você pode ter um multiplexador para lidar com chaves pequenas.
       * Você pode definir valores diferentes para o tempo limite da conexão e a lógica de repetição para cada ConnectionMultiplexer que você usa.
@@ -244,7 +244,7 @@ Você pode usar qualquer comando listado em [Comandos do Redis](https://redis.io
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> As ferramentas de linha de comando Redis não funcionam com a porta `stunnel` SSL, mas você pode usar um utilitário para conectar as ferramentas com segurança à porta SSL seguindo as instruções na [ferramenta Como usar a ferramenta de linha de comando Redis com o artigo Do Cache do Azure para Redis.](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool)
+> As ferramentas de linha de comando Redis não funcionam com a porta `stunnel` TLS, mas você pode usar um utilitário para conectar as ferramentas com segurança à porta TLS seguindo as instruções na [ferramenta Como usar a ferramenta de linha de comando Redis com o artigo Do Cache do Azure para Redis.](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool)
 >
 >
 
@@ -281,22 +281,22 @@ Os Bancos de Dados Redis são apenas uma separação lógica dos dados dentro da
 
 <a name="cache-ssl"></a>
 
-### <a name="when-should-i-enable-the-non-ssl-port-for-connecting-to-redis"></a>Quando devo habilitar a porta não SSL para conexão ao Redis?
-O servidor Redis não oferece suporte a SSL, mas o Cache do Azure para Redis sim. Se você estiver se conectando ao Cache do Azure para Redis e seu cliente oferecer suporte a SSL, como StackExchange.Redis, você deverá usar SSL.
+### <a name="when-should-i-enable-the-non-tlsssl-port-for-connecting-to-redis"></a>Quando devo habilitar a porta não-TLS/SSL para conexão com Redis?
+O servidor Redis não suporta tls nativamente, mas o Cache Azure para Redis. Se você estiver se conectando ao Cache Do Azure para Redis e seu cliente suportar TLS, como StackExchange.Redis, então você deve usar O TLS.
 
 >[!NOTE]
->A porta não SSL está desabilitada por padrão para novas instâncias do Cache do Azure para Redis. Se o cliente não oferecer suporte a SSL, você deverá habilitar a porta não SSL seguindo as instruções na seção [Portas de acesso](cache-configure.md#access-ports) do artigo [Configurar um cache no Cache do Azure para Redis](cache-configure.md).
+>A porta não-TLS está desativada por padrão para novo Cache Do Azure para instâncias Redis. Se o seu cliente não fizer o suporte ao TLS, então você deve ativar a porta não-TLS seguindo as instruções na seção Portas de [acesso](cache-configure.md#access-ports) do Configure um cache no artigo [Azure Cache for Redis.](cache-configure.md)
 >
 >
 
-Ferramentas do Redis como o `redis-cli` não funcionam com a porta SSL, mas você pode usar um utilitário como `stunnel` para conectar as ferramentas com segurança à porta SSL seguindo as instruções na postagem de blog [Anunciando o provedor de estado de sessão ASP.NET para versão de visualização do Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+Ferramentas redis, `redis-cli` como não funcionam com a porta TLS, `stunnel` mas você pode usar um utilitário como conectar as ferramentas com segurança à porta TLS seguindo as instruções no post [do blog Anunciando ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) post.
 
 Para obter instruções sobre como baixar as ferramentas do Redis, consulte a seção [Como posso executar comandos do Redis?](#cache-commands)
 
 ### <a name="what-are-some-production-best-practices"></a>Quais são algumas práticas recomendadas de produção?
 * [Práticas recomendadas do StackExchange.Redis](#stackexchangeredis-best-practices)
 * [Configuração e conceitos](#configuration-and-concepts)
-* [Teste de desempenho](#performance-testing)
+* [Testes de desempenho](#performance-testing)
 
 #### <a name="stackexchangeredis-best-practices"></a>Práticas recomendadas do StackExchange.Redis
 * Defina `AbortConnect` como false e deixe o ConnectionMultiplexer se reconectar automaticamente. [Consulte aqui para obter detalhes](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md).
@@ -312,7 +312,7 @@ Para obter instruções sobre como baixar as ferramentas do Redis, consulte a se
 * Desenvolva seu sistema, de modo que possa lidar com blips de conexão [devido à aplicação de patch e ao failover](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
 
 #### <a name="performance-testing"></a>Testes de desempenho
-* Comece usando `redis-benchmark.exe` para ter uma ideia de taxa de transferência possível antes de escrever seus próprios testes de desempenho. Porque `redis-benchmark` não dá suporte a SSL, você deve [habilitar a porta não SSL no portal do Azure](cache-configure.md#access-ports) antes de executar o teste. Por exemplo, consulte [Como medir e testar o desempenho do meu cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+* Comece usando `redis-benchmark.exe` para ter uma ideia de taxa de transferência possível antes de escrever seus próprios testes de desempenho. Como `redis-benchmark` não suporta TLS, você deve [habilitar a porta Non-TLS através do portal Azure](cache-configure.md#access-ports) antes de executar o teste. Por exemplo, consulte [Como medir e testar o desempenho do meu cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * A VM do cliente usada para testes deve estar na mesma região que a instância do Cache do Azure para Redis.
 * É recomendável usar a Série de VM Dv2 série para o cliente, pois ela tem hardware melhor e deve oferecer melhores resultados.
 * Verifique se a VM do cliente escolhida tem ao menos a quantidade de computação e funcionalidade de largura de banda de cache que você está testando.
@@ -381,7 +381,7 @@ Dadas essas informações, recomendamos fortemente que os clientes definam o val
 
 Como definir essa configuração:
 
-* Recomendamos alterar essa configuração de forma programática usando o método `global.asax.cs` [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) em . Por exemplo: 
+* Recomendamos alterar essa configuração de forma programática usando o método `global.asax.cs` [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) em . Por exemplo:
 
 ```cs
 private readonly int minThreads = 200;
@@ -398,7 +398,7 @@ void Application_Start(object sender, EventArgs e)
   > [!NOTE]
   > O valor especificado por este método é uma configuração global, afetando todo o AppDomain. Por exemplo, se você tiver uma máquina de 4 núcleos e quiser definir *minWorkerThreads* e *minIoThreads* para 50 por CPU durante o tempo de execução, você usaria **ThreadPool.SetMinThreads(200, 200)**.
 
-* Também é possível especificar a configuração mínima de threads usando a [configuração *minIoThreads* ou *minWorkerThreads* ](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) o `<processModel>` elemento de configuração em `Machine.config`, geralmente localizado em `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Definir o número de threads mínimos desta forma geralmente não é recomendado, porque é uma configuração em todo o sistema.**
+* Também é possível especificar a configuração mínima de threads usando a [configuração *minIoThreads* ou *minWorkerThreads* ](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) sob o `<processModel>` elemento de configuração em `Machine.config`, geralmente localizado em `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Definir o número de threads mínimos desta forma geralmente não é recomendado, porque é uma configuração em todo o sistema.**
 
   > [!NOTE]
   > O valor especificado nesse elemento de configuração é uma *configuração por núcleo*. Por exemplo, se você tiver uma máquina de 4 núcleos e quiser que a configuração `<processModel minIoThreads="50"/>` *minIoThreads* seja de 200 em tempo de execução, você usaria .
@@ -411,7 +411,7 @@ Habilitar a GC do servidor pode otimizar o cliente e proporcionar melhor desempe
 
 * [Para habilitar a GC (coleta de lixo) do servidor](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
 * [Noções básicas sobre a coleta de lixo](/dotnet/standard/garbage-collection/fundamentals)
-* [Coleta de lixo e desempenho](/dotnet/standard/garbage-collection/performance)
+* [Coleta e Desempenho do Lixo](/dotnet/standard/garbage-collection/performance)
 
 
 ### <a name="performance-considerations-around-connections"></a>Considerações sobre desempenho em torno de conexões

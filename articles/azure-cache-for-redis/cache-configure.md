@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278734"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010300"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o Cache do Azure para Redis
 Este tópico descreve as configurações disponíveis para suas instâncias de Cache do Azure para Redis. Este tópico também aborda a configuração padrão do servidor Redis para instâncias do Cache do Azure para Redis.
@@ -31,7 +31,7 @@ As configurações do Cache do Azure para Redis são exibidas e definidas na fol
 Você pode exibir e definir as seguintes configurações usando o **Menu recursos**.
 
 * [Visão geral](#overview)
-* [Registro de atividades](#activity-log)
+* [Log de atividades](#activity-log)
 * [Controle de acesso (IAM)](#access-control-iam)
 * [Marcas](#tags)
 * [Diagnosticar e resolver problemas](#diagnose-and-solve-problems)
@@ -47,18 +47,18 @@ Você pode exibir e definir as seguintes configurações usando o **Menu recurso
     * [Rede Virtual](#virtual-network)
     * [Firewall](#firewall)
     * [Propriedades](#properties)
-    * [Fechaduras](#locks)
+    * [Locks](#locks)
     * [Script de automação](#automation-script)
 * Administração
-    * [Dados de importação](#importexport)
-    * [Dados de exportação](#importexport)
+    * [Importar dados](#importexport)
+    * [Exportar dados](#importexport)
     * [Reboot](#reboot)
 * <bpt i="1000001" x="1000001" type="formatting">{b&gt;</bpt>Monitoramento<ept i="1000001">&lt;b}</ept>
     * [Métricas do Redis](#redis-metrics)
     * [Regras de alerta](#alert-rules)
-    * [Diagnostics](#diagnostics)
+    * [Diagnósticos](#diagnostics)
 * Configurações de suporte e solução de problemas
-    * [Integridade de recursos](#resource-health)
+    * [Saúde de recursos](#resource-health)
     * [Nova solicitação de suporte](#new-support-request)
 
 
@@ -99,7 +99,7 @@ A seção **Configurações** permite acessar e definir as seguintes configuraç
 * [Rede Virtual](#virtual-network)
 * [Firewall](#firewall)
 * [Propriedades](#properties)
-* [Fechaduras](#locks)
+* [Locks](#locks)
 * [Script de automação](#automation-script)
 
 
@@ -117,10 +117,10 @@ As configurações a seguir são definidas na folha **Configurações avançadas
 * [Notificações de Keyspace (configurações avançadas)](#keyspace-notifications-advanced-settings)
 
 #### <a name="access-ports"></a>Portas de acesso
-Por padrão, o acesso não SSL está desabilitado para novos caches. Para habilitar a porta não SSL, clique em **Não** para **Permitir acesso somente via SSL** na folha **Configurações avançadas** e, em seguida, clique em **Salvar**.
+Por padrão, o acesso não TLS/SSL está desativado para novos caches. Para ativar a porta não-TLS, clique **em Não** permitir **acesso apenas via SSL** na lâmina **de configurações avançadas** e, em seguida, clique em **Salvar**.
 
 > [!NOTE]
-> O acesso SSL ao Cache Azure para Redis suporta TLS 1.0, 1.1 e 1.2 atualmente, mas as versões 1.0 e 1.1 estão sendo retiradas em breve.  Leia nossa [página Remover TLS 1.0 e 1.1](cache-remove-tls-10-11.md) para obter mais detalhes.
+> O acesso tls ao Cache Azure para Redis suporta TLS 1.0, 1.1 e 1.2 atualmente, mas as versões 1.0 e 1.1 estão sendo retiradas em breve.  Leia nossa [página Remover TLS 1.0 e 1.1](cache-remove-tls-10-11.md) para obter mais detalhes.
 
 ![Portas de acesso do Cache do Azure para Redis](./media/cache-configure/redis-cache-access-ports.png)
 
@@ -290,8 +290,8 @@ As configurações na seção **Administração** permitem que você execute as 
 
 ![Administração](./media/cache-configure/redis-cache-administration.png)
 
-* [Dados de importação](#importexport)
-* [Dados de exportação](#importexport)
+* [Importar dados](#importexport)
+* [Exportar dados](#importexport)
 * [Reboot](#reboot)
 
 
@@ -333,7 +333,7 @@ Para saber mais sobre diagnóstico e monitoramento do Cache do Azure para Redis,
 
 * [Métricas do Redis](#redis-metrics)
 * [Regras de alerta](#alert-rules)
-* [Diagnostics](#diagnostics)
+* [Diagnósticos](#diagnostics)
 
 ### <a name="redis-metrics"></a>Métricas do Redis
 Clique em **Métricas do Redis** para [exibir métricas](cache-how-to-monitor.md#view-cache-metrics) para seu cache.
@@ -356,7 +356,7 @@ As configurações na seção **Suporte + solução de problemas** fornecem opç
 
 ![Suporte + solução de problemas](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
-* [Integridade de recursos](#resource-health)
+* [Saúde de recursos](#resource-health)
 * [Nova solicitação de suporte](#new-support-request)
 
 ### <a name="resource-health"></a>Integridade de recursos

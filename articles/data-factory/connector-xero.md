@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 1f6404da163e075b63a99a1d8474cdba4e064b06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdb2dc283287bf83410f1846aca11f233e93d01b
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930891"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990830"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copiar dados do Xero usando o Azure Data Factory
 
@@ -55,8 +55,8 @@ As propriedades a seguir têm suporte para o serviço vinculado do Xero:
 | consumerKey | A chave de consumidor associada ao aplicativo Xero. Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | privateKey | A chave privada do arquivo .pem que foi gerada para o aplicativo privado Xero, consulte [Criar um par de chaves pública/privada](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Observe **gerar privatekey.pem com numbits de 512** usando `openssl genrsa -out privatekey.pem 512`; não há suporte para a 1024. Inclua todo o texto do arquivo .pem, incluindo as terminações de linha Unix (\n), consulte o exemplo abaixo.<br/><br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é verdadeiro.  | Não |
-| useHostVerification | Especifica se o nome do host é necessário no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é verdadeiro.  | Não |
-| usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é verdadeiro.  | Não |
+| useHostVerification | Especifica se o nome do host é necessário no certificado do servidor para corresponder ao nome de host do servidor ao se conectar em TLS. O valor padrão é verdadeiro.  | Não |
+| usePeerVerification | Especifica se deve verificar a identidade do servidor ao se conectar por TLS. O valor padrão é verdadeiro.  | Não |
 
 **Exemplo:**
 

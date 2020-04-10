@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 68e234b9db269c30dc9f24106ae1942c01304da7
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 534e5c913685eeac92022f6694ea31b24816da5d
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422499"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011643"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -37,6 +37,7 @@ Você pode copiar dados de um banco de dados Oracle para qualquer armazenamento 
 Especificamente, este conector Oracle suporta:
 
 - As seguintes versões de um banco de dados Oracle:
+    - Oracle 19c R1 (19.1) e superior
     - Oracle 18c R1 (18.1) e superior
     - Oracle 12c R1 (12.1) e superior
     - Oracle 11g R1 (11.1) e superior
@@ -84,9 +85,9 @@ Para habilitar a criptografia na conexão do Oracle, há duas opções:
 
 -   Para usar **o Triple-DES Encryption (3DES) e o Advanced Encryption Standard (AES)**, no lado do servidor Oracle, vá para a Oracle Advanced Security (OAS) e configure as configurações de criptografia. Para obter detalhes, consulte esta [documentação oracle](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). O conector ADF (Oracle Application Development Framework, estrutura de desenvolvimento de aplicativos) negocia automaticamente o método de criptografia para usar o que você configura na OEA ao estabelecer uma conexão com o Oracle.
 
--   Para usar **SSL:**
+-   Para usar **TLS:**
 
-    1.  Obtenha as informações do certificado SSL. Obtenha as regras de codificação distintas (DER)-codificadas informações do certificado do seu cert SSL, e salve a saída (----- Begin Certificate ... End Certificate---) como um arquivo de texto.
+    1.  Obtenha as informações do certificado TLS/SSL. Obtenha as regras de codificação distintas (DER)-codificadas informações do certificado do seu cert TLS/SSL, e salve a saída (----- Begin Certificate ... End Certificate---) como um arquivo de texto.
 
         ```
         openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text

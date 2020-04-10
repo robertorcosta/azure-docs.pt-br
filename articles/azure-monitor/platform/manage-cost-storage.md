@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/08/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 5b532908df4b8dd58177b7e128f4e55aa96458e6
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: d03b053f2aa5de4a6f7874dbf4e6ccb3a305a964
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409946"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992072"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerencie o uso e os custos com logs do Monitor do Azure
 
@@ -88,6 +88,9 @@ Você também pode [definir o nível de preços via Azure Resource Manager](http
 As assinaturas que possuíam um recurso de espaço de trabalho log analytics ou de insights de aplicativos nele antes de 2 de abril de 2018, ou estão vinculadas a um Contrato Empresarial que começou antes de 1º de fevereiro de 2019, continuarão a ter acesso ao uso dos níveis de preços legados: **Livre,** **Autônomo (Por GB)** e **Por Nó (OMS).**  Os espaços de trabalho no nível de preços livres terão ingestão diária de dados limitada a 500 MB (exceto para os tipos de dados de segurança coletados pelo Azure Security Center) e a retenção de dados é limitada a 7 dias. A camada de preços livres destina-se apenas para fins de avaliação. Os espaços de trabalho nos níveis de preços Autônomo ou Por Nó têm retenção configurável pelo usuário de 30 a 730 dias.
 
 O nível de preço por nó cobra por VM monitor (nó) em uma hora de granularidade. Para cada nó monitorado, o espaço de trabalho é alocado 500 MB de dados por dia que não são cobrados. Essa alocação é agregada ao nível do espaço de trabalho. Os dados ingeridos acima da alocação diária de dados agregados são cobrados por GB como excesso de dados. Observe que, em sua conta, o serviço será **Insight e Analytics** para uso do Log Analytics se o espaço de trabalho estiver no nível de preços por nó. 
+
+> [!TIP]
+> Se o seu espaço de trabalho tiver acesso ao nível de preços **por nó,** mas você está se perguntando se ele custaria menos em um nível Pay-As-You-Go, você pode [usar a consulta abaixo](#evaluating-the-legacy-per-node-pricing-tier) para obter facilmente uma recomendação. 
 
 Os espaços de trabalho criados antes de abril de 2016 também podem acessar os níveis de preços **padrão** e **premium** originais que têm retenção de dados fixos de 30 e 365 dias, respectivamente. Novos espaços de trabalho não podem ser criados nos níveis de preços **Padrão** ou **Premium** e, se um espaço de trabalho for movido para fora desses níveis, ele não poderá ser movido para trás. 
 
@@ -434,6 +437,49 @@ Para ver o número de nós de automação distintos, use a consulta:
        | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
  ) on lowComputer
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
+```
+
+## <a name="evaluating-the-legacy-per-node-pricing-tier"></a>Avaliando o nível de preços legado por nó
+
+A decisão de saber se os espaços de trabalho com acesso ao nível de preços **legados do Por Nó** são melhores nesse nível ou em um nível atual **de Pay-As-You-Go** ou **Reserva de Capacidade** é muitas vezes difícil para os clientes avaliarem.  Isso envolve entender o trade-off entre o custo fixo por nó monitorado na camada de preços por nó e sua alocação de dados incluída de 500 MB/nó/dia e o custo de apenas pagar por dados ingeridos no nível Pay-As-You-Go (Per GB). 
+
+Para facilitar essa avaliação, a seguinte consulta pode ser usada para fazer uma recomendação para o nível ideal de preços com base nos padrões de uso de um espaço de trabalho.  Esta consulta analisa os nódulos e dados monitorados ingeridos em um espaço de trabalho nos últimos 7 dias, e para cada dia avalia qual nível de preços teria sido ideal. Para usar a consulta, você precisa especificar se o espaço de `workspaceHasSecurityCenter` `true` trabalho `false`está usando o Azure Security Center definindo ou , e então (opcionalmente) atualizando os preços por nó e por GB que seu organizaiton recebe. 
+
+```kusto
+// Set these paramaters before running query
+let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
+let PerNodePrice = 15.; // Enter your price per node / month 
+let PerGBPrice = 2.30; // Enter your price per GB 
+// ---------------------------------------
+let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
+union withsource = tt * 
+| where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
+| summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
+| join (
+    Usage 
+    | where TimeGenerated > ago(8d)
+    | where StartTime >= startofday(now(-7d)) and EndTime < startofday(now())
+    | where IsBillable == true
+    | extend NonSecurityData = iff(DataType !in (SecurityDataTypes), Quantity, 0.)
+    | extend SecurityData = iff(DataType in (SecurityDataTypes), Quantity, 0.)
+    | summarize DataGB=sum(Quantity)/1000., NonSecurityDataGB=sum(NonSecurityData)/1000., SecurityDataGB=sum(SecurityData)/1000. by day=bin(StartTime, 1d)  
+) on day
+| extend AvgGbPerNode =  NonSecurityDataGB / nodesPerDay
+| extend PerGBDailyCost = iff(workspaceHasSecurityCenter,
+             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*nodesPerDay, 0.)) * PerGBPrice,
+             DataGB * PerGBPrice)
+| extend OverageGB = iff(workspaceHasSecurityCenter, 
+             max_of(DataGB - 1.0*nodesPerDay, 0.), 
+             max_of(DataGB - 0.5*nodesPerDay, 0.))
+| extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerGBPrice
+| extend Recommendation = iff(PerNodeDailyCost < PerGBDailyCost, "Per Node tier", 
+             iff(NonSecurityDataGB > 85., "Capacity Reservation tier", "Pay-as-you-go (Per GB) tier"))
+| project day, nodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
+| project day, Recommendation // Comment this line to see details
+| sort by day asc
 ```
 
 ## <a name="create-an-alert-when-data-collection-is-high"></a>Crie um alerta quando a coleta de dados for alta

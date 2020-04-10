@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/08/2020
 ms.author: juliako
-ms.openlocfilehash: 8a00f7c0ec76510cc521966acf98b7250e723697
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 8eca95f9fca47fca4d54bacbab35f3a0ffc3ba31
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985891"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010572"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo em serviços de mídia
 
@@ -111,7 +111,7 @@ Você pode usar URLs intuitivas ou não intuitivas.
 
 * URL intuitiva
 
-    O modo vanity é preferido por grandes emissoras de mídia que usam codificadores de transmissão de hardware e não querem reconfigurar seus codificadores quando iniciam o Evento Ao Vivo. Eles querem uma URL preditiva, que não muda com o tempo.
+    O modo vanity é preferido por grandes emissoras de mídia que usam codificadores de transmissão de hardware e não querem reconfigurar seus codificadores quando iniciam o Evento Ao Vivo. Essas emissoras querem uma URL preditiva que não muda com o tempo.
     
     > [!NOTE]
     > No portal Azure, a URL de vaidade é chamada de "*URL de entrada persistente*".

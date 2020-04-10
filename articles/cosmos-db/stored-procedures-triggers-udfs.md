@@ -1,18 +1,18 @@
 ---
 title: Trabalhe com procedimentos armazenados, gatilhos e UDFs no Azure Cosmos DB
 description: Este artigo apresenta conceitos, como procedimentos armazenados, gatilhos e funções definidas pelo usuário, do Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: mjbrown
+ms.date: 04/09/2020
+ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 23a14e7590eca6f63c92acdf6336ffaef8b54381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13256377b8a8aaebf59196df57eef67d3b960cb8
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065905"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010538"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo usuário
 
@@ -69,7 +69,7 @@ Os procedimentos armazenados e os gatilhos são sempre executados na réplica pr
 
 Todas as operações do Azure Cosmos DB precisam ser concluídas dentro da duração de tempo limite especificada. Essa restrição se aplica a funções do JavaScript – procedimentos armazenados, gatilhos e funções definidas pelo usuário. Se uma operação não for concluída dentro desse limite de tempo, a transação será revertida.
 
-Garanta que as funções do JavaScript sejam concluídas dentro do limite de tempo ou implemente um modelo baseado em continuação para criar um lote/retomar a execução. A fim de simplificar o desenvolvimento de procedimentos armazenados e gatilhos para lidar com limites de tempo, todas as funções no contêiner do Azure Cosmos (por exemplo, criação, leitura, atualização e exclusão de itens) retornam um valor booliano que representa se a operação será concluída. Se esse valor for falso, ele será uma indicação de que o procedimento precisará encapsular a execução porque o script está consumindo mais tempo ou uma taxa de transferência provisionada maior do que o valor configurado. Operações colocadas em fila antes da primeira operação de armazenamento não aceita serão concluídas com certeza se o procedimento armazenado for concluído dentro do tempo e não colocar nenhuma outra solicitação em fila. Portanto, as operações devem ser colocadas na fila uma por vez usando a convenção de retorno de chamada do JavaScript para gerenciar o fluxo de controle do script. Como os scripts são executados em um ambiente do servidor, eles são estritamente controlados. Os scripts que violam repetidamente os limites de execução podem ser marcados como inativos e não podem ser executados e devem ser recriados para respeitar os limites de execução.
+Garanta que as funções do JavaScript sejam concluídas dentro do limite de tempo ou implemente um modelo baseado em continuação para criar um lote/retomar a execução. A fim de simplificar o desenvolvimento de procedimentos armazenados e gatilhos para lidar com limites de tempo, todas as funções no contêiner do Azure Cosmos (por exemplo, criação, leitura, atualização e exclusão de itens) retornam um valor booliano que representa se a operação será concluída. Se esse valor for falso, ele será uma indicação de que o procedimento precisará encapsular a execução porque o script está consumindo mais tempo ou uma taxa de transferência provisionada maior do que o valor configurado. Operações colocadas em fila antes da primeira operação de armazenamento não aceita serão concluídas com certeza se o procedimento armazenado for concluído dentro do tempo e não colocar nenhuma outra solicitação em fila. Assim, as operações devem ser enfileiradas uma de cada vez usando a convenção de retorno de chamada do JavaScript para gerenciar o fluxo de controle do script. Como os scripts são executados em um ambiente do servidor, eles são estritamente controlados. Os scripts que violam repetidamente os limites de execução podem ser marcados como inativos e não podem ser executados e devem ser recriados para respeitar os limites de execução.
 
 As funções do JavaScript também estão sujeitas à [capacidade de taxa de transferência provisionada](request-units.md). As funções do JavaScript podem acabar usando um grande número de unidades de solicitação em um curto período e podem ter a taxa limitada se o limite da capacidade de taxa de transferência provisionada é atingido. É importante observar que os scripts consomem uma taxa de transferência adicional, além da taxa de transferência gasta executando operações de banco de dados, embora essas operações de banco de dados sejam um pouco mais baratas do que a execução das mesmas operações no cliente.
 
@@ -90,7 +90,7 @@ Semelhante a pré-gatilhos, pós-gatilhos, também estão associados a uma opera
 
 ## <a name="user-defined-functions"></a><a id="udfs"></a>Funções definidas pelo usuário
 
-As UDFs (funções definidas pelo usuário) são usadas para estender a sintaxe da linguagem de consulta da API do SQL e implementar uma lógica de negócios personalizada com facilidade. Elas podem ser chamadas somente em consultas. As UDFs não têm acesso ao objeto de contexto e devem ser usadas como JavaScript somente para cálculo. Portanto, as UDFs podem ser executadas em réplicas secundárias. Para obter exemplos, confira o artigo [Como escrever funções definidas pelo usuário](how-to-write-stored-procedures-triggers-udfs.md#udfs).
+[As funções definidas pelo usuário](sql-query-udfs.md) (UDFs) são usadas para estender a sintaxe de linguagem de consulta da API SQL e implementar a lógica de negócios personalizada facilmente. Elas podem ser chamadas somente em consultas. As UDFs não têm acesso ao objeto de contexto e devem ser usadas como JavaScript somente para cálculo. Portanto, as UDFs podem ser executadas em réplicas secundárias. Para obter exemplos, confira o artigo [Como escrever funções definidas pelo usuário](how-to-write-stored-procedures-triggers-udfs.md#udfs).
 
 ## <a name="javascript-language-integrated-query-api"></a><a id="jsqueryapi"></a>API de consulta integrada à linguagem do JavaScript
 

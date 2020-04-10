@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
-ms.openlocfilehash: 38f5778e363a16117bab482a758666ec81352afd
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 62c10a2ada9ff7d3bf7090028dd9684192517d02
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887561"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991374"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Como monitorar a latência do lado do servidor para operações em um contêiner ou conta DO Azure Cosmos
 
@@ -35,11 +35,11 @@ Você pode procurar o registro de diagnóstico para ver o tamanho dos dados reto
 
 1. No painel **Métricas** > **Selecione um recurso** > escolha a **assinatura**necessária e o grupo **de recursos**. Para o **tipo Recurso,** selecione **contas Azure Cosmos DB,** escolha uma de suas contas azure Cosmos existentes e **selecione Aplicar**.
    
-   ![Escolha uma conta Cosmos DB para visualizar métricas](./media/monitor-server-side-latency/select-cosmosdb-account.png)
+   ![Escolha uma conta Cosmos DB para visualizar métricas](./media/monitor-server-side-latency/select-cosmos-db-account.png)
 
 1. Em seguida, selecione a métrica **de Latência** do lado do servidor na lista de métricas disponíveis. Para saber em detalhes todas as métricas disponíveis nesta lista, consulte o artigo [Métricas por categoria.](monitor-cosmos-db-reference.md) Neste exemplo, vamos selecionar **Latência lateral** do servidor e **Avg** como o valor de agregação. Além desses detalhes, você também pode selecionar o **intervalo de tempo** e a **granularidade** de tempo das métricas. No máximo, você pode visualizar métricas para os últimos 30 dias.  Depois de aplicar o filtro, um gráfico é exibido com base no seu filtro. Você pode ver o número médio de unidades de solicitação consumidas por minuto para o período selecionado.  
 
-   ![Escolha a métrica de latência do lado do servidor no portal Azure](./media/monitor-server-side-latency/serverside-latency-metric.png)
+   ![Escolha a métrica de latência do lado do servidor no portal Azure](./media/monitor-server-side-latency/server-side-latency-metric.png)
 
 ## <a name="filters-for-server-side-latency"></a>Filtros para latência do lado do servidor
 
@@ -49,7 +49,7 @@ Para filtrar as métricas, selecione **Adicionar filtro** e escolha a propriedad
 
 As métricas **de latência do lado do servidor** para cada operação são exibidas conforme mostrado na imagem a seguir:
 
-![Filtros para métricas de latência do lado do servidor](./media/monitor-server-side-latency/serverside-latency-filters.png)
+![Filtros para métricas de latência do lado do servidor](./media/monitor-server-side-latency/server-side-latency-filters.png)
 
 Você também pode agrupar as métricas usando a opção **Aplicar divisão.**  
 

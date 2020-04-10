@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como a Diretiva Azure usa o agente de configuração de hóspedes para auditar as configurações dentro de máquinas virtuais.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 889e99e94b2c81a6654fcbe7851e93c40163a0c6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 9e8486af2a9b7ab9e18b8c16f08e51759d1123d7
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985313"
+ms.locfileid: "80998849"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -91,6 +91,13 @@ O Windows Server Nano Server não é suportado em nenhuma versão.
 
 Para se comunicar com o provedor de recursos de configuração de hóspedes no Azure, as máquinas exigem acesso de saída aos data centers do Azure na porta **443**. Se você estiver usando uma rede virtual privada no Azure que não permite tráfego de saída, configure exceções com as regras [do Network Security Group.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)
 A [tag de serviço](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" pode ser usada para referenciar o serviço de configuração de hóspedes.
+
+## <a name="azure-managed-identity-requirements"></a>Requisitos de identidade gerenciados pelo Azure
+
+As políticas **DeployIfNotExist** que adicionam a extensão a máquinas virtuais também permitem uma identidade gerenciada atribuída ao sistema, se uma não existir.
+
+> [!WARNING]
+> Evite habilitar a identidade gerenciada atribuída ao usuário para máquinas virtuais no âmbito de políticas que permitam a identidade gerenciada atribuída ao sistema. A identidade atribuída ao usuário será substituída e a máquina poderá ficar sem resposta.
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição da Configuração de Convidado
 

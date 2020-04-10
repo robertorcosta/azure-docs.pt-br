@@ -2,22 +2,22 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/10/2020
+ms.date: 04/04/2020
 ms.author: dapine
-ms.openlocfilehash: 2f029725ff53c6bf01481f7a188e070cf84550c9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 33173390b9bdd874936ac6625e1755b96297cd7c
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79082573"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671137"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, é preciso:
 
 > [!div class="checklist"]
 > * [Criar um recurso de Fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 

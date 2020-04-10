@@ -13,12 +13,12 @@ ms.date: 04/12/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a0a2c5fc971c3f1f3283d95c5617bdf1e88a6a58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbd700c787a844fa7538ed198f76ed5c06af2c28
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77084031"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010147"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicialize aplicativos clientes usando MSAL.js
 Este artigo descreve a inicialização da Biblioteca de Autenticação do Microsoft para JavaScript (MSAL.js) com uma instância de um aplicativo de agente de usuário. O aplicativo usuário-agente é uma forma de aplicativo cliente público no qual o código do cliente é executado em um usuário-agente, como um navegador da Web. Esses clientes não armazenam segredos, já que o contexto do navegador é abertamente acessível. Para saber mais sobre os tipos de aplicativos clientes e as opções de configuração do aplicativo, leia a [visão geral](msal-client-applications.md).
@@ -35,7 +35,7 @@ Antes de inicializar um aplicativo, primeiro você precisa [registrá-lo no port
 
 Você pode usar O MSAL.js da seguinte forma em um aplicativo JavaScript/Typescript simples. Inicialize o contexto de autenticação `UserAgentApplication` MSAL instanciando com um objeto de configuração. A configuração mínima necessária para inicializar o MSAL.js é o clientID do seu aplicativo que você deve obter no portal de registro de aplicativos.
 
-Para métodos de autenticação`loginRedirect` com `acquireTokenRedirect`fluxos de redirecionamento (e), você `handleRedirectCallback()` precisará registrar explicitamente um retorno de chamada para sucesso ou erro através do método. Isso é necessário, uma vez que os fluxos de redirecionamento não retornam promessas como os métodos com uma experiência pop-up fazem.
+Para métodos de autenticação`loginRedirect` com `acquireTokenRedirect`fluxos de redirecionamento (e ), no MSAL.js 1.2.x ou `handleRedirectCallback()` anterior, você precisará registrar explicitamente um retorno de chamada para sucesso ou erro através do método. Isso é necessário, uma vez que os fluxos de redirecionamento não retornam promessas como os métodos com uma experiência pop-up fazem. Isso se tornou opcional na versão 1.3.0 do MSAL.js.
 
 ```javascript
 // Configuration object constructed

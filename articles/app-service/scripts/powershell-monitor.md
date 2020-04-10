@@ -6,12 +6,12 @@ ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
-ms.openlocfilehash: 79b5ef411abde3a4ef293516a43adaa1e669b6d9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c9b3ab6f8115f68ead478c0de21e4661d3ca032c
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74684617"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437923"
 ---
 # <a name="monitor-a-web-appwith-web-server-logs"></a>Monitorar um aplicativo Web com logs do servidor Web
 
@@ -43,7 +43,6 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um Plano do Serviço de Aplicativo. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria um aplicativo web. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifica a configuração de um aplicativo Web. |
-| [Get-AzWebAppMetric](/powershell/module/az.websites/get-azwebappmetric) | Obtém a métrica de um aplicativo Web. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

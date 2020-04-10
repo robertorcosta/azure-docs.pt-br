@@ -1,5 +1,5 @@
 ---
-title: Visão geral da Configuração de Estado da Automação do Azure
+title: Visão geral de State Configuration
 description: Uma visão geral da Configuração do Estado de Automação do Azure (DSC), seus termos e problemas conhecidos
 keywords: powershell dsc, configuração de estado desejada, powershell dsc azure
 services: automation
@@ -10,14 +10,14 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 46cf0d6a12ffbc836db7bd79c0f2738a94e23085
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02e540c9ac2654be97ff247749d1ed18573cfc24
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283184"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010249"
 ---
-# <a name="azure-automation-state-configuration-overview"></a>Visão geral da Configuração de Estado da Automação do Azure
+# <a name="state-configuration-overview"></a>Visão geral de State Configuration
 
 A configuração do estado de automação do Azure é um serviço do Azure que permite gravar, gerenciar e compilar [configurações](/powershell/scripting/dsc/configurations/configurations)de configuração do estado desejado (DSC) do PowerShell . O serviço também importa [recursos DSC](/powershell/scripting/dsc/resources/resources), e atribui configurações a nós de destino, tudo na nuvem.
 

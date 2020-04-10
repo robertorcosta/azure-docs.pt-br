@@ -5,27 +5,36 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/18/2019
+ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b819264895e35c6ef4fe9dc5263444dcac17eaa2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5e0e459800e7cb57672518597f3d04a74f53118
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74935868"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008615"
 ---
 Por enquanto, os discos ultra têm limitações adicionais, eles são os seguintes:
 
-- São suportados nas seguintes regiões, com um número variado de zonas de disponibilidade por região:
-    - Leste dos EUA 2
-    - Leste dos EUA
-    - Oeste dos EUA 2
-    - Sudeste asiático
-    - Norte da Europa
-    - Europa Ocidental
-    - Sul do Reino Unido 
-- Só poderão ser usados com zonas de disponibilidade (conjuntos de disponibilidade e implantações de VM única fora das zonas não terão a possibilidade de anexar um disco Ultra)
+As únicas opções de redundância de infra-estrutura atualmente disponíveis para discos ultra são zonas de disponibilidade. As VMs que usam outras opções de redundância não podem anexar um disco ultra.
+
+A tabela a seguir descreve as regiões em que os discos ultra estão disponíveis, bem como suas opções de disponibilidade correspondentes:
+
+> [!NOTE]
+> Algumas zonas de disponibilidade nessas regiões não oferecem ultra discos.
+
+|Regiões  |Sem redundância de infra-estrutura  |Zonas de disponibilidade  |
+|---------|---------|---------|
+|Oeste dos EUA     |Sim         |Não         |
+|Oeste dos EUA 2    |Não         |Sim         |
+|Leste dos EUA     |Não         |Sim         |
+|Leste dos EUA 2     |Não         |Sim         |
+|Sudeste asiático     |Não         |Sim         |
+|Norte da Europa     |Não         |Sim         |
+|Europa Ocidental     |Não         |Sim         |
+|Sul do Reino Unido     |Não         |Sim         |
+
 - Só são suportados nas seguintes séries de VM:
     - [ESv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
     - [DSv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
@@ -35,7 +44,8 @@ Por enquanto, os discos ultra têm limitações adicionais, eles são os seguint
 - Nem todo tamanho de VM está disponível em todas as regiões suportadas com ultra discos
 - Estão disponíveis apenas como discos de dados e suportam apenas o tamanho do setor físico 4k. Devido ao tamanho do setor nativo 4K do Ultra Disk, existem alguns aplicativos que não serão compatíveis com ultra discos. Um exemplo seria o Oracle Database, que requer a liberação 12.2 ou posterior para suportar discos ultra.  
 - Só podem ser criados como discos vazios  
-- Ainda não suporta instantâneos de disco, imagens vm, conjuntos de disponibilidade e criptografia de disco Do Zure
-- Ainda não suporta a integração com o Azure Backup ou a Azure Site Recovery
+- Atualmente, não suporta instantâneos de disco, imagens de VM, conjuntos de disponibilidade, hosts dedicados do Azure ou criptografia de disco Azure
+- No momento, não suporta integração com o Azure Backup ou a Azure Site Recovery
 - O limite máximo atual para IOPS em VMs GA é de 80.000.
-- Se você quiser participar de uma pré-visualização limitada de uma VM que pode realizar 160.000 IOPS com discos ultra, envie um e-mail UltraDiskFeedback@microsoft para .com
+
+Os discos ultra do Azure oferecem até 16 TiB por região por assinatura por padrão, mas os discos ultra suportam maior capacidade por solicitação. Para solicitar um aumento de capacidade, entre em contato com o Suporte Azure.

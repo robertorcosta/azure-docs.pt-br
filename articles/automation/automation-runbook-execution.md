@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: c8968eb72b29b004d94e25433da65d3262287147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1907eb7cde482927ee8e6b0a2522158f05c1808f
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367135"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010929"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
 Os runbooks são executados com base na lógica definida dentro deles. Se um runbook é interrompido, ele é reiniciado no início. Esse comportamento exige que você escreva runbooks que suportam ser reiniciados se ocorrerem problemas transitórios.
 
-Iniciar um runbook no Azure Automation cria um trabalho. Um trabalho é uma única instância de execução do manual. Cada trabalho tem acesso aos recursos do Azure fazendo uma conexão com sua assinatura do Azure. O trabalho só tem acesso a recursos em seu datacenter se esses recursos estiverem acessíveis a partir da nuvem pública.
+Iniciar um runbook no Azure Automation cria um trabalho, que é uma única instância de execução do runbook. Cada trabalho tem acesso aos recursos do Azure fazendo uma conexão com sua assinatura do Azure. O trabalho só tem acesso a recursos em seu datacenter se esses recursos estiverem acessíveis a partir da nuvem pública.
 
 A Azure Automation designa um trabalhador para executar cada trabalho durante a execução do runbook. Enquanto os trabalhadores são compartilhados por muitas contas do Azure, os trabalhos de diferentes contas de automação ficam isolados uns dos outros. Você não tem controle sobre qual trabalhador atende seu pedido de emprego.
 
@@ -241,7 +241,7 @@ A tabela a seguir descreve os status que são possíveis para um trabalho.
 
 Você pode exibir um status resumido de todos os trabalhos do runbook ou analisar os detalhes de um trabalho específico do runbook no portal do Azure. Você também pode configurar a integração com o seu espaço de trabalho do Log Analytics a fim de encaminhar fluxos de trabalho e status do trabalho do runbook. Para obter mais informações sobre a integração com os logs do Monitor do Azure, consulte [Avançar no status do trabalho e nos fluxos de trabalho dos registros de automação para o Monitor do Azure](automation-manage-send-joblogs-log-analytics.md).
 
-À direita da sua conta de Automação selecionada, você pode ver um resumo de todos os trabalhos de runbook o bloco **Job Statistics.**
+À direita da sua conta de Automação selecionada, você pode ver um resumo de todos os trabalhos de runbook sob o bloco **Job Statistics.**
 
 ![Bloco Estatísticas de Trabalho](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e668f44bbc3d2e381edeb80c568a41355584a4ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260417"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991562"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Mover dados de uma fonte HTTP usando o Azure Data Factory
 
@@ -55,7 +55,7 @@ A tabela a seguir descreve elementos JSON que são específicos para o serviço 
 | type | O **tipo** propriedade deve ser definida como **Http**. | Sim |
 | url | A URL base para o servidor web. | Sim |
 | authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Consulte as seções posteriores deste artigo para mais propriedades e amostras JSON para esses tipos de autenticação. | Sim |
-| enableServerCertificateValidation | Especifica se deve ativar a validação do certificado SSL do servidor se a origem for um servidor da Web HTTPS. Quando seu servidor HTTPS usa um certificado autoassinado, configure isso para **falso**. | Não<br /> (o padrão é **verdadeiro**) |
+| enableServerCertificateValidation | Especifica se habilita a validação do certificado TLS/SSL do servidor se a fonte for um servidor web HTTPS. Quando seu servidor HTTPS usa um certificado autoassinado, configure isso para **falso**. | Não<br /> (o padrão é **verdadeiro**) |
 | gatewayName | O nome da instância do Data Management Gateway a ser usada para se conectar a uma origem HTTP local. | Sim, se você estiver copiando dados de uma fonte HTTP local |
 | encryptedCredential | A credencial criptografada para acessar o terminal HTTP. O valor é gerado automaticamente quando você configura as informações de autenticação no Assistente de Cópia ou usando a caixa de diálogo **ClickOnce**. | Não<br /> (aplica-se somente quando você copia dados de um servidor HTTP local) |
 

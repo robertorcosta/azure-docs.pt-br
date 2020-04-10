@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.author: banders
-ms.openlocfilehash: f31d8638e8672feafc1ab822acecb78ec0a48b11
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 28fff2a24f703e0cff967bdde29a7b1238e197ee
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202766"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586142"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Entenda as funções administrativas do Contrato Azure Enterprise no Azure
 
@@ -46,18 +46,18 @@ As seções a seguir descrevem as limitações e os recursos de cada função.
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Estrutura de organização e permissões por função
 
-|Tarefas| Administrador corporativo|Administrador da empresa (somente leitura)|Administrador de departamento|Administrador de departamento (somente leitura)|Proprietário da conta|
-|---|---|---|---|---|---|
-|Exibir administradores de empresa|✔|✔|✘|✘|✘|
-|Administradores da Empresa|✔|✘|✘|✘|✘|
-|Ver contatos para notificação<sup>4</sup> |✔|✔|✘|✘|✘|
-|Adicionar ou remover contatos para notificação<sup>4</sup> |✔|✘|✘|✘|✘|
-|Criar e gerenciar os departamentos |✔|✘|✘|✘|✘|
-|Administradores de departamento do modo de exibição|✔|✔|✔|✔|✘|
-|Adicionar ou remover administradores de departamento|✔|✘|✔|✘|✘|
-|Exibir contas na inscrição |✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|
-|Adicione contas para o registro e alterar o proprietário da conta|✔|✘|✔<sup>5</sup>|✘|✘|
-|Criar e gerenciar assinaturas e permissões de assinatura|✘|✘|✘|✘|✔|
+|Tarefas| Administrador corporativo|Administrador da empresa (somente leitura)|Administrador de departamento|Administrador de departamento (somente leitura)|Proprietário da conta| Partner (parceiro)|
+|---|---|---|---|---|---|---|
+|Exibir administradores de empresa|✔|✔|✘|✘|✘|✔|
+|Administradores da Empresa|✔|✘|✘|✘|✘|✘|
+|Ver contatos para notificação<sup>4</sup> |✔|✔|✘|✘|✘|✔|
+|Adicionar ou remover contatos para notificação<sup>4</sup> |✔|✘|✘|✘|✘|✘|
+|Criar e gerenciar os departamentos |✔|✘|✘|✘|✘|✘|
+|Administradores de departamento do modo de exibição|✔|✔|✔|✔|✘|✔|
+|Adicionar ou remover administradores de departamento|✔|✘|✔|✘|✘|✘|
+|Exibir contas na inscrição |✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|✔|
+|Adicione contas para o registro e alterar o proprietário da conta|✔|✘|✔<sup>5</sup>|✘|✘|✘|
+|Criar e gerenciar assinaturas e permissões de assinatura|✘|✘|✘|✘|✔|✘|
 
 - <sup>4</sup> Os contatos para notificação recebem comunicações por email sobre o Contrato Enterprise do Azure.
 - <sup>5</sup> A tarefa é limitada às contas do seu departamento.
@@ -65,14 +65,14 @@ As seções a seguir descrevem as limitações e os recursos de cada função.
 
 ## <a name="usage-and-costs-access-by-role"></a>Acesso de uso e os custos por função
 
-|Tarefas| Administrador corporativo|Administrador da empresa (somente leitura)|Administrador de departamento|Administrador de departamento (somente leitura) |Proprietário da conta|
-|---|---|---|---|---|---|
-|Exibir o saldo de crédito incluindo compromisso monetário|✔|✔|✘|✘|✘|
-|Cotas de gastos do departamento de exibição|✔|✔|✘|✘|✘|
-|Definir cotas de gastos do departamento|✔|✘|✘|✘|✘|
-|Exibir a folha de preços EA da organização|✔|✔|✘|✘|✘|
-|Exibir detalhes de uso e custo|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|
-|Gerenciar recursos no portal do Azure|✘|✘|✘|✘|✔|
+|Tarefas| Administrador corporativo|Administrador da empresa (somente leitura)|Administrador de departamento|Administrador de departamento (somente leitura) |Proprietário da conta| Partner (parceiro)|
+|---|---|---|---|---|---|---|
+|Exibir o saldo de crédito incluindo compromisso monetário|✔|✔|✘|✘|✘|✔|
+|Cotas de gastos do departamento de exibição|✔|✔|✘|✘|✘|✔|
+|Definir cotas de gastos do departamento|✔|✘|✘|✘|✘|✘|
+|Exibir a folha de preços EA da organização|✔|✔|✘|✘|✘|✔|
+|Exibir detalhes de uso e custo|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|✔|
+|Gerenciar recursos no portal do Azure|✘|✘|✘|✘|✔|✘|
 
 - <sup>6</sup> Exige que o administrador corporativo habilite a política de **preços de exibição de DA** no Enterprise Portal. O Administrador do Departamento pode, então, ver os detalhes do custo para o departamento.
 - <sup>7</sup> Exige que o administrador corporativo habilite a política de **preços de exibição de AO** no Enterprise Portal. O proprietário da conta pode ver detalhes do custo da conta.

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 17404388b2b6c3fee1c6ab666f7233a66817f642
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe186e2ba8f3cafeb4d186066ba65ae036302f70
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74082863"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010504"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-key-vault-preview"></a>Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault (versão prévia)
 
@@ -25,13 +25,13 @@ Uma conta do Azure Key Vault gera os seguintes tipos de eventos:
 | Nome completo do evento | Nome de exibição do evento | Descrição |
 | ---------- | ----------- |---|
 | Microsoft.KeyVault.CertificateNewVersionCriado | Certificado Nova Versão Criada | Acionado quando um novo certificado ou nova versão de certificado é criado. |
-| Microsoft.KeyVault.CertificateNearExpiry | Certificado perto do vencimento | Acionado quando a versão atual do certificado está prestes a expirar. (A inadimplência é de 30 dias antes da data de validade.) |
+| Microsoft.KeyVault.CertificateNearExpiry | Certificado perto do vencimento | Acionado quando a versão atual do certificado está prestes a expirar. (O evento é acionado 30 dias antes da data de validade.) |
 | Microsoft.KeyVault.Certificado Expirado | O Certificado Expirou | Acionado quando o certificado expirar. |
 | Microsoft.KeyVault.KeyNewVersionCriado | Chave nova versão criada | Acionado quando uma nova chave ou nova versão-chave é criada. |
-| Microsoft.KeyVault.KeyNearExpiry | Chave perto do vencimento | Acionado quando a versão atual de uma chave está prestes a expirar. (A inadimplência é de 30 dias antes da data de validade.) |
+| Microsoft.KeyVault.KeyNearExpiry | Chave perto do vencimento | Acionado quando a versão atual de uma chave está prestes a expirar. (O evento é acionado 30 dias antes da data de validade.) |
 | Microsoft.KeyVault.KeyExpirado | Chave expirada | Acionado quando uma chave expira. |
 | Microsoft.KeyVault.SecretNewVersionCriado | Nova versão secreta criada | Acionado quando um novo segredo ou nova versão secreta é criado. |
-| Microsoft.KeyVault.SecretNearExpiry | Segredo perto do vencimento | Acionado quando a versão atual de um segredo está prestes a expirar. (A inadimplência é de 30 dias antes da data de validade.) |
+| Microsoft.KeyVault.SecretNearExpiry | Segredo perto do vencimento | Acionado quando a versão atual de um segredo está prestes a expirar. (O evento é acionado 30 dias antes da data de validade.) |
 | Microsoft.KeyVault.SecretExpirado | Segredo Expirado | Acionado quando um segredo expira. |
 
 ## <a name="event-examples"></a>Exemplos de eventos

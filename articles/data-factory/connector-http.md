@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ca439d1a82e3cdbe2cc0274cf63653d39048057
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a05d955be88f68b3c0db1f4a29b3f6e1155aa0d
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79532545"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992174"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade HTTP usando o Azure Data Factory
 
@@ -68,7 +68,7 @@ As seguintes propriedades são suportadas para o serviço vinculado HTTP:
 |:--- |:--- |:--- |
 | type | A propriedade **do tipo** deve ser definida como **HttpServer**. | Sim |
 | url | A URL base para o servidor web. | Sim |
-| enableServerCertificateValidation | Especifique se deseja ativar a validação do certificado SSL do servidor ao se conectar a um terminal HTTP. Se seu servidor HTTPS usa um certificado autoassinado, defina essa propriedade como **falsos**. | Não<br /> (o padrão é **verdadeiro**) |
+| enableServerCertificateValidation | Especifique se deseja habilitar a validação do certificado TLS/SSL do servidor quando você se conectar a um ponto final HTTP. Se seu servidor HTTPS usa um certificado autoassinado, defina essa propriedade como **falsos**. | Não<br /> (o padrão é **verdadeiro**) |
 | authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Veja as seções que seguem esta tabela para mais propriedades e amostras JSON para esses tipos de autenticação. | Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos.](#prerequisites) Se não especificado, o Azure Integration Runtime padrão será usado. |Não |
 

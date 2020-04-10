@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 745be21c2a7a09a09fdbbfd57a305d09a4fac3ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c54f864b5bd562fdc0a84b2903198704032b360
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72793440"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998493"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Use a sintaxe de pesquisa "completa" de Lucene (consultas avançadas na Pesquisa Cognitiva do Azure)
 
@@ -86,7 +86,7 @@ Este primeiro exemplo não é específico de Lucene, mas nós o lideramos para i
 
 Por uma questão de brevidade, a consulta direciona apenas o campo *business_title* e especifica que somente os títulos da empresa sejam retornados. O parâmetro **searchFields** restringe a execução da consulta apenas ao campo business_title e **seleciona** especifica quais campos estão incluídos na resposta.
 
-### <a name="partial-query-string"></a>Cadeia de consulta parcial
+### <a name="search-expression"></a>Expressão de pesquisa
 
 ```http
 &search=*&searchFields=business_title&$select=business_title
@@ -119,7 +119,7 @@ Você deve ter notado a pontuação de pesquisa na resposta. Pontuações unifor
 
 A sintaxe completa de Lucene suporta escopo de expressões individuais de pesquisa para um campo específico. Este exemplo busca títulos de negócios com o termo sênior neles, mas não júnior.
 
-### <a name="partial-query-string"></a>Cadeia de consulta parcial
+### <a name="search-expression"></a>Expressão de pesquisa
 
 ```http
 $select=business_title&search=business_title:(senior NOT junior)
@@ -156,7 +156,7 @@ O campo especificado no **campoNome:pesquisaExpressão** deve ser um campo pesqu
 
 A sintaxe Lucene completa também dá suporte à pesquisa difusa, combinando em termos que têm uma construção semelhante. Para fazer uma pesquisa difusa, acrescente o símbolo til `~` ao final de uma única palavra com um parâmetro opcional, um valor entre 0 e 2, que especifica a distância de edição. Por exemplo, `blue~` ou `blue~1` retornariam mar, amar e maré.
 
-### <a name="partial-query-string"></a>Cadeia de consulta parcial
+### <a name="search-expression"></a>Expressão de pesquisa
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:asosiate~
@@ -186,7 +186,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="example-4-proximity-search"></a>Exemplo 4: pesquisa por proximidade
 As pesquisas de proximidade são usadas para localizar termos que estejam próximos um do outro em um documento. Insira um símbolo til "~" no final de uma frase seguida pelo número de palavras que criam o limite de proximidade. Por exemplo, "hotel aeroporto"~5 encontrará os termos hotel e aeroporto em cinco palavras uma da outra em um documento.
 
-### <a name="partial-query-string"></a>Cadeia de consulta parcial
+### <a name="search-expression"></a>Expressão de pesquisa
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
@@ -239,7 +239,7 @@ Ao definir o nível do fator, quanto maior o fator de aumento, mais relevante se
 
 Uma pesquisa de expressão regular encontra uma correspondência com base no conteúdo entre as barras "/", como documentado na [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).
 
-### <a name="partial-query-string"></a>Cadeia de consulta parcial
+### <a name="search-expression"></a>Expressão de pesquisa
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
@@ -262,7 +262,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="example-7-wildcard-search"></a>Exemplo 7: pesquisa com curinga
 Você pode usar a sintaxe geralmente reconhecida para pesquisas com vários caracteres curinga (\*) ou um caractere curinga (?). Observe que o analisador de consulta Lucene oferece suporte ao uso desses símbolos com um único termo e não uma frase.
 
-### <a name="partial-query-string"></a>Cadeia de consulta parcial
+### <a name="search-expression"></a>Expressão de pesquisa
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:prog*

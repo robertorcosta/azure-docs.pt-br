@@ -1,21 +1,21 @@
 ---
 title: Publique uma oferta de serviço gerenciado para o Azure Marketplace
-description: Saiba como publicar uma oferta de serviço gerenciado que integre os clientes ao gerenciamento de recursos delegados do Azure.
+description: Saiba como publicar uma oferta de Serviço Gerenciado que abordo clientes para o gerenciamento de recursos delegados do Azure.
 ms.date: 04/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4791b1d2ae233b0cc7aad33dd5b15b6ea94b2018
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 247f711188fa10de19cece27f164fdfa71612d1b
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984547"
+ms.locfileid: "80991902"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publique uma oferta de serviço gerenciado para o Azure Marketplace
 
 > [!IMPORTANT]
-> A partir de 14 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de Serviço Gerenciado para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar novas ofertas de serviço gerenciado](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de Serviço Gerenciado para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma nova oferta de Serviço Gerenciado](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) para gerenciar suas ofertas migradas.
 
-Neste artigo, você aprenderá a publicar uma oferta de serviço gerenciado público ou privado ao [Azure Marketplace](https://azuremarketplace.microsoft.com) usando [o Cloud Partner Portal](https://cloudpartner.azure.com/). Os clientes que comprarem a oferta podem então embarcar em assinaturas e grupos de recursos para [o gerenciamento de recursos delegados do Azure.](../concepts/azure-delegated-resource-management.md)
+Neste artigo, você aprenderá como publicar uma oferta pública ou privada de Serviço Gerenciado ao [Azure Marketplace](https://azuremarketplace.microsoft.com) usando [o Cloud Partner Portal](https://cloudpartner.azure.com/). Os clientes que comprarem a oferta podem então embarcar em assinaturas e grupos de recursos para [o gerenciamento de recursos delegados do Azure.](../concepts/azure-delegated-resource-management.md)
 
 ## <a name="publishing-requirements"></a>Publicação de requisitos
 
@@ -28,7 +28,7 @@ Sua ID do MPN (Microsoft Partner Network) será [associada automaticamente](../.
 > [!NOTE]
 > Se não quiser publicar uma oferta no Azure Marketplace, você poderá integrar os clientes manualmente usando modelos do Azure Resource Manager. Para saber mais, confira [Integrar um cliente no gerenciamento de recursos delegados do Azure](onboard-customer.md).
 
-A publicação de uma oferta de Serviços Gerenciados é semelhante à publicação de qualquer outro tipo de oferta no Azure Marketplace. Para saber mais sobre o processo de publicação geral, consulte [O Azure Marketplace e o AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md). Você também deve examinar as [políticas de certificação do mercado comercial](https://docs.microsoft.com/legal/marketplace/certification-policies), especialmente a seção [Serviços Gerenciados](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services).
+Publicar uma oferta de Serviço Gerenciado é semelhante à publicação de qualquer outro tipo de oferta ao Azure Marketplace. Para saber mais sobre o processo de publicação geral, consulte [O Azure Marketplace e o AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md). Você também deve examinar as [políticas de certificação do mercado comercial](https://docs.microsoft.com/legal/marketplace/certification-policies), especialmente a seção [Serviços Gerenciados](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services).
 
 Uma vez que um cliente adicione sua oferta, ele poderá delegar uma ou mais assinaturas ou grupos de recursos, que serão então [a bordo para o gerenciamento de recursos delegados do Azure.](#the-customer-onboarding-process)
 
@@ -65,7 +65,7 @@ Preencha as seguintes seções em **Detalhes do plano**:
 
 |Campo  |Descrição  |
 |---------|---------|
-|**Título**     | Nome amigável do plano para exibição. Comprimento máximo de 50 caracteres.        |
+|**Title**     | Nome amigável do plano para exibição. Comprimento máximo de 50 caracteres.        |
 |**Resumo**     | Descrição sucinta do plano para exibição abaixo do título. Comprimento máximo de 100 caracteres.        |
 |**Descrição**     | Texto de descrição que fornece uma explicação mais detalhada do plano.         |
 |**Modelo de cobrança**     | Há dois modelos de cobrança mostrados aqui, mas você deve escolher **Traga sua própria licença** para ofertas de serviços gerenciados. Isso significa que você cobrará de seus clientes diretamente os custos relacionados a essa oferta, e a Microsoft não cobrará nenhum valor por você.   |
@@ -112,7 +112,7 @@ Preencha os seguintes campos na seção **Visão geral**:
 
 |Campo  |Descrição  |
 |---------|---------|
-|**Título**     |  Título da oferta, geralmente o nome longo e formal. Este título será exibido com destaque no mercado. Comprimento máximo de 50 caracteres. Na maioria dos casos, ele deve ser igual ao **Nome** inserido na seção **Configurações da Oferta**.       |
+|**Title**     |  Título da oferta, geralmente o nome longo e formal. Este título será exibido com destaque no mercado. Comprimento máximo de 50 caracteres. Na maioria dos casos, ele deve ser igual ao **Nome** inserido na seção **Configurações da Oferta**.       |
 |**Resumo**     | Breve propósito ou função da solução. Isso geralmente é exibido abaixo do título. Comprimento máximo de 100 caracteres.        |
 |**Resumo longo**     | Um resumo mais longo da finalidade ou da função da oferta. Comprimento máximo de 256 caracteres.        |
 |**Descrição**     | Mais informações sobre sua oferta. É um campo com tamanho máximo de 3000 caracteres e dá suporte à formatação HTML simples. Você deve incluir as palavras "serviço gerenciado" ou "serviços gerenciados" em algum lugar na sua descrição.       |

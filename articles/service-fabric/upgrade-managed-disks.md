@@ -2,13 +2,13 @@
 title: Atualize os ádeos de cluster para usar discos gerenciados do Azure
 description: Veja como atualizar um cluster de malha de serviço existente para usar discos gerenciados do Azure com pouco ou nenhum tempo de inatividade do seu cluster.
 ms.topic: how-to
-ms.date: 3/01/2020
-ms.openlocfilehash: 2bda5572eda5579bb31c3613b220885f27220d99
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.date: 4/07/2020
+ms.openlocfilehash: 5f4698718a35970e47de2a0ee6d053802c8ef919
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80758047"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991204"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Atualize os ádeos de cluster para usar discos gerenciados do Azure
 
@@ -27,11 +27,11 @@ Este artigo irá levá-lo através das etapas de atualização do tipo de nó pr
 > [!CAUTION]
 > Você só sofrerá uma paralisação com este procedimento se tiver dependências do Cluster DNS (como ao acessar o [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). A [melhor prática arquitetônica para serviços front-end](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) é ter algum tipo de [balanceador](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) de carga na frente de seus tipos de nó para tornar possível a troca de nó sem uma paralisação.
 
-Aqui estão os [modelos e cmdlets](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage) para o Azure Resource Manager que usaremos para completar o cenário de upgrade. As alterações de modelo serão explicadas em [Implantar um conjunto de escala atualizado para o tipo de nó primário](#deploy-an-upgraded-scale-set-for-the-primary-node-type) abaixo.
+Aqui estão os [modelos e cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) para o Azure Resource Manager que usaremos para completar o cenário de upgrade. As alterações de modelo serão explicadas em [Implantar um conjunto de escala atualizado para o tipo de nó primário](#deploy-an-upgraded-scale-set-for-the-primary-node-type) abaixo.
 
 ## <a name="set-up-the-test-cluster"></a>Configure o cluster de teste
 
-Vamos configurar o cluster inicial de teste de malha de serviço. Primeiro, [baixe](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage) os modelos de exemplo do gerenciador de recursos do Azure que usaremos para concluir este cenário.
+Vamos configurar o cluster inicial de teste de malha de serviço. Primeiro, [baixe](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) os modelos de exemplo do gerenciador de recursos do Azure que usaremos para concluir este cenário.
 
 Em seguida, faça login na sua conta do Azure.
 
@@ -370,6 +370,6 @@ Saiba como:
 
 Consulte também:
 
-* [Amostra: Atualizar os nós de cluster para usar discos gerenciados do Azure](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage)
+* [Amostra: Atualizar os nós de cluster para usar discos gerenciados do Azure](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
 
 * [Considerações de dimensionamento vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)

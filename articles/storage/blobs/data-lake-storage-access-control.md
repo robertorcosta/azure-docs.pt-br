@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 192e46fd7f86b6053eaf658fa65e3c6cdfa3a4e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93c21656a768ae458572e0b4917412c8103b2f2d
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528601"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992208"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controle de acesso no Azure Data Lake Storage Gen2
 
@@ -54,7 +54,7 @@ Os tokens SAS incluem permissões permitidas como parte do token. As permissões
 Você pode associar um diretor de segurança a um nível de acesso para arquivos e diretórios. Essas associações são capturadas em uma *lista de controle de acesso (ACL)*. Cada arquivo e diretório em sua conta de armazenamento tem uma lista de controle de acesso.
 
 > [!NOTE]
-> As ACLs aplicam-se apenas aos diretores de segurança do mesmo inquilino. Você não pode associar um usuário convidado a um nível de acesso.  
+> As ACLs aplicam-se apenas aos diretores de segurança do mesmo inquilino. 
 
 Se você atribuiu uma função a um diretor de segurança no nível da conta de armazenamento, você pode usar listas de controle de acesso para conceder a esse principal de segurança acesso elevado a arquivos e diretórios específicos.
 
@@ -84,7 +84,7 @@ Existem dois tipos de listas de controle de acesso: *ACLs* de acesso e *ACLs pad
 
 ACLs de acesso controlam o acesso a um objeto. Arquivos e diretórios têm ambos ACLs de acesso.
 
-As ACLs padrão são modelos de ACLs associados a um diretório que determinam as ACLs de acesso para quaisquer itens infantis criados esse diretório. Arquivos não têm ACLs padrão.
+As ACLs padrão são modelos de ACLs associados a um diretório que determinam as ACLs de acesso para quaisquer itens infantis criados sob esse diretório. Arquivos não têm ACLs padrão.
 
 As ACLs de Acesso e as ACLs Padrão têm a mesma estrutura.
 

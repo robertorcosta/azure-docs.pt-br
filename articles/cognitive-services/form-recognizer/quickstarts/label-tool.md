@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 301b68d0dfaeef6d5cfdd4d7a5a504794ac877f4
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 0cfe58ab0d161019d5f53d9135c65db7beff2bb4
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205808"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397988"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -35,6 +35,10 @@ Para concluir este início rápido, é necessário ter:
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurar a ferramenta de rotulagem de exemplo
 
 Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de exemplo. Siga as etapas a seguir para configurar o contêiner do Docker. Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).
+
+> [!TIP]
+> A Ferramenta de Rotulagem de Formulário OCR também está disponível como um projeto de software livre no GitHub. A ferramenta é um aplicativo Web criado com o React + Redux e escrito em TypeScript. Para saber mais ou contribuir, confira [Ferramenta de Rotulagem de Formulário OCR](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+
 1. Primeiro, instale o Docker em um computador host. Este guia mostrará como usar o computador local como um host. Se você quiser usar um serviço de hospedagem do Docker no Azure, confira o guia de instruções [Implantar a ferramenta de rótulos de exemplo](../deploy-label-tool.md). 
 
    O computador host deve atender aos seguintes requisitos de hardware:
@@ -46,7 +50,7 @@ Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de ex
    Instale o Docker em seu computador seguindo as instruções apropriadas para seu sistema operacional: 
    * [Windows](https://docs.docker.com/docker-for-windows/)
    * [macOS](https://docs.docker.com/docker-for-mac/)
-   * [Linux](https://docs.docker.com/install/).
+   * [Linux](https://docs.docker.com/install/)
 
 1. Obtenha o contêiner de ferramentas de rotulagem de exemplo com o comando `docker pull`.
     ```
@@ -185,11 +189,12 @@ Vá para a página de configurações do projeto (ícone do controle deslizante)
 Quando desejar retomar seu projeto, primeiro você precisará criar uma conexão com o mesmo contêiner de armazenamento de blobs. Repita as etapas acima para fazer isso. Em seguida, vá para a página de configurações do aplicativo (ícone de engrenagem) e veja se o token de segurança do seu projeto está lá. Se não estiver, adicione um novo token de segurança e copie a chave e o nome do token da etapa anterior. Em seguida, clique em Salvar alterações. 
 
 ### <a name="resume-a-project"></a>Retomar um projeto
+
 Por fim, vá para a página principal (ícone da casa) e clique em Abrir Projeto de Nuvem. Em seguida, selecione a conexão de armazenamento de blobs e selecione o arquivo *.vott* do seu projeto. O aplicativo carregará todas as configurações do projeto, porque ele tem o token de segurança.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você apendeu como usar a ferramenta de rotulagem de exemplo do Reconhecimento de Formulários para treinar um modelo usando dados rotulados manualmente. Se você quiser integrar a ferramenta de rotulagem em seu próprio aplicativo, use as APIs REST que lidam com o treinamento de dados rotulados.
+Neste guia início rápido, você aprendeu a usar a ferramenta de rotulagem de exemplo do Reconhecimento de Formulários para treinar um modelo usando dados rotulados manualmente. Se você quiser integrar a ferramenta de rotulagem em seu próprio aplicativo, use as APIs REST que lidam com o treinamento de dados rotulados.
 
 > [!div class="nextstepaction"]
 > [Treinar com rótulos usando o Python](./python-labeled-data.md)

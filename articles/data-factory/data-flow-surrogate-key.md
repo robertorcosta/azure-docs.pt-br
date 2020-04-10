@@ -1,55 +1,83 @@
 ---
-title: Mapeamento do fluxo de dados Substituição chave
+title: Substitua a transformação chave no mapeamento do fluxo de dados
 description: Como usar o fluxo de dados de mapeamento do Azure Data Factory Para gerar valores-chave seqüenciais
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: bab48aa9079c1b8020bb828a6bb91bd244a78cf1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: e5ac25c002da121be3adadf0eed978dd60ba26d9
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930213"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010589"
 ---
-# <a name="mapping-data-flow-surrogate-key-transformation"></a>Mapeamento do fluxo de dados Substituição chave
+# <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Substitua a transformação chave no mapeamento do fluxo de dados 
 
+Use a transformação da chave de substituto para adicionar um valor-chave incrementado a cada linha de dados. Isso é útil ao projetar tabelas de dimensões em um modelo de dados analíticos de esquema estelar. Em um esquema estelar, cada membro em suas tabelas de dimensões requer uma chave única que é uma chave não-empresarial.
 
-
-Use a Transformação de Chave Alternativa para adicionar um valor de chave crescente, arbitrário e não comercial ao conjunto de linhas de seu fluxo de dados. Isso é útil durante a criação de tabelas de dimensões em um modelo de dados analítico de esquema em estrela em que cada membro das tabelas precise ter uma chave exclusiva que seja não comercial, parte importante da metodologia Kimball de DWs.
+## <a name="configuration"></a>Configuração
 
 ![Transformação da chave substituta](media/data-flow/surrogate.png "Transformação da chave substituta")
 
-"Coluna de Chave" é o nome que você dará à sua nova coluna de chave alternativa.
+**Coluna-chave:** O nome da coluna de tecla de substituto gerada.
 
-"Valor Inicial" é o ponto de partida do valor incremental.
+**Valor inicial:** O menor valor-chave que será gerado.
 
 ## <a name="increment-keys-from-existing-sources"></a>Teclas de incremento de fontes existentes
 
-Se você quiser iniciar sua seqüência a partir de um valor que existe em uma Fonte, você pode usar uma transformação de Coluna Derivada imediatamente após a transformação da chave de substituto e adicionar os dois valores juntos:
+Para iniciar sua seqüência a partir de um valor que existe em uma fonte, use uma transformação de coluna derivada após sua transformação de chave de substituto para adicionar os dois valores juntos:
 
 ![SK adicionar Max](media/data-flow/sk006.png "Transformação de chave de substituto adicionar max")
 
-Para semear o valor-chave com o max anterior, existem duas técnicas que você pode usar:
+### <a name="increment-from-existing-maximum-value"></a>Incremento do valor máximo existente
 
-### <a name="database-sources"></a>Fontes de banco de dados
+Para semear o valor-chave com o max anterior, existem duas técnicas que você pode usar com base em onde seus dados de origem estão.
 
-Use a opção "Consulta" para selecionar MAX() da sua fonte usando a transformação Origem:
+#### <a name="database-sources"></a>Fontes de banco de dados
+
+Use uma opção de consulta SQL para selecionar MAX() da sua fonte. Por exemplo,`Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
 
 ![Consulta de chave de substituto](media/data-flow/sk002.png "Consulta de transformação de chave de substituto")
 
-### <a name="file-sources"></a>Fontes de arquivos
+#### <a name="file-sources"></a>Fontes de arquivos
 
-Se o valor máximo anterior estiver em um arquivo, você poderá usar sua transformação de Origem juntamente com uma transformação Agregada e usar a função de expressão MAX() para obter o valor máximo anterior:
+Se o valor máximo anterior estiver `max()` em um arquivo, use a função na transformação agregada para obter o valor máximo anterior:
 
 ![Arquivo-chave substituto](media/data-flow/sk008.png "Arquivo-chave substituto")
 
-Em ambos os casos, você deve juntar seus novos dados de entrada juntamente com sua fonte que contém o valor máximo anterior:
+Em ambos os casos, você deve juntar seus novos dados de entrada juntamente com sua fonte que contém o valor máximo anterior.
 
 ![Adesão da chave substituta](media/data-flow/sk004.png "Adesão da chave substituta")
+
+## <a name="data-flow-script"></a>Script de fluxo de dados
+
+### <a name="syntax"></a>Sintaxe
+
+```
+<incomingStream> 
+    keyGenerate(
+        output(<surrogateColumnName> as long),
+        startAt: <number>L
+    ) ~> <surrogateKeyTransformationName>
+```
+
+### <a name="example"></a>Exemplo
+
+![Transformação da chave substituta](media/data-flow/surrogate.png "Transformação da chave substituta")
+
+O script de fluxo de dados para a configuração de chave de substituto acima está no trecho de código abaixo.
+
+```
+AggregateDayStats
+    keyGenerate(
+        output(key as long),
+        startAt: 1L
+    ) ~> SurrogateKey1
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

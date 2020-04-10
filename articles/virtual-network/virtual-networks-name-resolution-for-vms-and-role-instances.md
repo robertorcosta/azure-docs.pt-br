@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
-ms.openlocfilehash: 20a5c4befaa30383c54ac9536a3fd26dce3db4d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: d7d0699718642a7eb9f85b2e8a86623092c34365
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80059980"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010555"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes para recursos em redes virtuais do Azure
 
@@ -185,8 +186,7 @@ Se o encaminhamento de consultas para o Azure não atender às suas necessidades
 * Ter proteção contra acesso da Internet, para atenuar as ameaças impostas por agentes externos.
 
 > [!NOTE]
-> Para melhor desempenho, quando você estiver usando máquinas virtuais do Azure como servidores DNS, o IPv6 deverá ser desabilitado. Um [endereço IP público](virtual-network-public-ip-address.md) deve ser atribuído a cada VM do servidor DNS. 
-> 
+> Para melhor desempenho, quando você estiver usando máquinas virtuais do Azure como servidores DNS, o IPv6 deverá ser desabilitado.
 
 ### <a name="web-apps"></a>Aplicativos Web
 Suponha que você precise executar a resolução de nome de seu aplicativo Web criado usando o Serviço de Aplicativo, vinculado a uma rede virtual, para as VMs na mesma rede virtual. Além de configurar um servidor DNS personalizado que tenha um encaminhador DNS para encaminhar as consultas para o Azure (IP virtual 168.63.129.16), execute as seguintes etapas:

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: rogarana
-ms.openlocfilehash: 081ee364b3ddee5d1d1be75613309a4ae427066f
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: ae575eebf700f5495ea20d2bd3732ca21ad32315
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666830"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011405"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Habilitar autenticação do Active Directory sobre SMB para compartilhamentos de arquivos Do Zure
 
@@ -36,7 +36,9 @@ Quando você habilita o AD para compartilhamentos de arquivos Azure sobre SMB, a
 As identidades AD usadas para acessar os compartilhamentos de arquivos do Azure devem ser sincronizadas com o Azure AD para impor permissões de arquivo de nível de compartilhamento através do modelo [rbac (role-based access control)](../../role-based-access-control/overview.md) padrão. [Os DACLs no estilo Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) em arquivos/diretórios transportados dos servidores de arquivos existentes serão preservados e aplicados. Esse recurso oferece integração perfeita com a infra-estrutura de domínio aD corporativo. À medida que você substitui servidores de arquivos on-prem por compartilhamentos de arquivos Do Azure, os usuários existentes podem acessar os compartilhamentos de arquivos do Azure de seus clientes atuais com uma única experiência de logon, sem qualquer alteração nas credenciais em uso.  
 
 > [!NOTE]
-> Para ajudá-lo a configurar a autenticação ad de arquivos Azure para os casos de uso comum, publicamos [dois vídeos](https://docs.microsoft.com/azure/storage/files/storage-files-introduction#videos) com a orientação passo a passo sobre a substituição de servidores de arquivos no local por arquivos Azure e usando o Azure Files como o recipiente de perfil para o Windows Virtual Desktop.
+> Para ajudá-lo a configurar a autenticação ad arquivos Azure para os casos de uso comum, publicamos [dois vídeos](https://docs.microsoft.com/azure/storage/files/storage-files-introduction#videos) com a orientação passo a passo sobre 
+> * Substituindo servidores de arquivos no local por arquivos Do Zure (incluindo configuração em link privado para arquivos e autenticação de AD)
+> * Usando arquivos Azure como o recipiente de perfil para o Windows Virtual Desktop (incluindo configuração na autenticação AD e configuração FsLogix)
  
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -111,8 +113,7 @@ Você pode usar o script a seguir para executar o registro e habilitar o recurso
 ### <a name="12-domain-join-your-storage-account"></a>1.2 Domínio junte-se à sua conta de armazenamento
 Lembre-se de substituir os valores do espaço reservado pelos seus nos parâmetros abaixo antes de executá-los no PowerShell.
 > [!IMPORTANT]
-> Recomendamos que você forneça uma Unidade Organizacional AD (OU) que NÃO imponha o vencimento de senha. Se você usar um OU com o vencimento de senha configurado, você deve atualizar a senha antes da idade máxima de senha. A não atualização da senha da conta AD resultará em falhas de autenticação ao acessar os compartilhamentos de arquivos do Azure. Para saber como atualizar a senha, consulte [Atualizar a senha da conta AD](#5-update-ad-account-password).
-
+> O domínio join cmdlet abaixo criará uma conta AD para representar a conta de armazenamento (compartilhamento de arquivos) no AD. Você pode optar por se registrar como uma conta de computador ou conta de logon de serviço. Para contas de computador, há uma idade de expiração de senha padrão definida em AD em 30 dias. Da mesma forma, a conta de logon de serviço pode ter uma idade de expiração de senha padrão definida no domínio AD ou Unidade Organizacional (OU). Recomendamos fortemente que você verifique qual é a idade de expiração da senha configurada em seu ambiente DeD e planeje atualizar a senha da [conta AD](#5-update-ad-account-password) abaixo antes da idade máxima de senha. A não atualização da senha da conta AD resultará em falhas de autenticação ao acessar os compartilhamentos de arquivos do Azure. Você pode considerar [criar uma nova Unidade Organizacional AD (OU) em AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) e desativar a política de expiração de senha em contas de [computador](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) ou contas de logon de serviço de acordo. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -138,6 +139,11 @@ Join-AzStorageAccountForAuth `
         -Name "<storage-account-name-here>" `
         -DomainAccountType "ComputerAccount" `
         -OrganizationalUnitName "<ou-name-here>" or -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>"
+
+#If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
+
+#
+
 ```
 
 A descrição a seguir resume `Join-AzStorageAccountForAuth` todas as ações realizadas quando o cmdlet é executado. Você pode executar essas etapas manualmente, se preferir não usar o comando:

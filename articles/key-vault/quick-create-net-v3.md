@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 67dedfce4be81fdf686918a310b89cf463ed389a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: dc9c55c7caf2f78d66d8873e2da8ed7efdbdcec9
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79457246"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411630"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Início Rápido: Biblioteca de clientes do Azure Key Vault para .NET (SDK v3)
 
@@ -153,13 +153,26 @@ Este início rápido do .NET usa variáveis de ambiente para armazenar credencia
 
 Antes de compilar e executar seu aplicativo, use o comando `setx` para definir as variáveis de ambiente `akvClientId`, `akvClientSecret`, `akvTenantId` e `akvSubscriptionId` como os valores que você anotou acima.
 
+**Windows**
+
 ```console
-setx akvClientId <your-clientID>
+setx akvClientId "<your-clientID>"
+setx akvClientSecret "<your-clientSecret>"
+```
 
-setx akvClientSecret <your-clientSecret>
-````
+**Linux**
 
-Sempre que chamar `setx`, você deverá receber uma resposta de "ÊXITO: o valor especificado foi salvo. "
+```bash
+export akvClientId = "<your-clientID>"
+export akvClientSecret = "<your-clientSecret>"
+```
+
+**MacOS**
+
+```bash
+export akvClientId = "<your-clientID>"
+export akvClientSecret = "<your-clientSecret>"
+```
 
 Atribua essas variáveis de ambiente a cadeias de caracteres em seu código e, em seguida, autentique seu aplicativo passando-as para a [classe KeyVaultClient](/dotnet/api/microsoft.azure.keyvault.keyvaultclient):
 

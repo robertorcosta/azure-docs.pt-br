@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 9/19/2019
+ms.date: 04/04/2020
 ms.author: yinhew
-ms.openlocfilehash: 73a4477547c562a9960fe72b352e906676eadae5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 3a40dd445384ac35749ff2b016c672fb3c40dfb0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925286"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671241"
 ---
 > [!NOTE]
 > O Unity dá suporte à Área de Trabalho do Windows (x86 e x64) ou à Plataforma Universal do Windows (x86, x64, ARM/ARM64), ao Android (x86, ARM32/64) e ao iOS (simulador x64, ARM32 e ARM64).
@@ -26,7 +26,7 @@ Antes de começar, é preciso:
 
 > [!div class="checklist"]
 > * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=unity)
+> * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=unity&pivots=programming-language-csharp)
 
 ## <a name="add-a-ui"></a>Adicionar uma interface do usuário
 

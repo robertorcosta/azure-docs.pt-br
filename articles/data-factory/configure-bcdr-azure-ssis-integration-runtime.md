@@ -11,13 +11,13 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/14/2018
-ms.openlocfilehash: 92f7d25a9c19409b220b6a71fba87da91e51a415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/09/2020
+ms.openlocfilehash: 532258cecd823e10057ddc3536cd24071e444581
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74928493"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992055"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurar o Azure-SSIS Integration Runtime com a replicação geográfica e o failover do Banco de Dados SQL do Azure
 
@@ -112,9 +112,11 @@ Quando um desastre de IR ADF ou Azure-SSIS ocorre na região atual, você pode f
 
 ### <a name="steps"></a>Etapas
 
-Siga estas etapas para interromper o IR do Azure-SSIS, alternar o IR para uma nova região e iniciá-lo novamente.
+Siga estas etapas para mover seu Ir Azure-SSIS para uma nova região.
+> [!NOTE]
+> A etapa 3 (criação de IR) precisa ser feita via PowerShell. O portal Azure reportará um erro afirmando que o SSISDB já existe.
 
-1. Executar o procedimento armazenado para tornar o SSISDB conectado ao ** \<new_data_factory_name\> ** ou ** \<new_integration_runtime_name\>**.
+1. Executar procedimento armazenado para atualizar metadados no SSISDB para aceitar conexões de ** \<new_data_factory_name\> ** e ** \<new_integration_runtime_name\>**.
    
   ```SQL
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'

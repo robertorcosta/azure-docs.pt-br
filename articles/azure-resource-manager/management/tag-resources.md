@@ -3,18 +3,21 @@ title: Marque recursos, grupos de recursos e assinaturas para organização lóg
 description: Mostra como aplicar marcas para organizar os recursos do Azure para cobrança e gerenciamento.
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 76f9f61b3fe7002508bbd884f427efcfee698579
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 44759db59ef7e7556c8fbfca3bbc58ef84796198
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548490"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010793"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use tags para organizar seus recursos e hierarquia de gerenciamento do Azure
 
 Você aplica tags aos seus recursos do Azure, grupos de recursos e assinaturas para organizá-las logicamente em uma taxonomia. Cada marca consiste em um par de nome/valor. Por exemplo, você pode aplicar o nome "Ambiente" e o valor "Produção" a todos os recursos na produção.
 
 Para obter recomendações sobre como implementar uma estratégia de marcação, consulte [o guia de decisão de nomeação e marcação de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
+
+> [!IMPORTANT]
+> Os nomes das etiquetas são insensíveis a casos. Os valores da marca são sensíveis a maiúsculas e minúsculas.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 

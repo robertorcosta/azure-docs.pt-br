@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/09/2020
 ms.author: sstein
-ms.openlocfilehash: 9fa93af72c2869efd7b6d2f1e8b96b0e667f8b16
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: b677fd7fe2b14e1c42443478a887ddfa2481dfbf
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607543"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011439"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão do Banco de Dados SQL
 
@@ -22,12 +22,11 @@ Este artigo lista os recursos do Banco de Dados SQL que estão atualmente em vis
 
 ## <a name="features-in-public-preview"></a>Recursos em visualização pública
 
-### <a name="single-database"></a>[Banco de dados individual](#tab/single-database)
+### <a name="single-database"></a>[Banco de dados único](#tab/single-database)
 
 | Recurso | Detalhes |
 | ---| --- |
 | Novas gerações de hardware da série FSV2 e M| Para obter informações, consulte [As gerações de hardware](sql-database-service-tiers-vcore.md#hardware-generations).|
-| [Link privado do Azure](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| O Private Link simplifica a arquitetura da rede e protege a conexão entre os pontos finais no Azure, mantendo dados na rede Azure, eliminando assim a exposição à internet. O Private Link também permite que você crie e preste seus próprios serviços no Azure. |
 | Recuperação acelerada do banco de dados com bancos de dados únicos e pools elásticos | Para obter informações, consulte [Recuperação acelerada do banco de dados](sql-database-accelerated-database-recovery.md).|
 |Distinção de contagem aproximada|Para obter informações, consulte [Contagem Aproximada Distinta](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Modo de lote no Rowstore (sob o nível de compatibilidade 150)|Para obter informações, consulte [Modo de lote na Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|

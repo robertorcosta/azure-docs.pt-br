@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/29/2018
 ms.author: jinzh
 ms.custom: include file
-ms.openlocfilehash: 1ce91aede9328237aef8e5d5b7d74a3b72f10d50
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: cbf43f60a438c740c087ddd2344c982da09da634
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887457"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "81007869"
 ---
 A tabela a seguir mostra o limite de uso para o nível de preços do Azure Maps S0. Depende do tipo de preço. 
 
@@ -26,6 +26,7 @@ A tabela a seguir mostra o limite de tamanho dos dados para o Azure Maps. O serv
 
 | Recurso                              | Limite |
 |---------------------------------------|:---------------------:|
-| Tamanho máximo dos dados |   1 GB  |
+| Tamanho máximo dos dados |   50 MB  |
+
 
 Para obter mais informações sobre os níveis de preços do Azure Maps, consulte [os preços do Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/).

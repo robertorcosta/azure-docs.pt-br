@@ -3,13 +3,15 @@ title: Migrar VMs do Hyper-V para o Azure com a Migração de Servidor das Migra
 description: Saiba como migrar VMs locais do Hyper-V para o Azure com a Migração de Servidor das Migrações para Azure
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.custom: MVC
-ms.openlocfilehash: e1b670db3399857278c646d3793e8ec946d385b0
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.custom:
+- MVC
+- fasttrack-edit
+ms.openlocfilehash: b5d37da7ea0c53a7e8cbb5b579d529dd4a799fed
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943310"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422692"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs do Hyper-V para o Azure 
 
@@ -50,7 +52,7 @@ Antes de iniciar este tutorial, você deverá:
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Adicionar a ferramenta Migração de Servidor das Migrações para Azure
 
-Se você não seguiu o segundo tutorial para avaliar as VMs do Hyper-V, [siga estas instruções](how-to-add-tool-first-time.md) para configurar um projeto das Migrações para Azure e adicionar a ferramenta Migração de Servidor das Migrações para Azure ao projeto.
+Se você não seguiu o segundo tutorial para avaliar as VMs do Hyper-V, [siga estas instruções](how-to-add-tool-first-time.md) para configurar um projeto das Migrações para Azure e adicionar a ferramenta Avaliação de Servidor das Migrações para Azure ao projeto.
 
 Se você seguiu o segundo tutorial e já tem um projeto das Migrações para Azure, adicione a ferramenta Migrações para Azure: Migração de Servidor da seguinte maneira:
 
@@ -67,10 +69,10 @@ Se você seguiu o segundo tutorial e já tem um projeto das Migrações para Azu
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Configurar o dispositivo das Migrações para Azure
 
-A Migração de Servidor das Migrações para Azure executa um dispositivo leve de VM do Hyper-V.
+A Migração do Servidor de Migrações para Azure executa um agente de software em hosts ou nós de cluster do Hyper-V para orquestrar e replicar dados para Migrações para Azure e não requer um dispositivo dedicado para a migração.
 
-- O dispositivo executa a descoberta de VM e envia metadados de VM e dados de desempenho para a Migração de Servidor das Migrações para Azure.
-- O dispositivo também é usado pela ferramenta Migrações para Azure: Avaliação de Servidor para migrar VMs do Hyper-V para o Azure.
+- O recurso Migrações para Azure: O dispositivo de Avaliação do Servidor executa a descoberta de VM e envia os metadados de VM e os dados de desempenho para a Migração do Servidor de Migrações para Azure.
+- A orquestração de migração e a replicação de dados são processadas pelo provedor do Microsoft Azure Site Recovery e pelo agente de Serviço de Recuperação do Microsoft Azure.
 
 Para configurar o dispositivo:
 - Se você seguiu o segundo tutorial para avaliar as VMs do Hyper-V, você já configurou o dispositivo durante o tutorial e não precisa fazer isso novamente.

@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/17/2020
-ms.openlocfilehash: 214b2868f9733dfc6790c492543fb86a832f18b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/09/2020
+ms.openlocfilehash: dd13a08b3c2f63baf509efbb730032edd4eba61a
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065501"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011541"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no armazenamento Azure Blob usando a Fábrica de Dados do Azure
 
@@ -25,7 +25,8 @@ ms.locfileid: "80065501"
 
 Este artigo descreve como usar a Atividade de Cópia na Fábrica de Dados do Azure para copiar dados do armazenamento e para o armazenamento do Azure Blob e usar o Fluxo de Dados para transformar dados no armazenamento Azure Blob. Para saber mais sobre o Azure Data Factory, leia as [artigo introdutório](introduction.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+>[!TIP]
+>Para o cenário de migração de data lake ou data warehouse, saiba mais na Fábrica de [Dados use o Azure para migrar dados do seu lago de dados ou data warehouse para o Azure](data-migration-guidance-overview.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -64,7 +65,7 @@ O conector de Blob do Azure suporta os seguintes tipos de autenticação, consul
 - [Identidades gerenciadas para autenticação de recursos do Azure](#managed-identity)
 
 >[!NOTE]
->Ao usar o PolyBase para carregar dados no SQL Data Warehouse, se a sua origem ou o armazenamento blob estiver configurado com o ponto final da Rede Virtual, você deve usar a autenticação de identidade gerenciada conforme exigido pelo PolyBase e usar o Executtime de integração auto-hospedado com a versão 3.18 ou mais. Consulte a seção [de autenticação de identidade gerenciada](#managed-identity) com mais pré-requisitos de configuração.
+>Ao usar o PolyBase para carregar dados no SQL Data Warehouse, se a sua fonte ou o armazenamento blob for configurado com o ponto final da Rede Virtual, você deve usar a autenticação de identidade gerenciada conforme exigido pelo PolyBase e usar o Executtime de Integração Auto-hospedado com a versão 3.18 ou superior. Consulte a seção [de autenticação de identidade gerenciada](#managed-identity) com mais pré-requisitos de configuração.
 
 >[!NOTE]
 >As atividades de HDInsights e Azure Machine Learning só suportam a autenticação chave da conta de armazenamento Azure Blob.
@@ -136,11 +137,6 @@ Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da s
 > [!NOTE]
 >- O Data Factory agora dá suporte para **assinaturas de acesso compartilhado de serviço** e **assinaturas de acesso compartilhado de conta**. Para obter mais informações sobre assinaturas de acesso compartilhada, consulte [O acesso limitado ao Grant aos recursos do Azure Storage usando assinaturas de acesso compartilhado (SAS)](../storage/common/storage-sas-overview.md).
 >- Na configuração do conjunto de dados anterior, o caminho da pasta é o caminho absoluto começando do nível de contêiner. Você precisa configurar um alinhado com o caminho em seu URI SAS.
-
-> [!TIP]
-> Para gerar uma assinatura de acesso compartilhado de serviço para a conta de armazenamento, você pode executar os comandos a seguir do PowerShell. Substitua os espaços reservados e conceda a permissão necessária.
-> `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Para usar a autenticação de assinatura de acesso compartilhado, há suporte para as seguintes propriedades:
 
@@ -321,7 +317,7 @@ As seguintes propriedades são suportadas para `location` o Azure Blob em config
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | A propriedade do tipo do local no conjunto de dados deve ser definida como **AzureBlobStorageLocation**. | Sim      |
 | contêiner  | O recipiente blob.                                          | Sim      |
-| folderPath | O caminho para a pasta o recipiente dado. Se você quiser usar curinga para filtrar pasta, pule essa configuração e especifique nas configurações de origem da atividade. | Não       |
+| folderPath | O caminho para a pasta sob o recipiente dado. Se você quiser usar curinga para filtrar pasta, pule essa configuração e especifique nas configurações de origem da atividade. | Não       |
 | fileName   | O nome do arquivo no determinado contêiner + folderPath. Se você quiser usar curinga para filtrar arquivos, pule essa configuração e especifique nas configurações de origem da atividade. | Não       |
 
 **Exemplo:**
@@ -365,9 +361,9 @@ As seguintes propriedades são suportadas para `storeSettings` o Azure Blob em c
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | A propriedade `storeSettings` do tipo em baixo deve ser definida como **AzureBlobStorageReadSettings**. | Sim                                           |
 | recursiva                | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. Os valores permitidos são **true** (padrão) e **false**. | Não                                            |
-| prefixo                   | Prefixo para o nome blob o recipiente dado configurado no conjunto de dados para filtrar bolhas de origem. Blobs cujo nome começa com este prefixo são selecionados. <br>Aplica-se `wildcardFolderPath` somente `wildcardFileName` quando e propriedades não são especificadas. | Não                                                          |
-| curingaFolderPath       | O caminho da pasta com caracteres curinga o determinado contêiner configurado no conjunto de dados para filtrar pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                            |
-| curingaNome de arquivo         | O nome do arquivo com caracteres curinga o contêiner dado + pastaPath/curingaFolderPath para filtrar arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim, `fileName` se não for especificado no conjunto de dados |
+| prefixo                   | Prefixo para o nome blob sob o recipiente dado configurado no conjunto de dados para filtrar bolhas de origem. Blobs cujo nome começa com este prefixo são selecionados. <br>Aplica-se `wildcardFolderPath` somente `wildcardFileName` quando e propriedades não são especificadas. | Não                                                          |
+| curingaFolderPath       | O caminho da pasta com caracteres curinga sob o determinado contêiner configurado no conjunto de dados para filtrar pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                            |
+| curingaNome de arquivo         | O nome do arquivo com caracteres curinga sob o contêiner dado + pastaPath/curingaFolderPath para filtrar arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim, `fileName` se não for especificado no conjunto de dados |
 | modifiedDatetimeStart    | Filtro de arquivos com base no atributo: Última modificação. Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora. | Não                                            |
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                            |
 | maxConcurrentConnections | O número das conexões para se conectar ao armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea ao armazenamento de dados. | Não                                            |
@@ -513,7 +509,7 @@ Exemplos curingas:
 * ```?```Substitui um caractere
 * ```[]```Corresponde a um dos mais personagens nos suportes
 
-* ```/data/sales/**/*.csv```Recebe todos os arquivos csv /data/vendas
+* ```/data/sales/**/*.csv```Recebe todos os arquivos csv sob /data/vendas
 * ```/data/sales/20??/**/```Recebe todos os arquivos do século 20
 * ```/data/sales/*/*/*.csv```Recebe arquivos csv dois níveis em /data/vendas
 * ```/data/sales/2004/*/12/[XY]1?.csv```Recebe todos os arquivos csv em 2004 em dezembro começando com X ou Y prefixados por um número de dois dígitos

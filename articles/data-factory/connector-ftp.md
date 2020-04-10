@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/02/2020
 ms.author: jingwang
-ms.openlocfilehash: b215531fdc1a1bb07b33c427623d5cd4f5f8219a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc81e66e609400c6558f00ee957ccaee715bd7fa
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252472"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991630"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copiar dados do servidor FTP usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -62,7 +62,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do FTP:
 | host | Especifique o nome ou endereço IP do servidor FTP. | Sim |
 | porta | Especifique a porta ouvida pelo servidor FTP.<br/>Os valores permitidos são: inteiro, o valor padrão é **21**. | Não |
 | enableSsl | Especifique se o canal FTP sobre SSL/TLS deve ser usado.<br/>Os valores permitidos são: **true** (padrão), **false**. | Não |
-| enableServerCertificateValidation | Especifique se deseja habilitar a validação do certificado SSL do servidor ao usar o canal FTP sobre SSL/TLS.<br/>Os valores permitidos são: **true** (padrão), **false**. | Não |
+| enableServerCertificateValidation | Especifique se deseja habilitar a validação do certificado TLS/SSL do servidor quando estiver usando FTP no canal SSL/TLS.<br/>Os valores permitidos são: **true** (padrão), **false**. | Não |
 | authenticationType | Especifique o tipo de autenticação.<br/>Os valores permitidos são: **Básica**, **Anônima** | Sim |
 | userName | Especifique o usuário que tem acesso ao servidor FTP. | Não |
 | password | Especifica a senha para o usuário (userName). Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Não |
@@ -132,7 +132,7 @@ As seguintes propriedades são suportadas para FTP em `location` configurações
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | A propriedade `location` de tipo em conjunto de dados deve ser definida como **FtpServerLocation**. | Sim      |
 | folderPath | O caminho para pasta. Se você quiser usar curinga para filtrar pasta, pule essa configuração e especifique nas configurações de origem da atividade. | Não       |
-| fileName   | O nome do arquivo a pastadaPath. Se você quiser usar curinga para filtrar arquivos, pule essa configuração e especifique nas configurações de origem da atividade. | Não       |
+| fileName   | O nome do arquivo sob a pastadaPath. Se você quiser usar curinga para filtrar arquivos, pule essa configuração e especifique nas configurações de origem da atividade. | Não       |
 
 **Exemplo:**
 
@@ -175,7 +175,7 @@ As seguintes propriedades são suportadas para FTP em `storeSettings` configura�
 | type                     | A propriedade `storeSettings` do tipo abaixo deve ser definida como **FtpReadSettings**. | Sim                                           |
 | recursiva                | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. Os valores permitidos são **true** (padrão) e **false**. | Não                                            |
 | curingaFolderPath       | O caminho da pasta com caracteres curinga para filtrar pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                            |
-| curingaNome de arquivo         | O nome do arquivo com caracteres curinga a pastadaPath/curingaFolderPath para filtrar arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim, `fileName` se não for especificado no conjunto de dados |
+| curingaNome de arquivo         | O nome do arquivo com caracteres curinga sob a pastadaPath/curingaFolderPath para filtrar arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim, `fileName` se não for especificado no conjunto de dados |
 | useBinaryTransfer | Especifique se o modo de transferência binário deve ser usado. Os valores são true para o modo binário (padrão) e false para ASCII. |Não |
 | maxConcurrentConnections | O número das conexões para se conectar ao armazenamento de dados simultaneamente. Especifique somente quando quiser limitar a conexão simultânea ao armazenamento de dados. | Não |
 

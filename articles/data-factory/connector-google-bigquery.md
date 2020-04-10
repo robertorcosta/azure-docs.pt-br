@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: c0eb043ce040f154050ef4c3675f165dad326e32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9fe6b494398337dd49bd8f0fe53b24666412a1b0
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929418"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991579"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiar dados do Google BigQuery utilizando o Azure Data Factory
 
@@ -99,7 +99,7 @@ Defina a propriedade "authenticationType" para **ServiceAuthentication** e espec
 |:--- |:--- |:--- |
 | email | A ID de e-mail da conta de serviço que é usada para ServiceAuthentication. Só pode ser usado em Integration Runtime auto-hospedado.  | Não |
 | keyFilePath | O caminho completo para o arquivo chave .p12 que é usado para autenticar o endereço de e-mail da conta de serviço. | Não |
-| trustedCertPath | O caminho completo do arquivo .pem que contém certificados de autoridade de certificação confiáveis usados para verificar o servidor ao se conectar via SSL. Essa propriedade pode ser definida somente quando você usa o SSL em Integration Runtime auto-hospedada. O valor padrão é o arquivo de cacerts.pem instalado com o runtime de integração.  | Não |
+| trustedCertPath | O caminho completo do arquivo .pem que contém certificados CA confiáveis usados para verificar o servidor quando você se conecta ao TLS. Esta propriedade só pode ser definida quando você usa TLS no Tempo de Execução de Integração Auto-hospedado. O valor padrão é o arquivo de cacerts.pem instalado com o runtime de integração.  | Não |
 | useSystemTrustStore | Especifica se deve usar um certificado de autoridade de certificação do repositório de confiança de sistema ou de um arquivo .pem especificado. O valor padrão é **false**.  | Não |
 
 **Exemplo:**

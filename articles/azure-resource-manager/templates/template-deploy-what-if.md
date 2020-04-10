@@ -3,14 +3,14 @@ title: Implantação de modelo e se (Visualização)
 description: Determine quais alterações acontecerão com seus recursos antes de implantar um modelo do Azure Resource Manager.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/09/2020
 ms.author: jgao
-ms.openlocfilehash: 9e0d0d572e08961b585a93e66e400b8c2e54bf7f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b8e94d0b4f364e2873dfc21792a67f11c33483bf
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886833"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010181"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Implantação do modelo ARM (Visualização)
 
@@ -24,6 +24,14 @@ Você pode usar a operação "e se" com os comandos PowerShell ou operações de
 ## <a name="install-powershell-module"></a>Instale o módulo PowerShell
 
 Para usar o what-if no PowerShell, instale uma versão de visualização do módulo Az.Resources da galeria PowerShell.
+
+### <a name="install-preview-version"></a>Instalar versão de visualização
+
+Para instalar o módulo de visualização, use:
+
+```powershell
+Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+```
 
 ### <a name="uninstall-alpha-version"></a>Desinstalar versão alfa
 
@@ -47,14 +55,6 @@ Se você já instalou uma versão alfa do módulo e-if, desinstale esse módulo.
    ```powershell
    Unregister-PSRepository -Name WhatIfRepository
    ```
-
-### <a name="install-preview-version"></a>Instalar versão de visualização
-
-Para instalar o módulo de visualização, use:
-
-```powershell
-Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
-```
 
 Você está pronto para usar o "e se".
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1f4b3387375b52b28600590a099884277f3de63e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f909ca12ce080fc5d1241bcc649c041361e405a7
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78943026"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421172"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implantar funções do Azure como módulos do IoT Edge
 
@@ -31,9 +31,6 @@ Use o Azure Functions para implantar um código que implementa a lógica de neg�
 
 ![Diagrama – Arquitetura do tutorial: preparar e implantar módulo de funções](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
-
->[!NOTE]
->Os módulos de funções do Azure no Azure IoT Edge são [públicos na versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A função do Azure criada neste tutorial filtra os dados de temperatura gerados pelo seu dispositivo. Ela só envia mensagens upstream para o Hub IoT do Azure quando a temperatura estiver acima de um limite especificado.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: 63e352ce47c5934171594ae87ee307603fff4c35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb628ec73430d542295a83773401c256421605a0
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931020"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990864"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copiar dados do Spark usando o Azure Data Factory 
 
@@ -58,10 +58,10 @@ As propriedades a seguir têm suporte para o serviço vinculado do Spark:
 | Nome de Usuário | O nome de usuário que você usa para acessar o servidor do Spark.  | Não |
 | password | A senha correspondente ao usuário. Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Não |
 | httpPath | A URL parcial correspondente ao servidor do Spark.  | Não |
-| enableSsl | Especifica se as conexões com o servidor são criptografadas usando SSL. O valor padrão é false.  | Não |
-| trustedCertPath | O caminho completo do arquivo .pem que contém certificados de autoridade de certificação confiáveis para verificar o servidor ao se conectar via SSL. Essa propriedade só pode ser definida ao usar o SSL em IR auto-hospedado. O valor padrão é o arquivo de cacerts.pem instalado com o IR.  | Não |
+| enableSsl | Especifica se as conexões ao servidor são criptografadas usando TLS. O valor padrão é false.  | Não |
+| trustedCertPath | O caminho completo do arquivo .pem contendo certificados CA confiáveis para verificar o servidor ao se conectar através do TLS. Esta propriedade só pode ser definida ao usar TLS em IR auto-hospedado. O valor padrão é o arquivo de cacerts.pem instalado com o IR.  | Não |
 | useSystemTrustStore | Especifica se deve usar um certificado de autoridade de certificação do repositório de confiança de sistema ou de um arquivo PEM especificado. O valor padrão é false.  | Não |
-| allowHostNameCNMismatch | Especifica se é necessário o nome do certificado SSL emitido pela autoridade de certificação para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é false.  | Não |
+| allowHostNameCNMismatch | Especifica se é necessário exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de host do servidor ao se conectar pelo TLS. O valor padrão é false.  | Não |
 | allowSelfSignedServerCert | Especifica se deve permitir os certificados autoassinados do servidor. O valor padrão é false.  | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos.](#prerequisites) Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 

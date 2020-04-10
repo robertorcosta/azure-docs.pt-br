@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: f465fe4bb69bc5ae81db6c78df51bf5133de1b60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c7690390936a05dd472796eb6f50f582f652e35
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929298"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990828"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Copiar dados do Impala usando o Azure Data Factory
 
@@ -55,10 +55,10 @@ As propriedades a seguir têm suporte no serviço vinculado do Impala.
 | authenticationType | O tipo de autenticação a ser usado. <br/>Valores permitidos são: **Anônimo**, **SASLUsername** e **UsernameAndPassword**. | Sim |
 | Nome de Usuário | O nome de usuário usado para acessar o servidor Impala. O valor padrão é anônimo quando você usa SASLUsername.  | Não |
 | password | A senha que corresponde ao nome de usuário quando você usa UsernameAndPassword. Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Não |
-| enableSsl | Especifica se as conexões com o servidor são criptografadas usando SSL. O valor padrão é **false**.  | Não |
-| trustedCertPath | O caminho completo do arquivo .pem que contém certificados de autoridade de certificação confiáveis usados para verificar o servidor ao se conectar via SSL. Essa propriedade pode ser definida somente quando você usa o SSL em Integration Runtime auto-hospedada. O valor padrão é o arquivo de cacerts.pem instalado com o runtime de integração.  | Não |
+| enableSsl | Especifica se as conexões ao servidor são criptografadas usando TLS. O valor padrão é **false**.  | Não |
+| trustedCertPath | O caminho completo do arquivo .pem que contém certificados CA confiáveis usados para verificar o servidor quando você se conecta ao TLS. Esta propriedade só pode ser definida quando você usa TLS no Tempo de Execução de Integração Auto-hospedado. O valor padrão é o arquivo de cacerts.pem instalado com o runtime de integração.  | Não |
 | useSystemTrustStore | Especifica se deve usar um certificado de autoridade de certificação do repositório de confiança de sistema ou de um arquivo PEM especificado. O valor padrão é **false**.  | Não |
-| allowHostNameCNMismatch | Especifica se é necessário o nome do certificado SSL emitido pela autoridade de certificação para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é **false**.  | Não |
+| allowHostNameCNMismatch | Especifica se é necessário exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de host do servidor quando você se conectar ao TLS. O valor padrão é **false**.  | Não |
 | allowSelfSignedServerCert | Especifica se deve permitir os certificados autoassinados do servidor. O valor padrão é **false**.  | Não |
 | connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos.](#prerequisites) Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 

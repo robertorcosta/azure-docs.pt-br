@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.openlocfilehash: a48e69f19db88c7823365964c2fe9c0629a078bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd2da798cae92a7e47bd879b69dd108618463402
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75412680"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010759"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Como usar a ferramenta de linha de comando Redis com Cache do Azure para Redis
 
@@ -38,9 +38,9 @@ Nesta seção, você vai recuperar as chaves do Portal do Azure.
 
 ## <a name="enable-access-for-redis-cliexe"></a>Habilitar o acesso para redis-cli.exe
 
-Com o Cache do Azure para Redis, somente a porta SSL (6380) é habilitada por padrão. A ferramenta de linha de comando `redis-cli.exe` não oferece suporte a SSL. Você tem duas opções de configuração para usá-lo:
+Com o Cache Azure para Redis, apenas a porta TLS (6380) está habilitada por padrão. A `redis-cli.exe` ferramenta de linha de comando não suporta TLS. Você tem duas opções de configuração para usá-lo:
 
-1. [Habilite a porta não-SSL (6379)](cache-configure.md#access-ports) - **Essa configuração não é recomendada** porque, nesta configuração, as chaves de acesso são enviadas via TCP em texto claro. Essa alteração pode comprometer o acesso ao seu cache. O único cenário em que você pode considerar essa configuração é quando você está acessando apenas um cache de teste.
+1. [Habilite a porta não-TLS (6379)](cache-configure.md#access-ports) - **Essa configuração não é recomendada** porque, nesta configuração, as chaves de acesso são enviadas via TCP em texto claro. Essa alteração pode comprometer o acesso ao seu cache. O único cenário em que você pode considerar essa configuração é quando você está acessando apenas um cache de teste.
 
 2. Baixar e instalar o [stunnel](https://www.stunnel.org/downloads.html).
 
@@ -74,7 +74,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![stunnel com redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-Se você estiver usando um cache de teste com a porta não SSL **não segura**, execute `redis-cli.exe` e passe o *nome de host*, *porta*, e *chave de acesso* (primário ou secundário) para se conectar ao cache de teste.
+Se você estiver usando um cache de teste com a `redis-cli.exe` porta não-TLS **não segura,** execute e passe o nome do *host,* *porta*e *tecla de acesso* (principal ou secundário) para se conectar ao cache de teste.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey

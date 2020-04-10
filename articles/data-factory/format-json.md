@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 7dac8d21e3b45307284ece15ca5ddbcc69db909b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b63dcfd6ed293cab9d0107a8b6a35c7ce358d429
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260638"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011677"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON na Fábrica de Dados Azure
 
@@ -30,9 +30,10 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | A propriedade do tipo do conjunto de dados deve ser definida como **Json**. | Sim      |
 | local         | Configurações de localização dos arquivos(s). Cada conector baseado em arquivo tem seu próprio `location`tipo de localização e propriedades suportadas em . **Veja detalhes na seção propriedades connector article-> Dataset**. | Sim      |
-| encodingName     | O tipo de codificação usado para ler/gravar arquivos de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", " IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM870", "IBM 011140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149" , "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859 -6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Não       |
-| compressionCodec | O codec de compactação usado para ler/gravar arquivos de texto. <br>Os valores permitidos são **bzip2,** **gzip,** **deflate**, **ZipDeflate,** **snappy,** ou **lz4**. para usar ao salvar o arquivo. <br>Nota atualmente A atividade de cópia não suporta "snappy" & "lz4".<br>Nota ao usar a atividade de cópia para descompactar arquivos ZipDeflate e gravar no armazenamento `<path specified in dataset>/<folder named as source zip file>/`de dados do sink baseado em arquivos, os arquivos serão extraídos para a pasta: . | Não       |
-| compactaçãoNível | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos**.<br>- **O mais rápido:** A operação de compactação deve ser concluída o mais rápido possível, mesmo que o arquivo resultante não esteja compactado de forma ideal.<br>- **Ideal**: A operação de compressão deve ser compactada de forma ideal, mesmo que a operação deva mais tempo para ser concluída. Para saber mais, veja o tópico [Nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Não       |
+| encodingName     | O tipo de codificação usado para ler/gravar arquivos de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7" ", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM855", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM863", "IBM864", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", 0", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01144", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR". 8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13". , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Não       |
+| compactação | Grupo de propriedades para configurar compactação de arquivos. Configure esta seção quando quiser fazer compressão/descompressão durante a execução da atividade. | Não |
+| type | O codec de compressão usado para ler/gravar arquivos JSON. <br>Os valores permitidos são **bzip2,** **gzip,** **deflate**, **ZipDeflate,** **snappy,** ou **lz4**. para usar ao salvar o arquivo. O padrão não é compactado.<br>**Nota** atualmente A atividade de cópia não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate".<br>**Nota** ao usar a atividade de cópia para descompactar arquivos ZipDeflate e gravar no armazenamento `<path specified in dataset>/<folder named as source zip file>/`de dados do sink baseado em arquivos, os arquivos serão extraídos para a pasta: . | Não.  |
+| level | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos**.<br>- **O mais rápido:** A operação de compactação deve ser concluída o mais rápido possível, mesmo que o arquivo resultante não esteja compactado de forma ideal.<br>- **Ideal**: A operação de compressão deve ser compactada de forma ideal, mesmo que a operação deva mais tempo para ser concluída. Para saber mais, veja o tópico [Nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Não       |
 
 Abaixo está um exemplo do conjunto de dados JSON no Azure Blob Storage:
 
@@ -54,6 +55,7 @@ Abaixo está um exemplo do conjunto de dados JSON no Azure Blob Storage:
             },
             "compression": {
                 "type": "gzip"
+            }
         }
     }
 }
@@ -253,7 +255,7 @@ Se esta expressão fosse inserida para uma coluna chamada "complexColumn", entã
 
 ### <a name="source-format-options"></a>Opções de formato de origem
 
-O uso de um conjunto de dados JSON como fonte no fluxo de dados permite definir cinco configurações adicionais. Essas configurações podem ser encontradas o acordeão **de configurações JSON** na guia **Opções de** origem.  
+O uso de um conjunto de dados JSON como fonte no fluxo de dados permite definir cinco configurações adicionais. Essas configurações podem ser encontradas sob o acordeão **de configurações JSON** na guia **Opções de** origem.  
 
 ![Configurações json](media/data-flow/json-settings.png "Configurações de JSON")
 
