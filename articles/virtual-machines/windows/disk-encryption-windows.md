@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b51f7a8b62d7131b7bbfc77101e60fab22e1f148
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: f7b6e667df95d9279ad5c44caa4ba33a17909935
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985789"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113151"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários de Azure Disk Encryption em VMs Windows
 
-O Azure Disk Encryption para máquinas virtuais Windows (VMs) usa o recurso Bitlocker do Windows para fornecer criptografia de disco completo do disco WindOS e do disco de dados. Além disso, ele fornece criptografia do disco de recursos efêmeros quando o parâmetro VolumeType é All.
+O Azure Disk Encryption para máquinas virtuais Windows (VMs) usa o recurso Bitlocker do Windows para fornecer criptografia de disco completo do disco e disco de dados do SISTEMA OPERACIONAL. Além disso, ele fornece criptografia do disco de recursos efêmeros quando o parâmetro VolumeType é All.
 
 O Azure Disk Encryption é [integrado ao Azure Key Vault](disk-encryption-key-vault.md) para ajudá-lo a controlar e gerenciar as chaves e segredos de criptografia de disco. Para obter uma visão geral do serviço, consulte [Azure Disk Encryption for Windows VMs](disk-encryption-overview.md).
 

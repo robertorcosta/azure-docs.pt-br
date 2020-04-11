@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 367b7c2e1ce1c8b3c0dbc02003218b76096b409d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55537fb923b26de4e02be35fdb817dee147584d7
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75354639"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115134"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Noções básicas sobre a manipulação de horas no Azure Stream Analytics
 
@@ -96,7 +96,7 @@ Talvez você tenha notado outro conceito chamado janela de chegada antecipada, q
 
 Como o Azure Stream Analytics garante que ela sempre gere resultados completos, você pode especificar a **hora de início do trabalho** como a primeira hora de saída do trabalho, não a hora de entrada. A hora de início do trabalho é necessária para que a janela completa seja processada, não apenas metade da janela.
 
-O Stream Analytics deriva a hora de início da especificação da consulta. No entanto, como o agente do evento de entrada é indexado apenas pela hora de chegada, o sistema precisa converter a hora de início do evento em hora de chegada. O sistema pode iniciar o processamento de eventos desse ponto no agente do evento de entrada. Com o limite da janela de chega antecipada, a conversão é direta. É a hora de início do evento menos os 5 minutos da janela de chegada antecipada. Esse cálculo também significa que o sistema descarta todos os eventos com a hora do evento 5 minutos posterior à hora de chegada.
+O Stream Analytics deriva a hora de início da especificação da consulta. No entanto, como o agente do evento de entrada é indexado apenas pela hora de chegada, o sistema precisa converter a hora de início do evento em hora de chegada. O sistema pode iniciar o processamento de eventos desse ponto no agente do evento de entrada. Com o limite da janela de chega antecipada, a conversão é direta. É o tempo de início do evento menos a janela de chegada de 5 minutos. Este cálculo também significa que o sistema descarta todos os eventos que são vistos como tendo um tempo de evento 5 minutos mais amenos do que o tempo de chegada.
 
 Esse conceito é usado para garantir que o processamento seja repetível, independentemente de onde você começa a gerar a saída. Sem esse mecanismo, não seria possível garantir a repetibilidade, como muitos outros sistemas de streaming alegam que fazem.
 

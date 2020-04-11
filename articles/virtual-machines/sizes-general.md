@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 4b36f456f70eb79cff1f615c7c136b8fe4b1b3d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22826c32dc2aee0e580ec0b2a05c7eb8f08b7570
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78226709"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115318"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Tamanhos das Máquinas Virtuais de uso geral
 
@@ -32,7 +32,7 @@ Os tamanhos de VM para uso geral fornecem uma relação de CPU para memória equ
 
 - [Série B explodida](sizes-b-series-burstable.md) As VMs são ideais para cargas de trabalho que não precisam do desempenho completo da CPU continuamente, como servidores web, pequenos bancos de dados e ambientes de desenvolvimento e teste. Normalmente, essas cargas de trabalho têm requisitos de desempenho expansíveis. A série B fornece esses clientes a possibilidade de comprar um tamanho VM com um preço consciência da linha de base de desempenho que permite que a instância VM criar créditos quando a VM é menor que o desempenho de base. Quando a VM tiver acumulado crédito, poderá disparar acima da linha de base da VM usando até 100% da CPU quando seu aplicativo requer o maior desempenho de CPU.
 
-- [As séries Dav4 e Dasv4](dav4-dasv4-series.md) são novos tamanhos que utilizam o processador AMD 2.35Ghz<sup>TM</sup> 7452 em uma configuração multi-threaded com cache de até 256 MB L3 dedicando 8 GB desse cache L3 a cada 8 núcleos aumentando as opções do cliente para executar suas cargas de trabalho de uso geral. As séries Dav4 e Dasv4 têm as mesmas configurações de memória e disco que a série Dsv3 & Dsv3.
+- [As séries Dav4 e Dasv4](dav4-dasv4-series.md) são novos tamanhos que utilizam o processador AMD 2.35Ghz<sup>TM</sup> 7452 em uma configuração multi-threaded com cache l3 de até 256 MB dedicando 8 MB desse cache L3 a cada 8 núcleos aumentando as opções do cliente para executar suas cargas de trabalho de uso geral. As séries Dav4 e Dasv4 têm as mesmas configurações de memória e disco que a série Dsv3 & Dsv3.
 
 - A [série DCv2](dcv2-series.md) pode ajudar a proteger a confidencialidade e integridade de seus dados e códigos enquanto ele é processado na nuvem pública. Estas máquinas são apoiadas pela última geração do Processador Intel XEON E-2288G com tecnologia SGX. Com a tecnologia Intel Turbo Boost essas máquinas podem ir até 5.0GHz. As instâncias da série DCv2 permitem que os clientes construam aplicativos seguros baseados em enclave para proteger seu código e dados enquanto eles estão em uso.
 
@@ -45,7 +45,7 @@ Os casos de uso da série D incluem aplicativos de nível corporativo, bancos de
 ## <a name="other-sizes"></a>Outros tamanhos
 
 - [Otimizado para computação](sizes-compute.md)
-- [Memória otimizada](sizes-memory.md)
+- [Otimizado para memória](sizes-memory.md)
 - [Otimizado para armazenamento](sizes-storage.md)
 - [GPU otimizada](sizes-gpu.md)
 - [Computação de alto desempenho](sizes-hpc.md)

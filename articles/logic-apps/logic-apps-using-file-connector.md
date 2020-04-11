@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 2a00405a2100c3e565ca4f8ea4149540a5199b43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab17137f162b893b54942d870b07a36f87d1b71d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651399"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115083"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conectar a sistemas de arquivos locais com os Aplicativos Lógicos do Azure
 
@@ -69,7 +69,7 @@ Este artigo mostra como se conectar a um sistema de arquivos local como descrito
    | -------- | -------- | ----- | ----------- |
    | **Nome da conexão** | Sim | <*nome de conexão*> | O nome desejado para a conexão |
    | **Pasta raiz** | Sim | <*raiz-nome de pasta*> | A pasta raiz do sistema de arquivos, por exemplo, se você tiver instalado seu gateway de dados local, como uma pasta local no computador em que o gateway de dados local está instalado ou a pasta de um compartilhamento de rede que o computador pode acessar. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta pai principal, que é usada para caminhos relativos de todas as ações relacionadas ao arquivo. |
-   | **Tipo de Autenticação** | Não | <*auth-tipo*> | O tipo de autenticação usado pelo seu sistema de arquivos, por exemplo, **Windows** |
+   | **Tipo de autenticação** | Não | <*auth-tipo*> | O tipo de autenticação que seu sistema de arquivos usa: **Windows** |
    | **Username** | Sim | <*domain*>\\<*nome de usuário de* domínio> | O nome de usuário do computador no qual você tem seu sistema de arquivos |
    | **Senha** | Sim | <*sua senha*> | A senha do computador no qual você tem seu sistema de arquivos |
    | **Gateway** | Sim | <*nome do gateway instalado*> | O nome do seu gateway instalado anteriormente |

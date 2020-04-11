@@ -5,28 +5,30 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 03/10/2020
+ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: d3f8e52b4582c9467ae3ec61ee984771b801fe4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264772"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113445"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Lógica de processamento de regra do Firewall do Azure
-Você pode configurar regras de NAT, regras de rede e regras de aplicativos no Firewall do Azure. As regras são processadas de acordo com o tipo de regra. 
+Você pode configurar regras de NAT, regras de rede e regras de aplicativos no Firewall do Azure. As coletas de regras são processadas de acordo com o tipo de regra em ordem de prioridade, números mais baixos para números mais altos de 100 a 65.000. Um nome de coleção de regras pode ter apenas letras, números, sublinhados, períodos ou hífens. Ele deve começar com uma letra ou número, e terminar com uma letra, número ou sublinhado. O comprimento máximo do nome é de 80 caracteres.
+
+É melhor inicialmente espaçar seus números de prioridade de coleta de regras em 100 incrementos (100, 200, 300, e assim por diante) para que você tenha espaço para adicionar mais coleções de regras, se necessário.
 
 > [!NOTE]
 > Se você habilitar a filtragem baseada em inteligência de ameaças, essas regras são de maior prioridade e são sempre processadas primeiro. A filtragem de inteligência de ameaças pode negar o tráfego antes que quaisquer regras configuradas sejam processadas. Para obter mais informações, consulte [a filtragem baseada em ameaças do Azure Firewall](threat-intel.md).
 
-## <a name="outbound"></a>Saída
+## <a name="outbound-connectivity"></a>Conectividade de saída
 
 ### <a name="network-rules-and-applications-rules"></a>Regras de rede e regras de aplicativos
 
 Se você configurar regras de rede e regras de aplicativo, então as regras da rede serão aplicadas em ordem de prioridade antes das regras do aplicativo. As regras estão sendo encerradas. Então, se uma correspondência é encontrada em uma regra de rede, nenhuma outra regra é processada.  Se não houver correspondência de regra de rede e se o protocolo for HTTP, HTTPS ou MSSQL, o pacote será então avaliado pelas regras do aplicativo em ordem de prioridade. Se ainda não for encontrado nenhum jogo, o pacote será avaliado em relação à cobrança das [regras de infra-estrutura](infrastructure-fqdns.md). Se ainda não houver nenhuma correspondência, o pacote será negado por padrão.
 
-## <a name="inbound"></a>Entrada
+## <a name="inbound-connectivity"></a>Conectividade de entrada
 
 ### <a name="nat-rules"></a>Regras de NAT
 

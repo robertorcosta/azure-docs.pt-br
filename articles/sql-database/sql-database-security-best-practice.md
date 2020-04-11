@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 39747ac0a7133562bed526f44e30bf4a656127c0
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 7b3a223ca504bff380afad54afda73880717814f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673602"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115382"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Livro de jogadas para atender aos requisitos comuns de segurança com o banco de dados SQL do Azure
 
@@ -89,14 +89,14 @@ O gerenciamento central de identidade oferece os seguintes benefícios:
 
 - Crie um inquilino AD do Azure e [crie usuários](../active-directory/fundamentals/add-users-azure-active-directory.md) para representar usuários humanos e criar [diretores de serviços](../active-directory/develop/app-objects-and-service-principals.md) para representar aplicativos, serviços e ferramentas de automação. Os princípios do serviço são equivalentes às contas de serviço no Windows e Linux. 
 
-- Atribuir direitos de acesso aos recursos aos principais do Azure AD através da atribuição de grupo: Criar grupos AD do Azure, conceder acesso a grupos e adicionar membros individuais aos grupos. Em seu banco de dados, crie usuários de banco de dados contidos que mapeiam seus grupos AD do Azure. Para atribuir permissões dentro do banco de dados, coloque os usuários em funções de banco de dados com as permissões apropriadas.
+- Atribuir direitos de acesso aos recursos aos principais do Azure AD através da atribuição de grupo: Criar grupos AD do Azure, conceder acesso a grupos e adicionar membros individuais aos grupos. Em seu banco de dados, crie usuários de banco de dados contidos que mapeiam seus grupos AD do Azure. Para atribuir permissões dentro do banco de dados, coloque os usuários associados aos seus grupos Ad do Azure em funções de banco de dados com as permissões apropriadas.
   - Consulte os artigos, [Configure e gerencie a autenticação do Azure Active Directory com SQL](sql-database-aad-authentication-configure.md) e [Use a Azure AD para autenticação com SQL](sql-database-aad-authentication.md).
   > [!NOTE]
   > Em uma instância gerenciada, você também pode criar logins que mapeiam os principais do Azure AD no banco de dados principal. Consulte [CREATE LOGIN (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
 - O uso de grupos Azure AD simplifica o gerenciamento de permissões e o proprietário do grupo, e o proprietário dos recursos pode adicionar/remover membros para/do grupo. 
 
-- Crie um grupo separado para o administrador azure AD para servidores SQL DB.
+- Crie um grupo separado para administradores azure AD para cada servidor SQL DB.
 
   - Consulte o [artigo, Provision um administrador do Azure Active Directory para o servidor de banco de dados SQL do Azure](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server).
 
@@ -108,7 +108,7 @@ O gerenciamento central de identidade oferece os seguintes benefícios:
 > [!NOTE]
 > - A autenticação do Azure AD é registrada em logs de auditoria Do Azure SQL, mas não nos logs de login do Azure AD.
 > - As permissões RBAC concedidas no Azure não se aplicam às permissões Do Azure SQL DB. Essas permissões devem ser criadas/mapeadas manualmente no SQL DB usando permissões SQL existentes.
-> - No lado do cliente, a autenticação azure AD precisa ter acesso à Internet ou via UDR (User Defined Route, rota definida pelo usuário) para um VNet.
+> - Do lado do cliente, a autenticação do Azure AD precisa de acesso à Internet ou via UDR (User Defined Route) para um VNet.
 > - O token de acesso Azure AD é armazenado em cache no lado do cliente e sua vida útil depende da configuração do token. Veja o artigo, [Vida útil do token configurável no Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - Para obter orientações sobre a solução de problemas de autenticação do Azure AD, consulte o blog a seguir:<https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
@@ -213,7 +213,7 @@ A autenticação SQL refere-se à autenticação de um usuário ao se conectar a
 
 ## <a name="access-management"></a>Gerenciamento de acesso
 
-O gerenciamento de acesso é o processo de controle e gerenciamento do acesso e privilégios dos usuários autorizados ao Banco de Dados SQL do Azure.
+O gerenciamento de acesso (também chamado de Autorização) é o processo de controle e gerenciamento do acesso e privilégios dos usuários autorizados ao Banco de Dados SQL do Azure.
 
 ### <a name="implement-principle-of-least-privilege"></a>Implementar princípio de menor privilégio
 
@@ -225,7 +225,7 @@ O princípio do menor privilégio afirma que os usuários não devem ter mais pr
 
 Atribua apenas as [permissões necessárias](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) para completar as tarefas necessárias:
 
-- No Plano de Dados SQL: 
+- Em bancos de dados SQL: 
     - Use permissões granulares e funções de banco de dados definidas pelo usuário (ou funções de servidor no MI): 
         1. Crie as funções necessárias
             - [CRIAR PAPEL](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
@@ -236,7 +236,7 @@ Atribua apenas as [permissões necessárias](https://docs.microsoft.com/sql/rela
             - [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql)
             - [FUNÇÃO DE SERVIDOR DE ALTERAÇÃO](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql)
         1. Em seguida, atribua permissões às funções. 
-            - [Grant](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) 
+            - [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) 
     - Certifique-se de não atribuir usuários a funções desnecessárias.
 
 - No Azure Resource Manager:
@@ -294,7 +294,7 @@ A separação de deveres, também chamada segregação de deveres, descreve o re
   - Crie funções de servidor para tarefas em todo o servidor (criando novos logins, bancos de dados) em uma instância gerenciada. 
   - Crie funções de banco de dados para tarefas de nível de banco de dados.
 
-- Para determinadas tarefas sensíveis, considere criar procedimentos armazenados especiais assinados por um certificado para executar as tarefas em nome dos usuários. 
+- Para determinadas tarefas sensíveis, considere criar procedimentos armazenados especiais assinados por um certificado para executar as tarefas em nome dos usuários. Uma vantagem importante dos procedimentos armazenados assinados digitalmente é que, se o procedimento for alterado, as permissões concedidas à versão anterior do procedimento serão imediatamente removidas.
   - Exemplo: [Tutorial: Assinando procedimentos armazenados com um certificado](https://docs.microsoft.com/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate) 
 
 - Implemente o TDE (Transparent Data Encryption, criptografia de dados transparente) com chaves gerenciadas pelo cliente no Azure Key Vault para permitir a separação de deveres entre o proprietário de dados e o proprietário da segurança. 
@@ -303,7 +303,7 @@ A separação de deveres, também chamada segregação de deveres, descreve o re
 - Para garantir que um DBA não possa ver dados considerados altamente sensíveis e que ainda possam fazer tarefas de DBA, você pode usar Always Encrypted com a separação de papéis. 
   - Consulte os artigos, [visão geral do gerenciamento de chaves para sempre criptografado,](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted) [provisionamento de chaves com separação de](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-powershell#KeyProvisionWithRoles)papéis e rotação de [tecla mestre da coluna com separação de papéis](https://docs.microsoft.com/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell#column-master-key-rotation-with-role-separation). 
 
-- Nos casos em que não é viável, pelo menos, não sem grandes custos e esforços que possam tornar o sistema quase inutilizável, os compromissos podem ser feitos e mitigados através do uso de controles compensadores como: 
+- Nos casos em que o uso do Always Encrypted não é viável, ou pelo menos não sem grandes custos e esforços que podem até tornar o sistema quase inutilizável, compromissos podem ser feitos e mitigados através do uso de controles compensadores como: 
   - Intervenção humana nos processos. 
   - Trilhas de auditoria – para obter mais informações sobre Auditoria, veja, [Audite eventos críticos de segurança](#audit-critical-security-events).
 
@@ -315,17 +315,17 @@ A separação de deveres, também chamada segregação de deveres, descreve o re
 
 - Use funções incorporadas quando as permissões corresponderem exatamente às permissões necessárias – se a união de todas as permissões de várias funções incorporadas levar a uma correspondência de 100%, você também pode atribuir várias funções simultaneamente. 
 
-- Criar e usar funções personalizadas quando funções incorporadas concedem muitas permissões ou permissões insuficientes. 
+- Criar e usar funções definidas pelo usuário quando funções incorporadas concedem muitas permissões ou permissões insuficientes. 
 
 - As atribuições de funções também podem ser feitas temporariamente, também conhecidas como Separação Dinâmica de Funções (DSD), dentro das etapas de trabalho do Agente SQL no T-SQL ou usando o Azure PIM para funções RBAC. 
 
-- Certifique-se de que os DBAs não tenham acesso às chaves de criptografia ou às lojas-chave e os administradores de segurança com acesso às chaves não têm acesso ao banco de dados por sua vez. 
+- Certifique-se de que os DBAs não tenham acesso às chaves de criptografia ou às lojas-chave, e que os administradores de segurança com acesso às chaves não tenham acesso ao banco de dados por sua vez. O uso do [Extensible Key Management (EKM)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) pode tornar essa separação mais fácil de alcançar. [O Azure Key Vault](https://azure.microsoft.com/services/key-vault/) pode ser usado para implementar o EKM. 
 
 - Certifique-se sempre de ter uma trilha de auditoria para ações relacionadas à segurança. 
 
 - Você pode recuperar a definição das funções RBAC incorporadas para ver as permissões usadas e criar uma função personalizada com base em trechos e acumulações dessas via PowerShell.
 
-- Uma vez que qualquer membro da função de banco de dados db_owner pode alterar as configurações de segurança, como o TDE (Transparent Data Encryption, criptografia de dados transparente), ou alterar o SLO, essa adesão deve ser concedida com cuidado. No entanto, existem muitas tarefas que exigem privilégios db_owner. Tarefa como alterar qualquer configuração de banco de dados, como alterar opções DB. A auditoria desempenha um papel fundamental em qualquer solução.
+- Como qualquer membro da função de banco de dados db_owner pode alterar as configurações de segurança, como o TDE (Transparent Data Encryption, criptografia de dados transparente), ou alterar o SLO, essa adesão deve ser concedida com cuidado. No entanto, existem muitas tarefas que exigem privilégios db_owner. Tarefa como alterar qualquer configuração de banco de dados, como alterar opções DB. A auditoria desempenha um papel fundamental em qualquer solução.
 
 - Não é possível restringir as permissões de um db_owner e, portanto, impedir que uma conta administrativa veja os dados do usuário. Se houver dados altamente confidenciais em um banco de dados, o Always Encrypted pode ser usado para impedir que db_owners ou qualquer outro DBA os veja.
 
@@ -436,11 +436,11 @@ As políticas que determinam quais dados são sensíveis e se os dados confidenc
 
 - Use criptografia determinística se os cálculos (igualdade) nos dados precisarem ser suportados. Caso contrário, use criptografia aleatória. Evite usar criptografia determinística para conjuntos de dados de baixa entropia ou conjuntos de dados com distribuição publicamente conhecida. 
 
-- Se você está preocupado com o acesso de terceiros aos seus dados legalmente sem o seu consentimento, certifique-se de que todos os aplicativos e ferramentas que tenham acesso às chaves e dados em texto simples sejam executados fora do Microsoft Azure Cloud. Sem acesso às chaves, o terceiro não terá como descriptografar os dados a menos que eles contornem a criptografia.
+- Se você está preocupado com terceiros acessando seus dados legalmente sem o seu consentimento, certifique-se de que todos os aplicativos e ferramentas que tenham acesso às chaves e dados em texto simples sejam executados fora do Microsoft Azure Cloud. Sem acesso às chaves, o terceiro não terá como descriptografar os dados a menos que eles contornem a criptografia.
 
 - Sempre criptografado não suporta facilmente a concessão de acesso temporário às chaves (e aos dados protegidos). Por exemplo, se você precisar compartilhar as chaves com um DBA para permitir que o DBA faça algumas operações de limpeza em dados confidenciais e criptografados. A única maneira de revogar a confiabilidade do acesso aos dados do DBA será girar tanto as chaves de criptografia da coluna quanto as chaves-mestre da coluna protegendo os dados, o que é uma operação cara. 
 
-- Para acessar os valores de texto simples em colunas criptografadas, o usuário precisa ter acesso ao CMK que protege as colunas, que está configurada na loja de chaves que segura o CMK. O usuário também precisa ter a **DEFINIÇÃO DE CHAVE MASTER DE QUALQUER COLUNA** e visualizar quaisquer permissões de banco de dados de definição de chave de criptografia de **coluna.**
+- Para acessar os valores de texto simples em colunas criptografadas, o usuário precisa ter acesso à Chave Mestre da Coluna (CMK) que protege as colunas, que está configurada na loja-chave que segura o CMK. O usuário também precisa ter a **DEFINIÇÃO DE CHAVE MASTER DE QUALQUER COLUNA** e visualizar quaisquer permissões de banco de dados de definição de chave de criptografia de **coluna.**
 
 ### <a name="control-access-of-application-users-to-sensitive-data-through-encryption"></a>Controle o acesso dos usuários de aplicativos a dados confidenciais através da criptografia
 

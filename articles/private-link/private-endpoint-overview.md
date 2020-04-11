@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: b8f55b0693b7ffdf10516cfb19b67ccc5a94dc5a
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d10b6c52310da3d799a7fe78c83284960318f82e
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742899"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115241"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o Azure Private Endpoint?
 
@@ -55,7 +55,7 @@ Um recurso de link privado é o alvo de destino de um determinado ponto final pr
 |**Serviço de link privado** (seu próprio serviço)   |  Microsoft.Network/privateLinkServices       | empty |
 |**Banco de dados SQL do Azure** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        | 
-|**Armazenamento Azure**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Mesa (tabela, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
+|**Armazenamento do Azure**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Mesa (tabela, table_secondary)<BR> Fila (fila, queue_secondary)<BR> Arquivo (arquivo, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.AzureCosmosDB/banco de dadosContas | Sql, MongoDB, Cassandra, Gremlin, Mesa|
 |**Banco de dados Azure para postgreSQL -Único servidor** | Microsoft.DBforPostgreSQL/servers   | postgresqlServer |
@@ -73,7 +73,7 @@ Um recurso de link privado é o alvo de destino de um determinado ponto final pr
 |**Grade de Eventos Azure** | Microsoft.EventGrid/topics  | topic |
 |**Grade de Eventos Azure** | Microsoft.EventGrid/domínios | domínio |
 |**Azure WebApps** | Microsoft.Web/sites    | site |
-|**Aprendizado de máquina do Azure** | Microsoft.MachineLearningServices/workspaces  | workspace |
+|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces  | workspace |
   
  
 ## <a name="network-security-of-private-endpoints"></a>Segurança de rede de pontos finais privados 
@@ -113,7 +113,7 @@ Você pode usar as seguintes opções para configurar as configurações do DNS 
 > [!IMPORTANT]
 > Não é recomendável substituir uma zona que está ativamente em uso para resolver pontos finais públicos. As conexões com recursos não serão capazes de resolver corretamente sem o encaminhamento do DNS para o DNS público. Para evitar problemas, crie um nome de domínio diferente ou siga o nome sugerido para cada serviço abaixo. 
  
-Para os serviços do Azure, use os nomes de região recomendados conforme descrito na tabela a seguir:
+Para serviços Do Azure, use os nomes de região conforme descrito na tabela a seguir:
 
 |Tipo de recurso do Private Link   |Sub-recurso  |Nome da zona  |
 |---------|---------|---------|

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: 5ddbb58837fbda0f14a07186d5a3053055954454
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: af66da115e228efe39e4cd5dda3c494b71428676
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677444"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113564"
 ---
 # <a name="azure-firewall-faq"></a>Perguntas frequentes do Firewall do Azure
 
@@ -172,17 +172,11 @@ Não. O Firewall Azure não precisa de uma sub-rede maior que a 26.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Como posso aumentar minha passagem de firewall?
 
-A capacidade inicial de throughput do Azure Firewall é de 2,5 - 3 Gbps e ele é dimensionado para 30 Gbps. Ele é dimensionado com base no uso e throughput da CPU. Suporte de contato para aumentar a capacidade de throughput do firewall.
+A capacidade inicial de throughput do Azure Firewall é de 2,5 - 3 Gbps e ele é dimensionado para 30 Gbps. Ele é dimensionado automaticamente com base no uso e throughput da CPU.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo leva para o Azure Firewall escalar?
 
-Leva de cinco a sete minutos para o Firewall Azure escalar. Suporte de contato para aumentar a capacidade inicial de throughput do firewall se você tiver rajadas que requerem uma escala automática mais rápida.
-
-Os seguintes pontos devem ser levados em conta quando você testa a escala automática de firewall:
-
-- O desempenho de fluxo TCP único é limitado a 1,4 Gbps. Assim, um teste de desempenho precisa estabelecer múltiplos fluxos TCP.
-- As ferramentas de desempenho devem estabelecer continuamente novas conexões para que elas se conectem com as instâncias de firewall de backup em escala. Se o teste estabelecer conexões uma vez no início, então elas só se conectarão com as instâncias iniciais de backend. Mesmo que o firewall seja dimensionado, você não verá nenhum desempenho aumentado porque as conexões estão associadas às instâncias iniciais.
-
+O Azure Firewall escala gradualmente quando o consumo médio de throughput ou CPU está em 60%. A escala leva de cinco a sete minutos. Ao testar o desempenho, certifique-se de testar por pelo menos 10 a 15 minutos e iniciar novas conexões para aproveitar os novos números do Firewall.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>O Azure Firewall permite o acesso ao Active Directory por padrão?
 
@@ -212,7 +206,7 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Por que um ping TCP e ferramentas similares podem se conectar com sucesso a um FQDN de destino mesmo quando nenhuma regra no Azure Firewall permite esse tráfego?
 
-Um ping TCP não está realmente se conectando ao FQDN de destino. Isso acontece porque o proxy transparente do Azure Firewall ouve na porta 80/443 para tráfego de saída. O ping TCP estabelece uma conexão com o firewall, que então derruba o pacote e registra a conexão. Esse comportamento não tem nenhum impacto na segurança. No entanto, para evitar confusão estamos investigando possíveis mudanças nesse comportamento.
+Um ping TCP não está realmente se conectando ao FQDN alvo. Isso acontece porque o proxy transparente do Azure Firewall ouve na porta 80/443 para tráfego de saída. O ping TCP estabelece uma conexão com o firewall, que então derruba o pacote e registra a conexão. Esse comportamento não tem nenhum impacto na segurança. No entanto, para evitar confusão estamos investigando possíveis mudanças nesse comportamento.
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Existem limites para o número de endereços IP suportados por grupos IP?
 

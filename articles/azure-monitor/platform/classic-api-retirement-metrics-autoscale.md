@@ -1,15 +1,15 @@
 ---
-title: Desativação do Azure Monitor de APIs do modelo de implantação clássico para métricas e dimensionamento automático
+title: Retire as APIs de implantação para métricas e autoescala do Azure Monitor
 description: APIs clássicas de métricas e de dimensionamento automático, também chamadas de Gerenciamento de Serviços do Azure (ASM) ou modelo de implantação RDFE sendo desativado
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 9dfa6b278587f4ed79b1c3cd9eff1defd09ec0bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9b6118bc165a9b0a78ae9c4da895719249b22b7
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294652"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114222"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Desativação do Azure Monitor de APIs do modelo de implantação clássico para métricas e dimensionamento automático
 

@@ -1,27 +1,27 @@
 ---
-title: Adicionar sugestões e preenchimento automático em uma caixa de pesquisa
+title: Adicionar preenchimento automático e sugestões em uma caixa de pesquisa
 titleSuffix: Azure Cognitive Search
-description: Habilite ações de consulta com digitação antecipada na Pesquisa Cognitiva do Azure criando sugestores e formulando solicitações que preenchem uma caixa de pesquisa com termos ou frases concluídas.
+description: Habilite as ações de consulta de pesquisa como você no Azure Cognitive Search, criando sugestões e formulando solicitações que preencham automaticamente uma caixa de pesquisa com termos ou frases acabados. Você também pode retornar as partidas sugeridas.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 64c4e65ca7b69c7d61c706b48591ac19be3bfcf5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 04/10/2020
+ms.openlocfilehash: d6c1819366fede0b1e81e43bc92ed56af93b39fd
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72792517"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114954"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Adicionar sugestões ou preenchimento automático ao aplicativo da Pesquisa Cognitiva do Azure
 
 Neste artigo, aprenda a usar [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) e o [preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) para criar uma caixa de pesquisa poderosa com suporte a comportamentos de pesquisa durante a digitação.
 
-+ *Sugestões* são resultados sugeridos gerados à medida que você digita, com cada sugestão sendo um único resultado do índice que corresponde ao que você digitou até agora. 
++ *Sugestões* geram resultados de pesquisa à medida que você digita, onde cada sugestão é um único resultado ou documento de pesquisa do índice que corresponde ao que você digitou até agora. 
 
-+ O *preenchimento automático* "termina" a palavra ou expressão que um usuário está digitando no momento. Em vez de retornar os resultados, ele conclui uma consulta que você pode, em seguida, executar para retornar os resultados. Assim como acontece com as sugestões, uma palavra ou expressão concluída em uma consulta é predicada em uma correspondência no índice. O serviço não oferece consultas que não retornam resultados no índice.
++ *A auto-conclusão* gera consultas ao "terminar" a palavra ou a frase. Em vez de retornar os resultados, ele conclui uma consulta que você pode, em seguida, executar para retornar os resultados. Assim como acontece com as sugestões, uma palavra ou expressão concluída em uma consulta é predicada em uma correspondência no índice. O serviço não oferece consultas que não retornam resultados no índice.
 
 Você pode baixar e executar o código de exemplo em **DotNetHowToAutocomplete** para avaliar esses recursos. O código de exemplo tem como alvo um índice predefinido populado com [dados de demonstração do NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). O índice NYCJobs contém um [Constructo de sugestor](index-add-suggesters.md), que é um requisito para usar sugestões ou o preenchimento automático. Você pode usar o índice preparado hospedado em um serviço de área restrita ou [popular seu próprio índice](#configure-app) usando um carregador de dados na solução de exemplo NYCJobs. 
 
@@ -36,7 +36,7 @@ Este exercício apresenta as seguintes tarefas:
 > * Em C#, definir sugestões e ações de preenchimento automático em HomeController.cs
 > * Em JavaScript, chamar as APIs REST diretamente para fornecer a mesma funcionalidade
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Um serviço da Pesquisa Cognitiva do Azure é opcional para este exercício, porque a solução usa um serviço de área restrita em tempo real que hospeda um índice de demonstração do NYCJobs preparado. Se quiser executar este exemplo em seu próprio serviço de pesquisa, consulte [Configurar o índice NYC Jobs](#configure-app) para obter instruções.
 
@@ -70,7 +70,7 @@ Abra o arquivo **Index.cshtml** na pasta \Views\Home para exibir o código:
 
 Esse exemplo é uma caixa de texto de entrada simples com uma classe para definir o estilo, uma ID para referência pelo JavaScript e o texto de espaço reservado.  A mágica está no JavaScript inserido.
 
-O exemplo de linguagem C# usa JavaScript no index.cshtml para aproveitar a [biblioteca de preenchimento automático da interface do usuário do jQuery](https://jqueryui.com/autocomplete/). Essa biblioteca adiciona a experiência de preenchimento automático à caixa de pesquisa fazendo chamadas assíncronas ao controlador MVC a fim de recuperar as sugestões. A versão da linguagem JavaScript está em IndexJavaScript.cshtml. Ela inclui o script abaixo para a barra de pesquisa, bem como chamadas à API REST para a Pesquisa Cognitiva do Azure.
+A amostra de linguagem C# usa JavaScript em Index.cshtml para aproveitar a [biblioteca de autocompletar de II jQuery](https://jqueryui.com/autocomplete/). Essa biblioteca adiciona a experiência de preenchimento automático à caixa de pesquisa fazendo chamadas assíncronas ao controlador MVC a fim de recuperar as sugestões. A versão da linguagem JavaScript está em IndexJavaScript.cshtml. Ela inclui o script abaixo para a barra de pesquisa, bem como chamadas à API REST para a Pesquisa Cognitiva do Azure.
 
 Vamos examinar o código JavaScript para o primeiro exemplo, que chama a função de preenchimento automático da interface do usuário do jQuery, passando uma solicitação de sugestões:
 
@@ -194,7 +194,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 }
 ```
 
-A função Suggest utiliza dois parâmetros que determinam se os destaques de ocorrências são retornados ou se correspondência difusa é usada em conjunto com o termo de pesquisa de entrada. O método cria um [objeto SuggestParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), que é passado para a API de Sugestão. O resultado, em seguida, é convertido em JSON para que ele possa ser exibido no cliente.
+A função Suggest utiliza dois parâmetros que determinam se os destaques de ocorrências são retornados ou se correspondência difusa é usada em conjunto com o termo de pesquisa de entrada. O método cria um [objeto SuggestParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), que é então passado para a API sugerir. O resultado, em seguida, é convertido em JSON para que ele possa ser exibido no cliente.
 
 Na linha 69, observe a função Autocomplete. Ele se baseia no [método DocumentsOperationsExtensions.Autocomplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet).
 
@@ -315,7 +315,7 @@ Este exemplo demonstra as etapas básicas para a criação de uma caixa de pesqu
 Como a etapa seguinte, integre sugestões e preenchimento automático à sua experiência de pesquisa. Os artigos de referência a seguir devem ajudar.
 
 > [!div class="nextstepaction"]
-> [API REST de preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
-> [API REST de sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions)
-> [Atributo de índice de facetas em uma API REST de criação de índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
+> [Preenchimento automático de sugestões de api](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
+> [rest API](https://docs.microsoft.com/rest/api/searchservice/suggestions)
+> [Facets em uma API Create Index REST](https://docs.microsoft.com/rest/api/searchservice/create-index)
 

@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 3/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 39ff4f42457451dfa4aae90b281d6b163c56b4cd
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 7b839df5940ab26e5c1a99a1bda1fbd2545f8cc4
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80522232"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113113"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guia para controlar o comportamento de desligamento do Windows
 
@@ -58,7 +58,7 @@ Para definir o limite de tempo ocioso da sessão RDP, você pode se conectar ao 
 
 ```powershell
 # The MaxIdleTime is in milliseconds; by default, this script sets MaxIdleTime to 15 minutes.
-$maxIdleTime = 15 * 60 * 90
+$maxIdleTime = 15 * 60 * 1000
 
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name "MaxIdleTime" -Value $maxIdleTime -Force
 ```
@@ -79,6 +79,9 @@ Ou, você pode optar por seguir estas etapas manuais usando o modelo VM:
     ![Limite de sessão ociosa](../media/how-to-windows-shutdown/edit-idle-time-limit.png)
 
 1. Finalmente, para combinar esse comportamento com o desligamento automático na configuração **de desconexão,** você deve seguir as etapas do artigo como fazer: Habilitar o [desligamento automático de VMs na desconexão](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect).
+
+> [!WARNING]
+> Depois de configurar essa configuração usando o PowerShell para modificar a configuração de registro diretamente ou manualmente usando o editor de Diretiva de Grupo, você deve primeiro reiniciar a VM para que as configurações entrem em vigor.  Além disso, se você configurar a configuração usando o registro, o editor de Diretiva de Grupo nem sempre será atualizado para refletir alterações na configuração de registro; no entanto, a configuração do registro ainda entra em vigor como esperado e você verá a sessão RDP desconectada quando ociosa pelo tempo que você especificou.
 
 ## <a name="remove-windows-shutdown-command-from-start-menu"></a>Remover o comando de desligamento do Windows no menu Iniciar
 

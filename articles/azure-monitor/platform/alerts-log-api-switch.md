@@ -1,17 +1,17 @@
 ---
-title: Mudar da API herdada de alertas do Log Analytics para a nova API de alertas do Azure
+title: Mude para a nova API alertas do Azure
 description: Visão geral da API de alerta de log analytics baseada em legadodo do SearchESearch e processo para mudar as regras de alerta para a nova API ScheduledQueryRules, com detalhes que abordam preocupações comuns do cliente.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
-ms.openlocfilehash: c1ca85ba9c79f828b5ddcf0d640cfe7f8b6e097c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7950b3f584c36b68a4eff66b05e83ba94c1ec1dd
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249432"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114361"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Mudar preferência de API para os Alertas de Log
 

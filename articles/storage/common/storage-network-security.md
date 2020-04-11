@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 77ad8579f31ce900a67e2ba3ddc53a5b034b6d42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7120ba2cf71c9af5373b830d04d0b67952922887
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454662"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113516"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -252,7 +252,7 @@ As regras de rede de IP são permitidas apenas para endereços IP de **Internet 
    > As regras de rede IP não terão efeito sobre solicitações originadas da mesma região do Azure que a conta de armazenamento. Use [as regras de rede virtual](#grant-access-from-a-virtual-network) para permitir solicitações da mesma região.
 
   > [!NOTE]
-  > Os serviços implantados na mesma região que a conta de armazenamento usam endereços IP privados do Azure para comunicação. Assim, você não pode restringir o acesso a serviços específicos do Azure com base na faixa de endereço IP de entrada pública.
+  > Os serviços implantados na mesma região que a conta de armazenamento usam endereços IP privados do Azure para comunicação. Assim, você não pode restringir o acesso a serviços específicos do Azure com base na faixa de endereçoIP de saída pública.
 
 Apenas endereços IPV4 são suportados para configuração de regras de firewall de armazenamento.
 

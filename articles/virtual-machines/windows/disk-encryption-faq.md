@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: a4ab59ab5b988b54333c419ced7fa852da531eaa
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 8ef791759a33d08aaff068b0dd2634e5f21bb1b6
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984326"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114981"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Criptografia de disco azure para máquinas virtuais Windows PERGUNTAS FREQUENTES
 
@@ -64,7 +64,7 @@ O Azure Disk Encryption fornece criptografia de ponta a ponta para o disco do SI
 
 - Se seus requisitos incluem criptografar toda a criptografia acima e de ponta a ponta, use a Criptografia de Disco do Azure. 
 - Se seus requisitos incluem criptografar apenas dados em repouso com a chave gerenciada pelo cliente, use [criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md). Não é possível criptografar um disco com criptografia de disco Azure e criptografia do lado do servidor de armazenamento com chaves gerenciadas pelo cliente.
-_ Se você estiver usando um cenário chamado em [cenários não suportados para Windows,](disk-encryption-windows.md#unsupported-scenarios)considere [a criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md). 
+- Se você estiver usando um cenário chamado em [cenários não suportados para windows,](disk-encryption-windows.md#unsupported-scenarios)considere [a criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md). 
 - Se a política da sua organização permitir que você criptografe conteúdo em repouso com uma chave gerenciada pelo Azure, então nenhuma ação é necessária - o conteúdo é criptografado por padrão. Para discos gerenciados, o conteúdo dentro do armazenamento é criptografado por padrão com criptografia do lado do servidor com chave gerenciada pela plataforma. A chave é gerenciada pelo serviço de armazenamento Azure. 
 
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Como faço para rodar segredos ou chaves de criptografia?

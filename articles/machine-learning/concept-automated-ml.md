@@ -10,21 +10,18 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 02/28/2020
-ms.openlocfilehash: c8864e00be9f491d87478c253286070b9334a26e
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 095561f02fdeff6688b78d69cc1becc4ee0f8901
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80383184"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115206"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é o aprendizado de máquina automatizado?
 
 O aprendizado automatizado de máquina, também chamado de ML automatizado, é o processo de automatização das tarefas demoradas e iterativas do desenvolvimento de modelos de aprendizagem de máquina. Ele permite que cientistas de dados, analistas e desenvolvedores construam modelos ML com alta escala, eficiência e produtividade, ao mesmo tempo em que sustentam a qualidade do modelo. O ML automatizado é baseado em um avanço da nossa [divisão de Pesquisa Microsoft.](https://arxiv.org/abs/1705.05355)
 
 O desenvolvimento tradicional de modelos de aprendizado de máquina é intensivo em recursos, exigindo conhecimento de domínio significativo e tempo para produzir e comparar dezenas de modelos. Com o machine learning automatizado, você vai acelerar o tempo que se leva para colocar modelos de ML prontos em produção com grande facilidade e eficiência.
-
- 
-
 
 ## <a name="when-to-use-automated-ml"></a>Quando usar ML automatizado
 
@@ -139,9 +136,13 @@ O [algoritmo de seleção de conjuntos caruana](http://www.niculescu-mizil.org/p
 
 Consulte [o "como fazer"](how-to-configure-auto-train.md#ensemble) para alterar as configurações padrão do conjunto no aprendizado automatizado de máquina.
 
-## <a name="use-with-onnx-in-c-apps"></a>Usar com ONNX em aplicativos C#
+## <a name="use-with-onnx"></a>Use com ONNX
 
-Com o Azure Machine Learning, você pode usar ml automatizado para construir um modelo Python e convertê-lo para o formato ONNX. O tempo de execução do ONNX suporta C#, para que você possa usar o modelo construído automaticamente em seus aplicativos C# sem qualquer necessidade de recodificação ou qualquer uma das latências de rede que os pontos finais REST introduzem. Experimente um exemplo desse fluxo [neste caderno Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
+Com o Azure Machine Learning, você pode usar ml automatizado para construir um modelo Python e convertê-lo para o formato ONNX. Uma vez que os modelos estão no formato ONNX, eles podem ser executados em uma variedade de plataformas e dispositivos. Saiba mais sobre [como acelerar os modelos ML com ONNX](concept-onnx.md).
+
+Veja como converter para o formato ONNX [neste exemplo de notebook Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb). Saiba quais [algoritmos são suportados no ONNX](how-to-configure-auto-train.md#select-your-experiment-type).
+
+O tempo de execução do ONNX também suporta C#, para que você possa usar o modelo construído automaticamente em seus aplicativos C# sem qualquer necessidade de recodificação ou qualquer uma das latências de rede que os pontos finais REST introduzem. Saiba mais sobre [a inferência de modelos ONNX com a API C# em tempo de execução DO ONNX.](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md) 
 
 ## <a name="automated-ml-in-azure-machine-learning"></a>ML automatizado no Azure Machine Learning
 

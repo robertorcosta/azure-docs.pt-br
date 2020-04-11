@@ -7,16 +7,16 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 56e86aa75b153b5cb005c96fca45373d30ffa8b4
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: c7a2fea94e0dc1ff868eff26399877cab66e6f66
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437104"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115348"
 ---
 # <a name="dav4-and-dasv4-series"></a>Séries Dav4 e Dasv4
 
-As séries Dav4 e Dasv4 são novos tamanhos que utilizam o processador AMD 2.35Ghz<sup>TM</sup> 7452 em uma configuração multi-threaded com cache de até 256 MB L3 dedicando 8 GB desse cache L3 a cada 8 núcleos aumentando as opções do cliente para executar suas cargas de trabalho de uso geral. As séries Dav4 e Dasv4 têm as mesmas configurações de memória e disco que a série Dsv3 & Dsv3.
+As séries Dav4 e Dasv4 são novos tamanhos que utilizam o processador AMD 2.35Ghz<sup>TM</sup> 7452 em uma configuração multi-threaded com cache L3 de até 256 MB dedicando 8 MB desse cache L3 a cada 8 núcleos aumentando as opções do cliente para executar suas cargas de trabalho de uso geral. As séries Dav4 e Dasv4 têm as mesmas configurações de memória e disco que a série Dsv3 & Dsv3.
 
 ## <a name="dav4-series"></a>Série Dav4
 
@@ -73,7 +73,7 @@ Os tamanhos da série Dasv4 são baseados no processador AMD EPYC<sup>TM</sup> 7
 ## <a name="other-sizes"></a>Outros tamanhos
 
 - [Propósito geral](sizes-general.md)
-- [Memória otimizada](sizes-memory.md)
+- [Otimizado para memória](sizes-memory.md)
 - [Otimizado para armazenamento](sizes-storage.md)
 - [GPU otimizada](sizes-gpu.md)
 - [Computação de alto desempenho](sizes-hpc.md)

@@ -5,19 +5,19 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 74522502f5405b56a3a604f20a695de83ef3c3a5
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a40c64910260a2d63a529d25e1089fb618fcec1b
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886476"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113501"
 ---
 # <a name="troubleshoot"></a>Solucionar problemas
 
 Este artigo fornece soluções para problemas comuns do Azure FarmBeats. Para obter ajuda adicional, entre em farmbeatssupport@microsoft.comcontato com nosso Fórum de [Suporte](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) ou envie um e-mail para nós.
 
 > [!NOTE]
-  > Se você instalou o FarmBeats durante abril e seus trabalhos estão falhando com uma mensagem de erro vazia, sua instalação pode não ter sido alocada em qualquer cota de lote devido a todos os recursos que estão sendo direcionados para emergências, cuidados de saúde e outras necessidades críticas. Você precisará solicitar que as VMs sejam alocadas na conta Batch.
+  > Se você instalou o FarmBeats durante abril e seus trabalhos estão falhando com uma mensagem de erro vazia, sua instalação pode não ter sido alocada em qualquer cota de lote para priorizar o suporte para organizações críticas de saúde e segurança. Veja [aqui](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) para mais informações. Você precisará solicitar que as VMs sejam alocadas na conta Batch para executar trabalhos com sucesso.
 
 ## <a name="install-issues"></a>Instalar problemas
 
@@ -45,7 +45,9 @@ Entre em contato conosco com os seguintes detalhes:
 - Siga as etapas abaixo para anexar o arquivo de log para a falha de implantação:
 
     1. Navegue até o **Grupo de Recursos** no portal Azure.
+
     2. Selecione **Implantações** na seção **Configurações** no lado esquerdo.
+
     3. Para cada implantação que mostra **Falha,** selecione até os detalhes e baixe os detalhes de implantação. Anexe este arquivo ao correio.
 
 ## <a name="sensor-telemetry"></a>Telemetria de sensores

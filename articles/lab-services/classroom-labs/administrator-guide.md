@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 8608aaab7bb8b6d10e67f27678c17f20a6c243da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ce7ef15f0bf13182e4799fb640e83136d0d4695
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370845"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115016"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - Guia de administrador
 Os administradores de Tecnologia da Informação (TI) que gerenciam os recursos em nuvem de uma universidade são normalmente responsáveis pela criação da conta de laboratório para sua escola. Uma vez que uma conta de laboratório é criada, administradores ou educadores criam laboratórios em sala de aula que estão contidos na conta do laboratório. Este artigo fornece uma visão geral de alto nível dos recursos do Azure envolvidos e a orientação para criá-los.
@@ -57,7 +57,7 @@ A lista a seguir destaca cenários onde mais de uma conta de laboratório pode s
 
 - **Gerencie diferentes requisitos de políticas em laboratórios de sala de aula** 
     
-    Quando você configura uma conta de laboratório, você define políticas que se aplicam a *todos os* laboratórios de sala de aula a conta do laboratório, tais como:
+    Quando você configura uma conta de laboratório, você define políticas que se aplicam a *todos os* laboratórios de sala de aula sob a conta do laboratório, tais como:
     - A rede virtual Do Azure com recursos compartilhados que o laboratório de sala de aula pode acessar. Por exemplo, você pode ter um conjunto de laboratórios de sala de aula que precisam de acesso a um conjunto de dados compartilhados dentro de uma rede virtual.
     - As imagens da máquina virtual (VM) que os laboratórios de sala de aula podem usar para criar VMs. Por exemplo, você pode ter um conjunto de laboratórios de sala de aula que precisam de acesso à imagem [do Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) Marketplace. 
     
@@ -156,6 +156,9 @@ A localização em que um laboratório de sala de aula existe varia de acordo co
        
     Quando **não** há VNet peered e [os criadores de laboratório são autorizados a escolher a localização do laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), os locais que podem ser selecionados pelo criador do laboratório são baseados na capacidade disponível.
 
+> [!NOTE]
+> Para ajudar a garantir que haja capacidade de VM suficiente para uma região, é importante que você primeiro solicite a capacidade através da conta do laboratório ou ao criar o laboratório.
+
 Uma regra geral é definir a região de um recurso para uma que esteja mais próxima de seus usuários. Para laboratórios de sala de aula, isso significa criar o laboratório de sala de aula mais próximo de seus alunos. Para cursos online onde os alunos estão localizados em todo o mundo, você precisa usar o seu melhor julgamento para criar um laboratório de sala de aula que está localizado centralmente. Ou, divida uma aula em vários laboratórios de sala de aula com base na região de seus alunos.
 
 ### <a name="shared-image-gallery"></a>Galeria de imagens compartilhadas
@@ -169,7 +172,7 @@ Quando administradores ou criadores de laboratório criam um laboratório de sal
 | ---- | ----- | ------ | ------------- |
 | Pequena| <ul><li>2 núcleos</li><li>3,5 GB DE RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado para linha de comando, abertura de navegador da Web, servidores web de baixo tráfego, bancos de dados pequenos a médios. |
 | Médio | <ul><li>4 Núcleos</li><li>7 GB de RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado para bancos de dados relacionais, cache na memória e análises. |
-| Média (virtualização aninhada) | <ul><li>4 Núcleos</li><li>16 GB de RAM</li></ul> | [Standard_DC4s_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado para bancos de dados relacionais, cache na memória e análises.  Esse tamanho também suporta virtualização aninhada. |
+| Média (virtualização aninhada) | <ul><li>4 Núcleos</li><li>16 GB de RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Este tamanho é mais adequado para bancos de dados relacionais, cache na memória e análises.  Esse tamanho também suporta virtualização aninhada. |
 | grande | <ul><li>8 núcleos</li><li>32 GB DE RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado para aplicativos que precisam de CPUs mais rápidas, melhor desempenho de disco local, grandes bancos de dados, grandes caches de memória.  Esse tamanho também suporta virtualização aninhada. |
 | Pequena GPU (Visualização) | <ul><li>6 Núcleos</li><li>56 GB DE RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Este tamanho é mais adequado para visualização remota, streaming, jogos, codificação usando frameworks como OpenGL e DirectX. |
 | GPU pequena (Computação) | <ul><li>6 Núcleos</li><li>56 GB DE RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Este tamanho é mais adequado para aplicações intensivas em computadores como Inteligência Artificial e Deep Learning. |

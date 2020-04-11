@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: faafc1e12f0703c38b4e602700b1e775bf13a061
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.date: 04/09/2020
+ms.openlocfilehash: db60a864ff29ff9eccdcfbdc0bd63587375d4bbd
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998342"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114974"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Busca parcial de termo e padrões com caracteres especiais (curinga, regex, padrões)
 
-Uma *pesquisa de termo parcial* refere-se a consultas que consistem em fragmentos de termo, como a primeira, última ou partes interiores de uma string. Um *padrão* pode ser uma combinação de fragmentos, às vezes com caracteres especiais, como traços ou barras que fazem parte da consulta. Os casos de uso comuns incluem consultas para partes de um número de telefone, URL, pessoas ou códigos de produto ou palavras compostas.
+Uma *pesquisa de termo parcial* refere-se a consultas que consistem em fragmentos de termo, onde em vez de um termo inteiro, você pode ter apenas o início, o meio ou o fim do prazo (às vezes referido como prefixo, infixo ou consultas de sufixo). Um *padrão* pode uma combinação de fragmentos, muitas vezes com caracteres especiais, como traços ou barras que fazem parte da seqüência de consulta. Os casos de uso comuns incluem consultas para partes de um número de telefone, URL, pessoas ou códigos de produto ou palavras compostas.
 
-A pesquisa parcial pode ser problemática se o índice não tiver termos no formato necessário para a correspondência de padrões. Durante a fase de análise de texto da indexação, usando o analisador padrão padrão, caracteres especiais são descartados, as seqüências compostas e compostas são divididas, fazendo com que as consultas de padrão falhem quando nenhuma correspondência é encontrada. Por exemplo, um `+1 (425) 703-6214`número de telefone `"1"` `"425"`como `"703"` `"6214"`(tokenizado como , `"3-62"` , ) não aparecerá em uma consulta porque esse conteúdo realmente não existe no índice. 
+A pesquisa parcial e de padrões pode ser problemática se o índice não tiver termos no formato esperado. Durante a fase de [análise léxica](search-lucene-query-architecture.md#stage-2-lexical-analysis) da indexação (assumindo o analisador padrão), caracteres especiais são descartados, as seqüências compostas e compostas são divididas e o espaço em branco é excluído; tudo isso pode fazer com que as consultas de padrão falhem quando nenhuma correspondência for encontrada. Por exemplo, um `+1 (425) 703-6214` número de telefone `"1"` `"425"`como `"703"` `"6214"`(tokenizado como , `"3-62"` , ) não aparecerá em uma consulta porque esse conteúdo realmente não existe no índice. 
 
 A solução é invocar um analisador que preserve uma seqüência completa, incluindo espaços e caracteres especiais, se necessário, para que você possa combinar em termos e padrões parciais. Criar um campo adicional para uma seqüência intacta, além de usar um analisador de preservação de conteúdo, é a base da solução.
 
@@ -27,21 +27,21 @@ A solução é invocar um analisador que preserve uma seqüência completa, incl
 
 Na Pesquisa Cognitiva do Azure, a pesquisa parcial e o padrão estão disponíveis nestes formulários:
 
-+ [Pesquisa por prefixo,](query-simple-syntax.md#prefix-search)como, `search=cap*`combinando em "Cap'n Jack's Waterfront Inn" ou "Gacc Capital". Você pode usar a sintaxe de consulta simples para pesquisa por prefixo.
++ [Pesquisa por prefixo,](query-simple-syntax.md#prefix-search)como, `search=cap*`combinando em "Cap'n Jack's Waterfront Inn" ou "Gacc Capital". Você pode usar a sintaxe de consulta simples ou a sintaxe completa da consulta Lucene para pesquisa por prefixo.
 
-+ [Pesquisa curinga](query-lucene-syntax.md#bkmk_wildcard) ou [expressões regulares](query-lucene-syntax.md#bkmk_regex) que procuram um padrão ou partes de uma seqüência incorporada, incluindo o sufixo. Curinga e expressões regulares requerem a sintaxe de Lucene completa. 
++ [Pesquisa curinga](query-lucene-syntax.md#bkmk_wildcard) ou [expressões regulares](query-lucene-syntax.md#bkmk_regex) que procuram um padrão ou partes de uma seqüência incorporada. Curinga e expressões regulares requerem a sintaxe de Lucene completa. As consultas de sufixo e índice são formuladas como uma expressão regular.
 
-  Alguns exemplos de pesquisa a termo parcial incluem o seguinte. Para uma consulta de sufixo, dado o termo "alfanumérico", você usaria uma pesquisa curinga (`search=/.*numeric.*/`) para encontrar uma correspondência. Para um termo parcial que inclui caracteres, como um fragmento de URL, você pode precisar adicionar caracteres de fuga. Em JSON, uma `/` barra para a `\`frente é escapada com uma barra para trás . Como tal, `search=/.*microsoft.com\/azure\/.*/` é a sintaxe do fragmento de URL "microsoft.com/azure/".
+  Alguns exemplos de pesquisa a termo parcial incluem o seguinte. Para uma consulta de sufixo, dado o termo "alfanumérico", você usaria uma pesquisa curinga (`search=/.*numeric.*/`) para encontrar uma correspondência. Para um termo parcial que inclui caracteres internos, como um fragmento de URL, você pode precisar adicionar caracteres de fuga. Em JSON, uma `/` barra para a `\`frente é escapada com uma barra para trás . Como tal, `search=/.*microsoft.com\/azure\/.*/` é a sintaxe do fragmento de URL "microsoft.com/azure/".
 
 Como observado, todos os acima requerem que o índice contenha strings em um formato propício à correspondência de padrões, que o analisador padrão não fornece. Seguindo as etapas deste artigo, você pode garantir que o conteúdo necessário exista para suportar esses cenários.
 
-## <a name="solving-partial-search-problems"></a>Resolvendo problemas parciais de busca
+## <a name="solving-partialpattern-search-problems"></a>Resolução de problemas de pesquisa parcial/padrão
 
-Quando você precisa pesquisar em padrões ou caracteres especiais, você pode substituir o analisador padrão por um analisador personalizado que opera sob regras de tokenização mais simples, mantendo toda a seqüência. Dando um passo atrás, a abordagem se parece com isso:
+Quando você precisa pesquisar em fragmentos ou padrões ou caracteres especiais, você pode substituir o analisador padrão por um analisador personalizado que opera sob regras de tokenização mais simples, mantendo toda a cadeia. Dando um passo atrás, a abordagem se parece com isso:
 
 + Defina um campo para armazenar uma versão intacta da string (supondo que você queira texto analisado e não analisado)
-+ Escolha um analisador predefinido ou defina um analisador personalizado para produzir uma seqüência intacta
-+ Atribuir o analisador ao campo
++ Escolha um analisador predefinido ou defina um analisador personalizado para produzir uma seqüência intacta não analisada
++ Atribuir o analisador personalizado ao campo
 + Construa e teste o índice
 
 > [!TIP]
@@ -222,6 +222,10 @@ As seções anteriores explicaram a lógica. Esta seção passa por cada API que
 + [O Analisador de Teste](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) foi introduzido em [Escolher um analisador](#choose-an-analyzer). Teste algumas das strings do seu índice usando uma variedade de analisadores para entender como os termos são tokenizados.
 
 + [Documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) explicacomo construir uma solicitação de consulta, usando [sintaxe simples](query-simple-syntax.md) ou [sintaxe lucene completa](query-lucene-syntax.md) para curinga e expressões regulares.
+
+  Para consultas parciais de prazo, como consultar "3-6214" para encontrar uma correspondência em "+1 (425) 703-6214", você pode usar a sintaxe simples: `search=3-6214&queryType=simple`.
+
+  Para consultas de infixação e sufixo, como consultar "num" ou "numérico para encontrar uma correspondência em "alfanumérica", use a sintaxe completa de Lucene e uma expressão regular:`search=/.*num.*/&queryType=full`
 
 ## <a name="tips-and-best-practices"></a>Dicas e práticas recomendadas
 

@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: 4d845514965a8d60c636902660ce838926cbf3c9
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: ca4bf1b0043a2c73851eab48ff8b9b6b7a987b72
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607606"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115291"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Trabalhos de experimentação e inferência do Secure Azure ML dentro de uma Rede Virtual Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,6 +43,11 @@ Este artigo também fornece informações detalhadas sobre *configurações avan
 + Uma rede virtual e uma sub-rede pré-existentes para usar com seus recursos de computação.
 
 ## <a name="use-a-storage-account-for-your-workspace"></a>Use uma conta de armazenamento para o seu espaço de trabalho
+
+> [!WARNING]
+> Se você tiver cientistas de dados que usam o designer de Machine Learning do Azure, eles receberão um erro ao visualizar dados de uma conta de armazenamento dentro de uma rede virtual. O texto a seguir é o erro que eles recebem:
+>
+> __Erro: Não é possível traçar o perfil deste conjunto de dados. Isso pode ser porque seus dados são armazenados atrás de uma rede virtual ou seus dados não suportam perfil.__
 
 Para usar uma conta de armazenamento do Azure para o espaço de trabalho em uma rede virtual, use as seguintes etapas:
 
@@ -510,7 +515,7 @@ Para obter mais informações sobre a configuração de uma regra de rede, consu
 
 1. Para encontrar o nome do Registro de Contêineres Do Azure para o seu espaço de trabalho, use um dos seguintes métodos:
 
-    __Portal do Azure__
+    __Azure portal__
 
     Na seção visão geral do seu espaço de trabalho, o valor __do Registro__ é vinculado ao Registro de Contêineres do Azure.
 

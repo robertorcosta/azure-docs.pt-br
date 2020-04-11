@@ -7,20 +7,17 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 8c76333d5a2be8a2c589dbe54389b023fef34854
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 111e6e2f80c3460f363c496b7b32befdca16250d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252524"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115103"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Conectar-se de forma privada a uma conta de armazenamento usando o ponto de extremidade privado do Azure
 O Azure Private Endpoint é o bloco fundamental de construção do Private Link no Azure. Ele permite que os recursos do Azure, como máquinas virtuais (VMs), se comuniquem privadamente com os recursos do Private Link.
 
 Neste Quickstart, você aprenderá como criar uma VM em uma rede virtual Do Zure, uma conta de armazenamento com um Ponto Final Privado usando o portal Azure. Em seguida, você pode acessar com segurança a conta de armazenamento da VM.
-
-> [!NOTE]
-> Os pontos de extremidade privados não são permitidos em conjunto com pontos de extremidade de serviço na mesma sub-rede!
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -33,16 +30,16 @@ Nesta seção, você criará a rede virtual e a sub-rede para hospedar a VM que 
 
 Nesta seção, você criará a rede virtual e a sub-rede para hospedar a VM que é usada para acessar seu recurso do Private Link.
 
-Nesta seção, você precisará substituir os seguintes parâmetros nas etapas com as informações abaixo:
+Nesta seção, você precisará substituir os seguintes parâmetros nas etapas pelas informações abaixo:
 
 | Parâmetro                   | Valor                |
 |-----------------------------|----------------------|
-| **\<>de nome de grupo de recursos**  | myResourceGroup |
-| **\<>de nome de rede virtual** | myVirtualNetwork          |
-| **\<>de nome da região**          | Centro-Oeste dos EUA      |
-| **\<IPv4-endereço-espaço>**   | 10.1.0.0\16          |
-| **\<>de nomes de sub-rede**          | mySubnet        |
-| **\<>de alcance de endereço de sub-rede** | 10.1.0.0\24          |
+| **\<resource-group-name>**  | myResourceGroup |
+| **\<virtual-network-name>** | myVirtualNetwork          |
+| **\<region-name>**          | Centro-Oeste dos EUA      |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -64,35 +61,35 @@ Nesta seção, você precisará substituir os seguintes parâmetros nas etapas c
     | Opções de disponibilidade | Deixe o padrão **Nenhuma redundância de infraestrutura necessária**. |
     | Imagem | Selecione **Windows Server 2019 Datacenter**. |
     | Tamanho | Deixe o padrão **Standard DS1 v2**. |
-    | **CONTA DO ADMINISTRADOR** |  |
+    | **CONTA DE ADMINISTRADOR** |  |
     | Nome de Usuário | Insira um nome de usuário de sua escolha. |
     | Senha | Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirmar Senha | Reinsira a senha. |
-    | **REGRAS DA PORTA DE ENTRADA** |  |
+    | **REGRAS DE PORTA DE ENTRADA** |  |
     | Porta de entrada públicas | Deixar o padrão **Nenhum**. |
     | **ECONOMIZE DINHEIRO** |  |
     | Já tem uma licença do Windows? | Deixe o padrão **Não**. |
     |||
 
-1. Selecione **A seguir: Discos**.
+1. Selecione **Avançar: Discos**.
 
-1. Em **Criar uma máquina virtual - Discos**, deixe os padrões e selecione **Next: Networking**.
+1. Em **Criar uma máquina virtual – Discos**, mantenha os padrões e selecione **Avançar: Rede**.
 
 1. Em **Criar uma máquina virtual – Rede**, selecione estas informações:
 
     | Configuração | Valor |
     | ------- | ----- |
-    | Rede virtual | Deixe o **MyVirtualNetwork**padrão .  |
+    | Rede virtual | Deixe o padrão **MyVirtualNetwork**.  |
     | Espaço de endereço | Deixar o padrão **10.1.0.0/24**.|
-    | Sub-rede | Deixar o padrão **mySubnet (10.1.0.0/24)**.|
+    | Sub-rede | Deixar o padrão **mySubnet (10.1.0.0/24)** .|
     | IP público | Deixe o padrão **(novo) myVm-ip**. |
     | Porta de entrada públicas | Selecione **Permitir portas selecionadas**. |
     | Selecione as portas de entrada | Selecione **HTTP** e **RDP**.|
     ||
 
-1. Selecione **Revisão + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração.
+1. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração.
 
-1. Quando você vir a **mensagem aprovada pela Validação,** selecione **Criar**.
+1. Quando vir a mensagem **Validação aprovada**, selecione **Criar**.
 
 ## <a name="create-your-private-endpoint"></a>Crie seu ponto final privado
 Nesta seção, você criará uma conta de armazenamento privada usando um Ponto Final Privado para ela. 
@@ -127,7 +124,7 @@ Nesta seção, você criará uma conta de armazenamento privada usando um Ponto 
     |Location|Selecione **WestCentralUS**.|
     |Nome|Insira *myPrivateEndpoint*.  |
     |Sub-recurso de armazenamento|Deixe o **Blob**padrão. |
-    | **Rede** |  |
+    | **REDE** |  |
     | Rede virtual  | Selecione *MyVirtualNetwork* no grupo de recursos *myResourceGroup*. |
     | Sub-rede | Selecione *mySubnet*. |
     | **INTEGRAÇÃO DE DNS PRIVADO**|  |
@@ -135,8 +132,8 @@ Nesta seção, você criará uma conta de armazenamento privada usando um Ponto 
     | Zona DNS privada  | Deixe o padrão **(Novo) privatelink.blob.core.windows.net**. |
     |||
 7. Selecione **OK**. 
-8. Selecione **Revisão + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração. 
-9. Quando você vir a **mensagem aprovada pela Validação,** selecione **Criar**. 
+8. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração. 
+9. Quando vir a mensagem **Validação aprovada**, selecione **Criar**. 
 10. Navegue até o recurso da conta de armazenamento que você acabou de criar.
 11. Selecione **Teclas** de acesso no menu de conteúdo à esquerda.
 12. Selecione **Copiar** na seqüência de conexões para tecla1.
@@ -149,7 +146,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 1. Selecione o botão **Conectar**. Depois de selecionar o botão **Conectar**, **Conectar-se à máquina virtual** abre.
 
-1. Selecione **Baixar arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
+1. Selecione **Baixar Arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
 
 1. Abra o arquivo *downloaded.rdp*.
 
@@ -158,7 +155,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
     1. Insira o nome de usuário e a senha que você especificou ao criar a VM.
 
         > [!NOTE]
-        > Você pode precisar selecionar **Mais opções** > **Use uma conta diferente,** para especificar as credenciais inseridas quando criou a VM.
+        > Talvez seja necessário selecionar **Mais escolhas** > **Usar uma conta diferente** para especificar as credenciais inseridas durante a criação da VM.
 
 1. Selecione **OK**.
 
@@ -198,7 +195,7 @@ Opções adicionais para acessar a conta de armazenamento:
 - O utilitário AzCopy é outra opção para transferência de dados com script de alto desempenho para armazenamento Azure. Use AzCopy para transferir dados para e do armazenamento de Blobs, Arquivo e Tabela. 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando terminar de usar o Private Endpoint, a conta de armazenamento e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
 1. Insira *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa. 
 2. Selecione **Excluir grupo de recursos**. 
