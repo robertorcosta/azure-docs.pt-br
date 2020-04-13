@@ -61,14 +61,18 @@
           href: stream-analytics-sql-output-perf.md
         - name: Padrões de caminho personalizado do blob
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
-    - name: Funções definidas pelo usuário
+    - name: Estender consultas com funções
       items:
-        - name: UDF de aprendizado de máquina
-          href: machine-learning-udf.md
-        - name: 'UDF do C#'
-          href: stream-analytics-edge-csharp-udf-methods.md
+        - name: Visão geral das funções
+          href: functions-overview.md
         - name: UDF do JavaScript
           href: stream-analytics-javascript-user-defined-functions.md
+        - name: UDA JavaScript
+          href: stream-analytics-javascript-user-defined-aggregates.md
+        - name: 'UDF do C#'
+          href: stream-analytics-edge-csharp-udf-methods.md
+        - name: UDF de aprendizado de máquina
+          href: machine-learning-udf.md
     - name: Otimizar o trabalho do Stream Analytics
       items:
         - name: Compreender e ajustar as Unidades de Streaming
@@ -140,8 +144,6 @@
           href: stream-analytics-edge.md
         - name: Análise de dados do sensor de cabine do pedágio
           href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
-        - name: Executar um UDA do JavaScript
-          href: stream-analytics-javascript-user-defined-aggregates.md
         - name: Transação de alta frequência
           href: stream-analytics-high-frequency-trading.md
         - name: Processar dados de streaming de IoT

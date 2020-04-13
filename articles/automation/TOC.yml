@@ -278,18 +278,15 @@
         - name: Configurar servidores para um estado desejado e gerenciar o descompasso com a State Configuration
           href: tutorial-configure-servers-desired-state.md
           displayName: 'DSC, compliance'
-        - name: Integração de computadores para gerenciamento
-          href: automation-dsc-onboarding.md
-          displayName: 'DSC, state configuration'
-        - name: Compilação de configurações DSC
+        - name: Compilar configurações DSC
           href: automation-dsc-compile.md
           displayName: 'state configuration, composite resources, configurationData'
         - name: Corrigir servidores DSC fora de conformidade
           href: automation-dsc-remediate.md
           displayName: 'state configuration, DSC, remediate'
-        - name: Composição de configurações DSC usando Recursos de Composição
+        - name: Compor configurações DSC usando recursos de composição
           href: compose-configurationwithcompositeresources.md
-        - name: Implantação contínua usando Chocolatey
+        - name: Fornecer implantação contínua usando o Chocolatey
           href: automation-dsc-cd-chocolatey.md
           displayName: 'dsc, state configuration'
         - name: Encaminhar os dados de relatório do State Configuration para os logs do Azure Monitor
@@ -297,12 +294,12 @@
           displayName: DSC
     - name: Solucionar problemas
       items:
-        - name: Integração
+        - name: Solucionar problemas de integração
           href: troubleshoot/onboarding.md
           displayName: troubleshoot
         - name: Solucionar problemas de DSC (Desired State Configuration)
           href: troubleshoot/desired-state-configuration.md
-          displayName: 'Desired State Configuration, troubleshoot'
+          displayName: 'state configuration, DSC, troubleshoot'
     - name: Referência
       items:
         - name: Soluções da comunidade
@@ -337,7 +334,7 @@
           href: automation-update-azure-modules.md
     - name: Agendas
       href: shared-resources/schedules.md
-    - name: variáveis
+    - name: Variáveis
       href: shared-resources/variables.md
     - name: Gerenciar pacotes do Python 2
       href: python-packages.md

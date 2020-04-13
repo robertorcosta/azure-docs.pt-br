@@ -1007,6 +1007,40 @@
         - name: Visão geral da segurança
           href: /azure/databricks/security/index
           maintainContext: true
+        - name: Controle de acesso
+          items:
+            - name: Visão geral do controle de acesso
+              href: /azure/databricks/security/access-control/index
+              maintainContext: true
+            - name: Controle de acesso do workspace
+              href: /azure/databricks/security/access-control/workspace-acl
+              maintainContext: true
+            - name: Controle de acesso do cluster
+              href: /azure/databricks/security/access-control/cluster-acl
+              maintainContext: true
+            - name: Controle de acesso do pool
+              href: /azure/databricks/security/access-control/pool-acl
+              maintainContext: true
+            - name: Controle de acesso de trabalhos
+              href: /azure/databricks/security/access-control/job-acl
+              maintainContext: true
+            - name: Controle de acesso de tabela
+              items:
+                - name: Visão geral do controle de acesso de tabela
+                  href: /azure/databricks/security/access-control/table-acls/index
+                  maintainContext: true
+                - name: Habilitar controle de acesso de tabela para um cluster
+                  href: /azure/databricks/security/access-control/table-acls/table-acl
+                  maintainContext: true
+                - name: Privilégios de objeto de dados
+                  href: /azure/databricks/security/access-control/table-acls/object-privileges
+                  maintainContext: true
+            - name: Controle de acesso a segredo
+              href: /azure/databricks/security/access-control/secret-acl
+              maintainContext: true
+        - name: Autenticar para o Azure Data Lake Storage com suas credenciais do Azure Active Directory
+          href: /azure/databricks/security/credential-passthrough/adls-passthrough
+          maintainContext: true
         - name: Segredos
           items:
             - name: Manter os dados protegidos com segredos
@@ -1018,9 +1052,6 @@
             - name: Segredos
               href: /azure/databricks/security/secrets/secrets
               maintainContext: true
-            - name: Controle de acesso a segredo
-              href: /azure/databricks/security/secrets/secret-acl
-              maintainContext: true
             - name: Redação de segredo
               href: /azure/databricks/security/secrets/redaction
               maintainContext: true
@@ -1028,11 +1059,11 @@
               href: /azure/databricks/security/secrets/example-secret-workflow
               maintainContext: true
         - name: Criptografar o tráfego entre nós de trabalho do cluster
-          href: /azure/databricks/security/encrypt-otw
+          href: /azure/databricks/security/encryption/encrypt-otw
         - name: Habilitar chaves gerenciadas pelo cliente para notebooks
-          href: /azure/databricks/security/customer-managed-key-notebook
+          href: /azure/databricks/security/keys/customer-managed-key-notebook
         - name: Habilitar chaves gerenciadas pelo cliente para DBFS
-          href: /azure/databricks/security/customer-managed-keys-dbfs
+          href: /azure/databricks/security/keys/customer-managed-keys-dbfs
     - name: Administração
       items:
         - name: Visão geral de administração
@@ -1080,28 +1111,20 @@
             - name: Visão geral do controle de acesso
               href: /azure/databricks/administration-guide/access-control/index
               maintainContext: true
-            - name: Controle de acesso do cluster
+            - name: Habilitar controle de acesso do workspace
+              href: /azure/databricks/administration-guide/access-control/workspace-acl
+              maintainContext: true
+            - name: Habilitar controle de acesso do cluster
               href: /azure/databricks/administration-guide/access-control/cluster-acl
               maintainContext: true
-            - name: Controle de acesso do pool
+            - name: Habilitar controle de acesso do pool
               href: /azure/databricks/administration-guide/access-control/pool-acl
               maintainContext: true
-            - name: Controle de acesso de trabalhos
+            - name: Habilitar controle de acesso dos trabalhos
               href: /azure/databricks/administration-guide/access-control/jobs-acl
               maintainContext: true
-            - name: Controle de acesso de tabela
-              items:
-                - name: Visão geral do controle de acesso de tabela
-                  href: /azure/databricks/administration-guide/access-control/table-acls/index
-                  maintainContext: true
-                - name: Habilitar controle de acesso de tabela
-                  href: /azure/databricks/administration-guide/access-control/table-acls/table-acl
-                  maintainContext: true
-                - name: Definir privilégios em um objeto de dados
-                  href: /azure/databricks/administration-guide/access-control/table-acls/object-privileges
-                  maintainContext: true
-            - name: Controle de acesso do workspace
-              href: /azure/databricks/administration-guide/access-control/workspace-acl
+            - name: Habilitar controle de acesso de tabela
+              href: /azure/databricks/administration-guide/access-control/table-acl
               maintainContext: true
             - name: Habilitar autenticação baseada em token
               href: /azure/databricks/administration-guide/access-control/tokens
@@ -1688,6 +1711,9 @@
           items:
             - name: Notas sobre a versão da plataforma
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: Abril de 2020
+              href: /azure/databricks/release-notes/product/2020/april
               maintainContext: true
             - name: Março de 2020
               href: /azure/databricks/release-notes/product/2020/march

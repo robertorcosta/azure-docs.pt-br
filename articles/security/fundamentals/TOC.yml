@@ -85,9 +85,9 @@
     - name: Segurança de banco de dados
       items:
         - name: Visão geral
-          href: database-security-overview.md
+          href: ../../sql-database/sql-database-security-overview.md
         - name: Práticas recomendadas
-          href: database-best-practices.md
+          href: ../../sql-database/sql-database-security-best-practice.md
         - name: Lista de verificação de segurança
           href: database-security-checklist.md
     - name: Guia de segurança de armazenamento
@@ -115,6 +115,8 @@
       href: log-audit.md
     - name: Gerenciamento e monitoramento de segurança
       href: management-monitoring-overview.md
+    - name: Aprimorar o gerenciamento remoto
+      href: management.md
     - name: Segurança operacional
       items:
         - name: Visão geral

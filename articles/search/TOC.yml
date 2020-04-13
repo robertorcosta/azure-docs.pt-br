@@ -114,12 +114,6 @@
               href: index-add-language-analyzers.md
             - name: Adicionar um analisador personalizado
               href: index-add-custom-analyzers.md
-        - name: Digitação antecipada
-          items:
-            - name: Criar um sugestor
-              href: index-add-suggesters.md
-            - name: Adicionar sugestões ou preenchimento automático
-              href: search-autocomplete-tutorial.md
         - name: Sinônimos
           items:
             - name: Adicionar sinônimos
@@ -230,6 +224,14 @@
           href: search-query-lucene-examples.md
         - name: Termos parciais e caracteres especiais
           href: search-query-partial-matching.md
+        - name: Pesquisa difusa
+          href: search-query-fuzzy.md
+        - name: Preenchimento automático "pesquisar enquanto você digita"
+          items:
+            - name: Criar um sugestor
+              href: index-add-suggesters.md
+            - name: Adicionar sugestões ou preenchimento automático
+              href: search-autocomplete-tutorial.md
         - name: Consultar no Power Apps
           href: search-howto-powerapps.md
         - name: Referência de sintaxe
