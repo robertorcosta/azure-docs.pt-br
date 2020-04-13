@@ -213,6 +213,8 @@
     - name: Solucionar problemas
       items:
         - name: Guia de Solução de Problemas
+          href: service-bus-troubleshooting-guide.md
+        - name: Exceções de mensagens
           href: service-bus-messaging-exceptions.md
         - name: Exceções do Resource Manager
           href: service-bus-resource-manager-exceptions.md

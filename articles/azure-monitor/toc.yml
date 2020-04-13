@@ -161,8 +161,13 @@
         - name: Monitoramento baseado em código
           items:
             - name: ASP.NET Core
-              displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
-              href: app/asp-net-core.md
+              items:
+                - name: Monitoramento de aplicativo ASP.NET Core
+                  displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
+                  href: app/asp-net-core.md
+                - name: ILogger
+                  displayname: 'ilogger, logging, log'
+                  href: app/ilogger.md
             - name: ASP.NET
               displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
               href: app/asp-net.md
@@ -172,9 +177,6 @@
             - name: Console .NET
               displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
               href: app/console.md
-            - name: ILogger
-              displayname: 'ilogger, logging, log'
-              href: app/ilogger.md
             - name: Java
               items:
                 - name: Aplicativos Web
@@ -220,8 +222,12 @@
               href: app/api-custom-events-metrics.md
             - name: Solucionar problemas de ASP.NET
               href: app/asp-net-troubleshoot-no-data.md
+            - name: Remover o Application Insights
+              href: app/remove-application-insights.md
         - name: Monitoramento sem código
           items:
+            - name: Qualquer ambiente – Java (versão prévia)
+              href: app/java-in-process-agent.md
             - name: VM e conjunto de dimensionamento do Azure
               href: app/azure-vm-vmss-apps.md
             - name: Serviço de aplicativo do Azure
@@ -913,7 +919,7 @@
               items:
                 - name: Controle de acesso
                   href: platform/workbooks-access-control.md
-                - name: parâmetros
+                - name: Parâmetros
                   items:
                     - name: Resumo dos parâmetros
                       href: platform/workbooks-parameters.md

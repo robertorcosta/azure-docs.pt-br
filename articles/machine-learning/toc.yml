@@ -15,24 +15,27 @@
 - name: Tutoriais
   expanded: true
   items:
-    - name: Studio e Designer
+    - name: Estúdio
       items:
-        - name: Designer (do tipo "arrastar e soltar")
+        - name: Designer (arrastar e soltar)
           items:
-            - name: 'Designer: 1. Treinar o modelo de regressão'
+            - name: 1. Treinar o modelo de regressão
               displayName: studio
               href: tutorial-designer-automobile-price-train-score.md
-            - name: 'Designer: 2. Implantar esse modelo'
+            - name: 2. Implantar esse modelo
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
         - name: ML automatizado (interface do usuário)
           items:
-            - name: Criar um experimento de ML automatizado
+            - name: Criar experimentos de ML automatizados
               displayName: 'automl, automated, auto ml, portal, ui'
               href: tutorial-first-experiment-automated-ml.md
-            - name: Previsão de demanda com ML automatizado (dados de compartilhamento de bicicletas)
+            - name: Previsão de demanda (dados de compartilhamento de bicicletas)
               displayName: 'automl, automated, auto ml, portal, ui'
               href: tutorial-automated-ml-forecast.md
+        - name: Rotular dados de imagem
+          displayName: 'tag, tagging, images'
+          href: tutorial-labeling.md
     - name: SDK do Python
       items:
         - name: Criar primeiro experimento do ML
@@ -78,14 +81,14 @@
     - name: Jupyter Notebooks
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Azure Open Datasets
-      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
     - name: Conjuntos de dados de designer
       href: sample-designer-datasets.md
+    - name: Pipelines de exemplo do designer
+      href: samples-designer.md
     - name: Exemplos de MLOps de ponta a ponta
       href: 'https://github.com/microsoft/MLOps'
-    - name: Pipelines de designer
-      href: samples-designer.md
+    - name: Conjunto de Dados em Aberto no Azure (público)
+      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Conceitos
   items:
     - name: Workspace
@@ -115,10 +118,10 @@
       href: /azure/machine-learning/algorithm-cheat-sheet
     - name: Como selecionar algoritmos
       href: /azure/machine-learning/how-to-select-algorithms
-    - name: Machine Learning automatizado
+    - name: ML automatizado
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
-    - name: Gerenciar armadilhas de ML
+    - name: Sobreajuste e dados desbalanceados
       displayName: 'automl, auto ml, risks'
       href: concept-manage-ml-pitfalls.md
     - name: Instância de computação
@@ -351,6 +354,8 @@
       items:
         - name: Criar pipelines do ML (Python)
           href: how-to-create-your-first-pipeline.md
+        - name: Movendo dados para e entre as etapas de pipeline de ML (Python)
+          href: how-to-move-data-in-out-of-pipelines.md
         - name: Agendar um pipeline (Python)
           href: how-to-schedule-pipelines.md
         - name: Disparar um pipeline
