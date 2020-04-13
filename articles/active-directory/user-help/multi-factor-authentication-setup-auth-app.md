@@ -31,20 +31,20 @@ Você pode configurar um aplicativo autenticador para enviar uma notificação a
 
 1. Na página **Verificação de segurança adicional**, selecione **Aplicativo móvel** na área **Etapa 1: como devemos entrar em contato com você**.
 
-2. Selecione **Receber notificações para verificação** na área **Como você deseja usar o aplicativo móvel** e, em seguida, selecione **Configurar**.
+2. Selecione **Receber notificações para verificação** na área **Como você deseja usar o aplicativo móvel** e, em seguida, selecione **Instalar**.
 
     ![Página de verificação de segurança adicional, com o aplicativo móvel e a opção de notificações](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
 
-    A página **Configurar aplicativo móvel** é exibida.
+    A página **Configure o aplicativo móvel** é exibida.
 
     ![Tela que fornece o código QR](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-barcode.png)
 
-3. Abra o aplicativo Microsoft Authenticator, selecione **adicionar conta** da **personalizar e controle** ícone no canto superior direito e, em seguida, selecione **trabalho ou conta de escola**.
+3. Abra o aplicativo Microsoft Authenticator, selecione **Adicionar conta** por meio do ícone **Personalizar e controlar** no canto superior direito e, em seguida, selecione **conta corporativa ou de estudante**.
 
     >[!Note]
     >Se esta for a primeira vez que está configurando o aplicativo Microsoft Authenticator, você poderá receber um prompt perguntando se deseja permitir que o aplicativo acesse sua câmera (iOS) ou que o aplicativo tire fotos e grave vídeo (Android). Você precisa selecionar **Permitir** para que o aplicativo autenticador possa acessar sua câmera para tirar uma foto do código QR na próxima etapa. Se não permitir acesso da câmera, você ainda poderá configurar o aplicativo autenticador, mas precisará adicionar as informações de código manualmente. Para obter informações sobre como adicionar o código manualmente, confira [Adicionar uma conta manualmente ao aplicativo](user-help-auth-app-add-account-manual.md).
 
-4. Use a câmera do dispositivo para digitalizar o código QR da tela **Configurar aplicativo móvel** em seu computador e, em seguida, escolha **Avançar**.
+4. Use a câmera do dispositivo para digitalizar o código QR da tela **Configure o aplicativo móvel** em seu computador e, em seguida, escolha **Avançar**.
 
 5. Volte para o computador e para a página **Verificação de segurança adicional**, verifique se você recebeu a mensagem dizendo que sua configuração foi bem-sucedida e, em seguida, selecione **Avançar**.
 
@@ -71,20 +71,20 @@ Você pode configurar um aplicativo autenticador para enviar uma notificação a
 
 1. Na página **Verificação de segurança adicional**, selecione **Aplicativo móvel** na área **Etapa 1: como devemos entrar em contato com você**.
 
-2. Selecione **Usar código de verificação** na área **Como você deseja usar o aplicativo móvel** e, em seguida, selecione **Configurar**.
+2. Selecione **Usar código de verificação** na área **Como você deseja usar o aplicativo móvel** e, em seguida, selecione **Instalar**.
 
     ![Página de verificação de segurança adicional, com o aplicativo móvel e a opção de notificações](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-verification-code.png)
 
-    A página **Configurar aplicativo móvel** é exibida.
+    A página **Configure o aplicativo móvel** é exibida.
 
     ![Tela que fornece o código QR](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-barcode.png)
 
-3. Abra o aplicativo Microsoft Authenticator, selecione **adicionar conta** da **personalizar e controle** ícone no canto superior direito e, em seguida, selecione **trabalho ou conta de escola**.
+3. Abra o aplicativo Microsoft Authenticator, selecione **Adicionar conta** por meio do ícone **Personalizar e controlar** no canto superior direito e, em seguida, selecione **conta corporativa ou de estudante**.
 
     >[!Note]
     >Se esta for a primeira vez que está configurando o aplicativo Microsoft Authenticator, você poderá receber um prompt perguntando se deseja permitir que o aplicativo acesse sua câmera (iOS) ou que o aplicativo tire fotos e grave vídeo (Android). Você precisa selecionar **Permitir** para que o aplicativo autenticador possa acessar sua câmera para tirar uma foto do código QR na próxima etapa. Se não permitir acesso da câmera, você ainda poderá configurar o aplicativo autenticador, mas precisará adicionar as informações de código manualmente. Para obter informações sobre como adicionar o código manualmente, confira [Adicionar uma conta manualmente ao aplicativo](user-help-auth-app-add-account-manual.md).
 
-4. Use a câmera do dispositivo para digitalizar o código QR da tela **Configurar aplicativo móvel** em seu computador e, em seguida, escolha **Avançar**.
+4. Use a câmera do dispositivo para digitalizar o código QR da tela **Configure o aplicativo móvel** em seu computador e, em seguida, escolha **Avançar**.
 
 5. Volte para o computador e para a página **Verificação de segurança adicional**, verifique se você recebeu a mensagem dizendo que sua configuração foi bem-sucedida e, em seguida, selecione **Avançar**.
 
