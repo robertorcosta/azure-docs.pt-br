@@ -3,7 +3,7 @@ title: Tamanhos de VM azure - Computação otimizada | Microsoft Docs
 description: Lista os diferentes tamanhos otimizados de computação disponíveis para máquinas virtuais no Azure. Lista informações sobre o número de vCPUs, discos de dados e NICs, bem como throughput de armazenamento e largura de banda de rede para tamanhos nesta série.
 services: virtual-machines
 documentationcenter: ''
-author: jonbeck7
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
-ms.author: jonbeck
-ms.openlocfilehash: d709d621341ef14ec158ed5af1c2df4297d66b8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: e08d593f641c42f9ad605fda013206e70a34e52f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77493625"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269628"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Compute tamanhos de máquinas virtuais otimizadas
 
@@ -32,7 +32,7 @@ A um preço de lista por hora inferior, a série Fsv2 é o melhor valor de preç
 ## <a name="other-sizes"></a>Outros tamanhos
 
 - [Propósito geral](sizes-general.md)
-- [Memória otimizada](sizes-memory.md)
+- [Otimizado para memória](sizes-memory.md)
 - [Otimizado para armazenamento](sizes-storage.md)
 - [GPU otimizada](sizes-gpu.md)
 - [Computação de alto desempenho](sizes-hpc.md)
