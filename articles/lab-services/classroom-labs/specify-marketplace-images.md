@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: ad56041f853d030e3a286610fe4872bffecaee12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a64dee6da521764a38fc60bee06545f6a561c297
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444661"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257684"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>Especificar imagens do Marketplace disponíveis para os criadores de laboratório
 Como proprietário da conta de laboratório, você pode especificar as imagens do Marketplace que os criadores do laboratório podem usar para criar laboratórios na conta de laboratório. 
@@ -50,6 +50,19 @@ Para desativar várias imagens ao mesmo tempo, selecione caixas de seleção ant
 Para habilitar uma imagem desativada, selecione **... (elipse)** na última coluna e selecione **Ativar imagem**. Alternativamente, selecione a caixa de seleção antes do nome da imagem e **selecione Habilitar imagens selecionadas** na barra de ferramentas. 
 
 Para desativar várias imagens ao mesmo tempo, selecione caixas de seleção antes dos nomes das imagens e **selecione Ativar imagens selecionadas** na barra de ferramentas. 
+
+## <a name="enable-images-at-the-time-of-lab-creation"></a>Habilite imagens no momento da criação do laboratório
+Você pode habilitar mais imagens no momento da criação do laboratório: 
+
+1. Faça login no site do [Azure Lab Services](https://labs.azure.com) usando credenciais **do proprietário da conta de laboratório**
+2. Selecione a imagem padrão da máquina virtual ou a seta para baixo. 
+3. Selecione **Habilitar mais opções de imagem**. 
+
+    ![Habilite mais opções de imagem](../media/specify-marketplace-images/enable-more-images-menu.png)
+4. Siga as instruções da seção anterior para habilitar as imagens selecionadas. 
+5. Você pode precisar fechar a nova janela **de laboratório** e reabri-la para ver as imagens selecionadas na etapa anterior. 
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir:

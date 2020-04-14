@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 3b73c329c3db54ba78db15ced8e919af4d4a45d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d6d69b82e80ff9bc33e49302cf59766b9c2e8d4
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249731"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270818"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Perguntas freqüentes sobre o SQL Server em execução em máquinas virtuais do Windows no Azure
 
@@ -53,9 +53,17 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 
    Sim, usando o PowerShell. Para obter mais informações sobre como implantar VMs do SQL Server usando o PowerShell, confira [Como provisionar máquinas virtuais do SQL Server com o Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
-1. **Posso criar uma imagem generalizada do Azure SQL Server Marketplace do meu VM do SQL Server e usá-lo para implantar VMs?**
+1. **Como posso generalizar o SQL Server no Azure VM e usá-lo para implantar novas VMs?**
 
-   Sim, mas você deve [registrar cada VM do SQL Server com o provedor de recursos SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md) para gerenciar seu VM do SQL Server no portal, bem como utilizar recursos como patches automatizados e backups automáticos. Ao se registrar no provedor de recursos, você também precisará especificar o tipo de licença para cada VM do Servidor SQL. 
+   Você pode implantar um VM do Windows Server (sem qualquer SQL Server instalado nele) e usar o processo [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) para generalizar o SQL Server no Azure VM (Windows) com a mídia de instalação do SQL Server. Os clientes que possuem [garantia de software](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) podem obter sua mídia de instalação no Centro de Licenciamento de [Volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Os clientes que não têm garantia de software podem usar a mídia de configuração a partir de uma imagem VM do Marketplace SQL Server que tem a edição desejada.
+
+   Alternativamente, use uma das imagens do SQL Server para generalizar o SQL Server no Azure VM. Observe que você deve excluir a seguinte chave de registro na imagem de origem antes de criar sua própria imagem. Caso contrário, o bloating da pasta bootstrap de configuração do SQL Server e/ou extensão SQL IaaS em estado de falha.
+
+   Caminho-chave do registro:  
+   `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
+
+   > [!NOTE]
+   > Recomendamos que todas as VMs SQL Server Azure, incluindo aquelas implantadas a partir de imagens personalizadas generalizadas, sejam [registradas em um provedor de recurso SQL VM](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) para atender aos requisitos de conformidade e utilizar recursos opcionais, como patches automatizados e backups automáticos. Ele também permitirá que você [especifique o tipo de licença](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) para cada VM do Servidor SQL.
 
 1. **Posso usar meu próprio VHD para implantar um VM do SQL Server?**
 
@@ -117,13 +125,13 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
    A instância passiva do SQL Server não serve dados do SQL Server para clientes ou executa cargas de trabalho ativas do SQL Server. Ele é usado apenas para sincronizar com o servidor principal e manter o banco de dados passivo em um estado de espera quente. Se ele estiver servindo dados, como relatórios para clientes executando cargas de trabalho ativas do SQL Server ou realizando qualquer trabalho diferente do que é especificado nos termos do produto, ele deve ser uma instância sql server licenciada paga. A seguinte atividade é permitida na instância secundária: verificações de consistência do banco de dados ou CheckDB, backups completos, backups de log de transações e monitoramento de dados de uso de recursos. Você também pode executar a instância primária e correspondente de recuperação de desastres simultaneamente por breves períodos de testes de recuperação de desastres a cada 90 dias.
    
 
-1. **Quais cenários podem utilizar o benefício distaster recovery (DR) ?**
+1. **Quais cenários podem utilizar o benefício de Recuperação de Desastres (DR) ?**
 
    O [guia de licenciamento](https://aka.ms/sql2019licenseguide) fornece cenários em que o Benefício de Recuperação de Desastres pode ser utilizado. Consulte seus Termos de Produto e converse com seus contatos de licenciamento ou gerente de conta para obter mais informações.
 
 1. **Quais assinaturas suportam o benefício de Recuperação de Desastres (DR) ?**
 
-   Programas abrangentes que oferecem direitos de assinatura equivalentes do Software Assurance como um benefício fixo suportam o benefício DR. Isso inclui. mas não se limita a, o Valor Aberto (OV), Assinatura de Valor Aberto (OVS), Contrato Empresarial (EA), Contrato de Assinatura Empresarial (EAS) e o Servidor e Matrícula em Nuvem (SCE). Consulte os termos do [produto](https://www.microsoft.com/licensing/product-licensing/products) e converse com seus contatos de licenciamento ou gerente de acocunt para obter mais informações. 
+   Programas abrangentes que oferecem direitos de assinatura equivalentes do Software Assurance como um benefício fixo suportam o benefício DR. Isso inclui. mas não se limita a, o Valor Aberto (OV), Assinatura de Valor Aberto (OVS), Contrato Empresarial (EA), Contrato de Assinatura Empresarial (EAS) e o Servidor e Matrícula em Nuvem (SCE). Consulte os termos do [produto](https://www.microsoft.com/licensing/product-licensing/products) e converse com seus contatos de licenciamento ou gerente de conta para obter mais informações. 
 
    
  ## <a name="resource-provider"></a>Provedor de recursos

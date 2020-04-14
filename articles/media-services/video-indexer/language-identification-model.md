@@ -8,18 +8,22 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 04/12/2020
 ms.author: ellbe
-ms.openlocfilehash: 7a2e03b8dacbf6c3ff20e02c804804b671e86d97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba1521581316d559eb4e67bafba0061c31cc666b
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76513874"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272943"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identifique automaticamente a língua falada com o modelo de identificação de idiomas
 
-O Video Indexer suporta a identificação automática de linguagem (LID), que é o processo de identificar automaticamente o conteúdo da língua falada a partir do áudio e enviar o arquivo de mídia para ser transcrito na linguagem identificada dominante. Atualmente, lid suporta inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo e português (brasileiro). 
+O Video Indexer suporta a identificação automática de linguagem (LID), que é o processo de identificar automaticamente o conteúdo da língua falada a partir do áudio e enviar o arquivo de mídia para ser transcrito na linguagem identificada dominante. 
+
+Atualmente, a LID suporta: inglês, espanhol, francês, alemão, italiano, mandarim chines, japonês, russo e português (brasileiro). 
+
+Certifique-se de revisar a seção [Diretrizes e limitações](#guidelines-and-limitations) abaixo.
 
 ## <a name="choosing-auto-language-identification-on-indexing"></a>Escolhendo a identificação do idioma automático na indexação
 
@@ -33,7 +37,7 @@ Ao usar o portal, vá para os **vídeos da sua conta** na página inicial do [In
 
 O Video Indexer transcreve o vídeo de acordo com `> 0.6`a linguagem mais provável se a confiança para essa linguagem for . Se o idioma não pode ser identificado com confiança, ele assume que a língua falada é o inglês. 
 
-O modelo de linguagem dominante está disponível `sourceLanguage` nos insights JSON como atributo (sob raiz/vídeos/insights). Uma pontuação de confiança correspondente `sourceLanguageConfidence` também está disponível o atributo.
+O modelo de linguagem dominante está disponível `sourceLanguage` nos insights JSON como atributo (sob raiz/vídeos/insights). Uma pontuação de confiança correspondente `sourceLanguageConfidence` também está disponível sob o atributo.
 
 ```json
 "insights": {
@@ -49,7 +53,10 @@ O modelo de linguagem dominante está disponível `sourceLanguage` nos insights 
 
 ## <a name="guidelines-and-limitations"></a>Diretrizes e limitações
 
-* Os idiomas suportados incluem inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo e português brasileiro.
+* A identificação automática de idiomas (LID) suporta os seguintes idiomas: 
+
+    Inglês, espanhol, francês, alemão, italiano, mandarim chines, japonês, russo e português (brasileiro).
+* Embora o Video Indexer suporte árabe (Padrão Moderno e Levantino), hindi e coreano, essas línguas não são suportadas em LID.
 * Se o áudio contiver outros idiomas além da lista suportada acima, o resultado será inesperado.
 * Se o Video Indexer não consegue identificar`>0.6`o idioma com uma confiança alta o suficiente (), o idioma de recuo é o inglês.
 * Não há suporte atual para arquivo com áudio de idiomas mistos. Se o áudio contém linguagens mistas, o resultado é inesperado. 

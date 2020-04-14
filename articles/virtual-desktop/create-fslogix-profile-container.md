@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 04/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 272188b50fe59435031a4a2fb9c252f3f358bb6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 149fb5818ee360c7333997655ea9eb8d7ded346c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535724"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270886"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Crie um contêiner de perfil FSLogix para um pool de hosts usando arquivos do Azure NetApp
 
@@ -45,7 +45,7 @@ Antes de criar um contêiner de perfil FSLogix para um pool de host, você deve:
 
 Para começar, você precisa configurar uma conta do Azure NetApp Files.
 
-1. Faça login no [portal Azure](https://portal.azure.com). Certifique-se de que sua conta tenha permissões de contribuinte ou administrador.
+1. Entre no [portal do Azure](https://portal.azure.com). Certifique-se de que sua conta tenha permissões de contribuinte ou administrador.
 
 2. Selecione o **ícone Azure Cloud Shell** à direita da barra de pesquisa para abrir o Azure Cloud Shell.
 
@@ -117,9 +117,6 @@ Depois disso, você precisa participar de uma conexão Active Directory.
     - Para **prefixo SMB Server (Conta do Computador),** digite a seqüência desejando anexar ao nome da conta do computador.
     - Para **Nome de Usuário,** digite o nome da conta com permissões para realizar a adesão ao domínio.
     - Para **Senha,** digite a senha da conta.
-
-  >[!NOTE]
-  >É a melhor prática para confirmar que a conta de computador que você criou em [Participar de uma conexão Active Directory](create-fslogix-profile-container.md#join-an-active-directory-connection) apareceu em seu controlador de domínio em **Computadores** ou na **OU relevante da sua empresa.**
 
 ## <a name="create-a-new-volume"></a>Criar um novo volume
 

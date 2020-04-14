@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: 0ef7e5d869ab2d7e085cbf861bfc32e57b1fad4b
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: e0e98b87cf3612bf01f90f806ea64ef06d08c60a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408483"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255321"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços que são monitorados pelo Azure Monitor. 
@@ -31,7 +31,7 @@ Os insights fornecem uma experiência de monitoramento personalizada para determ
 | [Monitor de Redes Do Azure (visualização)](insights/network-insights-overview.md) | Fornece uma visão abrangente da saúde e métricas para todos os recursos da sua rede. O recurso avançado de pesquisa ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que hospedam seu site, simplesmente pesquisando o nome do seu site. |
 [Monitor do Azure para Grupos de Recursos (visualização)](insights/resource-group-insights.md) |  Trietrie e diagnostice quaisquer problemas que seus recursos individuais encontrem, ao mesmo tempo em que oferece contexto quanto à saúde e desempenho do grupo de recursos como um todo. |
 | [Monitor do Azure para Armazenamento (visualização)](insights/storage-insights-overview.md) | Fornece um monitoramento abrangente de suas contas de armazenamento do Azure, fornecendo uma visão unificada do desempenho, capacidade e disponibilidade dos serviços de armazenamento do Azure. |
-| [Monitor Azure para VMs (visualização)](insights/container-insights-overview.md) | Monitora suas máquinas virtuais Azure (VM) e conjuntos de escala de máquinas virtuais em escala. Ele analisa o desempenho e a integridade das VMs do Windows e do Linux e monitora os processos e as dependências de outros recursos e processos externos. |
+| [Monitor Azure para VMs](insights/container-insights-overview.md) | Monitora suas máquinas virtuais Azure (VM) e conjuntos de escala de máquinas virtuais em escala. Ele analisa o desempenho e a integridade das VMs do Windows e do Linux e monitora os processos e as dependências de outros recursos e processos externos. |
 
 ### <a name="core-solutions"></a>Soluções fundamentais
 
@@ -39,7 +39,7 @@ As soluções são baseadas em consultas de log e visualizações personalizadas
 
 | Solução | Descrição |
 |:---|:---|
-| [Integridade do agente](insights/solution-agenthealth.md) | Analise a saúde e configuração dos agentes do Log Analytics. |
+| [Agente de saúde](insights/solution-agenthealth.md) | Analise a saúde e configuração dos agentes do Log Analytics. |
 | [Gerenciamento de alertas](platform/alert-management-solution.md) | Analise os alertas coletados do Gerente de Operações do Centro de Sistemas, Nagios ou Zabbix. |
 | [Mapa de Serviço](insights/service-map.md) | Descobre automaticamente os componentes do aplicativo nos sistemas Windows e Linux e mapeia a comunicação entre os serviços. |
 
@@ -174,15 +174,15 @@ Os serviços e soluções na tabela a seguir armazenam seus dados em um espaço 
 
 | Produto/Serviço | Descrição |
 |:---|:---|
-| [Automação Azure](/azure/automation/) | Gerencie atualizações do sistema operacional e acompanhe as alterações nos computadores Windows e Linux. Consulte [O gerenciamento de rastreamento e](../automation/change-tracking.md) atualização de [alterações](../automation/automation-update-management.md). |
+| [Automação do Azure](/azure/automation/) | Gerencie atualizações do sistema operacional e acompanhe as alterações nos computadores Windows e Linux. Consulte [O gerenciamento de rastreamento e](../automation/change-tracking.md) atualização de [alterações](../automation/automation-update-management.md). |
 | [Proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/) | Classifique e proteja opcionalmente documentos e e-mails. Consulte [o relatório Central para proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
-| [Centro de Segurança Azure](/azure/security-center/) | Coletar e analisar eventos de segurança e realizar análises de ameaças. Ver [coleta de dados no Azure Security Center](/azure/security-center/security-center-enable-data-collection) |
+| [Central de Segurança do Azure](/azure/security-center/) | Coletar e analisar eventos de segurança e realizar análises de ameaças. Ver [coleta de dados no Azure Security Center](/azure/security-center/security-center-enable-data-collection) |
 | [Azure Sentinel](/azure/sentinel/) | Conecta-se a diferentes fontes, incluindo o Office 365 e o Amazon Web Services Cloud Trail. Consulte [Conectar fontes de dados](/azure/sentinel/connect-data-sources). |
 | [Análise do Cofre de Chaves](insights/azure-key-vault.md) | Analise os logs de eventos do Azure Key VaultEvent. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Crie uma configuração de diagnóstico para enviar logs para o Azure Monitor. Consulte [Enviar dados de log para armazenamento, hubs de eventos ou análises de log no Intune (visualização)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |
 | Rede  | [Monitor de desempenho de rede](insights/network-performance-monitor.md) - Monitore a conectividade e o desempenho da rede para os pontos finais de serviço e aplicativos.<br>[Gateway de aplicativo Do Azure](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) - Analise logs e métricas do Gateway de aplicativos do Azure.<br>[Traffic Analytics](/azure/network-watcher/traffic-analytics) - Analisa os registros de fluxo do Grupo de Segurança de Rede de Observadores de Rede (NSG) para fornecer insights sobre o fluxo de tráfego em sua nuvem Azure. |
-| [Escritório 365](insights/solution-office-365.md) | Monitore o ambiente do Office 365. Versão atualizada com onboarding melhorado disponível através do Azure Sentinel. |
-| [SQL Analytics](insights/azure-sql.md) | Monitore o desempenho de bancos de dados SQL do Azure, pools elásticos e instâncias gerenciadas em escala e em várias assinaturas. |
+| [Office 365](insights/solution-office-365.md) | Monitore o ambiente do Office 365. Versão atualizada com onboarding melhorado disponível através do Azure Sentinel. |
+| [Análise de SQL](insights/azure-sql.md) | Monitore o desempenho de bancos de dados SQL do Azure, pools elásticos e instâncias gerenciadas em escala e em várias assinaturas. |
 | [Hub de Superfície](insights/surface-hubs.md) | Acompanhe a saúde e o uso de dispositivos Surface Hub. |
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Coletar dados dos agentes do Gerente de Operações conectando seu grupo de gerenciamento ao Azure Monitor. Consulte [O connect operations manager do Azure Monitor](platform/om-agents.md)<br> Avalie o risco e a saúde do grupo de gerenciamento do Gerente de Operações do Centro de Sistemas com a solução [de Avaliação do Gerente de Operações.](insights/scom-assessment.md) |
 | [Salas de Equipes da Microsoft](https://docs.microsoft.com/microsoftteams/room-systems/azure-monitor-deploy) | Gerenciamento integrado e de ponta a ponta dos dispositivos Microsoft Teams Rooms. |
@@ -201,7 +201,7 @@ Outras soluções estão disponíveis para monitorar diferentes aplicativos e se
 | [Análise de log de atividades](platform/activity-log-view.md#azure-portal) | Exibir entradas do Registro de Atividades. |
 | [DNS Analytics (visualização)](insights/dns-analytics.md) | Coleta, analisa e correlaciona registros de análise e auditoria do Windows DNS e outros dados relacionados de seus servidores DNS. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Colete, visualize e analise as métricas de saúde e desempenho do sistema cloud foundry, em várias implantações. |
-| [Recipientes](insights/containers.md) | Exibir e gerenciar hosts de contêineres Docker e Windows. |
+| [Contêineres](insights/containers.md) | Exibir e gerenciar hosts de contêineres Docker e Windows. |
 | [Avaliações sob demanda](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Avalie e otimize a disponibilidade, a segurança e o desempenho de seus ambientes de tecnologia Microsoft no local, híbridos e em nuvem. |
 | [Verificação de saúde SQL](insights/sql-assessment.md) | Avalie o risco e a saúde de seus ambientes sql server.  |
 | [Dados durante a transmissão](insights/wire-data.md) | Dados consolidados de rede e desempenho coletados de computadores conectados ao Windows e Linux com o agente Log Analytics. |

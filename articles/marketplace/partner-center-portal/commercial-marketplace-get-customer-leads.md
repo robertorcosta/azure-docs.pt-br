@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: ce576d9825819770486197a6c39425adf6ac3208
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05b166b2ec46900d9e3972025efb581d9619ec6a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275893"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252584"
 ---
 # <a name="customer-leads-from-your-marketplace-offer"></a>Clientes potenciais de sua oferta do marketplace
 
@@ -133,11 +133,11 @@ O destino líder do Azure Blob não é mais suportado, então você está perden
 
 ### <a name="i-received-an-email-from-marketplace-why-cant-i-find-the-lead-in-my-crm"></a>Recebi um email do Marketplace, por que não é possível localizar o cliente potencial no meu CRM?
 
-É possível que o domínio de email do usuário final é de. edu. Por razões de privacidade, não passamos dados PII do domínio .edu. Envie um bilhete de apoio através de aka.ms/marketplacepublishersupport.
+É possível que o domínio de email do usuário final é de. edu. Por razões de privacidade, não passamos informações identificáveis privadas do domínio .edu. Envie um bilhete de apoio através de aka.ms/marketplacepublishersupport.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Configurei a Tabela Azure como meu destino principal, como posso ver os leads?
 
-Você pode acessar os dados de chumbo armazenados na Tabela Azure do Portal Azure, ou você pode baixar e instalar o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) gratuitamente para visualizar os dados das tabelas da sua conta de armazenamento Azure.
+Você pode acessar os dados de chumbo armazenados na Tabela Azure a partir do portal Azure, ou você pode baixar e instalar o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) gratuitamente para visualizar os dados das tabelas da sua conta de armazenamento Azure.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-lead-is-sent-by-marketplace"></a>Configurei a tabela do Azure como destino de cliente potencial, posso ser notificado sempre que um novo cliente potencial é enviado pelo Marketplace?
 
@@ -149,13 +149,17 @@ Verifique se o formulário "web to lead" é um campo obrigatório com base em um
 
 ### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>Houve um problema com meu destino de cliente potencial e eu me perdi de alguns clientes potenciais. É possível tê-los enviados para mim por email?
 
-Devido às diretivas de PII (informações de identificação particular), não é possível compartilhamos as informações de cliente potencial por meio de email não seguro.
+Devido a políticas de informações identificáveis privadas, não podemos compartilhar informações de chumbo por e-mail não seguro.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>Configurei o Azure Table como meu destino principal, quanto custará?
 
 Dados de geração de cliente potencial (<1 GB para quase todos os publicadores). O custo dependerá do número de clientes potenciais recebido, se 1.000 potenciais são recebidos em um mês, isso custará cerca de 50 centavos. Para obter mais informações sobre preços de armazenamento, veja [preço de armazenamento](https://azure.microsoft.com/pricing/details/storage/).
 
 Se sua pergunta ainda não for respondida, entre em contato com o suporte através de aka.ms/marketplacepublishersupport e selecione **'criação de oferta'** → **seu tipo de oferta** → **'configuração de gerenciamento de chumbo'.** 
+
+### <a name="i-am-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-who-to-receive-these-emails"></a>Estou recebendo notificações de e-mail quando novos leads de clientes são recebidos. Como posso configurar quem receber esses e-mails?
+
+Acesse sua oferta no Partner Center e navegue até a página **de configuração de oferta** -> Lead **Management** -> **Edit**. Atualize os endereços de e-mail no campo **de e-mail contato.**
 
 ## <a name="next-steps"></a>Próximas etapas
 

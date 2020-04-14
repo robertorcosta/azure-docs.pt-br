@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 48fd85e27feb3d0c7f7f722dbbd502be55684385
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7c6829d858e36b55f079f8ee03e431f67995e66
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76771585"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272569"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API do .NET Standard de Tabela do Azure Cosmos DB: download e notas de versão
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "76771585"
 |---|---|
 |**Download do SDK**|[Nuget](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
 |**Amostra**|[Amostra de API da tabela Cosmos DB .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
-|**Quickstart**|[Quickstart](create-table-dotnet.md)|
+|**Guia de Início Rápido**|[Guia de Início Rápido](create-table-dotnet.md)|
 |**Tutorial**|[Tutorial](tutorial-develop-table-dotnet.md)|
 |**Framework atualmente com suporte**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 |**Relatar Problema**|[Relatar Problema](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
@@ -41,6 +41,9 @@ A série 2.0.0 leva a dependência do [Microsoft.Azure.Cosmos,](https://www.nuge
 
 ## <a name="release-notes-for-100-series"></a>Notas de lançamento para a série 1.0.0
 A série 1.0.0 tem a dependência do [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+
+### <a name="107"></a><a name="1.0.7"/>1.0.7
+* Melhoria de desempenho definindo o nível de rastreamento padrão do Table SDK para SourceLevels.Off, que pode ser optado por app.config
 
 ### <a name="105"></a><a name="1.0.5"/>1.0.5
 * Introduzir nova configuração em TableClientConfiguration para usar o Executor de Descanso para se comunicar com a API da tabela Cosmos DB

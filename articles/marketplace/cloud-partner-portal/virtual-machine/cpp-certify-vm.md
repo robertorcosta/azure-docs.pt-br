@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: dsindona
-ms.openlocfilehash: 0225069179e0d7d94a983c5161976a5c1933fac5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce1e001b9cafff83a3f9bf546d6903cc4a4f450f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278188"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273487"
 ---
 # <a name="certify-your-vm-image"></a>Certificar a imagem da VM
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [certificação de imagem Azure VM](https://aks.ms/CertifyVMimage) para gerenciar suas ofertas migradas.
 
 Após criar e implantar a VM (máquina virtual), você deverá testar e enviar a imagem da VM para a certificação do Azure Marketplace. Este artigo explica onde obter a *Ferramenta de Teste de Certificação para Certificado do Azure*, como usar essa ferramenta para certificar a imagem da VM e como carregar os resultados da verificação no contêiner do Azure onde residem os VHDs. 
 

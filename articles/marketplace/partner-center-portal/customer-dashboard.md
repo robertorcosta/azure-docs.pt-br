@@ -1,18 +1,18 @@
 ---
 title: Painel do cliente em análises de mercado comercial no Partner Center
-description: Saiba como acessar informações sobre seus clientes, incluindo tendências de crescimento, usando o painel do cliente em análises de Mercado Comercial.
+description: Saiba como acessar informações sobre seus clientes, incluindo tendências de crescimento, usando o painel do cliente em análises de mercado comercial.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 7fe56a81bc82f9d49cf9f81b30986882b6d13cfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8379ed883311d219bb6eeb56bd4424dfb470bc9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286108"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251632"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Painel do Cliente em análises de mercado comercial
 
@@ -21,7 +21,7 @@ Este artigo fornece informações sobre o painel do **cliente** no Partner Cente
 Para acessar o painel do **Cliente,** abra o painel **[Analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** em Mercado Comercial.
 
 >[!NOTE]
-> Para definições detalhadas da terminologia de análise, consulte [perguntas freqüentes e terminologia para análises de mercado comercial](./faq-terminology.md).
+> Para definições detalhadas da terminologia de análise, consulte [perguntas e terminologias freqüentes para análise de mercado comercial](./faq-terminology.md).
 
 ## <a name="customer-dashboard"></a>Painel de cliente
 
@@ -80,7 +80,7 @@ Os **clientes por SKUs/gráficos de uso** são descritos abaixo.
 1. A placa Leader apresenta detalhes dos 50 maiores clientes classificados por contagem de pedidos. Após a seleção de um cliente, os detalhes do cliente são apresentados nas seções 2, 3 e 4 deste quadro de líderes.
 2. Os detalhes do perfil do Cliente são exibidos neste espaço quando os editores são conectados com uma função de proprietário. Se os editores estiverem conectados com uma função de contribuinte, os detalhes desta seção não estarão disponíveis.
 3. O gráfico de donuts Orders by SKUs exibe a divisão das ordens compradas para SKUs. As 5 SKUs mais altas com a maior contagem de pedidos são exibidas, enquanto o resto das ordens são agrupadas em 'rest all'.
-4. O gráfico de donuts Seats by SKUs exibe a quebra dos assentos pedidos para SKUs. Os 5 Melhores SKUs com os assentos mais altos são exibidos, enquanto o resto das encomendas são agrupadas repouso.
+4. O gráfico de donuts Seats by SKUs exibe a quebra dos assentos pedidos para SKUs. Os 5 Melhores SKUs com os assentos mais altos são exibidos, enquanto o resto das encomendas são agrupadas sob repouso.
 
 ### <a name="orders-and-usage-by-customer-type"></a>Pedidos e uso por tipo de cliente
 
@@ -108,10 +108,10 @@ Os filtros de **página Clientes** são aplicados no nível da página Clientes.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral dos relatórios de análise disponíveis no Partner Center Commercial Marketplace, consulte [Analytics for the Commercial Marketplace in Partner Center](./analytics.md).
-- Para obter gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para sua oferta, consulte [Summary Dashboard in Commercial Marketplace analytics](./summary-dashboard.md).
+- Para obter uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
+- Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para sua oferta, consulte [Summary Dashboard em análises de mercado comercial](./summary-dashboard.md).
 - Para obter informações sobre seus pedidos em um formato gráfico e para download, consulte [Orders Dashboard em análises de mercado comercial](./orders-dashboard.md).
-- Para a Máquina Virtual (VM) oferece métricas de uso e faturamento medido, consulte [O Painel de Uso em análises de mercado comercial](./usage-dashboard.md).
-- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte [O Painel de Downloads em análises de Mercado Comercial](./downloads-dashboard.md).
-- Para ver uma visão consolidada do feedback dos clientes para ofertas no Azure Marketplace e no AppSource, consulte [Ratings e reviews dashboard em análises de Mercado Comercial](./ratings-reviews.md).
-- Para perguntas frequentes sobre análises de mercado comercial e para um dicionário abrangente de termos de dados, consulte [perguntas e terminologias freqüentes para análises de mercado comercial](./faq-terminology.md).
+- Para a Máquina Virtual (VM) oferece métricas de uso e faturamento medido, consulte [Use Dashboard em análises de mercado comercial](./usage-dashboard.md).
+- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte [Downloads Dashboard em análises de mercado comercial](./downloads-dashboard.md).
+- Para ver uma visão consolidada do feedback dos clientes para ofertas no Azure Marketplace e no AppSource, consulte [Ratings e reviews dashboard em análises de mercado comercial](./ratings-reviews.md).
+- Para perguntas frequentes sobre análise de mercado comercial e para um dicionário abrangente de termos de dados, consulte [perguntas e terminologias freqüentes para análise de mercado comercial](./faq-terminology.md).

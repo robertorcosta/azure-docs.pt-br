@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 6fe15fb18d8865911363a4696e44dd7fe1d90c09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fdbc2a11bd963057b465a629757f2be51ae4061
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277796"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273844"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtenha o URI de assinatura de acesso compartilhado para suas imagens VM
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Obter assinatura de acesso compartilhado URI para sua imagem VM](https://aka.ms/GetSASURI) para gerenciar suas ofertas migradas.
 
 Durante o processo de publicação, você deve fornecer um identificador de recursos uniformes (URI) para cada disco rígido virtual (VHD) associado às suas SKUs. A Microsoft precisa de acesso a esses VHDs durante o processo de certificação. Este artigo explica como gerar uma assinatura de acesso compartilhado (SAS) URI para cada VHD. Você vai inserir esse URI na guia **SKUs** no Portal do Cloud Partner.
 

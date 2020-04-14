@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 0261ff7ca8a60dc5fd986a64b9944f9cb9f101e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: 59faf63312bd7cc657f8b96ca3110707ea997c02
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062490"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273590"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configure e acesse registros de consulta lenta do portal Azure
 
@@ -23,7 +23,7 @@ As etapas deste artigo exigem que você tenha [o Banco de Dados Azure para servi
 ## <a name="configure-logging"></a>Configurar o registro em log
 Configure o acesso aos logs de consulta lenta do MySQL. 
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione seu servidor de Banco de Dados do Azure para MySQL.
 
@@ -32,11 +32,15 @@ Configure o acesso aos logs de consulta lenta do MySQL.
 
 4. Para ver os parâmetros do servidor, selecione **Clique aqui para ativar logs e configurar parâmetros de log**.
 
-5. Altere os parâmetros que você precisa ajustar. Todas as alterações feitas nessa sessão são realçadas em roxo. 
+5. Vire **slow_query_log** para **ON**.
 
-   Depois de alterar os parâmetros, selecione **Salvar**. Ou pode descartar suas mudanças.
+6. Selecione onde fazer a saída dos logs para usar **log_output**. Para enviar logs para o armazenamento local e para os logs de diagnóstico do Monitor do Azure, selecione **Arquivo**. 
 
-   ![Captura de tela das opções de Parâmetros do Servidor](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
+7. Altere todos os outros parâmetros necessários. 
+
+8. Clique em **Salvar**. 
+
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Captura de tela de parâmetros de log de consulta lenta e salvar.":::
 
 Na página Parâmetros do **servidor,** você pode retornar à lista de registros fechando a página.
 

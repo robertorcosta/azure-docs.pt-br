@@ -3,7 +3,7 @@ title: Criar um ponto de extremidade CDN do Azure | Microsoft Docs
 description: Este artigo mostra como criar um novo ponto de extremidade CDN (Rede de Distribuição de Conteúdo) do Azure, incluindo configurações avançadas.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.service: azure-cdn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: afd9599dd1e396dea6975c397688e4b97371fd6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a130a433c68d0d5cc8c26eae4b81ff264eb0ca2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593929"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254008"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Criar um ponto de extremidade CDN do Azure
 Este artigo descreve todas as configurações para criar um ponto de extremidade [CDN (Rede de Distribuição de Conteúdo) do Azure](cdn-overview.md) em um perfil CDN existente. Depois de criar um perfil e um ponto de extremidade, você pode iniciar a distribuição de conteúdo para seus clientes. Para ver um início rápido sobre como criar um perfil e um ponto de extremidade, confira [Início rápido: criar um ponto de extremidade e um perfil CDN do Azure](cdn-create-new-endpoint.md).
@@ -101,7 +101,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com) com sua conta do Azur
    
     Se você tentar usar o nome de domínio da CDN antes que a configuração do ponto de extremidade seja propagada para os servidores POP (ponto de presença), talvez você receba um status de resposta HTTP 404. Se passaram várias horas desde que você criou o ponto de extremidade e ainda está recebendo um status de resposta 404, confira [Solução de problemas dos pontos de extremidade da CDN do Azure que retornam o código de status 404](cdn-troubleshoot-endpoint.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para excluir um ponto de extremidade quando ele não for mais necessário, selecione-o e, em seguida, clique em **Excluir**. 
 
 ## <a name="next-steps"></a>Próximas etapas

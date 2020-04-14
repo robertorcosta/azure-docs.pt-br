@@ -5,17 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/14/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 4fc77407ae1c5854d3fe977da5a81f4226bf5305
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93b2ca700a987b86aedfdae55d58540c8ffe84ed
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280466"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255865"
 ---
-<a name="retrieve-operations"></a>Recuperar operações
-===================
+# <a name="retrieve-operations"></a>Recuperar operações
+
+> [!NOTE]
+> As APIs do Portal de Parceiros em Nuvem são integradas ao Partner Center e continuarão a funcionar depois que suas ofertas forem migradas para o Partner Center. A integração introduz pequenas mudanças. Revise as alterações listadas na [API do Portal do Parceiro na Nuvem](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue funcionando após a migração para o Partner Center.
 
 Recuperar todas as operações na oferta ou obter uma operação específica para a operationId especificada. O cliente pode usar parâmetros de consulta para filtrar as operações em execução.
 
@@ -28,21 +30,18 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 ```
 
 
-<a name="uri-parameters"></a>Parâmetros de URI
---------------
+## <a name="uri-parameters"></a>Parâmetros de URI
 
 |  **Nome**          |      **Descrição**                                                                                           | **Tipo de dados** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
 |  publisherId       |  Identificador do editor, por exemplo `Contoso`                                                                   |  String       |
 |  offerId           |  Identificador da oferta                                                                                              |  String       |
 |  operationId       |  GUID que identifica exclusivamente a operação na oferta. A operationId pode ser recuperada usando essa API e também é retornada no cabeçalho HTTP da resposta para qualquer operação longa, como a API [Publicar oferta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
-|  filteredStatus    | Parâmetro de consulta opcional usado para filtrar por status (por exemplo, `running`) na coleção retornada por essa API.  |   String |
-|  api-version       | Última versão da API                                                                                           |    Data      |
+|  api-version       | Última versão da API |    Data      |
 |  |  |  |
 
+## <a name="header"></a>Cabeçalho
 
-<a name="header"></a>Cabeçalho
-------
 
 |  **Nome**          |  **Valor**           |
 |  ---------------   | -------------------- |
@@ -51,8 +50,7 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 |  |  |
 
 
-<a name="body-example"></a>Exemplo de corpo
-------------
+## <a name="body-example"></a>Exemplo de corpo
 
 ### <a name="response"></a>Resposta
 
@@ -167,25 +165,35 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
                     ],
                 "previewLinks": [],
                 "liveLinks": [],
-                "notificationEmails": "jondoe@contoso.com"
-            } 
+            }
         }
     ]
 ```
-
 
 ### <a name="response-body-properties"></a>Propriedades do corpo de resposta
 
 |  **Nome**                    |  **Descrição**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  id                          | GUID que identifica exclusivamente a operação                                                       |
-|  submissionType              | Identifica o tipo de operação que está sendo relatada para a oferta, por exemplo, `Publish/GGoLive`      |
+|  submissionType              | Identifica o tipo de operação que está sendo relatada para a oferta, por exemplo, `Publish/GoLive`      |
 |  createdDateTime             | Data e hora em UTC quando a operação foi criada                                                       |
 |  lastActionDateTime          | Data e hora em UTC quando a última atualização foi feita na operação                                       |
 |  status                      | Status da operação, `not started` \| `running` \| `failed` \| `completed`também. Apenas uma operação pode ter um status `running` por vez. |
 |  error                       | Mensagem de erro para operações com falha                                                               |
 |  |  |
 
+### <a name="response-step-properties"></a>Propriedades da etapa de resposta
+
+|  **Nome**                    |  **Descrição**                                                                                  |
+|  --------------------        |  ------------------------------------------------------------------------------------------------ |
+| estimatedTimeFrame | A duração estimada desta operação |
+| id | O identificador exclusivo para o processo de etapa |
+| descrição | Descrição da etapa |
+| stepName | O nome amigável para o passo |
+| status | O status da etapa, ou `notStarted` \| `running` \| `failed` \|`completed` |
+|  da nuvem para o dispositivo | Quaisquer notificações ou avisos encontrados durante a etapa. Matriz de cadeias de caracteres |
+| Progresspercentage | Um inteiro de 0 a 100 indicando a progressão da etapa |
+| | |
 
 ### <a name="response-status-codes"></a>Códigos de status de resposta
 

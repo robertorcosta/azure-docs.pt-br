@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 972bb2a804057037deedb448674abafcc175b21f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85910ee5467ecc9f4fe3c1a8bc13110b6f218e5c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314803"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272705"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planeje o ambiente GA do Azure Time Series Insights
 
@@ -79,9 +79,7 @@ Você pode ajustar a retenção e alternar entre os dois modos na página de con
 
 ### <a name="environment-planning"></a>Planejamento ambiental
 
-A segunda área a se concentrar no planejamento do seu ambiente Time Series Insights é a capacidade de ingestão. A capacidade de entrada é uma derivada da alocação por minuto.
-
-De uma perspectiva de estrangulamento, um pacote de dados insonado que tem um tamanho de pacote de 32 KB é tratado como 32 eventos, cada um de 1 KB de tamanho. O tamanho máximo do evento permitido é de 32 KB. Pacotes de dados maiores que 32 KB são truncados.
+A segunda área a se concentrar no planejamento do seu ambiente Time Series Insights é a capacidade de ingestão. A capacidade diária de armazenamento e eventos é medida por minuto, em blocos de 1 KB. O tamanho máximo do pacote permitido é de 32 KB. Pacotes de dados maiores que 32 KB são truncados.
 
 Você pode aumentar a capacidade de uma SKU S1 ou S2 para até 10 unidades em um único ambiente. Você não pode migrar de um ambiente S1 para um S2. Você não pode migrar de um ambiente S2 para um S1.
 

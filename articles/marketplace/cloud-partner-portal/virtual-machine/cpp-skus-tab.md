@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: 49f1de5128325b2884ea76b010727be45f1b195d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8dbadf959107e733a94216c8a01495e6ebf5039
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288879"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273113"
 ---
 # <a name="virtual-machine-skus-tab"></a>Guia de SKUs de máquina virtual
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de Máquina Virtual do Azure](https://aka.ms/CreateAzureVMoffer) para gerenciar suas ofertas migradas.
 
 A guia **SKUs** da página **Nova Oferta** permite criar uma ou mais SKUs e associá-las à sua nova oferta.  SKUs diferentes podem diferenciar uma solução por conjuntos de recursos, tipos de imagem VM, taxa de transferência ou escalabilidade, modelos de cobrança ou alguma outra característica.
 
@@ -42,7 +45,7 @@ A tabela a seguir descreve a finalidade, o conteúdo e a formatação desses cam
 |  *Configurações de SKU*   |    |
 | **Id do SKU\***       | Identificador dessa SKU.  Esse nome tem um máximo de 50 caracteres, consistindo em caracteres alfanuméricos minúsculos ou traços (-), mas não pode terminar com um traço.  Não pode ser modificado depois que a oferta é publicada.  |
 |  *Detalhes da SKU*   |  |
-| **Título\***        | Nome amigável para a oferta para exibição no marketplace. Comprimento máximo de 50 caracteres. |
+| **Title\***        | Nome amigável para a oferta para exibição no marketplace. Comprimento máximo de 50 caracteres. |
 | **Resumo\***      | Descrição sucinta da oferta para exibição no marketplace. Comprimento máximo de 100 caracteres. |
 | **Descrição\***  | Texto de descrição que fornece uma explicação mais detalhada da oferta.  <!-- TD: max len/guidance? 3k characters -->  |
 | **Esconda este SKU\*** | Indica se o SKU deve estar visível no mercado para os clientes.  Você talvez queira ocultar a SKU se só a quiser disponível por meio de modelos de solução e não para compra individualmente.  Também pode ser útil para testes iniciais ou para ofertas temporárias ou sazonais. |

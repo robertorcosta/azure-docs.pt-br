@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: dsindona
-ms.openlocfilehash: fe1397d7ad00a2eb6e9fe04d8bfa50e49839fe34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a15ccb1de2a9ce0072d032e624ead3b4d730763b
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288777"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273045"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Atualizar uma oferta de VM existente no Azure Marketplace
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de Máquina Virtual do Azure](https://aka.ms/CreateAzureVMoffer) para gerenciar suas ofertas migradas.
 
 Este artigo explica os diferentes aspectos da atualização da sua oferta de máquina virtual (VM) no [Cloud Partner Portal](https://cloudpartner.azure.com/) e republica a oferta. 
 
@@ -118,7 +121,7 @@ Utilize os seguintes passos para atualizar os metadados do mercado - nome da emp
 
 ### <a name="update-pricing-on-published-offers"></a>Atualizar o preço em ofertas publicadas
 
-Quando sua oferta pré-paga for publicada, você não poderá aumentar diretamente o preço da SKU.  (No entanto, você pode criar um novo SKU a mesma oferta, excluir o Antigo SKU e, em seguida, republicar sua oferta para novos clientes.)  Em contrapartida, você pode diminuir o preço de uma oferta publicada usando as seguintes etapas:
+Quando sua oferta pré-paga for publicada, você não poderá aumentar diretamente o preço da SKU.  (No entanto, você pode criar um novo SKU sob a mesma oferta, excluir o Antigo SKU e, em seguida, republicar sua oferta para novos clientes.)  Em contrapartida, você pode diminuir o preço de uma oferta publicada usando as seguintes etapas:
 
 1.  Entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 
@@ -128,7 +131,7 @@ Quando sua oferta pré-paga for publicada, você não poderá aumentar diretamen
 
 4.  Se você definiu o preço na GUI 1x1, poderá alterar o preço diretamente na interface do usuário. Se você definir o preço por meio da planilha de importação / exportação, só poderá diminuir os preços por meio do recurso de importação / exportação.
 
-3.  Clique em **Salvar**.
+3.  Clique em **Save** (Salvar).
 
 4.  Clique em **Publicar** para iniciar o fluxo de trabalho para publicar suas alterações.
 

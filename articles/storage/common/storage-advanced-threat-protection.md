@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 195f4b5057c0e2d644ab44cc4c32e97c8662d36d
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4219bb471b92e7ddae72c50403f635498c90080d
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422792"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251683"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configure proteção avançada contra ameaças para armazenamento Azure
 
@@ -23,10 +23,16 @@ A proteção avançada contra ameaças para o Azure Storage fornece uma camada a
 
 Os alertas de segurança são acionados quando ocorrem anomalias na atividade. Esses alertas de segurança são integrados ao [Azure Security Center](https://azure.microsoft.com/services/security-center/), e também são enviados por e-mail para administradores de assinatura, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças.
 
-> [!NOTE]
-> A proteção avançada contra ameaças para o Azure Storage está disponível atualmente apenas para armazenamento Blob. Este serviço está disponível nas nuvens do governo dos EUA, mas nenhuma outra região de nuvens do governo soberano ou azure. Para obter detalhes sobre preços, incluindo um teste gratuito de 30 dias, consulte a página de preços do [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+O serviço ingere registros de diagnóstico de leitura, gravação e exclusão de solicitações ao Blob Storage para detecção de ameaças. Para investigar os alertas de proteção avançada contra ameaças, você pode visualizar atividades de armazenamento relacionadas usando o Registro de Análisede Armazenamento. Para obter mais informações, consulte **Configurar o login** no Monitor e monitorar uma conta de armazenamento no portal [Azure](storage-monitor-storage-account.md#configure-logging).
 
-A proteção avançada contra ameaças para o Azure Storage ingere registros de diagnóstico de leitura, gravação e exclusão de solicitações ao armazenamento Blob para detecção de ameaças. Para investigar os alertas de proteção avançada contra ameaças, você pode visualizar atividades de armazenamento relacionadas usando o Registro de Análisede Armazenamento. Para obter mais informações, consulte **Configurar o login** no Monitor e monitorar uma conta de armazenamento no portal [Azure](storage-monitor-storage-account.md#configure-logging).
+## <a name="availability"></a>Disponibilidade
+
+A proteção avançada contra ameaças para o Armazenamento Azure está disponível atualmente apenas para [armazenamento Blob](https://azure.microsoft.com/services/storage/blobs/). 
+
+Este serviço está disponível em todas as nuvens públicas e nuvens do governo dos EUA, mas nenhuma outra região de nuvens do governo soberano ou azure.
+
+Para obter detalhes sobre preços, incluindo um teste gratuito de 30 dias, consulte a página de preços do [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+
 
 ## <a name="set-up-advanced-threat-protection"></a>Configure proteção avançada contra ameaças
 
@@ -42,7 +48,7 @@ Você pode configurar proteção avançada contra ameaças de várias maneiras, 
 
     ![Ativar a proteção avançada contra ameaças do Armazenamento do Azure](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
-### <a name="azure-security-center"></a>[Centro de Segurança Azure](#tab/azure-security-center)
+### <a name="azure-security-center"></a>[Central de Segurança do Azure](#tab/azure-security-center)
 
 Quando você assina o nível Padrão no Azure Security Center, a proteção avançada contra ameaças é configurada automaticamente em todas as suas contas de armazenamento. Você pode ativar ou desativar proteção avançada contra ameaças para suas contas de armazenamento sob uma assinatura específica da seguinte forma:
 
@@ -56,7 +62,7 @@ Quando você assina o nível Padrão no Azure Security Center, a proteção avan
 1. Na **seção Selecionar nível de preço por** tipo de recurso, na linha Contas de **armazenamento,** clique em **Ativado** ou **desativado**.
 
     ![Habilitar ATP no Security Center](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 ### <a name="template"></a>[Modelo](#tab/template)
 

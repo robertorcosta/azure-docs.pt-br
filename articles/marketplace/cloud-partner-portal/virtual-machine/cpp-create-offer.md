@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: bc1cf7a839307e65bd91eb29531663141e521472
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d06809df2774224b61fd3fb643ab628dd2890f6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278034"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273980"
 ---
 # <a name="create-virtual-machine-offer"></a>Criar uma oferta de Máquina Virtual
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de Máquina Virtual do Azure](https://aka.ms/CreateAzureVMoffer) para gerenciar suas ofertas migradas.
 
 Esta seção lista as etapas necessárias para criar uma nova solicitação de oferta de máquina virtual (VM) para o Azure Marketplace.  Cada oferta aparece como sua própria entidade no Azure Marketplace e está associada uma ou mais SKUs.  Uma oferta VM é composta dos seguintes grupos de ativos e serviços de suporte: 
 
@@ -46,7 +49,7 @@ Uma vez que seu login no [Portal do Parceiro na Nuvem,](https://cloudpartner.azu
 
 Os tópicos subsequentes nesta seção espelham as guias na página**Nova Oferta** (para um tipo de oferta VM).  Cada artigo explica como usar a guia associada para definir os grupos de ativos e serviços de suporte para sua nova oferta VM.
 
-- [Guia Configurações de oferta](./cpp-offer-settings-tab.md)
+- [Guia Configurações da Oferta](./cpp-offer-settings-tab.md)
 - [Guia SKUs](./cpp-skus-tab.md)
 - [Guia Test Drive](./cpp-test-drive-tab.md)
 - [Guia Marketplace](./cpp-marketplace-tab.md)

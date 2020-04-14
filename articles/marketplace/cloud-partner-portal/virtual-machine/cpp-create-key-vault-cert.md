@@ -7,20 +7,23 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: dc106ecf40367172f28c0f339bbcce8bddb50a34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09e82b9905104df9b1902b0f64f6cfdf812aabb8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278068"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273997"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Criar certificados para o Azure Key Vault
 
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [certificação de imagem Azure VM](https://aks.ms/CertifyVMimage) para gerenciar suas ofertas migradas.
+
 Este artigo explica como provisionar os certificados autoassinados necessários para estabelecer uma conectividade do WinRM (Gerenciamento Remoto do Windows) com uma VM (máquina virtual) hospedada no Azure. Esse processo consiste em três etapas:
 
-1.  Criar o certificado de segurança. 
-2.  Criar o Azure Key Vault para armazenar esse certificado. 
-3.  Armazenar os certificados neste cofre de chaves. 
+1.    Criar o certificado de segurança. 
+2.    Criar o Azure Key Vault para armazenar esse certificado. 
+3.    Armazenar os certificados neste cofre de chaves. 
 
 Você pode usar um grupo de recursos do Azure novo ou existente para este trabalho.  A primeira abordagem é usada na explicação a seguir.
 

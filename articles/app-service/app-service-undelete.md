@@ -5,12 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: c7d778a0afca4b3552976526d58a2cb2efe12161
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 296c8e2dfe99e3b0aea66f364ac6f6d9b2f60a1a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75689613"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272484"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restaurar o aplicativo Serviço de Aplicativo excluído usando o PowerShell
 
@@ -54,6 +54,9 @@ Uma vez que o aplicativo que você deseja `Restore-AzDeletedWebApp`restaurar ten
 ```powershell
 Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
+> [!NOTE]
+> Os slots de implantação não são restaurados como parte do seu aplicativo. Se você precisar restaurar um slot de preparação use a `-Slot <slot-name>` bandeira.
+>
 
 As entradas para comando são:
 

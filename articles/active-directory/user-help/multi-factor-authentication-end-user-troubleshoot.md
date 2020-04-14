@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 1703853f42b52dccc80fdfadaa09b67e18a19db8
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 3df79fb1e103ddfaafeb348641e675cd250f5858
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632906"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271685"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comuns com verificação de dois fatores e sua conta de trabalho ou escola
 
@@ -65,6 +65,7 @@ Certifique-se de ter um sinal de dispositivo e conexão com a Internet | Certifi
 Desligue Não perturbe | Certifique-se de que não ligou o recurso **Não perturbe** para o seu dispositivo móvel. Quando esse recurso é ligado, as notificações não podem alertá-lo em seu dispositivo móvel. Consulte o manual do seu dispositivo móvel para obter instruções sobre como desativar este recurso.
 Desbloquear números de telefone | Nos Estados Unidos, as chamadas de voz da Microsoft vêm dos seguintes números: +1 (866) 539 4191, +1 (855) 330 8653 e +1 (877) 668 6536.
 Verifique as configurações relacionadas à bateria | Este parece um pouco estranho na superfície, mas se você configurar sua otimização de bateria para impedir que aplicativos menos usados permaneçam ativos em segundo plano, seu sistema de notificação provavelmente foi afetado. Para tentar corrigir esse problema, desligue a otimização da bateria para seu aplicativo de autenticação e seu aplicativo de mensagens e tente entrar na sua conta novamente.
+Desativar aplicativos de segurança de terceiros | Se você tiver um aplicativo que proteja mensagens de texto ou chamadas telefônicas para minimizar os chamadores desconhecidos, eles podem impedir que o código de verificação seja recebido. Tente desativar quaisquer aplicativos de segurança de terceiros em seu telefone e, em seguida, solicite que outro código de verificação seja enviado.
 
 ## <a name="im-not-getting-prompted-for-my-second-verification-information"></a>Eu não estou sendo solicitado para a minha segunda informação de verificação
 

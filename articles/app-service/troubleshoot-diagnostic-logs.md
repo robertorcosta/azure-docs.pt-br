@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f22d5b2140e42f5f4b8ef5787d22b4be399c7e8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280463"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272518"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -59,7 +59,7 @@ Selecione o **Nível**ou o nível de detalhes a serem logados. A tabela a seguir
 
 | Nível | Categorias incluídas |
 |-|-|
-|**Desativado** | Nenhum |
+|**Desabilitado** | Nenhum |
 |**Erro** | Erro, Crítico |
 |**Aviso** | Aviso, Erro, Crítico|
 |**Informações** | Informações, Aviso, Erro, Crítico|
@@ -105,9 +105,9 @@ Ambos os tipos de logs são armazenados no sistema de arquivos app service. Até
 
 ## <a name="add-log-messages-in-code"></a>Adicionar mensagens de log em código
 
-No código do aplicativo, você usa as facilidades de registro habituais para enviar mensagens de registro para os logs do aplicativo. Por exemplo: 
+No código do aplicativo, você usa as facilidades de registro habituais para enviar mensagens de registro para os logs do aplicativo. Por exemplo:
 
-- Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](/dotnet/api/system.diagnostics.trace) para registrar informações no log de diagnóstico do aplicativo. Por exemplo: 
+- Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](/dotnet/api/system.diagnostics.trace) para registrar informações no log de diagnóstico do aplicativo. Por exemplo:
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -135,12 +135,12 @@ Para transmitir logs ao vivo no [Cloud Shell,](../cloud-shell/overview.md)use o 
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Para filtrar eventos específicos como erros, use o parâmetro **-Filtro** . Por exemplo: 
+Para filtrar eventos específicos como erros, use o parâmetro **-Filtro** . Por exemplo:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** . Por exemplo: 
+Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** . Por exemplo:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
@@ -188,7 +188,7 @@ A tabela a seguir mostra os tipos de log e descrições suportadas:
 | AppServiceHTTPLogs | Sim | Sim | Logs do Web Server |
 | AppServiceEnvironmentLogs | Sim | Sim | Ambiente de serviço do aplicativo: dimensionamento, alterações de configuração e registros de status|
 | AppServiceAuditLogs | Sim | Sim | Atividade de login via FTP e Kudu |
-| AppServiceFileAuditLogs | TBA | Sim | Alterações de arquivo via FTP e Kudu |
+| AppServiceFileAuditLogs | Sim | TBD | Alterações de arquivo via FTP e Kudu |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Logs de aplicativo |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Próximas etapas

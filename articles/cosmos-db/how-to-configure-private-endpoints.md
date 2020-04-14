@@ -4,14 +4,14 @@ description: Saiba como configurar o Azure Private Link para acessar uma conta d
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/13/2020
 ms.author: thweiss
-ms.openlocfilehash: 9a6a1560e169c51256c198868dc7293a020189f4
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4b49d2aa61587d0156755bdd5c47b3eeb90090a5
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421430"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270682"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configure o Azure Private Link para uma conta do Azure Cosmos
 
@@ -47,7 +47,7 @@ Use as seguintes etapas para criar um ponto final privado para uma conta Azure C
     | Nome | Digite qualquer nome para o seu ponto final privado. Se esse nome for tomado, crie um único. |
     |Região| Selecione a região onde deseja implantar o Private Link. Crie o ponto final privado no mesmo local onde sua rede virtual existe.|
     |||
-1. Selecione **A seguir: Recurso**.
+1. Selecione **Avançar: Recurso**.
 1. Em **Criar um ponto de extremidade privado – Recurso**, insira ou selecione estas informações:
 
     | Configuração | Valor |
@@ -59,7 +59,7 @@ Use as seguintes etapas para criar um ponto final privado para uma conta Azure C
     |Sub-recurso de destino |Selecione o tipo de API Azure Cosmos DB que você deseja mapear. Isso é padrão para apenas uma opção para as APIs SQL, MongoDB e Cassandra. Para as APIs Gremlin e Table, você também pode escolher **Sql** porque essas APIs são interoperáveis com a API SQL. |
     |||
 
-1. Selecione **A seguir: Configuração**.
+1. Selecione **Avançar: configuração**.
 1. Em **Criar um ponto final privado - Configuração,** digite ou selecione essas informações:
 
     | Configuração | Valor |
@@ -68,12 +68,12 @@ Use as seguintes etapas para criar um ponto final privado para uma conta Azure C
     | Rede virtual| Selecione sua rede virtual. |
     | Sub-rede | Selecione sua sub-rede. |
     |**Integração Privada de DNS**||
-    |Integrar com a zona DNS privado |Selecione **Sim**. <br><br/> Para se conectar privadamente com seu ponto final privado, você precisa de um registro DNS. Recomendamos que você integre seu ponto final privado com uma zona DNS privada. Você também pode usar seus próprios servidores DNS ou criar registros De DNS usando os arquivos host em suas máquinas virtuais. |
+    |Integrar com a zona DNS privado |Selecione **Sim** na barra superior. <br><br/> Para se conectar privadamente com seu ponto final privado, você precisa de um registro DNS. Recomendamos que você integre seu ponto final privado com uma zona DNS privada. Você também pode usar seus próprios servidores DNS ou criar registros De DNS usando os arquivos host em suas máquinas virtuais. |
     |Zona DNS privado |Selecione **privatelink.documents.azure.com**. <br><br/> A zona dns privada é determinada automaticamente. Você não pode alterá-lo usando o portal Azure.|
     |||
 
-1. Selecione **Revisão + criar**. Na página **'Revisar + criar',** o Azure valida sua configuração.
-1. Quando você vir a **mensagem aprovada pela Validação,** selecione **Criar**.
+1. Selecione **Examinar + criar**. Na página **'Revisar + criar',** o Azure valida sua configuração.
+1. Quando vir a mensagem **Validação aprovada**, selecione **Criar**.
 
 Quando você aprovou o Private Link para uma conta do Azure Cosmos, no portal Azure, a opção **Todas as redes** no painel firewall e redes **virtuais** está indisponível.
 
@@ -401,7 +401,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-No script PowerShell, `GroupId` a variável pode conter apenas um valor. Esse valor é o tipo de API da conta. Os valores `Sql` `MongoDB`permitidos são: , , `Cassandra`, `Gremlin`e `Table`. Alguns tipos de conta do Azure Cosmos são acessíveis através de várias APIs. Por exemplo: 
+No script PowerShell, `GroupId` a variável pode conter apenas um valor. Esse valor é o tipo de API da conta. Os valores `Sql` `MongoDB`permitidos são: , , `Cassandra`, `Gremlin`e `Table`. Alguns tipos de conta do Azure Cosmos são acessíveis através de várias APIs. Por exemplo:
 
 * Uma conta API Gremlin pode ser acessada tanto de contas Gremlin quanto da API SQL.
 * Uma conta de API de tabela pode ser acessada tanto em contas de Tabela quanto de API SQL.
@@ -624,6 +624,10 @@ As seguintes situações e resultados são possíveis quando você usa o Private
 * Se você configurar o tráfego público ou um ponto final de serviço e criar pontos finais privados, então diferentes tipos de tráfego de entrada serão autorizados pelo tipo correspondente de regra de firewall.
 
 * Se você não configurar nenhum tráfego público ou ponto final de serviço e criar pontos finais privados, então a conta Do Azure Cosmos só será acessível através dos pontos finais privados. Se você não configurar o tráfego público ou um ponto final de serviço, depois que todos os pontos finais privados aprovados forem rejeitados ou excluídos, a conta será aberta para toda a rede.
+
+## <a name="blocking-public-network-access-during-account-creation"></a>Bloqueando o acesso à rede pública durante a criação da conta
+
+Como descrito na seção anterior, e a menos que regras específicas de firewall tenham sido definidas, adicionar um ponto final privado torna sua conta Do Azure Cosmos acessível apenas através de pontos finais privados. Isso significa que a conta do Azure Cosmos pode ser alcançada a partir do tráfego público depois que ela é criada e antes que um ponto final privado seja adicionado. Para garantir que o acesso à rede pública seja desativado antes `publicNetworkAccess` mesmo `Disabled` da criação de pontos finais privados, você pode definir o sinalizador durante a criação da conta. Consulte [este modelo do Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) para obter um exemplo mostrando como usar esse sinalizador.
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Atualize um ponto final privado quando você adicionar ou remover uma região
 

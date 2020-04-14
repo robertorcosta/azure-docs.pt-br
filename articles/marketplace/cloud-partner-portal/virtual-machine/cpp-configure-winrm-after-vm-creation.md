@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: dsindona
-ms.openlocfilehash: 673fe1f31f6a8602225e7cde3bf1eb4c3b28b8a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b80325594eedb87293c31de3236bb4690eb89e05
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278137"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273011"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Configurar o WinRM após a criação da máquina virtual
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de Máquina Virtual do Azure](https://aka.ms/CreateAzureVMoffer) para gerenciar suas ofertas migradas.
 
 Este artigo explica como configurar uma VM (máquina virtual hospedada no Azure) existente para habilitar o WinRM por HTTPS.  Essa configuração aplica-se somente a VMs baseadas no Windows e requer o processo de duas etapas a seguir:
 
@@ -26,8 +29,8 @@ Este artigo explica como configurar uma VM (máquina virtual hospedada no Azure)
 
 O protocolo WinRM over HTTPS usa a porta 5986, que não é habilitada por padrão em VMs Windows pré-configurados oferecidos no Azure Marketplace. Para habilitar esse protocolo, siga as etapas a seguir para adicionar uma nova regra ao NSG (Grupo de Segurança de Rede) com o [portal do Azure](https://portal.azure.com).  Para obter mais informações sobre os NSGs, confira [Grupos de Segurança](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
-1.  Navegue até a lâmina **Máquinas virtuais >**   < *nome* >   vm **> Configurações/Rede**.
-2.  Clique no nome do NSG (neste exemplo, **testvm11002**) para exibir suas propriedades:
+1. Navegue até a lâmina **Máquinas virtuais >**   < *nome* >   vm **> Configurações/Rede**.
+2. Clique no nome do NSG (neste exemplo, **testvm11002**) para exibir suas propriedades:
 
     ![Propriedades do grupo de segurança de rede](./media/nsg-properties.png)
  

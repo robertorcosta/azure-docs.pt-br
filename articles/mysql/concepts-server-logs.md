@@ -5,35 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/28/2020
-ms.openlocfilehash: 9a3a58cab2d9673a4660967e3a11d7f88900e718
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: f834ba3355d362e59e2e44f37eca0560b9bf4d7a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269426"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271974"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Logs de consulta lenta saqueados no Banco de Dados Do Azure para MySQL
 No Banco de Dados do Azure para MySQL, o log de consultas lentas está disponível para os usuários. No entanto, não há suporte para acesso ao log de transação. O log de consultas lentas pode ser usado para identificar gargalos de desempenho para solução de problemas.
 
 Para obter mais informações sobre o log de consultas lentas do MySQL, consulte o manual de referência de MySQL [seção de log de consulta lenta](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
 
-## <a name="access-slow-query-logs"></a>Acesse registros de consulta lenta
-Você pode listar e baixar o Azure Database para logs de consulta lenta MySQL usando o portal Azure e o Azure CLI.
-
-No Portal do Azure, selecione o servidor do Banco de Dados do Azure para MySQL. Sob o título **Monitoramento**, selecione a página **Logs do Servidor**.
-
-Para obter mais informações sobre o Azure CLI, consulte [Configurar e acessar registros de consulta lenta usando o Azure CLI](howto-configure-server-logs-in-cli.md).
-
-Da mesma forma, você pode canalizar os registros para o Monitor Azure usando logs de diagnóstico. Veja [abaixo](concepts-server-logs.md#diagnostic-logs) para mais informações.
-
-## <a name="log-retention"></a>Retenção de log
-Logs estão disponíveis por até sete dias desde a criação deles. Se o tamanho total dos logs disponíveis exceder 7 GB, os arquivos mais antigos serão excluídos até que haja espaço disponível. 
-
-Logs são reciclados a cada 24 horas ou 7 GB, o que ocorrer primeiro.
-
 ## <a name="configure-slow-query-logging"></a>Configure o registro de consulta lenta 
-Por padrão, o log de consultas lentas está desabilitado. Para habilitá-lo, defina slow_query_log para ON.
+Por padrão, o log de consultas lentas está desabilitado. Para habilitá-lo, defina-o. `slow_query_log` Isso pode ser habilitado usando o portal Azure ou a Cli do Azure. 
 
 Outros parâmetros que você pode ajustar incluem:
 
@@ -48,6 +34,21 @@ Outros parâmetros que você pode ajustar incluem:
 > Se você planeja registrar consultas lentas por um longo período `log_output` de tempo, recomenda-se definir como "Nenhum". Se definido como "Arquivo", esses logs serão gravados no armazenamento do servidor local e podem afetar o desempenho do MySQL. 
 
 Consulte a [documentação de log de consulta lenta](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) MySQL para descrições completas dos parâmetros de log de consultas lentas.
+
+## <a name="access-slow-query-logs"></a>Acesse registros de consulta lenta
+Existem duas opções para acessar logs de consulta lenta no Azure Database for MySQL: armazenamento de servidor local ou Logs de diagnóstico do Monitor do Azure. Isto é `log_output` definido usando o parâmetro.
+
+Para armazenamento de servidor local, você pode listar e baixar registros de consulta lenta usando o portal Azure ou o Cli Do Zure. No portal Azure, navegue até o seu servidor no portal Azure. Sob o título **Monitoramento**, selecione a página **Logs do Servidor**. Para obter mais informações sobre o Azure CLI, consulte [Configurar e acessar registros de consulta lenta usando o Azure CLI](howto-configure-server-logs-in-cli.md). 
+
+O Azure Monitor Diagnostic Logs permite que você canalize registros de consulta lentas para Log Analytics (Log Analytics), Azure Storage ou Event Hubs. Veja [abaixo](concepts-server-logs.md#diagnostic-logs) para mais informações.
+
+## <a name="local-server-storage-log-retention"></a>Retenção de registro de armazenamento de servidor local
+Ao fazer login no armazenamento local do servidor, os logs ficam disponíveis por até sete dias a partir de sua criação. Se o tamanho total dos logs disponíveis exceder 7 GB, os arquivos mais antigos serão excluídos até que haja espaço disponível.
+
+Logs são reciclados a cada 24 horas ou 7 GB, o que ocorrer primeiro.
+
+> [!Note]
+> A retenção de log acima não se aplica a logs que são canalizados usando logs de diagnóstico do Monitor Azure. Você pode alterar o período de retenção dos sumidouros de dados que estão sendo emitidos para (ex. Armazenamento Azure).
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
 O Banco de Dados do Azure para MySQL é integrado aos Logs de Diagnóstico do Monitor do Azure. Depois de habilitar logs de consulta lenta no seu servidor MySQL, você pode optar por emiti-los em registros do Monitor do Azure, hubs de eventos ou armazenamento azure. Para saber mais sobre como ativar logs de diagnóstico, consulte o como parte da [documentação registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md).

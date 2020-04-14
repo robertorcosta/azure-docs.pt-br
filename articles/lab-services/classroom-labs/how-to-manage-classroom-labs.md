@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/20/2020
+ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: cc937589b2fc4f394b44cf6890a352d770751d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46c53c99c12ade986ab913bf013b652a931a4d22
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502027"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257735"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerenciar laboratórios de sala de aula no Azure Lab Services 
 Este artigo descreve como criar e excluir um laboratório de sala de aula. Isso também mostra como exibir todos os laboratórios de sala de aula em uma conta de laboratório. 
@@ -37,8 +37,10 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
     1. Especifique um **nome** para o laboratório. 
     2. Selecione o **tamanho das máquinas virtuais necessárias** para a classe. Para obter a lista de tamanhos disponíveis, consulte a seção [Tamanhos vm.](#vm-sizes) 
     3. Selecione a **imagem da máquina virtual** que você deseja usar para o laboratório de sala de aula. Se você selecionar uma imagem do Linux, verá uma opção para habilitar a conexão de área de trabalho remota para ela. Para obter detalhes, veja [Habilitar conexão de área de trabalho remota para Linux](how-to-enable-remote-desktop-linux.md).
+
+        Se você se inscreveu usando credenciais de proprietário de conta de laboratório, você verá uma opção para habilitar mais imagens para o laboratório. Para obter mais informações, consulte [Ativar imagens no momento da criação do laboratório](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation).
     4. Revise o **preço total por hora** exibido na página. 
-    6. Selecione **Salvar**.
+    6. Clique em **Salvar**.
 
         ![Janela Novo laboratório](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 

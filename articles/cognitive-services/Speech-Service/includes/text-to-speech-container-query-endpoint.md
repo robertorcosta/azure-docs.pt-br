@@ -8,14 +8,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 6fe07da1e658efa8150c8cafb95bc5719c780aff
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: b2a621a23a81e4fb4f47e7c99d780211973e30a0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878998"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81274922"
 ---
-O contêiner fornece [APIs de ponto final baseadas em REST](../rest-text-to-speech.md). Existem muitos [projetos de código fonte de amostra](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/) para variações de plataforma, framework e idioma disponíveis.
+O contêiner fornece [APIs de ponto final baseadas em REST](../rest-text-to-speech.md). Existem muitos [projetos de código fonte de amostra](https://github.com/Azure-Samples/Cognitive-Speech-TTS) para variações de plataforma, framework e idioma disponíveis.
 
 Com o contêiner *Texto-para-voz Padrão,* você deve confiar na localização e na voz da tag de imagem que você baixou. Por exemplo, se você `latest` baixou a `en-US` tag, `JessaRUS` o local padrão é e a voz. O `{VOICE_NAME}` argumento seria [`en-US-JessaRUS`](../language-support.md#standard-voices)então. Veja o exemplo do SSML abaixo:
 

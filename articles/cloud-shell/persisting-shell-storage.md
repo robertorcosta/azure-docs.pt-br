@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: d4d59642f638e7b1221c35a4bb281923571d5066
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37005a722d4a1962b4f6e1ddb8bb1c7a1229d28a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297593"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273283"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistir arquivos no Azure Cloud Shell
 O Cloud Shell utiliza o armazenamento dos Arquivos do Azure para persistir os arquivos entre as sessões. No primeiro início, o Cloud Shell solicita a associação de um compartilhamento de arquivos novo ou existente para persistir arquivos entre as sessões.
@@ -50,7 +50,7 @@ Usando a opção avançada, você pode associar recursos existentes. Ao selecion
 Quando aparecer o prompt de instalação de armazenamento, selecione **Mostrar configurações avançadas** para exibir opções adicionais. As opções de armazenamento preenchidas são filtradas para contas de LRS (armazenamento com redundância local), GRS (armazenamento com redundância geográfica) e ZRS (armazenamento com redundância de zona). 
 
 > [!NOTE]
-> Contas de armazenamento usando GRS ou ZRS são recomendadas para obter resiliência adicional para o compartilhamento de arquivos de backup. Qual tipo de redundância depende de suas metas e a preferência de preço. [Saiba mais sobre opções de replicação para contas do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
+> Contas de armazenamento usando GRS ou ZRS são recomendadas para obter resiliência adicional para o compartilhamento de arquivos de backup. Qual tipo de redundância depende de suas metas e a preferência de preço. [Saiba mais sobre opções de replicação para contas do Armazenamento do Microsoft Azure](../storage/common/storage-redundancy.md).
 
 ![A configuração do grupo de recursos](media/persisting-shell-storage/advanced-storage.png)
 
@@ -169,5 +169,5 @@ Nota: Se você precisar definir uma função em um arquivo e chamá-la dos cmdle
 
 ## <a name="next-steps"></a>Próximas etapas
 [Início rápido do Cloud Shell](quickstart.md) <br>
-[Saiba mais sobre armazenamento de Arquivos do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
+[Saiba mais sobre armazenamento de Arquivos do Microsoft Azure](../storage/files/storage-files-introduction.md) <br>
 [Saiba mais sobre as tags de armazenamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

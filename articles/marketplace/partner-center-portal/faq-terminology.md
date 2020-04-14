@@ -1,5 +1,5 @@
 ---
-title: Perguntas e terminologias freqüentes para as análises do Mercado Comercial no Partner Center
+title: Perguntas e terminologia freqüentemente feitas para a análise de mercado comercial no Partner Center
 description: Aprenda a abordar perguntas geralmente feitas sobre análises de mercado comercial. Inclui um dicionário de dados para terminologia de análises.
 author: dsindona
 ms.author: dsindona
@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: d53ae01fb302382ca5bc2d31e729e153aea6c838
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7367e58de818c20723c02a6763b1bf1e3b18f24
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286074"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251819"
 ---
-# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Perguntas e terminologia freqüentemente feitas para análises de mercado comercial
+# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Perguntas e terminologia freqüentemente feitas para análise de mercado comercial
 
 Este artigo aborda perguntas comumente feitas sobre mensagens de análise no Partner Center e também fornece um dicionário de terminologia de análise.
 
@@ -29,7 +29,7 @@ Esta seção fornece respostas a perguntas comumente feitas sobre **mensagens no
 Por que você pode estar recebendo esta mensagem:
 
 - Não existem aquisições atualmente para suas ofertas publicadas no marketplace. Isso pode significar que suas ofertas estão ao vivo no mercado e ganhando visualizações dos clientes nas páginas de exibição de produtos, mas os clientes ainda não tomaram medidas para comprá-las e implantá-las.
-- A publicação de sua oferta pode estar em processo e ainda não está viva. Somente ofertas ao vivo podem ser adquiridas pelos clientes. Para verificar o status de suas ofertas, consulte Visão geral no [painel Analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Para obter mais informações, consulte [Painel de resumo em análises de mercado comercial](./summary-dashboard.md).
+- A publicação de sua oferta pode estar em processo e ainda não está viva. Somente ofertas ao vivo podem ser adquiridas pelos clientes. Para verificar o status de suas ofertas, consulte Visão geral no [painel Analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Para obter mais informações, consulte [Summary Dashboard em análises de mercado comercial](./summary-dashboard.md).
 - Suas ofertas podem ser listadas como **Contact Me**, que são ofertas somente de lista e não podem ser compradas por clientes no marketplace. Embora essas ofertas gerem leads e sejam compartilhadas com você, os pedidos não são criados para essas ofertas, pois não podem ser compradas. Para verificar seu tipo de listagem de oferta, vá para a página de configuração.
 
 **Eu sei que tenho dados de análise, mas a mensagem abaixo está aparecendo:**
@@ -96,10 +96,10 @@ Se você está recebendo esta mensagem, isso significa que você tem dados de an
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral dos relatórios de análise disponíveis no Partner Center Commercial Marketplace, consulte [Analytics for the Commercial Marketplace in Partner Center](./analytics.md).
-- Para obter gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para sua oferta, consulte [Summary Dashboard in Commercial Marketplace analytics](./summary-dashboard.md).
+- Para obter uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
+- Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para sua oferta, consulte [Summary Dashboard em análises de mercado comercial](./summary-dashboard.md).
 - Para obter informações sobre seus pedidos em um formato gráfico e para download, consulte [Orders Dashboard em análises de mercado comercial](./orders-dashboard.md).
-- Para a Máquina Virtual (VM) oferece métricas de uso e faturamento medido, consulte [O Painel de Uso em análises de mercado comercial](./usage-dashboard.md).
-- Para obter informações detalhadas sobre seus clientes, incluindo tendências de crescimento, consulte [o Customer Dashboard em análises de Mercado Comercial](./customer-dashboard.md).
-- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte [O Painel de Downloads em análises de Mercado Comercial](./downloads-dashboard.md).
-- Para ver uma visão consolidada do feedback dos clientes para ofertas no Azure Marketplace e no AppSource, consulte [Ratings e reviews dashboard em análises de Mercado Comercial](./ratings-reviews.md).
+- Para a Máquina Virtual (VM) oferece métricas de uso e faturamento medido, consulte [Use Dashboard em análises de mercado comercial](./usage-dashboard.md).
+- Para obter informações detalhadas sobre seus clientes, incluindo tendências de crescimento, consulte [o Customer Dashboard em análises de mercado comercial](./customer-dashboard.md).
+- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte [Downloads Dashboard em análises de mercado comercial](./downloads-dashboard.md).
+- Para ver uma visão consolidada do feedback dos clientes para ofertas no Azure Marketplace e no AppSource, consulte [Ratings e reviews dashboard em análises de mercado comercial](./ratings-reviews.md).

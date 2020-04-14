@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 8af6b3a451d20bcc9cab3fa4adb9643f82b85e49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b3e35b6d19905e3c5262dfea3e52511510c9ffe
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288811"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252686"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configure o gerenciamento de chumbo para a Dynamics 365 para engajamento do cliente
 
@@ -93,7 +93,7 @@ Use as seguintes etapas para configurar o Azure Active Directory for Dynamics 36
 10. Assim que o segredo do cliente for criado com sucesso, **copie o valor secreto do cliente.** Você não poderá recuperar o valor depois de navegar para longe da página. Guarde esse valor, pois é o valor *secreto do Cliente* que você precisa fornecer no portal de publicação para receber leads para sua oferta de marketplace. 
 11. Selecione **permissões** de API na navegação esquerda dos aplicativos e selecione **Adicionar uma permissão**.
 12. Selecione AS APIs da Microsoft e selecione **O CRM dinâmico** como API.
-13. *que tipo de permissões seu aplicativo exige,* certifique-se de que as permissões delegadas estão **selecionadas.** Verifique a permissão para **user_impersonation** *Acessar O Serviço de Dados Comuns como usuários da organização*. Selecione **Adicionar Permissões**.
+13. Sob *que tipo de permissões seu aplicativo exige,* certifique-se de que as permissões delegadas estão **selecionadas.** Verifique a permissão para **user_impersonation** *Acessar O Serviço de Dados Comuns como usuários da organização*. Selecione **Adicionar Permissões**.
 
     ![Adicionar permissões](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
@@ -180,6 +180,7 @@ Quando estiver pronto para configurar as informações de gerenciamento de chumb
     ![Detalhes de conexão - destino principal](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 
 4. Forneça a URL de ocorrência dinâmica `https://contoso.crm4.dynamics.com` **365,** como .
+
 5. Selecione o método de **Autenticação,** Diretório Ativo do Azure ou Office 365. 
 6. Se você selecionou o Azure Active Directory, forneça `23456052-aaaa-bbbb-8662-1234df56788f`o **ID do aplicativo (cliente)** (exemplo: ), **ID do diretório** (exemplo: `12345678-8af1-4asf-1234-12234d01db47`) e **segredo do cliente** (exemplo: `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
 
@@ -188,6 +189,13 @@ Quando estiver pronto para configurar as informações de gerenciamento de chumb
 7. Se você selecionou o Office 365, `contoso@contoso.onmicrosoft.com`forneça o nome `P@ssw0rd`do **Usuário** (exemplo: ) e senha (exemplo: ).
 
     ![Detalhes da conexão - Nome do usuário](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
+
+8. **E-mail de contato** - Forneça e-mails para pessoas da sua empresa que devem receber notificações por e-mail quando um novo lead é recebido. Você pode fornecer vários e-mails separando-os com ponto e vírgula.
+9. Selecione **OK**.
+
+Para ter certeza de que você se conectou com sucesso a um destino de chumbo, clique no botão validar. Se for bem sucedido, você terá uma pista de teste no destino principal.
+
+![Gerenciamento de chumbo - conta de armazenamento de detalhes de conexão](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-connection-details.png)
 
 >[!Note]
 >Você deve terminar de configurar o resto da oferta e publicá-la antes de receber leads para a oferta.

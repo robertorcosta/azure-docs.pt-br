@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f112a4523bc5af9ecae57e93dfb90795d3fe9c50
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: ff9191c0994d4e26da69e1c4ceaf7ef6c93e9960
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113267"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253145"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Criptografia de armazenamento do Azure para dados em repouso
 
@@ -45,7 +45,7 @@ A tabela a seguir compara as principais opções de gerenciamento para criptogra
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    Operações de criptografia/descriptografia    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
 |    Serviços de armazenamento azure suportados    |    Todos                                                |    Armazenamento blob, Arquivos Azure<sup>1,2</sup>                                                                                                               |    Armazenamento de blob                                                                  |
-|    Armazenamento de chaves                         |    Loja-chave da Microsoft    |    Cofre de Chave do Azure                                                                                                                              |    Azure Key Vault ou qualquer outra loja-chave                                                                 |
+|    Armazenamento de chaves                         |    Loja-chave da Microsoft    |    Cofre de Chave do Azure                                                                                                                              |    Loja-chave do próprio cliente                                                                 |
 |    Responsabilidade de rotação chave         |    Microsoft                                          |    Cliente                                                                                                                                     |    Cliente                                                                      |
 |    Controle de chaves                          |    Microsoft                                     |    Cliente                                                                                                                    |    Cliente                                                                 |
 
@@ -54,7 +54,7 @@ A tabela a seguir compara as principais opções de gerenciamento para criptogra
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o Cofre da Chave do Azure?](../../key-vault/key-vault-overview.md)
+- [O que é o Azure Key Vault?](../../key-vault/key-vault-overview.md)
 - [Configurar as chaves gerenciadas pelo cliente para a criptografia do Armazenamento do Azure do portal do Azure](storage-encryption-keys-portal.md)
 - [Configurar as chaves gerenciadas pelo cliente para a criptografia do Armazenamento do Azure do PowerShell](storage-encryption-keys-powershell.md)
 - [Configurar as chaves gerenciadas pelo cliente para a criptografia do Armazenamento do Azure do CLI do Azure](storage-encryption-keys-cli.md)

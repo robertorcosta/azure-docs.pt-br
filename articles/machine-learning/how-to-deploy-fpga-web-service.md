@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8cb6cf49e302122849dc2402bcff008e72e15608
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 870f7b0ab0f1d7b247435cdbb74e21801b3b052a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472351"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257174"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>O que são matrizes de portão programáveis em campo (FPGA) e como implantar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -51,7 +51,7 @@ O Microsoft Azure é o maior investimento de nuvem do mundo em FPGAs. Usando ess
 FPGAs no Azure suportam:
 
 + Cenários de classificação e reconhecimento de imagens
-+ Implantação do TensorFlow
++ Implantação do TensorFlow (requer tensorflow 1.x)
 + Hardware de FPGA da Intel
 
 Estes modelos DNN estão atualmente disponíveis:
@@ -115,9 +115,8 @@ Você pode implantar um modelo como um serviço web em FPGAs com modelos acelera
 - O Python SDK para modelos acelerados por hardware:
 
     ```bash
-    pip install --upgrade azureml-accel-models
+    pip install --upgrade azureml-accel-models[cpu]
     ```
-
 
 ## <a name="1-create-and-containerize-models"></a>1. Criar e contêiner modelos
 
@@ -364,7 +363,7 @@ aks_service.wait_for_deployment(show_output=True)
 #### <a name="test-the-cloud-service"></a>Teste o serviço de nuvem
 A imagem Docker suporta gRPC e a API de "prever" do TensorFlow.  Use o cliente de amostra para chamar a imagem do Docker para obter previsões do modelo.  O código do cliente da amostra está disponível:
 - [Python](https://github.com/Azure/aml-real-time-ai/blob/master/pythonlib/amlrealtimeai/client.py)
-- [C #](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
+- [C#](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
 
 Se você quiser usar o TensorFlow Serving, você pode [baixar um cliente de exemplo](https://www.tensorflow.org/serving/setup).
 

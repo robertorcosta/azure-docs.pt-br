@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 1298d5fe1d7407e836f454c2130a913dde6f8eec
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 38088503fee016651a8c1c9a1f57ad4bbe102456
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755151"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257140"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma Máquina Virtual de Data Science Linux no Azure
 
@@ -29,7 +29,7 @@ Neste passo a passo, analisamos o conjunto de dados [spambase.](https://archive.
 Antes de usar um DSVM Linux, você deve ter os seguintes pré-requisitos:
 
 * **Assinatura do Azure**. Para obter uma assinatura do Azure, consulte [Criar sua conta gratuita do Azure hoje](https://azure.microsoft.com/free/).
-* [**Máquina Virtual de Ciência de Dados do Linux**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). Para obter informações sobre o provisionamento da máquina virtual, consulte [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
+* [**Máquina Virtual de Ciência de Dados do Linux**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Para obter informações sobre o provisionamento da máquina virtual, consulte [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) instalado em seu computador com uma sessão XFCE aberta. Para obter mais informações, consulte [Instalar e configurar o cliente X2Go](linux-dsvm-intro.md#x2go).
 * Para uma experiência de rolagem mais suave, no navegador Firefox da `gfx.xrender.enabled` DSVM, alterne a bandeira em `about:config`. [Saiba mais](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere também `mousewheel.enable_pixel_scrolling` `False`a configuração para . [Saiba mais](https://support.mozilla.org/questions/981140).
 * **Conta de Aprendizado de Máquina do Azure**. Se você ainda não tiver uma, inscreva-se para uma nova conta na página inicial do [Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).

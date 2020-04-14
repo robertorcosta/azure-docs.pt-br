@@ -5,35 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 2c07e5eeedd2e4f42ec7b165bf161e142421df58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: ffd4ab463080001dbab5b0ed9ece69c4b5f91382
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79527887"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272076"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Logs de consulta lenta saqueados no Banco de Dados Do Azure para MariaDB
 No Banco de Dados do Azure para MariaDB, o log de consultas lentas está disponível para os usuários. No entanto, não há suporte para acesso ao log de transação. O log de consultas lentas pode ser usado para identificar gargalos de desempenho para solução de problemas.
 
 Para obter mais informações sobre o log de consulta lenta, leia a documentação do MariaDB para [log de consulta lenta](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-## <a name="access-slow-query-logs"></a>Acesse registros de consulta lenta
-Você pode listar e baixar o Banco de Dados Azure para registros de consulta lenta do MariaDB usando o portal Azure e o Cli Do Zure.
-
-No portal do Azure, selecione o servidor do Banco de Dados do Azure para MariaDB. Sob o título **Monitoramento**, selecione a página **Logs do Servidor**.
-
-Para obter mais informações sobre a CLI do Azure, consulte [Configurar e acessar logs de servidor usando a CLI do Azure](howto-configure-server-logs-cli.md).
-
-Da mesma forma, você pode canalizar os registros para o Monitor Azure usando logs de diagnóstico. Veja [abaixo](concepts-server-logs.md#diagnostic-logs) para mais informações.
-
-## <a name="log-retention"></a>Retenção de log
-Logs estão disponíveis por até sete dias desde a criação deles. Se o tamanho total dos logs disponíveis exceder 7 GB, os arquivos mais antigos serão excluídos até que haja espaço disponível.
-
-Logs são reciclados a cada 24 horas ou 7 GB, o que ocorrer primeiro.
-
 ## <a name="configure-slow-query-logging"></a>Configure o registro de consulta lenta
-Por padrão, o log de consultas lentas está desabilitado. Para habilitá-lo, defina slow_query_log para ON.
+Por padrão, o log de consultas lentas está desabilitado. Para habilitá-lo, defina-o. `slow_query_log` Isso pode ser habilitado usando o portal Azure ou a Cli do Azure. 
 
 Outros parâmetros que você pode ajustar incluem:
 
@@ -48,6 +34,21 @@ Outros parâmetros que você pode ajustar incluem:
 > Se você planeja registrar consultas lentas por um longo período `log_output` de tempo, recomenda-se definir como "Nenhum". Se definido como "Arquivo", esses logs serão gravados no armazenamento do servidor local e podem afetar o desempenho do MariaDB. 
 
 Consulte a [documentação de log de consulta lenta](https://mariadb.com/kb/en/library/slow-query-log-overview/) do MariaDB para ver descrições completas dos parâmetros de log de consulta lenta.
+
+## <a name="access-slow-query-logs"></a>Acesse registros de consulta lenta
+Existem duas opções para acessar logs de consulta lenta no Azure Database for MariaDB: armazenamento de servidor local ou Logs de diagnóstico do Monitor do Azure. Isto é `log_output` definido usando o parâmetro.
+
+Para armazenamento de servidor local, você pode listar e baixar registros de consulta lenta usando o portal Azure ou o Cli Do Zure. No portal Azure, navegue até o seu servidor no portal Azure. Sob o título **Monitoramento**, selecione a página **Logs do Servidor**. Para obter mais informações sobre a CLI do Azure, consulte [Configurar e acessar logs de servidor usando a CLI do Azure](howto-configure-server-logs-cli.md). 
+
+O Azure Monitor Diagnostic Logs permite que você canalize registros de consulta lentas para Log Analytics (Log Analytics), Azure Storage ou Event Hubs. Veja [abaixo](concepts-server-logs.md#diagnostic-logs) para mais informações.
+
+## <a name="local-server-storage-log-retention"></a>Retenção de registro de armazenamento de servidor local
+Ao fazer login no armazenamento local do servidor, os logs ficam disponíveis por até sete dias a partir de sua criação. Se o tamanho total dos logs disponíveis exceder 7 GB, os arquivos mais antigos serão excluídos até que haja espaço disponível.
+
+Logs são reciclados a cada 24 horas ou 7 GB, o que ocorrer primeiro.
+
+> [!Note]
+> A retenção de log acima não se aplica a logs que são canalizados usando logs de diagnóstico do Monitor Azure. Você pode alterar o período de retenção dos sumidouros de dados que estão sendo emitidos para (ex. Armazenamento Azure).
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
 O Banco de Dados Azure para MariaDB é integrado ao Azure Monitor Diagnostic Logs. Depois de habilitar os logs de consulta lenta no servidor MariaDB, você pode optar por emiti-los em registros do Monitor do Azure, hubs de eventos ou armazenamento azure. Para saber mais sobre como ativar logs de diagnóstico, consulte o como parte da [documentação registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md).
@@ -81,6 +82,9 @@ A tabela a seguir descreve o que está em cada log. Dependendo do método de sa�
 | `server_id_s` | ID de servidor |
 | `thread_id_s` | ID do thread |
 | `\_ResourceId` | URI de recurso |
+
+> [!Note]
+> Para `sql_text`, log será truncado se exceder 2048 caracteres.
 
 ## <a name="analyze-logs-in-azure-monitor-logs"></a>Analisar logs no Azure Monitor Logs
 

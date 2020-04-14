@@ -5,17 +5,20 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 2a1022c6d041bf645b43dfed391a489de30b2fce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df94cba1f77ae3ea8cf595e7c651af7a69108bb6
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288556"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255967"
 ---
 <a name="api-prerequisites"></a>Pré-requisitos de API
 ================
+
+> [!NOTE]
+> As APIs do Portal de Parceiros em Nuvem são integradas ao Partner Center e continuarão a funcionar depois que suas ofertas forem migradas para o Partner Center. A integração introduz pequenas mudanças. Revise as alterações listadas na [API do Portal do Parceiro na Nuvem](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue funcionando após a migração para o Partner Center.
 
 Há dois ativos programático necessários para usar as APIs do Portal do Cloud Partner: uma entidade de serviço e um token de acesso do Azure AD (Azure Active Directory).
 
@@ -41,7 +44,7 @@ Siga as etapas a seguir para adicionar a entidade de serviço:
 3. Na lista suspensa **Tipo**, selecione **Entidade de Serviço** e adicione os seguintes detalhes:
 
 -   Um **Nome Amigável** para a entidade de serviço, por exemplo `spAccount`.
--   A **ID do Aplicativo**. Para localizar esse identificador, acesse o [portal do Azure](https://portal.azure.com), clique em **Azure Active Directory**, escolha **Registros de aplicativo** e clique em seu aplicativo.
+-   A **ID do Aplicativo**. Para encontrar este identificador, acesse o [portal Azure,](https://portal.azure.com)clique em **Azure Active Directory,** escolha **inscrições de aplicativos**e clique no seu aplicativo.
 -   A **ID do locatário**, também conhecida como a **ID do diretório**, do seu locatário do Azure AD. Você pode encontrar esse identificador na página do Azure Active Directory no [portal do Azure](https://portal.azure.com), em **Propriedades**.
 -   A **ID do Objeto** do objeto de entidade de serviço. Você pode obter esse identificador no portal do Azure. Acesse **Azure Active Directory**, escolha **Registros de aplicativo**, clique em seu aplicativo e clique no nome do aplicativo em **Aplicativo gerenciado no diretório local**. Em seguida, acesse a página **Propriedades**, para localizar a ID do objeto. Não pegue a ID do objeto inicial que está no aplicativo, mas sim a ID do objeto que está no aplicativo gerenciado.
 -   A **função** associada à conta, que será usada para o RBAC.

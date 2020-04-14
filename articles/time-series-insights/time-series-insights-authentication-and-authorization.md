@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: ff5f7a80e2dcedb1795bae14ee9140c2842303a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 373fc2829e599d0989b59c6386757c8f5f3e1d66
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76984500"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251717"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
@@ -104,7 +104,7 @@ Esta seção descreve cabeçalhos e parâmetros comuns de solicitação HTTP usa
 
 ### <a name="authentication"></a>Autenticação
 
-Para realizar consultas autenticadas contra as [APIs REST do Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), um token carregador OAuth 2.0 válido deve ser passado no [cabeçalho autorização](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) usando um cliente REST de sua escolha (Carteiro, JavaScript, C#). 
+Para realizar consultas autenticadas contra as [APIs REST do Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), um token carregador OAuth 2.0 válido deve ser passado no [cabeçalho autorização](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) usando um cliente REST de sua escolha (Carteiro, JavaScript, C#). 
 
 > [!TIP]
 > Leia a visualização de amostra [sdk](https://tsiclientsample.azurewebsites.net/) do cliente Azure Time Series Insights para aprender a autenticar com as APIs do Time Series Insights de forma programática usando o [Cliente JavaScript SDK,](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) juntamente com gráficos e gráficos.

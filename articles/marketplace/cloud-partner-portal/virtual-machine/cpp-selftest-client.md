@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: dsindona
-ms.openlocfilehash: fb568400cb60f108303909353bfa703e98ab6157
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af42476f9d04f7f2bfc275c731b02aa5a9b8ecf6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286414"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273147"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Criar um cliente de autoteste para validar previamente uma imagem de máquina virtual do Azure
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [certificação de imagem Azure VM](https://aks.ms/CertifyVMimage) para gerenciar suas ofertas migradas.
 
 Use este artigo como guia para criar um serviço de cliente que consome a API de autoteste. Use a API de autoteste para pré-validar uma VM (máquina virtual) a fim de garantir que ela atende aos últimos requisitos de publicação do Azure Marketplace. Esse serviço de cliente permite que você teste uma VM antes de enviar sua oferta para certificação da Microsoft.
 
@@ -219,7 +222,7 @@ A captura de tela a seguir mostra os resultados em JSON da chamada de curl.
 
 Use as etapas a seguir para escolher o locatário do Azure AD no qual deseja criar seu aplicativo.
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Na barra de menus superior, selecione sua conta e, na lista Diretório, escolha o locatário do Active Directory no qual deseja registrar seu aplicativo. Se preferir, selecione o ícone **Diretório + Assinatura** para ver o filtro de assinatura Global. A captura de tela a seguir mostra um exemplo desse filtro.
 
    ![Selecionar o filtro de assinatura](./media/stclient-subscription-filter.png)
@@ -269,13 +272,13 @@ Use as etapas a seguir para registrar o aplicativo cliente.
     ![Habilitar o acesso à API para o aplicativo](./media/stclient-enable-api-access.png)
 
 14. Clique em **Selecionar**.
-15. Selecione **Feito**.
+15. Selecione **Concluído**.
 16. Em **Configurações**, selecione **Propriedades**.
-17. Em **Propriedades**, role a tela para baixo até **Multilocatário**. Selecione **Sim**.
+17. Em **Propriedades**, role a tela para baixo até **Multilocatário**. Selecione **Sim** na barra superior.
 
     ![Configurar o multilocatário para o aplicativo](./media/stclient-yes-multitenant.png)
 
-18. Selecione **Salvar**.
+18. Clique em **Salvar**.
 19. Em **Configurações**, selecione **Chaves**.
 20. Crie uma chave secreta selecionando a caixa de texto **DESCRIÇÃO** da chave. Configure os seguintes campos:
 

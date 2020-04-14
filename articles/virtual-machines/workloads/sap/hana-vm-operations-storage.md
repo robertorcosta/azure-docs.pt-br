@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b469c098db4f8d90147b491bcb54bd55d326b03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c4e8b544ea3daeb23b22f3864beb21ba9d3f342f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080301"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255610"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento de máquina virtual do SAP HANA no Azure
 
@@ -72,7 +72,7 @@ A acumulação de vários VHDs do Azure sob um RAID é cumulativa de um lado de 
 Considere a taxa de transferência de E/S geral ao dimensionar ou escolher uma VM. A taxa de transferência de armazenamento de VM geral está documentada no artigo [Tamanhos da máquina virtual otimizada para memória](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
 
 ## <a name="linux-io-scheduler-mode"></a>Modo Agendador de E/S do Linux
-O Linux possui vários modos de agendamento de E/S diferentes. A recomendação comum através de fornecedores Linux e SAP é reconfigurar o modo agendador de I/O para volumes de disco do modo **cfq** para o modo **noop** (não multi-filaue) ou **nenhum** para (multiqueue). Os detalhes são referenciados no [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
+O Linux possui vários modos de agendamento de E/S diferentes. A recomendação comum através de fornecedores Linux e SAP é reconfigurar o modo agendador de I/O para volumes de disco do modo **mq-deadline** ou **kyber** para o modo **noop** (não multi-filaue) ou **nenhum** para o modo (multiqueue). Os detalhes são referenciados no [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Soluções com armazenamento premium e acelerador de gravação Azure para máquinas virtuais Azure M-Series

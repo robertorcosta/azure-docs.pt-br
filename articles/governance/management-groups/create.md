@@ -3,12 +3,12 @@ title: Criar grupos de gestão para organizar recursos - Azure Governance
 description: Saiba como criar grupos de gerenciamento do Azure para gerenciar vários recursos usando o portal, o Azure PowerShell e a CLI do Azure.
 ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: d9bb2e82404c0188094298f40da3346ee132eec3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a06679432d795b5b7854af8dc66b468841978e9c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75436523"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273181"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Criar grupos de gerenciamento para o gerenciamento e a organização de recursos
 
@@ -20,7 +20,7 @@ O primeiro grupo de gerenciamento criado no diretório pode levar até 15 minuto
 
 Qualquer usuário ad do Azure no inquilino pode criar um grupo de gerenciamento sem a permissão de gravação do grupo de gerenciamento atribuída a esse usuário.  Este novo grupo de gerenciamento será filho do Root Management Group e o criador receberá uma atribuição de função "Proprietário". O serviço de grupo de gerenciamento permite essa capacidade para que as atribuições de função não sejam necessárias no nível raiz. Nenhum usuário tem acesso ao Root Management Group quando ele é criado.  Para evitar o obstáculo de encontrar os Administradores Globais Azure AD para começar a usar grupos de gerenciamento, permitimos a criação dos grupos de gerenciamento iniciais no nível raiz.      
 
-Você pode criar o grupo de gerenciamento usando o portal, o PowerShell ou a CLI do Azure. Atualmente, é possível usar modelos do Resource Manager para criar grupos de gerenciamento.
+Você pode criar o grupo de gerenciamento usando o portal, um [modelo de Gerenciador de Recursos,](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group)PowerShell ou Cli Do Zure.
 
 ### <a name="create-in-portal"></a>Criar no portal
 
@@ -43,7 +43,7 @@ Você pode criar o grupo de gerenciamento usando o portal, o PowerShell ou a CLI
 
    ![Painel de opções para a criação de um novo grupo de gestão](./media/create_context_menu.png)  
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="create-in-powershell"></a>Criar no PowerShell
 
@@ -61,7 +61,7 @@ Se você quiser que o grupo de gerenciamento mostre um nome diferente dentro do 
 New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group'
 ```
 
-Nos exemplos anteriores, o novo grupo de gerenciamento é criado o grupo de gerenciamento raiz. Para especificar um grupo de gerenciamento diferente como pai, use o parâmetro **ParentId.**
+Nos exemplos anteriores, o novo grupo de gerenciamento é criado sob o grupo de gerenciamento raiz. Para especificar um grupo de gerenciamento diferente como pai, use o parâmetro **ParentId.**
 
 ```azurepowershell-interactive
 $parentGroup = Get-AzManagementGroup -GroupName Contoso
@@ -84,7 +84,7 @@ Se você quiser que o grupo de gerenciamento mostre um nome diferente dentro do 
 az account management-group create --name Contoso --display-name 'Contoso Group'
 ```
 
-Nos exemplos anteriores, o novo grupo de gerenciamento é criado o grupo de gerenciamento raiz. Para especificar um grupo de gerenciamento diferente como pai, use o parâmetro **pai** e forneça o nome do grupo pai.
+Nos exemplos anteriores, o novo grupo de gerenciamento é criado sob o grupo de gerenciamento raiz. Para especificar um grupo de gerenciamento diferente como pai, use o parâmetro **pai** e forneça o nome do grupo pai.
 
 ```azurecli-interactive
 az account management-group create --name ContosoSubGroup --parent Contoso

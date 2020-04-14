@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: b782477fd29b34eda70813fc2aff29157f02acb3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ecd0ffd76650efff3a4c9f877522cba6f28d080
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275939"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271107"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos do Application Insights
 
@@ -28,6 +28,8 @@ O preço do [Azure Application Insights][start] é um modelo **Pay-As-You-Go** b
 
 Há uma cobrança adicional para [testes na Web de várias etapas](../../azure-monitor/app/availability-multistep.md). Testes na Web de várias etapas se referem a testes na Web que executam uma sequência de ações. Não há nenhuma cobrança separada para *testes de ping* de uma única página. A telemetria de testes de ping e de testes de várias etapas é cobrada da mesma forma que outras telemetrias do seu aplicativo.
 
+A opção Application Insights para [Permitir o alerta sobre dimensões métricas personalizadas](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) também pode gerar custos adicionais, pois isso pode resultar na criação de métricas adicionais de pré-agregação. [Saiba mais] sobre métricas baseadas em log e pré-agregados no Application Insights e sobre [preços](https://azure.microsoft.com/pricing/details/monitor/) para métricas personalizadas do Azure Monitor.
+
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Estimando os custos para gerenciar sua aplicação
 
 Se você ainda não estiver usando o Application Insights, você pode usar a calculadora de preços do [Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) para estimar o custo de usar o Application Insights. Comece digitando "Azure Monitor" na caixa de pesquisa e clicando no azulejo do Monitor Azure resultante. Role a página para o Azure Monitor e selecione Insights de aplicativo na isla de tipo.  Aqui você pode inserir o número de GB de dados que você espera coletar por mês, então a questão é quantos dados o Application Insights coletará monitorando seu aplicativo.
@@ -42,7 +44,7 @@ Para SDKs que não suportam amostragem adaptativa, você pode empregar [amostrag
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Aprenda com o que clientes similares coletam
 
-Na calculadora de preços de monitoramento do Azure para insights de aplicativos, se você habilitar a funcionalidade "Estimar o volume de dados com base na atividade do aplicativo", você pode fornecer entradas sobre seu aplicativo (solicitações por mês e visualizações de página por mês, no caso de você ativar coletar telemetria do lado do cliente e, em seguida, a calculadora lhe dirá a quantidade mediana e de 90% de dados coletados por aplicativos semelhantes. Esses aplicativos abrangem a gama de configuração do Application Insights (por exemplo, alguns têm [amostragem](../../azure-monitor/app/sampling.md)padrão, alguns não têm amostragem etc.), então você ainda tem o controle para reduzir o volume de dados que ingere muito abaixo do nível médio usando amostragem. Mas este é um ponto de partida para entender o que outros clientes semelhantes estão vendo.
+Na calculadora de preços de monitoramento do Azure para Insights de aplicativos, se você habilitar a funcionalidade "Estimar o volume de dados com base na atividade do aplicativo", você pode fornecer entradas sobre seu aplicativo (solicitações por mês e visualizações de página por mês, no caso de você coletar telemetria do lado do cliente) e, em seguida, a calculadora lhe dirá a quantidade mediana e de 90% de dados coletados por aplicativos semelhantes. Esses aplicativos abrangem a gama de configuração do Application Insights (por exemplo, alguns têm [amostragem](../../azure-monitor/app/sampling.md)padrão, alguns não têm amostragem etc.), então você ainda tem o controle para reduzir o volume de dados que ingere muito abaixo do nível médio usando amostragem. Mas este é um ponto de partida para entender o que outros clientes semelhantes estão vendo.
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Entenda seu uso e estime custos
 
@@ -176,7 +178,7 @@ Para [alterar o limite diário via Azure Resource Manager,](../../azure-monitor/
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Crie alertas para o Daily Cap
 
-O Application Insights Daily Cap cria um evento no kog de atividade do Azure quando os volumes de dados ingeridos atingem o nível de aviso ou o nível de limite diário.  Você pode [criar um alerta com base nesses eventos de registro de atividades](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). Os nomes dos sinais para esses eventos são:
+O Application Insights Daily Cap cria um evento no registro de atividades do Azure quando os volumes de dados ingeridos atingem o nível de aviso ou o nível de limite diário.  Você pode [criar um alerta com base nesses eventos de registro de atividades](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). Os nomes dos sinais para esses eventos são:
 
 * Limite de aviso de limite diário do componente Application Insights atingido
 
@@ -216,7 +218,7 @@ Para alterar a retenção, a partir do recurso Application Insights, vá até a 
 
 ![Ajustar o limite de volume de telemetria diário](./media/pricing/pricing-005.png)
 
-A retenção também pode ser [definida programaticamente usando o PowerShell](powershell.md#set-the-data-retention) usando o `retentionInDays` parâmetro. Além disso, se você definir a retenção de dados para 30 `immediatePurgeDataOn30Days` dias, você pode desencadear uma eliminação imediata de dados mais antigos usando o parâmetro, o que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade de purga só é exposta via Azure Resource Manager e deve ser usada com extremo cuidado. O tempo de reset diário para a tampa do volume de `dailyQuotaResetTime` dados pode ser configurado usando o Azure Resource Manager para definir o parâmetro.
+A retenção também pode ser [definida programaticamente usando o PowerShell](powershell.md#set-the-data-retention) usando o `retentionInDays` parâmetro. Quando a retenção é reduzida, há um período de carência de vários dias antes que os dados mais antigos sejam removidos. Se você definir a retenção de dados para 30 dias, `immediatePurgeDataOn30Days` você pode desencadear uma eliminação imediata de dados mais antigos usando o parâmetro, o que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade de purga só é exposta via Azure Resource Manager e deve ser usada com extremo cuidado. O tempo de reset diário para a tampa do volume de `dailyQuotaResetTime` dados pode ser configurado usando o Azure Resource Manager para definir o parâmetro.
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Taxas de transferência de dados usando insights de aplicativos
 
@@ -228,7 +230,7 @@ O envio de dados para o Application Insights pode incorrer em taxas de largura d
 
 ## <a name="disable-daily-cap-e-mails"></a>Desabilitar os emails de limite diário
 
-Para desabilitar os emails de limite diário, na seção **Configurar** do recurso Application Insights, no painel **Uso e custos estimados**, selecione **Limite Diário**. Há configurações para enviar email quando o limite é alcançado, bem como quando um nível de aviso ajustável é atingido. Se você deseja desativar todos os e-mails relacionados ao volume de tampa diária, desmarcar ambas as caixas.
+Para desabilitar os emails de limite diário, na seção **Configurar** do recurso Application Insights, no painel **Uso e custos estimados**, selecione **Limite Diário**. Há configurações para enviar email quando o limite é alcançado, bem como quando um nível de aviso ajustável é atingido. Se desejar desativar todos os e-mails relacionados ao volume de tampa diária, descertifique as duas caixas.
 
 ## <a name="legacy-enterprise-per-node-pricing-tier"></a>Nível de preços do Legacy Enterprise (Por Nó)
 
@@ -288,7 +290,7 @@ Você pode escrever um script para definir o nível de preços usando o Azure Re
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Amostragem](../../azure-monitor/app/sampling.md)
+* [amostragem](../../azure-monitor/app/sampling.md)
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
