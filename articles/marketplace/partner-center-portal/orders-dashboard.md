@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d0db6553a774a69bb8a55538cbd2b4a333be9316
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 148b80a6843168b11e4feb3558f6bf08eaeb3ace
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281401"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261254"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Painel de pedidos em análises de mercado comercial
 
@@ -21,7 +21,7 @@ Este artigo fornece informações sobre o **painel De ordens** no Partner Center
 Para acessar o **painel de pedidos** nas ferramentas de análise do Partner Center, abra o painel **[Analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** em Mercado Comercial.
 
 >[!NOTE]
-> Para definições detalhadas da terminologia de análise, consulte [perguntas freqüentes e terminologia para análises de mercado comercial](./faq-terminology.md).
+> Para definições detalhadas da terminologia de análise, consulte [perguntas e terminologias freqüentes para análise de mercado comercial](./faq-terminology.md).
 
 ## <a name="orders-dashboard"></a>Painel de pedidos
 
@@ -36,7 +36,7 @@ O **painel Pedidos do** menu **Analisar** exibe os pedidos atuais de todas as su
 - [Tabela de detalhes do pedido](#order-details-table)
 
 > [!NOTE]
-> Há diferenças entre a forma como os relatórios de análise são exibidos no Portal de Parceiros em Nuvem (CPP) e o novo programa de Mercado Comercial no Partner Center. Uma maneira específica é que o Seller Insights no CPP tenha uma guia **Orders & Usage,** que exibe dados para ofertas baseadas em uso e **ofertas baseadas** em uso. No Partner Center, a página **Pedidos** tem uma guia separada para Ofertas SaaS.
+> Há diferenças entre a forma como os relatórios de análise são exibidos no Portal de Parceiros em Nuvem (CPP) e o novo programa de mercado comercial no Partner Center. Uma maneira específica é que o Seller Insights no CPP tenha uma guia **Orders & Usage,** que exibe dados para ofertas baseadas em uso e **ofertas baseadas** em uso. No Partner Center, a página **Pedidos** tem uma guia separada para Ofertas SaaS.
 
 ## <a name="order-dashboard-details"></a>Detalhes do painel de pedidos
 
@@ -114,7 +114,7 @@ Você pode selecionar vários filtros para renderizar o gráfico para os critér
 - Os tipos de oferta suse nomes de ofertas são listados apenas para ofertas que você tem pedidos durante a faixa de data selecionada. Os nomes das ofertas na lista são exibidos para os tipos de ofertas que você selecionou na lista.
 - Os filtros aplicados mostram as métricas totais dentro de cada seleção para cada filtro selecionado. Os filtros aplicados não são exibidos quando a seleção padrão é escolhida.
 - Se **All** estiver selecionado para uma das listas de saque, todas as métricas da página selecionada serão agregadas. Por exemplo: "Todos" na opção de filtro tipos de oferta significa que todos os tipos de oferta foram selecionados. Esta é a seleção padrão para as listas de saque. Os monitores de filtros aplicados não mostrarão nada quando **Tudo** estiver selecionado.
-- **Seleção de múltiplos valores**: Todas as métricas da página serão agregadas para todas as seleções feitas a lista de isento. Se várias seleções forem feitas, o filtro aplicado mostrará a contagem de todas as seleções feitas. Veja a imagem abaixo para referência.
+- **Seleção de múltiplos valores**: Todas as métricas da página serão agregadas para todas as seleções feitas sob a lista de isento. Se várias seleções forem feitas, o filtro aplicado mostrará a contagem de todas as seleções feitas. Veja a imagem abaixo para referência.
 
     ![Ordem de análise do Partner Center com múltiplos valores aplicados ao filtro](./media/filters-applied.png)
 
@@ -124,10 +124,10 @@ Você pode selecionar vários filtros para renderizar o gráfico para os critér
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral dos relatórios de análise disponíveis no Partner Center Commercial Marketplace, consulte [Analytics for the Commercial Marketplace in Partner Center](./analytics.md).
-- Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para sua oferta, consulte [O painel Resumo em análises de Mercado Comercial](./summary-dashboard.md).
+- Para obter uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
+- Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para sua oferta, consulte [O painel Resumo em análises de mercado comercial](./summary-dashboard.md).
 - Para a Máquina Virtual (VM) oferece métricas de uso e faturamento medido, consulte [O painel de uso em análises de mercado comercial](./usage-dashboard.md).
 - Para obter informações detalhadas sobre seus clientes, incluindo tendências de crescimento, consulte [o painel do cliente em análises de mercado comercial](./customer-dashboard.md).
-- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte [O painel Downloads em análises de Mercado Comercial](./downloads-dashboard.md).
-- Para ver uma visão consolidada do feedback dos clientes para ofertas no Azure Marketplace e no AppSource, consulte [Ratings e reviews dashboard em análises de Mercado Comercial](./ratings-reviews.md).
-- Para perguntas frequentes sobre análises de mercado comercial e para um dicionário abrangente de termos de dados, consulte [perguntas e terminologias freqüentes para análises de mercado comercial](./faq-terminology.md).
+- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte [O painel Downloads em análises de mercado comercial](./downloads-dashboard.md).
+- Para ver uma visão consolidada do feedback dos clientes para ofertas no Azure Marketplace e no AppSource, consulte [Ratings e reviews dashboard em análises de mercado comercial](./ratings-reviews.md).
+- Para perguntas frequentes sobre análise de mercado comercial e para um dicionário abrangente de termos de dados, consulte [perguntas e terminologias freqüentes para análise de mercado comercial](./faq-terminology.md).

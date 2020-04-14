@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 49db8c6717cd26886c3b49f8c99fdd2b08e8713d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bbee7f53cb9a61b72bdbbd941a3a0401f5b913b
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278000"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273946"
 ---
 # <a name="create-a-user-vm-image"></a>Criar uma imagem VM de usuário
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, iniciaremos a gestão móvel das ofertas da Sua Máquina Virtual Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar seus ativos técnicos da Máquina Virtual do Azure](https://aka.ms/AzureVMTechAsset) para gerenciar suas ofertas migradas.
 
 Este artigo explica as duas etapas gerais necessárias para criar uma imagem não gerenciada a partir de um VHD generalizado.  Há referências para orientar em cada etapa: capturar a imagem e generalizar a imagem.
 

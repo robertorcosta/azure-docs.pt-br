@@ -1,22 +1,22 @@
 ---
-title: Como gerenciar uma conta de Mercado Comercial no Partner Center
-description: Aprenda a gerenciar uma conta de Mercado Comercial no Partner Center.
+title: Como gerenciar uma conta de mercado comercial no Partner Center
+description: Aprenda a gerenciar uma conta de marketplace comercial no Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 6d3952c38703d8102a45c4117e3c59e3fa464957
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50ea56a8c743636f9fdd9105e5b07a868e71d3d0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275808"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262920"
 ---
-# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerenciar sua conta do Marketplace comercial no Partner Center
+# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerenciar sua conta de marketplace comercial no Partner Center
 
-Depois de [criar uma conta do Partner Center,](./create-account.md)você pode gerenciar sua conta e oferece usando o [painel do Commercial Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
+Depois de [criar uma conta do Partner Center,](./create-account.md)você pode gerenciar sua conta e oferece usando o painel do [mercado comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
 Neste artigo, vamos mergulhar em como gerenciar sua conta do Partner Center, incluindo como:
 
@@ -40,7 +40,7 @@ Se você ainda não fez isso, você (ou o administrador da sua organização) de
 
 ### <a name="open-developer-settings"></a>Abrir configurações de desenvolvedor
 
-As configurações da conta estão localizadas no canto superior direito do painel do [Mercado Comercial](https://partner.microsoft.com/dashboard/commercial-marketplace) no Partner Center. Selecione o ícone de engrenagem (próximo ao canto superior direito do painel) e selecione **configurações do Desenvolvedor**.
+As configurações da conta estão localizadas no canto superior direito do painel do [seu marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace) no Partner Center. Selecione o ícone de engrenagem (próximo ao canto superior direito do painel) e selecione **configurações do Desenvolvedor**.
 
 ![Menu de configurações de conta no Partner Center](./media/dashboard-developer-settings.png)
 
@@ -67,7 +67,7 @@ Na seção Informações de Contato, você pode ver o **nome de exibição do**s
 Uma conta de pagamento é a conta bancária para a qual os rendimentos são enviados de suas vendas. Esta conta bancária deve estar no mesmo país onde você registrou sua conta do Partner Center.
 
 Para configurar sua conta de pagamento, você precisa **associar sua conta Microsoft**:
-1. Acesse a [página de visão geral](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) do Mercado Comercial no Partner Center.
+1. Vá para a [página de visão geral](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) do mercado comercial no Partner Center.
 2. Na seção Perfil, **selecione Associar sua Conta Microsoft**.
 3. Quando solicitado, faça login com sua Conta Microsoft (MSA). Essa conta já não pode ser associada a outra conta do Partner Center.
 4. Para concluir a configuração de sua conta de pagamento, faça login completamente fora do Partner Center e faça login novamente com sua conta Microsoft (em vez de sua conta de trabalho).
@@ -126,8 +126,8 @@ Recomendamos que você crie um GUID exclusivo para cada oferta e canal de distri
 
 Se você implantar um produto usando um modelo e ele estiver disponível no Azure Marketplace e no GitHub, você poderá criar e registrar 2 GUIDS distintos:
 
-*   Produto A no Azure Marketplace
-*   Produto A no GitHub
+*    Produto A no Azure Marketplace
+*    Produto A no GitHub
 
 Emissão de relatórios é feita, o valor de parceiro (ID de parceiro da Microsoft) e os GUIDs. Você também pode rastrear GUIDs em um nível mais granular alinhando-se a cada plano dentro de sua oferta.
 
@@ -170,7 +170,7 @@ Para adicionar usuários à sua conta do Partner Center que já existem na conta
 *Se você selecionar mais de um usuário para adicionar à sua conta do Partner Center, você deve atribuir-lhes a mesma função ou conjunto de permissões personalizadas. Para adicionar vários usuários com diferentes funções/permissões, repita essas etapas para cada função ou conjunto de permissões personalizadas.
 3. Quando terminar de escolher usuários, clique **em Adicionar selecionado**.
 4. Na seção **Funções**, especifique funções ou permissões personalizadas para os usuários selecionados.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 #### <a name="create-new-users"></a>Criar novos usuários
 
@@ -182,7 +182,7 @@ Para criar novas contas de usuário, você deve ter uma conta com permissões [*
 1. Se você checou a caixa para **tornar este usuário um administrador Global,** você precisará fornecer um **e-mail de recuperação de senha** para que o usuário recupere sua senha, se necessário.
 1. Na seção **Associação de grupo**, selecione qualquer grupo ao qual o novo usuário deve pertencer.
 1. Na seção **Funções**, especifique funções ou permissões personalizadas para o usuário.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 A criação de um novo usuário no Partner Center também criará uma conta para esse usuário na conta de trabalho (inquilino Azure AD) para a qual você está conectado. Fazer alterações no nome de um usuário no Partner Center fará as mesmas alterações na conta de trabalho da sua organização (inquilino Azure AD).
 
@@ -193,7 +193,7 @@ Para convidar usuários que não fazem parte da conta de trabalho da empresa (in
 1. Vá para **Usuários** (em **Configurações de conta),** **selecione Adicionar usuários**e escolha Convidar usuários por **e-mail**.
 2. Insira um ou mais endereços de email (até dez), separados por vírgulas ou pontos e vírgulas.
 3. Na seção **Funções**, especifique funções ou permissões personalizadas para o usuário.
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 Os usuários que você convidou receberão um convite por e-mail para entrar na sua conta do Partner Center. Uma nova conta de usuário convidado será criada em sua conta de trabalho (inquilino Azure AD). Cada usuário precisa aceitar o convite para que possa acessar sua conta.
 
@@ -227,7 +227,7 @@ Para adicionar um grupo que já existe na conta de trabalho da sua organização
 Se você selecionar mais de um grupo para adicionar à sua conta do Partner Center, você deve atribuir-lhes a mesma função ou conjunto de permissões personalizadas. Para adicionar vários grupos com diferentes funções/permissões, repita essas etapas para cada função ou conjunto de permissões personalizadas.
 3. Quando terminar de escolher grupos, clique **em Adicionar selecionado**.
 4. Na seção **Funções**, especifique funções ou permissões personalizadas para os grupos selecionados. Todos os membros do grupo poderão acessar sua conta do Partner Center com as permissões que você aplica ao grupo, independentemente das funções e permissões associadas à sua conta individual.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 Quando você adiciona um grupo existente, cada usuário que é membro desse grupo poderá acessar sua conta do Partner Center, com as permissões associadas à função atribuída do grupo.
 
@@ -241,7 +241,7 @@ Para adicionar um grupo novo à sua conta do Partner Center:
 4. Especifique funções ou permissões personalizadas para o grupo. Todos os membros do grupo poderão acessar sua conta do Partner Center com as permissões que você aplica aqui, independentemente das funções/permissões associadas à sua conta individual.
 5. Selecione os usuários para o novo grupo na lista que aparece. Você pode usar a caixa de pesquisa para procurar usuários específicos.
 6. Quando terminar de selecionar usuários, clique em **Adicionar selecionado** para adicioná-los ao novo grupo.
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 Observe que esse novo grupo será criado na conta de trabalho da sua organização (inquilino Azure AD) também, não apenas em sua conta do Partner Center.
 
@@ -261,7 +261,7 @@ Para adicionar aplicativos que já existem no Azure Active Directory da sua empr
 2. Selecione um ou mais aplicativos Azure AD na lista exibida. Você pode usar a caixa de pesquisa para procurar aplicativos Azure AD específicos. Se você selecionar mais de um aplicativo Azure AD para adicionar à sua conta do Partner Center, você deve atribuir-lhes a mesma função ou conjunto de permissões personalizadas. Para adicionar vários aplicativos Azure AD com diferentes funções/permissões, repita essas etapas para cada função ou conjunto de permissões personalizadas.
 3. Quando tiver terminado de selecionar aplicativos Azure AD, clique em **Adicionar selecionado**.
 4. Na seção **Funções**, especifique funções ou permissões personalizadas para os aplicativos Azure AD selecionados.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 #### <a name="add-new-azure-ad-applications"></a>Adicionar novos aplicativos Azure AD
 
@@ -272,7 +272,7 @@ Se você quiser conceder acesso ao Partner Center a uma nova conta de aplicativo
 3. Insira a **URL de Resposta** para o novo aplicativo Azure AD. Essa é a URL onde os usuários podem entrar e usar seu aplicativo Azure AD (às vezes, também conhecida como a URL do Aplicativo ou a URL de Logon). A **URL de Resposta** não pode ter mais de 256 caracteres e deve ser exclusiva em seu diretório.
 4. Insira o **URI da ID do Aplicativo** para o novo aplicativo Azure AD. Este é um identificador lógico para o aplicativo Azure AD que é apresentado quando uma única solicitação de login é enviada ao Azure AD. Observe que o **App ID URI** deve ser único para cada aplicativo Azure AD em seu diretório. Este ID não pode ter mais de 256 caracteres. Para obter mais informações sobre o App ID URI, consulte [Integrando aplicativos com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
 5. Na seção **Funções**, especifique funções ou permissões personalizadas para o aplicativo Azure AD.
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 Após adicionar ou criar um aplicativo Azure AD, você pode retornar à seção **Usuários** e selecionar o nome do aplicativo para analisar as configurações do aplicativo, incluindo a ID do locatário, a ID do cliente, a URL de resposta e o URI da ID do aplicativo.
 
@@ -308,7 +308,7 @@ Para obter mais informações sobre o gerenciamento de funções e permissões e
 
 ## <a name="manage-tenants"></a>Gerenciar inquilinos
 
-Um inquilino do Azure Active Directory (AD), também conhecido como sua "conta de trabalho" ao longo desta documentação, é uma representação da sua organização criada no portal Azure e ajuda você a gerenciar uma instância específica dos serviços de nuvem da Microsoft para o seu interno e usuários externos. Se sua organização se inscreveu em um serviço de nuvem da Microsoft, como Azure, Microsoft Intune ou Office 365, um inquilino do Azure AD foi estabelecido para você.
+Um inquilino do Azure Active Directory (AD), também conhecido como sua "conta de trabalho" ao longo desta documentação, é uma representação de sua organização criada no portal Azure e ajuda você a gerenciar uma instância específica dos serviços de nuvem da Microsoft para seus usuários internos e externos. Se sua organização se inscreveu em um serviço de nuvem da Microsoft, como Azure, Microsoft Intune ou Office 365, um inquilino do Azure AD foi estabelecido para você.
 
 Você pode configurar vários inquilinos para usar com o Partner Center. Qualquer usuário com a função **Gerenciador** na conta do Partner Center terá a opção de adicionar e remover os inquilinos azure AD da conta.  
 

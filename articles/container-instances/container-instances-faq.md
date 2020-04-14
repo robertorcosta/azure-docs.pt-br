@@ -3,13 +3,13 @@ title: Perguntas frequentes
 description: Respostas para perguntas frequentes relacionadas ao serviço Azure Container Instances
 author: dkkapur
 ms.topic: article
-ms.date: 01/07/2020
-ms.openlocfilehash: 4a3fb4c1818d86f7fe2913790fd9e573c630cbfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/10/2020
+ms.openlocfilehash: 8730dcb24af61730d7f93ea37a53cf87435eb9f9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247170"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261611"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Perguntas frequentes sobre instâncias de contêineres do Azure
 
@@ -43,9 +43,9 @@ Veja [orientações](container-instances-troubleshooting.md#container-takes-a-lo
 
 #### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 e imagens da base do cliente (visualização)
 
-* [Nano](https://hub.docker.com/_/microsoft-windows-nanoserver)Servidor `1809`:`10.0.17763.x`
-* Núcleo do `ltsc2019`servidor `1809` [do Windows:](https://hub.docker.com/_/microsoft-windows-servercore),`10.0.17763.x`
-* [Janelas](https://hub.docker.com/_/microsoft-windows) `1809`: ,`10.0.17763.x` 
+* [Nano](https://hub.docker.com/_/microsoft-windows-nanoserver)Server `1809` `10.0.17763.914` : , ou anterior
+* [Núcleo do](https://hub.docker.com/_/microsoft-windows-servercore) `ltsc2019`Servidor do Windows : , `1809`ou `10.0.17763.914` anterior
+* [Janelas](https://hub.docker.com/_/microsoft-windows) `1809`: `10.0.17763.914` , ou anterior
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Qual camada de imagem .NET ou .NET Core devo usar no meu recipiente? 
 
@@ -61,7 +61,7 @@ Certifique-se também de verificar a disponibilidade de [recursos](container-ins
 
 ### <a name="what-underlying-infrastructure-does-aci-run-on"></a>Em que infra-estrutura subjacente a ACI funciona?
 
-O Azure Container Instances pretende ser um serviço sem servidor de contêineres demanda, por isso queremos que você esteja focado no desenvolvimento de seus contêineres e não se preocupe com a infra-estrutura! Para aqueles que estão curiosos ou querem fazer comparações sobre desempenho, a ACI roda em conjuntos de VMs Azure de várias SKUs, principalmente das séries F e D. Esperamos que isso mude no futuro à medida que continuamos a desenvolver e otimizar o serviço. 
+O Azure Container Instances pretende ser um serviço sem servidor de contêineres sob demanda, por isso queremos que você esteja focado no desenvolvimento de seus contêineres e não se preocupe com a infra-estrutura! Para aqueles que estão curiosos ou querem fazer comparações sobre desempenho, a ACI roda em conjuntos de VMs Azure de várias SKUs, principalmente das séries F e D. Esperamos que isso mude no futuro à medida que continuamos a desenvolver e otimizar o serviço. 
 
 ### <a name="i-want-to-deploy-thousand-of-cores-on-aci---can-i-get-my-quota-increased"></a>Eu quero implantar milhares de núcleos na ACI - posso aumentar minha cota?
  

@@ -4,12 +4,12 @@ description: Crie e gerencie o Blockchain Data Manager para o Azure Blockchain S
 ms.date: 03/30/2020
 ms.topic: article
 ms.reviewer: ravastra
-ms.openlocfilehash: beacef0660a253c90afb507618e8a1742f0c9d2d
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 08f5a4a807087afce13dd4a6e96c0e9dd0a36103
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529610"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260591"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configurar o Gerenciador de Dados Blockchain usando o portal do Azure
 
@@ -28,7 +28,7 @@ Para configurar uma instância do Blockchain Data Manager, você:
 
 ## <a name="create-instance"></a>Criar instância
 
-Uma instância de Gerenciador de Dados do Blockchain conecta e monitora um nó de transação Azure Blockchain Service. Somente usuários com acesso ao nó de transação podem criar uma conexão. Uma instância captura todos os dados brutos de bloqueio e de transação provenientes do nó de transação.
+Uma instância de Gerenciador de Dados do Blockchain conecta e monitora um nó de transação Azure Blockchain Service. Somente usuários com acesso ao nó de transação podem criar uma conexão. Uma instância captura todos os dados brutos de bloqueio e de transação provenientes do nó de transação. O Blockchain Data Manager publica uma mensagem **RawBlockAndTransactionMsg** que é um superconjunto de informações devolvidas do web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) e obter consultas [de transações.](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction)
 
 Uma conexão de saída envia os dados de blockchain para a Grade de Eventos do Azure. Você configura uma conexão de saída única quando cria a instância. O Gerenciador de Dados de Blockchain é compatível com várias conexões de saída aos Tópico da Grade de Eventos para qualquer instância especificada do Gerenciador de Dados de Blockchain. Você pode enviar dados de blockchain para um único destino ou para vários destinos. Para adicionar outro destino, basta adicionar conexões de saída adicionais à instância.
 

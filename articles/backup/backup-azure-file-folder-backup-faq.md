@@ -3,12 +3,12 @@ title: Backup de arquivos e pastas - perguntas comuns
 description: Aborda perguntas comuns sobre backup de arquivos e pastas com o Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 55819ce7ec5196812d935a21c096c132144d78af
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 6e9f265672ff15e40444a46a3e440e73a0051a5b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421316"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254743"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas comuns sobre backup de arquivos e pastas
 
@@ -22,7 +22,7 @@ O mais recente agente MARS usado ao fazer backup de máquinas do Windows Server,
 
 ### <a name="how-long-are-vault-credentials-valid"></a>Quanto tempo as credenciais do cofre são válidas?
 
-As credenciais do cofre expiram após 48 horas. Se o arquivo de credenciais expirar, baixe o arquivo novamente do portal Azure.
+As credenciais do cofre expiram após 10 dias. Se o arquivo de credenciais expirar, baixe o arquivo novamente do portal Azure.
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>A partir de quais drives posso fazer backup de arquivos e pastas?
 
@@ -185,7 +185,6 @@ Se você tiver a mesma senha (que você forneceu durante o registro) da máquina
 | --- | --- | --- |
 | Excluído |Disponível |Você pode instalar e registrar o agente MARS em outra máquina com a mesma senha que você forneceu durante o registro da máquina original. Escolha **opção** > de recuperação**Outro local** para executar sua restauração. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Excluído |Excluído |Não é possível recuperar os dados ou dados não estão disponíveis |
-
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>O que acontecerá se eu cancelar um trabalho de restauração em andamento?
 

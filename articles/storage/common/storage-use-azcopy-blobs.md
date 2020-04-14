@@ -4,20 +4,23 @@ description: Este artigo contém uma coleção de comandos de exemplo do AzCopy 
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: fbdb447905ae43fe92693dfe45c1add710f76355
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73685f124f93bb541f33b3b70727d90ce22b3cdd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78933575"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263430"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferir dados com armazenamento AzCopy e Blob
 
 O AzCopy é um utilitário de linha de comando que você pode usar para copiar dados para, de ou entre contas de armazenamento. Este artigo contém comandos de exemplo que funcionam com o armazenamento Blob.
+
+> [!TIP]
+> Os exemplos deste artigo encerram os argumentos de caminho com aspas simples (''). Use aspas individuais em todos os shells de comando, exceto no Windows Command Shell (cmd.exe). Se você estiver usando um Shell de Comando do Windows (cmd.exe), encerre os argumentos de caminho com aspas duplas (""" em vez de aspas simples ('').
 
 ## <a name="get-started"></a>Introdução
 
@@ -31,9 +34,6 @@ Consulte o [artigo Get started with AzCopy](storage-use-azcopy-v10.md) para baix
 > Por exemplo: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="create-a-container"></a>Criar um contêiner
-
-> [!TIP]
-> Os exemplos nesta seção encerram os argumentos de caminho com aspas simples (''). Use aspas individuais em todos os shells de comando, exceto no Windows Command Shell (cmd.exe). Se você estiver usando um Shell de Comando do Windows (cmd.exe), encerre os argumentos de caminho com aspas duplas (""" em vez de aspas simples ('').
 
 Você pode usar o comando [azcopy make](storage-ref-azcopy-make.md) para criar um contêiner. Os exemplos nesta seção criam `mycontainer`um contêiner chamado .
 
@@ -57,10 +57,16 @@ Esta seção contém os seguintes exemplos:
 > * Faça upload do conteúdo de um diretório 
 > * Carregar arquivos específicos
 
-Para obter documentos de referência detalhados, consulte [a cópia azcopy](storage-ref-azcopy-copy.md).
-
 > [!TIP]
-> Os exemplos nesta seção encerram os argumentos de caminho com aspas simples (''). Use aspas individuais em todos os shells de comando, exceto no Windows Command Shell (cmd.exe). Se você estiver usando um Shell de Comando do Windows (cmd.exe), encerre os argumentos de caminho com aspas duplas (""" em vez de aspas simples ('').
+> Você pode ajustar sua operação de upload usando sinalizadores opcionais. Aqui estão alguns exemplos.
+>
+> |Cenário|Sinalizador|
+> |---|---|
+> |Carregar arquivos como Apêndice Blobs ou Blobs de Página.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
+> |Faça upload para um nível de acesso específico (como o nível de arquivo).|**--block-blob-tier**=\[\|None\|\|Hot Cool Archive\]|
+> |Descompactar automaticamente arquivos.|**--descomprimir**=\[\|gzip esvaziar\]|
+> 
+> Para obter uma lista completa, consulte [opções](storage-ref-azcopy-copy.md#options).
 
 ### <a name="upload-a-file"></a>Carregar um arquivo
 
@@ -71,10 +77,6 @@ Para obter documentos de referência detalhados, consulte [a cópia azcopy](stor
 | **Exemplo** (namespace hierárquico) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
 
 Você também pode carregar um arquivo usando um símbolo curinga (*) em qualquer lugar do caminho do arquivo ou nome do arquivo. Por exemplo: `'C:\myDirectory\*.txt'` `C:\my*\*.txt`, ou .
-
-> [!NOTE]
-> O AzCopy, por padrão, faz upload de dados como blobs de bloco. Para carregar arquivos como Blobs de apêndice `--blob-type=[BlockBlob|PageBlob|AppendBlob]`ou Blobs de página, use o sinalizador .
-> O AzCopy, por padrão, faz upload de seus dados para herdar o nível de acesso à conta. Para carregar arquivos para um nível `--block-blob-tier=[Hot|Cool|Archive]`de [acesso](../blobs/storage-blob-storage-tiers.md)específico, use o sinalizador .
 
 ### <a name="upload-a-directory"></a>Faça upload de um diretório
 
@@ -152,13 +154,19 @@ Esta seção contém os seguintes exemplos:
 > * Baixe o conteúdo de um diretório
 > * Baixe arquivos específicos
 
+> [!TIP]
+> Você pode ajustar sua operação de download usando sinalizadores opcionais. Aqui estão alguns exemplos.
+>
+> |Cenário|Sinalizador|
+> |---|---|
+> |Descompactar automaticamente arquivos.|**--descomprimir**=\[\|gzip esvaziar\]|
+> |Especifique o quão detalhadas você deseja que suas entradas de log relacionadas à cópia sejam.|**--log-level**=\[\|WARNING\|\|ERROR INFO NONE\]|
+> |Especifique se e como substituir os arquivos e blobs conflitantes no destino.|**--substituir**=\[falso\|\|verdadeiro sePromptSourceNewer\|\]|
+> 
+> Para obter uma lista completa, consulte [opções](storage-ref-azcopy-copy.md#options).
+
 > [!NOTE]
 > Se `Content-md5` o valor de propriedade de uma bolha contiver um hash, o AzCopy calcula um hash MD5 para `Content-md5` dados baixados e verifica se o hash MD5 armazenado na propriedade da bolha corresponde ao hash calculado. Se esses valores não corresponderem, o download falhará `--check-md5=NoCheck` a `--check-md5=LogOnly` menos que você anule esse comportamento anexando ou no comando copy.
-
-Para obter documentos de referência detalhados, consulte [a cópia azcopy](storage-ref-azcopy-copy.md).
-
-> [!TIP]
-> Os exemplos nesta seção encerram os argumentos de caminho com aspas simples (''). Use aspas individuais em todos os shells de comando, exceto no Windows Command Shell (cmd.exe). Se você estiver usando um Shell de Comando do Windows (cmd.exe), encerre os argumentos de caminho com aspas duplas (""" em vez de aspas simples ('').
 
 ### <a name="download-a-file"></a>Baixar um arquivo
 
@@ -245,12 +253,18 @@ Esta seção contém os seguintes exemplos:
 > * Copie um contêiner para outra conta de armazenamento
 > * Copie todos os contêineres, diretórios e arquivos para outra conta de armazenamento
 
-Para obter documentos de referência detalhados, consulte [a cópia azcopy](storage-ref-azcopy-copy.md).
+Esses exemplos também funcionam com contas que têm um namespace hierárquico. [O acesso multiprotocolo no Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) permite que`blob.core.windows.net`você use a mesma sintaxe de URL ( ) nessas contas.
 
 > [!TIP]
-> Os exemplos nesta seção encerram os argumentos de caminho com aspas simples (''). Use aspas individuais em todos os shells de comando, exceto no Windows Command Shell (cmd.exe). Se você estiver usando um Shell de Comando do Windows (cmd.exe), encerre os argumentos de caminho com aspas duplas (""" em vez de aspas simples ('').
-
- Esses exemplos também funcionam com contas que têm um namespace hierárquico. [O acesso multiprotocolo no Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) permite que`blob.core.windows.net`você use a mesma sintaxe de URL ( ) nessas contas. 
+> Você pode ajustar sua operação de cópia usando sinalizadores opcionais. Aqui estão alguns exemplos.
+>
+> |Cenário|Sinalizador|
+> |---|---|
+> |Copiar arquivos como Apêndice Blobs ou Blobs de Página.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
+> |Copie para um nível de acesso específico (como o nível de arquivo).|**--block-blob-tier**=\[\|None\|\|Hot Cool Archive\]|
+> |Descompactar automaticamente arquivos.|**--descomprimir**=\[\|gzip esvaziar\]|
+> 
+> Para obter uma lista completa, consulte [opções](storage-ref-azcopy-copy.md#options).
 
 ### <a name="copy-a-blob-to-another-storage-account"></a>Copie uma bolha para outra conta de armazenamento
 
@@ -306,10 +320,16 @@ Se você `--delete-destination` definir `true` o sinalizador como AzCopy, exclui
 > [!NOTE]
 > Para evitar exclusões acidentais, certifique-se de `--delete-destination=prompt|true` ativar o recurso [de exclusão suave](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) antes de usar o sinalizador.
 
-Para obter documentos de referência detalhados, consulte [sincronização azcopy](storage-ref-azcopy-sync.md).
-
 > [!TIP]
-> Os exemplos nesta seção encerram os argumentos de caminho com aspas simples (''). Use aspas individuais em todos os shells de comando, exceto no Windows Command Shell (cmd.exe). Se você estiver usando um Shell de Comando do Windows (cmd.exe), encerre os argumentos de caminho com aspas duplas (""" em vez de aspas simples ('').
+> Você pode ajustar sua operação de sincronização usando sinalizadores opcionais. Aqui estão alguns exemplos.
+>
+> |Cenário|Sinalizador|
+> |---|---|
+> |Especifique como os hashes estritamente MD5 devem ser validados ao baixar.|**--check-md5**=\[NoCheck\|\|LogOnly\|FailIfDifferent FailIfDifferentDifferentOrMissing\]|
+> |Exclua arquivos com base em um padrão.|**--exclua-caminho**|
+> |Especifique o quão detalhadas você deseja que suas entradas de log relacionadas à sincronização sejam.|**--log-level**=\[\|WARNING\|\|ERROR INFO NONE\]|
+> 
+> Para obter uma lista completa, consulte [opções](storage-ref-azcopy-sync.md#options).
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Atualize um contêiner com alterações em um sistema de arquivos local
 

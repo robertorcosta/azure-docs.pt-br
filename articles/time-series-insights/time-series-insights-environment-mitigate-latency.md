@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 245a0b18187ff1c1b226e94b03374f2c071e51c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314820"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263379"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorar e melhorar a limitação para reduzir a latência no Azure Time Series Insights
 
@@ -30,7 +30,7 @@ Provavelmente, você enfrentará latência e limitação quando:
 - Adicionar uma origem de evento que contém os dados antigos que podem exceder a taxa de entrada alocada (o Time Series Insights precisará ser atualizado).
 - Adicionar mais origens de evento em um ambiente, resultando em um pico de eventos adicionais (que poderá exceder a capacidade do ambiente).
 - Enviar por push grandes quantidades de eventos históricos para uma origem de evento, resultando em um retardo (o Time Series Insights precisará ser atualizado).
-- Unir os dados de referência com a telemetria, resultando em um tamanho de evento maior. De uma perspectiva de limitação, um pacote de dados recebido com um tamanho de pacote igual a 32 KB é tratado como 32 eventos, cada um com um tamanho de 1 KB. O tamanho máximo permitido do evento é de 32 KB; pacotes de dados maiores que 32 KB são truncados.
+- Unir os dados de referência com a telemetria, resultando em um tamanho de evento maior. O tamanho máximo do pacote permitido é de 32 KB; pacotes de dados maiores que 32 KB são truncados.
 
 ## <a name="video"></a>Vídeo
 
@@ -66,7 +66,7 @@ Os alertas podem ajudá-lo a diagnosticar e mitigar problemas de latência que o
    |**Tempo de atraso das mensagens de entrada recebidas**    |  Diferença em segundos entre a hora em que a mensagem é enfileirada na origem do evento e a hora em que ela é processada na entrada.      |
    |**Atraso na contagem das mensagens de entrada recebidas**    |  Diferença entre o número de sequência da última mensagem enfileirada na partição da origem do evento e número de sequência da mensagem que está sendo processada na entrada.      |
 
-   Selecione **Feito**.
+   Selecione **Concluído**.
 
 1. Depois de configurar a lógica de sinal desejada, revise visualmente a regra de alerta escolhida.
 

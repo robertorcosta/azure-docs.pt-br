@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 419a71acbca59c00bd0ffecf39d5d1ff38833b08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be5fae45ee513dddf002995ce9c37c6b6565f50c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284584"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258381"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Entender e usar os SDKs de Hub IoT do Azure
 
@@ -45,7 +45,7 @@ Os SDKs de dispositivos IoT do Microsoft Azure contêm códigos que facilitam a 
 
 SDK do dispositivo de Hub IoT do Azure para .NET: 
 
-* Download de [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/).  O namespace é Microsoft.Azure.Devices.Clients, que contém os Clientes de Dispositivos do Hub IoT (DeviceClient, ModuleClient).
+* Baixe de [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/).  O namespace é Microsoft.Azure.Devices.Clients, que contém os Clientes de Dispositivos do Hub IoT (DeviceClient, ModuleClient).
 * [Código-fonte](https://github.com/Azure/azure-iot-sdk-csharp)
 * [Referência de API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
 * [Referência do módulo](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
@@ -84,7 +84,7 @@ SDK do dispositivo de Hub IoT do Azure para Python:
 SDK do dispositivo do Hub IoT para iOS: 
 
 * Instalar de [CocoaPod](https://cocoapods.org/pods/AzureIoTHubClient)
-* [Amostras](https://github.com/Azure-Samples/azure-iot-samples-ios)
+* [Exemplos](https://github.com/Azure-Samples/azure-iot-samples-ios)
 * Referência da API: consulte [referência da API C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 ## <a name="azure-iot-hub-service-sdks"></a>SDKs de serviços do Hub IoT
@@ -93,7 +93,7 @@ Os SDKs do serviço de IoT do Azure contêm código para facilitar a criação a
 
 SDK de serviço de Hub IoT do Azure para .NET:
 
-* Download de [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Devices/).  O namespace é Microsoft.Azure.Devices, que contém os Clientes de Dispositivos do Hub IoT (RegistryManager, ServiceClients).
+* Baixe de [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices/).  O namespace é Microsoft.Azure.Devices, que contém os Clientes de Dispositivos do Hub IoT (RegistryManager, ServiceClients).
 * [Código-fonte](https://github.com/Azure/azure-iot-sdk-csharp)
 * [Referência de API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices)
 
@@ -116,13 +116,13 @@ SDK de serviço de Hub IoT do Azure para Python:
 
 SDK de serviço de Hub IoT do Azure para C: 
 
-* Faça o download de [apt-get, MBED, Arduino IDE ou Nuget](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md)
+* Baixe [de apt-get, MBED, Arduino IDE ou NuGet](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md)
 * [Código-fonte](https://github.com/Azure/azure-iot-sdk-c)
 
 SDK do serviço do Hub IoT para iOS: 
 
 * Instalar de [CocoaPod](https://cocoapods.org/pods/AzureIoTHubServiceClient)
-* [Amostras](https://github.com/Azure-Samples/azure-iot-samples-ios)
+* [Exemplos](https://github.com/Azure-Samples/azure-iot-samples-ios)
 
 > [!NOTE]
 > Consulte os arquivos Leiame nos repositórios GitHub para obter informações sobre como usar os gerenciadores de pacotes específicos à linguagem e à plataforma para instalar binários e dependências em seu computador de desenvolvimento.
@@ -157,7 +157,7 @@ Dispositivo de Provisionamento do Azure e SDKs de serviço para Node.js:
 
 Dispositivo de Provisionamento do Azure e SDKs de serviço para Python:
 
-* [Código-fonte](https://github.com/Azure/azure-iot-device)
+* [Código-fonte](https://github.com/Azure/azure-iot-sdk-python)
 * Baixe a [SDK de Dispositivo](https://pypi.org/project/azure-iot-device/) e a [SDK de Serviço](https://pypi.org/project/azure-iothub-provisioningserviceclient/) no pip
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -176,6 +176,6 @@ Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
 
 * [Pontos de extremidade do Hub IoT](iot-hub-devguide-endpoints.md)
 * [Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens](iot-hub-devguide-query-language.md)
-* [Cotas e estrangulamento](iot-hub-devguide-quotas-throttling.md)
+* [Cotas e limitação](iot-hub-devguide-quotas-throttling.md)
 * [Suporte ao MQTT do Hub IoT](iot-hub-mqtt-support.md)
 * [Referência de API REST do Hub IoT](/rest/api/iothub/)

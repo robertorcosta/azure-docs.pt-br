@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: f9758678708338a284a35b45f7f9dd43b9a9017c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e74d7dcf8764d167e0080c9d7cca5573bd69ef1d
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335949"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260982"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
 
@@ -55,7 +55,7 @@ Todas as tarefas realizadas em recursos com o Azure Resource Manager precisam se
 
 ### <a name="create-an-azure-active-directory-application"></a>Criar um aplicativo do Azure Active Directory
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Usando a assinatura que contém sua instância de serviço de gerenciamento de API, navegue até a guia **registros de Aplicativo** em **Azure Active Directory** (Azure Active Directory > registros de Aplicativo/Gerenciar).
 
     > [!NOTE]
@@ -131,7 +131,7 @@ Substitua `{tenant id}`, `{application id}` e `{redirect uri}` usando as seguint
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Chamando as operações de backup e restauração
 
-As APIs REST são [Serviço de Gerenciamento de Api - Backup](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) e [Serviço de Gerenciamento de Api - Restauração](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore).
+As APIs REST são [Serviço de Gerenciamento de Api - Backup](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup) e [Serviço de Gerenciamento de Api - Restauração](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore).
 
 Antes de chamar as operações de “backup e restauração” descritas nas seções a seguir, defina o cabeçalho de solicitação de autorização para a chamada REST.
 

@@ -2,17 +2,17 @@
 title: Substituir o comportamento HTTP com o Azure CDN - Verizon Premium rules engine
 description: O mecanismo de regras permite personalizar como as solicitações HTTP são tratadas pelo CDN do Azure da Verizon Premium, como bloquear a entrega de certos tipos de conteúdo, definir uma política de cache e modificar cabeçalhos HTTP.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: magattus
-ms.openlocfilehash: aa0606eafb8fe4c517b0c18e0137058a120115ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 2e5e4265f30631f8e68d8f9e7156ea578ae85e7a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74082949"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253468"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Substituir o comportamento HTTP usando o CDN do Azure do motor de regras Verizon Premium
 

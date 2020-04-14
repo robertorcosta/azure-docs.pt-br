@@ -1,5 +1,5 @@
 ---
-title: Crie uma nova oferta de Aplicativos Azure no Mercado Comercial
+title: Crie uma nova oferta de Aplicativos Azure no mercado comercial
 description: Como criar uma nova oferta de Aplicativos Azure para listagem ou venda no Azure Marketplace, AppSource ou através do programa Cloud Solution Provider (CSP) usando o portal Commercial Marketplace no Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 0ff1bbd976273a7d0cbfb22effebdf45c84d2f41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 260193b3c71e29a32e0589f50864ffcca2e9a67c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277232"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262257"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicativo do Azure
 
@@ -68,7 +68,7 @@ Examine a seguinte documentação do aplicativo do Azure, que fornece guias de i
 
 * Exemplos:
 
-    * [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
+    * [CLI do Azure](https://docs.microsoft.com/azure/managed-applications/cli-samples)
     * [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
     * [Soluções de aplicativo gerenciado](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
@@ -89,11 +89,11 @@ A equipe de engenharia deverá ter conhecimento das seguintes tecnologias Micros
 Escolha um ou ambos dos seguintes ambientes de script para ajudar a gerenciar seu aplicativo Azure:
 
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-* [Azure CLI](https://docs.microsoft.com/cli/azure)
+* [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 Além disso, é recomendável adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
 
-* [Explorador de armazenamento azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Gerenciador de Armazenamento do Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Visual Studio Code](https://code.visualstudio.com/) (VS Code) com as extensões a seguir:
     * Extensão: [Ferramentas do Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     * Extensão: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -103,7 +103,7 @@ Você pode rever as ferramentas disponíveis na página [Ferramentas do Desenvol
 
 ## <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicativo do Azure
 
-Antes de criar uma oferta de aplicativo do Azure, primeiro crie [uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e abra o painel do Mercado [Comercial,](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)com a guia **Visão geral** selecionada.
+Antes de criar uma oferta de aplicativo do Azure, você deve primeiro [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e abrir o painel do mercado [comercial,](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)com a guia **Visão geral** selecionada.
 
 >[!Note]
 >Uma vez publicada uma oferta, as edições da oferta feita no Partner Center só serão atualizadas no sistema e nas vitrines após a republicação.  Certifique-se de enviar a oferta para publicação após as alterações feitas.
@@ -300,7 +300,7 @@ Selecione a opção **Azure Government Cloud** para tornar sua solução implant
 
 **Certificações de Nuvem do Governo do Azure**
 
-Essa opção só será visível se **o Azure Government Cloud** for selecionado disponibilidade na **Nuvem**.
+Essa opção só será visível se **o Azure Government Cloud** for selecionado sob disponibilidade na **Nuvem**.
 
 Os serviços do Governo Azure lidam com dados que estão sujeitos a certas regulamentações e requisitos governamentais, como FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS.  Para trazer consciência às suas certificações para esses programas, você pode fornecer até 100 links descrevendo suas certificações.  Esses links podem ser links para sua listagem diretamente no programa, ou um link para descrições de sua conformidade com eles em seus próprios sites.  Esses links serão visíveis apenas para os clientes do Azure Government Cloud.
 

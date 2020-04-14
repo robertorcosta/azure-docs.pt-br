@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 595c87d2b8182c9044baeb2662e34871d9e52c52
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991238"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261016"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Logs de atividades do Azure AD no Monitor Do Azure
 
@@ -98,12 +98,13 @@ Eventos são colocados em lotes com intervalos de cinco minutos, aproximadamente
 
 Por exemplo, cerca de 18 eventos por segundo ocorrem normalmente para um locatário grande de mais de 100 mil usuários, uma taxa que equivale a 5.400 eventos a cada cinco minutos. Como os logs de auditoria têm cerca de 2 KB por evento, isso equivale a 10.8 MB de dados. Portanto, 43 mensagens são enviadas ao hub de eventos naquele intervalo de cinco minutos. 
 
-A tabela a seguir contém custos estimados por mês para um hub de eventos básico no Oeste dos EUA, dependendo do volume de dados do evento. Para calcular uma estimativa precisa para o volume de dados previsto para seu aplicativo, use a [calculadora de preços do Hub de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
+A tabela a seguir contém custos estimados por mês para um hub de eventos básico no Oeste dos EUA, dependendo do volume de dados de eventos que podem variar de inquilino para inquilino, conforme muitos fatores, como comportamento de login do usuário etc. Para calcular uma estimativa precisa do volume de dados que você antecipa para sua aplicação, use a [calculadora de preços Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Categoria do log | Número de usuários | Eventos por segundo | Eventos por intervalo de cinco minutos | Volume por intervalo | Mensagens por intervalo | Mensagens por mês | Custo por mês (est.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Audit | 100.000 | 18 | 5.400 | 10.8 MB | 43 | 371.520 | US$ 10,83 |
 | Audit | 1,000 | 0,1 | 52 | 104 KB | 1 | 8.640 | US$ 10,80 |
+| Entradas | 100.000 | 18000 | 5,400,000 | 10,8 GB | 42188 | 364,504,320 | $23.9 |  
 | Entradas | 1,000 | 178 | 53.400 | 106.8&nbsp;MB | 418 | 3.611.520 | US$ 11,06 |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Considerações de custo dos logs do Azure Monitor

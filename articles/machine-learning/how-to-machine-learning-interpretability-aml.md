@@ -1,5 +1,5 @@
 ---
-title: Interpretável de modelos para corridas locais e remotas
+title: Explique modelos e previsões de aprendizado de máquina
 titleSuffix: Azure Machine Learning
 description: Saiba como obter explicações de como seu modelo de aprendizado de máquina determina a importância dos recursos e faz previsões ao usar o Azure Machine Learning SDK.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/02/2020
-ms.openlocfilehash: 1ff42149ccb629a0a7094e6dfede422d4dd7f61f
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.date: 04/12/2020
+ms.openlocfilehash: c1282ed16c9e3b92e7d5ec3f9969bee6fc3d917f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632035"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257191"
 ---
-# <a name="model-interpretability-for-local-and-remote-runs"></a>Interpretável de modelos para corridas locais e remotas
+# <a name="explain-machine-learning-models-and-predictions"></a>Explique modelos e previsões de aprendizado de máquina
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -30,7 +30,6 @@ Neste guia de como fazer, você aprende a usar o pacote de interpretação do Az
 
 * Explique o comportamento de todo o modelo e previsões individuais no Azure.
 
- 
 * Use um painel de visualização para interagir com as explicações do seu modelo.
 
 * Implante um explicador de pontuação ao lado do seu modelo para observar explicações durante a inferência.

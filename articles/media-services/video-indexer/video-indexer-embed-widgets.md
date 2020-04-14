@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: 6ed5c509cf310b743e4ef52f411dfa34e5db09c1
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 5134a262397676aa9b59de9b0c6de61c26d21523
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411618"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262903"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Incorpore widgets de indexador de vídeo em seus aplicativos
 
@@ -186,7 +186,7 @@ Se você usar um reprodutor de vídeo diferente do Azure Media Player, você dev
         </video>    
 
 2. Insira o widget de Insights cognitivos.
-3. Implemente a comunicação para seu player escutando o evento de "mensagem". Por exemplo: 
+3. Implemente a comunicação para seu player escutando o evento de "mensagem". Por exemplo:
 
         <script>
     
@@ -247,7 +247,7 @@ Observe que essa opção será relevante apenas em casos em que for necessário 
 
 Se inserir o player do Video Indexer, você poderá escolher seu tamanho especificando o tamanho do iframe.
 
-Por exemplo: 
+Por exemplo:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
@@ -265,7 +265,7 @@ Por padrão, o jogador começará a reproduzir o vídeo. você pode optar por `&
 
 ## <a name="code-samples"></a>Exemplos de código
 
-Consulte o repo amostras de [código](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Widgets) que contém amostras para API e Widgets do Indexador de Vídeo:
+Consulte o repo amostras de [código](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) que contém amostras para API e Widgets do Indexador de Vídeo:
 
 | Arquivo/pasta                       | Descrição                                |
 |-----------------------------------|--------------------------------------------|

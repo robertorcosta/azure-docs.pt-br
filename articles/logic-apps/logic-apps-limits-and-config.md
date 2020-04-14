@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 03/12/2020
-ms.openlocfilehash: 418be090e7ff78ec0089c115c9884ffeffdda871
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4359c5581d14f4a918a49cf2b91ac58561ea93d3
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284012"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257446"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -64,7 +64,7 @@ Para alterar o limite padrão para duração da execução e executar a retenç�
 > Para aplicativos lógicos no Azure multi-inquilino, o limite padrão de 90 dias é o mesmo que o limite máximo. Você só pode diminuir esse valor.
 > Para aplicativos lógicos em um ambiente de serviço de integração, você pode diminuir ou aumentar o limite de padrão de 90 dias.
 
-1. Vá para o [portal Azure.](https://portal.azure.com) Na caixa de pesquisa do portal, encontre e selecione **aplicativos Logic**.
+1. Vá para o [Portal do Azure](https://portal.azure.com). Na caixa de pesquisa do portal, encontre e selecione **aplicativos Logic**.
 
 1. Selecione e abra seu aplicativo lógico no Logic App Designer.
 
@@ -84,7 +84,7 @@ Estes são os limites de execução de um único aplicativo lógico:
 
 | Nome | Limite | Observações |
 | ---- | ----- | ----- |
-| Simultaneidade do gatilho | - Ilimitado quando o controle de simultuário é desligado <p><p>- 25 é o limite padrão quando o controle de simultuário é ligado, o que não pode ser desfeito depois que você liga o controle. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite descreve o número mais alto de instâncias de aplicativo lógico que podem ser executados ao mesmo tempo, ou em paralelo. <p><p>**Nota:** Quando a simulta é ligada, o limite SplitOn é reduzido para 100 itens para [matrizes de desbatching](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar o limite padrão para um valor entre 1 e 50, inclusive, consulte [Alterar o limite de simultaneidade do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Disparar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Simultaneidade do gatilho | - Ilimitado quando o controle de simultuário é desligado <p><p>- 25 é o limite padrão quando o controle de simultuário é ativado, o que você não pode desfazer depois de habilitar a concorrência. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite descreve o número mais alto de instâncias de aplicativo lógico que podem ser executados ao mesmo tempo, ou em paralelo. <p><p>**Nota:** Quando a simulta é ligada, o limite SplitOn é reduzido para 100 itens para [matrizes de desbatching](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar o limite padrão para um valor entre 1 e 50, inclusive, consulte [Alterar o limite de simultaneidade do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Disparar instâncias sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Execuções de espera máximo | - Sem concorrência, o número mínimo de corridas de espera é 1, enquanto o número máximo é de 50. <p><p>- Com a concorrência, o número mínimo de corridas de espera é de 10 mais o número de corridas simultâneas (gatilho de concorrência). Você pode alterar o número máximo até 100, inclusive. | Esse limite descreve o maior número de instâncias do aplicativo lógico que pode aguardar para ser executado quando o aplicativo lógico já está em execução o número máximo de instâncias simultâneo. <p><p>Para alterar o limite padrão, consulte [execuções de espera da alteração limitam](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Itens da matriz de foreach | 100.000 | Esse limite descreve o maior número de itens de matriz que um loop "para cada" pode processar. <p><p>Para filtrar matrizes maiores, você pode usar o [ação de consulta](logic-apps-perform-data-operations.md#filter-array-action). |
 | Simultaneidade de foreach | 20 é o limite padrão quando o controle de simultaneidade é desativado. Você pode alterar o padrão para um valor entre 1 e 50, inclusive. | Esse limite é o maior número de iterações de loop "for each" que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>Para alterar o limite padrão para um valor entre 1 e 50 inclusive, consulte [Alterar o limite de simultaneidade “para cada”](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Executar loops "para cada" sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
@@ -166,6 +166,8 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam solicita�
 | Limite de avaliação da expressão | 131.072 caracteres | As expressões `@concat()`, `@base64()`, `@string()` não podem ser maiores do que esse limite. |
 | Solicitar limite de caractere suinolo | 16.384 caracteres |
 |||
+
+<a name="retry-policy-limits"></a>
 
 #### <a name="retry-policy"></a>Política de repetição
 

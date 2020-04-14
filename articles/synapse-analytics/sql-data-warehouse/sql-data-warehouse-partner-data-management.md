@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f3d5076b8ca4e1c79451bfe3bcd1dbe554b17a88
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 1d36da49bfdddaa612a71652504584c32b66490d
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586470"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261424"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Parceiros de gerenciamento de dados do Azure Synapse Analytics
 
@@ -31,6 +31,7 @@ Para criar sua solução de data warehouse usando o recurso de pool Synapse Syna
 | ![Kyligence](./media/sql-data-warehouse-partner-data-management/kyligence-logo.png) |**Kyligence**<br>Fundada pelos criadores do Apache Kylin, a Kyligence tem a missão de acelerar a produtividade de seus clientes automatizando a gestão de dados, a descoberta, a interação e a geração de insights – tudo sem barreiras. O Kyligence Cloud permite a implantação de clusters, melhora o acesso aos dados e acelera drasticamente a análise de dados. A plataforma de gerenciamento de análise de Big Data aumentada por IA da Kyligence torna a tarefa muitas vezes desafiadora de construir lagos de dados em escala corporativa de forma rápida e fácil.|[Página do produto](https://kyligence.io/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence)<br> |
 | ![Redpoint Global](./media/sql-data-warehouse-partner-data-management/redpoint-global-logo.png) |**Gerenciamento de Dados RedPoint**<br>O RedPoint Data Management permite que os profissionais de marketing apliquem todos os seus dados para impulsionar o engajamento entre canais do cliente, enquanto executam o gerenciamento de dados estruturado e não estruturado. Aproveitando o Azure Synapse e o RedPoint, você pode maximizar o valor de seus dados estruturados e não estruturados para fornecer as interações contextuais hiperpersonalizadas necessárias para engajar o cliente omni-channel de hoje. A interface do tipo arrastar e soltar facilita o planejamento e a execução dos processos de gerenciamento de dados. |[Página do produto](http://www.redpoint.net/products/data-management-solutions/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-rpdm/)<br> |
 | ![Sentry One](./media/sql-data-warehouse-partner-data-management/sql-sentry-logo.png) |**Sentinela (Sentinela DW)**<br>Com o painel de movimentação de dados inteligente e o calendário de eventos, você sempre sabe exatamente o que está afetando sua carga de trabalho. Desenvolvido para dar visibilidade às consultas e trabalhos em execução a fim de carregar, fazer backup ou restaurar os dados, nunca será necessário preocupar-se quanto a aproveitar ao máximo os recursos do Azure. |[Página do produto](https://sentryone.com/platform/azure-sql-dw-performance-monitoring/)<br>[Azure Marketplace](https://sentryone.com/platform/azure-sql-dw-performance-monitoring/)<br> |
+| ![SqlDBM](./media/sql-data-warehouse-partner-data-management/sqldbm-logo.png) |**SqlDBM**<br>O SqlDBM é uma ferramenta de modelagem de dados baseada em nuvem que oferece uma maneira fácil e conveniente de desenvolver seu banco de dados em qualquer lugar em qualquer navegador. Tudo isso incorporando quaisquer regras e objetos necessários do banco de dados, como chaves de banco de dados, esquemas, índices, restrições de coluna e relacionamentos. |[Página do produto](http://sqldbm.com/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sqldbm1583438206845.sqldbm-data-modeling-tool?tab=Overview)<br>|
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre alguns dos outros parceiros, confira [Parceiros de Business Intelligence](sql-data-warehouse-partner-business-intelligence.md) e [Parceiros de Integração de Dados](sql-data-warehouse-partner-data-integration.md).

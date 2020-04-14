@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2019
-ms.author: magattus
-ms.openlocfilehash: 87debe8e858f4c42b1027b865dd72c7444b37fac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 34d864c3902a1b9eb82be760259c08fb2e8c2ff9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77499896"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260217"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura do CDN do Azure por Metro 
 > [!div class="op_single_selector"]

@@ -2,17 +2,17 @@
 title: Condições de correspondência no motor de regras padrão para Azure CDN | Microsoft Docs
 description: Documentação de referência para condições de correspondência no mecanismo de regras padrão para Azure Content Delivery Network (Azure CDN).
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
-ms.openlocfilehash: 425266e2a7ca42bb17ca598ddfc2f2b86591f32e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74900187"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259912"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Condições de correspondência no mecanismo de regras padrão para CDN Azure
 
@@ -110,7 +110,7 @@ Não é compatível com IP | Endereço IP (separado do espaço)
 - Para especificar vários endereços IP e blocos de endereços IP, use um único espaço entre os valores:
   - **Exemplo IPv4:** *1.2.3.4 10.20.30.40* corresponde a quaisquer solicitações que cheguem do endereço 1.2.3.4 ou 10.20.30.40.
   - **Exemplo iPv6**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* corresponde a quaisquer solicitações que cheguem de qualquer endereço 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
-- A sintaxe para um bloco de endereços IP é o endereço IP básico seguido por uma barra invertida e o tamanho do prefixo. Por exemplo: 
+- A sintaxe para um bloco de endereços IP é o endereço IP básico seguido por uma barra invertida e o tamanho do prefixo. Por exemplo:
   - **Exemplo IPv4**: *5.5.5.64/26* corresponde a quaisquer solicitações que cheguem dos endereços 5.5.5.64 a 5.5.5.127.
   - **Exemplo iPv6**: *1:2:3:/48* corresponde a quaisquer solicitações que chegam dos endereços 1:2:3:0:0:0:0:0 a 1:2:3:ffff:ffff:ffff:ffff.
 

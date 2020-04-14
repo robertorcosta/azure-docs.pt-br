@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 47eae55493c5db281ee1be0f9d32f8f8190fc286
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d37320ad6e8caf3300756466eabe8de29a339c4a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272052"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258279"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -91,7 +91,7 @@ O HTTPS implementa a autenticação incluindo um token válido no cabeçalho da 
 
 Nome de usuário (a DeviceId diferencia maiúsculas de minúsculas): `iothubname.azure-devices.net/DeviceId`
 
-Senha (é possível gerar um token de SAS com a ferramenta [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer), o comando de extensão da CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) ou o [Kit de Ferramentas do Azure IoT para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
+Senha (Você pode gerar um token SAS com o comando de extensão CLI [az iot hub gerar-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)ou as [Ferramentas de IoT do Azure para Código visual do estúdio](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -277,7 +277,7 @@ O resultado, que concede acesso a todas as funcionalidades para o dispositivo1, 
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> É possível gerar um token de SAS com a ferramenta [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer), o comando de extensão da CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) ou o [Kit de Ferramentas do Azure IoT para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+> É possível gerar um token SAS com o comando de extensão CLI [az iot hub gerar-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), ou as [Ferramentas De IoT do Azure para Código visual do estúdio](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 ### <a name="use-a-shared-access-policy"></a>Usar uma política de acesso compartilhado
 

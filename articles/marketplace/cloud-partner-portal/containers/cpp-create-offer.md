@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: d2a18d0fee4352cd88e4c64ab99a7dfc1b08ed75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25d678ad7b8c2b786239b294de873bc1d98fa5cb
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280075"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270325"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Criar uma nova oferta de contêiner com o Portal do Cloud Partner
+
+> [!IMPORTANT]
+> A partir de 13 de abril de 2020, começaremos a mover a gestão de suas ofertas de contêineres Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de contêiner Azure](https://aka.ms/CreateContainerOffer) para gerenciar suas ofertas migradas.
 
 Este artigo descreve como criar e publicar uma entrada de oferta de contêiner para o Azure Marketplace. Cada oferta aparece como sua própria entidade no Azure Marketplace e está associada uma ou mais SKUs.  Uma oferta de contêiner é composta dos seguintes grupos de ativos e serviços de suporte:
 
@@ -35,7 +38,7 @@ Entre no [Portal do Cloud Partner](https://cloudpartner.azure.com/)e, em seguida
 
 A página **Nova Oferta** para o tipo de oferta de contêiner fornece um conjunto de guias e campos de formulário que você usará para criar uma nova oferta. Cada um dos artigos a seguir explica como usar a guia para definir os grupos de ativos e serviços de suporte para sua nova oferta de contêiner.
 
-- [Guia Configurações de oferta](./cpp-offer-settings-tab.md)
+- [Guia Configurações da Oferta](./cpp-offer-settings-tab.md)
 - [Guia SKUs](./cpp-skus-tab.md)
 - [Guia Marketplace](./cpp-marketplace-tab.md)
 - [Guia Suporte](./cpp-support-tab.md)

@@ -3,12 +3,12 @@ title: Suporte de marcação para recursos
 description: Mostra quais tipos de recursos do Azure suportam tags. Fornece detalhes para todos os serviços do Azure.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: b8b1c0b738bb8b94ee53433141f1ae3dbbb3f942
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: c971d3af102faf99f97aac261882797460d71f37
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80982320"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255019"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](tag-resources.md). A coluna **'Suportes' indica** se o tipo de recurso tem uma propriedade para a tag. A coluna rotulada **Tag in cost report** indica se esse tipo de recurso passa a tag para o relatório de custos. Você pode visualizar os custos por tags na análise de [custos de Gerenciamento de Custos](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) e na fatura de faturamento do [Azure e dados de uso diário.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
@@ -96,6 +96,7 @@ Pule para um namespace do provedor de recursos:
 > - [Microsoft.HybridData](#microsofthybriddata)
 > - [Microsoft.Hydra](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
+> - [Microsoft.insights](#microsoftinsights)
 > - [Microsoft.Intune](#microsoftintune)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
@@ -1201,6 +1202,33 @@ Pule para um namespace do provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | jobs | Sim | Sim |
 
+## <a name="microsoftinsights"></a>Microsoft.insights
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Suporte de Tags | Tag in relatório de custos |
+> | ------------- | ----------- | ----------- |
+> | actionGroups | Sim | Sim |
+> | activityLogAlerts | Sim | Sim |
+> | alertrules | Sim | Sim |
+> | autoscalesettings | Sim | Sim |
+> | components | Sim | Sim |
+> | componentes / linkedArmazenamentoContas | Não | Não |
+> | componentes / ProactiveDetectionConfigs | Não | Não |
+> | diagnosticSettings | Não | Não |
+> | guestDiagnosticSettings | Sim | Sim |
+> | guestDiagnosticSettingsAssociation | Sim | Sim |
+> | logprofiles | Sim | Sim |
+> | metricAlerts | Sim | Sim |
+> | privateLinkScopes | Sim | Sim |
+> | privateLinkScopes / privateEndpointConnections | Não | Não |
+> | privateLinkScopes / scopedResources | Não | Não |
+> | queryPacks | Sim | Sim |
+> | consultasPacotes/ consultas | Não | Não |
+> | regras de consulta | Sim | Sim |
+> | webtests | Sim | Sim |
+> | workbooks | Sim | Sim |
+> | modelos de carteiras de trabalho | Sim | Sim |
+
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
 > [!div class="mx-tableFixed"]
@@ -1454,7 +1482,7 @@ Pule para um namespace do provedor de recursos:
 > | applicationSecurityGroups | Sim | Sim |
 > | azureFirewallFqdnTags | Não | Não |
 > | azureFirewalls | Sim | Não |
-> | bastiõesanfitriões | Sim | Sim |
+> | bastiõesanfitriões | Sim | Não |
 > | bgpServiceCommunities | Não | Não |
 > | connections | Sim | Sim |
 > | ddosCustomPolicies | Sim | Sim |
@@ -1484,14 +1512,14 @@ Pule para um namespace do provedor de recursos:
 > | frontdoorWebApplicationFirewallPolicies | Sim, mas limitado (veja [nota abaixo)](#frontdoor) | Sim |
 > | getDnsResourceReference | Não | Não |
 > | internalNotify | Não | Não |
-> | loadBalancers | Sim | Não |
+> | loadBalancers | Sim | Sim |
 > | virtualNetworkGateways | Sim | Sim |
 > | natGateways | Sim | Sim |
 > | networkIntentPolicies | Sim | Sim |
 > | networkInterfaces | Sim | Sim |
 > | networkProfiles | Sim | Sim |
 > | networkSecurityGroups | Sim | Sim |
-> | networkWatchers | Sim | Não |
+> | networkWatchers | Sim | Sim |
 > | observadores de rede / monitores de conexão | Sim | Não |
 > | networkWatchers / flowLogs | Não | Não |
 > | networkWatchers / lentes | Sim | Não |
@@ -1524,8 +1552,8 @@ Pule para um namespace do provedor de recursos:
 > | virtualNetworkGateways | Sim | Sim |
 > | virtualNetworks | Sim | Sim |
 > | virtualNetworkTaps | Sim | Sim |
-> | virtualWans | Sim | Sim |
-> | vpnGateways | Sim | Não |
+> | virtualWans | Sim | Não |
+> | vpnGateways | Sim | Sim |
 > | vpnSites | Sim | Sim |
 > | frontdoorWebApplicationFirewallPolicies | Sim | Sim |
 
@@ -1821,7 +1849,7 @@ Pule para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporte de Tags | Tag in relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | namespaces | Sim | Não |
+> | namespaces | Sim | Sim |
 > | namespaces / regras de autorização | Não | Não |
 > | namespaces / disasterrecoveryconfigs | Não | Não |
 > | namespaces / eventgridfilters | Não | Não |

@@ -3,7 +3,7 @@ title: Restringir o conteúdo do CDN do Azure por país/região | Microsoft Docs
 description: Saiba como restringir o acesso por país/região ao seu conteúdo CDN do Azure usando o recurso de filtragem geográfica.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: magattus
-ms.openlocfilehash: 75c422d456f2509ce478e2609a6509f78a6eb31e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 7ae7224efdaa281106dfbe2118ab0092c8284c6e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593423"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260149"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Restringir o conteúdo do CDN do Azure por país/região
 
@@ -69,7 +69,7 @@ Depois de terminar de selecionar os países/regiões, selecione **Salvar** para 
 
 ![Regras de filtragem geográfica](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 Para excluir uma regra, selecione-a na lista da página **Filtragem Geográfica** e, em seguida escolha **Excluir**.
 
 ## <a name="azure-cdn-premium-from-verizon-profiles"></a>Perfis CDN Premium do Azure da Verizon
@@ -95,7 +95,7 @@ Para perfis**CDN Premium do Azure da Verizon**, a interface do usuário para cri
 
     ![Regras de filtragem geográfica](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 Na tabela de regras de filtragem de país/região, selecione o ícone excluir ao lado de uma regra para excluí-lo ou do ícone de edição para modificá-lo.
 
 ## <a name="considerations"></a>Considerações

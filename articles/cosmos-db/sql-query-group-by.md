@@ -4,14 +4,14 @@ description: Saiba mais sobre a cláusula GROUP BY para Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 04/10/2020
 ms.author: tisande
-ms.openlocfilehash: e41e81457421bfe27e3c0313fc06e39e6df4cdce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a3cbbafc066747b62f79934f2cd12301aa1ba17
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73819098"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261594"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>GRUPO POR cláusula no Azure Cosmos DB
 
@@ -52,6 +52,12 @@ A cláusula GROUP BY divide os resultados da consulta de acordo com os valores d
 - A exclusão de propriedades ou funções do sistema de aliasing (aliasing ainda é permitida dentro da cláusula SELECT)
 - Subconsultas
 - Funções agregadas do sistema (estas só são permitidas na cláusula SELECT)
+
+Consultas com uma função de sistema agregado `GROUP BY` e uma subconsulta com não são suportadas. Por exemplo, a seguinte consulta não é suportada:
+
+```sql
+SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName) AS UniqueLastNames
+```
 
 ## <a name="examples"></a>Exemplos
 
@@ -173,6 +179,6 @@ Os resultados são:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Começando](sql-query-getting-started.md)
+- [Introdução](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
-- [Funções de agregação](sql-query-aggregates.md)
+- [Funções agregadas](sql-query-aggregates.md)

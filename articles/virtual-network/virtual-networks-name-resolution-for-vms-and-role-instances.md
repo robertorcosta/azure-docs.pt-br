@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d7d0699718642a7eb9f85b2e8a86623092c34365
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 9ea63192732184ff7a13ff1465a5b393a282f9d2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010555"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262189"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes para recursos em redes virtuais do Azure
 
@@ -88,6 +88,7 @@ O DNS reverso é suportado em todas as redes virtuais baseadas em ARM. Você pod
 * A consulta antecipada em FQDNs de form \[vmname\].internal.cloudapp.net resolverá para endereço IP atribuído à máquina virtual.
 * Se a rede virtual estiver vinculada a uma [rede privada Do Zure DNS](../dns/private-dns-overview.md) como uma rede virtual de registro, as consultas de DNS reversa retornarão dois registros. Um registro será o \[do\]nome vmname do formulário . [priatednszonename] e outro seria \[do formulário\]vmname .internal.cloudapp.net
 * A busca reversa de DNS é escopo de uma determinada rede virtual, mesmo que seja acompanhada de outras redes virtuais. Reverter consultas DNS (consultas PTR) para endereços IP de máquinas virtuais localizadas em redes virtuais peered retornará o NXDOMAIN.
+* Se você quiser desativar a função DNS reversa em uma rede virtual, você pode fazê-lo criando uma zona de busca reversa usando [zonas privadas Do Zure DNS](../dns/private-dns-overview.md) e vinculando essa região à sua rede virtual. Por exemplo, se o espaço de endereço IP da sua rede virtual for 10.20.0.0/16, então você poderá criar uma zona de DNS privada vazia 20.10.in-addr.arpa e vinculá-la à rede virtual. Ao vincular a região à sua rede virtual, você deve desativar o registro automático no link. Essa região substituirá as zonas de pesquisa reversa padrão para a rede virtual e, como esta região está vazia, você receberá O NXDOMAIN para suas consultas de DNS reversa. Consulte nosso [guia Quickstart](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal) para obter detalhes sobre como criar uma zona de DNS privada e vinculá-la a uma rede virtual.
 
 > [!NOTE]
 > Se você quiser que a busca reversa de DNS se esvape pela rede virtual, você pode criar uma zona de busca reversa (in-addr.arpa) [zonas privadas do Azure DNS](../dns/private-dns-overview.md) e vinculá-la a várias redes virtuais. No entanto, você terá que gerenciar manualmente os registros DNS reversos para as máquinas virtuais.
@@ -199,7 +200,7 @@ Se for necessário realizar a resolução de nomes do seu aplicativo Web criado 
 
 * Configure um servidor DNS na sua rede virtual de destino em uma VM que também pode encaminhar consultas para um resolvedor recursivo do Azure (IP virtual 168.63.129.16). Um encaminhador DNS de exemplo está disponível na [galeria de Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder) e no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder). 
 * Configure um encaminhador de DNS na rede virtual de origem em uma VM. Configure o encaminhador de DNS para encaminhar consultas para o servidor DNS em sua rede virtual de destino.
-* Configure o servidor DNS de origem nas configurações da sua rede virtual de origem.
+* Configure o servidor DNS de origem nas configurações da rede virtual de origem.
 * Habilite a integração da rede virtual para seu aplicativo Web para vincular à rede virtual de origem seguindo as instruções em [Integrar seu aplicativo com uma rede virtual](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * No portal do Azure, para o Plano do Serviço de Aplicativo que hospeda o aplicativo Web, selecione **Sincronizar rede** em **Rede**, **Integração da Rede Virtual**.
 

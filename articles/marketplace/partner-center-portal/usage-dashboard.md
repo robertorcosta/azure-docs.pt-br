@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 0cd6614c1ccc51a2b25f115dccf0ee389075aa70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33762540d14ea51e8325abe9a466007cd7cca748
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285122"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262172"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Painel de uso em análises de mercado comercial
 
@@ -21,7 +21,7 @@ Este artigo fornece informações sobre o painel de uso no Partner Center. Este 
 Para acessar o painel de uso, abra o painel **[Analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** em Comercial Marketplace.
 
 >[!NOTE]
-> Para definições detalhadas da terminologia de análise, consulte [perguntas freqüentes e terminologia para análises de mercado comercial](./faq-terminology.md).
+> Para definições detalhadas da terminologia de análise, consulte [perguntas e terminologias freqüentes para análise de mercado comercial](./faq-terminology.md).
 
 ## <a name="usage-dashboard"></a>Painel de uso
 
@@ -118,10 +118,10 @@ A guia **de uso de faturamento medido** apresenta informações de uso para tipo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral dos relatórios de análise disponíveis no Partner Center Commercial Marketplace, consulte [Analytics for the Commercial Marketplace in Partner Center](./analytics.md).
-- Para obter gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para sua oferta, consulte [Summary Dashboard in Commercial Marketplace analytics](./summary-dashboard.md).
+- Para obter uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
+- Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para sua oferta, consulte [Summary Dashboard em análises de mercado comercial](./summary-dashboard.md).
 - Para obter informações sobre seus pedidos em um formato gráfico e para download, consulte [Orders Dashboard em análises de mercado comercial](./orders-dashboard.md).
-- Para obter informações detalhadas sobre seus clientes, incluindo tendências de crescimento, consulte [o Customer Dashboard em análises de Mercado Comercial](./customer-dashboard.md).
-- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte [O Painel de Downloads em análises de Mercado Comercial](./downloads-dashboard.md).
-- Para ver uma visão consolidada do feedback dos clientes para ofertas no Azure Marketplace e no AppSource, consulte [Ratings e reviews dashboard em análises de Mercado Comercial](./ratings-reviews.md).
-- Para perguntas frequentes sobre análises de mercado comercial e para um dicionário abrangente de termos de dados, consulte [perguntas e terminologias freqüentes para análises de mercado comercial](./faq-terminology.md).
+- Para obter informações detalhadas sobre seus clientes, incluindo tendências de crescimento, consulte [o Customer Dashboard em análises de mercado comercial](./customer-dashboard.md).
+- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte [Downloads Dashboard em análises de mercado comercial](./downloads-dashboard.md).
+- Para ver uma visão consolidada do feedback dos clientes para ofertas no Azure Marketplace e no AppSource, consulte [Ratings e reviews dashboard em análises de mercado comercial](./ratings-reviews.md).
+- Para perguntas frequentes sobre análise de mercado comercial e para um dicionário abrangente de termos de dados, consulte [perguntas e terminologias freqüentes para análise de mercado comercial](./faq-terminology.md).

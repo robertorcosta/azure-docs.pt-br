@@ -5,24 +5,26 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 6d4c1f52f0f3b1e05ec06f5a66a36323f346d4eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9e55ff2c581f9392a125f6dc3ec8d903e9876a4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280534"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256426"
 ---
-# <a name="cancel-operation"></a>Cancelar operação 
+# <a name="cancel-operation"></a>Cancelar operação
+
+> [!NOTE]
+> As APIs do Portal de Parceiros em Nuvem são integradas ao Partner Center e continuarão a funcionar depois que suas ofertas forem migradas para o Partner Center. A integração introduz pequenas mudanças. Revise as alterações listadas na [API do Portal do Parceiro na Nuvem](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue funcionando após a migração para o Partner Center.
 
 Essa API cancela uma operação atualmente em andamento na oferta. Use [Recuperar API de operações](./cloud-partner-portal-api-retrieve-operations.md) para obter um `operationId` para passar a essa API. Geralmente, o cancelamento é uma operação síncrona, no entanto, em alguns cenários complexos uma nova operação pode ser necessária para cancelar uma operação existente. Nesse caso, o corpo da resposta HTTP contém o local da operação que deve ser usado para consultar o status.
 
-Você pode fornecer uma lista separada por vírgulas de endereços de email com a solicitação, e a API notificará esses endereços sobre o andamento da operação.
-
   `POST https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/cancel?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Parâmetros de URI
+## <a name="uri-parameters"></a>Parâmetros de URI
+
 --------------
 
 |  **Nome**    |      **Descrição**                                  |    **Tipo de dados**  |
@@ -32,8 +34,7 @@ Você pode fornecer uma lista separada por vírgulas de endereços de email com 
 | api-version  |  Versão atual da API                               |    Data           |
 |  |  |  |
 
-
-<a name="header"></a>Cabeçalho
+## <a name="header"></a>Cabeçalho
 ------
 
 |  **Nome**              |  **Valor**         |
@@ -42,8 +43,7 @@ Você pode fornecer uma lista separada por vírgulas de endereços de email com 
 |  Autorização         |  TOKEN de seu portador |
 |  |  |
 
-
-<a name="body-example"></a>Exemplo de corpo
+## <a name="body-example"></a>Exemplo de corpo
 ------------
 
 ### <a name="request"></a>Solicitação
@@ -63,19 +63,22 @@ Você pode fornecer uma lista separada por vírgulas de endereços de email com 
 |  emails de notificação     | Lista separada por vírgula de IDs de email a serem notificados sobre o andamento da operação de publicação. |
 |  |  |
 
-
 ### <a name="response"></a>Resposta
 
-  `Operation-Location: https://cloudpartner.azure.com/api/publishers/contoso/offers/contoso-virtualmachineoffer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8`
+#### <a name="migrated-offers"></a>Ofertas migradas
 
+`Location: /api/publishers/contoso/offers/contoso-offer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8?api-version=2017-10-31`
+
+#### <a name="non-migrated-offers"></a>Ofertas não migradas
+
+`Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
 ### <a name="response-header"></a>Cabeçalho de Resposta
 
 |  **Nome**             |    **Valor**                       |
 |  ---------            |    ----------                      |
-| Operation-Location    | URL, que pode ser consultada para determinar o status atual da operação. |
+| Location    | O caminho relativo para recuperar o status desta operação. |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>Códigos de status de resposta
 

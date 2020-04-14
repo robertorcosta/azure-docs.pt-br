@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/22/2019
-ms.openlocfilehash: 1e559309b8e8d9768ca2f79dabfb01ec6086a961
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/10/2019
+ms.openlocfilehash: b8d7f995997b828c2323b3e6934b97354c2f8c8b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348714"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255236"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerencie o acesso a dados de registro e espaços de trabalho no Azure Monitor
 
@@ -91,7 +91,7 @@ Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 }
 ```
 
-### <a name="using-a-resource-manager-template"></a>Usando um modelo de gerenciador de recursos
+### <a name="using-a-resource-manager-template"></a>Usar um modelo do Resource Manager
 
 Para configurar o modo de acesso em um modelo do Azure Resource Manager, defina o recurso **enableLogAccessUsingOnlyResourcePermissions** no espaço de trabalho como um dos seguintes valores.
 
@@ -273,7 +273,7 @@ Para criar uma função com acesso apenas à tabela _SecurityBaseline,_ crie uma
 
  Os logs personalizados são criados a partir de fontes de dados, como logs personalizados e API http de coletor de dados. A maneira mais fácil de identificar o tipo de registro é verificando as [tabelas listadas](../log-query/get-started-portal.md#understand-the-schema)em Registros Personalizados no esquema de log .
 
- No momento, você não pode conceder acesso a registros personalizados individuais, mas pode conceder acesso a todos os registros personalizados. Para criar uma função com acesso a todos os logs personalizados, crie uma função personalizada usando as seguintes ações:
+ Você não pode conceder acesso a registros personalizados individuais, mas pode conceder acesso a todos os registros personalizados. Para criar uma função com acesso a todos os logs personalizados, crie uma função personalizada usando as seguintes ações:
 
 ```
 "Actions":  [
@@ -282,6 +282,9 @@ Para criar uma função com acesso apenas à tabela _SecurityBaseline,_ crie uma
     "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
 ],
 ```
+Uma abordagem alternativa para gerenciar o acesso a logs personalizados é atribuí-los a um recurso do Azure e gerenciar o acesso usando o paradigma de contexto de recursos. Para usar este método, você deve incluir o ID de recurso especificando-o no cabeçalho [x-ms-AzureResourceId](data-collector-api.md#request-headers) quando os dados são ingeridos no Log Analytics através da [API HTTP Data Collector](data-collector-api.md). O ID de recurso deve ser válido e ter regras de acesso aplicadas a ele. Depois que os registros são ingeridos, eles são acessíveis àqueles com acesso lido ao recurso, conforme explicado aqui.
+
+Às vezes, os logs personalizados vêm de fontes que não estão diretamente associadas a um recurso específico. Neste caso, crie um grupo de recursos apenas para gerenciar o acesso a esses logs. O grupo de recursos não incorre em nenhum custo, mas lhe dá um ID de recurso válido para controlar o acesso aos logs personalizados. Por exemplo, se um firewall específico estiver enviando logs personalizados, crie um grupo de recursos chamado "MyFireWallLogs" e certifique-se de que as solicitações de API contenham o ID de recursos de "MyFireWallLogs". Os registros de registro de firewall são então acessíveis apenas aos usuários que tiveram acesso ao MyFireWallLogs ou àqueles com acesso total ao espaço de trabalho.          
 
 ### <a name="considerations"></a>Considerações
 

@@ -9,21 +9,21 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3c54f864b5bd562fdc0a84b2903198704032b360
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: bc691299f38d562aee5c08a89e10372331663f8e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998493"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262801"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Use a sintaxe de pesquisa "completa" de Lucene (consultas avançadas na Pesquisa Cognitiva do Azure)
 
 Ao construir consultas para a Pesquisa Cognitiva do Azure, você pode substituir o [analisador de consulta simples](query-simple-syntax.md) padrão pelo analisador de consulta lucene mais expansivo [no Azure Cognitive Search](query-lucene-syntax.md) para formular definições de consulta especializadas e avançadas. 
 
-O analisador Lucene suporta construções complexas de consulta, como consultas com escopo de campo, pesquisa de curinga difusa e prefixo, pesquisa de proximidade, aumento de prazo e pesquisa de expressão regular. A energia adicional vem com requisitos adicionais de processamento, portanto, você deve esperar um tempo de execução um pouco mais longo. Neste artigo, execute exemplos em etapas, que demonstram as operações de consulta disponíveis ao usar a sintaxe completa.
+O analisador Lucene suporta construções complexas de consulta, como consultas com escopo de campo, pesquisa difusa, pesquisa curinga infix e sufixo, pesquisa de proximidade, aumento de prazo e pesquisa de expressão regular. A energia adicional vem com requisitos adicionais de processamento, portanto, você deve esperar um tempo de execução um pouco mais longo. Neste artigo, execute exemplos em etapas, que demonstram as operações de consulta disponíveis ao usar a sintaxe completa.
 
 > [!Note]
-> Muitas construções de consulta especializadas habilitadas por meio da sintaxe de consulta Lucene completa não são [texto analisado](search-lucene-query-architecture.md#stage-2-lexical-analysis), o que pode ser surpreendente caso espera-se a lematização. A análise lexical é realizada somente em termos completos (uma consulta de termo ou de frase). Tipos de consulta com termos incompletos (consulta de prefixo, consulta de curinga, consulta de regex, consulta difusa) são adicionados diretamente à árvore de consulta, ignorando o estágio de análise. A única transformação realizada em termos de consulta incompletos é colocá-los em letras minúsculas. 
+> Muitas construções de consulta especializadas habilitadas por meio da sintaxe de consulta Lucene completa não são [texto analisado](search-lucene-query-architecture.md#stage-2-lexical-analysis), o que pode ser surpreendente caso espera-se a lematização. A análise lexical é realizada somente em termos completos (uma consulta de termo ou de frase). Tipos de consulta com termos incompletos (consulta de prefixo, consulta de curinga, consulta de regex, consulta difusa) são adicionados diretamente à árvore de consulta, ignorando o estágio de análise. A única transformação realizada em termos de consulta parcial é a redução. 
 >
 
 ## <a name="formulate-requests-in-postman"></a>Formular solicitações em Postman

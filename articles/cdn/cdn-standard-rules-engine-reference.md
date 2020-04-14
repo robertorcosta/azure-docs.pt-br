@@ -2,19 +2,19 @@
 title: Referência padrão do motor de regras para Azure CDN | Microsoft Docs
 description: Documentação de referência para condições de correspondência e ações no mecanismo de regras padrão para a Azure Content Delivery Network (Azure CDN).
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
-ms.openlocfilehash: aa401150ee7a0f02e809ad702b8247e18081c8a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 6d4fa4451c3db3d6f2a506eabd5676d18b0219f4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74171554"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259894"
 ---
-# <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referência padrão do motor de regras para CDN Azure
+# <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referência do mecanismo de regras Standard para a CDN do Azure
 
 No [mecanismo de regras padrão](cdn-standard-rules-engine.md) para a Azure Content Delivery Network (Azure CDN), uma regra consiste em uma ou mais condições de correspondência e uma ação. Este artigo fornece descrições detalhadas das condições de correspondência e recursos disponíveis no mecanismo de regras padrão para CDN Azure.
 

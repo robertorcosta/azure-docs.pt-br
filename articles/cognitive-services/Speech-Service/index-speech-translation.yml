@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentação de tradução de fala
+title: Documentação da tradução de fala
 summary: A tradução de fala do serviço Speech permite a tradução em tempo real, em várias línguas, de fonoaudiologia para discurso e de transmissão de áudio em texto
 metadata:
   title: Documentação de tradução de fala - Tutoriais, Referência de API - Azure Cognitive Services | Microsoft Docs
@@ -9,14 +9,14 @@ metadata:
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 03/10/2020
+  ms.date: 04/13/2020
   ms.author: dapine
-  ms.openlocfilehash: 75f620d5210f5ba0dc61ac1c5be2f30aa23dea9c
-  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+  ms.openlocfilehash: 346965e4bd8384be93716894a52960b20539d1c3
+  ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/28/2020
-  ms.locfileid: "79415312"
+  ms.lasthandoff: 04/13/2020
+  ms.locfileid: "81259028"
 landingContent:
 - title: Sobre tradução de fala
   linkLists:
@@ -24,11 +24,13 @@ landingContent:
     links:
     - text: O que é tradução de fala?
       url: speech-translation.md
+    - text: Noções básicas de tradução de fala
+      url: speech-translation-basics.md
   - linkListType: quickstart
     links:
     - text: Traduzir uma fala em texto
       url: quickstarts/translate-speech-to-text.md
-    - text: Traduzir a fala para vários idiomas-alvo
+    - text: Traduzir fala para vários idiomas de destino
       url: quickstarts/translate-speech-to-text-multiple-languages.md
     - text: Traduzir uma fala em fala
       url: quickstarts/translate-speech-to-speech.md
@@ -40,7 +42,7 @@ landingContent:
       url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
   - linkListType: tutorial
     links:
-    - text: Traduzir e sintetizar texto com APIs REST
+    - text: Traduzir e sintetizar textos com as APIs REST
       url: ../translator/tutorial-build-flask-app-translation-synthesis.md
 - title: Referência
   linkLists:

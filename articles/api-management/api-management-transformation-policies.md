@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 81b7fb687bb6ef88d1ed436923d0e5ff7561c22b
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 27bb6abb7ae8eae46bc4dea3708270ecb4b731a6
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80803238"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260897"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -214,7 +214,7 @@ ou
 ```
 
 > [!NOTE]
-> As entidades backend podem ser gerenciadas através da [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) de gerenciamento e [do PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> As entidades backend podem ser gerenciadas através da [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) de gerenciamento e [do PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Exemplo
 
@@ -269,7 +269,7 @@ Neste exemplo, a política encaminha a solicitação para um back-end de Service
 |Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |base-url|Nova URL base do serviço de back-end.|Um `base-url` deles `backend-id` deve estar presente.|N/D|
-|backend-id|Identificador do back-end para o qual encaminhar. (As entidades backend são gerenciadas via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Um `base-url` deles `backend-id` deve estar presente.|N/D|
+|backend-id|Identificador do back-end para o qual encaminhar. (As entidades backend são gerenciadas via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Um `base-url` deles `backend-id` deve estar presente.|N/D|
 |sf-partition-key|Aplicável somente quando o back-end é um serviço do Service Fabric e é especificado usando 'backend-id'. Usado para resolver uma partição específica do serviço de resolução de nome.|Não|N/D|
 |sf-replica-type|Aplicável somente quando o back-end é um serviço do Service Fabric e é especificado usando 'backend-id'. Controla se a solicitação deve ir para a réplica primária ou secundária de uma partição. |Não|N/D|
 |sf-resolve-condition|Aplicável somente quando o back-end é um serviço do Service Fabric. Condição que identifica se a chamada para o back-end do Service Fabric deve ser repetida com a nova resolução.|Não|N/D|

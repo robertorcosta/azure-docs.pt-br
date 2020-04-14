@@ -4,16 +4,19 @@ description: Saiba como criar e gerenciar pools de nó do sistema no Azure Kuber
 services: container-service
 ms.topic: article
 ms.date: 04/06/2020
-ms.openlocfilehash: ef5400f19f68fd2da45776d220e17777f58e46e6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: b567d9e618877463e1e659f368d35fbb787a4ef2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986311"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259061"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gerenciar pools de nó do sistema no Azure Kubernetes Service (AKS)
 
-No Azure Kubernetes Service (AKS), nós da mesma configuração são agrupados em *piscinas de nós*. Os pools de nó contêm as VMs subjacentes que executam seus aplicativos. Pools de nó do sistema e pools de nó do usuário são dois modos de pool de nó diferentes para seus clusters AKS. Os pools de nó do sistema hospedam serviços essenciais do sistema, como o CoreDNS. Pools de nó de usuário são onde você coloca seus pods específicos de aplicativos. Cada cluster AKS deve conter pelo menos um pool de nó do sistema com pelo menos um nó. Se você executar um único pool de nós do sistema para o seu cluster AKS, recomendamos que você use pelo menos três nós para a piscina de nós. 
+No Azure Kubernetes Service (AKS), nós da mesma configuração são agrupados em *piscinas de nós*. Os pools de nó contêm as VMs subjacentes que executam seus aplicativos. Pools de nó do sistema e pools de nó do usuário são dois modos de pool de nó diferentes para seus clusters AKS. Os pools de nó do sistema servem ao objetivo principal de hospedar pods críticos do sistema, como CoreDNS e tunnelfront. Os pools de nó do usuário servem ao objetivo principal de hospedar seus pods de aplicativos. No entanto, os pods de aplicativos podem ser agendados em pools de nó do sistema se você desejar ter apenas um pool em seu cluster AKS. Cada cluster AKS deve conter pelo menos um pool de nó do sistema com pelo menos um nó. 
+
+> [!Important]
+> Se você executar um único pool de nós de sistema para o seu cluster AKS em um ambiente de produção, recomendamos que você use pelo menos três nós para a piscina de nós.
 
 ## <a name="before-you-begin"></a>Antes de começar
 

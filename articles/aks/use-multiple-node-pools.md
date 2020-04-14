@@ -4,16 +4,16 @@ description: Aprenda a criar e gerenciar vários pools de nó para um cluster no
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 26fd541552ee203216af5a08d948644d82061191
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: f948c115b86abc532a121c68fa7a148ff15caae9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984905"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259078"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerenciar vários pools de nó para um cluster no Azure Kubernetes Service (AKS)
 
-No Azure Kubernetes Service (AKS), nós da mesma configuração são agrupados em *piscinas de nós*. Esses pools de nó contêm as VMs subjacentes que executam seus aplicativos. O número inicial de nódulos e seu tamanho (SKU) é definido quando você cria um cluster AKS, que cria um *pool de nó padrão*. Para suportar aplicativos com diferentes demandas de computação ou armazenamento, você pode criar pools adicionais de nó. Por exemplo, use esses pools de nós adicionais para fornecer GPUs para aplicações com uso intensivo de computação ou acesso a armazenamento SSD de alto desempenho.
+No Azure Kubernetes Service (AKS), nós da mesma configuração são agrupados em *piscinas de nós*. Esses pools de nó contêm as VMs subjacentes que executam seus aplicativos. O número inicial de nódulos e seu tamanho (SKU) é definido quando você cria um cluster AKS, que cria um [pool de nó do sistema][use-system-pool]. Para suportar aplicativos com diferentes demandas de computação ou armazenamento, você pode criar *pools*adicionais de nó de usuário . Os pools de nó do sistema servem ao objetivo principal de hospedar pods críticos do sistema, como CoreDNS e tunnelfront. Os pools de nó do usuário servem ao objetivo principal de hospedar seus pods de aplicativos. No entanto, os pods de aplicativos podem ser agendados em pools de nó do sistema se você desejar ter apenas um pool em seu cluster AKS. Pools de nó de usuário são onde você coloca seus pods específicos de aplicativos. Por exemplo, use esses pools adicionais de nó de usuário para fornecer GPUs para aplicativos com uso intensivo de computação ou acesso a armazenamento SSD de alto desempenho.
 
 > [!NOTE]
 > Esse recurso permite maior controle sobre como criar e gerenciar vários pools de nó. Como resultado, são necessários comandos separados para criar/atualizar/excluir. Anteriormente, as `az aks create` `az aks update` operações de cluster através ou usavam a API managedCluster e eram a única opção para alterar seu plano de controle e um único pool de nós. Esse recurso expõe um conjunto de operações separado para pools de `az aks nodepool` agentes através da API agentPool e requer o uso do conjunto de comandos para executar operações em um pool de nós individuais.
@@ -29,7 +29,8 @@ Você precisa da versão 2.2.0 do Azure CLI ou posterior instalada e configurada
 As seguintes limitações se aplicam quando você cria e gerencia clusters AKS que suportam vários pools de nó:
 
 * Consulte [Cotas, restrições ao tamanho da máquina virtual e disponibilidade de região no Azure Kubernetes Service (AKS)][quotas-skus-regions].
-* Você não pode excluir o pool de nó do sistema, por padrão o primeiro pool de nó.
+* Você pode excluir pools de nó do sistema, desde que você tenha outro pool de nó do sistema para tomar seu lugar no cluster AKS.
+* Os pools do sistema devem conter pelo menos um nó, e os pools de nós do usuário podem conter zero ou mais nós.
 * O cluster AKS deve usar o balanceador de carga SKU padrão para usar vários pools de nó, o recurso não é suportado com balanceadores básicos de carga SKU.
 * O cluster AKS deve usar conjuntos de escala de máquinas virtuais para os nós.
 * O nome de uma piscina de nó só pode conter caracteres alfanuméricas minúsculos e deve começar com uma letra minúscula. Para os pools de nós Linux o comprimento deve ser entre 1 e 12 caracteres, para os pools de nó do Windows o comprimento deve ser entre 1 e 6 caracteres.
@@ -37,6 +38,9 @@ As seguintes limitações se aplicam quando você cria e gerencia clusters AKS q
 * Ao criar vários pools de nós no tempo de criação de cluster, todas as versões kubernetes usadas por pools de nós devem corresponder à versão definida para o plano de controle. Isso pode ser atualizado após o cluster ter sido provisionado usando operações por pool de nó.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster AKS
+
+> [!Important]
+> Se você executar um único pool de nós de sistema para o seu cluster AKS em um ambiente de produção, recomendamos que você use pelo menos três nós para a piscina de nós.
 
 Para começar, crie um cluster AKS com um único pool de nó. O exemplo a seguir usa o comando [az group create][az-group-create] para criar um grupo de recursos chamado *myResourceGroup* na região *de Eastus.* Um cluster AKS chamado *myAKSCluster* é criado usando o comando [az aks create.][az-aks-create] Uma *versão --kubernetes* do *1.15.7* é usada para mostrar como atualizar um pool de nós em uma etapa seguinte. Você pode especificar qualquer [versão do Kubernetes suportada][supported-versions].
 
@@ -753,6 +757,8 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Próximas etapas
 
+Saiba mais sobre [pools de nó do sistema][use-system-pool].
+
 Neste artigo, você aprendeu como criar e gerenciar vários grupos de nó em um cluster AKS. Para obter mais informações sobre como controlar pods em pools de nós, consulte [As melhores práticas para recursos avançados do agendador no AKS][operator-best-practices-advanced-scheduler].
 
 Para criar e usar os pools de nó de contêiner do Windows Server, consulte [Criar um contêiner do Windows Server em AKS][aks-windows].
@@ -788,3 +794,4 @@ Para criar e usar os pools de nó de contêiner do Windows Server, consulte [Cri
 [tag-limitation]: ../azure-resource-manager/resource-group-using-tags.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
+[use-system-pool]: use-system-pools.md

@@ -5,24 +5,25 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 2f5211716145d6c05bbfb0132c4a6ba2f9cceabe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9cf6ca27101a08ff58f32dcd31413256762490a2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280500"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255899"
 ---
-<a name="retrieve-offer-status"></a>Recuperar status da oferta 
-=====================
+# <a name="retrieve-offer-status"></a>Recuperar status da oferta
+
+> [!NOTE]
+> As APIs do Portal de Parceiros em Nuvem são integradas ao Partner Center e continuarão a funcionar depois que suas ofertas forem migradas para o Partner Center. A integração introduz pequenas mudanças. Revise as alterações listadas na [API do Portal do Parceiro na Nuvem](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) para garantir que seu código continue funcionando após a migração para o Partner Center.
 
 Recupera o status atual da oferta.
 
   `GET  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/status?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Parâmetros de URI
---------------
+## <a name="uri-parameters"></a>Parâmetros de URI
 
 |  **Nome**       |   **Descrição**                            |  **Tipo de dados** |
 |  -------------  |  ------------------------------------------  |  ------------  |
@@ -32,8 +33,8 @@ Recupera o status atual da oferta.
 |  |  |
 
 
-<a name="header"></a>Cabeçalho
-------
+## <a name="header"></a>Cabeçalho
+
 
 |  Nome           |  Valor               |
 |  -------------  | -------------------  |
@@ -41,9 +42,8 @@ Recupera o status atual da oferta.
 |  Autorização  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
+## <a name="body-example"></a>Exemplo de corpo
 
-<a name="body-example"></a>Exemplo de corpo
-------------
 
 ### <a name="response"></a>Resposta
 
@@ -115,8 +115,7 @@ Recupera o status atual da oferta.
       ],
       "previewLinks": [],
       liveLinks": [],
-      "notificationEmails": "jdoe@contoso.com"
-  } 
+  }
 ```
 
 
@@ -136,9 +135,8 @@ Recupera o status atual da oferta.
 |  processPercentage    | Porcentagem de conclusão da etapa                                                              |
 |  previewLinks         | *Não implementado atualmente*                                                                    |
 |  liveLinks            | *Não implementado atualmente*                                                                    |
-|  notificationEmails   | Lista separada por vírgula de endereços de email para ser notificado sobre o andamento da operação        |
+|  notificationEmails   | Preterido por ofertas migradas para o Partner Center. Os e-mails de notificação para ofertas migradas serão enviados para o e-mail especificado sob as informações de contato do Vendedor nas configurações da Conta.<br><br>Para ofertas não migradas, a lista de endereços de e-mail separadas por comma será notificada sobre o andamento da operação        |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>Códigos de status de resposta
 
@@ -148,7 +146,6 @@ Recupera o status atual da oferta.
 |  400     | `Bad/Malformed request` - O corpo da resposta de erro pode conter mais informações.                 |
 |  404     | `Not found` - A entidade especificada não existe.                                                |
 |  |  |
-
 
 ### <a name="offer-status"></a>Status da oferta
 
@@ -162,7 +159,6 @@ Recupera o status atual da oferta.
 |  Canceled                    | O envio da oferta foi cancelado.                           |
 |  Falhou                      | O envio da oferta falhou.                                 |
 |  |  |
-
 
 ### <a name="step-status"></a>Status da etapa
 

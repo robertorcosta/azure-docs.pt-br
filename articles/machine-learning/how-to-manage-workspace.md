@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: f38b0895b0d6eddcf63c082d3df205f4d9de9d50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b4b64bcca57e1dc98cdba10626597532ae1461c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297061"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269714"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Crie e gerencie espaços de trabalho de Machine Learning do Azure no portal Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,7 +24,7 @@ Neste artigo, você criará, visualizará e excluirá [**espaços de trabalho do
 
 ## <a name="create-a-workspace"></a>Criar um workspace
 
-Para criar um workspace, você precisa de uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+Para criar um workspace, você precisa de uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 1. Entre no [portal do Microsoft Azure](https://portal.azure.com/) usando as credenciais de assinatura do Azure. 
 
@@ -51,7 +51,7 @@ Para criar um workspace, você precisa de uma assinatura do Azure. Se você não
     ![Configurar seu novo workspace](./media/how-to-manage-workspace/select-edition.png)
 
 1. Quando terminar de configurar o espaço de trabalho, selecione **'Revisar + Criar ''Revisar'.**
-2. Revise as configurações e faça quaisquer alterações ou correções adicionais. Quando estiver satissionizado com as configurações, selecione **Criar**.
+2. Revise as configurações e faça quaisquer alterações ou correções adicionais. Quando estiver satisfeito com as configurações, selecione **Criar**.
 
    > [!Warning] 
    > Pode levar vários minutos para criar seu workspace na nuvem.
@@ -90,6 +90,8 @@ Você pode atualizar seu espaço de trabalho da edição Básica para a edição
 
 ## <a name="find-a-workspace"></a><a name="view"></a>Encontre um espaço de trabalho
 
+1. Entre no [portal do Azure](https://portal.azure.com/).
+
 1. No campo de pesquisa superior, digite **Machine Learning**.  
 
 1. Selecione **Machine Learning**.
@@ -102,11 +104,11 @@ Você pode atualizar seu espaço de trabalho da edição Básica para a edição
 
 ## <a name="delete-a-workspace"></a>Excluir um workspace
 
-Use o botão Excluir na parte superior do workspace que você deseja excluir.
+No [portal Azure,](https://portal.azure.com/) **selecione Excluir** na parte superior do espaço de trabalho que deseja excluir.
 
-  ![Botão Excluir](./media/how-to-manage-workspace/delete-workspace.png)
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Excluir workspace":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Interpretabilidade de modelo no machine learning automatizado
+title: Explanabilidade em aprendizado automatizado de máquina
 titleSuffix: Azure Machine Learning
 description: Saiba como obter explicações de como seu modelo ML automatizado determina a importância dos recursos e faz previsões ao usar o Azure Machine Learning SDK.
 services: machine-learning
@@ -8,20 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
-ms.reviewer: trbye
 ms.date: 03/11/2020
-ms.openlocfilehash: e2465a2df3fab736c8f118911da14ef23c8aec86
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: ecf7cde1a7f804ef1c43b21ac5c1d2a488660590
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437289"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257157"
 ---
-# <a name="model-interpretability-in-automated-machine-learning"></a>Interpretabilidade de modelo no machine learning automatizado
+# <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretabilidade: explicações do modelo em aprendizado automatizado de máquina
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você aprende como habilitar os recursos de interpretação para aprendizado automatizado de máquina (ML) no Azure Machine Learning. O ML automatizado ajuda você a entender a importância dos recursos projetados. 
+Neste artigo, você aprende como obter explicações para o aprendizado automatizado de máquina (ML) no Azure Machine Learning. O ML automatizado ajuda você a entender a importância dos recursos projetados. 
 
 Todas as versões sdk após `model_explainability=True` 1.0.85 definidas por padrão. Na versão 1.0.85 do SDK e `model_explainability=True` versões anteriores os usuários precisam definir no `AutoMLConfig` objeto para usar a interpretação do modelo. 
 

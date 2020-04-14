@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: 18e9c9d330ffb8cc4e284fc649cff0840ec2c82c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e14cc00d1bd716b3e4880e585b05447d2e55e2b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270362"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257429"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guia de referência de esquema para tipos de gatilho e ação em Aplicativos azure Logic
 
-Esta referência descreve os tipos gerais usados para identificar gatilhos e ações na definição de fluxo de trabalho subjacente do seu aplicativo lógico, que é descrita e validada pela [Linguagem de Definição de Fluxo de Trabalho](../logic-apps/logic-apps-workflow-definition-language.md). Para encontrar gatilhos e ações específicas do conector que você pode usar em seus aplicativos lógicos, consulte a lista a visão geral do [Connectors](https://docs.microsoft.com/connectors/).
+Esta referência descreve os tipos gerais usados para identificar gatilhos e ações na definição de fluxo de trabalho subjacente do seu aplicativo lógico, que é descrita e validada pela [Linguagem de Definição de Fluxo de Trabalho](../logic-apps/logic-apps-workflow-definition-language.md). Para encontrar gatilhos e ações específicas do conector que você pode usar em seus aplicativos lógicos, consulte a lista sob a visão geral do [Connectors](https://docs.microsoft.com/connectors/).
 
 <a name="triggers-overview"></a>
 
@@ -148,7 +148,7 @@ Esse acionador verifica ou *pesquisa* um terminal usando [APIs gerenciadas pela 
 | <*opção de operação*> | String | Você pode alterar o comportamento padrão definindo a `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). |
 ||||
 
-*Saídas*
+*outputs*
  
 | Elemento | Type | Descrição |
 |---------|------|-------------|
@@ -323,7 +323,7 @@ Este gatilho envia uma solicitação para o ponto final HTTP ou HTTPS especifica
 | `operationOptions` | <*opção de operação*> | String | Você pode alterar o comportamento padrão definindo a `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). |
 |||||
 
-*Saídas*
+*outputs*
 
 | Elemento | Type | Descrição |
 |---------|------|-------------| 
@@ -417,7 +417,7 @@ Alguns valores, como <*tipo de método*>, estão disponíveis para ambos os `"su
 | <*opção de operação*> | String | Você pode alterar o comportamento padrão definindo a `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
 |||| 
 
-*Saídas* 
+*outputs* 
 
 | Elemento | Type | Descrição |
 |---------|------|-------------| 
@@ -822,11 +822,11 @@ Aqui estão alguns tipos de ação comumente usadas:
 | [**Executar código JavaScript**](#run-javascript-code) | Execute trechos de código JavaScript que se encaixam em critérios específicos. Para obter requisitos de código e mais informações, consulte [Adicionar e executar trechos de código com código inline](../logic-apps/logic-apps-add-run-inline-code.md). |
 | [**Função**](#function-action) | Chama uma função do Azure. | 
 | [**HTTP**](#http-action) | Chama um ponto de extremidade HTTP. | 
-| [**Unir**](#join-action) | Cria uma string de todos os itens em uma matriz e separa esses itens com um caractere delimitador especificado. | 
+| [**Join**](#join-action) | Cria uma string de todos os itens em uma matriz e separa esses itens com um caractere delimitador especificado. | 
 | [**Analisar JSON**](#parse-json-action) | Cria conteúdo fácil de usar tokens de propriedades no JSON. Você pode fazer referência a essas propriedades, incluindo os tokens em seu aplicativo lógico. | 
 | [**Consulta**](#query-action) | Cria uma matriz de itens em outra matriz com base em uma condição ou filtro. | 
 | [**Resposta**](#response-action) | Cria uma resposta a uma chamada de entrada ou a solicitação. | 
-| [**Selecione**](#select-action) | Cria uma matriz com objetos JSON, transformando itens de outra matriz com base no mapa especificado. | 
+| [**Selecionar**](#select-action) | Cria uma matriz com objetos JSON, transformando itens de outra matriz com base no mapa especificado. | 
 | [**Tabela**](#table-action) | Cria uma tabela CSV ou HTML de uma matriz. | 
 | [**Encerrar**](#terminate-action) | Interrompe um fluxo de trabalho ativo. | 
 | [**Esperar**](#wait-action) | Pausa seu fluxo de trabalho por um período especificado ou até a data e a hora especificadas. | 
@@ -1908,7 +1908,7 @@ O mecanismo do Logic Apps verifica o acesso ao acionador que você deseja chamar
 | <*conteúdo corporal*> | Objeto JSON | Qualquer conteúdo da mensagem a ser enviado com a chamada | 
 ||||
 
-*Saídas*
+*outputs*
 
 Os resultados desta ação variam com base na ação de resposta do aplicativo lógico aninhado. Se o aplicativo lógico aninhado não incluir uma ação de resposta, as saídas estarão vazias.
 
@@ -2407,11 +2407,17 @@ Você pode alterar o comportamento padrão de acionadores e ações com a propri
 
 Por padrão, as instâncias de fluxo de trabalho do aplicativo lógico são todas executadas ao mesmo tempo (simultaneamente ou em paralelo). Esse comportamento significa que cada instância de gatilho é acionada antes que a instância de fluxo de trabalho anteriormente ativa termine de ser em execução. No entanto, o número de instâncias em execução simultânea tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Quando o número de instâncias de fluxo de trabalho em execução simultânea atingir esse limite, quaisquer outras instâncias novas devem esperar para serem executadas. Esse limite ajuda a controlar o número de solicitações que os sistemas de back-end recebem.
 
-Para alterar o limite padrão, você pode usar o editor de visualização de código ou o Logic Apps Designer, pois a alteração da configuração de simultaneidade por meio do designer adiciona ou atualiza a propriedade `runtimeConfiguration.concurrency.runs` na definição do acionador subjacente e vice-versa. Essa propriedade controla o número máximo de instâncias de fluxo de trabalho que podem ser executadas em paralelo. Aqui estão algumas considerações para quando você deseja ativar o controle de simultuável:
+Quando você ativa o controle de simultuação do gatilho, as instâncias de gatilho são executadas paralelamente até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite de concorrência padrão, você pode usar o editor de visualização de código `runtimeConfiguration.concurrency.runs` ou o Logic Apps Designer porque alterar a configuração de simultâneo através do designer adiciona ou atualiza a propriedade na definição de gatilho subjacente e vice-versa. Essa propriedade controla o número máximo de novas instâncias de fluxo de trabalho que podem ser executadas em paralelo.
+
+Aqui estão algumas considerações para quando você deseja habilitar a concorrência em um gatilho:
 
 * Quando a concorrência é ativada, o [limite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) é significativamente reduzido para [matrizes de desbatching](#split-on-debatch). Se o número de itens exceder esse limite, o recurso SplitOn será desativado.
 
-* Enquanto a concorrência é ativada, uma instância de aplicativo lógico de longa duração pode fazer com que novas instâncias lógicas do aplicativo entrem em um estado de espera. Esse estado impede que o Azure Logic Apps crie novas instâncias e acontece mesmo quando o número de corridas simultâneas é menor do que o número máximo especificado de corridas simultâneas.
+* Você não pode desativar a concorrência depois de ativar o controle de simultuário.
+
+* Quando a concorrência é ativada, o [limite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) é significativamente reduzido para [matrizes de desbatching](#split-on-debatch). Se o número de itens exceder esse limite, o recurso SplitOn será desativado.
+
+* Quando a concorrência é ativada, uma instância de aplicativo lógico de longa duração pode fazer com que novas instâncias lógicas do aplicativo entrem em um estado de espera. Esse estado impede que o Azure Logic Apps crie novas instâncias e acontece mesmo quando o número de corridas simultâneas é menor do que o número máximo especificado de corridas simultâneas.
 
   * Para interromper este estado, cancele as primeiras instâncias que ainda estão *em execução*.
 

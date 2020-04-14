@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 04/13/2020
 ms.author: dapine
-ms.openlocfilehash: 79562049f48ba90a4f9a123919185521a82d7be6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ea3f63bea0701dcd0f4b38f6584816d9a1bfbc7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80365791"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258416"
 ---
 # <a name="convert-text-to-speech-using-python"></a>converter texto em fala usando o Python
 
@@ -26,7 +26,7 @@ Este artigo exige uma conta dos [Serviços Cognitivos do Azure](https://docs.mic
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Python 2.7.x ou 3.x
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou seu editor de texto favorito
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual <span class="docon docon-navigate-external x-hidden-focus"> </span>Studio </a>, <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>ou seu editor de texto favorito
 * Uma chave de assinatura do Azure para o serviço de Fala
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos necessários
@@ -159,7 +159,7 @@ python tts.py
 
 Quando solicitado, digite o que você deseja converter de conversão de texto em fala. Se bem sucedido, o arquivo de fala está localizado na pasta do seu projeto. Reproduzi-lo usando o player de mídia favorito.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Remova todas as informações confidenciais do código-fonte do seu aplicativo de exemplo, como as chaves de assinatura.
 

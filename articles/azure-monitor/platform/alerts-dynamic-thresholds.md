@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 9345138e948d84e0ea3c804dbd7a4b3c21daca2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668138"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261067"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas métricos com limiares dinâmicos no Monitor Do Azure
 
@@ -61,7 +61,7 @@ Você pode escolher o alerta a ser disparado em uma das três condições a segu
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>O que as configurações avançadas em Limites Dinâmicos significam?
 
-**Períodos de falha** - Os Limites Dinâmicos também permitem configurar "Violações numéricas para acionar o alerta", um número mínimo de desvios necessários dentro de uma determinada janela de tempo para que o sistema aumente um alerta (a janela de tempo padrão é de quatro desvios em 20 minutos). O usuário pode configurar períodos de falha e escolher sobre o que ser alertado alterando os períodos de falha e a janela de tempo. Esse recurso reduz o ruído de alerta gerado por picos transitórios. Por exemplo: 
+**Períodos de falha** - Os Limites Dinâmicos também permitem configurar "Violações numéricas para acionar o alerta", um número mínimo de desvios necessários dentro de uma determinada janela de tempo para que o sistema aumente um alerta (a janela de tempo padrão é de quatro desvios em 20 minutos). O usuário pode configurar períodos de falha e escolher sobre o que ser alertado alterando os períodos de falha e a janela de tempo. Esse recurso reduz o ruído de alerta gerado por picos transitórios. Por exemplo:
 
 Para disparar um alerta quando o problema for contínuo por 20 minutos, 4 vezes consecutivas em um determinado período de agrupamento de 5 minutos, use as seguintes configurações:
 
@@ -93,7 +93,8 @@ Quando uma regra de alerta é criada pela primeira vez, os limiares que aparecem
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Quantos dados são necessários para disparar um alerta?
 
-Se você tiver um novo recurso ou dados métricos ausentes, os Limiares Dinâmicos não dispararão alertas antes de três dias ou 30 amostras de dados métricos estiverem disponíveis para garantir limites precisos.
+Se você tiver um novo recurso ou dados métricos ausentes, os Limiares Dinâmicos não dispararão alertas antes de três dias e pelo menos 30 amostras de dados métricos estão disponíveis, para garantir limites precisos.
+Para os recursos existentes com dados métricos suficientes, os Limiares Dinâmicos podem disparar alertas imediatamente.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Melhores práticas para Limites Dinâmicos
 
@@ -182,7 +183,7 @@ Use as seguintes informações para interpretar o gráfico anterior.
 
 - **Linha azul** - A métrica real medida ao longo do tempo.
 - **Área sombreada azul** - Mostra o alcance permitido para a métrica. Enquanto os valores métricos permanecerem dentro deste intervalo, nenhum alerta ocorrerá.
-- **Pontos azuis** - Se você deixou o clique em parte do gráfico e depois pairou sobre a linha azul, você verá um ponto azul aparecer o cursor mostrando um valor métrico agregado individual.
+- **Pontos azuis** - Se você deixou o clique em parte do gráfico e depois pairou sobre a linha azul, você verá um ponto azul aparecer sob o cursor mostrando um valor métrico agregado individual.
 - **Pop-up com ponto azul** - Mostra o valor métrico medido (o ponto azul) e os valores superior e inferior da faixa permitida.  
 - **Vermelho com um círculo preto** - Mostra o primeiro valor métrico fora do intervalo permitido. Este é o valor que dispara um alerta métrico e o coloca em um estado ativo.
 - **Pontos vermelhos**- Indicar valores medidos adicionais fora da faixa permitida. Eles não dispararão alertas métricos adicionais, mas o alerta permanece ativo.

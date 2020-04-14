@@ -31,9 +31,6 @@
     - name: Gerenciar a governança de marcas
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
-    - name: Laboratórios práticos – Explorando o Azure Policy
-      displayName: 'create, policy, training, learn'
-      href: 'https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy'
 - name: Exemplos
   items:
     - name: Índice

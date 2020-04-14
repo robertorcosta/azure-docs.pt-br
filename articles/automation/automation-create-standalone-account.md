@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 22efb5e94049b975780c6f6ea69aa94a71cc9992
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f06480767b697dca8fe41e484c02aefc58f040bf
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279007"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261322"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Como criar conta autônoma de automação do Azure
 
@@ -34,7 +34,7 @@ Para criar ou atualizar uma conta de Automação e concluir as tarefas descritas
 * Para criar uma conta de Automação, sua conta de usuário Azure AD deve ser adicionada a uma função com permissões equivalentes à função Proprietário para **Microsoft. Recursos de automação.** Para obter mais informações, confira [Controle de acesso baseado em função na Automação do Azure](automation-role-based-access-control.md).
 * No portal Azure, em**Configurações****de Gerenciamento de** > Gerenciamento de Diretório > Ativo do **Azure,** se os registros do Aplicativo forem **definidos** como **Sim,** usuários não-administradores em seu inquilino Azure AD podem [registrar aplicativos do Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Se **Registros do aplicativo** estiver definido como **Não**, o usuário que executar esta ação precisará ser um administrador global no Microsoft Azure AD.
 
-Caso não seja membro da instância do Active Directory da assinatura antes de ser adicionado à função de administrador global/coadministrador da assinatura, você será adicionado ao Active Directory como convidado. Neste cenário, você recebe esta mensagem na página **Adicionar Conta de Automação**: “Você não tem permissões para criar”.
+Se você não for um membro da instância active directory da assinatura antes de ser adicionado à função de administrador/coadministrador global da assinatura, você será adicionado ao Active Directory como convidado. Neste cenário, você vê esta mensagem na página **Adicionar conta de automação:** "Você não tem permissões para criar".
 
 Se um usuário for adicionado à função de administrador global/coadministrator pela primeira vez, você poderá removê-lo da instância do Active Directory da assinatura e, em seguida, adicioná-lo novamente à função de Usuário completa no Active Directory.
 
@@ -92,7 +92,7 @@ Quando a criação da conta de Automação tiver sido criada com êxito, vários
 | AzureRunAsCertificate |Um ativo de certificado criado automaticamente quando a conta de Automação é criada ou usando um script do PowerShell para uma conta existente. O certificado é autenticado no Azure, do modo que você possa gerenciar os recursos do Azure Resource Manager em runbooks. Esse certificado tem um tempo de vida de um ano. |
 | AzureRunAsConnection |Um ativo de conexão criado automaticamente quando a conta de Automação é criada ou usando um script do PowerShell para uma conta existente. |
 
-## <a name="classic-run-as-accounts"></a>Contas clássicas de run-as
+## <a name="create-a-classic-run-as-account"></a>Crie uma conta clássica de Run-As
 
 As contas clássicas do Run-As não são mais criadas, por padrão, quando você cria uma conta de Automação Azure. Se você ainda precisar de uma conta Classic Run-A, execute as seguintes etapas.
 

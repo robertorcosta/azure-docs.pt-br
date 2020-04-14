@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 49ef78ac5a7d58d86583d91bf072f0f3131796fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 889d0d1e98f5c9947588011774d02e54f05edca1
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80109388"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257752"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Configurar um laboratório voltado para o aprendizado profundo em processamento em idioma natural usando o Azure Lab Services
 Este artigo mostra como montar um laboratório focado em deep learning in natural language processing (NLP) usando o Azure Lab Services. O NLP (processamento de idioma natural) é uma forma de IA (inteligência artificial) que habilita os computadores com tradução, reconhecimento de fala e outras funcionalidades de reconhecimento vocal.  
@@ -39,7 +39,7 @@ Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laborat
 | Configurações de laboratório | Valor/instruções | 
 | ------------ | ------------------ |
 | Tamanho da máquina virtual (VM) | GPU pequena (Computação). Este tamanho é mais adequado para aplicações intensivas em computação e com uso intensivo de rede, como Inteligência Artificial e Deep Learning. |
-| Imagem vm | [Máquina Virtual de Ciência de Dados para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). Essa imagem fornece estruturas e ferramentas de aprendizagem profunda para aprendizado de máquina e ciência de dados. Para ver a lista completa de ferramentas instaladas nesta imagem, veja o seguinte artigo: [O que está incluído no DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
+| Imagem vm | [Máquina Virtual de Ciência de Dados para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Essa imagem fornece estruturas e ferramentas de aprendizagem profunda para aprendizado de máquina e ciência de dados. Para ver a lista completa de ferramentas instaladas nesta imagem, veja o seguinte artigo: [O que está incluído no DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
 | Habilite a conexão remota da área de trabalho | Habilitar. <p>A ativação dessa configuração permitirá que professores e alunos se conectem às suas Máquinas Virtuais (VM) usando RDP (Remote Desktop).</p><p>**Importante**: o RDP já está instalado e configurado na Máquina Virtual de Data Science para imagem Linux. Como resultado, professores/alunos podem se conectar a VMs via RDP sem quaisquer etapas adicionais. Além disso, se você precisar se conectar à área de trabalho gráfica, essa imagem já tem o [X2Go Server](https://wiki.x2go.org/doku.php/doc:newtox2go) instalado na máquina virtual. Os alunos devem instalar o cliente X2Go em suas máquinas locais e devem usar o cliente para conectar. Para obter mais informações, consulte os seguintes guias: <ul><li>[Como acessar uma Máquina Virtual de Ciência de Dados para Linux](../../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)</li><li>[Conecte-se ao modelo VM para instalar pacotes RDP e GUI](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm)</li></ul></p>   |
 
 A Máquina Virtual de Data Science para imagem Linux fornece as estruturas e ferramentas de aprendizado profundo necessárias para este tipo de aula. Como resultado, após a criação da máquina de modelo, você não precisa personalizá-la mais. Pode ser publicado para os alunos usarem. Selecione o botão **Publicar** na página do modelo para publicar o modelo no laboratório.  

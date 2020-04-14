@@ -4,12 +4,12 @@ description: Saiba como usar o portal do Azure para criar um cluster do AKS (Ser
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 696821e12e963292107cad5b22f00a9816a94b25
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 7b9127c016fff78a8867dcecbe3260becdf02c65
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616420"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259112"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster do AKS (Serviços de Kubernetes do Azure) para usar nós virtuais no portal do Azure
 
@@ -66,7 +66,7 @@ A funcionalidade de Nodos Virtuais depende fortemente do conjunto de recursos da
 * [Aliases host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Argumentos](../container-instances/container-instances-exec.md#restrictions) para executivo na ACI
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) não implantarão pods no nó virtual
-* [Os nós do Windows Server (atualmente em visualização no AKS)](windows-container-cli.md) não são suportados ao lado de nós virtuais. Você pode usar nomes virtuais para agendar contêineres do Windows Server sem a necessidade de nódulos do Windows Server em um cluster AKS.
+* Nós virtuais suportam o agendamento de pods Linux. Você pode instalar manualmente o provedor [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) de código aberto para agendar contêineres do Windows Server para ACI. 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -93,7 +93,7 @@ Por padrão, cria-se uma entidade de serviço do Azure Active Directory. Essa en
 
 O cluster também é configurado para acesso avançado à rede. Os nós virtuais são configurados para usar sua própria sub-rede da rede virtual do Azure. Essa sub-rede tem permissões delegadas para se conectar a recursos do Azure entre o cluster do AKS. Se você ainda não tiver uma sub-rede delegada, o portal do Azure criará e configurará a sub-rede e a rede virtual do Azure para usar com os nós virtuais.
 
-Selecione **Revisão + criar**. Após concluir a validação, escolha **Criar**.
+Selecione **Examinar + criar**. Após concluir a validação, escolha **Criar**.
 
 Demora alguns minutos para o cluster do AKS ser criado e ficar pronto para uso.
 

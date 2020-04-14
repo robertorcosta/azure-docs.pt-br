@@ -7,21 +7,21 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 2995cd2a97329aa8b7947145150c6a3501346fdb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 405ba37fd10fa48bf45f1031d2e9b5b17620ea0a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275655"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262410"
 ---
-# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Painel de avaliações e avaliações em análises de Mercado Comercial
+# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Painel de avaliações e avaliações em análises de mercado comercial
 
 Este artigo fornece informações sobre o painel de avaliações & avaliações no Partner Center. Este painel exibe uma visão consolidada do feedback dos clientes para ofertas no Azure Marketplace e no AppSource.
 
 Para acessar o **painel de avaliações & avaliações** nas ferramentas de análise do Partner Center, abra o painel **[Analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** em Mercado Comercial.
 
 >[!NOTE]
-> Para definições detalhadas da terminologia de análise, consulte [perguntas freqüentes e terminologia para análises de mercado comercial](./faq-terminology.md).
+> Para definições detalhadas da terminologia de análise, consulte [perguntas e terminologias freqüentes para análise de mercado comercial](./faq-terminology.md).
 
 ## <a name="ratings--reviews"></a>Avaliações & avaliações
 
@@ -57,10 +57,10 @@ As revisões são exibidas em ordem cronológica para quando foram postadas. A e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral dos relatórios de análise disponíveis no Partner Center Commercial Marketplace, consulte [Analytics for the Commercial Marketplace in Partner Center](./analytics.md).
-- Para obter gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para sua oferta, consulte [Summary Dashboard in Commercial Marketplace analytics](./summary-dashboard.md).
+- Para obter uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
+- Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para sua oferta, consulte [Summary Dashboard em análises de mercado comercial](./summary-dashboard.md).
 - Para obter informações sobre seus pedidos em um formato gráfico e para download, consulte [Orders Dashboard em análises de mercado comercial](./orders-dashboard.md).
-- Para a Máquina Virtual (VM) oferece métricas de uso e faturamento medido, consulte [O Painel de Uso em análises de mercado comercial](./usage-dashboard.md).
-- Para obter informações detalhadas sobre seus clientes, incluindo tendências de crescimento, consulte [o Customer Dashboard em análises de Mercado Comercial](./customer-dashboard.md).
-- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte [O Painel de Downloads em análises de Mercado Comercial](./downloads-dashboard.md).
-- Para perguntas frequentes sobre análises de mercado comercial e para um dicionário abrangente de termos de dados, consulte [perguntas e terminologias freqüentes para análises de mercado comercial](./faq-terminology.md).
+- Para a Máquina Virtual (VM) oferece métricas de uso e faturamento medido, consulte [Use Dashboard em análises de mercado comercial](./usage-dashboard.md).
+- Para obter informações detalhadas sobre seus clientes, incluindo tendências de crescimento, consulte [o Customer Dashboard em análises de mercado comercial](./customer-dashboard.md).
+- Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte [Downloads Dashboard em análises de mercado comercial](./downloads-dashboard.md).
+- Para perguntas frequentes sobre análise de mercado comercial e para um dicionário abrangente de termos de dados, consulte [perguntas e terminologias freqüentes para análise de mercado comercial](./faq-terminology.md).

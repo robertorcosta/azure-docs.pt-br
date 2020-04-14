@@ -4,12 +4,12 @@ description: Crie e gerencie um Blockchain Data Manager para o Azure Blockchain 
 ms.date: 03/30/2020
 ms.topic: article
 ms.reviewer: ravastra
-ms.openlocfilehash: 5ceca96f760ab62ca7f3df9ad26139b9b4a3e5be
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: e490803fabeed7d6234bd6984acbfb9f5270e0c0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529582"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254403"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurar o Gerenciador de Dados Blockchain usando a CLI do Azure
 
@@ -40,7 +40,7 @@ Se você preferir instalar e usar a CLI localmente, este início rápido exigir�
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create.](https://docs.microsoft.com/cli/azure/group) Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus:*
+Crie um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 az group create --name myRG --location eastus
@@ -48,7 +48,7 @@ az group create --name myRG --location eastus
 
 ## <a name="create-instance"></a>Criar instância
 
-Uma instância do Blockchain Data Manager monitora um nó de transação do Azure Blockchain Service. Uma instância captura todos os dados brutos de bloqueio e de transação provenientes do nó de transação.
+Uma instância do Blockchain Data Manager monitora um nó de transação do Azure Blockchain Service. Uma instância captura todos os dados brutos de bloqueio e de transação provenientes do nó de transação. O Blockchain Data Manager publica uma mensagem **RawBlockAndTransactionMsg** que é um superconjunto de informações devolvidas do web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) e obter consultas [de transações.](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction)
 
 ``` azurecli
 az resource create \

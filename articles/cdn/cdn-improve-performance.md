@@ -3,7 +3,7 @@ title: Melhorar o desempenho compactando os arquivos na CDN do Azure | Microsoft
 description: Saiba como melhorar a velocidade de transferência do arquivo e aumentar o desempenho de carregamento da página compactando os arquivos na CDN do Azure.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
-ms.author: magattus
-ms.openlocfilehash: 9f185f58e1d33a3985777cb22bc7578f9f2c4541
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 7124dd40d4510674014afe012a8f40dcb5bb6153
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593796"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253757"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho compactando os arquivos na CDN do Azure
 A compactação de arquivo é um método simples e eficiente para melhorar a velocidade de transferência de arquivos e aumentar o desempenho de carregamento de páginas, reduzindo o tamanho de arquivos antes de serem enviados do servidor. Ela pode reduzir os custos de largura de banda e oferece uma experiência mais responsiva para os seus usuários.
@@ -139,7 +139,7 @@ Esses perfis dão suporte somente à codificação de compactação gzip. Quando
 As tabelas a seguir descrevem o comportamento de compactação CDN do Azure para cada cenário:
 
 ### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>A compactação é desabilitada ou arquivo não está qualificado para compactação
-| Formato solicitado pelo cliente (por meio do cabeçalho Accept-Encoding) | Formato de arquivo armazenado em cache | A resposta da CDN para o cliente | &nbsp; &nbsp; Notas&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+| Formato solicitado pelo cliente (por meio do cabeçalho Accept-Encoding) | Formato de arquivo armazenado em cache | A resposta da CDN para o cliente | &nbsp; &nbsp; Notas&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed | |
 | Compressed |Não compactado |Não compactado | |

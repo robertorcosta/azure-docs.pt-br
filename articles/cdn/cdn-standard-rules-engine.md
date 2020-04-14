@@ -2,17 +2,17 @@
 title: Use um mecanismo de regras para aplicar HTTPS no Standard Azure CDN | Microsoft Docs
 description: Use o mecanismo de regras para o Microsoft Standard Azure Content Delivery Network (Azure CDN) para personalizar como o Azure CDN lida com solicitações HTTP, incluindo o bloqueio da entrega de certos tipos de conteúdo, a definição de uma política de cache e a modificação de cabeçalhos HTTP. Neste artigo, aprenda a criar uma regra para redirecionar os usuários para HTTPS.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
-ms.openlocfilehash: 724861305d7a25db409072200ac2bc3bd83f0682
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 91a442573139bf4fdd09978290bf2380c8bcb97e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74171583"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259911"
 ---
 # <a name="set-up-the-standard-rules-engine-for-azure-cdn"></a>Configure o mecanismo de regras padrão para CDN do Azure
 

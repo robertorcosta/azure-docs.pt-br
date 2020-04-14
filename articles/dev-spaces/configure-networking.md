@@ -5,12 +5,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 description: Descreve os requisitos de rede para executar espaços azure dev no Azure Kubernetes Services
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, CNI, kubenet, SDN, rede
-ms.openlocfilehash: 82d046aa36fe9caf6337aa7f58ca0db525062283
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e344576caf276ae7cb5fe00395c84810a4e7d32
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240562"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262036"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Configure a rede para espaços azure dev em diferentes topoologias de rede
 
@@ -20,9 +20,9 @@ O Azure Dev Spaces é executado em clusters Azure Kubernetes Service (AKS) com a
 
 ## <a name="virtual-network-or-subnet-configurations"></a>Configurações de rede virtual ou sub-rede
 
-Seu cluster AKS pode ter uma configuração diferente de rede virtual ou sub-rede para restringir o tráfego de ingestão ou saída para o cluster AKS. Por exemplo, seu cluster pode estar por trás de um firewall, como o Azure Firewall, ou você pode usar Grupos de Segurança de Rede ou funções personalizadas para restringir o tráfego de rede.
+Seu cluster AKS pode ter uma configuração diferente de rede virtual ou sub-rede para restringir o tráfego de ingestão ou saída para o cluster AKS. Por exemplo, seu cluster pode estar por trás de um firewall, como o Azure Firewall, ou você pode usar Grupos de Segurança de Rede ou funções personalizadas para restringir o tráfego de rede. Você pode encontrar um exemplo de configuração de rede no [repositório de amostra Azure Dev Spaces no GitHub][sample-repo].
 
-O Azure Dev Spaces tem certos requisitos para o tráfego de rede *Ingress e Egress,* bem como apenas tráfego *de Ingress.* Se você estiver usando o Azure Dev Spaces em um cluster AKS com uma configuração de rede virtual ou sub-rede que restringe o tráfego para o seu cluster AKS, você deve seguir apenas os seguintes requisitos de tráfego de ingestão e saída para que os espaços de desenvolvimento do Azure sejam necessários funcionar corretamente.
+O Azure Dev Spaces tem certos requisitos para o tráfego de rede *Ingress e Egress,* bem como apenas tráfego *de Ingress.* Se você estiver usando o Azure Dev Spaces em um cluster AKS com uma configuração de rede virtual ou sub-rede que restringe o tráfego para o cluster AKS, você deve seguir apenas os seguintes requisitos de tráfego de ingestão e saída para que os espaços de desenvolvimento do Azure funcionem corretamente.
 
 ### <a name="ingress-and-egress-network-traffic-requirements"></a>Requisitos de tráfego de rede de ingresss e egress
 
@@ -73,10 +73,10 @@ O Azure Dev Spaces tem a opção de expor pontos finais para seus serviços em e
 * Um ponto final *privado* implanta um controlador de ingestão com um endereço IP privado. Com um endereço IP privado, o balanceador de carga para o cluster só é acessível a partir de dentro da rede virtual do cluster. O endereço IP privado do balanceador de carga é registrado no DNS do cluster para que os serviços dentro da rede virtual do cluster possam ser acessados usando uma URL. Você pode visualizar `azds list-uris`esta URL usando .
 * A *definição de nenhum* para a opção de ponto final faz com que nenhum controlador de ingestão seja implantado. Sem o controlador de ingress implantado, os [recursos de roteamento do Azure Dev Spaces][dev-spaces-routing] não funcionarão. Opcionalmente, você pode implementar sua própria solução de controlador de ingress usando [traefik][traefik-ingress] ou [NGINX,][nginx-ingress]o que permitirá que os recursos de roteamento funcionem novamente.
 
-Para configurar sua opção de ponto final, use *-e* ou *--ponto final* ao ativar espaços de dev do Azure em seu cluster. Por exemplo: 
+Para configurar sua opção de ponto final, use *-e* ou *--ponto final* ao ativar espaços de dev do Azure em seu cluster. Por exemplo:
 
 > [!NOTE]
-> A opção de ponto final requer que você esteja executando a versão 2.2.0 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI][azure-cli-install].
+> A opção de ponto final requer que você esteja executando a versão 2.2.0 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ```azurecli
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS -e private
@@ -109,4 +109,5 @@ Saiba como o Azure Dev Spaces ajuda você a desenvolver aplicativos mais complex
 [endpoint-options]: #using-different-endpoint-options
 [traefik-ingress]: how-to/ingress-https-traefik.md
 [nginx-ingress]: how-to/ingress-https-nginx.md
+[sample-repo]: https://github.com/Azure/dev-spaces/tree/master/advanced%20networking
 [team-quickstart]: quickstart-team-development.md

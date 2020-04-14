@@ -3,8 +3,8 @@ title: Configuração grub proativa do Console Serial Azure| Microsoft Docs
 description: Configure o GRUB em várias distribuições, permitindo acesso a um único usuário e modo de recuperação em máquinas virtuais do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: vilibert
-manager: spogge
+author: mimckitt
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
-ms.author: vilibert
-ms.openlocfilehash: a154ab4742f0d0d7acae0376bcf894bc2b62b4cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 573bd0797e63fc512e59b0e0882c718e4569111c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74186923"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262886"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Garantir proativamente que você tenha acesso ao GRUB e sysrq pode economizar muito tempo de inatividade
 
@@ -98,7 +98,7 @@ Neste artigo, vamos rever várias distribuições Linux e configurações de doc
 A chave sysrq é habilitada em algumas distros Linux mais novas por padrão, embora em outras possa ser configurada para aceitar valores apenas para certas funções SysRq.
 Em distros mais antigos, pode ser desativado completamente.
 
-O recurso SysRq é útil para reiniciar um VM acidentado ou pendurado diretamente do Console Serial Azure, também útil para obter acesso ao menu GRUB, alternativamente reiniciar uma VM de outra janela de portal ou sessão ssh pode diminuir sua conexão atual do console expirando assim os tempos de GRUB para os quais são usados para exibir o menu GRUB.
+O recurso SysRq é útil para reiniciar um VM acidentado ou pendurado diretamente do Console Serial Azure, também útil para obter acesso ao menu GRUB, alternativamente reiniciar uma VM de outra janela de portal ou sessão ssh pode soltar sua conexão atual do console, expirando assim os tempos de GRUB para os quais são usados para exibir o menu GRUB.
 O VM deve ser configurado para aceitar um valor de 1 para o parâmetro do kernel, que permite todas as funções de sysrq ou 128, o que permite reinicialização/poweroff
 
 

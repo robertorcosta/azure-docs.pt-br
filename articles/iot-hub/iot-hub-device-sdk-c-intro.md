@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: robinsh
-ms.openlocfilehash: dd12f974b9b02d919752dcb932c9ce1709d7315b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71193523a83987de2440d8c70c133c29dde4fe91
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70813780"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257871"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK do dispositivo IoT do Azure para C
 
@@ -21,7 +21,7 @@ O **SDK do dispositivo IoT do Azure** é um conjunto de bibliotecas projetadas p
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-O SDK do dispositivo IoT do Azure para C foi escrito em ANSI (C99) para maximizar a portabilidade. Esse recurso torna as bibliotecas bastante adequado para a operação em vários dispositivos e plataformas, especialmente quando a minimização do volume de disco e de memória for uma prioridade.
+O SDK do dispositivo IoT do Azure para C foi escrito em ANSI (C99) para maximizar a portabilidade. Esse recurso torna as bibliotecas adequadas para operar em várias plataformas e dispositivos, especialmente onde minimizar a pegada de disco e memória é uma prioridade.
 
 Há uma ampla variedade de plataformas nas quais o SDK foi testado (confira o [Catálogo de dispositivos certificados pelo Azure para IoT](https://catalog.azureiotsolutions.com/) para obter detalhes). Embora este artigo inclua explicações de exemplo de código em execução na plataforma Windows, o código descrito neste artigo é idêntico entre as várias plataformas com suporte.
 
@@ -41,9 +41,9 @@ A versão mais recente das bibliotecas pode ser encontrada na ramificação **me
 
 * A implementação principal do SDK fica na pasta **iothub\_client**, que contém a implementação da camada de API mais baixa no SDK: a biblioteca **IoTHubClient**. A biblioteca **IoTHubClient** contém APIs que implementam mensagens brutas para enviar mensagens para o Hub IoT, além de receber mensagens dele. Ao usar essa biblioteca, você será o responsável por implementar a serialização de mensagens, mas outros detalhes de comunicação com o Hub IoT serão tratados para você.
 
-* A pasta **serializador** contém funções auxiliares e exemplos que mostram como serializar os dados antes de enviar para o Hub IoT do Azure usando a biblioteca de cliente. O uso do serializador não é obrigatório e só é fornecido como uma conveniência. Para usar a biblioteca **serializer**, defina um modelo que especifica os dados para envio ao Hub IoT e as mensagens que você espera receber dele. Depois que o modelo é definido, o SDK fornece uma superfície de API que permite a você trabalhar facilmente com mensagens de dispositivo para nuvem e de nuvem para dispositivo sem se preocupar com os detalhes de serialização. A biblioteca depende de outras bibliotecas de software livre que implementam o transporte usando protocolos como MQTT e AMQP.
+* A pasta **serializador** contém funções auxiliares e exemplos que mostram como serializar os dados antes de enviar para o Hub IoT do Azure usando a biblioteca de cliente. O uso do serializador não é obrigatório e só é fornecido como uma conveniência. Para usar a biblioteca **serializer**, defina um modelo que especifica os dados para envio ao Hub IoT e as mensagens que você espera receber dele. Depois que o modelo é definido, o SDK fornece uma superfície de API que permite a você trabalhar facilmente com mensagens de dispositivo para nuvem e de nuvem para dispositivo sem se preocupar com os detalhes de serialização. A biblioteca depende de outras bibliotecas de código aberto que implementam o transporte usando protocolos como MQTT e AMQP.
 
-* A biblioteca **IoTHubClient** depende de outras bibliotecas de software livre:
+* A biblioteca **IoTHubClient** depende de outras bibliotecas de código aberto:
 
   * A biblioteca de [utilitários compartilhados do Azure C](https://github.com/Azure/azure-c-shared-utility), que fornece funcionalidades comuns para tarefas básicas (como cadeia de caracteres, manipulação de listas e E/S) necessárias entre vários SDKs para C relacionados ao Azure.
 
@@ -71,15 +71,15 @@ Para obter o código do aplicativo de exemplo, baixe uma cópia do SDK do GitHub
 
 Agora que você tem o código-fonte, a próxima coisa a fazer é obter um conjunto de credenciais do dispositivo. Para um dispositivo poder acessar um Hub IoT, primeiro você deverá adicionar o dispositivo ao registro de identidade do Hub IoT. Quando você adiciona seu dispositivo, obtém um conjunto de credenciais de dispositivo necessário para que ele seja capaz de se conectar ao Hub IoT. Os aplicativos de exemplo abordados na próxima seção esperam essas credenciais na forma de uma **cadeia de conexão de dispositivo**.
 
-Há várias ferramentas de código-fonte aberto para ajudá-lo a gerenciar seu Hub IoT.
+Existem várias ferramentas de código aberto para ajudá-lo a gerenciar seu hub de IoT.
 
-* Um aplicativo do Windows chamado [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+* Um aplicativo do Windows chamado [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer).
 
 * Uma extensão multiplataforma do Visual Studio Code chamada [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 * Uma CLI do Python multiplataforma denominada [a extensão de IoT da CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
-Este tutorial usa a ferramenta gráfica *Gerenciador de Dispositivos*. Você poderá usar a extensão do *Kit de Ferramentas do Azure IoT para o VS Code* se desenvolver no VS Code. Você também pode usar a ferramenta *a extensão de IoT do Azure CLI 2.0* se preferir usar uma ferramenta CLI.
+Este tutorial usa a ferramenta gráfica *Gerenciador de Dispositivos*. Você poderá usar a extensão do *Kit de Ferramentas do Azure IoT para o VS Code* se desenvolver no VS Code. Você também pode usar a *extensão IoT para a ferramenta Azure CLI 2.0* se preferir usar uma ferramenta CLI.
 
 A ferramenta Gerenciador de Dispositivos usa as bibliotecas de serviço IoT do Azure para executar várias funções no Hub IoT, incluindo a adição de dispositivos. Se você usar a ferramenta Gerenciador de Dispositivos para adicionar um dispositivo, você obterá uma cadeia de conexão para seu dispositivo. Você precisa dessa cadeia de conexão para executar os aplicativos de exemplo.
 
@@ -245,7 +245,7 @@ O último parâmetro é um ponteiro nulo para o que você quiser. No exemplo, é
 
 Quando o dispositivo receber uma mensagem, a função de retorno de chamada registrada será invocada. Essa função de retorno de chamada recupera:
 
-* A ID da mensagem e a ID de correlação da mensagem.
+* O ID da mensagem e o ID de correlação da mensagem.
 * O conteúdo da mensagem.
 * Todas as propriedades personalizadas da mensagem.
 

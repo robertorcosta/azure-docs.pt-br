@@ -4,12 +4,12 @@ description: Restaure uma máquina virtual do Azure de um ponto de recuperação
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 3c3c8a7bd47ae03a013ddfadffabaa16fd04412b
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: b9cdb187aa3b8750bead8e81ad6d0ee50dcb3d6c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677541"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254913"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados do Azure VM no portal Azure
 
@@ -28,8 +28,6 @@ O Backup do Azure proporciona várias maneiras de restaurar uma VM.
 
 > [!NOTE]
 > Você também pode recuperar arquivos e pastas específicos em uma VM do Azure. [Saiba mais](backup-azure-restore-files-from-vm.md).
->
-> Se você estiver executando a [versão mais recente](backup-instant-restore-capability.md) do Backup do Azure para VMs do Azure (conhecida como Restauração Instantânea), os instantâneos serão mantidos por até sete dias e você poderá restaurar uma VM a partir de instantâneos antes que os dados de backup sejam enviados para o cofre. Se você quiser restaurar uma VM a partir de um backup dos últimos sete dias, será mais rápido restaurar a partir do instantâneo e não do cofre.
 
 ## <a name="storage-accounts"></a>Contas de armazenamento
 

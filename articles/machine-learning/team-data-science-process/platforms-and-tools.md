@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d26dc55cfd0f2ef0bb78e4153fffe3f1cb910b73
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 3f3f06bd5a9b6a78b45a63de0684b580e662075b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474875"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256511"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
 
@@ -49,7 +49,7 @@ Ele também inclui **ferramentas de ML e IA** como xgboost, mxnet e Vowpal Wabbi
 
 No momento, a DSVM está disponível nos sistemas operacionais **Windows** e **Linux CentOS**. Escolha o tamanho da sua DSVM (número de núcleos de CPU e quantidade de memória) com base nas necessidades dos projetos de ciência de dados que você planeja executar nela. 
 
-Para obter mais informações sobre a edição windows do DSVM, consulte [A Máquina Virtual de Data Science](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) da Microsoft no Mercado Azure. Para a edição do Linux da DSVM, consulte [Máquina Virtual de Ciência de Dados do Linux](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu).
+Para obter mais informações sobre a edição windows do DSVM, consulte [A Máquina Virtual de Data Science](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) da Microsoft no Mercado Azure. Para a edição do Linux da DSVM, consulte [Máquina Virtual de Ciência de Dados do Linux](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
 
 Para aprender a executar algumas das tarefas comuns de ciência de dados no DSVM de forma eficiente, veja [10 coisas que você pode fazer na Máquina Virtual de Ciência de Dados](../data-science-virtual-machine/vm-do-ten-things.md)
 

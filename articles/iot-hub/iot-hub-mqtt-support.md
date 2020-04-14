@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 2b200692610302bb135982e5419dcda36d5cfe60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ccfaa57b8e8fdea325bed908ffe8815b09d0d15
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271155"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257786"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o hub IoT usando o protocolo MQTT
 
@@ -25,7 +25,7 @@ O Hub IoT não é um agente MQTT completo e não dá suporte a todos os comporta
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Todas as comunicações de dispositivo com o Hub IoT devem ser protegidas usando TLS/SSL. Portanto, o Hub IoT não fornece suporte para conexões não seguras na porta 1883.
+Todas as comunicações de dispositivo com o Hub IoT devem ser protegidas usando TLS/SSL. Portanto, o IoT Hub não suporta conexões não seguras sobre a porta 1883.
 
 ## <a name="connecting-to-iot-hub"></a>Conectando-se ao Hub IoT
 
@@ -44,12 +44,12 @@ Quando um dispositivo está conectado a um Hub IoT, os SDKs do dispositivo forne
 
 A tabela a seguir contém links para amostras de código para cada idioma suportado e especifica o parâmetro a ser usado para estabelecer uma conexão com o IoT Hub usando o protocolo MQTT ou MQTT sobre Soquetes da Web.
 
-| Idioma | Parâmetro do protocolo MQTT | MQTT sobre o parâmetro do protocolo de Soquetes da Web
+| Linguagem | Parâmetro do protocolo MQTT | MQTT sobre o parâmetro do protocolo de Soquetes da Web
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-dispositivo-mqtt. Mqtt | azure-iot-dispositivo-mqtt. MqttWs |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable). MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C #](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [Tipo de transporte](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet). Mqtt | TransportType.Mqtt volta ao MQTT sobre soquetes da Web se o MQTT falhar. Para especificar o MQTT apenas em Soquetes da Web, use TransportType.Mqtt_WebSocket_Only |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [Tipo de transporte](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet). Mqtt | TransportType.Mqtt volta ao MQTT sobre soquetes da Web se o MQTT falhar. Para especificar o MQTT apenas em Soquetes da Web, use TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Suporta MQTT por padrão | Adicione `websockets=True` a chamada para criar o cliente |
 
 O fragmento a seguir mostra como especificar o protocolo MQTT sobre Soquetes da Web ao usar o Azure IoT Node.js SDK:
@@ -71,7 +71,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 Para garantir que uma conexão cliente/IoT Hub permaneça viva, tanto o serviço quanto o cliente enviam regularmente um ping *de manter-se vivo* um para o outro. O cliente que usa IoT SDK envia um keep-alive no intervalo definido nesta tabela abaixo:
 
-|Idioma  |Intervalo padrão de manter-se vivo  |Configurável  |
+|Linguagem  |Intervalo padrão de manter-se vivo  |Configurável  |
 |---------|---------|---------|
 |Node.js     |   180 segundos      |     Não    |
 |Java     |    230 segundos     |     Não    |
@@ -118,7 +118,7 @@ Se um dispositivo não puder usar os SDKs do dispositivo, ele poderá se conecta
 
   Para saber mais sobre como gerar tokens SAS, confira a seção de dispositivo de [Usar tokens de segurança do Hub IoT](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  Ao testar, você também pode usar as [Ferramentas do Azure IoT multiplataforma para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou a ferramenta [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) para gerar rapidamente um token SAS que você pode copiar e colar em seu próprio código:
+  Ao testar, você também pode usar as ferramentas de IoT cross-platform [do Azure Para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou o hub de comando de extensão CLI [az iot generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) para gerar rapidamente um token SAS que você pode copiar e colar em seu próprio código:
 
 ### <a name="for-azure-iot-tools"></a>Para ferramentas De IoT do Azure
 
@@ -129,16 +129,6 @@ Se um dispositivo não puder usar os SDKs do dispositivo, ele poderá se conecta
 3. Definir **tempo de expiração** e pressione 'Enter'.
   
 4. O token SAS é criado e copiado para a área de transferência.
-
-### <a name="for-device-explorer"></a>Para explorador de dispositivos
-
-1. Vá para a guia **Gerenciamento** no **Explorador de dispositivos**.
-
-2. Clique em **Token SAS** (parte superior direita).
-
-3. Em **SASTokenForm**, selecione seu dispositivo no menu suspenso **DeviceID**. Defina o **TTL**.
-
-4. Clique em **Gerar** para criar o token.
 
    O token de SAS gerado tem a seguinte estrutura:
 
@@ -286,7 +276,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>Enviando mensagens de dispositivo para nuvem
 
-Depois de fazer uma conexão bem-sucedida, um dispositivo pode enviar mensagens ao IoT Hub usando `devices/{device_id}/messages/events/` ou `devices/{device_id}/messages/events/{property_bag}` como um **nome de tópico**. O elemento `{property_bag}` habilita o dispositivo a enviar mensagens com propriedades adicionais em um formato codificado de URL. Por exemplo: 
+Depois de fazer uma conexão bem-sucedida, um dispositivo pode enviar mensagens ao IoT Hub usando `devices/{device_id}/messages/events/` ou `devices/{device_id}/messages/events/{property_bag}` como um **nome de tópico**. O elemento `{property_bag}` habilita o dispositivo a enviar mensagens com propriedades adicionais em um formato codificado de URL. Por exemplo:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -359,7 +349,7 @@ A sequência a seguir descreve como um dispositivo atualiza as propriedades rela
 
 3. Em seguida, o serviço envia uma mensagem de resposta que contém o novo valor de ETag para a coleção de propriedades relatadas no tópico `$iothub/twin/res/{status}/?$rid={request id}`. Essa mensagem de resposta usa a mesma **id de solicitação** da solicitação.
 
-O corpo da mensagem de solicitação contém um documento JSON, que contém novos valores para propriedades relatadas. Cada membro no documento JSON atualiza ou adiciona o membro correspondente no documento do dispositivo gêmeo. Um membro definido como `null` exclui o membro do objeto recipiente. Por exemplo: 
+O corpo da mensagem de solicitação contém um documento JSON, que contém novos valores para propriedades relatadas. Cada membro do documento JSON atualiza ou adiciona o membro correspondente no documento do dispositivo gêmeo. Um membro definido como `null` exclui o membro do objeto recipiente. Por exemplo:
 
 ```json
 {
@@ -397,7 +387,7 @@ Para obter mais informações, consulte [Guia do desenvolvedor de dispositivos g
 
 ## <a name="receiving-desired-properties-update-notifications"></a>Recebendo notificações de atualização de propriedades desejadas
 
-Quando um dispositivo é conectado, o Hub IoT envia notificações para o tópico `$iothub/twin/PATCH/properties/desired/?$version={new version}`, que contêm o conteúdo da atualização executada pelo back-end da solução. Por exemplo: 
+Quando um dispositivo é conectado, o Hub IoT envia notificações para o tópico `$iothub/twin/PATCH/properties/desired/?$version={new version}`, que contêm o conteúdo da atualização executada pelo back-end da solução. Por exemplo:
 
 ```json
 {

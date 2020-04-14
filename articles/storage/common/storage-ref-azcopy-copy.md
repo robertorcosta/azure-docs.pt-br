@@ -4,16 +4,16 @@ description: Este artigo fornece informações de referência para o comando azc
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 431372b930269c3dfa6bdc6e8b2fe4d291a8162e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0325a71fb069f3d96f05d106afac1639fc38fe42
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78933779"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253332"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -169,6 +169,8 @@ Copie um subconjunto de baldes usando um símbolo curinga (*) no nome do balde. 
 
 ## <a name="options"></a>Opções
 
+**--backup**                               Ativa o SeBackupPrivilege do Windows para uploads, ou SeRestorePrivilege para downloads, para permitir que o AzCopy veja ler todos os arquivos, independentemente das permissões do sistema de arquivos, e restaurar todas as permissões. Requer que a conta em execução do AzCopy já tenha essas permissões (por exemplo, tem direitos de administrador ou é membro do grupo 'Operadores de backup'). Tudo o que essa bandeira faz é ativar privilégios que a conta já tem.
+
 **--string tipo bolha** define o tipo de bolha no destino. Isso é usado para carregar blobs e ao copiar entre contas (padrão 'Detectar'). Os valores válidos incluem 'Detectar', 'BlockBlob', 'PageBlob' e 'AppendBlob'. Ao copiar entre contas, um valor de 'Detectar' faz com que o AzCopy use o tipo de bolha de origem para determinar o tipo de bolha de destino. Ao carregar um arquivo, 'Detect' determina se o arquivo é um VHD ou um arquivo VHDX com base na extensão do arquivo. Se o arquivo for éter um arquivo VHD ou VHDX, o AzCopy trata o arquivo como uma bolha de página. (padrão "Detectar")
 
 **--block-blob-tier** string Upload blobs block blobs diretamente para o nível de [acesso](../blobs/storage-blob-storage-tiers.md) de sua escolha. (padrão 'Nenhum'). Os valores válidos incluem 'Nenhum', 'Quente', 'Legal' e 'Arquivo'. Se 'Nenhum' ou nenhum nível for aprovado, a bolha herdará o nível da conta de armazenamento.
@@ -223,6 +225,12 @@ Copie um subconjunto de baldes usando um símbolo curinga (*) no nome do balde. 
 
 **--preservar-último-modificado-tempo**          Só disponível quando o destino é o sistema de arquivos.
 
+**--preserve-smb-permissões** corda Falsa por padrão. Preserva ACLs SMB entre recursos cientes (Arquivos Windows e Azure). Para downloads, você também precisará `--backup` usar o sinalizador para restaurar permissões onde o novo Proprietário não será o usuário que está executando o AzCopy. Este sinalizador se aplica a arquivos e pastas, a menos que um `include-pattern`filtro somente para arquivos seja especificado (por exemplo).
+
+**--preserve-smb-info** string False por padrão. Preserva as informações de propriedade smb (tempo de gravação passado, tempo de criação, bits de atributo) entre recursos com reconhecimento de SMB (Arquivos Windows e Azure). Somente os bits de atributo suportados pelos Arquivos Azure serão transferidos; qualquer outro será ignorado. Esse sinalizador se aplica a arquivos e pastas, a menos que um filtro somente de arquivo seja especificado (por exemplo, incluir-padrão). As informações transferidas para pastas são as mesmas para arquivos, exceto para O Tempo de Gravação Última, que nunca é preservada para pastas.
+
+**--preservar-proprietário**                       Só tem um efeito no download de `--preserve-smb-permissions` dados, e somente quando o usado é usado. Se verdadeiro (o padrão), o arquivo Proprietário e Grupo são preservados em downloads. Se este sinalizador for `--preserve-smb-permissions` definido como falso, ainda preservará ACLs, mas Proprietário e Grupo serão baseados no usuário que está executando o AzCopy.
+
 **--put-md5**                             Crie um hash MD5 de cada arquivo e salve o hash como propriedade Content-MD5 da bolha de destino ou arquivo. (Por padrão, o hash NÃO é criado.) Só disponível quando o upload.
 
 **--recursivo**                            Olhe para subdiretórios recursivamente ao fazer o upload do sistema de arquivos local.
@@ -243,4 +251,4 @@ A seqüência de **metadados --s2s-handle-invalid-metadata** especifica como as 
 
 ## <a name="see-also"></a>Confira também
 
-- [azcópia](storage-ref-azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

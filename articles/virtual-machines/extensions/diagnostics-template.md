@@ -3,7 +3,7 @@ title: Adicionar diagnósticos de & de monitoramento a uma máquina virtual do A
 description: Use um modelo do Azure Resource Manager para criar uma nova máquina virtual do Windows com a extensão de diagnósticos do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: sbtron
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/31/2017
-ms.author: saurabh
+ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2490c3de60e0deac6a1a4ddc5abc95cb46e240b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d100f054da5f82bc4dea51e054a28cca07f5de7b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073835"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258823"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usar monitoramento e diagnóstico com uma VM Windows e modelos do Azure Resource Manager
 A Extensão Diagnóstico do Azure fornece funcionalidades de monitoramento e diagnóstico em uma máquina virtual do Azure baseada no Windows. É possível habilitar esses recursos na máquina virtual incluindo a extensão como parte do modelo do Azure Resource Manager. Para saber mais sobre como incluir extensões como parte de um modelo de máquina virtual, confira [Criando modelos do Gerenciador de Recursos do Azure com extensões de VM](../windows/template-description.md#extensions) . Este artigo descreve como adicionar a extensão de diagnóstico do Microsoft Azure para a um modelo de máquina virtual do Windows.  
@@ -62,7 +62,7 @@ Para um Gerenciador de Recursos simples baseado em máquina virtual, adicione a 
 ]
 ```
 
-Outra prática comum é adicionar a configuração de extensão ao nó de recursos raiz do modelo, em vez de defini-la no nó de recursos da máquina virtual. Com essa abordagem, você deve especificar claramente uma relação hierárquica entre a extensão e a máquina virtual com os valores *name* e *type*. Por exemplo:  
+Outra prática comum é adicionar a configuração de extensão ao nó de recursos raiz do modelo, em vez de defini-la no nó de recursos da máquina virtual. Com essa abordagem, você deve especificar claramente uma relação hierárquica entre a extensão e a máquina virtual com os valores *name* e *type*. Por exemplo: 
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",

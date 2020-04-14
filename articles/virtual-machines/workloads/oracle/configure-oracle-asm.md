@@ -3,7 +3,7 @@ title: Configurar o Oracle ASM em uma máquina virtual Linux do Azure | Microsof
 description: Coloque o Oracle ASM em funcionamento rapidamente no ambiente do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogirdh
-ms.openlocfilehash: a27d4c1712e9d65afcfc8792eac88be468829f6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 88fd740cad74b12860b6d367c501ba84635f9592
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536370"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263158"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurar o Oracle ASM em uma máquina virtual Linux do Azure  
 
@@ -33,7 +33,7 @@ Máquinas virtuais do Azure fornecem um ambiente de computação totalmente conf
 > * Criar um Oracle DB gerenciado por ASM
 
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI]( /cli/azure/install-azure-cli). 
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente
 

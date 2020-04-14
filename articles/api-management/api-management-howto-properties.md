@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 7c25455e28e57ff40664a69718a2e406b52b7632
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4362d0875ac2c20fc6963d404f86898a12387dad
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75834306"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260914"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Como usar valores nomeados nas políticas de gerenciamento de API do Azure
 
@@ -59,7 +59,7 @@ Valores nomeados podem conter strings literais e [expressões políticas](/azure
 
 Uma vez que o valor nomeado é criado, você pode editá-lo clicando nele. Se você alterar o nome de valor nomeado, quaisquer políticas que fazem referência ao valor nomeado serão automaticamente atualizadas para usar o novo nome.
 
-Para obter informações sobre a edição de um valor nomeado usando a API REST, consulte [Editar um valor nomeado usando a API REST](/rest/api/apimanagement/2019-01-01/property?patch).
+Para obter informações sobre a edição de um valor nomeado usando a API REST, consulte [Editar um valor nomeado usando a API REST](/rest/api/apimanagement/2019-12-01/property?patch).
 
 ## <a name="to-delete-a-named-value"></a>Para excluir um valor nomeado
 
@@ -68,7 +68,7 @@ Para excluir um valor nomeado, clique **em Excluir** ao lado do valor nomeado pa
 > [!IMPORTANT]
 > Se o valor nomeado for referenciado por quaisquer políticas, você não poderá excluí-lo com sucesso até remover o valor nomeado de todas as políticas que o utilizam.
 
-Para obter informações sobre a exclusão de um valor nomeado usando a API REST, consulte [Excluir um valor nomeado usando a API REST](/rest/api/apimanagement/2019-01-01/property/delete).
+Para obter informações sobre a exclusão de um valor nomeado usando a API REST, consulte [Excluir um valor nomeado usando a API REST](/rest/api/apimanagement/2019-12-01/property/delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Para pesquisar e filtrar valores nomeados
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 76ab92285cace284c187109ca48c6634777ebbc0
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: ea4bfadd55935712a292355dc25fb778b1523c75
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398312"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261833"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Recursos e terminologia em Hubs de Eventos do Azure
 
@@ -45,7 +45,7 @@ Qualquer entidade que envie dados para um hub de eventos é um produtor de event
 
 Você pode publicar um evento por meio do AMQP 1.0, Kafka 1.0 (e posterior) ou HTTPS. Hubs de Eventos fornecem [classes e bibliotecas de cliente](event-hubs-dotnet-framework-api-overview.md) para a publicação de eventos em um hub de eventos de clientes .NET. Para outras plataformas e runtimes, você pode usar qualquer cliente AMQP 1.0, como o [Apache Qpid](https://qpid.apache.org/). Você pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados do evento) tem um limite de 1 MB, independentemente de ser um único evento ou um lote. Publicar eventos maiores que esse limite resulta em erro. É uma prática recomendada para os editores desconhecerem partições dentro do hub de eventos e especificar apenas uma *chave de partição* (introduzida na próxima seção), ou sua identidade através de seu token SAS.
 
-A opção de usar AMQP ou HTTPS é específica para o cenário de uso. O AMQP requer o estabelecimento de um soquete bidirecional persistente, além do TLS (segurança de nível de transporte) ou SSL/TLS. O AMQP tem custos mais altos de rede ao inicializar a sessão, mas o HTTPS requer SSL adicional de sobrecarga para cada solicitação. O AMQP tem um melhor desempenho para editores frequentes.
+A opção de usar AMQP ou HTTPS é específica para o cenário de uso. O AMQP requer o estabelecimento de um soquete bidirecional persistente, além do TLS (segurança de nível de transporte) ou SSL/TLS. O AMQP tem custos de rede mais altos ao inicializar a sessão, no entanto, o HTTPS requer sobrecarga suplementar de TLS para cada solicitação. O AMQP tem um melhor desempenho para editores frequentes.
 
 ![Hubs de Eventos](./media/event-hubs-features/partition_keys.png)
 

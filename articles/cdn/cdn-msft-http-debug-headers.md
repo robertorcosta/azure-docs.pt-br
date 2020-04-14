@@ -3,7 +3,7 @@ title: Depurar cabeçalhos HTTP para CDN azure da Microsoft | Microsoft Docs
 description: Os cabeçalhos de solicitação de cache de depuração fornecem informações adicionais sobre a política de cache aplicada ao ativo solicitado. Esses cabeçalhos são específicos do Azure CDN da Microsoft.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2019
-ms.author: magattus
-ms.openlocfilehash: 297c65c1cd89163b8663819f844dc6c2a83fd1bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 2475bdce3ab8f153cc837601964bf4a2e90a470c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68814081"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260404"
 ---
 # <a name="debug-http-header-for-azure-cdn-from-microsoft"></a>Depurar cabeçalho HTTP para CDN azure da Microsoft
 O cabeçalho `X-Cache`de resposta de depuração, fornece detalhes sobre qual camada da pilha de CDN o conteúdo foi servido. Este cabeçalho é específico do Azure CDN da Microsoft.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 04/13/2020
 ms.author: dapine
-ms.openlocfilehash: 51fe6cea80e097f34432ab8dc7293c758bd8d720
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e55030144bcabbf192b4095a5a2e6ed565cedf83
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77119800"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258594"
 ---
 # <a name="get-the-list-of-text-to-speech-voices-using-python"></a>Obter a lista de vozes da conversão de texto em fala usando Python
 
@@ -26,7 +26,7 @@ Este artigo exige uma conta dos [Serviços Cognitivos do Azure](https://docs.mic
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Python 2.7.x ou 3.x
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou seu editor de texto favorito
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual <span class="docon docon-navigate-external x-hidden-focus"> </span>Studio </a>, <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>ou seu editor de texto favorito
 * Uma chave de assinatura do Azure para o serviço de Fala
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos necessários
@@ -123,7 +123,7 @@ E, pronto, você já pode executar o exemplo. Na linha de comando (ou sessão de
 python get-voices.py
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Remova todas as informações confidenciais do código-fonte do seu aplicativo de exemplo, como as chaves de assinatura.
 

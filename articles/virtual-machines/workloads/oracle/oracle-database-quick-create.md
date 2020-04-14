@@ -3,7 +3,7 @@ title: Criar um banco de dados Oracle em uma VM do Azure | Microsoft Docs
 description: Coloque rapidamente em funcionamento um banco de dados Oracle Database 12c no ambiente do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogirdh
-ms.openlocfilehash: 9f4b9d53aaa1cac17fbaae4b638e144654fad4e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 901a6ed9075f7e368c0706ac6ba5fc2900bea9a8
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535622"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262121"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Criar um Banco de Dados Oracle em uma VM do Azure
 
@@ -27,11 +27,11 @@ Esse guia detalha como usar a CLI do Azure para implantar uma máquina virtual d
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create.](/cli/azure/group) Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
 
 O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no *local eastus.*
 
@@ -315,7 +315,7 @@ Você pode fazer logon usando a conta **SYS** e marcar a caixa de seleção **co
 
 ![Captura de tela da página de logon Oracle OEM Express](./media/oracle-quick-start/oracle_oem_express_login.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de terminar de explorar seu primeiro banco de dados Oracle no Azure e a VM não for mais necessária, você poderá usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos, a VM e todos os recursos relacionados.
 

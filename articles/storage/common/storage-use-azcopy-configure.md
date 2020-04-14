@@ -4,16 +4,16 @@ description: Configure, otimize e soluciona problemas do AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: d2cb40d7510e46539db46bdb61ec2d64c0fd1ec7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87a335f44a31436de735395adbee9035493cbbd2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77526488"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263413"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
@@ -34,7 +34,7 @@ Para configurar as configurações de proxy para `https_proxy` AzCopy, defina a 
 |--------|-----------|
 | **Windows** | Em um uso rápido de comando:`set https_proxy=<proxy IP>:<proxy port>`<br> No uso do PowerShell:`$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
-| **Macos** | `export https_proxy=<proxy IP>:<proxy port>` |
+| **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
 Atualmente, o AzCopy não suporta proxies que requerem autenticação com NTLM ou Kerberos.
 
@@ -53,9 +53,6 @@ Esta seção ajuda você a executar essas tarefas de otimização:
 ### <a name="run-benchmark-tests"></a>Executar testes de benchmark
 
 Você pode executar um teste de benchmark de desempenho em contêineres blob específicos para visualizar estatísticas gerais de desempenho e gargalos de desempenho de identidade. 
-
-> [!NOTE]
-> Na versão atual, esse recurso está disponível apenas para recipientes Blob Storage.
 
 Use o seguinte comando para executar um teste de benchmark de desempenho.
 
@@ -89,7 +86,7 @@ Se o computador tiver menos de 5 CPUs, então `32`o valor desta variável será 
 |--------|-----------|
 | **Windows** | `set AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
-| **Macos** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
+| **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
 Use `azcopy env` o para verificar o valor atual desta variável. Se o valor estiver em branco, então você pode ler qual valor está sendo usado olhando para o início de qualquer arquivo de log do AzCopy. O valor selecionado, e a razão pela qual foi selecionado, são relatados lá.
 
@@ -104,7 +101,7 @@ Expresse esse valor em gigabytes (GB).
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
-| **Macos** | `export AZCOPY_BUFFER_GB=<value>` |
+| **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
 
 ### <a name="optimize-file-synchronization"></a>Otimizar a sincronização de arquivos
 
@@ -187,7 +184,7 @@ Use qualquer um desses comandos.
 |--------|-----------|
 | **Windows** | `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
-| **Macos** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **MacOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 
 Use `azcopy env` o para verificar o valor atual desta variável. Se o valor estiver em branco, os arquivos do plano serão gravados no local padrão.
 
@@ -199,7 +196,7 @@ Use qualquer um desses comandos.
 |--------|-----------|
 | **Windows** | `set AZCOPY_LOG_LOCATION=<value>` |
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
-| **Macos** | `export AZCOPY_LOG_LOCATION=<value>` |
+| **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 
 Use `azcopy env` o para verificar o valor atual desta variável. Se o valor estiver em branco, os logs serão gravados no local padrão.
 

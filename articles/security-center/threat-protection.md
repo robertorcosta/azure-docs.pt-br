@@ -1,5 +1,5 @@
 ---
-title: Proteção contra ameaças no Centro de Segurança Do Azure
+title: Proteção contra ameaças na Central de Segurança do Azure
 description: Este tópico descreve os recursos protegidos pelos recursos de proteção contra ameaças do Azure Security Center
 services: security-center
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 395f4b5481fcf2028d6bfe736e58c3174a0c80b2
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: fdf22e4d981549b876a14aed2b0a1d7e0c76e40e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435339"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263447"
 ---
-# <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças no Centro de Segurança Do Azure
+# <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças na Central de Segurança do Azure
 
 Quando o Security Center detecta uma ameaça em qualquer área do seu ambiente, ele gera um alerta. Esses alertas descrevem detalhes dos recursos afetados, sugerem etapas de remediação e, em alguns casos, uma opção para acionar um aplicativo lógico em resposta.
 
@@ -159,19 +159,20 @@ Para obter mais informações, consulte:
 
 
 
-
 ## <a name="threat-protection-for-azure-storage"></a>Proteção contra ameaças para armazenamento Azure<a name="azure-storage"></a>
 
-> [!NOTE]
-> Este serviço está disponível nas nuvens do governo dos EUA, mas nenhuma outra região de nuvens do governo soberano ou azure.
+O Advanced Threat Protection for Storage detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Essa camada de proteção permite que você aborde ameaças sem exigir que você seja um especialista em segurança e ajuda você a gerenciar seus sistemas de monitoramento de segurança.
 
-O Advanced Threat Protection for Storage (atualmente disponível apenas para armazenamento Blob) detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Essa camada de proteção permite que você aborde ameaças sem exigir que você seja um especialista em segurança e ajuda você a gerenciar seus sistemas de monitoramento de segurança.
+A proteção avançada contra ameaças para o Armazenamento Azure está disponível atualmente apenas para [armazenamento Blob](https://azure.microsoft.com/services/storage/blobs/). 
+
+Este serviço está disponível em todas as nuvens públicas e nuvens do governo dos EUA, mas nenhuma outra região de nuvens do governo soberano ou azure.
+
+Para obter detalhes sobre preços, incluindo um teste gratuito de 30 dias, consulte a página de preços do [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 Para obter mais informações, consulte:
 
 * [Como ativar a proteção avançada contra ameaças para armazenamento azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [A lista de alertas de proteção contra ameaças para o Armazenamento Azure](alerts-reference.md#alerts-azurestorage)
-
 
 > [!TIP]
 > Você pode simular alertas de armazenamento do Azure seguindo as instruções [neste post do blog](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
@@ -279,6 +280,6 @@ Para obter uma lista dos alertas de proteção Azure DDoS, consulte a [tabela de
 Para saber mais sobre os alertas de segurança desses recursos de proteção contra ameaças, consulte os seguintes artigos:
 
 * [Tabela de referência para todos os alertas do Azure Security Center](alerts-reference.md)
-* [Alertas na Central de Segurança do Azure](security-center-alerts-overview.md)
+* [Alertas de segurança na Central de Segurança do Azure](security-center-alerts-overview.md)
 * [Gerencie e responda a alertas de segurança no Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Alertas e recomendações de segurança de exportação (Preview)](continuous-export.md)

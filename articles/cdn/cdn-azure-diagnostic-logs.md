@@ -3,7 +3,7 @@ title: Logs de diagnóstico do Azure | Microsoft Docs
 description: O cliente pode habilitar a análise de log para a CDN do Azure.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
-ms.author: magattus
-ms.openlocfilehash: 86696ed6715b4e43a9d02232c013eb64feb61f67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 35d028a38e6ac19f270abcc8708a532b3749eb39
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67594200"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254794"
 ---
 # <a name="azure-diagnostic-logs"></a>Logs de diagnóstico do Azure
 
@@ -51,7 +51,7 @@ Para obter mais informações sobre logs de diagnóstico, consulte [Logs de diag
 
 Siga estas etapas para habilitar o registro com a análise de núcleo de CDN:
 
-Faça login no [portal Azure](https://portal.azure.com). Se você não já ativou a CDN para o fluxo de trabalho, [criar um perfil de CDN do Azure e o ponto de extremidade](cdn-create-new-endpoint.md) antes de continuar.
+Entre no [portal do Azure](https://portal.azure.com). Se você não já ativou a CDN para o fluxo de trabalho, [criar um perfil de CDN do Azure e o ponto de extremidade](cdn-create-new-endpoint.md) antes de continuar.
 
 1. No portal do Azure, navegue até ** perfil CDN **.
 

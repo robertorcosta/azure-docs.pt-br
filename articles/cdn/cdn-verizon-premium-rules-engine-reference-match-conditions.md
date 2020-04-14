@@ -2,17 +2,17 @@
 title: CDN azure da Verizon Premium rege as condições de correspondência do motor | Microsoft Docs
 description: A documentação de referência para a Azure Content Delivery Network da Verizon Premium rege as condições de correspondência do motor.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: magattus
-ms.openlocfilehash: 1660dca34b2f128ef5889145fcdeed0d2523b9bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: e2361590118668f2cdf22c4a29534b16790b90e4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593213"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253434"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>CDN azure da Verizon Premium rege as condições de correspondência do motor
 
@@ -112,7 +112,7 @@ A condição de correspondência Sempre aplica um conjunto de recursos padrão a
 
 A rede de número AS é definida por seu número de sistema autônomo (ASN). 
 
-A opção **Correspondências**/**Não Corresponde** determina as condições as quais a condição de correspondência do número AS é atendida:
+A opção **Correspondências**/**Não Corresponde** determina as condições sob as quais a condição de correspondência do número AS é atendida:
 
 - **Corresponde**: Exige que o ASN da rede do cliente corresponda a um dos ASNs especificados. 
 - **Não Corresponde**: Exige que o ASN da rede do cliente não corresponda a nenhum dos ASNs especificados.
@@ -165,10 +165,10 @@ A opção **'Corresponde**/**não corresponder'** determina as condições em qu
 Informações de chave:
 
 - Use a notação CIDR.
-- Especifique vários endereços IP e/ou blocos de endereços IP delimitando cada um com um único espaço. Por exemplo: 
+- Especifique vários endereços IP e/ou blocos de endereços IP delimitando cada um com um único espaço. Por exemplo:
   - **Exemplo de IPv4**: 1.2.3.4 10.20.30.40 corresponde a qualquer solicitação que chegue do endereço 1.2.3.4 ou 10.20.30.40.
   - **Exemplo de IPv6**: 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 corresponde a qualquer solicitação que chegue do endereço 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
-- A sintaxe para um bloco de endereços IP é o endereço IP básico seguido por uma barra invertida e o tamanho do prefixo. Por exemplo: 
+- A sintaxe para um bloco de endereços IP é o endereço IP básico seguido por uma barra invertida e o tamanho do prefixo. Por exemplo:
   - **Exemplo de IPv4**: 5.5.5.64/26 corresponde a qualquer solicitação que chegue do endereço 5.5.5.64 ou 5.5.5.127.
   - **Exemplo de IPv6**: 1:2:3:/48 corresponde a qualquer solicitação que chegue dos endereços 1:2:3:0:0:0:0:0 por meio de 1:2:3:ffff:ffff:ffff:ffff:ffff.
 - Devido à maneira como as configurações de cache são acompanhadas, essa condição de correspondência é incompatível com os recursos a seguir:
@@ -186,7 +186,7 @@ Informações de chave:
 
 ### <a name="cookie-parameter"></a>Parâmetro de Cookie
 
-A opção **Correspondências**/**Não Corresponde** determina as condições as quais a condição de correspondência do Parâmetro de Cookie é atendida.
+A opção **Correspondências**/**Não Corresponde** determina as condições sob as quais a condição de correspondência do Parâmetro de Cookie é atendida.
 
 - **Corresponde**: requer uma solicitação para conter o cookie especificado com um valor que corresponde a pelo menos um dos valores definidos nessa condição de correspondência.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
@@ -220,7 +220,7 @@ Informações de chave:
 
 A condição de correspondência de Regex de Parâmetro de Cookie define o valor e o nome de um cookie. Você pode usar [expressões regulares](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) para definir o valor do cookie desejado.
 
-A opção **Correspondências**/**Não Corresponde** determina as condições as quais a condição de correspondência do Parâmetro de Cookie Regex é atendida.
+A opção **Correspondências**/**Não Corresponde** determina as condições sob as quais a condição de correspondência do Parâmetro de Cookie Regex é atendida.
 
 - **Corresponde**: Requer que uma solicitação contenha o cookie especificado com um valor que corresponde à expressão regular especificada.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
@@ -253,7 +253,7 @@ Informações de chave:
 
 Você pode especificar um país por meio de seu código de país. 
 
-A opção **Partidas**/**Não Corresponde** determina as condições as quais a condição de correspondência do País é atendida:
+A opção **Partidas**/**Não Corresponde** determina as condições sob as quais a condição de correspondência do País é atendida:
 
 - **Correspondências**: Requer que a solicitação contenha os valores de código de país especificados. 
 - **Não Corresponde**: Requer que a solicitação não contenha os valores de código de país especificados.
@@ -424,7 +424,7 @@ Informações de chave:
 
 ### <a name="request-header-literal"></a>Literal de Cabeçalho de Solicitação
 
-A opção **Correspondências**/**Não Corresponde** determina as condições as quais a condição de correspondência de cabeçalho de solicitação é atendida.
+A opção **Correspondências**/**Não Corresponde** determina as condições sob as quais a condição de correspondência de cabeçalho de solicitação é atendida.
 
 - **Correspondências**: requer que a solicitação contenha o cabeçalho especificado. O valor deve corresponder ao que está definido nessa condição de correspondência.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
@@ -449,7 +449,7 @@ Informações de chave:
 
 ### <a name="request-header-regex"></a>Regex do Cabeçalho da Solicitação
 
-A opção **Correspondências**/**Não Corresponde** determina as condições as quais a condição de correspondência do Cabeçalho de Solicitação Regex é atendida.
+A opção **Correspondências**/**Não Corresponde** determina as condições sob as quais a condição de correspondência do Cabeçalho de Solicitação Regex é atendida.
 
 - **Correspondências**: requer que a solicitação contenha o cabeçalho especificado. O valor deve corresponder ao padrão que é definido na [expressão regular](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) especificada.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
@@ -480,7 +480,7 @@ Informações de chave:
 
 ### <a name="request-header-wildcard"></a>Curinga de Cabeçalho de Solicitação
 
-A opção **Correspondências**/**Não Corresponde** determina as condições as quais a condição de correspondência do Cabeçalho de Solicitação É atendida.
+A opção **Correspondências**/**Não Corresponde** determina as condições sob as quais a condição de correspondência do Cabeçalho de Solicitação É atendida.
 
 - **Correspondências**: requer que a solicitação contenha o cabeçalho especificado. Seu valor deve corresponder a pelo menos um dos valores que são definidos nessa condição de correspondência.
 - **Não corresponde**: requer que a solicitação atenda qualquer um dos critérios a seguir:
@@ -993,7 +993,7 @@ Informações de chave:
 
 - Caracteres de expressão regular especiais de escape duplo (por exemplo, \^$.+) para incluir uma barra invertida na expressão regular.
 
-   Por exemplo: 
+   Por exemplo:
 
    Valor | Interpretado como 
    ------|---------------

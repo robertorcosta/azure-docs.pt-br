@@ -3,7 +3,7 @@ title: Gerenciar a expiração do conteúdo da Web na CDN do Azure | Microsoft D
 description: Saiba como gerenciar a expiração de conteúdo de Serviços de Nuvem/Aplicativos Web do Azure, ASP.NET ou IIS na CDN do Azure.
 services: cdn
 documentationcenter: .NET
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: magattus
-ms.openlocfilehash: a701c332659181081184906a73826b7137d8c49c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 4598e6cee6ffbaaeb2a99727842fcd17fe0046c7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593710"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260557"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gerenciar a expiração do conteúdo da Web na CDN do Azure
 > [!div class="op_single_selector"]
 > * [Conteúdo da Web do Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Armazenamento de Blobs do Azure](cdn-manage-expiration-of-blob-content.md)
+> * [Armazenamento Azure Blob](cdn-manage-expiration-of-blob-content.md)
 > 
 
 Arquivos de servidores Web de origem acessíveis publicamente podem ser armazenados em cache na CDN (Rede de Distribuição de Conteúdo) até que a TTL (vida útil) tenha decorrida. A vida útil é determinada pelo cabeçalho `Cache-Control` na resposta HTTP do servidor de origem. Este artigo descreve como definir cabeçalhos `Cache-Control` para recurso de Aplicativos Web do Serviço de Aplicativo do Microsoft Azure, Serviços de Nuvem do Microsoft Azure, aplicativos ASP.NET e sites do IIS (Serviços de Informações da Internet), todos configurados de forma semelhante. Você pode definir o cabeçalho `Cache-Control` usando arquivos de configuração ou programaticamente. 
@@ -66,7 +66,7 @@ O método preferencial para configurar um cabeçalho `Cache-Control` do servidor
 
    Essa regra de cache global define uma duração de cache de uma hora e afeta todas as solicitações para o ponto de extremidade. Ela substitui todos os cabeçalhos HTTP `Cache-Control` ou `Expires` que são enviados pelo servidor de origem especificado pelo ponto de extremidade.   
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 **Para definir os cabeçalhos de Controle de Cache do servidor Web usando regras de cache personalizadas:**
 
@@ -80,7 +80,7 @@ O método preferencial para configurar um cabeçalho `Cache-Control` do servidor
 
     A primeira regra de cache personalizada estabelece uma duração de cache de quatro horas para qualquer arquivo na pasta `/webfolder1` no servidor de origem especificado pelo ponto de extremidade. A segunda regra substitui a primeira regra somente para o arquivo `file1.txt` e define uma duração de cache de duas horas para isso.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Configurando cabeçalhos de Cache-Control usando arquivos de configuração

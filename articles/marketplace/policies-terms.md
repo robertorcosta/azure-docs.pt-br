@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 04/10/2020
 ms.author: dsindona
-ms.openlocfilehash: a370b7b21d25f117e44d613d060dd8cdd060c062
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2fdf40dde287a65548f1db04d34ed3cf67d0374
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336256"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262155"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Políticas e termos do mercado comercial
 
@@ -21,7 +21,7 @@ ms.locfileid: "80336256"
 
 Obrigado por seu interesse em publicar ofertas no mercado comercial. Estamos comprometidos em fazer parceria com você para construir uma rica fonte de soluções em nuvem e uma linha de ofertas de negócios, que encantam clientes em todo o mundo e ajudam você a construir seu negócio.
 
-As ofertas no mercado devem estar em conformidade com nossas políticas e termos. Atualizamos essas políticas e termos de tempos em tempos para ajudar a garantir uma boa experiência ao cliente e oferecer aos parceiros uma oportunidade de sucesso. Se você tiver comentários sobre nossas políticas ou termos, por favor, deixe-nos saber comentando no [fórum Azure Marketplace e AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
+As ofertas no mercado devem estar em conformidade com nossas políticas e termos. Atualizamos essas políticas e termos de tempos em tempos para ajudar a garantir uma boa experiência ao cliente e oferecer aos parceiros uma oportunidade de sucesso. Se você tiver comentários sobre nossas políticas ou termos, por favor, deixe-nos saber comentando no [fórum Azure Marketplace e Microsoft AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 
 ## <a name="policies-and-terms"></a>Políticas e termos
 
@@ -35,6 +35,6 @@ As ofertas no mercado devem estar em conformidade com nossas políticas e termos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Visite a página do [guia de publicação do Azure Marketplace e do AppSource.](./marketplace-publishers-guide.md)
+Visite a página do [guia de publicação do mercado comercial.](./marketplace-publishers-guide.md)
 
 ---

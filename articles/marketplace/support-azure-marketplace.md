@@ -1,5 +1,5 @@
 ---
-title: Suporte para Azure Marketplace e AppSource | Azure
+title: Suporte para o mercado comercial | Azure
 description: Informações e links de suporte para o Azure Marketplace e o AppSource
 author: dsindona
 ms.service: marketplace
@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 3/19/2020
 ms.author: dsindona
-ms.openlocfilehash: 6cb08e11910bc0afdd4b2f454582612395cbd50f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2dba23bdf07233a9945086fba2274602cb2dcf1
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284918"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252227"
 ---
 # <a name="support-for-the-marketplace"></a>Suporte para o Marketplace  
 Aqui está uma lista de opções de suporte para o Marketplace.  
@@ -47,7 +47,7 @@ Abra um ticket com [o suporte ao publisher do microsoft marketplace](https://aka
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Visite a [página do Azure Marketplace e do AppSource Publisher Guide](https://docs.microsoft.com/azure/marketplace/).
-* Saiba mais sobre [o programa Suporte ao Mercado Comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+* Visite a página do [guia de editores de mercado comercial](https://docs.microsoft.com/azure/marketplace/).
+* Saiba mais sobre [o suporte para o programa de marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
 
 ---

@@ -3,7 +3,7 @@ title: Implementar Oracle Golden Gate em uma VM Linux do Azure | Microsoft Docs
 description: Coloque rapidamente em funcionamento um Oracle Golden Gate no seu ambiente do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogirdh
-ms.openlocfilehash: 0706b7d3c238c154d3694b5760266299a7d788ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: d7a52f09463d03fc6ecf0b57583d9eb7a5e65d45
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536863"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263141"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementar Oracle Golden Gate em uma VM Linux do Azure 
 
@@ -41,7 +41,7 @@ Este é um resumo da configuração do ambiente:
 > | --- | --- | --- |
 > | **Lançamento oracle** |Oracle 12c Release 2 – (12.1.0.2) |Oracle 12c Release 2 – (12.1.0.2)|
 > | **Nome da máquina** |myVM1 |myVM2 |
-> | **Sistema Operacional** |Oracle Linux 6.x |Oracle Linux 6.x |
+> | **Sistema operacional** |Oracle Linux 6.x |Oracle Linux 6.x |
 > | **SID do Oracle** |CDB1 |CDB1 |
 > | **Esquema de replicação** |TEST|TEST |
 > | **Golden Gate proprietário/replicar** |C ##GGADMIN |REPUSER |
@@ -58,7 +58,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create.](/cli/azure/group) Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e a partir do qual podem ser gerenciados. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e a partir do qual podem ser gerenciados. 
 
 O exemplo a seguir cria um grupo de recursos chamado `myResourceGroup` na localização `westus`.
 

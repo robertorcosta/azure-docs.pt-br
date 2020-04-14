@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f83cee2fb1435252f34d1a64f531b5befef66ffb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4034759dc4f20649c15236b057e348966d72409e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289687"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261153"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Linha de base de segurança do Azure para banco de dados azure para servidor único PostgreSQL
 
@@ -134,7 +134,7 @@ Entenda o uso da tag de serviço para o Banco de Dados Azure para PostgreSQL:htt
 
 Como configurar e gerenciar a política do Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Amostras de política do Azure para rede:https://docs.microsoft.com/azure/governance/policy/samples/#network
+Amostras de política do Azure para rede:https://docs.microsoft.com/azure/governance/policy/samples/
 
 Como criar um Projeto Azure:https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -908,7 +908,7 @@ Como fornecer autenticação do Key Vault com uma identidade gerenciada:https://
 
 **Orientação**: O banco de dados Azure para servidor PostgreSQL suporta autenticação do Azure Active Directory (em pré-visualização) para acessar bancos de dados.  Ao criar o banco de dados Azure para servidor PostgreSQL, você fornece credenciais para um usuário administrador. Este administrador pode ser usado para criar usuários adicionais de banco de dados.  
 
-Para máquinas virtuais do Azure ou aplicativos da Web em execução no Azure App Service sendo usados para acessar seu banco de dados Azure para servidor PostgreSQL, use identidade de serviço gerenciada em conjunto com o Azure Key Vault para armazenar e recuperar credenciais para o Banco de Dados Azure para Servidor PostgreSQL. Certifique-se de que o Key Vault Soft Delete esteja ativado.
+Para que máquinas virtuais do Azure ou aplicativos da Web em execução no Azure App Service sejam usados para acessar seu banco de dados Azure para servidor PostgreSQL, use identidade de serviço gerenciada em conjunto com o Azure Key Vault para armazenar e recuperar credenciais para o banco de dados Azure para servidor PostgreSQL. Certifique-se de que o Key Vault Soft Delete esteja ativado.
 
 Use identidades gerenciadas para fornecer serviços do Azure com uma identidade gerenciada automaticamente no Azure Active Directory (AD). Identidades gerenciadas permite que você se autentique em qualquer serviço que suporte a autenticação Azure AD, incluindo O Cofre de Chaves, sem quaisquer credenciais em seu código.
 

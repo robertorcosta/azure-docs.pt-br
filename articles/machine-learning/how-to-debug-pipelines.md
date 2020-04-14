@@ -1,7 +1,7 @@
 ---
-title: Depurar e solucionar problemas de pipelines do aprendizado de máquina
+title: Debug & solucionar problemas de gasodutos ML
 titleSuffix: Azure Machine Learning
-description: Depurar e solucionar problemas de aprendizado de máquina pipelines no Azure Machine Learning SDK para Python. Aprenda armadilhas comuns para o desenvolvimento de pipelines e dicas para ajudá-lo a depurar seus scripts antes e durante a execução remota. Aprenda a usar o Visual Studio Code para depurar interativamente seus pipelines de aprendizado de máquina.
+description: Depurar seus pipelines de Aprendizado de Máquina do Azure em Python. Aprenda armadilhas comuns para o desenvolvimento de pipelines e dicas para ajudá-lo a depurar seus scripts antes e durante a execução remota. Aprenda a usar o Visual Studio Code para depurar interativamente seus pipelines de aprendizado de máquina.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: b68efbb64e9634ade001373e8cd9d61355bf786f
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: 9c2e00ed14a45c6df7cf72845db2ecd069381ca5
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80388977"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257194"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e solucionar problemas de pipelines do aprendizado de máquina
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ As seções a seguir fornecem uma visão geral das armadilhas comuns ao construi
 
 ### <a name="testing-scripts-locally"></a>Testando scripts localmente
 
-Uma das falhas mais comuns em um pipeline é que um script conectado (script de limpeza de dados, script de pontuação, etc.) não está sendo executado como planejado, ou contém erros de tempo de execução no contexto de computação remota que são difíceis de depurar em seu espaço de trabalho na Máquina Azure Estúdio de aprendizagem. 
+Uma das falhas mais comuns em um pipeline é que um script conectado (script de limpeza de dados, script de pontuação, etc.) não está funcionando como planejado, ou contém erros de tempo de execução no contexto de computação remota que são difíceis de depurar em seu espaço de trabalho no estúdio Azure Machine Learning. 
 
 Os pipelines em si não podem ser executados localmente, mas executar os scripts isoladamente em sua máquina local permite que você depurar mais rápido porque você não precisa esperar pelo processo de compilação e construção de ambientes. Alguns trabalhos de desenvolvimento são necessários para fazer isso:
 

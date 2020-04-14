@@ -3,12 +3,12 @@ title: Configure clusters Hybrid Kubernetes com Monitor Azure para contêineres 
 description: Este artigo descreve como você pode configurar o Azure Monitor para contêineres para monitorar os clusters Kubernetes hospedados no Azure Stack ou em outro ambiente.
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: 6d03716b988b1139e01d41120f48ea9a9bf34be1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a973e7e500906ebe833ec4cc6fd2fa8ee79c19e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198047"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255423"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configure clusters kubernetes híbridos com monitor azure para contêineres
 
@@ -111,7 +111,7 @@ Para primeiro identificar o ID completo de recursos do `workspaceResourceId` esp
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    Na saída, encontre o nome do espaço de trabalho e copie o ID de recurso completo desse espaço de trabalho do Log Analytics o **ID de**campo.
+    Na saída, encontre o nome do espaço de trabalho e copie o ID de recurso completo desse espaço de trabalho do Log Analytics sob o **ID de**campo .
 
 4. Copie e cole a seguinte sintaxe JSON em seu arquivo:
 
@@ -228,7 +228,7 @@ Para primeiro identificar o ID completo de recursos do `workspaceResourceId` esp
        az login
        az account set --subscription "Subscription Name"
        # execute deployment command to add container insights solution to the specified Log Analytics workspace
-       az group deployment create --resource-group <resource group of log analytics workspace> --template-file ./containerSolution.json --parameters @./containerSolutionParams.json
+       az deployment group create --resource-group <resource group of log analytics workspace> --name <deployment name> --template-file  ./containerSolution.json --parameters @./containerSolutionParams.json
        ```
 
        A alteração da configuração pode levar alguns minutos para ser concluída. Quando ela for concluída, será exibida uma mensagem semelhante à seguinte e incluindo o resultado:

@@ -3,7 +3,7 @@ title: Soluções Oracle em máquinas virtuais Azure | Microsoft Docs
 description: Conheça as configurações e limitações suportadas das imagens de máquinas virtuais Oracle no Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 tags: azure-resource-management
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
-ms.author: rogirdh
-ms.custom: seodec18
-ms.openlocfilehash: 3abc09f8c82442e3b24a9edf6ef4fb42f19dfde8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 0a2374a4c3526b77a25f9fa8faa94c9cb0d4c4ea
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74806942"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263226"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imagens de VM oracle e sua implantação no Microsoft Azure
 
@@ -128,10 +128,10 @@ De acordo com a nota de suporte [da Oracle, doc ID 2178595.1](https://support.or
 
 Para obter informações relacionadas, consulte o artigo KB **860340.1** em <https://support.oracle.com>.
 
-* **Limitações de balanceamento de carga e clustering dinâmico.** Suponha que você queira usar um cluster dinâmico no Oracle WebLogic Server e expô-lo através de um único ponto final público equilibrado de carga no Azure. Isso pode ser feito desde que você use um número de porta fixa para cada um dos servidores gerenciados (não atribuídos dinamicamente a partir de um intervalo) e não inicie mais servidores gerenciados do que há máquinas que o administrador está rastreando. Ou seja, não há mais do que um servidor gerenciado por máquina virtual). Se sua configuração resultar em mais Servidores WebLogic Oracle sendo iniciados do que em máquinas virtuais (ou seja, onde várias instâncias do Oracle WebLogic Server compartilham a mesma máquina virtual), então não é possível para mais de uma dessas instâncias de Servidores WebLogic Oracle para vincular a um determinado número de porta. Os outros naquela máquina virtual falham.
+* **Limitações de balanceamento de carga e clustering dinâmico.** Suponha que você queira usar um cluster dinâmico no Oracle WebLogic Server e expô-lo através de um único ponto final público equilibrado de carga no Azure. Isso pode ser feito desde que você use um número de porta fixa para cada um dos servidores gerenciados (não atribuídos dinamicamente a partir de um intervalo) e não inicie mais servidores gerenciados do que há máquinas que o administrador está rastreando. Ou seja, não há mais do que um servidor gerenciado por máquina virtual). Se sua configuração resultar em mais Servidores WebLogic Oracle sendo iniciados do que em máquinas virtuais (ou seja, onde várias instâncias do Oracle WebLogic Server compartilham a mesma máquina virtual), então não é possível que mais de uma dessas instâncias do Oracle WebLogic Servers se vincule a um determinado número de porta. Os outros naquela máquina virtual falham.
 
    Se você configurar o servidor de administração para atribuir automaticamente números de porta exclusivos para os servidores gerenciados, o balanceamento de carga não será possível porque o Azure não dá suporte ao mapeamento de uma única porta pública para várias portas privadas, como seria necessário para esta configuração.
-* **Várias instâncias do Oracle WebLogic Server em uma máquina virtual.** Dependendo dos requisitos de sua implantação, você pode considerar executar várias instâncias do Oracle WebLogic Server na mesma máquina virtual, se a máquina virtual for grande o suficiente. Por exemplo, em uma máquina virtual de tamanho médio, que contém dois núcleos, você pode optar por executar duas instâncias do Oracle WebLogic Server. No entanto, ainda recomendamos que você evite introduzir pontos únicos de falha em sua arquitetura, o que seria o caso se você usasse apenas uma máquina virtual que está executando várias instâncias do Oracle WebLogic Server. O uso de pelo menos duas máquinas virtuais poderia ser uma abordagem melhor, e cada máquina virtual poderia então executar várias instâncias do Oracle WebLogic Server. Cada instância do Oracle WebLogic Server ainda pode fazer parte do mesmo cluster. No entanto, atualmente não é possível usar o Azure para pontos finais de equilíbrio de carga que são expostos por essas implantações do Oracle WebLogic Server dentro da mesma máquina virtual, porque o balanceador de carga do Azure exige que os servidores balanceados de carga sejam distribuídos entre os exclusivos máquinas virtuais.
+* **Várias instâncias do Oracle WebLogic Server em uma máquina virtual.** Dependendo dos requisitos de sua implantação, você pode considerar executar várias instâncias do Oracle WebLogic Server na mesma máquina virtual, se a máquina virtual for grande o suficiente. Por exemplo, em uma máquina virtual de tamanho médio, que contém dois núcleos, você pode optar por executar duas instâncias do Oracle WebLogic Server. No entanto, ainda recomendamos que você evite introduzir pontos únicos de falha em sua arquitetura, o que seria o caso se você usasse apenas uma máquina virtual que está executando várias instâncias do Oracle WebLogic Server. O uso de pelo menos duas máquinas virtuais poderia ser uma abordagem melhor, e cada máquina virtual poderia então executar várias instâncias do Oracle WebLogic Server. Cada instância do Oracle WebLogic Server ainda pode fazer parte do mesmo cluster. No entanto, atualmente não é possível usar o Azure para equilibrar pontos finais de equilíbrio de carga que são expostos por essas implantações do Oracle WebLogic Server dentro da mesma máquina virtual, porque o balanceador de carga do Azure exige que os servidores balanceados de carga sejam distribuídos entre máquinas virtuais exclusivas.
 
 ## <a name="oracle-jdk-virtual-machine-images"></a>Imagens de máquina virtual no JDK do Oracle
 * **Atualizações mais recentes do JDK 6 e 7.**  Embora seja recomendável usar a versão mais recente com suporte público do Java (atualmente, o Java 8), o Azure também disponibiliza imagens do JDK 6 e 7. Eles são voltados a aplicativos herdados que ainda não estão prontos para serem atualizado para o JDK 8. Enquanto atualizações para imagens do JDK anteriores podem não estar disponíveis para público em geral, devido à parceria da Microsoft com a Oracle, as imagens do JDK 6 e 7 fornecidas pelo Azure devem conter uma atualização mais recente, não pública, que normalmente é oferecida pela Oracle somente para um grupo selecionado de clientes com suporte da Oracle. As novas versões das imagens do JDK ficarão disponíveis com o passar do tempo, com versões atualizadas do JDK 6 e 7.

@@ -3,7 +3,7 @@ title: Cabeçalhos HTTP Verizon X-EC-Debug para o Mecanismo de regras de CDN do 
 description: O cabeçalho da solicitação X-EC-Debug depuração de cache fornece informações adicionais sobre a política de cache que é aplicada para o ativo solicitado. Esses cabeçalhos são específicos para Verizon.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
-ms.author: magattus
-ms.openlocfilehash: dec753d7c891d226aa2e6d3efa993d8d24adfbaa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 52aae3bdd2fe82eea6cbd500723192c88c293a1e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593833"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260489"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos HTTP Verizon X-EC-Debug para o Mecanismo de regras de CDN do Azure
 O cabeçalho da solicitação de depuração de cache `X-EC-Debug` fornece informações adicionais sobre a política de cache que é aplicada para o ativo solicitado. Esses cabeçalhos são específicos para **Premium do Azure CDN dos produtos Verizon**.

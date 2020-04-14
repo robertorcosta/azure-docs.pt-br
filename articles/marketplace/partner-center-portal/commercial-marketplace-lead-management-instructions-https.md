@@ -5,20 +5,23 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 6a0131cf94759fc529a52ea33d5392a60c5ef30c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33359883df86091120295b93618a13476e428d2f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281588"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262467"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configurar o gerenciamento de cliente potencial usando um ponto de extremidade HTTPS
 
-Se o sistema de CRM (Customer Relationship Management, gerenciamento de relacionamento com o cliente) não for explicitamente suportado no Partner Center para receber leads Do Azure Marketplace e AppSource, você pode usar um ponto final HTTPS no MS Flow para lidar com esses leads. Com um ponto final HTTPS, esses leads podem ser enviados como uma notificação por e-mail, ou podem ser gravados em um sistema de CRM (Customer Relationship Management, gerenciamento de relacionamento com o cliente) suportado pelo MS Flow. As instruções deste artigo irão guiá-lo através do processo básico para criar um novo fluxo usando o Microsoft Flow, que gerará a URL HTTP POST que você entrará no portal de publicação para o campo de URL do Lead Management > **HTTPS Endpoint URL.** Além disso, incluem instruções sobre como você pode testar seu fluxo com a ajuda de uma ferramenta chamada [Carteiro](https://www.getpostman.com/downloads/) que pode ser encontrada online.
+>[!Note]
+>O conector Power Automate usado nestas instruções requer uma assinatura paga do Power Automate. Por favor, contabilize isso antes de seguir as instruções deste documento.
 
-## <a name="create-a-flow-using-microsoft-flow"></a>Criar um fluxo usando o Microsoft Flow
+Se o sistema de CRM (Customer Relationship Management, gerenciamento de relacionamento com o cliente) não for explicitamente suportado no Partner Center para receber leads Do Azure Marketplace e AppSource, você pode usar um ponto final HTTPS no Power Automate para lidar com esses leads. Com um ponto final HTTPS, esses leads podem ser enviados como uma notificação por e-mail ou podem ser gravados em um sistema de CRM (Customer Relationship Management, gerenciamento de relacionamento com o cliente) suportado pelo Power Automate. As instruções deste artigo irão guiá-lo através do processo básico para criar um novo fluxo usando o Power Automate, que gerará a URL HTTP POST que você entrará no portal de publicação para o campo de URL do Lead Management > **HTTPS Endpoint.** Além disso, incluem instruções sobre como você pode testar seu fluxo com a ajuda de uma ferramenta chamada [Carteiro](https://www.getpostman.com/downloads/) que pode ser encontrada online.
+
+## <a name="create-a-flow-using-power-automate"></a>Crie um fluxo usando o Power Automate
 
 1. Abra a página da Web do [Flow](https://flow.microsoft.com/). Selecione **Entrar**ou se você ainda não tiver uma conta, **selecione Cadastre-se gratuitamente** para criar uma conta flow gratuita.
 
@@ -41,7 +44,7 @@ Se o sistema de CRM (Customer Relationship Management, gerenciamento de relacion
 
     ![conector de solicitação - Gatilhos](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
 
-    **Esquema JSON**
+    **JSON schema**
 
     ```JSON
     {
@@ -168,7 +171,7 @@ Você pode testar que tudo funciona como esperado usando as seguintes etapas usa
 
    ![Teste meu fluxo](./media/commercial-marketplace-lead-management-instructions-https/test-my-flow.png)
 
-4. Cole a URL HTTP POST do fluxo que você criou no MS Flow onde diz *Enter request URL*.
+4. Cole a URL HTTP POST do fluxo que você criou no Power Automate onde diz *Enter request URL*.
 
    ![Cole a URL http post](./media/commercial-marketplace-lead-management-instructions-https/paste-http-post-url.png)
 
@@ -202,7 +205,10 @@ Quando estiver pronto para configurar as informações de gerenciamento de chumb
 1. Navegue até a página **de configuração oferta** para obter sua oferta.
 2. Selecione **Conectar** na seção Gerenciamento de líderes.
 3. Na janela pop-up de detalhes da Conexão, selecione **HTTPS Endpoint** para o **Destino principal** e cole na URL HTTP POST a partir do fluxo criado seguindo etapas anteriores no campo DE URL do ponto **final HTTPS.**
-4. Selecione **Salvar**. 
+4. **E-mail de contato** - Forneça e-mails para pessoas da sua empresa que devem receber notificações por e-mail quando um novo lead é recebido. Você pode fornecer vários e-mails separando-os com um ponto e vírgula.
+5. Selecione **OK**.
+
+Para ter certeza de que você se conectou com sucesso a um destino de chumbo, clique no botão validar. Se for bem sucedido, você terá uma pista de teste no destino principal.
 
 >[!Note] 
 >Você deve terminar de configurar o resto da oferta e publicá-la antes de receber leads para a oferta.
@@ -213,5 +219,5 @@ Quando clientes potenciais forem gerados, a Microsoft enviará clientes potencia
 
 ![Detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
 
-![Detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-https/connection-details-1.png)
+![Detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
 

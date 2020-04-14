@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
-ms.openlocfilehash: bd6c375231facc3d7afb35df74210d26b5f50ba8
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 9d2f4b02dd2b009e96abb65d4c42ef3a281e6ce1
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387777"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262818"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Comparar o AppSource e o Azure Marketplace
 As vitrines no [ Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com) e no [Microsoft AppSource](https://appsource.microsoft.com) atendem a requisitos exclusivos de clientes. Use vitrines para clientes-alvo por função. É possível oferecer a solução ou serviço correto com base no cliente.
@@ -35,5 +35,5 @@ A tabela a seguir descreve os benefícios de usar uma vitrine:
 | **Apresentação em contexto aos clientes** | Disponibilize a solução na experiência no Portal do Azure para pesquisa contextual. Use os aplicativos de Máquina virtual e do Azure: opções de publicação de modelos de soluções. | Alcance mais clientes por meio da experiência no aplicativo para produtos a Microsoft como Dynamics 365, Power BI e Office 365. |
 
 ## <a name="next-steps"></a>Próximas etapas
-*   Examine o [Guia de publicação do Microsoft Azure Marketplace e AppSource](./marketplace-publishers-guide.md).
+*   Reveja o [guia de publicação do mercado comercial.](./marketplace-publishers-guide.md)
 

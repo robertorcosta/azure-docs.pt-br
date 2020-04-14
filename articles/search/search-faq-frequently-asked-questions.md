@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: fee74cb6ec5acd5fa0f171eab9769a833f04ad66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/10/2020
+ms.openlocfilehash: d7ba62c795e23e41a1947def77300ffe5d2cc010
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72792903"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262444"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Azure Cognitive Search - perguntas frequentes (FAQ)
 
@@ -24,16 +24,6 @@ ms.locfileid: "72792903"
 ### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>Como a Pesquisa Cognitiva do Azure é diferente da pesquisa completa de texto no meu DBMS?
 
 O Azure Cognitive Search suporta múltiplas fontes de dados, [análise linguística para muitos idiomas,](https://docs.microsoft.com/rest/api/searchservice/language-support)análise personalizada para [entradas de dados interessantes e incomuns,](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)controles de classificação de pesquisa através de perfis de [pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)e recursos de experiência do usuário, como digitação, destaque de hits e navegação facetada. Ele também inclui outros recursos, como sinônimos e sintaxe de consulta avançada, mas esses geralmente não são recursos diferenciados.
-
-### <a name="what-is-the-difference-between-azure-cognitive-search-and-elasticsearch"></a>Qual é a diferença entre a Busca Cognitiva do Azure e a Pesquisa Elástica?
-
-Ao comparar tecnologias de pesquisa, os clientes frequentemente pedem detalhes sobre como o Azure Cognitive Search se compara com o Elasticsearch. Os clientes que escolhem o Azure Cognitive Search em vez do Elasticsearch para seus projetos de aplicativos de pesquisa normalmente o fazem porque facilitamos uma tarefa-chave ou eles precisam da integração incorporada com outras tecnologias da Microsoft:
-
-+ O Azure Cognitive Search é um serviço de nuvem totalmente gerenciado com contratos de nível de serviço (SLA) de 99,9% quando provisionado com redundância suficiente (2 réplicas para acesso à leitura, três réplicas para leitura-gravação).
-+ Os [Processadores de linguagem natural](https://docs.microsoft.com/rest/api/searchservice/language-support) da Microsoft oferecem análise linguística de ponta.  
-+ [Os indexadores de pesquisa cognitiva do Azure](search-indexer-overview.md) podem rastrear uma variedade de fontes de dados do Azure para indexação inicial e incremental.
-+ Se você precisa de uma resposta rápida para flutuações na consulta ou nos volumes de indexação, pode usar [controles deslizantes](search-manage.md#scale-up-or-down) no portal do Azure ou executar um [script do PowerShell](search-manage-powershell.md), ignorando o gerenciamento de fragmento diretamente.  
-+ Os [Recursos de pontuação e ajuste](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) fornecem os meios para influenciar a pontuação de classificações de pesquisa além do que o mecanismo de pesquisa sozinho pode fornecer.
 
 ### <a name="can-i-pause-azure-cognitive-search-service-and-stop-billing"></a>Posso pausar o serviço de busca cognitiva do Azure e parar de faturar?
 
@@ -91,7 +81,7 @@ A maioria das consultas de pesquisa com caractere curinga, como prefixo, difusa 
 
 Por padrão, os resultados da pesquisa são pontuados com base nas [propriedades estatísticas dos termos de correspondência](search-lucene-query-architecture.md#stage-4-scoring) e classificados do mais alto para o mais baixo do conjunto de resultados. No entanto, alguns tipos de consulta (caractere curinga, prefixo, regex) sempre contribuem com uma pontuação constante para a pontuação total do documento. Este comportamento ocorre por design. O Azure Cognitive Search impõe uma pontuação constante para permitir que as partidas encontradas através da expansão da consulta sejam incluídas nos resultados, sem afetar o ranking.
 
-Por exemplo, suponha que uma entrada de "turnê*" em uma pesquisa com curinga produz correspondências em "turim", "turrão" e "turmalina". Dada a natureza desses resultados, não é possível inferir de forma razoável quais termos são mais valiosos do que outros. Por esse motivo, podemos ignorar as frequências dos termos ao pontuar resultados em consultas dos tipos caractere curinga, prefixo e regex. Os resultados da pesquisa com base em uma entrada parcial recebem uma pontuação constante para evitar a tendência de correspondências possivelmente inesperadas.
+Por exemplo, suponha que uma entrada de "tour*" em uma busca curinga produz partidas em "tours", "tourettes" e "tourmaline". Dada a natureza desses resultados, não é possível inferir de forma razoável quais termos são mais valiosos do que outros. Por esse motivo, podemos ignorar as frequências dos termos ao pontuar resultados em consultas dos tipos caractere curinga, prefixo e regex. Os resultados da pesquisa com base em uma entrada parcial recebem uma pontuação constante para evitar a tendência de correspondências possivelmente inesperadas.
 
 ## <a name="design-patterns"></a>Padrões de design
 

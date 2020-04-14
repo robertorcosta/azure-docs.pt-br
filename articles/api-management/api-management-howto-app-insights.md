@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 12aeea8393a00d7d2662c826f847265bdbdc0119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48a83fad3395f6ecf06fb1f1ba95aa1b06a53431
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442723"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259129"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Como integrar o Gerenciamento de API do Azure ao Azure Application Insights
 
@@ -51,7 +51,7 @@ Para que você possa usar as informações do Azure Application Insights, primei
     ![Agente do Application Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> Nos bastidores, uma entidade [Agente](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) é criada sem sua instância do Gerenciamento de API, contendo a Chave de instrumentação da instância do Application Insights.
+> Nos bastidores, uma entidade [Agente](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate) é criada sem sua instância do Gerenciamento de API, contendo a Chave de instrumentação da instância do Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Habilitar o log do Application Insights para sua API
 
@@ -64,13 +64,13 @@ Para que você possa usar as informações do Azure Application Insights, primei
 6. Marque a caixa **Habilitar**.
 7. Selecione o agente anexado na lista suspensa **Destino**.
 8. Insira **100** como **Amostragem (%)** e marque a caixa de seleção **Sempre registrar erros**.
-9. Clique em **Salvar**.
+9. Clique em **Save** (Salvar).
 
 > [!WARNING]
 > Substituir o valor padrão **0** no campo **Primeiros bytes do corpo** pode diminuir significativamente o desempenho de suas APIs.
 
 > [!NOTE]
-> Nos bastidores, uma entidade [Diagnóstico](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) chamada 'applicationinsights' é criada no nível da API.
+> Nos bastidores, uma entidade [Diagnóstico](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) chamada 'applicationinsights' é criada no nível da API.
 
 | Nome da configuração                        | Tipo de valor                        | Descrição                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

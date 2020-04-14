@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 17ecc80fee3b024c334b8d36533663f1f3cebe4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3237fe7d87ad058f255d1c77cb6d814bcd1c292e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136898"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262240"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
@@ -50,7 +50,7 @@ Se os usuários estiverem acessando o compartilhamento de arquivos do Azure usan
 
 ### <a name="solution-for-cause-3"></a>Solução para a causa 3
 
-Para atualizar as permissões de nível de compartilhamento, consulte [Atribuir permissões de acesso a uma identidade](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#assign-access-permissions-to-an-identity).
+Para atualizar as permissões de nível de compartilhamento, consulte [Atribuir permissões de acesso a uma identidade](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#2-assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Erro 53, Erro 67 ou Erro 87 ao montar ou desmontar um compartilhamento de arquivos do Azure
@@ -255,7 +255,7 @@ use uma das seguintes soluções:
 
 -   Monte a unidade a partir da mesma conta de usuário que contém o aplicativo. Você pode usar uma ferramenta como o PsExec.
 - Passe o nome da conta de armazenamento e a chave nos parâmetros de nome do usuário e senha do comando net use.
-- Use o comando cmdkey para adicionar as credenciais no Gerenciador de Credenciais. Execute isso a partir de uma linha de comando `runas`o contexto da conta de serviço, seja através de um login interativo ou usando.
+- Use o comando cmdkey para adicionar as credenciais no Gerenciador de Credenciais. Execute isso a partir de uma linha de comando sob `runas`o contexto da conta de serviço, seja através de um login interativo ou usando .
   
   `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
 - Mapeie o compartilhamento diretamente sem usar uma letra de unidade mapeada. Alguns aplicativos podem não se reconectar à letra da unidade corretamente, portanto, usar o caminho UNC completo pode ser mais confiável. 
