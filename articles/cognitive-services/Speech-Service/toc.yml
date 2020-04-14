@@ -214,6 +214,8 @@
       items:
         - name: O que é tradução de fala?
           href: speech-translation.md
+        - name: Noções básicas sobre tradução de fala
+          href: speech-translation-basics.md
     - name: Guia de Início Rápido
       items:
         - name: Traduzir uma fala em texto
