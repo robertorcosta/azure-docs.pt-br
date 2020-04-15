@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.author: jeedes
-ms.openlocfilehash: c733873a5545bb01f03abd8178ed2f371e2dd3aa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 60fdd9b0a8fb272da885df97e39804a98e48de67
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74074076"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478875"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Tutorial: Integrar o MyWorkDrive com o Azure Active Directory
 
@@ -92,7 +92,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > 
     > URL de logon:`https://yourserver.yourdomain.com/Account/Login-saml`
     > 
-    > Entre em contato com a [equipe de suporte do MyWorkDrive](mailto:support@myworkdrive.com) se você não tiver certeza de como configurar seu próprio nome de host e certificado SSL para esses valores.
+    > Entre em contato com a [equipe de suporte do MyWorkDrive](mailto:support@myworkdrive.com) se você não tiver certeza de como configurar o próprio nome do host e o certificado TLS/SSL para esses valores.
 
 1. Na página **Configurar o Logon Único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** para sua área de transferência.
 

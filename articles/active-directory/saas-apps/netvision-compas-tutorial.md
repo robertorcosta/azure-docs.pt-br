@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12a83c6381d3f068eecc2dda4838b981a8b59ab7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c3015ea26d81505c4f058846dbcb3b7858f79267
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135775"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520188"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netvision-compas"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Netvision Compas
 
@@ -44,7 +44,7 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Netvision Compas dá suporte ao SSO iniciado por **SP e IDP**
-* Depois de configurar o Netvision Compas, você poderá impor um Controle de Sessão, que fornece proteção contra vazamento e infiltração dos dados confidenciais da sua organização em tempo real. O Controle de Sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Depois de configurar o Netvision Compas, você poderá impor um controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O Controle de Sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 
 ## <a name="adding-netvision-compas-from-the-gallery"></a>Adicionar o Netvision Compas da galeria
@@ -69,7 +69,7 @@ Para configurar e testar o SSO do Azure AD com o Netvision Compas, conclua os se
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
     1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
 1. **[Configurar o SSO do Netvision Compas](#configure-netvision-compas-sso)** – para configurar o logon único no lado do aplicativo.
-    1. **[Criar um usuário de teste do Netvision Compas](#create-netvision-compas-test-user)** – para ter um equivalente de B.Fernandes no Netvision Compas que esteja vinculado à representação de usuário do Azure AD.
+    1. **[Configurar um usuário de teste do Netvision Compas](#configure-netvision-compas-test-user)** : para ter um equivalente de B.Fernandes no Netvision Compas que esteja vinculado à representação de usuário do Azure AD.
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -95,13 +95,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do Netvision Compas](mailto:contact@net.vision) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o arquivo de metadados e salvá-lo no computador.
 
-    ![O link de download do Certificado](common/certificatebase64.png)
+    ![O link de download do Certificado](common/metadataxml.png)
 
-1. Na seção **Configurar o Netvision Compas**, copie as URLs apropriadas de acordo com suas necessidades.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -135,17 +133,58 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ## <a name="configure-netvision-compas-sso"></a>Configurar o SSO do Netvision Compas
 
-Para configurar o logon único no lado do **Netvision Compas**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Netvision Compas](mailto:contact@net.vision). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Nesta seção, você habilitará o SSO do SAML no **Netvision Compas**.
+1. Faça logon no **Netvision Compas** usando uma conta administrativa e acesse a área de administração.
 
-### <a name="create-netvision-compas-test-user"></a>Criar usuário de teste do Netvision Compas
+    ![Área de administração](media/netvision-compas-tutorial/admin.png)
 
-Nesta seção, você criará um usuário com o nome B.Fernandes no Netvision Compas. Trabalhe com a [equipe de suporte do Netvision Compas](mailto:contact@net.vision) para adicionar os usuários na plataforma Netvision Compas. Os usuários devem ser criados e ativados antes de usar o logon único.
+1. Localize a área do **Sistema** e selecione **Provedores de Identidade**.
+
+    ![IdPs administradores](media/netvision-compas-tutorial/admin-idps.png)
+
+1. Selecione a ação **Adicionar** para registrar o Azure AD como um novo IdP.
+
+    ![Adicionar IdP](media/netvision-compas-tutorial/idps-add.png)
+
+1. Selecione **SAML** como o **Tipo de provedor**.
+1. Insira valores significativos nos campos **Nome de exibição** e **Descrição**.
+1. Atribua os usuários **Netvision Compas** ao IdP selecionando-os na lista **Usuários disponíveis** e, em seguida, escolhendo o botão **Adicionar selecionados**. Os usuários também podem ser atribuídos ao IdP durante o procedimento de provisionamento.
+1. Para a opção **Metadados** do SAML, clique no botão **Escolher Arquivo** e escolha o arquivo de metadados salvo anteriormente no computador.
+1. Clique em **Save** (Salvar).
+
+    ![Editar IdP](media/netvision-compas-tutorial/idp-edit.png)
+
+
+### <a name="configure-netvision-compas-test-user"></a>Configurar um usuário de teste do Netvision Compas
+
+Nesta seção, você vai configurar um usuário existente no **Netvision Compas** para que ele use o Azure AD para SSO.
+1. Siga o procedimento de provisionamento de usuário do **Netvision Compas**, conforme definido pela sua empresa ou edite uma conta de usuário existente.
+1. Ao definir o perfil do usuário, verifique se o endereço de **Email (Pessoal)** do usuário corresponde ao nome de usuário do Azure AD: username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+
+    ![Editar usuário](media/netvision-compas-tutorial/user-config.png)
+
+Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD.
+
+### <a name="using-the-access-panel-idp-initiated"></a>Como usar o Painel de Acesso (iniciado por IdP).
 
 Ao clicar no bloco Netvision Compas no Painel de Acesso, você deverá ser conectado automaticamente ao Netvision Compas para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+### <a name="directly-accessing-netvision-compas-sp-initiated"></a>Como obter acesso direto ao Netvision Compas (iniciado por SP).
+
+1. Acesse a URL do **Netvision Compas**. Por exemplo, `https://tenant.compas.cloud`.
+1. Insira o nome de usuário do **Netvision Compas** e escolha **Avançar**.
+
+    ![Usuário de logon](media/netvision-compas-tutorial/login-user.png)
+
+1. **(opcional)** Se o usuário receber vários IdPs no **Netvision Compas**, uma lista de IdPs disponíveis será apresentada. Selecione o IdP do Azure AD configurado anteriormente no **Netvision Compas**.
+
+    ![Escolha de logon](media/netvision-compas-tutorial/login-choose.png)
+
+1. Você será redirecionado ao Azure AD para realizar a autenticação. Depois de ser autenticado com êxito, você deverá ser conectado automaticamente ao **Netvision Compas**, para o qual configurou o SSO.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

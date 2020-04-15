@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b067b18985905b226287f9dd10ad4b937fab6df1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6f0a782309edc33a8a5ce661652922494ead2ec0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76767960"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667315"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Visão geral do Azure FarmBeats (versão prévia)
 
@@ -42,6 +42,24 @@ O Datahub é projetado como uma plataforma de API extensível. Estamos trabalhan
 ## <a name="accelerator"></a>Acelerador
 
 O Acelerador do Azure FarmBeats é um aplicativo Web de exemplo criado com base no Datahub. O Acelerador impulsiona seu desenvolvimento de modelo e interface do usuário. O Acelerador do Azure FarmBeats usa as APIs do Azure FarmBeats. Ele visualiza os dados de sensor ingeridos como gráficos e saídas de modelo como mapas. Por exemplo, você pode usar o Acelerador para criar rapidamente uma fazenda e obter facilmente um mapa de índice da vegetação ou um mapa de posicionamento de sensores para essa fazenda.
+
+## <a name="role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
+
+Um administrador pode definir regras de acesso para o Azure FarmBeats usando uma das funções predefinidas. As funções determinam a quais áreas do aplicativo um usuário tem acesso e quais ações ele pode executar. Há dois tipos de funções no Azure FarmBeats – para usuários e parceiros.
+
+### <a name="user-roles"></a>Funções de usuário
+
+Um [administrador pode adicionar e gerenciar usuários](manage-users-in-azure-farmbeats.md) e definir os níveis de acesso deles com base em duas funções de usuário: Administrador e Somente leitura.
+
+### <a name="partner-roles"></a>Funções de Parceiro
+
+Um administrador pode adicionar vários parceiros como provedores de dados ao Azure FarmBeats. Os seguintes itens resumem as funções de parceiro disponíveis no FarmBeats e as permissões delas:
+
+| Tipo de Parceiro    |   Ações  | Escopo |
+| ---- | -------- | -------- |
+| Parceiro de Sensor  |   Criar, Ler, Atualizar <br/> <br/> Ler, Atualizar | DeviceModel, Device, SensorModel, Sensor <br/> <br/> ExtendedType |
+| Parceiro de Imagens  |   Criar, Ler, Atualizar <br/> <br/> Ler, Atualizar <br/> <br/> Ler | Scene, SceneFile <br/> <br/> ExtendedType <br/> <br/> Farm |
+| Parceiro Meteorológico* <br/> <br/>  (* Em breve) |   Criar, Ler, Atualizar <br/> <br/> Ler, Atualizar <br/> <br/> Ler | WeatherDataModel, WeatherDataLocation, JobType <br/> <br/> ExtendedType <br/> <br/> Farm |
 
 ## <a name="resources"></a>Recursos
 

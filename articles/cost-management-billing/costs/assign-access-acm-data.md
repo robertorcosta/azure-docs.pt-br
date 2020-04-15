@@ -3,17 +3,17 @@ title: Atribuir acesso a dados do Gerenciamento de Custos do Azure
 description: Este artigo orienta você pela atribuição de permissão para dados do Gerenciamento de Custos do Azure para diversos escopos de acesso.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/19/2020
+ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 56090798defd9209c3587aa701c88db6958d1b97
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b3ede4dcc4df8bf10ce24b3d74dc5af0424de5a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065823"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879098"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados do Gerenciamento de Custos
 
@@ -21,9 +21,9 @@ Para usuários com contratos Azure Enterprise, uma combinação de permissões c
 
 O escopo que um usuário seleciona é usado em todo o Gerenciamento de Custos para fornecer a consolidação de dados e para controlar o acesso a informações de custo. Ao usar escopos, os usuários não selecionam vários deles. Em vez disso, eles selecionam um escopo mais amplo que em que os escopos filho se acumulam, para depois filtrarem o que desejam exibir. A consolidação de dados é importante para entender por que algumas pessoas não devem ter acesso a um escopo pai acumulado por escopos filho.
 
-Assista ao vídeo [Como atribuir acesso com o Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=J997ckmwTa8) para saber como atribuir acesso para exibir custos e encargos com o controle de acesso baseado em função do Azure.
+Assista ao vídeo [Gerenciamento de Custos controlando acesso](https://www.youtube.com/watch?v=_uQzQ9puPyM) para saber como atribuir acesso para ver custos e encargos com o controle de acesso baseado em função do Azure. Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
 
->[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
+>[!VIDEO https://www.youtube.com/embed/_uQzQ9puPyM]
 
 ## <a name="cost-management-scopes"></a>Escopos do Gerenciamento de Custos
 

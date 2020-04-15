@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de conectividade da NAT da Rede Virtual do Azure
-titleSuffix: Azure Virtual Network NAT troubleshooting
+titleSuffix: Azure Virtual Network
 description: Solucione problemas com a NAT da Rede Virtual.
 services: virtual-network
 documentationcenter: na
@@ -12,21 +12,18 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2020
+ms.date: 03/30/2020
 ms.author: allensu
-ms.openlocfilehash: c629b3425cd095a6ac9d305b5cd6de58ed9d572a
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: c012a8d83761b88cc59b62d11fd3d5542ca7f7a1
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78674325"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396084"
 ---
-# <a name="troubleshoot-azure-virtual-network-nat-connectivity-problems"></a>Solucionar problemas de conectividade da NAT da Rede Virtual do Azure
+# <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Solucionar problemas de conectividade da NAT da Rede Virtual do Azure
 
 Este artigo ajuda os administradores a diagnosticar e resolver problemas de conectividade ao usar a NAT da Rede Virtual.
-
->[!NOTE] 
->A NAT de Rede Virtual está disponível atualmente como versão prévia pública. No momento, ela só está disponível em um conjunto limitado de [regiões](nat-overview.md#region-availability). Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms) para obter detalhes.
 
 ## <a name="problems"></a>Problemas
 
@@ -43,27 +40,39 @@ Para resolver esses problemas, siga as etapas na seção a seguir.
 
 Um só [recurso do Gateway da NAT](nat-gateway-resource.md) dá suporte de 64.000 a até 1 milhão de fluxos simultâneos.  Cada endereço IP fornece 64.000 portas SNAT para o inventário disponível. Você pode usar até 16 endereços IP por recurso do Gateway da NAT.  O mecanismo SNAT é descrito [aqui](nat-gateway-resource.md#source-network-address-translation) mais detalhadamente.
 
-Frequentemente, a causa raiz do esgotamento de SNAT é um antipadrão de como a conectividade de saída é estabelecida e gerenciada.  Revise esta seção com cuidado.
+Frequentemente, a causa raiz do esgotamento de SNAT é um antipadrão para a forma como a conectividade de saída é estabelecida, gerenciada ou como os temporizadores configuráveis têm os valores padrão alterados.  Revise esta seção com cuidado.
 
 #### <a name="steps"></a>Etapas
 
-1. Investigar como o aplicativo está criando a conectividade de saída (por exemplo, revisão de código ou captura de pacote). 
-2. Determinar se essa atividade é um comportamento esperado ou se o aplicativo está tendo um comportamento inadequado.  Usar [métricas](nat-metrics.md) no Azure Monitor para substanciar suas descobertas. Use a categoria "Com falha" para obter a métrica de Conexões SNAT.
-3. Avaliar se os padrões apropriados são seguidos.
-4. Avaliar se o esgotamento de porta SNAT deve ser mitigado com endereços IP adicionais atribuídos ao recurso do Gateway da NAT.
+1. Verifique se você modificou o tempo limite de ociosidade padrão para um valor superior a 4 minutos.
+2. Investigar como o aplicativo está criando a conectividade de saída (por exemplo, revisão de código ou captura de pacote). 
+3. Determinar se essa atividade é um comportamento esperado ou se o aplicativo está tendo um comportamento inadequado.  Usar [métricas](nat-metrics.md) no Azure Monitor para substanciar suas descobertas. Use a categoria "Com falha" para obter a métrica de Conexões SNAT.
+4. Avaliar se os padrões apropriados são seguidos.
+5. Avaliar se o esgotamento de porta SNAT deve ser mitigado com endereços IP adicionais atribuídos ao recurso do Gateway da NAT.
 
 #### <a name="design-patterns"></a>Padrões de design
 
-Sempre aproveite a reutilização de conexão e o pool de conexões quando possível.  Esses padrões evitarão problemas de esgotamento de recursos imediatamente e resultarão em um comportamento previsível, confiável e escalonável. Os primitivos desses padrões podem ser encontrados em muitas bibliotecas e estruturas de desenvolvimento.
+Sempre aproveite a reutilização de conexão e o pool de conexões quando possível.  Esses padrões evitarão problemas de esgotamento de recursos e resultarão em um comportamento previsível. Os primitivos desses padrões podem ser encontrados em muitas bibliotecas e estruturas de desenvolvimento.
 
-_**Solução:**_ use padrões apropriados
+_**Solução:**_ Usar padrões e melhores práticas recomendadas apropriados
 
+- Os recursos de Gateway da NAT têm um tempo limite de ociosidade de TCP padrão de 4 minutos.  Se essa configuração for alterada para um valor mais alto, o NAT manterá fluxos mais longos e poderá causar [pressão desnecessária no inventário de portas SNAT](nat-gateway-resource.md#timers).
+- As solicitações atômicas (uma solicitação por conexão) são uma opção de design ruim. Esses limites de padrão escala, reduzem o desempenho e diminuem a confiabilidade. Em vez disso, reutilize as conexões HTTP/S para reduzir os números de conexões e as portas SNAT associadas. A escala do aplicativo aumentará e o desempenho vai melhorar devido a um custo reduzido de Handshakes, sobrecarga e operação de criptografia ao usar o TLS.
+- O DNS pode introduzir muitos fluxos individuais no volume quando o cliente não está armazenando em cache o resultado dos resolvedores de DNS. Use o cache.
+- Os fluxos UDP (por exemplo, pesquisas de DNS) alocam portas SNAT para a duração do tempo limite de ociosidade. Quanto maior o tempo limite de ociosidade, maior a pressão em portas SNAT. Use o tempo limite de ociosidade curto (por exemplo, 4 minutos).
+- Use pools de conexão para formatar o volume de conexão.
+- Nunca abandone silenciosamente um fluxo de TCP nem dependa de temporizadores TCP para limpar o fluxo. Se você não permitir que o TCP feche explicitamente a conexão, o estado permanecerá alocado em sistemas intermediários e pontos de extremidade e tornará as portas SNAT não disponíveis para outras conexões. Isso pode disparar falhas de aplicativo e esgotamento de SNAT. 
+- Não altere os valores de temporizador relacionados ao fechamento de TCP no nível do sistema operacional sem um conhecimento especializado do impacto. Embora a pilha de TCP seja recuperada, o desempenho do aplicativo poderá ser prejudicado quando os pontos de extremidade de uma conexão tiverem uma incompatibilidade de expectativas. O desejo de alterar temporizadores é geralmente um sinal de um problema de design subjacente. Examine as seguintes recomendações.
+
+Muitas vezes, a exaustão de SNAT também pode ser amplificada com outros antipadrões no aplicativo subjacente. Examine esses padrões adicionais e as melhores práticas para aprimorar a escala e a confiabilidade do seu serviço.
+
+- Explore o impacto de reduzir o [tempo limite de ociosidade de TCP](nat-gateway-resource.md#timers) a valores mais baixos, incluindo o tempo limite de ociosidade padrão de 4 minutos para liberar o inventário de portas SNAT mais cedo.
 - Considere os [padrões de sondagem assíncrona](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) nas operações de execução longa, a fim de liberar recursos de conexão para outras operações.
-- Os fluxos de longa vida (por exemplo, conexões TCP reutilizadas) devem usar keep alives TCP ou keep alives da camada de aplicativo para evitar que os sistemas intermediários atinjam o tempo limite.
+- Os fluxos de longa vida (por exemplo, conexões TCP reutilizadas) devem usar keep alives TCP ou keep alives da camada de aplicativo para evitar que os sistemas intermediários atinjam o tempo limite. Aumentar o tempo limite de ociosidade é um último recurso e pode não resolver a causa raiz. Um tempo limite longo pode causar falhas de taxa baixa quando o tempo limite expira e introduz atraso e falhas desnecessárias.
 - Os [padrões normais de repetição](https://docs.microsoft.com/azure/architecture/patterns/retry) devem ser usados para evitar tentativas agressivas/intermitências durante uma falha transitória ou uma recuperação de falha.
 A criação de uma conexão TCP para todas as operações HTTP (também conhecidas como "conexões atômicas") é um antipadrão.  As conexões atômicas impedirão que o aplicativo seja bem dimensionado e gaste recursos.  Sempre inclua várias operações em um pipeline na mesma conexão.  Seu aplicativo se beneficiará da velocidade da transação e dos custos de recursos.  Quando o aplicativo usa uma criptografia de camada de transporte (por exemplo, TLS), há um custo significativo associado ao processamento de novas conexões.  Examine [Padrões de design de nuvem do Azure](https://docs.microsoft.com/azure/architecture/patterns/) para obter padrões adicionais de melhores práticas.
 
-#### <a name="possible-mitigations"></a>Possíveis mitigações
+#### <a name="additional-possible-mitigations"></a>Possíveis mitigações adicionais
 
 _**Solução:**_ escale a conectividade de saída da seguinte maneira:
 
@@ -90,14 +99,14 @@ A tabela a seguir pode ser usada como um ponto de partida para saber quais ferra
 
 ### <a name="connectivity-failures"></a>Falhas na conectividade
 
-Problemas de conectividade com a [NAT de Rede Virtual](nat-overview.md) podem ser devido a vários problemas diferentes:
+Problemas de conectividade com a [NAT de Rede Virtual](nat-overview.md) podem ser causados por vários problemas diferentes:
 
 * [esgotamento de SNAT](#snat-exhaustion) transitório ou persistente do Gateway da NAT;
 * falhas transitórias na infraestrutura do Azure; 
 * falhas transitórias no caminho entre o Azure e o destino público da Internet; 
 * falhas transitórias ou persistentes no destino da Internet pública.
 
-Use ferramentas como as mostradas a seguir para validar a conectividade. [Não há suporte para o ping do ICMP](#icmp-ping-is-failing).
+Use ferramentas como as mostradas a seguir para validar a conectividade. [Não há suporte para o ping de ICMP](#icmp-ping-is-failing).
 
 | Sistema operacional | Teste de conexão TCP genérica | Teste de camada de aplicativo TCP | UDP |
 |---|---|---|---|
@@ -110,7 +119,7 @@ Examine a seção sobre o [esgotamento de SNAT](#snat-exhaustion) neste artigo.
 
 #### <a name="azure-infrastructure"></a>Infraestrutura do Azure
 
-Embora o Azure monitore e opere a infraestrutura com muito cuidado, podem ocorrer falhas transitórias, pois não há nenhuma garantia de que as transmissões não terão perdas.  Use padrões de design que permitam retransmissões de SYN para aplicativos TCP. Use tempos limite de conexão longos o suficiente para permitir a retransmissão de TCP SYN, a fim de reduzir impactos transitórios causados pela perda de um pacote SYN.
+O Azure monitora e opera sua infraestrutura com muito cuidado. Podem ocorrer falhas transitórias, não há garantia de que as transmissões ocorrem sem perdas.  Use padrões de design que permitam retransmissões de SYN para aplicativos TCP. Use tempos limite de conexão longos o suficiente para permitir a retransmissão de TCP SYN, a fim de reduzir impactos transitórios causados pela perda de um pacote SYN.
 
 _**Solução:**_
 
@@ -120,15 +129,15 @@ _**Solução:**_
 
 Não recomendamos a redução artificial do tempo limite da conexão TCP nem o ajuste do parâmetro RTO.
 
-#### <a name="public-internet-transit"></a>trânsito da Internet pública
+#### <a name="public-internet-transit"></a>Trânsito da Internet pública
 
-A probabilidade de falhas transitórias aumenta com um caminho mais longo para o destino e mais sistemas intermediários. É esperado que as falhas transitórias possam aumentar em frequência na [infraestrutura do Azure](#azure-infrastructure). 
+As chances de falhas transitórias aumentam com um caminho mais longo para o destino e mais sistemas intermediários. É esperado que as falhas transitórias possam aumentar em frequência na [infraestrutura do Azure](#azure-infrastructure). 
 
 Siga as mesmas diretrizes da seção anterior sobre a [infraestrutura do Azure](#azure-infrastructure).
 
 #### <a name="internet-endpoint"></a>Ponto de extremidade da Internet
 
-As seções anteriores se aplicam, além das considerações relacionadas ao ponto de extremidade da Internet com o qual a comunicação é estabelecida. Outros fatores que podem afetar o sucesso da conectividade são:
+As seções anteriores se aplicam, juntamente com o ponto de extremidade da Internet com o qual a comunicação é estabelecida. Outros fatores que podem afetar o sucesso da conectividade são:
 
 * gerenciamento de tráfego no lado de destino, incluindo
 - Limitação da taxa de API imposta pelo lado do destino
@@ -147,9 +156,11 @@ _**Solução:**_
 
 #### <a name="tcp-resets-received"></a>Redefinições de TCP recebidas
 
-Se você observar redefinições de TCP (pacotes TCP RST) recebidas na VM de origem, elas poderão ser geradas pelo Gateway da NAT no lado particular dos fluxos que não são reconhecidos como estando em andamento.  Um motivo possível é que a conexão TCP tenha atingido o tempo limite de ociosidade.  Ajuste o tempo limite de ociosidade de 4 minutos a até 120 minutos.
+O gateway de NAT gera redefinições de TCP na VM de origem para o tráfego que não é reconhecido como em andamento.
 
-As redefinições de TCP não são geradas no lado público dos recursos do Gateway da NAT. Se você receber redefinições de TCP no lado do destino, elas serão geradas pela pilha da VM de origem e não pelo recurso do Gateway da NAT.
+Um motivo possível é que a conexão TCP tenha atingido o tempo limite de ociosidade.  Ajuste o tempo limite de ociosidade de 4 minutos a até 120 minutos.
+
+As redefinições de TCP não são geradas no lado público dos recursos do gateway da NAT. As redefinições de TCP no lado do destino são geradas pela VM de origem, e não pelo recurso do gateway da NAT.
 
 _**Solução:**_
 

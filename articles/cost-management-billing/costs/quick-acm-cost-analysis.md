@@ -3,17 +3,17 @@ title: Início Rápido – Explorar os custos do Azure com a análise de custo
 description: Este início rápido ajuda você a usar a análise de custo para explorar e analisar os custos organizacionais do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/07/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 53e1ef2f5e4faecd3ab2dee1350f3e9087df8e9d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e63e3ef999db7053609fb098cd2b7583143a2937
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80155946"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874493"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início Rápido: Explorar e analisar os custos com a análise de custo
 
@@ -45,7 +45,7 @@ Para examinar os custos de análise de custo, abra o escopo no portal do Azure e
 
 O escopo que você seleciona é usado em todo o Gerenciamento de Custos para fornecer a consolidação de dados e para controlar o acesso a informações de custo. Ao usar escopos, você não faz multisseleção. Em vez disso, selecione um escopo mais amplo em que os outros fiquem acumulados e, em seguida, filtre os escopos aninhados de que você precisa. É importante compreender essa abordagem pois algumas pessoas podem não ter acesso a um escopo pai único, que abranja vários escopos aninhados.
 
-Assista ao vídeo [como usar o Gerenciamento de Custos no portal do Azure](https://www.youtube.com/watch?v=mfxysF-kTFA) para saber mais sobre como usar a análise de custo.
+Assista ao vídeo [como usar o Gerenciamento de Custos no portal do Azure](https://www.youtube.com/watch?v=mfxysF-kTFA) para saber mais sobre como usar a análise de custo. Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/mfxysF-kTFA]
 
@@ -145,6 +145,10 @@ Você pode exibir o conjunto de dados completo de qualquer exibição. As seleç
 
 ## <a name="understanding-grouping-and-filtering-options"></a>Como entender opções de agrupamento e filtragem
 
+A análise de custo tem muitas opções de agrupamento e filtragem. Para assistir a um vídeo sobre opções de agrupamento e filtragem, assista ao vídeo [Relatórios do Gerenciamento de Custos por dimensões e tags](https://www.youtube.com/watch?v=2Vx7V17zbmk). Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/2Vx7V17zbmk]
+
 A tabela a seguir lista algumas das opções mais comuns de agrupamento e filtragem, bem como quando você deve usá-las.
 
 | Propriedade | Quando usar | Observações |
@@ -178,7 +182,7 @@ Para obter mais informações sobre termos, confira [Compreender os termos usado
 
 Salve e compartilhe exibições personalizadas com outras pessoas fixando a análise de custo ao painel do portal do Azure ou copiando um link para análise de custo.
 
-Assista ao vídeo [Como compartilhar e salvar exibições no Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=kQkXXj-SmvQ) para saber mais sobre como usar o portal para compartilhar conhecimento sobre custos em toda a sua organização.
+Assista ao vídeo [Como compartilhar e salvar exibições no Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=kQkXXj-SmvQ) para saber mais sobre como usar o portal para compartilhar conhecimento sobre custos em toda a sua organização. Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 

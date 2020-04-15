@@ -3,16 +3,16 @@ title: Faturas do Registro Enterprise do Azure
 description: Este artigo explica como gerenciar e usar sua fatura do Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 9fbc2ffcf1158f436c060817f8f25152f839c3e0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d8d189d2ee67e3f98fec5d7d4cd295879e8689c9
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79037269"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743883"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas do Registro Enterprise do Azure
 
@@ -495,6 +495,12 @@ Usuário Registrado
 - Visual Studio Enterprise (anual)
 - Visual Studio Professional (mensal)
 - Visual Studio Professional (anual)
+
+## <a name="what-to-expect-after-change-of-channel-partner"></a>O que esperar após a alteração do parceiro de canal
+
+Se a alteração do COCP (parceiro de canal) ocorrer no meio do mês, um cliente receberá uma fatura para uso do parceiro associado anterior e outra fatura para uso com o novo parceiro.
+
+As faturas serão lançadas no mês posterior ao término do período de cobrança. Se o ritmo de cobrança for mensal, a fatura de setembro será lançada em outubro para ambos os parceiros. Se o ciclo de cobrança for trimestral ou anual, o cliente poderá esperar uma fatura do parceiro associado anterior pelo uso no período dele; o restante será para o novo parceiro, com base no ritmo de cobrança.
 
 ## <a name="azure-marketplace-for-ea-customers"></a>Azure Marketplace para clientes EA
 

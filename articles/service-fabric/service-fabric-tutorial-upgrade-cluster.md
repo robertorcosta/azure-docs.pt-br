@@ -4,14 +4,14 @@ description: Neste tutorial, você aprende a usar o PowerShell para atualizar o 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 2fb08d7aba3e35fb6147b75bbcee35b46873b5f6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a21de9d76a010b01da95b050a521178d8808bbdf
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78252726"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756081"
 ---
-# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Fazer upgrade do runtime de um cluster do Service Fabric no Azure
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Atualizar o runtime de um cluster do Service Fabric no Azure
 
 Este tutorial é a parte quatro de uma série e mostra como fazer upgrade do runtime do Service Fabric ou de um cluster do Azure Service Fabric. Esta parte do tutorial foi escrita para clusters do Service Fabric em execução no Azure e não se aplica a clusters autônomos do Service Fabric.
 
@@ -37,7 +37,7 @@ Nesta série de tutoriais, você aprenderá a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial:
 
@@ -95,7 +95,7 @@ Set-AzServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 
 O status do upgrade pode ser monitorado com o PowerShell ou a CLI do Azure Service Fabric (sfctl).
 
-Primeiro, conecte-se ao cluster com o certificado SSL criado na primeira parte do tutorial. Use o cmdlet `Connect-ServiceFabricCluster` ou `sfctl cluster upgrade-status`.
+Primeiro, conecte-se ao cluster com o certificado TLS/SSL criado na primeira parte do tutorial. Use o cmdlet `Connect-ServiceFabricCluster` ou `sfctl cluster upgrade-status`.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"

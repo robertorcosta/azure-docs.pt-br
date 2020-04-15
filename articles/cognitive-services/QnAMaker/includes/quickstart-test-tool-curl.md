@@ -10,16 +10,16 @@ ms.topic: include
 ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: f3a1a33b2fe859839deec587191b3b3a319c0cf8
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 4bd483e40e3a85a2934e58abdf46d09b17a33ed4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77494977"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758743"
 ---
 Este início rápido baseado em cURL fornece uma orientação para obtenção de uma resposta de base de dados de conhecimento.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [**cURL**](https://curl.haxx.se/) mais recente.
 * Você precisará ter
@@ -34,13 +34,13 @@ Este início rápido baseado em cURL fornece uma orientação para obtenção de
 Use a base de dados de conhecimento do início rápido anterior para consultar uma resposta com base nos metadados.
 
 1. Na página **Configurações** da base de dados de conhecimento, selecione a guia **cURL** para ver um exemplo de comando cURL usado para gerar uma resposta na base de dados de conhecimento.
-1. Copie o comando para um ambiente editável (como um arquivo de texto) para editar o comando. Edite o valor da pergunta conforme mostrado a seguir, de modo que os metadados de `service:qna_maker` sejam usados como um filtro para os conjuntos de QnA.
+1. Copie o comando para um ambiente editável (como um arquivo de texto) para editar o comando. Edite o valor da pergunta conforme mostrado a seguir, de modo que os metadados de `service:qna_maker` sejam usados como um filtro para os pares de QnA.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    A pergunta é apenas uma palavra, `size`, que pode retornar um dos dois conjuntos de QnA. A matriz `strictFilters` instrui a resposta a reduzir para apenas as respostas `qna_maker`.
+    A pergunta é apenas uma palavra, `size`, que pode retornar um dos dois pares de QnA. A matriz `strictFilters` instrui a resposta a reduzir para apenas as respostas `qna_maker`.
 
 1. A resposta inclui apenas a resposta que atende aos critérios de filtro. A seguinte resposta cURL foi formatada para facilitar a leitura:
 

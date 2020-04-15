@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 01/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f6684df42971b91975f6a7f5aeded9326cef3f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d2324343a31c3f3930975eea47659d023b9bbb94
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72969708"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667586"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Paylocity
 
@@ -45,6 +44,8 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Paylocity dá suporte ao SSO iniciado por **SP e IDP**
+
+* Após configurar o Paylocity, você poderá impor controles de sessão, que protegem contra a exportação e infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-paylocity-from-the-gallery"></a>Como adicionar o Paylocity da galeria
 
@@ -82,8 +83,6 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **Configuração Básica do SAML**, o usuário não precisa executar nenhuma etapa, pois o aplicativo já está pré-integrado ao Azure.
 
-    ![Informações de logon único de Domínio e URLs do Paylocity](common/preintegrated.png)
-
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
     Na caixa de texto **URL de Logon**, digite uma URL: `https://access.paylocity.com/`
@@ -98,13 +97,24 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     | Nome |  Atributo de Origem|
     | ---------------| --------------- |
-    | PartnerID | <"PartnerID"> |
-    | PaylocityUser | <"PaylocityUser"> |
-    | PaylocityEntity | <"PaylocityEntity"> |
+    | PartnerID | `P8000010` |
+    | PaylocityUser | `user.mail`|
+    | PaylocityEntity | < `PaylocityEntity` > |
+
+    > [!NOTE]
+    > O PaylocityEntity é a ID da Empresa do Paylocity.
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
+
+1. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Editar Ícone**.
+
+    ![A Edição do Certificado de Autenticação SAML](./media/paylocity-tutorial/edit-samlassertion.png)
+
+1. Selecione **Opção de Assinatura** como **Assinar resposta SAML e declaração** e clique em **Salvar**.
+
+    ![A Edição do Certificado de Autenticação SAML](./media/paylocity-tutorial/saml-assertion.png)
 
 1. Na seção **Configurar o Paylocity**, copie as URLs apropriadas com base nas suas necessidades.
 
@@ -163,3 +173,7 @@ Ao clicar no bloco do Paylocity no Painel de Acesso, você deverá ser conectado
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente o Paylocity com o Azure AD](https://aad.portal.azure.com/)
+
+* [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+* [Como proteger o Paylocity com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

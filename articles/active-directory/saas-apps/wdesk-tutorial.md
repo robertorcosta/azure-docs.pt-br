@@ -12,14 +12,14 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/02/2020
 ms.author: jeedes
-ms.openlocfilehash: a4cfcf20fc7a6a3532f65c3e797da6c876844d2c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 349a9920adc0d9353ee8e8e821f54bc2ea2f2616
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76985485"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666973"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Wdesk
 
@@ -181,6 +181,10 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Configurar o logon único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
+1. Em **Configurações de ID de Usuário SAML**, verifique se a **ID de Usuário SAML é o Nome de Usuário do Wdesk**.
+
+    ![Configurar o logon único](./media/wdesk-tutorial/wdesk-username.png)
+
 4. Em **Configurações Gerais**, marque **Habilitar Logon Único do SAML**:
 
     ![Configurar o logon único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
@@ -223,7 +227,7 @@ Para permitir que os usuários do Azure AD entrem no Wdesk, eles precisam ser pr
    
     ![Criação de um usuário de teste do AD do Azure](./media/wdesk-tutorial/createuser1.png)  
 
-5. Na caixa de texto **Usuário**, insira o nome do usuário, como brittasimon@contoso.com e clique no botão **Continuar**.
+5. Na caixa de texto **Usuário**, insira o nome do usuário, como b.simon@contoso.com e clique no botão **Continuar**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/wdesk-tutorial/createuser3.png)
 
@@ -231,9 +235,9 @@ Para permitir que os usuários do Azure AD entrem no Wdesk, eles precisam ser pr
   
     ![Criação de um usuário de teste do AD do Azure](./media/wdesk-tutorial/createuser4.png)
  
-    a. Na caixa de texto **Email**, insira o email do usuário como brittasimon@contoso.com.
+    a. Na caixa de texto **Email**, insira o email do usuário como b.simon@contoso.com.
 
-    b. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda**.
+    b. Na caixa de texto **Nome**, insira o nome do usuário como **B**.
 
     c. Na caixa de texto **Sobrenome**, insira o nome do usuário como **Fernandes**.
 

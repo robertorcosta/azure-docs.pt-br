@@ -2,15 +2,15 @@
 title: Tutorial – exportar modelo do portal do Azure
 description: Saiba como usar um modelo exportado para concluir o desenvolvimento do modelo.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 95d54a0661f0a0cebdbfc225074be0ce0d83a5cc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f95efbaedc2718c968062c47427ab7765756bde7
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79368886"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408559"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Usar o modelo exportado do portal do Azure
 
@@ -34,7 +34,7 @@ Esse modelo funciona bem para a implantação de contas de armazenamento, mas ta
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione **Criar um recurso**.
-1. Em **Pesquisar no Marketplace**, insira **Plano do Serviço de Aplicativo** e, em seguida, selecione **Plano do Serviço de Aplicativo**.  Não selecione **Plano do Serviço de Aplicativo (clássico)**
+1. Em **Pesquisar no Marketplace**, insira **Plano do Serviço de Aplicativo** e, em seguida, selecione **Plano do Serviço de Aplicativo**.  Não selecione **Plano de Serviço de Aplicativo (clássico)**
 1. Selecione **Criar**.
 1. Digite:
 
@@ -97,6 +97,8 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
+Para executar esse comando de implantação, você precisa ter a [versão mais recente](/cli/azure/install-azure-cli) da CLI do Azure.
+
 ```azurecli
 az deployment group create \
   --name addappserviceplan \
@@ -106,6 +108,9 @@ az deployment group create \
 ```
 
 ---
+
+> [!NOTE]
+> Se a implantação falhar, use a opção **debug** com o comando de implantação para mostrar os logs de depuração.  Use também a opção **verbose** para mostrar os logs de depuração completos.
 
 ## <a name="verify-deployment"></a>Verificar implantação
 

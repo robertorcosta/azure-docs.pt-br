@@ -3,18 +3,18 @@ title: 'Tutorial: Amostra do blueprint para o novo ambiente'
 description: Neste tutorial, você usa um exemplo de blueprint para criar uma definição dele que configure dois grupos de recursos e uma atribuição de função para cada grupo.
 ms.date: 03/25/2020
 ms.topic: tutorial
-ms.openlocfilehash: c4230282223b0a64f6254448fe069bf8f7ab9a15
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80282011"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677086"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Criar um ambiente com base em um exemplo de blueprint
 
 Os blueprints de exemplo são amostras do que pode ser feito usando o Azure Blueprints. Cada um é um exemplo com uma intenção ou finalidade específica, mas que não cria um ambiente completo por si só. Cada um serve como um ponto de partida para explorar o uso do Azure Blueprints com várias combinações dos parâmetros, designs e artefatos incluídos.
 
-O tutorial a seguir usa o exemplo de blueprint **Grupos de Recursos com RBAC** para demonstrar os diferentes aspectos do serviço Blueprints. As seguintes etapas serão abordadas:
+O tutorial a seguir usa o exemplo de blueprint dos **Grupos de Recursos com RBAC** para demonstrar os diferentes aspectos do serviço do Azure Blueprints. As seguintes etapas serão abordadas:
 
 > [!div class="checklist"]
 > - Criar uma nova definição de blueprint com base no exemplo

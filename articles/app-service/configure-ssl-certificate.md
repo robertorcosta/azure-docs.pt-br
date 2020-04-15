@@ -1,19 +1,19 @@
 ---
-title: Adicionar e gerenciar certificados SSL
+title: Adicionar e gerenciar certificados TLS/SSL
 description: Crie um certificado gratuito, importe um certificado do Serviço de Aplicativo, importe um certificado do Key Vault ou compre um certificado do Serviço de Aplicativo no Serviço de Aplicativo do Azure.
 tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 120caf459a7a8ca4e60d5e447a1e4130c0bce389
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4edf710e575bbb26fb0e247e59ff5c796f16226e
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223913"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810596"
 ---
-# <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adicionar um certificado SSL no Serviço de Aplicativo do Azure
+# <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL ao Serviço de Aplicativo do Azure
 
 O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches. Este artigo mostra como criar, carregar ou importar um certificado privado ou público no Serviço de Aplicativo. 
 
@@ -47,7 +47,7 @@ O [Certificado gratuito gerenciado pelo Serviço de Aplicativo](#create-a-free-c
 * Conter chave privada com pelo menos 2.048 bits de extensão
 * Conter todos os certificados intermediários na cadeia de certificados
 
-Para proteger um domínio personalizado em uma associação SSL, o certificado tem requisitos adicionais:
+Para proteger um domínio personalizado em uma associação TLS, o certificado tem requisitos adicionais:
 
 * Contém um [Uso estendido de chave](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Extensions_informing_a_specific_usage_of_a_certificate) para autenticação do servidor (OID = 1.3.6.1.5.5.7.3.1)
 * Assinado por uma autoridade de certificado confiável
@@ -59,7 +59,7 @@ Para proteger um domínio personalizado em uma associação SSL, o certificado t
 
 ## <a name="create-a-free-certificate-preview"></a>Criar um certificado gratuito (versão prévia)
 
-O Certificado gratuito gerenciado pelo Serviço de Aplicativo é uma solução imediata para proteção de seu nome DNS personalizado no Serviço de Aplicativo. É um certificado SSL totalmente funcional gerenciado pelo Serviço de Aplicativo e renovado automaticamente. O certificado gratuito apresenta as seguintes limitações:
+O Certificado gratuito gerenciado pelo Serviço de Aplicativo é uma solução imediata para proteção de seu nome DNS personalizado no Serviço de Aplicativo. É um certificado TLS/SSL totalmente funcional gerenciado pelo Serviço de Aplicativo e renovado automaticamente. O certificado gratuito apresenta as seguintes limitações:
 
 - Não oferece suporte a certificados curinga.
 - Não oferece suporte a domínios raiz.
@@ -237,7 +237,7 @@ Crie um arquivo para o certificado mesclado, chamado _mergedcertificate.crt_. Em
 
 ### <a name="export-certificate-to-pfx"></a>Exportar o certificado para PFX
 
-Exporte o certificado SSL mesclado com a chave privada com a qual a solicitação de certificado foi gerada.
+Exporte o certificado TLS/SSL mesclado com a chave privada com a qual a solicitação de certificado foi gerada.
 
 Se você gerou a solicitação de certificado usando o OpenSSL, isso significa que você criou um arquivo de chave privada. Para exportar o certificado para PFX, execute o comando a seguir. Substitua os espaços reservados _&lt;private-key-file>_ e _&lt;merged-certificate-file>_ pelos caminhos para a sua chave privada e o arquivo de certificado mesclado.
 
@@ -245,7 +245,7 @@ Se você gerou a solicitação de certificado usando o OpenSSL, isso significa q
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 
-Quando solicitado, defina uma senha de exportação. Você usará essa senha quando carregar o certificado SSL para o Serviço de Aplicativo posteriormente.
+Quando solicitado, defina uma senha de exportação. Você usará essa senha quando carregar o certificado TLS/SSL para o Serviço de Aplicativo posteriormente.
 
 Se você usou o IIS ou o _Certreq.exe_ para gerar a solicitação de certificado, instale o certificado no computador local e, em seguida, [exporte o certificado para PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
@@ -363,16 +363,16 @@ Agora você pode excluir o certificado do Serviço de Aplicativo. Na navegação
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>Mais recursos
 
-* [Proteger um nome DNS personalizado com uma associação SSL](configure-ssl-bindings.md)
+* [Proteger um nome DNS personalizado com uma associação TLS/SSL no Serviço de Aplicativo do Azure](configure-ssl-bindings.md)
 * [Impor HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Impor o TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [Usar um certificado SSL no código do aplicativo](configure-ssl-certificate-in-code.md)
+* [Usar um certificado TLS/SSL no seu código no Serviço de Aplicativo do Azure](configure-ssl-certificate-in-code.md)
 * [Perguntas frequentes: Certificados do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

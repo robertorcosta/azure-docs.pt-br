@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: 850ab0ee89ee167886d8747a0c721bb643529e14
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ac6d72cbb69796851e58098138d51bb0988be4ec
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80052056"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520986"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
@@ -59,7 +59,7 @@ O Personalizador usou o aprendizado por reforço para selecionar a melhor ação
 
 A **API** de [Classificação](https://go.microsoft.com/fwlink/?linkid=2092082) do Personalizador é chamada _sempre_ que você apresenta conteúdo, em tempo real. Isso é conhecido como um **evento**, indicado com uma _ID do evento_.
 
-A **API** de [Recompensa](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) do Personalizador pode ser chamada em tempo real ou atrasada para se adequar melhor à sua infraestrutura. Você determina a pontuação de recompensa com base em suas necessidades empresariais. Ela pode ter um valor único, como 1 para bom e 0 para ruim ou um número produzido por um algoritmo criado considerando suas metas e métricas empresariais.
+A **API** de [Recompensa](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) do Personalizador pode ser chamada em tempo real ou atrasada para se adequar melhor à sua infraestrutura. Você determina a pontuação de recompensa com base em suas necessidades empresariais. A pontuação de recompensa está entre 0 e 1. Ela pode ter um valor único, como 1 para bom e 0 para ruim ou um número produzido por um algoritmo criado considerando suas metas e métricas empresariais.
 
 ## <a name="personalizer-content-requirements"></a>Requisitos de conteúdo do Personalizador
 

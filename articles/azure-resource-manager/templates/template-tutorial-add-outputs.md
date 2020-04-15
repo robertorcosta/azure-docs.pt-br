@@ -2,21 +2,21 @@
 title: Tutorial – adicionar saídas ao modelo
 description: Adicione saídas ao modelo do Azure Resource Manager para simplificar a sintaxe.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 381f9f54a95b6d457aa65c7e8ef6abe49fe9eeea
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2ee1a2c7037bde68b7858b57a03c78bd2016ff1c
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765743"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743555"
 ---
-# <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Tutorial: adicionar saídas ao modelo do Resource Manager
+# <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutorial: Adicionar saídas ao seu modelo do ARM
 
-Neste tutorial, você aprende como retornar um valor do modelo. Você usa saídas quando precisa de um valor de um recurso implantado. Este tutorial leva **7 minutos** para ser concluído.
+Neste tutorial, você aprenderá a retornar um valor do seu modelo do ARM (Azure Resource Manager). Você usa saídas quando precisa de um valor de um recurso implantado. Este tutorial leva **7 minutos** para ser concluído.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Recomendamos que você conclua o [tutorial sobre variáveis](template-tutorial-add-variables.md), não sendo, porém, necessário.
 
@@ -52,7 +52,7 @@ Você está pronto para implantar o modelo e examinar o valor retornado.
 
 Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo pressupõe que você tenha definido a variável **templateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -63,10 +63,12 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_LRS
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para executar esse comando de implantação, você precisa ter a [versão mais recente](/cli/azure/install-azure-cli) da CLI do Azure.
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addoutputs \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -75,7 +77,7 @@ az group deployment create \
 
 ---
 
-Na saída do comando de implantação, você verá um objeto semelhante a:
+Na saída do comando de implantação, você verá um objeto semelhante ao seguinte exemplo somente se a saída estiver no formato JSON:
 
 ```json
 {
@@ -87,6 +89,9 @@ Na saída do comando de implantação, você verá um objeto semelhante a:
     "file": "https://storeluktbfkpjjrkm.file.core.windows.net/"
 }
 ```
+
+> [!NOTE]
+> Se a implantação falhar, use a opção **debug** com o comando de implantação para mostrar os logs de depuração.  Use também a opção **verbose** para mostrar os logs de depuração completos.
 
 ## <a name="review-your-work"></a>Examinar seu trabalho
 

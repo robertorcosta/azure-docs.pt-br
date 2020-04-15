@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 02/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 9ac70252ce7c818ccbdecfd996b9970f011aa967
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 927c09f61ce0847c72cefb51935116070e956861
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290184"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743113"
 ---
 # <a name="about-azure-virtual-wan"></a>Sobre a WAN Virtual do Azure
 
-WAN Virtual do Azure é um serviço de rede que fornece conectividade de ramificação otimizada e automatizada para e por meio do Azure. As regiões do Azure servem como hubs para os quais é possível optar por conectar suas ramificações. Você pode aproveitar o backbone do Azure para também conectar as ramificações e aproveitar a conectividade de ramificação a VNet. Temos uma lista de parceiros que oferecem suporte à automação de conectividade com VPN da WAN Virtual do Azure. Para saber mais, veja o artigo [Parceiros e localizações de WAN Virtual](virtual-wan-locations-partners.md).
+A WAN Virtual do Azure é um serviço de rede que reúne muitas funcionalidades de rede, segurança e roteamento para fornecer uma interface operacional. Essas funcionalidades incluem conectividade de branch (por meio da automação de conectividade de dispositivos de parceiros de WAN Virtual, como SD-WAN ou VPN CPE), conectividade VPN site a site, conectividade VPN de usuário remoto (ponto a site), conectividade privada (ExpressRoute), conectividade de nuvem interna (conectividade transitiva para redes virtuais), interconectividade VPN ExpressRoute, roteamento, Firewall do Azure, criptografia para conectividade privada etc. Você não precisa ter todos esses casos de uso para começar a usar a WAN Virtual. Você pode simplesmente começar com apenas um caso de uso e ajustar a rede à medida que ela evolui. A arquitetura da WAN Virtual é uma arquitetura de hub e spoke com dimensionamento e desempenho internos para branches (dispositivos VPN/SD-WAN), usuários (clientes VPN do Azure/OpenVPN/IKEv2), circuitos de ExpressRoute e redes virtuais. Ele permite a [arquitetura de rede de trânsito global](virtual-wan-global-transit-network-architecture.md) em que o “hub” da rede hospedada em nuvem permite a conectividade transitiva entre pontos de extremidade que podem ser distribuídos entre diferentes tipos de “spokes”.
 
-A WAN Virtual do Azure reúne muitos serviços de conectividade de nuvem do Azure, como VPN site a site, ExpressRoute e VPN de usuário (ponto a site) em uma única interface operacional. A conectividade com VNets do Azure é estabelecida usando conexões de rede virtual. Ele permite a [arquitetura de rede de trânsito global](virtual-wan-global-transit-network-architecture.md) com base em um modelo de conectividade de Hub e spoke clássica em que o “hub” da rede hospedada em nuvem permite a conectividade transitiva entre pontos de extremidade que podem ser distribuídos entre diferentes tipos de “spokes”.
+As regiões do Azure servem como hubs para os quais é possível optar por se conectar. Todos os hubs são conectados em malha completa em uma WAN Virtual Padrão, o que facilita para o usuário usar o backbone da Microsoft para conectividade de qualquer um para qualquer um (qualquer spoke). Para a conectividade de spoke com dispositivos SD-WAN/VPN, os usuários podem configurá-la manualmente na WAN Virtual do Azure ou usar a solução do parceiro de CPE da WAN Virtual (SD-WAN/VPN) para configurar a conectividade com o Azure. Temos uma lista de parceiros que dão suporte à automação para conectividade (capacidade de exportar as informações do dispositivo para o Azure, baixar a configuração do Azure e estabelecer a conectividade) com a WAN Virtual do Azure. Para saber mais, veja o artigo [Parceiros e localizações de WAN Virtual](virtual-wan-locations-partners.md). 
 
 ![Diagrama de WAN virtual](./media/virtual-wan-about/virtualwan1.png)
 

@@ -4,12 +4,12 @@ description: Saiba como implantar um modelo vinculado
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 70a09315b0947f41e7602e630460cb3e674a7bf8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 177a994450b6ffe5489a8c95c3b484521fd9b77b
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80081795"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672928"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Tutorial: Implantar um modelo vinculado
 
@@ -90,6 +90,9 @@ Write-Host "Press [ENTER] to continue ..."
 Para implantar um modelo privado em uma conta de armazenamento, gere um token SAS e inclua-o no URI para o modelo. Defina a hora de vencimento de forma a permitir que haja tempo suficiente para concluir a implantação. O blob que contém o modelo fica acessível somente para o proprietário da conta. No entanto, quando você cria um token SAS para o blob, o blob fica acessível para qualquer pessoa com o URI. Se outro usuário interceptar o URI, esse usuário será capaz de acessar o modelo. Um token SAS é uma boa maneira de limitar o acesso aos seus modelos, mas você não deve incluir dados confidenciais como senhas diretamente no modelo.
 
 Caso você não tenha criado o grupo de recursos, confira [Criar grupo de recursos](./deployment-tutorial-local-template.md#create-resource-group).
+
+> [!NOTE]
+> No código da CLI do Azure a seguir, o parâmetro de data -d seria um argumento inválido no macOS. Portanto, usuários do macOS, para adicionar 2h à hora atual no terminal no macOS, vocês devem usar -v+2H.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

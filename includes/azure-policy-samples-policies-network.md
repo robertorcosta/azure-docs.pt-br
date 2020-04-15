@@ -2,18 +2,18 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 04/03/2020
 ms.author: dacoulte
-ms.openlocfilehash: f64f09d89bc76d625ec09763ccac6df171f5954e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ecca4208d8c3d471e3ff4d1fc951888dcf18255d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79382283"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758150"
 ---
-|Nome |DESCRIÇÃO |Efeito(s) |Versão |GitHub |
+|Nome |Descrição |Efeito(s) |Versão |GitHub |
 |---|---|---|---|---|
-|[Uma política de IPsec ou IKE personalizada precisa ser aplicada a todas as conexões do gateway de rede virtual do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F50b83b09-03da-41c1-b656-c293c914862b) |Essa política garante que todas as conexões de gateway de rede virtual do Azure usem uma política personalizada do protocolo Ipsec ou IKE. Algoritmos e forças de chave com suporte – https://aka.ms/AA62kb0 |Audit, desabilitado |1.0.0 |[Link](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_CustomIpSecPolicies_Audit.json)
+|[Uma política de IPsec ou IKE personalizada precisa ser aplicada a todas as conexões do gateway de rede virtual do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F50b83b09-03da-41c1-b656-c293c914862b) |Essa política garante que todas as conexões de gateway de rede virtual do Azure usem uma política personalizada do protocolo Ipsec ou IKE. Algoritmos e forças de chave com suporte – [https://aka.ms/AA62kb0](https://aka.ms/AA62kb0) |Audit, desabilitado |1.0.0 |[Link](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_CustomIpSecPolicies_Audit.json)
 |[O Serviço de Aplicativo deve usar um ponto de extremidade de serviço de rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Essa política audita os Serviços de Aplicativo que não estão configurados para usar um ponto de extremidade de serviço de rede virtual. |AuditIfNotExists, desabilitado |1.0.0 |[Link](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json)
 |[Os gateways de VPN do Azure não devem usar o SKU 'básico'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe345b6c3-24bd-4c93-9bbb-7e5e49a17b78) |Essa política garante que os gateways de VPN não usem o SKU "básico". |Audit, desabilitado |1.0.0 |[Link](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_BasicSKU_Audit.json)
 |[O Registro de Contêiner deve usar um ponto de extremidade de serviço de rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78) |Esta política audita os Registros de Contêiner que não estão configurados para usar um ponto de extremidade de serviço de rede virtual. |Audit, desabilitado |1.0.0 – versão prévia |[Link](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ContainerRegistry_Audit.json)

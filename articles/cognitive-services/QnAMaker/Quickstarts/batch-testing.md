@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 3bc095d8949f177ccb6c4cc111ba4b272027904e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77109002"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756705"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Início Rápido: Testar a base de dados de conhecimento com perguntas em lotes e respostas esperadas
 
@@ -149,7 +149,7 @@ Use o gráfico a seguir para entender como localizar os valores de campo para da
     |Carregar seu Surface Pro 4|
     |Verificar o nível da bateria|
 
-    Dois conjuntos do QnA têm os metadados definidos.
+    Dois pares do QnA têm os metadados definidos.
 
     > [!TIP]
     > Para ver os metadados e as IDs do QnA de cada conjunto, exporte a base de dados de conhecimento. Selecione a página **Configurações** e, em seguida, selecione **Exportar** como um arquivo `.xls`. Localize esse arquivo baixado e abra-o com o Excel, revisando os metadados e a ID.
@@ -169,7 +169,7 @@ Há dois cenários principais para testes de lote:
 
 O procedimento a seguir pressupõe que o cenário é processar os logs de chat com
 
-1. Crie um arquivo de teste de lote para incluir dados opcionais, `batch-test-data-2.tsv`. Adicione as seis linhas do arquivo de entrada de teste de lote original e, em seguida, adicione a ID de conjunto de metadados, de conjunto superior e de conjunto de QnA para cada linha.
+1. Crie um arquivo de teste de lote para incluir dados opcionais, `batch-test-data-2.tsv`. Adicione as seis linhas do arquivo de entrada de teste de lote original e, em seguida, adicione a ID de pares de metadados, de conjunto superior e de conjunto de QnA para cada linha.
 
     Para simular o processo automatizado de verificar novo texto de logs de chat na base de dados de conhecimento, defina os metadados para cada coluna com o mesmo valor: `topic:power`.
 

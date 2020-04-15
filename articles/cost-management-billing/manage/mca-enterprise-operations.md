@@ -5,14 +5,14 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.author: banders
-ms.openlocfilehash: 6692bb8f323e42edfe546e15620442881f99032d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 01a7b81794342871ae8eadc090e61bbac0876c03
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78272195"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586164"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Concluir as tarefas do Contrato Enterprise em sua conta de cobrança para um Contrato de Cliente da Microsoft
 
@@ -34,10 +34,10 @@ O diagrama a seguir descreve como a cobrança é organizada em sua nova conta de
 
 As alterações a seguir se aplicam aos administradores corporativos em um Contrato Enterprise que foi renovado para um Contrato de Cliente da Microsoft.
 
-- Um perfil de cobrança é criado para seu registro. Você usará o perfil de cobrança para gerenciar a cobrança de sua organização, de maneira semelhante ao registro do Contrato Enterprise. Para saber mais sobre os perfis de cobrança, confira [Entender os perfis de cobrança](../understand/mca-overview.md#billing-profiles).
+- Um perfil de cobrança é criado para seu registro. Você usará o perfil de cobrança para gerenciar a cobrança da sua organização, de maneira semelhante ao registro do Contrato Enterprise. Para saber mais sobre os perfis de cobrança, confira [Entender os perfis de cobrança](../understand/mca-overview.md#billing-profiles).
 - Uma seção da fatura é criada para cada departamento no registro do Contrato Enterprise. Você usará as seções da fatura para gerenciar os departamentos. Você pode criar seções da fatura para configurar departamentos adicionais. Para saber mais sobre as seções da fatura, confira [Entender as seções da fatura](../understand/mca-overview.md#invoice-sections).
-- Você usará a função de criador de assinatura do Azure nas seções da fatura para conceder a outros usuários a permissão para criar uma assinatura do Azure, como as contas que foram criadas no registro do Contrato Enterprise.
-- Você usará o [portal do Azure](https://portal.azure.com) para gerenciar a cobrança de sua organização, em vez do portal do Azure EA.
+- Você usará a função de criador de assinatura do Azure nas seções da fatura para conceder aos outros usuários a permissão para criar uma assinatura do Azure, como as contas que foram criadas no registro do Contrato Enterprise.
+- Você usará o [portal do Azure](https://portal.azure.com) para gerenciar a cobrança da sua organização, em vez do Portal do Azure EA.
 
 Você recebe as seguintes funções na nova conta de cobrança:
 
@@ -92,8 +92,8 @@ Atribua aos usuários a função de criador de assinatura do Azure nas seções 
 As alterações a seguir se aplicam aos administradores do departamento em um Contrato Enterprise que foi renovado para um Contrato de Cliente da Microsoft.
 
 - Uma seção da fatura é criada para cada departamento no registro do Contrato Enterprise. Você usará as seções da fatura para gerenciar os departamentos. Para saber mais sobre as seções da fatura, confira [Entender as seções da fatura](../understand/mca-overview.md#invoice-sections).
-- Você usará a função de criador de assinatura do Azure na seção da fatura para conceder a outros usuários a permissão para criar uma assinatura do Azure, como as contas criadas no registro do Contrato Enterprise.
-- Você usará o portal do Azure para gerenciar a cobrança de sua organização, em vez do portal do Azure EA.
+- Você usará a função de criador de assinatura do Azure na seção da fatura para conceder aos outros usuários a permissão para criar uma assinatura do Azure, como as contas criadas no registro do Contrato Enterprise.
+- Você usará o portal do Azure para gerenciar a cobrança da sua organização, em vez do Portal do Azure EA.
 
 Você recebe as seguintes funções na nova conta de cobrança:
 
@@ -101,7 +101,7 @@ Você recebe as seguintes funções na nova conta de cobrança:
 
 ### <a name="view-charges-for-your-department"></a>Exibir os encargos de seu departamento
 
-Exiba os encargos para a seção da fatura criada para seu departamento na [página Gerenciamento de Custos + Cobrança](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview) do portal do Azure.
+Veja os custos da seção da fatura criada para o seu departamento na [página Gerenciamento de Custos + Cobrança](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview) do portal do Azure.
 
 ### <a name="add-an-additional-department-administrator"></a>Adicionar outro administrador do departamento
 
@@ -111,7 +111,7 @@ Para saber como fornecer acesso à seção da fatura, confira [Gerenciar funçõ
 
 ### <a name="create-a-new-account-in-your-department"></a>Criar uma conta em seu departamento
 
-Atribua usuários à função de criador de assinatura do Azure na seção da fatura criada para seu departamento. Para obter mais informações sobre como atribuir funções, confira [Gerenciar funções de cobrança no portal do Azure](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
+Atribua usuários à função de criador de assinatura do Azure na seção da fatura criada para o seu departamento. Para obter mais informações sobre como atribuir funções, confira [Gerenciar funções de cobrança no portal do Azure](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ### <a name="view-charges-for-accounts-in-your-departments"></a>Exibir encargos para contas em seus departamentos
 
@@ -121,7 +121,7 @@ Para exibir o custo agregado de assinaturas que pertenciam a uma conta em seu de
 
 ## <a name="changes-for-account-owners"></a>Alterações para proprietários da conta
 
-Os proprietários da conta no Contrato Enterprise obtêm permissão para criar assinaturas do Azure na nova conta de cobrança. Suas assinaturas existentes do Azure pertencem à seção da fatura criada para seu departamento. Caso a sua conta não pertença a um departamento, suas assinaturas pertencerão a uma seção da fatura chamada Seção da fatura padrão.
+Os proprietários da conta no Contrato Enterprise obtêm permissão para criar assinaturas do Azure na nova conta de cobrança. Suas assinaturas existentes do Azure pertencem à seção da fatura criada para seu departamento. Caso a sua conta não pertença a um departamento, suas assinaturas pertencem a uma seção da fatura chamada Seção da fatura padrão.
 
 Para criar assinaturas adicionais do Azure, você receberá a função a seguir na nova conta de cobrança.
 

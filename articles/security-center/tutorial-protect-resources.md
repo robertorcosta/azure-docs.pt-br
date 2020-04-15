@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 4b40b7c6f755eb2107a09b1b881ea33fa2187f29
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b28de7af16053093cd0108224188cdd615fce55
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73686339"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435513"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Proteger seus recursos com a Central de Segurança do Azure
 A Central de Segurança limita a exposição a ameaças por meio de controles de acesso e de aplicativo a fim de bloquear atividades mal-intencionadas. O acesso de VM (máquina virtual) JIT (Just-In-Time) reduz a exposição a ataques permitindo que você negue o acesso persistente às VMs. Em vez disso, você fornece acesso controlado e auditado às VMs somente quando for necessário. Controles de aplicativo adaptáveis ajudam a proteger VMs contra malware, controlando quais aplicativos podem ser executados em suas VMs. A Central de Segurança usa o aprendizado de máquina para analisar os processos em execução na VM e ajuda a aplicar regras de lista de permissões usando essa inteligência.
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá a:
 > * Configurar uma política de acesso de VM Just-In-Time
 > * Configurar uma política de controle de aplicativo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Para percorrer os recursos abordados neste tutorial, você deve estar em um tipo de preço da Central de Segurança Padrão. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Integração da sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) orienta você sobre como fazer upgrade para Standard.
 
 ## <a name="manage-vm-access"></a>Gerenciar acesso à VM
@@ -78,7 +78,7 @@ Os controles de aplicativo adaptáveis ajudam você a definir um conjunto de apl
 
    - **Configurado**: lista de grupos de recursos contendo as VMs que foram configuradas com controle de aplicativo.
    - **Recomendado**: lista de grupos de recursos para os quais o controle de aplicativos é recomendado.
-   - **Nenhuma recomendação**: lista de grupos de recursos contendo VMs sem nenhuma recomendação de controle de aplicativo. Por exemplo, VMs que sempre têm aplicativos mudando e que ainda não estão estáveis.
+   - **Sem recomendações**: lista de grupos de recursos contendo VMs sem nenhuma recomendação de controle de aplicativo. Por exemplo, VMs que sempre têm aplicativos mudando e que ainda não estão estáveis.
 
 2. Selecione a guia **Recomendado** para obter uma lista de grupos de recursos com as recomendações de controle de aplicativo.
 
@@ -86,9 +86,9 @@ Os controles de aplicativo adaptáveis ajudam você a definir um conjunto de apl
 
 3. Selecione um grupo de recursos para abrir a opção **Criar regras de controle de aplicativo**. Em **Selecionar VMs**, revise a lista de VMs recomendadas e desmarque as que não devem receber o controle de aplicativo. Em **Selecionar processos para regras de lista de permissões**, revise a lista de aplicativos recomendados e desmarque o que não deve ser aplicado. A lista inclui:
 
-   - **NOME**: o caminho completo do aplicativo
+   - **NAME**: o caminho completo do aplicativo
    - **PROCESSOS**: quantos aplicativos residem em cada caminho
-   - **COMUNS**: “Sim” indica que esses processos foram executados na maioria das VMs no grupo de recursos
+   - **COMUM**: "Sim" indica que esses processos foram executados na maioria das VMs no grupo de recursos
    - **EXPLORÁVEL**: um ícone de aviso indica se os aplicativos podem ser usados por um invasor para ignorar a lista de permissões de aplicativos. É recomendável examinar esses aplicativos antes da aprovação.
 
 4. Após concluir suas seleções, selecione **Criar**.
@@ -110,7 +110,7 @@ Se quiser desabilitar o provisionamento automático:
 4. Clique em **Salvar**.
 
 >[!NOTE]
-> Desabilitar o provisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure em que o agente tenha sido provisionado. Desabilitar o provisionamento automático limita o monitoramento de segurança dos seus recursos.
+> A desabilitação do provisionamento automático não remove o agente do Log Analytics das VMs do Azure nas quais o agente tenha sido provisionado. Desabilitar o provisionamento automático limita o monitoramento de segurança dos seus recursos.
 >
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -123,7 +123,7 @@ Neste tutorial, você aprendeu a limitar sua exposição a ameaças fazendo o se
 Avance para o próximo tutorial para saber mais sobre como responder a incidentes de segurança.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Responder a incidentes de segurança](tutorial-security-incident.md)
+> [Tutorial: Responder a alertas de segurança](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

@@ -1,22 +1,22 @@
 ---
 title: O que é a API de Pesquisa na Web do Bing?
 titleSuffix: Azure Cognitive Services
-description: A API de Pesquisa na Web do Bing é um serviço RESTful que fornece respostas instantâneas às consultas de usuário. Os resultados da pesquisa são facilmente definidos para incluir as páginas da Web, imagens, vídeos, notícias, traduções e muito mais. Os resultados são fornecidos como JSON e são baseados na relevância de pesquisa e em suas assinaturas de pesquisa na Web do Bing.
+description: A API de Pesquisa na Web do Bing é um serviço RESTful que fornece respostas instantâneas às consultas de pesquisa na Web. Configure os resultados para incluir páginas da Web, imagens, vídeos, notícias, entre outros. Os resultados são fornecidos como JSON e são baseados na relevância de pesquisa e em suas assinaturas de pesquisa na Web do Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a7b2627b5837a124ebbcd76783bb49679cbe6313
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 5ea98a4ef759937c5962dc86f0384051b8fa0bb3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77650275"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477474"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>O que é a API de Pesquisa na Web do Bing?
 
@@ -30,7 +30,7 @@ Quer ver como funciona? Experimente a [demonstração da API de Pesquisa na Web 
 
 A Pesquisa na Web do Bing só não fornece acesso às respostas instantâneas. Ela também fornece recursos adicionais e funcionalidades que permitem que você personalize os resultados da pesquisa para seus usuários.
 
-| Recurso | DESCRIÇÃO |
+| Recurso | Descrição |
 |---------|-------------|
 | [Sugerir os termos de pesquisa em tempo real](../bing-autosuggest/get-suggested-search-terms.md) | Aprimore sua experiência com aplicativos usando a API de Sugestão Automática do Bing para exibir os termos de pesquisa sugeridos à medida que eles são digitados. |
 | [Filtrar e restringir os resultados por tipo de conteúdo](filter-answers.md) | Personalize e refine os resultados da pesquisa com filtros e parâmetros de consulta para páginas da Web, imagens, vídeos, pesquisa segura e muito mais. |

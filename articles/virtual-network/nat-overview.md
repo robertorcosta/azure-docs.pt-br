@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 4b34d4208d8686cdac3f8164d2cf7efb2d881346
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 50fc8b9cefe88a80f3f954ce363139b6a4a38589
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79409891"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548383"
 ---
 # <a name="what-is-virtual-network-nat"></a>O que é NAT de Rede Virtual?
 
@@ -40,11 +40,11 @@ A NAT de Rede Virtual (conversão de endereços de rede) simplifica a conectivid
 
 ## <a name="static-ip-addresses-for-outbound-only"></a>Endereços IP estáticos para somente saída
 
-A conectividade de saída pode ser definida para cada sub-rede com a NAT.  Várias sub-redes dentro da mesma rede virtual podem ter NATs diferentes. Uma sub-rede é configurada especificando qual [recurso de gateway da NAT](./nat-gateway-resource.md) usar. Todos os fluxos de saída UDP e TCP de qualquer instância de máquina virtual usarão a NAT. 
+A conectividade de saída pode ser definida para cada sub-rede com a NAT.  Várias sub-redes dentro da mesma rede virtual podem ter NATs diferentes. Uma sub-rede é configurada especificando qual recurso de Gateway da NAT deverá ser usado. Todos os fluxos de saída UDP e TCP de qualquer instância de máquina virtual usarão a NAT. 
 
-A NAT é compatível com [recursos de endereço IP público](./virtual-network-ip-addresses-overview-arm.md#standard) ou [recursos de prefixo IP público](./public-ip-address-prefix.md) do SKU padrão ou uma combinação de ambos.  Você pode usar um prefixo IP público diretamente ou distribuir os endereços IP públicos do prefixo entre vários recursos do gateway da NAT. A NAT limpará todo o tráfego para o intervalo de endereços IP do prefixo.  Agora é fácil incluir o IP na lista de permissões de suas implantações.
+O NAT é compatível com recursos de endereço IP público ou com recursos de prefixo IP público do SKU Standard ou uma combinação de ambos.  Você pode usar um prefixo IP público diretamente ou distribuir os endereços IP públicos do prefixo entre vários recursos do gateway da NAT. A NAT limpará todo o tráfego para o intervalo de endereços IP do prefixo.  Agora é fácil incluir o IP na lista de permissões de suas implantações.
 
-Todo o tráfego de saída da sub-rede é processado pela NAT automaticamente sem nenhuma configuração do cliente.  Rotas definidas pelo usuário não são necessárias. A NAT tem precedência sobre outros [cenários de saída](../load-balancer/load-balancer-outbound-connections.md) e substitui o destino de Internet padrão de uma sub-rede.
+Todo o tráfego de saída da sub-rede é processado pela NAT automaticamente sem nenhuma configuração do cliente.  Rotas definidas pelo usuário não são necessárias. O NAT tem precedência sobre outros cenários de saída e substitui o destino de Internet padrão de uma sub-rede.
 
 ## <a name="on-demand-snat-with-multiple-ip-addresses-for-scale"></a>SNAT sob demanda com vários endereços IP para escala
 
@@ -60,9 +60,9 @@ Diferentemente do SNAT de saída do balanceador de carga, a NAT não tem restri�
 
 A NAT é compatível com os seguintes recursos de SKU padrão:
 
-- [Balanceador de carga](../load-balancer/load-balancer-overview.md)
-- [Endereço IP público](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
-- [Prefixo IP público](../virtual-network/public-ip-address-prefix.md)
+- Balanceador de carga
+- Endereço IP público
+- Prefixo de IP público
 
 Quando usados em conjunto com a NAT, esses recursos fornecem conectividade de Internet de entrada para suas sub-redes. A NAT fornece toda a conectividade da Internet de saída de suas sub-redes.
 

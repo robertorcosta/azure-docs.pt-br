@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/09/2020
 ms.author: glenga
-ms.openlocfilehash: d53c41752d57a27ebea9bd60f7e723dab1e7308a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 749b733039e89421ac33ef76a11f3291b296e718
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78190820"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673144"
 ---
 ## <a name="run-the-function-locally"></a>Executar a função localmente
 
@@ -25,6 +25,13 @@ func start
 ```
 npm install
 npm start
+```
+::: zone-end
+
+::: zone pivot="programming-language-java"
+```
+mvn clean package 
+mvn azure-functions:run
 ```
 ::: zone-end
 
@@ -44,12 +51,12 @@ Http Functions:
 </pre>
 
 >[!NOTE]  
-> Se HttpExample não aparece conforme mostrado abaixo, é provável que você tenha iniciado o host de dentro da pasta *HttpExample*. Nesse caso, use **Ctrl**+**C** para parar o host, navegue até a pasta *LocalFunctionProj* pai e execute o comando anterior novamente.
+> Se HttpExample não aparece conforme mostrado abaixo, é provável que você tenha iniciado o host de fora da pasta raiz do projeto. Nesse caso, use **Ctrl**+**C** para parar o host, navegue até a pasta raiz do projeto e execute o comando anterior novamente.
 
 Copie a URL da função `HttpExample` dessa saída para um navegador e acrescente a cadeia de caracteres de consulta `?name=<your-name>`, fazendo com que a URL completa seja `http://localhost:7071/api/HttpExample?name=Functions`. O navegador deve exibir uma mensagem como `Hello Functions`:
 
 ![Resultado da execução local da função no navegador](./media/functions-run-function-test-local-cli/function-test-local-browser.png)
 
-O terminal em que você executou `func start` também mostra a saída do log conforme você faz solicitações.
+O terminal em que você iniciou seu projeto também mostra a saída do log conforme você faz solicitações.
 
 Quando você estiver pronto, use **Ctrl**+**C** e escolha `y` para interromper o host de funções.

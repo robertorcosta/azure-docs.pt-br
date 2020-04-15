@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
-ms.openlocfilehash: 9f49b858a23d0a1f58505d9f9971a31e8c9167e9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3b7181550fd76f158ec04e9779f4301bd74484e1
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73664489"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435971"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início Rápido: Integrar computadores Linux à Central de Segurança do Azure
-Depois de integrar suas assinaturas do Azure, é possível habilitar a Central de Segurança para recursos Linux que estão sendo executados fora do Azure, por exemplo, localmente ou em outras nuvens, por meio do provisionamento de um agente. O agente é chamado de MMA (Microsoft Monitoring Agent), mas também é conhecido como agente do OMS.
+Depois de integrar suas assinaturas do Azure, é possível habilitar a Central de Segurança para recursos Linux que estão sendo executados fora do Azure, por exemplo, localmente ou em outras nuvens, por meio do provisionamento de um agente. O agente é chamado de agente do Log Analytics, mas também é conhecido como agente do OMS.
 
 Este início rápido mostra como instalar o agente em um computador Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Você deverá estar no tipo de preço Standard da Central de Segurança antes de começar este guia de início rápido. Consulte [Integrar sua assinatura do Azure ao Centro de Segurança Standard](security-center-get-started.md) para obter instruções de atualização. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+Você precisará usar o tipo de preço Standard da Central de Segurança antes de começar este início rápido. Consulte [Integrar sua assinatura do Azure ao Centro de Segurança Standard](security-center-get-started.md) para obter instruções de atualização. Você pode experimentar a camada Standard da Central de Segurança sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-linux-computer"></a>Adicionar novo computador Linux
 

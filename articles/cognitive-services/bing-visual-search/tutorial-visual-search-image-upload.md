@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Como carregar uma imagem – Pesquisa Visual do Bing'
+title: 'Tutorial: Como carregar uma imagem usando a API da Pesquisa Visual do Bing'
 titleSuffix: Azure Cognitive Services
-description: Descreve o processo de upload de uma imagem para o Bing para obter insights sobre a imagem e, em seguida, analisar e exibir a resposta.
+description: Saiba como carregar uma imagem no Bing, obter insights sobre ela e exibir a resposta.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 11/29/2019
+ms.date: 03/31/2020
 ms.author: scottwhi
-ms.openlocfilehash: 84a8219221525400a9d3241c2f183d24344c2f6a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ecd1ab5e613bb326b65f6aa50f3f85172bc334ac
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689171"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477924"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Tutorial: Carregar imagens para a API da Pesquisa Visual do Bing
 
@@ -30,7 +30,7 @@ O aplicativo de tutorial ilustra como:
 > * Exibir resultados da pesquisa de imagem em um aplicativo Web
 > * Explorar as diferentes informações fornecidas pela API
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
@@ -69,7 +69,7 @@ Adicione uma marca `<script>` à marca `<head>` para conter o JavaScript para o 
 
 Para permitir que o usuário selecione uma imagem para upload, o aplicativo usa a marca de `<input>` com o atributo de tipo definido para `file`. A interface do usuário precisa deixar claro que o aplicativo usa o Bing para obter os resultados da pesquisa.
 
-Adicione o seguinte `<div>` ao `requestSection` `<div>`. A entrada de arquivo aceita um único arquivo de qualquer tipo de imagem (por exemplo, .jpg, .gif, .png). O evento `onchange` especifica o manipulador chamado quando um usuário seleciona um arquivo.
+Adicione o `<div>` a seguir ao `requestSection` `<div>`. A entrada de arquivo aceita um único arquivo de qualquer tipo de imagem (por exemplo, .jpg, .gif, .png). O evento `onchange` especifica o manipulador chamado quando um usuário seleciona um arquivo.
 
 A marca `<output>` é usada para exibir uma miniatura da imagem selecionada:
 

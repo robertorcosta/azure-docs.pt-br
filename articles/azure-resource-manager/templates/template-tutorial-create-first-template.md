@@ -2,21 +2,21 @@
 title: Tutorial – criar e implantar um modelo
 description: Criar seu primeiro modelo do Azure Resource Manager. No tutorial, você aprende sobre a sintaxe do arquivo de modelo e como implantar uma conta de armazenamento.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e31d4a5f513355e61cb53a6548b3091637bfe9a4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8b05bccf10ef5f273a74ca49e02162fd0408230f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471501"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411718"
 ---
-# <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Tutorial: Criar e implantar seu primeiro modelo do Azure Resource Manager
+# <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Criar e implantar seu primeiro modelo do ARM
 
-Este tutorial apresenta os modelos do Azure Resource Manager. Ele mostra como criar um modelo inicial e implantá-lo no Azure. Você aprenderá sobre a estrutura do modelo e as ferramentas necessárias para trabalhar com modelos. Leva cerca de **12 minutos** para concluir este tutorial, mas o tempo real varia com base em quantas ferramentas você precisa instalar.
+Este tutorial apresenta os modelos do ARM (Azure Resource Manager). Ele mostra como criar um modelo inicial e implantá-lo no Azure. Você aprenderá sobre a estrutura do modelo e as ferramentas necessárias para trabalhar com modelos. Leva cerca de **12 minutos** para concluir este tutorial, mas o tempo real varia com base em quantas ferramentas você precisa instalar.
 
-Este tutorial é o primeiro de uma série. À medida que avança pela série, você modifica o modelo inicial passo a passo até explorar todas as partes principais de um modelo do Resource Manager. Esses elementos são os blocos de construção para modelos muito mais complexos. Esperamos que ao final da série você tenha confiança para criar seus próprios modelos e esteja pronto para automatizar suas implantações com modelos.
+Este tutorial é o primeiro de uma série. À medida que avança pela série, você modifica o modelo inicial passo a passo até explorar todas as partes principais de um modelo do ARM. Esses elementos são os blocos de construção para modelos muito mais complexos. Esperamos que ao final da série você tenha confiança para criar seus próprios modelos e esteja pronto para automatizar suas implantações com modelos.
 
 Se você quiser saber mais sobre os benefícios de usar modelos e por que deve automatizar a implantação com modelos, confira [modelos do Azure Resource Manager](overview.md).
 
@@ -28,11 +28,11 @@ Vamos começar verificando se você tem as ferramentas necessárias para criar e
 
 ### <a name="editor"></a>Editor
 
-Modelos são arquivos JSON. Para criar modelos, você precisa de um bom editor de JSON. Recomendamos o Visual Studio Code com a extensão Ferramentas do Resource Manager. Se você precisar instalar essas ferramentas, confira [Usar o Visual Studio Code para criar modelos do Azure Resource Manager](use-vs-code-to-create-template.md).
+Modelos são arquivos JSON. Para criar modelos, você precisa de um bom editor de JSON. Recomendamos o Visual Studio Code com a extensão Ferramentas do Resource Manager. Se você precisar instalar essas ferramentas, confira [Usar o Visual Studio Code para criar modelos do ARM](use-vs-code-to-create-template.md).
 
 ### <a name="command-line-deployment"></a>Implantação de linha de comando
 
-Você também precisa do Azure PowerShell ou da CLI do Azure para implantar o modelo. Para obter as instruções de instalação, confira:
+Você também precisa do Azure PowerShell ou da CLI do Azure para implantar o modelo. Se você usar CLI do Azure, precisará ter a versão mais recente. Para obter as instruções de instalação, confira:
 
 - [Instale o Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
@@ -53,7 +53,7 @@ Ok, você está pronto para começar a aprender sobre modelos.
 
     ```json
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "resources": []
     }
@@ -67,7 +67,7 @@ Ok, você está pronto para começar a aprender sobre modelos.
 
     O arquivo JSON tem estes elementos:
 
-    - **$schema**: especifica a localização do arquivo de esquema JSON. O arquivo de esquema descreve as propriedades que estão disponíveis em um modelo. Por exemplo, o esquema define **resources** como uma das propriedades válidas para um modelo. Não se preocupe se a data do esquema é 01/01/2015. Essa versão de esquema está atualizada e inclui todos os recursos mais recentes. A data do esquema não foi alterada porque não houve alterações significativas desde sua introdução.
+    - **$schema**: especifica a localização do arquivo de esquema JSON. O arquivo de esquema descreve as propriedades que estão disponíveis em um modelo. Por exemplo, o esquema define **resources** como uma das propriedades válidas para um modelo. Não se preocupe se a data do esquema é 04-01-2019. Essa versão de esquema está atualizada e inclui todos os recursos mais recentes. A data do esquema não foi alterada porque não houve alterações significativas desde sua introdução.
     - **contentVersion**: Especifica a versão do modelo (por exemplo, 1.0.0.0). Você pode fornecer qualquer valor para esse elemento. Use esse valor para documentar alterações significativas em seu modelo. Ao implantar recursos com o modelo, esse valor pode ser usado para garantir que o modelo certo esteja sendo usado.
     - **resources**: Contém os recursos que você deseja implantar ou atualizar. Atualmente está vazia, mas você adicionará recursos mais tarde.
 
@@ -79,13 +79,13 @@ Parabéns, você criou seu primeiro modelo.
 
 Para começar a trabalhar com o Azure PowerShell/CLI do Azure, entre com suas credenciais do Azure.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
 az login
@@ -96,7 +96,7 @@ az login
 
 Ao implantar um modelo, você especificará um grupo de recursos que conterá os recursos. Antes de executar o comando de implantação, crie o grupo de recursos com a CLI do Azure ou o Azure PowerShell. Selecione as guias na seção de código a seguir para escolher entre o Azure PowerShell e a CLI do Azure. Os exemplos de CLI neste artigo são escritos para o shell do Bash.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -104,7 +104,7 @@ New-AzResourceGroup `
   -Location "Central US"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
 az group create \
@@ -118,21 +118,23 @@ az group create \
 
 Para implantar o modelo, use a CLI do Azure ou o Azure PowerShell. Use o grupo de recursos que você criou anteriormente. Dê um nome para a implantação para que você possa identificá-la facilmente no histórico de implantação. Para sua conveniência, crie também uma variável que armazena o caminho para o arquivo de modelo. Essa variável facilita a execução dos comandos de implantação porque você não precisa digitar o caminho sempre que implantar.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $templateFile = "{provide-the-path-to-the-template-file}"
 New-AzResourceGroupDeployment `
   -Name blanktemplate `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile
+  -TemplateFile $templateFile 
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para executar esse comando de implantação, você precisa ter a [versão mais recente](/cli/azure/install-azure-cli) da CLI do Azure.
 
 ```azurecli
 templateFile="{provide-the-path-to-the-template-file}"
-az group deployment create \
+az deployment group create \
   --name blanktemplate \
   --resource-group myResourceGroup \
   --template-file $templateFile
@@ -142,15 +144,18 @@ az group deployment create \
 
 O comando de implantação retorna os resultados. Procure `ProvisioningState` para ver se a implantação foi bem-sucedida.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ![Estado de provisionamento de implantação do PowerShell](./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png)
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ![Estado de provisionamento de implantação da CLI do Azure](./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png)
 
 ---
+
+> [!NOTE]
+> Se a implantação falhar, use a opção **debug** com o comando de implantação para mostrar os logs de depuração.  Use também a opção **verbose** para mostrar os logs de depuração completos.
 
 ## <a name="verify-deployment"></a>Verificar implantação
 

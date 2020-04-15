@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 2e14b669aadeec4c6a7245be8940051ec604059b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 371b99c794feb4a64eb3e9af389020e25d14eedb
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79409551"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879421"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Marcar imagens em um projeto de rotulagem
 
-Depois que o administrador de projeto [criar um projeto de rotulagem](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) no Azure Machine Learning, você poderá usar a ferramenta de rotulagem para preparar rapidamente os dados para um projeto do Machine Learning. Este artigo descreve:
+Depois que o administrador de projeto [criar um projeto de rotulagem](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) no Azure Machine Learning, você poderá usar a ferramenta de rotulagem (versão prévia pública) para preparar rapidamente os dados para um projeto do Machine Learning. Este artigo descreve:
 
 > [!div class="checklist"]
 > * Como acessar seus projetos de rotulagem
@@ -45,7 +45,9 @@ Acesse **Exibir instruções detalhadas**. Essas instruções são específicas 
 
 Em todas as tarefas de rotulagem de imagem, escolha tags apropriadas em um conjunto especificado pelo administrador de projeto. Selecione as nove primeiras marcas usando as teclas numéricas do teclado.  
 
-Em tarefas de classificação de imagem, você pode optar por exibir várias imagens simultaneamente. Use os ícones acima da área da imagem para selecionar o layout. Para selecionar todas as imagens exibidas simultaneamente, use **Selecionar tudo**. Para selecionar imagens individuais, use o botão de seleção circular no canto superior direito da imagem. Você precisa selecionar pelo menos uma imagem para aplicar uma tag. Se você selecionar várias imagens, qualquer tag selecionada será aplicada a todas as imagens selecionadas.
+Em tarefas de classificação de imagem, você pode optar por exibir várias imagens simultaneamente. Use os ícones acima da área da imagem para selecionar o layout. 
+
+Para selecionar todas as imagens exibidas simultaneamente, use **Selecionar tudo**. Para selecionar imagens individuais, use o botão de seleção circular no canto superior direito da imagem. Você precisa selecionar pelo menos uma imagem para aplicar uma tag. Se você selecionar várias imagens, qualquer tag selecionada será aplicada a todas as imagens selecionadas.
 
 Aqui, escolhemos um layout de 2 x 2 e estamos prestes a aplicar a tag "Mammal" às imagens do urso e da orca. A imagem do tubarão já foi marcada como "Cartilaginous fish", e a iguana ainda não foi marcada.
 

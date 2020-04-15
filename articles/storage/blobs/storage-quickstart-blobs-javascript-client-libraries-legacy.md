@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: da5db7d956b1ba8aa1ac245b77fe0d4cb31909c1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5219af0ec343a6e7f87a07e4a7280ac5f4e85cd3
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061457"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619123"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -90,7 +90,7 @@ A série de valores depois de cada parâmetro pode parecer um pouco confusa. Ess
 Agora que a SAS foi gerada, copie o valor de retorno e salve-o em algum lugar para usar em uma etapa futura. Se você tiver gerado a SAS usando um método diferente da CLI do Azure, será necessário remover o `?` inicial, caso ele estiver presente. Esse caractere é um separador de URL que já é fornecido no modelo de URL mais adiante neste tópico no qual a SAS é usada.
 
 > [!IMPORTANT]
-> Na produção, sempre passe os tokens SAS usando SSL. Além disso, os tokens SAS devem ser gerados no servidor e enviados para a página HTML na ordem inversa de passagem para o Armazenamento de Blobs do Azure. Uma abordagem possível é usar uma função sem servidor para gerar tokens SAS. O Portal do Azure inclui modelos de função que possuem a capacidade de gerar uma SAS com uma função do JavaScript.
+> Na produção, sempre passe os tokens SAS usando TLS. Além disso, os tokens SAS devem ser gerados no servidor e enviados para a página HTML na ordem inversa de passagem para o Armazenamento de Blobs do Azure. Uma abordagem possível é usar uma função sem servidor para gerar tokens SAS. O Portal do Azure inclui modelos de função que possuem a capacidade de gerar uma SAS com uma função do JavaScript.
 
 ## <a name="implement-the-html-page"></a>Implementar a página HTML
 

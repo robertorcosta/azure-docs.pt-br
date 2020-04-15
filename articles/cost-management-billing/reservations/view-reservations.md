@@ -5,77 +5,53 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/31/2020
 ms.author: banders
-ms.openlocfilehash: 5c9d9074e4b8d0d9e36417daee4d58c1d9b28b64
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0635c21ee30a40344281f31c8f9aedf9d74a1284
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199238"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633845"
 ---
-# <a name="view-azure-reservations-in-the-azure-portal"></a>Exibir as reservas do Azure no portal do Azure
+# <a name="view-azure-reservations"></a>Exibir reservas do Azure
 
-Dependendo do tipo de assinatura e das permissões, há duas maneiras de exibir as reservas para o Azure.
+Você pode exibir e gerenciar a reserva comprada no portal do Azure.   
 
-## <a name="view-purchased-reservations"></a>Exibir as reservas adquiridas
+## <a name="permissions-to-view-a-reservation"></a>Permissões para exibir uma reserva
 
-Por padrão, quando você compra uma reserva, você e o administrador da conta podem exibir a reserva. Você e o administrador da conta obtêm automaticamente a função Proprietário no pedido de reserva e na reserva. Para permitir que outras pessoas exibam a reserva, você precisa adicioná-las como **Proprietário** ou **Leitor** no pedido de reserva ou na reserva.
+Para exibir ou gerenciar uma reserva, você precisa ter uma permissão de leitor ou proprietário nela. Por padrão, quando você compra uma reserva, você e o administrador da conta obtêm automaticamente a função Proprietário no pedido de reserva e na reserva. Para permitir que outras pessoas exibam a reserva, você precisa adicioná-las como **Proprietário** ou **Leitor** no pedido de reserva ou na reserva. Adicionar alguém à assinatura fornecida para cobrar a reserva não adiciona essa pessoa à reserva automaticamente. 
 
 Para obter mais informações, consulte [Adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
-Para exibir uma reserva como Proprietário ou Leitor,
+## <a name="view-reservation-and-utilization-in-azure-portal"></a>Ver a reserva e a utilização no portal do Azure
+
+Para ver uma reserva como Proprietário ou Leitor
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Pesquise **Reservas**.
-    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/view-reservations/portal-reservation-search.png)  
-3. A lista mostra todas as reservas nas quais você tem a função Proprietário ou Leitor. Cada reserva mostra o último percentual de utilização conhecido.  
-    ![Exemplo mostrando uma lista de reservas](./media/view-reservations/view-reservations.png)
-4. Selecione uma reserva e veja a tendência de utilização dos últimos cinco dias.  
-    ![Exemplo mostrando a tendência de utilização de reserva](./media/view-reservations/reservation-utilization.png)
-5. Obtenha também a [utilização de reserva](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) usando a API de Uso da Instância Reservada e com o [pacote de conteúdo do Power BI Microsoft Azure Consumption Insights](/power-bi/service-connect-to-azure-consumption-insights).
+2. Acesse [Reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+3. A lista mostrará todas as reservas nas quais você tiver a função Proprietário ou Leitor. Cada reserva mostra o último percentual de utilização conhecido.
+4. Clique no percentual de utilização para ver o histórico e os detalhes de utilização. Veja os detalhes no vídeo abaixo.
+   > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4sYwk] 
 
-Se você precisar alterar o escopo de uma reserva, dividir uma reserva ou alterar quem pode gerenciar uma reserva, consulte [Gerenciar as Reservas do Azure](manage-reserved-vm-instance.md).
+## <a name="get-reservations-and-utilization-using-apis-powershell-cli"></a>Obtenha reservas e a utilização usando APIs, o PowerShell e a CLI
 
-## <a name="view-reservation-transactions-for-enterprise-enrollments"></a>Exibir transações de reserva para inscrições do Enterprise
+Obter uma lista de todas as reservas usando os recursos a seguir
+- [API: Pedido de Reserva – Lista](/rest/api/reserved-vm-instances/reservationorder/list)
+- [PowerShell: Pedido de Reserva – Lista](/powershell/module/azurerm.reservations/get-azurermreservationorder)
+- [CLI: Pedido de Reserva – Lista](/cli/azure/reservations/reservation-order#az-reservations-reservation-order-list)
 
- Se você tiver um registro de Enterprise liderado pelo parceiro, exiba reservas acessando **Relatórios** no portal do EA. Para outros registros do Enterprise, você pode exibir as reservas no portal do EA e no portal do Azure. Você deve ser um administrador EA para exibir transações de reserva.
+Você também pode obter a [utilização de reserva](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) usando a API de uso da Instância Reservada. 
 
-Exibir transações de reserva no portal do Azure,
+## <a name="see-reservations-and-utilization-in-power-bi"></a>Ver reservas e a utilização no Power BI
 
-1. Entre no [portal do Azure](https://portal.azure.com).
-1. Pesquise **Gerenciamento de Custos + Cobrança**.
-
-    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/view-reservations/portal-cm-billing-search.png)
-
-1. Selecione **Transações de reserva**.
-1. Para filtrar os resultados, selecione **Timespan**, **Tipo**, ou **Descrição**.
-1. Escolha **Aplicar**.
-
-    ![Captura de tela que mostra os resultados de transações de reserva](./media/view-reservations/portal-billing-reservation-transaction-results.png)
-
-Para obter os dados usando uma API, consulte [Obter Cobranças de Transação de Instância Reservada para clientes corporativos](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges).
+Há duas opções para os usuários do Power BI
+- Pacote de Conteúdo: os dados de compras e utilização de reservas estão disponíveis no [pacote de conteúdo do Consumption Insights para Power BI](/power-bi/desktop-connect-azure-cost-management). Crie os relatórios que você deseja usando esse pacote de conteúdo. 
+- Aplicativo de gerenciamento de custos: Use o [Aplicativo de Gerenciamento de Custos](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp) para os relatórios pré-criados que você pode personalizar ainda mais.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
-
-- [O que são reservas para o Azure?](save-compute-costs-reservations.md)
-- [Gerenciar reservas do Azure](manage-reserved-vm-instance.md)
-
-Comprar um plano de serviço:
-
-- [Pagar antecipadamente por capacidade reservada do Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
-- [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Banco de Dados SQL do Azure](../../sql-database/sql-database-reserved-capacity.md)
-- [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-
-Comprar um plano de software:
-
-- [Pagar antecipadamente por planos de software Red Hat das reservas do Azure](../../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Pré-pagamento para planos de software SUSE das reservas do Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)
-
-Entender o uso:
-
+- [Gerenciar Reservas do Azure](manage-reserved-vm-instance.md).
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](understand-reserved-instance-usage.md)
 - [Entender o uso de reserva para seu registro de empresa](understand-reserved-instance-usage-ea.md)
 - [Entender o uso de reserva para assinaturas de CSP](https://docs.microsoft.com/partner-center/azure-reservations)

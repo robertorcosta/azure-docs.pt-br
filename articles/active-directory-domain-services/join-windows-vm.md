@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/19/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: f853d6d59a4c23b7b52a2a0ba800ace58c997f6e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1ac508fc9fee07482e475c46e1db262c8bfa1a12
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481578"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476201"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Ingressar uma máquina virtual do Windows Server em um domínio gerenciado
 
@@ -27,14 +27,14 @@ Neste tutorial, você aprenderá como:
 > * Conectar a VM do Windows Server a uma rede virtual do Azure
 > * Ingressar a VM no domínio gerenciado do Azure AD DS
 
-Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes recursos:
 
 * Uma assinatura ativa do Azure.
-    * Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
@@ -76,8 +76,6 @@ Se você já tiver uma VM que quer ingressar em um domínio, pule para a seção
 
     O protocolo RDP deve ser habilitado somente quando solicitado e limitado a um conjunto de intervalos de IP autorizados. Essa configuração ajuda a aumentar a segurança da VM e reduz a área de possíveis ataques. Ou então, crie e use um host do Azure Bastion que permita o acesso somente por meio do portal do Azure via TLS. Na próxima etapa deste tutorial, você usará um host do Azure Bastion para se conectar com segurança à VM.
 
-    Por enquanto, desabilite as conexões RDP diretas para a VM.
-
     Em **Portas de entrada públicas**, selecione *Nenhum*.
 
 1. Quando terminar, selecione **Avançar: Discos**.
@@ -96,22 +94,23 @@ Se você já tiver uma VM que quer ingressar em um domínio, pule para a seção
 
     ![Escolher gerenciar a configuração de sub-rede no portal do Azure](./media/join-windows-vm/manage-subnet.png)
 
-1. No menu à esquerda da janela da rede virtual, selecione **Espaço de endereço**. A rede virtual é criada com um único espaço de endereço *10.0.1.0/24*, que é usado pela sub-rede padrão.
+1. No menu à esquerda da janela da rede virtual, selecione **Espaço de endereço**. A rede virtual é criada com um só espaço de endereço *10.0.2.0/24*, que é usado pela sub-rede padrão. Outras sub-redes, como para *workloads* ou o Azure Bastion, também podem existir.
 
     Adicione um intervalo de endereços IP adicional à rede virtual. O tamanho desse intervalo de endereços e do intervalo de endereços IP real a ser usado depende de outros recursos de rede já implantados. O intervalo de endereços IP não deve se sobrepor a nenhum intervalo de endereços existente no ambiente local ou do Azure. Dimensione o intervalo de endereços IP com um tamanho grande o suficiente para o número de VMs que espera implantar na sub-rede.
 
-    No exemplo a seguir, um intervalo de endereços IP adicional *10.0.2.0/24* é adicionado. Quando estiver pronto, selecione **Salvar**.
+    No exemplo a seguir, um intervalo de endereços IP extra *10.0.5.0/24* é adicionado. Quando estiver pronto, selecione **Salvar**.
 
-    ![Adicionar um intervalo de endereços IP de rede virtual adicional no portal do Azure](./media/tutorial-configure-networking/add-vnet-address-range.png)
+    ![Adicionar um intervalo de endereços IP de rede virtual adicional no portal do Azure](./media/join-windows-vm/add-vnet-address-range.png)
 
 1. Em seguida, no menu à esquerda da janela da rede virtual, selecione **Sub-redes** e, em seguida, escolha **+ Sub-rede** para adicionar uma sub-rede.
 
-1. Selecione **+ Sub-rede** e digite um nome para ela, como *gerenciamento*. Forneça um **Intervalo de endereços (bloco CIDR)** , como *10.0.2.0/24*. Verifique se esse intervalo de endereço IP não se sobrepõe a quaisquer outros intervalos de endereços locais ou do Azure. Deixe as outras opções com os valores padrão e clique em **OK**.
+1. Selecione **+ Sub-rede** e digite um nome para ela, como *gerenciamento*. Forneça um **Intervalo de endereços (bloco CIDR)** , como *10.0.5.0/24*. Verifique se esse intervalo de endereço IP não se sobrepõe a quaisquer outros intervalos de endereços locais ou do Azure. Deixe as outras opções com os valores padrão e clique em **OK**.
 
     ![Criar uma configuração de sub-rede no portal do Azure](./media/join-windows-vm/create-subnet.png)
 
 1. A sub-rede demora alguns segundos para ser criada. Após a criação, clique no *X* para fechar a janela da sub-rede.
 1. Volte ao painel **Rede** para criar uma VM e escolha a sub-rede que você criou no menu suspenso, como *gerenciamento*. Novamente, verifique se você escolheu a sub-rede correta e não implante a VM na mesma sub-rede do domínio gerenciado do Azure AD DS.
+1. Em **IP Público**, selecione *Nenhum* no menu suspenso, pois você usa o Azure Bastion para se conectar ao gerenciamento e não precisa de um endereço IP público atribuído.
 1. Deixe as outras opções com os valores padrão e clique em **Gerenciamento**.
 1. Defina **Diagnóstico de inicialização** como *Desativado*. Deixe as outras opções com os valores padrão e clique em **Revisar + criar**.
 1. Revise as configurações da VM e selecione **Criar**.

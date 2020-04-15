@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 02/20/2020
+ms.date: 04/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: af15a7366fd07cecb376ff76ad383f784202a887
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3ccb9c7aff6eb59c4883bc3218e205fb7877e86e
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77526800"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618368"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutorial: Configurar um ambiente de Versão Prévia do Azure Time Series Insights
 
@@ -30,7 +30,6 @@ Neste tutorial, você aprenderá como:
 > * Executar uma amostra do acelerador de solução para transmitir dados para o ambiente da Versão Prévia do Azure Time Series Insights.
 > * Executar uma análise básica nos dados.
 > * Definir uma hierarquia e um tipo de Modelo de Série Temporal e associá-los às suas instâncias.
-> * Use o conector do Power BI e visualize dados no Power BI.
 
 >[!TIP]
 > Os [aceleradores de solução de IoT](https://www.azureiotsolutions.com/Accelerators) fornecem soluções de nível empresarial pré-configuradas que você pode usar para acelerar o desenvolvimento de soluções personalizadas de IoT.
@@ -359,3 +358,8 @@ Saiba mais sobre Modelos do Time Series:
 
 > [!div class="nextstepaction"]
 > [Modelagem de dados da Versão Prévia do Azure Time Series Insights](./time-series-insights-update-tsm.md)
+
+Saiba mais sobre como Conectar seu ambiente ao Power BI
+
+> [!div class="nextstepaction"]
+> [Visualizar dados no Time Series Insights no Power BI](./how-to-connect-power-bi.md)

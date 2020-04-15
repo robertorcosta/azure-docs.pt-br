@@ -3,16 +3,16 @@ title: Introdução ao Azure Enterprise Portal
 description: Este artigo explica como os clientes do Azure EA (Contrato Enterprise do Azure) usam o Azure Enterprise Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5b84cbf4ae7065f13442852cfbf646aa49771e1f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: da63960b312bde6ae8aafb659ef08ef2f52600cc
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78272421"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586294"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Introdução ao Azure Enterprise Portal
 
@@ -111,7 +111,7 @@ O contato de notificação pode receber notificações de uso relacionadas ao re
 
 Para ativar o serviço, o administrador corporativo inicial abre o [Azure Enterprise Portal](https://ea.azure.com) e entra usando o endereço de email do email de convite.
 
-Se você for configurado como o administrador corporativo, não será necessário receber o email de ativação. Acesse o [Azure Enterprise Portal](https://ea.azure.com) e entre com o endereço de email e a senha da conta Microsoft, corporativa ou de estudante.
+Se você for configurado como o administrador corporativo, não precisará receber o email de ativação. Acesse o [Azure Enterprise Portal](https://ea.azure.com) e entre com o endereço de email e a senha da conta Microsoft, corporativa ou de estudante.
 
 Se você tiver mais de um registro, escolha um para ativar. Por padrão, somente os registros ativos são mostrados. Para exibir o histórico de registros, desmarque a opção **Ativo** no canto superior direito do Azure Enterprise Portal.
 

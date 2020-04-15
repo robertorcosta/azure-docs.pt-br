@@ -1,19 +1,19 @@
 ---
-title: Utilizar a referência de modelo
-description: Utilizar a referência de modelo do Azure Resource Manager para criar um modelo.
+title: Usar referência de modelo
+description: Use a referência do modelo do Azure Resource Manager para criar um modelo.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: b742982121a20a2b057eba4211584b0386dde411
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b713d508a5e28291778d3727c15e12972eea3a77
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80373172"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878469"
 ---
-# <a name="tutorial-utilize-the-arm-template-reference"></a>Tutorial: Utilizar a referência de modelo do ARM
+# <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutorial: Utilizar a referência de modelo do Resource Manager
 
 Saiba como localizar as informações de esquema de modelo e usar as informações para criar modelos do ARM (Azure Resource Manager).
 
@@ -65,9 +65,13 @@ Para concluir este artigo, você precisa do seguinte:
     * **resources**: especifique os tipos de recursos que são implantados ou atualizados em um grupo de recursos.
     * **gera**: especifique os valores que serão retornados após a implantação.
 
-1. Expanda os **recursos**. Há um recurso `Microsoft.Storage/storageAccounts` definido.
+1. Expanda os **recursos**. Há um recurso `Microsoft.Storage/storageAccounts` definido. O nome do SKU usa um valor de parâmetro.  O parâmetro é chamado **storageAccountType**.
 
     ![Definição da conta de armazenamento do modelo do Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
+
+1. Expanda **parâmetros** para ver como **storageAccountType** está definido. O parâmetro tem quatro valores permitidos. Você encontrará os outros valores permitidos e, em seguida, revisará a definição do parâmetro.
+
+    ![SKUs de recursos da conta de armazenamento de modelo do Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus-old.png)
 
 ## <a name="find-the-template-reference"></a>Encontrar a referência de modelo
 
@@ -84,7 +88,7 @@ Para concluir este artigo, você precisa do seguinte:
 
     ![Versões de tipos de conta de armazenamento de referência do modelo do Resource Manager](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-types-versions.png)
 
-1. Selecione a versão mais recente do tipo de recurso **storageAccount**.  A versão mais recente era **2019-06-01** quando este artigo foi escrito.
+1. Selecione a versão mais recente do tipo de recurso **storageAccount**. A versão mais recente era **2019-06-01** quando este artigo foi escrito. Esta versão deve corresponder à versão usada para o recurso da conta de armazenamento em seu modelo. Se você atualizar a versão da API, verifique se a definição de recurso corresponde à referência de modelo.
 
 1. Esta página lista os detalhes do tipo de recurso storageAccount.  Por exemplo, lista os valores permitidos para o objeto **Sku**. Há mais SKUs do que as listadas no modelo de início rápido que você abriu anteriormente. Você pode personalizar o modelo de início rápido para incluir todos os tipos de armazenamento disponíveis.
 
@@ -98,7 +102,21 @@ No Visual Studio Code, adicione os tipos de conta de armazenamento extras, confo
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-Consulte a seção [Implantar o modelo](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) do guia de início rápido do Visual Studio Code para o procedimento de implantação. Ao implantar o modelo, especifique o parâmetro **storageAccountType** com um valor recém-adicionado, por exemplo, **Premium_ZRS**. A implantação falhará se você usar o modelo de início rápido original porque **Premium_ZRS** não era um valor permitido.
+Consulte a seção [Implantar o modelo](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) do guia de início rápido do Visual Studio Code para o procedimento de implantação. Ao implantar o modelo, especifique o parâmetro **storageAccountType** com um valor recém-adicionado, por exemplo, **Premium_ZRS**. A implantação falhará se você usar o modelo de início rápido original porque **Premium_ZRS** não era um valor permitido.  Para passar o valor do parâmetro, adicione a seguinte opção ao comando de implantação:
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli
+--parameters storageAccountType='Premium_ZRS'
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell
+-storageAccountType "Premium_ZRS"
+```
+
+---
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

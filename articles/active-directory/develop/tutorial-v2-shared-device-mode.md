@@ -2,25 +2,22 @@
 title: Usando o modo de dispositivo compartilhado com o MSAL para Android | Azure
 description: Saiba como preparar um dispositivo Android para ser executado no modo compartilhado e executar um aplicativo de trabalhador de contato direto.
 services: active-directory
-documentationcenter: dev-center-name
 author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: bf7e6bb22ce89d6be3f79efad1f1a3679e8780e7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b2f74d2d441007f195abd38ca26ca7fa73605318
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77086067"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886425"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Tutorial: Usar o modo de dispositivo compartilhado em seu aplicativo Android
 
@@ -96,9 +93,9 @@ Se você definir `"account_mode":"SINGLE"` no arquivo de configuração do MSAL,
 ```java
 private ISingleAccountPublicClientApplication mSingleAccountApp;
 
-/*Configure your sample app and save state for this activity*/ 
+/*Configure your sample app and save state for this activity*/
 PublicClientApplication.create(this.getApplicationCOntext(),
-  R.raw.auth_config, 
+  R.raw.auth_config,
   new PublicClientApplication.ApplicationCreatedListener(){
   @Override
   public void onCreated(IPublicClientApplication application){
@@ -109,12 +106,12 @@ PublicClientApplication.create(this.getApplicationCOntext(),
   public void onError(MsalException exception{
   /*Fail to initialize PublicClientApplication */
   }
-});  
+});
 ```
 
 ### <a name="detect-single-vs-multiple-account-mode"></a>Detectar modo único versus modo de várias contas
 
-Se você estiver escrevendo um aplicativo que será usado apenas por trabalhadores de contato direto em um dispositivo compartilhado, recomendamos que você codifique seu aplicativo para dar suporte apenas ao modo de conta única. Isso inclui a maioria dos aplicativos focados em tarefas, como os aplicativos de registros médicos, aplicativos de fatura e a maioria dos aplicativos de linha de negócios. Isso simplifica o desenvolvimento, pois muitos recursos do SDK não precisarão ser acomodados.
+Se você estiver escrevendo um aplicativo que será usado apenas por trabalhadores de contato direto em um dispositivo compartilhado, recomendamos que você codifique seu aplicativo para dar suporte apenas ao modo de conta única. Isso inclui a maioria dos aplicativos focados em tarefas, como os aplicativos de registros médicos, aplicativos de fatura e a maioria dos aplicativos de linha de negócios. Isso simplificará o desenvolvimento, pois muitos recursos do SDK não precisarão ser acomodados.
 
 Se o aplicativo dá suporte a várias contas, bem como ao modo de dispositivo compartilhado, você deve executar uma verificação de tipo e converter para a interface apropriada, conforme mostrado abaixo.
 
@@ -134,7 +131,7 @@ private IPublicClientApplication mApplication;
 
 O método `loadAccount` recupera a conta do usuário conectado. O método `onAccountChanged` determina se o usuário conectado mudou e, nesse caso, limpa:
 
-```java 
+```java
 private void loadAccount()
 {
   mSingleAccountApp.getCurrentAccountAsync(new ISingleAccountPublicClientApplication.CurrentAccountCallback()
@@ -157,12 +154,12 @@ private void loadAccount()
         updateSingedOutUI();
       }
     }
-    @Override 
-    public void onError(@NonNull Exception exception) 
+    @Override
+    public void onError(@NonNull Exception exception)
     {
     }
   }
-}  
+}
 ```
 
 ### <a name="globally-sign-in-a-user"></a>Conectar um usuário globalmente
@@ -228,12 +225,12 @@ Baixe o aplicativo Microsoft Authenticator na Google Play Store. Se o aplicativo
 
 ### <a name="authenticator-app-settings--registering-the-device-in-the-cloud"></a>Configurações do aplicativo Authenticator & registrar o dispositivo na nuvem
 
-Inicie o aplicativo Authenticator e navegue até a página da conta principal. Depois de ver a página **Adicionar conta**, você estará pronto para tornar o dispositivo compartilhado.
+Inicie o aplicativo Authenticator e navegue até a página da conta principal. Depois de ver a página **Adicionar Conta**, você estará pronto para tornar o dispositivo compartilhado.
 
 ![Tela de adição de conta do Authenticator](media/tutorial-v2-shared-device-mode/authenticator-add-account.png)
 
  Vá para o painel de **Configurações** usando a barra de menus à direita. Selecione **Registro de Dispositivo** em **Contas de Trabalho & Estudo**.
- 
+
  ![Tela de adição de conta do Authenticator](media/tutorial-v2-shared-device-mode/authenticator-settings.png)
 
  Ao clicar nesse botão, será solicitado que você autorize o acesso aos contatos do dispositivo. Isso ocorre devido à integração de conta do Android no dispositivo. Escolha **permitir**.
@@ -266,4 +263,4 @@ O Aplicativo de Exemplo é um aplicativo simples que chamará a API do Graph de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o modo compartilhado em [Modo de dispositivo compartilhado para dispositivos Android](shared-device-mode.md)
+Saiba mais sobre o modo compartilhado em [Modo de dispositivo compartilhado para dispositivos Android](msal-android-shared-devices.md)

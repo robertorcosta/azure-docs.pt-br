@@ -3,17 +3,17 @@ title: Otimizar seu investimento na nuvem com o Gerenciamento de Custos do Azure
 description: Este artigo ajuda a obter o valor máximo dos seus investimentos de nuvem, reduzir os custos e avaliar onde seu dinheiro está sendo gasto.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 4941c1be8fd20dfa88e3ac36bfa30af77a2b1be1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8df98514545a2670ea18a2b4b131a097244d7b46
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80157204"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874578"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar seu investimento na nuvem com o Gerenciamento de Custos do Azure
 
@@ -36,6 +36,10 @@ Os três grupos principais, descritos abaixo, precisam estar alinhados na organi
 ### <a name="key-principles"></a>Principais princípios
 
 Use os princípios descritos abaixo para preparar sua organização para o sucesso do gerenciamento de custos da nuvem.
+
+Para saber mais, assista ao vídeo [Gerenciamento de Custos configurando para o sucesso](https://www.youtube.com/watch?v=dVuwITdSAZ4). Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/dVuwITdSAZ4]
 
 #### <a name="planning"></a>Planejamento
 
@@ -125,7 +129,7 @@ Mantenha-se informado sobre como os custos da sua organização evoluem ao longo
 
 Organize seus recursos com o custo em mente. Ao criar assinaturas e grupos de recursos, pense em quais são equipes responsáveis pelos custos associados. Faça com que os relatórios mantenham a organização em mente. As assinaturas e os grupos de recursos fornecem bons buckets para organizar e atribuir gastos em sua organização. As marcas fornecem uma boa maneira atribuir custos. Você pode usar as marcas como um filtro. E você pode usá-las para agrupar ao analisar dados e investigar custos. Os clientes do Enterprise Agreement também podem criar departamentos e colocar assinaturas neles. A organização baseada em custos no Azure ajuda a responsabilizar as pessoas relevantes na organização pelos custos para reduzir os gastos da equipe.
 
-Assista ao vídeo [Como examinar as políticas de marcação com o Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=nHQYcYGKuyw) para entender as ferramentas disponíveis e impor a marcação de recursos escalonáveis em sua organização.
+Assista ao vídeo [Como examinar as políticas de marcação com o Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=nHQYcYGKuyw) para entender as ferramentas disponíveis e impor a marcação de recursos escalonáveis em sua organização. Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 84ed5db54874231d8bde4d892eedbc60c42a3430
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d2e7e157156a4049a5db37b1d5c0e02773adbcc3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77918750"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879540"
 ---
 # <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 
@@ -49,7 +49,7 @@ Para ajudá-lo a se proteger contra esses desafios, a Central de Segurança forn
 
 Como a Central de Segurança nativamente faz parte do Azure, serviços de PaaS no Azure, incluindo o Service Fabric, bancos de dados SQL e contas de armazenamento, são monitoradas e protegidos pela Central de Segurança sem necessidade de qualquer implantação.
 
-Além disso, a Central de Segurança protege servidores e máquinas virtuais não Azure na nuvem ou localmente para servidores Windows e Linux instalando o Microsoft Monitoring Agent neles. Máquinas virtuais do Azure são provisionadas automaticamente na Central de Segurança.
+Além disso, a Central de Segurança protege servidores e máquinas virtuais que não são do Azure na nuvem ou localmente, em servidores Windows e Linux, instalando o agente do Log Analytics neles. Máquinas virtuais do Azure são provisionadas automaticamente na Central de Segurança.
 
 Os eventos coletados dos agentes e do Azure são correlacionados no mecanismo de análise de segurança para fornecer alertas de segurança e recomendações (tarefas de proteção) personalizados, que você deve seguir para que suas cargas de trabalho fiquem seguras. Você deve investigar esses alertas assim que possível para verificar se ataques mal-intencionados não estão ocorrendo em suas cargas de trabalho.
 
@@ -146,5 +146,7 @@ Ampla coleta de log – logs do Windows e do Linux são todos aproveitados no me
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para começar a usar a Central de Segurança, você precisa ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/free/).
-- O tipo de preço gratuito da Central de Segurança é habilitado com sua assinatura do Azure. Para aproveitar o gerenciamento de segurança avançado e os recursos de proteção contra ameaças, você deve atualizar para o tipo de preço Standard. O nível Standard pode ser experimentado gratuitamente durante 30 dias. Para obter mais informações, confira a [página de preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/).
+
+- O tipo de preço Gratuito da Central de Segurança é habilitado em todas as suas assinaturas atuais do Azure quando você visita o painel da Central de Segurança do Azure no portal do Azure pela primeira vez ou se habilitado programaticamente via API. Para obter vantagem do gerenciamento de segurança avançado e dos recursos de detecção de ameaças, você deve atualizar para o tipo de preço Standard. O nível Standard pode ser experimentado gratuitamente durante 30 dias. Consulte a [página de preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
+
 - Se você estiver pronto para habilitar a Central de Segurança Standard agora, o [Início Rápido: Integrar sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) o orientará pelas etapas.

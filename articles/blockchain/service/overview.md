@@ -1,15 +1,15 @@
 ---
 title: Visão geral do Azure Blockchain Service
 description: Visão geral do Azure Blockchain Service
-ms.date: 03/12/2020
+ms.date: 03/30/2020
 ms.topic: overview
 ms.reviewer: ravastra
-ms.openlocfilehash: b9f5deb501fb93327fa5d5cfcfd5bb583ed6135e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 821bac0da13209e5126f5bab109aa0895ade840a
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79205080"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529149"
 ---
 # <a name="what-is-azure-blockchain-service"></a>O que é o Azure Blockchain Service?
 
@@ -19,7 +19,7 @@ O Azure Blockchain Service é um serviço contábil totalmente gerenciado que pe
 * Gerenciamento do consórcio interno
 * Desenvolva contratos inteligentes com ferramentas de desenvolvimento conhecidas
 
-O Azure Blockchain Service foi projetado para oferecer suporte a vários protocolos razão. Atualmente, ele fornece suporte ao razão Ethereum [Quorum](https://www.goquorum.com/) usando o mecanismo de consenso [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
+O Azure Blockchain Service foi projetado para oferecer suporte a vários protocolos razão. Atualmente, ele fornece suporte ao razão Ethereum [Quorum](https://www.goquorum.com/) usando o mecanismo de consenso [IBFT (Tolerância a falhas Bizantinas de Istambul)](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
 
 Esses recursos não precisam de quase nenhuma administração e todos são fornecidos sem nenhum custo adicional. Você pode se concentrar no desenvolvimento de aplicativos e na lógica comercial, em vez de alocar tempo e recursos para gerenciar máquinas virtuais e infraestrutura. Além disso, você pode continuar desenvolvendo seu aplicativo com as ferramentas de código aberto e a plataforma de sua escolha para fornecer suas soluções sem precisar aprender novas habilidades.
 
@@ -33,7 +33,7 @@ O Azure Blockchain Service oferece duas camadas de serviço: planos *Básico* e 
 
 ![Tipos de preço](./media/overview/pricing-tiers.png)
 
-Além de oferecer dois nós de validador, a camada *Standard* fornece 2 *vCores* para cada transação e nó validador, enquanto a camada Básica oferece configuração de 1 vCore.  Ao oferecer 2 vCores para nós de transação e de validador, 1 vCore pode ser dedicado ao razão do Quorum, enquanto o 1 vCore restante pode ser usado para outros serviços relacionados à infraestrutura, garantindo desempenho ideal para cargas de trabalho de blockchain de produção. Para saber mais sobre detalhes de preços, confira [Preços do Azure Blockchain Service](https://azure.microsoft.com/pricing/details/blockchain-service).
+Além de oferecer dois nós de validador, o nível *Standard* fornece dois *vCores* para cada transação e nó de validador, enquanto a camada *Básica* oferece uma configuração de 1 vCore.  Ao oferecer 2 vCores para nós de transação e de validador, 1 vCore pode ser dedicado ao razão do Quorum, enquanto o 1 vCore restante pode ser usado para outros serviços relacionados à infraestrutura, garantindo desempenho ideal para cargas de trabalho de blockchain de produção. Para saber mais sobre detalhes de preços, confira [Preços do Azure Blockchain Service](https://azure.microsoft.com/pricing/details/blockchain-service).
 
 ### <a name="security-and-maintenance"></a>Segurança e manutenção
 

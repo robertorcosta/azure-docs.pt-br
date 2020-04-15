@@ -3,16 +3,16 @@ title: Solucionar problemas de acesso ao Portal do EA do Azure
 description: Este artigo descreve alguns problemas comuns que podem ocorrer com um EA (Contrato Enterprise do Azure) no Portal do EA do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 3bf1c10e28ef9e3e4008968c9dbaef576bccdb5f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: ee8363a76db93f0c2bd4734151e3d250de5402fc
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411542"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586198"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Solucionar problemas de acesso ao Portal do EA do Azure
 
@@ -108,11 +108,11 @@ Observe que, se houver outros administradores do EA no registro, entraremos em c
 
 ### <a name="my-enrollment-is-showing-in-pending-status-how-do-i-activate-my-enrollment"></a>Meu registro está aparecendo no status pendente. Como ativar meu registro?
 
-Os registros estarão com status pendente se o administrador do EA inicial não tiver feito logon no registro antes. Se você é o administrador do EA, entre no portal do Azure EA. Na página inicial, onde estão todos os seus números de registro, talvez você não veja seu registro pendente. Desmarque a caixa "ativo" no canto superior direito do seu portal do EA. Essa ação exibirá o registro pendente. Clique no registro para acessar as informações e, depois de acessar a página Gerenciar do registro, o status será atualizado de Pendente para Ativo.
+Os registros estarão com status pendente se o administrador do EA inicial não tiver feito logon no registro antes. Se você é o administrador do EA, entre no portal do Azure EA. Na página inicial, onde estão todos os seus números de registro, talvez você não veja seu registro pendente. Desmarque a caixa "ativo" no canto superior direito do Portal do EA. Essa ação exibirá o registro pendente. Clique no registro para acessar as informações e, depois de acessar a página Gerenciar do registro, o status será atualizado de Pendente para Ativo.
 
 ### <a name="why-is-my-account-stuck-in-pending-status"></a>Por que minha conta travou no status pendente?
 
-Quando novos Proprietários de conta (AO) são adicionados a um registro pela primeira vez, o status deles aparecerá sempre como "pendente". Após receber o email de ativação de boas-vindas, o AO poderá entrar para ativar a própria conta. A entrada atualizará o status da conta de "pendente" para "ativo".
+Quando novos AOs (proprietários da conta) forem adicionados a um registro pela primeira vez, o status deles será exibido sempre como "pendente". Após receber o email de ativação de boas-vindas, o AO poderá entrar para ativar a própria conta. A entrada atualizará o status da conta de "pendente" para "ativo".
 
 ### <a name="i-received-an-error-when-signing-in-to-azure-ea-portal"></a>Recebi um erro ao entrar no portal do Azure EA
 
@@ -122,10 +122,10 @@ Há alguns motivos possíveis para a mensagem de erro no portal do Azure EA dura
  1. Determine se o acesso ao portal do Azure EA foi adicionado como uma conta corporativa ou de estudante ou como uma Microsoft Live ID. Se você está usando sua conta corporativa, insira seu email e senha corporativos. Se você está usando o Microsoft Live ID, insira seu email do Live ID e a senha do Microsoft Live ID. Se você esqueceu sua senha do Microsoft Live ID, redefina-a em [https://account.live.com/password/reset](https://account.live.com/password/reset).
  1. Recomendamos que use um navegador privado para entrar, de modo que nenhum cookie ou cache de sessões anteriores/existentes sejam mantidos. Limpe o cache e use o modo de navegação particular/janela anônima para abrir [https://ea.azure.com](https://ea.azure.com).
  1. Se você recebe um erro de Usuário Inválido ao usar uma conta Microsoft, talvez tenha várias contas da Microsoft e a que você está usando para tentar entrar não é o alias principal. Para verificar o alias principal, acesse account.live.com:
-    - Acesse "Suas informações" > "Gerenciar seu email ou número de telefone de entrada".
+    - Acesse "Suas Informações" > "Gerenciar seu número de telefone ou seu email de entrada".
     - Siga os avisos na tela para verificar o endereço de email alternativo e obter um código para acessar informações confidenciais.
     - Digite o código de segurança.
-    - Se preferir configurar depois a autenticação em duas etapas, selecione "Configurar mais tarde".
+    - Se preferir configurar a autenticação em duas etapas mais tarde, selecione "Configurar mais tarde".
     - Você chegará à página "Gerenciar seus aliases de conta", em que você verá os aliases de conta disponíveis. Verifique de novo se o alias principal é aquele que você está usando para entrar no portal do Azure EA. Se não for, você pode torná-lo seu alias principal ou pode usar o alias principal do portal do EA.
 
 Se as etapas de solução de problemas acima falharem, envie uma solicitação para [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) com informações como:
@@ -147,7 +147,7 @@ Se as etapas de solução de problemas acima falharem, envie uma solicitação p
 
 **Conta Microsoft:** contas que foram associadas ao Live ID no [https://signup.live.com](https://signup.live.com).
 
-**Conta corporativa ou de estudante:** disponível apenas para empresas que configuraram o Active Directory com Federação na Nuvem e com todas as contas em um único locatário. Os usuários poderão ser adicionados com o tipo de autorização corporativo ou de estudante se o Active Directory interno da empresa for federado na nuvem.
+**Conta corporativa ou de estudante:** disponível apenas para empresas que configuraram o Active Directory com Federação na Nuvem e com todas as contas em um único locatário. Os usuários poderão ser adicionados com o tipo de autorização corporativo/de estudante se o Active Directory interno da empresa for federado na nuvem.
 
   Desde setembro de 2016, a Microsoft não permite que emails corporativos ou de estudante sejam registrados como contas da Microsoft. Para saber mais, confira os seguintes materiais: [https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/](https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/).
 
@@ -161,7 +161,7 @@ Se você esqueceu sua senha corporativa, entre em contato com o administrador de
 
 ### <a name="i-have-a-valid-work-or-school-account-but-i-cant-add-it-to-the-ea-portal"></a>Tenho uma conta corporativa ou de estudante válida, mas não consigo adicioná-la ao portal do EA
 
-Se você tem uma conta corporativa ou de estudante em um locatário diferente, altere o nível de autorização na página detalhes do registro para "Locatário cruzado de conta corporativa ou de estudante" e você poderá adicionar a conta.
+Se você tiver uma conta corporativa ou de estudante em outro locatário, altere o nível de autorização na página de detalhes do registro para "Locatário Cruzado de Conta Corporativa ou de Estudante" e você poderá adicionar a conta.
 
 ## <a name="next-steps"></a>Próximas etapas
 

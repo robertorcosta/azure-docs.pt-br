@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 6db2c907abc495ca3c88e1e73e885043a8f19997
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 636f2e6139ad081d1e2fc67462a74cb7e18e3ff0
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481527"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475890"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar o LDAP Seguro para um domínio gerenciado do Azure Active Directory Domain Services
 
@@ -30,14 +30,14 @@ Neste tutorial, você aprenderá como:
 > * Configurar o LDAP Seguro para uso na Internet pública
 > * Associar e testar o LDAP Seguro para um domínio gerenciado do Azure AD DS
 
-Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
 * Uma assinatura ativa do Azure.
-    * Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
@@ -114,13 +114,13 @@ Para essas duas chaves, as chaves *privada* e *pública*, garanta que apenas os 
 
 Para usar o certificado digital criado na etapa anterior com o domínio gerenciado do Azure AD DS, exporte o certificado para um arquivo de certificado *.PFX* que inclua a chave privada.
 
-1. Para abrir a caixa de diálogo *Executar*, selecione as teclas **Windows** e **R**.
+1. Para abrir a caixa de diálogo *Executar*, selecione as teclas **Windows** + **R**.
 1. Abra o MMC (Console de Gerenciamento Microsoft) inserindo **mmc** na caixa de diálogo *Executar* e, em seguida, selecione **OK**.
-1. No prompt **Controle de Conta de Usuário**, clique em **Sim** para iniciar o MMC como administrador.
-1. No menu **Arquivo**, clique em **Adicionar/Remover Snap-in...**
+1. No aviso **Controle de Conta de Usuário**, escolha **Sim** para iniciar o MMC como administrador.
+1. No menu **Arquivo**, selecione **Adicionar/Remover Snap-in...**
 1. No assistente **Snap-in de certificados**, escolha **Conta de computador** e, em seguida, selecione **Avançar**.
 1. Na página **Selecionar Computador**, escolha **Computador local: (o computador no qual este console está sendo executado)** e, em seguida, selecione **Concluir**.
-1. Na caixa de diálogo **Adicionar ou Remover Snap-ins**, clique em **OK** para adicionar o snap-in de certificados ao MMC.
+1. Na caixa de diálogo **Adicionar ou Remover Snap-ins**, escolha **OK** para adicionar o snap-in de certificados ao MMC.
 1. Na janela do MMC, expanda **Raiz do Console**. Selecione **certificados (Computador Local)** e, em seguida, expanda o nó **Pessoal**, seguido pelo nó **Certificados**.
 
     ![Abrir o repositório de certificados pessoais no Console de Gerenciamento Microsoft](./media/tutorial-configure-ldaps/open-personal-store.png)
@@ -177,9 +177,6 @@ O arquivo de certificado *.CER* agora pode ser distribuído para os computadores
 Com um certificado digital criado e exportado que inclua a chave privada e o computador cliente definido para confiar na conexão, agora habilite o LDAP Seguro no domínio gerenciado do Azure AD DS. Para habilitar o LDAP Seguro em um domínio gerenciado do Azure AD DS, execute as seguintes etapas de configuração:
 
 1. No [portal do Azure](https://portal.azure.com), insira *serviços de domínio* na caixa **Pesquisar recursos**. Selecione **Azure AD Domain Services** nos resultados da pesquisa.
-
-    ![Pesquisar e selecionar o domínio gerenciado do Azure AD DS no portal do Azure](./media/tutorial-configure-ldaps/search-for-domain-services.png)
-
 1. Escolha o domínio gerenciado, como *aaddscontoso.com*.
 1. No lado esquerdo da janela do Azure AD DS, escolha **LDAP Seguro**.
 1. Por padrão, o acesso LDAP seguro ao seu domínio gerenciado fica desabilitado. Posicione a tecla de alternância **LDAP Seguro** em **Habilitar**.
@@ -235,10 +232,10 @@ Com o acesso LDAP Seguro habilitado na Internet, atualize a zona DNS para que os
 
 Configure o provedor DNS externo para criar um registro de host, como *ldaps*, para fazer a resolução para esse endereço IP externo. Para testar localmente no computador primeiro, crie uma entrada no arquivo de hosts do Windows. Para editar com êxito o arquivo de hosts no computador local, abra o *Bloco de notas* como administrador e, em seguida, abra o arquivo *C:\Windows\System32\drivers\etc*
 
-A seguinte entrada DNS de exemplo, com o provedor DNS externo ou no arquivo de hosts local, resolve o tráfego de *ldaps.aaddscontoso.com* para o endereço IP externo *40.121.19.239*:
+A seguinte entrada DNS de exemplo, com o provedor DNS externo ou no arquivo de hosts local, resolve o tráfego de *ldaps.aaddscontoso.com* para o endereço IP externo *168.62.205.103*:
 
 ```
-40.121.19.239    ldaps.aaddscontoso.com
+168.62.205.103    ldaps.aaddscontoso.com
 ```
 
 ## <a name="test-queries-to-the-managed-domain"></a>Testar consultas para o domínio gerenciado
@@ -261,7 +258,7 @@ Para ver os objetos armazenados no domínio gerenciado do Azure AD DS:
 1. Selecione a opção de menu **Exibir** e, em seguida, escolha **Árvore**.
 1. Deixe o campo *BaseDN* em branco e, em seguida, selecione **OK**.
 1. Escolha um contêiner, como *Usuários do AADDC* e, em seguida, selecione o contêiner com o botão direito do mouse e escolha **Pesquisar**.
-1. Deixe os campos pré-populados definidos e, em seguida, selecione **Executar**. Os resultados da consulta são mostrados na janela à direita.
+1. Deixe os campos pré-populados definidos e, em seguida, selecione **Executar**. Os resultados da consulta são exibidos na janela à direita, conforme mostrado na seguinte saída de exemplo:
 
     ![Pesquisar objetos no domínio gerenciado do Azure AD DS usando LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
@@ -273,7 +270,7 @@ Se você adicionou uma entrada DNS ao arquivo de hosts local do computador para 
 
 1. No computador local, abra o *Bloco de notas* como administrador
 1. Procure e abra o arquivo *C:\Windows\System32\drivers\etc*
-1. Exclua a linha do registro adicionado, como `40.121.19.239    ldaps.aaddscontoso.com`
+1. Exclua a linha do registro adicionado, como `168.62.205.103    ldaps.aaddscontoso.com`
 
 ## <a name="next-steps"></a>Próximas etapas
 

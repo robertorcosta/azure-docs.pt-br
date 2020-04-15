@@ -1,29 +1,29 @@
 ---
-title: Localizar imagens semelhantes de pesquisas anteriores usando ImageInsightsToken - Pesquisa Visual do Bing
+title: Encontrar imagens semelhantes de pesquisas anteriores usando tokens de insights de imagem e a API da Pesquisa Visual do Bing
 titleSuffix: Azure Cognitive Services
-description: Usar o SDK de pesquisa Visual do Bing para obter URLs das imagens especificadas pelo ImageInsightsToken.
+description: Use a biblioteca de clientes da Pesquisa Visual do Bing para obter URLs de imagens de pesquisas anteriores.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 11/29/2019
+ms.date: 03/31/2020
 ms.author: aahi
-ms.openlocfilehash: dff96b19f40c2d897b6a018a4c46cec60f8aa201
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ad24a8a194a11c3fd5f7f77ea8c52197d5438edc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689317"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477910"
 ---
-# <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>Localizar imagens semelhantes de pesquisas anteriores usando ImageInsightsToken
+# <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>Tutorial: Localizar imagens semelhantes de pesquisas anteriores usando o token de insights de imagem
 
-O SDK de Pesquisa Visual possibilita que você encontre imagens online de pesquisas anteriores que retornam um `ImageInsightsToken`. Este aplicativo obtém um `ImageInsightsToken` e usa o token em uma pesquisa subsequente. Em seguida, envia o `ImageInsightsToken` para o Bing e retorna os resultados que incluem as URLs de Pesquisa do Bing e as URLs de imagens semelhantes encontradas online.
+A biblioteca de clientes da Pesquisa Visual permite que você encontre imagens online de pesquisas anteriores que retornam um `ImageInsightsToken`. Este aplicativo obtém um `ImageInsightsToken` e usa o token em uma pesquisa subsequente. Em seguida, envia o `ImageInsightsToken` para o Bing e retorna os resultados que incluem as URLs de Pesquisa do Bing e as URLs de imagens semelhantes encontradas online.
 
 O código-fonte completo desse tutorial pode ser encontrado com anotações e tratamento de erro adicionais no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Qualquer edição do [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Se você estiver usando Linux/MacOS, poderá executar usando o [Mono](https://www.mono-project.com/).
@@ -36,9 +36,9 @@ O código-fonte completo desse tutorial pode ser encontrado com anotações e tr
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-## <a name="get-the-imageinsightstoken-from-the-bing-image-search-sdk"></a>Obter o ImageInsightsToken do SDK da Pesquisa de Imagem do Bing
+## <a name="get-the-imageinsightstoken-from-the-bing-image-search-client-library"></a>Obter o ImageInsightsToken da biblioteca de clientes da Pesquisa de Imagem do Bing
 
-Esse aplicativo usa um `ImageInsightsToken` obtido por meio do [SDK de Pesquisa de Imagem do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). Em um aplicativo de console C#, crie um cliente para chamar a API usando `ImageSearchClient()`. Em seguida, use `SearchAsync()` com sua consulta:
+Esse aplicativo usa um `ImageInsightsToken` obtido por meio da [biblioteca de clientes da Pesquisa de Imagem do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). Em um aplicativo de console C#, crie um cliente para chamar a API usando `ImageSearchClient()`. Em seguida, use `SearchAsync()` com sua consulta:
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));

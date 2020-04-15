@@ -6,12 +6,12 @@ ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: a40ff50dcb0934cbf1ea5222675bd75948ac1d03
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9b0154889544e0054e309cc5f43851b73b4396b4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223963"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754682"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Tutorial: Definir as configurações de rede do cluster
 
@@ -76,7 +76,7 @@ O cluster do FXT Edge Filer usa certificados X.509 para essas funções:
 
 Se você precisar carregar certificados no cluster, use a página de configurações **Cluster** > **Certificados**. Os detalhes estão na página [Cluster > Certificados](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) do Guia de configuração do cluster.
 
-Para criptografar a comunicação de gerenciamento do cluster, use a página de configurações **Cluster** > **Configuração Geral** para selecionar qual certificado usar para SSL administrativo.
+Para criptografar a comunicação de gerenciamento do cluster, use a página de configurações **Cluster** > **Configuração Geral** para selecionar qual certificado usar para TLS administrativo.
 
 > [!Note] 
 > As chaves de acesso do serviço de nuvem são armazenadas usando a página de configuração **Credenciais de Nuvem**. A seção [Adicionar um arquivista central](fxt-add-storage.md#add-a-core-filer) acima mostra um exemplo; leia a seção [Credenciais de nuvem](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) do Guia de configuração do cluster para obter detalhes. 

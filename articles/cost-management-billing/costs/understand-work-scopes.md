@@ -3,17 +3,17 @@ title: Entender e trabalhar com os escopos do Gerenciamento de Custos do Azure
 description: Este artigo ajuda você a entender os escopos de gerenciamento de recursos e de cobrança disponíveis no Azure e como usar os escopos no Gerenciamento de Custos e nas APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: bbed4209d26fe32f95b93b2c7411e1ab74f03ede
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ebae9d1c66a721926ca07b21059ec57b05b99a0f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80131370"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877925"
 ---
 # <a name="understand-and-work-with-scopes"></a>Entender e trabalhar com escopos
 
@@ -26,6 +26,10 @@ Um _escopo_ é um nó na hierarquia de recursos do Azure em que os usuários do 
 - Serviços de nuvem, como governança de políticas e custos
 
 Os escopos são o local em que você gerencia os dados de cobrança, têm funções específicas para pagamentos, exibem faturas e realizam o gerenciamento geral da conta. As funções de cobrança e de conta são gerenciadas separadamente daquelas usadas para o gerenciamento de recursos, que usam o [Azure RBAC](../../role-based-access-control/overview.md). Para distinguir claramente a intenção dos escopos separados, incluindo as diferenças de controle de acesso, eles são chamados de _escopos do orçamento_ e _escopos do RBAC_, respectivamente.
+
+Para saber mais sobre escopos, assista ao vídeo [Gerenciamento de Custos configurando hierarquias](https://www.youtube.com/watch?v=n3TLRaYJ1NY). Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
 
 ## <a name="how-cost-management-uses-scopes"></a>Como o Gerenciamento de Custos usa os escopos
 
@@ -71,7 +75,7 @@ O Gerenciamento de Custos é compatível com as seguintes funções internas par
 
 As contas de cobrança do EA (Contrato Enterprise), também chamadas de registros, têm os seguintes escopos:
 
-- [**Conta de cobrança**](../manage/view-all-accounts.md) – representa um registro de EA. As faturas são geradas nesse escopo. As compras não baseadas em uso, como as do Marketplace e as reservas, estão disponíveis somente nesse escopo. Elas não são representadas em departamentos nem em contas de registro.
+- [**Conta de cobrança**](../manage/view-all-accounts.md) – representa um registro de EA. As faturas são geradas nesse escopo. As compras não baseadas em uso, como as do Marketplace e as reservas, estão disponíveis somente nesse escopo. Elas não são representadas em departamentos nem em contas de registro. O uso de reserva, juntamente com todos os outros usos, é aplicado a recursos individuais. O uso é acumulado em assinaturas na conta de cobrança. Para ver os custos de reserva divididos em cada recurso, mude para a exibição **Custo amortizado** na análise de custo.
 
     Tipo de recurso: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
 - **Departamento** – agrupamento opcional de contas de registro.

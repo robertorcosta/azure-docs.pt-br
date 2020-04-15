@@ -4,14 +4,14 @@ description: Neste tutorial, você aprenderá a adicionar um ponto de extremidad
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 077c2ab67efa51542baa3048eb678fa22b0bc2eb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0e8b79a88fc173674caa0ca65e394e21d58d5f2f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222723"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756089"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: adicionar um ponto de extremidade HTTPS a um serviço de front-end de API Web do ASP.NET Core usando Kestrel
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: adicionar um ponto de extremidade HTTPS a um serviço de front-end de API Web do ASP.NET Core usando o Kestrel
 
 Este tutorial é a parte três de uma série.  Você aprenderá a habilitar HTTPS em um serviço ASP.NET Core em execução no Service Fabric. Quando você terminar, terá um aplicativo de votação com um front-end Web do ASP.NET Core habilitado para HTTPS escutando na porta 443. Se você não quiser criar manualmente o aplicativo de votação em [Criar um aplicativo do Service Fabric no .NET](service-fabric-tutorial-deploy-app-to-party-cluster.md), [baixe o código-fonte](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) do aplicativo concluído.
 
@@ -20,7 +20,7 @@ Na terceira parte da série, você aprenderá a:
 > [!div class="checklist"]
 > * Definir um ponto de extremidade HTTPS no serviço
 > * Configurar o Kestrel para usar HTTPS
-> * Instalar o certificado SSL nos nós de cluster remoto
+> * Instalar o certificado TLS/SSL nos nós de cluster remoto
 > * Conceder ao SERVIÇO DE REDE acesso à chave privada do certificado
 > * Abrir a porta 443 no balanceador de carga do Azure
 > * Implantar o aplicativo em um cluster remoto
@@ -36,7 +36,7 @@ Nesta série de tutoriais, você aprenderá a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial:
 
@@ -396,7 +396,7 @@ Nesta parte do tutorial, você aprendeu a:
 > [!div class="checklist"]
 > * Definir um ponto de extremidade HTTPS no serviço
 > * Configurar o Kestrel para usar HTTPS
-> * Instalar o certificado SSL nos nós de cluster remoto
+> * Instalar o certificado TLS/SSL nos nós de cluster remoto
 > * Conceder ao SERVIÇO DE REDE acesso à chave privada do certificado
 > * Abrir a porta 443 no balanceador de carga do Azure
 > * Implantar o aplicativo em um cluster remoto

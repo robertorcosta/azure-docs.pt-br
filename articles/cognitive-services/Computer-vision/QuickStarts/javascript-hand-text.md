@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 03/26/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8c3f5dae62aef6c8e8ec1eeaeb712ebff67397c9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: cca5680d307874a565dec47f643bf9320192c270
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77566175"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656092"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-javascript"></a>Início Rápido: Extrair um texto impresso e manuscrito usando a API REST da Pesquisa Visual Computacional 2.0 e 2.1 e JavaScript
 
@@ -45,7 +45,7 @@ Em comparação com Pesquisa Visual Computacional 2.0 e 2.1, a versão prévia p
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
-Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de caracteres do ponto de extremidade de serviço, denominadas `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave. Salve sua chave de assinatura e a URL do ponto de extremidade em uma localização temporária.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
@@ -53,12 +53,12 @@ Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. 
 
 Para criar e executar o exemplo, siga estas etapas:
 
-1. Copie o código a seguir em um editor de texto.
+1. Crie um arquivo chamado _get-text.html_, abra-o em um editor de texto e copie o código a seguir nele.
 1. Outra opção é substituir o valor do atributo `value` para o controle `inputImage` pela URL de uma imagem diferente da qual você deseja extrair o texto.
-1. Salve o código como um arquivo com uma extensão `.html`. Por exemplo, `get-text.html`.
 1. Abra uma janela do navegador.
 1. No navegador, arraste e solte o arquivo na janela do navegador.
-1. Quando a página da Web for exibida no navegador, escolha o botão **Ler imagem**.
+1. Quando a página da Web é exibida no navegador, cole sua chave de assinatura e a URL do ponto de extremidade as caixas de entrada apropriadas.
+1. Selecione o botão **Ler imagem**.
 
 ```html
 <!DOCTYPE html>
@@ -75,9 +75,8 @@ Para criar e executar o exemplo, siga estas etapas:
         // *** Update or verify the following values. ***
         // **********************************************
 
-        let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
-        let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
-        if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
+        var subscriptionKey = document.getElementById("subscriptionKey").value;
+        var endpoint = document.getElementById("endpointUrl").value;
         
         var uriBase = endpoint + "vision/v2.1/read/core/asyncBatchAnalyze";
 
@@ -170,6 +169,13 @@ Para criar e executar o exemplo, siga estas etapas:
 <h1>Read text from image:</h1>
 Enter the URL to an image of text, then click
 the <strong>Read image</strong> button.
+<br><br>
+Subscription key: 
+<input type="text" name="subscriptionKey" id="subscriptionKey"
+    value="" /> 
+Endpoint URL:
+<input type="text" name="endpointUrl" id="endpointUrl"
+    value="" />
 <br><br>
 Image to read:
 <input type="text" name="inputImage" id="inputImage"

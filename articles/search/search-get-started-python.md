@@ -2,19 +2,19 @@
 title: 'Início Rápido: Criar um índice de pesquisa em Python usando APIs REST'
 titleSuffix: Azure Cognitive Search
 description: Explica como criar um índice, carregar dados e executar consultas usando Python, Jupyter Notebooks e a API REST da Pesquisa Cognitiva do Azure.
-author: tchristiani
+author: HeidiSteen
 manager: nitinme
-ms.author: terrychr
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 02/10/2020
-ms.openlocfilehash: 93fb9ec735de1abf89eb217d0f4096fcfc0afe94
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/01/2020
+ms.openlocfilehash: fd87dbe125e84c171cc35a2b242879c44bc50fd9
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78227109"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585920"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure em Python usando Jupyter notebooks
 
@@ -197,7 +197,7 @@ Para efetuar push de documentos, use uma solicitação HTTP POST para o ponto de
         "@search.action": "upload",
         "HotelId": "3",
         "HotelName": "Triple Landscape Hotel",
-        "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
+        "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel's restaurant services.",
         "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
         "Category": "Resort and Spa",
         "Tags": [ "air conditioning", "bar", "continental breakfast" ],
@@ -256,45 +256,59 @@ Esta etapa mostra como consultar um índice usando a [API REST Pesquisar Documen
 
    ```python
    searchstring = '&search=*&$count=true'
-   ```
 
-1. Em uma nova célula, forneça o seguinte exemplo para pesquisar nos termos “hotéis” e “Wi-Fi”. Adicione $select para especificar quais campos incluir nos resultados da pesquisa.
-
-   ```python
-   searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
-   ```
-
-1. Em outra célula, formule uma solicitação. Essa solicitação GET direciona a coleção de documentos do índice hotels-quickstart e anexa a consulta especificada na etapa anterior.
-
-   ```python
    url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
    response  = requests.get(url, headers=headers, json=searchstring)
    query = response.json()
    pprint(query)
    ```
 
-1. Execute cada etapa. Os resultados devem ser semelhantes à saída a seguir. 
+1. Em uma nova célula, forneça o seguinte exemplo para pesquisar nos termos “hotéis” e “Wi-Fi”. Adicione $select para especificar quais campos incluir nos resultados da pesquisa.
+
+   ```python
+   searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)   
+   ```
+
+   Os resultados devem ser semelhantes à saída a seguir. 
 
     ![Pesquisar um índice](media/search-get-started-python/search-index.png "Pesquisar um índice")
 
-1. Experimente alguns outros exemplos de consulta para ter uma ideia da sintaxe. É possível substituir o `searchstring` pelos exemplos a seguir e executar novamente a solicitação de pesquisa. 
-
-   Aplicar um filtro: 
+1. Em seguida, aplique uma expressão $filter que selecione apenas os hotéis com uma classificação maior que 4. 
 
    ```python
    searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)     
    ```
 
-   Usar os dois primeiros resultados:
+1. Por padrão, o mecanismo de pesquisa retorna os 50 principais documentos, mas você pode usar as opções Início e Ignorar para adicionar uma paginação e escolher quantos documentos são exibidos em cada resultado. Essa consulta retorna dois documentos em cada conjunto de resultados.
 
    ```python
-   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)
    ```
 
-    Ordenar por um campo especificado:
+1. Neste último exemplo, use $orderby para classificar os resultados por cidade. Este exemplo inclui campos da coleção Endereços.
 
    ```python
-   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)
    ```
 
 ## <a name="clean-up"></a>Limpar

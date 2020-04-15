@@ -8,12 +8,12 @@ ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: 3314d00651fc5e0473d84710803671f2ad45f005
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2f96208ff3f9664d82bfc1d9ddf9bc5b9aec37c3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79474519"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879081"
 ---
 # <a name="what-is-azure-cost-management-and-billing"></a>O que são a Cobrança e o Gerenciamento de Custos do Azure?
 
@@ -67,7 +67,7 @@ Um escopo é um nó em uma conta de cobrança que você usa para exibir e gerenc
 ## <a name="understand-azure-cost-management"></a>Entender o Gerenciamento de Custos do Azure
 O gerenciamento de custos é o processo de efetivamente planejar e controlar os custos envolvidos em seus negócios. As tarefas de gerenciamento de custos são normalmente executadas por equipes de finanças, gerenciamento e aplicativos. A Cobrança e o Gerenciamento de Custos do Azure ajudam as organizações a planejar priorizando o custo. Também ajuda a analisar os custos de maneira eficaz e a tomar medidas para otimizar o gasto na nuvem. Para saber mais sobre como abordar o gerenciamento de custos como uma organização, consulte o artigo [práticas recomendadas do Azure Cost Management](./costs/cost-mgt-best-practices.md).
 
-Assista ao [vídeo de visão geral do Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=el4yN5cHsJ0) para obter uma visão geral sobre como o Gerenciamento de Custos do Azure pode ajudar você a economizar dinheiro no Azure.
+Assista ao [vídeo de visão geral do Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=el4yN5cHsJ0) para obter uma visão geral sobre como o Gerenciamento de Custos do Azure pode ajudar você a economizar dinheiro no Azure. Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
@@ -93,7 +93,7 @@ Se você usar sistemas externos para acessar ou revisar dados de gerenciamento d
 
 O [Cloudyn](./cloudyn/overview.md) é um serviço do Azure relacionado ao Gerenciamento de Custos que será preterido até o final de 2020. Os recursos do Cloudyn existentes estão sendo integrados diretamente no portal do Azure, sempre que possível. Nenhum novo cliente está sendo integrado no momento, mas o suporte permanecerá para o produto até que ele seja totalmente preterido.
  
-Assista ao [vídeo do Gerenciamento de Custos do Azure e do Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) para saber mais sobre quando você deve usar o Gerenciamento de Custos do Azure ou o Cloudyn com base em suas necessidades de negócios.
+Assista ao [vídeo do Gerenciamento de Custos do Azure e do Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) para saber mais sobre quando você deve usar o Gerenciamento de Custos do Azure ou o Cloudyn com base em suas necessidades de negócios. Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
  
 >[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 

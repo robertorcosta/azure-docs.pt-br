@@ -12,12 +12,12 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 03/12/2020
-ms.openlocfilehash: 5847ef3033d257faef4831785b8abd864d54e835
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c072161db7a477b7973571a18d4f686b1b9c6202
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79209598"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985670"
 ---
 # <a name="quickstart-use-the-azure-portals-query-editor-to-query-a-sql-database"></a>Início Rápido: Usar o editor de consultas do portal do Azure para consultar um banco de dados SQL
 
@@ -175,7 +175,7 @@ Há algumas coisas que se deve saber ao trabalhar com o editor de consultas.
 
 * O editor de consultas usa as portas 443 e 1443 para se comunicar. Verifique se você habilitou o tráfego HTTPS de saída nessas portas. Você também precisará adicionar o endereço IP de saída para regras de firewall permitido do servidor para acessar seus bancos de dados e data warehouses.
 
-* O Editor de Consultas funciona com o Link Privado sem a necessidade de adicionar o endereço IP do Cliente ao firewall do Banco de Dados SQL
+* Se você tiver uma conexão do Link Privado, o Editor de Consultas funcionará sem precisar adicionar o endereço IP do cliente ao firewall do Banco de Dados SQL
 
 * Pressionar **F5** atualiza a página do editor de consultas e qualquer consulta em que se esteja trabalhando é perdida.
 

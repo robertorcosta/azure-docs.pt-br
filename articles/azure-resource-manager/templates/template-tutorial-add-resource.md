@@ -2,21 +2,21 @@
 title: Tutorial – Adicionar recurso ao modelo
 description: Descreve as etapas para criar seu primeiro modelo do Azure Resource Manager. Você aprende sobre a sintaxe do arquivo de modelo e como implantar uma conta de armazenamento.
 author: mumian
-ms.date: 02/24/2020
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: af571b6503f04c809b62c530f6d6254082b838be
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: dcdbbb325e6589669abe6cf3d25ac5191e29118b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586675"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411742"
 ---
-# <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Tutorial: Adicionar um recurso ao modelo do Resource Manager
+# <a name="tutorial-add-a-resource-to-your-arm-template"></a>Tutorial: Adicionar um recurso ao modelo do ARM
 
 No [tutorial anterior](template-tutorial-create-first-template.md), você aprendeu como criar um modelo em branco e implantá-lo. Agora você está pronto para implantar um recurso real. Neste tutorial, você adiciona uma conta de armazenamento. Este tutorial demora cerca de **9 minutos** para ser concluído.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Recomendamos que você conclua o [tutorial introdutório sobre modelos](template-tutorial-create-first-template.md), mas isso não é obrigatório.
 
@@ -26,7 +26,7 @@ Recomendamos que você conclua o [tutorial introdutório sobre modelos](template
 
 Para adicionar uma definição de conta de armazenamento ao modelo existente, examine o JSON realçado no exemplo a seguir. Em vez de tentar copiar as seções do modelo, copie o arquivo inteiro e substitua o seu modelo pelo conteúdo desse arquivo.
 
-Substitua **{provide-unique-name}** por um nome exclusivo da conta de armazenamento.
+Substitua **{forneça-o-nome-exclusivo}** (incluindo as chaves) por um nome de conta de armazenamento exclusivo.
 
 > [!IMPORTANT]
 > O nome da conta de armazenamento deve ser exclusivo no Azure. O nome deve ter apenas letras minúsculas ou números. Ele não pode ter mais de 24 caracteres. Você pode tentar um padrão de nomenclatura, tal como usar **store1** como um prefixo e, em seguida, adicionar suas iniciais e a data de hoje. Por exemplo, o nome que você usa pode ser semelhante a **store1abc09092019**.
@@ -37,7 +37,7 @@ Adivinhar um nome exclusivo para uma conta de armazenamento não é fácil e nã
 
 ## <a name="resource-properties"></a>Propriedades de recurso
 
-Você pode estar se perguntando como encontrar as propriedades a serem usadas para cada tipo de recurso. Você pode usar a [referência de modelo do Resource Manager](/azure/templates/) para localizar os tipos de recursos que você deseja implantar.
+Você pode estar se perguntando como encontrar as propriedades a serem usadas para cada tipo de recurso. Você pode usar a [referência de modelo do ARM](/azure/templates/) para localizar os tipos de recursos que você deseja implantar.
 
 Cada recurso que você implanta tem pelo menos as três propriedades a seguir:
 
@@ -72,14 +72,19 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
+Para executar esse comando de implantação, você precisa ter a [versão mais recente](/cli/azure/install-azure-cli) da CLI do Azure.
+
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addstorage \
   --resource-group myResourceGroup \
   --template-file $templateFile
 ```
 
 ---
+
+> [!NOTE]
+> Se a implantação falhar, use a opção **debug** com o comando de implantação para mostrar os logs de depuração.  Use também a opção **verbose** para mostrar os logs de depuração completos.
 
 Duas possíveis falhas de implantação que você pode encontrar:
 

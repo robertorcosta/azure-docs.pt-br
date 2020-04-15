@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ad6b7150a43a286a4bec39a0482e08f50d95c06
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 352f52a2a6d84d352bb46e09f104efde303307f5
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77048074"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478057"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao F5
 
@@ -281,7 +281,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 
-Esta seção deverá ser usada se você não puder usar a Configuração guiada ou desejar adicionar/modificar parâmetros adicionais. Você precisará do Certificado SSL para o Nome do Host do Aplicativo.
+Esta seção deverá ser usada se você não puder usar a Configuração guiada ou desejar adicionar/modificar parâmetros adicionais. Você precisará do certificado TLS/SSL para o Nome do Host do Aplicativo.
 
 1. Navegue até **Sistema > Gerenciamento de Certificado > Gerenciamento de Certificado de Tráfego > Lista de Certificados SSL**. Selecione **Importar** do lado direito. O **Tipo de Importação** será **PKCS 12(IIS)** . Especifique um **Nome da Chave** (será referenciado futuramente na configuração) e especifique o arquivo PFX. Especifique a **Senha** do PFX. Clique em **Importar**.
 
@@ -298,7 +298,7 @@ Esta seção deverá ser usada se você não puder usar a Configuração guiada 
  
     ![Configuração do F5 (baseada em cabeçalho)](./media/headerf5-tutorial/configure18.png)
 
-1. Publicaremos nosso HeaderApp2 externamente como HTTPS nesse caso, **como o sistema de BIG-IP deve lidar com o tráfego SSL**? Especificamos **Encerrar o SSL do cliente, texto não criptografado para servidores (descarregamento de SSL)** . Especifique seu certificado e a chave em Qual certificado SSL você deseja usar? e em **Qual chave privada SSL você deseja usar?** . Especifique o IP do servidor virtual em **Qual endereço IP você deseja usar para o servidor virtual?** . 
+1. Publicaremos nosso HeaderApp2 externamente como HTTPS nesse caso, **como o sistema de BIG-IP deve lidar com o tráfego SSL**? Especificamos **Encerrar o SSL do cliente, texto não criptografado para servidores (descarregamento de SSL)** . Especifique o Certificado e a Chave em **Qual certificado SSL você deseja usar?** e **Qual chave privada SSL você deseja usar?** . Especifique o IP do servidor virtual em **Qual endereço IP você deseja usar para o servidor virtual?** . 
 
     * **Especificar outros detalhes**
 

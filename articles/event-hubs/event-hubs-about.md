@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9b3af6a6cee4375a110c894b6b72655605ad077d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45276ab59f1a3dabea42b904ff54bd37326fdeca
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372250"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398120"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Hubs de Eventos do Azure – uma plataforma de streaming de Big Data e um serviço de ingestão de eventos
 Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos. Ele pode receber e processar milhões de eventos por segundo. Os dados enviados para um hub de eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento.
@@ -61,20 +61,27 @@ Com os Hubs de eventos, você pode iniciar com fluxos de dados em megabytes e au
 
 [Os Hubs de Eventos para ecossistemas do Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) permitem que clientes e aplicativos do [Apache Kafka (1.0 e posterior)](https://kafka.apache.org/) se comuniquem com os Hubs de Eventos. Você não precisa definir, configurar nem gerenciar seus próprios clusters Kafka.
 
-Com uma enorme variedade disponível em várias [linguagens (.NET, Java, Python, Go, JavaScript)](https://github.com/Azure/azure-event-hubs), você pode iniciar facilmente o processamento dos seus fluxos nos Hubs de Eventos. Todos as linguagens com suporte do cliente fornecem integração de baixo nível. O ecossistema também fornece integração perfeita com serviços do Azure, como o Azure Stream Analytics e o Azure Functions, permitindo que você crie arquiteturas sem servidor.
+Com um amplo ecossistema disponível em várias linguagens [.NET](https://github.com/Azure/azure-sdk-for-net/), [Java](https://github.com/Azure/azure-sdk-for-java/), [Python](https://github.com/Azure/azure-sdk-for-python/) e [JavaScript](https://github.com/Azure/azure-sdk-for-js/), você pode iniciar com facilidade o processamento dos seus fluxos nos Hubs de Eventos. Todos as linguagens com suporte do cliente fornecem integração de baixo nível. O ecossistema também fornece integração perfeita com serviços do Azure, como o Azure Stream Analytics e o Azure Functions, permitindo que você crie arquiteturas sem servidor.
 
 ## <a name="key-architecture-components"></a>Principais componentes da arquitetura
 Os Hubs de Eventos contêm os seguintes [componentes principais](event-hubs-features.md):
 
-- **Produtores de eventos**: Uma entidade que envia dados para um hub de eventos. Os editores de eventos podem publicar eventos usando HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 e acima)
-- **Partições**: Cada consumidor lê somente um subconjunto específico, ou partição, do fluxo de mensagens.
-- **Grupos de consumidores**: Uma exibição (estado, posição ou deslocamento) de todo um hub de eventos. Os grupos de consumidores permitem que vários aplicativos de consumo tenham uma exibição separada do fluxo de eventos. Eles leem o fluxo de forma de maneira independente em seu próprio ritmo e com seus próprios deslocamentos.
-- **Unidades de produtividade**: Unidades de capacidade que controlam a capacidade de produtividade dos Hubs de Eventos.
-- **Receptores de evento**: Qualquer entidade que leia dados de evento de um hub de eventos. Todos os consumidores dos Hubs de Eventos se conectam por meio da sessão do AMQP 1.0. O serviço de Hubs de Eventos oferece eventos por meio de uma sessão conforme eles ficam disponíveis. Todos os consumidores do Kafka se conectam por meio do protocolo Kafka 1.0 e posterior.
+- **Produtores de eventos**: uma entidade que envia dados para um hub de eventos. Os editores de eventos podem publicar eventos usando HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 e acima)
+- **Partições**: cada consumidor lê somente um subconjunto específico ou partição do fluxo de mensagens.
+- **Grupos de consumidores**: uma exibição (estado, posição ou deslocamento) de todo um hub de eventos. Os grupos de consumidores permitem que vários aplicativos de consumo tenham uma exibição separada do fluxo de eventos. Eles leem o fluxo de forma de maneira independente em seu próprio ritmo e com seus próprios deslocamentos.
+- **Unidades de produtividade**: unidades de capacidade pré-adquiridas que controlam a capacidade de produtividade dos Hubs de Eventos.
+- **Receptores de eventos**: qualquer entidade que leia dados de eventos de um hub de eventos. Todos os consumidores dos Hubs de Eventos se conectam por meio da sessão do AMQP 1.0. O serviço de Hubs de Eventos oferece eventos por meio de uma sessão conforme eles ficam disponíveis. Todos os consumidores do Kafka se conectam por meio do protocolo Kafka 1.0 e posterior.
 
 A figura a seguir mostra a arquitetura de processamento de fluxo dos Hubs de Eventos:
 
 ![Hubs de Eventos](./media/event-hubs-about/event_hubs_architecture.png)
+
+## <a name="event-hubs-on-azure-stack-hub"></a>Hubs de Eventos no Azure Stack Hub
+Os Hubs de Eventos no Azure Stack Hub permitem que você concretize cenários de nuvem híbrida. Há suporte para soluções baseadas em evento e streaming no processamento de nuvem local e do Azure. Seja o cenário híbrido (conectado) ou desconectado, sua solução pode dar suporte ao processamento de eventos/fluxos em grande escala. O cenário só é associado ao tamanho do cluster dos Hubs de Eventos, que você pode provisionar de acordo com as suas necessidades. 
+
+As edições dos Hubs de Eventos (no Azure Stack Hub e no Azure) oferecem um alto grau de paridade de recursos. Essa paridade significa que os SDKs, as amostras, o PowerShell, a CLI e os portais oferecem uma experiência semelhante, com poucas diferenças. 
+
+Os Hubs de Eventos no Stack são gratuitos durante a versão prévia pública. Para obter mais informações, confira [Visão Geral dos Hubs de Eventos no Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/event-hubs-overview).
 
 
 ## <a name="next-steps"></a>Próximas etapas

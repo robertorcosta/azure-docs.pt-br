@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 26122278ad74fb1d383ca7a900810b6060ee78f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: af284e4c10487123c8c2a2105a25a2285ae0aa99
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73172687"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474384"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-instance"></a>Tutorial: Configurar um emparelhamento de rede para uma instância do Azure Active Directory Domain Services
 
@@ -29,14 +29,14 @@ Neste tutorial, você aprenderá como:
 > * Criar um intervalo de endereços IP e uma sub-rede adicional na rede virtual do Azure AD DS
 > * Configurar um emparelhamento de rede virtual para uma rede separada do Azure AD DS
 
-Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
 * Uma assinatura ativa do Azure.
-    * Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * É necessário ter privilégios de *administrador global* no locatário do Azure AD para habilitar o Azure AD DS.
@@ -72,18 +72,18 @@ Por padrão, a rede virtual do Azure criada com o domínio gerenciado do Azure A
 Para criar uma sub-rede da rede virtual para VMs e cargas de trabalho de aplicativo, conclua as seguintes etapas:
 
 1. No portal do Azure, selecione o grupo de recursos do domínio gerenciado do Azure AD DS, como *myResourceGroup*. Na lista de recursos, escolha a rede virtual padrão, como *aadds-vnet*.
-1. No menu à esquerda da janela da rede virtual, selecione **Espaço de endereço**. A rede virtual é criada com um único espaço de endereço *10.0.1.0/24*, que é usado pela sub-rede padrão.
+1. No menu à esquerda da janela da rede virtual, selecione **Espaço de endereço**. A rede virtual é criada com um só espaço de endereço *10.0.2.0/24*, que é usado pela sub-rede padrão.
 
     Adicione um intervalo de endereços IP adicional à rede virtual. O tamanho desse intervalo de endereços e do intervalo de endereços IP real a ser usado depende de outros recursos de rede já implantados. O intervalo de endereços IP não deve se sobrepor a nenhum intervalo de endereços existente no ambiente local ou do Azure. Dimensione o intervalo de endereços IP com um tamanho grande o suficiente para o número de VMs que espera implantar na sub-rede.
 
-    No exemplo a seguir, um intervalo de endereços IP adicional *10.0.2.0/24* é adicionado. Quando estiver pronto, selecione **Salvar**.
+    No exemplo a seguir, um intervalo de endereços IP extra *10.0.3.0/24* é adicionado. Quando estiver pronto, selecione **Salvar**.
 
     ![Adicionar um intervalo de endereços IP de rede virtual adicional no portal do Azure](./media/tutorial-configure-networking/add-vnet-address-range.png)
 
 1. Em seguida, no menu à esquerda da janela da rede virtual, selecione **Sub-redes** e, em seguida, escolha **+ Sub-rede** para adicionar uma sub-rede.
 1. Insira um nome para a sub-rede, como *cargas de trabalho*. Se necessário, atualize o **Intervalo de endereços** caso deseje usar um subconjunto do intervalo de endereços IP configurado para a rede virtual nas etapas anteriores. Por enquanto, mantenha os padrões para opções como grupo de segurança de rede, tabela de rotas e pontos de extremidade de serviço.
 
-    No seguinte exemplo, é criada uma sub-rede chamada *cargas de trabalho* que usa o intervalo de endereços IP *10.0.2.0/24*:
+    No seguinte exemplo, é criada uma sub-rede chamada *workloads* que usa o intervalo de endereços IP *10.0.3.0/24*:
 
     ![Adicionar uma sub-rede da rede virtual adicional no portal do Azure](./media/tutorial-configure-networking/add-vnet-subnet.png)
 
@@ -130,7 +130,7 @@ Neste tutorial, vamos configurar os servidores DNS da rede virtual do Azure para
 
 1. No portal do Azure, selecione o grupo de recursos da rede virtual emparelhada, como *myResourceGroup*. Na lista de recursos, escolha a rede virtual emparelhada, como *myVnet*.
 1. No menu à esquerda da janela da rede virtual, selecione **Servidores DNS**.
-1. Por padrão, uma rede virtual usa os servidores DNS internos fornecidos pelo Azure. Opte por usar servidores DNS **Personalizados**. Insira os endereços IP para os controladores de domínio do Azure AD DS, que geralmente são *10.0.1.4* e *10.0.1.5*. Confirme esses endereços IP na janela **Visão geral** do domínio gerenciado do Azure AD DS no portal.
+1. Por padrão, uma rede virtual usa os servidores DNS internos fornecidos pelo Azure. Opte por usar servidores DNS **Personalizados**. Insira os endereços IP para os controladores de domínio do Azure AD DS, que geralmente são *10.0.2.4* e *10.0.2.5*. Confirme esses endereços IP na janela **Visão geral** do domínio gerenciado do Azure AD DS no portal.
 
     ![Configurar os servidores DNS da rede virtual para usarem os controladores de domínio do Azure AD DS](./media/tutorial-configure-networking/custom-dns.png)
 

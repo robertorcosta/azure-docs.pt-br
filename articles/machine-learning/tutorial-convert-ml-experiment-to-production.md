@@ -7,12 +7,12 @@ ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 03/13/2020
-ms.openlocfilehash: f40c2b5f7134458b3f8cb492652bebf14388634c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e3c9b16ae3d2b06ec19ecd29d15762a065c0c1ae
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79477129"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521435"
 ---
 # <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>Tutorial: Converter um código experimental de ML em um código de produção
 
@@ -21,7 +21,6 @@ Um projeto de aprendizado de máquina exige experimentação, em que as hipótes
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
->
 > * Limpar o código não essencial
 > * Refatorar o código do Jupyter Notebook em funções
 > * Criar scripts Python para tarefas relacionadas
@@ -30,7 +29,7 @@ Neste tutorial, você aprenderá como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Gere o [modelo MLOpsPython](https://github.com/microsoft/MLOpsPython/generate) e use os notebooks `experimentation/Diabetes Ridge Regression Training.ipynb` e `experimentation/Diabetes Ridge Regression Scoring.ipynb`. Esses notebooks são usados como um exemplo de conversão de experimentação para produção. É possível encontrar esses notebooks em [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation).
-- Instale o nbconvert. Siga apenas as instruções de instalação da seção __Como instalar o nbconvert__ na página [Instalação](https://nbconvert.readthedocs.io/en/latest/install.html).
+- Instale o `nbconvert`. Siga apenas as instruções de instalação da seção __Como instalar o nbconvert__ na página [Instalação](https://nbconvert.readthedocs.io/en/latest/install.html).
 
 ## <a name="remove-all-nonessential-code"></a>Remover todo o código não essencial
 
@@ -42,21 +41,34 @@ from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 import joblib
+import pandas as pd
 
-X, y = load_diabetes(return_X_y=True)
+sample_data = load_diabetes()
+
+df = pd.DataFrame(
+    data=sample_data.data,
+    columns=sample_data.feature_names)
+df['Y'] = sample_data.target
+
+X = df.drop('Y', axis=1).values
+y = df['Y'].values
 
 X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=0)
+    X, y, test_size=0.2, random_state=0)
 data = {"train": {"X": X_train, "y": y_train},
         "test": {"X": X_test, "y": y_test}}
 
-alpha = 0.5
+args = {
+    "alpha": 0.5
+}
 
-reg = Ridge(alpha=alpha)
+reg_model = Ridge(**args)
 reg.fit(data["train"]["X"], data["train"]["y"])
 
-preds = reg.predict(data["test"]["X"])
-print("mse", mean_squared_error(preds, data["test"]["y"]))
+preds = reg_model.predict(data["test"]["X"])
+mse = mean_squared_error(preds, y_test)
+metrics = {"mse": mse}
+print(metrics)
 
 model_name = "sklearn_regression_model.pkl"
 joblib.dump(value=reg, filename=model_name)
@@ -73,56 +85,105 @@ Em segundo lugar, o código do Jupyter precisa ser refatorado em funções. A re
 
 Em `experimentation/Diabetes Ridge Regression Training.ipynb`, conclua as seguintes etapas:
 
-1. Crie uma função chamada `train_model`, que usa os parâmetros `data` e `alpha` e retorna um modelo.
-1. Copie o código nos títulos "Treinar Modelo no Conjunto de Treinamento" e "Validar Modelo no Conjunto de Validação" para a função `train_model`.
+1. Crie uma função chamada `split_data` para dividir o quadro de dados em dados de teste e de treinamento. A função deve usar o `df` de quadros como um parâmetro e retornar um dicionário contendo as chaves `train` e `test`.
 
-A função `train_model` deverá ser semelhante ao seguinte código:
+    Mova o código no título *Dividir Dados em Conjuntos de Treinamento e Validação* para a função `split_data` e modifique-o para retornar o objeto `data`.
 
-```python
-def train_model(data, alpha):
-    reg = Ridge(alpha=alpha)
-    reg.fit(data["train"]["X"], data["train"]["y"])
-    preds = reg.predict(data["test"]["X"])
-    print("mse", mean_squared_error(
-        preds, data["test"]["y"]))
-    return reg
-```
+1. Crie uma função chamada `train_model`, que usa os parâmetros `data` e `args` e retorna um modelo treinado.
 
-Depois que a função `train_model` for criada, substitua o código nos títulos "Treinar Modelo no Conjunto de Treinamento" e "Validar Modelo no Conjunto de Validação" pela seguinte instrução:
+    Mova o código no título *Modelo de Treinamento no Conjunto de Treinamento* para a função `train_model` e modifique-o para retornar o objeto `reg_model`. Remova o dicionário `args`; os valores serão obtidos do parâmetro `args`.
+
+1. Crie uma função chamada `get_model_metrics`, que usa os parâmetros `reg_model` e `data`, avalia o modelo e, em seguida, retorna um dicionário de métricas para o modelo treinado.
+
+    Mova o código no título *Validar Modelo no Conjunto de Validação* na função `get_model_metrics` e modifique-o para retornar o objeto `metrics`.
+
+As três funções devem ser as seguintes:
 
 ```python
-reg = train_model(data, alpha)
-```
-
-A instrução anterior chama a função `train_model` transmitindo os parâmetros `data` e `alpha` e retorna o modelo.
-
-Em `experimentation/Diabetes Ridge Regression Training.ipynb`, conclua as seguintes etapas:
-
-1. Crie uma função chamada `main`, que não usa nenhum parâmetro e não retorna nada.
-1. Copie o código nos títulos "Carregar Dados", "Dividir Dados em Conjuntos de Treinamento e Validação" e "Salvar Modelo" na função `main`.
-1. Copie a chamada recém-criada a `train_model` para a função `main`.
-
-A função `main` deverá ser semelhante ao seguinte código:
-
-```python
-def main():
-
-    model_name = "sklearn_regression_model.pkl"
-    alpha = 0.5
-
-    X, y = load_diabetes(return_X_y=True)
+# Split the dataframe into test and train data
+def split_data(df):
+    X = df.drop('Y', axis=1).values
+    y = df['Y'].values
 
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=0)
     data = {"train": {"X": X_train, "y": y_train},
             "test": {"X": X_test, "y": y_test}}
+    return data
 
-    reg = train_model(data, alpha)
+
+# Train the model, return the model
+def train_model(data, args):
+    reg_model = Ridge(**args)
+    reg_model.fit(data["train"]["X"], data["train"]["y"])
+    return reg_model
+
+
+# Evaluate the metrics for the model
+def get_model_metrics(reg_model, data):
+    preds = reg_model.predict(data["test"]["X"])
+    mse = mean_squared_error(preds, data["test"]["y"])
+    metrics = {"mse": mse}
+    return metrics
+```
+
+Ainda em `experimentation/Diabetes Ridge Regression Training.ipynb`, conclua as seguintes etapas:
+
+1. Crie uma função chamada `main`, que não usa nenhum parâmetro e não retorna nada.
+1. Mova o código no título "Carregar Dados" para a função `main`.
+1. Adicione invocações para as funções recém-gravadas na função `main`:
+    ```python
+    # Split Data into Training and Validation Sets
+    data = split_data(df)
+    ```
+
+    ```python
+    # Train Model on Training Set
+    args = {
+        "alpha": 0.5
+    }
+    reg = train_model(data, args)
+    ```
+
+    ```python
+    # Validate Model on Validation Set
+    metrics = get_model_metrics(reg, data)
+    ```
+1. Mova o código no título "Salvar Modelo" para a função `main`.
+
+A função `main` deverá ser semelhante ao seguinte código:
+
+```python
+def main():
+    # Load Data
+    sample_data = load_diabetes()
+
+    df = pd.DataFrame(
+        data=sample_data.data,
+        columns=sample_data.feature_names)
+    df['Y'] = sample_data.target
+
+    # Split Data into Training and Validation Sets
+    data = split_data(df)
+
+    # Train Model on Training Set
+    args = {
+        "alpha": 0.5
+    }
+    reg = train_model(data, args)
+
+    # Validate Model on Validation Set
+    metrics = get_model_metrics(reg, data)
+
+    # Save Model
+    model_name = "sklearn_regression_model.pkl"
 
     joblib.dump(value=reg, filename=model_name)
 ```
 
-Depois que a função `main` for criada, substitua todo o código nos títulos "Carregar Dados", "Dividir Dados em Conjuntos de Treinamento e Validação" e "Salvar Modelo" junto com a chamada recém-criada para `train_model` pela seguinte instrução:
+Nesta fase, não deverá haver nenhum código restante no notebook que não esteja em uma função, além das instruções de importação da primeira célula.
+
+Adicione uma instrução que chama a função `main`.
 
 ```python
 main()
@@ -135,30 +196,60 @@ from sklearn.datasets import load_diabetes
 from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
+import pandas as pd
 import joblib
 
 
-def train_model(data, alpha):
-    reg = Ridge(alpha=alpha)
-    reg.fit(data["train"]["X"], data["train"]["y"])
-    preds = reg.predict(data["test"]["X"])
-    print("mse", mean_squared_error(
-        preds, data["test"]["y"]))
-    return reg
-
-def main():
-
-    model_name = "sklearn_regression_model.pkl"
-    alpha = 0.5
-
-    X, y = load_diabetes(return_X_y=True)
+# Split the dataframe into test and train data
+def split_data(df):
+    X = df.drop('Y', axis=1).values
+    y = df['Y'].values
 
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=0)
     data = {"train": {"X": X_train, "y": y_train},
             "test": {"X": X_test, "y": y_test}}
+    return data
 
-    reg = train_model(data, alpha)
+
+# Train the model, return the model
+def train_model(data, args):
+    reg_model = Ridge(**args)
+    reg_model.fit(data["train"]["X"], data["train"]["y"])
+    return reg_model
+
+
+# Evaluate the metrics for the model
+def get_model_metrics(reg_model, data):
+    preds = reg_model.predict(data["test"]["X"])
+    mse = mean_squared_error(preds, data["test"]["y"])
+    metrics = {"mse": mse}
+    return metrics
+
+
+def main():
+    # Load Data
+    sample_data = load_diabetes()
+
+    df = pd.DataFrame(
+        data=sample_data.data,
+        columns=sample_data.feature_names)
+    df['Y'] = sample_data.target
+
+    # Split Data into Training and Validation Sets
+    data = split_data(df)
+
+    # Train Model on Training Set
+    args = {
+        "alpha": 0.5
+    }
+    reg = train_model(data, args)
+
+    # Validate Model on Validation Set
+    metrics = get_model_metrics(reg, data)
+
+    # Save Model
+    model_name = "sklearn_regression_model.pkl"
 
     joblib.dump(value=reg, filename=model_name)
 
@@ -255,59 +346,101 @@ Em terceiro lugar, as funções relacionadas precisam ser mescladas em arquivos 
 
 ### <a name="create-python-file-for-the-diabetes-ridge-regression-training-notebook"></a>Criar um arquivo Python para o notebook Treinamento de Regressão de Sulcos Causados por Diabetes
 
-Converta o notebook em um script executável executando a seguinte instrução em um prompt de comando, que usa o pacote nbconvert e o caminho de `experimentation/Diabetes Ridge Regression Training.ipynb`:
+Converta o notebook em um script executável executando a seguinte instrução em um prompt de comando, que usa o pacote `nbconvert` e o caminho de `experimentation/Diabetes Ridge Regression Training.ipynb`:
 
 ```
 jupyter nbconvert -- to script "Diabetes Ridge Regression Training.ipynb" –output train
 ```
 
-Depois que o notebook for convertido em `train.py`, remova todos os comentários. O arquivo `train.py` deverá ser semelhante ao seguinte código:
+Depois que o notebook for convertido em `train.py`, remova os comentários indesejados. Substitua a chamada a `main()` ao final do arquivo por uma invocação condicional como o seguinte código:
+
+```python
+if __name__ == '__main__':
+    main()
+```
+
+O arquivo `train.py` deverá ser semelhante ao seguinte código:
 
 ```python
 from sklearn.datasets import load_diabetes
 from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
+import pandas as pd
 import joblib
 
 
-def train_model(data, alpha):
-    reg = Ridge(alpha=alpha)
-    reg.fit(data["train"]["X"], data["train"]["y"])
-    preds = reg.predict(data["test"]["X"])
-    print("mse", mean_squared_error(
-        preds, data["test"]["y"]))
-    return reg
-
-def main():
-    model_name = "sklearn_regression_model.pkl"
-    alpha = 0.5
-
-    X, y = load_diabetes(return_X_y=True)
+# Split the dataframe into test and train data
+def split_data(df):
+    X = df.drop('Y', axis=1).values
+    y = df['Y'].values
 
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=0)
     data = {"train": {"X": X_train, "y": y_train},
             "test": {"X": X_test, "y": y_test}}
+    return data
 
-    reg = train_model(data, alpha)
+
+# Train the model, return the model
+def train_model(data, args):
+    reg_model = Ridge(**args)
+    reg_model.fit(data["train"]["X"], data["train"]["y"])
+    return reg_model
+
+
+# Evaluate the metrics for the model
+def get_model_metrics(reg_model, data):
+    preds = reg_model.predict(data["test"]["X"])
+    mse = mean_squared_error(preds, data["test"]["y"])
+    metrics = {"mse": mse}
+    return metrics
+
+
+def main():
+    # Load Data
+    sample_data = load_diabetes()
+
+    df = pd.DataFrame(
+        data=sample_data.data,
+        columns=sample_data.feature_names)
+    df['Y'] = sample_data.target
+
+    # Split Data into Training and Validation Sets
+    data = split_data(df)
+
+    # Train Model on Training Set
+    args = {
+        "alpha": 0.5
+    }
+    reg = train_model(data, args)
+
+    # Validate Model on Validation Set
+    metrics = get_model_metrics(reg, data)
+
+    # Save Model
+    model_name = "sklearn_regression_model.pkl"
 
     joblib.dump(value=reg, filename=model_name)
 
-main()
+if __name__ == '__main__':
+    main()
 ```
 
-O arquivo `train.py` encontrado no diretório `diabetes_regression/training` no repositório MLOpsPython dá suporte a argumentos de linha de comando (a saber, `build_id`, `model_name` e `alpha`). O suporte a argumentos de linha de comando pode ser adicionado ao arquivo `train.py` para dar suporte a nomes de modelo dinâmico e valores `alpha`, mas não é necessário para que o código seja executado com êxito.
+`train.py` agora pode ser invocado em um terminal executando `python train.py`.
+As funções de `train.py` também podem ser chamadas em outros arquivos.
+
+O arquivo `train_aml.py` encontrado no diretório `diabetes_regression/training` no repositório MLOpsPython chama as funções definidas em `train.py` no contexto de uma execução de experimento do Azure Machine Learning. As funções também podem ser chamadas em testes de unidade, abordadas mais adiante neste guia.
 
 ### <a name="create-python-file-for-the-diabetes-ridge-regression-scoring-notebook"></a>Criar um arquivo Python para o notebook Pontuação de Regressão de Sulcos Causados por Diabetes
 
-Converta o notebook em um script executável executando a seguinte instrução em um prompt de comando que usa o pacote nbconvert e o caminho de `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
+Converta o notebook em um script executável executando a seguinte instrução em um prompt de comando, que usa o pacote `nbconvert` e o caminho de `experimentation/Diabetes Ridge Regression Scoring.ipynb`:
 
 ```
 jupyter nbconvert -- to script "Diabetes Ridge Regression Scoring.ipynb" –output score
 ```
 
-Depois que o notebook for convertido em `score.py`, remova todos os comentários. O arquivo `score.py` deverá ser semelhante ao seguinte código:
+Depois que o notebook for convertido em `score.py`, remova os comentários indesejados. O arquivo `score.py` deverá ser semelhante ao seguinte código:
 
 ```python
 import json
@@ -334,7 +467,7 @@ prediction = run(test_row, request_header)
 print("Test result: ", prediction)
 ```
 
-A função `train_model` precisa de uma modificação para criar uma instância de um modelo de variável global, de modo que fique visível em todo o script. Adicione a seguinte instrução ao início da função `init`:
+A variável `model` precisa ser global para que fique visível em todo o script. Adicione a seguinte instrução ao início da função `init`:
 
 ```python
 global model
@@ -354,9 +487,9 @@ def init():
 
 ## <a name="create-unit-tests-for-each-python-file"></a>Criar testes de unidade para cada arquivo Python
 
-Em quarto lugar, testes de unidade precisam ser criados para cada arquivo Python, o que torna o código mais robusto e mais fácil de ser mantido. Nesta seção, você criará um teste de unidade para uma das funções de `train.py`.
+Em quarto lugar, crie testes de unidade para as funções Python. Os testes de unidade protegem o código contra regressões funcionais e facilitam a manutenção. Nesta seção, você criará testes de unidade para as funções em `train.py`.
 
-`train.py` contém duas funções: `train_model` e `main`. Cada função precisa de um teste de unidade, mas criaremos apenas um só teste de unidade para a função `train_model` usando a estrutura Pytest neste tutorial. O Pytest não é a única estrutura de teste de unidade do Python, mas é uma das mais comumente usadas. Para obter mais informações, visite [Pytest](https://pytest.org).
+`train.py` contém várias funções, mas criaremos apenas um só teste de unidade para a função `train_model` usando a estrutura Pytest neste tutorial. O Pytest não é a única estrutura de teste de unidade do Python, mas é uma das mais comumente usadas. Para obter mais informações, visite [Pytest](https://pytest.org).
 
 Um teste de unidade geralmente contém três ações principais:
 
@@ -364,71 +497,31 @@ Um teste de unidade geralmente contém três ações principais:
 - Executar uma ação em um objeto
 - Declarar o que é esperado
 
-Uma condição comum para `train_model` é quando `data` e um valor `alpha` são transmitidos. O resultado esperado é que as funções `Ridge.train` e `Ridge.predict` sejam chamadas. Como os métodos de treinamento de aprendizado de máquina geralmente não são de execução rápida, a chamada a `Ridge.train` será simulada. Como o valor retornado de `Ridge.train` é um objeto fictício, também simularemos `Ridge.predict`. O teste de unidade para `train_model` que testa a transmissão de `data` e um valor `alpha` com o resultado esperado de `Ridge.train` e as funções `Ridge.predict` que são chamadas com a simulação e a estrutura Pytest deverão ser semelhantes ao seguinte código:
+O teste de unidade chamará `train_model` com alguns dados e argumentos embutidos em código e validará que `train_model` funcionou conforme o esperado usando o modelo treinado resultante para fazer uma previsão e comparar essa previsão com um valor esperado.
 
 ```python
-import pytest
+import numpy as np
 from code.training.train import train_model
 
-class TestTrain:
 
-    @staticmethod
-    def test_train_model(mocker):
-        # Arrange
-        test_data = {"train": {"X": [[1, 2, 3]], "y": [0]},
-                     "test": {"X": [[4, 5, 6]], "y": [0]}}
-        test_alpha = 0.5
-        mock_ridge_fit = mocker.patch('Ridge.fit')
-        mock_ridge_predict = mocker.patch('Ridge.predict')
+def test_train_model():
+    # Arrange
+    X_train = np.array([1, 2, 3, 4, 5, 6]).reshape(-1, 1)
+    y_train = np.array([10, 9, 8, 8, 6, 5])
+    data = {"train": {"X": X_train, "y": y_train}}
 
-        # Act
-        train_model(test_data, test_alpha)
+    # Act
+    reg_model = train_model(data, {"alpha": 1.2})
 
-        # Assert
-        mock_ridge_fit.assert_called()
-        mock_ridge_predict.assert_called()
+    # Assert
+    preds = reg_model.predict([[1], [2]])
+    np.testing.assert_almost_equal(preds, [9.93939393939394, 9.03030303030303])
 ```
-
-## <a name="use-your-own-model-with-mlopspython-code-template"></a>Usar o próprio modelo com o modelo de código MLOpsPython
-
-Se você estiver seguindo as etapas neste guia, terá um conjunto de scripts correlacionados aos scripts de treinamento/pontuação/teste disponíveis no repositório MLOpsPython.  De acordo com a estrutura mencionada acima, as seguintes etapas descreverão o que é necessário para usar esses arquivos para o próprio projeto de aprendizado de máquina:
-
-1. Siga o guia de [Introdução](https://github.com/microsoft/MLOpsPython/blob/master/docs/getting_started.md) ao MLOpsPython
-2. Siga as [instruções de inicialização](https://github.com/microsoft/MLOpsPython/blob/master/bootstrap/README.md) do MLOpsPython para criar o ponto inicial do projeto
-3. Substituir o código de treinamento
-4. Substituir o código de pontuação
-5. Atualizar o código de avaliação
-
-### <a name="follow-the-getting-started-guide"></a>Seguir o guia de introdução
-É necessário seguir o guia de [Introdução](https://github.com/microsoft/MLOpsPython/blob/master/docs/getting_started.md) para ter a infraestrutura de suporte e os pipelines para executar o MLOpsPython.
-
-### <a name="follow-the-bootstrap-instructions"></a>Seguir as instruções de inicialização
-
-O guia [Inicialização no repositório MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/bootstrap/README.md) ajudará você a preparar rapidamente o repositório para o seu projeto.
-
-**Observação:** como o script de inicialização renomeará a pasta diabetes_regression com o nome do projeto de sua escolha, chamaremos o projeto de `[project name]` quando os caminhos estiverem envolvidos.
-
-### <a name="replace-training-code"></a>Substituir o código de treinamento
-
-É necessário substituir o código usado para treinar o modelo e remover ou substituir os testes de unidade correspondentes para que a solução funcione com o próprio código. Siga estas etapas especificamente:
-
-1. Substituir `[project name]/training/train.py`. Esse script treina o modelo localmente ou na Computação do Azure ML.
-1. Remover ou substituir os testes de unidade de treinamento encontrados em `[project name]/training/test_train.py`
-
-### <a name="replace-score-code"></a>Substituir o código de pontuação
-
-Para que o modelo forneça funcionalidades de inferência em tempo real, o código de pontuação precisará ser substituído. O modelo MLOpsPython usa o código de pontuação para implantar o modelo a fim de fazer a pontuação em tempo real na ACI, no AKS ou em aplicativos Web. Caso deseje manter a pontuação, substitua `[project name]/scoring/score.py`.
-
-### <a name="update-evaluation-code"></a>Atualizar o código de avaliação
-
-O modelo MLOpsPython usa o script evaluate_model para comparar o desempenho do modelo recém-treinado e do modelo de produção atual com base no Erro Quadrático Médio. Se o desempenho do modelo recém-treinado for melhor do que o do modelo de produção atual, os pipelines continuarão. Caso contrário, os pipelines serão cancelados. Para manter a avaliação, substitua todas as instâncias de `mse` em `[project name]/evaluate/evaluate_model.py` pela métrica desejada.
-
-Para eliminar a avaliação, defina a variável de pipeline de DevOps `RUN_EVALUATION` em `.pipelines/[project name]-variables-template.yml` como `false`.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você entendeu como fazer a conversão de um experimento para um código de produção, use os seguintes links para saber como monitorar execuções de experimento e modelos implantados como serviços Web:
+Agora que você entendeu como fazer a conversão de um experimento para um código de produção, confira os seguintes links para obter mais informações e as próximas etapas:
 
-> [!div class="nextstepaction"]
-> [Monitorar execuções de experimento e métricas do Azure ML](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
-> [Monitorar e coletar dados de pontos de extremidade de serviço Web do ML](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)
++ [MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/docs/custom_model.md): crie um pipeline de CI/CD para treinar, avaliar e implantar um modelo próprio usando o Azure Pipelines e o Azure Machine Learning
++ [Monitorar métricas e execuções de experimento do Azure ML](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
++ [Monitorar e coletar dados de pontos de extremidade de serviço Web do ML](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)

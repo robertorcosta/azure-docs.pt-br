@@ -3,16 +3,16 @@ title: Início Rápido – Biblioteca de clientes do Azure Key Vault para .NET (
 description: Saiba como criar, recuperar e excluir segredos de um Azure Key Vault usando a biblioteca de clientes do .NET (v4)
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 05/20/2019
+ms.date: 03/12/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 584fe94a54facf1489382a6052bbff6b44649358
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a94717c7bed3ba25a4682896053672fe100dc43a
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79457229"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398390"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Início Rápido: biblioteca de clientes do Azure Key Vault para .NET (SDK v4)
 
@@ -40,7 +40,7 @@ Este início rápido pressupõe que você esteja executando `dotnet`, a [CLI do 
 
 ### <a name="create-new-net-console-app"></a>Criar um novo aplicativo de console do .NET
 
-Em uma janela de console, use o comando `dotnet new` para criar um aplicativo do console .NET com o nome `akv-dotnet`.
+Em uma janela de console, use o comando `dotnet new` para criar um aplicativo do console .NET com o nome `key-vault-console-app`.
 
 ```console
 dotnet new console -n key-vault-console-app
@@ -65,13 +65,13 @@ Build succeeded.
 Na janela do console, instale a biblioteca de clientes do Azure Key Vault para .NET:
 
 ```console
-dotnet add package Azure.Security.KeyVault.Secrets --version 4.0.0
+dotnet add package Azure.Security.KeyVault.Secrets
 ```
 
 Para este início rápido, também será necessário instalar os pacotes a seguir:
 
 ```console
-dotnet add package Azure.Identity --version 1.0.0
+dotnet add package Azure.Identity
 ```
 
 ### <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e um cofre de chaves
@@ -85,6 +85,12 @@ Este início rápido usa um Azure Key Vault pré-criado. Você pode criar um cof
 az group create --name "myResourceGroup" -l "EastUS"
 
 az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
+```
+
+```azurepowershell
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
+
+New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
 ### <a name="create-a-service-principal"></a>Criar uma entidade de serviço
@@ -113,14 +119,39 @@ Essa operação retornará uma série de pares de chave/valor.
 }
 ```
 
+Crie uma entidade de serviço usando o comando [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) do Azure PowerShell:
+
+```azurepowershell
+# Create a new service principal
+$spn = New-AzADServicePrincipal -DisplayName "http://mySP"
+
+# Get the tenant ID and subscription ID of the service principal
+$tenantId = (Get-AzContext).Tenant.Id
+$subscriptionId = (Get-AzContext).Subscription.Id
+
+# Get the client ID
+$clientId = $spn.ApplicationId
+
+# Get the client Secret
+$bstr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($spn.Secret)
+$clientSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
+```
+
+Para obter mais detalhes sobre a entidade de serviço com o Azure PowerShell, veja [Criar uma entidade de serviço do Azure com o Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
+
 Anote o clientId, clientSecret e tenantid, pois os usaremos nas próximas etapas.
+
 
 #### <a name="give-the-service-principal-access-to-your-key-vault"></a>Fornecer acesso à entidade de serviço ao seu cofre de chaves
 
 Crie uma política de acesso para o cofre de chaves que concede permissão à entidade de serviço passando a clientId para o comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy). Conceda à entidade de serviço permissões para obter, listar e definir chaves e segredos.
 
 ```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions list get set delete purge
+```
+
+```azurepowershell
+Set-AzKeyVaultAccessPolicy -VaultName <your-unique-keyvault-name> -ServicePrincipalName <clientId-of-your-service-principal> -PermissionsToSecrets list,get,set,delete,purge
 ```
 
 #### <a name="set-environmental-variables"></a>Definir variáveis de ambiente
@@ -140,6 +171,16 @@ setx KEY_VAULT_NAME <your-key-vault-name>
 ````
 
 Sempre que chamar `setx`, você deverá receber uma resposta de "ÊXITO: o valor especificado foi salvo. "
+
+```shell
+AZURE_CLIENT_ID=<your-clientID>
+
+AZURE_CLIENT_SECRET=<your-clientSecret>
+
+AZURE_TENANT_ID=<your-tenantId>
+
+KEY_VAULT_NAME=<your-key-vault-name>
+```
 
 ## <a name="object-model"></a>Modelo de objeto
 
@@ -173,6 +214,10 @@ Você pode verificar se o segredo foi definido usando o comando [az keyvault sec
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
+```azurepowershell
+(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValueText
+```
+
 ### <a name="retrieve-a-secret"></a>Recuperar um segredo
 
 Agora, você pode recuperar o valor definido anteriormente com o [método client.GetSecret](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
@@ -191,6 +236,10 @@ Você pode verificar se o segredo foi excluído com o comando [az keyvault secre
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
+```
+
+```azurepowershell
+(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValueText
 ```
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

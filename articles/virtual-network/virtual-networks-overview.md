@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 3b908406c8717d2fa8834bc4dff1bcd27ec4761f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 967d391d4ac9a9704688dce9636d9a71b2002549
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79290194"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879353"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
@@ -76,6 +76,15 @@ Por padrão, o Azure encaminha o tráfego entre sub-redes, redes virtuais conect
 
 - **Tabelas de rotas:** é possível criar tabelas de rotas personalizadas com rotas que controlam para que local o tráfego será roteado para cada sub-rede. Saiba mais sobre [tabelas de rota](virtual-networks-udr-overview.md#user-defined).
 - **Rotas BGP (Border Gateway Protocol):** se você conectar sua rede virtual à rede local usando um Gateway de VPN do Azure ou conexão do ExpressRoute, será possível propagar as rotas BGP locais para suas redes virtuais. Saiba mais sobre como usar o BGP com [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
+
+## <a name="virtual-network-integration-for-azure-services"></a>Integração de rede virtual para os serviços do Azure
+
+A integração dos serviços do Azure a uma rede virtual do Azure permite o acesso privado ao serviço de máquinas virtuais ou de recursos de computação na rede virtual.
+Você pode integrar serviços do Azure à sua rede virtual com as seguintes opções:
+- Implantando [instâncias dedicadas do serviço](virtual-network-for-azure-services.md) em uma rede virtual. Os serviços podem ser acessados de maneira privada dentro da rede virtual e de redes locais.
+- Usar [Link Privado](../private-link/private-link-overview.md) para acessar de maneira privada uma instância específica do serviço por meio da sua rede virtual e de redes locais.
+- Você também pode acessar o serviço usando pontos de extremidade públicos, estendendo uma rede virtual para o serviço, por meio de [pontos de extremidade de serviço](virtual-network-service-endpoints-overview.md). Pontos de extremidade de serviço permitem que os recursos de serviço da rede virtual sejam protegidos.
+ 
 
 ## <a name="azure-vnet-limits"></a>Limites da VNet do Azure
 

@@ -3,17 +3,17 @@ title: 'Tutorial: criar e gerenciar orçamentos do Azure'
 description: Este tutorial ajuda a planejar e contabilizar os custos de serviços do Azure que você consome.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f7c1ac65026fd366be1003842ff70a78b9082339
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 82094fadf7b11d97b0e9e74d9ba897baed16ee01
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80155929"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874272"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: criar e gerenciar orçamentos do Azure
 
@@ -25,7 +25,7 @@ Os orçamentos são redefinidos automaticamente no final de um período (mensal,
 
 Os exemplos deste tutorial ajudam você a criar e editar um orçamento para uma assinatura do Azure Enterprise Agreement (EA).
 
-Assista ao vídeo [Aplicar orçamentos a assinaturas usando o portal do Azure](https://www.youtube.com/watch?v=UrkHiUx19Po) para ver como você pode criar orçamentos no Azure para monitorar gastos.
+Assista ao vídeo [Aplicar orçamentos a assinaturas usando o portal do Azure](https://www.youtube.com/watch?v=UrkHiUx19Po) para ver como você pode criar orçamentos no Azure para monitorar gastos. Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/UrkHiUx19Po]
 
@@ -38,11 +38,32 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Há suporte para orçamentos de diversos tipos de conta do Azure. Para exibir a lista completa dos tipos de contas compatíveis, confira [Entender os dados do Gerenciamento de Custos](understand-cost-mgt-data.md). Para exibir os orçamentos, você precisará, pelo menos, de acesso de leitura em sua conta do Azure.
+Os orçamentos têm compatibilidade com os seguintes tipos de escopos e tipos de conta do Azure:
+
+- Escopos de Controle de Acesso Baseado em Função do Azure
+    - Grupos de gerenciamento
+    - Subscription
+- Escopos do Contrato Enterprise
+    - Conta de cobrança
+    - department
+    - Conta de registro
+- Contratos individuais
+    - Conta de cobrança
+- Escopos do Contrato de Cliente da Microsoft
+    - Conta de cobrança
+    - Perfil de faturamento
+    - Seção da fatura
+    - Cliente
+- Escopos da AWS
+    - Conta externa
+    - Assinatura externa
+
+
+Para exibir os orçamentos, você precisará, pelo menos, de acesso de leitura em sua conta do Azure.
 
 Se você tiver uma nova assinatura, não poderá criar um orçamento imediatamente nem usar outros recursos do Gerenciamento de Custos. Poderá levar até 48 horas para você poder usar todos os recursos do Gerenciamento de Custos.
 
-Para assinatura do Azure EA, você deve ter acesso de leitura para exibir orçamentos. Para criar e gerenciar orçamentos, você deve ter permissão de colaborador. Você pode criar orçamentos individuais para grupos de recursos e assinaturas de EA. No entanto, não é possível criar os orçamentos para contas de cobrança de EA.
+Para assinatura do Azure EA, você deve ter acesso de leitura para exibir orçamentos. Para criar e gerenciar orçamentos, você deve ter permissão de colaborador.
 
 Há suporte para as permissões ou escopos a seguir do Azure por assinatura para orçamentos por usuário e grupo. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
@@ -58,7 +79,7 @@ Para obter mais informações sobre como atribuir permissões aos dados de Geren
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Criar um orçamento no portal do Azure
 
-Você pode criar um orçamento de assinatura do Azure para um período mensal, trimestral ou anual. Seu conteúdo de navegação no portal do Azure determina se você cria um orçamento para uma assinatura ou para um grupo de gerenciamento.
+Você pode criar um orçamento de assinatura do Azure para um período mensal, trimestral ou anual.
 
 Para criar ou exibir um orçamento, abra o escopo desejado no portal do Azure e selecione **Orçamentos** no menu. Por exemplo, navegue até **Inscrições**, selecione uma assinatura na lista e, em seguida, selecione **Orçamentos** no menu. Use o controle oval **Escopo** para alterar para outro escopo, como um grupo de gerenciamento, em Orçamentos. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
@@ -110,15 +131,11 @@ As avaliações de custo do orçamento baseiam-se no custo real. Elas não inclu
 
 Quando cria ou edita um orçamento para um escopo de grupo de recursos ou de assinatura, você pode configurá-lo para chamar um grupo de ações. O grupo de ações pode executar várias ações quando o limite de orçamento é atingido. No momento, os grupo de ações só têm suporte para os escopos de grupo de recursos e assinatura. Para obter mais informações sobre os Grupo de ações, confira [Criar e gerenciar grupos de ações no portal do Azure](../../azure-monitor/platform/action-groups.md). Para obter mais informações sobre como usar a automação baseada em orçamento com grupos de ações, confira [Gerenciar custos com os orçamentos do Azure](../manage/cost-management-budget-scenario.md).
 
-
-
 Para criar ou atualizar grupos de ações, selecione **Gerenciar grupos de ações** quando estiver criando ou editando um orçamento.
 
 ![Exemplo de criação de um orçamento para mostrar Gerenciar grupos de ações](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
-
 Em seguida, selecione **Adicionar grupo de ações** e crie o grupo de ações.
-
 
 ![Imagem da caixa Adicionar grupo de ações](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
 

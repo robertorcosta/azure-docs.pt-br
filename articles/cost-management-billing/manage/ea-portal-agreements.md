@@ -3,16 +3,16 @@ title: Contratos e aditamentos de EA do Azure
 description: Este artigo explica como os contratos e aditamentos de EA do Azure afetam o uso do Portal do EA do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/04/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5198bd240f0c4e23910504fd039d64a73ddb41c9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b007e98f37246d17679761fd601ed76fd9fb875
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78301413"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586238"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e aditamentos de EA do Azure
 
@@ -105,7 +105,7 @@ Revise as informações comerciais, como informação do saldo monetário, lista
 
 **Etapa 2: revisar e validar**
 
-Revise o preço de marcação em _Resumo do uso_ no termo de compromisso na exibição de cliente. O preço da Microsoft ainda estará disponível na exibição de parceiro. É possível alternar as exibições usando a opção "pessoas" da marcação de parceiro na parte superior direita.
+Revise o preço de marcação em _Resumo do uso_ no termo de compromisso na exibição de cliente. O preço da Microsoft ainda estará disponível na exibição de parceiro. As exibições podem ser alternadas com a opção "pessoas" da marcação de parceiro no canto superior direito.
 
 1. Reveja os preços na tabela de preços.
 1. É possível fazer alterações antes da publicação selecionando **Editar** na guia _Exibir resumo de uso > Exibição de cliente_.  
@@ -168,13 +168,13 @@ O valor da pré-aquisição será exibido como um crédito na coluna "Unidades I
 
 A maneira de compra dos créditos têm base no número de computadores de uma classe por mês. Por exemplo: se você comprou 70 VMs A2 por ano no Leste dos EUA 2, não veria isso no portal do EA da mesma maneira que comprou.
 
-As máquinas mensais são calculadas como em execução 744 horas por mês. A conversão disso em horas daria 70 vezes 744 ou 52.080 horas adquiridas de VMs A2 por mês. Como no Resumo do uso do portal do EA, as VMs A2 são indicadas em incrementos de 100 horas, você veria um crédito de 520,8 (52.080/100) "Unidades Incluídas" por mês e veria as unidades consumidas até então no mês. Os encargos de uso devem aparecer como zero até que as unidades mensais consumidas excedam as unidades mensais incluídas.
+As máquinas mensais são calculadas como em execução 744 horas por mês. A conversão disso em horas daria 70 vezes 744 ou 52.080 horas adquiridas de VMs A2 por mês. Como no Resumo do uso do Portal do EA as VMs A2 são indicadas em incrementos de 100 horas, você verá um crédito de 520,8 (52.080/100) "Unidades Incluídas" por mês e verá as unidades consumidas até o momento no mês. Os encargos de uso devem aparecer como zero até que as unidades mensais consumidas excedam as unidades mensais incluídas.
 
 Tipos diferentes de computador usam unidades diferentes de medida. Por exemplo, as VMs D3 e D4 usam uma unidade de medida de 10 horas em nosso relatório Resumo do uso, de modo que uma compra de 70 delas mostraria 5208 unidades incluídas por mês (52.080/10).
 
 Em geral, a fórmula abaixo fornecerá o número de VMs adquiridas com base nas unidades de medida:
 
-<center><b> ("Quantidade Incluída"*"Unidades de Medida")/744 </b></center>
+<center><b> ("Quantidade Incluída" * "Unidades de Medida")/744 </b></center>
 
 ## <a name="plan-skus"></a>SKUs do plano
 
@@ -190,7 +190,7 @@ Os Administradores Corporativos podem atribuir Proprietários de Conta para prov
 1. Clique em **Relatórios** na área de navegação à esquerda.
 1. Clique na guia **Tabela de preços**.
 1. Clique no ícone "Download" no canto superior direito.
-1. Localize os números de parte da SKU do Plano correspondente com filtro na coluna "Quantidade Incluída" e selecione valores maiores do que "0".
+1. Encontre os números de referência do SKU do plano correspondente com o filtro na coluna "Quantidade Incluída" e selecione valores maiores que "0".
 
 ### <a name="provision-the-plan-skus"></a>Provisionar as SKUs do plano
 
@@ -219,7 +219,7 @@ Os administradores corporativos podem adicionar novos proprietários de conta, a
 1. Forneça um nome que você gostaria de usar para identificar esta conta nos relatórios.
 1. Clique em **Adicionar**.
 1. Você pode adicionar outra conta selecionando novamente a opção **+Adicionar uma conta** ou pode retornar à página inicial escolhendo o botão **Administrador**.  
-1. Se você clicar para exibir a página Conta, a conta recém-adicionada será exibida com o status "Pendente". Ela será alterado para o status "Ativo" depois que o Proprietário da Conta tiver feito logon no portal do EA pela primeira vez.
+1. Se você clicar para exibir a página Conta, a conta recém-adicionada será exibida com o status "Pendente". Ela será alterada para o status "Ativo" depois que o proprietário da conta fizer logon no Portal do EA pela primeira vez.
 
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>Proprietários de conta novos/existentes para criar novas assinaturas
 
@@ -235,7 +235,7 @@ Na primeira vez que você adicionar uma assinatura à conta, receberá a solicit
 
 **Etapa 2: atualizar o nome da assinatura**
 
-Todas as novas assinaturas serão adicionadas com o nome de assinatura padrão "Microsoft Azure Enterprise". É importante atualizar o nome da assinatura para diferenciá-lo das outras assinaturas em seu Registro Corporativo e garantir que seja reconhecido em relatórios no nível corporativo.
+Todas as novas assinaturas serão adicionadas com o nome de assinatura padrão do "Microsoft Azure Enterprise". É importante atualizar o nome da assinatura para diferenciá-lo das outras assinaturas em seu Registro Corporativo e garantir que seja reconhecido em relatórios no nível corporativo.
 
 Clique em **Assinaturas**, clique na assinatura que você criou e clique em **Editar detalhes da assinatura**.
 
@@ -248,13 +248,13 @@ Apenas os proprietários da conta podem exibir e gerenciar assinaturas.
 
 **Proprietário da conta aparecendo no status pendente**
 
-Quando novos Proprietários de Conta (AO) são adicionados a um registro pela primeira vez, o status deles aparece sempre como "pendente". Após receber o email de ativação de boas-vindas, o AO poderá entrar para ativar a própria conta. Essa ativação atualizará o status da conta de "pendente" para "ativo".
+Quando novos AOs (proprietários da conta) forem adicionados a um registro pela primeira vez, o status deles será exibido sempre como "pendente". Após receber o email de ativação de boas-vindas, o AO poderá entrar para ativar a própria conta. Essa ativação atualizará o status da conta de "pendente" para "ativo".
 
 **Usos cobrados após a compra de SKUs do plano**
 
 Esse cenário ocorre quando o cliente implantou serviços sob o número de registro errado ou selecionou os serviços incorretos.
 
-Para validar se você está implantando sob o registro correto, verifique as informações das unidades incluídas na tabela de preços. Entre como um Administrador Corporativo e clique em **Relatórios** no painel de navegação à esquerda e selecione a guia **Tabela de preços**. Clique no ícone de Download no canto superior direito e localize os números de parte do SKU do Plano correspondente com filtro na coluna "Quantidade Incluída" e selecione valores maiores do que "0".
+Para validar se você está implantando sob o registro correto, verifique as informações das unidades incluídas na tabela de preços. Entre como um Administrador Corporativo e clique em **Relatórios** no painel de navegação à esquerda e selecione a guia **Tabela de preços**. Clique no ícone de Download no canto superior direito e encontre os números de parte do SKU do Plano correspondente com o filtro na coluna "Quantidade Incluída" e selecione valores maiores que "0".
 
 Verifique se o seu plano do OMS está aparecendo na tabela de preços sob as unidades incluídas. Se não houver unidades incluídas para o plano do OMS em seu registro, seu plano do OMS poderá estar em outro registro. Entre em contato com o Suporte do Azure Enterprise Portal em [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 

@@ -1,21 +1,14 @@
 ---
 title: 'Início Rápido: Implantar um aplicativo usando o portal do LUIS'
-titleSuffix: Azure Cognitive Services
 description: Este início rápido mostra como implantar um aplicativo criando um recurso de ponto de extremidade de previsão, atribuindo o recurso, treinando e publicando o aplicativo.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: diberry
-ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/06/2020
+ms.openlocfilehash: aaf86766c2357c5382b78cd4a35fd4b159e5c0f3
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79218495"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756295"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início Rápido: Implantar um aplicativo no portal do LUIS
 
@@ -29,35 +22,13 @@ Neste início rápido, você aprenderá a implantar um aplicativo. Crie um recur
 * Conclua o [início rápido do portal anterior](get-started-portal-build-app.md) ou [baixe e importe o aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
 * Se você tiver aplicativos anteriores à autenticação de recursos do Azure, [migre para um recurso do Azure](luis-migration-authoring.md). Algumas páginas do portal parecem diferentes quando a autenticação de email está em vigor.
 
-## <a name="create-the-endpoint-resource"></a>Criar o recurso de ponto de extremidade
+<a name="create-the-endpoint-resource"></a>
 
-Você cria o recurso de ponto de extremidade de previsão no portal do Azure. Esse recurso deve ser usado somente para consultas de previsão de ponto de extremidade. Não use esse recurso para criação de alterações para o aplicativo.
-
-1. Entre e crie um recurso no [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne).
-
-1. Configure a assinatura com as seguintes definições:
-
-   |Configuração|Valor|Finalidade|
-   |--|--|--|
-   |Nome|`my-luis-resource`|O nome do recurso do Azure. Você precisa desse nome ao atribuir o recurso ao aplicativo no portal do LUIS.|
-   |Subscription|Sua assinatura|Selecione uma das assinaturas associadas à sua conta.|
-   |Resource group|`my-resource-group`|Crie um novo grupo de recursos para todos os recursos de serviço cognitivo. Quando você terminar os recursos, poderá excluir o grupo de recursos para limpar sua assinatura. |
-   |Localização de criação|**Oeste dos EUA**|A região do Azure para criação.|
-   |Tipo de preço de criação|**F0**|O tipo de preço padrão para criação.|
-   |Localização do runtime|**Oeste dos EUA**|A região do Azure para consultas de ponto de extremidade de previsão.|
-   |Tipo de preço do runtime|**S0**|Esse tipo de preço possibilita sites de tráfego intenso.|
-   | | | |
-
-
-   ![Opção de API do Azure](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
-
-1. Selecione **Criar** para criar o recurso do Azure.
-
-   Na próxima seção, você aprenderá como conectar esse novo recurso a um aplicativo do LUIS no portal do LUIS.
+[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
 ## <a name="assign-the-resource-key-to-the-luis-app-in-the-luis-portal"></a>Atribuir a chave de recurso para o aplicativo LUIS no portal do LUIS
 
-Sempre que você criar um novo recurso para LUIS, será necessário atribuir o recurso para o aplicativo LUIS. Após a atribuição, você não precisará realizar esta etapa novamente, a menos que crie um novo recurso. Você pode criar um novo recurso para expandir as regiões do seu aplicativo ou para dar suporte a um número maior de consultas de previsão.
+Sempre que você criar um recurso de previsão de criação ou consulta para LUIS, será necessário atribuir o recurso para o aplicativo LUIS. Após a atribuição, você não precisará realizar esta etapa novamente, a menos que crie um novo recurso. Você pode criar um novo recurso para expandir as regiões do seu aplicativo ou para dar suporte a um número maior de consultas de previsão.
 
 1. Entre na [versão prévia do portal do LUIS](https://preview.luis.ai) e escolha o aplicativo **myEnglishApp** na lista de aplicativos.
 

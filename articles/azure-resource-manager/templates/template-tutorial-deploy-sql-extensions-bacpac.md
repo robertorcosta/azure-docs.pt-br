@@ -5,16 +5,16 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8e65ebbfa0971bf2156165b55ca18eee3cc74bc9
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 83108c056035b16d26343d82c721b275ebcad0c5
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239270"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754318"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importar arquivos BACPAC do SQL com modelos do ARM
 
-Saiba como usar a extensão de Banco de Dados SQL do Azure para importar um arquivo BACPAC com modelos do ARM (Azure Resource Manager). Artefatos de implantação são quaisquer arquivos, além dos arquivos de modelo principais, necessários para concluir uma implantação. O arquivo BACPAC é um artefato. 
+Saiba como usar a extensão de Banco de Dados SQL do Azure para importar um arquivo BACPAC com modelos do ARM (Azure Resource Manager). Artefatos de implantação são quaisquer arquivos, além dos arquivos de modelo principais, necessários para concluir uma implantação. O arquivo BACPAC é um artefato.
 
 Neste tutorial, você criará um modelo para implantar um servidor SQL do Azure e um banco de dados SQL e importar um arquivo BACPAC. Para obter informações sobre como implantar extensões de máquina virtual do Azure usando modelos do ARM, confira o [Tutorial: Implantar extensões de máquina virtual com modelos do ARM](./template-tutorial-deploy-vm-extensions.md).
 
@@ -255,7 +255,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você implantou um servidor SQL e um banco de dados SQL e importou um arquivo BACPAC. O arquivo BACPAC é armazenado em uma conta do Armazenamento do Azure. Qualquer pessoa com a URL pode acessar o arquivo. Para saber como proteger o arquivo BACPAC (artefato), confira:
+Neste tutorial, você implantou um servidor SQL e um banco de dados SQL e importou um arquivo BACPAC. Para saber como solucionar problemas de implantação de modelo, confira:
 
 > [!div class="nextstepaction"]
-> [Proteger os artefatos](./template-tutorial-secure-artifacts.md)
+> [Solucionar problemas de implantações do modelo do ARM](./template-tutorial-troubleshoot.md)

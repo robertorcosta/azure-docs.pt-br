@@ -10,16 +10,16 @@ ms.topic: include
 ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 46947579ea72e2199af116442472eec330b38009
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: dd44d9cb01ff072d89afeb4efc4a59071c621315
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77112293"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758402"
 ---
 Este Início Rápido baseado no Postman fornece uma orientação para obtenção de uma resposta de uma base de dados de conhecimento.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [**Postman**](https://www.getpostman.com/) mais recente.
 * Você precisará ter
@@ -49,7 +49,7 @@ Use este procedimento para configurar o Postman e, em seguida, leia cada seção
 
 ## <a name="use-metadata-to-filter-answer"></a>Usar metadados para filtrar a resposta
 
-Em um início rápido anterior, os metadados foram adicionados a dois conjuntos de QnA para fazer a distinção entre duas perguntas diferentes. Adicione os metadados à consulta para restringir o filtro apenas ao conjunto de QnA relevante.
+Em um início rápido anterior, os metadados foram adicionados a dois pares de QnA para fazer a distinção entre duas perguntas diferentes. Adicione os metadados à consulta para restringir o filtro apenas ao par de QnA relevante.
 
 1. No Postman, altere apenas o JSON da consulta adicionando a propriedade `strictFilters` com o par nome/valor `service:qna_maker`. O JSON do corpo deverá ser:
 
@@ -227,7 +227,7 @@ No Postman, altere apenas o JSON do corpo adicionando a propriedade `isTest`. O 
 A resposta JSON usa o mesmo esquema da consulta da base de dados de conhecimento publicada.
 
 > [!NOTE]
-> Se as bases de dados de conhecimento de teste e publicadas forem exatamente iguais, ainda poderá haver uma pequena variação, pois o índice de teste é compartilhado entre todas as bases de dados de conhecimento no recurso.
+> Se as bases de dados de conhecimento de teste e publicada forem exatamente iguais, ainda poderá haver uma pequena variação, pois o índice de teste será compartilhado entre todas as bases de dados de conhecimento no recurso.
 
 ## <a name="query-for-a-chit-chat-answer"></a>Consultar uma resposta de bate-papo
 

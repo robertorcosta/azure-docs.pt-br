@@ -1,211 +1,211 @@
 ---
-title: Tutorial - Crie uma confiança florestal nos serviços de domínio azure AD | Microsoft Docs
-description: Aprenda a criar uma floresta de saída única para um domínio AD DS no portal Azure para serviços de domínio Azure AD
+title: Tutorial – Criar uma relação de confiança de floresta no Azure AD Domain Services | Microsoft Docs
+description: Saiba como criar uma floresta de saída unidirecional para um domínio de AD DS local no portal do Azure para Azure AD Domain Services
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: eb96cb32c05d2ba3fbd38e72c16540d947436117
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
-ms.translationtype: MT
+ms.openlocfilehash: 9a76f72d3f01ab9253c452e49dde171280fe481d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519051"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654406"
 ---
-# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: Crie uma confiança florestal de saída para um domínio local no Azure Active Directory Domain Services (visualização)
+# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: Criar uma relação de confiança de floresta de saída com um domínio local no Azure Active Directory Domain Services (versão prévia)
 
-Em ambientes onde você não pode sincronizar hashes de senha, ou você tem usuários que fazem login exclusivamente usando cartões inteligentes para que eles não saibam sua senha, você pode usar uma floresta de recursos no Azure Active Directory Domain Services (AD DS). Uma floresta de recursos usa um fundo de saída único do Azure AD DS para um ou mais ambientes AD DS no local. Essa relação de confiança permite que usuários, aplicativos e computadores sejam autenticados contra um domínio local do domínio gerenciado pelo Azure AD DS. As florestas de recursos Azure AD DS estão atualmente em pré-visualização.
+Em ambientes em que você não pode sincronizar hashes de senha ou tem usuários que entram exclusivamente usando cartões inteligentes para que não conheçam a senha deles, você pode usar uma floresta de recursos no AD DS (Azure Active Directory Domain Services). Uma floresta de recursos usa uma relação de confiança de saída unidirecional do Azure AD DS com um ou mais ambientes do AD DS locais. Essa relação de confiança permite que usuários, aplicativos e computadores se autentiquem em um domínio local por meio do domínio gerenciado do Azure AD DS. No momento, as florestas de recursos do Azure AD DS estão em versão prévia.
 
-![Diagrama da confiança florestal do Azure AD DS para o AD DS no local](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
+![Diagrama da relação de confiança de floresta do Azure AD DS com o AD DS local](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Configure o DNS em um ambiente AD DS local para suportar a conectividade Azure AD DS
-> * Crie uma confiança florestal de entrada unidirecional em um ambiente AD DS no local
-> * Crie uma confiança florestal de saída única no Azure AD DS
-> * Teste e valide a relação de confiança para autenticação e acesso a recursos
+> * Configurar o DNS em um ambiente do AD DS local para dar suporte à conectividade do Azure AD DS
+> * Criar uma relação de confiança de floresta de entrada unidirecional em um ambiente do AD DS local
+> * Criar uma relação de confiança de floresta de saída unidirecional no Azure AD DS
+> * Testar e validar a relação de confiança para autenticação e acesso a recursos
 
-Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
 * Uma assinatura ativa do Azure.
-    * Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
-* Um domínio gerenciado de domínio do Azure Active Directory Domain services criado usando uma floresta de recursos e configurado no seu inquilino Azure AD.
+* Um domínio gerenciado do Azure Active Directory Domain Services criado usando uma floresta de recursos e configurado no locatário do Azure AD.
     * Se necessário, [crie e configure uma instância do Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Certifique-se de criar um domínio gerenciado pelo Azure AD DS usando uma floresta *de recursos.* A opção padrão cria uma floresta *de usuários.* Apenas florestas de recursos podem criar trusts para ambientes AD DS on-prem. Você também precisa usar um mínimo de *Enterprise* SKU para o seu domínio gerenciado. Se necessário, [altere o SKU para um domínio gerenciado pelo Azure AD DS][howto-change-sku].
+    > Crie um domínio gerenciado do Azure AD DS usando uma floresta de *recursos*. A opção padrão cria uma floresta de *usuários*. Somente as florestas de recursos podem criar relações de confiança com ambientes do AD DS locais. Você também precisa usar o mínimo do SKU *Enterprise* para seu domínio gerenciado. Se necessário, [altere o SKU de um domínio gerenciado do Azure AD DS][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Neste tutorial, você cria e configura o fundo florestal de saída do Azure AD DS usando o portal Azure. Para começar, primeiro entre no [portal do Azure](https://portal.azure.com).
+Neste tutorial, você criará e configurará uma relação de confiança de floresta de saída do Azure AD DS usando o portal do Azure. Para começar, primeiro entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="networking-considerations"></a>Considerações de rede
 
-A rede virtual que hospeda o azure AD DS precisa de conectividade de rede ao seu Active Directory no local. Aplicativos e serviços também precisam de conectividade de rede para a rede virtual que hospeda a floresta de recursos Azure AD DS. A conectividade de rede à floresta de recursos Azure AD DS deve estar sempre acesa e estável, caso contrário, os usuários podem não autenticar ou acessar recursos.
+A rede virtual que hospeda a floresta de recursos do Azure AD DS precisa de conectividade de rede com seu Active Directory local. Aplicativos e serviços também precisam da conectividade de rede com a rede virtual que hospeda a floresta de recursos do Azure AD DS. A conectividade de rede com a floresta de recursos do Azure AD DS deve estar sempre ativa e estável; caso contrário, os usuários podem falhar ao se autenticar ou ao acessar os recursos.
 
-Antes de configurar uma confiança florestal no Azure AD DS, certifique-se de que sua rede entre o Azure e o ambiente local atenda aos seguintes requisitos:
+Antes de configurar uma relação de confiança de floresta no Azure AD DS, verifique se a rede entre o Azure e o ambiente local atende aos seguintes requisitos:
 
-* Use endereços IP privados. Não confie no DHCP com atribuição dinâmica de endereço IP.
-* Evite sobrepor espaços de endereçoip para permitir que peering de rede virtual e roteamento se comuniquem com sucesso entre o Azure e os locais.
-* Uma rede virtual do Azure precisa de uma sub-rede de gateway para configurar uma conexão VPN ou ExpressRoute [do Azure para][vpn-gateway] configurar uma conexão VPN ou [ExpressRoute][expressroute] do Azure
-* Crie sub-redes com endereços IP suficientes para suportar seu cenário.
-* Certifique-se de que o Azure AD DS tenha sua própria sub-rede, não compartilhe essa sub-rede virtual com vMs e serviços de aplicativos.
-* As redes virtuais peered NÃO são transitivas.
-    * Os peerings de rede virtual do Azure devem ser criados entre todas as redes virtuais que você deseja usar o azure AD DS resource forest trust para o ambiente AD DS local.
-* Forneça conectividade contínua de rede à floresta de diretórios ativos no local. Não use conexões sob demanda.
-* Certifique-se de que há resolução contínua de nomes (DNS) entre o nome da floresta de recursos Azure AD DS e o nome da floresta do Active Directory no local.
+* Usar endereços IP privados. Não confiar no DHCP com a atribuição de endereço IP dinâmico.
+* Evitar a sobreposição de espaços de endereço IP para permitir o emparelhamento e o roteamento de rede virtual para se comunicar com êxito entre o Azure e o local.
+* Uma rede virtual do Azure precisa de uma sub-rede de gateway para configurar uma conexão de [VPN S2S (site a site) do Azure][vpn-gateway] ou do [ExpressRoute][expressroute]
+* Criar sub-redes com endereços IP suficientes para dar suporte ao seu cenário.
+* Verificar se o Azure AD DS tem a própria sub-rede, não compartilhar essa sub-rede de rede virtual com VMs de aplicativo e serviços.
+* Redes virtuais emparelhadas NÃO são transitivas.
+    * Os emparelhamentos de rede virtual do Azure devem ser criados entre todas as redes virtuais que você deseja usar a relação de confiança de floresta de recursos do Azure AD DS com o ambiente do AD DS local.
+* Fornecer conectividade de rede contínua para sua floresta do Active Directory local. Não usar conexões sob demanda.
+* Verificar se há uma resolução de nomes contínua (DNS) entre o nome da floresta de recursos do Azure AD DS e o nome da floresta do Active Directory local.
 
-## <a name="configure-dns-in-the-on-premises-domain"></a>Configure o DNS no domínio local
+## <a name="configure-dns-in-the-on-premises-domain"></a>Configurar a DNS no domínio local
 
-Para resolver corretamente o domínio gerenciado pelo Azure AD DS a partir do ambiente local, talvez seja necessário adicionar encaminhadores aos servidores DNS existentes. Se você não configurar o ambiente local para se comunicar com o domínio gerenciado pelo Azure AD DS, complete as seguintes etapas de uma estação de trabalho de gerenciamento para o domínio AD DS no local:
+Para resolver corretamente o domínio gerenciado do Azure AD DS do ambiente local, talvez seja necessário adicionar encaminhadores aos servidores DNS existentes. Se você não configurou o ambiente local para se comunicar com o domínio gerenciado do Azure AD DS, conclua as seguintes etapas de uma estação de trabalho de gerenciamento para o domínio do AD DS local:
 
-1. Selecione **Start | Ferramentas Administrativas | DNS**
-1. Servidor DNS de direita, como *myAD01*, selecione **Propriedades**
-1. Escolha **encaminhados**e **edite** para adicionar atacantes adicionais.
-1. Adicione os endereços IP do domínio gerenciado pelo Azure AD DS, como *10.0.2.4* e *10.0.2.5*.
+1. Selecione **Iniciar | Ferramentas Administrativas | DNS**
+1. Selecione com o botão direito do mouse o servidor DNS, como *myAD01* e selecione **Propriedades**
+1. Escolha **Encaminhadores**e **Editar** para adicionar encaminhadores adicionais.
+1. Adicione os endereços IP do domínio gerenciado do Azure AD DS, como *10.0.2.4* e *10.0.2.5*.
 
-## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Criar confiança florestal de entrada no domínio local
+## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Criar a relação de confiança de floresta de entrada no domínio local
 
-O domínio AD DS no local precisa de um fundo florestal de entrada para o domínio gerenciado do Azure AD DS. Essa confiança deve ser criada manualmente no domínio AD DS no local, não pode ser criada a partir do portal Azure.
+O domínio do AD DS local precisa de uma relação de confiança de floresta de entrada para o domínio gerenciado do Azure AD DS. Essa relação de confiança deve ser criada manualmente no domínio do AD DS local, não pode ser criada no portal do Azure.
 
-Para configurar a confiança de entrada no domínio AD DS no local, complete as seguintes etapas de uma estação de trabalho de gerenciamento para o domínio AD DS no local:
+Para configurar a relação de confiança de entrada no domínio do AD DS local, conclua as seguintes etapas em uma estação de trabalho de gerenciamento para o domínio do AD DS local:
 
-1. Selecione **Start | Ferramentas Administrativas | Domínios e trustções de diretórios ativos**
-1. Domínio de seleção de direito, como *onprem.contoso.com,* selecione **Propriedades**
-1. Escolha a guia **Trusts** e, em seguida, **New Trust**
-1. Digite o nome no nome de domínio Azure AD DS, como *aaddscontoso.com,* em seguida, selecione **Next**
-1. Selecione a opção para criar um **fundo Forest**e, em seguida, crie uma **única maneira: confiança recebida.**
-1. Escolha criar a confiança apenas para **Este domínio**. Na etapa seguinte, você cria a confiança no portal Azure para o domínio gerenciado do Azure AD DS.
-1. Escolha usar a **autenticação em toda a floresta**e, em seguida, digite e confirme uma senha de confiança. Essa mesma senha também é inserida no portal Azure na próxima seção.
-1. Passe pelas próximas janelas com opções padrão e escolha a opção de **Não, não confirme a confiança de saída**.
-1. Selecionar **Concluir**
+1. Selecione **Iniciar | Ferramentas Administrativas | Domínios e Relações de Confiança do Active Directory**
+1. Selecione com o botão direito do mouse o domínio, como *onprem.contoso.com*, e selecione **Propriedades**
+1. Escolha **Relações de Confiança** e, em seguida, **Nova Relação de Confiança**
+1. Insira o nome no nome de domínio do Azure AD DS, como *aaddscontoso.com* e, em seguida, selecione **Avançar**
+1. Selecione a opção para criar uma **Relação de confiança de floresta** e, em seguida, para criar uma relação de confiança **Unidirecional: entrada**.
+1. Escolha criar a relação de confiança para **Somente este domínio**. Na próxima etapa, você criará a relação de confiança no portal do Azure para o domínio gerenciado do Azure AD DS.
+1. Escolha usar a **Autenticação em toda a floresta**; em seguida, insira a senha da relação de confiança e confirme-a. Essa mesma senha também é inserida no portal do Azure na próxima seção.
+1. Percorra as próximas janelas com as opções padrão e, em seguida, escolha a opção **Não, não confirme a relação de confiança de saída**.
+1. Selecione **Concluir**
 
-## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Criar confiança florestal de saída no Azure AD DS
+## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Criar uma relação de confiança de floresta de saída no Azure AD DS
 
-Com o domínio AD DS no local configurado para resolver o domínio gerenciado do Azure AD DS e um fundo florestal de entrada criado, agora criou o fundo florestal de saída. Essa confiança florestal de saída completa a relação de confiança entre o domínio AD DS no local e o domínio gerenciado pelo Azure AD DS.
+Com o domínio do AD DS local configurado para resolver o domínio gerenciado do Azure AD DS e uma relação de confiança de floresta de entrada criada, agora crie a relação de confiança de floresta de saída. Essa relação de confiança de floresta de saída conclui a relação de confiança entre o domínio do AD DS local e o domínio gerenciado do Azure AD DS.
 
-Para criar a confiança de saída para o domínio gerenciado pelo Azure AD DS no portal Azure, complete as seguintes etapas:
+Para criar a relação de confiança de saída para o domínio gerenciado do Azure AD DS no portal do Azure, conclua as seguintes etapas:
 
-1. No portal Azure, procure e selecione **Os Serviços de Domínio Azure AD**e selecione seu domínio gerenciado, como *aaddscontoso.com*
-1. No menu no lado esquerdo do domínio gerenciado pelo Azure AD DS, selecione **Trusts**e escolha **+ Adicione** uma confiança.
+1. Na portal do Azure, pesquise e selecione **Azure AD Domain Services** e, em seguida, selecione seu domínio gerenciado, como *aaddscontoso.com*
+1. No menu esquerdo do domínio gerenciado do Azure AD DS, selecione **Relações de confiança** e, em seguida, escolha para **+ Adicionar** uma relação de confiança.
 
    > [!NOTE]
-   > Se você não ver a opção de menu **Trusts,** verifique em **Propriedades** para o *tipo Floresta*. Apenas florestas *de recursos* podem criar trusts. Se o tipo de floresta é *Usuário,* você não pode criar confianças. Atualmente, não há como mudar o tipo florestal de um domínio gerenciado pelo Azure AD DS. Você precisa excluir e recriar o domínio gerenciado como uma floresta de recursos.
+   > Se você não vir a opção de menu **Relações de confiança**, verifique em **Propriedades** o *Tipo de floresta*. Somente florestas de *recursos* podem criar relações de confiança. Se o tipo de floresta for *Usuário*, você não poderá criar relações de confiança. No momento, não há como alterar o tipo de floresta de um domínio gerenciado do Azure AD DS. Você precisa excluir e recriar o domínio gerenciado como uma floresta de recursos.
 
-1. Digite um nome de exibição que identifique sua confiança e, em seguida, o nome de DNS da floresta confiável no local, como *onprem.contoso.com*
-1. Forneça a mesma senha de confiança usada ao configurar o fundo florestal de entrada para o domínio AD DS no local na seção anterior.
-1. Forneça pelo menos dois servidores DNS para o domínio AD DS no local, como *10.1.1.4* e *10.1.1.5*
-1. Quando estiver pronto, **salve** a confiança da floresta de saída
+1. Insira um nome de exibição que identifique sua relação de confiança e, em seguida, o nome DNS de floresta confiável local, como *onprem.contoso.com*
+1. Forneça a mesma senha da relação de confiança que foi usada ao configurar a relação de confiança de floresta de entrada para o domínio do AD DS local na seção anterior.
+1. Forneça pelo menos dois servidores DNS para o domínio do AD DS local, como *10.1.1.4* e *10.1.1.5*
+1. Quando estiver pronto, **Salve** a relação de confiança de floresta de saída
 
-    ![Crie confiança florestal de saída no portal Azure](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
+    ![Criar relação de confiança de floresta de saída no portal do Azure](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
 
-## <a name="validate-resource-authentication"></a>Validar a autenticação de recursos
+## <a name="validate-resource-authentication"></a>Validar a autenticação de recurso
 
-Os seguintes cenários comuns permitem validar que a confiança na floresta autentica corretamente os usuários e o acesso aos recursos:
+Os seguintes cenários comuns permitem que você valide se a relação de confiança de floresta autentica corretamente os usuários e o acesso a recursos:
 
-* [Autenticação do usuário no local da floresta de recursos Azure AD DS](#on-premises-user-authentication-from-the-azure-ad-ds-resource-forest)
-* [Recursos de acesso na floresta de recursos Azure AD DS usando usuário local](#access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user)
-    * [Habilite o compartilhamento de arquivos e impressoras](#enable-file-and-printer-sharing)
-    * [Crie um grupo de segurança e adicione membros](#create-a-security-group-and-add-members)
-    * [Crie um compartilhamento de arquivos para acesso a florestas cruzadas](#create-a-file-share-for-cross-forest-access)
-    * [Validar a autenticação entre florestas em um recurso](#validate-cross-forest-authentication-to-a-resource)
+* [Autenticação de usuário local na floresta de recursos do Azure AD DS](#on-premises-user-authentication-from-the-azure-ad-ds-resource-forest)
+* [Acessar recursos na floresta de recursos do Azure AD DS usando o usuário local](#access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user)
+    * [Habilitar compartilhamento de arquivos e impressora](#enable-file-and-printer-sharing)
+    * [Criar um grupo de segurança e adicionar membros](#create-a-security-group-and-add-members)
+    * [Criar um compartilhamento de arquivo para acesso entre florestas](#create-a-file-share-for-cross-forest-access)
+    * [Validar a autenticação entre florestas para um recurso](#validate-cross-forest-authentication-to-a-resource)
 
-### <a name="on-premises-user-authentication-from-the-azure-ad-ds-resource-forest"></a>Autenticação do usuário no local da floresta de recursos Azure AD DS
+### <a name="on-premises-user-authentication-from-the-azure-ad-ds-resource-forest"></a>Autenticação de usuário local na floresta de recursos do Azure AD DS
 
-Você deve ter a máquina virtual do Windows Server juntada ao domínio de recursos Azure AD DS. Use esta máquina virtual para testar seu usuário local pode autenticar em uma máquina virtual.
+Você deve ter a máquina virtual do Windows Server ingressada no domínio do recurso do Azure AD DS. Use esta máquina virtual para testar se o usuário local pode se autenticar em uma máquina virtual.
 
-1. Conecte-se ao Windows Server VM junto à floresta de recursos Azure AD DS usando [o Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) e suas credenciais de administrador Azure AD DS.
-1. Abra um prompt de `whoami` comando e use o comando para mostrar o nome distinto do usuário autenticado no momento:
+1. Conecte-se à VM do Windows Server ingressada na floresta de recursos do Azure AD DS usando o [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) e suas credenciais de administrador do Azure AD DS.
+1. Abra um prompt de comando e use o comando `whoami` para mostrar o nome diferenciado do usuário autenticado no momento:
 
     ```console
     whoami /fqdn
     ```
 
-1. Use `runas` o comando para autenticar como usuário do domínio local. No comando seguinte, `userUpn@trusteddomain.com` substitua-o pelo UPN de um usuário do domínio in-premises confiável. O comando solicita a senha do usuário:
+1. Use o comando `runas` para se autenticar como um usuário no domínio local. No comando a seguir, substitua `userUpn@trusteddomain.com` pelo UPN de um usuário do domínio local confiável. O comando solicita a senha do usuário:
 
     ```console
     Runas /u:userUpn@trusteddomain.com cmd.exe
     ```
 
-1. Se a autenticação for um sucesso, um novo prompt de comando será aberto. O título do novo prompt `running as userUpn@trusteddomain.com`de comando inclui .
-1. Use `whoami /fqdn` no novo prompt de comando para exibir o nome distinto do usuário autenticado do Diretório Ativo no local.
+1. Se a autenticação for bem-sucedida, um novo prompt de comando será aberto. O título do novo prompt de comando inclui `running as userUpn@trusteddomain.com`.
+1. Use `whoami /fqdn` no novo prompt de comando para ver o nome diferenciado do usuário autenticado no Active Directory local.
 
-### <a name="access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user"></a>Recursos de acesso na floresta de recursos Azure AD DS usando usuário local
+### <a name="access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user"></a>Acessar recursos na floresta de recursos do Azure AD DS usando o usuário local
 
-Usando o Windows Server VM unido à floresta de recursos Azure AD DS, você pode testar o cenário em que os usuários podem acessar recursos hospedados na floresta de recursos quando autenticam a partir de computadores no domínio local com usuários do domínio local. Os exemplos a seguir mostram como criar e testar vários cenários comuns.
+Usando o VM do Windows Server ingressado na floresta de recursos do Azure AD DS, você pode testar o cenário em que usuários podem acessar recursos hospedados na floresta de recursos quando eles se autenticam em computadores no domínio local com usuários do domínio local. Os exemplos a seguir mostram como criar e testar vários cenários comuns.
 
-#### <a name="enable-file-and-printer-sharing"></a>Habilite o compartilhamento de arquivos e impressoras
+#### <a name="enable-file-and-printer-sharing"></a>Habilitar compartilhamento de arquivos e impressora
 
-1. Conecte-se ao Windows Server VM junto à floresta de recursos Azure AD DS usando [o Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) e suas credenciais de administrador Azure AD DS.
+1. Conecte-se à VM do Windows Server ingressada na floresta de recursos do Azure AD DS usando o [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) e suas credenciais de administrador do Azure AD DS.
 
-1. Abra **as configurações do Windows**e, em seguida, procure e selecione Rede e Centro de **Compartilhamento**.
-1. Escolha a opção Alterar configurações **avançadas de compartilhamento.**
-1. No **perfil de domínio,** **selecione Ativar compartilhamento de arquivos e impressoras** e, em seguida, **Salvar alterações**.
-1. Fechar **o Centro de Rede e Compartilhamento**.
+1. Abra as **Configurações do Windows**, pesquise e selecione **Central de Rede e Compartilhamento**.
+1. Escolha a opção para as configurações **Alterar compartilhamento avançado**.
+1. No **Perfil de Domínio**, selecione **Ativar compartilhamento de arquivos e impressora** e, em seguida, **Salvar alterações**.
+1. Feche a **Central de Rede e Compartilhamento**.
 
-#### <a name="create-a-security-group-and-add-members"></a>Crie um grupo de segurança e adicione membros
+#### <a name="create-a-security-group-and-add-members"></a>Criar um grupo de segurança e adicionar membros
 
-1. Abra **Usuários e Computadores do Active Directory**.
-1. Selecione o nome de domínio, escolha **Novo**e selecione **Unidade Organizacional**.
-1. Na caixa nome, digite *LocalObjects*e selecione **OK**.
-1. Selecione e clique com o botão direito do **mouse LocalObjects** no painel de navegação. Selecione **Novo** e, em seguida, **Grupo**.
-1. Digite *FileServerAccess* na caixa **nome do grupo.** Para o **escopo de grupo,** selecione **Domínio local**e escolha **OK**.
-1. No painel de conteúdo, clique duas vezes **em FileServerAccess**. Selecione **Membros,** escolha **adicionar**e selecione **Locais**.
-1. Selecione seu diretório ativo no local na exibição **Local** e escolha **OK**.
-1. Digite *Os Usuários de Domínio* no Inserir os nomes do objeto para selecionar **a** caixa. Selecione **'''Nomes de verificação',** forneça credenciais para o Diretório Ativo no local e selecione **OK**.
+1. Abra **Computadores e Usuários do Active Directory**.
+1. Selecione com o botão direito do mouse o nome de domínio, escolha **Novo** e, em seguida, selecione **Unidade Organizacional**.
+1. Na caixa de nome, digite *LocalObjects* e, em seguida, selecione **OK**.
+1. Selecione e clique com o botão direito do mouse em **LocalObjects** no painel de navegação. Selecione **Novo** e, em seguida, **Grupo**.
+1. Digite *FileServerAccess* na caixa **Nome do grupo**. Para o **Escopo do Grupo**, selecione **Local do domínio** e, em seguida, **OK**.
+1. No painel de conteúdo, clique duas vezes em **FileServerAccess**. Selecione **Membros**, escolha **Adicionar** e selecione **Locais**.
+1. Selecione o Active Directory local na exibição **Localização** e escolha **OK**.
+1. Digite os *Usuários de Domínio* na caixa **Insira os nomes de objeto a serem selecionados**. Selecione **Verificar Nomes**, forneça credenciais para o Active Directory local e, em seguida, selecione **OK**.
 
     > [!NOTE]
-    > Você deve fornecer credenciais porque a relação de confiança é apenas uma maneira. Isso significa que os usuários do Azure AD DS não podem acessar recursos ou procurar usuários ou grupos no domínio confiável (on-premises).
+    > Você deve fornecer credenciais porque a relação de confiança é somente unidirecional. Isso significa que os usuários do Azure AD DS não podem acessar recursos nem pesquisar usuários ou grupos no domínio confiável (local).
 
-1. O grupo Usuários de **Domínio** do seu Diretório Ativo no local deve ser um membro do grupo **FileServerAccess.** Selecione **OK** para salvar o grupo e feche a janela.
+1. O grupo **Usuários de Domínio** do seu Active Directory local deve ser membro do grupo **FileServerAccess**. Selecione **OK** para salvar o grupo e fechar a janela.
 
-#### <a name="create-a-file-share-for-cross-forest-access"></a>Crie um compartilhamento de arquivos para acesso a florestas cruzadas
+#### <a name="create-a-file-share-for-cross-forest-access"></a>Criar um compartilhamento de arquivo para acesso entre florestas
 
-1. No Windows Server VM juntou-se à floresta de recursos Azure AD DS, crie uma pasta e forneça nomes como *CrossForestShare*.
-1. Selecione à direita a pasta e escolha **Propriedades**.
-1. Selecione a guia **Segurança** e, em seguida, escolha **Editar**.
-1. Na caixa *de diálogo Permissões para CrossForestShare,* selecione **Adicionar**.
-1. Digite *FileServerAccess* in **Enter the object names to select**, then select **OK**.
-1. Selecione *FileServerAccess* na lista **De Grupos ou nomes de usuário.** Na lista **Permissões para FileServerAccess,** escolha *Permitir* as permissões **Modificar** e **Gravar** e, em seguida, selecione **OK**.
-1. Selecione a guia **Compartilhar** e, em seguida, escolha **Compartilhamento avançado...**
-1. Escolha **Compartilhar esta pasta**e digite um nome memorável para o compartilhamento de arquivos no nome de **compartilhamento,** como *CrossForestShare*.
-1. Selecione **Permissões**. Na lista **Permissões para Todos,** escolha **Permitir** a permissão **De alterar.**
-1. Selecione **OK** duas vezes e, em seguida, **Feche**.
+1. Na VM do Windows Server ingressada na floresta de recursos do Azure AD DS, crie uma pasta e forneça um nome como *CrossForestShare*.
+1. Selecione com o botão direito do mouse a pasta e escolha **Propriedades**.
+1. Na guia **Segurança** e, em seguida, escolha **Editar**.
+1. Na caixa de diálogo *Permissões para CrossForestShare*, selecione **Adicionar**.
+1. Digite *FileServerAccess* em **Insira os nomes de objeto a serem selecionados** e, em seguida, selecione **OK**.
+1. Selecione *FileServerAccess* na lista **Grupos ou nomes de usuário**. Na lista **Permissões para FileServerAccess**, escolha *Permitir* para as permissões **Modificar** e **Gravar**; em seguida, selecione **OK**.
+1. Selecione a guia **Compartilhamento** e, em seguida, escolha **Compartilhamento Avançado…**
+1. Escolha **Compartilhar esta pasta** e, em seguida, insira um nome fácil de memorizar para o compartilhamento de arquivo em **Nome do compartilhamento** como *CrossForestShare*.
+1. Selecione **Permissões**. Na lista **Permissões para Todos**, escolha **Permitir** para a permissão **Alterar**.
+1. Selecione **OK** duas vezes e, em seguida, **Fechar**.
 
-#### <a name="validate-cross-forest-authentication-to-a-resource"></a>Validar a autenticação entre florestas em um recurso
+#### <a name="validate-cross-forest-authentication-to-a-resource"></a>Validar a autenticação entre florestas para um recurso
 
-1. Faça login em um computador Windows junto ao seu Diretório Ativo no local usando uma conta de usuário do seu Diretório Ativo no local.
-1. Usando **o Windows Explorer,** conecte-se ao compartilhamento que você `\\fs1.aaddscontoso.com\CrossforestShare`criou usando o nome do host totalmente qualificado e a parte, como .
-1. Para validar a permissão de gravação, selecione à direita na pasta, escolha **Novo**e selecione **Documento de texto**. Use o nome padrão **Novo Documento de Texto**.
+1. Entre em um computador Windows ingressado em seu Active Directory local usando uma conta de usuário do Active Directory local.
+1. Usando o **Windows Explorer**, conecte-se ao compartilhamento que você criou usando o nome de host totalmente qualificado e o compartilhamento, como `\\fs1.aaddscontoso.com\CrossforestShare`.
+1. Para validar a permissão de gravação, selecione com o botão direito do mouse a pasta, escolha **Novo** e, em seguida, selecione **Documento de Texto**. Use o nome padrão **Novo Documento de Texto**.
 
-    Se as permissões de gravação forem definidas corretamente, um novo documento de texto será criado. As etapas a seguir serão abertas, editadas e excluem o arquivo conforme apropriado.
-1. Para validar a permissão de leitura, abra **novo documento de texto**.
-1. Para validar a permissão de modificação, adicione texto ao arquivo e feche o **Bloco de Notas**. Quando solicitado a salvar alterações, escolha **Salvar**.
-1. Para validar a permissão de exclusão, selecione **o novo documento de texto** e escolha **Excluir**. Escolha **Sim** para confirmar a exclusão do arquivo.
+    Se as permissões de gravação estiverem definidas corretamente, um documento de texto será criado. As etapas a seguir abrirão, editarão e excluirão o arquivo conforme apropriado.
+1. Para validar a permissão Ler, abra **Novo Documento de Texto**.
+1. Para validar a permissão Modificar, adicione texto ao arquivo e feche o **Bloco de Notas**. Quando for solicitado a salvar as alterações, escolha **Salvar**.
+1. Para validar a permissão Excluir, selecione com o botão direito do mouse **Novo Documento de Texto** e escolha **Excluir**. Escolha **Sim** para confirmar a exclusão do arquivo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
-> * Configure o DNS em um ambiente AD DS local para suportar a conectividade Azure AD DS
-> * Crie uma confiança florestal de entrada unidirecional em um ambiente AD DS no local
-> * Crie uma confiança florestal de saída única no Azure AD DS
-> * Teste e valide a relação de confiança para autenticação e acesso a recursos
+> * Configurar o DNS em um ambiente do AD DS local para dar suporte à conectividade do Azure AD DS
+> * Criar uma relação de confiança de floresta de entrada unidirecional em um ambiente do AD DS local
+> * Criar uma relação de confiança de floresta de saída unidirecional no Azure AD DS
+> * Testar e validar a relação de confiança para autenticação e acesso a recursos
 
-Para obter informações mais conceituais sobre os tipos de florestas no Azure AD DS, veja quais são as [florestas][concepts-trust] [de recursos?][concepts-forest]
+Para obter mais informações conceituais sobre os tipos de floresta no Azure AD DS, confira [O que são florestas de recursos?][concepts-forest] e [Como relações de confiança de floresta funcionam no Azure AD DS?][concepts-trust]
 
 <!-- INTERNAL LINKS -->
 [concepts-forest]: concepts-resource-forest.md

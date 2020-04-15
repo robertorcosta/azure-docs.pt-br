@@ -1,6 +1,6 @@
 ---
 title: Integrar computadores Windows à Central de Segurança do Azure
-description: Este guia de início rápido mostra como provisionar o Microsoft Monitoring Agent em um computador com Windows.
+description: Este início rápido mostra como provisionar o agente do Log Analytics em um computador Windows.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 417d8379d019a9ef0da41638cba4a1f9cb7b8bc2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2840b6636c2b511ab57a8bae8adf411f4d8a27d2
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73686509"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435918"
 ---
-# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início rápido: integrar computadores com Windows à Central de Segurança do Azure
-Depois de integrar suas assinaturas do Azure, é possível habilitar a Central de Segurança para recursos sendo executados fora do Azure, por exemplo, no local ou em outras nuvens, por meio do provisionamento do Microsoft Monitoring Agent.
+# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início Rápido: Integrar computadores Windows à Central de Segurança do Azure
+Depois de integrar suas assinaturas do Azure, habilite a Central de Segurança para os recursos executados fora do Azure, por exemplo, no local ou em outras nuvens, por meio do provisionamento do agente do Log Analytics.
 
-Este guia de início rápido mostra como instalar o Microsoft Monitoring Agent em um computador com Windows.
+Este início rápido mostra como instalar o agente do Log Analytics em um computador Windows.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Você deverá estar no tipo de preço Standard da Central de Segurança antes de começar este guia de início rápido. Consulte [Integrar sua assinatura do Azure ao Centro de Segurança Standard](security-center-get-started.md) para obter instruções de atualização. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
@@ -72,7 +72,7 @@ Agora você deve instalar o arquivo baixado no computador de destino.
 9. Na página **Pronto para Instalar**, examine suas escolhas e selecione **Instalar**.
 10. Na página **Configuração concluída com êxito**, selecione **Concluir**
 
-Após concluir, o **Microsoft Monitoring Agent** aparecerá no **Painel de Controle**. Você pode revisar sua configuração e verificar se o agente está conectado.
+Após a conclusão, o **agente do Log Analytics** será exibido no **Painel de Controle**. Você pode revisar sua configuração e verificar se o agente está conectado.
 
 Para obter mais informações sobre como instalar e configurar o agente, consulte [Conectar computadores com Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
@@ -93,10 +93,10 @@ Para remover o agente:
 
 1. Abra o **Painel de Controle**.
 2. Abra **Programas e Recursos**.
-3. Em **Programas e Recursos**, selecione **Microsoft Monitoring Agent** e clique em **Desinstalar**.
+3. Em **Programas e Recursos**, selecione **Agente do Log Analytics** e clique em **Desinstalar**.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste guia de início rápido, você provisionou o Microsoft Monitoring Agent em um computador com Windows. Para saber mais sobre como usar a Central de Segurança, prossiga para o tutorial para configurar uma política de segurança e avaliar a segurança de seus recursos.
+Neste início rápido, você provisionou o agente do Log Analytics em um computador Windows. Para saber mais sobre como usar a Central de Segurança, prossiga para o tutorial para configurar uma política de segurança e avaliar a segurança de seus recursos.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Definir e avaliar as políticas de segurança](tutorial-security-policy.md)
