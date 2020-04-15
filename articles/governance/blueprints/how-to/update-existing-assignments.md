@@ -1,14 +1,14 @@
 ---
 title: Atualize uma atribuição existente do portal
 description: Conheça o mecanismo para atualizar uma atribuição de projeto existente no portal no Azure Blueprints.
-ms.date: 11/21/2019
+ms.date: 04/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 2c1a24399d8fa1529665bfa60d1b889a84a29a60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a00a8bcc10b37af576777e3816a794225a3832f7
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264655"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381799"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de blueprint existente
 
@@ -22,22 +22,22 @@ Quando um blueprint é atribuído, a atribuição pode ser atualizada. Há vári
 
 1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints**.
 
-1. Selecione **Plantas atribuídas** na página à esquerda.
+1. Selecione **Blueprints atribuídos** na página à esquerda.
 
 1. Na lista de planos gráficos, clique em atribuição de planta. Em seguida, clique no botão **Atualizar atribuição** ou clique com o botão direito do mouse na atribuição do projeto e selecione **Atualizar a atribuição**.
 
-   ![Atualize uma atribuição de projeto existente](../media/update-existing-assignments/update-assignment.png)
+   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Atualize uma atribuição de projeto existente" border="false":::
 
 1. A página **atribuir o projeto** será carregada pré-preenchida com todos os valores da atribuição original.
    Você pode alterar a **versão de definição do blueprint**, o estado **Bloquear Atribuição** e qualquer um dos parâmetros dinâmicos que existem na definição do blueprint. Clique em **Atribuir** quando terminar de fazer alterações.
 
 1. Na página de detalhes de atribuição atualizada, veja o novo status. Neste exemplo, adicionamos **Bloqueio** à atribuição.
 
-   ![Atualizou uma atribuição de projeto existente - modo de bloqueio alterado](../media/update-existing-assignments/updated-assignment.png)
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Atualizou uma atribuição de projeto existente - modo de bloqueio alterado" border="false":::
 
 1. Explorar detalhes sobre outras **operações de atribuição** usando o drop-down. A tabela de atualizações de **recursos gerenciados** pela operação de atribuição selecionada.
 
-   ![Operações de atribuição de uma atribuição de projeto](../media/update-existing-assignments/assignment-operations.png)
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Operações de atribuição de uma atribuição de projeto" border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Regras para atualizar atribuições
 

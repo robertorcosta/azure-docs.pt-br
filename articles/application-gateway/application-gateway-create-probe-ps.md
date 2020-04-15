@@ -8,17 +8,17 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 1fef24f4065ca6fc749f35a07143487e049ee6ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f720a94d3467ce15ea5d58a8ece6de2a669f6258
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075268"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312579"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Criar uma investigação personalizada para o Gateway de Aplicativo do Azure usando o PowerShell do Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](application-gateway-create-probe-portal.md)
+> * [Azure portal](application-gateway-create-probe-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell clássico do Azure](application-gateway-create-probe-classic-ps.md)
 
@@ -91,7 +91,7 @@ Configure todos os itens de configuração antes de criar o gateway de aplicativ
 |---|---|
 | **Configuração de IP do gateway** | Uma configuração de IP para um gateway de aplicativo.|
 | **Piscina de backend** | Um pool de endereços IP, FQDNs ou NICs que são para os servidores de aplicativos que hospedam o aplicativo Web|
-| **Sonda de saúde** | Uma investigação personalizada usada para monitorar a integridade dos membros do pool de back-end|
+| **Investigação de integridade** | Uma investigação personalizada usada para monitorar a integridade dos membros do pool de back-end|
 | **Configurações HTTP** | Uma coleção de configurações, inclusive porta, protocolo, afinidade baseada em cookie, investigação e tempo limite.  Essas configurações determinam como o tráfego é roteado para os membros do pool de back-end|
 | **Porta Frontend** | A porta em que o gateway de aplicativo escuta tráfego|
 | **Ouvinte** | Uma combinação de um protocolo, configuração de IP front-end e porta front-end. É o que escuta solicitações de entrada.
@@ -197,5 +197,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Aprenda a configurar o descarregamento do SSL visitando: [Configure a descarga SSL](application-gateway-ssl-arm.md)
+Aprenda a configurar o descarregamento do TLS visitando: [Configure a descarga TLS](application-gateway-ssl-arm.md)
 

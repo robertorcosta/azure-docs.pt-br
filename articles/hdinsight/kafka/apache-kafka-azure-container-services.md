@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 6abb4f632535f1bda7e9f337f111ba372a624f2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55373f71c78b6d45b9c78c52dea61a37b89b4a00
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239610"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383051"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usar o Serviço de Kubernetes do Azure com Apache Kafka no HDInsight
 
@@ -26,7 +26,7 @@ O [Apache Kafka](https://kafka.apache.org) é uma plataforma de streaming distri
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Uma assinatura do Azure
 
 Este documento assume que você está familiarizado com a criação e utilização dos seguintes serviços do Azure:
@@ -163,7 +163,7 @@ Neste ponto, o Kafka e o Serviço de Kubernetes do Azure estão em comunicação
     * `var topic = 'mytopic'`: Substituir `mytopic` pelo nome do tópico do Kafka usado por esse aplicativo.
     * `var brokerHost = '176.16.0.13:9092`: Substituir `176.16.0.13` com o endereço IP interno de um dos hosts agentes para o cluster.
 
-        Para localizar o endereço IP interno dos hosts agentes (workernodes) no cluster, consulte o documento [API REST Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes). Escolha o endereço IP de uma das entradas onde o nome de domínio inicia com `wn`.
+        Para localizar o endereço IP interno dos hosts agentes (workernodes) no cluster, consulte o documento [API REST Apache Ambari](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes). Escolha o endereço IP de uma das entradas onde o nome de domínio inicia com `wn`.
 
 4. A partir de uma linha de comando no diretório `src` instale dependências e use o Docker para compilar uma imagem para implantação:
 

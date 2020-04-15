@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 92421125ecb5f4336922c6e6b4508fcdaf92be6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.openlocfilehash: 251507c5740af69bd0818391dd2e8f857338b6cf
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246391"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313906"
 ---
 # <a name="data-flow-script-dfs"></a>Script de fluxo de dados (DFS)
 
@@ -139,6 +139,11 @@ derive1 sink(allowSchemaDrift: true,
 ```
 
 ## <a name="script-snippets"></a>Trechos de script
+
+Os trechos de script são códigos compartilháveis do Script de fluxo de dados que você pode usar para compartilhar entre fluxos de dados. Este vídeo abaixo fala sobre como usar trechos de script e usar o Data Flow Script para copiar e colar partes do script por trás de seus gráficos de fluxo de dados:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tA9b]
+
 
 ### <a name="aggregated-summary-stats"></a>Estatísticas de resumo agregadas
 Adicione uma transformação agregada ao seu fluxo de dados chamada "SummaryStats" e cole neste código abaixo para a função agregada em seu script, substituindo as SummaryStats existentes. Isso fornecerá um padrão genérico para estatísticas de resumo de perfil de dados.

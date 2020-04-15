@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c56e6729307a1cad998a060202f51cb8f29bf94a
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 16fa33999a38b21fd2016c986dd2db81f7d84051
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548312"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383741"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações do provedor de recursos do Azure Resource Manager
 
@@ -1506,7 +1506,7 @@ Serviço Azure: Máquina virtual do modelo de implantação clássica
 > | Ação | Microsoft.ClassicCompute/operations/read | Obtém a lista de operações. |
 > |  | **operaçãoStatuses** |  |
 > | Ação | Microsoft.ClassicCompute/operationStatuses/read | Ler o status da operação do recurso. |
-> |  | **quotas** |  |
+> |  | **Quotas** |  |
 > | Ação | Microsoft.ClassicCompute/quotas/read | Obter a cota para a assinatura. |
 > |  | **resourceTypes/skus** |  |
 > | Ação | Microsoft.ClassicCompute/resourceTypes/skus/read | Obter a lista de SKU para tipos de recursos com suporte. |
@@ -1599,7 +1599,7 @@ Serviço Azure: Rede virtual modelo de implantação clássica
 > | Ação | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/operationStatuses/read | Ler o status da operação das regras de segurança do grupo de segurança de rede. |
 > |  | **Operações** |  |
 > | Ação | Microsoft.ClassicNetwork/operations/read | Obtenha operações de rede clássicas. |
-> |  | **quotas** |  |
+> |  | **Quotas** |  |
 > | Ação | Microsoft.ClassicNetwork/quotas/read | Obter a cota para a assinatura. |
 > |  | **reservedIps** |  |
 > | Ação | Microsoft.ClassicNetwork/reservedIps/read | Obter os IPs reservados |
@@ -1693,7 +1693,7 @@ Serviço Azure: Armazenamento clássico do modelo de implantação
 > | Ação | Microsoft.ClassicStorage/osPlatformImages/read | Obtém a imagem da plataforma do sistema operacional. |
 > |  | **publicImages** |  |
 > | Ação | Microsoft.ClassicStorage/publicImages/read | Obter a imagem pública da máquina virtual. |
-> |  | **quotas** |  |
+> |  | **Quotas** |  |
 > | Ação | Microsoft.ClassicStorage/quotas/read | Obter a cota para a assinatura. |
 > |  | **storageAccounts** |  |
 > | Ação | Microsoft.ClassicStorage/storageAccounts/read | Retornar a conta de armazenamento com a conta fornecida. |
@@ -2392,7 +2392,7 @@ Serviço azure: [Gerenciamento de Custos](../cost-management-billing/index.yml)
 > | Ação | Microsoft.Consumption/reservationSummaries/read | Listar o resumo de utilização para instâncias reservadas por ordem de reserva ou grupos de gerenciamento. Os dados de resumo serão no nível mensal ou diário. |
 > |  | **reservaTransações** |  |
 > | Ação | Microsoft.Consumption/reservationTransactions/read | Listar o histórico de transações para instâncias reservadas por grupos de gerenciamento. |
-> |  | **marcas** |  |
+> |  | **Tags** |  |
 > | Ação | Microsoft.Consumption/tags/read | Lista as marcas do EA e das assinaturas. |
 > |  | **Inquilinos** |  |
 > | Ação | Microsoft.Consumption/tenants/register/action | Registre a ação de escopo do Microsoft.Consumption por um locatário. |
@@ -5180,7 +5180,7 @@ Serviço Azure: [Key Vault](../key-vault/index.yml)
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
-Serviço Azure: [Azure Data Explorer](../data-explorer/index.yml)
+Serviço Azure: [Azure Data Explorer](/azure/data-explorer/)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de ação | Operação | Descrição |
@@ -8324,7 +8324,7 @@ Serviço Azure: [Gerente de Recursos do Azure](../azure-resource-manager/index.y
 > | Ação | Microsoft.Resources/subscriptions/tagNames/tagValues/read | Obter ou listar valores de marcação de assinatura. |
 > | Ação | Microsoft.Resources/subscriptions/tagNames/tagValues/write | Adicionar um valor de marcação de assinatura. |
 > | Ação | Microsoft.Resources/subscriptions/tagNames/tagValues/delete | Excluir um valor de marcação de assinatura. |
-> |  | **marcas** |  |
+> |  | **Tags** |  |
 > | Ação | Microsoft.Resources/tags/read | Recebe todas as etiquetas em um recurso. |
 > | Ação | Microsoft.Resources/tags/write | Atualiza as tags em um recurso substituindo ou mesclando tags existentes por um novo conjunto de tags ou removendo tags existentes. |
 > | Ação | Microsoft.Resources/tags/delete | Remove todas as tags em um recurso. |

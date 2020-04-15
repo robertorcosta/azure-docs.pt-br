@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: 4baf7974bdb0a5efe4cb556e820e9d13aeac5d8a
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.date: 04/14/2020
+ms.openlocfilehash: 18f8b0732e4af0229ff225d9c3b423e27bf342a8
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409851"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382792"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeamento de fluxos de dados e guia de ajuste
 
@@ -31,13 +31,13 @@ Ao projetar fluxos de dados de mapeamento, você pode testar cada transformaçã
 
  Você pode usar essas informações para estimar o desempenho do seu fluxo de dados em diferentes fontes de dados. Para obter mais informações, consulte [Monitorando fluxos de dados de mapeamento](concepts-data-flow-monitoring.md).
 
-![Monitoramento de fluxo de dados](media/data-flow/mon003.png "Monitor de fluxo de dados 3")
+![Monitoramento do fluxo de dados](media/data-flow/mon003.png "Monitor de fluxo de dados 3")
 
  Para a depuração do pipeline, cerca de um minuto de tempo de configuração do cluster em seus cálculos gerais de desempenho é necessário para um cluster quente. Se você estiver iniciando o Tempo de Execução de Integração padrão do Azure, o tempo de rotação pode levar cerca de 5 minutos.
 
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Aumento do tamanho da computação no Tempo de Execução da Integração do Azure
 
-Um Tempo de Execução de Integração com mais núcleos aumenta o número de nós nos ambientes de computação Spark e fornece mais poder de processamento para ler, escrever e transformar seus dados.
+Um Tempo de Execução de Integração com mais núcleos aumenta o número de nós nos ambientes de computação Spark e fornece mais poder de processamento para ler, escrever e transformar seus dados. O ADF Data Flows utiliza o Spark para o mecanismo de computação. O ambiente Spark funciona muito bem com recursos otimizados para a memória.
 * Experimente um **cluster Otimizado computado** se quiser que sua taxa de processamento seja maior do que a sua taxa de entrada.
 * Tente um cluster **otimizado de memória** se quiser armazenar mais dados na memória. A memória otimizada tem um preço-ponto por núcleo mais alto do que o Compute Optimized, mas provavelmente resultará em velocidades de transformação mais rápidas.
 
@@ -49,7 +49,11 @@ Para obter mais informações sobre como criar um Tempo de Execução de [Integr
 
 Por padrão, ligar a depuração usará o tempo de execução padrão do Azure Integration que é criado automaticamente para cada fábrica de dados. Este Azure IR padrão é definido para oito núcleos, quatro para um nó de driver e quatro para um nó de trabalhador, usando propriedades da General Compute. Ao testar com dados maiores, você pode aumentar o tamanho do seu cluster de depuração criando um Azure IR com configurações maiores e escolher este novo Azure IR ao ligar a depuração. Isso instruirá a ADF a usar este Azure IR para visualização de dados e depuração de pipeline com fluxos de dados.
 
-## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Otimização para banco de dados SQL do Azure e data warehouse Do zure SQL
+### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Diminuir o tempo de inicialinicializar do cluster compute com o TTL
+
+Há uma propriedade no Azure IR em Propriedades de Fluxo de Dados que permitirá que você levante um pool de recursos de computação de cluster para sua fábrica. Com este pool, você pode enviar sequencialmente atividades de fluxo de dados para execução. Uma vez estabelecido o pool, cada trabalho subsequente levará de 1 a 2 minutos para que o cluster Spark sob demanda execute seu trabalho. A configuração inicial do pool de recursos levará cerca de 6 minutos. Especifique a quantidade de tempo que deseja manter o pool de recursos na configuração TTL (time-to-live).
+
+## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Otimização para o Banco de Dados SQL do Azure e o Synapse do Data Warehouse Do Zure SQL
 
 ### <a name="partitioning-on-source"></a>Particionamento na fonte
 

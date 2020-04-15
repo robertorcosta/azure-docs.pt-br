@@ -1,5 +1,5 @@
 ---
-title: Métodos de autenticação para O Centro de Segurança Do Azure para IoT| Microsoft Docs
+title: Métodos de autenticação de agentes de segurança
 description: Conheça os diferentes métodos de autenticação disponíveis ao usar o azure Security Center para serviço de IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 16f7f91e02d118d9f9a295ebb79a6cd0187dd9fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d9d51292c3cae9634af917819b558cdfd2fa04b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68596458"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311512"
 ---
-# <a name="security-agent-authentication-methods"></a>Métodos de autenticação de agentes de segurança 
+# <a name="security-agent-authentication-methods"></a>Métodos de autenticação de agentes de segurança
 
 Este artigo explica os diferentes métodos de autenticação que você pode usar com o agente AzureIoTSecurity para autenticar com o IoT Hub.
 
-Para cada dispositivo a bordo do Azure Security Center for IoT no IoT Hub, é necessário um módulo de segurança. Para autenticar o dispositivo, o Azure Security Center para IoT pode usar um dos dois métodos. Escolha o método que funciona melhor para sua solução de IoT existente. 
+Para cada dispositivo a bordo do Azure Security Center for IoT no IoT Hub, é necessário um módulo de segurança. Para autenticar o dispositivo, o Azure Security Center para IoT pode usar um dos dois métodos. Escolha o método que funciona melhor para sua solução de IoT existente.
 
 > [!div class="checklist"]
 > * Opção SecurityModule
@@ -36,27 +36,26 @@ Para cada dispositivo a bordo do Azure Security Center for IoT no IoT Hub, é ne
 
 Os dois métodos para o agente AzureIoTSecurity realizar a autenticação:
 
- - Modo de autenticação **securitymodule**<br>
-   O agente é autenticado usando a identidade do módulo de segurança independentemente da identidade do dispositivo.
-   Use este tipo de autenticação se quiser que o agente de segurança use um método de autenticação dedicado através do módulo de segurança (somente chave simétrica).
-        
- - **Modo de** autenticação do dispositivo<br>
-    Neste método, o agente de segurança autentica primeiro com a identidade do dispositivo. Após a autenticação inicial, o Azure Security Center for IoT agent realiza uma chamada **REST** para o IoT Hub usando a API REST com os dados de autenticação do dispositivo. O Azure Security Center para agente IoT solicita então o método de autenticação do módulo de segurança e os dados do IoT Hub. Na etapa final, o Azure Security Center for IoT agent realiza uma autenticação contra o módulo Azure Security Center for IoT.
-    
-    Use este tipo de autenticação se quiser que o agente de segurança reutilize um método de autenticação de dispositivo existente (certificado auto-assinado ou chave simétrica). 
+- Modo de autenticação **securitymodule**<br>
+O agente é autenticado usando a identidade do módulo de segurança independentemente da identidade do dispositivo.
+Use este tipo de autenticação se quiser que o agente de segurança use um método de autenticação dedicado através do módulo de segurança (somente chave simétrica).
+
+- **Modo de** autenticação do dispositivo<br>
+Neste método, o agente de segurança autentica primeiro com a identidade do dispositivo. Após a autenticação inicial, o Azure Security Center for IoT agent realiza uma chamada **REST** para o IoT Hub usando a API REST com os dados de autenticação do dispositivo. O Azure Security Center para agente IoT solicita então o método de autenticação do módulo de segurança e os dados do IoT Hub. Na etapa final, o Azure Security Center for IoT agent realiza uma autenticação contra o módulo Azure Security Center for IoT.
+
+Use este tipo de autenticação se quiser que o agente de segurança reutilize um método de autenticação de dispositivo existente (certificado auto-assinado ou chave simétrica).
 
 Consulte [os parâmetros de instalação do agente de segurança](#security-agent-installation-parameters) para saber como configurar.
-                                
+
 ## <a name="authentication-methods-known-limitations"></a>Métodos de autenticação conhecidos limitações
 
 - O modo de autenticação **securitymodule** só suporta autenticação de chave simétrica.
-- O certificado assinado por CA não é suportado pelo modo de autenticação **do dispositivo.**  
+- O certificado assinado por CA não é suportado pelo modo de autenticação **do dispositivo.**
 
 ## <a name="security-agent-installation-parameters"></a>Parâmetros de instalação do agente de segurança
 
 [Ao implantar um agente de segurança,](how-to-deploy-agent.md)os detalhes de autenticação devem ser fornecidos como argumentos.
 Esses argumentos estão documentados na tabela a seguir.
-
 
 |Nome do parâmetro Linux | Nome do parâmetro do Windows | Parâmetro de taquigrafia |Descrição|Opções|
 |---------------------|---------------|---------|---------------|---------------|
@@ -68,15 +67,13 @@ Esses argumentos estão documentados na tabela a seguir.
 |certificado-localização-tipo|CertificateLocationKind|Cl|Localização de armazenamento de certificados|**LocalFile** ou **Loja**|
 |
 
-
-Ao usar o script do agente de segurança de instalação, a configuração a seguir é executada automaticamente. Para editar manualmente a autenticação do agente de segurança, edite o arquivo de configuração. 
+Ao usar o script do agente de segurança de instalação, a configuração a seguir é executada automaticamente. Para editar manualmente a autenticação do agente de segurança, edite o arquivo de configuração.
 
 ## <a name="change-authentication-method-after-deployment"></a>Alterar o método de autenticação após a implantação
 
 Ao implantar um agente de segurança com um script de instalação, um arquivo de configuração é criado automaticamente.
 
 Para alterar os métodos de autenticação após a implantação, é necessária a edição manual do arquivo de configuração.
-
 
 ### <a name="c-based-security-agent"></a>Agente de segurança baseado em C#
 
@@ -108,6 +105,7 @@ Editar _LocalConfiguration.json_ com os seguintes parâmetros:
 ```
 
 ## <a name="see-also"></a>Confira também
+
 - [Visão geral dos agentes de segurança](security-agent-architecture.md)
 - [Implantar agente de segurança](how-to-deploy-agent.md)
 - [Acessar dados de segurança brutos](how-to-security-data-access.md)

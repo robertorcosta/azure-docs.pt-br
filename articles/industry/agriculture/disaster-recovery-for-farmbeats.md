@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
-ms.openlocfilehash: fbda28ce588aad5f6bc0d89de60069c4220fa523
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: d64735e683ba1133e7d381a68611d204c4068026
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266169"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313108"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>Recuperação de desastres para FarmBeats
 
@@ -45,18 +45,18 @@ Você pode iniciar failover e recuperar dados armazenados para os quais, cada um
 Copie a chave de acesso do Cosmos DB restaurado e atualize o novo FarmBeats Datahub Key Vault.
 
 
-  ![Recuperação de desastre](./media/disaster-recovery-for-farmbeats/keyvault-secrets.png)
+  ![Recuperação de desastre](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
 
 > [!NOTE]
 > Copie a URL do Cosmos DB restaurado e atualize-a na nova configuração do serviço de aplicativo FarmBeats Datahub. Agora você pode excluir a conta Cosmos DB na nova implantação do FarmBeats.
 
-  ![Recuperação de desastre](./media/disaster-recovery-for-farmbeats/northeu-ehub-api-configuration.png)
+  ![Recuperação de desastre](./media/disaster-recovery-for-farmbeats/configuration.png)
 
 ### <a name="configure-storage-account"></a>Configurar a conta de armazenamento
 
 Copie a chave de acesso da conta de armazenamento restaurada e atualize-a no novo FarmBeats Datahub Key Vault.
 
-![Recuperação de desastre](./media/disaster-recovery-for-farmbeats/keyvault-7udqm-secrets.png)
+![Recuperação de desastre](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
 
 >[!NOTE]
 > Certifique-se de atualizar o nome da conta de armazenamento no novo arquivo de configuração FarmBeats Batch VM.

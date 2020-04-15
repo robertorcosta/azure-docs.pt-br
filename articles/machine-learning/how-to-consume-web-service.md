@@ -1,7 +1,7 @@
 ---
 title: Criar cliente para modelo implantado como serviço web
 titleSuffix: Azure Machine Learning
-description: Saiba como consumir um serviço Web que foi gerado quando um modelo foi implantado com o modelo do Azure Machine Learning. O serviço web expõe uma API REST. Crie clientes para essa API usando a linguagem de programação de sua escolha.
+description: Aprenda a chamar um ponto final de serviço web que foi gerado quando um modelo foi implantado a partir do Azure Machine Learning. O ponto final expõe uma API REST, que você pode chamar para realizar inferência com o modelo. Crie clientes para essa API usando a linguagem de programação de sua escolha.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/07/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: a86b8ddb59719db9bdaffea44aecd5428ad16834
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0222b63323c4e546628d790fabb881eba006494e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282657"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383385"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo de Azure Machine Learning implantado como um serviço web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-A implantação de um modelo do Azure Machine Learning como um serviço da Web cria uma API REST. Você pode enviar dados para essa API e receber a previsão retornada pelo modelo. Neste documento, saiba como criar clientes para o serviço da Web usando C#, Go, Java e Python.
+A implantação de um modelo de Aprendizado de Máquina do Azure como serviço web cria um ponto final da API REST. Você pode enviar dados para este ponto final e receber a previsão devolvida pelo modelo. Neste documento, saiba como criar clientes para o serviço da Web usando C#, Go, Java e Python.
 
-Você cria um serviço web quando implanta uma imagem no Azure Container Instances, no Azure Kubernetes Service ou no Field-Programmable Gate Arrays (FPGA). Você cria imagens de modelos registrados e arquivos de pontuação. Você recuperar o URI usado para acessar um serviço web usando o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Se a autenticação estiver ativada, você também poderá usar o SDK para obter as chaves de autenticação ou tokens.
+Você cria um serviço web quando implanta um modelo no ambiente local, instâncias de contêiner do Azure, serviço Azure Kubernetes ou matrizes de portão programáveis em campo (FPGA). Você recupera o URI usado para acessar o serviço web usando o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Se a autenticação estiver ativada, você também poderá usar o SDK para obter as chaves de autenticação ou tokens.
 
 O fluxo de trabalho geral para a criação de um cliente que usa um serviço web machine learning é:
 
@@ -174,6 +174,17 @@ O serviço da web pode aceitar vários conjuntos de dados em uma solicitação. 
 ### <a name="binary-data"></a>Dados binários
 
 Para obter informações sobre como habilitar o suporte a dados binários em seu serviço, consulte [dados binários](how-to-deploy-and-where.md#binary).
+
+> [!TIP]
+> A ativação do suporte para dados binários acontece no arquivo score.py usado pelo modelo implantado. A partir do cliente, use a funcionalidade HTTP da sua linguagem de programação. Por exemplo, o seguinte trecho envia o conteúdo de um arquivo JPG para um serviço web:
+>
+> ```python
+> import requests
+> # Load image data
+> data = open('example.jpg', 'rb').read()
+> # Post raw data to scoring URI
+> res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/> octet-stream'})
+> ```
 
 ### <a name="cross-origin-resource-sharing-cors"></a>Compartilhamento de recursos de origem cruzada (CORS)
 

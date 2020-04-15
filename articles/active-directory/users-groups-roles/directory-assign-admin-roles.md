@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 04/07/2020
+ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e097173712693754baab99912301c98ee336f64f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: bfe8aa088538663ac3e64f5913ff031e6160b045
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877908"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382649"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -228,12 +228,11 @@ Os usuários com essa função têm acesso a todos os recursos administrativos d
 
 ### <a name="global-reader"></a>[Leitor global](#global-reader-permissions)
 
-Os usuários nesta função podem ler configurações e informações administrativas nos serviços do Microsoft 365, mas não podem tomar ações de gerenciamento. O leitor global é a contrapartida somente para o administrador global. Atribuir leitor global em vez de administrador global para planejamento, auditorias ou investigações. Use o leitor Global em combinação com outras funções de administração limitadas, como o Administrador de Câmbio, para facilitar o trabalho feito sem a atribuição da função de Administrador Global. O leitor global trabalha com o centro de administração Microsoft 365, centro de administração do Exchange, centro de administração de equipes, centro de segurança, centro de conformidade, centro de administração Azure AD e centro de administração de gerenciamento de dispositivos.
+Os usuários nesta função podem ler configurações e informações administrativas nos serviços do Microsoft 365, mas não podem tomar ações de gerenciamento. O leitor global é a contrapartida somente para o administrador global. Atribuir leitor global em vez de administrador global para planejamento, auditorias ou investigações. Use o leitor Global em combinação com outras funções de administração limitadas, como o Administrador de Câmbio, para facilitar o trabalho feito sem a atribuição da função de Administrador Global. O leitor global trabalha com o centro de administração Microsoft 365, centro de administração do Exchange, centro de administração sharePoint, centro de administração de equipes, centro de segurança, centro de conformidade, centro de administração Azure AD e centro de administração de gerenciamento de dispositivos.
 
 > [!NOTE]
 > O papel do leitor global tem algumas limitações agora -
 >
->- O centro de admin SharePoint - O centro de admin SharePoint não suporta o papel de leitor Global. Você não verá 'SharePoint' no painel esquerdo em Centros de Administradores no [centro de administradores microsoft 365](https://admin.microsoft.com/Adminportal/Home#/homepage).
 >- [Centro de admin OneDrive](https://admin.onedrive.com/) - O centro de admin OneDrive não suporta a função de leitor Global.
 >- [Portal Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - O leitor global não pode ler o modo de provisionamento de um aplicativo corporativo.
 >- [Centro de admin M365](https://admin.microsoft.com/Adminportal/Home#/homepage) - O leitor global não pode ler solicitações de caixa de bloqueio do cliente. Você não encontrará a guia **solicitações** do caixa de bloqueio cliente em **Suporte** no painel esquerdo do Centro de Administrador M365.
@@ -370,7 +369,7 @@ Proteção Avançada contra Ameaças do Azure | Monitorar e responder a atividad
 Windows Defender ATP e EDR | Atribuir funções<br>Gerenciar grupos de computadores<br>Configurar a detecção de ameaças do ponto de extremidade e a correção automatizada<br>Exibir, investigar e responder a alertas
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Exibe informações de usuário, dispositivo, registro, configuração e aplicativo<br>Não pode fazer alterações no Intune
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Adicionar administradores, adicionar políticas e configurações, carregar logs e executar ações de governança
-[Centro de Segurança Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Pode exibir políticas de segurança, exibir estados de segurança, editar políticas de segurança, exibir alertas e recomendações, ignorar alertas e recomendações
+[Central de Segurança do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Pode exibir políticas de segurança, exibir estados de segurança, editar políticas de segurança, exibir alertas e recomendações, ignorar alertas e recomendações
 [Integridade do serviço do Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Exibir a integridade de serviços do Office 365
 
 ### <a name="security-operator"></a>[Operador de segurança](#security-operator-permissions)
@@ -401,7 +400,7 @@ Identity Protection Center | Ler todos os relatórios de segurança e informaç�
 Windows Defender ATP e EDR | Veja e investigue alertas. Quando você ativar o controle de acesso baseado em rpg no Windows Defender ATP, os usuários com permissões somente de leitura, como a função de leitor de segurança do Azure AD, perdem o acesso até que sejam atribuídos a uma função ATP do Windows Defender.
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Exibe informações de usuário, dispositivo, registro, configuração e aplicativo. Não pode fazer alterações no Intune.
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões somente leitura e pode gerenciar alertas
-[Centro de Segurança Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Pode exibir recomendações e alertas, exibir políticas de segurança, exibir estados de segurança, mas não pode fazer alterações
+[Central de Segurança do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Pode exibir recomendações e alertas, exibir políticas de segurança, exibir estados de segurança, mas não pode fazer alterações
 [Integridade do serviço do Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Exibir a integridade de serviços do Office 365
 
 ### <a name="service-support-administrator"></a>[Administrador de suporte de serviço](#service-support-administrator-permissions)

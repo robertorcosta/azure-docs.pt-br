@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
-ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f0c2d9757f3652b0f83b8c36d89c855f7a92fdd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65952689"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383860"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou excluir um prefixo de endereço IP público
 
@@ -41,7 +41,7 @@ Prefixos do endereço IP público têm um encargo. Para detalhes, consulte o [pr
 ## <a name="create-a-public-ip-address-prefix"></a>Criar um prefixo de endereço IP público
 
 1. No canto superior esquerdo do Portal, selecione **+ Criar um recurso**.
-2. Insira *prefixo de endereço IP público* na caixa *Pesquisar no Marketplace*. Quando **Prefixo de endereço IP público** aparecer nos resultados da pesquisa, selecione-o.
+2. Digite *o prefixo ip público* na caixa Pesquisar o *Marketplace.* Quando **Prefixo de endereço IP público** aparecer nos resultados da pesquisa, selecione-o.
 3. Em **Prefixo de endereço IP público**, selecione **Criar**.
 4. Insira ou selecione valores para as configurações a seguir, em **Criar prefixo de endereço IP público** e, em seguida, selecione **Criar**:
 

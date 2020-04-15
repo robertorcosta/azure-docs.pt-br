@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48d98d6fef896f9288be88824a62fa1c8179217f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276888"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382516"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções do Azure Functions
 
@@ -33,7 +33,7 @@ Uma implantação de Funções do Azure geralmente consiste nesses recursos:
 | Um componente [de insights de aplicativos](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft.Insights/componentes](/azure/templates/microsoft.insights/components)         |   |
 | Um [plano de hospedagem](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
-<sup>1</sup> Um plano de hospedagem só é necessário quando você optar por executar seu aplicativo de função em um [plano Premium](./functions-premium-plan.md) (em pré-visualização) ou em um plano de serviço [de aplicativo](../app-service/overview-hosting-plans.md).
+<sup>1</sup> Um plano de hospedagem só é necessário quando você optar por executar seu aplicativo de função em um [plano Premium](./functions-premium-plan.md) ou em um plano de serviço [de aplicativo.](../app-service/overview-hosting-plans.md)
 
 > [!TIP]
 > Embora não seja necessário, é fortemente recomendável que você configure insights de aplicativos para o seu aplicativo.
@@ -111,7 +111,7 @@ Além disso, a chave de instrumentação precisa ser `APPINSIGHTS_INSTRUMENTATIO
 
 A definição do plano de hospedagem varia e pode ser uma das seguintes:
 * [Plano de consumo](#consumption) (padrão)
-* [Plano premium](#premium) (em pré-visualização)
+* [Plano Premium](#premium)
 * [Plano de serviço de aplicativos](#app-service-plan)
 
 ### <a name="function-app"></a>Aplicativo de funções
@@ -647,10 +647,10 @@ Um aplicativo de funções tem muitos recursos filho que podem ser usados na sua
 
 Você pode usar qualquer uma das seguintes maneiras para implantar o modelo:
 
-* [Powershell](../azure-resource-manager/templates/deploy-powershell.md)
-* [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
-* [Portal Azure](../azure-resource-manager/templates/deploy-portal.md)
-* [REST API](../azure-resource-manager/templates/deploy-rest.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)
+* [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+* [API REST](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Botão Implantar no Azure
 

@@ -11,17 +11,33 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: fb11d1bdcf8145d4e78285833789b41c92b0ce4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0116c1cfe61b49f2d5aff46fab9cadc0e423ecc
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064873"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310168"
 ---
 # <a name="configure-ip-firewall-rules-for-an-azure-event-hubs-namespace"></a>Configure regras de firewall IP para um namespace do Azure Event Hubs
 Por padrão, os namespaces do Event Hubs são acessíveis a partir da internet, desde que a solicitação venha com autenticação e autorização válidas. Com firewall IP, você pode restringi-lo ainda mais a apenas um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
 Esse recurso é útil em cenários nos quais o Azure Event Hubs só deve ser acessível a partir de certos sites conhecidos. As regras do firewall permitem configurar regras para aceitar tráfego originário de endereços IPv4 específicos. Por exemplo, se você usar hubs de eventos com [o Azure Express Route,][express-route]você poderá criar uma regra de **firewall** para permitir o tráfego apenas de seus endereços IP de infra-estrutura no local. 
+
+>[!WARNING]
+> A habilitação da filtragem ip pode impedir que outros serviços do Azure interajam com hubs de eventos.
+>
+> Não há suporte para serviços confiáveis da Microsoft quando as Redes Virtuais são implementadas.
+>
+> Cenários comuns do Azure que não funcionam com Redes Virtuais (observe que a lista **NÃO** é exaustiva):
+> - Stream Analytics do Azure
+> - Integração com a Grade de Eventos do Azure
+> - Rotas do Hub IoT do Azure
+> - Device Explorer do Azure IoT
+>
+> Os seguintes serviços da Microsoft são necessários para estar em uma rede virtual
+> - Aplicativos Web do Azure
+> - Funções do Azure
+
 
 ## <a name="ip-firewall-rules"></a>Regras de firewall de IP
 As regras de firewall IP são aplicadas no nível de namespace do Event Hubs. Portanto, as regras se aplicam a todas as conexões de clientes que usam qualquer protocolo com suporte. Qualquer tentativa de conexão de um endereço IP que não corresponda a uma regra IP permitida no namespace dos Hubs de Eventos será rejeitada como não autorizada. A resposta não menciona a regra IP. As regras de filtro IP são aplicadas na ordem e a primeira regra que corresponde ao endereço IP determina a ação de aceitar ou rejeitar.

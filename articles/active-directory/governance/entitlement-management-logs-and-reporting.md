@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 04/14/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 070b7c5e0fef7d50f84271190432a65d29699bdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d59a508d03730a51e793a5e30e2c99a91af77ce8
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128632"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380186"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Registros de arquivos e relatórios sobre o gerenciamento de direitos do Azure AD no Azure Monitor
 
@@ -49,6 +49,38 @@ O arquivamento de registros de auditoria do Azure AD exige que você tenha o Azu
 1. Selecione **Uso e custos estimados** e clique **em Retenção de Dados**. Altere o controle deslizante para o número de dias que deseja manter os dados para atender aos seus requisitos de auditoria.
 
     ![Painel de espaços de trabalho do Log Analytics](./media/entitlement-management-logs-and-reporting/log-analytics-workspaces.png)
+
+1. Mais tarde, para ver a gama de datas mantidas em seu espaço de trabalho, você pode usar a carteira de trabalho *Archived Log Date Range:*  
+    
+    1. Selecione **O Diretório Ativo do Azure** e clique em **'Livros de trabalho 'Planilhas**' 
+    
+    1. Expanda a seção Solução de problemas do diretório ativo do **Azure**e clique em **'Intervalo de data de log arquivado'.** 
+
+
+## <a name="view-events-for-an-access-package"></a>Exibir eventos para um pacote de acesso  
+
+Para visualizar eventos para um pacote de acesso, você deve ter acesso ao espaço de trabalho do monitor Azure subjacente (consulte [Gerenciar acesso a dados de registro e espaços de trabalho no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) para obter informações) e em uma das seguintes funções: 
+
+- Administrador global  
+- Administrador de segurança  
+- Leitor de segurança  
+- Leitor de relatórios  
+- Administrador de aplicativos  
+
+Use o seguinte procedimento para visualizar eventos: 
+
+1. No portal Azure, selecione **O Diretório Ativo do Azure** e clique em **Workbooks**. Se você tiver apenas uma assinatura, passe para o passo 3. 
+
+1. Se você tiver várias assinaturas, selecione a assinatura que contém o espaço de trabalho.  
+
+1. Selecione a carteira de trabalho chamada *Atividade do Pacote de Acesso*. 
+
+1. Nessa caderneta de trabalho, selecione um intervalo de tempo (alterar para **Tudo** se não tiver certeza) e selecione um ID de pacote de acesso na lista de itens de acesso de todos os pacotes de acesso que tiveram atividade durante esse intervalo de tempo. Os eventos relacionados ao pacote de acesso ocorrido durante o intervalo de tempo selecionado serão exibidos.  
+
+    ![Exibir eventos do pacote de acesso](./media/entitlement-management-logs-and-reporting/view-events-access-package.png) 
+
+    Cada linha inclui o tempo, id do pacote de acesso, o nome da operação, o ID do objeto, UPN e o nome de exibição do usuário que iniciou a operação.  Detalhes adicionais estão incluídos no JSON.   
+
 
 ## <a name="create-custom-azure-monitor-queries-using-the-azure-portal"></a>Crie consultas personalizadas do Azure Monitor usando o portal Azure
 Você pode criar suas próprias consultas em eventos de auditoria Azure AD, incluindo eventos de gerenciamento de direitos.  
@@ -86,6 +118,7 @@ Você pode acessar logs através do PowerShell depois de configurar o Azure AD p
 Certifique-se de que você, o usuário ou o diretor de serviço que irá autenticar o Azure AD, esteja na função Azure apropriada no espaço de trabalho do Log Analytics. As opções de função são o Log Analytics Reader ou o Log Analytics Contributor. Se você já estiver em uma dessas funções, pule para recuperar o [ID do Log Analytics com uma assinatura do Azure](#retrieve-log-analytics-id-with-one-azure-subscription).
 
 Para definir a atribuição de função e criar uma consulta, faça as seguintes etapas:
+
 1. No portal Azure, localize o [espaço de trabalho log analytics](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces
 ).
 
@@ -103,7 +136,7 @@ Depois de ter a atribuição de função apropriada, inicie o PowerShell e [inst
 install-module -Name az -allowClobber -Scope CurrentUser
 ```
     
-Agora você está pronto para autenticar o Azure AD e recuperar o id do espaço de trabalho do Log Analytics que você está consultando.
+Agora você está pronto para autenticar o Azure AD e recuperar o ID do espaço de trabalho do Log Analytics que você está consultando.
 
 ### <a name="retrieve-log-analytics-id-with-one-azure-subscription"></a>Recupere o ID do Log Analytics com uma assinatura do Azure
 Se você tiver apenas uma assinatura única do Azure e um único espaço de trabalho do Log Analytics, digite o seguinte para autenticar o Azure AD, conecte-se a essa assinatura e recupere esse espaço de trabalho:
@@ -117,7 +150,7 @@ $wks = Get-AzOperationalInsightsWorkspace
 
  [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) opera em uma assinatura por vez. Então, se você tem várias assinaturas do Azure, você vai querer ter certeza de que você se conecta ao que tem o espaço de trabalho do Log Analytics com os logs Azure AD. 
  
- Os cmdlets a seguir exibem uma lista de assinaturas e encontram o id da assinatura que tem o espaço de trabalho do Log Analytics:
+ Os cmdlets a seguir exibem uma lista de assinaturas e encontram o ID da assinatura que tem o espaço de trabalho do Log Analytics:
  
 ```azurepowershell
 Connect-AzAccount
@@ -128,7 +161,7 @@ $subs | ft
 Você pode reautenticar e associar sua sessão PowerShell a `Connect-AzAccount –Subscription $subs[0].id`essa assinatura usando um comando como . Para saber mais sobre como autenticar o Azure no PowerShell, incluindo não interativamente, consulte [Entrar com o Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
 ).
 
-Se você tiver vários espaços de trabalho do Log Analytics nessa assinatura, o cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) retorna a lista de espaços de trabalho. Então você pode encontrar o que tem os logs Azure AD. O `CustomerId` campo retornado por este cmdlet é o mesmo que o valor do "ID do Espaço de Trabalho" exibido no portal Azure na visão geral do espaço de trabalho do Log Analytics.
+Se você tiver vários espaços de trabalho do Log Analytics nessa assinatura, o cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) retorna a lista de espaços de trabalho. Então você pode encontrar o que tem os logs Azure AD. O `CustomerId` campo retornado por este cmdlet é o mesmo que o valor do "Workspace Id" exibido no portal Azure na visão geral do espaço de trabalho do Log Analytics.
  
 ```powershell
 $wks = Get-AzOperationalInsightsWorkspace
@@ -150,7 +183,7 @@ $aResponse.Results |ft
 Você também pode recuperar eventos de gerenciamento de direitos usando uma consulta como:
 
 ```azurepowershell
-$bQuery = = 'AuditLogs | where Category == "EntitlementManagement"'
+$bQuery = 'AuditLogs | where Category == "EntitlementManagement"'
 $bResponse = Invoke-AzOperationalInsightsQuery -WorkspaceId $wks[0].CustomerId -Query $Query
 $bResponse.Results |ft 
 ```

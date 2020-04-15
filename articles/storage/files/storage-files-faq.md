@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 9398820c88120400d97fbaf8cb0da100c2bdbf81
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 82c516eeac6d3e88ca7b6ac1c97ebb638ba27979
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261747"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383923"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 [ Os arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do {SM} protocolo [de padrão do setor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -199,16 +199,6 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
     Não, a autenticação de VMs Linux não é suportada.
 
-* <a id="ad-multiple-forest"></a>
-**A autenticação ad de arquivos azure suporta a integração com um ambiente AD usando várias florestas?**    
-
-    A autenticação Azure Files AD só se integra à floresta do serviço de domínio AD que a conta de armazenamento está registrada. Para suportar a autenticação de outra floresta ad, seu ambiente deve ter a confiança da floresta configurada adequadamente. A forma como o Azure Files se registra em um serviço de domínio AD é principalmente o mesmo que um servidor de arquivos regular, onde cria uma identidade (conta de logon de computador ou serviço) em AD para autenticação. A única diferença é que o SPN registrado da conta de armazenamento termina com "file.core.windows.net" que não corresponde ao sufixo de domínio. Consulte o administrador de domínio para ver se alguma atualização da sua política de roteamento de DNS é necessária para habilitar a autenticação de floresta múltipla devido ao sufixo de domínio diferente.
-
-* <a id=""></a>
-**Quais regiões estão disponíveis para autenticação (visualização) de arquivos Azure( visualização)?**
-
-    Consulte a [disponibilidade regional do AD](storage-files-identity-auth-active-directory-enable.md#regional-availability) para obter detalhes.
-
 * <a id="ad-aad-smb-afs"></a>
 **Posso aproveitar a autenticação Azure Files AD DS ou a autenticação (visualização) do Active Directory (AD) em compartilhamentos de arquivos gerenciados pelo Azure File Sync?**
 
@@ -218,7 +208,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 **Como posso verificar se habilitei a autenticação de Anúncios na minha conta de armazenamento e nas informações de domínio aD?**
 
     Você pode consultar as instruções fornecidas [aqui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account) para validar se a autenticação ad arquivos Do Azure está ativada em sua conta de armazenamento e recuperar as informações de domínio do AD.
-    
+
 * <a id="encryption-at-rest"></a>
 **Como garantir que o compartilhamento de arquivos do Azure está criptografado em repouso?**  
 
@@ -243,6 +233,37 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 **A quais políticas de conformidade de dados o serviço Arquivos do Azure dá suporte?**  
 
    O Arquivos do Azure é executado com base na mesma arquitetura de armazenamento usada em outros serviços de armazenamento no Armazenamento do Azure. O Arquivos do Azure aplica as mesmas políticas de conformidade de dados que são usadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a conformidade de dados do Armazenamento do Azure, você pode consultar as [ofertas de conformidade do Armazenamento do Microsoft Azure ](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings) e ir à [Central de Confiabilidade da Microsoft](https://microsoft.com/trustcenter/default.aspx).
+   
+### <a name="ad-authentication"></a>Autenticação do AD
+* <a id=""></a>
+**O Azure Files Azure AD possui suporte a VMs Linux?**
+
+    Não, a autenticação de VMs Linux não é suportada.
+
+* <a id="ad-multiple-forest"></a>
+**A autenticação ad de arquivos azure suporta a integração com um ambiente AD usando várias florestas?**    
+
+    A autenticação Azure Files AD só se integra à floresta do serviço de domínio AD que a conta de armazenamento está registrada. Para suportar a autenticação de outra floresta ad, seu ambiente deve ter a confiança da floresta configurada adequadamente. A forma como o Azure Files se registra em um serviço de domínio AD é principalmente o mesmo que um servidor de arquivos regular, onde cria uma identidade (conta de logon de computador ou serviço) em AD para autenticação. A única diferença é que o SPN registrado da conta de armazenamento termina com "file.core.windows.net" que não corresponde ao sufixo de domínio. Consulte o administrador de domínio para ver se alguma atualização da sua política de roteamento de DNS é necessária para habilitar a autenticação de floresta múltipla devido ao sufixo de domínio diferente.
+
+* <a id=""></a>
+**Quais regiões estão disponíveis para autenticação (visualização) de arquivos Azure( visualização)?**
+
+    Consulte a [disponibilidade regional do AD](storage-files-identity-auth-active-directory-enable.md#regional-availability) para obter detalhes.
+
+* <a id="ad-aad-smb-afs"></a>
+**Posso aproveitar a autenticação (AD) do Azure Files Active Directory (AD) em compartilhamentos de arquivos gerenciados pelo Azure File Sync?**
+
+    Sim, você pode habilitar a autenticação aD em um compartilhamento de arquivos gerenciado pela sincronização de arquivos do Azure. As alterações nas ACLs NTFS de diretório/arquivo em servidores de arquivos locais serão hierárquicas em Arquivos Azure e vice-versa.
+
+* <a id="ad-aad-smb-files"></a>
+**Como posso verificar se habilitei a autenticação de Anúncios na minha conta de armazenamento e nas informações de domínio aD?**
+
+    Você pode consultar as instruções fornecidas [aqui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) para validar se a autenticação ad arquivos Do Azure está ativada em sua conta de armazenamento e recuperar as informações de domínio do AD.
+
+* <a id="ad-aad-smb-files"></a>
+**Existe alguma diferença na criação de uma conta de computador ou conta de logon de serviço para representar minha conta de armazenamento em AD?**
+
+    Criar uma conta de [computador](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (padrão) ou uma conta [de logon de serviço](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) não tem diferença sobre como a autenticação funcionaria com arquivos Azure. Você pode fazer sua própria escolha sobre como representar uma conta de armazenamento como uma identidade em seu ambiente de Anúncios. O conjunto DomainAccountType padrão no join-AzStorageAccountForAuth cmdlet é a conta do computador. No entanto, a idade de expiração da senha configurada em seu ambiente DeD pode ser diferente para a conta de logon de computador ou serviço e você precisa levar isso em consideração para [atualizar a senha da sua identidade de conta de armazenamento em AD](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#5-update-ad-account-password).
 
 ## <a name="on-premises-access"></a>Acesso local
 

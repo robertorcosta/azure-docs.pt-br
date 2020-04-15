@@ -1,7 +1,7 @@
 ---
 title: Redundância de dados
 titleSuffix: Azure Storage
-description: Os dados na sua conta do Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. As configurações de redundância incluem LRS (Locally Redundante Storage, armazenamento redundante de zona), zrs(armazenamento redundante de zona), grs (geo-redundante), armazenamento geo-redundante de acesso de leitura (RA-GRS), armazenamento redundante em geo-zona (GZRS) (visualização) e acesso à leitura armazenamento redundante de geo-zona (RA-GZRS) (visualização).
+description: Os dados na sua conta do Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. As configurações de redundância incluem lRS (LRS), armazenamento redundante de zona (ZRS), armazenamento geo-redundante (GRS), armazenamento geo-redundante de acesso de leitura (RA-GRS), armazenamento redundante em geo-zona (GZRS) (visualização) e armazenamento geo-redundante de acesso de leitura (RA-GZRS) (visualização).
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7ae5f59a1bd96362d5466b2f6363185ba168d942
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1961797f37a760fe3a31dc8aa3830889965b69b5
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255256"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81379936"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 

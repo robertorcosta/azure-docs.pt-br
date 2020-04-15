@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 188ef3a1b9777c37f8557a69e19887638a973611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: fcd436f87b24d8cdc246d2f1d33a49311e72d46b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062536"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380296"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Configure e acesse registros de auditoria para o Banco de Dados Azure para MySQL no portal Azure
 
@@ -30,7 +30,7 @@ Para seguir este guia de instruções, você precisa:
 
 Habilite e configure o registro de auditoria.
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione seu servidor de Banco de Dados do Azure para MySQL.
 
@@ -69,4 +69,5 @@ Habilite e configure o registro de auditoria.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [registros de auditoria](concepts-audit-logs.md) no Banco de Dados Azure para MySQL.
+- Saiba mais sobre [registros de auditoria](concepts-audit-logs.md) no Banco de Dados Azure para MySQL
+- Saiba como configurar registros de auditoria na CLI do [Azure](howto-configure-audit-logs-cli.md)

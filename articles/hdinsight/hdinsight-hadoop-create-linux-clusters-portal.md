@@ -1,19 +1,19 @@
 ---
 title: Crie clusters Apache Hadoop usando navegador web, Azure HDInsight
-description: Aprenda a criar clusters Apache Hadoop, Apache HBase, Apache Storm ou Apache Spark no Linux para HDInsight usando um navegador web e o portal Azure.
+description: Aprenda a criar aglomerados Apache Hadoop, Apache HBase, Apache Storm ou Apache Spark no HDInsight. Use o navegador web e o portal Azure.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/19/2020
-ms.openlocfilehash: bcc71b7244ba3498b2fcde023d372e67f41d6117
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.openlocfilehash: a5f6ac76d509a0a63c2d641f91cd91cdb2e0d19d
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623243"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313818"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight usando o portal do Azure
 
@@ -31,7 +31,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. No menu superior, selecione **+ Crie um recurso**.
 
@@ -51,7 +51,7 @@ Na guia Noções Básicas, forneça as **seguintes** informações:
 |Resource group|Na lista de paradas, selecione o grupo de recursos existente ou selecione **Criar novo**.|
 |Nome do cluster|Insira um nome global exclusivo.|
 |Região|Na lista de paradas, selecione uma região onde o cluster é criado.|
-|Tipo de cluster|Selecione **Selecionar o tipo de cluster** para abrir uma lista. Na lista, selecione o tipo de cluster desejado. Os clusters HDInsight são fornecidos em vários tipos. Eles correspondem à carga de trabalho ou tecnologia para a qual o cluster está sintonizado. Não há nenhum método com suporte para criar um cluster que combine vários tipos.|
+|Tipo de cluster|Clique **em Selecionar o tipo de cluster** para abrir uma lista. Na lista, selecione o tipo de cluster desejado. Os clusters HDInsight vêm em diferentes tipos. Eles correspondem à carga de trabalho ou tecnologia para a qual o cluster está sintonizado. Não há nenhum método com suporte para criar um cluster que combine vários tipos.|
 |Versão|Na lista de paradas, selecione uma **versão**. Use a versão padrão se não souber o que escolher. Para obter mais informações, consulte [Versões de cluster do HDInsight](hdinsight-component-versioning.md).|
 |Nome de usuário de logon do cluster|Forneça o nome de usuário, padrão é **admin**.|
 |Senha de logon do cluster|Forneça a senha.|
@@ -67,7 +67,7 @@ Selecione **A seguir: O armazenamento >>** para avançar para a próxima guia.
 
 ### <a name="primary-storage"></a>Armazenamento primário
 
-Na lista de isto de baixa para **o tipo de armazenamento principal,** selecione o tipo de armazenamento padrão. Os campos subseqüentes a serem concluídos variam de acordo com a sua seleção. Para **armazenamento azure:**
+Na lista de isto de baixa para **o tipo de armazenamento principal,** selecione o tipo de armazenamento padrão. Os campos posteriores a serem concluídos variam de acordo com a sua seleção. Para **armazenamento azure:**
 
 1. Para **o método Seleção,** escolha **Selecionar na lista**ou Usar **a tecla de acesso**.
     * Em **Select from list,** selecione sua **conta de armazenamento principal** na lista de desímpara baixa ou selecione Criar **novo**.
@@ -81,7 +81,7 @@ Opcional: Selecione **Adicionar armazenamento Azure** para armazenamento adicion
 
 ### <a name="metastore-settings"></a>Configurações do metastore
 
-Opcional: Especifique um banco de dados SQL existente para salvar os metadados Apache Hive, Apache Oozie e/ou Apache Ambari fora do cluster. O Banco de Dados SQL do Azure que é usado para o metastore deve permitir a conectividade com outros serviços do Azure, incluindo o Azure HDInsight. Ao criar um metastore, não use traços nem hifens para nomear um banco de dados. Esses caracteres podem causar falha no processo de criação do cluster.
+Opcional: Especifique um banco de dados SQL existente para salvar a Colmeia Apache, apache Oozie e, ou metadados Apache Ambari fora do cluster. O Banco de Dados SQL do Azure que é usado para o metastore deve permitir a conectividade com outros serviços do Azure, incluindo o Azure HDInsight. Ao criar um metastore, não use traços nem hifens para nomear um banco de dados. Esses caracteres podem causar falha no processo de criação do cluster.
 
 Selecione **A seguir: Segurança + >>de rede** para avançar para a próxima guia.
 
@@ -150,7 +150,7 @@ Alguns dos ícones na janela são explicados da seguinte forma:
 
 Consulte [Excluir um cluster HDInsight usando seu navegador, PowerShell ou o Azure CLI](./hdinsight-delete-cluster.md).
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
@@ -158,25 +158,7 @@ Se você tiver problemas com a criação de clusters HDInsight, confira os [requ
 
 Você criou com êxito um cluster HDInsight. Saiba agora como trabalhar com o cluster.
 
-### <a name="apache-hadoop-clusters"></a>Clusters do Apache Hadoop
-
 * [Usar o Apache Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
-* [Usar o MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
-
-### <a name="apache-hbase-clusters"></a>Clusters do Apache HBase
-
 * [Introdução ao Apache HBase no HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Desenvolvimento de aplicativos Java para Apache HBase no HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
-
-### <a name="apache-storm-clusters"></a>Clusters do Apache Storm
-
 * [Desenvolver topologias em Java para o Apache Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Usar componentes de Python no Apache Storm no HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Implantar e monitorar topologias com o Apache Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
-
-### <a name="apache-spark-clusters"></a>Clusters do Apache Spark
-
 * [Criar um aplicativo independente usando o Scala](spark/apache-spark-create-standalone-application.md)
-* [Executar trabalhos remotamente em um cluster Apache Spark usando Apache Livy](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark com BI: realize a análise interativa de dados usando o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: use o Spark no HDInsight para prever os resultados da inspeção de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)

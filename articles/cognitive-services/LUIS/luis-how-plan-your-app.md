@@ -1,22 +1,14 @@
 ---
 title: Planeje seu aplicativo - LUIS
-titleSuffix: Azure Cognitive Services
 description: Descreva intenções e entidades de aplicativo relevantes e crie seus planos de aplicativo no LUIS (Serviço Inteligente de Reconhecimento Vocal).
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/20/2019
-ms.author: diberry
-ms.openlocfilehash: 6a155f4c43da03ccdc40d289742918973aa6da7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: dfed27a05973a2ea2e9a97eaa1c233b847b33d87
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74326785"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382298"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planeje seu esquema de aplicativo LUIS com domínio de assunto e extração de dados
 
@@ -44,7 +36,7 @@ Se você não precisar identificar a intenção geral do usuário, `None` adicio
 
 ## <a name="create-example-utterances-for-each-intent"></a>Crie exemplos de declarações para cada intenção
 
-Para começar, evite criar muitas expressões para cada intenção. Depois de determinar as intenções, crie de 15 a 30 enunciados por intenção. Cada enunciado deve ser diferente das declarações fornecidas anteriormente. Uma boa variedade de expressões incluem contagem geral de palavras, escolha de palavras, verbo tenso e pontuação.
+Para começar, evite criar muitas expressões para cada intenção. Depois de determinar as intenções, crie de 15 a 30 enunciados por intenção. Cada enunciado deve ser diferente das declarações fornecidas anteriormente. Uma boa variedade de expressões incluem contagem geral de palavras, escolha de palavras, verbo tenso e [pontuação](luis-reference-application-settings.md#punctuation-normalization).
 
 Para obter mais informações, consulte [a compreensão de boas expressões para aplicativos LUIS](luis-concept-utterance.md).
 

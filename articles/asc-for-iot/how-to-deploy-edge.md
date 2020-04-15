@@ -1,5 +1,5 @@
 ---
-title: Implantar o Azure Security Center para módulo IoT Edge| Microsoft Docs
+title: Implantar módulo de segurança IoT Edge
 description: Saiba como implantar um Centro de Segurança Azure para agente de segurança IoT no IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 3aee30e8ad82f9657c3bc9e97a7657a1e8c7989d
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4dd7ca8f926862487b9505731c0662e68ee3d7c0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548923"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311271"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implante um módulo de segurança no seu dispositivo IoT Edge
-
 
 **O módulo Azure Security Center for IoT** fornece uma solução de segurança abrangente para seus dispositivos IoT Edge.
 O módulo de segurança coleta, agrega e analisa dados brutos de segurança do sistema operacional e do sistema de contêineres em recomendações e alertas de segurança acionáveis.
@@ -42,14 +41,13 @@ Use as seguintes etapas para implantar um Módulo de Segurança Azure para IoT e
 1. O Azure Security Center para módulo IoT Edge requer que a [estrutura AuditD](https://linux.die.net/man/8/auditd) esteja instalada no dispositivo IoT Edge.
 
     - Instale a estrutura executando o seguinte comando no dispositivo IoT Edge:
-   
+
     `sudo apt-get install auditd audispd-plugins`
 
-    - Verifique se o AuditD está ativo executando o seguinte comando: 
-   
+    - Verifique se o AuditD está ativo executando o seguinte comando:
+
     `sudo systemctl status auditd`<br>
-    - A resposta esperada é:`active (running)` 
-        
+    - A resposta esperada é:`active (running)`
 
 ### <a name="deployment-using-azure-portal"></a>Implantação usando o portal Azure
 
@@ -59,14 +57,14 @@ Use as seguintes etapas para implantar um Módulo de Segurança Azure para IoT e
 
    ![Selecione o Centro de Segurança Azure para IoT](media/howto/edge-onboarding-8.png)
 
-1. Clique **em Criar** para configurar a implantação. 
+1. Clique **em Criar** para configurar a implantação.
 
-1. Escolha a **assinatura** azure do seu Hub IoT e selecione o **seu IoT Hub**.<br>Selecione **Implantar em um dispositivo** para segmentar um único dispositivo ou **selecione Implantar em Escala** para segmentar vários dispositivos e clique em **Criar**. Para obter mais informações sobre como implantar em escala, consulte [Como implantar](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor). 
+1. Escolha a **assinatura** azure do seu Hub IoT e selecione o **seu IoT Hub**.<br>Selecione **Implantar em um dispositivo** para segmentar um único dispositivo ou **selecione Implantar em Escala** para segmentar vários dispositivos e clique em **Criar**. Para obter mais informações sobre como implantar em escala, consulte [Como implantar](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor).
 
-    >[!Note] 
-    >Se você selecionou **Implantar em Escala,** adicione o nome e os detalhes do dispositivo antes de continuar na guia **Adicionar módulos** nas instruções a seguir.     
+    >[!Note]
+    >Se você selecionou **Implantar em Escala,** adicione o nome e os detalhes do dispositivo antes de continuar na guia **Adicionar módulos** nas instruções a seguir.
 
-Complete cada etapa para concluir sua implantação de IoT Edge para o Azure Security Center for IoT. 
+Complete cada etapa para concluir sua implantação de IoT Edge para o Azure Security Center for IoT.
 
 #### <a name="step-1-modules"></a>Passo 1: Módulos
 
@@ -90,11 +88,11 @@ Complete cada etapa para concluir sua implantação de IoT Edge para o Azure Sec
                 "/:/host"
             ]
         }
-    }    
+    }
     ```
-    
+
 1. Na guia **Configurações duplas** do módulo, adicione a seguinte configuração:
-      
+
     ``` json
       "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
     ```
@@ -105,24 +103,24 @@ Complete cada etapa para concluir sua implantação de IoT Edge para o Azure Sec
 
 1. Selecione **Configurações de tempo de execução**.
 1. Em **Edge Hub,** altere a **imagem** para **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
-1. Verificar **as opções de criação** está definida para a seguinte configuração: 
-         
+1. Verificar **as opções de criação** está definida para a seguinte configuração:
+
     ``` json
-    { 
-       "HostConfig":{ 
-          "PortBindings":{ 
-             "8883/tcp":[ 
-                { 
+    {
+       "HostConfig":{
+          "PortBindings":{
+             "8883/tcp":[
+                {
                    "HostPort":"8883"
                 }
              ],
-             "443/tcp":[ 
-                { 
+             "443/tcp":[
+                {
                    "HostPort":"443"
                 }
              ],
-             "5671/tcp":[ 
-                { 
+             "5671/tcp":[
+                {
                    "HostPort":"5671"
                 }
              ]
@@ -130,24 +128,24 @@ Complete cada etapa para concluir sua implantação de IoT Edge para o Azure Sec
        }
     }
     ```
-    
+
 1. Clique em **Salvar**.
-   
+
 1. Selecione **Avançar**.
 
-#### <a name="step-3-specify-routes"></a>Passo 3: Especifique rotas 
+#### <a name="step-3-specify-routes"></a>Passo 3: Especifique rotas
 
 1. Na guia **Especificar rotas,** certifique-se de ter uma rota (explícita ou implícita) que encaminhará mensagens do módulo **de segurança azureiot** para **$upstream** de acordo com os exemplos a seguir. Somente quando a rota estiver no lugar, selecione **Next**.
 
    Exemplos de rotas:
 
-    ~~~Default implicit route
-    "route": "FROM /messages/* INTO $upstream" 
-    ~~~
+    ```Default implicit route
+    "route": "FROM /messages/* INTO $upstream"
+    ```
 
-    ~~~Explicit route
+    ```Explicit route
     "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-    ~~~
+    ```
 
 1. Selecione **Avançar**.
 
@@ -162,29 +160,29 @@ Se você encontrar um problema, os registros de contêineres são a melhor manei
 ### <a name="verify-the-required-containers-are-installed-and-functioning-as-expected"></a>Verifique se os recipientes necessários estão instalados e funcionando conforme o esperado
 
 1. Execute o seguinte comando no seu dispositivo IoT Edge:
-    
+
     `sudo docker ps`
-   
+
 1. Verifique se os seguintes contêineres estão em execução:
-   
+
    | Nome | IMAGE |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0.1 |
-   
+
    Se os recipientes mínimos necessários não estiverem presentes, verifique se o manifesto de implantação do IoT Edge está alinhado com as configurações recomendadas. Para obter mais informações, consulte [Implantar módulo IoT Edge](#deployment-using-azure-portal).
 
 ### <a name="inspect-the-module-logs-for-errors"></a>Inspecione os registros do módulo em busca de erros
-   
+
 1. Execute o seguinte comando no seu dispositivo IoT Edge:
 
    `sudo docker logs azureiotsecurity`
-   
+
 1. Para obter mais registros verbosos, adicione a seguinte variável de `logLevel=Debug`ambiente à implantação do módulo de segurança **azureiot:** .
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre as opções de configuração, continue a orientar como fazer para a configuração do módulo. 
+Para saber mais sobre as opções de configuração, continue a orientar como fazer para a configuração do módulo.
 > [!div class="nextstepaction"]
 > [Guia de configuração de módulo](./how-to-agent-configuration.md)

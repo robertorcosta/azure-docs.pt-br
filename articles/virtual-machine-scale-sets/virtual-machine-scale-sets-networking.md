@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: mimckitt
-ms.openlocfilehash: 7e6b8ea702d28fcd2747115710a8b1a8ec2bb1b2
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9f048c7d89da0ab75c321cd8e3932ea97c7ed09c
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270512"
+ms.locfileid: "81310023"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -69,6 +69,14 @@ az vmss create \
 
 >[!NOTE]
 > Depois que o conjunto de escalas for criado, a porta backend não pode ser modificada para uma regra de balanceamento de carga usada por uma sonda de saúde do balanceador de carga. Para alterar a porta, você pode remover o teste de saúde atualizando o conjunto de escala da máquina virtual do Azure, atualizar a porta e, em seguida, configurar o teste de saúde novamente. 
+
+Para obter mais informações sobre balanceadores de carga e conjuntos de escala de máquinas virtuais, consulte [redes virtuais e máquinas virtuais no Azure](../../articles/virtual-machines/windows/network-overview.md).
+
+Os seguintes métodos podem ser usados para implantar um conjunto de escala de máquina virtual com um balanceador de carga Azure existente.
+
+* [Configure um conjunto de escala de máquina virtual com um Azure Load Balancer existente usando o portal Azure](../../articles/load-balancer/configure-vm-scale-set-portal.md).
+* [Configure um conjunto de escala de máquina virtual com um Balanceador de carga Azure existente usando o Azure PowerShell](../../articles/load-balancer/configure-vm-scale-set-powershell.md).
+* [Configure um conjunto de escala de máquina virtual com um Azure Load Balancer existente usando o Azure CLI](../../articles/load-balancer/configure-vm-scale-set-cli.md).
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Criar um conjunto de dimensionamento que referencia um Gateway de Aplicativo
 Para criar um conjunto de dimensionamento que usa um gateway de aplicativo, referencie o pool de endereços de back-end do gateway de aplicativo na seção ipConfigurations do conjunto de dimensionamento como nesta configuração de modelo ARM:

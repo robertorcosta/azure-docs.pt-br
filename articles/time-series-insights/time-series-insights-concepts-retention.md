@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 34cf1e91b1fe5aae516c77bf2c280dfe70000611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd34595d5ea942602efc920904ff326fc203c088
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75894749"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380683"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Entenda a retenção de dados no Azure Time Series Insights
 
@@ -60,7 +60,7 @@ No 61º dia, o ambiente mostra os dados mais recentes, mas limpa os dados mais a
 
 Suponha que um ambiente também configurou o comportamento de retenção **Continuar entrada e limpar dados antigos**. Neste exemplo, o **Tempo de retenção de dados** é definido para um valor mais baixo, de 180 dias. **Capacidade** é definido para a unidade S1, que contém 30 GB de capacidade total. Para armazenar dados por 180 dias completos, a entrada diária não pode exceder 0,166 GB (166 MB).  
 
-Sempre que a taxa diária de entrada desse ambiente excede 0,166 GB, os dados não podem ser armazenados por 180 dias, já que alguns dados sofrem limpeza. Considere esse mesmo ambiente durante um período ocupado. Suponha que a taxa de entrada do ambiente pode aumentar para uma média de 0,189 GB por dia. Nesse período ocupado, aproximadamente 158 dias de dados são retidos (30GB/0,189 = 158,73 dias de retenção). Esse tempo é menor que o período de retenção de dados desejado.
+Sempre que a taxa diária de ingressagem deste ambiente excede 0,166 GB por dia, os dados não podem ser armazenados por 180 dias, uma vez que alguns dados são eliminados. Considere esse mesmo ambiente durante um período ocupado. Suponha que a taxa de ingestão do ambiente pode aumentar para uma média de 0,189 GB por dia. Nesse período ocupado, aproximadamente 158 dias de dados são retidos (30GB/0,189 = 158,73 dias de retenção). Esse tempo é menor que o período de retenção de dados desejado.
 
 ## <a name="pause-ingress"></a>Pausar a entrada
 

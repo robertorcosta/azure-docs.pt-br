@@ -8,18 +8,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 01/30/2020
 ms.author: victorh
-ms.openlocfilehash: f56929e14aef34f675139782328ed5c559df12c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 809274aba35e9607aeacf7c6483ec3d10f899667
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198591"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312362"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configure um gateway de aplicativo com um ponto final do balanceador de carga interna (ILB)
 
 O Azure Application Gateway pode ser configurado com um VIP voltado para a Internet ou com um ponto final interno que não esteja exposto à Internet. Um ponto final interno usa um endereço IP privado para o frontend, que também é conhecido como um *ponto final do balanceador de carga interno (ILB).*
 
-Configurar o gateway usando um endereço IP privado frontend é útil para aplicativos internos de linha de negócios que não estão expostos à Internet. Também é útil para serviços e níveis dentro de um aplicativo de vários níveis que estão em um limite de segurança que não está exposto à Internet, mas ainda exige distribuição de carga de round-robin, pegajosa de sessão ou terminação de Secure Sockets Layer (SSL).
+Configurar o gateway usando um endereço IP privado frontend é útil para aplicativos internos de linha de negócios que não estão expostos à Internet. Também é útil para serviços e níveis dentro de um aplicativo de vários níveis que estão em um limite de segurança que não está exposto à Internet, mas ainda exige distribuição de carga de round-robin, pegajosa de sessão ou TLS (Transport Layer Security), anteriormente conhecida como Secure Sockets Layer (SSL), terminação.
 
 Este artigo orienta você através das etapas para configurar um gateway de aplicativo com um endereço IP privado frontend usando o portal Azure.
 

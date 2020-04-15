@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: a2eade6c5a9c826d28d435a09861ba58463ae8c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280528"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382909"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integração do Azure Active Directory para O Azure Red Hat OpenShift
 
@@ -21,17 +21,17 @@ O Microsoft Azure Red Hat OpenShift precisa de permissões para executar tarefas
 
 ## <a name="create-a-new-azure-active-directory-user"></a>Criar um novo usuário do Azure Active Directory
 
-No [portal Azure,](https://portal.azure.com)certifique-se de que seu inquilino apareça o nome do usuário no canto superior direito do portal:
+No [portal Azure,](https://portal.azure.com)certifique-se de que seu inquilino apareça sob o nome do usuário no canto superior direito do portal:
 
 ![Captura de tela do portal](./media/howto-create-tenant/tenant-callout.png) com inquilino listado no canto superior direito Se o inquilino errado for exibido, clique no nome do usuário no canto superior direito e clique em **Diretório de Switch**e selecione o inquilino correto na lista Todos os **Diretórios.**
 
-Crie um novo usuário administrador global do Azure Active Directory para fazer login no cluster Azure Red Hat OpenShift.
+Crie um novo usuário do Azure Active Directory 'Owner' para fazer login no cluster Azure Red Hat OpenShift.
 
 1. Vá para a lâmina [Usuários-Todos os usuários.](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers)
 2. Clique **em +Novo usuário** para abrir o painel do **Usuário.**
 3. Digite um **nome** para este usuário.
 4. Crie um **nome de usuário** com base no `.onmicrosoft.com` nome do inquilino que você criou, com anexo no final. Por exemplo, `yourUserName@yourTenantName.onmicrosoft.com`. Anote este nome de usuário. Você vai precisar dele para entrar no seu cluster.
-5. Clique na **função Diretório** para abrir o painel de função de diretório e selecione **Administrador Global** e clique em **Ok** na parte inferior do painel.
+5. Clique **na função Diretório** para abrir o painel de função de diretório e selecione **'Proprietário'** e clique em **'Ok'** na parte inferior do painel.
 6. No **painel do Usuário,** clique em **Mostrar Senha** e registre a senha temporária. Depois de assinar na primeira vez, você será solicitado a redefini-lo.
 7. Na parte inferior do painel, clique **em Criar** para criar o usuário.
 

@@ -1,28 +1,25 @@
 ---
 title: Como trabalhar com seus grupos de gestão - Azure Governance
 description: Saiba como visualizar, manter, atualizar e excluir sua hierarquia de grupos de gerenciamento.
-ms.date: 12/18/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 94df67888c0ed0ea532844a92a362a181621d3d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 423d1837c3d5710e24abb94f5411200319e8a8aa
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78267933"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381673"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento
 
 Se sua organização tiver muitas assinaturas, talvez seja necessária uma maneira de gerenciar com eficiência o acesso, as políticas e a conformidade dessas assinaturas. Os grupos de gerenciamento do Azure fornecem um nível de escopo acima das assinaturas. Você organiza assinaturas em contêineres chamados "grupos de gerenciamento" e aplica as condições de governança aos grupos de gerenciamento. Todas as assinaturas dentro de um grupo de gerenciamento herdam automaticamente as condições aplicadas ao grupo de gerenciamento.
 
-Os grupos de gerenciamento fornecem gerenciamento de nível empresarial em larga escala, independentemente do tipo de assinaturas que você possa ter.  Para saber mais sobre grupos de gerenciamento, consulte [organizar seus recursos com grupos de gerenciamento do Azure](overview.md).
+Os grupos de gerenciamento fornecem gerenciamento de nível empresarial em larga escala, independentemente do tipo de assinaturas que você possa ter. Para saber mais sobre grupos de gerenciamento, consulte [organizar seus recursos com grupos de gerenciamento do Azure](./overview.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
->[!IMPORTANT]
->Os tokens de usuário do Azure Resource Manager e o cache do grupo de gerenciamento duram 30 minutos antes de serem forçados a atualizar.  Depois de fazer qualquer ação como mover um grupo de gerenciamento ou assinatura, pode levar até 30 minutos para mostrar.  
->Para ver as atualizações mais cedo, você precisa atualizar seu token atualizando o navegador, fazendo login e saída ou solicitando um novo token.  
-
-
+> [!IMPORTANT]
+> Os tokens de usuário do Azure Resource Manager e o cache do grupo de gerenciamento duram 30 minutos antes de serem forçados a atualizar. Depois de fazer qualquer ação como mover um grupo de gerenciamento ou assinatura, pode levar até 30 minutos para mostrar. Para ver as atualizações mais cedo, você precisa atualizar seu token atualizando o navegador, fazendo login e saída ou solicitando um novo token.  
 
 ## <a name="change-the-name-of-a-management-group"></a>Alterar o nome de um grupo de gerenciamento
 
@@ -40,13 +37,13 @@ Você pode alterar o nome do grupo de gerenciamento usando o portal, o PowerShel
 
 1. Selecione a opção **Renomear grupo** na parte superior da página.
 
-   ![Renomear opção grupo na página do grupo de gerenciamento](./media/detail_action_small.png)
+   :::image type="content" source="./media/detail_action_small.png" alt-text="Renomear opção grupo na página do grupo de gerenciamento" border="false":::
 
 1. Quando o menu for aberto, digite o novo nome que gostaria de exibir.
 
-   ![Renomear painel de grupo para renomear grupo de gerenciamento](./media/rename_context.png)
+   :::image type="content" source="./media/rename_context.png" alt-text="Renomear painel de grupo para renomear grupo de gerenciamento" border="false":::
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="change-the-name-in-powershell"></a>Alterar o nome no PowerShell
 
@@ -72,7 +69,8 @@ Para a exclusão de um grupo de gerenciamento, os seguintes requisitos deverão 
 
    - Para mover um grupo de assinatura ou gerenciamento para outro grupo de gerenciamento, consulte [Mover grupos de gerenciamento e assinaturas na hierarquia](#moving-management-groups-and-subscriptions).
 
-1. Você precisa de permissões de gravação no grupo de gerenciamento ("Proprietário", "Contribuinte" ou "Colaborador do Grupo de Gestão"). Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, consulte [Gerenciar acesso e permissões com RBAC](../../role-based-access-control/overview.md).  
+1. Você precisa de permissões de gravação no grupo de gerenciamento ("Proprietário", "Contribuinte" ou "Colaborador do Grupo de Gestão"). Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre funções RBAC, consulte  
+   [Gerencie acesso sustais e permissões com RBAC](../../role-based-access-control/overview.md).
 
 ### <a name="delete-in-the-portal"></a>Excluir no portal
 
@@ -86,16 +84,16 @@ Para a exclusão de um grupo de gerenciamento, os seguintes requisitos deverão 
 
 1. Selecione **Excluir**
 
-    > [!TIP]
-    > Se o ícone estiver desativado, passar o seletor de mouse sobre o ícone mostrará o motivo.
+   :::image type="content" source="./media/delete.png" alt-text="Excluir opção de grupo" border="false":::
 
-   ![Excluir opção de grupo](./media/delete.png)
+   > [!TIP]
+   > Se o ícone estiver desativado, passar o seletor de mouse sobre o ícone mostrará o motivo.
 
 1. Há uma janela que abre confirmando que deseja excluir o grupo de gerenciamento.
 
-   ![Janela de confirmação de exclusão de grupo](./media/delete_confirm.png)
+   :::image type="content" source="./media/delete_confirm.png" alt-text="Janela de confirmação de exclusão de grupo" border="false":::
 
-1. Selecione **Sim**.
+1. Selecione **Sim** na barra superior.
 
 ### <a name="delete-in-powershell"></a>Excluir no PowerShell
 
@@ -127,11 +125,11 @@ Você pode exibir qualquer grupo de gerenciamento no qual você tem uma função
 
 1. Para ver os detalhes do grupo de gerenciamento, selecione o link **(detalhes)** ao lado do título do grupo de gerenciamento. Se esse link não estiver disponível, você não tem permissões para exibir esse grupo de gerenciamento.
 
-   ![Principal](./media/main.png)
+   :::image type="content" source="./media/main.png" alt-text="Principal" border="false":::
 
 ### <a name="view-in-powershell"></a>Exibir no PowerShell
 
-Você usa o comando Get-AzManagementGroup para recuperar todos os grupos.  Consulte os módulos [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) para obter a lista completa de comandos do grupo de gerenciamento GET PowerShell.  
+Você usa o comando Get-AzManagementGroup para recuperar todos os grupos. Consulte os módulos [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) para obter a lista completa de comandos do grupo de gerenciamento GET PowerShell.  
 
 ```azurepowershell-interactive
 Get-AzManagementGroup
@@ -143,7 +141,7 @@ Para obter informações de um único grupo de gerenciamento, use o parâmetro -
 Get-AzManagementGroup -GroupName 'Contoso'
 ```
 
-Para retornar um grupo de gerenciamento específico e todos os níveis da hierarquia ele, use os parâmetros **-Expande** e **-Recurse.**  
+Para retornar um grupo de gerenciamento específico e todos os níveis da hierarquia sob ele, use os parâmetros **-Expande** e **-Recurse.**  
 
 ```azurepowershell-interactive
 PS C:\> $response = Get-AzManagementGroup -GroupName TestGroupParent -Expand -Recurse
@@ -192,7 +190,7 @@ Para obter informações de um único grupo de gerenciamento, use o comando show
 az account management-group show --name 'Contoso'
 ```
 
-Para retornar um grupo de gerenciamento específico e todos os níveis da hierarquia ele, use os parâmetros **-Expande** e **-Recurse.**
+Para retornar um grupo de gerenciamento específico e todos os níveis da hierarquia sob ele, use os parâmetros **-Expande** e **-Recurse.**
 
 ```azurecli-interactive
 az account management-group show --name 'Contoso' -e -r
@@ -206,23 +204,22 @@ Ao mover um grupo de gestão ou assinatura para ser filho de outro grupo de gest
 
 Se você estiver executando a ação de mover, precisará de: 
 
--  Permissões de gravação de Atribuição de função e gravação de grupo de gerenciamento na no grupo de gerenciamento ou assinatura filho.
-    - Exemplo de **Proprietário** de função interna
+- Permissões de gravação de Atribuição de função e gravação de grupo de gerenciamento na no grupo de gerenciamento ou assinatura filho.
+  - Exemplo de **Proprietário** de função interna
 - Acesso de gravação do grupo de gerenciamento no grupo de gerenciamento pai alvo.
-    - Exemplo de função incorporada: **Proprietário,** **Contribuinte,** **Colaborador do Grupo de Gestão**
+  - Exemplo de função incorporada: **Proprietário,** **Contribuinte,** **Colaborador do Grupo de Gestão**
 - Acesso de gravação do grupo de gerenciamento no grupo de gerenciamento pai existente.
-    - Exemplo de função incorporada: **Proprietário,** **Contribuinte,** **Colaborador do Grupo de Gestão**
+  - Exemplo de função incorporada: **Proprietário,** **Contribuinte,** **Colaborador do Grupo de Gestão**
 
 **Exceção**: Se o destino ou o grupo de gerenciamento pai existente for o grupo de gerenciamento Raiz, os requisitos de permissões não se aplicam. Como o grupo de gerenciamento raiz é o ponto de aterrissagem padrão para todos os novos grupos de gerenciamento e assinaturas, não é preciso ter permissões para mover um item.
 
-Se a função de proprietário na assinatura for herdada do grupo de gerenciamento atual, seus destinos de movimentação serão limitados. Você só pode mover a assinatura para outro grupo de gerenciamento no qual você tem a função de Proprietário. Você não pode movê-lo para um grupo de gerenciamento em que você é um colaborador, pois você perderia a propriedade da assinatura. Se você for diretamente designado para a função Proprietário para a assinatura (não herdada do grupo de gerenciamento), você poderá movê-lo para qualquer grupo de gerenciamento onde você é um contribuinte. 
+Se a função de proprietário na assinatura for herdada do grupo de gerenciamento atual, seus destinos de movimentação serão limitados. Você só pode mover a assinatura para outro grupo de gerenciamento no qual você tem a função de Proprietário. Você não pode movê-lo para um grupo de gerenciamento em que você é um colaborador, pois você perderia a propriedade da assinatura. Se você for diretamente designado para a função Proprietário para a assinatura (não herdada do grupo de gerenciamento), você poderá movê-lo para qualquer grupo de gerenciamento onde você é um contribuinte.
 
 Para ver quais permissões você tem no portal Azure, selecione o grupo de gerenciamento e selecione **IAM**. Para saber mais sobre as funções de RBAC, consulte [Gerenciar acesso e permissões com RBAC](../../role-based-access-control/overview.md).
 
-
 ## <a name="move-subscriptions"></a>Mover assinaturas 
 
-#### <a name="add-an-existing-subscription-to-a-management-group-in-the-portal"></a>Adicione uma assinatura existente a um grupo de gerenciamento no portal
+### <a name="add-an-existing-subscription-to-a-management-group-in-the-portal"></a>Adicione uma assinatura existente a um grupo de gerenciamento no portal
 
 1. Faça login no [portal Azure](https://portal.azure.com).
 
@@ -234,11 +231,11 @@ Para ver quais permissões você tem no portal Azure, selecione o grupo de geren
 
 1. Selecione a assinatura na lista com a ID correta.
 
-   ![Assinaturas disponíveis para adicionar a um grupo de gerenciamento](./media/add_context_sub.png)
+   :::image type="content" source="./media/add_context_sub.png" alt-text="Assinaturas disponíveis para adicionar a um grupo de gerenciamento" border="false":::
 
 1. Selecione "Salvar".
 
-#### <a name="remove-a-subscription-from-a-management-group-in-the-portal"></a>Remova uma assinatura de um grupo de gerenciamento no portal
+### <a name="remove-a-subscription-from-a-management-group-in-the-portal"></a>Remova uma assinatura de um grupo de gerenciamento no portal
 
 1. Faça login no [portal Azure](https://portal.azure.com).
 
@@ -248,15 +245,15 @@ Para ver quais permissões você tem no portal Azure, selecione o grupo de geren
 
 1. Selecione a elipse no final da linha da assinatura na lista que você deseja mover.
 
-   ![Mover opção em um grupo de gerenciamento](./media/move_small.png)
+   :::image type="content" source="./media/move_small.png" alt-text="Mover opção em um grupo de gerenciamento" border="false":::
 
 1. Selecione **Mover**.
 
 1. No menu aberto, selecione o **Grupo de gerenciamento pai**.
 
-   ![Mova o painel para mudar o grupo dos pais](./media/move_small_context.png)
+   :::image type="content" source="./media/move_small_context.png" alt-text="Mova o painel para mudar o grupo dos pais" border="false":::
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="move-subscriptions-in-powershell"></a>Mover assinaturas no PowerShell
 
@@ -303,9 +300,9 @@ az account management-group subscription remove --name 'Contoso' --subscription 
    - A seleção de um novo criará um novo grupo de gerenciamento.
    - A seleção de um existente apresentará uma lista suspensa de todos os grupos de gerenciamento que você pode mover para esse grupo de gerenciamento.  
 
-   ![Mova um grupo de gerenciamento para um grupo novo ou existente](./media/add_context_MG.png)
+   :::image type="content" source="./media/add_context_MG.png" alt-text="Mova um grupo de gerenciamento para um grupo novo ou existente" border="false":::
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="move-management-groups-in-powershell"></a>Mover grupos de gerenciamento no PowerShell
 
@@ -326,9 +323,9 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditar grupos de gerenciamento usando logs de atividades
 
-Os grupos de gerenciamento são compatíveis com o [Log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md). Você pode consultar todos os eventos que acontecem com um grupo de gerenciamento no mesmo local central que outros recursos do Azure.  Por exemplo, você pode ver todas as alterações de atribuições de função ou de política feitas em um grupo de gerenciamento específico.
+Os grupos de gerenciamento são compatíveis com o [Log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md). Você pode consultar todos os eventos que acontecem com um grupo de gerenciamento no mesmo local central que outros recursos do Azure. Por exemplo, você pode ver todas as alterações de atribuições de função ou de política feitas em um grupo de gerenciamento específico.
 
-![Registros de atividades com grupos de gerenciamento](media/al-mg.png)
+:::image type="content" source="./media/al-mg.png" alt-text="Registros de atividades com grupos de gerenciamento" border="false":::
 
 Ao analisar a consulta em grupos de gerenciamento fora do portal do Azure, o escopo de destino dos grupos de gerenciamento é semelhante a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
@@ -336,9 +333,9 @@ Ao analisar a consulta em grupos de gerenciamento fora do portal do Azure, o esc
 
 Ao referenciar grupos de gerenciamento de ações de outros provedores de recursos, use o seguinte caminho como escopo. Esse caminho é usado ao usar as APIs PowerShell, Azure CLI e REST.  
 
->"/providers/Microsoft.Management/managementGroups/{yourMgID}"
+`/providers/Microsoft.Management/managementGroups/{yourMgID}`
 
-Um exemplo de uso desse caminho é ao atribuir uma nova atribuição de função a um grupo de gerenciamento no PowerShell
+Um exemplo de uso desse caminho é ao atribuir uma nova atribuição de função a um grupo de gerenciamento no PowerShell:
 
 ```azurepowershell-interactive
 New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
@@ -354,8 +351,8 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 
 Para saber mais sobre grupos de gerenciamento, consulte:
 
-- [Criar grupos de gerenciamento para organizar recursos do Azure](create.md)
-- [Como alterar, excluir ou gerenciar seus grupos de gerenciamento](manage.md)
+- [Criar grupos de gerenciamento para organizar recursos do Azure](./create.md)
+- [Como alterar, excluir ou gerenciar seus grupos de gerenciamento](./manage.md)
 - [Analisar grupos de gerenciamento no Módulo de Recursos do Azure PowerShell](/powershell/module/az.resources#resources)
 - [Revisar grupos de gerenciamento na API REST](/rest/api/resources/managementgroups)
 - [Revisar grupos de gerenciamento na CLI do Azure](/cli/azure/account/management-group)

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 24c0d9955a857e8bbc1e1c09e600031a7541026c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fcfac923da1c0daee58b10d92cbc6a6ad5e7910
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296956"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383413"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar metas de computação para treinamento de modelos 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -152,32 +152,19 @@ Use a DSVM (Máquina Virtual de Ciência de Dados) do Azure como a VM do Azure d
     > [!WARNING]
     > O Azure Machine Learning dá suporte apenas a máquinas virtuais que executam o Ubuntu. Para criar uma VM ou escolher uma VM existente, selecione uma VM que usa o Ubuntu.
 
-1. **Anexar**: Para anexar uma máquina virtual existente como um destino de computação, você deve fornecer o nome de domínio totalmente qualificado (FQDN), nome de usuário e senha para a máquina virtual. No exemplo, substitua \<fqdn> com o FQDN público do VM ou o endereço IP público. Substitua \<nome de usuário> e \<senha > por um novo nome de usuário do SSH e senha.
+1. **Anexar**: Para anexar uma máquina virtual existente como um destino de computação, você deve fornecer o ID de recurso, nome de usuário e senha para a máquina virtual. O ID de recurso do VM pode ser construído usando o ID de assinatura, nome do grupo de recursos e nome vm usando o seguinte formato de string:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
 
-    > [!IMPORTANT]
-    > As seguintes regiões do Azure não suportam anexar uma máquina virtual usando o endereço IP público da VM. Em vez disso, use o ID do Gerenciador de Recursos do Azure da VM com o `resource_id` parâmetro:
-    >
-    > * Leste dos EUA
-    > * Oeste dos EUA 2
-    > * Centro-Sul dos EUA
-    >
-    > O ID de recurso do VM pode ser construído usando o ID de assinatura, `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`nome do grupo de recursos e nome vm usando o seguinte formato de string: .
-
-
+ 
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
 
    # Create the compute config 
    compute_target_name = "attach-dsvm"
-   attach_config = RemoteCompute.attach_configuration(address='<fqdn>',
-                                                    ssh_port=22,
-                                                    username='<username>',
-                                                    password="<password>")
-   # If in US East, US West 2, or US South Central, use the following instead:
-   # attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
-   #                                                 ssh_port=22,
-   #                                                 username='<username>',
-   #                                                 password="<password>")
+   
+   attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
+                                                   ssh_port=22,
+                                                   username='<username>',
+                                                   password="<password>")
 
    # If you authenticate with SSH keys instead, use this code:
    #                                                  ssh_port=22,
@@ -211,16 +198,7 @@ O Azure HDInsight é uma plataforma popular para análise de dados. A plataforma
     
     Depois que o cluster é criado, conecte-o com o nome do host \<clustername >-ssh.azurehdinsight.net, em que \<clustername> é o nome que você forneceu para o cluster. 
 
-1. **Anexar**: Para anexar um cluster HDInsight como um alvo de computação, você deve fornecer o nome do host, o nome de usuário e a senha para o cluster HDInsight. O exemplo a seguir usa o SDK para anexar um cluster ao seu workspace. No exemplo, substitua \<clustername> pelo nome do seu cluster. Substitua \<nome de usuário> e \<senha > por um novo nome de usuário do SSH e senha do cluster.
-
-    > [!IMPORTANT]
-    > As seguintes regiões do Azure não suportam anexar um cluster HDInsight usando o endereço IP público do cluster. Em vez disso, use o ID do `resource_id` Gerenciador de recursos do Azure do cluster com o parâmetro:
-    >
-    > * Leste dos EUA
-    > * Oeste dos EUA 2
-    > * Centro-Sul dos EUA
-    >
-    > O ID de recurso do cluster pode ser construído usando o ID de assinatura, `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`nome do grupo de recursos e nome do cluster usando o seguinte formato de string: .
+1. **Anexar**: Para anexar um cluster HDInsight como um alvo de computação, você deve fornecer o ID de recurso, nome de usuário e senha para o cluster HDInsight. O ID de recurso do cluster HDInsight pode ser construído usando o ID de assinatura, nome do grupo de recursos e nome do cluster HDInsight usando o seguinte formato de string:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -228,15 +206,11 @@ O Azure HDInsight é uma plataforma popular para análise de dados. A plataforma
 
    try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
-    attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azurehdinsight.net', 
+
+    attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
-    # If you are in US East, US West 2, or US South Central, use the following instead:
-    # attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
-    #                                                      ssh_port=22, 
-    #                                                      username='<ssh-username>', 
-    #                                                      password='<ssh-pwd>')
     hdi_compute = ComputeTarget.attach(workspace=ws, 
                                        name='myhdi', 
                                        attach_configuration=attach_config)
@@ -467,7 +441,7 @@ Este comando cria `.azureml` uma subpasta que contém arquivos de configuração
 
 O arquivo de configuração de execução é formatado yaml, com seções a seguir
  * O roteiro para executar e seus argumentos
- * Compute o nome do alvo, seja local ou nome de um cálculo o espaço de trabalho.
+ * Compute o nome do alvo, seja "local" ou nome de um cálculo sob o espaço de trabalho.
  * Parâmetros para a execução da execução: framework, comunicador para corridas distribuídas, duração máxima e número de nós computacionais.
  * Seção de meio ambiente. Consulte [Criar e gerenciar ambientes para treinamento e implantação](how-to-use-environments.md) para obter detalhes dos campos nesta seção.
    * Para especificar pacotes Python para instalar para a execução, crie [o arquivo do ambiente conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually)e defina o campo __condaDependenciesFile.__

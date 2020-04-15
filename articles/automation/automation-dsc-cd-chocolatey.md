@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 79eaac74fd4475a613c0309476a12292e400dbaa
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 706ab128af4379a56223ff65fb12f29d37b524f7
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010963"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383273"
 ---
 # <a name="provide-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Fornecer implantação contínua para máquinas virtuais usando a configuração do estado de automação e chocolate
 
@@ -39,10 +39,9 @@ Uma vez que ambos os processos principais estão em vigor, é fácil atualizar a
 Os gerentes de pacotes, como o [apt-get,](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) são bem conhecidos no mundo Linux, mas não tanto no mundo windows.
 [Chocolatey](https://chocolatey.org/) é uma coisa, e o [blog](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) de Scott Hanselman sobre o tema é uma ótima introdução. Em poucas palavras, chocolatey permite que você use a linha de comando para instalar pacotes de um repositório central em um sistema operacional Windows. Você pode criar e gerenciar seu próprio repositório, e o Chocolatey pode instalar pacotes de qualquer repositório que você designar.
 
-[Powershell DSC](/powershell/scripting/dsc/overview/overview)) é uma ferramenta PowerShell que permite que você declare a configuração que deseja para uma máquina. Por exemplo, se você quiser que o Chocolatey seja instalado, o IIS instalado, a porta 80 aberta e a versão 1.0.0 do seu site instalada, o DSC Local Configuration Manager (LCM) implementa essa configuração. Um servidor de tração DSC contém um repositório de configurações para suas máquinas. O LCM em cada computador verifica periodicamente se sua configuração corresponde à configuração armazenada. Ele pode relatar o status ou tentar realinhar o computador com a configuração armazenada. Você pode editar a configuração armazenada no servidor de recepção para alinhar um computador ou um conjunto de computadores com a configuração alterada.
+[PowerShell DSC](/powershell/scripting/dsc/overview/overview) é uma ferramenta PowerShell que permite que você declare a configuração que deseja para uma máquina. Por exemplo, se você quiser que o Chocolatey seja instalado, o IIS instalado, a porta 80 aberta e a versão 1.0.0 do seu site instalada, o DSC Local Configuration Manager (LCM) implementa essa configuração. Um servidor de tração DSC contém um repositório de configurações para suas máquinas. O LCM em cada computador verifica periodicamente se sua configuração corresponde à configuração armazenada. Ele pode relatar o status ou tentar realinhar o computador com a configuração armazenada. Você pode editar a configuração armazenada no servidor de recepção para alinhar um computador ou um conjunto de computadores com a configuração alterada.
 
-Um recurso DSC é um módulo de código que tem recursos específicos, como gerenciamento de rede, Active Directory ou SQL Server. O Recurso DSC do Chocolatey sabe como acessar um Servidor do NuGet (entre outros), baixar e instalar pacotes e assim por diante. Há muitos outros Recursos de DSC na [Galeria do PowerShell](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
-Esses módulos são instalados no Servidor de Pull da Configuração de Estado da Automação do Azure (por você) para que possam ser usados por suas configurações.
+Um recurso DSC é um módulo de código que tem recursos específicos, como gerenciamento de rede, Active Directory ou SQL Server. O Recurso DSC do Chocolatey sabe como acessar um Servidor do NuGet (entre outros), baixar e instalar pacotes e assim por diante. Há muitos outros Recursos de DSC na [Galeria do PowerShell](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title). Você instala esses módulos no servidor de tração do estado de automação do Azure para uso por suas configurações.
 
 Os modelos do Gerenciador de Recursos fornecem uma maneira declarativa de gerar sua infra-estrutura, por exemplo, redes, sub-redes, segurança de rede e roteamento, balanceadores de carga, NICs, VMs e assim por diante. Aqui está um [artigo](../azure-resource-manager/management/deployment-models.md) que compara o modelo de implantação do Gerenciador de Recursos (declarativo) com o modelo de implantação do Azure Service Management (ASM ou clássico) (imperativo). Este artigo inclui uma discussão sobre os principais provedores de recursos: computação, armazenamento e rede.
 
@@ -50,16 +49,15 @@ Uma característica chave de um modelo de Gerenciador de recursos é sua capacid
 
 ## <a name="quick-trip-around-the-diagram"></a>Explicação rápida do diagrama
 
-Começando por cima, você escreve seu código, constrói-o, testa-o e cria um pacote de instalação. O Chocolatey pode manipular vários tipos de pacotes de instalação, como MSI, MSU e ZIP. E você tem todo o poder da PowerShell para fazer a instalação real se as capacidades nativas do Chocolatey não forem capazes. Coloque o pacote em algum lugar acessível – um repositório de pacotes. Este exemplo de uso usa uma pasta pública em uma conta de armazenamento de blob do Azure, mas pode estar em qualquer outro lugar. O Chocolatey funciona nativamente com servidores do NuGet e alguns outras para o gerenciamento de metadados de pacote. [Este artigo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descreve as opções. Este exemplo de uso usa o NuGet. Um Nuspec consiste em metadados sobre seus pacotes. Os Nuspec's são "compilados" em NuPkg's e armazenados em um servidor NuGet. Quando sua configuração solicita um pacote pelo nome e faz referência a um servidor NuGet, o recurso Chocolatey DSC na VM pega o pacote e o instala para você. Você também pode solicitar uma versão específica de um pacote.
+Começando por cima, você escreve seu código, constrói-o, testa-o e cria um pacote de instalação. O Chocolatey pode manipular vários tipos de pacotes de instalação, como MSI, MSU e ZIP. E você tem todo o poder da PowerShell para fazer a instalação real se as capacidades nativas do Chocolatey não forem capazes. Coloque o pacote em algum lugar acessível – um repositório de pacotes. Este exemplo de uso usa uma pasta pública em uma conta de armazenamento de blob do Azure, mas pode estar em qualquer outro lugar. O Chocolatey funciona nativamente com servidores do NuGet e alguns outras para o gerenciamento de metadados de pacote. [Este artigo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descreve as opções. O exemplo de uso usa NuGet. Um Nuspec consiste em metadados sobre seus pacotes. As informações do Nuspec são compiladas em um NuPkg e armazenadas em um servidor NuGet. Quando sua configuração solicita um pacote pelo nome e faz referência a um servidor NuGet, o recurso Chocolatey DSC na VM pega o pacote e o instala. Você também pode solicitar uma versão específica de um pacote.
 
-No canto inferior esquerdo da imagem, há um modelo do Azure Resource Manager. Neste exemplo de uso, a extensão VM registra a VM com o servidor de tração do Estado de Automação do Azure como um nó. A configuração é armazenada no servidor de recepção.
-Na verdade, ele é armazenado duas vezes: uma vez como texto simples e uma vez compilado como um arquivo MOF. No portal Azure, o MOF é uma "configuração de nó" (em vez de simplesmente "configuração"). É o artefato que está associado a um nó para que o nó saiba sua configuração. Os detalhes a seguir mostram como atribuir a configuração de nó ao nó.
+No canto inferior esquerdo da imagem, há um modelo do Azure Resource Manager. Neste exemplo de uso, a extensão VM registra a VM com o servidor de tração do Estado de Automação do Azure como um nó. A configuração é armazenada no servidor de tração duas vezes: uma vez como texto simples e uma vez compilado como um arquivo MOF. No portal Azure, o MOF representa uma configuração de nó, em oposição a uma configuração simples. É o artefato que está associado a um nó para que o nó saiba sua configuração. Os detalhes a seguir mostram como atribuir a configuração de nó ao nó.
 
-Criar o nuspec, compilá-lo e armazená-lo em um servidor NuGet é uma coisa pequena. E você já está gerenciando VMs. 
+Criar o Nuspec, compilá-lo e armazená-lo em um servidor NuGet é uma coisa pequena. E você já está gerenciando VMs. 
 
-Dar o próximo passo para a implantação contínua requer configurar o servidor pull uma vez, registrar seus nós com ele (uma vez) e criar e armazenar a configuração inicial lá. Em seguida, à medida que os pacotes são atualizados e implantados no repositório, você só precisa atualizar a configuração e a configuração do nó no servidor de tração conforme necessário. 
+Dar o próximo passo para a implantação contínua requer configurar o servidor pull uma vez, registrar seus nós com ele uma vez e criar e armazenar a configuração inicial no servidor. Como os pacotes são atualizados e implantados no repositório, você só precisa atualizar a configuração e a configuração do nó no servidor de tração conforme necessário.
 
-Se você não está começando com um modelo de Gerenciador de recursos, tudo bem. Existem powershell para ajudá-lo a registrar suas VMs com o servidor pull e todo o resto. Para obter mais informações, consulte este artigo: [Máquinas de onboarding para gerenciamento pela Configuração do Estado de Automação do Azure](automation-dsc-onboarding.md).
+Se você não está começando com um modelo de Gerenciador de Recursos, tudo bem. Existem comandos PowerShell para ajudá-lo a registrar suas VMs com o servidor pull. Para obter mais informações, consulte [máquinas de onboarding para gerenciamento pela Configuração do Estado de Automação do Azure](automation-dsc-onboarding.md).
 
 ## <a name="about-the-usage-example"></a>Sobre o exemplo de uso
 
@@ -97,31 +95,40 @@ Navegue até o recurso que deseja e clique no botão "Implantar no Azure Automat
 
 Outra técnica recentemente adicionada ao portal Azure permite que você puxe novos módulos ou atualize módulos existentes. Clique no recurso da conta automação, no azulejo assets e, finalmente, no azulejo Módulos. O ícone da Galeria de Navegação permite que você veja a lista de módulos na galeria, aprofunde detalhes e, finalmente, importe para sua conta de Automação. Isso é uma ótima maneira de manter atualizados os módulos periodicamente. Além disso, o recurso de importação verifica dependências com outros módulos para garantir que nada esteja fora de sincronização.
 
-Ou então, há a abordagem manual. A estrutura de pastas de um Módulo de Integração do PowerShell para um computador com Windows é um pouco diferente da estrutura de pastas esperada pela Automação do Azure.
-Isso exige que você faça alguns ajustes. Mas não é difícil, e é feito apenas uma vez por recurso (a menos que você queira atualizá-lo no futuro.) Para obter mais informações sobre a autoria dos Módulos de Integração PowerShell, consulte este artigo: [Módulos de Integração de Autoria para Automação Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
+Ou então, há a abordagem manual. Essa abordagem é usada apenas uma vez por recurso, a menos que você queira atualizá-la mais tarde. Para obter mais informações sobre a autoria dos módulos de integração do PowerShell, consulte [Módulos de Integração de Autoria para Automação Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
 
-- Instale o módulo necessário na estação de trabalho, da seguinte maneira:
-  - Instale o [Windows Management Framework, v5](https://aka.ms/wmf5latest) (não é necessário para o Windows 10)
-  - `Install-Module –Name MODULE-NAME`    <—captura o módulo da Galeria do PowerShell
-- Copie a pasta de módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` em uma pasta temporária
-- Exclua os exemplos e a documentação da pasta principal
-- Compacte a pasta principal, nomeando o arquivo ZIP exatamente como a pasta 
-- Coloque o arquivo ZIP em um local http acessível, como o armazenamento de blobs em uma Conta do Armazenamento do Azure.
-- Execute este PowerShell:
+>[!NOTE]
+>A estrutura de pasta de um módulo de integração PowerShell para um computador Windows é um pouco diferente da estrutura de pastas esperada pela Automação Azure. 
 
-  ```powershell
-  New-AzAutomationModule `
-    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
-    -Name MODULE-NAME –ContentLink 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
-  ```
+1. Instale [o Windows Management Framework v5](https://aka.ms/wmf5latest) (não necessário para o Windows 10).
+
+2. Instale o módulo de integração.
+
+    ```azurepowershell-interactive
+    Install-Module –Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery
+    ```
+
+3. Copie a pasta do módulo de **c:\Arquivos do programa\WindowsPowerShell\Modules\MODULE-NAME** para uma pasta temporária.
+
+4. Exclua amostras e documentação da pasta principal.
+
+5. Feche a pasta principal, nomeando o arquivo ZIP com o nome da pasta.
+
+6. Coloque o arquivo ZIP em um local HTTP acessível, como armazenamento blob em uma conta do Azure Storage.
+
+7. Execute o comando a seguir.
+
+    ```azurepowershell-interactive
+    New-AzAutomationModule `
+      -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
+      -Name MODULE-NAME –ContentLink 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
+    ```
 
 O exemplo incluído implementa essas etapas para cChoco e xNetworking. 
 
 ## <a name="step-4-add-the-node-configuration-to-the-pull-server"></a>Passo 4: Adicione a configuração do nó ao servidor de tração
 
-Não há nada de especial na primeira vez que você importa a configuração para o servidor de pull e compila. Todas as importações ou compilações posteriores da mesma configuração parecem exatamente iguais. Sempre que atualiza o pacote e precisa enviá-lo para produção, você realiza esta etapa após garantir que o arquivo de configuração está correto, incluindo a nova versão do pacote. Aqui está o arquivo de configuração e o PowerShell:
-
-ISVBoxConfig.ps1:
+Não há nada de especial na primeira vez que você importa a configuração para o servidor de pull e compila. Todas as importações ou compilações posteriores da mesma configuração parecem exatamente iguais. Sempre que atualiza o pacote e precisa enviá-lo para produção, você realiza esta etapa após garantir que o arquivo de configuração está correto, incluindo a nova versão do pacote. Aqui está o arquivo de configuração **ISVBoxConfig.ps1**:
 
 ```powershell
 Configuration ISVBoxConfig
@@ -166,7 +173,7 @@ Configuration ISVBoxConfig
 }
 ```
 
-New-ConfigurationScript.ps1 (modificado para usar o módulo Az):
+Aqui está o script **New-ConfigurationScript.ps1** (modificado para usar o módulo Az):
 
 ```powershell
 Import-AzAutomationDscConfiguration `
@@ -185,7 +192,7 @@ Get-AzAutomationDscCompilationJob `
     -Id $compilationJobId
 ```
 
-Essas etapas resultam em uma nova configuração de nó chamada "ISVBoxConfig.isvbox" sendo colocada no servidor pull. O nome de configuração do nó é construído como "configurationName.nodeName".
+Essas etapas resultam em uma nova configuração de nó chamada **ISVBoxConfig.isvbox** sendo colocada no servidor pull. O nome de configuração `configurationName.nodeName`do nó é construído como .
 
 ## <a name="step-5-create-and-maintain-package-metadata"></a>Passo 5: Criar e manter metadados do pacote
 
@@ -205,9 +212,10 @@ Daí em diante, as VMs que dependem dessa configuração serão responsáveis po
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral, consulte [Configuração de Estado da Automação do Azure](automation-dsc-overview.md)
-- Para começar, consulte [Introdução à Configuração de Estado da Automação do Azure](automation-dsc-getting-started.md)
-- Para saber como compilar configurações de DSC para que possam ser atribuídas a nós de destino, consulte [Compilar configurações na Configuração de Estado da Automação do Azure](automation-dsc-compile.md)
-- Para referência de cmdlet do PowerShell, consulte [Cmdlets da Configuração de Estado da Automação do Azure](/powershell/module/azurerm.automation/#automation)
-- Para obter informações sobre preços, consulte [Preço da Configuração de Estado da Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
-- Para ver um exemplo de uso da Configuração de Estado da Automação do Azure em um pipeline de implantação contínua, consulte [Implantação contínua usando Configuração de Estado da Automação do Azure e Chocolatey](automation-dsc-cd-chocolatey.md)
+- Para obter uma visão geral, consulte [Configuração do estado de automação do Azure](automation-dsc-overview.md).
+- Para começar, consulte [Como começar com a configuração do estado de automação do Azure](automation-dsc-getting-started.md).
+- Para saber mais sobre a compilação das configurações do DSC para que você possa atribuí-las a nós de destino, consulte [Compilando configurações na configuração do estado de automação do Azure](automation-dsc-compile.md).
+- Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
+- Para obter informações sobre preços, consulte os preços de [configuração do estado de automação do Azure](https://azure.microsoft.com/pricing/details/automation/).
+- Para ver um exemplo de uso da configuração do estado de automação do Azure em um pipeline de implantação contínua, consulte [implantação contínua usando a configuração do estado de automação do Azure e chocolatey](automation-dsc-cd-chocolatey.md).

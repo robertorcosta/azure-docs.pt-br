@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2019
 ms.author: victorh
-ms.openlocfilehash: c40210f3a6f0fb10be1f20deef87b2acfa076a4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fefbb038cec0c061f1fd191a77164880372555a0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460629"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314313"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Perguntas frequentes para o Firewall de aplicativos web do Azure no Serviço de Porta Frontal do Azure
 
@@ -31,7 +31,7 @@ O Azure Front Door é uma rede de entrega de conteúdo e aplicativos altamente e
 
 ## <a name="does-azure-waf-support-https"></a>O Azure WAF suporta HTTPS?
 
-Front Door oferece descarga SSL. O WAF é integrado nativamente com a Porta da Frente e pode inspecionar uma solicitação depois de decodificada.
+Front Door oferece descarregamento TLS. O WAF é integrado nativamente com a Porta da Frente e pode inspecionar uma solicitação depois de decodificada.
 
 ## <a name="does-azure-waf-support-ipv6"></a>O Azure WAF suporta o IPv6?
 

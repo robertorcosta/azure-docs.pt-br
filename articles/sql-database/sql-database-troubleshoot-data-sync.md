@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 8e223d0c6243bfddc1e5a56867c4c69de5e2a62e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6ea604446cb9d56bb699685d24c81992bcac3a2
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73822449"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382903"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Solucionar problemas com a Sincronização de Dados SQL do Azure
 
@@ -110,7 +110,7 @@ Essa mensagem de erro indica que um dos dois problemas a seguir ocorreu:
 -  Há uma cláusula WHERE na instrução CREATE INDEX. A Sincronização de Dados não lidar com essa condição. Para corrigir esse problema, remova a cláusula WHERE ou realize as alterações manualmente para todos os bancos de dados. 
  
 ### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a><a name="sync-circ"></a> Como a Sincronização de Dados trata referências circulares? Ou seja, quando os mesmos dados são sincronizados em vários grupos de sincronização, fazendo com que sejam continuamente alterados?
-A Sincronização de Dados não trata referências circulares. Evite usá-las. 
+O Data Sync não lida com referências circulares. Evite usá-las. 
 
 ## <a name="client-agent-issues"></a>Problemas de agente cliente
 
@@ -257,4 +257,4 @@ Para obter mais informações sobre a Sincronização de Dados SQL, consulte:
 Para saber mais sobre Bancos de Dados SQL, confira:
 
 -   [Visão geral do banco de dados SQL](sql-database-technical-overview.md)
--   [Gerenciamento do ciclo de vida do banco de dados](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Gerenciamento de ciclo de vida do banco de dados](https://msdn.microsoft.com/library/jj907294.aspx)

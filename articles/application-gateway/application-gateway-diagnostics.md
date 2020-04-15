@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: c7b38ad40977e1042032210d3a82a73ff6169adc
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: b458537c7cf8a254cd188c565ab1925afa202369
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411054"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312661"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Registros de saúde e diagnóstico de back-end para gateway de aplicativos
 
@@ -172,7 +172,7 @@ O log de acesso é gerado apenas se você o habilitou em cada instância do Gate
 |receivedBytes     | Tamanho do pacote recebido, em bytes.        |
 |sentBytes| Tamanho do pacote enviado, em bytes.|
 |timeTaken| Duração (em milissegundos) necessária para que uma solicitação seja processada e sua resposta seja enviada. Isso é calculado como o intervalo a partir da hora em que o Gateway de Aplicativo recebe o primeiro byte de uma solicitação HTTP até a hora em que a operação de envio de resposta é concluída. É importante observar que o campo Time-Taken geralmente inclui a hora em que os pacotes de solicitação e resposta são transmitidos pela rede. |
-|sslEnabled| Indica se a comunicação com os pools de back-end usou o SSL. Os valores válidos são ativado e desativado.|
+|sslEnabled| Se a comunicação com os pools back-end usou TLS/SSL. Os valores válidos são ativado e desativado.|
 |host| O nome de host com o qual a solicitação foi enviada para o servidor backend. Se o nome de host backend estiver sendo substituído, este nome refletirá isso.|
 |host original| O nome de host com o qual a solicitação foi recebida pelo Gateway de aplicativo do cliente.|
 ```json
@@ -215,9 +215,9 @@ Para o Application Gateway e o WAF v2, os logs mostram um pouco mais de informa�
 |receivedBytes     | Tamanho do pacote recebido, em bytes.        |
 |sentBytes| Tamanho do pacote enviado, em bytes.|
 |timeTaken| Tempo (em **segundos)** que leva para que uma solicitação seja processada e sua resposta seja enviada. Isso é calculado como o intervalo a partir da hora em que o Gateway de Aplicativo recebe o primeiro byte de uma solicitação HTTP até a hora em que a operação de envio de resposta é concluída. É importante observar que o campo Time-Taken geralmente inclui a hora em que os pacotes de solicitação e resposta são transmitidos pela rede. |
-|sslEnabled| Indica se a comunicação com os pools de back-end usou o SSL. Os valores válidos são ativado e desativado.|
-|cipher| Suíte de cifra sendo usada para comunicação SSL (se o SSL estiver habilitado).|
-|sslProtocol| Protocolo SSL/TLS em uso (se o SSL estiver habilitado).|
+|sslEnabled| Se a comunicação com os pools back-end usou TLS. Os valores válidos são ativado e desativado.|
+|cipher| Suíte cipher sendo usada para comunicação TLS (se o TLS estiver habilitado).|
+|sslProtocol| Protocolo SSL/TLS em uso (se o TLS estiver habilitado).|
 |servidorEncaminhado| O servidor back-end para o que o gateway de aplicativo encaminha a solicitação.|
 |serverStatus| Código de status HTTP do servidor backend.|
 |servidorRespostade atraso| Latência da resposta do servidor backend.|

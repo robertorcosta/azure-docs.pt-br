@@ -1,28 +1,20 @@
 ---
 title: Pontuações de previsão - LUIS
-titleSuffix: Azure Cognitive Services
 description: Um escore de predição indica o grau de confiança que o serviço de API LUIS tem para os resultados de previsão, com base em um pronunciamento do usuário.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: b360bc82b80e834492b524acc5c4535b0409eda1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 709a34f0a278d8a17267c7544583798d54167dad
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74280818"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382370"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Pontuações de previsão indicam a precisão da previsão de intenções e entidades
 
 Um escore de predição indica o grau de confiança que luis tem para os resultados de previsão de uma declaração de usuário.
 
-Uma pontuação de previsão é entre zero (0) e um (1). Um exemplo de uma pontuação com alta confiança do LUIS é 0,99. Um exemplo de uma pontuação com baixa confiança é 0,01. 
+Uma pontuação de previsão é entre zero (0) e um (1). Um exemplo de uma pontuação com alta confiança do LUIS é 0,99. Um exemplo de uma pontuação com baixa confiança é 0,01.
 
 |Valor da pontuação|Confiança|
 |--|--|
@@ -33,11 +25,11 @@ Uma pontuação de previsão é entre zero (0) e um (1). Um exemplo de uma pontu
 
 ## <a name="top-scoring-intent"></a>Intenção com maior pontuação
 
-Toda previsão de declaração retorna uma intenção com maior pontuação. Esta previsão é uma comparação numérica dos escores de previsão. 
+Toda previsão de declaração retorna uma intenção com maior pontuação. Esta previsão é uma comparação numérica dos escores de previsão.
 
 ## <a name="proximity-of-scores-to-each-other"></a>Proximidade de pontuações entre si
 
-As 2 melhores pontuações podem ter uma diferença muito pequena entre eles. LUIS não indica essa proximidade além de retornar a pontuação máxima.  
+As 2 melhores pontuações podem ter uma diferença muito pequena entre eles. LUIS não indica essa proximidade além de retornar a pontuação máxima.
 
 ## <a name="return-prediction-score-for-all-intents"></a>Retornar pontuação de previsão para todas as intenções
 
@@ -74,9 +66,11 @@ As pontuações de previsão podem usar a notação exponencial, _aparecendo_ ac
 |--|--|
 |9,910309E-07|.0000009910309|
 
-## <a name="punctuation"></a>Pontuação
+<a name="punctuation"></a>
 
-[Saiba mais](luis-concept-utterance.md#punctuation-marks) sobre como usar ou ignorar a pontuação. 
+## <a name="application-settings"></a>Configurações do aplicativo
+
+Use [as configurações do aplicativo](luis-reference-application-settings.md) para controlar como os diacritics e os resultados de previsão de impacto de pontuação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

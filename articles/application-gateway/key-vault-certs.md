@@ -1,5 +1,5 @@
 ---
-title: Rescisão do SSL com certificados do Azure Key Vault
+title: Término do TLS com certificados do Azure Key Vault
 description: Saiba como integrar o Gateway de aplicativos Do Azure com o Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS.
 services: application-gateway
 author: vhorne
@@ -7,32 +7,32 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 5633dd7b72f4de22cd34b7d093e8ec4d9cb411f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 26093d051da8f2182a40f80837acbd9ef7dd008f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77137695"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312083"
 ---
-# <a name="ssl-termination-with-key-vault-certificates"></a>Rescisão ssl com certificados key vault
+# <a name="tls-termination-with-key-vault-certificates"></a>Término do TLS com certificados key vault
 
-[O Azure Key Vault](../key-vault/key-vault-overview.md) é uma loja secreta gerenciada por plataformas que você pode usar para proteger segredos, chaves e certificados SSL. O Azure Application Gateway suporta a integração com o Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS. Este suporte é limitado ao v2 SKU do Application Gateway.
+[O Azure Key Vault](../key-vault/key-vault-overview.md) é uma loja secreta gerenciada por plataformas que você pode usar para proteger segredos, chaves e certificados TLS/SSL. O Azure Application Gateway suporta a integração com o Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS. Este suporte é limitado ao v2 SKU do Application Gateway.
 
-A integração do Key Vault oferece dois modelos para o término do SSL:
+A integração do Key Vault oferece dois modelos para término do TLS:
 
-- Você pode fornecer explicitamente certificados SSL anexados ao ouvinte. Este modelo é a maneira tradicional de passar certificados SSL para o Application Gateway para rescisão SSL.
+- Você pode fornecer explicitamente certificados TLS/SSL anexados ao ouvinte. Este modelo é a maneira tradicional de passar certificados TLS/SSL para o Application Gateway para término TLS.
 - Você pode fornecer opcionalmente uma referência a um certificado ou segredo do Key Vault existente quando criar um ouvinte habilitado para HTTPS.
 
 A integração do Application Gateway com o Key Vault oferece muitos benefícios, incluindo:
 
-- Segurança mais forte, porque os certificados SSL não são diretamente tratados pela equipe de desenvolvimento de aplicativos. A integração permite que uma equipe de segurança separada:
+- Segurança mais forte, porque os certificados TLS/SSL não são diretamente tratados pela equipe de desenvolvimento de aplicativos. A integração permite que uma equipe de segurança separada:
   * Configure gateways de aplicativos.
   * Controle ciclos de vida do gateway do aplicativo.
   * Conceda permissões a gateways de aplicativos selecionados para acessar certificados armazenados no cofre principal.
 - Suporte para importar certificados existentes em seu cofre principal. Ou use APIs do Key Vault para criar e gerenciar novos certificados com qualquer um dos parceiros confiáveis do Key Vault.
 - Suporte para renovação automática de certificados armazenados no cofre principal.
 
-O Application Gateway atualmente suporta apenas certificados validados por software. Os certificados validados pelo Módulo de Segurança de Hardware (HSM) não são suportados. Depois que o Gateway de aplicativo é configurado para usar certificados do Key Vault, suas instâncias recuperam o certificado do Key Vault e os instalam localmente para término do SSL. As instâncias também pesquisam Key Vault em intervalos de 24 horas para recuperar uma versão renovada do certificado, se ele existir. Se um certificado atualizado for encontrado, o certificado SSL atualmente associado ao ouvinte HTTPS será automaticamente rotacionado.
+O Application Gateway atualmente suporta apenas certificados validados por software. Os certificados validados pelo Módulo de Segurança de Hardware (HSM) não são suportados. Depois que o Gateway de aplicativo é configurado para usar certificados do Key Vault, suas instâncias recuperam o certificado do Key Vault e os instalam localmente para término do TLS. As instâncias também pesquisam Key Vault em intervalos de 24 horas para recuperar uma versão renovada do certificado, se ele existir. Se um certificado atualizado for encontrado, o certificado TLS/SSL atualmente associado ao ouvinte HTTPS será automaticamente rotacionado.
 
 > [!NOTE]
 > O portal Azure só suporta certificados KeyVault, não segredos. O Application Gateway ainda suporta segredos de referência do KeyVault, mas apenas através de recursos não-Portal como PowerShell, CLI, API, modelos ARM, etc. 
@@ -51,10 +51,10 @@ A integração do Application Gateway com o Key Vault requer um processo de conf
 
 1. **Configure o gateway do aplicativo**
 
-   Depois de concluir as duas etapas anteriores, você pode configurar ou modificar um gateway de aplicativo existente para usar a identidade gerenciada atribuída pelo usuário. Você também pode configurar o certificado SSL do ouvinte HTTP para apontar para o URI completo do certificado Key Vault ou iD secreto.
+   Depois de concluir as duas etapas anteriores, você pode configurar ou modificar um gateway de aplicativo existente para usar a identidade gerenciada atribuída pelo usuário. Você também pode configurar o certificado TLS/SSL do ouvinte HTTP para apontar para o URI completo do certificado Key Vault ou iD secreto.
 
    ![Certificados de cofre chave](media/key-vault-certs/ag-kv.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Configure a terminação SSL com certificados key vault usando o Azure PowerShell](configure-keyvault-ps.md)
+[Configure o término do TLS com os certificados key vault usando o Azure PowerShell](configure-keyvault-ps.md)

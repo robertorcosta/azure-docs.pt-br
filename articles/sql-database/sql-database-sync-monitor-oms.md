@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 0ed0bd3544fff89c8230267e3d6d8826c5ae3c7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f5980f74b24cd972d43e9b05d4a5d623e6e3d2f
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74114609"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383698"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorar a Sincronização de Dados SQL com logs do Azure Monitor 
 
@@ -135,7 +135,7 @@ Para criar um alerta que use logs do Monitor do Azure, faça as seguintes coisas
 
 1.  No portal do Azure, selecione **Pesquisa de Logs**.
 
-2.  Crie uma consulta para selecionar os erros e avisos por grupo de sincronização dentro do intervalo selecionado. Por exemplo: 
+2.  Crie uma consulta para selecionar os erros e avisos por grupo de sincronização dentro do intervalo selecionado. Por exemplo:
 
     `DataSyncLog_CL | where LogLevel_s != "Success" | summarize AggregatedValue = count() by bin(TimeGenerated,60m),SyncGroupName_s`
 
@@ -149,7 +149,7 @@ Para criar um alerta que use logs do Monitor do Azure, faça as seguintes coisas
 
 5.  Em **Ações,** defina a **notificação de e-mail** como "Sim". Insira os destinatários de email desejados.
 
-6.  Clique em **Salvar**. Agora, os destinatários especificados recebem notificações por email quando ocorrem erros.
+6.  Clique em **Save** (Salvar). Agora, os destinatários especificados recebem notificações por email quando ocorrem erros.
 
 ## <a name="create-an-azure-monitor-view-for-monitoring"></a>Crie uma exibição do Monitor do Azure para monitoramento
 
@@ -216,4 +216,4 @@ Para saber mais sobre a Sincronização de Dados SQL, veja:
 Para saber mais sobre o Banco de Dados SQL, veja:
 
 -   [Visão geral do banco de dados SQL](sql-database-technical-overview.md)
--   [Gerenciamento do ciclo de vida do banco de dados](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Gerenciamento de ciclo de vida do banco de dados](https://msdn.microsoft.com/library/jj907294.aspx)

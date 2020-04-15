@@ -1,28 +1,21 @@
 ---
 title: Perguntas frequentes (FAQ) - LUIS
-titleSuffix: Azure Cognitive Services
 description: Este artigo contém as respostas para perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal).
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-services: cognitive-services
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: a2472064720af0a25568a2f173b971898b1f2e25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 235eba7f80778b8a60ba880616cf80f2c14ccba1
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219704"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382182"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
 Este artigo contém as respostas para perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal).
 
-## <a name="whats-new"></a>O que há de novo
+## <a name="whats-new"></a>Novidades
 
 [Saiba mais](whats-new.md) sobre as novidades no Entendimento linguístico (LUIS).
 
@@ -59,7 +52,10 @@ O **Recurso de Padrão** anterior atualmente foi preterido, tendo sido substitu�
 Veja [entidades](luis-concept-entity-types.md) e [extração de dados](luis-concept-data-extraction.md).
 
 ### <a name="should-variations-of-an-example-utterance-include-punctuation"></a>Variações de um enunciado de exemplo devem incluir pontuação?
-Adicione as diferentes variações como enunciados de exemplo para a intenção ou adicione o padrão do enunciado de exemplo com a [sintaxe para ignorar](luis-concept-patterns.md#pattern-syntax) a pontuação.
+use uma das seguintes soluções:
+* Ignorar [pontuação](luis-reference-application-settings.md#punctuation-normalization)
+* Adicione as diferentes variações como expressões de exemplo à intenção
+* Adicione o padrão do enunciado de exemplo com a [sintaxe para ignorar](luis-concept-patterns.md#pattern-syntax) a pontuação.
 
 ### <a name="does-luis-currently-support-cortana"></a>O LUIS atualmente dá suporte à Cortana?
 
@@ -68,11 +64,11 @@ Os aplicativos pré-compilados da Cortana foram preteridos em 2017. Não há mai
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Como fazer para transferir a propriedade de um aplicativo de LUIS?
 Para transferir um aplicativo de LUIS para uma assinatura do Azure diferente, exporte o aplicativo de LUIS e importe-lo usando uma nova conta. Atualize a ID do aplicativo de LUIS no aplicativo cliente que o chama. O novo aplicativo pode retornar pontuações de LUIS ligeiramente diferentes que as do aplicativo original.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Uma entidade pré-construída é marcada em um exemplo de expressão em vez da minha entidade personalizada. Como faço para consertar isso? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Uma entidade pré-construída é marcada em um exemplo de expressão em vez da minha entidade personalizada. Como faço para consertar isso?
 
-No portal LUIS, você pode rotular o texto para a entidade exata que você está interessado em extrair. Se o portal LUIS não estiver mostrando a previsão correta da entidade, você pode precisar adicionar mais expressões e rotular a entidade dentro do texto ou adicionar um descritor (como um recurso). 
+No portal LUIS, você pode rotular o texto para a entidade exata que você está interessado em extrair. Se o portal LUIS não estiver mostrando a previsão correta da entidade, você pode precisar adicionar mais expressões e rotular a entidade dentro do texto ou adicionar um descritor (como um recurso).
 
-### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Tentei importar um aplicativo ou um arquivo de versão, mas tive um erro, o que aconteceu? 
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Tentei importar um aplicativo ou um arquivo de versão, mas tive um erro, o que aconteceu?
 
 Leia mais sobre [erros de importação de versão](luis-how-to-manage-versions.md#import-errors).
 
@@ -82,7 +78,7 @@ Leia mais sobre [erros de importação de versão](luis-how-to-manage-versions.m
 
 ### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Como posso dar aos colaboradores acesso ao LUIS com Azure AD (Azure Active Directory) ou RBAC (controle de acesso baseado em função)?
 
-Confira [Recursos do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-resources) e [Usuário do locatário do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para saber como conceder acesso aos colaboradores. 
+Confira [Recursos do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-resources) e [Usuário do locatário do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para saber como conceder acesso aos colaboradores.
 
 <a name="luis-endpoint"></a>
 
@@ -92,7 +88,7 @@ Confira [Recursos do Azure Active Directory](luis-how-to-collaborate.md#azure-ac
 
 Você recebe 403 e 429 códigos de status de erro quando excede as transações por segundo ou transações por mês para o seu nível de preço. Aumente seu nível de preços ou use [recipientes](luis-container-howto.md)de compreensão de linguagem.
 
-Quando você usa todas essas consultas gratuitas de ponto final de 1000 ou excede a cota mensal de transações do seu nível de preço, você recebe um código de status de erro HTTP 403. 
+Quando você usa todas essas consultas gratuitas de ponto final de 1000 ou excede a cota mensal de transações do seu nível de preço, você recebe um código de status de erro HTTP 403.
 
 Para corrigir esse erro, você precisa [alterar sua camada de preços](luis-how-to-azure-subscription.md#change-pricing-tier) para um nível mais alto ou criar um novo [recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [atribuí-lo ao seu aplicativo](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
 
@@ -105,23 +101,23 @@ As soluções para este erro incluem:
 
 Você recebe 403 e 429 códigos de status de erro quando excede as transações por segundo ou transações por mês para o seu nível de preço. Aumente seu nível de preços ou use [recipientes](luis-container-howto.md)de compreensão de linguagem.
 
-Este código de status é devolvido quando suas transações por segundo excedem seu nível de preços.  
+Este código de status é devolvido quando suas transações por segundo excedem seu nível de preços.
 
 As soluções incluem:
 
 * Você pode [aumentar seu nível de preços,](luis-how-to-azure-subscription.md#change-pricing-tier)se você não estiver no nível mais alto.
 * Se o seu uso exceder o nível de preços mais alto, adicione mais recursos de compreensão de idioma com um balanceador de carga na frente deles. O [contêiner De compreensão de idiomas](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
-* Você pode agendar solicitações de aplicativos de cliente com uma [política de repetição](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que você mesmo implementa quando receber esse código de status. 
+* Você pode agendar solicitações de aplicativos de cliente com uma [política de repetição](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que você mesmo implementa quando receber esse código de status.
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Minha consulta de terminal retornou resultados inesperados. O que devo fazer?
 
-Os resultados inesperados de previsão de consulta baseiam-se no estado do modelo publicado. Para corrigir o modelo, talvez seja necessário alterar, treinar e publicá-lo novamente. 
+Os resultados inesperados de previsão de consulta baseiam-se no estado do modelo publicado. Para corrigir o modelo, talvez seja necessário alterar, treinar e publicá-lo novamente.
 
 A correção do modelo começa com o [aprendizado ativo](luis-how-to-review-endpoint-utterances.md).
 
 Você pode remover o treinamento não determinístico atualizando a [ API de configurações da versão do aplicativo ](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) para usar todos os dados de treinamento.
 
-Examine as [práticas recomendadas](luis-concept-best-practices.md) para obter outras dicas. 
+Examine as [práticas recomendadas](luis-concept-best-practices.md) para obter outras dicas.
 
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>Por que o LUIS adiciona espaços à consulta ao redor ou no meio das palavras?
 O LUIS transforma em [token](luis-glossary.md#token) o enunciado com base na [cultura](luis-language-support.md#tokenization). O valor original e o valor em token estão disponíveis para [extração de dados](luis-concept-data-extraction.md#tokenized-entity-returned).
@@ -145,7 +141,7 @@ Se você não vir ocorrências de ponto de extremidade atualizadas no Painel, en
 
 ```powershell
 Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
-``` 
+```
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Meu aplicativo de LUIS estava funcionando ontem, mas hoje estou recebendo erros 403. Eu não alterei o aplicativo. Como corrigi-la?
 Siga [estas instruções](#how-do-i-create-and-assign-a-luis-endpoint-key) para criar uma chave de ponto final LUIS e atribua-a ao aplicativo. Em seguida, você deve alterar a solicitação HTTP do aplicativo cliente para o ponto final para [usar a nova tecla endpoint](luis-concept-keys.md). Se você criou um novo recurso em uma região diferente, altere também a região da solicitação do cliente HTTP.
@@ -186,7 +182,7 @@ Veja o tutorial [Teste em lote](luis-tutorial-batch-testing.md).
 
 Veja [Diferenças de previsão entre cópias do mesmo aplicativo](luis-concept-prediction-score.md#review-intents-with-similar-scores).
 
-### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Algumas declarações vão para a intenção errada depois que fiz alterações no meu aplicativo. O problema parece sumir aleatoriamente. Como corrigi-la? 
+### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Algumas declarações vão para a intenção errada depois que fiz alterações no meu aplicativo. O problema parece sumir aleatoriamente. Como corrigi-la?
 
 Confira [Treinar com todos os dados](luis-how-to-train.md#train-with-all-data).
 
@@ -202,27 +198,27 @@ No Azure, um locatário representa o cliente ou a organização que está associ
 
 
 ### <a name="why-are-there-more-endpoint-keys-assigned-to-my-app-than-i-assigned"></a>Por que há mais chaves de ponto de extremidade atribuídas ao meu aplicativo do que eu atribuí?
-Cada aplicativo de LUIS tem a chave de criação/início na lista do ponto de extremidade como conveniência. Essa chave permite apenas algumas ocorrências de ponto de extremidade para que você possa experimentar o LUIS.  
+Cada aplicativo de LUIS tem a chave de criação/início na lista do ponto de extremidade como conveniência. Essa chave permite apenas algumas ocorrências de ponto de extremidade para que você possa experimentar o LUIS.
 
 Se seu aplicativo existia antes da GA (disponibilidade geral) do LUIS, as chaves de ponto de extremidade do LUIS em sua assinatura são atribuídas automaticamente. Isso foi feito para facilitar a migração de GA. Quaisquer novas chaves de ponto de extremidade do LUIS no portal do Azure _não_ são atribuídas automaticamente aos LUIS.
 
 ## <a name="key-management"></a>Gerenciamento de chaves
 
-### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Como sei qual chave preciso, onde obtê-la e o que fazer com ela? 
+### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Como sei qual chave preciso, onde obtê-la e o que fazer com ela?
 
-Consulte [As teclas de ponto final de previsão de previsão de autoria e consulta em LUIS](luis-concept-keys.md) para saber sobre as diferenças entre a chave de autoria e a tecla de tempo de execução de previsão. 
+Consulte [As teclas de ponto final de previsão de previsão de autoria e consulta em LUIS](luis-concept-keys.md) para saber sobre as diferenças entre a chave de autoria e a tecla de tempo de execução de previsão.
 
-### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Recebi um erro informando a ausência de cota. Como corrigi-la? 
+### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Recebi um erro informando a ausência de cota. Como corrigi-la?
 
 Consulte, Corrija o código de status HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) para saber mais.
 
-### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Eu preciso lidar com mais consultas de ponto de extremidade. Como faço isso? 
+### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Eu preciso lidar com mais consultas de ponto de extremidade. Como faço isso?
 
 Consulte, Corrija o código de status HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) para saber mais.
 
 ### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>Criei uma chave de autoria, mas não está aparecendo no portal LUIS. O que aconteceu?
 
-As chaves de autoria estão disponíveis no portal LUIS depois [de migrarem para a experiência-chave da autoria.](luis-migration-authoring.md)  
+As chaves de autoria estão disponíveis no portal LUIS depois [de migrarem para a experiência-chave da autoria.](luis-migration-authoring.md)
 
 ## <a name="app-management"></a>Gerenciamento de aplicativos
 
@@ -266,28 +262,28 @@ Sua chave de criação/inicial tem permissão apenas para mil consultas de ponto
 
 ### <a name="my-luis-bot-isnt-working-what-do-i-do"></a>Meu bot do LUIS não está funcionando. O que devo fazer?
 
-O primeiro problema é descobrir se o problema está relacionado ao LUIS ou se ocorre fora do middleware do LUIS. 
+O primeiro problema é descobrir se o problema está relacionado ao LUIS ou se ocorre fora do middleware do LUIS.
 
 #### <a name="resolve-issue-in-luis"></a>Resolver problema no LUIS
 Transmita o mesmo enunciado do [ponto de extremidade do LUIS](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) para o LUIS. Se você receber um erro, resolva o problema no LUIS até que o erro já não seja retornado. Os erros comuns incluem:
 
-* `Out of call volume quota. Quota will be replenished in <time>.` - É um problema que indica a necessidade de mudar de uma chave de criação para uma [chave do ponto de extremidade](luis-how-to-azure-subscription.md) ou a necessidade de alterar [camadas de serviço](luis-how-to-azure-subscription.md#change-pricing-tier). 
+* `Out of call volume quota. Quota will be replenished in <time>.` - É um problema que indica a necessidade de mudar de uma chave de criação para uma [chave do ponto de extremidade](luis-how-to-azure-subscription.md) ou a necessidade de alterar [camadas de serviço](luis-how-to-azure-subscription.md#change-pricing-tier).
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Resolver o problema no Serviço de Bot do Azure
 
 Se você estiver usando o Serviço de Bot do Azure e o problema for que o **Teste no Webchat** retorna `Sorry, my bot code is having an issue`, verifique os logs:
 
 1. No portal do Azure, na seção **Gerenciamento de bot**, escolha **Compilar** para seu bot.
-1. Abra o editor de código online. 
+1. Abra o editor de código online.
 1. Na barra de navegação superior azul, escolha o nome do bot (o segundo item à direita).
 1. Na lista suspensa resultante, escolha **Abrir o Console do Kudu**.
-1. Escolha **LogFiles** e **Aplicativo**. Examine todos os arquivos de log. Se você não vir o erro na pasta do aplicativo, examine todos os arquivos de log em **LogFiles**. 
+1. Escolha **LogFiles** e **Aplicativo**. Examine todos os arquivos de log. Se você não vir o erro na pasta do aplicativo, examine todos os arquivos de log em **LogFiles**.
 1. Lembre-se de recompilar o projeto se você estiver usando uma linguagem compilada, por exemplo, C#.
 
-> [!Tip] 
-> O console também pode instalar pacotes. 
+> [!Tip]
+> O console também pode instalar pacotes.
 
-#### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Resolva o problema durante a depuração no computador local com o Bot Framework. 
+#### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Resolva o problema durante a depuração no computador local com o Bot Framework.
 
 Para saber mais sobre a depuração local de um bot, confira [Depurar um bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
 
@@ -303,19 +299,19 @@ Se você selecionar um modelo de LUIS e o botão **Selecionar** no painel de mod
 
 ## <a name="api-programming-strategies"></a>Estratégias de programação de API
 
-### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>Como fazer para obter de modo programático a região LUIS de um recurso? 
+### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>Como fazer para obter de modo programático a região LUIS de um recurso?
 
-Use o exemplo de LUIS para [encontrar região](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) de modo programático usando C# ou Node.Js. 
+Use o exemplo de LUIS para [encontrar região](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) de modo programático usando C# ou Node.Js.
 
 ## <a name="luis-service"></a>Serviço LUIS
 
 ### <a name="is-language-understanding-luis-available-on-premises-or-in-private-cloud"></a>O Reconhecimento vocal LUIS está disponível na nuvem privada ou local?
 
-Sim, você poderá usar o [contêiner](luis-container-howto.md) do LUIS para esses cenários se tiver a conectividade necessária para medir o uso. 
+Sim, você poderá usar o [contêiner](luis-container-howto.md) do LUIS para esses cenários se tiver a conectividade necessária para medir o uso.
 
 ## <a name="migrating-to-the-next-version"></a>Migrando para a próxima versão
 
-### <a name="how-do-i-migrate-to-preview-v3-api"></a>Como migrar para visualizar a API V3? 
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>Como migrar para visualizar a API V3?
 
 Veja [o guia de migração da API v2 para v3 para aplicativos LUIS](luis-migration-api-v3.md)
 
@@ -325,7 +321,7 @@ Os seguintes recursos foram lançados na Conferência Build 2019:
 
 * [Pré-visualização do guia de migração da API V3](luis-migration-api-v3.md)
 * [Painel de análise aprimorado](luis-how-to-use-dashboard.md)
-* [Domínios pré-construídos aprimorados](luis-reference-prebuilt-domains.md) 
+* [Domínios pré-construídos aprimorados](luis-reference-prebuilt-domains.md)
 * [Entidades de lista dinâmica](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entidades externas](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 

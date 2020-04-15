@@ -2,7 +2,7 @@
 title: Documentação da Central de Segurança do Azure para IoT
 summary: A Central de Segurança do Azure para IoT é um serviço de segurança de nuvem baseado no Azure que fornece proteção abrangente contra ameaças em dispositivos IoT.
 metadata:
-  title: Documentação da Central de Segurança do Azure para IoT
+  title: Documentação
   description: Saiba como a Central de Segurança do Azure para IoT – um serviço de segurança de nuvem baseado no Azure – fornece proteção abrangente contra ameaças para dispositivos IoT.
   services: service
   ms.service: asc-for-iot
@@ -11,12 +11,12 @@ metadata:
   author: mlottner
   ms.author: mlottner
   ms.date: 09/23/2019
-  ms.openlocfilehash: 251cb6efab940993c6242bc921855d9a4a98819f
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: f5b399ad604918f7644b90e7b5f852bb27c46be0
+  ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "74554153"
+  ms.lasthandoff: 04/14/2020
+  ms.locfileid: "81310980"
 landingContent:
 - title: Sobre a Central de Segurança do Azure para IoT
   linkLists:

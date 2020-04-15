@@ -1,5 +1,5 @@
 ---
-title: Entenda o Azure Security Center para a linha de base de IoT| Microsoft Docs
+title: Verificações de linha de base e personalizados
 description: Conheça o conceito do Azure Security Center para a linha de base de IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: ce5a0625a16c5a02d03ee74f894c585820414fa4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c52a3e55e3801eaaac885b9a3c364283f74906ba
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72176609"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311651"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Centro de Segurança Do Azure para linha de base ioT e verificações personalizadas
 
@@ -28,11 +28,11 @@ Este artigo explica o Azure Security Center para a linha de base ioT e resume to
 
 ## <a name="baseline"></a>Linha de base
 
-Uma linha de base estabelece o comportamento padrão para cada dispositivo e facilita o estabelecimento de comportamentos incomuns ou desvio de normas esperadas.  
+Uma linha de base estabelece o comportamento padrão para cada dispositivo e facilita o estabelecimento de comportamentos incomuns ou desvio de normas esperadas.
 
 ## <a name="baseline-custom-checks"></a>Verificações personalizadas da linha de base
 
-As verificações personalizadas da linha de base estabelecem uma lista personalizada de verificações para cada linha de base do dispositivo usando o gêmeo de **identidade do módulo** do dispositivo. 
+As verificações personalizadas da linha de base estabelecem uma lista personalizada de verificações para cada linha de base do dispositivo usando o gêmeo de **identidade do módulo** do dispositivo.
 
 ## <a name="setting-baseline-properties"></a>Definindo propriedades da linha de base
 

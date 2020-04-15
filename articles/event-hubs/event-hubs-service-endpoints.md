@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: 6de51c23bd6358a6f54fe3baf9e9b256047d4ab5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: abd7940551f7a8182364475b0cf50b60afb5e1b7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064886"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313786"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar pontos de extremidade de serviço de Rede Virtual com Hubs de Eventos do Azure
 
@@ -25,6 +25,22 @@ A integração de Hubs de Eventos com [Pontos de extremidade de serviço de VNet
 Uma vez configurado para limitar-se a pelo menos um ponto final de serviço de sub-rede de rede virtual, o respectivo namespace Event Hubs não aceita mais tráfego de qualquer lugar, mas de sub-redes autorizadas em redes virtuais. Da perspectiva da rede virtual, a associação de um namespace de Hubs de Eventos a um ponto de extremidade de serviço configura um túnel de rede isolado da sub-rede da rede virtual para o serviço de sistema de mensagens. 
 
 O resultado é um relacionamento privado e isolado entre as cargas de trabalho associadas à sub-rede e o respectivo namespace de Hubs de Eventos, apesar do endereço de rede observável do ponto de extremidade de serviço de mensagens estar em um intervalo de IP público. Há uma exceção para esse comportamento. Habilitar um ponto final de serviço, por padrão, permite que a `denyall` regra no firewall [IP](event-hubs-ip-filtering.md) associado à rede virtual. Você pode adicionar endereços IP específicos no firewall IP para habilitar o acesso ao ponto final público do Event Hub. 
+
+>[!WARNING]
+> Implementar a integração de redes virtuais pode impedir que outros serviços do Azure interajam com Hubs de Eventos.
+>
+> Não há suporte para serviços confiáveis da Microsoft quando as Redes Virtuais são implementadas.
+>
+> Cenários comuns do Azure que não funcionam com Redes Virtuais (observe que a lista **NÃO** é exaustiva):
+> - Stream Analytics do Azure
+> - Integração com a Grade de Eventos do Azure
+> - Rotas do Hub IoT do Azure
+> - Device Explorer do Azure IoT
+>
+> Os seguintes serviços da Microsoft são necessários para estar em uma rede virtual
+> - Aplicativos Web do Azure
+> - Funções do Azure
+
 
 > [!IMPORTANT]
 > As redes virtuais têm suporte nas camadas **standard** e **dedicada** dos Hubs de Eventos. Não é suportado no nível **básico.**

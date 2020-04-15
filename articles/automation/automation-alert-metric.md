@@ -4,12 +4,12 @@ description: Este artigo orienta como monitorar os runbooks de Automação do Az
 services: automation
 ms.date: 11/01/2018
 ms.topic: article
-ms.openlocfilehash: 9bd028157b33817898ef69f9e47cb8b5d9b8f381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f288029bb35fe4e3c71db37a1de265edbcd913b1
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75367086"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310548"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Monitorando runbooks com alertas de métrica
 
@@ -23,7 +23,7 @@ Entre no Azure em https://portal.azure.com
 
 Os alertas permitem que você defina uma condição para monitorar e uma ação a ser tomada quando essa condição for atendida.
 
-No portal do Azure, navegue até sua conta de automação. Sob **Monitoring**, selecione **alertas** e clique em **+ nova regra de alerta**. O escopo para o destino já está definido para sua Automação do Azure.
+No portal do Azure, abra sua Conta de Automação. Sob **Monitoring**, selecione **alertas** e clique em **+ nova regra de alerta**. O escopo para o destino já está definido para sua conta de Automação.
 
 ### <a name="configure-alert-criteria"></a>Configurar critérios de alerta
 
@@ -77,7 +77,7 @@ Depois que a métrica não estiver mais fora do limite definido, o alerta será 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Continue e avance para o seguinte artigo para saber mais sobre as outras maneiras como você pode integrar alertas à sua Conta de Automação.
+Continue com o artigo a seguir para aprender sobre outras maneiras que você pode integrar alertas em sua conta de Automação.
 
 > [!div class="nextstepaction"]
 > [Usar um alerta para disparar um runbook de Automação do Azure](automation-create-alert-triggered-runbook.md)

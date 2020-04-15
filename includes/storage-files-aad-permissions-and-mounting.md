@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 12/12/2019
+ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: c88f5a4dd4f2997ce01b1f6a3ae192c62f530e76
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: b6a8bc083b589463b67f2e25e262b15456355d05
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011406"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383833"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2. Atribuir permissões de acesso a uma identidade
 
@@ -98,7 +98,7 @@ Para obter mais informações sobre como usar icacls para definir permissões NT
 
 ### <a name="mount-a-file-share-from-the-command-prompt"></a>Montar um compartilhamento de arquivos do Azure no prompt de comando
 
-Usar o Windows **net use** comando para montar o compartilhamento de arquivos do Azure. Lembre-se de substituir os valores do espaço reservado no exemplo a seguir por seus próprios valores. Para obter mais informações sobre a montagem de compartilhamentos de arquivos, consulte [Usar um compartilhamento de arquivos Do Zure com o Windows](../articles/storage/files/storage-how-to-use-files-windows.md).
+Usar o Windows **net use** comando para montar o compartilhamento de arquivos do Azure. Lembre-se de substituir os valores do espaço reservado no exemplo a seguir por seus próprios valores. Para obter mais informações sobre a montagem de compartilhamentos de arquivos, consulte [Usar um compartilhamento de arquivos Do Zure com o Windows](../articles/storage/files/storage-how-to-use-files-windows.md). 
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
@@ -123,7 +123,7 @@ Faça login na VM usando a identidade Azure AD à qual você concedeu permissõe
 
 ![Captura de tela mostrando a tela de entrada do Azure AD para autenticação do usuário](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-Use o seguinte comando para montar o compartilhamento de arquivos Azure. Lembre-se de substituir os valores de espaço reservado por seus próprios valores. Como você foi autenticado, você não precisa fornecer a chave da conta de armazenamento, as credenciais do AD ou as credenciais do Azure AD. A experiência de login único é suportada para autenticação com AD ou Azure AD DS.
+Use o seguinte comando para montar o compartilhamento de arquivos Azure. Lembre-se de substituir os valores de espaço reservado por seus próprios valores. Como você foi autenticado, você não precisa fornecer a chave da conta de armazenamento, as credenciais do AD ou as credenciais do Azure AD. A experiência de login único é suportada para autenticação com AD ou Azure AD DS. Se você encontrar problemas na montagem com credenciais de Anúncio, verifique [problemas de solução de problemas do Azure Files no Windows](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) para obter orientação de autodiagnóstico.
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>

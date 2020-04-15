@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: af66da115e228efe39e4cd5dda3c494b71428676
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: ea94e452b463fffc1800e09fa1302abacdf015cc
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113564"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383062"
 ---
 # <a name="azure-firewall-faq"></a>Perguntas frequentes do Firewall do Azure
 
@@ -72,9 +72,9 @@ O WAF (Firewall de Aplicativo Web) é um recurso do Gateway de Aplicativo que fo
 
 O serviço de Firewall do Azure complementa a funcionalidade de grupo de segurança de rede. Juntos, eles fornecem uma melhor segurança de rede de "defesa em profundidade". Os grupo de segurança de rede fornecem filtragem de tráfego de camada de rede distribuída para limitar o tráfego para recursos dentro de redes virtuais em cada assinatura. O Firewall do Azure é um firewall como serviço de rede centralizado totalmente com estado, que fornece proteção no nível de rede e de aplicativo em diferentes assinaturas e redes virtuais.
 
-## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>Os NSGs (Network Security Groups, grupos de segurança de rede) são suportados na sub-rede do Firewall Azure?
+## <a name="are-network-security-groups-nsgs-supported-on-the-azurefirewallsubnet"></a>Os NSGs (Network Security Groups, grupos de segurança de rede) são suportados na AzureFirewallSubnet?
 
-O Azure Firewall é um serviço gerenciado com várias camadas de proteção, incluindo proteção de plataforma com NSGs de nível NIC (não visível).  Os NSGs de nível de sub-rede não são necessários na sub-rede do Firewall Do Azure e são desativados para garantir que não haja interrupção do serviço.
+O Azure Firewall é um serviço gerenciado com várias camadas de proteção, incluindo proteção de plataforma com NSGs de nível NIC (não visível).  Os NSGs de nível de sub-rede não são necessários na AzureFirewallSubnet e são desativados para garantir que não haja interrupção do serviço.
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Como configurar o Firewall do Azure com meus pontos de extremidade de serviço?
 

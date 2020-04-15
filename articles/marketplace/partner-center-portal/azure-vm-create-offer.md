@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: 706a8c554dafbf792471729929d6e6484dfa35ae
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 12dd17045715a24d1e5151b30a5e7706b0e58717
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266078"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383797"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Crie uma oferta de máquina virtual do Azure
 
@@ -116,9 +116,9 @@ Selecione **Salvar rascunho** antes de continuar.
 
 Esta página permite definir as categorias e indústrias usadas para agrupar sua oferta no mercado, sua versão de aplicativo e os contratos legais que suportam sua oferta.
 
-### <a name="category"></a>Categoria
+### <a name="categories"></a>Categorias
 
-Selecione um mínimo de uma e no máximo três categorias. Essas categorias são usadas para colocar sua oferta nas áreas de pesquisa de mercado apropriadas. Na descrição da oferta, explique como sua oferta suporta essas categorias. As ofertas de máquinas virtuais aparecem na categoria **Computação** no Azure Marketplace.
+Selecione um mínimo de uma e no máximo cinco categorias. Essas categorias são usadas para colocar sua oferta nas áreas de pesquisa de mercado apropriadas. Na descrição da oferta, explique como sua oferta suporta essas categorias. As ofertas de máquinas virtuais aparecem na categoria **Computação** no Azure Marketplace.
 
 ### <a name="legal"></a>Legal
 
@@ -234,7 +234,6 @@ Forneça o site de suporte onde os clientes podem entrar em contato com sua equi
 
 - Site de suporte do Azure Global
 - Site de suporte do governo azure
-- e assim por diante
 
 ### <a name="partner-support-contact"></a>Contato de suporte ao parceiro
 
@@ -389,6 +388,8 @@ Todos os planos devem estar disponíveis em pelo menos um mercado. Selecione a c
 
 Se você já definiu os preços para o seu plano em Dólares dos Estados Unidos (USD) e adicionar outra localização de mercado, o preço para o novo mercado será calculado de acordo com as taxas de câmbio atuais. Sempre revise o preço de cada mercado antes de publicar. Revise os preços usando o link **Preços de Exportação (xlsx)** depois de salvar suas alterações.
 
+Quando você remove um mercado, os clientes desse mercado usando implantações ativas não serão capazes de criar novas implantações ou aumentar suas implantações existentes. As implantações existentes não serão afetadas.
+
 #### <a name="pricing"></a>Preços
 
 **Modelo de licença** – **Selecione o plano mensal de cobrança baseado em uso** para configurar os preços para este plano ou traga sua própria **licença** para permitir que os clientes usem esse plano com sua licença existente.
@@ -421,7 +422,7 @@ Você pode projetar cada plano para ser visível para todos ou para apenas um p�
 
 #### <a name="hide-plan"></a>Plano de ocultação
 
-Se sua máquina virtual for destinada a ser usada apenas indiretamente quando referenciada através de outro modelo de solução ou aplicativo gerenciado, selecione esta caixa para publicar sua máquina virtual ou oferecer, mas esconda-a dos clientes que a procuram e navegam diretamente por ela.
+Se sua máquina virtual for destinada a ser usada apenas indiretamente quando referenciada através de outro modelo de solução ou aplicativo gerenciado, selecione esta caixa para publicar sua máquina virtual, mas esconda-a dos clientes que a procuram e navegam diretamente por ela.
 
 > [!NOTE]
 > Planos ocultos não suportam links de visualização.
@@ -430,7 +431,7 @@ Selecione **Salvar rascunho** antes de continuar.
 
 ### <a name="technical-configuration"></a>Configuração técnica
 
-Forneça as imagens e outras propriedades técnicas associadas a este plano.
+Forneça as imagens e outras propriedades técnicas associadas a este plano. Para obter detalhes, consulte [Criar um ativo técnico do Azure VM](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
 
 > [!NOTE]
 > Esta guia não é mostrada se você configurou esse plano para reutilizar pacotes de outro plano na guia **De configuração Do Plano.**
@@ -459,7 +460,7 @@ Abra portas públicas ou privadas em uma máquina virtual implantada.
 
 #### <a name="vm-images"></a>Imagens da VM
 
-Forneça uma versão em disco e o Uri SAS para as imagens da máquina virtual. Adicione até 16 discos de dados para cada imagem VM. Forneça apenas uma nova versão de imagem por plano em uma determinada submissão. Depois que uma imagem é publicada, você não pode editá-la, mas você pode excluí-la. A exclusão de uma versão impedirá que seus usuários implantem uma nova instância da versão excluída.
+Forneça uma versão em disco e o Uri SAS para as imagens da máquina virtual. Adicione até 16 discos de dados para cada imagem VM. Forneça apenas uma nova versão de imagem por plano em uma determinada submissão. Depois que uma imagem é publicada, você não pode editá-la, mas você pode excluí-la. A exclusão de uma versão impedirá que usuários novos e existentes implantem uma nova instância da versão excluída.
 
 - **Versão do disco** é a versão da imagem que você está fornecendo.
 - **SAS URI** é o local no Azure Storage onde você armazenou o sistema operacional VHD.

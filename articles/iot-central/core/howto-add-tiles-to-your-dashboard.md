@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 49b41715d95a5f210e6e70faf09aa016d1478728
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f75e5a28f7ec56750432e74ee48ba68491a5e481
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158706"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310293"
 ---
 # <a name="configure-the-application-dashboard"></a>Configure o painel de aplicativos
 
@@ -74,7 +74,7 @@ A tabela a seguir resume o uso de telhas no Azure IoT Central:
 | Conteúdo | Painéis de conjunto de aplicativos e dispositivos |As telhas suportadas pelo Markdown são telhas clicáveis que exibem o texto do título e da descrição. Você também pode usar este azulejo como um link para permitir que um usuário navegue até uma URL relacionada ao seu aplicativo.|
 | Imagem | Painéis de conjunto de aplicativos e dispositivos |Os ladrilhos de imagem exibem uma imagem personalizada e podem ser clicáveis. Use um bloco de imagens para adicionar gráficos a um painel de instrumentos e, opcionalmente, permita que um usuário navegue para uma URL relevante para o seu aplicativo.|
 | Rótulo | Painéis de aplicativos |Os azulejos de etiqueta exibem texto personalizado em um painel. Você pode escolher o tamanho do texto. Use um azulejo de etiqueta para adicionar informações relevantes ao painel de controle, tais descrições, detalhes de contato ou ajuda.|
-| Mapeamento | Painéis de conjunto de aplicativos e dispositivos |As telhas do mapa exibem a localização e o estado de um dispositivo em um mapa. Por exemplo, você pode exibir onde um dispositivo está e se seu ventilador está ligado.|
+| Mapeamento | Painéis de aplicativos e dispositivos |As telhas do mapa exibem a localização de um dispositivo em um mapa. Você também pode exibir até 100 pontos do histórico de localização de um dispositivo. Por exemplo, você pode exibir uma rota amostrada de onde um dispositivo esteve na última semana.|
 | Gráfico de linhas | Painéis de aplicativos e dispositivos |As telhas do gráfico de linha exibem um gráfico de medição agregada para um dispositivo por um período de tempo. Por exemplo, você pode exibir um gráfico de linha que mostra a temperatura média e a pressão de um dispositivo para a última hora.|
 | Gráfico de Barras | Painéis de aplicativos e dispositivos |As telhas do gráfico de barras exibem um gráfico de medidas agregadas para um dispositivo por um período de tempo. Por exemplo, você pode exibir um gráfico de barras que mostra a temperatura média e a pressão de um dispositivo durante a última hora.|
 | Gráfico de pizza | Painéis de conjunto de aplicativos e dispositivos |As telhas do gráfico de torta exibem um gráfico de medidas agregadas para um dispositivo por um período de tempo.|

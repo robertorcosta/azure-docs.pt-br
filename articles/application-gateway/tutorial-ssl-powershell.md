@@ -1,7 +1,7 @@
 ---
-title: Terminação SSL usando powershell
+title: Terminação TLS usando PowerShell
 titleSuffix: Azure Application Gateway
-description: Saiba como criar um gateway de aplicativo e adicionar um certificado para a terminação SSL usando o Azure PowerShell.
+description: Saiba como criar um gateway de aplicativo e adicionar um certificado para término tls usando o Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2ce5b8472fe10b51cff34677c9ce5a89888bdc01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bd625982ebd051b92df2f66515fd5b0d0612303
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075073"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311929"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Criar um gateway de aplicativo com terminação SSL usando o Azure PowerShell
+# <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Crie um gateway de aplicativo com terminação TLS usando o Azure PowerShell
 
-Você pode usar o Azure PowerShell para criar um [gateway de aplicativo](overview.md) com um certificado de [terminação SSL](ssl-overview.md) que usa um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao pool de back-end padrão do gateway de aplicativo. 
+Você pode usar o Azure PowerShell para criar um [gateway de aplicativo](overview.md) com um certificado de [terminação TLS/SSL](ssl-overview.md) que usa um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao pool de back-end padrão do gateway de aplicativo. 
 
 Neste artigo, você aprenderá como:
 
@@ -289,7 +289,7 @@ Para aceitar o aviso de segurança se você usou um certificado autoassinado, se
 
 ![Testar a URL de base no gateway de aplicativo](./media/tutorial-ssl-powershell/application-gateway-iistest.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, remova o grupo de recursos, o gateway do aplicativo e todos os recursos relacionados usando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

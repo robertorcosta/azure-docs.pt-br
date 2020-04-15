@@ -1,14 +1,14 @@
 ---
 title: Use parâmetros para criar blueprints dinâmicos
 description: Aprenda sobre parâmetros estáticos e dinâmicos e como usá-los para criar projetos seguros e dinâmicos.
-ms.date: 03/12/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 36735d71b746301819e5079aba1697b55fe5e183
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: ed596db2050ac788c2d98c63cb7314de473b5f4e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677578"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383608"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando blueprints dinâmicos por meio de parâmetros
 
@@ -28,8 +28,7 @@ Por meio da API REST, os parâmetros podem ser criados no próprio blueprint. Es
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>Usando parâmetros secureString e secureObject
 
-Embora um _artefato_ do modelo do Resource Manager seja compatível com parâmetros dos tipos **secureString** e **secureObject**, o Azure Blueprints requer que cada um esteja conectado a um Azure Key Vault.
-Essa medida de segurança impede a prática insegura de armazenar segredos junto com o Blueprint e incentiva o emprego de padrões seguros. O Blueprint do Azure suporta essa medida de segurança, detectando a inclusão de um parâmetro seguro em um modelo do Resource Manager _artefato_. O serviço solicita, durante a atribuição, as seguintes propriedades do Key Vault por parâmetro seguro detectado:
+Embora um _artefato_ do modelo do Resource Manager seja compatível com parâmetros dos tipos **secureString** e **secureObject**, o Azure Blueprints requer que cada um esteja conectado a um Azure Key Vault. Essa medida de segurança impede a prática insegura de armazenar segredos junto com o Blueprint e incentiva o emprego de padrões seguros. O Blueprint do Azure suporta essa medida de segurança, detectando a inclusão de um parâmetro seguro em um modelo do Resource Manager _artefato_. O serviço solicita, durante a atribuição, as seguintes propriedades do Key Vault por parâmetro seguro detectado:
 
 - ID do recurso do Key Vault
 - Nome do segredo do Key Vault
@@ -62,11 +61,11 @@ Um valor de parâmetro definido na definição de um blueprint é chamado de **p
 
 1. Os artefatos adicionados ao blueprint que têm opções de parâmetro exibem **X de Y parâmetros populados** na coluna **Parâmetros**. Clique na linha do artefato para editar os seus parâmetros.
 
-   ![Parâmetros do projeto em uma definição de projeto](../media/parameters/parameter-column.png)
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Parâmetros do projeto em uma definição de projeto" border="false":::
 
 1. A página **Editar artefato** exibe opções de valor apropriadas para o artefato clicado. Cada parâmetro no artefato tem um título, uma caixa de valor e uma caixa de seleção. Defina a caixa como desmarcada para torná-la um **parâmetro estático**. No exemplo abaixo, apenas _Local_ é um **parâmetro estático**, pois está desmarcado e _Nome do Grupo de Recursos_ está marcado.
 
-   ![Parâmetros estáticos do projeto em um artefato de projeto](../media/parameters/static-parameter.png)
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Parâmetros estáticos do projeto em um artefato de projeto" border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Definindo parâmetros estáticos com base na API REST
 
@@ -177,7 +176,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico**. Esse parâme
 
 1. Na página **Atribuir projeto,** encontre a seção **parâmetros artefato.** Cada artefato com pelo menos um **parâmetro dinâmico** exibe o artefato e as opções de configuração. Forneça os valores necessários aos parâmetros antes de atribuir o blueprint. No exemplo abaixo, _Nome_ é um **parâmetro dinâmico** que deve ser definido para concluir a atribuição do blueprint.
 
-   ![Parâmetro dinâmico do projeto durante a atribuição do projeto](../media/parameters/dynamic-parameter.png)
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Parâmetro dinâmico do projeto durante a atribuição do projeto" border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Definindo parâmetros dinâmicos com base na API REST
 

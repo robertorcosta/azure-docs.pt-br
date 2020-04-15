@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 1ee2efbb8aebfc2f1a94c89edef6166898946d8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80afbeb5668d43ac7bb0b12fadb88a93c68e0ddb
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74422531"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383706"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL
 
@@ -78,7 +78,7 @@ Um Grupo de Sincronização tem as seguintes propriedades:
 | | Sincronização de Dados | Replicação transacional |
 |---|---|---|
 | Vantagens | – Suporte ativo-ativo<br/>– Bidirecional entre o Banco de Dados SQL do Azure e o local | – Menor latência<br/>– Consistência transacional<br/>– Reutilização da topologia existente após a migração |
-| Desvantagens | – Latência de 5 minutos ou mais<br/>– Não há consistência transacional<br/>– Maior impacto do desempenho | – Não pode publicar do banco de dados individual ou em pool do Banco de Dados SQL do Azure<br/>– Alto custo de manutenção |
+| Desvantagens | – Latência de 5 minutos ou mais<br/>– Não há consistência transacional<br/>– Maior impacto do desempenho | - Não é possível publicar a partir do banco de dados único do Azure SQL ou do banco de dados agrupado<br/>– Alto custo de manutenção |
 
 ## <a name="get-started-with-sql-data-sync"></a>Introdução à Sincronização de Dados SQL
 
@@ -144,7 +144,7 @@ Provisionamento e desprovisionamento durante a criação do grupo de sincroniza�
 
 #### <a name="unsupported-column-types"></a>Não há suporte para os tipos de coluna
 
-A Sincronização de Dados não pode sincronizar colunas somente leitura ou geradas pelo sistema. Por exemplo: 
+A Sincronização de Dados não pode sincronizar colunas somente leitura ou geradas pelo sistema. Por exemplo:
 
 - Colunas computadas.
 - Colunas geradas pelo sistema para tabelas temporais.
@@ -241,4 +241,4 @@ O SQL Data Sync está fazendo o esperado? Para monitorar a atividade e soluciona
 Para mais informações sobre Banco de Dados SQL, veja os seguintes artigos:
 
 - [Visão geral do banco de dados SQL](sql-database-technical-overview.md)
-- [Gerenciamento do ciclo de vida do banco de dados](https://msdn.microsoft.com/library/jj907294.aspx)
+- [Gerenciamento de ciclo de vida do banco de dados](https://msdn.microsoft.com/library/jj907294.aspx)

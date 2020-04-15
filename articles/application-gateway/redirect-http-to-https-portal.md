@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 51c191a7815bb64243e2324e150c00c2dcb7ec4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd33d23a506bd86b9651af3d4c3bbca01673a7a4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76705319"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312089"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando o portal do Azure
 
-Você pode usar o portal do Azure para criar um [gateway de aplicativo](overview.md) com um certificado para terminação SSL. Uma regra de roteamento é usada para redirecionar o tráfego HTTP para a porta HTTPS no gateway do seu aplicativo. Neste exemplo, você também pode criar um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para pool de back-end do gateway do aplicativo que contém duas instâncias de máquina virtual.
+Você pode usar o portal Azure para criar um [gateway de aplicativo](overview.md) com um certificado de rescisão TLS. Uma regra de roteamento é usada para redirecionar o tráfego HTTP para a porta HTTPS no gateway do seu aplicativo. Neste exemplo, você também pode criar um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para pool de back-end do gateway do aplicativo que contém duas instâncias de máquina virtual.
 
 Neste artigo, você aprenderá como:
 
@@ -157,13 +157,13 @@ A interface do usuário do portal do conjunto de dimensionamento de máquinas vi
 3. Selecione **Pools de back-end**.
 4. Selecione **myAppGatewaymyvmss**.
 5. Selecione **Remover todos os destinos do pool de back-end**.
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 7. Depois que esse processo for concluído, selecione o pool de back-end **myAppGatewaymyvmss**, selecione **Excluir** e **OK** para confirmar.
 8. Selecione **o aplicativoGatewayBackendPool**.
 9. Em **Destinos**, selecione **VMSS**.
 10. Em **VMSS**, selecione **myvmss**.
 11. Em **Configurações do Adaptador de Rede**, selecione **myvmssNic**.
-12. Selecione **Salvar**.
+12. Clique em **Salvar**.
 
 ### <a name="upgrade-the-scale-set"></a>Atualizar o conjunto de dimensionamento
 

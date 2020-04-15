@@ -3,12 +3,12 @@ title: Configure seu ambiente de desenvolvimento no Linux
 description: Instale o runtime, o SDK e crie um cluster de desenvolvimento local no Linux. Depois de concluir a instalação, você estará pronto para criar aplicativos.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 572b1509f45a7f5bf2c63619809f01d17c3493d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1048e1ccf6b9bc921daa3014ab8003fd53473461
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258428"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309125"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar seu ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -20,7 +20,7 @@ ms.locfileid: "79258428"
 
 Para implantar e executar os [aplicativos do Azure Service Fabric](service-fabric-application-model.md) em seu computador de desenvolvimento Linux, instale o runtime e o SDK comum. Você também pode instalar os SDKs opcionais para desenvolvimento em Java e .NET Core. 
 
-As etapas neste artigo presumem a instalação nativa no Linux ou o uso da imagem de contêiner do Service Fabric OneBox, `microsoft/service-fabric-onebox`.
+As etapas neste artigo presumem a instalação nativa no Linux ou o uso da imagem de contêiner do Service Fabric OneBox, `mcr.microsoft.com/service-fabric/onebox:latest`.
 
 Não há suporte para a instalação do runtime do Service Fabric e do SDK no subsistema do Windows para Linux. É possível gerenciar entidades do Service Fabric hospedadas em outro lugar na nuvem ou no local com a interface de linha de comando (CLI) do Azure Service Fabric, para a qual há suporte. Para obter informações sobre como instalar a CLI, consulte [Configurar a CLI do Service Fabric](./service-fabric-cli.md).
 

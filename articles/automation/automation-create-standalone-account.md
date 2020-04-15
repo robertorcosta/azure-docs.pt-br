@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: f06480767b697dca8fe41e484c02aefc58f040bf
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3a885f071c89ff6d9bb79d908b19c9451b4ed735
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261322"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383312"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Como criar conta autônoma de automação do Azure
 
@@ -92,11 +92,11 @@ Quando a criação da conta de Automação tiver sido criada com êxito, vários
 | AzureRunAsCertificate |Um ativo de certificado criado automaticamente quando a conta de Automação é criada ou usando um script do PowerShell para uma conta existente. O certificado é autenticado no Azure, do modo que você possa gerenciar os recursos do Azure Resource Manager em runbooks. Esse certificado tem um tempo de vida de um ano. |
 | AzureRunAsConnection |Um ativo de conexão criado automaticamente quando a conta de Automação é criada ou usando um script do PowerShell para uma conta existente. |
 
-## <a name="create-a-classic-run-as-account"></a>Crie uma conta clássica de Run-As
+## <a name="create-a-classic-run-as-account"></a>Crie uma conta clássica de execução como
 
-As contas clássicas do Run-As não são mais criadas, por padrão, quando você cria uma conta de Automação Azure. Se você ainda precisar de uma conta Classic Run-A, execute as seguintes etapas.
+As contas clássicas do Run As não são mais criadas por padrão quando você cria uma conta de Automação Azure. Se você ainda precisar de uma conta clássica de execução como:
 
-1. Na página **da conta de automação,** **selecione Executar como contas** em **Configurações de conta**.
+1. Na sua conta de automação, **selecione Executar como contas** em **Configurações de conta**.
 2. Selecione **Azure Classic Run as Account**.
 3. Clique em **Criar** para prosseguir com a criação da conta Classic Run As.
 
@@ -105,5 +105,6 @@ As contas clássicas do Run-As não são mais criadas, por padrão, quando você
 * Para saber mais sobre a autoria gráfica, consulte [a autoria gráfica no Azure Automation](automation-graphical-authoring-intro.md).
 * Para começar com os runbooks do PowerShell, consulte [Meu primeiro runbook PowerShell](automation-first-runbook-textual-powershell.md).
 * Para começar com os runbooks do fluxo de trabalho PowerShell, consulte [Meu primeiro runbook de fluxo de trabalho PowerShell](automation-first-runbook-textual.md).
-* Para começar com os runbooks python2, consulte [Meu primeiro runbook Python2](automation-first-runbook-textual-python2.md).
-
+* Para começar com os runbooks do Python 2, consulte [Meu primeiro runbook Python2](automation-first-runbook-textual-python2.md).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

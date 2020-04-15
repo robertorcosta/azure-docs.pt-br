@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3237fe7d87ad058f255d1c77cb6d814bcd1c292e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b4e1ef4fbc3ade38b55fc06f8e4e9a119938581b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262240"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383898"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
@@ -324,6 +324,30 @@ Erro 'Erro do sistema 1359 ocorreu. Um erro interno acontece quando você tenta 
 Atualmente, você pode considerar a reimplantação do Seu DS AAD usando um novo nome DNS de domínio que se aplica às regras abaixo:
 - Nomes não podem começar com um caráter numérico.
 - Os nomes devem ter de 3 a 63 caracteres.
+
+## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>Não é possível montar arquivos Azure com credenciais de Anúncio 
+
+### <a name="self-diagnostics-steps"></a>Etapas de autodiagnóstico
+Primeiro, certifique-se de que você seguiu todos os quatro passos para habilitar a [autenticação aD de arquivos Azure](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
+
+Em segundo lugar, tente [montar o compartilhamento de arquivos do Azure com a chave da conta de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Se você não conseguiu montar, baixe [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) para ajudá-lo a validar o ambiente de execução do cliente, detecte a configuração do cliente incompatível que causaria falha de acesso aos Arquivos Azure, dá orientação prescritiva sobre auto-correção e, colete os traços de diagnóstico.
+
+Em terceiro lugar, você pode executar o cmdlet Debug-AzStorageAccountAuth para realizar um conjunto de verificações básicas na configuração do AD com o usuário loged no AD. Este cmdlet é suportado na [versão AzFilesHybrid v0.1.2+.](https://github.com/Azure-Samples/azure-files-samples/releases) Você precisa executar este cmdlet com um usuário de Anúncio que tenha permissão do proprietário na conta de armazenamento alvo.  
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
+```
+O cmdlet realiza essas verificações abaixo em seqüência e fornece orientação para falhas:
+1. CheckPort445Conectividade: verifique se a Porta 445 está aberta para conexão SMB
+2. CheckDomainJoined: valide se a máquina cliente é domínio unido ao AD
+3. CheckADObject: confirme se o usuário logado tem uma representação válida no domínio AD com o quais a conta de armazenamento está associada
+4. CheckGetKerberosTicket: tente obter um bilhete Kerberos para se conectar à conta de armazenamento 
+5. CheckADObjectPasswordIsCorrect: certifique-se de que a senha configurada na identidade AD que representa a conta de armazenamento esteja correspondendo à da chave kerb da conta de armazenamento
+6. CheckSidHasAadUser: verifique se o usuário ad registrado está sincronizado com o Azure AD
+
+Estamos trabalhando ativamente na extensão deste cmdlet de diagnóstico sustais para fornecer melhor orientação para solução de problemas.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 Caso ainda precise de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

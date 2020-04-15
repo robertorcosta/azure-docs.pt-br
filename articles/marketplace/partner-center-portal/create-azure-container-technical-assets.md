@@ -1,5 +1,5 @@
 ---
-title: Prepare seus ativos técnicos do Azure Container
+title: Criar um ativo técnico do Azure VM
 description: Este artigo descreve as etapas e requisitos para configurar uma oferta de contêiner no Azure Marketplace.
 author: anbene
 ms.author: mingshen
@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 62c77681accb19183b5e8aa3ae8d80c225b2d284
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 262129084be5c6a68bfd8d8708c9a10fbb606144
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266013"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383737"
 ---
-# <a name="prepare-your-azure-container-technical-assets"></a>Prepare seus ativos técnicos do Azure Container
+# <a name="create-an-azure-vm-technical-asset"></a>Criar um ativo técnico do Azure VM
 
 > [!IMPORTANT]
 > Estamos mudando o gerenciamento de suas ofertas de contêineres Do Portal de Parceiros da Nuvem para o Partner Center. Até que suas ofertas sejam migradas, siga as instruções em [Prepare seus ativos técnicos de Contêiner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) para o Cloud Partner Portal para gerenciar suas ofertas.

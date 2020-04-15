@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-ms.date: 03/10/2020
-ms.openlocfilehash: 4c635d285f83e8e9c4c5547a9ee983686c507819
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/14/2020
+ms.openlocfilehash: d62d05cdbda86af3c3a38757877624e87f6d1719
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261730"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383766"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Crie uma conta de mercado comercial no Partner Center
 
@@ -100,7 +100,7 @@ Certifique-se de ter as informações da sua conta em mãos.
 
 Se você já está inscrito na Rede de Parceiros Da Microsoft, use esta seção para criar sua conta diretamente do Partner Center.
 
-Faça login no [Partner Center](https://partner.microsoft.com/) com sua conta da Microsoft Partner Network para que você vincule o domínio da conta de e-mail de trabalho da sua empresa à sua nova conta do Partner Center. Ao associar essas contas, os funcionários da empresa podem entrar no Partner Center com seus nomes de usuário e senhas de conta de trabalho.
+Faça login no [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) com sua conta da Microsoft Partner Network para que você vincule o domínio da conta de e-mail de trabalho da sua empresa à sua nova conta do Partner Center. Ao associar essas contas, os funcionários da empresa podem entrar no Partner Center com seus nomes de usuário e senhas de conta de trabalho.
 
 >[!NOTE]
 >Para verificar se sua empresa já possui uma conta de trabalho do Partner Center, como criar uma nova conta de trabalho ou como configurar várias contas de trabalho para usar com o Partner Center, visite [a conta de trabalho da sua empresa e a Partner Center](./company-work-accounts.md).
@@ -130,7 +130,7 @@ Se você já está matriculado em um programa de desenvolvedor do Partner Center
 >
 >Contas individuais são para desenvolvedores individuais trabalhando por conta própria. As contas da empresa são para organizações e empresas. As contas da empresa dão acesso a aplicativos de envio com funcionalidade adicional. Exigimos uma verificação maior das contas da empresa após o registro para confirmar que você está autorizado a configurar a conta para sua empresa. Essa verificação pode levar desde alguns dias a até várias semanas e normalmente inclui um telefonema para sua empresa. Ambos os tipos de contas permitem enviar aplicativos, complementos e serviços. Para obter mais informações, consulte [tipos de conta, locais e taxas](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
 
-Entre no [Partner Center](https://partner.microsoft.com/) com sua conta do Microsoft Partner Center para se inscrever no programa Comercial Marketplace sob a mesma conta. Ao se inscrever no Commercial Marketplace usando a mesma conta, você pode ver tanto as inscrições do programa existente quanto o Comercial Marketplace no menu de navegação esquerda do Partner Center.
+Entre no [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) com sua conta do Microsoft Partner Center para se inscrever no programa Comercial Marketplace sob a mesma conta. Ao se inscrever no Commercial Marketplace usando a mesma conta, você pode ver tanto as inscrições do programa existente quanto o Comercial Marketplace no menu de navegação esquerda do Partner Center.
 
 Depois de fazer login, use as seguintes etapas para terminar de configurar sua conta:
 

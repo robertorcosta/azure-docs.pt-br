@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 4cd2969f9a56c96af2b2c6db216f6829a080260c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7feb0f00c5431048d19d4ad6cb3860f6eb8ed052
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371273"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312700"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Dimensionamento automático e Gateway de Aplicativo com redundância de zona v2 
 
-O Application Gateway e o Web Application Firewall (WAF) também estão disponíveis um Standard_v2 e WAF_v2 SKU. O V2 SKU oferece melhorias de desempenho e adiciona suporte para novos recursos críticos, como autodimensionamento, redundância de zona e suporte para VIPs estáticos. Os recursos existentes o Padrão e waf SKU continuam a ser suportados no novo V2 SKU, com algumas exceções listadas na seção [de comparação.](#differences-with-v1-sku)
+O Application Gateway e o Web Application Firewall (WAF) também estão disponíveis sob um Standard_v2 e WAF_v2 SKU. O V2 SKU oferece melhorias de desempenho e adiciona suporte para novos recursos críticos, como autodimensionamento, redundância de zona e suporte para VIPs estáticos. Os recursos existentes sob o Padrão e waf SKU continuam a ser suportados no novo V2 SKU, com algumas exceções listadas na seção [de comparação.](#differences-with-v1-sku)
 
 O novo V2 SKU inclui os seguintes aprimoramentos:
 
@@ -26,16 +26,16 @@ O novo V2 SKU inclui os seguintes aprimoramentos:
   A redundância de região só está disponível quando as Zonas Azure estiverem disponíveis. Em outras regiões, todos os outros recursos são suportados. Para obter mais informações, consulte [Quais são as zonas de disponibilidade no Azure?](../availability-zones/az-overview.md#services-support-by-region)
 - **VIP estático**: O Gateway de aplicativo v2 SKU suporta exclusivamente o tipo VIP estático. Isso garante que o VIP associado ao gateway do aplicativo não mude para o ciclo de vida da implantação, mesmo após uma reinicialização.  Não há um VIP estático no v1, então você deve usar a URL do gateway do aplicativo em vez do endereço IP para roteamento de nome de domínio para Serviços de Aplicativo através do gateway do aplicativo.
 - **Cabeçalho Rewrite**: O Gateway de aplicativo permite adicionar, remover ou atualizar cabeçalhos de solicitação e resposta HTTP com v2 SKU. Para obter mais informações, consulte [Reescrever cabeçalhos HTTP com o Gateway de aplicativo](rewrite-http-headers.md)
-- **Integração do Cofre chave**: O Gateway de aplicativo v2 suporta a integração com o Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS. Para obter mais informações, consulte [o término do SSL com os certificados Key Vault](key-vault-certs.md).
+- **Integração do Cofre chave**: O Gateway de aplicativo v2 suporta a integração com o Key Vault para certificados de servidor que são anexados a ouvintes habilitados para HTTPS. Para obter mais informações, consulte [o término do TLS com os certificados Key Vault](key-vault-certs.md).
 - **Controlador de entrada de serviços Do Azure Kubernetes**: O Application Gateway v2 Ingress Controller permite que o Gateway de aplicativo Azure seja usado como entrada para um Azure Kubernetes Service (AKS) conhecido como AKS Cluster. Para obter mais informações, consulte [O que é o Controlador de Entrada do Gateway de Aplicativo?](ingress-controller-overview.md)
-- **Melhorias de desempenho**: O V2 SKU oferece até 5X melhor desempenho de descarga SSL em comparação com o Standard/WAF SKU.
+- **Melhorias de desempenho**: O V2 SKU oferece até 5X melhor desempenho de descarga TLS em comparação com o Standard/WAF SKU.
 - **Mais rápido implantação e tempo de atualização** O V2 SKU fornece um tempo de implantação e atualização mais rápido em comparação com o Standard/WAF SKU. Isso também inclui alterações de configuração do WAF.
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
-O Standard_v2 e WAF_v2 SKU está disponível nas seguintes regiões: Norte Central dos EUA, Centro-Sul dos EUA, Oeste dos EUA, OESTE DOS EUA 2, Leste dos EUA, EUA Central, Norte da Europa, Europa Ocidental, Sudeste Asiático, França Central, Reino Unido Ocidental, Japão Leste, Japão Oeste, Austrália Leste , Austrália Sudeste, Brasil Sul, Canadá Central, Canadá Leste, Ásia Oriental, Coréia Central, Coréia do Sul, Reino Unido Sul, Índia Central, Índia Ocidental, Índia do Sul.
+O Standard_v2 e WAF_v2 SKU está disponível nas seguintes regiões: Norte Central dos EUA, Centro-Sul dos EUA, Oeste dos EUA, Oeste dos EUA 2, Leste dos EUA, Eua Central, Europa Norte, Europa Ocidental, Sudeste Asiático, França Central, Reino Unido Ocidental, Japão Leste, Austrália Sudeste, Brasil Sul, Canadá Central, Canadá Leste, Ásia Oriental, Coréia Central, Coréia do Sul , Reino Unido Sul, Índia Central, Índia Ocidental, Índia do Sul.
 
 ## <a name="pricing"></a>Preços
 
@@ -77,7 +77,7 @@ Preço total = $148.8 + $297.6 = $446.4
 
 **Exemplo 2**
 
-Um Gateway de aplicativo standard_v2 é provisionado por um mês, com zero instâncias mínimas, e durante esse tempo recebe 25 novas conexões SSL/seg, média de 8,88 Mbps de transferência de dados. Supondo que as conexões sejam de curta duração, seu preço seria:
+Um Gateway de aplicativo standard_v2 é provisionado por um mês, com zero instâncias mínimas, e durante esse tempo recebe 25 novas conexões TLS/seg, média de 8,88 Mbps de transferência de dados. Supondo que as conexões sejam de curta duração, seu preço seria:
 
 Preço fixo = 744(horas) * $0,20 = $148,8
 
@@ -105,7 +105,7 @@ Neste caso, você é cobrado pela totalidade das cinco instâncias, mesmo que n�
 
 **Exemplo 4**
 
-Um gateway de aplicativo standard_v2 é provisionado por um mês, com um mínimo de cinco instâncias, mas desta vez há uma média de transferência de dados de 125 mbps e 25 conexões SSL por segundo. Supondo que não há tráfego e conexões são de curta duração, seu preço seria:
+Um standard_v2 de Gateway de aplicativo é provisionado por um mês, com um mínimo de cinco instâncias, mas desta vez há uma média de transferência de dados de 125 mbps e 25 conexões TLS por segundo. Supondo que não há tráfego e conexões são de curta duração, seu preço seria:
 
 Preço fixo = 744(horas) * $0,20 = $148,8
 
@@ -117,7 +117,7 @@ Neste caso, você é cobrado para as cinco instâncias completas, mais sete Unid
 
 **Exemplo 5**
 
-Um gateway de aplicativo WAF_v2 é provisionado por um mês. Durante esse período, ele recebe 25 novas conexões SSL/seg, média de 8,88 Mbps de transferência de dados e faz 80 solicitações por segundo. Supondo que as conexões sejam de curta duração, e que o cálculo da unidade de computação para o aplicativo suporte 10 RPS por unidade de computação, seu preço seria:
+Um gateway de aplicativo WAF_v2 é provisionado por um mês. Durante esse período, ele recebe 25 novas conexões TLS/seg, média de 8,88 Mbps de transferência de dados e faz 80 solicitações por segundo. Supondo que as conexões sejam de curta duração, e que o cálculo da unidade de computação para o aplicativo suporte 10 RPS por unidade de computação, seu preço seria:
 
 Preço fixo = 744(horas) * $0,36 = $267,84
 
@@ -152,8 +152,8 @@ A tabela a seguir compara os recursos disponíveis com cada SKU.
 | Redirecionamento de tráfego                               | &#x2713; | &#x2713; |
 | Firewall do aplicativo Web (WAF)                    | &#x2713; | &#x2713; |
 | Regras personalizadas de WAF                                  |          | &#x2713; |
-| Encerramento do protocolo SSL            | &#x2713; | &#x2713; |
-| Criptografia SSL de ponta a ponta                         | &#x2713; | &#x2713; |
+| TLS(Transport Layer Security, segurança da camada de transporte)/terminação de soquetes seguros (SSL)            | &#x2713; | &#x2713; |
+| Criptografia TLS de ponta a ponta                         | &#x2713; | &#x2713; |
 | Afinidade de sessão                                  | &#x2713; | &#x2713; |
 | Páginas de erro personalizadas                                | &#x2713; | &#x2713; |
 | Suporte para WebSocket                                 | &#x2713; | &#x2713; |
@@ -167,7 +167,7 @@ A tabela a seguir compara os recursos disponíveis com cada SKU.
 
 |Diferença|Detalhes|
 |--|--|
-|Certificado de autenticação|Sem suporte.<br>Para obter mais informações, consulte [Visão geral do SSL de ponta a ponta com o Gateway de aplicativo](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
+|Certificado de autenticação|Sem suporte.<br>Para obter mais informações, consulte [Visão geral do TLS de ponta a ponta com o Gateway de aplicativo](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Combinando Standard_v2 e o Gateway de Aplicativo Standard na mesma sub-rede|Sem suporte|
 |UDR (User-Defined Route, rota definida pelo usuário) na sub-rede do Gateway do aplicativo|Suportado (cenários específicos). Na pré-visualização.<br> Para obter mais informações sobre cenários suportados, consulte [visão geral da configuração do Application Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
 |NSG para o intervalo de porta de entrada| -65200 a 65535 para Standard_v2 SKU<br>-65503 to 65534 para Standard SKU.<br>Consulte mais informações em [Perguntas Frequentes](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|

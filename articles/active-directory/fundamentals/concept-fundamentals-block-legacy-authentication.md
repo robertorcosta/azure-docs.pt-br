@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 04/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63271567e70955f6dfb0b10a5c882b6dce9545ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55ce0233fdefb8360376e94c0baafabe4c62ced7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74932483"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309203"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloqueando a autenticação do legado
  
@@ -31,11 +31,11 @@ Hoje, a maioria de todas as tentativas de login comprometedoras vem da autentica
 
 Antes de bloquear a autenticação do legado em seu diretório, você precisa primeiro entender se seus usuários têm aplicativos que usam autenticação legado e como isso afeta seu diretório geral. Os logs de login do Azure AD podem ser usados para entender se você estiver usando autenticação legado.
 
-1. Navegue até o portal Azure > O Diretório Ativo do Azure > Logins.
-1. Adicione a coluna Do Aplicativo cliente se ela não for mostrada clicando em Colunas > aplicativo cliente.
-1. Filtrar pelo Client App > verificar todas as outras opções do Cliente apresentadas e clique em Aplicar.
-1. Filtre por Status > Sucesso e clique em Aplicar. 
-1. Expanda seu intervalo de datas, se necessário, usando o filtro Data.
+1. Navegue até o > **portal Azure** **Azure Active Directory** > **Sign-ins**.
+1. Adicione a coluna **Client App** se ela não for mostrada clicando no **Aplicativo Cliente** **colunas** >.
+1. Filter by **Client App**  > verificar todas as opções **de Clientes de Autenticação Legado apresentadas.**
+1. Filtrar por **sucesso de** > **status**. 
+1. Expanda seu intervalo de datas, se necessário, usando o filtro **Data.**
 
 A filtragem só mostrará as tentativas de login bem-sucedidas feitas pelos protocolos de autenticação legado selecionados. Clicar em cada tentativa de login individual mostrará detalhes adicionais. A coluna Client App ou o campo Client App na guia Informações Básicas após selecionar uma linha individual de dados indicará qual protocolo de autenticação legado foi usado. Esses logs indicarão quais usuários ainda estão dependendo da autenticação do legado e quais aplicativos estão usando protocolos legados para fazer solicitações de autenticação. Para usuários que não aparecem nesses logs e são confirmados que não estão usando autenticação herdada, implemente uma política de Acesso Condicional ou habilite a política De linha de base: bloqueie a autenticação legado apenas para esses usuários.
 
@@ -62,7 +62,7 @@ Se você estiver usando clientes Windows do Office 2013 ou mais velhos, recomend
 
 O Office 2010 não suporta autenticação moderna. Você precisará atualizar todos os usuários com o Office 2010 para uma versão mais recente do Office. Recomendamos atualizar para o Office 2016 ou posterior, pois bloqueia a autenticação do legado por padrão.
 
-Se você estiver usando macOS, recomendamos atualizar para o Office para Mac 2016 ou posterior. Se você estiver usando o cliente de e-mail nativo, você precisará ter a versão 10.14 do MacOS ou posterior em todos os dispositivos.
+Se você estiver usando macOS, recomendamos atualizar para o Office para Mac 2016 ou posterior. Se você estiver usando o cliente de e-mail nativo, você precisará ter a versão 10.14 do macOS ou posterior em todos os dispositivos.
 
 ### <a name="step-3-exchange-and-sharepoint"></a>Passo 3: Exchange e SharePoint
 

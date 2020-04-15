@@ -7,19 +7,19 @@ ms.author: spelluru
 ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
-ms.openlocfilehash: cff1b3b79b34d3f0bed27a2ea50799185958a8ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcc360bbe4dd58200993b9377317ccb608b3529d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477844"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383642"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integre hubs de eventos do Azure com o Azure Private Link (Preview)
 O Azure Private Link Service permite que você acesse os Serviços Do Azure (por exemplo, Azure Event Hubs, Azure Storage e Azure Cosmos DB) e o Azure hospedou serviços de clientes/parceiros em um **ponto final privado** em sua rede virtual.
 
 Um ponto final privado é uma interface de rede que conecta você de forma privada e segura a um serviço alimentado pelo Azure Private Link. O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente em sua VNet. Todo o tráfego para o serviço pode ser roteado por meio do ponto de extremidade privado; assim, nenhum gateway, nenhum dispositivo NAT, nenhuma conexão ExpressRoute ou VPN e nenhum endereço IP público é necessário. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você pode se conectar a uma instância de um recurso do Azure, fornecendo o nível mais alto de granularidade no controle de acesso.
 
-Para obter mais informações, consulte [O que é o Azure Private Link?](../private-link/private-link-overview.md)
+Para obter mais informações, confira [O que é o Link Privado do Azure?](../private-link/private-link-overview.md)
 
 > [!NOTE]
 > Esse recurso é suportado apenas com o nível **dedicado.** Para obter mais informações sobre o nível dedicado, consulte [Visão geral do Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
@@ -45,7 +45,7 @@ Seu ponto de extremidade privado usa um endereço IP privado em sua rede virtual
 ### <a name="steps"></a>Etapas
 Se você já tiver um namespace do Event Hubs, você pode criar uma conexão de link privada seguindo estas etapas:
 
-1. Faça login no [portal Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 2. Na barra de pesquisa, digite **hubs de eventos**.
 3. Selecione o **namespace** da lista à qual deseja adicionar um ponto final privado.
 4. Selecione a guia **'Rede'** em **Configurações**.
@@ -153,6 +153,32 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
 
 ```
 
+### <a name="configure-the-private-dns-zone"></a>Configure a zona dns privada
+Crie uma zona de DNS privada para o domínio event hubs e crie um link de associação com a rede virtual:
+
+```azurepowershell-interactive
+$zone = New-AzPrivateDnsZone -ResourceGroupName $rgName `
+                            -Name "privatelink.servicebus.windows.net" 
+ 
+$link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $rgName `
+                                            -ZoneName "privatelink.servicebus.windows.net" `
+                                            -Name "mylink" `
+                                            -VirtualNetworkId $virtualNetwork.Id  
+ 
+$networkInterface = Get-AzResource -ResourceId $privateEndpoint.NetworkInterfaces[0].Id -ApiVersion "2019-04-01" 
+ 
+foreach ($ipconfig in $networkInterface.properties.ipConfigurations) { 
+    foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) { 
+        Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
+        $recordName = $fqdn.split('.',2)[0] 
+        $dnsZone = $fqdn.split('.',2)[1] 
+        New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink.servicebus.windows.net"  `
+                                -ResourceGroupName $rgName -Ttl 600 `
+                                -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address $ipconfig.properties.privateIPAddress)  
+    } 
+}
+```
+
 ## <a name="manage-private-endpoints-using-azure-portal"></a>Gerenciar pontos finais privados usando o portal Azure
 
 Quando você cria um ponto de extremidade privado, a conexão deve ser aprovada. Se o recurso para o qual você está criando um ponto final privado estiver em seu diretório, você poderá aprovar a solicitação de conexão desde que tenha permissões suficientes. Se você estiver se conectando a um recurso do Azure em outro diretório, você deve esperar que o proprietário desse recurso aprove sua solicitação de conexão.
@@ -240,13 +266,13 @@ Aliases:  <your-event-hub-name>.servicebus.windows.net
 
 ## <a name="limitations-and-design-considerations"></a>Limitações e considerações de design
 
-**Preços**: Para obter informações sobre preços, consulte [os preços do Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
+**Preço**: Para obter informações sobre preço, confira [Preço do Link Privado do Azure](https://azure.microsoft.com/pricing/details/private-link/).
 
 **Limitações**: O Private Endpoint for Azure Event Hubs está em pré-visualização pública. O recurso está disponível em todas as regiões públicas do Azure.
 
 **Número máximo de pontos finais privados por namespace do Event Hubs:** 120.
 
-Para mais informações, consulte [o serviço Azure Private Link: Limitações](../private-link/private-link-service-overview.md#limitations)
+Para saber mais, confira [Serviço de Link Privado do Azure: Limitações](../private-link/private-link-service-overview.md#limitations)
 
 ## <a name="next-steps"></a>Próximas etapas
 

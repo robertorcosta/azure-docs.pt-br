@@ -1,6 +1,6 @@
 ---
-title: Gerenciar retenção de backup de longo prazo
-description: Saiba como armazenar backups automatizados no armazenamento do SQL do Azure e como restaurá-los
+title: 'Banco de dados único: Gerenciar retenção de backup a longo prazo'
+description: Saiba como armazenar e restaurar backups automatizados para um banco de dados único ou agrupado do Azure SQL no armazenamento Azure (por até 10 anos) usando o Portal Azure e o PowerShell
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 08/21/2019
-ms.openlocfilehash: a560f4f1399792a7b150b37c3c048ccc0079b98d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 2564fd0ffd980dae4ca1835f4211fee0a0cf040c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74420796"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380927"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerenciar a retenção de backup de longo prazo do Banco de Dados SQL do Azure
 
@@ -186,7 +186,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 
 > [!IMPORTANT]
-> A exclusão do backup LTR é irreversível. Para excluir um backup LTR depois que o servidor for excluído, você deve ter permissão de escopo de assinatura. Você pode configurar notificações sobre cada exclusão no Azure Monitor filtrando a operação "Exclui um backup de retenção de longo prazo". O log de atividades contém informações sobre quem fez a solicitação e quando. Confira [Criar alertas do log de atividades](../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
+> A exclusão do backup LTR é irreversível. Para excluir um backup LTR depois que o servidor for excluído, você deve ter permissão de escopo de assinatura. Você pode configurar notificações sobre cada exclusão no Monitor Do Azure filtrando para a operação 'Exclui um backup de retenção a longo prazo'. O log de atividades contém informações sobre quem fez a solicitação e quando. Confira [Criar alertas do log de atividades](../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
 
 ### <a name="restore-from-ltr-backups"></a>Restaurar a partir de backups LTR
 

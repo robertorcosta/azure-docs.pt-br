@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1a026cc241eb372e15f2600e52ec53a46efb1024
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 75020b0dd58a80f989bd03eb92031d904ebf4c82
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81256001"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313702"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics parceiros de inteligência de negócios
 
@@ -38,6 +38,7 @@ Para criar sua solução completa de data warehouse usando o pool Synapse SQL de
 | ![SiSense](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**SiSense**<br>O SiSense é um software de Business Intelligence de pilha completa que contém as ferramentas de que uma empresa precisa para analisar e visualizar dados: um banco de dados analítico de alto desempenho, a capacidade de unir várias fontes, ETL (extração de dados simples) e visualização de dados baseada na Web. Comece a analisar e visualizar grandes conjuntos de dados com o BI e a análise da SiSense hoje mesmo. |[Página do produto](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>As análises de autoatendimento do Tableau ajudam qualquer pessoa a ver e entender seus dados, através de vários tipos de dados, de arquivos planos a bancos de dados. O Tableau possui um conector nativo e otimizado para o pool Synapse SQL que suporta dados ao vivo e análises na memória. |[Página do produto](https://www.tableau.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/)<br>|
 | ![Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**Targit (Suíte de Decisão)**<br>O Targit Decision Suite é uma plataforma de BI e análise que proporciona painéis em tempo real, análise por autoatendimento, relatórios intuitivos, recursos móveis impressionantes e tecnologia simples de descoberta de dados em uma única soluções coesa. A Targit proporciona às empresas a coragem para agir. |[Página do produto](https://www.targit.com/targit-decision-suite/analytics)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/)<br> |
+| ![ThoughtSpot](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**ThoughtSpot**<br>As empresas mais inovadoras do mundo usam o ThoughtSpot para capacitar cada pessoa em sua organização, de executivo da suíte C a funcionário de linha de frente, com a capacidade de descobrir rapidamente insights baseados em dados. Com o ThoughtSpot, os empresários podem digitar uma pesquisa simples para analisar instantaneamente bilhões de linhas de dados e aproveitar a inteligência artificial para obter insights confiáveis e relevantes empurrados para eles como respostas a milhares de perguntas que talvez não tenham pensado em fazer. O ThoughtSpot é simples o suficiente para qualquer pessoa de negócios usar, mas poderoso o suficiente para lidar com os maiores e mais complexos dados corporativos sem sacrificar velocidade, segurança ou governança. É por isso que clientes como Walmart, 7-11, BT, Daimler, Exxon, Hulu, Royal Bank of Canada, Bank of the West e Nationwide Building Society recorreram ao ThoughtSpot para transformar suas culturas de tomada de decisão e a empresa de analistas Gartner nomeou o ThoughtSpot como líder no Quadrante Mágico de 2020. Ao fazer insights uma parte de cada conversa e cada decisão, o ThoughtSpot está reimaginando o papel dos dados na criação de um mundo mais baseado em fatos. |[Página do produto](https://www.thoughtspot.com)<br>|
 | ![Yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Yellowfin**<br>Yellowfin é um fornecedor de CLOUD BI mais bem avaliado para relatórios e dashboards ad hoc pela BARC; A pesquisa bi. Conecte-se ao pool Synapse SQL e crie e compartilhe belos relatórios e dashboards com recursos premiados de BI colaborativo e inteligência de localização. |[Página do produto](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->

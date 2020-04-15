@@ -3,12 +3,12 @@ title: Suporte para migração de VMware no Azure Migrate
 description: Saiba mais sobre o suporte para migração de VMware VMno no Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 9d8dc4dadc975a0fb69ea207f6062b72231460ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf9cc471eef31edd513358a97d2ece17015ba781
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269504"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314005"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração de VMware
 
@@ -31,7 +31,7 @@ Revise [este artigo](server-migrate-overview.md) para descobrir qual método voc
 
 ## <a name="agentless-vmware-servers"></a>Servidores Agentless-VMware
 
-**Vmware** | **Detalhes**
+**VMware** | **Detalhes**
 --- | ---
 **VMware vCenter Server** | Versão 5.5, 6.0, 6.5 ou 6.7.
 **Host VMware vSphere ESXI** | Versão 5.5, 6.0, 6.5 ou 6.7.
@@ -47,7 +47,7 @@ Revise [este artigo](server-migrate-overview.md) para descobrir qual método voc
 **Mudanças necessárias para o Azure** | Algumas VMs podem precisar de alterações para que possam ser executadas no Azure. O Azure Migrate faz essas alterações automaticamente para os seguintes sistemas operacionais:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8<br/><br/> Para outros sistemas operacionais, você precisa fazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazer isso.
 **Inicialização do Linux** | Se /boot estiver em uma partição dedicada, ele deve residir no disco do SISTEMA OPERACIONAL e não ser espalhado por vários discos.<br/> Se /boot faz parte da partição raiz (/), então a partição '/' deve estar no disco do SISTEMA OPERACIONAL e não abranger outros discos.
 **Inicialização UEFI** | As VMs com inicialização UEFI não são suportadas para migração.
-**Tamanho do disco** | Disco do SISTEMA OPERACIONAL de 2 TB; 4 TB para discos de dados.
+**Tamanho do disco** | Disco do SISTEMA OPERACIONAL de 2 TB; 8 TB para discos de dados.
 **Limites de disco** |  Até 60 discos por VM.
 **Discos/volumes criptografados** | As VMs com discos/volumes criptografados não são suportadas para migração.
 **Cluster de disco compartilhado** | Sem suporte.

@@ -1,5 +1,5 @@
 ---
-title: Entenda o Azure Security Center para custos de IoT| Microsoft Docs
+title: Preços e custos associados
 description: Saiba mais sobre os custos associados ao Azure Security Center para IoT e como controlá-los.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2019
 ms.author: mlottner
-ms.openlocfilehash: dc9dcbfd00b5205fa5c66e334b30c76d549d8a42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe117cf8d05ba3392b71858acf94d1fc88c1a527
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71348508"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311572"
 ---
 # <a name="pricing-and-associated-costs"></a>Preços e custos associados
 
@@ -34,13 +34,11 @@ O azure Security Center para o modelo de preços de IoT é composto por duas par
 
 - Custo por mensagem - recursos de segurança aprimorados com base em mensagens de segurança de dispositivos IoT Edge ou leaf.
 
-
 Para obter mais informações, consulte [os preços do Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Custos associados
 
 O Azure Security Center for IoT tem custos associados, que não fazem parte do preço direto:
-
 
 - Custos de armazenamento do Log Analytics
 
@@ -50,9 +48,9 @@ Para alterar suas configurações:
 
 1. Abra o IoT Hub.
 
-2. Em **Segurança,** clique **em Visão geral**.
+1. Em **Segurança,** clique **em Visão geral**.
 
-3. Clique em **Configurações**.
+1. Clique em **Configurações**.
 
 A tabela a seguir fornece um resumo dos custos e implicações associados de cada opção.
 
@@ -64,8 +62,8 @@ A tabela a seguir fornece um resumo dos custos e implicações associados de cad
 |
 
 >[!Important]
-> A exclusão tem sérias implicações no Azure Security Center para disponibilidade de recursos de segurança ioT. 
-  
+> A exclusão tem sérias implicações no Azure Security Center para disponibilidade de recursos de segurança ioT.
+
 | Optar por sair | Implicações |
 | --- | --- |
 | _Coleta de metadados gêmeos_ | Desativar [alertas personalizados](quickstart-create-custom-alerts.md) |
@@ -74,7 +72,6 @@ A tabela a seguir fornece um resumo dos custos e implicações associados de cad
 | _Armazenar eventos de segurança de dispositivos brutos_ | Detalhes sobre as recomendações da linha de base do sistema operacional do dispositivo não estão disponíveis |
 | | Detalhes sobre [investigações de alerta](concept-security-alerts.md) e [recomendação](concept-recommendations.md) não estão disponíveis |
 |
-
 
 ## <a name="see-also"></a>Confira também
 

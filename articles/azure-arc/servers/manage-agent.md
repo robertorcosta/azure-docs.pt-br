@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/01/2020
+ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8bcf59ee863bb2fd2a3213480372ad215c2fc00d
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 5ad2127b4cb9da3ca83aa04bd1885908a88dba62
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80528585"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81308965"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gerenciamento e manutenção do agente de máquina conectada
 
@@ -112,6 +112,78 @@ Ações do comando [yum,](https://access.redhat.com/articles/yum-cheat-sheet) co
     ```
 
 Ações do comando [zypper,](https://en.opensuse.org/Portal:Zypper) como instalação e remoção de `/var/log/zypper.log` pacotes, estão registradas no arquivo de log. 
+
+## <a name="about-the-azcmagent-tool"></a>Sobre a ferramenta Azcmagent
+
+A ferramenta Azcmagent (Azcmagent.exe) é usada para configurar o azure Arc para servidores (visualização) agente de máquina conectada durante a instalação ou modificar a configuração inicial do agente após a instalação. O Azcmagent.exe fornece parâmetros de linha de comando para personalizar o agente e visualizar seu status:
+
+* **Conectar** - Para conectar a máquina ao Arco Azure
+
+* **Desconectar** - Para desconectar a máquina do Arco Azure
+
+* **Reconecte** - Para reconectar uma máquina desconectada ao Azure Arc
+
+* **Mostrar** - Exibir o status do agente e suas propriedades de configuração (nome do Grupo de Recursos, ID de assinatura, versão, etc.), o que pode ajudar na solução de problemas com o agente.
+
+* **-h ou --help** - Mostra parâmetros disponíveis de linha de comando
+
+    Por exemplo, para ver ajuda detalhada para `azcmagent reconnect -h`o parâmetro **Reconectar,** digite . 
+
+* **-v ou --verbose** - Habilitar o registro verboso
+
+Você pode executar um **Connect,** **Desconectar**e **reconectar** manualmente enquanto estiver conectado interativamente ou automatizar usando o mesmo princípio de serviço que você usou para conectar vários agentes ou com um [token de acesso à](../../active-directory/develop/access-tokens.md)plataforma de identidade Microsoft . Se você não usou um diretor de serviço para registrar a máquina com o Azure Arc para servidores (visualização), consulte o [artigo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) a seguir para criar um principal de serviço.
+
+### <a name="connect"></a>Conectar
+
+Este parâmetro especifica um recurso no Azure Resource Manager representando a máquina é criado no Azure. O recurso está no grupo de assinatura e recursos especificado, e os dados sobre `--location` a máquina são armazenados na região do Azure especificada pela configuração. O nome de recurso padrão é o nome de host desta máquina, se não especificado.
+
+Um certificado correspondente à identidade atribuída ao sistema da máquina é então baixado e armazenado localmente. Uma vez concluída essa etapa, o Serviço de Metadados da Máquina Conectada do Azure e o Agente de Configuração de Hóspedes começam a sincronizar com o Azure Arc para servidores (visualização).
+
+Para conectar usando um diretor de serviço, execute o seguinte comando:
+
+`azcmagent connect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
+
+Para conectar usando um token de acesso, execute o seguinte comando:
+
+`azcmagent connect --access-token <> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
+
+Para se conectar com suas credenciais de logon elevado (interativas), execute o seguinte comando:
+
+`azcmagent connect --tenant-id <TenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
+
+### <a name="disconnect"></a>Desconectar
+
+Este parâmetro especifica que um recurso no Azure Resource Manager representando a máquina é excluído no Azure. Ele não exclui o agente da máquina, isso deve ser feito como um passo separado. Depois que a máquina for desconectada, se você quiser reregistrá-la `azcmagent connect` no Azure Arc para servidores (visualização), use para que um novo recurso seja criado para ela no Azure.
+
+Para desconectar usando um diretor de serviço, execute o seguinte comando:
+
+`azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
+
+Para desconectar usando um token de acesso, execute o seguinte comando:
+
+`azcmagent disconnect --access-token <accessToken>`
+
+Para desconectar-se com suas credenciais de logon elevado (interativas), execute o seguinte comando:
+
+`azcmagent disconnect --tenant-id <tenantID>`
+
+### <a name="reconnect"></a>Reconectar
+
+Este parâmetro reconecta a máquina já registrada ou conectada com o Azure Arc para servidores (visualização). Isso pode ser necessário se a máquina tiver sido desligada, pelo menos 45 dias, para que seu certificado expire. Este parâmetro usa as opções de autenticação fornecidas para recuperar novas credenciais correspondentes ao recurso Azure Resource Manager representando esta máquina.
+
+Este comando requer privilégios maiores do que a função [Onboarding da máquina conectada do Azure.](overview.md#required-permissions)
+
+Para reconectar usando um princípio de serviço, execute o seguinte comando:
+
+`azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
+
+Para reconectar usando um token de acesso, execute o seguinte comando:
+
+`azcmagent reconnect --access-token <accessToken>`
+
+Para se reconectar com suas credenciais de logon elevado (interativas), execute o seguinte comando:
+
+`azcmagent reconnect --tenant-id <tenantID>`
 
 ## <a name="remove-the-agent"></a>Remova o agente
 

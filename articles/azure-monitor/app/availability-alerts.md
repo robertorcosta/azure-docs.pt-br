@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: e0c1a93ef663762bec199abc5aa7eabbc821168d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5af6aec2267384c37f664522d075bf26c632e7e9
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77654946"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382877"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidade
 
@@ -33,6 +33,9 @@ Os alertas agora são ativados automaticamente por padrão, mas para configurar 
 2. Defina o nível de severidade desejados, a descrição da regra e mais importante, o grupo de ação que tem as preferências de notificação que você deseja usar para essa regra de alerta.
 
    ![Editar depois de salvar](./media/availability-alerts/set-action-group.png)
+
+> [!NOTE]
+> Os alertas de disponibilidade criados através dessa experiência são baseados no estado. Isso significa que quando os critérios de alerta são atendidos, um único alerta é gerado quando o site é detectado como indisponível. Se o site ainda estiver abaixo na próxima vez que os critérios de alerta forem avaliados, isso não gerará um novo alerta. Então, se o seu site estivesse desligado por uma hora e você tivesse configurado um alerta de e-mail, você só receberia um e-mail quando o site fosse derrubado, e um e-mail subseqüente quando o site voltasse. Você não receberia alertas contínuos lembrando que o site ainda não estava disponível.
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Alertar sobre X fora de locais de Y relatando falhas
 

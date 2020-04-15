@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: efa2885ce0534c5d78bb08bbf24da59850f6ea22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a171dc795e685655b5a3c73d088d3963c2aaa4ae
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075184"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312315"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Suporte ao Application Gateway para back ends de vários locatários, como serviço de aplicativo
 
@@ -30,9 +30,9 @@ O Gateway de Aplicativo fornece uma funcionalidade que permite aos usuários sub
 
 A capacidade de especificar uma substituição de host é definida nas [configurações HTTP](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) e pode ser aplicada a qualquer pool de back-end durante a criação de regras. As duas maneiras a seguir de sobrepor o cabeçalho do host e a extensão SNI para back ends de vários inquilinos são suportadas:
 
-- A capacidade de definir o nome do host como um valor fixo foi inserida explicitamente nas configurações HTTP. Esse recurso garante que o cabeçalho do host seja substituído a esse valor para todo o tráfego para o pool de back-end onde as configurações HTTP particulares são aplicadas. Ao usar SSL de ponta a ponta, esse nome de host substituído é usado na extensão de SNI. Esse recurso habilita cenários onde um farm de pool de back-end espera um cabeçalho de host que seja diferente do cabeçalho de host de entrada do cliente.
+- A capacidade de definir o nome do host como um valor fixo foi inserida explicitamente nas configurações HTTP. Esse recurso garante que o cabeçalho do host seja substituído a esse valor para todo o tráfego para o pool de back-end onde as configurações HTTP particulares são aplicadas. Ao usar o TLS de ponta a ponta, este nome de host substituído é usado na extensão SNI. Esse recurso habilita cenários onde um farm de pool de back-end espera um cabeçalho de host que seja diferente do cabeçalho de host de entrada do cliente.
 
-- A capacidade de derivar o nome do host do IP ou FQDN dos membros do pool de back-end. As configurações HTTP também fornecem uma opção para escolher dinamicamente o nome do host a partir do FQDN de um membro do pool de back-end se configurado com a opção de derivar o nome do host de um membro de pool de back-end individual. Ao usar SSL de ponta a ponta, esse nome de host é derivado do FQDN e é usado na extensão de SNI. Esse recurso habilita cenários em que um pool de back-end pode ter dois ou mais serviços PaaS com vários locatários, como aplicativos Web do Azure, e o cabeçalho de host da solicitação para cada membro pode conter o nome de host derivado do seu FQDN. Para implementar este cenário, usamos um switch nas configurações HTTP chamado [Pick hostname a partir do endereço backend](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) que substituirá dinamicamente o cabeçalho do host na solicitação original ao mencionado no pool de backend.  Por exemplo, se o seu pool de backend FQDN contiver "contoso11.azurewebsites.net" e "contoso22.azurewebsites.net", o cabeçalho de host da solicitação original, que é contoso.com será substituído para contoso11.azurewebsites.net ou contoso22.azurewebsites.net quando a solicitação é enviada para o servidor backend apropriado. 
+- A capacidade de derivar o nome do host do IP ou FQDN dos membros do pool de back-end. As configurações HTTP também fornecem uma opção para escolher dinamicamente o nome do host a partir do FQDN de um membro do pool de back-end se configurado com a opção de derivar o nome do host de um membro de pool de back-end individual. Ao usar o TLS de ponta a ponta, este nome host é derivado do FQDN e é usado na extensão SNI. Esse recurso habilita cenários em que um pool de back-end pode ter dois ou mais serviços PaaS com vários locatários, como aplicativos Web do Azure, e o cabeçalho de host da solicitação para cada membro pode conter o nome de host derivado do seu FQDN. Para implementar este cenário, usamos um switch nas configurações HTTP chamado [Pick hostname a partir do endereço backend](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) que substituirá dinamicamente o cabeçalho do host na solicitação original ao mencionado no pool de backend.  Por exemplo, se o seu pool de backend FQDN contiver "contoso11.azurewebsites.net" e "contoso22.azurewebsites.net", o cabeçalho de host da solicitação original, que é contoso.com, será substituído para contoso11.azurewebsites.net ou contoso22.azurewebsites.net quando a solicitação for enviada para o servidor backend apropriado. 
 
   ![cenário de aplicativo Web](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -40,11 +40,11 @@ Com essa funcionalidade, os clientes especificam as opções de configuração a
 
 ## <a name="special-considerations"></a>Considerações especiais
 
-### <a name="ssl-termination-and-end-to-end-ssl-with-multi-tenant-services"></a>SSL termina e fim a fim do SSL com serviços multilocatários
+### <a name="tls-termination-and-end-to-end-tls-with-multi-tenant-services"></a>TLS termina e fim a fim do TLS com serviços multilocatários
 
-Tanto a criptografia SSL de término quanto de ponta a ponta é suportada com serviços de vários inquilinos. Para o término do SSL no gateway de aplicativo, o certificado SSL continua a ser necessário para ser adicionado ao ouvinte do gateway do aplicativo. No entanto, em caso de SSL de ponta a ponta, serviços confiáveis do Azure, como os aplicativos web de serviço do Azure App, não exigem a listagem branca dos backends no gateway do aplicativo. Portanto, não há necessidade de adicionar quaisquer certificados de autenticação. 
+Tanto a criptografia TLS de término quanto de ponta a ponta tLS é suportada com serviços de vários inquilinos. Para o término do TLS no gateway de aplicativo, o certificado TLS continua a ser necessário para ser adicionado ao ouvinte do gateway do aplicativo. No entanto, em caso de TLS de ponta a ponta, serviços confiáveis do Azure, como os aplicativos web de serviço do Azure App, não exigem a listagem branca dos backends no gateway do aplicativo. Portanto, não há necessidade de adicionar quaisquer certificados de autenticação. 
 
-![fim a fim SSL](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
+![TLS de ponta a ponta](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 
 Observe que na imagem acima, não há necessidade de adicionar certificados de autenticação quando o serviço do App é selecionado como backend.
 

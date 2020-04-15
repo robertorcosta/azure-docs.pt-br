@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 4/3/2020
-ms.openlocfilehash: 07f29a01ae0128ba0a35504dea54ba1ae2dde944
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 6a1d2f6079280002c868702a6547c8fd359a7c21
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657073"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310116"
 ---
 # <a name="azure-sql-database-serverless"></a>Banco de dados Azure SQL sem servidor
 
@@ -138,6 +138,8 @@ O autoruming é acionado se alguma das seguintes condições for em vigor a qual
 |Sincronização de dados SQL|Sincronização entre bancos de dados membro e hub que são executados em um cronograma configurável ou são executados manualmente|
 |Modificar alguns metadados do banco de dados|Adicionando novas tags de banco de dados.<br>Alterando vCores max, min vCores ou atraso de pausa automática.|
 |SQL Server Management Studio (SSMS)|O uso de versões SSMS antes do 18.1 e a abertura de uma nova janela de consulta para qualquer banco de dados no servidor retomará qualquer banco de dados com pausa automática no mesmo servidor. Esse comportamento não ocorre se usar o SSMS versão 18.1 ou posterior.|
+
+O monitoramento, o gerenciamento ou outras soluções que executam qualquer uma das operações listadas acima desencadearão a retomada automática.
 
 O autoruming também é acionado durante a implantação de algumas atualizações de serviçoque exigem que o banco de dados esteja on-line.
 

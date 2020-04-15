@@ -1,21 +1,14 @@
 ---
 title: Rotular o enunciado de exemplo da entidade
-titleSuffix: Azure Cognitive Services
 description: Saiba como rotular uma entidade de aprendizado de máquina com subcomponentes em um enunciado de exemplo em uma página de detalhes da intenção do portal do LUIS.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.author: diberry
-ms.openlocfilehash: 5499e8362e1107a18b997a6a485e11343c328d0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: ea5fbea902c9694d9a8a6a8a5bffcf5e7234bbbd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898368"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382413"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Rotular uma entidade de aprendizado de máquina em um enunciado de exemplo
 
@@ -88,6 +81,10 @@ As funções de entidade são rotuladas usando a paleta da entidades.
 1. Mova para o **Inspetor de entidade** e, em seguida, selecione uma função existente ou crie uma função.
 1. No texto do enunciado de exemplo, rotule o texto com a função de entidade.
 
+## <a name="labeling-for-punctuation"></a>Rotulagem para pontuação
+
+Você não precisa rotular para pontuação. Use [as configurações do aplicativo](luis-reference-application-settings.md) para controlar se a pontuação impactar as previsões de enunciados.
+
 ## <a name="unlabel-entities"></a>Remover o rótulo de entidades
 
 Para remover o rótulo de uma entidade, selecione o nome da entidade abaixo do texto e selecione **Remover rótulo**. Se a entidade cujo rótulo você está tentando remover tiver subcomponentes rotulados, os rótulos dos subcomponentes deverão ser removidos primeiro.
@@ -96,7 +93,7 @@ Para remover o rótulo de uma entidade, selecione o nome da entidade abaixo do t
 
 Caso cometa um erro ao rotular, a paleta da entidade é uma ferramenta fácil e permite edições rápidas. Por exemplo, se um rótulo de entidade abranger uma palavra extra por engano e já tiver subcomponentes rotulados, você poderá usar a paleta da entidade para passar o pincel sobre o intervalo de palavras menor necessário.
 
-Por exemplo: 
+Por exemplo:
 
 1. O subcomponente do tipo pizza se estende por "pizza de queijo com", que inclui uma palavra extra incorreta:"com"
 

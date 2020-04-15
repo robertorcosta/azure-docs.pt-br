@@ -1,5 +1,5 @@
 ---
-title: Entendendo o Azure Security Center para configurações locais de agente para C | Microsoft Docs
+title: Configuração local do agente de segurança (C)
 description: Saiba mais sobre o Azure Security Center para configurações locais de agentes para C.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,26 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2725a824da26dafcbc215e4c302ec38ad4b5a699
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd344b9bebb69af210c482f46af6b2dd7edf7816
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68600534"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311698"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Noções básicas sobre o arquivo LocalConfiguration.json – agente do C
 
 O Azure Security Center para agente de segurança IoT usa configurações de um arquivo de configuração local.
 O agente de segurança lê a configuração uma vez, na inicialinicialdo agente.
 A configuração encontrada no arquivo de configuração local contém configuração de autenticação e outras configurações relacionadas ao agente.
-O arquivo contém configurações em pares "Key-Value" na notação JSON e as configurações são preenchidas quando o agente é instalado. 
+O arquivo contém configurações em pares "Key-Value" na notação JSON e as configurações são preenchidas quando o agente é instalado.
 
 Por padrão, o arquivo está localizado em: /var/ASCIoTAgent/LocalConfiguration.json
 
-As alterações no arquivo de configuração ocorrem quando o agente é reiniciado. 
+As alterações no arquivo de configuração ocorrem quando o agente é reiniciado.
 
 ## <a name="security-agent-configurations-for-c"></a>Configurações do agente de segurança para C
-| Nome da configuração | Valores possíveis | Detalhes | 
+
+| Nome da configuração | Valores possíveis | Detalhes |
 |:-----------|:---------------|:--------|
 | AgentId | GUID | O identificador exclusivo do agente |
 | Intervalado de eventos acionados | Seqüência ISO8601 | Intervalo de agendador para coleta de eventos acionados |
@@ -48,11 +49,12 @@ As alterações no arquivo de configuração ocorrem quando o agente é reinicia
 | DPS | JsonObject | Configurações relacionadas ao DPS |
 | IDScope | string | Escopo de ID do DPS |
 | RegistrationId | string  | ID de registro de dispositivo DPS |
-| Registrando em log | JsonObject | Configurações relacionadas ao logger do agente |
+| Registro em log | JsonObject | Configurações relacionadas ao logger do agente |
 | SystemLoggerMinimumGravidade | 0 <= número <= 4 | as mensagens de registro iguais e acima dessa gravidade serão registradas em /var/log/syslog (0 é a menor gravidade) |
 | DiagnosticEventMinimumSeverity | 0 <= número <= 4 | mensagens de registro iguais e acima dessa gravidade serão enviadas como eventos diagnósticos (0 é a menor gravidade) |
 
 ## <a name="security-agent-configurations-code-example"></a>Exemplo de código de configurações de configurações de agentes de segurança
+
 ```JSON
 {
     "Configuration" : {
@@ -79,6 +81,7 @@ As alterações no arquivo de configuração ocorrem quando o agente é reinicia
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - Leia o Centro de Segurança do Azure para visão geral do serviço [de IoT](overview.md)
 - Saiba mais sobre o Azure Security Center for IoT [Architecture](architecture.md)
 - Habilite o Centro de Segurança do Azure para [serviço](quickstart-onboard-iot-hub.md) de IoT

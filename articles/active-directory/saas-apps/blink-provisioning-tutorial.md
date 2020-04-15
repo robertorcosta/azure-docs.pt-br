@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b19052b8a71b582b47308c41d170f50352d643e2
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 314445275f99898913bd91eb8abc2a5acdab098a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618349"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381010"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Tutorial: Configure Blink para provisionamento automático do usuário
 
@@ -113,7 +113,7 @@ Esta seção orienta você através das etapas para configurar o serviço de pro
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 8. Na seção **Mapeamentos,** selecione **Sincronizar usuários do diretório ativo do Azure para piscar**.
 
@@ -121,7 +121,7 @@ Esta seção orienta você através das etapas para configurar o serviço de pro
 
 9. Revise os atributos do usuário sincronizados do Azure AD para blink na seção **Mapeamento de atributos.** Os atributos selecionados como **propriedades correspondentes** são usados para corresponder às contas de usuário no Blink para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Blink Atributos do usuário](media/blink-provisioning-tutorial/User_attributes.png)
+    ![Blink Atributos do usuário](media/blink-provisioning-tutorial/user-attributes.png)
 
 10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

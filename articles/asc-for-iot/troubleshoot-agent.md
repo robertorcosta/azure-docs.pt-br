@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center para ioT agente de segurança de segurança guia de solução de problemas| Microsoft Docs
+title: Solucionar problemas no start-up de agentes de segurança (Linux)
 description: Solução de problemas trabalhando com o Azure Security Center para agentes de segurança IoT para Linux.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f3bd4be3ef927f73643146a457bc551ef86a450
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 935a99dd34b0a4e3d4970e8d91f9332d2bc1489a
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68600560"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310559"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Guia de solução de problemas do agente de segurança (Linux)
 
@@ -29,56 +29,70 @@ Este artigo explica como resolver possíveis problemas no processo de inicializa
 O Azure Security Center para agente IoT se inicia imediatamente após a instalação. O processo de inicialização do agente inclui a leitura da configuração local, a conexão ao Azure IoT Hub e a recuperação da configuração remota de gêmeos. A falha em qualquer uma dessas etapas pode fazer com que o agente de segurança falhe.
 
 Neste guia de solução de problemas você aprenderá como:
+
 > [!div class="checklist"]
 > * Valide se o agente de segurança está executando
 > * Obter erros do agente de segurança
-> * Entender e remediar erros do agente de segurança 
+> * Entender e remediar erros do agente de segurança
 
 ## <a name="validate-if-the-security-agent-is-running"></a>Valide se o agente de segurança está executando
 
-1. Para validar é que o agente de segurança está executando, aguarde alguns minutos após instalar o agente e execute o seguinte comando. 
+1. Para validar é que o agente de segurança está executando, aguarde alguns minutos após instalar o agente e execute o seguinte comando.
      <br>
 
     **Agente C**
+
     ```bash
     grep "ASC for IoT Agent initialized" /var/log/syslog
     ```
+
     **C# agente**
+
     ```bash
     grep "Agent is initialized!" /var/log/syslog
     ```
-2. Se o comando retornar uma linha vazia, o agente de segurança não foi capaz de iniciar com sucesso.    
 
-## <a name="force-stop-the-security-agent"></a>Força parar o agente de segurança 
+1. Se o comando retornar uma linha vazia, o agente de segurança não foi capaz de iniciar com sucesso.
+
+## <a name="force-stop-the-security-agent"></a>Força parar o agente de segurança
+
 Nos casos em que o agente de segurança não puder iniciar, pare o agente com o seguinte comando e continue até a tabela de erro abaixo:
 
 ```bash
 systemctl stop ASCIoTAgent.service
 ```
+
 ## <a name="get-security-agent-errors"></a>Obter erros do agente de segurança
+
 1. Recupere os erros do agente de segurança executando o seguinte comando:
+
     ```bash
     grep ASCIoTAgent /var/log/syslog
     ```
-2. O comando get security agent error recupera todos os logs criados pelo Azure Security Center para agente IoT. Use a tabela a seguir para entender os erros e tomar as etapas corretas para a remediação. 
+
+1. O comando get security agent error recupera todos os logs criados pelo Azure Security Center para agente IoT. Use a tabela a seguir para entender os erros e tomar as etapas corretas para a remediação.
 
 > [!Note]
-> Os registros de erro são mostrados em ordem cronológica. Certifique-se de anotar o carimbo de tempo de cada erro para ajudar na sua remediação. 
+> Os registros de erro são mostrados em ordem cronológica. Certifique-se de anotar o carimbo de tempo de cada erro para ajudar na sua remediação.
 
 ## <a name="restart-the-agent"></a>Reiniciar o agente
 
-1. Depois de localizar e corrigir um erro do agente de segurança, tente reiniciar o agente executando o seguinte comando. 
+1. Depois de localizar e corrigir um erro do agente de segurança, tente reiniciar o agente executando o seguinte comando.
+
     ```bash
     systemctl restart ASCIoTAgent.service
     ```
-1. Repita o processo anterior para recuperar stop e recuperar os erros se o agente continuar a falhar no processo de inicialização. 
+
+1. Repita o processo anterior para recuperar stop e recuperar os erros se o agente continuar a falhar no processo de inicialização.
 
 ## <a name="understand-security-agent-errors"></a>Entenda os erros do agente de segurança
 
-A maioria dos erros do agente de segurança são exibidos no seguinte formato: 
+A maioria dos erros do agente de segurança são exibidos no seguinte formato:
+
 ```
 Azure Security Center for IoT agent encountered an error! Error in: {Error Code}, reason: {Error sub code}, extra details: {error specific details}
 ```
+
 | Código do Erro | Sub-código de erro | Detalhes do erro | Remediar C | Remediar C # |
 |:-----------|:---------------|:--------|:------------|:------------|
 | Configuração local | Configuração ausente | Falta uma configuração no arquivo de configuração local. A mensagem de erro deve dizer qual chave está faltando. | Adicione a chave ausente ao arquivo /var/LocalConfiguration.json, consulte a [referência cs-localconfig](azure-iot-security-local-configuration-c.md) para obter detalhes.| Adicione a chave ausente ao arquivo General.config, consulte a [referência c#-localconfig](azure-iot-security-local-configuration-csharp.md) para obter detalhes. |
@@ -95,14 +109,17 @@ Azure Security Center for IoT agent encountered an error! Error in: {Error Code}
 |
 
 ## <a name="restart-the-agent"></a>Reiniciar o agente
+
 1. Depois de localizar e corrigir um erro do agente de segurança, reinicie o agente executando o seguinte comando:
 
     ```bash
     systemctl restart ASCIoTAgent.service
     ```
-2. Se necessário, repita os processos anteriores para forçar a parada do agente e recupere os erros se o agente continuar a falhar no processo de inicialização. 
+
+1. Se necessário, repita os processos anteriores para forçar a parada do agente e recupere os erros se o agente continuar a falhar no processo de inicialização.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - Leia o Centro de Segurança do Azure para visão geral do serviço [de IoT](overview.md)
 - Saiba mais sobre o Azure Security Center for IoT [Architecture](architecture.md)
 - Habilite o Centro de Segurança do Azure para [serviço](quickstart-onboard-iot-hub.md) de IoT

@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: feacd463a10bae66dc8fa88a99b9ea60f399e9ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75e1f5fbfa41ac310d2a737dcfe28199715a094b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74684164"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312871"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desenvolver e implantar o WebJobs usando o Visual Studio – Serviço de Aplicativo do Azure
 
@@ -38,7 +38,7 @@ Publicar um WebJob .NET Core para app service do Visual Studio usa a mesma ferra
 
 ### <a name="webjob-types"></a>Tipos de WebJob
 
-Por padrão, um WebJob publicado a partir de um projeto de console .NET Core é executado apenas quando acionado ou demanda. Você também pode atualizar o projeto para [executar em um cronograma](#scheduled-execution) ou executar continuamente.
+Por padrão, um WebJob publicado a partir de um projeto de console .NET Core é executado apenas quando acionado ou sob demanda. Você também pode atualizar o projeto para [executar em um cronograma](#scheduled-execution) ou executar continuamente.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
@@ -64,7 +64,7 @@ Você pode usar o Visual Studio para alterar o WebJob para ser executado continu
 
 ## <a name="webjobs-as-net-framework-console-apps"></a>WebJobs como aplicativos de console .NET Framework  
 
-Quando o Visual Studio implanta um projeto de aplicativo de console .NET framework habilitado para WebJobs, ele copia arquivos em tempo de execução para a pasta apropriada no aplicativo web (*App_Data/empregos/contínuos* para WebJobs contínuos e *App_Data/empregos/acionados* para WebJobs agendados ou demanda).
+Quando o Visual Studio implanta um projeto de aplicativo de console .NET framework habilitado para WebJobs, ele copia arquivos em tempo de execução para a pasta apropriada no aplicativo web (*App_Data/empregos/contínuos* para WebJobs contínuos e *App_Data/empregos/acionados* para WebJobs agendados ou sob demanda).
 
 Um projeto habilitado para Trabalhos Web tem os seguintes itens adicionados:
 
@@ -225,7 +225,7 @@ O WebJobs usa as mesmas expressões CRON para agendamento que o gatilho do tempo
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-### <a name="settingjob-reference"></a>configuração.referência de trabalho
+### <a name="settingsjob-reference"></a>configurações.referência de trabalho
 
 As seguintes configurações são suportadas pelo WebJobs:
 

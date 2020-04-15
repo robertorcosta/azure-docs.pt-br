@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a solucionar problemas e resolver problemas comuns ao ativar e usar espaços de dev do Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: c12dfd385962d8dd7de8239a0d4ecd46746499c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9fcf14bf42fc843a126fea269038087ee7fb0c6c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239775"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382053"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas do Azure Dev Spaces
 
@@ -52,13 +52,13 @@ Recriar o controlador pode ser feito a partir do CLI ou Visual Studio. Consulte 
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Controlador criar falha por causa do comprimento do nome do controlador
 
-O nome de um controlador do Azure Dev Spaces não pode ter mais de 31 caracteres. Se o nome do seu controlador exceder 31 caracteres quando você habilitar Espaços de Dev em um cluster AKS ou criar um controlador, você receberá um erro. Por exemplo: 
+O nome de um controlador do Azure Dev Spaces não pode ter mais de 31 caracteres. Se o nome do seu controlador exceder 31 caracteres quando você habilitar Espaços de Dev em um cluster AKS ou criar um controlador, você receberá um erro. Por exemplo:
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-Para corrigir esse problema, crie um controlador com um nome alternativo. Por exemplo: 
+Para corrigir esse problema, crie um controlador com um nome alternativo. Por exemplo:
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -95,7 +95,7 @@ Para corrigir esse problema, atualize sua instalação do [Azure CLI](/cli/azure
 
 ### <a name="error-unable-to-reach-kube-apiserver"></a>Erro "Não é possível acessar kube-apiserver"
 
-Você pode ver esse erro quando o Azure Dev Spaces não puder se conectar ao servidor aPI do cluster AKS. 
+Você pode ver esse erro quando o Azure Dev Spaces não puder se conectar ao servidor aPI do cluster AKS.
 
 Se o acesso ao servidor AKS cluster API estiver bloqueado ou se você tiver [os intervalos de endereços IP autorizados pelo servidor API](../aks/api-server-authorized-ip-ranges.md) habilitados para o cluster AKS, você também deve [criar](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) ou [atualizar](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) seu cluster para [permitir intervalos adicionais com base na sua região](https://github.com/Azure/dev-spaces/tree/master/public-ips).
 
@@ -162,7 +162,7 @@ Por exemplo, suponha que você use um comando Helm para executar toda a sua apli
 
 O Azure Dev Spaces pode ser configurado para apontar para um _Dockerfile_ específico no projeto. Se aparecer que o Azure Dev Spaces não está usando o _Dockerfile_ que você espera compilar seus contêineres, talvez seja necessário informar explicitamente qual Dockerfile usar ao Azure Dev Spaces. 
 
-Para corrigir esse problema, abra o arquivo _azds.yaml_ que o Azure Dev Spaces gerou em seu projeto. Configurações *de atualização: desenvolver: build: dockerfile* to point to the Dockerfile you want to use. Por exemplo: 
+Para corrigir esse problema, abra o arquivo _azds.yaml_ que o Azure Dev Spaces gerou em seu projeto. Configurações *de atualização: desenvolver: build: dockerfile* to point to the Dockerfile you want to use. Por exemplo:
 
 ```yaml
 ...
@@ -209,7 +209,7 @@ install:
 
 Você pode ver esse erro quando seu código de serviço não pode ser iniciado. Frequentemente, a causa está no código do usuário. Para obter mais informações de diagnóstico, habilite o registro mais detalhado ao iniciar seu serviço.
 
-A partir da linha `--verbose` de comando, use o para permitir um registro mais detalhado. Você também pode especificar `--output`um formato de saída usando . Por exemplo: 
+A partir da linha `--verbose` de comando, use o para permitir um registro mais detalhado. Você também pode especificar `--output`um formato de saída usando . Por exemplo:
 
 ```cmd
 azds up --verbose --output json
@@ -271,6 +271,113 @@ Por exemplo, para parar e desativar o serviço *Windows BranchCache:*
 * Clique em *Parar*.
 * Opcionalmente, você pode desativá-lo definindo *Tipo de Inicialização* para *Desativado*.
 * Clique em *OK*.
+
+### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>Erro "no AzureAssignedIdentity encontrado para pod:azds/azds-webhook-deployment-id\<\> no estado atribuído"
+
+Ao executar um serviço com o Azure Dev Spaces em um cluster AKS com uma [identidade gerenciada](../aks/use-managed-identity.md) e [identidades gerenciadas por pod instaladas,](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) o processo pode ser travado após a etapa de instalação do *gráfico.* Se você inspecionar o *gancho azds-injector-webhook* no espaço de nome *azds,* você pode ver este erro.
+
+Os serviços que o Azure Dev Spaces executa em seu cluster utilizam a identidade gerenciada do cluster para conversar com os serviços de back-end do Azure Dev Spaces fora do cluster. Quando a identidade gerenciada do pod é instalada, as regras de rede são configuradas nos nós do cluster para redirecionar todas as chamadas de credenciais de identidade gerenciadas para um [DaemonSet (Node Managed Identity, identidade gerenciada gerenciada) instalado no cluster](https://github.com/Azure/aad-pod-identity#node-managed-identity). Este NMI DaemonSet identifica o pod de chamada e garante que o pod tenha sido rotulado adequadamente para acessar a identidade gerenciada solicitada. O Azure Dev Spaces não pode detectar se um cluster tem a identidade gerenciada do pod instalada e não pode executar a configuração necessária para permitir que os serviços do Azure Dev Spaces acessem a identidade gerenciada do cluster. Como os serviços do Azure Dev Spaces não foram configurados para acessar a identidade gerenciada do cluster, o NMI DaemonSet não permitirá que eles obtenham um token AAD para a identidade gerenciada e não se comuniquem com os serviços de back-end do Azure Dev Spaces.
+
+Para corrigir esse problema, aplique um [AzurePodIdentityException](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md) para o *webhook azds-injector* e os pods de atualização instrumentados pelo Azure Dev Spaces para acessar a identidade gerenciada.
+
+Crie um arquivo chamado *webhookException.yaml* e copie a seguinte definição de YAML:
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: azds-infrastructure-exception
+  namespace: azds
+spec:
+  PodLabels:
+    azds.io/uses-cluster-identity: "true"
+```
+
+O arquivo acima cria um objeto *AzurePodIdentityException* para o *webhook azds-injector.* Para implantar este `kubectl`objeto, use:
+
+```cmd
+kubectl apply -f webhookException.yaml
+```
+
+Para atualizar pods instrumentados pelo Azure Dev Spaces para acessar a identidade gerenciada, `kubectl` atualize o *namespace* na definição yaml abaixo e use para aplicá-lo para cada espaço de v.
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: azds-infrastructure-exception
+  namespace: myNamespace
+spec:
+  PodLabels:
+    azds.io/instrumented: "true"
+```
+
+Alternativamente, você pode criar objetos *AzureIdentity* e *AzureIdentityBinding* e atualizar os rótulos do pod para cargas de trabalho em execução em espaços instrumentados pelo Azure Dev Spaces para acessar a identidade gerenciada criada pelo cluster AKS.
+
+Para listar os detalhes da identidade gerenciada, execute o seguinte comando para o cluster AKS:
+
+```azurecli
+az aks show -g <resourcegroup> -n <cluster> -o json --query "{clientId: identityProfile.kubeletidentity.clientId, resourceId: identityProfile.kubeletidentity.resourceId}"
+```
+
+O comando acima produz o *clientId* e *resourceId* para a identidade gerenciada. Por exemplo:
+
+```json
+{
+  "clientId": "<clientId>",
+  "resourceId": "/subscriptions/<subid>/resourcegroups/<resourcegroup>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<name>"
+}
+```
+
+Para criar um objeto *AzureIdentity,* crie um arquivo chamado *clusteridentity.yaml* e use a seguinte definição YAML atualizada com os detalhes da sua identidade gerenciada do comando anterior:
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzureIdentity
+metadata:
+  name: my-cluster-mi
+spec:
+  type: 0
+  ResourceID: /subscriptions/<subid>/resourcegroups/<resourcegroup>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<name>
+  ClientID: <clientId>
+```
+
+Para criar um objeto *AzureIdentityBinding,* crie um arquivo chamado *clusteridentitybinding.yaml* e use a seguinte definição yaml:
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzureIdentityBinding
+metadata:
+  name: my-cluster-mi-binding
+spec:
+  AzureIdentity: my-cluster-mi
+  Selector: my-label-value
+```
+
+Para implantar os objetos *AzureIdentity* e `kubectl` *AzureIdentityBinding,* use:
+
+```cmd
+kubectl apply -f clusteridentity.yaml
+kubectl apply -f clusteridentitybinding.yaml
+```
+
+Depois de implantar os objetos *AzureIdentity* e *AzureIdentityBinding,* qualquer carga de trabalho com o *aadpodidbinding: o* rótulo do valor do meu rótulo pode acessar a identidade gerenciada do cluster. Adicione este rótulo e reimplante todas as cargas de trabalho em execução em qualquer espaço de dev. Por exemplo:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sample
+        aadpodidbinding: my-label-value
+    spec:
+      [...]
+```
 
 ## <a name="common-issues-using-visual-studio-and-visual-studio-code-with-azure-dev-spaces"></a>Problemas comuns usando visual studio e visual studio code com Azure Dev Spaces
 
@@ -338,7 +445,7 @@ Para corrigir esse problema:
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>Erro de autorização "Microsoft.DevSpaces/register/action"
 
-Você precisa de acesso de *Proprietário* ou *Colaborador* em sua assinatura do Azure para gerenciar o Azure Dev Spaces. Se você está tentando gerenciar dev spaces e não tem acesso *proprietário* ou *contribuinte* à assinatura azure associada, você pode ver um erro de autorização. Por exemplo: 
+Você precisa de acesso de *Proprietário* ou *Colaborador* em sua assinatura do Azure para gerenciar o Azure Dev Spaces. Se você está tentando gerenciar dev spaces e não tem acesso *proprietário* ou *contribuinte* à assinatura azure associada, você pode ver um erro de autorização. Por exemplo:
 
 ```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
@@ -397,7 +504,7 @@ Para atualizar a função RBAC do usuário para o controlador:
     * Para *Função,* selecione *Contribuinte* ou *Proprietário.*
     * Para *Atribuir acesso a*, selecione *Usuário, grupo ou entidade de serviço do Azure AD*.
     * Para *Selecionar,* procure o usuário que deseja dar permissões.
-1. Clique em *Salvar*.
+1. Clique em *Save* (Salvar).
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>A resolução de nomes DNS falha para uma URL pública associada a um serviço do Azure Dev Spaces
 
@@ -497,7 +604,7 @@ Para corrigir esse problema:
 
 Depois [de rodar os certificados em seu cluster AKS,](../aks/certificate-rotation.md)certas operações, como `azds space list` e `azds up` falharão. Você também precisa atualizar os certificados no controlador Azure Dev Spaces depois de rodar os certificados em seu cluster.
 
-Para corrigir esse problema, certifique-se de que `az aks get-credentials` seu *kubeconfig* tenha os certificados atualizados usando e execute o `azds controller refresh-credentials` comando. Por exemplo: 
+Para corrigir esse problema, certifique-se de que `az aks get-credentials` seu *kubeconfig* tenha os certificados atualizados usando e execute o `azds controller refresh-credentials` comando. Por exemplo:
 
 ```azurecli
 az aks get-credentials -g <resource group name> -n <cluster name>

@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Encontre respostas para algumas das perguntas comuns sobre a Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: f3ac6ec3c3ddbe8ff508befba2eb4a8423e66f07
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 1fd176084cd0737a290e037ed19af510fcab3e78
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998727"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381991"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Perguntas frequentes sobre a Azure Dev Spaces
 
@@ -79,7 +79,7 @@ Ao usar o Visual Studio para preparar seu projeto, você tem a opção de habili
 
 ## <a name="can-i-use-pod-managed-identities-with-azure-dev-spaces"></a>Posso usar identidades gerenciadas por pod com o Azure Dev Spaces?
 
-Atualmente, o Azure Dev Spaces não suporta o uso [de identidades gerenciadas por pod][aks-pod-managed-id] em clusters AKS com o Azure Dev Spaces ativado. Se você tiver identidades gerenciadas de pod instaladas e quiser desinstalá-la, você poderá encontrar mais detalhes nas [notas de desinstalação][aks-pod-managed-id-uninstall].
+Sim, você pode usar [identidades gerenciadas de pod][aks-pod-managed-id] em clusters AKS com o Azure Dev Spaces ativado, mas existem [etapas adicionais de configuração][dev-spaces-pod-managed-id-steps] depois de habilitar o Azure Dev Spaces em seu cluster com identidades gerenciadas por pod. Se você tiver identidades gerenciadas de pod instaladas e quiser desinstalá-la, você poderá encontrar mais detalhes nas [notas de desinstalação][aks-pod-managed-id-uninstall].
 
 ## <a name="can-i-use-azure-dev-spaces-with-multiple-microservices-in-an-application"></a>Posso usar o Azure Dev Spaces com vários microsserviços em um aplicativo?
 
@@ -98,6 +98,7 @@ No Visual Studio, é possível configurar soluções .NET Core para depuração 
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
 [bike-sharing]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
+[dev-spaces-pod-managed-id-steps]: troubleshooting.md#error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state
 [dev-spaces-prep]: how-dev-spaces-works-prep.md
 [dev-spaces-routing]: how-dev-spaces-works-routing.md#how-routing-works
 [ingress-nginx]: how-to/ingress-https-nginx.md#configure-a-custom-nginx-ingress-controller

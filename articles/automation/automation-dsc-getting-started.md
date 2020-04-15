@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2c33fbed6c547897847c79cc1260d2bdc9ec6b17
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: eb285d15814f1105462c414541657d43b5371d98
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010317"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383231"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Comece com a configuração do estado de automação do Azure
 
@@ -59,7 +59,7 @@ Crie uma [configuração de DSC](/powershell/scripting/dsc/configurations/config
         }
     }
     ```
-1. Salve o arquivo como `TestConfig.ps1`.
+1. Salve o arquivo como **TestConfig.ps1**.
 
 Esta configuração chama um recurso em cada bloco de nó, o [recurso WindowsFeature](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource), que garante a presença ou a ausência da funcionalidade **Servidor Web** .
 
@@ -105,7 +105,7 @@ Para obter mais informações sobre a compilação das configurações, consulte
    ![Captura de tela da página de configuração de TestConfig realçando o botão de compilação](./media/automation-dsc-getting-started/CompileConfig.png)
 
 > [!NOTE]
-> Quando você compila uma configuração na Automação do Azure, ela implanta automaticamente quaisquer MOFs de configuração de nó no servidor de pull.
+> Quando você compila uma configuração no Azure Automation, ele implanta automaticamente qualquer configuração de nó criado arquivos MOF para o servidor pull.
 
 ## <a name="viewing-a-compilation-job"></a>Exibindo um trabalho de compilação
 
@@ -123,7 +123,7 @@ Após iniciar uma compilação, você poderá visualizá-la no bloco **Trabalhos
 
 ## <a name="viewing-node-configurations"></a>Exibindo configurações de nó
 
-A conclusão com êxito de um trabalho de compilação cria uma ou mais novas configurações de nó. Uma configuração de nó é um documento MOF que é implantado no servidor de pull e está pronto para ser submetido ao pull e aplicado por um ou mais nós. É possível exibir as configurações de nós na conta de Automação na página **Configuração de estado (DSC)**. Uma configuração de nó tem um nome com o formato *NomeConfiguração*.*NomeNó*.
+A conclusão com êxito de um trabalho de compilação cria uma ou mais novas configurações de nó. Uma configuração de nó é um documento MOF que é implantado no servidor de pull e está pronto para ser submetido ao pull e aplicado por um ou mais nós. Você pode visualizar as configurações do nó em sua conta de automação na página **DSC (State configuration).** Uma configuração de nó tem `ConfigurationName.NodeName`um nome com o formulário .
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. À esquerda, clique em **Todos os recursos** e, em seguida, no nome de sua conta de Automação.
@@ -134,7 +134,7 @@ A conclusão com êxito de um trabalho de compilação cria uma ou mais novas co
 
 ## <a name="onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration"></a>Integrar uma VM do Azure para gerenciamento com Configuração de Estado da Automação do Azure
 
-É possível usar a Configuração de Estado da Automação do Azure para gerenciar VMs do Azure (tanto Clássica quanto do Gerenciador de Recursos), VMs locais, computadores Linux, VMs de AWS e computadores físicos locais. Neste artigo, você aprenderá como integrar somente VMs do Azure Resource Manager. Para obter mais informações sobre como integrar outros tipos de computadores, consulte [Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure](automation-dsc-onboarding.md).
+Você pode usar a configuração do Estado de Automação do Azure para gerenciar VMs Azure (tanto classicas quanto Gerenciador de recursos), VMs locais, máquinas Linux, VMs AWS e máquinas físicas no local. Neste artigo, você aprenderá como integrar somente VMs do Azure Resource Manager. Para obter mais informações sobre como integrar outros tipos de computadores, consulte [Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure](automation-dsc-onboarding.md).
 
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-state-configuration"></a>Para integrar uma VM do Azure Resource Manager para gerenciamento por Configuração de Estado da Automação do Azure
 

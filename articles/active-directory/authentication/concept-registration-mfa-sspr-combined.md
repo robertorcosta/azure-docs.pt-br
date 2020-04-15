@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cb5aca128679b21072a2a3daa503dc43a8e2885
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 26656b6dafd91d47c05c2d1f923e53f4ba790cf8
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78942885"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309925"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registro combinado de informações de segurança (visualização)
 
@@ -96,7 +96,7 @@ Aqui estão vários cenários em que os usuários podem ser solicitados a regist
 
 Quando o registro é aplicado, os usuários são mostrados o número mínimo de métodos necessários para estar em conformidade com as políticas de Autenticação Multifatorial e SSPR, da maioria para menos seguras.
 
-Por exemplo: 
+Por exemplo:
 
 - Um usuário está habilitado para SSPR. A política sspr exigia dois métodos para redefinir e habilitou código de aplicativo móvel, e-mail e telefone.
    - Este usuário é obrigado a registrar dois métodos.
@@ -139,7 +139,7 @@ Um usuário que já configurou pelo menos um método que pode ser [https://aka.m
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Forçar os usuários a recadastrar métodos de autenticação](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+[Forçar os usuários a recadastrar métodos de autenticação](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
 
 [Habilite o registro combinado em seu inquilino](howto-registration-mfa-sspr-combined.md)
 
