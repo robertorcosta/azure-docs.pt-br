@@ -1,18 +1,18 @@
 ---
-title: Crie uma nova oferta saaS no Mercado Comercial
-description: Como criar uma nova oferta de Software as a Service (SaaS) para listagem ou venda no Azure Marketplace, AppSource ou através do programa Cloud Solution Provider (CSP) usando o portal Commercial Marketplace no Microsoft Partner Center.
+title: Crie uma nova oferta SaaS para o mercado comercial da Microsoft
+description: Como criar uma nova oferta de Software as a Service (SaaS) para listagem ou venda no Microsoft AppSource, Azure Marketplace ou através do programa Cloud Solution Provider (CSP) usando o programa de mercado comercial da Microsoft no Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 3f2201db4b78ba61ba15608a676a8b9f8f5e612a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.openlocfilehash: 45559978f710549088d75d0f0706b798ebad3821
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286193"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314080"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma oferta de SaaS
 
@@ -82,6 +82,7 @@ Para listar as ofertas de Software as a Service (SaaS) com o Commercial Marketpl
 - Para obter requisitos mais extensos, consulte o [Guia de Publicação de Ofertas do SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
 #### <a name="saas-pricing-and-billing-options"></a>Opções de preços e faturamento do SaaS
+
 Com as soluções SaaS em execução na assinatura do Azure do editor, as taxas de licença pagas pelos clientes incluem o custo da infra-estrutura sobre a qual o software é implantado. O uso da infra-estrutura do Azure é gerenciado e cobrado diretamente para você, o parceiro. Os valores reais de uso da infraestrutura não são vistos pelo cliente. Os editores devem agrupar as taxas de uso da infra-estrutura do Azure em seus preços de licença de software. 
 
 O SaaS oferece suporte ao faturamento mensal ou anual com base em uma taxa fixa, por usuário ou taxas de consumo usando o serviço de cobrança medido. O mercado comercial da Microsoft opera em um modelo de agência, pelo qual os editores definem preços, a Microsoft fatura clientes e a Microsoft paga receita ao editor enquanto retenho uma taxa de agência.
@@ -109,16 +110,19 @@ Promova seus negócios com a Microsoft criando uma listagem de marketplace. Sele
 
 - **Como você quer que os clientes em potencial interajam com essa oferta de listagem?**
 
-##### <a name="get-it-now-free"></a>Obtê-lo agora (grátis)
+#### <a name="get-it-now-free"></a>Obtê-lo agora (grátis)
+
 Liste sua oferta aos clientes gratuitamente fornecendo uma URL válida (começando com *http* ou *https)* onde eles podem obter uma avaliação através [de autenticação com um clique usando o Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Por exemplo: `https://contoso.com/saas-app`
 
-##### <a name="free-trial-listing"></a>Avaliação gratuita (listagem)
+#### <a name="free-trial-listing"></a>Avaliação gratuita (listagem)
+
 Liste sua oferta aos clientes com um link para uma avaliação gratuita, fornecendo uma URL válida (começando com *http* ou *https),* onde eles podem obter uma avaliação através [de autenticação com um clique usando o Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Por exemplo: `https://contoso.com/trial/saas-app`. Os testes gratuitos de listagem de ofertas são criados, gerenciados e configurados pelo seu serviço e não têm assinaturas gerenciadas pela Microsoft.
 
 > [!NOTE]
 > Os tokens que seu aplicativo receberá através do seu link de teste só podem ser usados para obter informações do usuário através do Azure AD para automatizar a criação de conta em seu aplicativo. As contas Microsoft (MSA) não são suportadas para autenticação usando este token.
 
-##### <a name="contact-me"></a>Entrar em contato comigo
+#### <a name="contact-me"></a>Entrar em contato comigo
+
 Colete informações de contato com o cliente conectando seu sistema de CRM (Customer Relationship Management, gerenciamento de relacionamento com o cliente). O cliente receberá permissão para compartilhar suas informações. Esses detalhes do cliente, juntamente com o nome da oferta, ID e fonte de marketplace onde encontraram sua oferta, serão enviados para o sistema de CRM que você configurou. Para obter mais informações sobre a configuração do seu CRM, consulte [O gerenciamento de chumbo connect](#connect-lead-management).
 
 ## <a name="example-marketplace-offer-listing"></a>Exemplo de listagem de oferta do Marketplace
@@ -127,16 +131,16 @@ Colete informações de contato com o cliente conectando seu sistema de CRM (Cus
 
 ## <a name="enable-a-test-drive"></a>Habilitar um test drive
 
-Um test drive é uma ótima maneira de mostrar sua oferta a potenciais clientes, dando-lhes a opção de "experimentar antes de comprar", resultando em maior conversão e geração de leads altamente qualificados. [Saiba mais sobre test drives.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+Um test drive é uma ótima maneira de mostrar sua oferta a potenciais clientes, dando-lhes a opção de "experimentar antes de comprar", resultando em maior conversão e geração de leads altamente qualificados. Para saber mais, consulte [Permitir que seus clientes testem sua oferta](./test-drive.md).
 
 - **Habilite um test drive** (caixa de seleção)
 
 Ao ativar o test drive, você será solicitado a configurar um ambiente de demonstração para que os clientes experimentem sua oferta por um período fixo de tempo. 
 
-#### <a name="test-drive-resources"></a>Recursos de test drive
-- [Práticas recomendadas técnicas do test drive](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Práticas recomendadas de marketing de test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [Visão geral da unidade de teste um pager](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
+### <a name="test-drive-resources"></a>Recursos de test drive
+
+- [Práticas recomendadas](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)- de test drive de marketing[Test Drive test drive](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Visão geral do Test Drive (download em PDF)](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
 
 ## <a name="connect-lead-management"></a>Conecte o gerenciamento de chumbo
 
@@ -173,14 +177,14 @@ A Microsoft fornece um modelo de Contrato Padrão.
 
 - **Usar o Contrato Padrão para o mercado comercial da Microsoft?**
 
-Para simplificar o processo de aquisição para os clientes e reduzir a complexidade legal para os fornecedores de software, a Microsoft oferece um Contrato Padrão para o mercado comercial da Microsoft para ajudar a facilitar as transações no mercado. Em vez de criar termos e condições personalizados, os editores de marketplace comercial podem optar por oferecer seu software o Contrato Padrão, que os clientes só precisam vetar e aceitar uma vez. O Contrato Padrão pode https://go.microsoft.com/fwlink/?linkid=2041178ser encontrado aqui: .
+Para simplificar o processo de aquisição para os clientes e reduzir a complexidade legal para os fornecedores de software, a Microsoft oferece um Contrato Padrão para o mercado comercial da Microsoft para ajudar a facilitar as transações no mercado. Em vez de criar termos e condições personalizados, os editores de marketplace comercial podem optar por oferecer seu software sob o Contrato Padrão, que os clientes só precisam vetar e aceitar uma vez. O Contrato Padrão pode https://go.microsoft.com/fwlink/?linkid=2041178ser encontrado aqui: .
 
 Você pode selecionar para usar o Contrato Padrão em vez de fornecer seus próprios termos e condições personalizados selecionando a caixa de seleção "Use o Contrato Padrão para o mercado comercial".
 
 ![Usando a caixa de seleção contrato padrão](./media/use-standard-contract.png)
 
 > [!NOTE]
-> Uma vez que você publica uma oferta usando o contrato Standard para o mercado comercial da Microsoft, você não pode usar seus próprios termos e condições personalizados. É um cenário "ou". Ou você oferece sua solução o Contrato Padrão **ou** seus próprios termos e condições. Se você quiser modificar os termos do Contrato Padrão, você pode fazê-lo através de Alterações de Contrato Padrão.
+> Uma vez que você publica uma oferta usando o contrato Standard para o mercado comercial da Microsoft, você não pode usar seus próprios termos e condições personalizados. É um cenário "ou". Ou você oferece sua solução sob o Contrato Padrão **ou** seus próprios termos e condições. Se você quiser modificar os termos do Contrato Padrão, você pode fazê-lo através de Alterações de Contrato Padrão.
 
 #### <a name="standard-contract-amendments"></a>Alterações de contrato padrão
 
@@ -299,7 +303,7 @@ A guia **Visualização** permite definir uma audiência de **visualização** l
 
 - **Defina uma audiência de visualização: adicione um único e-mail de conta AAD/MSA por linha, juntamente com uma descrição opcional.**
 
-Adicione até dez (10) endereços de e-mail manualmente, ou vinte (20) se carregar um arquivo CSV, para contas Microsoft Account (MSA) ou Azure Active Directory existentes para ajudar a validar sua oferta antes de publicar ao vivo. Ao adicionar essas contas, você está definindo um público que terá acesso de pré-visualização à sua oferta antes de ser publicada no mercado(s). Se sua oferta já estiver ao vivo, você ainda pode definir uma audiência de pré-visualização para testar quaisquer alterações ou atualizações à sua oferta.
+Adicione até 10 endereços de e-mail manualmente, ou 20 se carregar um arquivo CSV, para contas existentes da Microsoft Account (MSA) ou do Azure Active Directory para ajudar a validar sua oferta antes de publicar ao vivo. Ao adicionar essas contas, você está definindo um público que terá acesso de pré-visualização à sua oferta antes de ser publicada no mercado(s). Se sua oferta já estiver ao vivo, você ainda pode definir uma audiência de pré-visualização para testar quaisquer alterações ou atualizações à sua oferta.
 
 > [!NOTE]
 > O público de pré-visualização difere de uma audiência privada. Uma audiência de pré-visualização pode ter acesso à sua oferta _antes_ de ser publicada ao vivo nos marketplaces. Você também pode optar por criar um plano e disponibilizá-lo apenas para um público privado. Na guia de listagem de **planos,** você pode definir um público privado com a caixa de seleção **de plano privado.** Em seguida, você pode definir um público privado de até 20.000 clientes usando IDs de inquilino szure.
@@ -359,12 +363,12 @@ As ofertas da SaaS através do mercado comercial permitem que você forneça uma
 >[!Note]
 >Se o cliente optar por converter para um plano sem testes gratuitos, a conversão acontecerá, mas a avaliação gratuita será perdida imediatamente.  Além disso, uma vez que um cliente começa a pagar por um plano, ele não pode mais obter avaliação gratuita na mesma assinatura novamente, mesmo se ele se converter para um SKU que suporta testes gratuitos.
 
-A capacidade de configurar uma avaliação gratuita está disponível para cada plano em sua oferta. Basta navegar até o Preço e Disponibilidade para cada oferta e verificar a caixa para permitir um teste de um mês.
+A capacidade de configurar uma avaliação gratuita está disponível para cada plano em sua oferta. Navegue até os preços e disponibilidade para cada oferta e marque a caixa para permitir um teste de um mês.
 
 ![Caixa de seleção de avaliação gratuita de um mês](./media/free-trial-enable.png)
 
 >[!Note]
->Uma vez que sua oferta transacível tenha sido publicada com uma avaliação gratuita, ela não pode ser desativada para esse plano. Certifique-se de que esta configuração está correta para a primeira publicação para evitar ter que recriar o plano.
+>Uma vez que sua oferta transacível tenha sido publicada com um teste gratuito, ela não pode ser desativada para esse plano. Certifique-se de que esta configuração está correta para a primeira publicação para evitar ter que recriar o plano.
 
 Para obter informações sobre assinaturas de clientes que atualmente participam `isFreeTrial`de uma avaliação gratuita, use a nova propriedade da API, que será marcada como verdadeira ou falsa. Para obter mais informações, consulte a [API saas get subscription](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
 
@@ -377,7 +381,7 @@ Para obter informações sobre assinaturas de clientes que atualmente participam
 
 Todos os planos devem estar disponíveis em pelo menos um mercado. Selecione a caixa de seleção para qualquer local de mercado onde você gostaria de disponibilizar este plano. Uma caixa de pesquisa e um botão para selecionar países "Remetidos de impostos", nos quais a Microsoft reemite vendas e uso de impostos em seu nome, são incluídos para ajudar.
 
-Se você já definiu os preços para o seu plano em Dólares dos Estados Unidos (USD) e adicionar outra localização de mercado, o preço para o novo mercado será calculado de acordo com as taxas de câmbio atuais. Você deve sempre rever o preço de cada mercado antes de publicar. Os preços podem ser revisados usando o link "Preços de exportação (xlsx)" após salvar suas alterações.
+Se você já definiu os preços para o seu plano em Dólares dos Estados Unidos (USD) e adicionar outra localização de mercado, o preço para o novo mercado será calculado de acordo com as taxas de câmbio atuais. Revise o preço de cada mercado antes de publicar. Os preços podem ser revisados usando o link "Preços de exportação (xlsx)" após salvar suas alterações.
 
 #### <a name="pricing"></a>Preços
 
@@ -418,7 +422,7 @@ Verifique esta caixa para tornar seu plano privado e visível apenas para o púb
 
 Atribua ao público que terá acesso a este plano privado. O acesso é atribuído usando IDs de inquilino com a opção de incluir uma descrição de cada ID de inquilino atribuído. Um máximo de 10 IDs de inquilino podem ser adicionados, ou 20.000 iDs de inquilino de clientes se importar um arquivo de planilha .csv.
 
-Um inquilino é uma representação de uma organização, com um ID representado como um GUID (Globally Unique Identifier, um número inteiro de 128 bits usado para identificar recursos). É uma instância dedicada do Azure AD que uma organização ou um desenvolvedor de aplicativos recebe ao criar uma relação com Microsoft, como inscrever-se no Azure, no Microsoft Intune ou no Microsoft 365. Cada locatário do AD do Azure é distinto e separado de outros diretórios do AD do Azure. Para verificar o locatário, entre no portal do Azure com a conta que você deseja usar para gerenciar seu aplicativo. Se houver um locatário, você será conectado a ele automaticamente e verá o nome do locatário diretamente abaixo do nome da conta. Passe o mouse sobre o nome da conta no canto superior direito do portal do Azure para ver seu nome, email, diretório e ID do locatário (um GUID) e seu domínio. Se sua conta estiver associada a vários locatários, você pode selecionar o nome da sua conta para abrir um menu no qual você pode alternar entre locatários. Cada locatário tem sua própria ID exclusiva. Você também pode procurar o ID de inquilino da [https://www.whatismytenantid.com](https://www.whatismytenantid.com)sua organização usando uma URL de nome de domínio em: .
+Um inquilino é uma representação de uma organização, com um ID representado como um GUID (Globally Unique Identifier, um número inteiro de 128 bits usado para identificar recursos). É uma instância dedicada do Azure AD que uma organização ou desenvolvedor de aplicativos recebe quando a organização ou desenvolvedor de aplicativos cria um relacionamento com a Microsoft, por exemplo, ao se inscrever no Azure, Microsoft Intune ou Microsoft 365. Cada locatário do AD do Azure é distinto e separado de outros diretórios do AD do Azure. Para verificar o locatário, entre no portal do Azure com a conta que você deseja usar para gerenciar seu aplicativo. Se houver um locatário, você será conectado a ele automaticamente e verá o nome do locatário diretamente abaixo do nome da conta. Passe o mouse sobre o nome da conta no canto superior direito do portal do Azure para ver seu nome, email, diretório e ID do locatário (um GUID) e seu domínio. Se sua conta estiver associada a vários locatários, você pode selecionar o nome da sua conta para abrir um menu no qual você pode alternar entre locatários. Cada locatário tem sua própria ID exclusiva. Você também pode procurar o ID de inquilino da [https://www.whatismytenantid.com](https://www.whatismytenantid.com)sua organização usando uma URL de nome de domínio em: .
 
 Embora o SaaS ofereça ids de inquilino para definir um público privado, outros tipos de oferta podem usar IDs de assinatura do Azure (que também são representados como GUIDs).
 
@@ -429,10 +433,6 @@ Embora o SaaS ofereça ids de inquilino para definir um público privado, outros
 
 ![Exemplo de listagem de plano de mercado com notas](./media/marketplace-plan.svg)
 
-## <a name="test-drive"></a>Test drive
-
-[!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
-
 ## <a name="cloud-solution-provider-csp-reseller-audience"></a>Audiência de revendedor do Provedor de Soluções em Nuvem (CSP)
 
 A eleição para disponibilizar sua oferta no programa CSP permite que os provedores de soluções em nuvem vendam seu produto como parte de uma solução empacotada para seus clientes. Para obter mais informações, consulte [Cloud Solution Providers](https://go.microsoft.com/fwlink/?linkid=2111109).
@@ -441,7 +441,7 @@ A eleição para disponibilizar sua oferta no programa CSP permite que os proved
 
 Depois de concluir todas as seções necessárias da oferta, selecione **publicar** no canto superior direito do portal. Você será redirecionado para a **página Revisar e publicar.**
 
-#### <a name="submit-offer-to-preview"></a>Enviar oferta para visualizar
+### <a name="submit-offer-to-preview"></a>Enviar oferta para visualizar
 
 Se esta é a sua primeira vez publicando esta oferta, você pode:
 

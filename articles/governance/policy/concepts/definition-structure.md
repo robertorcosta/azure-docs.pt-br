@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de políticas são usadas para estabelecer convenções para os recursos do Azure em sua organização.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: e6b1d5c43f290fc2dd953492440670608a15faca
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 017878c4c47a5645ea8815580d2176c7a2ff5d66
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80638085"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314009"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -94,7 +94,7 @@ Os seguintes modos do Provedor de Recursos são suportados atualmente durante a 
 > [!NOTE]
 > Os modos do Provedor de Recursos só suportam definições de diretiva incorporadas e não suportam iniciativas durante a visualização.
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 Parâmetros ajudam a simplificar o gerenciamento de política, reduzindo o número de definições de política. Pense em parâmetros como os campos em um formulário – `name`, `address`, `city`, `state`. Esses parâmetros sempre permanecem iguais, porém, seus valores mudam com base no preenchimento individual do formulário.
 Os parâmetros funcionam da mesma maneira que ao criar políticas. Ao incluir parâmetros em uma definição de política, você pode reutilizar essa política para diferentes cenários usando valores diferentes.
@@ -252,11 +252,13 @@ Uma condição avalia se um **campo** ou um acessador de **valor** atende a dete
 - `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
-- `"less": "value"`
-- `"lessOrEquals": "value"`
-- `"greater": "value"`
-- `"greaterOrEquals": "value"`
+- `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
+- `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
+- `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
 - `"exists": "bool"`
+
+Para **menos**, **lessOrEquals**, **maior**e **maiorOrEquals**, se o tipo de propriedade não corresponder ao tipo de condição, um erro é jogado. Comparações de `InvariantCultureIgnoreCase`cordas são feitas usando .
 
 Ao usar as condições **like** e **notLike**, você fornece um curinga (`*`) no valor.
 O valor não deve ter mais de um curinga `*`.

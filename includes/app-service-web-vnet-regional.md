@@ -2,31 +2,31 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 02/27/2020
+ms.date: 04/15/2020
 ms.author: ccompy
-ms.openlocfilehash: e0db3ce7d31b838ca6f7d566083a33ee215d3399
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7f2b011b2de5af0e4ace9cbeb4399911d8e83b7f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80419581"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312806"
 ---
 O uso da Integração VNet regional permite que seu aplicativo acesse:
 
-* Recursos na rede virtual na mesma região com a que você se integra.
-* Recursos em redes virtuais de olho em sua rede virtual que estão na mesma região.
+* Recursos em um VNet na mesma região que seu aplicativo.
+* Recursos em VNets associados ao VNet com o seu aplicativo está integrado.
 * O ponto final do serviço garantiu serviços.
 * Recursos em conexões Azure ExpressRoute.
-* Recursos na rede virtual à que você está conectado.
+* Recursos no VNet com os que você está integrado.
 * Recursos em conexões peered, que inclui conexões Azure ExpressRoute.
-* Pontos finais privados.
+* Pontos finais privados - Nota: o DNS deve ser gerenciado separadamente em vez de usar as zonas privadas do Azure DNS.
 
-Quando você usa a Integração VNet com redes virtuais na mesma região, você pode usar os seguintes recursos de rede do Azure:
+Quando você usa a Integração VNet com VNets na mesma região, você pode usar os seguintes recursos de rede do Azure:
 
 * **Grupos de segurança de rede (NSGs)**: Você pode bloquear o tráfego de saída com um NSG colocado em sua sub-rede de integração. As regras de entrada não se aplicam porque você não pode usar o VNet Integration para fornecer acesso de entrada ao seu aplicativo.
 * **Tabelas de rota (UDRs)**: Você pode colocar uma tabela de rota na sub-rede de integração para enviar tráfego de saída onde quiser.
 
-Por padrão, seu aplicativo roteia apenas o tráfego RFC1918 em sua rede virtual. Se você quiser direcionar todo o seu tráfego de saída para sua rede virtual, aplique a configuração do aplicativo WEBSITE_VNET_ROUTE_ALL ao seu aplicativo. Para configurar a configuração do aplicativo:
+Por padrão, seu aplicativo roteia apenas o tráfego RFC1918 em seu VNet. Se você quiser direcionar todo o seu tráfego de saída para o seu VNet, aplique a configuração do aplicativo WEBSITE_VNET_ROUTE_ALL ao seu aplicativo. Para configurar a configuração do aplicativo:
 
 1. Vá para a **ui de configuração** no portal do seu aplicativo. Selecione **Nova configuração de aplicativo**.
 1. Digite **WEBSITE_VNET_ROUTE_ALL** na caixa **Nome** e digite **1** na caixa **Valor.**
@@ -36,24 +36,25 @@ Por padrão, seu aplicativo roteia apenas o tráfego RFC1918 em sua rede virtual
 1. Selecione **OK**.
 1. Clique em **Salvar**.
 
-Se você direcionar todo o seu tráfego de saída para sua rede virtual, ele está sujeito aos NSGs e UDRs que são aplicados à sua sub-rede de integração. Quando você direciona todo o seu tráfego de saída para sua rede virtual, seus endereços de saída ainda são os endereços de saída listados nas propriedades do aplicativo, a menos que você forneça rotas para enviar o tráfego para outro lugar.
+Se você direcionar todo o seu tráfego de saída para o seu VNet, ele está sujeito aos NSGs e UDRs que são aplicados à sua sub-rede de integração. Quando você direciona todo o seu tráfego de saída para o seu VNet, seus endereços de saída ainda são os endereços de saída listados nas propriedades do aplicativo, a menos que você forneça rotas para enviar o tráfego para outro lugar.
 
-Existem algumas limitações com o uso da Integração VNet com redes virtuais na mesma região:
+Existem algumas limitações com o uso da Integração VNet com VNets na mesma região:
 
 * Você não pode alcançar recursos através de conexões globais de peering.
 * O recurso está disponível apenas em unidades de escala mais novas do Azure App Service que suportam planos premiumV2 App Service.
 * A sub-rede de integração pode ser usada por apenas um plano de Serviço de Aplicativo.
 * O recurso não pode ser usado por aplicativos de plano isolados que estão em um ambiente de serviço de aplicativos.
-* O recurso requer uma sub-rede não utilizada que seja uma /27 com 32 endereços ou maior escancaram uma rede virtual do Azure Resource Manager.
-* O aplicativo e a rede virtual devem estar na mesma região.
-* Você não pode excluir uma rede virtual com um aplicativo integrado. Remova a integração antes de excluir a rede virtual.
-* Você só pode se integrar com redes virtuais na mesma assinatura do aplicativo.
-* Você pode ter apenas um plano regional de Integração VNet por Serviço de Aplicativo. Vários aplicativos no mesmo plano de Serviço de Aplicativo podem usar a mesma rede virtual.
+* O recurso requer uma sub-rede não utilizada que seja uma /27 com 32 endereços ou maior escancarado em um VNet do Azure Resource Manager.
+* O aplicativo e o VNet devem estar na mesma região.
+* Você não pode excluir um VNet com um aplicativo integrado. Remova a integração antes de excluir o VNet.
+* Você só pode se integrar com VNets na mesma assinatura do aplicativo.
+* Você pode ter apenas um plano regional de Integração VNet por Serviço de Aplicativo. Vários aplicativos no mesmo plano de Serviço de Aplicativo podem usar o mesmo VNet.
 * Você não pode alterar a assinatura de um aplicativo ou um plano enquanto há um aplicativo que está usando a Integração VNet regional.
+* Seu aplicativo não pode resolver endereços em Zonas Privadas Do Azure DNS.
 
 Um endereço é usado para cada instância do plano. Se você dimensionar seu aplicativo para cinco instâncias, então cinco endereços serão usados. Uma vez que o tamanho da sub-rede não pode ser alterado após a atribuição, você deve usar uma sub-rede que seja grande o suficiente para acomodar qualquer escala que seu aplicativo possa alcançar. Um /26 com 64 endereços é o tamanho recomendado. Um /26 com 64 endereços acomoda um plano Premium com 30 instâncias. Quando você escala um plano para cima ou para baixo, você precisa de duas vezes mais endereços por um curto período de tempo.
 
-Se você quiser que seus aplicativos em outro plano cheguem a uma rede virtual que já esteja conectada por aplicativos em outro plano, selecione uma sub-rede diferente da que está sendo usada pela Pré-existente Integração VNet.
+Se você quiser que seus aplicativos em outro plano cheguem a um VNet que já esteja conectado por aplicativos em outro plano, selecione uma sub-rede diferente da usada pela Pré-existente Integração VNet.
 
 O recurso está em pré-visualização para Linux. O formulário Linux do recurso só suporta fazer chamadas para endereços RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
 
@@ -63,11 +64,14 @@ Se você hospedar seu aplicativo no Linux com as imagens incorporadas, a Integra
 
 ### <a name="service-endpoints"></a>Pontos de extremidade de serviço
 
-Com a Integração VNet regional, você pode usar pontos finais de serviço. Para usar pontos finais de serviço com seu aplicativo, use a Integração VNet regional para se conectar a uma rede virtual selecionada. Em seguida, configure pontos finais de serviço na sub-rede usada para a integração.
+A Integração VNet Regional permite que você use pontos finais de serviço. Para usar pontos finais de serviço com seu aplicativo, use a Integração VNet regional para se conectar a um VNet selecionado e, em seguida, configure pontos finais de serviço com o serviço de destino na sub-rede usada para a integração. Se você quiser acessar um serviço sobre pontos finais de serviço:
+
+1. configurar a integração regional do VNet com o seu aplicativo web
+1. ir para o serviço de destino e configurar pontos finais de serviço contra a sub-rede usada para integração
 
 ### <a name="network-security-groups"></a>Grupos de segurança de rede
 
-Você pode usar grupos de segurança de rede para bloquear o tráfego de entrada e saída para recursos em uma rede virtual. Um aplicativo que usa a Integração VNet regional pode usar um [grupo de segurança de rede][VNETnsg] para bloquear o tráfego de saída para recursos em sua rede virtual ou na internet. Para bloquear o tráfego em endereços públicos, você deve ter a configuração do aplicativo WEBSITE_VNET_ROUTE_ALL definida como 1. As regras de entrada em um NSG não se aplicam ao seu aplicativo porque a Integração VNet afeta apenas o tráfego de saída do seu aplicativo.
+Você pode usar grupos de segurança de rede para bloquear o tráfego de entrada e saída para recursos em um VNet. Um aplicativo que usa a Integração VNet regional pode usar um [grupo de segurança de rede][VNETnsg] para bloquear o tráfego de saída para recursos em seu VNet ou na internet. Para bloquear o tráfego em endereços públicos, você deve ter a configuração do aplicativo WEBSITE_VNET_ROUTE_ALL definida como 1. As regras de entrada em um NSG não se aplicam ao seu aplicativo porque a Integração VNet afeta apenas o tráfego de saída do seu aplicativo.
 
 Para controlar o tráfego de entrada no seu aplicativo, use o recurso Restrições de acesso. Um NSG aplicado à sua sub-rede de integração está em vigor, independentemente de quaisquer rotas aplicadas à sua sub-rede de integração. Se WEBSITE_VNET_ROUTE_ALL estiver definido como 1 e você não tiver nenhuma rota que afete o tráfego de endereços públicos em sua sub-rede de integração, todo o seu tráfego de saída ainda está sujeito a NSGs atribuídos à sua sub-rede de integração. Se WEBSITE_VNET_ROUTE_ALL não for definido, os NSGs só serão aplicados ao tráfego RFC1918.
 

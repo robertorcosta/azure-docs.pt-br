@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: f718bc17b987926f4324635f096d5983acdb63fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f28269b067ee98d69a97799911fd2d84a7f91e34
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256465"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381139"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicação para bancos de dados individuais e em pool do Banco de Dados SQL
 
@@ -111,11 +111,11 @@ Crie uma publicação e uma assinatura push. Para obter mais informações, cons
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Criar uma Assinatura Push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando o nome do servidor do Banco de Dados SQL do Azure como assinante (por exemplo **N'azuresqldbdns.database.windows.net'**) e o nome do Banco de Dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks**).  
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Consulte Também  
 
 - [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
 - [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Tipos de Replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
+- [Criar uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
+- [Tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
 - [Monitorando (Replicação)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
 - [Inicializar uma assinatura](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  

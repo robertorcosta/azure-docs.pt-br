@@ -8,19 +8,19 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d860b557c5c2d6b73fad53cdf84ee8b32182d1ee
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6b60ccc7a635e4b6071b43d7ff75e182aa96cd08
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985449"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313620"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários de Azure Disk Encryption em VMs Linux
 
 
 O Azure Disk Encryption para máquinas virtuais Linux (VMs) usa o recurso DM-Crypt do Linux para fornecer criptografia de disco completo do disco do SO e discos de dados. Além disso, ele fornece criptografia do disco de recursos efêmeros ao usar o recurso EncryptFormatAll.
 
-O Azure Disk Encryption é [integrado ao Azure Key Vault](disk-encryption-key-vault.md) para ajudá-lo a controlar e gerenciar as chaves e segredos de criptografia de disco. Para obter uma visão geral do serviço, consulte [Azure Disk Encryption for Windows VMs](disk-encryption-overview.md).
+O Azure Disk Encryption é [integrado ao Azure Key Vault](disk-encryption-key-vault.md) para ajudá-lo a controlar e gerenciar as chaves e segredos de criptografia de disco. Para obter uma visão geral do serviço, consulte [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md).
 
 Você só pode aplicar criptografia de disco a máquinas virtuais de [tamanhos de VM suportados e sistemas operacionais](disk-encryption-overview.md#supported-vms-and-operating-systems). Você também deve atender aos seguintes pré-requisitos:
 

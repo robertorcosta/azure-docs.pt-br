@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/25/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6482040f0d50f08f04ea87384a99af556f694075
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 913bc16f7408acebb0e65359e8845ce0f6a3a2f4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478805"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314246"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -74,7 +74,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 
 ### <a name="global-commercial-azure"></a>Comercial global Azure
 
-| **Provedor de serviços** | **Microsoft Azure** | **Escritório 365**  | **Locais** |
+| **Provedor de serviços** | **Microsoft Azure** | **Office 365**  | **Locais** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |Com suporte |Com suporte |Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/business/#/)** | Com suporte | Com suporte | Chennai2, Mumbai2 |
@@ -94,7 +94,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **China Mobile International** |Com suporte |Com suporte | Singapura |
 | **China Telecom Global** |Com suporte |Com suporte |RAE de Hong Kong |
 | **China Unicom Global** |Com suporte |Com suporte | Cingapura2 |
-| **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Com suporte |Com suporte |Chicago, Dallas, Montreal, Toronto, Washington D.C. |
+| **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Com suporte |Com suporte |Chicago, Dallas, Montreal, Toronto, Vancouver, Washington DC |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Com suporte |Com suporte |Amsterdã, Amsterdã2, Chicago, Dublin, Frankfurt, Londres, Londres2, Newport, Nova York, Osaka, Paris, Vale do Silício, Vale do Silício2, Cingapura2, Tóquio, Washington DC |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Com suporte |Com suporte |Chicago, Vale do Silício, Washington D.C. |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Com suporte |Com suporte |Chicago, Denver, Los Angeles, Nova Iorque, Vale do Silício, Vale do Silício2, Washington DC, Washington DC2 |
@@ -174,7 +174,7 @@ Nuvens nacionais azure são isoladas umas das outras e do comercial global Azure
 
 ### <a name="us-government-cloud"></a>Nuvem do Governo dos EUA
 
-| **Provedor de serviços** | **Microsoft Azure** | **Escritório 365** | **Locais** |
+| **Provedor de serviços** | **Microsoft Azure** | **Office 365** | **Locais** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Com suporte |Com suporte |Chicago, Phoenix, Vale do Silício, Washington DC |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Com suporte |Com suporte |Nova Iorque, Phoenix, San Antonio, Washington DC |
@@ -185,7 +185,7 @@ Nuvens nacionais azure são isoladas umas das outras e do comercial global Azure
 
 ### <a name="china"></a>China
 
-| **Provedor de serviços** | **Microsoft Azure** | **Escritório 365** | **Locais** |
+| **Provedor de serviços** | **Microsoft Azure** | **Office 365** | **Locais** |
 | --- | --- | --- | --- |
 | **China Telecom** |Com suporte |Sem suporte |Pequim, Pequim2, Xangai, Xangai2 |
 | **China Unicom** | Com suporte | Sem suporte | Beijing2 |
@@ -195,7 +195,7 @@ Para saber mais, confira [ExpressRoute na China](http://www.windowsazure.cn/home
 
 ### <a name="germany"></a>Alemanha
 
-| **Provedor de serviços** | **Microsoft Azure** | **Escritório 365** | **Locais** |
+| **Provedor de serviços** | **Microsoft Azure** | **Office 365** | **Locais** |
 | --- | --- | --- | --- |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Com suporte |Sem suporte |Frankfurt |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Com suporte |Sem suporte |Frankfurt |

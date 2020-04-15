@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3202c2fbfedfce0b0b52be94b1e0d165a6e72546
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 992075378737552e890bd2d6fed3c519e6c62aa7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481306"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312942"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Alta disponibilidade e balanceamento de carga de seus conectores e aplicativos proxy de aplicativos
 
@@ -40,16 +40,12 @@ Os conectores estabelecem suas conexões com base em princípios de alta disponi
 1. Um usuário em um dispositivo cliente tenta acessar um aplicativo local publicado através do Proxy do aplicativo.
 2. A solicitação passa por um Balanceador de carga do Azure para determinar qual instância de serviço proxy de aplicativo deve levar a solicitação. Por região, há dezenas de instâncias disponíveis para aceitar a solicitação. Esse método ajuda a distribuir uniformemente o tráfego nas instâncias de serviço.
 3. A solicitação é enviada para [a Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/).
-4. O Service Bus verifica se a conexão usou anteriormente um conector existente no grupo de conectores. Se assim for, ele reutiliza a conexão. Se nenhum conector estiver emparelhado com a conexão ainda, ele escolherá um conector disponível aleatoriamente para sinalizar. O conector então pega a solicitação do Service Bus.
-
+4. Os sinais de ônibus de serviço para um conector disponível. O conector então pega a solicitação do Service Bus.
    - Na etapa 2, as solicitações vão para diferentes instâncias de serviço proxy de aplicativo, de modo que as conexões são mais propensas a serem feitas com conectores diferentes. Como resultado, os conectores são quase uniformemente usados dentro do grupo.
-
-   - Uma conexão só é restabelecida se a conexão for quebrada ou ocorrer um período ocioso de 10 minutos. Por exemplo, a conexão pode ser quebrada quando uma máquina ou serviço de conector é reiniciado ou há uma interrupção da rede.
-
 5. O conector passa a solicitação para o servidor back-end do aplicativo. Em seguida, o aplicativo envia a resposta de volta para o conector.
 6. O conector completa a resposta abrindo uma conexão de saída para a instância de serviço de onde a solicitação veio. Então essa conexão é imediatamente fechada. Por padrão, cada conector é limitado a 200 conexões simultâneas de saída.
 7. A resposta é então repassada ao cliente a partir da instância de serviço.
-8. Solicitações subseqüentes da mesma conexão repetem as etapas acima até que esta conexão seja quebrada ou esteja ociosa por 10 minutos.
+8. Solicitações subseqüentes da mesma conexão repetem as etapas acima.
 
 Um aplicativo muitas vezes tem muitos recursos e abre várias conexões quando está carregado. Cada conexão passa pelas etapas acima para ser alocada em uma instância de serviço, selecione um novo conector disponível se a conexão ainda não tiver sido emparelhada anteriormente com um conector.
 

@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 7e05458214732a1835dd73b85dad871683ef5bbe
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: acfca3f41cc8bf69572843c3f035a67e8df9e0fe
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743129"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313601"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notas de lançamento do Azure Synapse Analytics
 
@@ -40,18 +40,13 @@ Use a versão identificada para confirmar qual versão foi aplicada ao seu pool 
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
-## <a name="march-2020"></a>Março de 2020
-
-| Melhorias nos serviços                                         | Detalhes                                                      |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **[Visual Studio 16.6 Preview 2](/visualstudio/releases/2019/release-notes-preview) - SQL Server Data Tools (SSDT)** | Esta versão inclui as seguintes melhorias e correções: </br> </br> - Resolver um problema em que a alteração de uma tabela referenciada por uma exibição materializada (MV) faz com que sejam geradas instruções de Alter View que não são suportadas para MVs<br/><br/> - Implementei uma alteração para garantir que a operação Schema Compare não falhe quando objetos de segurança em nível de linha estiverem presentes no banco de dados ou no projeto. No momento, os objetos de segurança em nível de linha não são suportados para SSDT.  <br/><br/> - O limite de tempo do SQL Object Explorer foi aumentado para evitar intervalos de tempo ao listar um grande número de objetos no banco de dados<br/><br/> - Otimizado a maneira como o SQL Server Object Explorer recupera a lista de objetos de banco de dados para reduzir a instabilidade e aumentar o desempenho ao preencher o explorador de objetos |
-
-## <a name="february-2020"></a>Fevereiro de 2020
+## <a name="april-2020"></a>Abril de 2020
 
 | Melhorias nos serviços | Detalhes |
 | --- | --- |
 |**Nível de compatibilidade do banco de dados (Visualização)**| Com esta versão, os usuários agora podem definir o nível de compatibilidade de um banco de dados para obter o idioma Transact-SQL e comportamentos de processamento de consulta de uma versão específica do mecanismo Synapse SQL. Para obter mais informações, consulte [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [altere configuração escopo do banco de dados](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 |**Sp_describe_undeclared_parameters**| Permitir que os usuários vejam os metadados sobre parâmetros não declarados em um lote Transact-SQL. Para obter mais informações, consulte [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
+|**[Visual Studio 16.6 Preview 2](/visualstudio/releases/2019/release-notes-preview) - SQL Server Data Tools (SSDT)** | Esta versão inclui as seguintes melhorias e correções para SSDT: </br> </br> - Resolver um problema em que a alteração de uma tabela referenciada por uma exibição materializada (MV) faz com que sejam geradas instruções de Alter View que não são suportadas para MVs<br/><br/> - Implementei uma alteração para garantir que a operação Schema Compare não falhe quando objetos de segurança em nível de linha estiverem presentes no banco de dados ou no projeto. No momento, os objetos de segurança em nível de linha não são suportados para SSDT.  <br/><br/> - O limite de tempo do SQL Object Explorer foi aumentado para evitar intervalos de tempo ao listar um grande número de objetos no banco de dados<br/><br/> - Otimizado a maneira como o SQL Server Object Explorer recupera a lista de objetos de banco de dados para reduzir a instabilidade e aumentar o desempenho ao preencher o explorador de objetos |
 
 ## <a name="january-2020"></a>Janeiro de 2020
 
