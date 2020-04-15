@@ -10,6 +10,9 @@
       href: analysis-services-create-server.md
     - name: Criar um servidor – PowerShell
       href: analysis-services-create-powershell.md
+    - name: Criar um servidor – Modelo do ARM
+      displayName: Resource Manager
+      href: analysis-services-create-template.md
     - name: Configurar firewall do servidor – Portal
       href: analysis-services-qs-firewall.md
 - name: Tutoriais

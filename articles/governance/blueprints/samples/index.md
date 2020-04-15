@@ -3,12 +3,12 @@ title: Índice de exemplos de blueprint
 description: Índice de exemplos padrão e de conformidade para implantar ambientes, políticas e fundamentos do Cloud Adoptions Framework com o Azure Blueprints.
 ms.date: 02/26/2020
 ms.topic: sample
-ms.openlocfilehash: 703c383f41cd833fb47ca489682258158f9fe179
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 745b16f8aff8fe003ec65449cdf3dc0d629ba6ff
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "78196817"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383522"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -38,7 +38,7 @@ A tabela a seguir contém links para exemplos do Azure Blueprints. Cada exemplo 
 
 ## <a name="samples-strategy"></a>Estratégia de exemplos
 
-![Estratégia de exemplos de blueprint](../media/blueprint-samples-strategy.png)
+:::image type="content" source="../media/blueprint-samples-strategy.png" alt-text="Estratégia de exemplos de blueprint" border="false":::
 
 Os blueprints da Base do CAF e da zona de destino da Migração do CAF pressupõem que o cliente está preparando uma assinatura única limpa existente para migrar ativos e cargas de trabalho locais para o Azure.
 (Regiões A e B da figura).  

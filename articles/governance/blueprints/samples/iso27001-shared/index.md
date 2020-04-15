@@ -1,14 +1,14 @@
 ---
 title: Visão Geral do exemplo de blueprint dos Serviços Compartilhados ISO 27001
 description: Visão geral e arquitetura do exemplo de blueprint dos Serviços Compartilhados ISO 27001. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos do ISO 27001.
-ms.date: 01/13/2020
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 0b6a250ebac2744adca813219225388841f1776f
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9b0b49582023ee5c68fea0f21b70290a102a038a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75922538"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381565"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Visão geral do exemplo de blueprint dos Serviços Compartilhados do ISO 27001
 
@@ -21,7 +21,7 @@ O exemplo de blueprint da [carga de trabalho do Ambiente do Serviço de Aplicati
 O exemplo de blueprint dos Serviços Compartilhados ISO 27001 implanta uma infraestrutura de base no Azure que pode ser usada por organizações para hospedar várias cargas de trabalho baseadas na abordagem VDC (Virtual Datacenter).
 O VDC é um conjunto comprovado de arquiteturas de referência, ferramentas de automação e modelo de participação usado pela Microsoft com seus maiores clientes corporativos. O exemplo de blueprint dos Serviços Compartilhados se baseia em um ambiente de VDC do Azure totalmente nativo, mostrado abaixo.
 
-![Design do exemplo de blueprint dos Serviços Compartilhados ISO 27001](../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png" alt-text="Design do exemplo de blueprint dos Serviços Compartilhados ISO 27001" border="false":::
 
 Este ambiente é composto de vários serviços do Azure usados para oferecer uma infraestrutura de serviços compartilhados seguros, totalmente monitorados e prontos para empresas baseado nas normas ISO 27001. Esse ambiente é composto de:
 

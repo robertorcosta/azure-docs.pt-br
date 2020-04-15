@@ -1,14 +1,14 @@
 ---
 title: Visão Geral do exemplo de blueprint da Base do CAF
 description: Visão geral e arquitetura do exemplo de blueprint do CAF (Cloud Adoption Framework) para o Azure Foundation.
-ms.date: 08/20/2019
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 79b47127b81caf148054f4223e5fa7ad9fbf86fe
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: a5616667ae909b63f406e399a23bdf568089bf52
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75562554"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383586"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Visão geral do exemplo de blueprint do Cloud Adoption Framework da Microsoft para o Azure Foundation
 
@@ -18,7 +18,7 @@ O blueprint do CAF (Cloud Adoption Framework da Microsoft para o Azure) Foundati
 
 O exemplo de blueprint da Base do CAF implanta recursos de infraestrutura recomendados no Azure que podem ser usados pelas organizações para implementar os controles de base necessários para gerenciar a propriedade de nuvem delas. Este exemplo implantará e aplicará recursos, políticas e modelos que permitirão às organizações começar a usar o Azure com confiança.
 
-![Base do CAF – imagem descreve o que será instalado como parte das diretrizes do CAF para criar uma base para começar a usar o Azure](../../media/caf-blueprints/caf-foundation-architecture.png)
+:::image type="content" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="Base do CAF, a imagem descreve o que será instalado como parte das diretrizes do CAF para criar uma base para começar a usar o Azure" border="false":::
 
 Essa implementação incorpora vários serviços do Azure usados para oferecer uma base segura, totalmente monitorada e pronta para empresas. Esse ambiente é composto de:
 
