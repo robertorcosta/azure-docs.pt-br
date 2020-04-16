@@ -1,19 +1,19 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2020
-ms.author: dapine
-ms.openlocfilehash: 2604d56d3e635b9973d1dedd4d602fd326069c15
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: trbye
+ms.openlocfilehash: 6c0ba0fc067d548bdfd02397100b759c56895956
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266620"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399643"
 ---
 ## <a name="additional-language-and-platform-support"></a>Compatibilidade com outros idiomas e plataformas
 
-Se você clicou nesta guia, provavelmente não viu um artigo básico em sua linguagem de programação favorita. Não se preocupe, temos amostras de código adicionais disponíveis no GitHub. Use a tabela para encontrar o exemplo correto para a sua linguagem de programação e combinação de plataforma/sistema operacional.
+Se você clicou nessa guia, provavelmente não viu um artigo de noções básicas em sua linguagem de programação favorita. Não se preocupe, temos outros exemplos de código disponíveis no GitHub. Use a tabela para encontrar o exemplo correto para a sua linguagem de programação e combinação de plataforma/sistema operacional.
 
 | Linguagem    | Exemplos de código                                                                                                                            |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------|

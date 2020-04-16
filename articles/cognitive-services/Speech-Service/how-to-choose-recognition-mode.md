@@ -3,20 +3,20 @@ title: Escolha um modo de reconhecimento de voz com o Speech SDK
 titleSuffix: Azure Cognitive Services
 description: Saiba como escolher o melhor modo de reconhecimento ao usar o Speech SDK.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d997cb592d9d648998f2b44d9f61f465f05faeb0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fdca371e9188ef69068ddbcaa416cbb2b44054c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79079826"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402147"
 ---
 # <a name="choose-a-speech-recognition-mode"></a>Escolha um modo de reconhecimento de voz
 
@@ -160,7 +160,7 @@ Para obter idiomas adicionais, consulte os [docs de referência do Speech SDK](s
 
 ## <a name="dictation"></a>Ditado
 
-Ao usar o reconhecimento contínuo, você pode habilitar o processamento de ditados usando a função correspondente "ativar ditado". Este modo fará com que a instância de configuração de fala interprete descrições de palavras de estruturas de sentença, como pontuação. Por exemplo, o enunciado "Você mora no ponto de interrogação da cidade" seria interpretado como o texto "Você mora na cidade?".
+Ao usar o reconhecimento contínuo, você pode habilitar o processamento de ditado usando a função "habilitar ditado" correspondente. Esse modo fará a instância de configuração de fala interpretar as descrições das estruturas de frase, como pontuação. Por exemplo, o enunciado "Você mora na cidade ponto de interrogação" seria interpretado como o texto "Você mora na cidade?".
 
 ::: zone pivot="programming-language-csharp"
 

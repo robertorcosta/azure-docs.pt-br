@@ -3,19 +3,19 @@ title: Fala-a-texto - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: O recurso de fala para texto permite a transcrição em tempo real de fluxos de áudio em texto. Seus aplicativos, ferramentas ou dispositivos podem consumir, exibir e agir nesta entrada de texto. Este serviço funciona perfeitamente com o texto-para-fala (síntese de fala) e recursos de tradução de fala.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.author: dapine
-ms.openlocfilehash: 2854f4e8d91164c8ae1f35761d6f605cae725245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: e0aea7e55381e9571b156701699f5f45315bb384
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80052643"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399695"
 ---
 # <a name="what-is-speech-to-text"></a>O que é conversão de fala em texto?
 
@@ -48,7 +48,7 @@ Depois que tiver a oportunidade de usar o serviço de Fala, experimente nosso tu
 O código de exemplo para o Speech SDK está disponível no GitHub. Esses exemplos abordam cenários comuns, como ler áudio de um arquivo ou fluxo, reconhecimento contínuo e único e trabalho com modelos personalizados.
 
 - [Amostras de fala para texto (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-- [Amostras de transcrição em lote (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+- [Exemplos de transcrição em lote (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 
 ## <a name="customization"></a>Personalização
 

@@ -3,21 +3,21 @@ title: Preparar dados para discurso personalizado - serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Ao testar a precisão do reconhecimento de voz da Microsoft ou treinar seus modelos personalizados, você precisará de dados de áudio e texto. Nesta página, nós cobrimos os tipos de dados, como usá-los e gerenciá-los.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.author: dapine
-ms.openlocfilehash: d6e377ca4f33c0160267b23daaaaef5e07c271bb
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.author: trbye
+ms.openlocfilehash: 78857709447f99895c36f23d8760f44f8468ba7c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398684"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402138"
 ---
-# <a name="prepare-data-for-custom-speech"></a>Preparar dados para discurso personalizado
+# <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
 Ao testar a precisão do reconhecimento de voz da Microsoft ou treinar seus modelos personalizados, você precisará de dados de áudio e texto. Nesta página, nós cobrimos os tipos de dados, como usá-los e gerenciá-los.
 
@@ -98,7 +98,7 @@ Para medir a precisão da precisão de voz a texto da Microsoft ao processar seu
 
 Para resolver questões como exclusão ou substituição de palavras, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Geralmente, recomenda-se fornecer transcrições palavra por palavra para cerca de 10 a 1.000 horas de áudio. As transcrições para todos os arquivos WAV devem estar contidas em um único arquivo de texto sem formatação. Cada linha do arquivo de transcrição deve conter o nome de um dos arquivos de áudio, seguido pela transcrição correspondente. O nome do arquivo e transcrição devem ser separados por uma tabulação (\t).
 
-  Por exemplo: 
+  Por exemplo:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -165,7 +165,7 @@ A forma falada é a seqüência fonética escrita. Pode ser composto de letras, 
 
 A pronúncia personalizada`en-US`está disponível`de-DE`em inglês ( ) e alemão ( ). Esta tabela mostra caracteres suportados por linguagem:
 
-| Idioma | Local | Caracteres |
+| Linguagem | Local | Caracteres |
 |----------|--------|------------|
 | Inglês | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Alemão | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
@@ -182,5 +182,5 @@ Use a tabela a seguir para garantir que seu arquivo de dados relacionado para pr
 
 * [Inspecione seus dados](how-to-custom-speech-inspect-data.md)
 * [Avalie seus dados](how-to-custom-speech-evaluate-data.md)
-* [Treinar seu modelo](how-to-custom-speech-train-model.md)
+* [Treinar o modelo](how-to-custom-speech-train-model.md)
 * [Implantar o seu modelo](how-to-custom-speech-deploy-model.md)

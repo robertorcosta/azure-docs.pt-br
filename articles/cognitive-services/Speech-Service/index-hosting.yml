@@ -1,40 +1,40 @@
 ### YamlMime:Landing
-title: Documentação de hospedagem
+title: Documentação de hosting
 summary: Os contêineres de serviço de fala estão disponíveis para cenários de fala para texto e texto para voz, abrangendo modelos padrão ou personalizados.
 metadata:
   title: Documentação de hospedagem - Tutoriais, Referência de API - Serviços Cognitivos Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/23/2020
-  ms.author: dapine
-  ms.openlocfilehash: c342b797dfe21fe4ffbd1bb9bc112e9726cdec42
-  ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+  ms.author: trbye
+  ms.openlocfilehash: 640c1b8e9c51059bc4c296ef93a4e6dd54ea7a42
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/01/2020
-  ms.locfileid: "80529471"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401506"
 landingContent:
 - title: Sobre hospedagem
   linkLists:
   - linkListType: concept
     links:
-    - text: Instale e execute recipientes de fala
+    - text: Instalar e executar contêineres de Fala
       url: speech-container-howto.md
-    - text: Recipientes de fala com Kubernetes e Helm
+    - text: Contêineres de Fala com o Kubernetes e o Helm
       url: speech-container-howto-on-premises.md
-    - text: Contêineres de fala em instâncias de contêineres do Azure
+    - text: Contêineres de Fala em instâncias de contêiner do Azure
       url: deploy-speech-on-container-instances.md
 - title: Criar e configurar
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Criar um recurso de Fala do Azure
+    - text: Crie um recurso de fala do Azure
       url: get-started.md#new-resource
-    - text: Configurar recipientes de fala
+    - text: Configurar contêineres de fala
       url: speech-container-configuration.md
 - title: Referência
   linkLists:

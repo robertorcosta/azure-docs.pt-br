@@ -1,25 +1,25 @@
 ---
 title: Imagem de moderação – Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Use a moderação de imagem assistida por computador do Content Moderator e a ferramenta de revisão de humanos no circuito para moderar imagens para conteúdo adulto.
+description: Use a moderação de imagem assistida por máquina do Moderador de conteúdo e a ferramenta de revisão humana em loop para moderar imagens para conteúdo adulto e picante.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6d419135a1da68d23689f66d3134a638d71a3eab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73044112"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404258"
 ---
 # <a name="learn-image-moderation-concepts"></a>Aprender os conceitos de moderação de imagem
 
-Use a moderação de imagem assistida por computador do Content Moderator e a [ferramenta de revisão de humanos no circuito](Review-Tool-User-Guide/human-in-the-loop.md) para moderar imagens para conteúdo adulto e vigoroso. Examine as imagens quanto a conteúdo de texto, extraia esse texto e detecte faces. Você pode combinar imagens com listas personalizadas e executar mais ações.
+Use a moderação de imagem assistida por máquina do Moderador de conteúdo e [a ferramenta de revisão humana em loop](Review-Tool-User-Guide/human-in-the-loop.md) para moderar imagens para conteúdo adulto e picante. Examine as imagens quanto a conteúdo de texto, extraia esse texto e detecte faces. Você pode combinar imagens com listas personalizadas e executar mais ações.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Avaliação de conteúdo adulto e estimulante
 
@@ -139,9 +139,9 @@ Extração de exemplo:
     ....
     }
 
-## <a name="human-review-tool"></a>Ferramenta de análise humana
+## <a name="review-tool"></a>Ferramenta de análise
 
-Para casos com mais nuances, use a [ferramenta de análise](Review-Tool-User-Guide/human-in-the-loop.md) do Content Moderator e sua API para capturar os resultados de moderação e o conteúdo na revisão para seus moderadores humanos. Eles examinam as marcações atribuídas por máquina e confirmam suas decisões finais.
+Para casos mais nuances, use a ferramenta Content Moderator [Review](Review-Tool-User-Guide/human-in-the-loop.md) e sua API para emergir os resultados de moderação e conteúdo na revisão para seus moderadores humanos. Eles examinam as marcações atribuídas por máquina e confirmam suas decisões finais.
 
 ![Revisão de imagem para moderadores humanos](images/moderation-reviews-quickstart-dotnet.PNG)
 

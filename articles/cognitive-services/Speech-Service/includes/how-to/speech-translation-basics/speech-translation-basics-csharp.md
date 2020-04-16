@@ -1,23 +1,23 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/13/2020
-ms.author: dapine
-ms.openlocfilehash: 0f5570f1c80fdecb4db6c8baf22ad05f1e4a32a6
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: trbye
+ms.openlocfilehash: bac2ed447c9055f095e604725591c487378f5091
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266653"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399610"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você tenha uma conta do Azure e assinatura do serviço Speech. Se você não tem uma conta e assinatura, [experimente o serviço Speech gratuitamente](../../../get-started.md).
+Este artigo pressupõe que você tem uma conta do Azure e uma assinatura do Serviço de Fala. Se você não tiver uma conta e uma assinatura, [experimente o serviço de Fala gratuitamente](../../../get-started.md).
 
 ## <a name="install-the-speech-sdk"></a>Instalar o SDK de Fala
 
-Antes de fazer qualquer coisa, você precisará instalar o Speech SDK. Dependendo da sua plataforma, siga as instruções na seção <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Get the Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span> </a> do artigo Speech SDK.
+Antes de fazer qualquer coisa, você precisará instalar o SDK de Fala. Dependendo da sua plataforma, siga as instruções na seção <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Get the Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span> </a> do artigo Speech SDK.
 
 ## <a name="import-dependencies"></a>Importar dependências
 
@@ -53,19 +53,19 @@ public class Program
 
 ## <a name="create-a-speech-translation-configuration"></a>Crie uma configuração de tradução de fala
 
-Para chamar o serviço de fala usando o Speech [`SpeechTranslationConfig`][config]SDK, você precisa criar um . Esta classe inclui informações sobre sua assinatura, como sua chave e região associada, ponto final, host ou token de autorização.
+Para chamar o serviço de Fala usando o SDK de Fala, você precisa criar um [`SpeechTranslationConfig`][config]. Essa classe inclui informações sobre sua assinatura, como sua chave e região, ponto de extremidade, host ou token de autorização associados.
 
 > [!TIP]
-> Independentemente de você estar realizando reconhecimento de fala, síntese de fala, tradução ou reconhecimento de intenções, você sempre criará uma configuração.
+> Independentemente se você estiver executando o reconhecimento de fala, a síntese de fala, tradução ou reconhecimento de intenção, você sempre criará uma configuração.
 
-Existem algumas maneiras que você [`SpeechTranslationConfig`][config]pode inicializar um:
+Há algumas maneiras de inicializar um [`SpeechTranslationConfig`][config]:
 
-* Com uma assinatura: passe em uma chave e na região associada.
-* Com um ponto final: passe em um ponto final de serviço de fala. Um token de chave ou autorização é opcional.
-* Com um host: passe em um endereço de host. Um token de chave ou autorização é opcional.
-* Com um token de autorização: passe em um token de autorização e na região associada.
+* Com uma assinatura: passe uma chave e a região associada.
+* Com um ponto de extremidade: passe um ponto de extremidade do serviço de Fala. Uma chave ou um token de autorização é opcional.
+* Com um host: passe um endereço de host. Uma chave ou um token de autorização é opcional.
+* Com um token de autorização: passe um token de autorização e a região associada.
 
-Vamos dar uma olhada em [`SpeechTranslationConfig`][config] como um é criado usando uma chave e região. Consulte a página [de suporte](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) da região para encontrar o identificador da região.
+Veja como criar um [`SpeechTranslationConfig`][config] com a chave e a região. Confira a página [suporte a regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para encontrar o identificador de sua região.
 
 ```csharp
 public class Program
@@ -86,9 +86,9 @@ public class Program
 }
 ```
 
-## <a name="change-source-language"></a>Alterar a linguagem de origem
+## <a name="change-source-language"></a>Alterar idioma de origem
 
-Uma tarefa comum de tradução de fala é especificar o idioma de entrada (ou fonte). Vamos dar uma olhada em como você mudaria o idioma de entrada para italiano. Em seu código, [`SpeechTranslationConfig`][config] interaja com `SpeechRecognitionLanguage` a instância, atribuindo à propriedade.
+Uma tarefa comum de tradução de fala é especificar o idioma de entrada (ou fonte). Veja como você alteraria o idioma de entrada para italiano. Em seu código, [`SpeechTranslationConfig`][config] interaja com `SpeechRecognitionLanguage` a instância, atribuindo à propriedade.
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -101,7 +101,7 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-A [`SpeechRecognitionLanguage`][recognitionlang] propriedade espera uma seqüência de formato de idioma local. Você pode fornecer qualquer valor na coluna **Locale** na lista de [locais/idiomas](../../../language-support.md)suportados .
+A propriedade [`SpeechRecognitionLanguage`][recognitionlang] espera uma cadeia de caracteres em formato idioma-localidade. Defina qualquer valor na coluna **Localidade** na lista de [localidades/idiomas](../../../language-support.md) com suporte.
 
 ## <a name="add-translation-language"></a>Adicionar linguagem de tradução
 
@@ -125,9 +125,9 @@ A cada [`AddTargetLanguage`][addlang]chamada, um novo idioma de tradução de de
 
 ## <a name="initialize-a-translation-recognizer"></a>Inicialize um reconhecimento de tradução
 
-Depois de criar um [`SpeechTranslationConfig`][config], o próximo passo [`TranslationRecognizer`][recognizer]é inicializar um . Quando você inicializa um [`TranslationRecognizer`][recognizer], você vai `translationConfig`precisar passá-lo o seu . O objeto de configuração fornece as credenciais que o serviço de fala requer para validar sua solicitação.
+Depois de criar um [`SpeechTranslationConfig`][config], a próxima etapa é inicializar um [`TranslationRecognizer`][recognizer]. Ao inicializar um [`TranslationRecognizer`][recognizer], você precisará passar `translationConfig` para ele. O objeto de configuração fornece as credenciais que o serviço de fala requer para validar sua solicitação.
 
-Se você está reconhecendo a fala usando o microfone padrão [`TranslationRecognizer`][recognizer] do seu dispositivo, aqui está como deve ser:
+Se você estiver reconhecendo fala por meio do microfone padrão do dispositivo, veja qual deve ser a aparência de [`TranslationRecognizer`][recognizer]:
 
 ```csharp
 static async Task TranslateSpeechAsync()
@@ -144,10 +144,10 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-Se você quiser especificar o dispositivo de entrada de [`AudioConfig`][audioconfig] áudio, `audioConfig` então você precisará [`TranslationRecognizer`][recognizer]criar um e fornecer o parâmetro ao inicializar o seu .
+Se você quiser especificar o dispositivo de entrada de áudio, precisará criar um [`AudioConfig`][audioconfig] e fornecer o parâmetro `audioConfig` ao inicializar o [`TranslationRecognizer`][recognizer].
 
 > [!TIP]
-> [Saiba como obter o ID do dispositivo para o seu dispositivo de entrada de áudio](../../../how-to-select-audio-input-devices.md).
+> [Saiba como obter a identificação do dispositivo de entrada de áudio](../../../how-to-select-audio-input-devices.md).
 
 Primeiro, você fará `AudioConfig` referência ao objeto da seguinte forma:
 
@@ -167,7 +167,7 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-Se você quiser fornecer um arquivo de áudio em vez de `audioConfig`usar um microfone, você ainda precisará fornecer um . No entanto, [`AudioConfig`][audioconfig]quando você `FromDefaultMicrophoneInput`cria um , `FromWavFileInput` em `filename` vez de ligar , você vai ligar e passar o parâmetro.
+Se desejar fornecer um arquivo de áudio em vez de usar um microfone, você ainda precisará fornecer um `audioConfig`. No entanto, ao criar um [`AudioConfig`][audioconfig], em vez de chamar `FromDefaultMicrophoneInput`, você chamará `FromWavFileInput` e passará o parâmetro `filename`.
 
 ```csharp
 static async Task TranslateSpeechAsync()

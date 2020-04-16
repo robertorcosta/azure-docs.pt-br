@@ -3,19 +3,19 @@ title: Linguagem de marcação de síntese de fala (SSML) - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Usando o Speech Synthesis Markup Language para controlar pronúncia e prosódia em texto para fala.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 7d5dd79399b15ade90173a55aeb71dacbc61fa78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: dc11d26c73c52b5e6c4d8e05cc27dd6ebce0c5d8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80365814"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399833"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhore a síntese com a Linguagem de Marcação da Síntese de Fala (SSML)
 
@@ -109,7 +109,7 @@ Dentro `speak` do elemento, você pode especificar várias vozes para a saída d
 
 Dependendo da linguagem Speech SDK, você `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` definirá a propriedade em `false` uma instância do `SpeechConfig` objeto.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Para obter mais <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>informações, consulte .
 
@@ -145,7 +145,7 @@ speech_config.set_property_by_name(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Para obter mais <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>informações, consulte .
 
@@ -196,7 +196,6 @@ Por padrão, o serviço texto-para-fala sintetiza o texto usando um estilo neutr
 Atualmente, ajustes de estilo de fala são suportados para essas vozes neurais:
 * `en-US-AriaNeural`
 * `zh-CN-XiaoxiaoNeural`
-* `pt-BR-FranciscaNeural`
 
 As alterações são aplicadas no nível da sentença, e o estilo varia de acordo com a voz. Se um estilo não for suportado, o serviço retornará a fala no estilo de fala neutro padrão.
 
@@ -214,18 +213,17 @@ As alterações são aplicadas no nível da sentença, e o estilo varia de acord
 
 Use esta tabela para determinar quais estilos de fala são suportados para cada voz neural.
 
-| Voz | Estilo | Descrição |
-|-------|------|-------------|
-| `en-US-AriaNeural` | `style="newscast"` | Expressa um tom formal e profissional para narrar notícias |
-| | `style="customerservice"` | Expressa um tom amigável e útil para o suporte ao cliente |
-| | `style="chat"` | Expressa um tom casual e descontraído |
-| | `style="cheerful"` | Expressa um tom positivo e feliz |
-| | `style="empathetic"` | Expressa um senso de cuidado e compreensão |
-| `zh-CN-XiaoxiaoNeural` | `style="newscast"` | Expressa um tom formal e profissional para narrar notícias |
-| | `style="customerservice"` | Expressa um tom amigável e útil para o suporte ao cliente |
-| | `style="assistant"` | Expressa um tom aconchegante e descontraído para assistentes digitais  |
-| | `style="lyrical"` | Expressa emoções de forma melódica e sentimental |
-| `pt-BR-FranciscaNeural` | `style="cheerful"` | Expressa um tom positivo e feliz |
+| Voz                   | Estilo                     | Descrição                                                 |
+|-------------------------|---------------------------|-------------------------------------------------------------|
+| `en-US-AriaNeural`      | `style="newscast"`        | Expressa um tom formal e profissional para narrar notícias |
+|                         | `style="customerservice"` | Expressa um tom amigável e útil para o suporte ao cliente  |
+|                         | `style="chat"`            | Expressa um tom casual e descontraído                         |
+|                         | `style="cheerful"`        | Expressa um tom positivo e feliz                         |
+|                         | `style="empathetic"`      | Expressa um senso de cuidado e compreensão               |
+| `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expressa um tom formal e profissional para narrar notícias |
+|                         | `style="customerservice"` | Expressa um tom amigável e útil para o suporte ao cliente  |
+|                         | `style="assistant"`       | Expressa um tom aconchegante e descontraído para assistentes digitais    |
+|                         | `style="lyrical"`         | Expressa emoções de forma melódica e sentimental         |
 
 **Exemplo**
 
@@ -263,15 +261,14 @@ Use `break` o elemento para inserir pausas (ou pausas) entre palavras ou impedir
 | `strength` | Especifica a duração relativa de uma pausa usando um dos seguintes valores:<ul><li>none</li><li>x-fraco</li><li>Fraco</li><li>meio (padrão)</li><li>forte</li><li>x-forte</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos. Exemplos de valores `2s` válidos são e`500` | Opcional |
 
-| Força | Descrição |
-|----------|-------------|
-| Nenhum, ou se nenhum valor fornecido | 0 ms |
-| x-fraco | 250 ms |
-| Fraco | 500 ms |
-| média | 750 ms |
-| forte | 1000 ms |
-| x-forte | 1250 ms |
-
+| Força                      | Descrição |
+|-------------------------------|-------------|
+| Nenhum, ou se nenhum valor fornecido | 0 ms        |
+| x-fraco                        | 250 ms      |
+| Fraco                          | 500 ms      |
+| média                        | 750 ms      |
+| forte                        | 1000 ms     |
+| x-forte                      | 1250 ms     |
 
 **Exemplo**
 
@@ -372,9 +369,9 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos de letr
 
 **Atributos**
 
-| Atributo | Descrição | Obrigatório/Opcional |
-|-----------|-------------|---------------------|
-| `uri` | O endereço do documento PLS externo. | Obrigatórios. |
+| Atributo | Descrição                               | Obrigatório/Opcional |
+|-----------|-------------------------------------------|---------------------|
+| `uri`     | O endereço do documento PLS externo. | Obrigatórios.           |
 
 **Uso**
 
@@ -472,7 +469,7 @@ Como os valores de atributo prosódicos podem variar em uma ampla gama, o reconh
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
 | `pitch` | Indica o tom de linha de base para o texto. Você pode expressar o tom como:<ul><li>Um valor absoluto, expresso como um número seguido de "Hz" (Hertz). Por exemplo, 600 Hz.</li><li>Um valor relativo, expresso como um número precedido por "+" ou "-" e seguido por "Hz" ou "st", que especifica uma quantidade para alterar o tom. Por exemplo: +80 Hz ou -2º. O "st" indica que a unidade de mudança é semitona, que é metade de um tom (meio passo) na escala diatônica padrão.</li><li>Um valor constante:<ul><li>x-baixo</li><li>low</li><li>média</li><li>high</li><li>x-alta</li><li>default</li></ul></li></ul>. | Opcional |
-| `contour` | Contorno não é suportado por vozes neurais. Contorno representa mudanças no tom. Essas alterações são representadas como um conjunto de alvos em posições de tempo especificadas na saída de fala. Cada alvo é definido por conjuntos de pares de parâmetros. Por exemplo:  <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>O primeiro valor em cada conjunto de parâmetros especifica a localização da alteração de passo como porcentagem da duração do texto. O segundo valor especifica o valor para aumentar ou diminuir o pitch, usando um `pitch`valor relativo ou um valor de enumeração para pitch (ver ). | Opcional |
+| `contour` | Contorno não é suportado por vozes neurais. Contorno representa mudanças no tom. Essas alterações são representadas como um conjunto de alvos em posições de tempo especificadas na saída de fala. Cada alvo é definido por conjuntos de pares de parâmetros. Por exemplo: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>O primeiro valor em cada conjunto de parâmetros especifica a localização da alteração de passo como porcentagem da duração do texto. O segundo valor especifica o valor para aumentar ou diminuir o pitch, usando um `pitch`valor relativo ou um valor de enumeração para pitch (ver ). | Opcional |
 | `range` | Um valor que representa a faixa de passo para o texto. Você pode `range` expressar usando os mesmos valores absolutos, `pitch`valores relativos ou valores de enumeração usados para descrever . | Opcional |
 | `rate` | Indica a taxa de fala do texto. Você pode `rate` expressar como:<ul><li>Um valor relativo, expresso como um número que age como um multiplicador do padrão. Por exemplo, um valor de *1* não resulta em nenhuma mudança na taxa. Um valor de *0,5* resulta em uma redução pela metade da taxa. Um valor de *3* resulta em um triplo da taxa.</li><li>Um valor constante:<ul><li>x-lento</li><li>lento</li><li>média</li><li>rápido</li><li>x-rápido</li><li>default</li></ul></li></ul> | Opcional |
 | `duration` | O período de tempo que deve transcorrer enquanto o serviço de síntese de fala (TTS) lê o texto, em segundos ou milissegundos. Por exemplo, *2s* ou *1800ms*. | Opcional |
@@ -614,9 +611,9 @@ Qualquer áudio incluído no documento SSML deve atender a esses requisitos:
 
 **Atributos**
 
-| Atributo | Descrição | Obrigatório/Opcional |
-|-----------|-------------|---------------------|
-| `src` | Especifica a localização/URL do arquivo de áudio. | Necessário se usar o elemento de áudio no documento SSML. |
+| Atributo | Descrição                                   | Obrigatório/Opcional                                        |
+|-----------|-----------------------------------------------|------------------------------------------------------------|
+| `src`     | Especifica a localização/URL do arquivo de áudio. | Necessário se usar o elemento de áudio no documento SSML. |
 
 **Exemplo**
 

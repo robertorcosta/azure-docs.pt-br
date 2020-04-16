@@ -3,19 +3,19 @@ title: Fala direta - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Uma visão geral dos recursos, recursos e restrições para assistentes de voz usando o Direct Line Speech com o Speech Software Development Kit (SDK).
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: dapine
-ms.openlocfilehash: 714cdefa7100160a510d1922a2547ae53692d76c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 6dc125b68af8f9a07731aaae9d858c19c51f934f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367798"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402384"
 ---
 # <a name="what-is-direct-line-speech"></a>O que é o Direct Line Speech?
 
@@ -35,7 +35,7 @@ Para obter um guia completo e passo a passo sobre a criação de um assistente d
 
 Também oferecemos partidas rápidas projetadas para que você execute código e aprenda as APIs rapidamente. Esta tabela inclui uma lista de assistentes de voz quickstarts organizados por linguagem e plataforma.
 
-| Guia de Início Rápido | Plataforma | Reference API |
+| Guia de Início Rápido | Plataforma | Referência de API |
 |------------|----------|---------------|
 | C#, UWP | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
 | Java | Windows, macOS, Linux | [Procurar](https://aka.ms/csspeech/javaref) |
@@ -59,8 +59,8 @@ O Direct Line Speech e sua funcionalidade associada para assistentes de voz são
 
 ## <a name="reference-docs"></a>Documentos de Referência
 
-* [SDK de fala](speech-sdk-reference.md)
-* [Serviço azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [SDK da fala](speech-sdk-reference.md)
+* [Serviço de Bot do Azure](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>Próximas etapas
 

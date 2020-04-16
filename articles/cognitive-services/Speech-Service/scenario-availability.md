@@ -10,19 +10,25 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 6f8f892e7ca81881b0cc00e1708e3f05052c573c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a72e5055a3b0f858a732ec28eeab511b09dd450c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76264196"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400140"
 ---
 # <a name="scenario-availability"></a>Disponibilidade de cenários
 
 O Speech SDK apresenta muitos cenários em uma ampla variedade de linguagens e ambientes de programação. Nem todos os cenários estão disponíveis em todas as linguagens de programação ou em todos os ambientes ainda. Listado abaixo é a disponibilidade de cada cenário.
 
 - **Reconhecimento de fala (SR), lista de frases, intenção, tradução e contêineres on-premises**
-  - Todas as linguagens/ambientes de programação onde há um link de seta <img src="media/index/link.jpg" height="15" width="15"></img> na tabela quickstart [aqui.](https://aka.ms/csspeech)
+  - C++/Windows & Linux & macOS
+  - C# (Framework & .NET Core)/Windows & UWP & Unity & Xamarin & Xamarin & macOS
+  - Java (Jre e Android)
+  - JavaScript (Brower e NodeJS)
+  - Python
+  - Swift
+  - Objective-C  
 - **Texto para Fala (TTS)**
   - C++/Windows & Linux
   - C#/Windows & UWP & Unity

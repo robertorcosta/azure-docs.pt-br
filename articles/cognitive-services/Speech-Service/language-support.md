@@ -3,20 +3,20 @@ title: Suporte ao idioma - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: O serviço de fala suporta inúmeras linguagens para conversão de fala para texto e texto-para-fala, juntamente com a tradução de fala. Este artigo fornece uma lista abrangente de suporte ao idioma por recurso de serviço.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.author: dapine
+ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: d01ab60790311649e424a98d5a08c6af0bca90f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a876349af2bd53a46737dda82961afe442bae05
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336047"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81401081"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte de linguagem e voz para o serviço de fala
 
@@ -34,7 +34,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Local  | Idioma                          | Com suporte | Personalizações                                    |
+| Local  | Linguagem                          | Com suporte | Personalizações                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
 | `ar-AE` | Árabe (Emirados Árabes)                      | Sim       | Não                                                |
 | `ar-BH` | Árabe (Bahrein), padrão moderno | Sim       | Modelo de linguagem                                    |
@@ -93,7 +93,7 @@ Vozes neurais podem ser usadas para tornar as interações com chatbots e assist
 
 Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
-| Local  | Idioma            | Gênero | Mapeamento completo do nome do serviço                                               | Nome de voz curta        |
+| Local  | Linguagem            | Gênero | Mapeamento completo do nome do serviço                                               | Nome de voz curta        |
 |---------|---------------------|--------|-------------------------------------------------------------------------|-------------------------|
 | `de-DE` | Alemão (Alemanha)    | Feminino | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)"     | "de-DE-KatjaNeural"     |
 | `en-US` | Inglês (EUA)        | Feminino | "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)"      | "en-US-AriaNeural"      |
@@ -114,7 +114,7 @@ Para saber como você pode configurar e ajustar vozes neurais, consulte [a lingu
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, que permitem converter texto em fala sintetizada. Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
-| Local | Idioma | Gênero | Mapeamento completo do nome do serviço | Nome curto |
+| Local | Linguagem | Gênero | Mapeamento completo do nome do serviço | Nome curto |
 |--|--|--|--|--|
 | <sup>1</sup>`ar-EG` | Árabe (Egito) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ar-EG, Hoda)” | "ar-EG-Hoda" |
 | `ar-SA` | Árabe (Arábia Saudita) | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ar-SA, Naayf)” | "ar-SA-Naayf" |

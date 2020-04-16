@@ -3,19 +3,19 @@ title: Comece com discurso personalizado - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Custom Speech é um conjunto de ferramentas on-line que permitem avaliar e melhorar nossa precisão de fala para texto para seus aplicativos, ferramentas e produtos. Tudo o que é preciso para começar são um punhado de arquivos de áudio de teste. Siga os links abaixo para começar a criar uma experiência personalizada de fala para texto.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: dapine
-ms.openlocfilehash: e30587ed4d09ba792516ebc7b16529a6ee5ac57c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: a52735ee62f564a5dc536fd2b7d3539406388341
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77918947"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402077"
 ---
 # <a name="what-is-custom-speech"></a>O que é discurso personalizado?
 
@@ -69,5 +69,5 @@ Para criar seu primeiro projeto, selecione a **fala Fala-para-texto/Personalizad
 * [Prepare e teste seus dados](how-to-custom-speech-test-data.md)
 * [Inspecione seus dados](how-to-custom-speech-inspect-data.md)
 * [Avalie seus dados](how-to-custom-speech-evaluate-data.md)
-* [Treinar seu modelo](how-to-custom-speech-train-model.md)
+* [Treinar o modelo](how-to-custom-speech-train-model.md)
 * [Implantar o seu modelo](how-to-custom-speech-deploy-model.md)

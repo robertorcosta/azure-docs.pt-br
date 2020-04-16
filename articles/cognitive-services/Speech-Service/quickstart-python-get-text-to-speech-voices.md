@@ -3,19 +3,19 @@ title: Listar vozes de texto em fala, Python – Serviço de Fala
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, você aprenderá a obter a lista completa de vozes neurais e padrão para uma região ou um ponto de extremidade usando o Python. A lista é retornada como JSON, e a disponibilidade de voz varia por região.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/13/2020
-ms.author: dapine
-ms.openlocfilehash: e55030144bcabbf192b4095a5a2e6ed565cedf83
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: trbye
+ms.openlocfilehash: b388c8d8b61e2fc638ae2bce5bc6d9eeb25ee0d4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258594"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81401011"
 ---
 # <a name="get-the-list-of-text-to-speech-voices-using-python"></a>Obter a lista de vozes da conversão de texto em fala usando Python
 

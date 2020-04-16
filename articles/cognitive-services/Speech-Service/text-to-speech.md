@@ -3,19 +3,19 @@ title: Texto-para-fala - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: O recurso texto-para-fala no serviço Speech permite que seus aplicativos, ferramentas ou dispositivos convertam texto em uma fala sintetizada natural como humana. Escolha vozes predefinidas ou crie sua própria voz personalizada.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 7c7574ee4e9f75b9b650ff63a10666c5e379fca8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 1a8b458eb004b44d0045f36b18d88e11e019c4d2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131572"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399496"
 ---
 # <a name="what-is-text-to-speech"></a>O que é conversão de texto em fala?
 
@@ -43,7 +43,7 @@ O serviço Text-to-speech do serviço Speech permite que seus aplicativos, ferra
 
 O serviço texto-para-fala está disponível através do [Speech SDK](speech-sdk.md). Existem vários cenários comuns disponíveis como quickstarts, em vários idiomas e plataformas:
 
-* [Sintetizar uma fala em um arquivo de áudio](quickstarts/text-to-speech-audio-file.md)
+* [Sintetizar fala em um arquivo de áudio](quickstarts/text-to-speech-audio-file.md)
 * [Sintetizar fala para um locutor](quickstarts/text-to-speech.md)
 * [Sincronicamente sintetizar áudio de forma longa](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 
@@ -54,7 +54,7 @@ Se preferir, o serviço texto-para-fala é acessível via [REST](rest-text-to-sp
 O código de exemplo para texto-para-fala está disponível no GitHub. Essas amostras cobrem a conversão de texto para fala nas linguagens de programação mais populares.
 
 - [Amostras de texto para fala (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-- [Amostras de conversão de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+- [Exemplos de conversão de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## <a name="customization"></a>Personalização
 
@@ -76,8 +76,8 @@ Para obter informações detalhadas, consulte [Preços](https://azure.microsoft.
 
 ## <a name="reference-docs"></a>Documentos de Referência
 
-- [SDK de fala](speech-sdk.md)
-- [API REST: Texto-para-fala](rest-text-to-speech.md)
+- [SDK da fala](speech-sdk.md)
+- [API REST: conversão de texto em fala](rest-text-to-speech.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -2,19 +2,19 @@
 title: Serviço de Fala
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
-ms.author: dapine
-ms.openlocfilehash: b24918f377e0d0744331974993cbb94f963e521e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 50dd7ddb636658ec6d29c2669d02320c73167fde
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75379940"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399682"
 ---
 ## <a name="reference-docs"></a>Documentos de Referência
 
@@ -42,6 +42,6 @@ O [Speech Devices SDK](../speech-devices-sdk.md) é um superconjunto do Speech S
 
 Para obter referências de várias APIs do serviço de fala REST, consulte a listagem abaixo:
 
-- [API REST: Fala-a-texto](../rest-speech-to-text.md)
-- [API REST: Texto-para-fala](../rest-text-to-speech.md)
+- [API REST: conversão de fala em texto](../rest-speech-to-text.md)
+- [API REST: conversão de texto em fala](../rest-text-to-speech.md)
 - <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">API REST: Transcrição e personalização em lote<span class="docon docon-navigate-external x-hidden-focus"></span></a>

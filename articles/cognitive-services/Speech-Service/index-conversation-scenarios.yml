@@ -1,22 +1,22 @@
 ### YamlMime:Landing
-title: Documentação de cenários de conversação
+title: Documentação de cenários de conversa
 summary: Explore os vários cenários de conversação. Aprenda a usar transcrição de conversação ou conversa ção multi-dispositivo em cenários de reunião e transcrição em cenários de Call Center.
 metadata:
   title: Documentação de cenários de conversação - Tutoriais, Referência de API - Serviços Cognitivos Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/16/2020
-  ms.author: dapine
-  ms.openlocfilehash: 75254b0b0b3afb391006a422300c0d4cb9d27fdb
-  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+  ms.author: trbye
+  ms.openlocfilehash: 1766174d053b480674da26ef3e915bcf3fdf280a
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/28/2020
-  ms.locfileid: "79479681"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401472"
 landingContent:
 - title: Sobre transcrição de conversação (cenário de reunião)
   linkLists:

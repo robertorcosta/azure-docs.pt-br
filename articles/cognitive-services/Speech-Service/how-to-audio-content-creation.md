@@ -3,19 +3,19 @@ title: Criação de conteúdo em áudio - Serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Audio Content Creation é uma ferramenta on-line que permite personalizar e ajustar a saída de texto para voz da Microsoft para seus aplicativos e produtos.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.author: dapine
-ms.openlocfilehash: 8184d30471b4d9171a23c8d03e17b2a54dca2ece
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.author: trbye
+ms.openlocfilehash: a263e7e17cda64a8519bab215f97fdf26e88d9d2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397831"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402236"
 ---
 # <a name="improve-synthesis-with-audio-content-creation"></a>Melhorar a síntese com a criação de conteúdo de áudio
 
@@ -95,7 +95,7 @@ Depois de revisar sua saída de áudio e ficar satisfeito com sua sintonia e aju
 2. Escolha o formato de saída para o áudio afinado. Uma lista de formatos suportados e taxas de amostra estão disponíveis abaixo.
 3. Você pode visualizar o status da tarefa na guia **Exportar tarefa.** Se a tarefa falhar, consulte a página de informações detalhadas para obter um relatório completo.
 4. Quando a tarefa estiver concluída, seu áudio estiver disponível para download na guia **Biblioteca de Áudio.**
-5. Clique em **Baixar**. Agora você está pronto para usar seu áudio personalizado sintonizado em seus aplicativos ou produtos.
+5. Clique em **Download**. Agora você está pronto para usar seu áudio personalizado sintonizado em seus aplicativos ou produtos.
 
 ### <a name="supported-audio-formats"></a>Formatos com suporte de áudio
 
