@@ -7,14 +7,16 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/07/2019
 ms.author: abnarain
-ms.openlocfilehash: b8492e8934c782451fb77d5a0ff56b96c34c9a00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f298b331d53eb8bab67a6f99194065dc5f889236
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75439885"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414886"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solucionar problemas de execução de integração auto-hospedada
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo explora métodos comuns de solução de problemas para tempo de execução de integração auto-hospedado na Fábrica de Dados Do Azure.
 
@@ -80,9 +82,9 @@ A seguir, a resposta esperada:
 
 > [!NOTE] 
 > Considerações por proxy:
-> * Verifique se o servidor proxy precisa ser colocado na lista Destinatários Seguros. Nesse caso, certifique-se de que [esses domínios](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) estão na lista Destinatários Seguros.
-> * Verifique se o certificado TLS/SSL "wu2.frontend.clouddatahub.net/" é confiável no servidor proxy.
-> * Se você estiver usando a autenticação do Active Directory no proxy, altere a conta de serviço para a conta de usuário que pode acessar o proxy como "Serviço de execução de integração".
+> *    Verifique se o servidor proxy precisa ser colocado na lista Destinatários Seguros. Nesse caso, certifique-se de que [esses domínios](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) estão na lista Destinatários Seguros.
+> *    Verifique se o certificado TLS/SSL "wu2.frontend.clouddatahub.net/" é confiável no servidor proxy.
+> *    Se você estiver usando a autenticação do Active Directory no proxy, altere a conta de serviço para a conta de usuário que pode acessar o proxy como "Serviço de execução de integração".
 
 ### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Mensagem de erro: O nó de tempo de execução de integração auto-hospedado/ sHIR lógico está no estado Inativo/ "Em execução (Limitada)"
 
@@ -117,7 +119,7 @@ Esse comportamento ocorre quando os nódulos não podem se comunicar uns com os 
         
    ![Command-line error](media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png)
         
-1.  Check whether the error log contains the following:
+1.    Check whether the error log contains the following:
 
     ```Error log: Cannot connect to worker manager: net.tcp://xxxxxx:8060/ExternalService.svc/ No DNS entries exist for host azranlcir01r1. No such host is known Exception detail: System.ServiceModel.EndpointNotFoundException: No DNS entries exist for host xxxxx. ---> System.Net.Sockets.SocketException: No such host is known at System.Net.Dns.GetAddrInfo(String name) at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6) at System.Net.Dns.GetHostEntry(String hostNameOrAddress) at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri) --- End of inner exception stack trace --- Server stack trace: at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri)```
     

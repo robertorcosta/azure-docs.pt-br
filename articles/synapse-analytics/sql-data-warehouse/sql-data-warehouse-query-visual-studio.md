@@ -11,19 +11,19 @@ ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e986515a911cf1bbd88dfc73c56efcc6e81826d6
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 174ee07e389e598fed6ed8487e60303fbce81f77
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351400"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416042"
 ---
 # <a name="connect-to-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Conecte-se ao Azure Synapse Analytics com visual studio e SSDT
 > [!div class="op_single_selector"]
-> * [Bi de Potência](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Aprendizado de máquina do Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [Sqlcmd](../sql/get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
@@ -35,7 +35,7 @@ Para usar este tutorial, você precisará de:
 
 * Um pool SQL existente. Para criar um, consulte [Criar um pool SQL](create-data-warehouse-portal.md).
 * SSDT para Visual Studio. Se você tem o Visual Studio, provavelmente já tem SSDT para Visual Studio. Para obter instruções e opções de instalação, confira [Instalar o Visual Studio e o SSDT](sql-data-warehouse-install-visual-studio.md).
-* O nome de servidor SQL totalmente qualificado. Para encontrar essas informações, consulte [Conecte-se ao pool SQL](sql-data-warehouse-connect-overview.md).
+* O nome de servidor SQL totalmente qualificado. Para encontrar essas informações, consulte [Conecte-se ao pool SQL](../sql/connect-overview.md).
 
 ## <a name="1-connect-to-your-sql-pool"></a>1. Conecte-se ao seu pool SQL
 1. Abra o Visual Studio 2019.

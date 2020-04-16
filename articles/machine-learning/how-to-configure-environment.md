@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: a5f46f5af723e1245afbc6bca90d25ae9036d646
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10ea0002b2e99c4675f56e48a638f3c1cb87e6c0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472419"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399002"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento para Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -288,7 +288,7 @@ Use estas configurações:
 | Configuração |Aplica-se a| Valor |
 |----|---|---|
 | Nome do cluster |always| nomedoseucluster |
-| Databricks Runtime |always|Tempo de execução não-ML 6.0 (scala 2.11, faísca 2.4.3) |
+| Databricks Runtime |always|Tempo de execução não-ML 6.5 (scala 2.11, faísca 2.4.3) |
 | Versão do Python |always| 3 |
 | Trabalhos |always| 2 ou superior |
 | Tipos de VM do nó de trabalho <br>(determina o max # de iterações simultâneas) |ML automatizado<br>rápido| Uma VM otimizada para memória é preferível |

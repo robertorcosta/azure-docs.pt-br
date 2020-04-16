@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: ffb610634399594788afcb9b600ba00c6803dfdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee2e59e794cf34a8fd5043a56867a81c2537f1ae
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77207018"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415319"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Atividade de função do Azure no Azure Data Factory
-
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 Saiba como usar a atividade do [Azure Functions](../azure-functions/functions-overview.md) para executar uma função do Azure em um pipeline do Data Factory. Para executar uma função do Azure, você precisará criar uma conexão de serviço vinculado e uma atividade que especifica a função do Azure que você planeja executar.
 
 Para ver uma introdução de oito minutos e uma demonstração desse recurso, assista ao seguinte vídeo:
@@ -30,7 +30,7 @@ Para ver uma introdução de oito minutos e uma demonstração desse recurso, as
 
 O tipo de retorno da função do Azure deve ser um `JObject` válido. (Tenha em mente que [jArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *não* é um `JObject`.) Qualquer tipo de `JObject` retorno que não falhe e aumente o conteúdo de resposta do erro do usuário *não é um JObject válido*.
 
-| **Propriedade** | **Descrição** | **Obrigatório** |
+| **Propriedade** | **Descrição** | **Necessário** |
 | --- | --- | --- |
 | type   | A propriedade do tipo deve ser definida **como: AzureFunction** | sim |
 | url do aplicativo de função | URL para o Aplicativo de Funções do Azure. O formato é `https://<accountname>.azurewebsites.net`. Essa URL é o valor na seção **URL** ao exibir o Aplicativo de funções no portal do Azure  | sim |
@@ -39,7 +39,7 @@ O tipo de retorno da função do Azure deve ser um `JObject` válido. (Tenha em 
 
 ## <a name="azure-function-activity"></a>Atividade do Azure Function
 
-| **Propriedade**  | **Descrição** | **Valores permitidos** | **Obrigatório** |
+| **Propriedade**  | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
 | name  | Nome da atividade no pipeline  | String | sim |
 | type  | O tipo de atividade é 'AzureFunctionActivity' | String | sim |

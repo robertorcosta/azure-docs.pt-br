@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: a14f4d548053fb7aaf6f450176fdc49bc7b119bf
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 6df1903e828c0c4cafa6589d4a85f4016bed893e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421029"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414137"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solucionar problemas no desempenho da atividade de cópia
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como solucionar problemas de desempenho de atividades na Fábrica de Dados Do Azure. 
 
@@ -54,7 +56,7 @@ Os detalhes e durações da execução na parte inferior da exibição de monito
 | --------------- | ------------------------------------------------------------ |
 | Fila           | O tempo decorrido até que a atividade de cópia realmente comece no tempo de execução da integração. |
 | Script de pré-cópia | O tempo decorrido entre a atividade de cópia começando no IR e o acabamento da atividade de cópia executando o script de pré-cópia no armazenamento de dados do dissipador. Aplicar quando você configurar o script de pré-cópia para sinks de banco de dados, por exemplo, ao gravar dados no Banco de Dados SQL do Azure, faça a limpeza antes de copiar novos dados. |
-| Transferir        | O tempo decorrido entre o final da etapa anterior e o IR transferindo todos os dados da fonte para o afundamento. Subpassos em "Transferência" são executados em paralelo.<br><br>- **Hora do primeiro byte:** O tempo decorrido entre o final da etapa anterior e o momento em que o IR recebe o primeiro byte do armazenamento de dados de origem. Aplica-se a fontes não baseadas em arquivos.<br>- **Fonte da listagem:** A quantidade de tempo gasto em enumerar arquivos de origem ou partições de dados. Este último se aplica quando você configura opções de partição para fontes de banco de dados, por exemplo, quando copia dados de bancos de dados como Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Leitura da fonte:** A quantidade de tempo gasto na recuperação de dados do armazenamento de dados de origem.<br/>- **Escrevendo para afundar:** A quantidade de tempo gasto na gravação de dados para afundar o armazenamento de dados. |
+| Transferência        | O tempo decorrido entre o final da etapa anterior e o IR transferindo todos os dados da fonte para o afundamento. Subpassos em "Transferência" são executados em paralelo.<br><br>- **Hora do primeiro byte:** O tempo decorrido entre o final da etapa anterior e o momento em que o IR recebe o primeiro byte do armazenamento de dados de origem. Aplica-se a fontes não baseadas em arquivos.<br>- **Fonte da listagem:** A quantidade de tempo gasto em enumerar arquivos de origem ou partições de dados. Este último se aplica quando você configura opções de partição para fontes de banco de dados, por exemplo, quando copia dados de bancos de dados como Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Leitura da fonte:** A quantidade de tempo gasto na recuperação de dados do armazenamento de dados de origem.<br/>- **Escrevendo para afundar:** A quantidade de tempo gasto na gravação de dados para afundar o armazenamento de dados. |
 
 ## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Solucionar problemas na atividade de cópia no Azure IR
 
@@ -140,7 +142,7 @@ Quando o desempenho da cópia não atender à sua expectativa, para solucionar p
 
   - Verifique a tendência de uso de memória e CPU do IR hospedado no portal Azure - > sua página de visão geral de fábrica de dados - >. Considere [escalar o IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) se o uso da CPU estiver alto ou a memória disponível estiver baixa.
 
-  - Adote as práticas recomendadas de carregamento de dados específicas do conector, se for em caso de inscrição. Por exemplo: 
+  - Adote as práticas recomendadas de carregamento de dados específicas do conector, se for em caso de inscrição. Por exemplo:
 
     - Ao copiar dados da [Oracle,](connector-oracle.md#oracle-as-source) [Netezza,](connector-netezza.md#netezza-as-source) [Teradata,](connector-teradata.md#teradata-as-source) [SAP HANA,](connector-sap-hana.md#sap-hana-as-source) [SAP Table](connector-sap-table.md#sap-table-as-source)e [SAP Open Hub,](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)habilite as opções de partição de dados para copiar dados em paralelo.
 

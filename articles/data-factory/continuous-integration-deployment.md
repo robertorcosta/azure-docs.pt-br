@@ -11,14 +11,16 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: 8bbb11a8811582bea26e784636564eb5d5a4d284
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 8ce954e956da62d645e9b1e852ce7a7318c85791
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384323"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415359"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas na Fábrica de Dados do Azure
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## <a name="overview"></a>Visão geral
 
@@ -491,8 +493,8 @@ Nessas condições, para substituir o modelo de parametrização padrão, crie u
 ### <a name="syntax-of-a-custom-parameters-file"></a>Sintaxe de um arquivo de parâmetros personalizados
 
 A seguir estão algumas diretrizes a seguir quando você criar o arquivo de parâmetros personalizados. O arquivo consiste em uma seção para cada tipo de entidade: gatilho, pipeline, serviço vinculado, conjunto de dados, tempo de execução de integração e assim por diante.
-* Digite o caminho da propriedade o tipo de entidade relevante.
-* Definir um nome `*` de propriedade para indicar que você deseja parametrizar todas as propriedades ele (apenas até o primeiro nível, não recursivamente). Você também pode fornecer exceções a essa configuração.
+* Digite o caminho da propriedade sob o tipo de entidade relevante.
+* Definir um nome `*` de propriedade para indicar que você deseja parametrizar todas as propriedades sob ele (apenas até o primeiro nível, não recursivamente). Você também pode fornecer exceções a essa configuração.
 * Definir o valor de uma propriedade como uma string indica que você deseja parametrizar a propriedade. Use o `<action>:<name>:<stype>`formato .
    *  `<action>` pode ser um desses caracteres:
       * `=` significa manter o valor atual como o valor padrão para o parâmetro.
@@ -576,12 +578,12 @@ Aqui está uma explicação de como o modelo anterior é construído, dividido p
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* Todas as propriedades `typeProperties` o caminho são parametrizadas com seus respectivos valores padrão. Por exemplo, existem `IntegrationRuntimes` duas propriedades `computeProperties` `ssisProperties`em propriedades de tipo: e . Ambos os tipos de propriedades são criados com seus respectivos valores e tipos padrão (Object).
+* Todas as propriedades `typeProperties` sob o caminho são parametrizadas com seus respectivos valores padrão. Por exemplo, existem `IntegrationRuntimes` duas propriedades `computeProperties` `ssisProperties`em propriedades de tipo: e . Ambos os tipos de propriedades são criados com seus respectivos valores e tipos padrão (Object).
 
 #### <a name="triggers"></a>Gatilhos
 
 * Em `typeProperties`, duas propriedades são parametrizadas. O primeiro `maxConcurrency`é, que é especificado para ter`string`um valor padrão e é do tipo . Ele tem o nome `<entityName>_properties_typeProperties_maxConcurrency`do parâmetro padrão .
-* A `recurrence` propriedade também está parametrizada. ele, todas as propriedades nesse nível são especificadas para serem parametrizadas como strings, com valores padrão e nomes de parâmetros. Uma exceção `interval` é a propriedade, que `number`é parametrizada como tipo . O nome do parâmetro é `<entityName>_properties_typeProperties_recurrence_triggerSuffix`sufixo com . Da mesma `freq` forma, a propriedade é uma string e é parametrizada como uma string. No entanto, a `freq` propriedade é parametrizada sem um valor padrão. O nome é encurtado e sufixo. Por exemplo, `<entityName>_freq`.
+* A `recurrence` propriedade também está parametrizada. Sob ele, todas as propriedades nesse nível são especificadas para serem parametrizadas como strings, com valores padrão e nomes de parâmetros. Uma exceção `interval` é a propriedade, que `number`é parametrizada como tipo . O nome do parâmetro é `<entityName>_properties_typeProperties_recurrence_triggerSuffix`sufixo com . Da mesma `freq` forma, a propriedade é uma string e é parametrizada como uma string. No entanto, a `freq` propriedade é parametrizada sem um valor padrão. O nome é encurtado e sufixo. Por exemplo, `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
@@ -705,7 +707,7 @@ A seguir está o modelo de parametrização padrão atual. Se você precisar adi
 }
 ```
 
-O exemplo a seguir mostra como adicionar um único valor ao modelo de parametrização padrão. Só queremos adicionar um ID de cluster interativo azure Databricks existente para um serviço vinculado ao Databricks ao arquivo parâmetros. Observe que este arquivo é o mesmo que `existingClusterId` o arquivo anterior, exceto para a adição de o campo de propriedades de `Microsoft.DataFactory/factories/linkedServices`.
+O exemplo a seguir mostra como adicionar um único valor ao modelo de parametrização padrão. Só queremos adicionar um ID de cluster interativo azure Databricks existente para um serviço vinculado ao Databricks ao arquivo parâmetros. Observe que este arquivo é o mesmo que `existingClusterId` o arquivo anterior, exceto para a adição de sob o campo de propriedades de `Microsoft.DataFactory/factories/linkedServices`.
 
 ```json
 {

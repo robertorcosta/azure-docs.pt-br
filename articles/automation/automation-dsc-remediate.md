@@ -9,12 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: dfe62c54bfb10d70f1dbf19daec90eec68e66431
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: cc5884e1f70bdccee4e7a113e6e3ee2d6604b50a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383149"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406076"
 ---
 # <a name="remediate-noncompliant-dsc-servers"></a>Remediar servidores DSC não compatíveis
 
@@ -37,7 +37,8 @@ Update-DscConfiguration -Wait -Verbose
 
 Funcionalidade semelhante não está disponível atualmente para servidores Linux.
 A única opção é repetir o processo de inscrição.
-Para os nódulos Azure, você pode corrigir a deriva do portal Azure ou usando cmdlets do módulo Az. Detalhes sobre esse processo são documentados em [máquinas de onboarding para gerenciamento pela Configuração do Estado de Automação do Azure](automation-dsc-onboarding.md#onboard-a-vm-using-azure-portal).
+
+Para os nódulos Azure, você pode corrigir a deriva do portal Azure ou usando cmdlets do módulo Az. Detalhes sobre esse processo são documentados em [máquinas de onboarding para gerenciamento pela Configuração do Estado de Automação do Azure](automation-dsc-onboarding.md#onboard-vms-by-using-the-azure-portal).
 Para os nós híbridos, você pode corrigir drift usando os scripts Python incluídos.
 Consulte [PowerShell DSC para Linux repo](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 

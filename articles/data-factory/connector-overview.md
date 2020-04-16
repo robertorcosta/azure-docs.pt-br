@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 7b01e9936189a40fcf1400d3e6ee948032786d3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 623ee15c5071fdc7a36677481e98872b8c2bd562
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444166"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410422"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Visão geral do conector da fábrica de dados do Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A Fábrica de Dados do Azure suporta os seguintes armazenamentos e formatos de dados via Copiar, Fluxo de Dados, Pesquisa, Obter Metadados e Excluir atividades. Clique em cada armazenamento de dados para aprender os recursos suportados e as configurações correspondentes em detalhes.
 

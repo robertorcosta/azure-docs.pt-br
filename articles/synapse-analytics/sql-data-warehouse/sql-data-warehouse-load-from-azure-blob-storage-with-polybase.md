@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c93dab2f6086b10e1e8d75c4fc3334a95c3fcafa
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 118653efc8829ac5ef6287bb36fb5595cff1147b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633267"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416122"
 ---
-# <a name="load-contoso-retail-data-to-a-synapse-sql-data-warehouse"></a>Carregar dados de varejo contoso para um data warehouse Synapse SQL
+# <a name="load-contoso-retail-data-to-synapse-sql"></a>Carregar dados de varejo contoso para Synapse SQL 
 
 Neste tutorial, você aprende a usar os comandos PolyBase e T-SQL para carregar duas tabelas dos dados de varejo da Contoso em um data warehouse Synapse SqL.
 
@@ -221,7 +221,7 @@ GO
 
 ### <a name="load-the-data-into-new-tables"></a>Carregar os dados em novas tabelas
 
-Para carregar dados do armazenamento blob do Azure na tabela do data warehouse, use a instrução [CRIAR TABELA AS SELECT (Transact-SQL).](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) O carregamento com [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) aproveita as tabelas externas fortemente digitadas que você criou. Para carregar os dados em novas tabelas, use uma declaração CTAS por tabela.
+Para carregar dados do armazenamento blob do Azure na tabela do data warehouse, use a instrução [CRIAR TABELA AS SELECT (Transact-SQL).](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) O carregamento com [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) aproveita as tabelas externas fortemente digitadas que você criou. Para carregar os dados em novas tabelas, use uma declaração CTAS por tabela.
 
 O CTAS cria uma nova tabela e a preenche com os resultados de uma instrução select. CTAS define a nova tabela para ter as mesmas colunas e tipos de dados como os resultados da instrução select. Se você selecionar todas as colunas de uma tabela externa, a nova tabela será uma réplica das colunas e dos tipos de dados na tabela externa.
 

@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: edb80c604951a140d21e3775eec3f1dc6d55af73
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 2557ce7be44f0505b96df06cd2b44a2fa3ce3fdb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421407"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414231"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia na fábrica de dados do Azure
 
 > [!div class="op_single_selector" title1="Selecione a versão da Fábrica de Dados que você está usando:"]
 > * [Versão 1](v1/data-factory-data-movement-activities.md)
 > * [Versão atual](copy-activity-overview.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Na Fábrica de Dados do Azure, você pode usar a atividade Copiar para copiar dados entre os armazenamentos de dados localizados no local e na nuvem. Depois de copiar os dados, você pode usar outras atividades para transformá-los e analisá-los. Você também pode usar a atividade Copiar para publicar resultados de transformação e análise para inteligência de negócios (BI) e consumo de aplicativos.
 
@@ -181,7 +183,7 @@ Consulte [esquema e mapeamento do tipo de dados](copy-activity-schema-and-type-m
 
 ## <a name="add-additional-columns-during-copy"></a>Adicionar colunas adicionais durante a cópia
 
-Além de copiar dados do armazenamento de dados de origem para afundar, você também pode configurar para adicionar colunas de dados adicionais para copiar junto para afundar. Por exemplo: 
+Além de copiar dados do armazenamento de dados de origem para afundar, você também pode configurar para adicionar colunas de dados adicionais para copiar junto para afundar. Por exemplo:
 
 - Ao copiar da fonte baseada em arquivo, armazene o caminho relativo do arquivo como uma coluna adicional para rastrear de qual arquivo os dados vêm.
 - Adicione uma coluna com a expressão ADF, para anexar variáveis do sistema ADF, como nome do pipeline/id do pipeline, ou armazenar outro valor dinâmico da saída da atividade upstream.

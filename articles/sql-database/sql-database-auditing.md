@@ -1,5 +1,5 @@
 ---
-title: Auditoria SQL do Azure
+title: Auditoria do SQL do Azure
 description: Use a auditoria de banco de dados SQL do Azure para rastrear eventos de banco de dados para um log de auditoria.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,14 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 682735e1189333c2455863b8fde8e57d815111ba
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 4e20129502e7538bd2f3354b75b33095970e1595
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387692"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411856"
 ---
-# <a name="azure-sql-auditing"></a>Auditoria SQL do Azure
+# <a name="azure-sql-auditing"></a>Auditoria do SQL do Azure
 
 Auditoria para o Banco de [Dados SQL](sql-database-technical-overview.md) do Azure e [o Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rastreia eventos do banco de dados e os grava em um registro de auditoria em sua conta de armazenamento Azure, espaço de trabalho do Log Analytics ou Hubs de Eventos. 
 
@@ -77,11 +77,11 @@ Você pode configurar a auditoria para diferentes tipos de ações e grupos de a
 A auditoria de Banco de Dados SQL do Azure armazena 4000 caracteres de dados para campos de caracteres em um registro de auditoria. Quando os valores de **instrução** ou **data_sensitivity_information** retornados de uma ação auditável contêm mais de 4000 caracteres, os dados após os primeiros 4000 caracteres serão **truncados e não auditados**.
 A seção a seguir descreve a configuração de auditoria usando o Portal do Azure.
 
-1. Vá para o [portal Azure.](https://portal.azure.com)
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Navegue até **auditoria** sob o título de segurança no seu painel de servidor/banco de dados SQL.
 3. Se preferir configurar uma política de auditoria de servidor, selecione o link **Exibir configurações do servidor** na página de auditoria do banco de dados. Depois, é possível exibir ou modificar as configurações de auditoria do servidor. As políticas de auditoria de servidor se aplicam a todos os bancos de dados existentes e recém-criados nesse servidor.
 
-    ![Painel de navegação][2]
+    ![Painel de navegação](./media/sql-database-auditing-get-started/2_auditing_get_started_server_inherit.png)
 
 4. Se você preferir habilitar a auditoria no nível do banco de dados, alterne **Auditoria** para **LIGADO**. Se a auditoria do servidor estiver habilitada, a auditoria configurada para o banco de dados existirá lado a lado com a auditoria do servidor.
 
@@ -94,7 +94,7 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 Para configurar a gravação de logs de auditoria para uma conta de armazenamento, selecione **Armazenamento** e abra **Detalhes do armazenamento**. Selecione a conta de armazenamento do Azure na qual os logs serão salvos e, em seguida, selecione o período de retenção. Em seguida, clique em **OK**. Os registros mais antigos do que o período de retenção são excluídos.
 
 - O valor padrão para o período de retenção é 0 (retenção ilimitada). Você pode alterar esse valor movendo o controle deslizante **de retenção (Dias)** nas **configurações de armazenamento** ao configurar a conta de armazenamento para auditoria.
-  - Se você alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, observe que a retenção só se aplicará a logs gravados após a alteração do valor de retenção (logs gravados durante o período em que a retenção foi definida como ilimitada são preservadas, mesmo depois de a retenção está ativada).
+  - Se você alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, observe que a retenção só se aplicará a logs gravados após a alteração do valor de retenção (logs gravados durante o período em que a retenção foi definida como ilimitada são preservadas, mesmo depois que a retenção estiver ativada).
 
   ![do Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
@@ -164,7 +164,7 @@ Se você optar por gravar logs de auditoria em uma conta de Armazenamento do Azu
 
 - Use [o portal Azure](https://portal.azure.com).  Abra o banco de dados relevante. Na parte superior da página **Auditoria** do banco de dados, clique em **Exibir logs de auditoria**.
 
-    ![Painel de navegação][7]
+    ![Painel de navegação](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
 
     **Registros de auditoria** é aberto, no qual você pode exibir os logs.
 
@@ -172,14 +172,14 @@ Se você optar por gravar logs de auditoria em uma conta de Armazenamento do Azu
   - Você pode alternar entre os registros de auditoria que foram criados pela *política de auditoria de servidor* e o *política de auditoria de banco de dados* ativando/desativando **origem auditoria**.
   - Você pode exibir apenas os registros de auditoria relacionados de injeção de SQL clicando na caixa de seleção **Mostrar apenas registros das injeções de SQL de auditoria**.
 
-       ![Painel de navegação][8]
+       ![Painel de navegação]( ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png)
 
 - Use a função do sistema **sys.fn_get_audit_file** (T-SQL) para retornar os dados do log de auditoria em um formato tabular. Para obter mais informações sobre como usar essa função, veja [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Use a opção **Mesclar Arquivos de Auditoria** no SQL Server Management Studio (a partir do SSMS 17):
     1. No menu SSMS, selecione Arquivos**de** > auditoria de abertura de **arquivo** > .**Merge Audit Files**
 
-        ![Painel de navegação][9]
+        ![Painel de navegação](./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png)
     2. A caixa de diálogo **Adicionar Arquivos de Auditoria** será aberta. Selecione uma das opções **Adicionar**, escolha se deseja mesclar arquivos de auditoria de um disco local ou importá-los do Armazenamento do Azure. Você deve fornecer os detalhes do Armazenamento do Azure e a chave de conta.
 
     3. Depois que todos os arquivos a serem mesclados forem adicionados, clique em **OK** para concluir a operação de mesclagem.
@@ -220,10 +220,10 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
 
 1. Abra **Detalhes de Armazenamento**. Na caixa **Chave de Acesso de Armazenamento**, selecione **Secundária** e clique em **OK**. Em seguida, clique em **Salvar** na parte superior da página de configuração de auditoria.
 
-    ![Painel de navegação][5]
+    ![Painel de navegação](./media/sql-database-auditing-get-started/5_auditing_get_started_storage_key_regeneration.png)
 2. Acesse a página de configuração de armazenamento e gere novamente a chave de acesso primária.
 
-    ![Painel de navegação][6]
+    ![Painel de navegação](./media/sql-database-auditing-get-started/6_auditing_get_started_regenerate_key.png)
 3. Volte para a página de configuração de auditoria, alterne a chave de acesso de armazenamento de secundária para primária e, depois, clique em **OK**. Em seguida, clique em **Salvar** na parte superior da página de configuração de auditoria.
 4. Volte para a página de configuração de armazenamento e regenere a chave de acesso secundária (em preparação para o próximo ciclo de atualização da chave).
 
@@ -268,15 +268,3 @@ Você pode gerenciar a auditoria de banco de dados SQL do Azure usando os modelo
 
 > [!NOTE]
 > As amostras vinculadas estão em um repositório público externo e são fornecidas "como está", sem garantia, e não são suportadas em nenhum programa/serviço de suporte da Microsoft.
-
-<!--Image references-->
-[1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
-[2]: ./media/sql-database-auditing-get-started/2_auditing_get_started_server_inherit.png
-[3]: ./media/sql-database-auditing-get-started/3_auditing_get_started_turn_on.png
-[4]: ./media/sql-database-auditing-get-started/4_auditing_get_started_storage_details.png
-[5]: ./media/sql-database-auditing-get-started/5_auditing_get_started_storage_key_regeneration.png
-[6]: ./media/sql-database-auditing-get-started/6_auditing_get_started_regenerate_key.png
-[7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png
-[8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
-[9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
-[10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png 

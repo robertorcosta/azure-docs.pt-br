@@ -1,89 +1,48 @@
 ---
-title: 'Início Rápido: Reconhecer a fala de um microfone, Python – Serviço de Fala'
-titleSuffix: Azure Cognitive Services
-description: Use este guia para criar um aplicativo de console de conversão de fala em texto que usa o SDK de Fala para Python. Quando terminar, você pode usar o microfone do computador para transcrever a conversão de fala em texto em tempo real.
-services: cognitive-services
-author: chlandsi
-manager: nitinme
+author: trevorbye
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 07/05/2019
-ms.author: chlandsi
-ms.openlocfilehash: a2d5614aeeedb88cd9b2c41baed317761443d17c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/03/2020
+ms.author: trbye
+ms.openlocfilehash: 3613d190ef079d0e477d42b426a224d8e4dda7e6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78924816"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400776"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
 > [!div class="checklist"]
-> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Criar um recurso de Fala do Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 > * Verificar se você tem acesso a um microfone para captura de áudio
 
-## <a name="support-and-updates"></a>Suporte e atualizações
+## <a name="source-code"></a>Código-fonte
 
-As atualizações do pacote Python do SDK de Fala são distribuídas por meio do PyPI e anunciadas no [Notas sobre a versão](~/articles/cognitive-services/Speech-Service/releasenotes.md).
-Se uma nova versão estiver disponível, você poderá atualizar para ela com o comando `pip install --upgrade azure-cognitiveservices-speech`.
-Verifique qual versão está instalada no momento inspecionando a variável `azure.cognitiveservices.speech.__version__`.
-
-Se você tiver um problema ou se estiver faltando um recurso, confira [Support and help options](~/articles/cognitive-services/Speech-Service/support.md) (Opções de Ajuda e Suporte).
-
-## <a name="create-a-python-application-that-uses-the-speech-sdk"></a>Criar um aplicativo Python que usa o SDK de Fala
-
-### <a name="run-the-sample"></a>Execute o exemplo
-
-É possível copiar o [código de exemplo](#sample-code) neste início rápido para um arquivo de origem `quickstart.py` e executá-lo no IDE ou no console:
-
-```sh
-python quickstart.py
-```
-
-ou é possível baixar este tutorial de início rápido como um [Jupyter](https://jupyter.org) Notebook do [repositório de exemplos do SDK de Fala](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) e executá-lo como um notebook.
-
-### <a name="sample-code"></a>Código de exemplo
-
-> [!NOTE]
-> O SDK de Fala usará como padrão o reconhecimento do uso de en-us como o idioma; confira [Especificar o idioma de origem para conversão de fala em texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
+Crie um arquivo chamado *quickstart.py* e cole o código Python a seguir nele.
 
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/from-microphone/quickstart.py#code)]
 
-### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Instalar e usar o SDK de Fala com o Visual Studio Code
+[!INCLUDE [replace key and region](../replace-key-and-region.md)]
 
-1. Baixe e instale uma versão de 64 bits do [Python](https://www.python.org/downloads/), 3.5 a 3.8, em seu computador.
-1. Baixe e instale o [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Abra o Visual Studio Code e instale a extensão do Python. Selecione **Arquivo** > **Preferências** > **Extensões** no menu. Pesquise **Python**.
+## <a name="code-explanation"></a>Explicação de código
 
-   ![Instalar a extensão do Python](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-extension.png)
+[!INCLUDE [code explanation](../code-explanation.md)]
 
-1. Crie uma pasta na qual armazenar o projeto. Um exemplo é fazer isso usando o Windows Explorer.
-1. No Visual Studio Code, selecione o ícone **Arquivo**. Em seguida, abra a pasta criada.
+## <a name="build-and-run-app"></a>Criar e executar um aplicativo
 
-   ![Abrir uma pasta](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-open-folder.png)
+Agora você está pronto para testar o aplicativo e verificar a funcionalidade de reconhecimento de fala usando o serviço de Fala.
 
-1. Crie um novo arquivo de origem Python, `speechsdk.py`, clicando no ícone de novo arquivo.
-
-   ![Criar um arquivo](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
-
-1. Copie, cole e salve o [código do Python](#sample-code) para o arquivo recém-criado.
-1. Insira as informações de assinatura do Serviço de Fala.
-1. Se já tiver sido selecionado, um interpretador do Python será exibido no lado esquerdo da barra de status na parte inferior da janela.
-   Caso contrário, exiba uma lista de interpretadores do Python disponíveis. Abra a paleta de comandos (Ctrl+Shift+P) e insira **Python: selecionar interpretador**. Escolha um adequado.
-1. É possível instalar o pacote Python do SDK de Fala de dentro do Visual Studio Code. Faça isso se ele ainda não foi instalado para o interpretador do Python selecionado.
-   Para instalar o pacote do SDK de Fala, abra um terminal. Exiba a paleta de comandos novamente (Ctrl+Shift+P) e insira **Terminal: Criar um Novo Terminal Integrado**.
-   No terminal aberto, insira o comando `python -m pip install azure-cognitiveservices-speech` ou o comando apropriado para o seu sistema.
-1. Para executar o código de exemplo, clique com o botão direito do mouse em algum lugar dentro do editor. Selecione **Executar arquivo Python no Terminal**.
-   Fale algumas palavras quando for solicitado. O texto transcrito é exibido logo depois disso.
-
-   ![Executar um exemplo](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-run.png)
-
-Se houver problemas em seguir estas instruções, consulte o [tutorial do Python do Visual Studio Code](https://code.visualstudio.com/docs/python/python-tutorial) mais amplo.
+1. **Iniciar seu aplicativo** – Na linha de comando, digite:
+    ```bash
+    python quickstart.py
+    ```
+2. **Iniciar o reconhecimento** – ele solicitará que você fale uma frase em inglês. Sua fala é enviada ao Serviço de Fala, transcrita como texto e renderizada no console.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
+

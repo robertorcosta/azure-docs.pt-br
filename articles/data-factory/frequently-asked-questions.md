@@ -9,17 +9,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 34972e70039fef17161bdef66f64278cbabf908f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d0b49b73ef6b67653fbf32db1174880a51d432d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130793"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81412954"
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes sobre o Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Este artigo fornece respostas a perguntas frequentes sobre o Azure Data Factory.  
 
-## <a name="what-is-azure-data-factory"></a>O que é o Data Factory do Azure? 
+## <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory? 
 A Data Factory é um serviço ETL totalmente gerenciado, baseado em nuvem, que automatiza a movimentação e a transformação de dados. Assim como uma fábrica que usa equipamentos para transformar matérias-primas em produtos, o Azure Data Factory orquestra serviços existentes que coletam dados brutos e os transformam em informações para uso imediato. 
 
 Usando o Azure Data Factory, você pode criar fluxos de trabalho conduzidos por dados para mover dados entre armazenamentos de dados locais e na nuvem. E você pode processar e transformar dados com Fluxos de Dados. O ADF também suporta mecanismos de computação externos para transformações codificadas à mão usando serviços de computação como O Azure HDInsight, Azure Databricks e o tempo de execução dos Serviços de Integração de Servidores SQL (SSIS). 
@@ -35,7 +38,7 @@ O Data Factory fornece liberdade para modelar qualquer estilo de fluxo que seja 
     - As atividades podem ser acorrentadas em uma seqüência dentro de um pipeline.
     - As atividades podem ser ramificadas dentro de um gasoduto.
     - Parâmetros:
-        - Os parâmetros podem ser definidos no nível do pipeline e os argumentos podem ser aprovados enquanto você invoca o pipeline demanda ou a partir de um gatilho.
+        - Os parâmetros podem ser definidos no nível do pipeline e os argumentos podem ser aprovados enquanto você invoca o pipeline sob demanda ou a partir de um gatilho.
         - As atividades podem consumir os argumentos passados para o pipeline.
     - Passagem de estado personalizado:
         - As saídas de atividade, incluindo o estado, podem ser consumidas por uma atividade subseqüente no gasoduto.
@@ -73,7 +76,7 @@ Se você quiser mover as cargas de trabalho do SSIS, poderá criar um Data Facto
 Se você é um usuário avançado e procura uma interface programática, a Data Factory fornece um rico conjunto de SDKs que você pode usar para criar, gerenciar ou monitorar pipelines usando seu IDE favorito. O suporte à linguagem inclui .NET, PowerShell, Python e REST.
 
 ### <a name="monitoring"></a>Monitoramento
-É possível monitorar os Data Factories por meio do PowerShell, SDK ou das Ferramentas de Monitoramento Visual na interface do usuário do navegador. Você pode monitorar e gerenciar fluxos personalizados demanda, baseados em gatilho e relógio de forma eficiente e eficaz. Cancele tarefas existentes, veja falhas rapidamente, aprofunde para baixo para obter mensagens de erro detalhadas e depuraos os problemas, tudo a partir de um único painel de vidro sem alternação de contexto ou navegar para frente e para trás entre as telas. 
+É possível monitorar os Data Factories por meio do PowerShell, SDK ou das Ferramentas de Monitoramento Visual na interface do usuário do navegador. Você pode monitorar e gerenciar fluxos personalizados sob demanda, baseados em gatilho e relógio de forma eficiente e eficaz. Cancele tarefas existentes, veja falhas rapidamente, aprofunde para baixo para obter mensagens de erro detalhadas e depuraos os problemas, tudo a partir de um único painel de vidro sem alternação de contexto ou navegar para frente e para trás entre as telas. 
 
 ### <a name="new-features-for-ssis-in-data-factory"></a>Novos recursos para SSIS na fábrica de dados
 Desde a pré-visualização pública inicial em 2017, a Data Factory adicionou os seguintes recursos para o SSIS:
@@ -146,7 +149,7 @@ Fluxos de controle coordenam as atividades de pipeline, incluindo encadeamento d
 Para obter mais informações sobre os conceitos do Data Factory, confira os seguintes artigos:
 
 - [Conjuntos de dados e serviços vinculados](concepts-datasets-linked-services.md)
-- [Gasodutos e atividades](concepts-pipelines-activities.md)
+- [Pipelines e atividades](concepts-pipelines-activities.md)
 - [runtime de integração](concepts-integration-runtime.md)
 
 ## <a name="what-is-the-pricing-model-for-data-factory"></a>O que é o modelo de preços Data Factory?
@@ -267,7 +270,7 @@ A disputa do fluxo de dados suporta os seguintes tipos de dados no SQL. Você te
 * DATETIME
 * datetime2
 * smalldatetime
-*  timestamp
+* timestamp
 * UNIQUEIDENTIFIER
 * Xml
 

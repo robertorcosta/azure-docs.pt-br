@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: dcefe6a6144c9a8f9c6ab7daf5b34b2d81a73c3f
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 260086d186f7e2b2d6f76c437057f5fbc8af39b5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743010"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416082"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (anteriormente SQL DW) Perguntas frequentes
 
@@ -48,7 +48,7 @@ Primeiro, escolha pelo título de Conformidade. Em seguida, expanda o Azure na s
 
 Q. Posso conectar o Power BI?
 
-a.  Sim! Embora o Power BI suporte consulta direta com o Azure Synapse, ele não é destinado a um grande número de usuários ou dados em tempo real. Para otimizar ainda mais o desempenho do Power BI, considere usar o Power BI em cima dos Serviços de Análise do Azure ou do Serviço de Análise IaaS.
+a. Sim! Embora o Power BI suporte consulta direta com o Azure Synapse, ele não é destinado a um grande número de usuários ou dados em tempo real. Para otimizar ainda mais o desempenho do Power BI, considere usar o Power BI em cima dos Serviços de Análise do Azure ou do Serviço de Análise IaaS.
 
 Q. Quais são os limites de capacidade do pool Synapse SQL?
 
@@ -92,7 +92,7 @@ a. Sim. A maioria das funcionalidades REST que podem ser usadas com o SQL Databa
 
 Q. Para quais drivers de cliente há suporte?
 
-a. O suporte ao driver para pool Synapse SQL pode ser encontrado na página [Strings de conexão](sql-data-warehouse-connection-strings.md)
+a. O suporte ao driver para pool Synapse SQL pode ser encontrado na página [Strings de conexão](../sql/connection-strings.md)
 
 P: Quais formatos de arquivo são suportados pelo PolyBase?
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3a2317554f02dc1f1198d8019bbfdb50e3cc71c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256933"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409764"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configure a recuperação de desastres em escala para VMware VMs/servidores físicos
 
@@ -210,7 +210,7 @@ Você pode se preparar com antecedência para failover da seguinte forma:
 Para executar um failover em larga escala, recomendamos o seguinte:
 
 1. Crie planos de recuperação para failover de carga de trabalho.
-    - Cada plano de recuperação pode desencadear failover de até 50 máquinas.
+    - Cada plano de recuperação pode desencadear failover de até 100 máquinas.
     - [Saiba mais](recovery-plan-overview.md) sobre planos de recuperação.
 2. Adicione scripts de runbook do Azure Automation aos planos de recuperação, para automatizar quaisquer tarefas manuais no Azure. Tarefas típicas incluem configurar balanceadores de carga, atualizar DNS etc. [Saiba mais](site-recovery-runbook-automation.md)
 2. Antes do failover, prepare as máquinas do Windows para que elas estejam em conformidade com o ambiente Azure. [Os limites de failover](#plan-azure-subscriptions-and-quotas) são mais altos para máquinas que cumprem. [Saiba mais](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) sobre os runbooks.

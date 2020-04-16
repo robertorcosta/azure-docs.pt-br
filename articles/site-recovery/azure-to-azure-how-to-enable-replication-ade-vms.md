@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 3a59f137240eff2a3a68fa5547be8c6c25d3e5fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bbb02df782439d934e96e7c16f28b9c11cc01fe
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75772220"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408630"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais habilitadas para criptografia de disco Azure para outra região do Azure
 
 Este artigo descreve como replicar VMs do Azure com a Azure Disk Encryption (ADE) habilitada, de uma região do Azure para outra.
 
 >[!NOTE]
-> Atualmente, o Site Recovery suporta ADE, com e sem AAD (AAD) Active Directory (AAD) para VMs executando sistemas operacionais Windows e Linux.  Para máquinas que executam o ADE 1.1 (sem AAD), as VMs devem estar usando discos gerenciados. As VMs com discos não gerenciados não são suportadas. Se você mudar de ADE 0.1 (com AAD) para 1.1, você precisa desativar a replicação e habilitar a replicação de uma VM depois de ativar o 1.1.
+> Atualmente, o Site Recovery suporta ADE, com e sem AAD (AAD) Active Directory (AAD) para VMs executando sistemas operacionais Windows. Para sistemas operacionais Linux, só suportamos ADE sem AAD. Além disso, para máquinas que executam o ADE 1.1 (sem AAD), as VMs devem estar usando discos gerenciados. As VMs com discos não gerenciados não são suportadas. Se você mudar de ADE 0.1 (com AAD) para 1.1, você precisa desativar a replicação e habilitar a replicação de uma VM depois de ativar o 1.1.
 
 
 ## <a name="required-user-permissions"></a><a id="required-user-permissions"></a>Permissões de usuário necessárias
@@ -99,7 +99,7 @@ Para este exemplo, a região principal do Azure é o leste da Ásia, e a região
     - **Contas de armazenamento em cache**: A Recuperação do Site precisa de uma conta de armazenamento extra chamada armazenamento de *cache* na região de origem. Todas as alterações nas VMs de origem são rastreadas e enviadas para a conta de armazenamento de cache. Eles são então replicados para o local alvo.
     - **Conjunto de disponibilidade**: Por padrão, a Recuperação do Site cria um novo conjunto de disponibilidade na região-alvo. O nome tem o sufixo "asr". Se um conjunto de disponibilidade criado pelo Site Recovery já existir, ele será reutilizado.
     - **Cofres de chave de criptografia de disco**: Por padrão, o Site Recovery cria um novo cofre de chaves na região de destino. Ele tem um sufixo "asr" baseado nas chaves de criptografia de disco VM de origem. Se um cofre-chave criado pelo Azure Site Recovery já existe, ele será reutilizado.
-    - **Cofres de chave de criptografia chave:** Por padrão, o Site Recovery cria um novo cofre de chaves na região de destino. O nome tem um sufixo "asr" baseado nas chaves de criptografia da chave VM de origem. Se um cofre-chave criado pelo Azure Site Recovery já existir, ele será reutilizado.
+    - **Cofres de chaves de criptografia de chave**: Por padrão, o Site Recovery cria um novo cofre de chaves na região de destino. O nome tem um sufixo "asr" baseado nas chaves de criptografia da chave VM de origem. Se um cofre-chave criado pelo Azure Site Recovery já existir, ele será reutilizado.
     - **Política de replicação**: Define as configurações para o histórico de retenção de ponto de recuperação e a freqüência de instantâneo consistente com o aplicativo. Por padrão, o Site Recovery cria uma nova política de replicação com configurações padrão de *24 horas* para retenção de ponto de recuperação e *60 minutos* para freqüência de instantâneo consistente com o aplicativo.
 
 ## <a name="customize-target-resources"></a>Personalizar os recursos de destino

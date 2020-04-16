@@ -11,15 +11,17 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 03/27/2020
-ms.openlocfilehash: d6252b7a0ecce553bc3a1519055375fd4cd034f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 3aabf68b6763e5815a03021cb02683d509c26190
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336206"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415063"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalize a configuração para um runtime de integração Azure-SSIS
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 A configuração personalizada para um Azure-SQL Server Integration Services Runtime (Azure-SSIS IR) fornece uma interface para adicionar suas próprias etapas durante a configuração ou reconfiguração do seu IR Azure-SSIS. 
 
@@ -32,7 +34,7 @@ Você pode fazer configurações personalizadas no seu Azure-SSIS IR de duas man
 Você pode instalar componentes gratuitos e não licenciados e componentes pagos com configurações personalizadas expressas e padrão. Se você é um fornecedor de software independente (ISV), consulte [Desenvolver componentes pagos ou licenciados para um IR Azure-SSIS](how-to-develop-azure-ssis-ir-licensed-components.md).
 
 > [!IMPORTANT]
-> Como os nós da série v2 de um Azure-SSIS IR não são adequados para configuração personalizada, use nós da série v3. Se você já estiver usando os nódulos da série V2, mude para os nades da série V3 o mais rápido possível.
+> Para se beneficiar de aprimoramentos futuros, recomendamos o uso de séries v3 ou posteriores de nós para o seu Ir Azure-SSIS com configuração personalizada.
 
 ## <a name="current-limitations"></a>Limitações atuais
 

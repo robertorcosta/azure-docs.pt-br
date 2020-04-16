@@ -12,19 +12,19 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 07570fd456d7f5a75a6b5a3ee635605a5d40072a
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 74a6d1aecfc83ea68b9e30453056d231f4bf3e65
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350564"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416180"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analisar dados com o Azure Machine Learning
 > [!div class="op_single_selector"]
-> * [Bi de Potência](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Aprendizado de máquina do Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [Sqlcmd](../sql/get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
@@ -70,7 +70,7 @@ SELECT [CustomerKey]
 FROM [dbo].[vTargetMail]
 ```
 
-Execute o experimento clicando **em Executar** a tela do experimento.
+Execute o experimento clicando **em Executar** sob a tela do experimento.
 
 ![Execute o experimento](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1-reader-new.png)
 

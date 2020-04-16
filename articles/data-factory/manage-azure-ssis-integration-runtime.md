@@ -11,14 +11,17 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: fbac52d65433f2137d565ca60fcf754e49199640
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffebb8f82a69f0404974e6c8ea91bec951ca80e1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931388"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415776"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Reconfigurar o runtime de integração do Azure-SSIS
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Este artigo descreve como reconfigurar um runtime de integração existente do Azure-SSIS. Para criar um IR (runtime de integração) do Azure-SSIS no Azure Data Factory, confira [Criar um runtime de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md).  
 
 ## <a name="data-factory-ui"></a>IU do Data Factory 

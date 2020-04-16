@@ -11,14 +11,16 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 52b1d93935e6428563c72361655893ffddf8a507
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0324044d93f12f6ac6ec96ff1a31be8ee02ada41
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74941841"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414706"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Soluciona problemas Gerenciamento de tempo de execução da integração do SSIS na fábrica de dados do Azure
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este artigo fornece orientação para solução de problemas de gerenciamento no SSIS (Integration Desis) Integration Runtime (IR) do Azure-SQL Server Services (SSIS), também conhecido como SSIS IR.
 
@@ -122,7 +124,7 @@ Esse erro pode ocorrer por vários motivos. Para solucionar problemas, consulte 
 
 ### <a name="forbidden"></a>Proibido
 
-Esse tipo de erro pode se assemelhar a isso: "O SubnetId não está habilitado para conta corrente. O provedor de recursos Microsoft.Batch não está registrado a mesma assinatura do VNet.
+Esse tipo de erro pode se assemelhar a isso: "O SubnetId não está habilitado para conta corrente. O provedor de recursos Microsoft.Batch não está registrado sob a mesma assinatura do VNet."
 
 Esses detalhes significam que o lote do Azure não pode acessar sua rede virtual. Registre o provedor de recursos Microsoft.Batch na mesma assinatura que a rede virtual.
 
@@ -186,7 +188,7 @@ Quando você parar o Azure-SSIS IR, todos os recursos de rede criados no grupo d
 
 ### <a name="publicipresourcegrouplockedduringupgrade"></a>PublicIPResourceGroupLockedDuringUpgrade
 
-O Azure-SSIS IR é atualizado automaticamente regularmente. Novos nós de IR são criados durante a atualização e os nós antigos serão excluídos. Além disso, os recursos de rede criados (por exemplo, o balanceador de carga e o grupo de segurança da rede) para os nós antigos são excluídos, e os novos recursos de rede são criados sua assinatura. Esse erro significa que a exclusão dos recursos de rede para os nós antigos falhou devido a um bloqueio de exclusão no nível de assinatura ou grupo de recursos (que contém o seu endereço IP público estático). Por favor, remova o bloqueio de exclusão para que possamos limpar os nós antigos e liberar o endereço IP público estático para os nós antigos. Caso contrário, o endereço IP público estático não pode ser liberado e não poderemos atualizar ainda mais o seu IR.
+O Azure-SSIS IR é atualizado automaticamente regularmente. Novos nós de IR são criados durante a atualização e os nós antigos serão excluídos. Além disso, os recursos de rede criados (por exemplo, o balanceador de carga e o grupo de segurança da rede) para os nós antigos são excluídos, e os novos recursos de rede são criados sob sua assinatura. Esse erro significa que a exclusão dos recursos de rede para os nós antigos falhou devido a um bloqueio de exclusão no nível de assinatura ou grupo de recursos (que contém o seu endereço IP público estático). Por favor, remova o bloqueio de exclusão para que possamos limpar os nós antigos e liberar o endereço IP público estático para os nós antigos. Caso contrário, o endereço IP público estático não pode ser liberado e não poderemos atualizar ainda mais o seu IR.
 
 ### <a name="publicipnotusableduringupgrade"></a>PublicIPNotusableDuringUpgrade
 

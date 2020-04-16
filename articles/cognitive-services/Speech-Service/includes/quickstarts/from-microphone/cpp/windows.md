@@ -1,53 +1,42 @@
 ---
-title: 'Início Rápido: Reconhecer a fala de um microfone, C++ (Windows) – Serviço de Fala'
-titleSuffix: Azure Cognitive Services
-description: Saiba como reconhecer fala em C++ no Windows Desktop usando o SDK de Fala
-services: cognitive-services
-author: wolfma61
-manager: nitinme
+author: trevorbye
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/17/2019
-ms.author: wolfma
-ms.openlocfilehash: 416c2893ebf07cd638f3f1c06c709db2586245d1
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/03/2020
+ms.author: trbye
+ms.openlocfilehash: db87f31f4702d3487a11a6d833755105455d74c8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925325"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400746"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
 > [!div class="checklist"]
-> * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
-> * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Criar um recurso de Fala do Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Configurar seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 > * Verificar se você tem acesso a um microfone para captura de áudio
 
-## <a name="add-sample-code"></a>Adicionar código de exemplo
+## <a name="source-code"></a>Código-fonte
 
-1. Abra o arquivo de origem **helloworld.cpp**.
+Crie um arquivo de origem C++ chamado *helloworld.cpp* e cole o código a seguir nele.
 
-1. Substitua todo o código pelo seguinte snippet de código:
+[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-microphone/helloworld/helloworld.cpp#code)]
 
-   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-microphone/helloworld/helloworld.cpp#code)]
+[!INCLUDE [replace key and region](../replace-key-and-region.md)]
 
-1. No mesmo arquivo, substitua a cadeia de caracteres `YourSubscriptionKey` por sua chave de assinatura.
+## <a name="code-explanation"></a>Explicação de código
 
-1. Substitua a cadeia de caracteres `YourServiceRegion` pelo **Identificador de região** da [região](https://aka.ms/speech/sdkregion) associada à assinatura (por exemplo, `westus` para a assinatura de avaliação gratuita).
+[!INCLUDE [code explanation](../code-explanation.md)]
 
-1. Na barra de menus, escolha **Arquivo** > **Salvar tudo**.
-
-> [!NOTE]
-> O SDK de Fala usará como padrão o reconhecimento do uso de en-us como o idioma; confira [Especificar o idioma de origem para conversão de fala em texto](../../../../how-to-specify-source-language.md) para obter informações sobre como escolher o idioma de origem.
-
-## <a name="build-and-run-the-application"></a>Compile e execute o aplicativo
+## <a name="build-and-run-app"></a>Criar e executar um aplicativo
 
 1. Na barra de menus, selecione **Compilar** > **Compilar solução** para compilar o aplicativo. Agora, o código deve compilar sem erros.
 
-1. Escolha **Depurar** > **Iniciar depuração** (ou pressione **F5**) para iniciar o aplicativo **Olá Mundo**.
+1. Escolha **Depurar** > **Iniciar depuração** (ou pressione <kbd>F5</kbd>) para iniciar o aplicativo **Olá Mundo**.
 
 1. Fale uma frase ou expressão em inglês. O aplicativo transmite sua fala para o serviço de Fala, que transcreve o conteúdo para texto e o envia de volta ao aplicativo para exibição.
 
@@ -55,4 +44,4 @@ Antes de começar:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

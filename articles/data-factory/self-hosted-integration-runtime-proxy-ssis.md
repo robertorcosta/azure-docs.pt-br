@@ -11,15 +11,17 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 03/27/2020
-ms.openlocfilehash: 9a1923057bc318869f491791520aacb4d0d17591
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/15/2020
+ms.openlocfilehash: ecfdf2a11f31c18064be9a607f2bb3938d26e661
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346629"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414912"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configure um IR auto-hospedado como um proxy para um IR Azure-SSIS na Fábrica de Dados Azure
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este artigo descreve como executar pacotes SQL Server Integration Services (SSIS) em um Azure-SSIS Integration Runtime (Azure-SSIS IR) na Fábrica de Dados Azure com um tempo de execução de integração auto-hospedado (IR auto-hospedado) configurado como um proxy. 
 
@@ -52,7 +54,7 @@ Finalmente, você baixa e instala a versão mais recente do IR auto-hospedado, b
 
 Se você ainda não fez isso, crie um serviço vinculado ao armazenamento Azure Blob na mesma fábrica de dados onde o SEU IR Azure-SSIS está configurado. Para isso, consulte [Criar um serviço vinculado à fábrica de dados do Azure](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-linked-service). Certifique-se de fazer o seguinte:
 - Para **armazenamento de dados,** selecione **Armazenamento Azure Blob**.  
-- Para **conectar via tempo de execução de integração,** selecione **AutoResolveIntegrationRuntime** (não seu IR Azure-SSIS ou seu IR auto-hospedado), porque usamos o IR padrão do Azure para buscar credenciais de acesso para o seu Armazenamento Azure Blob  
+- Para **conectar via tempo de execução de integração,** selecione **AutoResolveIntegrationRuntime** (não seu IR Azure-SSIS nem seu IR auto-hospedado), porque usamos o IR padrão do Azure para buscar credenciais de acesso para o seu Armazenamento Azure Blob.
 - Para **o método de autenticação,** selecione a chave **Conta,** **SAS URI**ou Diretor de **Serviço.**  
 
     >[!TIP]
@@ -171,7 +173,7 @@ Se você precisar usar criptografia forte/protocolo de rede mais seguro (TLS 1.2
 
 ## <a name="current-limitations"></a>Limitações atuais
 
-- Atualmente, são suportadas apenas as tarefas de fluxo de dados com o ODBC (Open Database Connectivity)/OLEDB/Flat File. 
+- Atualmente, são suportadas apenas as tarefas de fluxo de dados com o ODBC (Open Database Connectivity)/OLEDB/Flat File sources ou o destino OLEDB. 
 - Atualmente, apenas os serviços vinculados ao armazenamento Azure Blob configurados com *a chave Account,* *o URI (SAS) (SAS) (SAS)* ou a autenticação *do Service Principal* são suportados no momento.
 - *O mapeamento de parâmetros* na fonte OLEDB ainda não é suportado. Como solução de solução, use *o comando SQL From Variable* como *accessMode* e use *Expression* para inserir suas variáveis/parâmetros em um comando SQL. Como ilustração, consulte o pacote *ParameterMappingSample.dtsx* que pode ser encontrado na pasta *SelfHostedIRProxy/Limitações* do nosso contêiner de visualização pública. Usando o Azure Storage Explorer, você pode se conectar ao nosso contêiner de visualização pública inserindo o Uri SAS acima.
 

@@ -9,14 +9,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 8941c097fbb2d05c3a28be87d216b7a2679ebc68
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: a728ec6f261b82d563aeb4a8f5c98bbd546f4400
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804887"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413223"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do dissipador no mapeamento do fluxo de dados
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Depois de transformar seus dados, você pode afundar os dados em um conjunto de dados de destino. Todo fluxo de dados requer pelo menos uma transformação de pia, mas você pode escrever para o máximo de pias necessário para completar seu fluxo de transformação. Para escrever em pias adicionais, crie novos fluxos através de novos ramos e divisões condicionais.
 
@@ -30,7 +32,7 @@ Atualmente, os seguintes conjuntos de dados podem ser usados em uma transformaç
 * [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
 * [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
 * [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
-* [Banco de dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties)
+* [Banco de Dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties)
 * [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
 
 As configurações específicas desses conectores estão localizadas na guia **Configurações.** 

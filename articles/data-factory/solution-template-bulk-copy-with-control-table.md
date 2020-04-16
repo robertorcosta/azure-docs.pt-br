@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 3a42d7da21cfb2e3066fbdd81b27c82155d8456f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6d634d9a32ae1728e1122d863ddabd94f73ee27
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75439967"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414836"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Cópia em massa de um banco de dados com uma tabela de controle
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Para copiar dados de um data warehouse no Oracle Server, Netezza, Teradata ou SQL Server para o Azure SQL Data Warehouse, você tem que carregar grandes quantidades de dados de várias tabelas. Normalmente, os dados devem ser particionados em cada tabela para que você possa carregar linhas com vários segmentos em paralelo a partir de uma única tabela. Este artigo descreve um modelo a ser usado nesses cenários.
 
@@ -40,7 +41,7 @@ O modelo define os seguintes parâmetros:
 - *Control_Table_Schema_FilterQuery* é o nome da coluna em sua tabela de controle externo que armazena a consulta do filtro para obter os dados de cada partição no banco de dados de origem. Por exemplo, se você particiou os dados por ano, a consulta armazenada em cada linha pode ser semelhante a 'select * de datasource onde LastModifytime >= ''2015-01-01 00:00:00'' e LastModifytime <= ''2015-12-31 23:59:59.999''.
 - *Data_Destination_Folder_Path* é o caminho onde os dados são copiados para sua loja de destino (aplicável quando o destino que você escolhe é "Sistema de arquivos" ou "Azure Data Lake Storage Gen1"). 
 - *Data_Destination_Container* é o caminho da pasta raiz para onde os dados são copiados em sua loja de destino. 
-- *Data_Destination_Directory* é o caminho do diretório a raiz onde os dados são copiados para sua loja de destino. 
+- *Data_Destination_Directory* é o caminho do diretório sob a raiz onde os dados são copiados para sua loja de destino. 
 
 Os três últimos parâmetros, que definem o caminho em sua loja de destino, só são visíveis se o destino escolhido for o armazenamento baseado em arquivos. Se você escolher "Azure Synapse Analytics (anteriormente SQL DW)" como a loja de destino, esses parâmetros não serão necessários. Mas os nomes das tabelas e o esquema no SQL Data Warehouse devem ser os mesmos do banco de dados de origem.
 

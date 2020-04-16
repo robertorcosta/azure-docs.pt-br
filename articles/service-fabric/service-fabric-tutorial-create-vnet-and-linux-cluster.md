@@ -4,12 +4,12 @@ description: Saiba como implantar um cluster do Service Fabric do Linux em uma r
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: f5788f07dd4a4f03a95efaea4b741cd64c930ac5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9026e46f2fd386892af5a3d8f4ec8d7e0c9f649
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78251777"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411017"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implantar um cluster do Service Fabric do Linux em uma rede virtual do Azure
 
@@ -19,7 +19,7 @@ Neste artigo você aprenderá como implantar um cluster Linux do Service Fabric 
 
 Antes de começar:
 
-* Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Instale o [CLI da malha de serviço](service-fabric-cli.md)
 * Instale o [Azure CLI](/cli/azure/install-azure-cli)
 * Para saber os principais conceitos sobre clusters, leia [Visão geral dos clusters do Azure](service-fabric-azure-clusters-overview.md)
@@ -31,8 +31,17 @@ Os procedimentos a seguir criam um cluster de sete nós do Service Fabric. Para 
 
 Baixe os seguintes arquivos do modelo do Resource Manager:
 
+Para Ubuntu 16.04 LTS:
+
 * [AzureDeploy.json][template]
 * [AzureDeploy.Parameters.json][parameters]
+
+Para Ubuntu 18.04 LTS:
+
+* [AzureDeploy.json][template2]
+* [AzureDeploy.Parameters.json][parameters2]
+
+A diferença entre os dois modelos é que o atributo **vmImageSku** está sendo definido como "18.04-LTS" e o **tipo DenodoHandlerVersion** sendo definido como 1.1.
 
 Esse modelo implanta um cluster seguro de sete máquinas virtuais e três tipos de nó em uma rede virtual.  Outros modelos de exemplo podem ser encontrados no [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). O [AzureDeploy.json][template] implanta um número de recursos, incluindo o seguinte.
 
@@ -42,7 +51,7 @@ No recurso **Microsoft.ServiceFabric/clusters**, um cluster do Linux é implanta
 
 * três tipos de nó
 * cinco nós no tipo de nó primário (configurável nos parâmetros de modelo), um nó em cada um dos outros tipos de nó
-* Sistema operacional: Ubuntu 16.04 LTS (configurável nos parâmetros de modelo)
+* OS: (Ubuntu 16.04 LTS / Ubuntu 18.04 LTS) (configurável nos parâmetros do modelo)
 * certificado protegidos (configurável nos parâmetros de modelo)
 * [O serviço DNS](service-fabric-dnsservice.md) está habilitado
 * [Nível](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de durabilidade do Bronze (configurável nos parâmetros do modelo)
@@ -70,7 +79,7 @@ Se forem necessárias outras portas de aplicativo, você precisará ajustar o re
 
 ## <a name="set-template-parameters"></a>Definir os parâmetros do modelo
 
-O arquivo de parâmetros [AzureDeploy.Parameters][parameters] declara muitos valores usados para implantar o cluster e os recursos associados. Alguns dos parâmetros que você talvez precise modificar para sua implantação:
+O **arquivo AzureDeploy.Parameters** declara muitos valores usados para implantar o cluster e os recursos associados. Alguns dos parâmetros que você talvez precise modificar para sua implantação:
 
 |Parâmetro|Valor de exemplo|Observações|
 |---|---||
@@ -86,7 +95,7 @@ O arquivo de parâmetros [AzureDeploy.Parameters][parameters] declara muitos val
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Implantar a rede virtual e o cluster
 
-Em seguida, configure a topologia de rede e implante o cluster do Service Fabric. O modelo do Resource Manager [AzureDeploy.json][template] cria uma VNET (rede virtual) e uma sub-rede para o Service Fabric. O modelo também implanta um cluster com a segurança de certificado habilitada.  Para clusters de produção, use um certificado de uma autoridade de certificação (CA) como o certificado de cluster. Um certificado autoassinado pode ser usado para proteger clusters de teste.
+Em seguida, configure a topologia de rede e implante o cluster do Service Fabric. O modelo do Resource Manager **AzureDeploy.json** cria uma VNET (rede virtual) e uma sub-rede para o Service Fabric. O modelo também implanta um cluster com a segurança de certificado habilitada.  Para clusters de produção, use um certificado de uma autoridade de certificação (CA) como o certificado de cluster. Um certificado autoassinado pode ser usado para proteger clusters de teste.
 
 O modelo deste artigo implanta um cluster que usa a impressão digital do certificado para identificar o certificado de cluster.  Dois certificados não podem ter a mesma impressão digital, o que dificulta o gerenciamento de certificados. Alternar um cluster implantado do uso de impressões digitais de certificado para o uso de nomes comuns do certificado simplifica muito o gerenciamento de certificados.  Para saber como atualizar o cluster para usar nomes comuns de certificado sustais para gerenciamento de certificados, leia [cluster de alteração para gerenciamento de nomes comuns de certificados](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
@@ -151,7 +160,7 @@ Verifique se você está conectado e se o cluster está íntegro usando o comand
 sfctl cluster health
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não for imediatamente para o próximo artigo, [exclua o cluster](service-fabric-cluster-delete.md) para evitar a cobrança de encargos.
 
@@ -163,3 +172,5 @@ O modelo deste artigo implanta um cluster que usa a impressão digital do certif
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json
+[template2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.json
+[parameters2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.Parameters.json

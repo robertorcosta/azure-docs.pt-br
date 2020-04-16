@@ -6,18 +6,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: e0c48137f5eecc96b6e7b1cbce5f0c683b2a976a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0df2680a9f17fc0af950b0ce744a655348b4cbf7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367305"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406057"
 ---
 # <a name="my-first-powershell-runbook"></a>Meu primeiro runbook do PowerShell
 
 > [!div class="op_single_selector"]
 > * [Gráfico](automation-first-runbook-graphical.md)
-> * [Powershell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
 > * [Python](automation-first-runbook-textual-python2.md)
 
@@ -77,7 +77,7 @@ Antes de publicar o manual para torná-lo disponível na produção, você deve 
 2. Clique em **Iniciar** para iniciar o teste. Essa deve ser a única opção habilitada.
 3. Observe que um [trabalho de runbook](automation-runbook-execution.md) é criado e seu status é exibido no painel.
 
-   O status do `Queued`trabalho começa como , indicando que o trabalho está esperando um trabalhador de runbook na nuvem para se tornar disponível. O status `Starting` muda para quando um trabalhador reivindica o emprego. Finalmente, o `Running` status se torna quando o runbook realmente começa a ser executado.
+   O status do trabalho começa como enfileirado, indicando que o trabalho está esperando um trabalhador de runbook na nuvem para se tornar disponível. O status muda para A partir de quando um trabalhador reivindica o trabalho. Finalmente, o status torna-se em execução quando o runbook realmente começa a ser executado.
 
 4. Quando o trabalho do runbook é concluído, o painel Teste exibe sua saída. Neste caso, você `Hello World`vê .
 
@@ -91,7 +91,7 @@ O runbook que você criou ainda está no modo Draft. Ele precisa ser publicado a
 
 1. Clique em **Publicar** para publicar o runbook e em **Sim** quando solicitado.
 1. Role à esquerda para ver o runbook na página Runbooks e observe que o valor **de Status de criação** está definido como **Publicado**.
-1. Role para a direita para exibir o painel de **MyFirstRunbook-PowerShell**.
+1. Role de volta para a direita para ver a página de **MyFirstRunbook-PowerShell**.
    
    As opções em toda a parte superior permitem que você inicie o runbook agora, agende uma hora de início futura ou crie um [webhook](automation-webhooks.md) para que o runbook possa ser iniciado através de uma chamada HTTP.
 1. Selecione **Iniciar** e em **Sim** quando solicitado para iniciar o runbook. 
@@ -99,7 +99,7 @@ O runbook que você criou ainda está no modo Draft. Ele precisa ser publicado a
 
    ![Resumo do trabalho](media/automation-first-runbook-textual-powershell/job-pane-status-blade-jobsummary.png)
 
-1. Uma vez que `Completed`o status do runbook seja exibido, `Hello World` clique **em 'Sair'** para abrir a página Saída, onde você pode ver exibido.
+1. Uma vez que o status do runbook se mostrar concluído, clique **em Sair** para abrir a página Saída, onde você pode ver `Hello World` exibido.
 
    ![Saída do trabalho](media/automation-first-runbook-textual-powershell/job-pane-status-blade-outputtile.png)
 
@@ -110,7 +110,7 @@ O runbook que você criou ainda está no modo Draft. Ele precisa ser publicado a
 
    ![Todos os Logs](media/automation-first-runbook-textual-powershell/job-pane-status-blade-alllogstile.png)
 
-1. Feche o painel Streams e o painel de trabalho para retornar à página **MyFirstRunbook-PowerShell.**
+1. Feche o painel Streams e o painel de trabalho para retornar à página MyFirstRunbook-PowerShell.
 1. Em **Detalhes,** clique **em Empregos** para abrir a página Empregos para este livro de execução. Esta página lista todos os trabalhos criados pelo seu manual. Você só deve ver um trabalho listado, já que você só executou o trabalho uma vez.
 
    ![Lista de trabalhos](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)
@@ -151,7 +151,7 @@ Como mostrado no exemplo abaixo, a conexão Run As é feita com o [cmdlet Connec
 
    Get-AzVM -ResourceGroupName myResourceGroup -AzContext $AzureContext
    ```
-1. Abra o editor textual clicando em **Editar** na página **MyFirstRunbook-PowerShell.**
+1. Abra o editor de texto clicando em **Editar** na página MyFirstRunbook-PowerShell.
 1. Você não precisa `Write-Output` mais da linha. Vá em frente e exclua.
 1. Digite ou copie e cole o seguinte código, que lida com a autenticação com sua conta Automation Run As.
 
@@ -182,7 +182,7 @@ Como mostrado no exemplo abaixo, a conexão Run As é feita com o [cmdlet Connec
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Etapa 6: adicionar código para iniciar uma máquina virtual
 
-Agora que o seu runbook está se autenticando na sua assinatura do Azure, você pode gerenciar os recursos. Vamos adicionar um comando para iniciar uma máquina virtual. Você pode escolher qualquer máquina virtual em sua assinatura do Azure, e apenas codifique esse nome no manual por enquanto.
+Agora que o seu runbook está se autenticando na sua assinatura do Azure, você pode gerenciar os recursos. Vamos adicionar um comando para iniciar uma máquina virtual. Você pode escolher qualquer máquina virtual em sua assinatura do Azure, e apenas código rígido que o nome no runbook por enquanto.
 
 1. Ao seu script de runbook, adicione o cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) para iniciar a máquina virtual. Como mostrado abaixo, o cmdlet inicia `VMName` uma máquina virtual `ResourceGroupName`com o nome e com um grupo de recursos chamado .
 
@@ -212,7 +212,7 @@ Agora que o seu runbook está se autenticando na sua assinatura do Azure, você 
 
 ## <a name="step-7---add-an-input-parameter"></a>Passo 7 - Adicionar um parâmetro de entrada
 
-Seu runbook atualmente inicia a máquina virtual que você codifica no manual. O runbook será mais útil se você especificar a máquina virtual quando o livro de execução for iniciado. Vamos adicionar parâmetros de entrada ao manual para fornecer essa funcionalidade.
+Seu runbook atualmente inicia a máquina virtual que você codifica do livro de execução. O runbook é mais útil se você especificar a máquina virtual quando o livro de execução é iniciado. Vamos adicionar parâmetros de entrada ao manual para fornecer essa funcionalidade.
 
 1. No editor textual, `Start-AzVM` modifique o cmdlet para `VMName` `ResourceGroupName`usar variáveis para os parâmetros e . 
 
@@ -252,6 +252,8 @@ Seu runbook atualmente inicia a máquina virtual que você codifica no manual. O
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter mais informações sobre o PowerShell, incluindo os módulos de referência e aprendizagem do idioma, consulte o [PowerShell Docs](/powershell/scripting/overview).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 * Para começar com runbooks gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md).
 * Para começar com os runbooks do PowerShell Workflow, consulte [Meu primeiro runbook powershell workflow](automation-first-runbook-textual.md).
 * Para saber mais sobre os tipos de runbook e suas vantagens e limitações, consulte [os tipos de runbook da Azure Automation](automation-runbook-types.md).

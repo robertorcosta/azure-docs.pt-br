@@ -4,14 +4,14 @@ description: Aprenda os conceitos e técnicas do Azure Functions que você preci
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 7dd7ef3c4833fb9ffa3781f06faba4f40cd40cfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6af3d7ab1fdd35391c9a189162c57dfb259f2d4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276615"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405351"
 ---
-# <a name="azure-functions-developers-guide"></a>Guia do desenvolvedor do Azure Functions
+# <a name="azure-functions-developer-guide"></a>Guia do desenvolvedor do Azure Functions
 No Azure Functions, funções específicas compartilham alguns componentes e conceitos técnicos, independentemente da linguagem ou da associação usada. Antes de aprender detalhes específicos de uma determinada linguagem ou binding, leia esta visão geral que se aplica a todos eles.
 
 Este artigo pressupõe que você já tenha lido a [Visão geral do Azure Functions](functions-overview.md).
@@ -98,7 +98,7 @@ Está tendo problemas com erros provenientes de associações? Examine a documen
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais, consulte os recursos a seguir:
 
-* [Azure Funções gatilhos e vinculações](functions-triggers-bindings.md)
+* [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)
 * [Codificar e testar o Azure Functions localmente](./functions-develop-local.md)
 * [Práticas recomendadas para funções azure](functions-best-practices.md)
 * [Referência do desenvolvedor de C# do Azure Functions](functions-dotnet-class-library.md)

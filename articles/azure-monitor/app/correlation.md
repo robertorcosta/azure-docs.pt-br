@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 6ceace1ee93fab8c0a46ed4a67850fc87a5cdad2
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 2e862410e2bf12e09e1a6388bbb6f7105b5b2edf
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991221"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405259"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -314,7 +314,7 @@ Ao longo do tempo, .NET definiu várias maneiras de correlacionar registros de t
 
 Mas esses métodos não permitiram suporte automático de rastreamento distribuído. `DiagnosticSource`suporta correlação automática entre máquinas. As bibliotecas `DiagnosticSource` .NET suportam e permitem a propagação automática entre máquinas do contexto de correlação através do transporte, como http.
 
-O Guia do `DiagnosticSource` Usuário [de Atividades](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) explica o básico das atividades de rastreamento.
+O Guia do `DiagnosticSource` Usuário [de Atividades](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) explica o básico das atividades de rastreamento.
 
 ASP.NET Core 2.0 suporta a extração de cabeçalhos HTTP e o início de novas atividades.
 

@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78945390"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414405"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controles de acesso à rede azure SQL e Data Warehouse
 
@@ -29,7 +29,7 @@ ms.locfileid: "78945390"
 
 Quando você cria um novo Azure SQL Server a partir do [portal Azure,](sql-database-single-database-get-started.md)o resultado é um ponto final público no formato, *yourservername.database.windows.net*.
 
-Você pode usar os seguintes controles de acesso à rede para permitir seletivamente o acesso ao Banco de Dados SQl através do ponto final público:
+Você pode usar os seguintes controles de acesso à rede para permitir seletivamente o acesso ao Banco de Dados SQL através do ponto final público:
 - Permitir serviços do Azure: Quando definido como ON, outros recursos dentro do limite do Azure, por exemplo, uma Máquina Virtual Do Azure, podem acessar o Banco de Dados SQL
 
 - Regras de firewall IP: Use esse recurso para permitir explicitamente conexões a partir de um endereço IP específico, por exemplo, de máquinas locais
@@ -59,10 +59,10 @@ Quando definido como **ON** Azure SQL Server permite comunicações de todos os 
 Em muitos casos, a configuração **ON** é mais permissiva do que a maioria dos clientes quer. Eles podem querer definir essa configuração como **OFF** e substituí-la por regras mais restritivas de firewall IP ou regras de firewall da Rede Virtual. Isso afeta os seguintes recursos que são executados em VMs no Azure que não fazem parte do seu VNet e, portanto, se conectam ao Banco de Dados Sql através de um endereço IP do Azure.
 
 ### <a name="import-export-service"></a>Serviço de Importação/Exportação
-Serviço de exportação de importação não funciona **Permitir que os serviços do Azure acessem** o conjunto de servidores para OFF. No entanto, você pode contornar o problema [executando manualmente sqlpackage.exe a partir de um VM Azure ou realizando a exportação](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) diretamente em seu código usando a API DACFx.
+O Serviço de Exportação de Importação não funciona quando **o acesso ao Azure** é definido como **OFF**. No entanto, você pode contornar o problema [executando manualmente sqlpackage.exe a partir de um VM Azure ou realizando a exportação](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) diretamente em seu código usando a API DACFx.
 
 ### <a name="data-sync"></a>Sincronização de Dados
-Para usar o recurso de sincronização de dados com **permitir que os serviços do Azure acessem** o set de servidor para OFF, você precisa criar entradas individuais de regras de firewall para [adicionar endereços IP](sql-database-server-level-firewall-rule.md) da tag de serviço **Sql** para a região que hospeda o banco de dados **do Hub.**
+Para usar o recurso de sincronização de dados com **permitir o acesso aos serviços do Azure** definido **sAqueado,** você precisa criar entradas de regras de firewall individuais para [adicionar endereços IP](sql-database-server-level-firewall-rule.md) da tag de serviço **Sql** para a região que hospeda o banco de dados **do Hub.**
 Adicione essas regras de firewall de nível de servidor aos servidores lógicos que hospedam bancos de dados **Hub** e **Member** ( que podem estar em diferentes regiões)
 
 Use o seguinte script PowerShell para gerar os endereços IP correspondentes à tag de serviço Sql para a região oeste dos EUA

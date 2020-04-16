@@ -11,14 +11,15 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: 6645c2672e15c562216b4347f779ef3634a2f124
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2108f2f9098fe6da8ee4666b30605bed14164484
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130867"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414714"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle de origem na Fábrica de Dados Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A experiência de interface de usuário do Azure Data Factory (UX) tem duas experiências disponíveis para autoria visual:
 
@@ -161,7 +162,7 @@ O painel de configuração mostra as seguintes configurações do repositório d
 
 ## <a name="switch-to-a-different-git-repo"></a>Alternar para um repositório Git diferente
 
-Para mudar para um repo Git diferente, clique no ícone **Configurações do Git Repo** no canto superior direito da página de visão geral da Fábrica de Dados. Se você não vir o ícone, limpe o cache do navegador local. Selecione o ícone para remover a associação com o repositório atual.
+Para mudar para um repo Git diferente, clique no ícone **Configurações do Git Repo** no canto superior direito da página de visão geral da Fábrica de Dados. Se você não puder ver o ícone, limpe o cache do navegador local. Selecione o ícone para remover a associação com o repositório atual.
 
 ![Ícone git](media/author-visually/remove-repo.png)
 
@@ -187,7 +188,7 @@ Quando estiver pronto para mesclar as alterações do seu ramo de recursos para 
 
 ### <a name="configure-publishing-settings"></a>Definir configurações de publicação
 
-Para configurar o branch de publicação, ou seja, o branch em que os modelos do Resource Manager são salvos, adicione um arquivo `publish_config.json` à pasta raiz no branch de colaboração. O Data Factory lê esse arquivo, procura o campo `publishBranch` e cria um branch (caso ele ainda não exista) com o valor fornecido. Em seguida, ele salva todos os modelos do Resource Manager no local especificado. Por exemplo: 
+Para configurar o branch de publicação, ou seja, o branch em que os modelos do Resource Manager são salvos, adicione um arquivo `publish_config.json` à pasta raiz no branch de colaboração. O Data Factory lê esse arquivo, procura o campo `publishBranch` e cria um branch (caso ele ainda não exista) com o valor fornecido. Em seguida, ele salva todos os modelos do Resource Manager no local especificado. Por exemplo:
 
 ```json
 {
@@ -218,9 +219,9 @@ Um painel lateral será aberto onde você confirma que o ramo de publicação e 
 -   **Controle de Origem**. Conforme as cargas de trabalho do data factory se tornam cruciais, você desejaria integrar seu factory ao Git para aproveitar os vários benefícios de controle do código-fonte com o seguinte:
     -   Capacidade de controlar/auditar as alterações.
     -   Capacidade de reverter as alterações que introduziram bugs.
--   **Salvamento parcial**. Conforme você faz muitas alterações em seu factory, perceberá que no modo normal dinâmico, você não pode salvar suas alterações como rascunho, porque não terminou ou não deseja perder as alterações no caso de falha do seu computador. Com a integração do Git, você pode continuar salvando as alterações incrementalmente e publicar o factory somente quando você tiver terminado. O Git atua como um local de preparo para seu trabalho, até que você teste suas alterações de acordo com sua satisfação.
+-   **Salvamento parcial**. Como você faz um monte de mudanças em sua fábrica, você vai perceber que no modo LIVE regular, você não pode salvar suas alterações como rascunho, porque você não está pronto, ou você não quer perder suas alterações no caso de seu computador falhar. Com a integração do Git, você pode continuar salvando as alterações incrementalmente e publicar o factory somente quando você tiver terminado. O Git atua como um local de preparo para seu trabalho, até que você teste suas alterações de acordo com sua satisfação.
 -   **Colaboração e controle**. Se você tiver vários membros da equipe participando do mesmo factory, talvez queira permitir que seus colegas de equipe colaborem entre si por meio de um processo de revisão de código. Você também pode configurar seu factory de tal forma que nem todo colaborador dela tenha permissão para implantar nela. Os membros da equipe apenas podem fazer alterações por meio do Git, mas somente determinadas pessoas da equipe têm permissão para "Publicar" as alterações para seu factory.
--   **Mostrando comparações**. No modo de Git, você consegue ver uma comparação interessante do conteúdo que está prestes a ser publicado no factory. Essa comparação mostra todos os recursos/entidades que foram modificados/adicionados/excluídos desde a última vez em que você publicou no seu factory. Com base nessa comparação, você pode prosseguir com a publicação ou voltar e verificar suas alterações e retornar posteriormente.
+-   **Mostrando comparações**. No modo Git, você pode ver um bom diferencial da carga que está prestes a ser publicada na fábrica. Essa comparação mostra todos os recursos/entidades que foram modificados/adicionados/excluídos desde a última vez em que você publicou no seu factory. Com base nessa comparação, você pode prosseguir com a publicação ou voltar e verificar suas alterações e retornar posteriormente.
 -   **Melhor CI/CD**. Se você estiver usando o modo Git, poderá configurar seu pipeline de lançamento para disparar automaticamente assim que houver qualquer alteração feita no factory de desenvolvimento. Você também poderá personalizar as propriedades no factory que estão disponíveis como parâmetros no modelo do Resource Manager. Isso pode ser útil manter somente o conjunto necessário de propriedades como parâmetros e ter todos os demais elementos embutidos no código.
 -   **Melhor desempenho**. Uma fábrica média carrega dez vezes mais rápido no modo Git do que no modo LIVE normal, porque os recursos são baixados via Git.
 
@@ -231,7 +232,7 @@ Um painel lateral será aberto onde você confirma que o ramo de publicação e 
 Normalmente, você não quer que todos os membros da equipe tenham permissões para atualizar a fábrica. Recomenda-se as seguintes configurações de permissões:
 
 *   Todos os membros da equipe devem ter permissões de leitura para o data factory.
-*   Apenas um conjunto seleto de pessoas deve ser autorizado a publicar na fábrica. Para isso, eles devem ter o papel **de contribuinte da Fábrica de Dados** na fábrica. Para obter mais informações sobre permissões, consulte [Funções e permissões para a Fábrica de Dados Do Azure](concepts-roles-permissions.md).
+*   Apenas um conjunto seleto de pessoas deve ser autorizado a publicar na fábrica. Para isso, eles devem ter o papel **de contribuinte da Fábrica de Dados** no grupo de recursos em que a fábrica está. Para obter mais informações sobre permissões, consulte [Funções e permissões para a Fábrica de Dados Do Azure](concepts-roles-permissions.md).
    
 Recomenda-se não permitir check-ins diretos para o ramo de colaboração. Essa restrição pode ajudar a prevenir bugs, pois cada check-in passará por um processo de revisão de solicitação de atração descrito no [Criando ramificações de recursos](source-control.md#creating-feature-branches).
 

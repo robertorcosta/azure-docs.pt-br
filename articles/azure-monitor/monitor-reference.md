@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: e0e98b87cf3612bf01f90f806ea64ef06d08c60a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 27503defa23b2a35e767156139228aa2e177652f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255321"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405174"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços que são monitorados pelo Azure Monitor. 
@@ -26,7 +26,7 @@ Os insights fornecem uma experiência de monitoramento personalizada para determ
 | Insight | Descrição |
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | Serviço APM (Extensible Application Performance Management, gerenciamento de desempenho de aplicativos extensíveis) para monitorar seu aplicativo web ao vivo em qualquer plataforma. |
-| [Monitor Azure para Contêineres](insights/container-insights-overview.md) | Monitora o desempenho das cargas de trabalho de contêineres implantadas em instâncias de contêineres do Azure ou em clusters Kubernetes gerenciados hospedados no Azure Kubernetes Service (AKS). |
+| [Azure Monitor para Contêineres](insights/container-insights-overview.md) | Monitora o desempenho das cargas de trabalho de contêineres implantadas em instâncias de contêineres do Azure ou em clusters Kubernetes gerenciados hospedados no Azure Kubernetes Service (AKS). |
 | [Monitor Azure para Cosmos DB (visualização)](insights/cosmosdb-insights-overview.md) | Fornece uma visão do desempenho geral, falhas, capacidade e saúde operacional de todos os seus recursos do Azure Cosmos DB em uma experiência interativa unificada. |
 | [Monitor de Redes Do Azure (visualização)](insights/network-insights-overview.md) | Fornece uma visão abrangente da saúde e métricas para todos os recursos da sua rede. O recurso avançado de pesquisa ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que hospedam seu site, simplesmente pesquisando o nome do seu site. |
 [Monitor do Azure para Grupos de Recursos (visualização)](insights/resource-group-insights.md) |  Trietrie e diagnostice quaisquer problemas que seus recursos individuais encontrem, ao mesmo tempo em que oferece contexto quanto à saúde e desempenho do grupo de recursos como um todo. |
@@ -205,7 +205,6 @@ Outras soluções estão disponíveis para monitorar diferentes aplicativos e se
 | [Avaliações sob demanda](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Avalie e otimize a disponibilidade, a segurança e o desempenho de seus ambientes de tecnologia Microsoft no local, híbridos e em nuvem. |
 | [Verificação de saúde SQL](insights/sql-assessment.md) | Avalie o risco e a saúde de seus ambientes sql server.  |
 | [Dados durante a transmissão](insights/wire-data.md) | Dados consolidados de rede e desempenho coletados de computadores conectados ao Windows e Linux com o agente Log Analytics. |
-
 
 ## <a name="third-party-integration"></a>Integração de terceiros
 

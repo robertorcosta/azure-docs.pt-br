@@ -3,16 +3,16 @@ title: Implantar um aplicativo de malha de serviço com MI atribuído ao sistema
 description: Este artigo mostra como atribuir uma identidade gerenciada atribuída ao sistema a um aplicativo de malha de serviço do Azure
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: d5a14722363d642957904f9c7c699d3cf1d66c0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614818"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415649"
 ---
-# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Implantar aplicativo de malha de serviço com visualização (visualização) de identidade gerenciada atribuída pelo sistema
+# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Implantar aplicativo de malha de serviço com identidade gerenciada atribuída ao sistema
 
-Para acessar o recurso de identidade gerenciada para aplicativos azure Service Fabric, você deve primeiro ativar o Serviço de Token de Identidade Gerenciado no cluster. Este serviço é responsável pela autenticação de aplicativos de Malha de Serviço usando suas identidades gerenciadas e pela obtenção de tokens de acesso em seu nome. Uma vez que o serviço esteja ativado, você pode vê-lo no Service Fabric Explorer na seção **Sistema** no painel esquerdo, executando o nome **de malha:/System/ManagedIdentityTokenService** ao lado de outros serviços do sistema.
+Para acessar o recurso de identidade gerenciada para aplicativos azure Service Fabric, você deve primeiro ativar o Serviço de Token de Identidade Gerenciado no cluster. Este serviço é responsável pela autenticação de aplicativos de Malha de Serviço usando suas identidades gerenciadas e pela obtenção de tokens de acesso em seu nome. Uma vez que o serviço esteja ativado, você pode vê-lo no Service Fabric Explorer na seção **Sistema** no painel esquerdo, executando sob o nome **de malha:/System/ManagedIdentityTokenService** ao lado de outros serviços do sistema.
 
 > [!NOTE] 
 > A implantação de aplicativos de malha de serviço com identidades gerenciadas é suportada a partir da versão `"2019-06-01-preview"`aPi . Você também pode usar a mesma versão de API para tipo de aplicativo, versão do tipo de aplicativo e recursos de serviço. O tempo mínimo de execução do Service Fabric suportado é de 6,5 CU2. Em additoin, o ambiente de construção /pacote também deve ter o SF .Net SDK em CU2 ou superior
@@ -72,7 +72,7 @@ Essa propriedade declara (ao Azure Resource Manager, e aos Provedores gerenciado
         </ServiceManifestImport>
       ```
 
-    Esse elemento atribui a identidade do aplicativo ao serviço; sem essa atribuição, o serviço não poderá acessar a identidade do aplicativo. No trecho acima, a `SystemAssigned` identidade (que é uma palavra-chave reservada) é mapeada para a definição do serviço o nome `WebAdmin`amigável.
+    Esse elemento atribui a identidade do aplicativo ao serviço; sem essa atribuição, o serviço não poderá acessar a identidade do aplicativo. No trecho acima, a `SystemAssigned` identidade (que é uma palavra-chave reservada) é mapeada para a definição do serviço sob o nome `WebAdmin`amigável .
 
 3. Atualize o manifesto de serviço para adicionar um elemento **ManagedIdentity** `ServiceIdentityRef` dentro da `IdentityBindingPolicy` seção **Recursos** com o nome correspondente ao valor da configuração a partir da definição no manifesto do aplicativo:
 

@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 40a7406ea91c95daad2f180b9d0f4620cdbbf454
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 87a962709638391887eaa275f059bf4ceae9218b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80875921"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406983"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização do Azure AD
 
@@ -27,6 +27,49 @@ Procurando informações sobre os códigos de erro AADSTS que são retornados do
 > Esta informação é preliminar e está sujeita a alterações. Tem alguma dúvida ou não consegue encontrar o que está procurando? Crie um problema no GitHub ou consulte [Suporte e opções de ajuda para desenvolvedores](active-directory-develop-help-support.md) para aprender sobre outras maneiras de obter ajuda e suporte.
 >
 > Esta documentação é fornecida para orientação de desenvolvedor e admin, mas nunca deve ser usada pelo próprio cliente. Os códigos de erro estão sujeitos a alterações a qualquer momento, a fim de fornecer mensagens de erro mais granulares que se destinam a ajudar o desenvolvedor durante a construção de seu aplicativo. Aplicativos que se dependênciam de números de texto ou código de erro serão quebrados ao longo do tempo.
+
+## <a name="handling-error-codes-in-your-application"></a>Manipulação de códigos de erro em seu aplicativo
+
+A [especificação OAuth2.0](https://tools.ietf.org/html/rfc6749#section-5.2) fornece orientações sobre como `error` lidar com erros durante a autenticação usando a parte da resposta a erros. 
+
+Aqui está uma resposta de erro de amostra:
+
+```json
+{
+  "error": "invalid_scope",
+  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://example.contoso.com/activity.read is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
+  "error_codes": [
+    70011
+  ],
+  "timestamp": "2016-01-09 02:02:12Z",
+  "trace_id": "255d1aef-8c98-452f-ac51-23d051240864",
+  "correlation_id": "fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7", 
+  "error_uri":"https://login.microsoftonline.com/error?code=70011"
+}
+```
+
+| Parâmetro         | Descrição    |
+|-------------------|----------------|
+| `error`       | Uma seqüência de código de erro que pode ser usada para classificar tipos de erros que ocorrem e deve ser usada para reagir a erros. |
+| `error_description` | Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. Nunca use este campo para reagir a um erro em seu código. |
+| `error_codes` | Uma lista de códigos de erro específicos do STS que pode ajudar no diagnóstico.  |
+| `timestamp`   | A hora na qual o erro ocorreu. |
+| `trace_id`    | Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico. |
+| `correlation_id` | Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico entre os componentes. |
+| `error_uri` |  Um link para a página de pesquisa de erro com informações adicionais sobre o erro.  Isso é apenas para uso do desenvolvedor, não apresente aos usuários.  Somente presente quando o sistema de pesquisa de erro tiver informações adicionais sobre o erro - nem todos os erros têm informações adicionais fornecidas.|
+
+O `error` campo tem vários valores possíveis - reveja os links de documentação do protocolo e `authorization_pending` as especificações OAuth 2.0 para saber mais sobre erros específicos (por exemplo, no fluxo de código do [dispositivo](v2-oauth2-device-code.md)) e como reagir a eles.  Alguns comuns estão listados aqui:
+
+| Código do Erro         | Descrição        | Ação do Cliente    |
+|--------------------|--------------------|------------------|
+| `invalid_request`  | Erro de protocolo, como um parâmetro obrigatório ausente. | Corrija e reenvie a solicitação.|
+| `invalid_grant`    | Parte do material de autenticação (código auth, token de atualização, token de acesso, desafio PKCE) era inválido, inparável, ausente ou inutilizável | Tente uma nova `/authorize` solicitação até o ponto final para obter um novo código de autorização.  Considere revisar e validar o uso dos protocolos pelo aplicativo. |
+| `unauthorized_client` | O cliente autenticado não está autorizado a usar este tipo de concessão de autorização. | Isso geralmente ocorre quando o aplicativo cliente não é registrado no Azure AD ou não é adicionado ao inquilino Azure AD do usuário. O aplicativo pode solicitar que o usuário instale o aplicativo e o adicione ao Azure AD. |
+| `invalid_client` | Falha na autenticação de cliente.  | As credenciais do cliente não são válidas. Para corrigi-las, o administrador do aplicativo atualiza as credenciais.   |
+| `unsupported_grant_type` | O servidor de autorização não dá suporte ao tipo de concessão de autorização. | Altere o tipo de concessão na solicitação. Esse tipo de erro deve ocorrer somente durante o desenvolvimento e ser detectado durante os testes iniciais. |
+| `invalid_resource` | O recurso de destino é inválido porque não existe, o Azure AD não pode encontrá-lo ou não está configurado corretamente. | Isso indica que o recurso, se ele existe, não foi configurado no locatário. O aplicativo pode solicitar que o usuário instale o aplicativo e o adicione ao Azure AD.  Durante o desenvolvimento, isso geralmente indica um inquilino de teste de configuração incorreta ou um erro de digitação no nome do escopo que está sendo solicitado. |
+| `interaction_required` | A solicitação requer interação do usuário. Por exemplo, é necessária uma etapa de autenticação adicional. | Tente novamente a solicitação com o mesmo recurso, de forma interativa, para que o usuário possa completar todos os desafios necessários.  |
+| `temporarily_unavailable` | O servidor está temporariamente muito ocupado para tratar da solicitação. | Tente novamente a solicitação. O aplicativo cliente pode explicar ao usuário que sua resposta está atrasada devido a uma condição temporária. |
 
 ## <a name="lookup-current-error-code-information"></a>Procurar informações atuais do código de erro
 Códigos de erro e mensagens estão sujeitos a alterações.  Para obter as informações mais atuais, dê uma olhada na `https://login.microsoftonline.com/error` página para encontrar descrições de erro do AADSTS, correções e algumas alternativas sugeridas.  

@@ -12,14 +12,17 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/31/2019
-ms.openlocfilehash: 5f21623af9b89bbb020063dfb72f7b60e65a6ebe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11e76fea87c60ae2b56cc15d5827be6e1b2b5a01
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927718"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399438"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Executar pacotes SSIS no Azure do SSDT
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Este artigo descreve o recurso dos projetos SSIS (SSIS) do SQL Server Integration Services (SSIS) habilitados para Azure no SQL Server Data Tools (SSDT), que permite executar pacotes no Azure-SSIS Integration Runtime (IR) no Azure Data Factory (ADF).  Você pode usar esse recurso para testar seus pacotes SSIS existentes antes de levantar & shift/migrate-los para o Azure ou para desenvolver novos pacotes SSIS para serem executados no Azure.
 
 Com esse recurso, você pode criar um novo IR Azure-SSIS ou anexar um já existente a projetos SSIS e, em seguida, executar seus pacotes nele.  Apoiamos a execução de pacotes a serem implantados no catálogo SSIS (SSISDB) no Project Deployment Model e aqueles a serem implantados em sistemas de arquivos/compartilhamentos de arquivos/Arquivos Azure no Modelo de Implantação de Pacotes. 
@@ -63,7 +66,7 @@ Ao conectar seus projetos habilitados para Azure ao SSIS no ADF, você pode carr
    
    ![Selecione Armazenamento do Azure](media/how-to-invoke-ssis-package-ssdt/ssis-in-adf-connection-wizard3.png)
 
-5. Clique no botão **Conectar** para completar sua conexão.  Exibiremos sua conta selecionada do Azure-SSIS IR e do Azure Storage o nó **Linked Azure Resources** no painel Solution Explorer do SSDT.  Também atualizaremos o status do seu IR Azure-SSIS, enquanto você pode gerenciá-lo clicando com o botão direito do mouse em seu nó para aparecer um menu e, em seguida, selecionando o item de menu **Start\Stop\Manage** que leva você ao portal/aplicativo aDF para fazê-lo.
+5. Clique no botão **Conectar** para completar sua conexão.  Exibiremos sua conta selecionada do Azure-SSIS IR e do Azure Storage sob o nó **Linked Azure Resources** no painel Solution Explorer do SSDT.  Também atualizaremos o status do seu IR Azure-SSIS, enquanto você pode gerenciá-lo clicando com o botão direito do mouse em seu nó para aparecer um menu e, em seguida, selecionando o item de menu **Start\Stop\Manage** que leva você ao portal/aplicativo aDF para fazê-lo.
 
 ## <a name="execute-ssis-packages-in-azure"></a>Executar pacotes SSIS no Azure
 ### <a name="starting-package-executions"></a>Execuções de pacotes iniciais
@@ -96,7 +99,7 @@ Se você usar arquivos de configuração de pacote no Modelo de Implantação de
 ### <a name="using-execute-package-task"></a>Usando a tarefa executar pacote
 Se seus pacotes contiverem Tarefas de pacote execute que se referem a outros pacotes armazenados em sistemas de arquivos locais, você precisará executar as seguintes configurações adicionais:
 
-1. Carregue os outros pacotes em Arquivos Azure a mesma conta do Azure Storage conectada aos seus projetos e obtenha seu novo caminho UNC, por exemplo.`\\test.file.core.windows.net\ssdtexecution\Package1.dtsx`
+1. Carregue os outros pacotes em Arquivos Azure sob a mesma conta do Azure Storage conectada aos seus projetos e obtenha seu novo caminho UNC, por exemplo.`\\test.file.core.windows.net\ssdtexecution\Package1.dtsx`
 
 2. Substitua o caminho de arquivo desses outros pacotes no Gerenciador de conexão de arquivos de Executar tarefas de pacotes pelo seu novo caminho UNC
    - Se a máquina que executa o SSDT não puder acessar o novo caminho UNC, você poderá alterar o caminho do arquivo no painel Propriedades do File Connection Manager

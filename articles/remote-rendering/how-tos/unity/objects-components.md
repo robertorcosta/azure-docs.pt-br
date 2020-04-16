@@ -1,20 +1,20 @@
 ---
-title: Objetos e componentes do jogo de unidade
+title: Componentes e objetos de jogos do Unity
 description: Descreve métodos específicos da Unity para trabalhar com entidades e componentes de renderização remota.
 author: jakrams
 ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
-ms.openlocfilehash: 872f0e60943a674e5febf269dcb5b09fd08d77c9
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: a34276c73211c1d9bea291f449cbc7041a3e78a2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80681149"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409865"
 ---
-# <a name="interact-with-unity-game-objects-and-components"></a>Interaja com objetos e componentes do jogo Unity
+# <a name="interact-with-unity-game-objects-and-components"></a>Interagir com componentes e objetos de jogos do Unity
 
-A Renderização Remota Do Azul (ARR) é otimizada para um grande número de objetos (ver [Limites](../../reference/limits.md)). Embora seja possível gerenciar hierarquias grandes e complexas no host, replicá-las todas em Unity em dispositivos de baixa potência é inviável.
+A Renderização Remota Do Azul (ARR) é otimizada para um grande número de objetos (ver [Limitações](../../reference/limits.md)). Embora seja possível gerenciar hierarquias grandes e complexas no host, replicá-las todas em Unity em dispositivos de baixa potência é inviável.
 
 Portanto, quando um modelo é carregado no host, o Azure Remote Rendering espelha as informações sobre a estrutura do modelo no dispositivo cliente (que incorrerá no tráfego da rede), mas não replica os objetos e componentes no Unity. Em vez disso, espera que você solicite os objetos e componentes necessários do jogo Unity manualmente, de modo que você possa limitar a sobrecarga ao que é realmente necessário. Dessa forma, você tem mais controle sobre o desempenho do lado do cliente.
 
@@ -121,5 +121,5 @@ if (cutplane != null)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configurar renderização remota para unidade](unity-setup.md)
-* [Tutorial: Trabalhando com entidades remotas em Unity](../../tutorials/unity/working-with-remote-entities.md)
+* [Configurar o Remote Rendering para o Unity](unity-setup.md)
+* [Tutorial: Trabalho com entidades remotas no Unity](../../tutorials/unity/working-with-remote-entities.md)

@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1c8f14bb1bca082a9d887e5d6d88aec213448c3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1735daf66483df496141a642ac6633973aa0abf0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79254346"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407538"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso a dados a um ambiente
 
@@ -27,8 +27,8 @@ Este artigo aborda os dois tipos de políticas de acesso da Versão prévia do A
 
 ## <a name="sign-in-to-time-series-insights"></a>Faça login no Time Series Insights
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
-1. Localize o seu ambiente do Time Series Insights. Insira `Time Series` na caixa **Pesquisar**. Selecione **Ambiente do Time Series** nos resultados da pesquisa.
+1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Localize o seu ambiente do Time Series Insights. Insira `Time Series` na caixa **Pesquisar**. Selecione **Ambientes da série de tempo** nos resultados da pesquisa.
 1. Selecione o seu ambiente de Análise de Séries Temporais na lista.
 
 ## <a name="grant-data-access"></a>Conceder acesso a dados

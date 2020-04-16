@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/23/2020
-ms.openlocfilehash: 78c6c1363af011a90865770d88c0037e50e958c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 08ad231b462e21fefebacd4e280bfb2b13bc0eef
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240404"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413639"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformação de pesquisa no mapeamento do fluxo de dados
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Use a transformação de pesquisa para referenciar dados de outra fonte em um fluxo de fluxo de dados. A transformação da pesquisa anexa colunas de dados compatíveis com seus dados de origem.
 
@@ -23,7 +25,7 @@ Uma transformação de aparência é semelhante a uma junta externa esquerda. To
 
 ## <a name="configuration"></a>Configuração
 
-![transformação Pesquisa](media/data-flow/lookup1.png "Pesquisa")
+![Transformação de procurar](media/data-flow/lookup1.png "Pesquisa")
 
 **Fluxo primário:** O fluxo de dados de entrada. Este fluxo é equivalente ao lado esquerdo de uma junta.
 
@@ -75,7 +77,7 @@ A ativação da transmissão empurra todo o conjunto de dados para a memória. P
 ```
 ### <a name="example"></a>Exemplo
 
-![transformação Pesquisa](media/data-flow/lookup-dsl-example.png "Pesquisa")
+![Transformação de procurar](media/data-flow/lookup-dsl-example.png "Pesquisa")
 
 O script de fluxo de dados para a configuração de pesquisa acima está no trecho de código abaixo.
 

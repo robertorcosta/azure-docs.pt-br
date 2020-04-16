@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/02/2020
-ms.openlocfilehash: 06428d4a9c4a4178212d16d42b8b3adffb5c9718
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6d29f73716b04699e0cd250396df7f7d744d4c4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250280"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415238"
 ---
 # <a name="copy-data-from-and-to-sftp-server-using-azure-data-factory"></a>Copiar dados de e para o servidor SFTP usando a Fábrica de Dados do Azure
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-sftp-connector.md)
 > * [Versão atual](connector-sftp.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como copiar dados de e para o servidor SFTP. Para saber mais sobre o Azure Data Factory, leia as [artigo introdutório](introduction.md).
 
@@ -187,7 +188,7 @@ As seguintes propriedades são suportadas `location` para SFTP em configuraçõe
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | A propriedade `location` de tipo em conjunto de dados deve ser definida como **SftpLocation**. | Sim      |
 | folderPath | O caminho para pasta. Se você quiser usar curinga para filtrar pasta, pule essa configuração e especifique nas configurações de origem da atividade. | Não       |
-| fileName   | O nome do arquivo a pastadaPath. Se você quiser usar curinga para filtrar arquivos, pule essa configuração e especifique nas configurações de origem da atividade. | Não       |
+| fileName   | O nome do arquivo sob a pastadaPath. Se você quiser usar curinga para filtrar arquivos, pule essa configuração e especifique nas configurações de origem da atividade. | Não       |
 
 **Exemplo:**
 
@@ -230,7 +231,7 @@ As seguintes propriedades são suportadas `storeSettings` para SFTP em configura
 | type                     | A propriedade `storeSettings` do tipo abaixo deve ser definida como **SftpReadSettings**. | Sim                                           |
 | recursiva                | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. Os valores permitidos são **true** (padrão) e **false**. | Não                                            |
 | curingaFolderPath       | O caminho da pasta com caracteres curinga para filtrar pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                            |
-| curingaNome de arquivo         | O nome do arquivo com caracteres curinga a pastadaPath/curingaFolderPath para filtrar arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim, `fileName` se não for especificado no conjunto de dados |
+| curingaNome de arquivo         | O nome do arquivo com caracteres curinga sob a pastadaPath/curingaFolderPath para filtrar arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim, `fileName` se não for especificado no conjunto de dados |
 | modifiedDatetimeStart    | Filtro de arquivos com base no atributo: Última modificação. Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora. | Não                                            |
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                            |
 | maxConcurrentConnections | O número das conexões para se conectar ao armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea ao armazenamento de dados. | Não                                            |
@@ -287,7 +288,7 @@ As seguintes propriedades são suportadas `storeSettings` para SFTP em configura
 | type                     | A propriedade `storeSettings` do tipo em baixo deve ser definida como **SftpWriteSettings**. | Sim      |
 | copyBehavior             | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (padrão)</b>: Preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>- FlattenHierarchy</b>: Todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm os nomes gerados automaticamente. <br/><b>- MergeFiles</b>: Mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, ele será um nome de arquivo gerado automaticamente. | Não       |
 | maxConcurrentConnections | O número de conexões para se conectar ao armazenamento de dados simultaneamente. Especifique somente quando quiser limitar a conexão simultânea ao armazenamento de dados. | Não       |
-| useTempFileRename | Indique se deve fazer upload para arquivos temporários e renomear ou gravar diretamente no local de pasta/arquivo de destino. Por padrão, a ADF primeiro escreva para arquivos temporários e, em seguida, faça o nome do arquivo após a conclusão do upload, a fim de evitar a gravação de conflito resultando em arquivo corrompido se você tiver outra escrita de processo para o mesmo arquivo, e 2) garantir que a versão original do arquivo exista durante a existência do arquivo durante transferência inteira. Se o servidor SFTP não suportar a operação de renomeação, desative essa opção e certifique-se de que você não tenha gravação simultânea para o arquivo de destino. Veja a dica de solução de problemas abaixo desta tabela. | Não. O valor padrão é true. |
+| useTempFileRename | Indique se deve fazer upload para arquivos temporários e renomear ou gravar diretamente no local de pasta/arquivo de destino. Por padrão, o ADF primeiro escreva para arquivos temporários e, em seguida, faça o nome do arquivo após a conclusão do upload, a fim de evitar a gravação de conflito resultando em arquivo corrompido se você tiver outra escrita de processo para o mesmo arquivo, e 2) garantir que a versão original do arquivo exista durante toda a transferência. Se o servidor SFTP não suportar a operação de renomeação, desative essa opção e certifique-se de que você não tenha gravação simultânea para o arquivo de destino. Veja a dica de solução de problemas abaixo desta tabela. | Não. O valor padrão é true. |
 | operaçãoTimeout | O tempo de espera antes de cada solicitação de gravação para o servidor SFTP é eliminado. O valor padrão é de 60 min (01:00:00).|Não |
 
 >[!TIP]

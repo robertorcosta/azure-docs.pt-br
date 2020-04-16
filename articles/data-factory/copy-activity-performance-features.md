@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/09/2020
-ms.openlocfilehash: d37b4648c0a37f16fe5c9d8794bd78417c5780ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd7844340553809e1429097a9dda70f6bdb3e075
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257879"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414184"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Recursos de otimização do desempenho da atividade de cópia
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve os recursos de otimização de desempenho da atividade de cópia que você pode aproveitar na Fábrica de Dados do Azure.
 
@@ -134,7 +136,7 @@ Quando você ativa o recurso de preparo, primeiro os dados são copiados do arma
 
 ![Cópia em etapas](media/copy-activity-performance/staged-copy.png)
 
-Quando você ativa a movimentação de dados usando um armazenamento de estadiamento, você pode especificar se deseja que os dados sejam compactados antes de mover dados do armazenamento de dados de origem para um armazenamento de dados provisório ou de sino e, em seguida, descompactado antes de mover dados de um interino ou encenação armazenamento de dados para o armazenamento de dados da pia.
+Quando você ativa a movimentação de dados usando um armazenamento de estadiamento, você pode especificar se deseja que os dados sejam compactados antes de mover dados do armazenamento de dados de origem para um armazenamento de dados provisório ou de sino e, em seguida, descompactado antes de mover dados de um armazenamento de dados provisório ou de estágio para o armazenamento de dados da pia.
 
 Atualmente, você não pode copiar dados entre dois armazenamentos de dados que estão conectados através de diferentes IRs auto-hospedados, nem com nem sem cópia encenada. Para tal cenário, você pode configurar duas atividades de cópia explicitamente acorrentadas para copiar da fonte para a encenação e, em seguida, de encenação para afundamento.
 
@@ -187,7 +189,7 @@ Aqui está uma definição de amostra de uma atividade de cópia com as propried
 Você é cobrado com base em duas etapas: duração da cópia e tipo de cópia.
 
 * Quando você usa o staging durante uma cópia em nuvem, que está copiando dados de um armazenamento de dados na nuvem para outro armazenamento de dados em nuvem, ambos os estágios habilitados pelo tempo de execução da integração do Azure, você é cobrado a [soma da duração da cópia para a etapa 1 e a etapa 2] x [preço unitário de cópia em nuvem].
-* Quando você usa o staging durante uma cópia híbrida, que está copiando dados de um armazenamento de dados on-premises para um armazenamento de dados na nuvem, um estágio habilitado por um tempo de execução de integração auto-hospedado, você é cobrado por [duração da cópia híbrida] x [preço da unidade de cópia híbrida] + [duração da cópia em nuvem] x [preço unitário de cópia em nuvem].
+* Quando você usa o staging durante uma cópia híbrida, que está copiando dados de um armazenamento de dados no local para um armazenamento de dados na nuvem, um estágio habilitado por um tempo de execução de integração auto-hospedado, você é cobrado por [duração da cópia híbrida] x [preço da unidade de cópia híbrida] + [duração da cópia em nuvem] x [preço unitário de cópia em nuvem].
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os outros artigos de atividade de cópia:

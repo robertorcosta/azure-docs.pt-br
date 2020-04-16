@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 7ac1b85ee44627990931cfc7b3a65f6f7a661b3f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 5ac36e47efd2e121126cd740dba0818feb39f5fb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76165809"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402892"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Início Rápido: Biblioteca de clientes de Detecção Facial para Python
 
@@ -40,12 +40,9 @@ Use a biblioteca de clientes de Detecção Facial para Python para:
 
 ### <a name="create-a-face-azure-resource"></a>Criar um recurso de Detecção Facial do Azure
 
-Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para Detecção Facial usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Também é possível:
+Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para Detecção Facial usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Você também pode obter uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias, gratuitamente. Depois de se inscrever, ela estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 
-* Obter uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ela estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* Exibir o recurso no [portal do Azure](https://portal.azure.com/)
-
-Depois de obter uma chave do recurso ou da assinatura de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, chamada `FACE_SUBSCRIPTION_KEY`.
+Depois de obter uma chave da assinatura ou do recurso de avaliação, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e o ponto de extremidade, chamados `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`, respectivamente.
  
 ### <a name="create-a-new-python-application"></a>Criar um novo aplicativo Python
 
@@ -53,7 +50,7 @@ Crie um script do Python&mdash;*quickstart-file.py*, por exemplo. Em seguida, ab
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_imports)]
 
-Em seguida, crie variáveis para a chave e o ponto de extremidade do Azure do recurso. Talvez seja necessário alterar a primeira parte do ponto de extremidade (`westus`) para corresponder à assinatura.
+Em seguida, crie variáveis para a chave e o ponto de extremidade do Azure do recurso.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_subvars)]
 

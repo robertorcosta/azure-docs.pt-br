@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 114c632d43dbb254222def2437fbffc22ec84688
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 4c76bcbf945c63588f8471c10deca0b5982d3562
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80672454"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414244"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas frequentes sobre diferentes APIs no Azure Cosmos DB
 
@@ -404,7 +404,7 @@ Você pode adicionar quantas regiões quiser para a conta e controlar para onde 
 
 ### <a name="is-the-table-api-enabled-for-backups"></a>A API de Tabela está habilitada para backups?
 
-Sim, a API de Tabela utiliza a plataforma do Azure Cosmos DB para backups. Os backups são feitos automaticamente. Para obter mais informações, consulte [Backup e restauração online com o Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Sim, a API de Tabela utiliza a plataforma do Azure Cosmos DB para backups. Os backups são feitos automaticamente. Para obter mais informações, consulte [Backup e restauração online com o Azure Cosmos DB](online-backup-and-restore.md).
 
 ### <a name="does-the-table-api-index-all-attributes-of-an-entity-by-default"></a>A API de Tabela indexa todos os atributos de uma entidade por padrão?
 
@@ -761,7 +761,7 @@ No momento, o Azure Cosmos DB tem uma experiência otimizada para o ambiente em 
 ### <a name="does-cassandra-api-provide-full-backups"></a>A API do Cassandra fornece backups completos?
 
 O Azure Cosmos DB hoje fornece dois backups completos gratuitos realizados em intervalos de quatro horas em todas as APIs. Isso garante que você não precise configurar uma agenda de backup e outras coisas.
-Se você quiser modificar a retenção [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) e a frequência, envie um e-mail para ou levante um caso de suporte. As informações sobre a funcionalidade de backup são fornecidas no artigo [Backup e restauração online automáticos com o Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Se você quiser modificar a retenção [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) e a frequência, envie um e-mail para ou levante um caso de suporte. As informações sobre a funcionalidade de backup são fornecidas no artigo [Backup e restauração online automáticos com o Azure Cosmos DB](online-backup-and-restore.md).
 
 ### <a name="how-does-the-cassandra-api-account-handle-failover-if-a-region-goes-down"></a>Como uma conta da API Cassandra lida com o failover caso uma região fique inativa?
 

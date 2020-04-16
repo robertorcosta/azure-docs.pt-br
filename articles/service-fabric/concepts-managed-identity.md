@@ -4,14 +4,14 @@ description: Saiba mais sobre o uso de identidades gerenciadas para o Azure com 
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 06ebcfdf3d6a3815908752153acb09437d745d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6f3736bed4d3d59bce08d4df3ee0aa164a0a764
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76986743"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415108"
 ---
-# <a name="using-managed-identities-for-azure-with-service-fabric-preview"></a>Usando identidades gerenciadas para Azure com malha de serviço (Visualização)
+# <a name="using-managed-identities-for-azure-with-service-fabric"></a>Usando identidades gerenciadas para Azure com malha de serviço
 
 Um desafio comum ao criar aplicativos em nuvem é como gerenciar com segurança as credenciais em seu código para autenticar em vários serviços sem salvá-los localmente em uma estação de trabalho do desenvolvedor ou no controle de origem. *As identidades gerenciadas para o Azure* resolvem esse problema para todos os seus recursos no Azure Active Directory (Azure AD), fornecendo-lhes identidades gerenciadas automaticamente dentro do Azure AD. Você pode usar a identidade de um serviço para autenticar qualquer serviço que suporte a autenticação Azure AD, incluindo o Key Vault, sem quaisquer credenciais armazenadas em seu código.
 
@@ -47,7 +47,7 @@ As identidades gerenciadas para malha de serviço são suportadas apenas em clus
 
 A identidade atribuída ao sistema de um aplicativo é exclusiva desse aplicativo; uma identidade atribuída pelo usuário é um recurso autônomo, que pode ser atribuído a vários aplicativos. Dentro de um aplicativo, uma única identidade (atribuída ao sistema ou atribuída ao usuário) pode ser atribuída a vários serviços do aplicativo, mas cada serviço individual só pode ser atribuído a uma identidade. Por último, um serviço deve ser atribuído uma identidade explicitamente para ter acesso a esse recurso. Com efeito, o mapeamento das identidades de um aplicativo para seus serviços constituintes permite o isolamento no aplicativo — um serviço só pode usar a identidade mapeada para ele.  
 
-Atualmente, os seguintes cenários são suportados para este recurso de visualização:
+Atualmente, os seguintes cenários são suportados para este recurso:
 
 - Implantar um novo aplicativo com um ou mais serviços e uma ou mais identidades atribuídas
 
@@ -57,12 +57,7 @@ Os seguintes cenários não são suportados ou não recomendados; observe que es
 
 - Remover ou alterar as identidades atribuídas a um aplicativo; se você deve fazer alterações, envie implantações separadas para primeiro adicionar uma nova atribuição de identidade e, em seguida, para remover uma anteriormente atribuída. A remoção de uma identidade de um aplicativo existente pode ter efeitos indesejáveis, incluindo deixar seu aplicativo em um estado que não é atualizável. É seguro excluir o aplicativo completamente se a remoção de uma identidade for necessária; note que isso excluirá a identidade atribuída ao sistema (se assim definida) associada ao aplicativo e removerá quaisquer associações com as identidades atribuídas pelo usuário atribuídas ao aplicativo.
 
-- O suporte ao Service Fabric para identidades gerenciadas não está integrado no Momento no [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md); a integração será alcançada até o final do período de visualização para o recurso de identidade gerenciada.
-
->
-> [!NOTE]
->
-> Esse recurso está em visualização. Pode estar sujeito a alterações frequentes e não é adequado para implantações de produção.
+- O suporte ao Service Fabric para identidades gerenciadas não está integrado no [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

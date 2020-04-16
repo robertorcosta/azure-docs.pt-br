@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: a8ba8b212a504a8f8e4e29fbd50126189998e81a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61bb8fe950de8cd9be91bc76bd24aa0151f3fb79
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065474"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415406"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copiar dados para ou a partir do Azure Data Lake Storage Gen1 usando a fábrica de dados do Azure
 
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-azure-datalake-connector.md)
 > * [Versão atual](connector-azure-data-lake-store.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como copiar dados para e de Azure Data Lake Storage Gen1. Para saber mais sobre o Azure Data Factory, leia as [artigo introdutório](introduction.md).
 
@@ -87,7 +89,7 @@ Há suporte para as seguintes propriedades:
 |:--- |:--- |:--- |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como uma `SecureString` para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| locatário | Especifique as informações do inquilino, como nome de domínio ou ID do inquilino, a qual seu aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Sim |
+| locatário | Especifique as informações do inquilino, como nome de domínio ou ID do inquilino, sob a qual seu aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Sim |
 
 **Exemplo:**
 
@@ -162,7 +164,7 @@ As seguintes propriedades são suportadas para o `location` Azure Data Lake Stor
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | A propriedade `location` de tipo no conjunto de dados deve ser definida como **AzureDataLakeStoreLocation**. | Sim      |
 | folderPath | O caminho para uma pasta. Se você quiser usar um curinga para filtrar pastas, pule essa configuração e especifique-a nas configurações de origem da atividade. | Não       |
-| fileName   | O nome do arquivo a pastadaPath. Se você quiser usar um curinga para filtrar arquivos, pule essa configuração e especifique-a nas configurações de origem da atividade. | Não       |
+| fileName   | O nome do arquivo sob a pastadaPath. Se você quiser usar um curinga para filtrar arquivos, pule essa configuração e especifique-a nas configurações de origem da atividade. | Não       |
 
 **Exemplo:**
 
@@ -205,7 +207,7 @@ As seguintes propriedades são suportadas para o `storeSettings` Azure Data Lake
 | type                     | A propriedade `storeSettings` do tipo em baixo deve ser definida **como AzureDataLakeStoreReadSettings**. | Sim                                           |
 | recursiva                | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Quando o recursivo é definido como verdadeiro e a pia é uma loja baseada em arquivos, uma pasta ou subpasta vazia não é copiada ou criada na pia. Os valores permitidos são **true** (padrão) e **false**. | Não                                            |
 | curingaFolderPath       | O caminho da pasta com caracteres curinga para filtrar pastas de origem. <br>Curingas `*` permitidos são (corresponde `?` a zero ou mais caracteres) e (corresponde a zero ou único caractere). Use `^` para escapar se o nome da sua pasta real tiver um curinga ou este char de fuga dentro. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                            |
-| curingaNome de arquivo         | O nome do arquivo com caracteres curinga a pastadaPath/curingaFolderPath para filtrar arquivos de origem. <br>Curingas `*` permitidos são (corresponde `?` a zero ou mais caracteres) e (corresponde a zero ou único caractere). Use `^` para escapar se o nome da sua pasta real tiver um curinga ou este char de fuga dentro. Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim, `fileName` se não for especificado no conjunto de dados |
+| curingaNome de arquivo         | O nome do arquivo com caracteres curinga sob a pastadaPath/curingaFolderPath para filtrar arquivos de origem. <br>Curingas `*` permitidos são (corresponde `?` a zero ou mais caracteres) e (corresponde a zero ou único caractere). Use `^` para escapar se o nome da sua pasta real tiver um curinga ou este char de fuga dentro. Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim, `fileName` se não for especificado no conjunto de dados |
 | modifiedDatetimeStart    | Filtro de arquivos com base no atributo Last Modified. Os arquivos são selecionados se o último `modifiedDatetimeStart` tempo `modifiedDatetimeEnd`modificado estiver dentro do intervalo de tempo entre e . O horário é aplicado ao fuso horário UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo é aplicado ao conjunto de dados. Quando `modifiedDatetimeStart` tem um valor `modifiedDatetimeEnd` de data-hora, mas é NULO, significa que os arquivos cujo último atributo modificado é maior ou igual ao valor da data são selecionados. Quando `modifiedDatetimeEnd` tem um valor `modifiedDatetimeStart` de data-hora, mas é NULO, significa que os arquivos cujo último atributo modificado é menor do que o valor de data-hora são selecionados. | Não                                            |
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                            |
 | maxConcurrentConnections | O número de conexões para se conectar ao armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea ao armazenamento de dados. | Não                                            |
@@ -351,7 +353,7 @@ Exemplos curingas:
 * ```?```Substitui um caractere
 * ```[]```Corresponde a um dos mais personagens nos suportes
 
-* ```/data/sales/**/*.csv```Recebe todos os arquivos csv /data/vendas
+* ```/data/sales/**/*.csv```Recebe todos os arquivos csv sob /data/vendas
 * ```/data/sales/20??/**/```Recebe todos os arquivos do século 20
 * ```/data/sales/*/*/*.csv```Recebe arquivos csv dois níveis em /data/vendas
 * ```/data/sales/2004/*/12/[XY]1?.csv```Recebe todos os arquivos csv em 2004 em dezembro começando com X ou Y prefixados por um número de dois dígitos
@@ -433,7 +435,7 @@ Para saber detalhes sobre as propriedades, verifique [a atividade Excluir](delet
 |:--- |:--- |:--- |
 | type | A propriedade do tipo do conjunto de dados deve ser definida **como AzureDataLakeStoreFile**. |Sim |
 | folderPath | Caminho para a pasta no Data Lake Store. Se não especificado, apontará para a raiz. <br/><br/>O filtro curinga é suportado. Curingas `*` permitidos são (corresponde `?` a zero ou mais caracteres) e (corresponde a zero ou único caractere). Use `^` para escapar se o nome da sua pasta real tiver um curinga ou este char de fuga dentro. <br/><br/>Por exemplo: rootfolder/subfolder/. Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). |Não |
-| fileName | Nome ou filtro curinga para os arquivos o folderPath especificado. Se você não especificar um valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta. <br/><br/>Para filtro, os curingas permitidos são `*` `?` (corresponde a zero ou mais caracteres) e (corresponde a zero ou único caractere).<br/>– Exemplo 1: `"fileName": "*.csv"`<br/>– Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` para escapar se o seu nome de arquivo real tem um curinga ou este char de fuga dentro.<br/><br/>Quando o arquivoName não é especificado para um conjunto de dados de saída e **preservaA hierarquia** não é especificada no dissipador de atividades, a atividade de cópia gera automaticamente o nome do arquivo com o seguinte padrão: "*Dados.[ executar atividade ID GUID]. [GUID se FlattenHierarchy]. [formato se configurado]. [compactação se configurada]*", por exemplo, "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". Se você copiar de uma fonte tabular usando um nome de tabela em vez de uma consulta, o padrão de nome é "*[nome da tabela].[ formato]. [compactação se configurada]*", por exemplo, "MyTable.csv". |Não |
+| fileName | Nome ou filtro curinga para os arquivos sob o "folderPath" especificado. Se você não especificar um valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta. <br/><br/>Para filtro, os curingas permitidos são `*` `?` (corresponde a zero ou mais caracteres) e (corresponde a zero ou único caractere).<br/>– Exemplo 1: `"fileName": "*.csv"`<br/>– Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` para escapar se o seu nome de arquivo real tem um curinga ou este char de fuga dentro.<br/><br/>Quando o arquivoName não é especificado para um conjunto de dados de saída e **preservaA hierarquia** não é especificada no dissipador de atividades, a atividade de cópia gera automaticamente o nome do arquivo com o seguinte padrão: "*Dados.[ executar atividade ID GUID]. [GUID se FlattenHierarchy]. [formato se configurado]. [compactação se configurada]*", por exemplo, "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". Se você copiar de uma fonte tabular usando um nome de tabela em vez de uma consulta, o padrão de nome é "*[nome da tabela].[ formato]. [compactação se configurada]*", por exemplo, "MyTable.csv". |Não |
 | modifiedDatetimeStart | Filtro de arquivos com base no atributo Last Modified. Os arquivos são selecionados se o último `modifiedDatetimeStart` tempo `modifiedDatetimeEnd`modificado estiver dentro do intervalo de tempo entre e . O horário é aplicado ao fuso horário UTC no formato "2018-12-01T05:00:00Z". <br/><br/> O desempenho geral da movimentação de dados é afetado pela habilitação dessa configuração quando você deseja fazer o filtro de arquivos com enormes quantidades de arquivos. <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo é aplicado ao conjunto de dados. Quando `modifiedDatetimeStart` tem um valor `modifiedDatetimeEnd` de data-hora, mas é NULO, significa que os arquivos cujo último atributo modificado é maior ou igual ao valor da data são selecionados. Quando `modifiedDatetimeEnd` tem um valor `modifiedDatetimeStart` de data-hora, mas é NULO, significa que os arquivos cujo último atributo modificado é menor do que o valor de data-hora são selecionados.| Não |
 | modifiedDatetimeEnd | Filtro de arquivos com base no atributo Last Modified. Os arquivos são selecionados se o último `modifiedDatetimeStart` tempo `modifiedDatetimeEnd`modificado estiver dentro do intervalo de tempo entre e . O horário é aplicado ao fuso horário UTC no formato "2018-12-01T05:00:00Z". <br/><br/> O desempenho geral da movimentação de dados é afetado pela habilitação dessa configuração quando você deseja fazer o filtro de arquivos com enormes quantidades de arquivos. <br/><br/> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo é aplicado ao conjunto de dados. Quando `modifiedDatetimeStart` tem um valor `modifiedDatetimeEnd` de data-hora, mas é NULO, significa que os arquivos cujo último atributo modificado é maior ou igual ao valor da data são selecionados. Quando `modifiedDatetimeEnd` tem um valor `modifiedDatetimeStart` de data-hora, mas é NULO, significa que os arquivos cujo último atributo modificado é menor do que o valor de data-hora são selecionados.| Não |
 | format | Se você quiser copiar arquivos como está entre lojas baseadas em arquivos (cópia binária), pule a seção de formato nas definições de conjunto de dados de entrada e saída.<br/><br/>Se você quiser analisar ou gerar arquivos com um formato específico, haverá suporte para os seguintes tipos de formatos de arquivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **do tipo** em **formato** para um desses valores. Para obter mais informações, consulte o [formato Text](supported-file-formats-and-compression-codecs-legacy.md#text-format), [formato JSON,](supported-file-formats-and-compression-codecs-legacy.md#json-format) [formato Avro,](supported-file-formats-and-compression-codecs-legacy.md#avro-format) [formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format)e seções [de formato Parquet.](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) |Não (somente para o cenário de cópia binária) |

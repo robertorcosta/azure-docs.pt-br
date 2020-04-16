@@ -1,5 +1,5 @@
 ---
-title: Folha de trapaça do algoritmo de aprendizagem de máquina
+title: Planilha de trapaça do algoritmo de aprendizagem de máquina - designer
 titleSuffix: Azure Machine Learning
 description: Uma folha de trapaça de algoritmo de aprendizagem de máquina imprimível ajuda você a escolher o algoritmo certo para o seu modelo preditivo no designer de Machine Learning do Azure.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: 85fbb1c1d26f71903adab2eb96b0c1dd3bf74c33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: accc4766f25f5d58ba2f31c153fe1c5d23413170
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78328601"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399074"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Planilha de trapaça do algoritmo de aprendizagem de máquina para o designer de aprendizado de máquina do Azure
 
-A **Folha de Referências de Algoritmo do Azure Machine Learning** ajuda a escolher o algoritmo certo para o modelo de análise preditiva.
+A Planilha cheat do algoritmo de aprendizagem de **máquina do Azure** ajuda você a escolher o algoritmo certo do designer para um modelo de análise preditiva.
 
 O Azure Machine Learning possui uma grande biblioteca de algoritmos das famílias de ***classificação,*** ***sistemas de recomendação,*** ***agrupamento,*** ***detecção de anomalias,*** ***regressão***e ***análise de texto.*** Cada um foi projetado para atender a um tipo diferente de problema de aprendizado de máquina.
 
@@ -38,7 +38,7 @@ As sugestões oferecidas nessa página de dicas úteis de algoritmo são aproxim
 
 Cada algoritmo de aprendizado de máquina tem seu próprio estilo ou tendência indutiva. Para um problema específico, vários algoritmos podem ser apropriados, e um algoritmo pode ser um ajuste melhor do que outros. Mas nem sempre é possível saber com antecedência qual é a melhor opção. Em casos como esse, vários algoritmos estão listados juntos na folha de consulta. Uma estratégia apropriada seria um algoritmo e se os resultados ainda não estiverem satisfatórios, tentar os outros. 
 
-Para saber mais sobre os algoritmos no Azure Machine Learning, acesse o Algoritmo e a [referência do módulo](algorithm-module-reference/module-reference.md).
+Para saber mais sobre os algoritmos no designer de Machine Learning do Azure, acesse o [Algoritmo e a referência do módulo](algorithm-module-reference/module-reference.md).
 
 ## <a name="kinds-of-machine-learning"></a>Tipos de aprendizado de máquina
 

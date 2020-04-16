@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 3c077e2c04cae94d2e1a2a84ccd7d09c7a0829b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01a6d796a9a8306da5bb707111b07786136a66cc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75439637"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414777"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Cópia Delta de um banco de dados com uma tabela de controle
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve um modelo disponível para carregar gradualmente linhas novas ou atualizadas de uma tabela de banco de dados para o Azure usando uma tabela de controle externo que armazena um valor de marca d'água alto.
 
@@ -42,7 +43,7 @@ O modelo define os seguintes parâmetros:
 - *Data_Source_Table_Name* é a tabela no banco de dados de origem da onde você deseja carregar dados.
 - *Data_Source_WaterMarkColumn* é o nome da coluna na tabela de origem que é usada para identificar linhas novas ou atualizadas. O tipo desta coluna é tipicamente *datado,* *INT,* ou similar.
 - *Data_Destination_Container* é o caminho raiz do local para onde os dados são copiados em sua loja de destino.
-- *Data_Destination_Directory* é o caminho do diretório a raiz do local para onde os dados são copiados em sua loja de destino.
+- *Data_Destination_Directory* é o caminho do diretório sob a raiz do local para onde os dados são copiados em sua loja de destino.
 - *Data_Destination_Table_Name* é o lugar para onde os dados são copiados em sua loja de destino (aplicável quando "Azure Synapse Analytics (anteriormente SQL DW)" é selecionado como Destino de Dados).
 - *Data_Destination_Folder_Path* é o lugar para onde os dados são copiados em sua loja de destino (aplicável quando "Sistema de arquivos" ou "Azure Data Lake Storage Gen1" é selecionado como Destino de Dados).
 - *Control_Table_Table_Name* é a tabela de controle externo que armazena o valor da marca d'água.

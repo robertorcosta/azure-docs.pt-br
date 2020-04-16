@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4faead13c10171c31e76fe2dd59be32a93a12f86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7032f9e8f57ea9400bf6a92f89b13fa1866f8fc1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124742"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414387"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Use os pontos de extremidade e regras de serviço de rede virtual para os servidores do banco de dados
 
@@ -64,6 +64,7 @@ Você tem a opção de usar o [controle de acesso baseado em função (RBAC)][rb
 
 > [!NOTE]
 > Em alguns casos, o Banco de Dados SQL do Azure e a sub-rede da VNet estão em assinaturas diferentes. Nesses casos, você deve garantir as seguintes configurações:
+>
 > - Ambas as assinaturas devem estar associadas ao mesmo locatário do Azure Active Directory.
 > - O usuário tem as permissões necessárias para iniciar operações, como habilitar pontos de extremidade de serviço e adicionar uma sub-rede da VNet ao servidor.
 > - Ambas as assinaturas devem ter o provedor Microsoft.Sql registrado.
@@ -134,7 +135,7 @@ O PolyBase é comumente usado para carregar dados no SQL Data Warehouse do Azure
    > [!NOTE]
    > - Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário **primeiro atualizar para v2** usando este [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Para problemas conhecidos com o Azure Data Lake Storage Gen2, confira este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
-    
+
 1. Em sua conta de armazenamento, navegue até **Controle de acesso (IAM)** e clique em **Adicionar atribuição de função**. Atribuir **o RBAC do Contribuinte de Dados Blob** de Armazenamento ao seu Azure SQL Server hospedando seu Azure SQL Data Warehouse, que você registrou no Azure Active Directory (AAD) como na etapa número 1.
 
    > [!NOTE]
@@ -235,7 +236,7 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 
 ## <a name="azure-portal-steps"></a>etapas do portal do Azure
 
-1. Faça login no [portal Azure][http-azure-portal-link-ref-477t].
+1. Entre no [portal do Azure][http-azure-portal-link-ref-477t].
 
 2. Procure e selecione **servidores SQL**e selecione seu servidor. Em **Segurança,** selecione **Firewalls e redes virtuais.**
 
@@ -264,6 +265,7 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 
 > [!NOTE]
 > O status ou os estados a seguir se aplicam às regras:
+>
 > - **Pronto:** indica que a operação que você iniciou foi bem-sucedida.
 > - **Falha:** indica que a operação que você iniciou falhou.
 > - **Excluído:** só se aplica à operação de exclusão e indica que a regra foi excluída e não se aplica mais.

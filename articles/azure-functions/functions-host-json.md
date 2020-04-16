@@ -3,12 +3,12 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 1a861d500f0b8cc31b8312d6c955916ab741b649
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 7b3c9d15fc8cf3a1651c44a5656f731a7820e344
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878232"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405479"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>referência host.json para Funções Azure 2.x e posteriores 
 
@@ -141,7 +141,7 @@ Controla opções de Insights de Aplicativos, incluindo [opções de amostragem]
 Para obter a estrutura JSON completa, consulte o exemplo anterior [do arquivo host.json](#sample-hostjson-file).
 
 > [!NOTE]
-> A amostragem de log pode fazer com que algumas execuções não apareçam na folha do Monitor do Application Insights. Para evitar a `samplingExcludedTypes: "Request"` amostragem `applicationInsights` de troncos, adicione ao valor.
+> A amostragem de log pode fazer com que algumas execuções não apareçam na folha do Monitor do Application Insights. Para evitar a `excludedTypes: "Request"` amostragem `samplingSettings` de troncos, adicione ao valor.
 
 | Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
@@ -166,8 +166,8 @@ Para obter a estrutura JSON completa, consulte o exemplo anterior [do arquivo ho
 | minSamplingPercentageRcent | 0,1 | Como o percentual amostral varia, esta propriedade determina o percentual mínimo de amostragem permitido. |
 | maxSamplingPercentagepercentage | 0,1 | Como o percentual amostral varia, esta propriedade determina o percentual máximo de amostragem permitido. |
 | movingAverageRatio | 1.0 | No cálculo da média móvel, o peso atribuído ao valor mais recente. Use um valor menor ou igual a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas. |
-| excluídosTipos | null | Uma lista delimitada de pontos e vírgulas de tipos que você não quer ser amostrado. Os tipos reconhecidos são: Dependência, Evento, Exceção, PageView, Solicitação, Rastreamento. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
-| incluídoTipos | null | Uma lista delimitada de ponto e vírgula de tipos que você deseja ser amostrado; uma lista vazia implica todos os tipos. Tipo listado `excludedTypes` em tipos de substituição listados aqui. Os tipos reconhecidos são: Dependência, Evento, Exceção, PageView, Solicitação, Rastreamento. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
+| excluídosTipos | nulo | Uma lista delimitada de pontos e vírgulas de tipos que você não quer ser amostrado. Os tipos `Dependency`reconhecidos são: `Event`, `Exception`, , `PageView`, `Request`e `Trace`. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
+| incluídoTipos | nulo | Uma lista delimitada de ponto e vírgula de tipos que você deseja ser amostrado; uma lista vazia implica todos os tipos. Tipo listado `excludedTypes` em tipos de substituição listados aqui. Os tipos `Dependency`reconhecidos são: `Event`, `Exception`, , `PageView`, `Request`e `Trace`. As instâncias dos tipos especificados são amostradas; os tipos que não são especificados ou implícitos são transmitidos sem amostragem. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights.httpAutoCollectionOptions
 
@@ -183,7 +183,7 @@ Para obter mais informações sobre instantâneos, consulte [Depurar instantâne
 
 |Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
-| agentEndpoint | null | O ponto final usado para se conectar ao serviço Application Insights Snapshot Debugger. Se for nulo, um ponto final padrão é usado. |
+| agentEndpoint | nulo | O ponto final usado para se conectar ao serviço Application Insights Snapshot Debugger. Se for nulo, um ponto final padrão é usado. |
 | capturarSnapshotMemoryDememória | 0.5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar um instantâneo. O valor esperado é maior que 0 fração adequada (0 < CaptureSnapshotMemoryWeight < 1). |
 | falhalimiteLimite de solicitação | 3 | O limite do número de solicitações com falha para solicitar instantâneos antes que o processador de telemetria seja desativado.|
 | handleUntrackedExceptions | true | Habilita ou desativa o rastreamento de exceções que não são rastreadas pela telemetria Application Insights. |
@@ -197,14 +197,14 @@ Para obter mais informações sobre instantâneos, consulte [Depurar instantâne
 | problemaCounterResetInterval | 24:00:00 | Quantas vezes redefinir os contadores de problemas em uma faixa de um minuto a sete dias. Quando este intervalo é atingido, todas as contagens de problemas são redefinidas para zero. Os problemas existentes que já atingiram o limite para fazer snapshots, `maximumSnapshotsRequired`mas ainda não geraram o número de instantâneos em , permanecem ativos. |
 | fornecerTelemetria anônima | true | Determina se deve enviar o uso anônimo e a telemetria de erro para a Microsoft. Essa telemetria pode ser usada se você entrar em contato com a Microsoft para ajudar a solucionar problemas com o Snapshot Debugger. Também é usado para monitorar padrões de uso. |
 | reconecteInterval | 00:15:00 | Quantas vezes nos reconectamos ao ponto final do Depurador de instantâneos. O alcance permitido é de um minuto para um dia. |
-| pasta de sombrasCopyFolder | null | Especifica a pasta a ser usada para copiar binários de cópia de sombra. Se não for definido, as pastas especificadas pelas seguintes variáveis de ambiente são testadas em ordem: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
+| pasta de sombrasCopyFolder | nulo | Especifica a pasta a ser usada para copiar binários de cópia de sombra. Se não for definido, as pastas especificadas pelas seguintes variáveis de ambiente são testadas em ordem: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
 | shareUploaderProcess | true | Se for verdade, apenas uma instância do SnapshotUploader coletará e carregará instantâneos para vários aplicativos que compartilham a InstrumentationKey. Se definido como falso, o SnapshotUploader será exclusivo para cada tuple (ProcessName, InstrumentationKey). |
 | snapshotInLowPriorityThread | true | Determina se deve ou não processar instantâneos em um segmento de prioridade de IO baixo. Criar um snapshot é uma operação rápida, mas, para carregar um instantâneo no serviço Snapshot Debugger, ele deve primeiro ser gravado no disco como um minidump. Isso acontece no processo SnapshotUploader. Definir esse valor como verdadeiro usa IO de baixa prioridade para escrever o minidump, que não competirá com seu aplicativo de recursos. Definir esse valor como falso acelera a criação de minidump sem a desoneração da sua aplicação. |
 | snapshotsPerDayLimit | 30 | O número máximo de instantâneos permitido em um dia (24 horas). Esse limite também é aplicado no lado de serviço do Application Insights. Os uploads são limitados a 50 por dia por aplicativo (ou seja, por chave de instrumentação). Esse valor ajuda a evitar a criação de instantâneos adicionais que eventualmente serão rejeitados durante o upload. Um valor de zero remove totalmente o limite, o que não é recomendado. |
 | snapshotsPerTenMinutesLimit | 1 | O número máximo de instantâneos permitido em 10 minutos. Embora não haja limite superior sobre este valor, tenha cuidado em aumbhá-lo sobre as cargas de trabalho de produção, pois isso poderia afetar o desempenho da sua aplicação. Criar um snapshot é rápido, mas criar um minidump do snapshot e enviá-lo para o serviço Snapshot Debugger é uma operação muito mais lenta que competirá com seu aplicativo por recursos (CPU e I/O). |
-| tempFolder | null | Especifica a pasta para gravar minidumps e arquivos de log de uploader. Se não estiver definido, *então %TEMP%\Dumps* é usado. |
+| tempFolder | nulo | Especifica a pasta para gravar minidumps e arquivos de log de uploader. Se não estiver definido, *então %TEMP%\Dumps* é usado. |
 | thresholdForSnapshotting | 1 | Quantas vezes o Application Insights precisa ver uma exceção antes de pedir instantâneos. |
-| uploaderProxy | null | Substitui o servidor proxy usado no processo Snapshot Uploader. Você pode precisar usar essa configuração se seu aplicativo se conectar à internet através de um servidor proxy. O Snapshot Collector é executado dentro do processo do aplicativo e usará as mesmas configurações de proxy. No entanto, o Snapshot Uploader é executado como um processo separado e você pode precisar configurar o servidor proxy manualmente. Se esse valor for nulo, o Snapshot Collector tentará detectar automaticamente o endereço do proxy examinando System.Net.WebRequest.DefaultWebProxy e repassando o valor para o Uploader de instantâneo. Se esse valor não for nulo, a detecção automática não será usada e o servidor proxy especificado aqui será usado no Uploader de instantâneo. |
+| uploaderProxy | nulo | Substitui o servidor proxy usado no processo Snapshot Uploader. Você pode precisar usar essa configuração se seu aplicativo se conectar à internet através de um servidor proxy. O Snapshot Collector é executado dentro do processo do aplicativo e usará as mesmas configurações de proxy. No entanto, o Snapshot Uploader é executado como um processo separado e você pode precisar configurar o servidor proxy manualmente. Se esse valor for nulo, o Snapshot Collector tentará detectar automaticamente o endereço do proxy examinando System.Net.WebRequest.DefaultWebProxy e repassando o valor para o Uploader de instantâneo. Se esse valor não for nulo, a detecção automática não será usada e o servidor proxy especificado aqui será usado no Uploader de instantâneo. |
 
 ## <a name="cosmosdb"></a>cosmosDb
 

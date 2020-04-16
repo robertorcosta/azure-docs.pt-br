@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: cb1444261a2ba4810f4fddb3d7aa3bc172f09654
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e4470ce5ac69390cf8d361577b9ebf0013e4e51
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278864"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405801"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize recursos em seu datacenter ou nuvem usando o Hybrid Runbook Worker
 
@@ -20,23 +20,23 @@ A imagem a seguir ilustra essa funcionalidade:
 
 ![Visão geral do Hybrid Runbook Worker](media/automation-hybrid-runbook-worker/automation.png)
 
-Cada Runbook Worker Híbrido é membro de um grupo de Runbook Worker Híbrido que você especifica ao instalar o agente. Um grupo pode conter um único agente, mas você pode instalar vários agentes em um grupo para ter alta disponibilidade. Cada máquina pode hospedar um Trabalhador Híbrido reportando-se a uma conta de automação.
+Cada Runbook Worker Híbrido é membro de um grupo de Runbook Worker Híbrido que você especifica ao instalar o agente. Um grupo pode conter um único agente, mas você pode instalar vários agentes em um grupo para ter alta disponibilidade. Cada máquina pode hospedar um Trabalhador Híbrido reportando-se a uma conta de Automação.
 
-Quando você inicia um runbook em um Runbook Worker Híbrido, deve especificar o grupo no qual ele será executado. Cada operador no grupo de sonda de automação do Azure para ver se todos os trabalhos estão disponíveis. Se um trabalho estiver disponível, o primeiro funcionário a obter o trabalho o fará. O tempo de processamento da fila de trabalhos depende do perfil de hardware do Hybrid worker e a carga. Você não pode especificar um trabalhador específico. Hybrid Runbook Workers não compartilham muitos dos limites que têm áreas restritas do Azure. Eles não têm os mesmos limites de espaço em disco, memória ou soquetes de rede. Hybrid Runbook Workers são limitadas apenas pelos recursos em Hybrid Runbook Worker em si. Além disso, Hybrid Runbook Workers não compartilham o limite de tempo de 180 minutos [justo](automation-runbook-execution.md#fair-share)que as áreas restritas do Azure fazem. Para saber mais sobre os limites de serviço para áreas restritas do Azure e o Hybrid Runbook Workers, consulte a página [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) de trabalho.
+Quando você inicia um runbook em um Runbook Worker Híbrido, deve especificar o grupo no qual ele será executado. Cada operador no grupo de sonda de automação do Azure para ver se todos os trabalhos estão disponíveis. Se um trabalho estiver disponível, o primeiro funcionário a obter o trabalho o fará. O tempo de processamento da fila de trabalhos depende do perfil de hardware do Hybrid worker e a carga. Você não pode especificar um trabalhador específico. Hybrid Runbook Workers não compartilham muitos dos limites que têm áreas restritas do Azure. Eles não têm os mesmos limites de espaço em disco, memória ou soquetes de rede. Hybrid Runbook Workers são limitadas apenas pelos recursos em Hybrid Runbook Worker em si. Além disso, os Trabalhadores do Runbook Híbrido não compartilham o limite de tempo de [participação justa](automation-runbook-execution.md#fair-share) de 180 minutos que as caixas de areia do Azure têm. Para saber mais sobre os limites de serviço para caixas de areia Azure e Trabalhadores híbridos do runbook, consulte os [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)de trabalho .
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Instalar um trabalhador de runbook híbrido
 
-O processo para instalar um Hybrid Runbook Worker depende do sistema operacional. A tabela a seguir contém links para os métodos que você pode usar para a instalação.
-
-Para instalar e configurar um Windows Hybrid Runbook Worker, você pode usar dois métodos. O método recomendado é usar um runbook de automação para automatizar completamente o processo de configuração de um computador com Windows. O segundo método é seguir um procedimento passo a passo para instalar e configurar a função manualmente. Para máquinas Linux, você executa um script Python para instalar o agente na máquina.
+O processo de instalação de um Hybrid Runbook Worker depende do sistema operacional. A tabela abaixo define os tipos de implantação.
 
 |Sistema operacional  |Tipos de implantação  |
 |---------|---------|
-|Windows     | [Powershell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
+|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
+O método de instalação recomendado é usar um manual de automação para automatizar completamente o processo de configuração de um computador Windows. O segundo método é seguir um procedimento passo-a-passo para instalar e configurar manualmente a função. Para máquinas Linux, você executa um script Python para instalar o agente na máquina.
+
 > [!NOTE]
-> Para gerenciar a configuração de seus servidores que suportam a função de executante de caderno híbrido com DSC (Configuração de estado desejado), você precisa adicioná-los como nós DSC. Para saber mais sobre a integração deles para gerenciamento com DSC, confira [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md).
+> Para gerenciar a configuração de seus servidores que suportam a função Hybrid Runbook Worker com DSC (Desired State Configuration, configuração do estado desejado), você precisa adicionar os servidores como nós DSC. Para saber mais sobre a integração deles para gerenciamento com DSC, confira [Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md).
 >
 >Se você habilitar a [ solução de Gerenciamento de Atualizações ](automation-update-management.md), qualquer computador conectado ao seu espaço de trabalho do Log Analytics do Azure será automaticamente configurado como um Operador de Runbook Híbrido para oferecer suporte a runbooks incluídos nessa solução. No entanto, o computador não está registrado em nenhum grupo de Hybrid Worker já definido em sua conta de automação. O computador pode ser adicionado a um grupo de executável de manual híbrido em sua conta de automação para oferecer suporte a registros de execução de automação, desde que você esteja usando a mesma conta para a solução e a associação de grupo de trabalhador de executável híbrido. Esta funcionalidade foi adicionada à versão 7.2.12024.0 do Hybrid Runbook Worker.
 
@@ -44,44 +44,38 @@ Examine o [informações para planejar sua rede](#network-planning) antes de voc
 
 O computador pode ser adicionado a um grupo de executável de manual híbrido em sua conta de automação para oferecer suporte a registros de execução de automação, desde que você esteja usando a mesma conta para a solução e a associação de grupo de trabalhador de executável híbrido. Essa funcionalidade foi adicionada à versão 7.2.12024.0 do Hybrid Runbook Worker.
 
-## <a name="remove-a-hybrid-runbook-worker"></a>Remova um trabalhador de runbook híbrido
+## <a name="a-nameremove-a-hybrid-runbook-workerremove-a-hybrid-runbook-worker-from-an-on-premises-computer"></a><a name="remove-a-hybrid-runbook-worker">Remova um Trabalhador de Runbook Híbrido de um computador local
 
-Você pode remover um ou mais trabalhadores de runbook híbridos de um grupo ou remover o grupo, dependendo dos seus requisitos. Para remover um Hybrid Runbook Worker de um computador local, use as seguintes etapas:
+Você pode remover um Trabalhador de Runbook Híbrido de um computador local, conforme descrito nesta seção para Windows e Linux.
+
+### <a name="remove-the-worker-on-windows"></a>Remova o trabalhador no Windows
 
 1. No portal do Azure, vá para sua conta de automação.
-2. Em **Configurações da conta**, selecione **Chaves** e anote os valores para **URL** e **Chave de acesso primária**. Você precisará dessas informações para a próxima etapa.
+2. Em **Configurações da conta**, selecione **Chaves** e anote os valores para **URL** e **Chave de acesso primária**.
 
-### <a name="windows"></a>Windows
-
-Abra uma sessão do PowerShell no modo de Administrador e execute o comando a seguir ‑ . Use a opção **-Verbose** para obter um log detalhado do processo de remoção.
-
-```powershell-interactive
-Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
-```
-
-Para remover computadores antigos do grupo do Hybrid Worker, use o parâmetro opcional `machineName`.
+3. Abra uma sessão PowerShell no modo Administrador e execute o seguinte comando com sua URL e valores de chave de acesso primário. Use `Verbose` o parâmetro para um registro detalhado do processo de remoção. Para remover computadores antigos do grupo do Hybrid Worker, use o parâmetro opcional `machineName`.
 
 ```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
 ```
 
-### <a name="linux"></a>Linux
+### <a name="remove-the-worker-on-linux"></a>Remova o trabalhador no Linux
 
-Você pode usar o comando `ls /var/opt/microsoft/omsagent` no Hybrid Runbook Worker para obter a workspaceid. Há uma pasta no diretório em que o nome da pasta é a ID do workspace.
+Você pode usar `ls /var/opt/microsoft/omsagent` o comando no Hybrid Runbook Worker para obter o ID do espaço de trabalho. Uma pasta é criada com o ID do espaço de trabalho.
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
 ```
 
 > [!NOTE]
-> Este código não remove o Microsoft Monitoring Agent do computador, apenas a funcionalidade e a configuração da função Hybrid Runbook Worker.
+> Este código não remove o Microsoft Monitoring Agent do computador. Ele apenas remove a funcionalidade e configuração da função Hybrid Runbook Worker.
 
 ## <a name="remove-a-hybrid-worker-group"></a>Remover um grupo de Hybrid Worker
 
-Para remover um grupo, você primeiro precisa remover o Hybrid Runbook Worker de cada computador que seja membro do grupo usando o procedimento mostrado anteriormente. Em seguida, execute as seguintes etapas para remover o grupo:
+Para remover um grupo híbrido de trabalhador de runbook, primeiro você precisa remover o Hybrid Runbook Worker de cada computador que seja membro do grupo. Em seguida, use as seguintes etapas para remover o grupo:
 
 1. Abra a conta de Automação no Portal do Azure.
-2. Em **Automação de Processos,** selecione **grupos de trabalhadores híbridos**. Selecione o grupo que você deseja excluir. A página de propriedades desse grupo é exibida.
+2. Selecione **grupos de trabalhadores híbridos** em **Automação de Processos**. Selecione o grupo que você deseja excluir. A página de propriedades desse grupo é exibida.
 
    ![Página Propriedades](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
@@ -108,7 +102,7 @@ A porta e URLs a seguir são necessárias para a função do Hybrid Runbook Work
 * URL global do EUA Gov Virgínia: *.azure automation.us
 * Serviço de agente: https://\<workspaceId\>.agentsvc.azure-automation.net
 
-É recomendável usar os endereços listados ao definir exceções. Para endereços IP, baixe os [Intervalos de IP do Datacenter do Microsoft Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Esse arquivo é atualizado semanalmente e tem os intervalos atualmente implantados e as alterações futuras nos intervalos de IP.
+É recomendável usar os endereços listados ao definir exceções. Para endereços IP, você pode baixar as faixas IP do [Datacenter do Microsoft Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Esse arquivo é atualizado semanalmente e tem os intervalos atualmente implantados e as alterações futuras nos intervalos de IP.
 
 Se você tiver uma conta de Automação do Azure definida para uma região específica, você pode restringir a comunicação para esse centro de dados regional. A tabela a seguir fornece o registro DNS para cada região:
 
@@ -152,5 +146,4 @@ Na parte superior dos endereços padrão e portas que exige o Hybrid Runbook Wor
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber como configurar os runbooks para automatizar processos no datacenter local ou em outro ambiente de nuvem, consulte [Executar runbooks em um Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
-* Para saber como solucionar problemas de seus trabalhadores com runbook híbrido, consulte [Solucionando problemas de trabalhadores com runbook híbrido](troubleshoot/hybrid-runbook-worker.md#general)
-
+* Para saber como solucionar problemas com os trabalhadores do runbook híbrido, consulte [Trabalhadores híbridos do runbook .](troubleshoot/hybrid-runbook-worker.md#general)

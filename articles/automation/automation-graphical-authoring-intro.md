@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 09afca7eaf385795baf9c4a3c94232622527e357
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf8ced05066923c94e80628651d8983560601d69
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500973"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406044"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Criação gráfica na Automação do Azure
 
@@ -395,7 +395,7 @@ A próxima `Connect-AzAccount`atividade, adiciona a conta execute as autenticada
 >[!NOTE]
 >Para runbooks powershell e `Add-AzAccount` `Add-AzureRMAccount` são `Connect-AzAccount`pseudônimos para . Observe que esses pseudônimos não estão disponíveis para seus runbooks gráficos. Um runbook gráfico só `Connect-AzAccount` pode usar a si mesmo.
 
-Para os campos de **parâmetros APPLICATIONID,** **CERTIFICATETHUMBPRINT**e **TENANTID,** especifique o nome da propriedade para o caminho De campo, uma vez que a atividade produz um objeto com várias propriedades. Caso contrário, quando o runbook é executado, ele falha ao tentar autenticar. Isso é o que você precisa, no mínimo, para autenticar seu runbook com a conta Executar Como.
+Para os campos de **parâmetros APPLICATIONID,** **CERTIFICATETHUMBPRINT**e **TENANTID,** especifique o nome da propriedade para o caminho de campo, uma vez que a atividade produz um objeto com várias propriedades. Caso contrário, quando o runbook é executado, ele falha ao tentar autenticar. Isso é o que você precisa, no mínimo, para autenticar seu runbook com a conta Executar Como.
 
 Alguns assinantes criam uma conta de Automação usando uma [conta de usuário Azure AD](automation-create-aduser-account.md) para gerenciar a implantação clássica do Azure ou para os recursos do Azure Resource Manager. Para manter a compatibilidade retrógrada para esses assinantes, o `Add-AzureAccount` mecanismo de autenticação a ser usado em seu runbook é o cmdlet com um [ativo de credencial](automation-credentials.md). O ativo representa um usuário do Active Directory com acesso à conta do Azure.
 
@@ -441,3 +441,5 @@ Você tem a opção de reverter para a versão publicada de um runbook. Esta ope
 * Para começar com runbooks gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md).
 * Para saber mais sobre os tipos de runbook e suas vantagens e limitações, consulte [os tipos de runbook da Azure Automation](automation-runbook-types.md).
 * Para entender como autenticar usando a conta 'Executar como' automação, consulte [Configure Azure Run As Account](automation-sec-configure-azure-runas-account.md).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

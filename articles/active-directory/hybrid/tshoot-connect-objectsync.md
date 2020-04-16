@@ -15,12 +15,12 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e56d4d94e38e5095ef2223d0cc2875cbf1dcd46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e10d00ed90248319801974c7c1e7fadf835024b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "64919113"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407010"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Solução de problemas de sincronização de objetos com a sincronização do Azure AD Connect
 Este artigo descreve as etapas para solucionar problemas com a sincronização de objetos usando a tarefa de solução de problemas. Para ver como a solução de problemas funciona no Azure Active Directory (Azure AD) Connect, assista a [este breve vídeo](https://aka.ms/AADCTSVideo).
@@ -61,11 +61,6 @@ O restante desta seção descreve resultados específicos que são retornados pe
 Quando o sufixo de UserPrincipalName (UPN)/ID de logon alternativo não é verificado com o locatário do Azure Active Directory, os sufixos de UPN são substituídos pelo nome de domínio padrão "onmicrosoft.com".
 
 ![Azure AD substitui upn](media/tshoot-connect-objectsync/objsynch2.png)
-
-### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>Alterando o sufixo de UPN de um domínio federado para outro domínio federado
-O Azure Active Directory não permite a sincronização de mudança de sufixo de UserPrincipalName (UPN)/ID de login alternativo de um domínio federado para outro domínio. Isso se aplica a domínios, que são verificados com o locatário do Azure Active Directory e têm o Tipo de Autenticação como Federada.
-
-![Sem sincronização UPN de um domínio federado para outro](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>O recurso de DirSync do Locatário do Azure Active Directory 'SynchronizeUpnForManagedUsers' está desabilitado
 Quando o recurso de DirSync do Locatário do Azure Active Directory 'SynchronizeUpnForManagedUsers' está desabilitado, o Azure Active Directory não permite atualizações de sincronização para UserPrincipalName/ID de logon alternativo para contas de usuário licenciado com autenticação gerenciada.

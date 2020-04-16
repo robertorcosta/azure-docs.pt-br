@@ -7,14 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 196d917d31eb08af80587bba30d9f7e67bf8cbea
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: c28305cc55fcc561863670a15480782ce63e75b4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991698"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415508"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Construa expressões no mapeamento do fluxo de dados
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 No mapeamento do fluxo de dados, muitas propriedades de transformação são inseridas como expressões. Essas expressões são compostas de valores de coluna, parâmetros, funções, operadores e literais que avaliam um tipo de dados Spark no tempo de execução.
 
@@ -24,7 +26,7 @@ No mapeamento do fluxo de dados, muitas propriedades de transformação são ins
 
 A interface de edição de expressão na experiência do usuário da Fábrica de Dados do Azure é conhecida como Expression Builder. À medida que você insere sua lógica de expressão, a Fábrica de Dados usa a conclusão do código [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) para destacar, verificar sintaxe e completar automaticamente.
 
-![Construtor de Expressões](media/data-flow/xpb1.png "Construtor de Expressões")
+![Construtor de expressões](media/data-flow/xpb1.png "Construtor de Expressões")
 
 Em transformações como a coluna derivada e o filtro, onde as expressões são obrigatórias, abra o Expression Builder selecionando a caixa de expressão azul.
 

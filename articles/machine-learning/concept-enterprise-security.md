@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 4fbb3e83692ec058c03b22654e82d4093fe3541d
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 9f3a1c3455aadfbd243cdc6ab2920849c8558841
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756576"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414637"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança corporativa para aprendizado de máquina do Azure
 
@@ -243,9 +243,9 @@ Os Azure Databricks podem ser usados em pipelines de Machine Learning do Azure. 
 
 ### <a name="encryption-in-transit"></a>Criptografia em trânsito
 
-Você pode usar o TLS para garantir a comunicação interna entre os microserviços do Azure Machine Learning e para proteger chamadas externas para o ponto final de pontuação. Todo acesso ao Azure Storage também ocorre por um canal seguro.
+O Azure Machine Learning usa TLS para garantir a comunicação interna entre vários microserviços de Machine Learning do Azure. Todo acesso ao Azure Storage também ocorre por um canal seguro.
 
-Para obter mais informações, consulte [Usar TLS para garantir um serviço web através do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
+Para proteger chamadas externas para o ponto final de pontuação, o Azure Machine Learning usa TLS. Para obter mais informações, consulte [Usar TLS para garantir um serviço web através do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### <a name="using-azure-key-vault"></a>Como usar o Azure Key Vault
 

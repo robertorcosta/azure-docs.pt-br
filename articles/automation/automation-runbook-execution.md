@@ -3,14 +3,14 @@ title: Execução de runbook na Automação do Azure
 description: Descreve os detalhes de como um runbook na Automação do Azure é processado.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/04/2019
+ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: de01a7a76a5d225770c273c67f864c83226ecd07
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: a7dd9de1f2ae41b20d94cf31de48e92fbb71ca6a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261305"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405634"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
@@ -22,7 +22,7 @@ Iniciar um runbook no Azure Automation cria um trabalho, que é uma única inst�
 
 A Azure Automation designa um trabalhador para executar cada trabalho durante a execução do runbook. Enquanto os trabalhadores são compartilhados por muitas contas do Azure, os trabalhos de diferentes contas de automação ficam isolados uns dos outros. Você não pode controlar qual trabalhador atende seus pedidos de trabalho.
 
-Quando você vê a lista de runbooks no portal Azure, ele mostra o status de cada trabalho que foi iniciado para cada runbook. A Azure Automation armazena registros de trabalho por um máximo de 30 dias. 
+Quando você vê a lista de runbooks no portal Azure, ele mostra o status de cada trabalho que foi iniciado para cada runbook. A Azure Automation armazena registros de trabalho por um máximo de 30 dias.
 
 O diagrama a seguir mostra o ciclo de vida de um trabalho de runbook para [runbooks PowerShell,](automation-runbook-types.md#powershell-runbooks) [runbooks powershell workflow](automation-runbook-types.md#powershell-workflow-runbooks)e [runbooks gráficos](automation-runbook-types.md#graphical-runbooks).
 
@@ -35,7 +35,7 @@ O diagrama a seguir mostra o ciclo de vida de um trabalho de runbook para [runbo
 
 ## <a name="where-to-run-your-runbooks"></a>Onde executar seus runbooks
 
-Os runbooks no Azure Automation podem ser executados em uma caixa de areia Azure ou em um [Trabalhador de Runbook Híbrido](automation-hybrid-runbook-worker.md). Você pode facilmente executar a maioria dos runbooks em uma caixa de areia Do Zure, que é um ambiente compartilhado que vários trabalhos podem usar. Os trabalhos que usam a mesma área restrita são restringidos pelas limitações de recurso da área restrita.
+Os runbooks no Azure Automation podem ser executados em uma caixa de areia Azure ou em um [Trabalhador de Runbook Híbrido](automation-hybrid-runbook-worker.md). Quando os runbooks são projetados para autenticar e executar contra recursos no Azure, eles são executados em uma caixa de areia Azure, que é um ambiente compartilhado que vários trabalhos podem usar. Os trabalhos que usam a mesma área restrita são restringidos pelas limitações de recurso da área restrita.
 
 >[!NOTE]
 >O ambiente de caixa de areia Azure não suporta operações interativas. Ele também requer o uso de arquivos MOF locais para runbooks que fazem chamadas Win32.
@@ -44,21 +44,21 @@ Você pode usar um Hybrid Runbook Worker para executar runbooks diretamente no c
 
 A tabela a seguir lista algumas tarefas de execução de runbook com o ambiente de execução recomendado listado para cada um.
 
-|Tarefa|Melhor opção|Observações|
+|Tarefa|Recomendação|Observações|
 |---|---|---|
 |Integração com serviços do Azure|Área restrita do Azure|Hospedado no Azure, a autenticação é mais simples. Se você estiver usando um Trabalhador de Runbook Híbrido em uma VM Azure, você pode usar [identidades gerenciadas para recursos do Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources).|
 |Obtenha o desempenho ideal para gerenciar os recursos do Azure|Área restrita do Azure|O script é executado no mesmo ambiente, que tem menos latência.|
 |Redução de custos operacionais|Área restrita do Azure|Não há sobrecarga de cálculo e não há necessidade de uma VM.|
-|Execute o script de longa duração|Hybrid Runbook Worker|As caixas de areia do Azure têm [limitações nos recursos](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
-|Interaja com os Serviços Locais|Hybrid Runbook Worker|Pode ter acesso direto à máquina host.|
+|Execute o script de longa duração|Hybrid Runbook Worker|As caixas de areia do Azure têm [limites de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
+|Interaja com serviços locais|Hybrid Runbook Worker|Pode acessar diretamente a máquina host, ou recursos em outros ambientes em nuvem, ou em seu ambiente local. |
 |Exigir software de terceiros e executáveis|Hybrid Runbook Worker|Você gerencia o sistema operacional e pode instalar o software.|
 |Monitoramento de um arquivo ou uma pasta com um runbook|Hybrid Runbook Worker|Use uma [tarefa watcher](automation-watchers-tutorial.md) em um trabalhador híbrido de runbook.|
-|Execute um script com uso intensivo de recursos|Hybrid Runbook Worker| As caixas de areia do Azure têm [limitações nos recursos](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
-|Use módulos com requisitos específicos| Hybrid Runbook Worker|Alguns exemplos são:</br> WinSCP: dependência de winscp.exe </br> IISAdministration - dependência da habilitação do IIS.|
+|Execute um script com uso intensivo de recursos|Hybrid Runbook Worker| As caixas de areia do Azure têm [limites de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
+|Use módulos com requisitos específicos| Hybrid Runbook Worker|Alguns exemplos são:</br> WinSCP: dependência de winscp.exe </br> Administração IIS - dependência de habilitação ou gerenciamento do IIS.|
 |Instale um módulo com um instalador|Hybrid Runbook Worker|Os módulos para caixa de areia devem suportar a cópia.|
-|Use runbooks ou módulos que requerem a versão .NET Framework diferente de 4.7.2|Hybrid Runbook Worker|As caixas de areia de automação têm .NET Framework 4.7.2, e não há como atualizar a versão.|
+|Use runbooks ou módulos que requerem a versão .NET Framework diferente de 4.7.2|Hybrid Runbook Worker|O suporte a caixas de areia de automação .NET Framework 4.7.2 e a atualização para uma versão diferente não é suportada.|
 |Executar scripts que requerem elevação|Hybrid Runbook Worker|Caixas de areia não permitem elevação. Com um Trabalhador de Runbook Híbrido, você pode desligar o UAC e usar [o Comando Invocar](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) ao executar o comando que requer elevação.|
-|Executar scripts que requerem acesso ao WMI (Windows Management Instrumentation, instrumentação de gerenciamento do Windows)|Hybrid Runbook Worker|Trabalhos em caixas de areia na nuvem não podem acessar o WMI. |
+|Executar scripts que requerem acesso ao WMI (Windows Management Instrumentation, instrumentação de gerenciamento do Windows)|Hybrid Runbook Worker|Empregos em caixas de areia na nuvem não podem acessar o provedor WMI. |
 
 ## <a name="runbook-behavior"></a>Comportamento do runbook
 
@@ -75,7 +75,7 @@ $vmExists = Get-AzResource -Name $vmName -ResourceGroupName $resourceGroupName
 if(!$vmExists)
     {
     Write-Output "VM $vmName does not exist, creating"
-    New-AzureRMVM -Name $vmName -ResourceGroupName $resourceGroupName -Credential $myCred
+    New-AzVM -Name $vmName -ResourceGroupName $resourceGroupName -Credential $myCred
     }
 else
     {
@@ -278,7 +278,7 @@ Você pode usar as etapas a seguir para exibir os trabalhos de um runbook.
 
 ### <a name="retrieving-job-status-using-powershell"></a>Recuperando o status do trabalho usando o PowerShell
 
-Use `Get-AzAutomationJob` o cmdlet para recuperar os empregos criados para um runbook e os detalhes de um trabalho específico. Se você iniciar um runbook `Start-AzAutomationRunbook`com o Uso do PowerShell, ele reaverá o trabalho resultante. Use [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) para recuperar a saída de trabalho.
+Use o [cmdlet Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) para recuperar os empregos criados para um runbook e os detalhes de um trabalho específico. Se você iniciar um runbook `Start-AzAutomationRunbook`com o Uso do PowerShell, ele reaverá o trabalho resultante. Use [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) para recuperar a saída de trabalho.
 
 O exemplo a seguir obtém o último trabalho para um runbook de exemplo e exibe seu status, os valores fornecidos para os parâmetros do livro de execução e a saída de trabalho.
 
@@ -356,3 +356,5 @@ O uso de livros de execução infantil diminui o tempo total para que o manual d
 * Para saber como trabalhar com um runbook, consulte [Gerenciar runbooks no Azure Automation](manage-runbooks.md).
 * Para saber mais sobre os métodos que podem ser usados para iniciar um runbook no Azure Automation, consulte [Iniciar um runbook no Azure Automation](automation-starting-a-runbook.md).
 * Para obter mais informações sobre o PowerShell, incluindo os módulos de referência e aprendizagem do idioma, consulte o [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

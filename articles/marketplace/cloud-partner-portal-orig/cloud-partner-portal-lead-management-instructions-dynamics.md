@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dsindona
-ms.openlocfilehash: 524ae203a311d538431205bf8c6498de45aeb4d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d64c8460f5653f28b96396025f29ea13af15c8c3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280296"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416314"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Configurar o gerenciamento de leads para o Dynamics CRM Online
 
@@ -139,7 +139,7 @@ A etapa final é permitir que o usuário que você criou grave os leads.
 
 ## <a name="wrap-up"></a>Conclusão
 
-Conclua a configuração do Dynamics CRM para o gerenciamento de leads, adicionando as informações de conta geradas ao Portal do Cloud Partner. Por exemplo: 
+Conclua a configuração do Dynamics CRM para o gerenciamento de leads, adicionando as informações de conta geradas ao Portal do Cloud Partner. Por exemplo:
 
 -   **Azure Active Directory** - **ID do aplicativo** (exemplo: *23456052-aaaa-bbbb-8662-1234df56788f*), **ID do diretório** (exemplo: *12345678-8af1-4asf-1234-12234d01db47*) e **Chave de aplicativo** (exemplo: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
--   **Office 365** - **URL** (exemplo: *https://contoso.crm4.dynamics.com*), **Nome de usuário** (exemplo: *contoso\@contoso.onmicrosoft.com*) e **Senha** (exemplo: *P\@ssw0rd*).
+-   **Url do Office 365** - **(exemplo:** **`https://contoso.crm4.dynamics.com`** **`contoso\@contoso.onmicrosoft.com`**), Nome do **Usuário** (exemplo: ) e **Senha** (exemplo: *P\@ssw0rd*).

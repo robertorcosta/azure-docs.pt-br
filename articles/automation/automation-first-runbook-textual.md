@@ -6,18 +6,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/24/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5a1cad3179063f75a5d9a19567624180b5793a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b103437ab30c05ddab88b7a8a723cd2b4b1d5f6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367254"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405900"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Meu primeiro runbook de Fluxo de Trabalho do PowerShell
 
 > [!div class="op_single_selector"]
 > * [Gráfico](automation-first-runbook-graphical.md)
-> * [Powershell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
 > * [Python](automation-first-runbook-textual-python2.md)
 
@@ -79,7 +79,7 @@ Antes de publicar o manual para torná-lo disponível na produção, você deve 
 1. Clique **em Iniciar** para iniciar o teste, testando a única opção habilitada.
 1. Observe que um [trabalho de runbook](automation-runbook-execution.md) é criado e seu status é exibido no painel.
 
-   O status do `Queued`trabalho começa como , indicando que o trabalho está esperando um trabalhador de runbook na nuvem para se tornar disponível. O status `Starting` muda para quando um trabalhador reivindica o emprego. Finalmente, o `Running` status se torna quando o runbook realmente começa a ser executado.
+   O status do trabalho começa como enfileirado, indicando que o trabalho está esperando um trabalhador de runbook na nuvem para se tornar disponível. O status muda para A partir de quando um trabalhador reivindica o trabalho. Finalmente, o status torna-se em execução quando o runbook realmente começa a ser executado.
 
 1. Quando o trabalho do runbook é concluído, o painel Teste exibe sua saída. Neste caso, você `Hello World`vê .
 
@@ -107,7 +107,7 @@ O runbook que você criou ainda está no modo Draft. Você deve publicá-lo ante
 
    ![Resumo do trabalho](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
 
-1. Uma vez que `Completed`o status do runbook seja mostrado, clique **em Saída**. A página Saída é aberta, `Hello World` onde você pode ver sua mensagem.
+1. Uma vez que o status do runbook será concluído, clique **em Saída**. A página Saída é aberta, `Hello World` onde você pode ver sua mensagem.
 
    ![Resumo do trabalho](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
 
@@ -117,7 +117,7 @@ O runbook que você criou ainda está no modo Draft. Você deve publicá-lo ante
 
    ![Resumo do trabalho](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
-1. Feche o painel Streams e o painel de trabalho para retornar à página **MyFirstRunbook.**
+1. Feche o painel Streams e o painel de trabalho para retornar à página MyFirstRunbook.
 1. Clique em **'Empregos** em **Recursos'** para abrir a página Empregos para este manual. Esta página lista todos os trabalhos criados pelo seu manual. Você só deve ver um trabalho listado, já que você executou o trabalho apenas uma vez.
 
    ![Trabalhos](media/automation-first-runbook-textual/runbook-control-job-tile.png)
@@ -126,12 +126,12 @@ O runbook que você criou ainda está no modo Draft. Você deve publicá-lo ante
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Etapa 5: adicionar autenticação para gerenciar recursos do Azure
 
-Você testou e publicou seu runbook, mas, até o momento, ele não faz nada útil. Você gostaria que ele gerencie recursos do Azure. Ele não pode fazer isso a menos que ele autenticausando as credenciais para a assinatura. A autenticação `Connect-AzAccount` usa o cmdlet.
+Você testou e publicou seu runbook, mas, até o momento, ele não faz nada útil. Você gostaria que ele gerencie recursos do Azure. Ele não pode fazer isso a menos que ele autenticausando as credenciais para a assinatura. A autenticação usa o [cmdlet Connect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0)
 
 >[!NOTE]
 >Para runbooks powershell e `Add-AzAccount` `Add-AzureRMAccount` são `Connect-AzAccount`pseudônimos para . Você pode usar esses cmdlets ou atualizar [seus módulos](automation-update-azure-modules.md) em sua conta de Automação para as versões mais recentes. Você pode precisar atualizar seus módulos mesmo se você acabou de criar uma nova conta de Automação.
 
-1. Navegue até a página **MyFirstRunbook-Workflow** e abra o editor textual clicando **em Editar**.
+1. Navegue até a página MyFirstRunbook-Workflow e abra o editor textual clicando **em Editar**.
 2. Apague `Write-Output` a linha.
 3. Posicione o cursor em uma linha em branco entre as chaves.
 4. Digite ou copie e cole o seguinte código, que lida com a autenticação com sua conta Automation Run As.
@@ -213,6 +213,8 @@ Seu runbook atualmente inicia a VM que você codificou no manual. Será mais út
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter mais informações sobre o PowerShell, incluindo os módulos de referência e aprendizagem do idioma, consulte o [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 * Para começar com runbooks gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md).
 * Para começar com os runbooks do PowerShell, consulte [Meu primeiro runbook PowerShell](automation-first-runbook-textual-powershell.md).
 * Para saber mais sobre os tipos de runbook e suas vantagens e limitações, consulte [os tipos de runbook da Azure Automation](automation-runbook-types.md).

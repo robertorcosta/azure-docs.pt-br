@@ -10,13 +10,12 @@ ms.subservice: ''
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 64490bbd44066389186a59e851045b6becbe7acc
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 56d8ab81fcf9200fec2cfb4a741724b8f79db820
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632480"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408036"
 ---
 # <a name="temporary-tables-in-synapse-sql-pool"></a>Mesas temporárias no pool Synapse SQL
 Este artigo contém as diretrizes essenciais de como usar as tabelas temporárias e destaca os princípios das tabelas temporárias no nível da sessão. 
@@ -30,7 +29,14 @@ As tabelas temporárias só são visíveis à sessão em que foram criadas e sã
 
 As tabelas temporárias oferecem um benefício de desempenho, pois seus resultados são gravados no local, em vez do armazenamento remoto.
 
-## <a name="create-a-temporary-table"></a>Criar uma tabela temporária
+Tabelas temporárias são úteis no processamento de dados, especialmente durante a transformação onde os resultados intermediários são transitórios. Com o SQL Analytics, existem tabelas temporárias no nível da sessão.  Eles só são visíveis para a sessão em que foram criados. Como tal, eles são automaticamente descartados quando a sessão é desligada. 
+
+## <a name="temporary-tables-in-sql-pool"></a>Tabelas temporárias no pool SQL
+
+No recurso de pool SQL, as tabelas temporárias oferecem um benefício de desempenho porque seus resultados são escritos para armazenamento local e não remoto.
+
+### <a name="create-a-temporary-table"></a>Criar uma tabela temporária
+
 As tabelas temporárias são criadas simplesmente prefixando o nome da tabela com um `#`.  Por exemplo:
 
 ```sql
@@ -89,7 +95,7 @@ GROUP BY
 ,        st.[has_filter]
 )
 ;
-``` 
+```
 
 > [!NOTE]
 > `CTAS` é um comando potente com a vantagem extra de ser muito eficiente em seu uso do espaço de log das transações. 
@@ -226,5 +232,6 @@ O pool SQL impõe algumas limitações ao implementar tabelas temporárias.  Atu
 Além disso, as visualizações não podem ser criadas em tabelas temporárias.  Tabelas temporárias só podem ser criadas com distribuição de hash ou round robin.  A distribuição temporária da tabela replicada não é suportada. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como desenvolver tabelas, consulte a [Visão geral da tabela](sql-data-warehouse-tables-overview.md).
+
+Para saber mais sobre o desenvolvimento de tabelas, consulte as tabelas de design usando o artigo [de recursos do SQL Analytics.](sql-data-warehouse-tables-overview.md)
 

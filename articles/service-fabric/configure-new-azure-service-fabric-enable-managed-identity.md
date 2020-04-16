@@ -4,16 +4,16 @@ description: Veja como ativar o suporte a identidades gerenciadas em um novo clu
 ms.topic: article
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 0e35d2192fdcdb294b349105f3f0158564cec86b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd0cbd3251185a7831852ead47ca0b120126cf55
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76930473"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415664"
 ---
-# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster-preview"></a>Configure o suporte de identidade gerenciado para um novo cluster de malha de serviço (visualização)
+# <a name="configure-managed-identity-support-for-a-new-service-fabric-cluster"></a>Configure o suporte de identidade gerenciado para um novo cluster de malha de serviço
 
-Para usar [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) em seus aplicativos de malha de serviço, primeiro habilite o *Serviço de Token de Identidade Gerenciado* no cluster. Este serviço é responsável pela autenticação de aplicativos de Malha de Serviço usando suas identidades gerenciadas e pela obtenção de tokens de acesso em seu nome. Uma vez que o serviço esteja ativado, você pode vê-lo no Service Fabric Explorer na seção **Sistema** no painel esquerdo, executando o nome **de malha:/System/ManagedIdentityTokenService** ao lado de outros serviços do sistema.
+Para usar [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) em seus aplicativos de malha de serviço, primeiro habilite o *Serviço de Token de Identidade Gerenciado* no cluster. Este serviço é responsável pela autenticação de aplicativos de Malha de Serviço usando suas identidades gerenciadas e pela obtenção de tokens de acesso em seu nome. Uma vez que o serviço esteja ativado, você pode vê-lo no Service Fabric Explorer na seção **Sistema** no painel esquerdo, executando sob o nome **de malha:/System/ManagedIdentityTokenService** ao lado de outros serviços do sistema.
 
 > [!NOTE]
 > A versão em tempo de execução do Service Fabric 6.5.658.9590 ou superior é necessária para habilitar o **Serviço de Token de Identidade Gerenciado**.  

@@ -3,12 +3,12 @@ title: Gráficos de Comando de Loja
 description: Saiba como armazenar gráficos helm para seus aplicativos Kubernetes usando repositórios no Registro de Contêineres do Azure
 ms.topic: article
 ms.date: 03/20/2020
-ms.openlocfilehash: 6304486ac493e235ed74f26ab4be4f843ef52513
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f1a68258b758380a66b63e3c3137f1d460d288c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131473"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399386"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Empurre e puxe os gráficos do Helm para um registro de contêineres do Azure
 
@@ -41,7 +41,7 @@ Você pode usar o Helm 3 ou o Helm 2 para hospedar gráficos Helm no Registro de
 - **Um registro de contêiner do Azure** em sua assinatura do Azure. Se necessário, crie um registro usando o [portal Azure](container-registry-get-started-portal.md) ou o [Azure CLI](container-registry-get-started-azure-cli.md).
 - **Versão do cliente Helm 3.1.0 ou posterior** - Corra `helm version` para encontrar sua versão atual. Para saber mais sobre como instalar e usar o Helm, consulte [Instalar o Helm][helm-install].
 - **Um cluster Kubernetes** onde você instalará um gráfico Helm. Se necessário, crie [um cluster Azure Kubernetes Service][aks-quickstart]. 
-- **Azure CLI versão 2.0.71** `az --version` ou posterior - Corra para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI][azure-cli-install].
+- **Azure CLI versão 2.0.71** `az --version` ou posterior - Corra para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ### <a name="high-level-workflow"></a>Fluxo de trabalho de alto nível
 
@@ -77,18 +77,21 @@ helm create hello-world
 Como exemplo básico, altere `templates` o diretório para a pasta e primeiro exclua o conteúdo lá:
 
 ```console
+cd hello-world/templates
 rm -rf *
 ```
 
 Na `templates` pasta, crie um `configmap.yaml` arquivo chamado com os seguintes conteúdos:
 
-```yml
+```console
+cat <<EOF > configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: hello-world-configmap
 data:
   myvalue: "Hello World"
+EOF
 ```
 
 Para obter mais informações sobre como criar e executar este exemplo, consulte [Getting Started](https://helm.sh/docs/chart_template_guide/getting_started/) no Helm Docs.
@@ -175,7 +178,7 @@ A saída é semelhante a:
 }
 ```
 
-Execute o comando [az acr repositório show-manifests][az-acr-repository-show-manifests] para ver detalhes do gráfico armazenado no repositório. Por exemplo: 
+Execute o comando [az acr repositório show-manifests][az-acr-repository-show-manifests] para ver detalhes do gráfico armazenado no repositório. Por exemplo:
 
 ```azurecli
 az acr repository show-manifests \
@@ -243,7 +246,7 @@ version: 0.1.0
 
 ### <a name="install-helm-chart"></a>Instale o gráfico Helm
 
-Execute `helm install` para instalar o gráfico Helm que você puxou para o cache local e exportou. Especifique um nome de lançamento `--generate-name` como *myhelmtest*ou passe o parâmetro. Por exemplo: 
+Execute `helm install` para instalar o gráfico Helm que você puxou para o cache local e exportou. Especifique um nome de lançamento `--generate-name` como *myhelmtest*ou passe o parâmetro. Por exemplo:
 
 ```console
 helm install myhelmtest ./hello-world
@@ -282,7 +285,7 @@ az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
 
 - **Um registro de contêiner do Azure** em sua assinatura do Azure. Se necessário, crie um registro usando o [portal Azure](container-registry-get-started-portal.md) ou o [Azure CLI](container-registry-get-started-azure-cli.md).
 - **Versão de cliente do Helm 2.11.0 (não uma versão RC) ou posterior**: execute `helm version` para descobrir sua versão atual. Também é necessário um servidor do Helm (Tiller) inicializado dentro de um cluster Kubernetes. Se necessário, crie [um cluster Azure Kubernetes Service][aks-quickstart]. Para saber mais sobre como instalar e usar o Helm, consulte [Instalar o Helm][helm-install-v2].
-- **CLI do Azure versão 2.0.46 ou posterior** – Execute `az --version` para localizar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI][azure-cli-install].
+- **CLI do Azure versão 2.0.46 ou posterior** – Execute `az --version` para localizar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ### <a name="high-level-workflow"></a>Fluxo de trabalho de alto nível
 

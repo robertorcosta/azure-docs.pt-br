@@ -3,14 +3,14 @@ title: Implantar aplicativo com uma identidade gerenciada atribuída pelo usuár
 description: Este artigo mostra como implantar o aplicativo Service Fabric com uma identidade gerenciada atribuída pelo usuário
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: a5eeaf0d6420fa36c0a78f7553ddfd82197d8ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9aef81db7a455b72c83cf96898a0c228f1c382fd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610328"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415636"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>Implantar o aplicativo Service Fabric com uma visualização (visualização) de identificação gerenciada atribuída pelo usuário
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Implantar aplicativo de malha de serviço com uma identidade gerenciada atribuída pelo usuário
 
 Para implantar um aplicativo de malha de serviço com identidade gerenciada, o aplicativo precisa ser implantado através do Azure Resource Manager, normalmente com um modelo do Azure Resource Manager. Para obter mais informações sobre como implantar o aplicativo Service Fabric através do Azure Resource Manager, consulte [Gerenciar aplicativos e serviços como recursos do Azure Resource Manager](service-fabric-application-arm-resource.md).
 

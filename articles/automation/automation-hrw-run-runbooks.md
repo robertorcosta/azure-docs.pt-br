@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 902734ddc7195d643c3aedb4054f57723d1a51c2
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: b65c72e0c65cf9aa84cb614478fbdf78258f3054
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632130"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405818"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks em um Hybrid Runbook Worker
 
@@ -27,7 +27,7 @@ Como eles estão acessando recursos não-Azure, os runbooks que executam em um H
 
 ### <a name="runbook-authentication"></a>Autenticação de runbook
 
-Por padrão, os runbooks são executados no computador local. Para windows, eles são executados no contexto da conta do sistema local. Para Linux, eles são executados no contexto da conta de usuário especial **nxautomation**. Em ambos os cenários, os runbooks devem fornecer sua própria autenticação aos recursos que eles acessam.
+Por padrão, os runbooks são executados no computador local. Para windows, eles são executados no contexto da conta do **sistema** local. Para Linux, eles são executados no contexto da conta de usuário especial **nxautomation**. Em ambos os cenários, os runbooks devem fornecer sua própria autenticação aos recursos que eles acessam.
 
 Você pode usar [ativos de credencial](automation-credentials.md) e [certificado](automation-certificates.md) em seu livro de execução com cmdlets que permitem especificar credenciais para que o runbook possa autenticar para diferentes recursos. O exemplo a seguir mostra uma parte de um runbook que reinicia um computador. Ele recupera credenciais de um ativo de credencial e o nome do computador `Restart-Computer` a partir de um ativo variável e, em seguida, usa esses valores com o cmdlet.
 
@@ -84,7 +84,7 @@ Siga os próximos passos para usar uma identidade gerenciada para os recursos do
 ```
 
 > [!NOTE]
-> `Connect-AzAccount -Identity`funciona para um Trabalhador de Runbook Híbrido usando uma identidade atribuída ao sistema e uma única identidade atribuída pelo usuário. Se você usar várias identidades atribuídas pelo usuário no Hybrid Runbook Worker, `Connect-AzAccount` seu manual deverá especificar o parâmetro *AccountId* para selecionar uma identidade específica atribuída pelo usuário.
+> `Connect-AzAccount -Identity`funciona para um Trabalhador de Runbook Híbrido usando uma identidade atribuída ao sistema e uma única identidade atribuída pelo usuário. Se você usar várias identidades atribuídas pelo usuário no Hybrid `AccountId` Runbook `Connect-AzAccount` Worker, seu manual deverá especificar o parâmetro para selecionar uma identidade específica atribuída pelo usuário.
 
 ### <a name="automation-run-as-account"></a><a name="runas-script"></a>Conta de automação Executar como
 
@@ -166,7 +166,7 @@ Para terminar de preparar a conta Run As:
 
 1. Salve o **manual export-RunAsCertificateToHybridWorker** no seu computador com uma extensão **.ps1.**
 2. Importe-o para sua conta de Automação.
-3. Edite o manual, alterando `Password` o valor da variável o sua própria senha. 
+3. Edite o manual, alterando `Password` o valor da variável para sua própria senha. 
 4. Publique o manual.
 5. Execute o manual, visando o grupo Hybrid Runbook Worker que executa e autentica runbooks usando a conta Executar As. 
 6. Examine o fluxo de trabalho para ver se ele relata a tentativa de importar o certificado para a loja de máquinas local, e segue com várias linhas. Esse comportamento depende de quantas contas de Automação você define em sua assinatura e o grau de sucesso da autenticação.
@@ -185,14 +185,14 @@ Lembre-se que os trabalhos para trabalhadores do runbook híbrido são executado
 
 Ao iniciar um runbook no portal Azure, você é apresentado com a opção **Executar na** qual você pode selecionar **Azure** ou **Hybrid Worker**. Se você selecionar **Hybrid Worker,** você pode escolher o grupo Hybrid Runbook Worker a partir de uma gota.
 
-Use `RunOn` o parâmetro `Start-AzureAutomationRunbook` com o cmdlet. O exemplo a seguir usa o Windows PowerShell para iniciar um runbook chamado **Test-Runbook** em um grupo híbrido de trabalhador de runbook chamado MyHybridGroup.
+Use `RunOn` o parâmetro com o [cmdlet Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) O exemplo a seguir usa o Windows PowerShell para iniciar um runbook chamado **Test-Runbook** em um grupo híbrido de trabalhador de runbook chamado MyHybridGroup.
 
 ```azurepowershell-interactive
-Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
+Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
 > [!NOTE]
-> O `RunOn` parâmetro foi `Start-AzureAutomationRunbook` adicionado na versão 0.9.1 do Microsoft Azure PowerShell. Você deve [baixar a versão mais recente](https://azure.microsoft.com/downloads/) se tiver uma anterior instalada. Instale esta versão apenas na estação de trabalho onde você está iniciando o runbook do PowerShell. Você não precisa instalá-lo no computador Hybrid Runbook Worker, a menos que você pretenda iniciar runbooks a partir deste computador.
+> Você deve [baixar a versão mais recente do PowerShell](https://azure.microsoft.com/downloads/) se tiver uma anterior instalada. Instale esta versão apenas na estação de trabalho onde você está iniciando o runbook do PowerShell. Você não precisa instalá-lo no computador Hybrid Runbook Worker, a menos que você pretenda iniciar runbooks a partir deste computador.
 
 ## <a name="working-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Trabalhando com runbooks assinados em um Trabalhador de Runbook Híbrido do Windows
 
@@ -307,7 +307,7 @@ Depois de configurar a validação de assinatura, use o seguinte comando GPG par
 gpg –-clear-sign <runbook name>
 ```
 
-O manual assinado `<runbook name>.asc`é chamado.
+O runbook assinado é chamado ** <runbook name>.asc**.
 
 Agora você pode carregar o manual assinado para o Azure Automation e executá-lo como um runbook regular.
 
@@ -317,3 +317,5 @@ Agora você pode carregar o manual assinado para o Azure Automation e executá-l
 * Para entender como usar o editor textual para trabalhar com runbooks powershell no Azure Automation, consulte [Edição de um Runbook na Automação Azure](automation-edit-textual-runbook.md).
 * Se seus runbooks não forem concluídos com sucesso, revise o guia de solução de problemas para [falhas de execução de runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 * Para obter mais informações sobre o PowerShell, incluindo os módulos de referência e aprendizagem do idioma, consulte o [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

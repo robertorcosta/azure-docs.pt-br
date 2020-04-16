@@ -4,19 +4,19 @@ description: Descreve como usar a API Rest do Azure Analysis Services para codif
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6457f062a40e60a491220fcf977585e8b07445b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5f6cec8b7fd1169a4f04649fcaf7bb7ada33833
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273711"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406281"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 
-Ao usar qualquer linguagem de programação que seja compatível com chamadas REST, você pode executar operações de atualização de dados assíncronas em seus modelos de tabela do Azure Analysis Services. Isso inclui a sincronização de réplicas somente leitura para expansão de consulta. 
+Usando qualquer linguagem de programação que suporte chamadas REST, você pode executar operações assíncronas de atualização de dados em seus modelos tabulares do Azure Analysis Services. Isso inclui a sincronização de réplicas somente leitura para expansão de consulta. 
 
 As operações de atualização de dados podem levar algum tempo, dependendo de uma série de fatores, incluindo volume de dados, nível de otimização usando partições, etc. Essas operações têm sido tradicionalmente invocadas com métodos existentes, como o uso de [TOM](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) cmdlets ou [TMSL](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). No entanto, esses métodos geralmente exigem conexões HTTP não confiáveis de execução longa.
 
@@ -208,8 +208,8 @@ Aqui está um exemplo de código em C# para você começar, [RestApiSample on Gi
 
 ### <a name="to-use-the-code-sample"></a>Para usar o exemplo de código
 
-1.  Clone ou baixe o repositório. Abra a solução RestApiSample.
-2.  Localize a linha **client.BaseAddress = …** e forneça sua [URL base](#base-url).
+1.    Clone ou baixe o repositório. Abra a solução RestApiSample.
+2.    Localize a linha **client.BaseAddress = …** e forneça sua [URL base](#base-url).
 
 A amostra de código usa autenticação [principal do serviço.](#service-principal)
 
@@ -217,9 +217,9 @@ A amostra de código usa autenticação [principal do serviço.](#service-princi
 
 Consulte [Criar entidade de serviço - portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md) e [Adicionar uma entidade de serviço à função de administrador de servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar uma entidade de serviço e atribuir as permissões necessárias no Azure AS. Ao concluir as etapas, execute as seguintes etapas adicionais:
 
-1.  No exemplo de código, localize **string authority = …**, substitua **common** pela ID de locatário da sua organização.
-2.  Comente/remova a marca de comentário para que a classe ClientCredential seja usada para instanciar o objeto de credencial. Verifique se os valores \<App ID> e \<App Key> podem ser acessados de forma segura ou use autenticação baseada em certificado para as entidades de serviço.
-3.  Execute o exemplo.
+1.    Na amostra de código, encontre **a autoridade da corda = ...**, substitua-a **comum** pelo ID do inquilino da sua organização.
+2.    Comente/remova a marca de comentário para que a classe ClientCredential seja usada para instanciar o objeto de credencial. Verifique se os valores \<App ID> e \<App Key> podem ser acessados de forma segura ou use autenticação baseada em certificado para as entidades de serviço.
+3.    Execute o exemplo.
 
 
 ## <a name="see-also"></a>Confira também

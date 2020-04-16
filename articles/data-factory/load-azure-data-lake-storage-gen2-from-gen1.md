@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 81f8577592f1d53627bc09a2f9ace8c060ad4660
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 6655510a4cfdb88e98319c7fc26c7ae83255bb6f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668864"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415817"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiar dados do Azure Data Lake Storage Gen1 para Gen2 com o Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 O Azure Data Lake Storage Gen2 é um conjunto de recursos dedicados à análise de big data que é incorporado ao [armazenamento Azure Blob](../storage/blobs/storage-blobs-introduction.md). Você pode usá-lo para interagir com seus dados usando paradigmas de armazenamento de arquivos e objetos.
 
@@ -105,7 +107,7 @@ Este artigo mostra como usar a ferramenta de dados de cópia da Fábrica de Dado
 
    a. Selecione sua conta com capacidade para armazenamento de dados Gen2 na lista de desígeração do nome da **conta armazenamento.**
    
-   b. Selecione **Concluir** para criar a conexão. Em seguida, selecione **Next**.
+   b. Selecione **Concluir** para criar a conexão. Em seguida, selecione **Avançar**.
    
    ![Especificar a conta do Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 

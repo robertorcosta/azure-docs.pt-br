@@ -8,14 +8,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: d6885e9b30cc71bda822a29574c4d574f2b020a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d629a9031f032a77efc953311a45b55996568191
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72387045"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414382"
 ---
 # <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Processe arquivos de texto de comprimento fixo usando fluxos de dados de mapeamento da fábrica de dados
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Usando fluxos de dados de mapeamento no Microsoft Azure Data Factory, você pode transformar dados de arquivos de texto de largura fixa. Na tarefa seguinte, definiremos um conjunto de dados para um arquivo de texto sem um delimitador e, em seguida, configuraremos divisões de substring com base na posição ordinal.
 

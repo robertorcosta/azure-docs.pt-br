@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 6e2a90b8f81b9b945905ee98beb1686c54a62e8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 733a85e492185e7e83922a3cc91d53c848b939a1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063749"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411140"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configure chaves gerenciadas pelo cliente para sua conta Azure Cosmos com o Azure Key Vault
 
@@ -93,7 +93,7 @@ Quando você criar uma nova conta Azure Cosmos DB no portal Azure, escolha a **c
 
 Quando você cria uma nova conta do Azure Cosmos DB com o PowerShell:
 
-- Passe o URI da chave do Azure Key Vault copiado anteriormente a **propriedade keyVaultKeyUri** no **PropertyObject**.
+- Passe o URI da chave do Azure Key Vault copiado anteriormente sob a **propriedade keyVaultKeyUri** no **PropertyObject**.
 
 - Use **2019-12-12** como a versão da API.
 
@@ -124,7 +124,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 Quando você cria uma nova conta do Azure Cosmos através de um modelo do Azure Resource Manager:
 
-- Passe o URI da chave Azure Key Vault que você copiou anteriormente a **propriedade keyVaultKeyUri** no objeto **propriedades.**
+- Passe o URI da chave Azure Key Vault que você copiou anteriormente sob a **propriedade keyVaultKeyUri** no objeto **propriedades.**
 
 - Use **2019-12-12** como a versão da API.
 
@@ -189,7 +189,7 @@ New-AzResourceGroupDeployment `
 
 ### <a name="using-the-azure-cli"></a>Usando a CLI do Azure
 
-Quando você criar uma nova conta do Azure Cosmos através da CLI do Azure, passe o URI da chave Do Cofre chave do Azure que você copiou anteriormente o parâmetro **--key-uri.**
+Quando você criar uma nova conta do Azure Cosmos através da CLI do Azure, passe o URI da chave Do Cofre chave do Azure que você copiou anteriormente sob o parâmetro **--key-uri.**
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -231,7 +231,7 @@ Não no momento, mas as chaves do nível de contêiner estão sendo consideradas
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>Como as chaves gerenciadas pelo cliente afetam um backup?
 
-O Azure Cosmos DB faz [backups regulares e automáticos](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) dos dados armazenados em sua conta. Esta operação faz backup dos dados criptografados. Para usar o backup restaurado, a chave de criptografia usada no momento do backup é necessária. Isso significa que nenhuma revogação foi feita e a versão da chave que foi usada no momento do backup ainda será ativada.
+O Azure Cosmos DB faz [backups regulares e automáticos](./online-backup-and-restore.md) dos dados armazenados em sua conta. Esta operação faz backup dos dados criptografados. Para usar o backup restaurado, a chave de criptografia usada no momento do backup é necessária. Isso significa que nenhuma revogação foi feita e a versão da chave que foi usada no momento do backup ainda será ativada.
 
 ### <a name="how-do-i-revoke-an-encryption-key"></a>Como revogo uma chave de criptografia?
 

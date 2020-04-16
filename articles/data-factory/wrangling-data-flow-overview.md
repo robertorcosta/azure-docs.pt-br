@@ -7,14 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 8f91ed926c733b211443805722b6817b1ce005b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71df574602518fdc252d9d86859ed772a17be443
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77048356"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408971"
 ---
 # <a name="what-are-wrangling-data-flows"></a>O que estão disputando fluxos de dados?
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 As organizações precisam fazer a preparação de dados e a disputa para uma análise precisa de dados complexos que continuam a crescer a cada dia. A preparação dos dados é necessária para que as organizações possam usar os dados em vários processos de negócios e reduzir o tempo de valorização.
 
@@ -42,10 +44,10 @@ Escaneie visualmente seus dados de forma livre de código para remover quaisquer
 
 | Conector | Formato de dados | Tipo de autenticação |
 | -- | -- | --|
-| [Armazenamento azure Blob](connector-azure-blob-storage.md) | CSV | Chave de conta |
+| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | CSV | Chave de conta |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Entidade de Serviço |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV | Chave da conta, diretor de serviços |
-| [Banco de dados SQL do Azure](connector-azure-sql-database.md) | - | Autenticação SQL |
+| [Banco de Dados SQL do Azure](connector-azure-sql-database.md) | - | Autenticação SQL |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Autenticação SQL |
 
 ## <a name="the-mashup-editor"></a>O editor de mashup

@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: jingwang
-ms.openlocfilehash: b73cd73a18d286f221c7be2c624719e1d23d7c06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5ce1b85394a7bb604841f7fb941bdebf12c0bca2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153821"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414163"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Preservar metadados e ACLs usando a atividade de cópia na fábrica de dados do Azure
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Quando você usa a atividade de cópia do Azure Data Factory para copiar dados da origem para o afundamento, nos seguintes cenários, você também pode preservar os metadados e As ACLs junto.
 
@@ -86,7 +88,7 @@ A atividade de cópia suporta a preservação dos seguintes tipos de ACLs durant
 - **Proprietário**: Copie e preserve o usuário proprietário de arquivos e diretórios. O acesso do superusuário ao sink Data Lake Storage Gen2 é necessário.
 - **Grupo**: Copiar e preservar o grupo de arquivos e diretórios. O acesso do superusuário ao sink Data Lake Storage Gen2 ou ao usuário dono (se o usuário que possui também é um membro do grupo-alvo) é necessário.
 
-Se você especificar para copiar a partir de uma pasta, data factory replicará as ACLs para a pasta dada e os arquivos e diretórios ela, se `recursive` for definido como verdadeiro. Se você especificar para copiar a partir de um único arquivo, as ACLs nesse arquivo serão copiadas.
+Se você especificar para copiar a partir de uma pasta, data factory replicará as ACLs para a pasta dada e os arquivos e diretórios sob ela, se `recursive` for definido como verdadeiro. Se você especificar para copiar a partir de um único arquivo, as ACLs nesse arquivo serão copiadas.
 
 >[!NOTE]
 >Quando você usa ADF para preservar ACLs de Data Lake Storage Gen1/Gen2 para Gen2, as ACLs existentes na pasta/arquivos correspondentes do Sink Gen2 serão substituídas.

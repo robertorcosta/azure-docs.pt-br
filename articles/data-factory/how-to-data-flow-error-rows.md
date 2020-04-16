@@ -8,14 +8,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: makromer
-ms.openlocfilehash: 3fe3403ad06d82ba5ccd33d2718bf0e5eff64490
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f65421a6457d4bf4d438ce9d035d46476829da2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73166532"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414368"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Lidar com as linhas de erro de truncamento SQL nos fluxos de dados de mapeamento da Fábrica de Dados
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Um cenário comum na Fábrica de Dados ao usar fluxos de dados de mapeamento, é escrever seus dados transformados em um banco de dados SQL do Azure. Neste cenário, uma condição de erro comum que você deve prevenir contra é possível truncação da coluna. Siga essas etapas para fornecer o registro de colunas que não se encaixam em uma coluna de string de destino, permitindo que seu fluxo de dados continue nesses cenários.
 

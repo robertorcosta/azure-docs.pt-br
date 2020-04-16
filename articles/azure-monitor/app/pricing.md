@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9ecd0ffd76650efff3a4c9f877522cba6f28d080
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 0225484de06ae4e595f1dcbcdd520f4e0e4d53f5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271107"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405382"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos do Application Insights
 
@@ -28,7 +28,7 @@ O preço do [Azure Application Insights][start] é um modelo **Pay-As-You-Go** b
 
 Há uma cobrança adicional para [testes na Web de várias etapas](../../azure-monitor/app/availability-multistep.md). Testes na Web de várias etapas se referem a testes na Web que executam uma sequência de ações. Não há nenhuma cobrança separada para *testes de ping* de uma única página. A telemetria de testes de ping e de testes de várias etapas é cobrada da mesma forma que outras telemetrias do seu aplicativo.
 
-A opção Application Insights para [Permitir o alerta sobre dimensões métricas personalizadas](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) também pode gerar custos adicionais, pois isso pode resultar na criação de métricas adicionais de pré-agregação. [Saiba mais] sobre métricas baseadas em log e pré-agregados no Application Insights e sobre [preços](https://azure.microsoft.com/pricing/details/monitor/) para métricas personalizadas do Azure Monitor.
+A opção Application Insights para [Permitir o alerta sobre dimensões métricas personalizadas](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) também pode gerar custos adicionais, pois isso pode resultar na criação de métricas adicionais de pré-agregação. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics) sobre métricas baseadas em log e pré-agregadas no Application Insights e sobre [preços](https://azure.microsoft.com/pricing/details/monitor/) para métricas personalizadas do Azure Monitor.
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Estimando os custos para gerenciar sua aplicação
 
@@ -218,7 +218,9 @@ Para alterar a retenção, a partir do recurso Application Insights, vá até a 
 
 ![Ajustar o limite de volume de telemetria diário](./media/pricing/pricing-005.png)
 
-A retenção também pode ser [definida programaticamente usando o PowerShell](powershell.md#set-the-data-retention) usando o `retentionInDays` parâmetro. Quando a retenção é reduzida, há um período de carência de vários dias antes que os dados mais antigos sejam removidos. Se você definir a retenção de dados para 30 dias, `immediatePurgeDataOn30Days` você pode desencadear uma eliminação imediata de dados mais antigos usando o parâmetro, o que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade de purga só é exposta via Azure Resource Manager e deve ser usada com extremo cuidado. O tempo de reset diário para a tampa do volume de `dailyQuotaResetTime` dados pode ser configurado usando o Azure Resource Manager para definir o parâmetro.
+Quando a retenção é reduzida, há um período de carência de vários dias antes que os dados mais antigos sejam removidos.
+
+A retenção também pode ser [definida programaticamente usando o PowerShell](powershell.md#set-the-data-retention) usando o `retentionInDays` parâmetro. Se você definir a retenção de dados para 30 dias, `immediatePurgeDataOn30Days` você pode desencadear uma eliminação imediata de dados mais antigos usando o parâmetro, o que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade de purga só é exposta via Azure Resource Manager e deve ser usada com extremo cuidado. O tempo de reset diário para a tampa do volume de `dailyQuotaResetTime` dados pode ser configurado usando o Azure Resource Manager para definir o parâmetro.
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Taxas de transferência de dados usando insights de aplicativos
 

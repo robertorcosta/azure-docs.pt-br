@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/11/2018
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae3ace24d6f33702c15a364b913f841d90fd8872
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d1246b5b980f60c2f3e65aa5b32a7d79dd6efc7d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654188"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407171"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -235,7 +235,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: Existe uma API para acessar os dados de redefinição de senha ou relatórios de registro?**
 
-  > **A:** Sim. Para saber como é possível acessar o fluxo de dados do relatório de redefinição de senha, consulte [Saiba como acessar eventos de relatório de redefinição de senha de maneira programática](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **A:** Sim. Para saber como você pode acessar os dados de relatórios de redefinição de senha, consulte o [Azure Log Analytics REST API Reference](/rest/api/loganalytics/).
   >
   >
 

@@ -2,16 +2,16 @@
 title: Configure o suporte de identidade gerenciado em um cluster de malha de serviço existente
 description: Veja como ativar o suporte a identidades gerenciadas em um cluster de malha de serviço azure existente
 ms.topic: article
-ms.date: 12/09/2019
+ms.date: 03/11/2019
 ms.custom: sfrev
-ms.openlocfilehash: 396978546b301884087c4ea51e242258d64a6b0b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 73c890e960f26b8e0e3fa924d9ff6b7a4cd4a4dc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983799"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415684"
 ---
-# <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster-preview"></a>Configure o suporte de identidade gerenciado em um cluster de malha de serviço existente (visualização)
+# <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster"></a>Configure o suporte de identidade gerenciado em um cluster de malha de serviço existente
 
 Para usar [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) em seus aplicativos de malha de serviço, primeiro habilite o *Serviço de Token de Identidade Gerenciado* no cluster. Este serviço é responsável pela autenticação de aplicativos de Malha de Serviço usando suas identidades gerenciadas e pela obtenção de tokens de acesso em seu nome. Uma vez ativado o serviço, você pode vê-lo no Service Fabric Explorer na seção **Sistema** no painel esquerdo, executando sob o nome **de tecido:/System/ManagedIdentityTokenService**.
 

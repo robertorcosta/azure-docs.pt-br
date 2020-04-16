@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: c239f7062dc39492a0cf63ac3aadbaf94acbf032
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 8573a88d5371bbde07a541c789f52e6c44f1e279
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80680434"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411125"
 ---
 # <a name="system-requirements"></a>Requisitos do sistema
 
 > [!IMPORTANT]
-> **A renderização remota do Azure** está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> No momento, o **Azure Remote Rendering** está em versão prévia pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este capítulo lista os requisitos mínimos do sistema para trabalhar com a Renderização Remota (ARR) do *Azure.*
 
@@ -45,7 +45,7 @@ Mesmo que o codec H265 correto possa ser instalado, as propriedades de seguranç
 
 ## <a name="devices"></a>Dispositivos
 
-A renderização remota do Azure atualmente só suporta **O HoloLens 2** e o Windows desktop UWP como um dispositivo de destino.
+Atualmente, a renderização remota do Azure suporta apenas a área de trabalho **hololens 2** e windows como um dispositivo de destino. Consulte a seção limitações da [plataforma.](../reference/limits.md#platform-limitations)
 
 É importante usar o codec HEVC mais recente, pois as versões mais recentes têm melhorias significativas na latência. Para verificar qual versão está instalada no seu dispositivo:
 
@@ -77,11 +77,11 @@ O seguinte software deve ser instalado:
 
 Para desenvolvimento com unity, instale
 
-* Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
-* Instale esses módulos no Unity:
-  * **UWP** - Suporte universal de construção de plataforma do Windows
-  * **IL2CPP** - Suporte à construção do Windows (IL2CPP)
+* Unity 2019.3.1 [(baixar)](https://unity3d.com/get-unity/download)
+* Instale estes módulos no Unity:
+  * **UWP** – Suporte ao Build da Plataforma Universal do Windows
+  * **IL2CPP** – Suporte ao Build do Windows (IL2CPP)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Quickstart: Render um modelo com Unity](../quickstarts/render-model.md)
+* [Início Rápido: Renderizar um modelo com o Unity](../quickstarts/render-model.md)

@@ -6,18 +6,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6bd360b2075c337e3ed3d69d84368d16571a9335
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcef0574e16e0b4d28755716c32670b00c65af14
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536047"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406099"
 ---
 # <a name="my-first-graphical-runbook"></a>O meu primeiro runbook gráfico
 
 > [!div class="op_single_selector"]
 > * [Gráfico](automation-first-runbook-graphical.md)
-> * [Powershell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
@@ -100,7 +100,7 @@ O runbook que você criou ainda está no modo Draft. Ele precisa ser publicado a
 1. Clique em **Todos os Logs** para abrir o painel Fluxos do trabalho do runbook. Você só `Hello World` deve ver no fluxo de saída. 
 
     Observe que o painel Streams pode mostrar outros fluxos para um trabalho de runbook, como verbose e fluxos error, se o runbook escrever para eles.
-1. Feche o painel Streams e o painel de trabalho para retornar à página **MyFirstRunbook-Graphical.**
+1. Feche o painel Streams e o painel de trabalho para retornar à página MyFirstRunbook-Graphical.
 1. Para ver todos os trabalhos do manual, selecione **Empregos** em **Recursos**. A página Jobs lista todos os trabalhos criados pelo seu manual. Você deve ver apenas um trabalho listado, uma vez que você só executou o trabalho uma vez.
 1. Clique no nome do trabalho para abrir o mesmo painel de trabalho que você visualizou quando começou o runbook. Use este painel para ver os detalhes de qualquer trabalho criado para o runbook.
 
@@ -126,7 +126,7 @@ Agora que você tem uma variável para segurar o ID de assinatura, você pode co
 >[!NOTE]
 >Para runbooks powershell e `Add-AzAccount` `Add-AzureRMAccount` são `Connect-AzAccount`pseudônimos para . Observe que esses pseudônimos não estão disponíveis para seus runbooks gráficos. Um runbook gráfico só `Connect-AzAccount`pode usar a si mesmo.
 
-1. Navegue até o seu runbook e selecione **Editar** na página **MyFirstRunbook-Graphical.**
+1. Navegue até o seu runbook e selecione **Editar** na página MyFirstRunbook-Graphical.
 1. Você não precisa `Write Hello World to output` mais da entrada. Basta clicar na elipse e selecionar **Excluir**.
 1. No controle da Biblioteca, expanda **ativos**e, em seguida, **conexões**. Adicione `AzureRunAsConnection` à tela selecionando **Adicionar à tela**.
 1. Renomeie `AzureRunAsConnection` para `Get Run As Connection`.
@@ -185,7 +185,7 @@ Agora você deve `Start-AzVM` adicionar uma atividade para iniciar uma máquina 
 
 Seu runbook atualmente inicia a VM no grupo `Start-AzVM` de recursos que você especificou para o cmdlet. O runbook será mais útil se você especificar o nome e o grupo de recursos quando o runbook for iniciado. Vamos adicionar parâmetros de entrada ao manual para fornecer essa funcionalidade.
 
-1. Abra o editor gráfico clicando em **Editar** no painel **MyFirstRunbook-Graphical**.
+1. Abra o editor gráfico clicando em **Editar** na página MyFirstRunbook-Graphical.
 1. Selecione **Entrada e saída** e em **Adicionar entrada** para abrir o painel Parâmetro de Entrada do Runbook.
 1. Faça as seguintes configurações nos campos fornecidos e clique em **OK**.
    * **Nome** - `VMName`especificar .
@@ -243,7 +243,7 @@ Agora você pode modificar o manual de execução para que ele só tente iniciar
 1. Para o `Write-Output` primeiro controle, clique **em Parâmetros** e altere o valor **do rótulo** para Notificar **o VM Started**.
 1. Para **InputObject,** altere a **fonte de dados** para a expressão **PowerShell**e digite a expressão `$VMName successfully started.`.
 1. No segundo `Write-Output` controle, clique **em Parâmetros** e altere o valor **do rótulo** para notificar falha de início **de VM**.
-1. Para **InputObject,** altere a **fonte de dados** para a expressão **PowerShell**e digite a expressão `$VMName could not start.`.
+1. Para **InputObject,** altere a **fonte de dados** para a expressão **PowerShell**e digite a expressão `$VMName could not start`.
 1. Criar links `Start-AzVM` `Notify VM Started` de `Notify VM Start Failed`para e .
 1. Selecione o `Notify VM Started` link e **altere Aplicar condição** para true.
 1. Para a expressão `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true` **Condição,** digite . Este `Write-Output` controle agora só é executado se a VM começar com sucesso.
@@ -259,3 +259,5 @@ Agora você pode modificar o manual de execução para que ele só tente iniciar
 * Para saber mais sobre a autoria gráfica, consulte [a autoria gráfica no Azure Automation](automation-graphical-authoring-intro.md).
 * Para começar com os runbooks do PowerShell, consulte [Meu primeiro runbook PowerShell](automation-first-runbook-textual-powershell.md).
 * Para começar com os runbooks do PowerShell Workflow, consulte [Meu primeiro runbook de fluxo de trabalho PowerShell](automation-first-runbook-textual.md).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f35a5da15ca1a672046844282626a6cb7b8ecbdf
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: fbdf0fda51ae35fac4f3f8ae45bfcd788fc406ae
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583523"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413996"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Azure Synapse Analytics (anteriormente SQL DW) limites de capacidade
 
@@ -42,7 +42,7 @@ Valores máximos permitidos para vários componentes do Azure Sinapse.
 | Tabela |Tamanho máx. |Tamanho ilimitado para tabelas de columnstore. <br>60 TB para tabelas de armazenamento de linhas compactadas no disco. |
 | Tabela |Tabelas por banco de dados | 100.000 |
 | Tabela |Colunas por tabela |1024 colunas |
-| Tabela |Bytes por coluna |Dependente do [tipo de dados](sql-data-warehouse-tables-data-types.md) da coluna. Para tipos de dados de caracteres, o MAX Limit pode armazenar até 2 GB em armazenamento off page (estouro de linha).  Caracteres não Unicode como char ou varchar limite é 8000 em uma página de dados, caracteres Unicode como nchar ou nvarchar limite é 4000 em uma página de dados.  Use tamanhos de armazenamento de páginas de dados para aumentar o desempenho. |
+| Tabela |Bytes por coluna |Dependente do [tipo de dados](sql-data-warehouse-tables-data-types.md) da coluna. O limite é de 8000 para tipos de dados char, 4000 para nvarchar ou 2 GB para tipos de dados MAX. |
 | Tabela |Bytes por linha, tamanho definido |8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma maneira que no SQL Server, com a compactação de página. Como o SQL Server, o armazenamento de estouro de linha é suportado, o que permite que **colunas de comprimento variável** sejam empurradas para fora da linha. Quando as linhas de comprimento variável são colocadas para fora da linha, apenas a raiz de 24 bytes é armazenada no registro principal. Para obter mais informações, consulte [Dados de estouro de linha que excedem 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Tabela |Partições por tabela |15,000<br/><br/>Para alto desempenho, recomendamos minimizar o número de partições necessárias e, ao mesmo tempo, dar suporte aos seus requisitos de negócios. À medida que o número de partições aumenta, a sobrecarga de operações de DDL (Linguagem de Definição de Dados) e DML (Linguagem de Manipulação de Dados) também aumenta e faz com que o desempenho fique mais lento. |
 | Tabela |Caracteres por valor de limite de partição. |4000 |
@@ -54,7 +54,7 @@ Valores máximos permitidos para vários componentes do Azure Sinapse.
 | Estatísticas |As colunas por objeto de estatísticas. |32 |
 | Estatísticas |As estatísticas criadas em colunas por tabela. |30,000 |
 | Procedimentos armazenados |Os níveis máximos de aninhamento. |8 |
-| Exibir |Colunas por exibição |1.024 |
+| Visualizar |Colunas por exibição |1.024 |
 ||||
 
 ## <a name="loads"></a>Cargas

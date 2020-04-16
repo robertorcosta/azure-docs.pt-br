@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: 4a489993f982993d5703a9b46d42fffaa6134038
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d2138935122b9e08b21963519fce3f72466ab1f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259052"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414505"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gerenciar segredos criptografados nos aplicativos do Service Fabric
 Este guia explica as etapas do gerenciamento de segredos em um aplicativo do Service Fabric. Os segredos podem ser informações confidenciais, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser tratados como texto sem formatação.
@@ -57,6 +57,11 @@ Os segredos também devem ser incluídos no seu aplicativo Service Fabric especi
   </Certificates>
 </ApplicationManifest>
 ```
+> [!NOTE]
+> Ao ativar um aplicativo que especifica um SecretsCertificate, a Service Fabric encontrará o certificado correspondente e concederá a identidade que o aplicativo está executando sob permissões completas para a chave privada do certificado. A Service Fabric também monitorará o certificado para alterações e aplicará novamente as permissões em conformidade. Para detectar alterações para certificados declarados por nome comum, o Service Fabric executa uma tarefa periódica que encontra todos os certificados correspondentes e compara-os com uma lista de impressões digitais em cache. Quando uma nova impressão digital é detectada, significa que um certificado por esse assunto foi renovado. A tarefa é executada uma vez por minuto em cada nó do cluster.
+>
+> Embora o SecretsCertificate permita declarações baseadas em objetos, observe que as configurações criptografadas estão vinculadas ao par de chaves que foi usado para criptografar a configuração no cliente. Você deve garantir que o certificado de criptografia original (ou um equivalente) corresponda à declaração baseada no assunto e que ele seja instalado, incluindo sua chave privada correspondente, em cada nó do cluster que possa hospedar o aplicativo. Todos os certificados válidos por tempo que correspondem à declaração baseada no assunto e construídos a partir do mesmo par de chaves do certificado de criptografia original são considerados equivalentes.
+>
 
 ### <a name="inject-application-secrets-into-application-instances"></a>Inserir segredos do aplicativo em instâncias do aplicativo
 Idealmente, a implantação em ambientes diferentes deve ser mais automatizada possível. Isso pode ser feito executando a criptografia secreta em um ambiente de compilação e fornecendo os segredos criptografados como parâmetros durante a criação de instâncias do aplicativo.

@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: ganesr
-ms.openlocfilehash: 2f2311adc231eac4260e26f0d5d1f2115f43d2eb
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: aaa849633591bfd34a9fca026c820ec2f9137844
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618711"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410848"
 ---
 # <a name="about-azure-edge-zones---preview"></a>Sobre a Azure Edge Zones - Visualização
 
@@ -38,7 +38,7 @@ As Zonas de Borda do Azure vêm em três ofertas discretas:
 
 ![Zonas de borda](./media/edge-zones-overview/edge-zones.png "Zonas de borda")
 
-Azure Edge Zones são pequenas extensões de pegada do Azure colocadas em centros populacionais que estão longe das regiões do Azure. As Zonas de Borda do Azure suportam VMs, contêineres e um conjunto seleto de serviços Do Azure que permitem executar aplicativos intensivos de latência e de throughput perto dos usuários finais. As Azure Edge Zones fazem parte da rede global da Microsoft e oferecem conectividade segura, confiável e de alta largura de banda entre aplicativos em execução na End Zone perto do usuário e o conjunto completo de serviços do Azure em execução nas regiões do Azure. As Azure Edge Zones são de propriedade e operadas pela Microsoft e permitem que você use o mesmo conjunto de ferramentas e portal do Azure para gerenciar e implantar serviços nas Zonas de Borda.
+Azure Edge Zones são pequenas extensões de pegada do Azure colocadas em centros populacionais que estão longe das regiões do Azure. As Zonas de Borda do Azure suportam VMs, contêineres e um conjunto selecionado de serviços Do Azure que permitem executar aplicativos intensivos de latência e de throughput perto dos usuários finais. As Azure Edge Zones fazem parte da rede global da Microsoft e oferecem conectividade segura, confiável e de alta largura de banda entre aplicativos em execução na End Zone perto do usuário e o conjunto completo de serviços do Azure em execução nas regiões do Azure. As Azure Edge Zones são de propriedade e operadas pela Microsoft e permitem que você use o mesmo conjunto de ferramentas e portal do Azure para gerenciar e implantar serviços nas Zonas de Borda.
 
 Os casos típicos de uso incluem:
 

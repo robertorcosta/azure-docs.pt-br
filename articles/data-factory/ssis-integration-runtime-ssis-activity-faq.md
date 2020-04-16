@@ -11,14 +11,16 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 1c2db107302e4851641ef430db61ec9b29ee151f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c85a652cde840336c51e1a5b5459f9dc591e0be
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77187475"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414683"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Solucionar problemas na execução do pacote no tempo de execução da integração do SSIS
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este artigo inclui os erros mais comuns que você pode encontrar quando está executando pacotes SSIS (SSIS) no tempo de execução de integração do SSIS. Descreve as possíveis causas e ações para resolver os erros.
 
@@ -65,7 +67,7 @@ Um problema conhecido em versões mais antigas do SQL Server Management Studio (
 
 Esse erro significa que o disco local está usado no nó de tempo de execução de integração ssis. Verifique se o pacote ou a configuração personalizada estão consumindo muito espaço em disco:
 * Se o disco for consumido pelo pacote, ele será liberado após o término da execução do pacote.
-* Se o disco for consumido pela sua configuração personalizada, você precisará interromper o tempo de execução da integração do SSIS, modificar seu script e iniciar o tempo de execução de integração novamente. Todo o recipiente de blob do Azure especificado para configuração personalizada será copiado para o nó de tempo de execução de integração ssis, então verifique se há algum conteúdo desnecessário esse contêiner.
+* Se o disco for consumido pela sua configuração personalizada, você precisará interromper o tempo de execução da integração do SSIS, modificar seu script e iniciar o tempo de execução de integração novamente. Todo o recipiente de blob do Azure especificado para configuração personalizada será copiado para o nó de tempo de execução de integração ssis, então verifique se há algum conteúdo desnecessário sob esse contêiner.
 
 ### <a name="error-message-failed-to-retrieve-resource-from-master-microsoftsqlserverintegrationservicesscalescaleoutcontractcommonmasterresponsefailedexception-code300004-descriptionload-file--failed"></a>Mensagem de erro: "Falha ao recuperar recurso do mestre. Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException: Code:300004. Descrição:Falha no arquivo de carga "***".
 
@@ -144,7 +146,7 @@ Certifique-se de que o tempo de execução da integração auto-hospedado seja i
 
 Certifique-se de que os conectores OLE DB usados pelos conectores OLE DB no pacote estejam instalados corretamente na máquina de tempo de execução de integração auto-hospedada. Mais detalhes podem ser encontrados no [Configure Self-Hosted IR como um proxy para Azure-SSIS IR no ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
-### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Mensagem de erro: "Erro de tarefa de preparação: ErroCódigo: 2906, ErroMensagem: Falha na execução do pacote., Saída: {"OperationErrorMessages": "Erro: System.IO.FileLoadException: Não foi possível carregar arquivo ou montagem 'Microsoft.WindowsAzure.Armazenamento, Version=..., Culture=neutro, PublicKeyToken=31bf3856ad3644e35' ou uma de suas dependências. A definição de manifesto do conjunto localizado não corresponde à referência de montagem.' ..."
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Mensagem de erro: "Erro de tarefa de preparação: ErroCódigo: 2906, ErroMensagem: Falha na execução do pacote., Saída: {"OperationErrorMessages": "Erro: System.IO.FileLoadException: Não foi possível carregar arquivo ou montagem 'Microsoft.WindowsAzure.Armazenamento, Version=..., Culture=neutral, PublicKeyToken=31bf3856ad364e35' ou uma de suas dependências. A definição de manifesto do conjunto localizado não corresponde à referência de montagem.' ..."
 
 Uma causa em potencial é que o tempo de execução da integração auto-hospedado não é instalado ou atualizado corretamente. Sugerir baixar e reinstalar o tempo de execução de integração auto-hospedado mais recente. Mais detalhes podem ser encontrados no [Criar e configurar um tempo de execução de integração auto-hospedado](create-self-hosted-integration-runtime.md#installation-best-practices)
 

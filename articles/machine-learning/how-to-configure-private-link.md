@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 4f39ff5726c23db32c7b039335f406641ee090cb
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 8140fc4286ac97260e0b23ea700a70303ec69e2e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754251"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411192"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configure o Azure Private Link para um espaço de trabalho de aprendizado de máquina do Azure (Preview)
 
@@ -47,8 +47,7 @@ Ao implantar um modelo, você deve fornecer as seguintes informações:
 * Edição do espaço de trabalho (Básico ou Corporativo)
 * Se as configurações de alta confidencialidade para o espaço de trabalho devem ser habilitadas
 * Se a criptografia para o espaço de trabalho com uma chave gerenciada pelo cliente deve ser ativada e valores associados para a chave
-* Nome e sub-rede da Rede Virtual
-* Nome da sub-rede
+* Nome de Rede Virtual e Sub-rede, modelo criará nova rede virtual e sub-rede
 
 Uma vez que um modelo tenha sido submetido e o provisionamento seja concluído, o grupo de recursos que contém seu espaço de trabalho conterá três novos tipos de artefatos relacionados ao Private Link:
 

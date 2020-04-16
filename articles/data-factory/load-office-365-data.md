@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cd2b530375beb3e8fa1f79e004f4f1ac7fd4d0bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3422176ed89b7f575c11cc40e5be8420da0018b0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443919"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415806"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carregar dados do Office 365 usando o Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este artigo mostra como usar o Data Factory para _carregar dados do Office 365 no Armazenamento de Blobs do Azure_. Você pode seguir etapas semelhantes para copiar dados para o Azure Data Lake Gen1 ou Gen2. Consulte o [artigo de Conector do Office 365](connector-office-365.md) sobre como copiar dados do Office 365 em geral.
 
@@ -97,7 +99,7 @@ Este artigo mostra como usar o Data Factory para _carregar dados do Office 365 n
 
 5. Vá para a **guia Conexão** da janela Propriedades. Selecione + Novo ao lado da caixa de texto **Serviço vinculado**.
 
-6. Na janela Novo Serviço vinculado, digite "AzureStorageLinkedService" como nome, selecione "Princípio do serviço" na lista de métodos de autenticação, preencha o ponto final do serviço, inquilino, id principal do serviço e chave principal do serviço e selecione Salvar para implantar o serviço vinculado.  Consulte [aqui](connector-azure-blob-storage.md#service-principal-authentication) para saber como configurar a autenticação de entidade de serviço para o Armazenamento de Blobs do Azure.
+6. Na janela Novo Serviço Vinculado, digite "AzureStorageLinkedService" como nome, selecione "Principal de serviço" na lista de métodos de autenticação, preencha o Ponto final do serviço, inquilino, ID principal do serviço e principal serviço e selecione Salvar para implantar o serviço vinculado.  Consulte [aqui](connector-azure-blob-storage.md#service-principal-authentication) para saber como configurar a autenticação de entidade de serviço para o Armazenamento de Blobs do Azure.
 
     ![Novo serviço vinculado de Blob](./media/load-office-365-data/configure-blob-linked-service.png)
 

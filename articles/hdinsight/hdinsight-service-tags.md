@@ -6,17 +6,17 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/10/2020
-ms.openlocfilehash: 34ec05a8362f5947cb61924b19c6b1a52e5d91a4
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/15/2020
+ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437667"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410863"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Tags de serviço NSG para Azure HDInsight
 
-As tags de serviço Azure HDInsight para grupos de segurança de rede (NSGs) são grupos de endereços IP para serviços de saúde e gerenciamento. Esses grupos ajudam a minimizar a complexidade para a criação de regras de segurança. [As tags de](../virtual-network/security-overview.md#service-tags) serviço fornecem um método alternativo para permitir tráfego de entrada de endereços IP específicos sem inserir cada um dos [endereços IP](hdinsight-management-ip-addresses.md) de gerenciamento em seus NSGs.
+As tags de serviço Azure HDInsight para grupos de segurança de rede (NSGs) são grupos de endereços IP para serviços de saúde e gerenciamento. Esses grupos ajudam a minimizar a complexidade para a criação de regras de segurança. [As tags de](../virtual-network/security-overview.md#service-tags) serviço permitem o tráfego de entrada de IPs específicos sem inserir cada um dos [endereços IP](hdinsight-management-ip-addresses.md) de gerenciamento em seus NSGs.
 
 O serviço HDInsight gerencia essas tags de serviço. Você não pode criar sua própria tag de serviço ou modificar uma tag existente. A Microsoft gerencia os prefixos de endereço que correspondem à tag de serviço e atualiza automaticamente a tag de serviço à medida que os endereços mudam.
 
@@ -46,13 +46,13 @@ Esta tag contém os endereços IP de serviços de saúde e gerenciamento para to
 
 ## <a name="use-regional-hdinsight-service-tags"></a>Use tags de serviço regionais HDInsight
 
-Se a opção de tag global não funcionar porque você precisa de permissões mais restritivas, você pode permitir apenas as tags de serviço aplicáveis para sua região. Pode haver uma, duas ou três tags de serviço aplicáveis, dependendo da região onde seu cluster é criado.
+Se a opção de tag global não funcionar porque você precisa de permissões mais restritivas, você pode permitir apenas as tags de serviço aplicáveis para sua região. Pode haver várias tags de serviço, dependendo da região onde seu cluster é criado.
 
 Para saber quais tags de serviço adicionar para sua região, leia as seguintes seções do artigo.
 
 ### <a name="use-a-single-regional-service-tag"></a>Use uma única tag de serviço regional
 
-Se você preferir usar tags de serviço regionais e seu cluster estiver localizado em uma das regiões listadas nesta tabela, você só precisa adicionar uma única tag de serviço regional ao seu grupo de segurança de rede.
+Se o seu cluster estiver localizado em uma região listada nesta tabela, você só precisa adicionar uma única tag de serviço regional ao seu NSG.
 
 | País/Região | Região | Tag de serviço |
 | ---- | ---- | ---- |
@@ -80,13 +80,13 @@ Se você preferir usar tags de serviço regionais e seu cluster estiver localiza
 
 ### <a name="use-multiple-regional-service-tags"></a>Use várias tags de serviço regionais
 
-Se você preferir usar tags de serviço regionais, mas a região onde seu cluster é criado não estava listada na tabela anterior, você precisa permitir várias tags de serviço regionais. A necessidade de usar mais de um deve-se a diferenças no arranjo de provedores de recursos para as diversas regiões.
+Se a região onde seu cluster foi criado não estiver listada na tabela anterior, você precisará permitir várias tags de serviço regionais. A necessidade de usar mais de um é devido a diferenças no arranjo de provedores de recursos para as diversas regiões.
 
 As demais regiões são divididas em grupos com base em quais etiquetas de serviço regionais eles usam.
 
 #### <a name="group-1"></a>Grupo 1
 
-Se o cluster for criado em uma das regiões na `HDInsight.WestUS` tabela `HDInsight.EastUS` a seguir, permita as tags de serviço e, além disso, a tag de serviço regional listada. As regiões desta seção exigem três tags de serviço.
+Se o cluster for criado em uma das regiões na `HDInsight.WestUS` tabela `HDInsight.EastUS`a seguir, permita que as tags de serviço e . Além disso, a etiqueta de serviço regional listada. As regiões desta seção exigem três tags de serviço.
 
 Por exemplo, se o `East US 2` cluster for criado na região, você precisará adicionar as seguintes tags de serviço ao seu grupo de segurança de rede:
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 231b0d77dc441e70dc0ec8de313291bb6b4f9292
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aedb3df69821d1436b03b2eb1f12873b624d426e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79261392"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414169"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Copiar o desempenho da atividade e o guia de escalabilidade
 
@@ -25,7 +25,9 @@ ms.locfileid: "79261392"
 > * [Versão 1](v1/data-factory-copy-activity-performance.md)
 > * [Versão atual](copy-activity-performance.md)
 
-Se você deseja realizar uma migração de dados em larga escala do data lake ou do enterprise data warehouse (EDW) para o Azure, ou se você deseja ingerir dados em escala de diferentes fontes para o Azure para análise de big data, é fundamental alcançar o desempenho ideal e Escalabilidade.  A Azure Data Factory fornece um mecanismo de desempenho, resiliência e custo-benefício para ingerir dados em escala, tornando-o um ótimo ajuste para engenheiros de dados que procuram construir pipelines de ingestão de dados altamente executáveis e escaláveis.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+Se você deseja realizar uma migração de dados em larga escala do data lake ou do enterprise data warehouse (EDW) para o Azure, ou quer ingerir dados em escala de diferentes fontes para o Azure para análise de big data, é fundamental alcançar o desempenho e a escalabilidade ideais.  A Azure Data Factory fornece um mecanismo de desempenho, resiliência e custo-benefício para ingerir dados em escala, tornando-o um ótimo ajuste para engenheiros de dados que procuram construir pipelines de ingestão de dados altamente executáveis e escaláveis.
 
 Depois de ler este artigo, você poderá responder as seguintes perguntas:
 

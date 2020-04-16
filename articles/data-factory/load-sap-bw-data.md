@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 971871c28bd1b38b134c04b0334fbe99d1d655c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96b23696164514ad2f16de72f0f76aa237ffce2e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440199"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415831"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse usando a Fábrica de Dados do Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo mostra como usar a Fábrica de Dados Do Azure para copiar dados do SAP Business Warehouse (BW) via Open Hub para o Azure Data Lake Storage Gen2. Você pode usar um processo semelhante para copiar dados para outros [armazenamentos de dados de pia suportados.](copy-activity-overview.md#supported-data-stores-and-formats)
 
@@ -76,7 +77,7 @@ No portal do Azure, acesse seu data factory. Selecione **O Monitor de & autor** 
 
 6. Especifique um filtro, se precisar de um. Se o seu OHD contiver apenas dados de uma única execução de processo de transferência de dados (DTP) com um único ID de solicitação, ou você tiver certeza de que seu DTP está concluído e você deseja copiar os dados, limpe a caixa de seleção **Exclua a Última Solicitação.**
 
-   Saiba mais sobre essas configurações na seção de [configurações do SAP BW Open Hub Destination](#sap-bw-open-hub-destination-configurations) deste artigo. Selecione **Validar** para verificar novamente quais dados serão devolvidos. Em seguida, selecione **Next**.
+   Saiba mais sobre essas configurações na seção de [configurações do SAP BW Open Hub Destination](#sap-bw-open-hub-destination-configurations) deste artigo. Selecione **Validar** para verificar novamente quais dados serão devolvidos. Em seguida, selecione **Avançar**.
 
    ![Configurar o filtro SAP BW Open Hub](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
@@ -87,9 +88,9 @@ No portal do Azure, acesse seu data factory. Selecione **O Monitor de & autor** 
    ![Crie uma página de serviço vinculada ao ADLS Gen2](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
    1. Selecione sua conta com capacidade para data lake storage Gen2 na lista de paradas **Nome.**
-   2. Selecione **Concluir** para criar a conexão. Em seguida, selecione **Next**.
+   2. Selecione **Concluir** para criar a conexão. Em seguida, selecione **Avançar**.
 
-9. Na **página Escolher o arquivo de saída ou pasta,** digite **copyfromopenhub** como o nome da pasta de saída. Em seguida, selecione **Next**.
+9. Na **página Escolher o arquivo de saída ou pasta,** digite **copyfromopenhub** como o nome da pasta de saída. Em seguida, selecione **Avançar**.
 
    ![Escolha a página da pasta de saída](media/load-sap-bw-data/choose-output-folder.png)
 
@@ -97,11 +98,11 @@ No portal do Azure, acesse seu data factory. Selecione **O Monitor de & autor** 
 
     ![Especificar página de formato de sumidouro](media/load-sap-bw-data/specify-sink-format.png)
 
-11. Na página **Configurações,** expanda **as configurações de desempenho**. Digite um valor para **grau de paralelismo de cópia,** como 5 para carregar do SAP BW em paralelo. Em seguida, selecione **Next**.
+11. Na página **Configurações,** expanda **as configurações de desempenho**. Digite um valor para **grau de paralelismo de cópia,** como 5 para carregar do SAP BW em paralelo. Em seguida, selecione **Avançar**.
 
     ![Configurar configurações de cópia](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. Na página **Resumo**, verifique as configurações. Em seguida, selecione **Next**.
+12. Na página **Resumo**, verifique as configurações. Em seguida, selecione **Avançar**.
 
 13. Na página **'Implantação',** selecione **Monitor** para monitorar o pipeline.
 
@@ -162,7 +163,7 @@ Na fábrica **de** dados Vamos começar a página, selecione **Criar pipeline a 
   
    - **HighWatermarkBlobContainer**: Especifique o recipiente para armazenar o valor da marca d'água.
 
-   - **HighWatermarkBlobDirectory**: Especifique o caminho da pasta o recipiente para armazenar o valor da marca d'água.
+   - **HighWatermarkBlobDirectory**: Especifique o caminho da pasta sob o recipiente para armazenar o valor da marca d'água.
 
    - **HighWatermarkBlobName**: Especifique o nome blob para `requestIdCache.txt`armazenar o valor da marca d'água alta, como . No armazenamento Blob, vá para o caminho correspondente de HighWatermarkBlobContainer+HighWatermarkBlobDirectory+HighWatermarkBlobName, como *container/path/requestIdCache.txt*. Crie uma bolha com conteúdo 0.
 
@@ -191,7 +192,7 @@ Na fábrica **de** dados Vamos começar a página, selecione **Criar pipeline a 
 
       3. Adicione uma ação **Criar bolha.** Para **o caminho pasta** e nome **Blob,** use os mesmos valores que você configurou anteriormente em *HighWatermarkBlobContainer+HighWatermarkBlobDirectory* e *HighWatermarkBlobName*.
 
-      4. Selecione **Salvar**. Em seguida, copie o valor da **URL HTTP POST** para usar no pipeline da Fábrica de Dados.
+      4. Clique em **Salvar**. Em seguida, copie o valor da **URL HTTP POST** para usar no pipeline da Fábrica de Dados.
 
 4. Depois de fornecer os parâmetros do pipeline da Fábrica de Dados, selecione **Debug** > **Finish** para invocar uma execução para validar a configuração. Ou, **selecione Publicar** para publicar todas as alterações e, em seguida, **selecione Adicionar gatilho** para executar uma execução.
 

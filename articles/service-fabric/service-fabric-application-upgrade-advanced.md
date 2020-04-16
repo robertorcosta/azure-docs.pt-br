@@ -2,13 +2,13 @@
 title: Tópicos avançados de atualização de aplicativos
 description: Este artigo aborda alguns tópicos avançados relativos à atualização de um aplicativo do Service Fabric.
 ms.topic: conceptual
-ms.date: 1/28/2020
-ms.openlocfilehash: 182ab6dc1663e160561b8941ebf3a36b5af3d950
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.date: 03/11/2020
+ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422801"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414494"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Atualização do aplicativo Service Fabric: tópicos avançados
 
@@ -18,13 +18,13 @@ Se um novo tipo de serviço é adicionado a um aplicativo publicado como parte d
 
 Da mesma forma, os tipos de serviços também podem ser removidos de um aplicativo como parte de uma atualização. No entanto, todas as instâncias de serviço do tipo de serviço a ser removido devem ser removidas antes de prosseguir com a atualização (consulte [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
-## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Evite quedas de conexão durante o tempo de inatividade planejado do serviço apátrida (visualização)
+## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Evite quedas de conexão durante o tempo de inatividade planejado pelo serviço apátrida
 
 Para tempos de inatividade de instâncias não-estaduais planejados, como upgrade de aplicativo/cluster ou desativação de nó, as conexões podem ser descartadas devido ao ponto final exposto ser removido após a ocorrência ser encerrada, o que resulta em fechamentos forçados de conexão.
 
 Para evitar isso, configure o recurso *RequestDrain* (visualização) adicionando uma ocorrência de atraso na *configuração* de serviço para permitir o dreno enquanto recebe solicitações de outros serviços dentro do cluster e está usando proxy reverso ou usando API de resolução com modelo de notificação para atualização de pontos finais. Isso garante que o ponto final anunciado pela instância apátrida seja removido *antes* do início do atraso antes de encerrar a instância. Esse atraso permite que as solicitações existentes drenem graciosamente antes que a instância realmente desça. Os clientes são notificados da alteração do ponto final por uma função de retorno de chamada no momento de iniciar o atraso, para que possam reresolver o ponto final e evitar o envio de novas solicitações para a instância que está sendo reduzida.
 
-### <a name="service-configuration"></a>Configuração do serviço
+### <a name="service-configuration"></a>Configuração de serviço
 
 Existem várias maneiras de configurar o atraso no lado do serviço.
 

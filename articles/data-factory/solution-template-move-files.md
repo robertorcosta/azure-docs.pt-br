@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: b3165daa06ed975df9ccb677699d3ceb449327ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b36eb2615e98ee8ea7751c836fd43e81a5a0f4e2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74941876"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414757"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Mover arquivos com a Fábrica de Dados do Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve um modelo de solução que você pode usar para mover arquivos de uma pasta para outra entre lojas baseadas em arquivos. Um dos cenários comuns de usar este modelo: os arquivos são continuamente descartados para uma pasta de aterrissagem da sua loja de origem. Ao criar um gatilho de cronograma, o pipeline ADF pode mover periodicamente esses arquivos da fonte para a loja de destino.  A maneira que o pipeline do ADF consegue "arquivos móveis" é recebendo os arquivos da pasta de aterrissagem, copiando cada um deles para outra pasta na loja de destino e, em seguida, excluindo os mesmos arquivos da pasta de aterrissagem na loja de origem.
 

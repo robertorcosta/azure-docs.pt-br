@@ -14,14 +14,17 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/14/2019
-ms.openlocfilehash: 6027c2d94535ca2ef5c41e7027fe070c6ccb21a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f400463f6102d46d9da48bbb10466ad4ca04a69b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260625"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413230"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote SSIS com a atividade Executar pacote SSIS no Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Este artigo descreve como executar um pacote SSIS (SSIS) sql server integration services (SSIS) em um pipeline azure Data Factory usando a atividade Execute SSIS Package. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -447,7 +450,7 @@ while ($True) {
 Você também pode monitorar o pipeline usando o portal Azure. Para obter instruções passo a passo, consulte [Monitorar o pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ### <a name="schedule-the-pipeline-with-a-trigger"></a>Programar o pipeline com um gatilho
-Na etapa anterior, você executou o oleoduto demanda. Você também pode criar um gatilho de cronograma para executar o pipeline em um cronograma, como de hora em hora ou diariamente.
+Na etapa anterior, você executou o oleoduto sob demanda. Você também pode criar um gatilho de cronograma para executar o pipeline em um cronograma, como de hora em hora ou diariamente.
 
 1. Crie um arquivo JSON chamado *MyTrigger.json* na pasta *C:\ADF\RunSSISPackage* com o seguinte conteúdo: 
         

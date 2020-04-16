@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 0c4c26ba163f83483b3eb48e51d91f9a919a887c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 383b70bbb02e7a200c7ec0a994f7cf11e9b9520e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75439834"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414813"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copiar arquivos de vários contêineres com o Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve um modelo de solução que você pode usar para copiar arquivos de vários contêineres entre lojas de arquivos. Por exemplo, você pode usá-lo para migrar seu lago de dados do AWS S3 para o Azure Data Lake Store. Ou, você pode usar o modelo para replicar tudo, desde uma conta de armazenamento Azure Blob até outra.
 
@@ -36,7 +37,7 @@ O modelo contém três atividades:
 
 O modelo define os seguintes parâmetros:
 - *SourceFileFolder* é o caminho da pasta do seu armazenamento de origem de dados, onde você pode obter uma lista dos contêineres. O caminho é o diretório raiz, que contém várias pastas de contêiner. O valor padrão desse parâmetro é `sourcefolder`.
-- *SourceFileDirectory* é o caminho da subpasta o diretório raiz do seu armazenamento de origem de dados. O valor padrão desse parâmetro é `subfolder`.
+- *SourceFileDirectory* é o caminho da subpasta sob o diretório raiz do seu armazenamento de origem de dados. O valor padrão desse parâmetro é `subfolder`.
 - *DestinationFileFolder* é o caminho da pasta para onde os arquivos serão copiados em sua loja de destino. O valor padrão desse parâmetro é `destinationfolder`.
 - *DestinationFileDirectory* é o caminho da subpasta para onde os arquivos serão copiados em sua loja de destino. O valor padrão desse parâmetro é `subfolder`.
 

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 343e94fe681d398b695e0e24c22544bca470d75a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: b24d7db679bb9cb9dacd5e1db8e6410b883548cc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652180"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415701"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviços do Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Você pode [provisionar e gerenciar sua conta do Azure Cosmos](how-to-manage-dat
 > [!NOTE]
 > Os failovers regionais só se aplicam a contas de gravações de uma única região. As contas de gravação de várias regiões não exigem ou têm limites para alterar a região de gravação.
 
-O Cosmos DB faz backups de seus dados automaticamente em intervalos regulares. Para obter detalhes sobre intervalos de retenção de backup e janelas, consulte [Backup on-line e restauração de dados sob demanda no Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+O Cosmos DB faz backups de seus dados automaticamente em intervalos regulares. Para obter detalhes sobre intervalos de retenção de backup e janelas, consulte [Backup on-line e restauração de dados sob demanda no Azure Cosmos DB](online-backup-and-restore.md).
 
 ## <a name="per-account-limits"></a>Limites por conta
 
@@ -209,7 +209,7 @@ Comece no Azure Cosmos DB com um dos nossos guias de início rápido:
 
 * [Introdução à API de SQL do Azure Cosmos DB](create-sql-api-dotnet.md)
 * [Introdução à API do MongoDB do Azure Cosmos DB](create-mongodb-nodejs.md)
-* [Introdução à API do Cassandra do Azure Cosmos DB](create-cassandra-dotnet.md)
+* [Introdução à API Cassandra do Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Introdução à API do Gremlin do Azure Cosmos DB](create-graph-dotnet.md)
 * [Introdução à API de Tabela do Azure Cosmos DB](create-table-dotnet.md)
 

@@ -11,14 +11,16 @@ ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 5/14/2019
-ms.openlocfilehash: 70367a38fbf7b59486e2eaaf6c05634aa7575869
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2359b378b1f54cf6e03218f819b3a7c5740ba596
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260703"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416400"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Habilitar a autenticação do Azure Active Directory para o Azure-SSIS Integration Runtime
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este artigo mostra como habilitar a autenticação do Azure Active Directory (Azure AD) com a identidade gerenciada para a Azure Data Factory (ADF) e usá-la em vez de métodos convencionais de autenticação (como autenticação SQL) para:
 
@@ -26,7 +28,7 @@ Este artigo mostra como habilitar a autenticação do Azure Active Directory (Az
 
 - Conecte-se a vários recursos do Azure ao executar pacotes SSIS no Azure-SSIS IR.
 
-Para obter mais informações sobre a identidade gerenciada para o seu ADF, consulte [Identificador gerenciado para Fábrica de Dados](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+Para obter mais informações sobre a identidade gerenciada para o seu ADF, consulte [Identidade gerenciada para Fábrica de Dados](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 >-  Neste cenário, a autenticação do Azure AD com a identidade gerenciada para o seu ADF só é usada na criação e subsequentes operações iniciais do seu SSIS IR que, por sua vez, provisão e se conectará ao SSISDB. Para execuções de pacoteS SSIS, seu SSIS IR ainda se conectará ao SSISDB usando autenticação SQL com contas totalmente gerenciadas que são criadas durante o provisionamento do SSISDB.
@@ -63,7 +65,7 @@ O servidor do Banco de Dados SQL do Azure oferece suporte à criação de um ban
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Adicione a identidade gerenciada para o seu ADF ao grupo. Você pode seguir o artigo [Identificado pela Data Factory para](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) obter o ID principal do objeto de identidade gerenciada (por exemplo, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mas não use ID de aplicativo de identidade gerenciada para este fim).
+3.  Adicione a identidade gerenciada para o seu ADF ao grupo. Você pode seguir o artigo [Identidade gerenciada para Fábrica de Dados](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obter o ID principal de objeto de identidade gerenciada (por exemplo, 765ad4ab-XXXX-XXXX-XXXX-XXXX-XXXX-51ed985819dc, mas não use ID de aplicativo de identidade gerenciada para este fim).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -198,7 +200,7 @@ Para provisionar seu IR do Azure-SSIS com o PowerShell, faça o seguinte:
 
 1.  Instale o módulo [Azure PowerShell.](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) 
 
-2.  No seu script, não defina o parâmetro `CatalogAdminCredential`. Por exemplo: 
+2.  No seu script, não defina o parâmetro `CatalogAdminCredential`. Por exemplo:
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
@@ -227,4 +229,4 @@ Quando você executa pacotes SSIS no Azure-SSIS IR, você pode usar autenticaç�
 
 - [Gerenciador de conexões ADO.NET](https://docs.microsoft.com/sql/integration-services/connection-manager/ado-net-connection-manager#managed-identities-for-azure-resources-authentication)
 
-- [Gerenciador de conexão de armazenamento azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication)
+- [Gerenciador de conexões do Armazenamento do Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication)

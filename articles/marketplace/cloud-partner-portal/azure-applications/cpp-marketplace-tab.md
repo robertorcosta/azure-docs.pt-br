@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 94bbfb16a967a97b1ee6f6d51a5f55bc8ba13227
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6113759cc68d07af4c22edf03b3274d92dcbe780
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281758"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416304"
 ---
 # <a name="azure-application-marketplace-tab"></a>Guia Marketplace de aplicativo do Azure
 
@@ -28,11 +28,11 @@ A tabela a seguir descreve as configurações a serem usadas para a criação de
 
 |      Campo         |    Descrição    |
 |  ---------------   |  ---------------  |
-| **Título\***        | Título da oferta. Ele será exibido com destaque no marketplace. O tamanho máximo é de 50 caracteres. |
+| **Title\***        | Título da oferta. Ele será exibido com destaque no marketplace. O tamanho máximo é de 50 caracteres. |
 | **Resumo\***      | Breve resumo da oferta. O tamanho máximo é de 100 caracteres.           |
 | **Resumo longo\*** | Resumo mais longo da oferta (embora possa ser igual ao resumo). O tamanho máximo é de 256 caracteres.           |
 | **Descrição\***  | Descrição da oferta. O tamanho máximo é de 3.000 caracteres. É permitido HTML simples, incluindo &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e marcas de cabeçalho.  |
-| **Identificador de marketing\*** | Um URL exclusivo para associar a essa oferta geralmente inclui sua organização e o nome da solução, com um comprimento máximo de 50 caracteres. Escolha um identificador de marketing curto e amigável para o serviço. Isso será usado nas URLs do marketplace para essa oferta. Por exemplo, se o seu ID do editor for "contoso" e seu identificador de marketing for "sampleApp", a URL para sua oferta no Azure Marketplace seráhttps://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
+| **Identificador de marketing\*** | Um URL exclusivo para associar a essa oferta geralmente inclui sua organização e o nome da solução, com um comprimento máximo de 50 caracteres. Escolha um identificador de marketing curto e amigável para o serviço. Isso será usado nas URLs do marketplace para essa oferta. Por exemplo, se o seu ID do editor for "contoso" e seu identificador de marketing for "sampleApp", a URL para sua oferta no Azure Marketplace será`https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  
 | **Visualizar IDs de assinatura\*** | Adicione de um a 100 identificadores de assinatura de visualizadores. Essas assinaturas listadas na lista branca terão acesso à sua oferta enquanto ela estiver disponível na pré-visualização depois de publicada, antes de entrar em operação.          |
 | **Links úteis**    | Opcionalmente, você pode fornecer links para vários recursos para os usuários de sua oferta, como suporte, documentação, fóruns, etc.  Recomenda-se adicionar pelo menos um link à sua documentação.            |
 | **Categorias sugeridas (Max 5)\*** | Selecione de uma a cinco categorias. As categorias selecionadas são usadas para mapear a oferta para as categorias de produto disponíveis no Azure Marketplace e no portal do Azure. Elas serão mostradas nas páginas de navegação e na página de detalhes do produto. |
