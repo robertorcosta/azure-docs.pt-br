@@ -1,19 +1,19 @@
 ---
 title: Visão geral dos Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
 description: Saiba mais sobre conjunto de dimensionamento de máquinas virtuais e como dimensionar automaticamente os aplicativos
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/26/2019
-ms.author: manayar
-ms.openlocfilehash: e6201f9ac2e9b813de5a4622fc7996eb1202a164
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.author: mimckitt
+ms.openlocfilehash: 03e3c7b5c0696069729d3067faad8ceb91fc611f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76273702"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272535"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>O que são conjuntos de escala de máquina virtual?
 Os conjuntos de dimensionamento de máquinas virtuais do Azure lhe permitem criar e gerenciar um grupo de VMs idênticas e com balanceamento de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente em resposta à demanda ou a um agendamento definido. Os conjuntos de dimensionamento fornecem alta disponibilidade para seus aplicativos e permitem que você gerencie, configure e atualize um grande número de máquinas virtuais de forma centralizada. Com conjuntos de dimensionamento de máquinas virtuais, você pode criar serviços em grande escala para áreas como computação, big data e cargas de trabalho de contêiner.
@@ -27,7 +27,7 @@ Os conjuntos de dimensionamento de máquinas virtuais fornecem os recursos de ge
 - **Facilidade de criar e gerenciar várias VMs**
     - Quando você tem muitas VMs que executam seu aplicativo, é importante manter uma configuração consistente em seu ambiente. Para um desempenho confiável do seu aplicativo, o tamanho da VM, a configuração do disco e a instalação do aplicativo devem corresponder em todas as VMs.
     - Com conjuntos de dimensionamento, todas as instâncias de VM são criadas da mesma imagem e da mesma configuração do sistema operacional base. Essa abordagem permite gerenciar facilmente centenas de VMs sem outras tarefas de configuração ou gerenciamento de rede.
-    - Os conjuntos de dimensionamento dão suporte ao uso do [balanceador de carga do Azure](../load-balancer/load-balancer-overview.md) para distribuição de tráfego de camada 4 básico e ao [Gateway de Aplicativo do Azure](../application-gateway/application-gateway-introduction.md) para distribuição do tráfego de camada 7 e terminação SSL mais avançadas.
+    - Os conjuntos de dimensionamento dão suporte ao uso do [Azure Load Balancer](../load-balancer/load-balancer-overview.md) para distribuição de tráfego básico de camada 4 e ao [Gateway de Aplicativo do Azure](../application-gateway/application-gateway-introduction.md) para distribuição do tráfego de camada 7 e terminação de TLS mais avançadas.
 
 - **Fornece alta disponibilidade e resiliência do aplicativo**
     - Os conjuntos de dimensionamento são usados para executar várias instâncias do aplicativo. Se uma dessas instâncias de VM tem um problema, os clientes continuam a acessar o aplicativo por meio de uma das outras instâncias de VM com o mínimo de interrupção.

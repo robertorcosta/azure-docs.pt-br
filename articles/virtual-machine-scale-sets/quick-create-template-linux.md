@@ -1,36 +1,53 @@
 ---
-title: Início Rápido – Criar um conjunto de dimensionamento de máquinas virtuais do Linux com um modelo do Azure
+title: Início Rápido – Criar um conjunto de dimensionamento de máquinas virtuais do Linux com um modelo do Azure Resource Manager
 description: Saiba como criar rapidamente um dimensionamento de máquinas virtuais do Linux com um modelo do Azure Resource Manager que implante um aplicativo de exemplo e configure regras de dimensionamento automático
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 03/27/2018
-ms.author: cynthn
-ms.openlocfilehash: a2712bc4a758a0cac6fe8357a0d4c14c594978c3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: mvc,subject-armqs
+ms.date: 03/27/2020
+ms.author: jushiman
+ms.openlocfilehash: 4c0bac943be996c02436824334bd79a270f9a2e2
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76279180"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010453"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Início Rápido: criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure
+# <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-resource-manager-template"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais do Linux com um modelo do Azure Resource Manager
+
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. É possível dimensionar o número de VMs manualmente no conjunto de dimensionamento ou definir as regras para o dimensionamento automático com base no uso de recursos, como CPU, demanda de memória ou tráfego de rede. Um balanceador de carga do Azure então distribui o tráfego para as instâncias de VM no conjunto de dimensionamento. Neste guia de início rápido, você cria um conjunto de dimensionamento de máquinas virtuais e implanta um aplicativo de exemplo com um modelo do Azure Resource Manager.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Pré-requisitos
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.29 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Nenhum.
 
+## <a name="create-a-scale-set"></a>Criar um conjunto de escala
 
-## <a name="define-a-scale-set-in-a-template"></a>Definir um conjunto de dimensionamento em um modelo
-Os modelos do Azure Resource Manager permitem a implantação de grupos de recursos relacionados. Os modelos são escritos em JSON (JavaScript Object Notation) e definem todo o ambiente de infraestrutura do Azure para seu aplicativo. Em um único modelo, é possível criar o conjunto de dimensionamento de máquinas virtuais, instalar aplicativos e configurar regras de dimensionamento automático. Com o uso de variáveis e parâmetros, esse modelo pode ser reutilizado para atualizar conjuntos de dimensionamento existentes ou criar conjuntos adicionais. Você pode implantar modelos por meio do portal do Azure, do Azure CLI ou do Azure PowerShell ou de pipelines de integração contínua / entrega contínua (CI / CD).
+Os modelos do Azure Resource Manager permitem a implantação de grupos de recursos relacionados. Em um único modelo, é possível criar o conjunto de dimensionamento de máquinas virtuais, instalar aplicativos e configurar regras de dimensionamento automático. Com o uso de variáveis e parâmetros, esse modelo pode ser reutilizado para atualizar conjuntos de dimensionamento existentes ou criar conjuntos adicionais. Você pode implantar modelos por meio do portal do Azure, do Azure CLI ou do Azure PowerShell ou de pipelines de integração contínua / entrega contínua (CI / CD).
 
-Para obter mais informações sobre modelos, confira [Visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process). Para obter a sintaxe JSON e as propriedades, confira a referência de modelo [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets).
+### <a name="review-the-template"></a>Examinar o modelo
 
-Para criar uma escala com um modelo, defina os recursos apropriados. As partes principais do tipo de recurso de conjunto de dimensionamento de máquinas virtuais são:
+O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/201-vmss-bottle-autoscale/).
+
+:::code language="json" source="~/quickstart-templates/201-vmss-bottle-autoscale/azuredeploy.json" range="1-330" highlight="176-264":::
+
+Esses recursos do Azure estão definidos no modelo:
+
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers)
+- [**Microsoft.Compute/virtualMachineScaleSets**](/azure/templates/microsoft.compute/virtualmachinescalesets)
+- [**Microsoft.Insights/autoscaleSettings**](/azure/templates/microsoft.insights/autoscalesettings)
+
+#### <a name="define-a-scale-set"></a>Definir um conjunto de dimensionamento
+
+A parte realçada é a definição de recurso do conjunto de dimensionamento. Para criar uma escala com um modelo, defina os recursos apropriados. As partes principais do tipo de recurso de conjunto de dimensionamento de máquinas virtuais são:
 
 | Propriedade                     | Descrição da propriedade                                  | Exemplo de valor do modelo                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
@@ -45,49 +62,10 @@ Para criar uma escala com um modelo, defina os recursos apropriados. As partes p
 | osProfile.adminUsername      | O nome de usuário de cada instância de VM                        | azureuser                                 |
 | osProfile.adminPassword      | A senha de cada instância de VM                        | P@ssw0rd!                                 |
 
- O exemplo a seguir mostra a definição de recurso do conjunto de dimensionamento principal. Para personalizar um modelo de conjunto de dimensionamento, altere o tamanho da VM ou a capacidade inicial, ou use uma plataforma diferente ou uma imagem personalizada.
+Para personalizar um modelo de conjunto de dimensionamento, você pode alterar o tamanho da VM ou a capacidade inicial. Outra opção é usar outra plataforma ou uma imagem personalizada.
 
-```json
-{
-  "type": "Microsoft.Compute/virtualMachineScaleSets",
-  "name": "myScaleSet",
-  "location": "East US",
-  "apiVersion": "2017-12-01",
-  "sku": {
-    "name": "Standard_A1",
-    "capacity": "2"
-  },
-  "properties": {
-    "upgradePolicy": {
-      "mode": "Automatic"
-    },
-    "virtualMachineProfile": {
-      "storageProfile": {
-        "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage"
-        },
-        "imageReference":  {
-          "publisher": "Canonical",
-          "offer": "UbuntuServer",
-          "sku": "16.04-LTS",
-          "version": "latest"
-        }
-      },
-      "osProfile": {
-        "computerNamePrefix": "myvmss",
-        "adminUsername": "azureuser",
-        "adminPassword": "P@ssw0rd!"
-      }
-    }
-  }
-}
-```
+#### <a name="add-a-sample-application"></a>Adicionar um aplicativo de exemplo
 
- Para manter o exemplo curto, a configuração da NIC (placa de interface de rede) virtual não é mostrada. Os componentes adicionais, como um balanceador de carga, também não são mostrados. Um modelo completo de conjunto de dimensionamento é mostrado [no fim deste artigo](#deploy-the-template).
-
-
-## <a name="add-a-sample-application"></a>Adicionar um aplicativo de exemplo
 Para testar seu conjunto de dimensionamento, instale um aplicativo Web básico. Quando você implanta um conjunto de dimensionamento, as extensões da VM podem fornecer tarefas de configuração e de automação pós-implantação, tais como instalar um aplicativo. Os scripts podem ser baixados do armazenamento do Azure ou do GitHub, ou fornecidos ao Portal do Azure no tempo de execução da extensão. Para aplicar uma extensão ao conjunto de dimensionamento, adicione a seção *extensionProfile* ao exemplo anterior do recurso. O perfil da extensão normalmente define as propriedades a seguir:
 
 - Tipo de extensão
@@ -96,40 +74,17 @@ Para testar seu conjunto de dimensionamento, instale um aplicativo Web básico. 
 - Local dos scripts de configuração ou de instalação
 - Comandos a serem executados nas instâncias da VM
 
-O modelo [servidor HTTP Python no Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) usa a extensão de Script personalizado para instalar o [Bottle](https://bottlepy.org/docs/dev/), uma estrutura de Web Python e um servidor HTTP simples. 
+O modelo usa a Extensão de Script Personalizado para instalar o [Bottle](https://bottlepy.org/docs/dev/), uma estrutura da Web Python e um servidor HTTP simples.
 
-Dois scripts são definidos em **fileUris** - *installserver.sh* e *workserver.py*. Esses arquivos são baixados do GitHub e o *commandToExecute* executa `bash installserver.sh` para instalar e configurar o aplicativo:
+Dois scripts são definidos em **fileUris** - *installserver.sh* e *workserver.py*. Esses arquivos são baixados do GitHub e, em seguida, *commandToExecute* executa `bash installserver.sh` para instalar e configurar o aplicativo.
 
-```json
-"extensionProfile": {
-  "extensions": [
-    {
-      "name": "AppInstall",
-      "properties": {
-        "publisher": "Microsoft.Azure.Extensions",
-        "type": "CustomScript",
-        "typeHandlerVersion": "2.0",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-          "fileUris": [
-            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
-            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
-          ],
-          "commandToExecute": "bash installserver.sh"
-        }
-      }
-    }
-  ]
-}
-```
+### <a name="deploy-the-template"></a>Implantar o modelo
 
-
-## <a name="deploy-the-template"></a>Implantar o modelo
-É possível implantar o modelo [servidor HTTP Python no Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) com o seguinte botão **Implantar no Azure**. Esse botão abre o Portal do Azure, carrega o modelo completo e solicita alguns parâmetros, como o nome de um conjunto de dimensionamento, a contagem de instâncias e as credenciais de administrador.
+Implante o modelo selecionando o botão **Implantar no Azure** a seguir. Esse botão abre o Portal do Azure, carrega o modelo completo e solicita alguns parâmetros, como o nome de um conjunto de dimensionamento, a contagem de instâncias e as credenciais de administrador.
 
 [![Implantar o modelo no Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-Também é possível usar a CLI do Azure para instalar o servidor HTTP Python no Linux com [az group deployment create](/cli/azure/group/deployment) da seguinte maneira:
+Implante também um modelo do Resource Manager usando a CLI do Azure:
 
 ```azurecli-interactive
 # Create a resource group
@@ -143,8 +98,8 @@ az group deployment create \
 
 Responda os prompts para fornecer nome do conjunto de dimensionamento, uma contagem de instâncias e credenciais de administrador para as instâncias de VM. Levará alguns minutos para o conjunto de dimensionamento e os recursos de suporte serem criados.
 
+## <a name="test-the-deployment"></a>Teste a implantação
 
-## <a name="test-your-scale-set"></a>Testar seu conjunto de dimensionamento
 Para ver seu conjunto de dimensionamento em ação, acesse o aplicativo Web de exemplo em um navegador da Web. Obtenha o endereço IP público do balanceador de carga com a [az network public-ip list](/cli/azure/network/public-ip) da seguinte maneira:
 
 ```azurecli-interactive
@@ -157,16 +112,16 @@ Insira o endereço IP público do balanceador de carga em um navegador da Web no
 
 ![Página da Web padrão em NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 
-
 ## <a name="clean-up-resources"></a>Limpar os recursos
+
 Quando não for mais necessário, use [az group delete](/cli/azure/group) para remover o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados, como demonstrado a seguir. O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-
 ## <a name="next-steps"></a>Próximas etapas
+
 Neste início rápido, você criou um conjunto de dimensionamento do Linux com um modelo do Azure e usou uma Extensão de Script Personalizado para instalar um servidor Web Python básico nas instâncias de VM. Para saber mais, siga para o tutorial sobre como criar e gerenciar um conjunto de dimensionamento de máquinas virtuais do Azure.
 
 > [!div class="nextstepaction"]

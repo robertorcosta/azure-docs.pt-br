@@ -1,163 +1,113 @@
 ---
 title: Criar uma função no Azure que responda a solicitações HTTP
 description: Saiba como criar uma função na linha de comando e, em seguida, publicar o projeto local na hospedagem sem servidor no Azure Functions.
-ms.date: 01/28/2020
+ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 89b6a9f31414cbaa9cc92c1a0d881a1354180990
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e3ce26894e9e89d196c068bd32245c8c891b2e2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282725"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255540"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Início Rápido: Criar uma função no Azure que responda a solicitações HTTP
 
 Neste artigo, você usará ferramentas de linha de comando para criar uma função que responde a solicitações HTTP. Após testar o código localmente, implante-o no ambiente sem servidor do Azure Functions. A realização deste início rápido gera um pequeno custo de alguns centavos de dólar ou menos em sua conta do Azure.
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 Há também uma [versão baseada no Visual Studio Code](functions-create-first-function-vs-code.md) deste artigo.
-
-## <a name="configure-your-local-environment"></a>Configurar o ambiente local
-
-Antes de começar, você deverá ter o seguinte:
-
-+ Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell"  
-+ O [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.7.1846 ou uma versão 2.x posterior.
 ::: zone-end  
-::: zone pivot="programming-language-python"
-+ As versões 3.6 e 3.7 do Python requerem o [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.7.1846 ou uma versão 2.x posterior. O Python 3.8 requer a [versão 3.x](./functions-run-local.md#v2) do Core Tools.
-::: zone-end
 
-+ A [CLI do Azure](/cli/azure/install-azure-cli) versão 2.0.76 ou posterior. 
-::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ [Node.js](https://nodejs.org/), versões Active LTS e Maintenance LTS (8.11.1 e 10.14.1 recomendadas).
-::: zone-end
+::: zone pivot="programming-language-java"  
+> [!NOTE]
+> Se o Maven não for sua ferramenta de desenvolvimento preferida, confira nossos tutoriais semelhantes para desenvolvedores Java usando [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions) e [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+::: zone-end  
 
-::: zone pivot="programming-language-python"
-+ O [Python 3.8](https://www.python.org/downloads/release/python-382/), o [Python 3.7](https://www.python.org/downloads/release/python-375/) e o [Python 3.6](https://www.python.org/downloads/release/python-368/), compatíveis com o Azure Functions (x64).
-::: zone-end
-::: zone pivot="programming-language-powershell"
-+ [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
+[!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
-+ O [SDK do .NET Core 2.2+](https://www.microsoft.com/net/download)
-::: zone-end
+[!INCLUDE [functions-cli-verify-prereqs](../../includes/functions-cli-verify-prereqs.md)]
 
-### <a name="check-your-environment"></a>Verificar o ambiente
-
-+ Em um terminal ou uma janela Comando, execute `func --version` para verificar se a versão do Azure Functions Core Tools é 2.7.1846 ou uma versão 2.x posterior.
-
-+ Execute `az --version` para verificar se a versão da CLI do Azure é a 2.0.76 ou posterior.
-
-+ Execute `az login` para entrar no Azure e verifique se a assinatura está ativa.
-
-::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ Execute `node --version` para verificar se a versão do Node.js é 8.x ou 10.x.
-::: zone-end
-::: zone pivot="programming-language-python"
-+ Execute `python --version` (Linux/MacOS) ou `py --version` (Windows) para verificar se a versão do Python é 3.8.x, 3.7.x ou 3.6.x.
-
-## <a name="create-and-activate-a-virtual-environment"></a><a name="create-venv"></a>Criar e ativar um ambiente virtual
-
-Em uma pasta adequada, execute os comandos a seguir para criar e ativar um ambiente virtual chamado `.venv`. Lembre-se de usar as versões 3.8, 3.7 ou 3.6 do Python, que são compatíveis com o Azure Functions.
-
-
-# <a name="bash"></a>[Bash](#tab/bash)
-
-```bash
-python -m venv .venv
-```
-
-```bash
-source .venv/bin/activate
-```
-
-Se o Python não instalou o pacote venv na distribuição do Linux, execute o seguinte comando:
-
-```bash
-sudo apt-get install python3-venv
-```
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-```powershell
-py -m venv .venv
-```
-
-```powershell
-.venv\scripts\activate
-```
-
-# <a name="cmd"></a>[Cmd](#tab/cmd)
-
-```cmd
-py -m venv .venv
-```
-
-```cmd
-.venv\scripts\activate
-```
-
----
-
-Você executará todos os comandos posteriores neste ambiente virtual ativado. (Para sair do ambiente virtual, execute `deactivate`.)
-
-::: zone-end
+[!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
 
 ## <a name="create-a-local-function-project"></a>Criar um projeto de função local
 
 No Azure Functions, um projeto de função é um contêiner para uma ou mais funções individuais que respondem, cada uma, a um gatilho específico. Todas as funções em um projeto compartilham as configurações locais e de hospedagem. Nesta seção, você cria um projeto de função que contém apenas uma função.
 
-1. No ambiente virtual, execute o comando `func init` para criar um projeto de função em uma pasta chamada *LocalFunctionProj* com o runtime especificado:
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+Execute o comando `func init` da seguinte maneira para criar um projeto de funções em uma pasta chamada *LocalFunctionProj* com o runtime especificado:  
+::: zone-end  
+::: zone pivot="programming-language-python"  
+```
+func init LocalFunctionProj --python
+```
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
+```
+func init LocalFunctionProj --dotnet
+```
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+```
+func init LocalFunctionProj --javascript
+```
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
+```
+func init LocalFunctionProj --typescript
+```
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+```
+func init LocalFunctionProj --powershell
+```
+::: zone-end    
+::: zone pivot="programming-language-java"  
+Em uma pasta vazia, execute o seguinte comando para gerar o projeto do Functions a partir de um [arquétipo Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
-    ::: zone pivot="programming-language-python"
-    ```
-    func init LocalFunctionProj --python
-    ```
-    ::: zone-end
-    ::: zone pivot="programming-language-csharp"
-    ```
-    func init LocalFunctionProj --dotnet
-    ```
-    ::: zone-end
-    ::: zone pivot="programming-language-javascript"
-    ```
-    func init LocalFunctionProj --javascript
-    ```
-    ::: zone-end
-    ::: zone pivot="programming-language-typescript"
-    ```
-    func init LocalFunctionProj --typescript
-    ```
-    ::: zone-end
-    ::: zone pivot="programming-language-powershell"
-    ```
-    func init LocalFunctionProj --powershell
-    ```
-    ::: zone-end
+# <a name="bash"></a>[Bash](#tab/bash)
+```bash
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype 
+```
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+```powershell
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" 
+```
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+```cmd
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" 
+```
+---
 
+O Maven solicita os valores necessários para concluir a geração do projeto na implantação.   
+Forneça os seguintes valores quando solicitado:
 
-    Essa pasta contém vários arquivos do projeto, incluindo arquivos de configuração chamados [local.settings.json](functions-run-local.md#local-settings-file) e [host.json](functions-host-json.md). Como *local.settings.json* pode conter segredos baixados do Azure, o arquivo é excluído do controle do código-fonte por padrão no arquivo *.gitignore*.
+| Prompt | Valor | Descrição |
+| ------ | ----- | ----------- |
+| **groupId** | `com.fabrikam` | Um valor que identifica exclusivamente o projeto em todos os projetos, seguindo as [regras de nomenclatura do pacote](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) para Java. |
+| **artifactId** | `fabrikam-functions` | Um valor que é o nome do jar, sem um número de versão. |
+| **version** | `1.0-SNAPSHOT` | Escolha o valor padrão. |
+| **package** | `com.fabrikam.functions` | Um valor que é o pacote Java para o código de função gerado. Use o padrão. |
 
-1. Navegue até a pasta do projeto:
+Digite `Y` ou pressione Enter para confirmar.
 
-    ```
-    cd LocalFunctionProj
-    ```
-    
-1. Adicione uma função ao projeto usando o comando a seguir, em que o argumento `--name` é o nome exclusivo da função e o argumento `--template` especifica o gatilho da função. 
+O Maven cria os arquivos de projeto em uma nova pasta com o nome _artifactId_, que, neste exemplo, é `fabrikam-functions`. 
+::: zone-end  
+Navegue até a pasta do projeto:
 
-    ```
-    func new --name HttpExample --template "HTTP trigger"
-    ```
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+```
+cd LocalFunctionProj
+```
+::: zone-end  
+::: zone pivot="programming-language-java"  
+```
+cd fabrikam-functions
+```
+::: zone-end  
+Essa pasta contém vários arquivos do projeto, incluindo arquivos de configuração chamados [local.settings.json](functions-run-local.md#local-settings-file) e [host.json](functions-host-json.md). Como *local.settings.json* pode conter segredos baixados do Azure, o arquivo é excluído do controle do código-fonte por padrão no arquivo *.gitignore*.
 
-    ::: zone pivot="programming-language-csharp"
-    `func new` cria um arquivo de código HttpExample.cs.
-    ::: zone-end
-    ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
-    `func new` cria uma subpasta correspondente ao nome da função que contém um arquivo de código apropriado para a linguagem escolhida do projeto, bem como um arquivo de configuração chamado *function.json*.
-    ::: zone-end
+[!INCLUDE [functions-cli-add-function](../../includes/functions-cli-add-function.md)]
 
 ### <a name="optional-examine-the-file-contents"></a>(Opcional) Examinar o conteúdo do arquivo
 
@@ -173,6 +123,26 @@ Se preferir, você poderá ir diretamente para [Executar a função localmente](
 O objeto de retorno é um [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) que retorna uma mensagem de resposta como um [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) ou um [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). Para saber mais, confira [Gatilhos e associações HTTP do Azure Functions](/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp).
 ::: zone-end
 
+::: zone pivot="programming-language-java"
+#### <a name="functionjava"></a>Function.java
+O *Function.java* contém um método `run` que recebe dados de solicitação na variável `request`, que é uma [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage) decorada com a anotação [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger), que define o comportamento do gatilho. 
+
+:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java":::
+
+A mensagem de resposta é gerada pela API [HttpResponseMessage.Builder](/java/api/com.microsoft.azure.functions.httpresponsemessage.builder).
+
+#### <a name="pomxml"></a>pom.xml
+
+As configurações dos recursos do Azure criados para hospedar seu aplicativo são definidas no elemento **configuration** do plug-in com uma **groupId** igual a `com.microsoft.azure` no arquivo pom.xml gerado. Por exemplo, o elemento de configuração abaixo instrui uma implantação baseada em Maven para criar um aplicativo de funções no grupo de recursos `java-functions-group` na região `westus`. O próprio aplicativo de funções é executado no Windows hospedado no plano `java-functions-app-service-plan`, que, por padrão, é um plano de Consumo sem servidor.    
+
+:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="116-155":::
+
+Você pode alterar essas configurações para controlar como os recursos são criados no Azure, por exemplo, alterando `runtime.os` de `windows` para `linux` antes da implantação inicial. Para obter uma lista completa das configurações compatíveis com o plug-in do Maven, confira os [detalhes da configuração](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
+
+#### <a name="functiontestjava"></a>FunctionTest.java
+
+O arquétipo também gera um teste de unidade para sua função. Ao alterar sua função para adicionar associações ou adicionar novas funções ao projeto, você também precisará modificar os testes no arquivo *FunctionTest.java*.
+::: zone-end  
 ::: zone pivot="programming-language-python"
 #### <a name="__init__py"></a>\_\_init\_\_.py
 
@@ -239,6 +209,7 @@ Cada associação exige uma direção, um tipo e um nome exclusivo. O gatilho HT
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
 
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp"    
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Criar recursos de suporte do Azure para a função
 
 Antes de poder implantar o código da função no Azure, você precisa criar três recursos:
@@ -249,66 +220,69 @@ Antes de poder implantar o código da função no Azure, você precisa criar tr�
 
 Use os comandos da CLI do Azure a seguir para criar esses itens. Cada comando fornece uma saída em JSON após a conclusão.
 
-1. Se ainda não tiver feito isso, entre no Azure usando o comando [az login](/cli/azure/reference-index#az-login):
+Se ainda não tiver feito isso, entre no Azure usando o comando [az login](/cli/azure/reference-index#az-login):
 
     ```azurecli
     az login
     ```
     
-1. Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado `AzureFunctionsQuickstart-rg` na região `westeurope`. (De modo geral, você cria o grupo de recursos e os recursos em uma região próxima a você usando uma região disponível com o comando `az account list-locations`.)
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado `AzureFunctionsQuickstart-rg` na região `westeurope`. (De modo geral, você cria o grupo de recursos e os recursos em uma região próxima a você usando uma região disponível com o comando `az account list-locations`.)
 
-    ```azurecli
-    az group create --name AzureFunctionsQuickstart-rg --location westeurope
-    ```
-    ::: zone pivot="programming-language-python"  
-    > [!NOTE]
-    > Você não pode hospedar aplicativos Windows e Linux no mesmo grupo de recursos. Se você tiver um grupo de recursos chamado `AzureFunctionsQuickstart-rg` com um aplicativo de funções ou um aplicativo Web do Windows, você precisará usar um grupo de recursos diferente.
-    ::: zone-end  
+```azurecli
+az group create --name AzureFunctionsQuickstart-rg --location westeurope
+```
+
+> [!NOTE]
+> Você não pode hospedar aplicativos Windows e Linux no mesmo grupo de recursos. Se você tiver um grupo de recursos chamado `AzureFunctionsQuickstart-rg` com um aplicativo de funções ou um aplicativo Web do Windows, você precisará usar um grupo de recursos diferente.
+ 
     
-1. Crie uma conta de armazenamento para uso geral em seu grupo de recursos e região usando o comando [az storage account create](/cli/azure/storage/account#az-storage-account-create). No exemplo a seguir, substitua `<STORAGE_NAME>` por um nome exclusivo globalmente que for adequado para você. Os nomes devem conter de 3 a 24 caracteres e podem conter somente números e letras minúsculas. `Standard_LRS` especifica uma conta de uso geral, que é [compatível com o Functions](storage-considerations.md#storage-account-requirements).
+Crie uma conta de armazenamento para uso geral em seu grupo de recursos e região usando o comando [az storage account create](/cli/azure/storage/account#az-storage-account-create). No exemplo a seguir, substitua `<STORAGE_NAME>` por um nome exclusivo globalmente que for adequado para você. Os nomes devem conter de 3 a 24 caracteres e podem conter somente números e letras minúsculas. `Standard_LRS` especifica uma conta de uso geral, que é [compatível com o Functions](storage-considerations.md#storage-account-requirements).
 
-    ```azurecli
-    az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
-    ```
+```azurecli
+az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
+```
+
+A conta de armazenamento gera apenas alguns centavos de dólar para este início rápido.
     
-    A conta de armazenamento gera apenas alguns centavos de dólar para este início rápido.
-    
-1. Crie o aplicativo de funções usando o comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create). No exemplo a seguir, substitua `<STORAGE_NAME>` pelo nome da conta usada na etapa anterior e substitua `<APP_NAME>` por um nome globalmente exclusivo que seja adequado para você. O `<APP_NAME>` também é o domínio do DNS padrão para o aplicativo de funções. 
+Crie o aplicativo de funções usando o comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create). No exemplo a seguir, substitua `<STORAGE_NAME>` pelo nome da conta usada na etapa anterior e substitua `<APP_NAME>` por um nome globalmente exclusivo que seja adequado para você. O `<APP_NAME>` também é o domínio do DNS padrão para o aplicativo de funções. 
+::: zone-end  
 
-    ::: zone pivot="programming-language-python"  
-    Se estiver usando o Python 3.8, altere `--runtime-version` para `3.8` e `--functions_version` para `3`.
-    
-    Se estiver usando o Python 3.6, altere `--runtime-version` para `3.6`.
+::: zone pivot="programming-language-python"  
+Se estiver usando o Python 3.8, altere `--runtime-version` para `3.8` e `--functions_version` para `3`.
 
-    ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Linux --consumption-plan-location westeurope --runtime python --runtime-version 3.7 --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
-    ```
-    ::: zone-end  
+Se estiver usando o Python 3.6, altere `--runtime-version` para `3.6`.
 
-    ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-    Se estiver usando o Node.js 8, altere também a `--runtime-version` para `8`.
+```azurecli
+az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Linux --consumption-plan-location westeurope --runtime python --runtime-version 3.7 --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
+```
+::: zone-end  
 
-    
-    ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime node --runtime-version 10 --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
-    ```
-    ::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+Se estiver usando o Node.js 8, altere também a `--runtime-version` para `8`.
 
-    ::: zone pivot="programming-language-csharp"  
-    ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
-    ```
-    ::: zone-end  
-    
-    ::: zone pivot="programming-language-powershell"  
-    ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime powershell --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
-    ```
-    ::: zone-end  
 
-    Este comando cria um aplicativo de funções que executa o runtime da linguagem especificada no [Plano de Consumo do Azure Functions](functions-scale.md#consumption-plan), que é gratuito para o uso que você fará aqui. O comando também provisiona uma instância associada do Azure Application Insights no mesmo grupo de recursos, com a qual você pode monitorar seu aplicativo de funções e exibir logs. Para saber mais, consulte [Monitorar Azure Functions](functions-monitoring.md). A instância não gera nenhum custo até você ativá-la.
+```azurecli
+az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime node --runtime-version 10 --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
+```
+::: zone-end  
+
+::: zone pivot="programming-language-csharp"  
+```azurecli
+az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
+```
+::: zone-end  
+
+::: zone pivot="programming-language-powershell"  
+```azurecli
+az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime powershell --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
+```
+::: zone-end  
+
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp"  
+Este comando cria um aplicativo de funções que executa o runtime da linguagem especificada no [Plano de Consumo do Azure Functions](functions-scale.md#consumption-plan), que é gratuito para o uso que você fará aqui. O comando também provisiona uma instância associada do Azure Application Insights no mesmo grupo de recursos, com a qual você pode monitorar seu aplicativo de funções e exibir logs. Para saber mais, consulte [Monitorar Azure Functions](functions-monitoring.md). A instância não gera nenhum custo até você ativá-la.
     
 ## <a name="deploy-the-function-project-to-azure"></a>Implantar o projeto de funções no Azure
+::: zone-end  
 
 ::: zone pivot="programming-language-typescript"  
 Antes de usar o Core Tools para implantar seu projeto no Azure, você criará um build pronto para produção de arquivos JavaScript com base nos arquivos de origem TypeScript.
@@ -320,6 +294,7 @@ npm run build:production
 ```
 ::: zone-end  
 
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp"  
 Com os recursos necessários configurados, você está pronto para implantar seu projeto de funções local no aplicativo de funções no Azure usando o comando [func azure functionapp publish](functions-run-local.md#project-file-deployment). No exemplo a seguir, substitua `<APP_NAME>` pelo nome do aplicativo.
 
 ```
@@ -346,6 +321,37 @@ Functions in msdocs-azurefunctions-qs:
     HttpExample - [httpTrigger]
         Invoke url: https://msdocs-azurefunctions-qs.azurewebsites.net/api/httpexample?code=KYHrydo4GFe9y0000000qRgRJ8NdLFKpkakGJQfC3izYVidzzDN4gQ==
 </pre>
+
+::: zone-end  
+::: zone pivot="programming-language-java"  
+## <a name="deploy-the-function-project-to-azure"></a>Implantar o projeto de funções no Azure
+
+Um aplicativo de funções e os recursos relacionados são criados no Azure quando você implanta o projeto de funções pela primeira vez. As configurações dos recursos do Azure criados para hospedar seu aplicativo são definidas no [arquivo pom.xml](#pomxml). Neste artigo, você aceitará os padrões.
+
+> [!TIP]
+> Para criar um aplicativo de funções para execução no Linux em vez do Windows, altere o elemento `runtime.os` no arquivo pom.xml de `windows` para `linux`. A execução do Linux em um plano de consumo é compatível com [essas regiões](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions). Você não pode ter aplicativos que são executados no Linux e aplicativos que são executados no Windows no mesmo grupo de recursos.
+
+Para fazer a implantação, use o comando [az login](/cli/azure/authenticate-azure-cli) da CLI do Azure para entrar em sua assinatura do Azure. 
+
+```azurecli
+az login
+```
+
+Use o comando a seguir para implantar o projeto em um novo aplicativo de funções. 
+
+```
+mvn azure-functions:deploy
+```
+
+Isso cria os seguintes recursos no Azure:
+
++ Grupo de recursos. Nomeado como _java-functions-group_.
++ Conta de armazenamento. Necessária para o Functions. O nome é gerado aleatoriamente de acordo com os requisitos de nome da conta de armazenamento.
++ Plano de hospedagem. Hospedagem sem servidor para o aplicativo de funções na região _westus_. O nome é _java-functions-app-service-plan_.
++ Aplicativo de funções. Um aplicativo de funções é a unidade de implantação e execução para suas funções. O nome é gerado aleatoriamente com base no _artifactId_, anexado a um número gerado aleatoriamente. 
+
+A implantação empacota os arquivos de projeto e implanta-os no novo aplicativo de funções usando [implantação zip](functions-deployment-technologies.md#zip-deploy). O código é executado no pacote de implantação no Azure.
+::: zone-end
 
 ## <a name="invoke-the-function-on-azure"></a>Invocar a função no Azure
 

@@ -4,12 +4,12 @@ description: Saiba como criar, testar e implantar continuamente modelos do Azure
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 303edac9221b2a58986129388e33c84c3817d96e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ce6f176a52a742a3216a5b761b34254027a1c5b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369370"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255066"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua dos modelos do Azure Resource Manager com o Azure Pipelines
 
@@ -44,7 +44,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 ## <a name="prepare-a-github-repository"></a>Preparar um repositório GitHub
 
-O GitHub é usado para armazenar o código-fonte do seu projeto incluindo modelos do Resource Manager. Para ver outros repositórios compatíveis, confira [repositórios compatíveis com o Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops#supported-repository-types).
+O GitHub é usado para armazenar o código-fonte do seu projeto incluindo modelos do Resource Manager. Para ver outros repositórios compatíveis, confira [repositórios compatíveis com o Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops).
 
 ### <a name="create-a-github-repository"></a>Criar um repositório GitHub
 

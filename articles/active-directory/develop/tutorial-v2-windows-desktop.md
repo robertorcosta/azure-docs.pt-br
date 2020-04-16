@@ -1,26 +1,22 @@
 ---
-title: Introdução à área de trabalho do Windows na plataforma de identidade da Microsoft | Microsoft Docs
+title: Introdução à área de trabalho do Windows na plataforma de identidade da Microsoft
 description: Como um aplicativo .NET da área de trabalho do Windows (XAML) pode obter um token de acesso e chamar uma API protegida pela plataforma de identidade da Microsoft.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 422251da25ae0ef911eb723bb0342a84fe99559c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aa09d06af4706af3ae120f62a897c0bc632fb657
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79129914"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990932"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Chamar a API do Microsoft Graph em um aplicativo da Área de Trabalho do Windows
 
@@ -52,7 +48,7 @@ A MSAL gerencia o armazenamento em cache e a atualização de tokens de acesso p
 
 Este guia usa os seguintes pacotes NuGet:
 
-|Biblioteca|DESCRIÇÃO|
+|Biblioteca|Descrição|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Biblioteca de Autenticação da Microsoft (MSAL.NET)|
 
@@ -89,14 +85,14 @@ Para criar seu aplicativo, faça o seguinte:
 
 Você pode registrar seu aplicativo de duas maneiras.
 
-### <a name="option-1-express-mode"></a>Opção 1: modo Expresso
+### <a name="option-1-express-mode"></a>Opção 1: Modo Expresso
 
 Registre rapidamente seu aplicativo fazendo o seguinte:
 1. Vá para o [portal do Azure – Registro de Aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 
-### <a name="option-2-advanced-mode"></a>Opção 2: modo Avançado
+### <a name="option-2-advanced-mode"></a>Opção 2: Modo Avançado
 
 Para registrar seu aplicativo e adicionar suas informações de registro de aplicativo à sua solução, faça o seguinte:
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
@@ -109,7 +105,7 @@ Para registrar seu aplicativo e adicionar suas informações de registro de apli
 1. Na lista de páginas para o aplicativo, selecione **Autenticação**.
    1. Na seção **URIs de Redirecionamento** na lista de URIs de Redirecionamento:
    1. Na coluna **TIPO**, selecione **Cliente público/nativo (dispositivo móvel e desktop)** .
-   1. Insira **na coluna**URI DE REDIRECIONAMENTO`https://login.microsoftonline.com/common/oauth2/nativeclient`
+   1. Insira `https://login.microsoftonline.com/common/oauth2/nativeclient` na coluna **URI DE REDIRECIONAMENTO**
 1. Selecione **Registrar**.
 1. Vá para o Visual Studio, abra o arquivo *App.xaml.cs* e, depois, substitua `Enter_the_Application_Id_here` no snippet de código abaixo pela ID do aplicativo que você acabou de registrar e copiar.
 
@@ -379,8 +375,3 @@ Além do token de acesso que é usado para chamar a API do Microsoft Graph, apó
 <!--end-collapse-->
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
-
-Ajude-nos a melhorar a plataforma de identidade da Microsoft. Deixe sua opinião respondendo a uma breve pesquisa de duas perguntas.
-
-> [!div class="nextstepaction"]
-> [Pesquisa da plataforma de identidade da Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

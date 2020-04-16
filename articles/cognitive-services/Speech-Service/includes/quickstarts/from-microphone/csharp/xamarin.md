@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: 699bbea9d50c24558f6c9d4671cb6035e4718a43
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: c9bcd301b19252cedd9ac9a1867ccf132a537587
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671021"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81275230"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -146,4 +146,4 @@ A criação e a execução de aplicativos Android e iOS no dispositivo ou no sim
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[!INCLUDE [footer](../footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

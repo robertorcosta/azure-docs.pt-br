@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 6c2514bd078cc3feee4bd2802cf314079b824311
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f1f83fdd73816e6e30c5cac7d193719591bb8dc1
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77022113"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80999013"
 ---
 # <a name="in-store-analytics-architecture"></a>Arquitetura de análise na loja
 
@@ -51,7 +51,7 @@ O Azure IoT Central também fornece uma experiência personalizada para os opera
 O aplicativo Azure IoT Central dentro de uma solução pode ser configurado para exportar informações brutas ou agregadas para um conjunto de serviços PaaS do Azure (Plataforma como Serviço) que pode executar a manipulação de dados e enriquecer essas informações antes de destiná-las para um aplicativo comercial. 
 
 ## <a name="business-application"></a>Aplicativo de negócios
-Os dados de IoT podem ser usados para ativar diferentes tipos de aplicativos de negócios implantados em um ambiente de varejo. Um gerente da loja de varejo ou um membro da equipe pode usar esses aplicativos para visualizar informações de negócios e executar ações significativas em tempo real. Para aprender a criar um dashboard do Power BI em tempo real para sua equipe de varejo, siga este [tutorial](./tutorial-in-store-analytics-create-app-pnp.md).
+Os dados de IoT podem ser usados para ativar diferentes tipos de aplicativos de negócios implantados em um ambiente de varejo. Um gerente da loja de varejo ou um membro da equipe pode usar esses aplicativos para visualizar informações de negócios e executar ações significativas em tempo real. Para aprender a criar um dashboard do Power BI em tempo real para sua equipe de varejo, siga este [tutorial](./tutorial-in-store-analytics-create-app.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Comece com os modelos de aplicativo [Análise de finalização de compras na loja](https://aka.ms/checkouttemplate) e [Monitoramento de condições de análises na loja](https://aka.ms/conditiontemplate). 

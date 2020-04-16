@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: yinhew
-ms.openlocfilehash: 1633586a77465d9d5f605b17727f2531430d1cbd
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 89fc5fddffb291942b8f3a4db3dfdf4ccd6cf46a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671558"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81275088"
 ---
 > [!NOTE]
 > A Plataforma Universal do Windows permite desenvolver aplicativos que executam em qualquer dispositivo com suporte para Windows 10, incluindo PCs, Xbox, Surface Hub e outros dispositivos.
@@ -66,7 +66,7 @@ Agora, você está pronto para criar e testar seu aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## <a name="see-also"></a>Confira também
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: yinhew
-ms.openlocfilehash: 3a40dd445384ac35749ff2b016c672fb3c40dfb0
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 0934738c557ac6d26867546783797cf5d2b75056
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671241"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81275452"
 ---
 > [!NOTE]
 > O Unity dá suporte à Área de Trabalho do Windows (x86 e x64) ou à Plataforma Universal do Windows (x86, x64, ARM/ARM64), ao Android (x86, ARM32/64) e ao iOS (simulador x64, ARM32 e ARM64).
@@ -95,7 +95,7 @@ Confira o [repositório de amostras](https://aka.ms/csspeech/samples) na pasta q
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## <a name="see-also"></a>Confira também
 

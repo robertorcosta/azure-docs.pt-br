@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 23fa1a2a0b035d04334c51c02411de6de70f2cad
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2a30222902fd8797908202562a04018209842af2
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79453639"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115052"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Avaliar servidores pelo uso de dados importados
 
@@ -126,22 +126,8 @@ A tabela a seguir resume os campos de arquivo a serem preenchidos:
 **Taxa de transferência da entrada na rede** | Não | Dados recebidos pelo servidor (MB/s).
 **Taxa de transferência da saída da rede** | Não | Dados transmitidos pelo servidor (MB/s).
 **Tipo de firmware** | Não | Firmware do servidor. Os valores podem ser "BIOS" ou "UEFI".
-**Tipo de servidor** | Não | Os valores podem ser "Físico" ou "Virtual".
-**Hipervisor** | Não | Hipervisor no qual um computador está em execução. <br/> Os valores podem ser "VMware", "Hyper-V", "Xen", "AWS", "GCP" ou "Outro".
-**Número de versão do hipervisor** | Não | Versão do hipervisor.
-**ID da máquina virtual** | Não | Identificador da VM. Esse é o valor de **InstanceUUid** para a VM do VMware vCenter ou a **ID da VM do Hyper-V** para o Hyper-V.
-**ID do Virtual Machine Manager** | Não | Esse é o valor de **InstanceUUid** para o VMware vCenter. Ele não é necessário para o Hyper-V.
 **Endereço MAC**| Não | Endereço MAC do servidor.
-**ID do BIOS** | Não | ID do BIOS do servidor.
-**ID personalizada do servidor** | Não | ID de servidor local exclusiva no local. <br/> Útil para rastrear o servidor importado pela ID local.
-**Nome do Aplicativo 1** | Não | Nome da carga de trabalho em execução no servidor.<br/>Para adicionar detalhes de outros aplicativos, [adicione colunas](#add-multiple-applications) no modelo. Você pode adicionar até cinco aplicativos.
-**Tipo do Aplicativo 1** | Não | Tipo da carga de trabalho em execução no servidor
-**Versão do Aplicativo 1** | Não | Versão da carga de trabalho em execução no servidor.
-**Expiração da licença do Aplicativo 1** | Não | Expiração da licença da carga de trabalho (se aplicável).
-**Unidade de negócios** | Não | Unidade de negócios à qual o servidor pertence.
-**Proprietário do negócio** | Não | Proprietário da unidade de negócios.
-**Nome do aplicativo de negócios** | Não | Nome do aplicativo ao qual o aplicativo pertence.
-**Localidade** | Não | Datacenter no qual o servidor está localizado.
+
 
 ### <a name="add-operating-systems"></a>Adicionar sistemas operacionais
 
@@ -159,19 +145,6 @@ Por exemplo, para especificar todos os campos para um segundo disco, adicione es
 - Taxa de transferência de leitura do disco 2
 - Taxa de transferência de gravação do disco 2
 
-### <a name="add-multiple-applications"></a>Adicionar vários aplicativos
-
-O modelo oferece campos para um único aplicativo. Você pode adicionar colunas semelhantes para até cinco aplicativos.  
-
-Por exemplo, para especificar todos os campos para um segundo aplicativo, adicione estas colunas:
-
-- Nome do aplicativo 2
-- Tipo do aplicativo 2
-- Versão do aplicativo 2
-- Expiração da licença do aplicativo 2
-
-> [!NOTE]
-> As informações sobre o aplicativo são úteis ao avaliar o ambiente local para migração. No entanto, a Avaliação de Servidor das Migrações para Azure atualmente não realiza a avaliação no nível do aplicativo, nem considera os aplicativos quando uma avaliação é criada.
 
 ## <a name="import-the-server-information"></a>Importar as informações do servidor
 

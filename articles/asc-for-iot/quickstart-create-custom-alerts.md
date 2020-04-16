@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Criar alertas personalizados para a Central de Segurança do Azure para IoT'
+title: 'Início Rápido: Criar alertas personalizados'
 description: Entenda, crie e atribua alertas de dispositivo personalizados para o serviço de segurança Central de Segurança do Azure para IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,19 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2020
 ms.author: mlottner
-ms.openlocfilehash: 063e5c9e7d75fd1c07d148c265b1fe64eee3cbc8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8ba81b669c25d91efa8ad1f07b1a7835b42c5cf4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78303521"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310844"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Início Rápido: Criar alertas personalizados
 
+Usando alertas e grupos de segurança personalizados, aproveite ao máximo as informações de segurança de ponta a ponta e o conhecimento categórico do dispositivo para garantir a melhor segurança em solução de IoT.
 
-Usando alertas e grupos de segurança personalizados, aproveite ao máximo as informações de segurança de ponta a ponta e o conhecimento categórico do dispositivo para garantir a melhor segurança em solução de IoT. 
-
-## <a name="why-use-custom-alerts"></a>Por que usar alertas personalizados? 
+## <a name="why-use-custom-alerts"></a>Por que usar alertas personalizados?
 
 Você conhece melhor seus dispositivos de IoT.
 
@@ -40,7 +39,7 @@ Grupos de segurança permitem que você defina grupos lógicos de dispositivos e
 Esses grupos podem representar dispositivos com o hardware específico, implantados em um determinado local, ou qualquer outro grupo adequado às suas necessidades específicas de dispositivos.
 
 Grupos de segurança são definidos por uma propriedade de marca do dispositivo gêmeo denominada **SecurityGroup**. Por padrão, cada solução de IoT no Hub IoT tem um grupo de segurança chamado **padrão**. Altere o valor da propriedade **SecurityGroup** para alterar o grupo de segurança de um dispositivo.
- 
+
 Por exemplo:
 
 ```
@@ -61,26 +60,24 @@ Por exemplo:
   "version": 4,
   "tags": {
     "SecurityGroup": "default"
-  }, 
+  },
 ```
 
-Use grupos de segurança para agrupar seus dispositivos em categorias lógicas. Depois de criar os grupos, atribua-os para os alertas personalizados de sua escolha, para a solução de segurança da IoT de ponta a ponta mais eficaz. 
+Use grupos de segurança para agrupar seus dispositivos em categorias lógicas. Depois de criar os grupos, atribua-os para os alertas personalizados de sua escolha, para a solução de segurança da IoT de ponta a ponta mais eficaz.
 
 ## <a name="customize-an-alert"></a>Personalizar um alerta
 
-1. Abra seu Hub IoT. 
-2. Clique em **Alertas personalizados** na seção **Segurança**. 
-3. Escolha um grupo de segurança que você deseja aplicar a personalização. 
-4. Clique em **Adicionar um alerta personalizado**.
-5. Selecione um alerta personalizado na lista suspensa. 
-6. Edite as propriedades necessárias, clique em **OK**.
-7. Certifique-se de clicar em **Salvar**. Sem salvar o novo alerta, o alerta é excluído na próxima vez que você fechar o Hub IoT.
+1. Abra seu Hub IoT.
+1. Clique em **Alertas personalizados** na seção **Segurança**.
+1. Escolha um grupo de segurança que você deseja aplicar a personalização.
+1. Clique em **Adicionar um alerta personalizado**.
+1. Selecione um alerta personalizado na lista suspensa.
+1. Edite as propriedades necessárias, clique em **OK**.
+1. Certifique-se de clicar em **Salvar**. Sem salvar o novo alerta, o alerta é excluído na próxima vez que você fechar o Hub IoT.
 
- 
 ## <a name="alerts-available-for-customization"></a>Alertas disponíveis para personalização
 
-A Central de Segurança do Azure para IoT oferece um grande número de alertas que podem ser personalizados de acordo com suas necessidades específicas. Examine a [tabela de alertas personalizáveis](concept-customizable-security-alerts.md) para obter a severidade do alerta, a fonte de dados, a descrição e as nossas etapas de correção sugeridas se e quando cada alerta for recebido. 
-
+A Central de Segurança do Azure para IoT oferece um grande número de alertas que podem ser personalizados de acordo com suas necessidades específicas. Examine a [tabela de alertas personalizáveis](concept-customizable-security-alerts.md) para obter a severidade do alerta, a fonte de dados, a descrição e as nossas etapas de correção sugeridas se e quando cada alerta for recebido.
 
 ## <a name="next-steps"></a>Próximas etapas
 

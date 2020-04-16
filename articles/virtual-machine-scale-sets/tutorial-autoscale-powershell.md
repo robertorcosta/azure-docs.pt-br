@@ -1,19 +1,19 @@
 ---
 title: Tutorial – Dimensionar automaticamente um conjunto de dimensionamento com o Azure PowerShell
 description: Saiba como dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell conforme a demanda de CPU aumenta e diminui
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 50fb0c1c13ceba88b1894fa0f3165dd40b8e23cf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b2451779119ab8fb6c1446631797ce32fd376146
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76278418"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008991"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -209,7 +209,7 @@ Para permitir que a ferramenta **Estresse da CPU** continue em execução, deixe
 
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Monitorar as regras de dimensionamento automático ativas
-Para monitorar o número de instâncias de VM em seu conjunto de dimensionamento, use **while**. Demoram 5 minutos para o dimensionamento automático começar o processo de escala horizontal em resposta à carga da CPU gerada por **CPUStress* em cada uma das instâncias de VM:
+Para monitorar o número de instâncias de VM em seu conjunto de dimensionamento, use **while**. São necessários 5 minutos para que o dimensionamento automático comece o processo de escalar horizontalmente em resposta à carga da CPU gerada por **CPUStress** em cada uma das instâncias de VM:
 
 ```azurepowershell-interactive
 while (1) {Get-AzureRmVmssVM `

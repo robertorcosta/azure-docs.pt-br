@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 022780f2b37c8bed49c81774d443b69bae41e5e7
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f87625fe4f56b369f2bf4aade3ef5424084b6fe8
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73476759"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254879"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Início Rápido: Criar uma sala de chat usando o Serviço do SignalR
 
@@ -95,7 +95,7 @@ Nesta seção, você adicionará a [ferramenta Gerenciador de Segredos](https://
     Esse segredo é acessado com a API de Configuração. Um sinal de dois pontos (:) funciona no nome da configuração com a API de Configuração em todas as plataformas com suporte. Consulte [Configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
 
 
-4. Abra *Startup.cs* e atualize o método `ConfigureServices` para usar o Serviço do Azure SignalR chamando o método `services.AddSignalR().AddAzureSignalR()`, somente para o ASP.NET Core 2:
+4. Abra *Startup.cs* e atualize o método `ConfigureServices` para usar o Serviço Azure SignalR chamando o método `services.AddSignalR().AddAzureSignalR()`:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -104,7 +104,6 @@ Nesta seção, você adicionará a [ferramenta Gerenciador de Segredos](https://
         services.AddSignalR().AddAzureSignalR();
     }
     ```
-    Para ASP.NET Core 3+, não há nenhuma alteração necessária para o método `ConfigureServices`.
 
     Ao não passar um parâmetro para `AddAzureSignalR()`, esse código usa a chave de configuração padrão para a cadeia de conexão do recurso Serviço do SignalR. A chave de configuração padrão é *Azure:SignalR:ConnectionString*.
 
