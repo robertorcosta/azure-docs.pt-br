@@ -2,24 +2,24 @@
 title: Suporte a contêiner
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/5/2019
-ms.author: dapine
-ms.openlocfilehash: 3c42bf2b2acc2472741bd603ea9d653a314ecc40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 8abd520a7bb80f1f9a2d8ebcbe46b90fe59a96ec
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73522276"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81421985"
 ---
 ## <a name="create-a-speech-resource"></a>Criar um recurso de fala
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)
 1. Clique em Criar recurso [ **de discurso** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
-1. Digite todas as configurações necessárias:
+1. Insira todas as configurações necessárias:
 
     |Configuração|Valor|
     |--|--|
@@ -35,4 +35,4 @@ ms.locfileid: "73522276"
     |Guia de recursos no Portal|Configuração|Valor|
     |--|--|--|
     |**Visão geral**|Ponto de extremidade|Copie o ponto final. Parece com`https://speech.cognitiveservices.azure.com/sts/v1.0/issuetoken`|
-    |**Chaves**|Chave de API|Copie uma das duas chaves. É uma seqüência de caracteres alfanuméricos de `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`32 sem espaços ou traços, .|
+    |**simétricas**|Chave de API|Copie uma das duas chaves. É uma seqüência de caracteres alfanuméricos de `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`32 sem espaços ou traços, .|
