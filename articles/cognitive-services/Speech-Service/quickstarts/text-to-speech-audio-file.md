@@ -3,20 +3,20 @@ title: 'Início Rápido: Sintetizar fala em um arquivo de áudio – Serviço de
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você usará o SDK de Fala para converter texto em fala sintetizada em um arquivo de áudio.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d5df28728c2e911537d67b9276157dc94b080e23
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: b02b43b0f10e1a120ac7e2e3e763aa1e918075b1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77119436"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400323"
 ---
 # <a name="quickstart-synthesize-speech-into-an-audio-file"></a>Início Rápido: Sintetizar uma fala em um arquivo de áudio
 
