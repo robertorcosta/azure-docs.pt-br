@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: fe80b7343f67b06981707081931e35142985688e
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 5df21b2c1926803a65eca911c66b059f36ee18aa
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668790"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393608"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3.6): sintaxe e recursos compatíveis
 
@@ -95,8 +95,8 @@ A API do Azure Cosmos DB para MongoDB é compatível com os seguintes comandos d
 |dataSize     |   Não      |
 |dbHash    |    Não     |
 |dbStats     |   Sim      |
-|explain     | Não        |
-|explain: executionStats     |     Não    |
+|explain     |   Sim      |
+|explain: executionStats     |   Sim      |
 |recursos     |    Não     |
 |hostInfo     |   Não      |
 |listDatabases         |   Sim      |

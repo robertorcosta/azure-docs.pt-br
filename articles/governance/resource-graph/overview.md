@@ -3,12 +3,12 @@ title: Visão geral do Azure Resource Graph
 description: Entenda como o serviço do Azure Resource Graph habilita a consulta complexa de recursos em grande escala entre assinaturas e locatários.
 ms.date: 03/02/2020
 ms.topic: overview
-ms.openlocfilehash: 38ead7be09e038b19c390acd9f10e1c0ccf9d858
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f5c091f60faedb76e3ca6cd68505c06f51be21b6
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214764"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381529"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
 
@@ -50,7 +50,7 @@ O Resource Graph então atualiza o banco de dados. O Resource Graph também exec
 
 Agora que você tem uma compreensão melhor do que é o Azure Resource Graph, vamos nos aprofundar em como construir consultas.
 
-É importante entender que a linguagem da consulta do Azure Resource Graph se baseia na [linguagem de consulta do Kusto](../../data-explorer/data-explorer-overview.md) usada pelo Azure Data Explorer.
+É importante entender que a linguagem da consulta do Azure Resource Graph se baseia na [linguagem de consulta do Kusto](/azure/data-explorer/data-explorer-overview) usada pelo Azure Data Explorer.
 
 Primeiro, para obter detalhes sobre operações e funções que podem ser usadas com o Azure Resource Graph, consulte [linguagem de consulta do Resource Graph](./concepts/query-language.md).
 Para procurar recursos, veja [explorar recursos](./concepts/explore-resources.md).

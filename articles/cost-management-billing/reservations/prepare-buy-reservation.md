@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: banders
-ms.openlocfilehash: 1f44b0a0e2278bfcfbbf7cde1a3605fe334eaa3f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 4ef0420eab8064343b54f2c0bf15a692b8bc038c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886510"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382806"
 ---
 # <a name="buy-a-reservation"></a>Comprar uma reserva
 
@@ -67,7 +67,7 @@ Você pode comprar reservas por meio do portal do Azure, das APIs, do PowerShell
 - [Cache Redis do Azure](../../azure-cache-for-redis/cache-reserved-pricing.md)
 - [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Databricks](prepay-databricks-reserved-capacity.md)
-- [Data Explorer](../../data-explorer/pricing-reserved-capacity.md)
+- [Data Explorer](/azure/data-explorer/pricing-reserved-capacity)
 - [Armazenamento em Disco](../../virtual-machines/linux/disks-reserved-capacity.md)
 - [Host Dedicado](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
 - [Planos de software](../../virtual-machines/linux/prepay-suse-software-charges.md)

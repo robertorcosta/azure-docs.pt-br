@@ -12,12 +12,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5c8bd5accefceee042601c3cf7d71f5e9131e04e
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b899e1d651f41c9c1e1e54af1b5ec19162dfc28d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80880815"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380052"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-application"></a>Tutorial: Entrar com os usuários e chamar o Microsoft Graph em um aplicativo Android 
 
@@ -91,7 +91,7 @@ Se você ainda não tiver um aplicativo Android, siga estas etapas para configur
 
 1. No painel do projeto do Android Studio, navegue até **app\src\main\res**.
 2. Clique com o botão direito do mouse em **res** e escolha **Novo** > **Diretório**. Insira `raw` como o nome do novo diretório e clique em **OK**.
-3. Em **app** > **src** > **main** > **res** > **raw**, crie um arquivo JSON chamado `auth_configbn_single_account.json` e cole a Configuração da MSAL salva anteriormente. 
+3. Em **app** > **src** > **main** > **res** > **raw**, crie um arquivo JSON chamado `auth_config_single_account.json` e cole a Configuração da MSAL salva anteriormente. 
 
     Abaixo do URI de Redirecionamento, cole: 
     ```json
@@ -190,7 +190,7 @@ import com.microsoft.identity.client.exception.*;
 ## <a name="instantiate-publicclientapplication"></a>Instanciar o PublicClientApplication
 #### <a name="initialize-variables"></a>Inicializar variáveis 
 ```java
-private final static String[] SCOPES = {"File.Read"};
+private final static String[] SCOPES = {"Files.Read"};
 /* Azure AD v2 Configs */
 final static String AUTHORITY = "https://login.microsoftonline.com/common";
 private ISingleAccountPublicClientApplication mSingleAccountApp;
@@ -583,8 +583,3 @@ Quando não for mais necessário, exclua o objeto de aplicativo criado na etapa 
 ## <a name="get-help"></a>Obter ajuda
 
 Visite [Ajuda e suporte](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) se você tiver algum problema com este tutorial ou com a plataforma de identidade da Microsoft.
-
-Ajude-nos a melhorar a plataforma de identidade da Microsoft. Deixe sua opinião respondendo a uma breve pesquisa de duas perguntas.
-
-> [!div class="nextstepaction"]
-> [Pesquisa da plataforma de identidade da Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
