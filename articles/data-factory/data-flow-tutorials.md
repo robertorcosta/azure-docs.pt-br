@@ -6,14 +6,16 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 03/24/2020
-ms.openlocfilehash: a4f9d48934bcb08147de4c6487629d552c252282
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 8aedbba5d65281753ca61f13e7e1a28c856948ec
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668695"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417786"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Mapeamento de tutoriais em vídeo de fluxo de dados
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeamento criados pela equipe do Azure Data Factory. 
 

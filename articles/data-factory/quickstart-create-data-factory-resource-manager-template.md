@@ -10,18 +10,20 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5ea45346de5ea841867dd13dd4c9a0ed26647448
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215744"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419112"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar um Azure data factory usando um modelo do Azure Resource Manager
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Versão atual](quickstart-create-data-factory-resource-manager-template.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este início rápido descreve como usar um modelo do Azure Resource Manager para criar um data factory do Azure. O pipeline que você criar nesse data factory **copia** dados de uma pasta para outra em um Armazenamento de Blobs do Azure. Para obter um tutorial sobre como **transformar** dados usando o Azure Data Factory, confira [Tutorial: Transformar dados usando o Spark](transform-data-using-spark.md).
 
@@ -636,7 +638,7 @@ Você define um pipeline que copia os dados de um conjunto de dados binário par
 
 #### <a name="trigger"></a>Gatilho
 
-Defina um disparador que executa o pipeline uma vez por hora. O gatilho implantado está no estado interrompido. Inicie o gatilho usando o cmdlet **Start-AzDataFactoryV2Trigger**. Para obter mais informações sobre gatilhos, consulte o artigo [Gatilhos e execução de pipeline](concepts-pipeline-execution-triggers.md#triggers).
+Defina um disparador que executa o pipeline uma vez por hora. O gatilho implantado está no estado interrompido. Inicie o gatilho usando o cmdlet **Start-AzDataFactoryV2Trigger**. Para obter mais informações sobre gatilhos, consulte o artigo [Gatilhos e execução de pipeline](concepts-pipeline-execution-triggers.md#trigger-execution).
 
 ```json
 {  
