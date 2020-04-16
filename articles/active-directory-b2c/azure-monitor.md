@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: acba378badb41324b2124b84833407da920a0e00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99e04c95156e40eed8c2b9aa88a2bee6f39e90c9
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78190051"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392885"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitora Azure AD B2C com Monitor Azure
 
@@ -84,8 +84,8 @@ Para embarcar no seu inquilino Azure AD (o **Cliente),** crie um [modelo de Gere
 
 Baixe o modelo e os arquivos de parâmetros do Azure Resource Manager:
 
-- [rgDelegatedResourceManagement.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
-- [rgDelegatedResourceManagement.parameters.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
+- [rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
+- [rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
 Em seguida, atualize o arquivo parâmetros com os valores que você gravou anteriormente. O trecho JSON a seguir mostra um exemplo de um arquivo de parâmetros do Azure Resource Manager. Para `authorizations.value.roleDefinitionId`, use o valor [da função](../role-based-access-control/built-in-roles.md) `b24988ac-6180-42a0-ab88-20f7382dd24c`incorporada para a função *contribuinte*, .
 
@@ -129,7 +129,7 @@ Faça login no diretório que contém sua assinatura usando [o Connect-AzAccount
 Connect-AzAccount -tenant contoso.onmicrosoft.com
 ```
 
-Use o [cmdlet Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) para listar as assinaturas que a conta corrente pode acessar o inquilino Azure AD. Grave o ID da assinatura que deseja projetar no seu inquilino Azure AD B2C.
+Use o [cmdlet Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) para listar as assinaturas que a conta corrente pode acessar sob o inquilino Azure AD. Grave o ID da assinatura que deseja projetar no seu inquilino Azure AD B2C.
 
 ```PowerShell
 Get-AzSubscription
@@ -223,7 +223,7 @@ Você está pronto para [criar configurações de diagnóstico](../active-direct
 
 Para configurar as configurações de monitoramento para logs de atividade saqueadores do Azure AD B2C:
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Selecione o ícone **Diretório + Assinatura** na barra de ferramentas do portal e selecione o diretório que contém o inquilino Ad B2C do Azure.
 1. Selecione **o Diretório Ativo do Azure**
 1. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
@@ -241,7 +241,7 @@ Para configurar as configurações de monitoramento para logs de atividade saque
     | Enviar para o Log Analytics | Nome do espaço de trabalho. |
 
 1. Selecione **Loglogs de auditoria** e **logonlogs**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

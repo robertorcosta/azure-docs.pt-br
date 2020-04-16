@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
-ms.openlocfilehash: 88e42fd9626276f6c77b46b33c138407f91d06ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7b7fff913c177703f959bfa103c8e310d01059e2
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75650754"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391834"
 ---
 # <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Artefato de definição de função personalizado em aplicativos gerenciados do Azure
 
@@ -20,7 +20,7 @@ Este artigo fornece uma visão geral do artefato de definição de função pers
 
 ## <a name="custom-role-definition-artifact"></a>Artefato de definição de função personalizado
 
-Você precisa nomear o artefato de definição de função personalizado costumeRoleDefinition.json. Coloque-o no mesmo nível que createUiDefinition.json e mainTemplate.json no pacote .zip que cria uma definição de aplicativo gerenciada. Para saber como criar o pacote .zip e publicar uma definição de aplicativo gerenciada, consulte [Publicar uma definição de aplicativo gerenciada.](publish-managed-app-definition-quickstart.md)
+Você precisa nomear o artefato de definição de função personalizado costumeRoleDefinition.json. Coloque-o no mesmo nível que createUiDefinition.json e mainTemplate.json no pacote .zip que cria uma definição de aplicativo gerenciada. Para saber como criar o pacote .zip e publicar uma definição de aplicativo gerenciada, consulte [Publicar uma definição de aplicativo gerenciada.](publish-service-catalog-app.md)
 
 ## <a name="custom-role-definition-schema"></a>Esquema de definição de função personalizado
 

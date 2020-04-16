@@ -3,24 +3,25 @@ title: Identidades gerenciadas
 description: Saiba como as identidades gerenciadas funcionam no Azure App Service e nas Funções Azure, como configurar uma identidade gerenciada e gerar um token para um recurso back-end.
 author: mattchenderson
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/14/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 6e3169f2bfcba0a02af1490f875cbab8a14d02f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 875d2bbebdfa95c6d180979399d876eb2afc01b4
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280021"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392533"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como usar identidades gerenciadas para o Serviço de Aplicativo e o Azure Functions
 
 > [!Important] 
 > Identidades gerenciadas para Serviço de Aplicativo e Azure Functions não se comportarão conforme o esperado se seu aplicativo for migrado entre assinaturas/locatários. O aplicativo precisará obter uma nova identidade, que pode ser feita ao desabilitar e reabilitar o recurso. Consulte [removendo uma identidade](#remove) abaixo. Recursos de downstream também precisará ter políticas de acesso atualizadas para usar a nova identidade.
 
-Este tópico mostra como criar uma identidade gerenciada para aplicativos do Serviço de Aplicativo e do Azure Functions e como usá-la para acessar outros recursos. Uma identidade gerenciada do Azure Active Directory (AAD) permite que seu aplicativo acesse facilmente outros recursos protegidos por AAD, como o Azure Key Vault. A identidade é gerenciada pela plataforma do Azure e não exige provisionamento ou giro de nenhum segredo. Para obter mais informações sobre identidades gerenciadas no AAD, veja [Identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Este tópico mostra como criar uma identidade gerenciada para aplicativos do Serviço de Aplicativo e do Azure Functions e como usá-la para acessar outros recursos. Uma identidade gerenciada do Azure Active Directory (Azure AD) permite que seu aplicativo acesse facilmente outros recursos protegidos pelo Azure AD, como o Azure Key Vault. A identidade é gerenciada pela plataforma do Azure e não exige provisionamento ou giro de nenhum segredo. Para obter mais informações sobre identidades gerenciadas no Azure AD, consulte [Identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-Seu aplicativo pode receber dois tipos de identidades: 
+Seu aplicativo pode receber dois tipos de identidades:
+
 - Uma **identidade atribuída pelo sistema** é vinculada ao seu aplicativo e é excluída se o seu aplicativo for excluído. Um aplicativo só pode ter uma identidade atribuída pelo sistema.
 - Uma **identidade atribuída pelo usuário** é um recurso autônomo do Azure que pode ser atribuído ao seu aplicativo. Um aplicativo pode ter várias identidades atribuídas pelo usuário.
 
@@ -38,7 +39,7 @@ Para configurar uma identidade gerenciada no portal, primeiro, crie um aplicativ
 
 3. Selecione **Identidade**.
 
-4. Na guia **Sistema atribuído**, alterne o **Status** para **Ligado**. Clique em **Salvar**.
+4. Na guia **Sistema atribuído**, alterne o **Status** para **Ligado**. Clique em **Save** (Salvar).
 
     ![Identidade gerenciada no Serviço de Aplicativo](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
@@ -52,11 +53,12 @@ Para configurar uma identidade gerenciada usando a CLI do Azure, será preciso u
 
 As etapas a seguir o guiarão na criação de um aplicativo Web e na atribuição de uma identidade a ele usando a CLI:
 
-1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/reference-index#az-login). Use uma conta associada à assinatura do Azure a qual você gostaria de implantar o aplicativo:
+1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/reference-index#az-login). Use uma conta associada à assinatura do Azure sob a qual você gostaria de implantar o aplicativo:
 
     ```azurecli-interactive
     az login
     ```
+
 2. Crie um aplicativo Web usando a CLI. Para ver mais exemplos de como usar a CLI com o Serviço de Aplicativo, consulte [Exemplos de CLI do Serviço de Aplicativo](../app-service/samples-cli.md):
 
     ```azurecli-interactive
@@ -84,10 +86,10 @@ As etapas a seguir guiarão você pela criação de um aplicativo da Web e pela 
     ```azurepowershell-interactive
     # Create a resource group.
     New-AzResourceGroup -Name myResourceGroup -Location $location
-    
+
     # Create an App Service plan in Free tier.
     New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
-    
+
     # Create a web app.
     New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
     ```
@@ -103,18 +105,20 @@ As etapas a seguir guiarão você pela criação de um aplicativo da Web e pela 
 Um modelo do Azure Resource Manager pode ser usado para automatizar a implantação de recursos do Azure. Para saber mais sobre a implantação do Serviço de Aplicativo e do Azure Functions, consulte [Automatizar a implantação de recursos no Serviço de Aplicativo](../app-service/deploy-complex-application-predictably.md) e [Automatizar a implantação de recursos no Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
 
 Qualquer recurso do tipo `Microsoft.Web/sites` pode ser criado com uma identidade, incluindo a propriedade a seguir na definição de recurso:
+
 ```json
 "identity": {
     "type": "SystemAssigned"
-}    
+}
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Um aplicativo pode ter identidades atribuídas pelo sistema e atribuídas pelo usuário ao mesmo tempo. Nesse caso, a `type` propriedade seria `SystemAssigned,UserAssigned`
 
 Adicionar o tipo atribuído pelo sistema diz ao Azure para criar e gerenciar a identidade do seu aplicativo.
 
 Por exemplo, um aplicativo Web pode ser semelhante ao seguinte:
+
 ```json
 {
     "apiVersion": "2016-08-01",
@@ -138,6 +142,7 @@ Por exemplo, um aplicativo Web pode ser semelhante ao seguinte:
 ```
 
 Quando o site é criado, ele tem as seguintes propriedades adicionais:
+
 ```json
 "identity": {
     "type": "SystemAssigned",
@@ -146,8 +151,7 @@ Quando o site é criado, ele tem as seguintes propriedades adicionais:
 }
 ```
 
-A propriedade tenantId identifica a qual locatário do AAD a identidade pertence. O principalId é um identificador exclusivo para a nova identidade do aplicativo. No AAD, a entidade de serviço tem o mesmo nome que você deu à sua instância do Serviço de Aplicativo ou das Funções do Azure.
-
+A propriedade tenantId identifica a qual inquilino azure AD a identidade pertence. O principalId é um identificador exclusivo para a nova identidade do aplicativo. Dentro do Azure AD, o diretor de serviço tem o mesmo nome que você deu ao seu aplicativo service ou a instância funções do Azure.
 
 ## <a name="add-a-user-assigned-identity"></a>Adicionar uma identidade atribuída pelo usuário
 
@@ -176,21 +180,23 @@ Primeiro, você precisará criar um recurso de identidade atribuído pelo usuár
 Um modelo do Azure Resource Manager pode ser usado para automatizar a implantação de recursos do Azure. Para saber mais sobre a implantação do Serviço de Aplicativo e do Azure Functions, consulte [Automatizar a implantação de recursos no Serviço de Aplicativo](../app-service/deploy-complex-application-predictably.md) e [Automatizar a implantação de recursos no Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
 
 Qualquer recurso do tipo `Microsoft.Web/sites` pode ser criado com uma identidade incluindo o seguinte bloco na definição do recurso, substituindo `<RESOURCEID>` pelo ID do recurso da identidade desejada:
+
 ```json
 "identity": {
     "type": "UserAssigned",
     "userAssignedIdentities": {
         "<RESOURCEID>": {}
     }
-}    
+}
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Um aplicativo pode ter identidades atribuídas pelo sistema e atribuídas pelo usuário ao mesmo tempo. Nesse caso, a `type` propriedade seria `SystemAssigned,UserAssigned`
 
 A adição do tipo atribuído pelo usuário diz ao Azure para usar a identidade atribuída pelo usuário especificada para o seu aplicativo.
 
 Por exemplo, um aplicativo Web pode ser semelhante ao seguinte:
+
 ```json
 {
     "apiVersion": "2016-08-01",
@@ -218,6 +224,7 @@ Por exemplo, um aplicativo Web pode ser semelhante ao seguinte:
 ```
 
 Quando o site é criado, ele tem as seguintes propriedades adicionais:
+
 ```json
 "identity": {
     "type": "UserAssigned",
@@ -230,12 +237,11 @@ Quando o site é criado, ele tem as seguintes propriedades adicionais:
 }
 ```
 
-O principalId é um identificador único para a identidade usada para a administração AAD. O clientId é um identificador exclusivo para a nova identidade do aplicativo que é usado para especificar qual identidade usar durante chamadas de tempo de execução.
-
+O principalId é um identificador único para a identidade usada para a administração do Azure AD. O clientId é um identificador exclusivo para a nova identidade do aplicativo que é usado para especificar qual identidade usar durante chamadas de tempo de execução.
 
 ## <a name="obtain-tokens-for-azure-resources"></a>Obter tokens para recursos do Azure
 
-Um aplicativo pode usar sua identidade gerenciada para obter tokens para acessar outros recursos protegidos pela AAD, como o Azure Key Vault. Esses tokens representam o acesso do aplicativo ao recurso e não um usuário específico do aplicativo. 
+Um aplicativo pode usar sua identidade gerenciada para obter tokens para acessar outros recursos protegidos pelo Azure AD, como o Azure Key Vault. Esses tokens representam o acesso do aplicativo ao recurso e não um usuário específico do aplicativo. 
 
 Talvez seja necessário configurar o recurso de destino para permitir o acesso do aplicativo. Por exemplo, se você solicitar um token para acessar o Key Vault, você precisa ter certeza de que adicionou uma política de acesso que inclua a identidade do seu aplicativo. Caso contrário, as chamadas para o Key Vault serão rejeitadas, mesmo se elas incluírem o token. Para saber mais sobre os recursos que oferecem suporte a tokens do Azure Active Directory, veja [Serviços do Azure que dão suporte à autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
@@ -248,56 +254,61 @@ Há um protocolo REST simples para obter um token no Serviço de Aplicativo e no
 
 Um aplicativo com uma identidade gerenciada tem duas variáveis de ambiente definidas:
 
-- MSI_ENDPOINT: a URL para o serviço de token local.
-- MSI_SECRET: um cabeçalho usado para ajudar a reduzir os ataques de falsificação da solicitação do lado do servidor (SSRF). O valor é trocado pela plataforma.
+- IDENTITY_ENDPOINT - a URL para o serviço de token local.
+- IDENTITY_HEADER - um cabeçalho usado para ajudar a mitigar ataques de falsificação de solicitações do lado do servidor (SSRF). O valor é trocado pela plataforma.
 
-A **MSI_ENDPOINT** é uma URL local da qual o aplicativo pode solicitar tokens. Para obter um token para um recurso, solicite uma HTTP GET para esse ponto de extremidade, incluindo os seguintes parâmetros:
+O **IDENTITY_ENDPOINT** é uma URL local a partir da qual seu aplicativo pode solicitar tokens. Para obter um token para um recurso, solicite uma HTTP GET para esse ponto de extremidade, incluindo os seguintes parâmetros:
 
-> |Nome do parâmetro|No|Descrição|
-> |-----|-----|-----|
-> |recurso|Consulta|O URI do recurso do AAD do recurso para o qual um token deve ser obtido. Pode ser um dos [serviços do Azure que dão suporte à autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou a qualquer outro URI de recurso.|
-> |api-version|Consulta|A versão da API do token a ser usada. Atualmente, a única versão com suporte é 2017-09-01.|
-> |segredo|Cabeçalho|O valor da variável de ambiente MSI_SECRET. Esse cabeçalho é usado para ajudar a reduzir os ataques de falsificação da solicitação do lado do servidor (SSRF).|
-> |clientid|Consulta|(Opcional, a menos que seja atribuído pelo usuário) O ID da identidade atribuída pelo usuário a ser usada. Se omitido, a identidade atribuída pelo sistema é usada.|
+> | Nome do parâmetro    | No     | Descrição                                                                                                                                                                                                                                                                                                                                |
+> |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | recurso          | Consulta  | O URI de recurso Azure AD do recurso para o qual um token deve ser obtido. Pode ser um dos [serviços do Azure que dão suporte à autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou a qualquer outro URI de recurso.    |
+> | api-version       | Consulta  | A versão da API do token a ser usada. Por favor, use "2019-08-01" ou posterior.                                                                                                                                                                                                                                                                 |
+> | X-IDENTITY-HEADER | Cabeçalho | O valor da variável ambiente IDENTITY_HEADER. Esse cabeçalho é usado para ajudar a reduzir os ataques de falsificação da solicitação do lado do servidor (SSRF).                                                                                                                                                                                                    |
+> | client_id         | Consulta  | (Opcional) O ID do cliente da identidade atribuída pelo usuário a ser usada. Não pode ser usado em `principal_id` `mi_res_id`uma `object_id`solicitação que inclua , ou . Se todos os`client_id`parâmetros `object_id`de `mi_res_id`Identificação (, `principal_id`e) forem omitidos, a identidade atribuída ao sistema será usada.                                             |
+> | principal_id      | Consulta  | (Opcional) O id principal da identidade atribuída pelo usuário a ser usada. `object_id`é um alias que pode ser usado em vez disso. Não pode ser usado em uma solicitação que inclua client_id, mi_res_id ou object_id. Se todos os`client_id`parâmetros `object_id`de `mi_res_id`Identificação (, `principal_id`e) forem omitidos, a identidade atribuída ao sistema será usada. |
+> | mi_res_id         | Consulta  | (Opcional) O ID de recurso do Azure da identidade atribuída pelo usuário a ser usada. Não pode ser usado em `principal_id` `client_id`uma `object_id`solicitação que inclua , ou . Se todos os`client_id`parâmetros `object_id`de `mi_res_id`Identificação (, `principal_id`e) forem omitidos, a identidade atribuída ao sistema será usada.                                      |
 
 > [!IMPORTANT]
-> Se você está tentando obter tokens para identidades atribuídas `clientid` pelo usuário, você deve incluir a propriedade. Caso contrário, o serviço de token tentará obter um token para uma identidade atribuída ao sistema, que pode ou não existir.
+> Se você está tentando obter tokens para identidades atribuídas pelo usuário, você deve incluir uma das propriedades opcionais. Caso contrário, o serviço de token tentará obter um token para uma identidade atribuída ao sistema, que pode ou não existir.
 
 Uma resposta bem-sucedida de 200 OK inclui um corpo JSON com as seguintes propriedades:
 
-> |Nome da propriedade|Descrição|
-> |-------------|----------|
-> |access_token|O token de acesso solicitado. O serviço Web de chamada pode usar esse token para se autenticar no serviço Web de recebimento.|
-> |expires_on|A hora de expiração do token de acesso. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida de tokens em cache.|
-> |recurso|O URI da ID de aplicativo do serviço Web de recebimento.|
-> |token_type|Indica o valor do tipo de token. O único tipo com suporte do Azure AD é Portador Para saber mais sobre os tokens de portador, consulte [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
+> | Nome da propriedade | Descrição                                                                                                                                                                                                                                        |
+> |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | access_token  | O token de acesso solicitado. O serviço Web de chamada pode usar esse token para se autenticar no serviço Web de recebimento.                                                                                                                               |
+> | client_id     | A identidade do cliente da identidade que foi usada.                                                                                                                                                                                                       |
+> | expires_on    | O período de expiração do token de acesso. A data é representada como o número de segundos de “1970-01-01T0:0:0Z UTC” (corresponde à declaração `exp` do token).                                                                                |
+> | not_before    | O período para o token de acesso entrar em vigor e poder ser aceito. A data é representada como o número de segundos de “1970-01-01T0:0:0Z UTC” (corresponde à declaração `nbf` do token).                                                      |
+> | recurso      | O recurso para o qual o token de acesso foi solicitado, que corresponde ao parâmetro de cadeia de consulta `resource` da solicitação.                                                                                                                               |
+> | token_type    | Indica o valor do tipo de token. O único tipo que o Azure AD suporta é o FBearer. Para saber mais sobre os tokens de portador, consulte [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
-Essa resposta é igual a [resposta à solicitação do AAD de token de acesso de serviço para serviço](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#get-a-token).
+Essa resposta é a mesma que a [resposta para a solicitação de token de acesso de serviço do Azure AD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 > [!NOTE]
-> Variáveis de ambiente são configuradas quando o processo é iniciado pela primeira vez, então após habilitar a identidade gerenciada para o seu aplicativo, você pode precisar reiniciar o aplicativo ou reimplantar o código dele antes que `MSI_ENDPOINT` e `MSI_SECRET` estejam disponíveis para seu código.
+> Uma versão mais antiga deste protocolo, usando a versão aPI "2017-09-01", usou o `secret` cabeçalho em vez de `X-IDENTITY-HEADER` e só aceitou a `clientid` propriedade para o usuário atribuído. Ele também retornou o `expires_on` em formato de carimbo de tempo. MSI_ENDPOINT pode ser usado como um pseudônimo para IDENTITY_ENDPOINT, e MSI_SECRET pode ser usado como um alias para IDENTITY_HEADER.
 
 ### <a name="rest-protocol-examples"></a>Exemplos de protocolo REST
 
 Uma solicitação de exemplo pode ser semelhante ao seguinte:
 
-```
-GET /MSI/token?resource=https://vault.azure.net&api-version=2017-09-01 HTTP/1.1
+```http
+GET /MSI/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
 Host: localhost:4141
-Secret: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
+X-IDENTITY-HEADER: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
 
 Uma resposta de exemplo pode ser semelhante ao seguinte:
 
-```
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
     "access_token": "eyJ0eXAi…",
-    "expires_on": "09/14/2017 00:00:00 PM +00:00",
+    "expires_on": "1586984735",
     "resource": "https://vault.azure.net",
-    "token_type": "Bearer"
+    "token_type": "Bearer",
+    "client_id": "5E29463D-71DA-4FE0-8E69-999B57DB23B0"
 }
 ```
 
@@ -313,21 +324,21 @@ private readonly HttpClient _client;
 // ...
 public async Task<HttpResponseMessage> GetToken(string resource)  {
     var request = new HttpRequestMessage(HttpMethod.Get, 
-        String.Format("{0}/?resource={1}&api-version=2017-09-01", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource));
-    request.Headers.Add("Secret", Environment.GetEnvironmentVariable("MSI_SECRET"));
+        String.Format("{0}/?resource={1}&api-version=2019-08-01", Environment.GetEnvironmentVariable("IDENTITY_ENDPOINT"), resource));
+    request.Headers.Add("X-IDENTITY-HEADER", Environment.GetEnvironmentVariable("IDENTITY_HEADER"));
     return await _client.SendAsync(request);
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, cb) {
     let options = {
-        uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=2017-09-01`,
+        uri: `${process.env["IDENTITY_ENDPOINT"]}/?resource=${resource}&api-version=2019-08-01`,
         headers: {
-            'Secret': process.env["MSI_SECRET"]
+            'X-IDENTITY-HEADER': process.env["IDENTITY_HEADER"]
         }
     };
     rp(options)
@@ -341,12 +352,12 @@ const getToken = function(resource, cb) {
 import os
 import requests
 
-msi_endpoint = os.environ["MSI_ENDPOINT"]
-msi_secret = os.environ["MSI_SECRET"]
+identity_endpoint = os.environ["IDENTITY_ENDPOINT"]
+identity_header = os.environ["IDENTITY_HEADER"]
 
 def get_bearer_token(resource_uri):
-    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version=2017-09-01"
-    head_msi = {'Secret':msi_secret}
+    token_auth_uri = f"{identity_endpoint}?resource={resource_uri}&api-version=2019-08-01"
+    head_msi = {'X-IDENTITY-HEADER':identity_header}
 
     resp = requests.get(token_auth_uri, headers=head_msi)
     access_token = resp.json()['access_token']
@@ -354,12 +365,12 @@ def get_bearer_token(resource_uri):
     return access_token
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
-$tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=2017-09-01"
-$tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
+$tokenAuthURI = $env:IDENTITY_ENDPOINT + "?resource=$resourceURI&api-version=2019-08-01"
+$tokenResponse = Invoke-RestMethod -Method Get -Headers @{"X-IDENTITY-HEADER"="$env:IDENTITY_HEADER"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
 
@@ -423,7 +434,7 @@ Uma identidade atribuída pelo sistema pode ser removida desabilitando o recurso
 }
 ```
 
-Remover uma identidade atribuída pelo sistema dessa maneira também a excluirá do AAD. As identidades atribuídas pelo sistema também são automaticamente removidas do AAD quando o recurso do aplicativo é excluído.
+A remoção de uma identidade atribuída ao sistema dessa forma também a excluirá do Azure AD. As identidades atribuídas ao sistema também são automaticamente removidas do Azure AD quando o recurso do aplicativo é excluído.
 
 > [!NOTE]
 > Há também uma configuração de aplicativo que pode ser definida, WEBSITE_DISABLE_MSI, que apenas desativa o serviço de token local. No entanto, ele deixa a identidade no local e ferramentas ainda mostrará a identidade gerenciada como "ligada" ou "habilitada". Como resultado, o uso dessa configuração não é recomendado.

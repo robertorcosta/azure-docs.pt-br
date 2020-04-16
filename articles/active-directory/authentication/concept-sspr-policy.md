@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fba4dae66b5adcea6cc33e61d8cf88946e29546e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f5987bee82dc22d3742cb5d87040930e5d2c52d
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051181"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393043"
 ---
 # <a name="self-service-password-reset-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de redefinição de senha de autoatendimento no Azure Active Directory
 
@@ -160,16 +160,6 @@ Para começar, [baixe e instale o módulo Azure AD PowerShell](https://docs.micr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os artigos a seguir fornecem informações adicionais sobre a redefinição de senha através do Azure AD:
+Para começar com o SSPR, consulte [Tutorial: Habilite os usuários desbloquearem sua conta ou redefinirsenhas usando a redefinição de senha de autoatendimento do Azure Active Directory](tutorial-enable-sspr.md).
 
-* [Como concluir uma implementação do SSPR com êxito?](howto-sspr-deployment.md)
-* [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md).
-* [Registro para redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md).
-* [Você tem uma pergunta de licenciamento?](concept-sspr-licensing.md)
-* [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
-* [Quais métodos de autenticação estão disponíveis para os usuários?](concept-sspr-howitworks.md#authentication-methods)
-* [O que é o write-back de senha e por que devo me importar com isso?](howto-sspr-writeback.md)
-* [Como faço para informar sobre a atividade no SSPR?](howto-sspr-reporting.md)
-* [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
-* [Acho que algo está quebrado. Como faço para solucionar problemas de SSPR?](active-directory-passwords-troubleshoot.md)
-* [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
+Se você ou usuários tiverem problemas com o SSPR, consulte [Redefinir a senha de autoatendimento de Solução de Problemas](active-directory-passwords-troubleshoot.md)

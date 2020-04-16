@@ -1,26 +1,26 @@
 ---
-title: Esquema de evento de machine learning da Grade de Eventos do Azure
+title: Azure Machine Learning como fonte da Grade de Eventos
 description: Descreve as propriedades fornecidas para eventos de espaço de trabalho de aprendizado de máquina com a Grade de Eventos do Azure
 services: event-grid
-author: jenns
+author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 10/18/2019
-ms.author: jenns
-ms.openlocfilehash: 4051598a9abd787f6707e67a8c4dab12fc6d626a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: 7d9af420c7e2b47d2aeb4a8bf42ee138a605b305
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79202137"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393270"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Esquema de eventos do Azure Event Grid para aprendizado de máquina do Azure
+# <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning como fonte de grade de eventos
 
 Este artigo fornece as propriedades e o esquema para eventos de espaço de trabalho de aprendizagem de máquina. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
-Para obter uma lista de scripts de exemplo e tutoriais, consulte [a fonte de evento AzureML](event-sources.md#azure-machine-learning).
+## <a name="event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos
 
-## <a name="available-event-types"></a>Tipos de evento disponíveis
+### <a name="available-event-types"></a>Tipos de evento disponíveis
 
 O Azure Machine Learning emite os seguintes tipos de eventos:
 
@@ -32,7 +32,7 @@ O Azure Machine Learning emite os seguintes tipos de eventos:
 | Microsoft.MachineLearningServices.DatasetDriftDetectado | Levantado quando um monitor de deriva Dataset detecta deriva. |
 | Microsoft.MachineLearningServices.runStatusChanged | Elevado quando um status de execução muda para 'falhou'. |
 
-## <a name="the-contents-of-an-event-response"></a>O conteúdo de uma resposta de evento
+### <a name="the-contents-of-an-event-response"></a>O conteúdo de uma resposta de evento
 
 Quando um evento é acionado, o serviço Event Grid envia dados sobre esse evento para assinar o ponto final.
 
@@ -186,10 +186,7 @@ Esta seção contém um exemplo de como esses dados seriam para cada evento.
 }]
 ```
 
-
-
-
-## <a name="event-properties"></a>Propriedades do evento
+### <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de nível superior:
 
@@ -260,6 +257,11 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 | RunTags | objeto | As etiquetas do Run concluído. |
 | Executarpropriedades | objeto | As propriedades do Run concluído. |
 | RunStatus | string | O status da Corrida. |
+
+## <a name="tutorials-and-how-tos"></a>Tutoriais e como fazer
+| Title | Descrição |
+| ----- | ----- |
+| [Consumir eventos de Machine Learning do Azure](../machine-learning/concept-event-grid-integration.md) | Visão geral da integração do Azure Machine Learning com a Event Grid. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

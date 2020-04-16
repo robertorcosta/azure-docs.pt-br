@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: f2f6be1022a7100a23f49534f2c18fc951d56284
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c803d489b70cda6910865f6096d21c2021c4ae3a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255503"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393696"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de Blobs do Azure: camadas de acesso frequentes, esporádicas e de arquivo
 
@@ -122,7 +122,7 @@ A tabela a seguir mostra uma comparação do armazenamento de blob de bloco de d
 | **Encargos de uso**                         | Custos de armazenamento mais altos, menor acesso e custo de transação | Custos de armazenamento maiores, custos de acesso e de transações menores | Custos de armazenamento menores, custos de acesso e de transações maiores | Custos de armazenamento mais baixos, custos de acesso e de transações mais altos |
 | **Tamanho mínimo de objeto**                   | N/D                       | N/D          | N/D                 | N/D               |
 | **Duração mínima de armazenamento**              | N/D                       | N/D          | 30 dias<sup>1</sup> | 180 dias
-| **Latência** <br> **(Tempo até o primeiro byte)** | Milissegundos de um dígito | milissegundos | milissegundos        | horas<sup>2</sup> |
+| **Latency** <br> **(Tempo até o primeiro byte)** | Milissegundos de um dígito | milissegundos | milissegundos        | horas<sup>2</sup> |
 
 <sup>1</sup> Objetos no nível legal nas contas GPv2 têm uma duração mínima de retenção de 30 dias. As contas de armazenamento Blob não têm uma duração mínima de retenção para o nível legal.
 
@@ -141,7 +141,7 @@ Nesta seção, os seguintes cenários são demonstrados usando o portal Azure e 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Alterar a camada de acesso de conta padrão de uma conta de Armazenamento de Blobs ou de GPv2
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. No portal Azure, procure e selecione **Todos os Recursos**.
 
@@ -169,7 +169,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Altere o nível de uma bolha em uma conta de armazenamento GPv2 ou Blob
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. No portal Azure, procure e selecione **Todos os Recursos**.
 
@@ -199,7 +199,7 @@ $storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountN
 $ctx = $storageAccount.Context
 
 #Select the blob from a container
-$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+$blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 
 #Change the blob’s access tier to archive
 $blob.ICloudBlob.SetStandardBlobTier("Archive")
@@ -234,7 +234,7 @@ Sim. O atributo **Access Tier** definido no nível da conta é o nível de conta
 
 **Posso alterar o nível de acesso padrão da minha conta de armazenamento Blob ou GPv2?**
 
-Sim, você pode alterar o nível de conta padrão definindo o atributo **access tier** na conta de armazenamento. Alterar o nível da conta aplica-se a todos os objetos armazenados na conta que não possuem um conjunto de camadas explícito (por exemplo, **Hot (inferido)** ou **Cool (inferido).** Alternar o nível da conta de operações de gravação quentes para frias incurs (por 10.000) para todas as bolhas sem um nível definido apenas em contas GPv2 e alternando de frio para quente incursas operações de leitura (por 10.000) e taxas de recuperação de dados (por GB) para todas as bolhas no armazenamento Blob e contas GPv2.
+Sim, você pode alterar o nível de conta padrão definindo o atributo **access tier** na conta de armazenamento. Alterar o nível da conta aplica-se a todos os objetos armazenados na conta que não possuem um conjunto de camadas explícito (por exemplo, **Hot (inferido)** ou **Cool (inferido).** Alternar o nível da conta de operações de gravação quentes para frias incurs (por 10.000) para todas as bolhas sem um nível definido apenas em contas GPv2 e alternar de fria para quente incursas tanto operações de leitura (por 10.000) quanto taxas de recuperação de dados (por GB) para todas as blobs em armazenamento Blob e contas GPv2.
 
 **Posso definir meu nível de acesso padrão da conta para arquivar?**
 

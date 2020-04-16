@@ -5,18 +5,20 @@ description: Saiba como atualizar ou redefinir as credenciais do serviço princi
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 0203321af32bcc2ae70b726737b85870d08be86f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 8420771e32aa792aa79a07fdf4362ad0d9b45d48
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886748"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392624"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualize ou gire as credenciais para o Azure Kubernetes Service (AKS)
 
 Por padrão, os clusters do AKS são criados com uma entidade de serviço que tem um tempo de término de um ano. Conforme você se aproxima da data do término, pode redefinir as credenciais para estender a entidade de serviço por um período adicional. Talvez você também deseje atualizar ou girar as credenciais como parte de uma política de segurança definida. Este artigo fornece detalhes de como atualizar essas credenciais para um cluster do AKS.
 
-Você também pode ter [integrado seu cluster AKS com o Azure Active Directory][aad-integration]e usá-lo como um provedor de autenticação para o seu cluster. Nesse caso, você terá mais 2 identidades criadas para o seu cluster, o AAD Server App e o AAD Client App, você também pode redefinir essas credenciais. 
+Você também pode ter [integrado seu cluster AKS com o Azure Active Directory][aad-integration]e usá-lo como um provedor de autenticação para o seu cluster. Nesse caso, você terá mais 2 identidades criadas para o seu cluster, o AAD Server App e o AAD Client App, você também pode redefinir essas credenciais.
+
+Alternativamente, você pode usar uma identidade gerenciada para permissões em vez de um diretor de serviço. As identidades gerenciadas são mais fáceis de gerenciar do que os diretores de serviço e não exigem atualizações ou rotações. Para obter mais informações, consulte [Usar identidades gerenciadas](use-managed-identity.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dsindona
-ms.openlocfilehash: 041b2133ed63a906d3fea3ab67890a0057151b9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59f9fecb3d949d9cdf48719e6329b066d9eb3fc5
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285258"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393530"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Preparar seus ativos técnicos do aplicativo do Azure
 
@@ -32,7 +32,7 @@ Examine a seguinte documentação do aplicativo do Azure, que fornece guias de i
 
   - [Modelos Azure Quickstart](https://azure.microsoft.com/documentation/templates/)
   - [Modelos de Início Rápido do Azure GitHub](https://github.com/azure/azure-quickstart-templates)
-  - [Publicar definição do aplicativo](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+  - [Publicar definição do aplicativo](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
   - [Implantar aplicativo do catálogo de serviços](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
   
@@ -43,8 +43,8 @@ Examine a seguinte documentação do aplicativo do Azure, que fornece guias de i
 
   - Exemplos:
 
-    - [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
-    - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
+    - [CLI do Azure](https://docs.microsoft.com/azure/managed-applications/cli-samples)
+    - [PowerShell do Azure](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
     - [Soluções de aplicativo gerenciado](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
 ## <a name="fundamental-technical-knowledge"></a>Conhecimento técnico fundamental
@@ -63,12 +63,12 @@ A equipe de engenharia deverá ter conhecimento das seguintes tecnologias Micros
 
 Escolha um ou ambos dos seguintes ambientes de script para ajudar a gerenciar seu aplicativo Azure:
 
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview)
+- [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 Além disso, é recomendável adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
 
-- [Explorador de armazenamento azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+- [Gerenciador de Armazenamento do Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 - [Visual Studio Code](https://code.visualstudio.com/) (VS Code) com as extensões a seguir:
 
   - Extensão: [Ferramentas do Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)

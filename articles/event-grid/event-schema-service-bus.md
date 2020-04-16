@@ -1,27 +1,26 @@
 ---
-title: Esquema de eventos do Barramento de Serviço da Grade de Eventos do Azure
+title: Ônibus de serviço azure como fonte da Event Grid
 description: Descreve as propriedades que são fornecidas para eventos do Barramento de Serviço com a Grade de Eventos do Azure
 services: event-grid
 author: banisadr
-manager: darosa
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: babanisa
-ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 141a0e96071014dc3705d30f72b1a9257737298a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561752"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393233"
 ---
-# <a name="azure-event-grid-event-schema-for-service-bus"></a>Esquema de eventos da Grade de Eventos do Azure para Barramento de Serviço
+# <a name="azure-service-bus-as-an-event-grid-source"></a>Ônibus de serviço azure como fonte de grade de eventos
 
 Este artigo fornece as propriedades e o esquema para eventos do Barramento de Serviço.Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
-Para obter uma lista de scripts de exemplo e tutoriais, consulte [Origem do evento do Barramento de Serviço](event-sources.md#service-bus).
+## <a name="event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos
 
-## <a name="available-event-types"></a>Tipos de evento disponíveis
+### <a name="available-event-types"></a>Tipos de evento disponíveis
 
 Barramento de Serviço emite os seguintes tipos de evento:
 
@@ -30,7 +29,7 @@ Barramento de Serviço emite os seguintes tipos de evento:
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Gerado quando há mensagens ativas em uma fila ou assinatura e nenhum receptor escutando. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | Gerado quando há mensagens ativas em uma fila de mensagens mortas e nenhum listener ativo. |
 
-## <a name="example-event"></a>Exemplo de evento
+### <a name="example-event"></a>Exemplo de evento
 
 O exemplo a seguir mostra o esquema de mensagens ativas sem eventos de ouvintes:
 
@@ -76,7 +75,7 @@ O esquema para um evento de fila de mensagens mortas é semelhante:
 }]
 ```
 
-## <a name="event-properties"></a>Propriedades do evento
+### <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de nível superior:
 
@@ -101,6 +100,12 @@ O objeto de dados tem as seguintes propriedades:
 | queueName | string | A fila de mensagens ativas se inscreve-se em uma fila. Valor nulo se usar tópicos / assinaturas. |
 | topicName | string | O tópico da assinatura do Barramento de Serviço ao qual as mensagens ativas pertencem. Valor nulo se usar uma fila. |
 | subscriptionName | string | A assinatura do Barramento de Serviço com as mensagens ativas. Valor nulo se usar uma fila. |
+
+## <a name="tutorials-and-how-tos"></a>Tutoriais e como fazer
+|Title  |Descrição  |
+|---------|---------|
+| [Tutorial: exemplos do Barramento de Serviço do Azure para a integração da Grade de Eventos do Azure](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | A Grade de Eventos envia mensagens do tópico do Barramento de Serviço para o aplicativo de função e o aplicativo lógico. |
+| [Azure Service Bus para Event Grid integração](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Visão geral da integração do Barramento de Serviço com a Grade de Eventos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

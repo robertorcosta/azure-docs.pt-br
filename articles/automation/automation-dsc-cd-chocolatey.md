@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 706ab128af4379a56223ff65fb12f29d37b524f7
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 0c61a431b985e494148500ed0a7aeb106534ed2c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383273"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392113"
 ---
 # <a name="provide-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Fornecer implantação contínua para máquinas virtuais usando a configuração do estado de automação e chocolate
 
@@ -95,7 +95,7 @@ Navegue até o recurso que deseja e clique no botão "Implantar no Azure Automat
 
 Outra técnica recentemente adicionada ao portal Azure permite que você puxe novos módulos ou atualize módulos existentes. Clique no recurso da conta automação, no azulejo assets e, finalmente, no azulejo Módulos. O ícone da Galeria de Navegação permite que você veja a lista de módulos na galeria, aprofunde detalhes e, finalmente, importe para sua conta de Automação. Isso é uma ótima maneira de manter atualizados os módulos periodicamente. Além disso, o recurso de importação verifica dependências com outros módulos para garantir que nada esteja fora de sincronização.
 
-Ou então, há a abordagem manual. Essa abordagem é usada apenas uma vez por recurso, a menos que você queira atualizá-la mais tarde. Para obter mais informações sobre a autoria dos módulos de integração do PowerShell, consulte [Módulos de Integração de Autoria para Automação Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
+Há também uma abordagem manual, usada apenas uma vez por recurso, a menos que você queira atualizá-lo mais tarde. Para obter mais informações sobre a autoria dos módulos de integração do PowerShell, consulte [Módulos de Integração de Autoria para Automação Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
 
 >[!NOTE]
 >A estrutura de pasta de um módulo de integração PowerShell para um computador Windows é um pouco diferente da estrutura de pastas esperada pela Automação Azure. 
@@ -121,7 +121,7 @@ Ou então, há a abordagem manual. Essa abordagem é usada apenas uma vez por re
     ```azurepowershell-interactive
     New-AzAutomationModule `
       -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
-      -Name MODULE-NAME –ContentLink 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
+      -Name MODULE-NAME –ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
     ```
 
 O exemplo incluído implementa essas etapas para cChoco e xNetworking. 
@@ -196,18 +196,18 @@ Essas etapas resultam em uma nova configuração de nó chamada **ISVBoxConfig.i
 
 ## <a name="step-5-create-and-maintain-package-metadata"></a>Passo 5: Criar e manter metadados do pacote
 
-Para cada pacote que você coloca no repositório de pacotes, é necessário um nuspec que o descreve.
-Esse nuspec deve ser compilado e armazenado em seu servidor do NuGet. Este processo é descrito [aqui](https://docs.nuget.org/create/creating-and-publishing-a-package). Você pode usar MyGet.org como um servidor do NuGet. Esse serviço é vendido, porém, há uma SKU inicial que é gratuita. Ao NuGet.org, você encontrará instruções sobre como instalar seu próprio servidor NuGet para seus pacotes privados.
+Para cada pacote que você colocar no repositório do pacote, você precisa de um Nuspec que o descreva. Ele deve ser compilado e armazenado no servidor NuGet. Este processo é descrito [aqui](https://docs.nuget.org/create/creating-and-publishing-a-package). 
+
+Você pode **usáMyGet.org** como um servidor NuGet. Você pode comprar este serviço, mas você é um SKU de entrada grátis. No [NuGet,](https://www.nuget.org/)você encontrará instruções sobre como instalar seu próprio servidor NuGet para seus pacotes privados.
 
 ## <a name="step-6-tie-it-all-together"></a>Passo 6: Amarre tudo junto
 
-Cada vez que uma versão passa qa e é aprovada para implantação, o pacote é criado, e nuspec e nupkg são atualizados e implantados no servidor NuGet. A configuração (Passo 4 acima) também deve ser atualizada para concordar com o novo número da versão. Em seguida, ele deve ser enviado para o servidor de tração e compilado.
+Cada vez que uma versão passa qa e é aprovada para implantação, o pacote é criado, e nuspec e nupkg são atualizados e implantados no servidor NuGet. A configuração (etapa 4) também deve ser atualizada para concordar com o novo número da versão. Em seguida, ele deve ser enviado para o servidor de tração e compilado.
 
 Daí em diante, as VMs que dependem dessa configuração serão responsáveis por receber a atualização e instalá-la. Cada uma dessas atualizações é simples - apenas uma linha ou duas de PowerShell. Para o Azure DevOps, alguns deles são encapsulados em tarefas de construção que podem ser acorrentadas em uma compilação. Este [artigo](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) fornece mais detalhes. Este [repo do GitHub](https://github.com/Microsoft/vso-agent-tasks) detalha as tarefas de compilação disponíveis.
 
 ## <a name="related-articles"></a>Artigos relacionados
-* [Visão geral do DSC da Automação do Azure](automation-dsc-overview.md)
-* [cmdlets do DSC de Automação do Azure](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
+* [Visão geral do Azure Automation DSC](automation-dsc-overview.md)
 * [Integração de computadores para o gerenciamento pelo DSC de Automação do Azure](automation-dsc-onboarding.md)
 
 ## <a name="next-steps"></a>Próximas etapas

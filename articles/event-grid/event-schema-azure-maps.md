@@ -1,24 +1,26 @@
 ---
-title: Esquema de eventos do Azure Mapas da Grade de Eventos do Azure
+title: Mapas do Azure como fonte da Grade de Eventos
 description: Descreve as propriedades e o esquema fornecidos para eventos do Azure Mapas com a Grade de Eventos do Azure
 services: event-grid
-author: femila
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 02/08/2019
-ms.author: femila
-ms.openlocfilehash: 9acef524521e8fac6ce6f8f61e5ff3fbbb81d18d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: e879ec3442f2e7912acb450a97079d80d7d95a01
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77486352"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393411"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-maps"></a>Esquema de eventos da Grade de Eventos do Azure para Azure Mapas
+# <a name="azure-maps-as-an-event-grid-source"></a>Mapas do Azure como fonte de grade de eventos
 
-Este artigo fornece as propriedades e o esquema dos eventos do Azure Mapas. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](https://docs.microsoft.com/azure/event-grid/event-schema).
+Este artigo fornece as propriedades e o esquema dos eventos do Azure Mapas. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](https://docs.microsoft.com/azure/event-grid/event-schema). Ele também oferece uma lista de partidas rápidas e tutoriais para usar o Azure Maps como fonte de evento.
 
-## <a name="available-event-types"></a>Tipos de evento disponíveis
+## <a name="event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos
+
+### <a name="available-event-types"></a>Tipos de evento disponíveis
 
 Uma conta do Azure Mapas emite os seguintes tipos de eventos:
 
@@ -28,7 +30,7 @@ Uma conta do Azure Mapas emite os seguintes tipos de eventos:
 | Microsoft.Maps.GeofenceExited | Gerado quando as coordenadas recebidas são movidas de dentro de uma determinada cerca geográfica para fora |
 | Microsoft.Maps.GeofenceResult | Gerado sempre que uma consulta de delimitação geográfica retorna um resultado, independentemente do estado |
 
-## <a name="event-examples"></a>Exemplos de eventos
+### <a name="event-examples"></a>Exemplos de eventos
 
 O exemplo a seguir mostra o esquema de um evento **GeofenceEntered**
 
@@ -98,7 +100,7 @@ O exemplo a seguir mostra o esquema para **GeofenceResult**
 }
 ```
 
-## <a name="event-properties"></a>Propriedades do evento
+### <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de nível superior:
 
@@ -162,6 +164,12 @@ O objeto de dados tem as seguintes propriedades:
 | geometries | geometries[] |Lista as geometrias de delimitação que contêm a posição da coordenada ou sobrepõem o searchBuffer em torno da posição. |
 | invalidPeriodGeofenceGeometryId | string[]  | Listas da ID de geometria da cerca geográfica que está em período inválido em relação ao tempo do usuário na solicitação. |
 | isEventPublished | booleano | True se pelo menos um evento for publicado no assinante de evento do Azure Mapas e false se nenhum evento for publicado no assinante de evento do Azure Mapas. |
+
+## <a name="tutorials-and-how-tos"></a>Tutoriais e como fazer
+|Title  |Descrição  |
+|---------|---------|
+| [Reagir a eventos do Azure Mapas usando a Grade de Eventos](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visão geral da integração do Azure Mapas com a Grade de Eventos. |
+| [Tutorial: Configure uma geocerca](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Este tutorial orienta você pelas etapas básicas para configurar uma cerca geográfica usando o Azure Mapas. Você usa a Grade de Eventos do Azure para transmitir os resultados da cerca geográfica e configurar uma notificação de acordo com os resultados desse limite. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

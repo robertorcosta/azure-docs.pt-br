@@ -1,17 +1,17 @@
 ---
 title: Modelos do Azure Resource Manager para o Azure Cosmos DB
 description: Use os modelos do Azure Resource Manager para criar e configurar o Azure Cosmos DB.
-author: TheovanKraay
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.author: thvankra
-ms.openlocfilehash: 7b08ca98f25b079d831033b9393effd4ee4b65e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.author: mjbrown
+ms.openlocfilehash: 1c4f1a1920d98052231eaa3a7d5c0454441c88ee
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73961850"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390870"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Modelos do Azure Resource Manager para o Azure Cosmos DB
 
@@ -23,6 +23,7 @@ As tabelas a seguir incluem links para modelos do Azure Resource Manager para O 
 |---|---|
 |[Crie uma conta, um banco de dados e um contêiner do Azure Cosmos](manage-sql-with-resource-manager.md#create-resource) | Este modelo cria uma conta API SQL (Core) em duas regiões com dois contêineres com throughput de banco de dados compartilhado e um contêiner com throughput dedicado. O throughput pode ser atualizado reenviando o modelo com valor de propriedade de throughput atualizado. |
 |[Crie uma conta, banco de dados e contêiner do Azure Cosmos com um procedimento armazenado, gatilho e UDF](manage-sql-with-resource-manager.md#create-sproc) | Este modelo cria uma conta API SQL (Core) em duas regiões com um procedimento armazenado, gatilho e UDF para um contêiner. |
+|[Crie um ponto final privado para uma conta Azure Cosmos existente](how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-a-resource-manager-template) |  Esse modelo cria um ponto final privado para uma conta API Azure Cosmos SQL existente em uma rede virtual existente. |
 
 ## <a name="mongodb-api"></a>API do MongoDB
 

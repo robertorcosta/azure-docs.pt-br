@@ -1,17 +1,17 @@
 ---
 title: Criar e gerenciar o Azure Cosmos DB com modelos do Gerenciador de Recursos
 description: Use modelos do Azure Resource Manager para criar e configurar o Api SQL (Core) do AQE
-author: TheovanKraay
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.author: thvankra
-ms.openlocfilehash: 72a87c3b23e0eed6cfbf1614388702443f4e99d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.author: mjbrown
+ms.openlocfilehash: 3514b3e77781010fd56b43229f87854ea2d591e8
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79251837"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390902"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Gerencie os recursos de API do Azure Cosmos DB SQL (Core) com modelos do Azure Resource Manager
 

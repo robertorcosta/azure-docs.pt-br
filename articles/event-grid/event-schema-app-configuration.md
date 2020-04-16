@@ -1,26 +1,25 @@
 ---
-title: Esquema de configuração do aplicativo Azure Event Grid Azure
-description: Descreve as propriedades fornecidas para eventos de configuração do aplicativo Azure com o Azure Event Grid
+title: Configuração do aplicativo Azure como fonte da grade de eventos
+description: Este artigo descreve como usar a configuração do aplicativo Azure como uma fonte de evento da Event Grid. Ele fornece o esquema e links para tutoriais e artigos de como fazer.
 services: event-grid
-author: jimmyca
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 05/30/2019
-ms.author: jimmyca
-ms.openlocfilehash: fe0274f723692eea3cfd25cc0e9e146b35dce2ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: adb548ef8531698a2cb075fbc742bb20a02a434b
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "66735775"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393422"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-app-configuration"></a>Esquema de eventos do Azure Event Grid para configuração do aplicativo Azure
+# <a name="azure-app-configuration-as-an-event-grid-source"></a>Configuração do aplicativo Azure como fonte de grade de eventos
+Este artigo fornece as propriedades e o esquema para eventos de configuração do aplicativo Azure. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md). Ele também oferece uma lista de partidas rápidas e tutoriais para usar a configuração do aplicativo Azure como fonte de evento.
 
-Este artigo fornece as propriedades e o esquema para eventos de configuração do aplicativo Azure. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
+## <a name="event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos
 
-Para obter uma lista de scripts de exemplo e tutoriais, consulte [a fonte do evento Azure App Configuration](event-sources.md#app-configuration).
-
-## <a name="available-event-types"></a>Tipos de evento disponíveis
+### <a name="available-event-types"></a>Tipos de evento disponíveis
 
 A configuração do aplicativo Azure emite os seguintes tipos de eventos:
 
@@ -29,7 +28,7 @@ A configuração do aplicativo Azure emite os seguintes tipos de eventos:
 | Microsoft.AppConfiguration.KeyValueModified | Aumentado quando um valor-chave é criado ou substituído. |
 | Microsoft.AppConfiguration.KeyValueExcluído | Aumentado quando um valor-chave é excluído. |
 
-## <a name="example-event"></a>Exemplo de evento
+### <a name="example-event"></a>Exemplo de evento
 
 O exemplo a seguir mostra o esquema de um evento modificado de valor-chave: 
 
@@ -69,7 +68,7 @@ O esquema para um evento excluído de valor-chave é semelhante:
 }]
 ```
  
-## <a name="event-properties"></a>Propriedades do evento
+### <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de nível superior:
 
@@ -79,7 +78,7 @@ Um evento tem os seguintes dados de nível superior:
 | subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
 | eventType | string | Um dos tipos de evento registrados para a origem do evento. |
 | eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | string | Identificador exclusivo do evento. |
+| ID | string | Identificador exclusivo do evento. |
 | data | objeto | Dados do evento configuração do aplicativo. |
 | dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
 | metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
@@ -91,7 +90,14 @@ O objeto de dados tem as seguintes propriedades:
 | chave | string | A chave do valor-chave que foi modificada ou excluída. |
 | label | string | O rótulo, se houver, do valor-chave que foi modificado ou excluído. |
 | etag | string | Para `KeyValueModified` a marca ção do novo valor-chave. Para `KeyValueDeleted` a marcação do valor-chave que foi excluído. |
- 
+
+## <a name="tutorials-and-how-tos"></a>Tutoriais e como fazer
+
+|Title | Descrição |
+|---------|---------|
+| [Reaja aos eventos de configuração do aplicativo Azure usando o Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visão geral da integração da configuração do aplicativo Azure com a Grade de Eventos. |
+| [Quickstart: encaminhe eventos de configuração do aplicativo Azure para um ponto final web personalizado com o Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar o Azure CLI para enviar eventos de configuração do aplicativo Azure para um WebHook. |
+
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para ver uma introdução à Grade de Eventos do Azure, confira [O que é uma Grade de eventos?](overview.md)

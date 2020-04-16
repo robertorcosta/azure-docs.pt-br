@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: d0c60f5738bf634f9d43d6d4f0d78c1239b7ff3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75650689"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391686"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Exibir artefato de definição em aplicativos gerenciados do Azure
 
@@ -20,7 +20,7 @@ Este artigo fornece uma visão geral do artefato de definição de exibição e 
 
 ## <a name="view-definition-artifact"></a>Exibir artefato de definição
 
-O artefato de definição de exibição deve ser nomeado **viewDefinition.json** e colocado no mesmo nível **que createUiDefinition.json** e **mainTemplate.json** no pacote .zip que cria uma definição de aplicativo gerenciada. Para saber como criar o pacote .zip e publicar uma definição de aplicativo gerenciada, consulte [Publicar uma definição de aplicativo gerenciado do Azure](publish-managed-app-definition-quickstart.md)
+O artefato de definição de exibição deve ser nomeado **viewDefinition.json** e colocado no mesmo nível **que createUiDefinition.json** e **mainTemplate.json** no pacote .zip que cria uma definição de aplicativo gerenciada. Para saber como criar o pacote .zip e publicar uma definição de aplicativo gerenciada, consulte [Publicar uma definição de aplicativo gerenciado do Azure](publish-service-catalog-app.md)
 
 ## <a name="view-definition-schema"></a>Ver esquema de definição
 

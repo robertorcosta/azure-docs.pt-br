@@ -1,28 +1,25 @@
 ---
-title: Esquemas de Grade de Eventos do Azure para eventos dos Serviços de Mídia
+title: Azure Media Services como fonte da Event Grid
 description: Descreve as propriedades que são fornecidas para eventos dos Serviços de Mídia com a Grade de Eventos do Azure
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: femila
+author: spelluru
 editor: ''
-ms.service: media-services
+ms.service: event-grid
 ms.workload: ''
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: juliako
-ms.openlocfilehash: 3733a641bc116b57556c5ad4f5750bec69e10e9b
+ms.author: spelluru
+ms.openlocfilehash: d5d50bbde927efd4aee0cedd69486a52ab8c328b
 ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393741"
+ms.locfileid: "81394326"
 ---
-# <a name="azure-event-grid-schemas-for-media-services-events"></a>Esquemas de Grade de Eventos do Azure para eventos dos Serviços de Mídia
+# <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services como fonte de event grid
 
 Este artigo fornece as propriedades e os esquemas para eventos de Serviços de Mídia.
-
-Para obter uma lista de scripts de exemplo e tutoriais, consulte [Origem do evento dos Serviços de Mídia](../../event-grid/event-schema-subscriptions.md).
 
 ## <a name="job-related-event-types"></a>Tipos de eventos relacionados ao trabalho
 
@@ -328,7 +325,7 @@ O objeto de dados tem as seguintes propriedades:
 | encoderPort | string | Porta do codificador de onde vem esse fluxo. |
 | resultCode | string | O motivo pelo qual a conexão foi rejeitada. Os códigos de resultado estão listadas na tabela a seguir. |
 
-Você pode encontrar os códigos de resultado de erro em [códigos de erro de evento ao vivo](live-event-error-codes.md).
+Você pode encontrar os códigos de resultado de erro em [códigos de erro de evento ao vivo](../media-services/latest/live-event-error-codes.md).
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
@@ -398,7 +395,7 @@ O objeto de dados tem as seguintes propriedades:
 | encoderPort | string | Porta do codificador de onde vem esse fluxo. |
 | resultCode | string | O motivo para a desconexão do codificador. Isso se deve à desconexão normal ou a um erro. Os códigos de resultado estão listadas na tabela a seguir. |
 
-Você pode encontrar os códigos de resultado de erro em [códigos de erro de evento ao vivo](live-event-error-codes.md).
+Você pode encontrar os códigos de resultado de erro em [códigos de erro de evento ao vivo](../media-services/latest/live-event-error-codes.md).
 
 Os códigos de resultado de desconexão normal são:
 
@@ -668,10 +665,10 @@ Um evento tem os seguintes dados de nível superior:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Registre-se para eventos de alteração de estado do trabalho](job-state-events-cli-how-to.md)
+[Registre-se para eventos de alteração de estado do trabalho](../media-services/latest/job-state-events-cli-how-to.md)
 
 ## <a name="see-also"></a>Confira também
 
 - [SDK do .NET EventGrid que inclui eventos de serviço de mídia](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definições de eventos de Serviços de Mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Códigos de erro de evento ao vivo](live-event-error-codes.md)
+- [Códigos de erro de evento ao vivo](../media-services/latest/live-event-error-codes.md)

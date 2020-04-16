@@ -1,20 +1,20 @@
 ---
-title: Esquema de evento de assinatura de Grade de Eventos do Azure
+title: Assinatura do Azure como fonte do Event Grid
 description: Descreve as propriedades que são fornecidas para eventos de assinatura com a Grade de Eventos do Azure
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/12/2019
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 4994063dfc3bce88489f70969c06bf36b591f907
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa88fe4e05ac968588a65d67a2f075bcae48ba7a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561669"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393219"
 ---
-# <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de eventos para assinatura da Grade de Eventos do Azure para hubs de eventos
+# <a name="azure-subscription-as-an-event-grid-source"></a>Assinatura do Azure como fonte do Event Grid
 
 Este artigo fornece as propriedades e o esquema para eventos de assinatura do Azure.Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
@@ -28,9 +28,10 @@ Para manipular programaticamente os eventos, você pode classificar eventos, obs
 
 O assunto do evento é a ID de recurso do recurso que é o destino da operação. Para filtrar eventos para um recurso, forneça esse recurso ao criar a assinatura de evento da ID. Para filtrar por um tipo de recurso, use um valor no seguinte formato: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
-Para obter uma lista de scripts de exemplo e tutoriais, consulte [Origem do evento de assinatura do Azure](event-sources.md#azure-subscriptions).
 
-## <a name="available-event-types"></a>Tipos de evento disponíveis
+## <a name="event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos
+
+### <a name="available-event-types"></a>Tipos de evento disponíveis
 
 As assinaturas do Azure agora podem emitir eventos de gerenciamento do Azure Resource Manager, como quando uma VM é criada ou uma conta de armazenamento é excluída.
 
@@ -46,7 +47,7 @@ As assinaturas do Azure agora podem emitir eventos de gerenciamento do Azure Res
 | Microsoft.Resources.ResourceWriteFailure | Gerado quando criar ou atualizar a operação falhará. |
 | Microsoft.Resources.ResourceWriteSuccess | Gerado quando cria ou operação de atualização é bem-sucedida. |
 
-## <a name="example-event"></a>Exemplo de evento
+### <a name="example-event"></a>Exemplo de evento
 
 O exemplo a seguir mostra o esquema para um evento **ResourceWriteSuccess**. O mesmo esquema é usado para os eventos **ResourceWriteFailure** e **ResourceWriteCancel** com valores diferentes para `eventType`.
 
@@ -230,7 +231,7 @@ O exemplo a seguir mostra o esquema para um **ResourceActionSuccess** eventos. O
 }]
 ```
 
-## <a name="event-properties"></a>Propriedades do evento
+### <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de nível superior:
 
@@ -259,6 +260,14 @@ O objeto de dados tem as seguintes propriedades:
 | status | string | O status da operação. |
 | subscriptionId | string | A ID da assinatura do recurso. |
 | tenantId | string | A ID do locatário do recurso. |
+
+## <a name="tutorials-and-how-tos"></a>Tutoriais e como fazer
+|Title |Descrição  |
+|---------|---------|
+| [Tutorial: Automação do Azure com Grade de Eventos e Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Crie uma máquina virtual, que envia um evento. O evento dispara um runbook de Automação que marca a máquina virtual e dispara uma mensagem que é enviada para um canal do Microsoft Teams. |
+| [Como: assinar eventos por meio do portal](subscribe-through-portal.md) | Use o portal para assinar eventos de uma assinatura do Azure. |
+| [CLI do Azure: assinar eventos de uma assinatura do Azure](./scripts/event-grid-cli-azure-subscription.md) |Script de exemplo que cria uma assinatura de Grade de Eventos para uma assinatura do Azure e envia eventos para um WebHook. |
+| [PowerShell: assinar eventos de uma assinatura do Azure](./scripts/event-grid-powershell-azure-subscription.md)| Script de exemplo que cria uma assinatura de Grade de Eventos para uma assinatura do Azure e envia eventos para um WebHook. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

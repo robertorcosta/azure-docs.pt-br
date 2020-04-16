@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: 820af2d8ddf03997eea559fbc5270e84f30a805a
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 2d69676121fcb26f7d2f796e6de42435447084cd
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632891"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392743"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Quickstart: Desenvolva no Azure Kubernetes Service (AKS) com draft
 
@@ -22,7 +22,7 @@ Este artigo mostra como usar o Draft para empacotar e executar um aplicativo no 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/free).
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, você pode criar uma [conta gratuita](https://azure.microsoft.com/free).
 * A [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) instalada.
 * Docker instalado e configurado. O Docker fornece pacotes que o configuram facilmente em qualquer sistema [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
 * [Helm v2 instalado.][helm-install]
@@ -306,7 +306,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando você excluir o cluster, a entidade de serviço do Azure Active Directory usada pelo cluster do AKS não será removida. Para obter etapas sobre como remover a entidade de serviço, veja [Considerações sobre a entidade de segurança e a exclusão de serviço AKS][sp-delete].
+> Quando você excluir o cluster, a entidade de serviço do Azure Active Directory usada pelo cluster do AKS não será removida. Para obter etapas sobre como remover a entidade de serviço, veja [Considerações sobre a entidade de segurança e a exclusão de serviço AKS][sp-delete]. Se você usou uma identidade gerenciada, a identidade é gerenciada pela plataforma e não requer remoção.
 
 ## <a name="next-steps"></a>Próximas etapas
 

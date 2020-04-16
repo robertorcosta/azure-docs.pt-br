@@ -5,12 +5,12 @@ description: Saiba como criar e usar um balanceador de carga interno para expor 
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 4decd66a558b031f1aaaf9c64556dae545ed05d3
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 9c2966215d07c4ddf052d30a5757a2deee2e0b5c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668420"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392783"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usar um balanceador de carga interno com o AKS (Serviço de Kubernetes do Azure)
 
@@ -25,7 +25,7 @@ Este artigo considera que já existe um cluster do AKS. Se você precisar de um 
 
 Você também precisa da versão 2.0.59 do Azure CLI ou posteriormente instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
-O principal serviço de cluster aks precisa de permissão para gerenciar recursos de rede se você usar uma sub-rede ou grupo de recursos existente. Em geral, atribua a função *de contribuinte* da Rede ao seu principal de serviço nos recursos delegados. Para obter mais informações sobre permissões, consulte [o acesso do Delegate AKS a outros recursos do Azure][aks-sp].
+O principal serviço de cluster aks precisa de permissão para gerenciar recursos de rede se você usar uma sub-rede ou grupo de recursos existente. Em geral, atribua a função *de contribuinte* da Rede ao seu principal de serviço nos recursos delegados. Em vez de um diretor de serviço, você pode usar a identidade gerenciada atribuída ao sistema para permissões. Para obter mais informações, consulte [Usar identidades gerenciadas](use-managed-identity.md). Para obter mais informações sobre permissões, consulte [o acesso do Delegate AKS a outros recursos do Azure][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Criar um balanceador de carga interno
 

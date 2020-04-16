@@ -4,16 +4,16 @@ description: Automatize tarefas que monitoram, criam, gerenciam, enviam e recebe
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/7/2020
+ms.date: 04/13/2020
 tags: connectors
-ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7fafdd5830ec2825771d4d611a5f4bd5d87260a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128402"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393628"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitore, crie e gerencie arquivos SFTP usando SSH e os Aplicativos Lógicos do Azure
 
@@ -127,7 +127,7 @@ Se a sua chave privada estiver no formato PuTTY, que usa a extensão de nome de 
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Por exemplo: 
+   Por exemplo:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -146,6 +146,16 @@ Se a sua chave privada estiver no formato PuTTY, que usa a extensão de nome de 
    ![Selecione "Exportar chave OpenSSH"](./media/connectors-sftp-ssh/export-openssh-key.png)
 
 1. Salve o arquivo de `.pem` chave privada com a extensão do nome do arquivo.
+
+## <a name="considerations"></a>Considerações
+
+Esta seção descreve considerações a serem revisadas para os gatilhos e ações deste conector.
+
+<a name="create-file"></a>
+
+### <a name="create-file"></a>Criar arquivo
+
+Para criar um arquivo em seu servidor SFTP, você pode usar a ação de arquivo SFTP-SSH **Create.** Quando essa ação cria o arquivo, o serviço Logic Apps também liga automaticamente para o servidor SFTP para obter os metadados do arquivo. No entanto, se você mover o arquivo recém-criado antes que o serviço `404` Logic Apps `'A reference was made to a file or folder which does not exist'`possa fazer a chamada para obter os metadados, você receberá uma mensagem de erro, . Para pular a leitura dos metadados do arquivo após a criação do arquivo, siga as etapas para [adicionar e definir a propriedade Obter todos os **metadados do arquivo** como **No**](#file-does-not-exist).
 
 <a name="connect"></a>
 
@@ -211,9 +221,27 @@ Esse acionador inicia um fluxo de trabalho de aplicativo lógico quando um arqui
 
 <a name="get-content"></a>
 
-### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP - Ação SSH: Obtenha conteúdo usando o caminho
+### <a name="sftp---ssh-action-get-file-content-using-path"></a>SFTP - Ação SSH: Obtenha conteúdo de arquivo usando o caminho
 
-Esta ação obtém o conteúdo de um arquivo em um servidor SFTP. Por exemplo, você pode adicionar o gatilho do exemplo anterior e uma condição que o conteúdo do arquivo deve atender. Se a condição for verdadeira, a ação que obtém o conteúdo poderá ser executada.
+Essa ação obtém o conteúdo de um arquivo em um servidor SFTP especificando o caminho do arquivo. Por exemplo, você pode adicionar o gatilho do exemplo anterior e uma condição que o conteúdo do arquivo deve atender. Se a condição for verdadeira, a ação que obtém o conteúdo poderá ser executada.
+
+<a name="troubleshooting-errors"></a>
+
+## <a name="troubleshoot-errors"></a>Solucionar problemas de erros
+
+Esta seção descreve possíveis soluções para erros ou problemas comuns.
+
+<a name="file-does-not-exist"></a>
+
+### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>Erro 404: "Uma referência foi feita a um arquivo ou pasta que não existe"
+
+Esse erro pode acontecer quando seu aplicativo lógico cria um novo arquivo em seu servidor SFTP através da ação de arquivo SFTP-SSH **Create,** mas o arquivo recém-criado é imediatamente movido antes que o serviço Logic Apps possa obter os metadados do arquivo. Quando seu aplicativo de lógica executa a ação **criar arquivos,** o serviço Logic Apps também liga automaticamente para o servidor SFTP para obter os metadados do arquivo. No entanto, se o arquivo for movido, o serviço Logic `404` Apps não poderá mais encontrar o arquivo para que você receba a mensagem de erro.
+
+Se você não puder evitar ou atrasar a movimentação do arquivo, você pode pular a leitura dos metadados do arquivo após a criação do arquivo, seguindo estas etapas:
+
+1. Na ação **Criar arquivo,** abra a lista **Adicionar novo parâmetro,** selecione a propriedade **Obter todos os metadados de arquivo** e defina o valor como **Não**.
+
+1. Se você precisar deste arquivo metadados mais tarde, você pode usar a ação **Obter metadados de arquivo.**
 
 ## <a name="connector-reference"></a>Referência de conector
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f8f21405a79a6fcf70adef9815ba06a229d6954d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: acf49c4247c8084a3afd3c2046003ee1b20d2f67
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886969"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393097"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexões de saída no Azure
 
@@ -168,7 +168,7 @@ A tabela a seguir mostra as pré-alocações de porta SNAT para níveis de taman
 | 801-1,000 | 32 |
 
 >[!NOTE]
-> Ao utilizar o Standard Load Balancer com [vários front-ends](load-balancer-multivip-overview.md), cada endereço IP de front-end multiplica o número de portas de SNAT disponíveis na tabela anterior. Por exemplo, um conjunto de back-end de 50 VMs com 2 regras de balanceamento de carga, cada uma com um endereço IP front-end separado, usará 2048 (2x 1024) portas SNAT por configuração de IP. Consulte os detalhes para [vários front-ends](#multife).
+> Ao utilizar o Standard Load Balancer com [vários front-ends](load-balancer-multivip-overview.md), cada endereço IP de front-end multiplica o número de portas de SNAT disponíveis na tabela anterior. Por exemplo, um pool de backend de 50 VM's com 2 regras de balanceamento de carga, cada uma com um endereço IP frontend separado, usará portas SNAT 2048 (2x 1024) por regra. Consulte os detalhes para [vários front-ends](#multife).
 
 Lembre-se de que o número de portas SNAT disponíveis não movem diretamente em número de fluxos. Uma única porta SNAT pode ser reutilizada para vários destinos exclusivos. As portas são consumidas apenas se for necessário fazer fluxos exclusivos. Para diretrizes de projeto e mitigação, consulte a seção sobre [como gerenciar esse recurso esgotável](#snatexhaust) e a seção que descreve a [PAT](#pat).
 
@@ -227,7 +227,7 @@ Ao utilizar o Load Balancer Standard púbico, você atribui [vários endereços 
 >[!NOTE]
 >Na maioria dos casos, o esgotamento das portas de SNAT é um sinal de design inapropriado.  Antes de utilizar mais front-ends para adicionar portas de SNAT, certifique-se de reconhecer por que as portas estão esgotando.  É possível que esteja mascarando um problema que posteriormente poderá resultar em falha.
 
-#### <a name="scale-out"></a><a name="scaleout"></a>Expansão
+#### <a name="scale-out"></a><a name="scaleout"></a>Escala
 
 [As portas pré-designadas](#preallocatedports) são atribuídas com base no tamanho do pool de back-end e agrupadas em camadas para minimizar a interrupção quando algumas das portas precisam ser realocadas para acomodar a próxima camada de tamanho do pool de back-end.  Você pode ter a opção de aumentar a intensidade da utilização da porta SNAT para um determinado frontend, dimensionando o pool de back-end para o tamanho máximo de um determinado nível.  Isso requer que o aplicativo dimensione com eficiência.
 

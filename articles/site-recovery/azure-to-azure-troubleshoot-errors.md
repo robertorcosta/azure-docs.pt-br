@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 243fea8fae071368a91bf482190442f15c372fc1
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9f95677211a89c1bb2a18076741dec08e76c5d70
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271294"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390425"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solucionar problemas de replicação do Azure-to-Azure VM
 
@@ -404,21 +404,20 @@ Para habilitar a replicação na VM, seu estado de provisionamento deve ser **be
 
 ### <a name="issue-1-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Problema 1: A VM é anexada a uma rede que já está mapeada para uma rede de destino
 
-Se a VM de origem fizer parte de uma rede virtual e outra VM da mesma rede virtual já estiver mapeada com uma rede no grupo de recursos de destino, a caixa de lista suspensa de seleção de rede não está disponível (aparece escurecida) por padrão.
+Durante a configuração de recuperação de desastres, se a VM de origem fizer parte de uma rede virtual e outra VM da mesma rede virtual já estiver mapeada com uma rede no grupo de recursos de destino, a caixa de lista suspensa de seleção de rede não está disponível (aparece escurecida) por padrão.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="Lista de seleção de rede indisponível.":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Problema 2: Você protegeu anteriormente a VM e, em seguida, desativou a replicação
 
-Desativar a replicação de uma VM não exclui o mapeamento da rede. O mapeamento deve ser excluído do cofre dos Serviços de Recuperação onde a VM foi protegida. Vá para o mapeamento da rede de gerenciamento da > **infra-estrutura** > de recuperação do site do serviço de recuperação de **serviços****de recuperação**.
+Desativar a replicação de uma VM não exclui o mapeamento da rede. O mapeamento deve ser excluído do cofre dos Serviços de Recuperação onde a VM foi protegida. Selecione o **cofre serviços de recuperação** e vá para **gerenciar** > a**infra-estrutura** > de recuperação de sites para o mapeamento de**rede de máquinas** > virtuais**do**Azure .
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="Excluir mapeamento de rede.":::
 
-A rede de destino configurada durante a configuração de recuperação de desastres pode ser alterada após a configuração inicial e depois que a VM estiver protegida:
+A rede de destino configurada durante a configuração de recuperação de desastres pode ser alterada após a configuração inicial e depois que a VM estiver protegida. Para **modificar o mapeamento da rede,** selecione o nome da rede:
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="Modificar o mapeamento da rede.":::
 
-A alteração do mapeamento da rede afeta todas as VMs protegidas que usam esse mesmo mapeamento de rede.
 
 ## <a name="com-or-vss-error-code-151025"></a>COM+ ou VSS (código de erro 151025)
 

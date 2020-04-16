@@ -3,17 +3,17 @@ title: Entidades de serviço para o AKS (Serviço de Kubernetes do Azure)
 description: Criar e gerenciar uma entidade de serviço do Azure Active Directory para um cluster no AKS (Serviço de Kubernetes do Azure)
 services: container-service
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: 523f08ddbf22e175af5b0604b04d4a2460ffd634
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259416"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392732"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de serviço com o AKS (Serviço de Kubernetes do Azure)
 
-Para interagir com as APIs do Azure, um cluster do AKS requer uma [entidade de serviço do Azure AD (Active Directory)][aad-service-principal]. A entidade de serviço é necessária para criar e gerenciar outros recursos do Azure, como o Azure Load Balancer ou o ACR (Registro de Contêiner do Azure).
+Para interagir com as APIs do Azure, um cluster AKS requer um [principal de serviço (AD) do Azure Active Directory (AD)][aad-service-principal] ou uma [identidade gerenciada](use-managed-identity.md). Um principal de serviço ou identidade gerenciada é necessário para criar e gerenciar dinamicamente outros recursos do Azure, como um balanceador de carga do Azure ou o Registro de Contêineres (ACR).
 
 Este artigo mostra como criar e usar uma entidade de serviço para seus clusters do AKS.
 
@@ -140,7 +140,7 @@ Ao usar o AKS e as entidades de serviço do Azure AD, tenha em mente as consider
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 As principais credenciais de serviço para um cluster AKS são armazenadas em cache pela CLI do Azure. Se essas credenciais expirarem, você encontrará erros ao implantar clusters AKS. A seguinte mensagem de erro ao executar [aaks aks pode][az-aks-create] indicar um problema com as credenciais principais do serviço em cache:
 

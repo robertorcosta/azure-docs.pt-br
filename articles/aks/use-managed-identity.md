@@ -5,18 +5,18 @@ services: container-service
 author: saudas
 manager: saudas
 ms.topic: article
-ms.date: 03/10/2019
+ms.date: 04/02/2020
 ms.author: saudas
-ms.openlocfilehash: 85efc6d9d203ca06c5f7566376993b4c13950788
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a150e2f197f24db5da331195290d11ad925c47e
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369964"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392645"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Use identidades gerenciadas no Serviço Azure Kubernetes
 
-Atualmente, um cluster Azure Kubernetes Service (AKS) (especificamente, o provedor de nuvem Kubernetes) requer um *diretor de serviço* para criar recursos adicionais, como balanceadores de carga e discos gerenciados no Azure. Ou você deve fornecer um diretor de serviço ou a AKS cria um em seu nome. Os diretores de serviço normalmente têm uma data de validade. Os clusters eventualmente atingem um estado no qual o principal de serviço deve ser renovado para manter o cluster funcionando. Gerenciar os diretores de serviços adiciona complexidade.
+Atualmente, um cluster Azure Kubernetes Service (AKS) (especificamente, o provedor de nuvem Kubernetes) requer e identidade para criar recursos adicionais como balanceadores de carga e discos gerenciados no Azure, essa identidade pode ser uma *identidade gerenciada* ou um *principal de serviço*. Se você usar um [diretor de serviço,](kubernetes-service-principal.md)você deve fornecer um ou a AKS cria um em seu nome. Se você usar identidade gerenciada, isso será criado automaticamente para você pela AKS. Os clusters que utilizam os diretores de serviço eventualmente chegam a um estado no qual o principal de serviço deve ser renovado para manter o cluster funcionando. Gerenciar os diretores de serviços adiciona complexidade, e é por isso que é mais fácil usar identidades gerenciadas. Os mesmos requisitos de permissão se aplicam tanto aos diretores de serviço quanto às identidades gerenciadas.
 
 *As identidades gerenciadas* são essencialmente um invólucro em torno dos diretores de serviço, e tornam sua gestão mais simples. Para saber mais, leia sobre [identidades gerenciadas para os recursos do Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 

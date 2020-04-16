@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d5eb330cd6e5d02432298a5b58e84ae7d24ee7e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e8ddcaf6a5c9ab51147e540e2426ef8c4a1fdd3a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383318"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392380"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usar um alerta para disparar um runbook de Automação do Azure
 
@@ -35,8 +35,8 @@ Quando um alerta chama um runbook, a chamada real é uma solicitação HTTP POST
 |Alerta  |Descrição|Esquema de conteúdo  |
 |---------|---------|---------|
 |[Alerta comum](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|O esquema de alerta comum que padroniza a experiência de consumo para notificações de alerta no Azure hoje.|Esquema de carga de alerta comum|
-|[Alerta do log de atividades](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação quando qualquer novo evento no log de atividades do Azure corresponde a condições específicas. Por exemplo, quando uma operação `Delete VM` ocorre em **myProductionResourceGroup** ou quando um novo evento da Integridade do Serviço do Azure com um status **Ativo** é exibido.| [Esquema de conteúdo de alerta de log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[Alertas de métrica quase em tempo real](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação mais rápido do que alertas de métrica quando uma ou mais métricas de nível de plataforma atendem às condições especificadas. Por exemplo, quando o valor de **% de CPU** em uma VM é maior que **90**e o valor de **Entrada de Rede** é maior do que **500 MB** para os últimos 5 minutos.| [Esquema de conteúdo de alerta de métrica quase em tempo real](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
+|[Alerta do log de atividades](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação quando qualquer novo evento no log de atividades do Azure corresponde a condições específicas. Por exemplo, quando uma operação `Delete VM` ocorre em **myProductionResourceGroup** ou quando um novo evento da Integridade do Serviço do Azure com um status Ativo é exibido.| [Esquema de conteúdo de alerta de log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
+|[Alertas de métrica quase em tempo real](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envia uma notificação mais rápido do que alertas de métrica quando uma ou mais métricas de nível de plataforma atendem às condições especificadas. Por exemplo, quando o valor da **CPU %** em uma VM for maior que 90, e o valor para **Network In** for superior a 500 MB nos últimos 5 minutos.| [Esquema de conteúdo de alerta de métrica quase em tempo real](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
 Já que os dados fornecidos por cada alerta são diferentes, cada tipo de alerta é tratado de forma diferente. Na próxima seção, você aprenderá a criar um runbook para lidar com diferentes tipos de alertas.
 
@@ -44,11 +44,11 @@ Já que os dados fornecidos por cada alerta são diferentes, cada tipo de alerta
 
 Para usar a Automação com alertas, será necessário um runbook que tenha lógica que gerencie o conteúdo JSON de alerta que é passado ao runbook. O seguinte exemplo de runbook deverá ser chamado a partir de um alerta do Azure.
 
-Conforme descrito na seção anterior, cada tipo de alerta tem um esquema diferente. O script aceita os dados de webhook no parâmetro de entrada do runbook `WebhookData` de um alerta. Em seguida, o script avalia o conteúdo de JSON para determinar qual tipo de alerta foi usado.
+Conforme descrito na seção anterior, cada tipo de alerta tem um esquema diferente. O script retira os dados do `WebhookData` webhook de um alerta no parâmetro de entrada do livro de execução. Em seguida, o script avalia a carga útil JSON para determinar qual tipo de alerta está sendo usado.
 
-Este exemplo usa um alerta de uma VM. Ele recupera os dados da VM do conteúdo e utiliza essas informações para interromper a VM. A conexão deve ser configurada na conta de Automação em que o runbook é executado. Ao usar alertas para disparar runbooks, é importante verificar o status do alerta no runbook que é disparado. O runbook vai disparar sempre que o alerta mudar de estado. Alertas têm vários estados. Os dois estados mais comuns são `Activated` e `Resolved`. Verifique se há esse estado em sua lógica de runbook para garantir que seu runbook não seja executado mais de uma vez. O exemplo neste artigo mostra como procurar alertas `Activated` somente.
+Este exemplo usa um alerta de uma VM. Ele recupera os dados da VM do conteúdo e utiliza essas informações para interromper a VM. A conexão deve ser configurada na conta de Automação em que o runbook é executado. Ao usar alertas para acionar runbooks, é importante verificar o status do alerta no manual que é acionado. O manual é acionado cada vez que o estado de alerta muda. Os alertas têm vários estados, com os dois mais comuns sendo Ativados e Resolvidos. Verifique se há estado na lógica do livro de execução para garantir que o runbook não seja executado mais de uma vez. O exemplo neste artigo mostra como procurar alertas somente com o estado Ativado.
 
-O runbook `AzureRunAsConnection` usa a [conta Executar as](automation-create-runas-account.md) para autenticar com o Azure para executar a ação de gerenciamento contra a VM.
+O runbook usa `AzureRunAsConnection` a conta executar como o recurso de conexão [Run As](automation-create-runas-account.md) para autenticar com o Azure para executar a ação de gerenciamento contra a VM.
 
 Use este exemplo para criar um runbook chamado **Stop-AzureVmInResponsetoVMAlert**. Você pode modificar o script do PowerShell e usá-lo com muitos recursos diferentes.
 
@@ -178,7 +178,7 @@ Os alertas utilizam grupos de ação, que são coleções de ações que são ac
 1. Clique **em Selecionar** em **Recurso**. Na **página Selecionar um recurso,** selecione sua VM para alertar e clique **em Feito**.
 1. Clique **em Adicionar condição** em **Condição**. Selecione o sinal que deseja usar, por **exemplo, CPU porcentagem** e clique **em Feito**.
 1. Na página **Configurar lógica de sinal,** digite seu **valor limite** em lógica **de alerta**e clique em **Feito**.
-1. Em **grupos de ação,** selecione **Criar novo**.
+1. Em **Grupos de ações**, selecione **Criar Novo**.
 1. Na página **do grupo de ação Adicionar,** dê ao seu grupo de ação um nome e um nome curto.
 1. Dê um nome à ação. Para o tipo de ação, selecione **Manual de Automação**.
 1. Selecione **Editar Detalhes**. Na página **Configurar Runbook**, em **Origem do runbook**, selecione **Usuário**.  

@@ -2,13 +2,13 @@
 title: Definir várias instâncias de uma propriedade
 description: Use a operação de cópia em um modelo do Azure Resource Manager para iterar várias vezes ao criar uma propriedade em um recurso.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: e86d38b0e5d2e39d54b3c419b6eebdcda74022db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 831ae1af202a1cdf52bdd2bdf0d9a042a97ba52f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258100"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391335"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteração de propriedade em modelos ARM
 
@@ -30,7 +30,9 @@ O elemento de cópia tem o seguinte formato geral:
 ]
 ```
 
-Para **nome,** forneça o nome da propriedade de recurso que deseja criar. A propriedade **de contagem** especifica o número de iterações desejadas para a propriedade.
+Para **nome,** forneça o nome da propriedade de recurso que deseja criar.
+
+A propriedade **de contagem** especifica o número de iterações desejadas para a propriedade.
 
 A propriedade **de entrada** especifica as propriedades que você deseja repetir. Você cria uma matriz de elementos construídos a partir do valor na propriedade **de entrada.**
 
@@ -78,11 +80,7 @@ O exemplo a seguir mostra como aplicar `copy` para a propriedade dataDisks em um
 }
 ```
 
-Observe que ao usar `copyIndex` dentro de uma iteração de propriedade, você deve fornecer o nome da iteração.
-
-> [!NOTE]
-> A iteração de propriedade também suporta um argumento de deslocamento. A compensação deve vir após o nome da iteração, como copyIndex ('dataDisks', 1).
->
+Observe que ao usar `copyIndex` dentro de uma iteração de propriedade, você deve fornecer o nome da iteração. A iteração de propriedade também suporta um argumento de deslocamento. A compensação deve vir após o nome da iteração, como copyIndex ('dataDisks', 1).
 
 Gerenciador de recursos expande a matriz `copy` durante a implantação. O nome da matriz se torna o nome da propriedade. Os valores de entrada se tornam as propriedades do objeto. O modelo implantado se torna:
 
@@ -111,6 +109,66 @@ Gerenciador de recursos expande a matriz `copy` durante a implantação. O nome 
         }
       ],
       ...
+```
+
+A operação de cópia é útil ao trabalhar com matrizes porque você pode percorrer cada elemento da matriz. Use a função `length` na matriz para especificar a contagem de iterações e `copyIndex` para recuperar o índice atual na matriz.
+
+O modelo de exemplo a seguir cria um grupo de failover para bancos de dados que são passados como uma matriz.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "primaryServerName": {
+            "type": "string"
+        },
+        "secondaryServerName": {
+            "type": "string"
+        },
+        "databaseNames": {
+            "type": "array",
+            "defaultValue": [
+                "mydb1",
+                "mydb2",
+                "mydb3"
+            ]
+        }
+    },
+    "variables": {
+        "failoverName": "[concat(parameters('primaryServerName'),'/', parameters('primaryServerName'),'failovergroups')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/servers/failoverGroups",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[variables('failoverName')]",
+            "properties": {
+                "readWriteEndpoint": {
+                    "failoverPolicy": "Automatic",
+                    "failoverWithDataLossGracePeriodMinutes": 60
+                },
+                "readOnlyEndpoint": {
+                    "failoverPolicy": "Disabled"
+                },
+                "partnerServers": [
+                    {
+                        "id": "[resourceId('Microsoft.Sql/servers', parameters('secondaryServerName'))]"
+                    }
+                ],
+                "copy": [
+                    {
+                        "name": "databases",
+                        "count": "[length(parameters('databaseNames'))]",
+                        "input": "[resourceId('Microsoft.Sql/servers/databases', parameters('primaryServerName'), parameters('databaseNames')[copyIndex('databases')])]"
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
 ```
 
 O elemento de cópia está em uma matriz, assim você pode especificar mais de uma propriedade para o recurso.

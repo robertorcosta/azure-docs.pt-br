@@ -1,25 +1,27 @@
 ---
-title: Esquema de evento de Registro de Contêiner de Grade de Eventos do Azure
+title: Registro de contêineres do Azure como fonte da Grade de Eventos
 description: Descreve as propriedades fornecidas para eventos de registro de contêineres com o Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
-ms.topic: reference
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60345457"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393357"
 ---
-# <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de evento de Grade de Eventos do Azure para Registro de Contêiner
+# <a name="azure-container-registry-as-an-event-grid-source"></a>Registro de contêineres do Azure como fonte de grade de eventos
 
 Este artigo apresenta as propriedades e o esquema para eventos de Registro de Contêiner.Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
-## <a name="available-event-types"></a>Tipos de evento disponíveis
+## <a name="event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos
+
+### <a name="available-event-types"></a>Tipos de evento disponíveis
 
 O Registro de Contêineres do Azure emite os seguintes tipos de eventos:
 
@@ -30,7 +32,7 @@ O Registro de Contêineres do Azure emite os seguintes tipos de eventos:
 | Microsoft.ContainerRegistry.ChartPushed | Levantado quando um gráfico de Helm é empurrado. |
 | Microsoft.ContainerRegistry.ChartExcluído | Levantado quando um gráfico helm é excluído. |
 
-## <a name="example-event"></a>Exemplo de evento
+### <a name="example-event"></a>Exemplo de evento
 
 O exemplo a seguir mostra o esquema de um evento de efetuar push de uma imagem: 
 
@@ -151,7 +153,7 @@ O esquema para um evento excluído de gráfico é semelhante ao esquema para um 
 }]
 ```
 
-## <a name="event-properties"></a>Propriedades do evento
+### <a name="event-properties"></a>Propriedades do evento
 
 Um evento tem os seguintes dados de nível superior:
 
@@ -171,7 +173,7 @@ O objeto de dados tem as seguintes propriedades:
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | id | string | A ID do evento. |
-|  timestamp | string | A hora em que o evento ocorreu. |
+| timestamp | string | A hora em que o evento ocorreu. |
 | ação | string | A ação que abrange o evento fornecido. |
 | destino | objeto | O destino do evento. |
 | solicitação | objeto | A solicitação que gerou o evento. |
@@ -198,6 +200,12 @@ O objeto solicitado tem as seguintes propriedades:
 | host | string | O nome de host acessível externamente da instância de registro, conforme especificado pelo cabeçalho do host http em solicitações de entrada. |
 | method | string | O método de solicitação que gerou o evento. |
 | useragent | string | O cabeçalho do agente de usuário da solicitação. |
+
+## <a name="tutorials-and-how-tos"></a>Tutoriais e como fazer
+|Title |Descrição  |
+|---------|---------|
+| [Início Rápido: enviar eventos de registro de contêiner](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar a CLI do Azure para enviar eventos de Registro de Contêiner. |
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

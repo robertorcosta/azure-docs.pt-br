@@ -4,12 +4,12 @@ description: Aprenda a criar rapidamente um cluster Kubernetes, implante um apli
 services: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.openlocfilehash: 8d2a91f63815e7ba4bcbe4084b80a06fa7779099
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 2aecebcc45cb24c9ab3a594aa4d74b1584c7ffa7
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886714"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392669"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Visualização - Crie um contêiner do Windows Server em um cluster Azure Kubernetes Service (AKS) usando o Azure CLI
 
@@ -302,7 +302,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando você excluir o cluster, a entidade de serviço do Azure Active Directory usada pelo cluster do AKS não será removida. Para obter etapas sobre como remover a entidade de serviço, veja [Considerações sobre a entidade de segurança e a exclusão de serviço AKS][sp-delete].
+> Quando você excluir o cluster, a entidade de serviço do Azure Active Directory usada pelo cluster do AKS não será removida. Para obter etapas sobre como remover a entidade de serviço, veja [Considerações sobre a entidade de segurança e a exclusão de serviço AKS][sp-delete]. Se você usou uma identidade gerenciada, a identidade é gerenciada pela plataforma e não requer remoção.
 
 ## <a name="next-steps"></a>Próximas etapas
 

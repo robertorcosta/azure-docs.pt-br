@@ -7,15 +7,14 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 0efccd2851885dad209d5548a76737c25777b891
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 404052984cb99e37f7404a47f3ac374088d32d6c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372443"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393485"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Use o esquema CloudEvents v1.0 com event grid
-
 Além do seu [esquema de eventos padrão,](event-schema.md)o Azure Event Grid suporta nativamente eventos na [implementação jSON do cloudevents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e [da vinculação](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)do protocolo HTTP . [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados de eventos.
 
 O CloudEvents simplifica a interoperabilidade, fornecendo um esquema comum do evento para publicar e consumir eventos com base em nuvem. Esse esquema permite ferramentas uniforme, formas padrão de roteamento e manipulação de eventos e maneiras universais de desserializar o esquema de evento externo. Com um esquema comum, você pode integrar facilmente mais trabalho entre plataformas.

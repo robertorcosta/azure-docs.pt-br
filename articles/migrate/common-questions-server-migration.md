@@ -3,12 +3,12 @@ title: Faq de migração de servidor do Azure Migrate
 description: Obtenha respostas para perguntas comuns sobre o uso do Azure Migrate Server Migration para migrar máquinas.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 507cc8088bf54b1a4f4483673ec5332efcdd36c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc78d2087dcaad2922ca6b6d9c090a8decdb6e84
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80127812"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393805"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração do servidor Azure Migrate: perguntas comuns
 
@@ -77,7 +77,7 @@ Atualmente, você pode migrar 100 VMs por instância do vCenter Server simultane
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Como faço para acelerar a replicação ao usar o aparelho Azure Migrate para replicação VMware sem agente?  
 
-Você pode acelerar usando o NetQosPolicy. Por exemplo: 
+Você pode acelerar usando o NetQosPolicy. Por exemplo:
 
 O AppNamePrefix a ser usado no NetQosPolicy é "GatewayWindowsService.exe". Você pode criar uma política no dispositivo Azure Migrate para acelerar o tráfego de replicação do aparelho, criando uma política como esta:
  
@@ -92,6 +92,10 @@ Migrar computadores tratando-os como servidores físicos é útil em vários cen
 - Para migrar VMs Hyper-V ou VMware, se por algum motivo você não puder usar o processo de migração padrão para [migração Hyper-V](tutorial-migrate-hyper-v.md)ou [VMware.](server-migrate-overview.md) Por exemplo, se você não estiver executando o VMware vCenter e estiver usando apenas hosts ESXi.
 - Para migrar VMs que estão atualmente em execução em nuvens privadas para o Azure
 - Se você quiser migrar vMs em execução em nuvens públicas, como Amazon Web Services (AWS) ou Google Cloud Platform (GCP), para o Azure.
+
+## <a name="i-deployed-two-or-more-appliances-to-discover-vms-in-my-vcenter-server-however-when-i-try-to-migrate-the-vms-i-only-see-vms-corresponding-to-one-of-the-appliance"></a>Implantei dois (ou mais) aparelhos para descobrir VMs no meu vCenter Server. No entanto, quando tento migrar as VMs, só vejo VMs correspondentes a um dos aparelhos.
+
+Embora este possa ser um bom caso de uso, atualmente não o apoiamos. A implantação de dois (ou mais) aparelhos para descobrir o mesmo conjunto de VMs causa um problema de serviço no qual a propriedade da VM continua alternando entre os dois aparelhos. Esta é a razão pela qual você vê VMs aparecendo e desaparecendo. Nesses casos, para resolver o problema, você deve excluir um aparelho e fazer uma atualização difícil.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>Preciso do VMware vCenter para migrar vMware VMware?
 Para [migrar vMware VMware](server-migrate-overview.md) usando migração baseada em agente VMware ou sem agente, os hosts ESXi nos quais as VMs estão localizadas devem ser gerenciados pelo vCenter Server. Se você não tiver o vCenter Server, você pode migrar vMs VMware migrando-os como servidores físicos. [Saiba mais](migrate-support-matrix-physical-migration.md).

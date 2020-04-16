@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4840b135587ae776cfb80258ce513a48a79efa43
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 7a6fc2bd5cb6f5c7ae5bef9e9741fae92518d885
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383348"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392388"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ativos de conexão na Automação do Azure
 
@@ -89,7 +89,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-Você pode usar o script para criar o ativo de conexão porque, quando você cria sua conta `AzureServicePrincipal` de Automação, ele inclui automaticamente vários módulos globais por padrão, juntamente com o tipo de conexão para criar o ativo de `AzureRunAsConnection` conexão. É importante lembrar-se disso porque se você tentar criar um novo ativo de conexão para se conectar a um serviço ou aplicativo com um método de autenticação diferente, ele falhará porque o tipo de conexão já não está definido na sua conta de automação. Para obter mais informações sobre como criar seu próprio tipo de conexão para o seu personalizado ou módulo a partir da [Galeria PowerShell,](https://www.powershellgallery.com)consulte Módulos de [Integração](automation-integration-modules.md)
+Você pode usar o script para criar o ativo de conexão porque, quando você cria sua conta `AzureServicePrincipal` de Automação, ele inclui automaticamente vários módulos globais por padrão, juntamente com o tipo de conexão para criar o ativo de `AzureRunAsConnection` conexão. É importante lembrar-se disso porque se você tentar criar um novo ativo de conexão para se conectar a um serviço ou aplicativo com um método de autenticação diferente, ele falhará porque o tipo de conexão já não está definido na sua conta de automação. Para obter mais informações sobre como criar seu próprio tipo de conexão para o seu personalizado ou módulo a partir da [Galeria PowerShell,](https://www.powershellgallery.com)consulte [Módulos de Integração](automation-integration-modules.md).
 
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Usando uma conexão em um runbook ou configuração DSC
 
@@ -113,7 +113,7 @@ Você adiciona `Get-AutomationConnection` uma atividade a um runbook gráfico cl
 
 ![adicionar à tela](media/automation-connections/connection-add-canvas.png)
 
-A imagem a seguir mostra um exemplo do uso de uma conexão em um runbook gráfico. Este é o mesmo exemplo mostrado acima para autenticar usando a conta Executar como com um runbook textual. Este exemplo `Constant value` usa o `Get RunAs Connection` conjunto de dados para a atividade que usa um objeto de conexão para autenticação. Um [link de pipeline](automation-graphical-authoring-intro.md#links-and-workflow) `ServicePrincipalCertificate` é usado aqui, uma vez que o conjunto de parâmetros está esperando um único objeto.
+A imagem a seguir mostra um exemplo do uso de uma conexão em um runbook gráfico. Este é o mesmo exemplo mostrado acima para autenticar usando a conta Executar as com um runbook textual. Este exemplo `Constant value` usa o `Get RunAs Connection` conjunto de dados para a atividade que usa um objeto de conexão para autenticação. Um [link de pipeline](automation-graphical-authoring-intro.md#links-and-workflow) `ServicePrincipalCertificate` é usado aqui, uma vez que o conjunto de parâmetros está esperando um único objeto.
 
 ![obter conexões](media/automation-connections/automation-get-connection-object.png)
 

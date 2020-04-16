@@ -2,13 +2,13 @@
 title: Diretrizes para Coleções Confiáveis
 description: Diretrizes e recomendações para o uso de coleções confiáveis de malha de serviço em um aplicativo de malha de serviço do Azure.
 ms.topic: conceptual
-ms.date: 12/10/2017
-ms.openlocfilehash: 37c734205877f9e0cb98ef2834462691e8e483d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/10/2020
+ms.openlocfilehash: db37067069b2a9eb08009eb6bb373f6fce1cafa9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645473"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398535"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para Coleções Confiáveis no Azure Service Fabric
 Esta seção fornece diretrizes para usar o Gerenciador de Estado Confiável e Coleções Confiáveis. A meta é ajudar os usuários a evitar armadilhas comuns.
@@ -20,7 +20,7 @@ As diretrizes são organizadas como recomendações simples prefixadas com *uma 
 * Não use `TimeSpan.MaxValue` para tempos limites. Tempos limite devem ser usados para detectar deadlocks.
 * Não use uma transação depois que ela tiver sido confirmada, anulada ou descartada.
 * Não use uma enumeração fora do escopo da transação que em foi criado.
-* Não crie uma transação dentro da instrução `using` de outra transação porque isso pode causar deadlocks.
+* Não crie uma transação dentro `using` da declaração de outra transação porque ela pode causar impasses.
 * Não crie estado `IReliableStateManager.GetOrAddAsync` confiável com e use o estado confiável na mesma transação. Isso resulta em uma Operação Operacional InválidaExcede.
 * Certifique-se de que a implementação de `IComparable<TKey>` esteja correta. O sistema depende de `IComparable<TKey>` para mesclar os pontos de verificação.
 * Use bloqueio de atualização durante a leitura de um item com uma intenção de atualizá-lo para impedir determinada classe de deadlocks.
@@ -41,7 +41,19 @@ Eis aqui algumas coisas que se deve manter em mente:
   As leituras do Primário são sempre estáveis: elas nunca podem ter um progresso falso.
 * Segurança/privacidade dos dados persistidos pelo seu aplicativo em uma coleção confiável é a sua decisão e estão sujeitas às proteções fornecidas pelo seu gerenciamento de armazenamento; OU SEJA Criptografia de disco do sistema operacional pode ser usada para proteger seus dados em repouso.  
 
-### <a name="next-steps"></a>Próximas etapas
+## <a name="volatile-reliable-collections"></a>Coleções confiáveis voláteis
+Ao decidir usar coleções confiáveis voláteis, considere o seguinte:
+
+* ```ReliableDictionary```tem suporte volátil
+* ```ReliableQueue```tem suporte volátil
+* ```ReliableConcurrentQueue```não tem suporte volátil
+* Serviços persistidos NÃO PODEM ser voláteis. Mudar ```HasPersistedState``` a ```false``` bandeira para requer a recriação de todo o serviço do zero
+* Serviços voláteis NÃO PODEM ser feitos persistindo. Mudar ```HasPersistedState``` a ```true``` bandeira para requer a recriação de todo o serviço do zero
+* ```HasPersistedState```é uma configuração de nível de serviço. Isso significa que **todas as** coleções serão perpersistidas ou voláteis. Você não pode misturar coleções voláteis e persistentes
+* A perda de quórum de uma partição volátil resulta em perda completa de dados
+* Backup e restauração NÃO estão disponíveis para serviços voláteis
+
+## <a name="next-steps"></a>Próximas etapas
 * [Trabalhando com Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transações e Bloqueios](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gerenciando dados
@@ -50,5 +62,5 @@ Eis aqui algumas coisas que se deve manter em mente:
   * [Serialização e atualização](service-fabric-application-upgrade-data-serialization.md)
   * [Configuração do Gerenciador de Estado Confiável](service-fabric-reliable-services-configuration.md)
 * Outras pessoas
-  * [Início rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
+  * [Início Rápido dos Reliable Services](service-fabric-reliable-services-quick-start.md)
   * [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

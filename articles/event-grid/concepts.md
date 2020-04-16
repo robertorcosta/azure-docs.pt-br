@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 348d82f704b89b97e11a09b8f88e92831901b3bf
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265058"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393457"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos da Grade de Eventos do Azure
 
@@ -35,7 +35,7 @@ Um editor é o usuário ou a organização que decide enviar eventos para a Grad
 
 A origem de um evento é onde o evento acontece. Cada origem do evento está relacionada a um ou mais tipos de evento. Por exemplo, o Armazenamento do Microsoft Azure é a origem dos eventos criados pelo blob. O Hub IoT é a origem do evento para os eventos criados pelo dispositivo. Seu aplicativo é a origem do evento para eventos personalizados que você definir. As fontes dos eventos são responsáveis por enviar eventos na Grade de Eventos.
 
-Para obter informações sobre como implementar qualquer uma das origens de Grade de Eventos compatíveis, consulte [Origens de evento na Grade de Eventos do Azure](event-sources.md).
+Para obter informações sobre como implementar qualquer uma das origens de Grade de Eventos compatíveis, consulte [Origens de evento na Grade de Eventos do Azure](overview.md#event-sources).
 
 ## <a name="topics"></a>Tópicos
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 3172c92ecae094ab5d978803d2ccac7e6404a5e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 599f48ed241010d8551bd110c7f778c9ef508eac
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76721499"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393172"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Assinar os eventos por meio do portal
 
@@ -20,7 +20,7 @@ Este artigo descreve como criar assinaturas da Grade de Eventos por meio do port
 
 ## <a name="create-event-subscriptions"></a>Criar assinaturas de evento
 
-Para criar uma assinatura da Grade de Eventos para qualquer uma das [origens do evento](event-sources.md), use as seguinte etapas. Este artigo mostra como criar uma assinatura da Grade de Eventos para uma assinatura do Azure.
+Para criar uma assinatura da Grade de Eventos para qualquer uma das [origens do evento](overview.md#event-sources), use as seguinte etapas. Este artigo mostra como criar uma assinatura da Grade de Eventos para uma assinatura do Azure.
 
 1. Selecione **Todos os serviços**.
 

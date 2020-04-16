@@ -3,14 +3,14 @@ title: Configurar a autenticação do Azure AD
 description: Saiba como configurar a autenticação do Azure Active Directory como um provedor de identidade para o aplicativo App Service ou Azure Functions.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: dbbe58df4f1cfe93555b494e525fad18f5b02664
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 6f4dbedad56f6867558a8b70575ad906c8796612
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632581"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392553"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure seu aplicativo App Service ou Azure Functions para usar o login do Azure AD
 
@@ -19,8 +19,7 @@ ms.locfileid: "80632581"
 Este artigo mostra como configurar funções do Azure App Service ou Do Azure para usar o Azure Active Directory (Azure AD) como provedor de autenticação.
 
 > [!NOTE]
-> Neste momento, [o Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (incluindo [o MSAL](../active-directory/develop/msal-overview.md)) não é suportado para funções azure app service e funções azure. Por favor, verifique se há atualizações.
->
+> O fluxo de configurações expressas configura um registro de aplicativo AAD V1. Se desejar usar [o Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (incluindo [o MSAL),](../active-directory/develop/msal-overview.md)siga as [instruções avançadas de configuração](#advanced).
 
 Siga essas práticas recomendadas ao configurar seu aplicativo e autenticação:
 
@@ -101,7 +100,7 @@ Execute as seguintes etapas:
     |Campo|Descrição|
     |-|-|
     |ID do Cliente| Use o **ID do aplicativo (cliente)** do registro do aplicativo. |
-    |Url do emissor| Use `https://login.microsoftonline.com/<tenant-id>`e * \<substitua o id de inquilino>* pelo ID do **Diretório (inquilino)** do registro do aplicativo. Esse valor é usado para redirecionar os usuários para o inquilino Azure AD correto, bem como para baixar os metadados apropriados para determinar as chaves de assinatura de token apropriadas e o valor de reclamação do emissor do token, por exemplo. |
+    |Url do emissor| Use `https://login.microsoftonline.com/<tenant-id>/v2.0`e * \<substitua o id de inquilino>* pelo ID do **Diretório (inquilino)** do registro do aplicativo. Esse valor é usado para redirecionar os usuários para o inquilino Azure AD correto, bem como para baixar os metadados apropriados para determinar as chaves de assinatura de token apropriadas e o valor de reclamação do emissor do token, por exemplo. A `/v2.0` seção pode ser omitida para aplicações usando AAD v1. |
     |Client Secret (Opcional)| Use o segredo do cliente que você gerou no registro do aplicativo.|
     |Audiências de token permitidas| Se este é um aplicativo de nuvem ou servidor e você deseja permitir tokens de autenticação a partir de um aplicativo web, adicione o **ID** de aplicativo URI do aplicativo web aqui. O **ID do Cliente** configurado é *sempre* considerado implicitamente como um público permitido. |
 

@@ -5,12 +5,12 @@ description: Aprenda as práticas recomendadas do operador de cluster para rede 
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: c8aee9967e09d2ae8bec3ee170756d8d22de0fe4
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 1eed6f1f82a8a91b2335760e99ea6b895d15547e
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668218"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392706"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para conectividade de rede e segurança no Serviço de Kubernetes do Azure (AKS)
 
@@ -43,7 +43,7 @@ Quando você usa a rede do CNI do Azure, o recurso de rede virtual fica em um gr
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-Para obter mais informações sobre a delegação de entidade de serviço AKS, consulte [Delegar acesso a outros recursos do Azure][sp-delegation].
+Para obter mais informações sobre a delegação de entidade de serviço AKS, consulte [Delegar acesso a outros recursos do Azure][sp-delegation]. Em vez de um diretor de serviço, você também pode usar a identidade gerenciada atribuída ao sistema para permissões. Para obter mais informações, consulte [Usar identidades gerenciadas](use-managed-identity.md).
 
 Como cada nó e pod recebe seu próprio endereço IP, planeje os intervalos de endereços para as sub-redes do AKS. A sub-rede deve ser grande o suficiente para fornecer endereços IP para cada nó, pods e recursos de rede que você implanta. Cada cluster do AKS deve ser colocado em sua própria sub-rede. Para permitir a conectividade para redes emparelhadas ou locais no Azure, não use os intervalos de endereços IP que se sobrepõem com os recursos de rede existente. Há limites padrão ao número de pods que cada nó executa com a rede kubenet e a do CNI do Azure. Para lidar com eventos de escala ou upgrades de cluster, você também precisa de endereços IP adicionais disponíveis para uso na sub-rede atribuída. Esse espaço adicional de endereço é especialmente importante se você usar contêineres do Windows Server (atualmente em visualização no AKS), pois esses pools de nó exigem uma atualização para aplicar os patches de segurança mais recentes. Para obter mais informações sobre os nós do Windows Server, consulte [Atualizar um pool de nós no AKS][nodepool-upgrade].
 
