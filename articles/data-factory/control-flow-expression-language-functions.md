@@ -10,24 +10,25 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 9ef4b569fd8413d2825374c963fb272dd450cf0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c456e486217886510a1fd2ef1aeabae47d35b53c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74533133"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417200"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expressão e funções no Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-functions-variables.md)
 > * [Versão atual](control-flow-expression-language-functions.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo fornece detalhes sobre expressões e funções suportadas pelo Azure Data Factory. 
 
 ## <a name="expressions"></a>Expressões
 
-Os valores JSON na definição podem ser literais ou expressões que são avaliadas no runtime. Por exemplo:   
+Os valores JSON na definição podem ser literais ou expressões que são avaliadas no runtime. Por exemplo:  
   
 ```json
 "name": "value"
@@ -153,15 +154,15 @@ Funções de cadeia de caracteres só funcionam com cadeias de caracteres.
 
 | Função de cadeia de caracteres | Tarefa |
 | --------------- | ---- |
-| [concat](control-flow-expression-language-functions.md#concat) | Combinar duas ou mais cadeias de caracteres e retornar a cadeia de caracteres combinada. |
+| [Concat](control-flow-expression-language-functions.md#concat) | Combinar duas ou mais cadeias de caracteres e retornar a cadeia de caracteres combinada. |
 | [Endswith](control-flow-expression-language-functions.md#endswith) | Verificar se uma cadeia de caracteres termina com a subcadeia de caracteres especificada. |
 | [Guid](control-flow-expression-language-functions.md#guid) | Gerar um GUID (identificador global exclusivo) como uma cadeia de caracteres. |
 | [Indexof](control-flow-expression-language-functions.md#indexof) | Retornar a posição inicial de uma subcadeia de caracteres. |
 | [lastIndexOf](control-flow-expression-language-functions.md#lastindexof) | Retorna a posição inicial da última ocorrência de uma subcadeia de caracteres. |
 | [Substituir](control-flow-expression-language-functions.md#replace) | Substituir uma subcadeia de caracteres pela cadeia de caracteres especificada e retornar a cadeia de caracteres atualizada. |
-| [split](control-flow-expression-language-functions.md#split) | Retorna uma matriz contendo subcadeias de caracteres, separadas por vírgulas, de uma cadeia de caracteres maior baseada em um caractere delimitador especificado na cadeia de caracteres original. |
+| [Dividir](control-flow-expression-language-functions.md#split) | Retorna uma matriz contendo subcadeias de caracteres, separadas por vírgulas, de uma cadeia de caracteres maior baseada em um caractere delimitador especificado na cadeia de caracteres original. |
 | [Startswith](control-flow-expression-language-functions.md#startswith) | Verificar se uma cadeia de caracteres começa com uma subcadeia de caracteres específica. |
-| [substring](control-flow-expression-language-functions.md#substring) | Retornar caracteres de uma cadeia de caracteres, começando na posição especificada. |
+| [Subsequência](control-flow-expression-language-functions.md#substring) | Retornar caracteres de uma cadeia de caracteres, começando na posição especificada. |
 | [Tolower](control-flow-expression-language-functions.md#toLower) | Retornar uma cadeia de caracteres em letras minúsculas. |
 | [Toupper](control-flow-expression-language-functions.md#toUpper) | Retornar uma cadeia de caracteres em letras maiúsculas. |
 | [Guarnição](control-flow-expression-language-functions.md#trim) | Remover espaços em branco à esquerda e à direita de uma cadeia de caracteres e retornar a cadeia de caracteres atualizada. |
@@ -173,13 +174,13 @@ Para trabalhar com coleções, matrizes em geral, cadeias de caracteres e, às v
 | Função de coleção | Tarefa |
 | ------------------- | ---- |
 | [Contém](control-flow-expression-language-functions.md#contains) | Verificar se uma coleção tem um item específico. |
-| [empty](control-flow-expression-language-functions.md#empty) | Verifique se uma coleção está vazia. |
+| [Vazio](control-flow-expression-language-functions.md#empty) | Verifique se uma coleção está vazia. |
 | [Primeiro](control-flow-expression-language-functions.md#first) | Retornar o primeiro item de uma coleção. |
 | [Interseção](control-flow-expression-language-functions.md#intersection) | Retornar uma coleção que tem *somente* os itens comuns entre as coleções especificadas. |
 | [Juntar](control-flow-expression-language-functions.md#join) | Retornar uma cadeia de caracteres que tem *todos* os itens de uma matriz, separados pelo caractere especificado. |
 | [Última](control-flow-expression-language-functions.md#last) | Retornar o último item de uma coleção. |
-| [comprimento](control-flow-expression-language-functions.md#length) | Retornar o número de itens em uma cadeia de caracteres ou matriz. |
-| [skip](control-flow-expression-language-functions.md#skip) | Remover itens do início de uma coleção e retornar *todos os outros* itens. |
+| [length](control-flow-expression-language-functions.md#length) | Retornar o número de itens em uma cadeia de caracteres ou matriz. |
+| [Ignorar](control-flow-expression-language-functions.md#skip) | Remover itens do início de uma coleção e retornar *todos os outros* itens. |
 | [Levar](control-flow-expression-language-functions.md#take) | Retornar itens do início de uma coleção. |
 | [União](control-flow-expression-language-functions.md#union) | Retornar uma coleção que tem *todos* os itens das coleções especificadas. | 
 
@@ -217,7 +218,7 @@ Essas funções são úteis em condições e podem ser usadas para avaliar qualq
 | [base64ToString](control-flow-expression-language-functions.md#base64ToString) | Retornar a versão de cadeia de caracteres de uma cadeia de caracteres codificada em Base64. |
 | [binary](control-flow-expression-language-functions.md#binary) | Retornar a versão binária de um valor de entrada. |
 | [bool](control-flow-expression-language-functions.md#bool) | Retornar a versão booliana de um valor de entrada. |
-| [coalesce](control-flow-expression-language-functions.md#coalesce) | Retornar o primeiro valor não nulo de um ou mais parâmetros. |
+| [Coalesce](control-flow-expression-language-functions.md#coalesce) | Retornar o primeiro valor não nulo de um ou mais parâmetros. |
 | [createArray](control-flow-expression-language-functions.md#createArray) | Retornar uma matriz de várias entradas. |
 | [dataUri](control-flow-expression-language-functions.md#dataUri) | Retornar o URI de dados de um valor de entrada. |
 | [dataUriToBinary](control-flow-expression-language-functions.md#dataUriToBinary) | Retornar a versão binária de um URI de dados. |
@@ -226,10 +227,10 @@ Essas funções são úteis em condições e podem ser usadas para avaliar qualq
 | [decodeDataUri](control-flow-expression-language-functions.md#decodeDataUri) | Retornar a versão binária de um URI de dados. |
 | [decodeUriComponent](control-flow-expression-language-functions.md#decodeUriComponent) | Retornar uma cadeia de caracteres que substitui caracteres de escape por versões decodificadas. |
 | [encodeUriComponent](control-flow-expression-language-functions.md#encodeUriComponent) | Retornar uma cadeia de caracteres que substitui caracteres não seguros para URL por caracteres de escape. |
-| [Flutuar](control-flow-expression-language-functions.md#float) | Retornar um número de ponto flutuante correspondente a um valor de entrada. |
-| [Int](control-flow-expression-language-functions.md#int) | Retornar a versão em inteiros de uma cadeia de caracteres. |
+| [float](control-flow-expression-language-functions.md#float) | Retornar um número de ponto flutuante correspondente a um valor de entrada. |
+| [int](control-flow-expression-language-functions.md#int) | Retornar a versão em inteiros de uma cadeia de caracteres. |
 | [Json](control-flow-expression-language-functions.md#json) | Retornar o objeto ou valor de tipo JSON (JavaScript Object Notation) correspondente a uma cadeia de caracteres ou XML. |
-| [String](control-flow-expression-language-functions.md#string) | Retornar a versão de cadeia de caracteres de um valor de entrada. |
+| [cadeia de caracteres](control-flow-expression-language-functions.md#string) | Retornar a versão de cadeia de caracteres de um valor de entrada. |
 | [uriComponent](control-flow-expression-language-functions.md#uriComponent) | Retornar a versão codificada para URI correspondente a um valor de entrada substituindo caracteres não seguros para URL por caracteres de escape. |
 | [uriComponentToBinary](control-flow-expression-language-functions.md#uriComponentToBinary) | Retornar a versão binária de uma cadeia de caracteres codificada como URI. |
 | [uriComponentToString](control-flow-expression-language-functions.md#uriComponentToString) | Retornar a versão de cadeia de caracteres correspondente a uma cadeia de caracteres codificada como URI. |
@@ -246,7 +247,7 @@ Essas funções são úteis em condições e podem ser usadas para avaliar qualq
 | [max](control-flow-expression-language-functions.md#max) | Retornar o valor mais alto de um conjunto de números em uma matriz. |
 | [Min](control-flow-expression-language-functions.md#min) | Retornar o valor mais baixo de um conjunto de números ou de uma matriz. |
 | [Mod](control-flow-expression-language-functions.md#mod) | Retornar o resto da divisão de dois números. |
-| [mul](control-flow-expression-language-functions.md#mul) | Retornar o produto da multiplicação de dois números. |
+| [Mul](control-flow-expression-language-functions.md#mul) | Retornar o produto da multiplicação de dois números. |
 | [Rand](control-flow-expression-language-functions.md#rand) | Retornar um número inteiro aleatório de um intervalo especificado. |
 | [Gama](control-flow-expression-language-functions.md#range) | Retornar uma matriz de inteiros que começa em um inteiro especificado. |
 | [Sub](control-flow-expression-language-functions.md#sub) | Retornar o resultado da subtração do segundo número do primeiro. |

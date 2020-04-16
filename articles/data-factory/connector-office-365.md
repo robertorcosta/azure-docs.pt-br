@@ -11,21 +11,22 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: d97b3caccc92f0fdfeb229d94e30ee6499c26181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea68fa8d9326e6d9ebb4f475d16ac83959cae6e5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912398"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416882"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiar dados do Office 365 para o Azure usando a fábrica de dados do Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A Fábrica de Dados do Azure integra-se ao [Microsoft Graph Data Connect,](https://docs.microsoft.com/graph/data-connect-concept-overview)permitindo que você traga os dados organizacionais ricos em seu inquilino do Office 365 para o Azure de forma escalável e crie aplicativos de análise e extraia insights com base nesses valiosos ativos de dados. A integração com o Privileged Access Management fornece controle de acesso protegido para os dados importantes coletados no Office 365.  Consulte [este link](https://docs.microsoft.com/graph/data-connect-concept-overview) para obter uma visão geral sobre o microsoft graph connect e consulte [este link](https://docs.microsoft.com/graph/data-connect-policies#licensing) para obter informações de licenciamento.
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de e para o Office 365. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
-O conector de dados ADF Office 365 e o microsoft graph connect permite a entrada em escala de diferentes tipos de conjuntos de dados das caixas de correio habilitadas para o Exchange E-mail, incluindo contatos de catálogos de endereços, eventos de calendário, mensagens de e-mail, informações do usuário, configurações da caixa de correio e assim por diante.  Consulte [aqui](https://docs.microsoft.com/graph/data-connect-datasets) para ver a lista completa de conjuntos de dados disponíveis.
+O conector de dados ADF Office 365 e o microsoft graph connect permitem a ingestão em escala de diferentes tipos de conjuntos de dados das caixas de correio habilitadas para o Exchange E-mail, incluindo contatos de catálogos de endereços, eventos de calendário, mensagens de e-mail, informações do usuário, configurações de caixa de correio e assim por diante.  Consulte [aqui](https://docs.microsoft.com/graph/data-connect-datasets) para ver a lista completa de conjuntos de dados disponíveis.
 
 Por enquanto, dentro de uma única atividade de cópia, você só pode **copiar dados do Office 365 para o [Azure Blob Storage,](connector-azure-blob-storage.md) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)e [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) no formato JSON** (type setOfObjects). Se você quiser carregar o Office 365 em outros tipos de armazenamentos de dados ou em outros formatos, poderá encadear a primeira atividade de cópia com uma atividade de cópia subsequente para carregar mais dados em qualquer um dos [repositórios de destino do ADF com suporte](copy-activity-overview.md#supported-data-stores-and-formats) (consulte a coluna "com suporte como coletor"na tabela "Armazenamentos de dados e formatos com suporte").
 
@@ -63,10 +64,10 @@ Se o ADF for criado como parte de um aplicativo gerenciado e as atribuições de
 
 É possível criar um pipeline com a atividade de cópia usando uma das seguintes ferramentas ou SDKs. Selecione um link para acessar um tutorial com instruções passo a passo para criar um pipeline com uma atividade de cópia. 
 
-- [Portal Azure](quickstart-create-data-factory-portal.md)
-- [.NET SDK](quickstart-create-data-factory-dot-net.md)
+- [Azure portal](quickstart-create-data-factory-portal.md)
+- [SDK .NET](quickstart-create-data-factory-dot-net.md)
 - [SDK do Python](quickstart-create-data-factory-python.md)
-- [Azure PowerShell](quickstart-create-data-factory-powershell.md)
+- [PowerShell do Azure](quickstart-create-data-factory-powershell.md)
 - [REST API](quickstart-create-data-factory-rest-api.md)
 - [Modelo de Gerenciador de recursos do Azure](quickstart-create-data-factory-resource-manager-template.md). 
 

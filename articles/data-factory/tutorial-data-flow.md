@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: e6ca8007a96cc63b51b4f79b69029cbf0799e71c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 917a8d6edf04d8a160c3a6a5ac59949623dfee5c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979191"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418670"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformar dados usando fluxos de dados de mapeamento
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Se estiver se familiarizando com o Azure Data Factory, confira [Introdução ao Azure Data Factory](introduction.md).
 
@@ -136,7 +138,7 @@ Depois de criar seu Fluxo de Dados, você será enviado automaticamente para a t
 1. Busque uma **visualização de dados** para verificar se o filtro está funcionando corretamente.
 
     ![Filtrar](media/tutorial-data-flow/filter3.png)
-1. A próxima transformação que você adicionará é **uma transformação agregada** **o modificador Schema**.
+1. A próxima transformação que você adicionará é **uma transformação agregada** sob **o modificador Schema**.
 
     ![Agregado](media/tutorial-data-flow/agg1.png)
 1. Nomeie sua transformação **agregada AggregateComedyRatings**. No **Grupo por** guia, selecione **o ano** desde a queda até agrupar as agregações no ano em que o filme foi ao ar.

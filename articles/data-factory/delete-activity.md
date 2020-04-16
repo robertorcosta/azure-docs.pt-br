@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: f265cdc955becd53ae7ba61ad827b2be69b92907
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: d90f38f83bd4d2d5311f277fcc928e442d7ea793
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618278"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416389"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Atividade Excluir no Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 
 Você pode usar a Atividade de Exclusão na Fábrica de Dados do Azure para excluir arquivos ou pastas de lojas de armazenamento no local ou armazenamento em nuvem. Use essa atividade para limpar ou arquivar os arquivos quando eles não forem mais necessários.
 
@@ -40,15 +42,15 @@ Veja a seguir algumas recomendações para usar a atividade Excluir:
 
 ## <a name="supported-data-stores"></a>Armazenamento de dados com suporte
 
--   [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md)
+-   [Armazenamento Azure Blob](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
--   [Armazenamento de arquivos Azure](connector-azure-file-storage.md)
+-   [Armazenamento de Arquivos do Azure](connector-azure-file-storage.md)
 
 ### <a name="file-system-data-stores"></a>Armazenamentos de dados do sistema de arquivos
 
 -   [Sistema de arquivos](connector-file-system.md)
--   [Ftp](connector-ftp.md)
+-   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
 -   [Google Cloud Storage](connector-google-cloud-storage.md)

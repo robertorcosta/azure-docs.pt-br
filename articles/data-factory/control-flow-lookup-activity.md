@@ -11,14 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 08cc7ce8f306095a66bc0f8cf74dff8c8b551ecf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02abdaf46ca2af6c96d3b5e8d4ce5876831bd415
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440466"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417991"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A atividade Lookup pode recuperar um conjunto de dados de quaisquer fontes de dados compatíveis com o Azure Data Factory. Use-a no seguinte cenário:
 - Determinar dinamicamente em quais objetos operar em uma atividade subsequente, em vez de embutir o nome do objeto. Alguns exemplos de objeto são arquivos e tabelas.
@@ -306,4 +307,4 @@ Consulte outras atividades de fluxo de controle com suporte pelo Data Factory:
 - [Executar atividade de pipeline](control-flow-execute-pipeline-activity.md)
 - [Atividade ForEach](control-flow-for-each-activity.md)
 - [Atividade GetMetadata](control-flow-get-metadata-activity.md)
-- [Atividade da Web](control-flow-web-activity.md)
+- [Atividade web](control-flow-web-activity.md)

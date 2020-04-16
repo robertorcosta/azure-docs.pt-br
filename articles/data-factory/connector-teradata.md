@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 1e1d7cc4bb7762d3ebd29e349467f3e33c0887f9
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4eed79210e3e39f82b892ac0681e161ebb59597e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421219"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418024"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiar dados da Teradata Vantage usando a Fábrica de Dados Do Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 >
 > * [Versão 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Versão atual](connector-teradata.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar a atividade de cópia na Fábrica de Dados Do Azure para copiar dados do Teradata Vantage. Ele se baseia na visão geral da [atividade de cópia](copy-activity-overview.md).
 
@@ -256,7 +258,7 @@ Você é sugerido para habilitar cópia paralela com particionamento de dados es
 
 | Cenário                                                     | Configurações sugeridas                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Carga completa de mesa grande.                                   | **Opção de partição:** Hash. <br><br/>Durante a execução, a Data Factory detecta automaticamente a coluna PK, aplica um hash contra ela e copia dados por partições. |
+| Carga completa de mesa grande.                                   | **Opção de partição:** Hash. <br><br/>Durante a execução, a Fábrica de Dados detecta automaticamente a coluna de índice primário, aplica um hash contra ela e copia dados por partições. |
 | Carregue uma grande quantidade de dados usando uma consulta personalizada.                 | **Opção de partição:** Hash.<br>**Consulta**: `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`.<br>**Coluna partição**: Especifique a coluna usada para aplicar partição hash. Se não for especificado, a Fábrica de Dados detecta automaticamente a coluna PK da tabela especificada no conjunto de dados Teradata.<br><br>Durante a execução, `?AdfHashPartitionCondition` a Fábrica de Dados substitui a lógica de partição de hash e envia para teradata. |
 | Carregue grande quantidade de dados usando uma consulta personalizada, tendo uma coluna inteiro com valor distribuído uniformemente para particionamento de intervalo. | **Opções de partição**: Partição de intervalo dinâmico.<br>**Consulta**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Coluna partição**: Especifique a coluna usada para particionar dados. Você pode particionar contra a coluna com o tipo de dados inteiros.<br>**Limite superior de partição** e **partede partição limite inferior**: Especifique se deseja filtrar contra a coluna de partição para recuperar dados apenas entre o intervalo inferior e superior.<br><br>Durante a execução, `?AdfRangePartitionColumnName` `?AdfRangePartitionUpbound`a `?AdfRangePartitionLowbound` Fábrica de Dados substitui , e com o nome da coluna real e faixas de valor para cada partição, e envia para Teradata. <br>Por exemplo, se a coluna de partição "ID" definir com o limite inferior como 1 e o limite superior como 80, com conjunto de cópia sísvia como 4, data factory recuperará dados por 4 partições. Seus IDs estão entre [1,20], [21, 40], [41, 60] e [61, 80], respectivamente. |
 

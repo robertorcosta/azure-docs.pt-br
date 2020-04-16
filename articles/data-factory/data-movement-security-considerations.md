@@ -1,5 +1,5 @@
 ---
-title: Considerações sobre segurança
+title: Considerações de segurança
 description: Descreve a infraestrutura básica de segurança usada pelos serviços de movimentação de dados no Azure Data Factory para ajudar a proteger seus dados.
 services: data-factory
 ms.author: abnarain
@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: bee627ade4f66206cd5254fc32bc7aa9973c7bee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb3f22223bd64c06cfa4a5f6ffabe7b128dff1d5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131308"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416460"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações sobre segurança para movimentação de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 >
 > * [Versão 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Versão atual](data-movement-security-considerations.md)
+
+ [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este artigo descreve a infraestrutura básica de segurança usada pelos serviços de movimentação de dados no Azure Data Factory para ajudar a proteger seus dados. Os recursos de gerenciamento do Data Factory se baseiam na infraestrutura de segurança do Azure e usam todas as medidas de segurança possíveis oferecidas pelo Azure.
 
@@ -176,7 +178,7 @@ Alguns armazenamentos de dados na nuvem também exigem que você permita que o e
 
 Os seguintes armazenamentos de dados em nuvem exigem que você permita o endereço IP da máquina de tempo de execução de integração auto-hospedada. Alguns desses armazenamentos de dados, por padrão, podem não exigir lista de permitir. 
 
-- [Banco de dados SQL do Azure](../sql-database/sql-database-firewall-configure.md) 
+- [Banco de Dados SQL do Azure](../sql-database/sql-database-firewall-configure.md) 
 - [SQL Data Warehouse do Azure](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)

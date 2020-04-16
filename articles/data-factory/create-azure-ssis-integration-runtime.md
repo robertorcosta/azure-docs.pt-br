@@ -11,14 +11,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 18555fbffbc48594793163894c010998094b3b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1c3f58d42b6f311e4e238dcffe7da42afd8a5306
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336222"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416724"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um Integration Runtime do Azure-SSIS no Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Este artigo fornece etapas para o provisionamento de um Tempo de execução de Integração de Servidores Azure-SQL (SSIS) na Fábrica de Dados Azure. Um Azure-SSIS IR dá suporte a:
 
@@ -164,7 +166,7 @@ Depois que o data factory for criado, abra a respectiva página de visão geral 
    
       1. Para **o contêiner de configuração personalizado SAS URI**, insira o Uri SAS do seu contêiner onde você armazena scripts e arquivos associados para configurações personalizadas padrão.
 
-      1. Para **configuração personalizada expressa,** selecione **Novo** para abrir o painel **de configuração personalizado Adicionar expresso** e, em seguida, selecione quaisquer tipos o menu suspenso **tipo de configuração personalizada Express,** por exemplo, **executar o comando cmdkey,** **adicionar variável de ambiente,** **instalar componente licenciado,** etc.
+      1. Para **configuração personalizada expressa,** selecione **Novo** para abrir o painel **de configuração personalizado Adicionar expresso** e, em seguida, selecione quaisquer tipos sob o menu suspenso **tipo de configuração personalizada Express,** por exemplo, **executar o comando cmdkey,** **adicionar variável de ambiente,** **instalar componente licenciado,** etc.
 
          Se você selecionar o tipo **de componente licenciado Instalar,** você poderá selecionar quaisquer componentes integrados de nossos parceiros ISV no menu suspenso **nome componente** e, se necessário, digite a chave de licença do produto que você comprou deles no campo chave **de licença.**
   

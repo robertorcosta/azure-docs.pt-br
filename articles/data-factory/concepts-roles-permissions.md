@@ -10,14 +10,17 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: d143992317c77c6fc3137527bea485a98c046daa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b7791c5c04e986b30959d2fcae17142fdd8b7ec
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75969216"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418313"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões do Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 Este artigo descreve as funções necessárias para criar e gerenciar recursos do Azure Data Factory e as permissões concedidas por essas funções.
 
@@ -56,7 +59,7 @@ As permissões no Azure Repos e no GitHub são independentes das permissões do 
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Cenários personalizados e funções personalizadas
 
-Às vezes, você precisa conceder diferentes níveis de acesso para diferentes usuários do data factory. Por exemplo: 
+Às vezes, você precisa conceder diferentes níveis de acesso para diferentes usuários do data factory. Por exemplo:
 - Você pode precisar de um grupo em que os usuários só têm permissões em um data factory específico.
 - Ou você pode precisar de um grupo em que os usuários só podem monitorar um data factory (ou factories), mas não podem modificá-lo.
 

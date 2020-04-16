@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 079d29c241cfbbdcc991f024c07b07b378670c10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0bef6b5e87e7f0964989db371014c305b97f1d12
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130882"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419299"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Data Factory
 > [!NOTE]
@@ -111,13 +111,13 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
   Com as etapas de pré-requisito concluídas, agora estamos prontos para configurar a atividade de cópia usando o Assistente de Cópia.
 
 ## <a name="launch-copy-wizard"></a>Iniciar o Assistente de cópia
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
+1. Faça login no [portal Azure](https://portal.azure.com).
 2. Clique em **Criar um recurso** no canto superior esquerdo, clique em **Inteligência + análise** e clique em **Data Factory**.
 3. No painel **Novo data factory**:
 
    1. Insira **LoadIntoSQLDWDataFactory** para o **nome**.
-       O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory “LoadIntoSQLDWDataFactory” não está disponível**, altere o nome da data factory (por exemplo, yournameLoadIntoSQLDWDataFactory) e tente criá-la novamente. Veja o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.  
-   2. Selecione sua **assinatura**do Azure .
+       O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: O **nome de fábrica de dados "LoadIntoSQLDWDataFactory" não está disponível,** altere o nome da fábrica de dados (por exemplo, seu nomeLoadIntoSQLDWDataFactory) e tente criar novamente. Veja o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.  
+   2. Selecione sua **assinatura**do Azure.
    3. Em relação ao Grupo de Recursos, execute uma das seguintes etapas:
       1. Selecione **Usar existente** para selecionar um grupo de recursos existente.
       2. Selecione **Criar novo** e insira um nome para um grupo de recursos.
@@ -141,7 +141,7 @@ Na página **Propriedades** :
 
 1. Insira **CopyFromBlobToAzureSqlDataWarehouse** para o **Nome da tarefa**
 2. Selecione opção **Executar uma vez agora**.   
-3. Clique em **Avançar**.  
+3. Clique em **Próximo**.  
 
     ![Assistente de Cópia – página Propriedades](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -160,7 +160,7 @@ Esta seção mostra as etapas para configurar a origem: Blob do Azure contendo o
 
     ![Assistente de Cópia – selecionar pasta de entrada](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-4. Ao clicar em **Próximo**, as configurações de formato de arquivo são detectadas automaticamente.  Certifique-se de que delimitador de coluna é ' | 'em vez da vírgula ',' usada como padrão.  Clique em **Próximo** depois de ter visualizado os dados.
+4. Ao clicar em **Próximo**, as configurações de formato de arquivo são detectadas automaticamente.  Verifique se o delimitador da coluna está '|' em vez da comma padrão ''.  Clique em **Próximo** depois de ter visualizado os dados.
 
     ![Assistente de Cópia – configurações de formato de arquivo](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
@@ -183,7 +183,7 @@ Esta seção mostra como configurar o destino: tabela `lineitem` no banco de dad
 
 ## <a name="step-4-performance-settings"></a>Etapa 4: Configurações de desempenho
 
-A opção **Permitir polybase** é marcada por padrão.  Clique em **Avançar**.
+A opção **Permitir polybase** é marcada por padrão.  Clique em **Próximo**.
 
 ![Assistente de Cópia – página de mapeamento de esquema](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 

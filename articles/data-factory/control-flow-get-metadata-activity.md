@@ -10,16 +10,17 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: a0c07aaf27825254f776a03b9b9ca2cbeddca02d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 344ad8e106c119c1de59570d1ec4e3df5e1cc8af
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250269"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417115"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obtenha atividade de metadados na fábrica de dados do Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Você pode usar a atividade Get Metadata para recuperar os metadados de quaisquer dados na Fábrica de Dados do Azure. Você pode usar essa atividade nos seguintes cenários:
 
@@ -46,14 +47,15 @@ A atividade Get Metadata toma um conjunto de dados como entrada e retorna inform
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Armazenamento Azure Blob](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Arquivos do Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
-| [Sistema de arquivos](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [Sistema de Arquivos](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [Ftp](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
+| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
+- Ao usar a atividade Get Metadata contra uma pasta, certifique-se de ter permissão LIST/EXECUTE para a pasta dada.
 - Para Amazon S3 e `lastModified` Google Cloud Storage, aplica-se ao balde e `exists` à chave, mas não à pasta virtual, e aplica-se ao balde e à chave, mas não ao prefixo ou pasta virtual.
 - Para armazenamento Azure `lastModified` Blob, aplica-se ao recipiente e à bolha, mas não à pasta virtual.
 - `lastModified`o filtro atualmente se aplica a itens de filtragem de crianças, mas não à pasta/arquivo especificado em si.
@@ -63,7 +65,7 @@ A atividade Get Metadata toma um conjunto de dados como entrada e retorna inform
 
 | Conector/metadados | estrutura | ColumnCount | exists |
 |:--- |:--- |:--- |:--- |
-| [Banco de dados SQL do Azure](connector-azure-sql-database.md) | √ | √ | √ |
+| [Banco de Dados SQL do Azure](connector-azure-sql-database.md) | √ | √ | √ |
 | [Instância gerenciada do Banco de Dados SQL do Azure](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
 | [SQL Data Warehouse do Azure](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
@@ -109,7 +111,7 @@ Você pode especificar os seguintes tipos de metadados na lista de campo de ativ
 }
 ```
 
-**Conjunto de dados**
+**Dataset**
 
 ```json
 {
@@ -199,4 +201,4 @@ Conheça outras atividades de fluxo de controle suportadas pela Data Factory:
 - [Executar atividade de pipeline](control-flow-execute-pipeline-activity.md)
 - [Atividade ForEach](control-flow-for-each-activity.md)
 - [Atividade de procurar](control-flow-lookup-activity.md)
-- [Atividade da Web](control-flow-web-activity.md)
+- [Atividade web](control-flow-web-activity.md)

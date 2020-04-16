@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 6ad5bb26959916f60973a8c0274e17eee03aa7a1
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: a588a0977a4c6dcefaaefcfdcc542fee8b15466b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991459"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419061"
 ---
-# <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrar cargas de trabalho ssis no local para SSIS no ADF
+# <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrar cargas de trabalho do SSIS local para o SSIS no ADF
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ## <a name="overview"></a>Visão geral
 
@@ -26,13 +28,13 @@ Quando você migra suas cargas de trabalho de banco de dados do SQL Server para 
 
 O Azure-SSIS Integration Runtime (IR) no Azure Data Factory (ADF) suporta a execução de pacotes SSIS. Uma vez que o Azure-SSIS IR seja provisionado, você pode usar ferramentas familiares, como sql server data tools (SSDT)/SQL Server Management Studio (SSMS) e utilitários de linha de comando, como dtinstall/dtutil/dtexec, para implantar e executar seus pacotes no Azure. Para obter mais informações, consulte [a visão geral do azure SSIS lift-and-shift](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
-Este artigo destaca o processo de migração de suas cargas de trabalho ETL de SSIS no local para SSIS no ADF. O processo de migração consiste em duas fases: **Avaliação** e **Migração.**
+Este artigo destaca o processo de migração de suas cargas de trabalho ETL de SSIS no local para SSIS no ADF. O processo de migração consiste em duas fases: **Avaliação** e **Migração**.
 
 ## <a name="assessment"></a>Avaliação
 
 Para estabelecer um plano de migração completo, uma avaliação completa ajudará a identificar problemas com os pacotes SSIS de origem que impediriam uma migração bem-sucedida.
 
-O DMA (Data Migration Assistant, assistente de migração de dados) é uma ferramenta livremente baixada para este fim que pode ser instalada e executada localmente. O projeto de avaliação dma dos serviços de **integração** do tipo pode ser criado para avaliar pacotes SSIS em lotes e identificar problemas de compatibilidade que são apresentados nas seguintes categorias:
+O AMD (Assistente de Migração de Dados) é uma ferramenta gratuita que pode ser baixada para essa finalidade e ser instalada e executada localmente. O projeto de avaliação dma dos serviços de **integração** do tipo pode ser criado para avaliar pacotes SSIS em lotes e identificar problemas de compatibilidade que são apresentados nas seguintes categorias:
 
 - Bloqueadores de migração: são problemas de compatibilidade que bloqueiam os pacotes de origem de migração para serem executados no IR Azure-SSIS. O DMA fornece orientações para ajudá-lo a resolver esses problemas.
 

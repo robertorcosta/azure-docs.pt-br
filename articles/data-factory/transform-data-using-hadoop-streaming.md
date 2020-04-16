@@ -10,17 +10,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
-ms.openlocfilehash: 1c12a10dfdf8e69cf05ab30d0e6aa48fea5803a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1bba6903fe1cb8cc5bae9a12153553594180b43
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912893"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418874"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a atividade de streaming do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-hadoop-streaming-activity.md)
 > * [Versão atual](transform-data-using-hadoop-streaming.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A atividade de streaming no HDInsight em um [pipeline](concepts-pipelines-activities.md) do Data Factory executa programas de streaming do Hadoop em um cluster do HDInsight [de sua propriedade](compute-linked-services.md#azure-hdinsight-linked-service) ou [sob demanda](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artigo se baseia no artigo sobre [atividades de transformação de dados](transform-data.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas.
 
@@ -93,5 +95,5 @@ Consulte os seguintes artigos que explicam como transformar dados de outras mane
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md) (Atividade do MapReduce)
 * [Atividade de faísca](transform-data-using-spark.md)
 * [Atividade personalizada .NET](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md) (Atividade de execução em lotes do Machine Learning)
+* [Atividade de execução em lote de aprendizado de máquina](transform-data-using-machine-learning.md)
 * [Atividade do procedimento armazenado](transform-data-using-stored-procedure.md)

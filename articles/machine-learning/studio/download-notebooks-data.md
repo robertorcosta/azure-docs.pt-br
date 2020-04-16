@@ -7,17 +7,17 @@ ms.subservice: studio
 ms.topic: how-to
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 03/12/2020
-ms.openlocfilehash: 9c4215d2c2e811b4c6369ee3773fb811695da4fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: a342ef86817f4f66a6e74b72b4d167fa548b6345
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204351"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419180"
 ---
 # <a name="download-notebookspreview-data"></a>Baixar dados de Notebooks (visualização)
 
-O recurso Notebooks(preview) será removido em *13 de abril de 2020*. Após essa data, a guia Notebooks(preview) desaparecerá e os dados dos notebooks não poderão ser restaurados. Baixe os dados de seus notebooks até 13 de abril de 2020.
+O recurso Notebooks(preview) foi removido em *13 de abril de 2020*. A remoção da guia Notebooks(preview) e dos arquivos do notebook do usuário está atualmente sendo reexibida para regiões do Azure em todo o mundo.
 
 Este artigo fornece instruções passo-a-passo sobre como baixar dados do Notebooks(preview).
 

@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 8325b4ef6b89a76eeec418386cec4922cb5916b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5753336eeef115038de4eb0b5ade0651b1fa293e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979160"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419452"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Alerte e monitore fábricas de dados usando o Azure Monitor
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 As aplicações em nuvem são complexas e têm muitas partes móveis. Os monitores fornecem dados para ajudar a garantir que seus aplicativos permaneçam em funcionamento em um estado saudável. Os monitores também ajudam a evitar problemas potenciais e solucionar problemas anteriores.
 
@@ -291,7 +293,7 @@ Para obter mais informações, consulte [Configurações de diagnóstico](https:
 | --- | --- | --- | --- |
 | **Nível** |String | O nível dos registros de diagnóstico. Para registros de execução de atividades, defina o valor da propriedade como 4. | `4` |
 | **Correlationid** |String | O iD exclusivo para rastrear uma solicitação específica. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **Tempo** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z`TIMESPAN UTC . | `2017-06-28T21:00:27.3534352Z` |
+| **time** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z`TIMESPAN UTC . | `2017-06-28T21:00:27.3534352Z` |
 |**activityRunId**| String| A id da atividade é executada. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |**pipelineRunId**| String| A id do oleoduto funcionar. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**Resourceid**| String | O ID associado ao recurso de fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -337,7 +339,7 @@ Para obter mais informações, consulte [Configurações de diagnóstico](https:
 | --- | --- | --- | --- |
 | **Nível** |String | O nível dos registros de diagnóstico. Para registros de execução de atividades, defina o valor da propriedade como 4. | `4` |
 | **Correlationid** |String | O iD exclusivo para rastrear uma solicitação específica. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **Tempo** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z`TIMESPAN UTC . | `2017-06-28T21:00:27.3534352Z` |
+| **time** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z`TIMESPAN UTC . | `2017-06-28T21:00:27.3534352Z` |
 |**runId**| String| A id do oleoduto funcionar. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |**Resourceid**| String | O ID associado ao recurso de fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**Categoria**| String | A categoria dos registros diagnósticos. Defina o valor da propriedade `PipelineRuns`. | `PipelineRuns` |
@@ -381,7 +383,7 @@ Para obter mais informações, consulte [Configurações de diagnóstico](https:
 | --- | --- | --- | --- |
 | **Nível** |String | O nível dos registros de diagnóstico. Para registros de execução de atividades, defina o valor da propriedade como 4. | `4` |
 | **Correlationid** |String | O iD exclusivo para rastrear uma solicitação específica. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **Tempo** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z`TIMESPAN UTC . | `2017-06-28T21:00:27.3534352Z` |
+| **time** | String | A hora do evento no formato `YYYY-MM-DDTHH:MM:SS.00000Z`TIMESPAN UTC . | `2017-06-28T21:00:27.3534352Z` |
 |**triggerId**| String| A id do gatilho é executada. | `08587023010602533858661257311` |
 |**Resourceid**| String | O ID associado ao recurso de fábrica de dados. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |**Categoria**| String | A categoria dos registros diagnósticos. Defina o valor da propriedade `PipelineRuns`. | `PipelineRuns` |
@@ -467,7 +469,7 @@ Crie ou adicione configurações de diagnóstico para sua fábrica de dados.
 
     ![Nomeie suas configurações e selecione um espaço de trabalho de análise de log](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Após alguns momentos, a nova configuração aparece em sua lista de configurações para esta fábrica de dados. Os registros de diagnóstico são transmitidos para esse espaço de trabalho assim que novos dados de eventos são gerados. Até 15 minutos podem se passar entre quando um evento é emitido e quando ele aparece no Log Analytics.
 

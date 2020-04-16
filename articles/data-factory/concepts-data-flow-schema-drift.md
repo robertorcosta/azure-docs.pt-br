@@ -8,14 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2019
-ms.openlocfilehash: 9daf7973a2e48f866a8d0b93a682851d31dc3af7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a6b3b1d11242434088c138460d968f39d5273e4f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74928548"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418415"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Deriva de esquema no mapeamento do fluxo de dados
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 O esquema é o caso em que suas fontes frequentemente mudam metadados. Campos, colunas e tipos podem ser adicionados, removidos ou alterados na hora. Sem o manuseio para a deriva de esquemas, seu fluxo de dados torna-se vulnerável a alterações na fonte de dados upstream. Padrões típicos de ETL falham quando as colunas e campos de entrada mudam porque tendem a ser vinculados a esses nomes de origem.
 

@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: bfa308e2cc67bd14a248f3edc7b182f9a772ed98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b491c4f0cc99395c44d989bf19fa2a7b03da696
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238693"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417160"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Atividade If Condition no Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 A atividade If Condition fornece a mesma funcionalidade que uma instrução if fornece em linguagens de programação. Ela avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando a condição é avaliada como `false`. 
 
 ## <a name="syntax"></a>Sintaxe
@@ -292,4 +294,4 @@ Consulte outras atividades de fluxo de controle com suporte pelo Data Factory:
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade de obtenção de metadados](control-flow-get-metadata-activity.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
-- [Atividade web](control-flow-web-activity.md)
+- [Atividade da Web](control-flow-web-activity.md)

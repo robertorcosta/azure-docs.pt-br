@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 7b7ef3b6f2d400dafb28cfb7a15cf95cbbe2c457
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 76085dc29d40944cf704dbc5efc578b3314f499a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351019"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419231"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de recursos para piscinas elásticas usando o modelo de compras da DTU
 
@@ -32,6 +32,9 @@ Para pools elásticos do Banco de Dados SQL, as tabelas a seguir mostram os recu
 > Para orientação de dimensionamento e considerações, consulte [Dimensionar uma piscina elástica](sql-database-elastic-pool-scale.md)
 > [!NOTE]
 > Os limites de recursos de bancos de dados individuais em pools elásticos geralmente são os mesmos dos bancos de dados individuais fora dos pools com base em DTUs e na camada de serviço. Por exemplo, máximo de trabalhos simultâneos para um banco de dados S2 é 120. Assim, o máximo de trabalhos simultâneos para um banco de dados em um pool padrão também será 120 se o máximo de DTUs por banco de dados no pool for 50 DTUs (o que é equivalente a S2).
+
+> [!NOTE]
+> O limite de recursos de armazenamento por pool em cada uma das tabelas a seguir não inclui o armazenamento temporário e log.
 
 ### <a name="basic-elastic-pool-limits"></a>Limites de pool elástico Básico
 

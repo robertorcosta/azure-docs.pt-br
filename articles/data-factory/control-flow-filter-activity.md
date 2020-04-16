@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: 5794a2c754e2082fdf45ad689bdb89ea494541c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c8ada22b4492bef0239b6f811d5a7bd58e58510
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73679866"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417219"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Atividade de filtro no Azure Data Factory
 Você pode usar uma atividade de filtro em um pipeline para aplicar uma expressão de filtro para uma matriz de entrada. 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -114,10 +115,10 @@ Neste exemplo, o pipeline tem duas atividades: **Filter** e **Foreach**. A ativi
 ## <a name="next-steps"></a>Próximas etapas
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
-- [Atividade de Condição Se](control-flow-if-condition-activity.md)
+- [Atividade Condição Se](control-flow-if-condition-activity.md)
 - [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade de obtenção de metadados](control-flow-get-metadata-activity.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
-- [Atividade web](control-flow-web-activity.md)
+- [Atividade da Web](control-flow-web-activity.md)
 - [Atividade Until](control-flow-until-activity.md)

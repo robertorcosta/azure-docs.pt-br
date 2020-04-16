@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 6fdfbce6dce2428a8f2757b0755e6f982f02240f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2028aac9c01aedc4baa568d370c9f7d21c920647
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256413"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419256"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 > [!NOTE]
@@ -45,7 +45,7 @@ As seguintes etapas descrevem como uma conexão é estabelecida com um banco de 
 O Banco de Dados SQL do Azure oferece suporte às três opções a seguir para a configuração de diretiva de conexão de um servidor do Banco de Dados SQL:
 
 - **Redirecionamento (recomendado):** Os clientes estabelecem conexões diretamente com o nó que hospeda o banco de dados, levando à redução da latência e melhor produtividade. Para que as conexões usem esse modo, os clientes precisam:
-   - Permitir a comunicação de saída do cliente para todos os endereços IP do Azure na região em portas na faixa de 11000 11999. Use as etiquetas de serviço para SQL para tornar isso mais fácil de gerenciar.  
+   - Permitir a comunicação de saída do cliente para todos os endereços IP SQL Do Azure SQL na região em portas na faixa de 11000 11999. Use as etiquetas de serviço para SQL para tornar isso mais fácil de gerenciar.  
    - Permitir a comunicação de saída do cliente para endereços IP do gateway de banco de dados Azure SQL na porta 1433.
 
 - **Proxy:** Neste modo, todas as conexões são proxidas através dos gateways do Banco de Dados SQL do Azure, levando a um aumento da latência e redução do throughput. Para que as conexões usem esse modo, os clientes precisam permitir a comunicação de saída do cliente para os endereços IP do gateway gateway do Banco de Dados Azure SQL na porta 1433.

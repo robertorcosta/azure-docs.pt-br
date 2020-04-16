@@ -9,14 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: fd0e6d526f0c47304e7bf53f91d08f42b924ff23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440393"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417990"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Atividade de switch na fábrica de dados do Azure
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A atividade do Switch fornece a mesma funcionalidade que uma declaração de switch fornece em linguagens de programação. Avalia um conjunto de atividades correspondentes a um caso que corresponda à avaliação da condição.
 
@@ -331,9 +333,9 @@ $result.Error -join "`r`n"
 
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
-- [Atividade de Condição Se](control-flow-if-condition-activity.md)
+- [Atividade Condição Se](control-flow-if-condition-activity.md)
 - [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade de obtenção de metadados](control-flow-get-metadata-activity.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
-- [Atividade web](control-flow-web-activity.md)
+- [Atividade da Web](control-flow-web-activity.md)

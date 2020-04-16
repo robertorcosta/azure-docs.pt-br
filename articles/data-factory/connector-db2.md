@@ -11,17 +11,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: jingwang
-ms.openlocfilehash: 22ecac12e049e58e533cdde0078f4a25f6bb2aa6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c2071e4b2a3daa528c7d01f64e38247b063e6f1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77423820"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417427"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados do DB2 usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-onprem-db2-connector.md)
 > * [Versão atual](connector-db2.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um banco de dados DB2. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
@@ -78,7 +80,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do DB2:
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos.](#prerequisites) Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 > [!TIP]
-> Se você receber uma `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`mensagem de erro que afirma, a razão é que um pacote necessário não será criado para o usuário. Por padrão, o ADF tentará criar um pacote coleção nomeado como o usuário que você usou para se conectar ao DB2. Especifique a propriedade de coleta de pacotes para indicar onde você deseja que o ADF crie os pacotes necessários ao consultar o banco de dados.
+> Se você receber uma `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`mensagem de erro que afirma, a razão é que um pacote necessário não será criado para o usuário. Por padrão, o ADF tentará criar um pacote sob coleção nomeado como o usuário que você usou para se conectar ao DB2. Especifique a propriedade de coleta de pacotes para indicar onde você deseja que o ADF crie os pacotes necessários ao consultar o banco de dados.
 
 **Exemplo:**
 

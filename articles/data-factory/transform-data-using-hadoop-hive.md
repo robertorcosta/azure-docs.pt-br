@@ -11,18 +11,20 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/15/2019
-ms.openlocfilehash: b4af3f897a12c71d73962735d3fe68d95f138cef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c5c917e12b1314c40763f58a7723a4df787ffa0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912920"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418925"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do Hive do Hadoop no Azure Data Factory
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-hive-activity.md)
 > * [Versão atual](transform-data-using-hadoop-hive.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A atividade do Hive no HDInsight em um [pipeline](concepts-pipelines-activities.md) do Data Factory executa consultas do Hive em um cluster do HDInsight [de sua propriedade](compute-linked-services.md#azure-hdinsight-linked-service) ou [sob demanda](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artigo se baseia no artigo sobre [atividades de transformação de dados](transform-data.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas.
 
@@ -78,5 +80,5 @@ Consulte os seguintes artigos que explicam como transformar dados de outras mane
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md) (Atividade de streaming do Hadoop)
 * [Atividade de faísca](transform-data-using-spark.md)
 * [Atividade personalizada .NET](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md) (Atividade de execução em lotes do Machine Learning)
+* [Atividade de execução em lote de aprendizado de máquina](transform-data-using-machine-learning.md)
 * [Atividade do procedimento armazenado](transform-data-using-stored-procedure.md)

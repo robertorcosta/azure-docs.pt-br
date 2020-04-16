@@ -8,36 +8,36 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: b207012335e68d389a07b54408e840dbb305a30c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f42b44fdab28cb60ff903a048d9162115bf67d9c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930131"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417752"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Transformação unpivot da fábrica de dados do Azure
 
-
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Use Unpivot no fluxo de dados de mapeamento do ADF como uma maneira de transformar um conjunto de dados não normalizado em uma versão mais normalizada, expandindo valores de várias colunas em um único registro em vários registros com os mesmos valores em uma única coluna.
 
-![Transformação não dinâmica](media/data-flow/unpivot1.png "Opções sem pivô 1")
+![Transformação unpivot](media/data-flow/unpivot1.png "Opções sem pivô 1")
 
 ## <a name="ungroup-by"></a>Desagrupar por
 
-![Transformação não dinâmica](media/data-flow/unpivot5.png "Opções unpivot 2")
+![Transformação unpivot](media/data-flow/unpivot5.png "Opções unpivot 2")
 
 Primeiro, defina as colunas pelas quais você deseja agrupar para sua agregação de tabela dinâmica. Defina uma ou mais colunas para desagrupamento com o sinal + ao lado da lista de colunas.
 
 ## <a name="unpivot-key"></a>Chave não dinâmica
 
-![Transformação não dinâmica](media/data-flow/unpivot6.png "Opções unpivot 3")
+![Transformação unpivot](media/data-flow/unpivot6.png "Opções unpivot 3")
 
 A Chave de dinamização é a coluna que o ADF dinamizará de linha para coluna. Por padrão, cada valor único no conjunto de dados para o campo será dinamizado para uma coluna. No entanto, é possível inserir, opcionalmente, os valores do conjunto de dados que você deseja dinamizar para valores de coluna.
 
 ## <a name="unpivoted-columns"></a>Colunas não dinâmicas
 
-![Transformação não dinâmica](media/data-flow//unpivot7.png "Opções unpivot 4")
+![Transformação unpivot](media/data-flow//unpivot7.png "Opções unpivot 4")
 
 Por fim, escolha a agregação que você deseja usar para os valores dinâmicos e como você gostaria que as colunas fossem exibidas na nova projeção de saída da transformação.
 
@@ -49,7 +49,7 @@ Por exemplo, dinamizar “Vendas” por “Região” simplesmente forneceria no
 
 Definir a Disposição de Colunas como “Normal” agrupará todas as colunas dinamizadas com seus valores agregados. Definir a disposição de colunas como “Lateral” alternará entre coluna e valor.
 
-![Transformação não dinâmica](media/data-flow//unpivot7.png "Opções unpivot 5")
+![Transformação unpivot](media/data-flow//unpivot7.png "Opções unpivot 5")
 
 O conjunto final de resultados de dados não dinâmicos mostra os totais de colunas agora transformadas em valores de linha separados.
 

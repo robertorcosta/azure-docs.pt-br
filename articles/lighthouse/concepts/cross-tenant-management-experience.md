@@ -3,12 +3,12 @@ title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0ac5d62fbf6b6ee418cd4b2f2b00dfc12e05f809
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 66e2b2f7fbbae5940b576ead22a416625af3c058
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754139"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418500"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -25,11 +25,7 @@ Normalmente, para gerenciar recursos do Azure para um cliente, os provedores de 
 
 Com o gerenciamento de recursos delegados do Azure, o processo de integração especifica usuários dentro do locatário do provedor de serviços que poderão acessar e gerenciar assinaturas, grupos de recursos e recursos no locatário do cliente. Esses usuários podem entrar no portal do Azure usando suas próprias credenciais. Dentro do portal do Azure, eles podem gerenciar recursos que pertencem a todos os clientes aos quais eles têm acesso. Isso pode ser feito acessando a página [Meus clientes](../how-to/view-manage-customers.md) no portal do Azure ou trabalhando diretamente no contexto da assinatura do cliente, seja no portal do Azure ou por meio de APIs.
 
-O gerenciamento de recursos delegados do Azure permite maior flexibilidade para gerenciar recursos para vários clientes sem precisar entrar em diferentes contas em diferentes locatários. Por exemplo, um provedor de serviços pode ter três clientes, com responsabilidades e níveis de acesso diferentes, como mostrado aqui:
-
-![Três locatários do cliente mostrando responsabilidades do provedor de serviços](../media/azure-delegated-resource-management-customer-tenants.jpg)
-
-Usando o gerenciamento de recursos delegado salinado do Azure, os usuários autorizados podem fazer login no inquilino do provedor de serviços para acessar esses recursos, conforme mostrado aqui:
+O gerenciamento de recursos delegados do Azure permite maior flexibilidade para gerenciar recursos para vários clientes sem precisar entrar em diferentes contas em diferentes locatários. Por exemplo, um provedor de serviços pode ter dois clientes com responsabilidades e níveis de acesso diferentes. Usando o gerenciamento de recursos delegado do Azure, os usuários autorizados podem entrar no inquilino do provedor de serviços para acessar esses recursos.
 
 ![Recursos do cliente gerenciados por meio de um locatário do provedor de serviços](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
@@ -88,7 +84,7 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 - Agora inclui a ID do locatário em resultados de consulta retornados, permitindo que você identifique se uma assinatura pertence ao locatário do cliente ou ao locatário do provedor de serviços
 
-[Central de Segurança do Azure](../../security-center/index.yml):
+[Centro de Segurança Azure](../../security-center/index.yml):
 
 - Visibilidade entre locatários
   - Monitore o cumprimento das políticas de segurança e garanta a cobertura de segurança nos recursos de todos os inquilinos

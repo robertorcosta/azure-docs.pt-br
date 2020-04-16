@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2df49e65603573e4a3adcdda0635982252e70b18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4335763269f4a39b4893d9022f4789296b178e92
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130812"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419316"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados bidirecionalmente no SQL Data Warehouse do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -147,12 +147,12 @@ GO
 | sqlWriterCleanupScript |Especifique uma consulta da Atividade de Cópia a executar para que os dados de uma fatia específica sejam removidos. Para obter detalhes, consulte a [seção de repetição](#repeatability-during-copy). |Uma instrução de consulta. |Não |
 | allowPolyBase |Indica se o PolyBase (quando aplicável) deve ser utilizado em vez do mecanismo BULKINSERT. <br/><br/> **Usar o PolyBase é a maneira recomendada para carregar dados no SQL Data Warehouse.** Confira a seção [Usar o PolyBase para carregar dados no Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obter os detalhes e as restrições. |True <br/>False (padrão) |Não |
 | polyBaseSettings |Um grupo de propriedades que pode ser especificado quando a propriedade **allowPolybase** está definida como **true**. |&nbsp; |Não |
-| rejectValue |Especifica o número ou o percentual de linhas que podem ser rejeitadas antes de a consulta falhar. <br/><br/>Saiba mais sobre as opções de rejeição do PolyBase na seção **Argumentos** do tópico [CRIAR TABELA EXTERNA (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) . |0 (padrão), 1, 2, … |Não |
+| rejectValue |Especifica o número ou o percentual de linhas que podem ser rejeitadas antes de a consulta falhar. <br/><br/>Saiba mais sobre as opções de rejeição do PolyBase na seção **Argumentos** do tópico [CREATE EXTERNAL TABLE (Transact-SQL).](https://msdn.microsoft.com/library/dn935021.aspx) |0 (padrão), 1, 2, … |Não |
 | rejectType |Especifica se a opção rejectValue é especificada como um valor literal ou um percentual. |Valor (padrão), Percentual |Não |
 | rejectSampleValue |Determina o número de linhas a serem recuperadas antes de o PolyBase recalcular o percentual de linhas rejeitadas. |1, 2, … |Sim, se **rejectType** for **percentual** |
 | useTypeDefault |Especifica como tratar valores ausentes em arquivos de texto delimitados quando o PolyBase recuperar dados do arquivo de texto.<br/><br/>Saiba mais sobre essa propriedade na seção Argumentos em [CRIAR FORMATO DE ARQUIVO EXTERNO (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (padrão) |Não |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize |Inteiro (número de linhas) |Não (padrão: 10000) |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |TimeSpan<br/><br/>  Exemplo: "00:30:00" (30 minutos). |Não |
+| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 
 #### <a name="sqldwsink-example"></a>Exemplo de SqlDWSink
 
@@ -224,10 +224,10 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
 5. Não há nenhum `columnMapping` sendo usado na atividade de Cópia associada.
 
 ### <a name="staged-copy-using-polybase"></a>Cópia de preparo usando o PolyBase
-Quando os dados de origem não atenderem aos critérios introduzidos na seção anterior, você poderá habilitar a cópia dos dados via Armazenamento de Blobs do Azure de preparo provisório (não pode ser Armazenamento Premium). Neste caso, o Azure Data Factory executa automaticamente transformações nos dados para atender aos requisitos do formato de dados do PolyBase, em seguida, use o PolyBase para carregar os dados no SQL Data Warehouse e, por fim, limpe os dados temporários do Armazenamento de Blobs. Confira [Cópia de Preparo](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes sobre como copiar dados por meio de um trabalho de preparo do Blob do Azure em geral.
+Quando os dados de origem não atenderem aos critérios introduzidos na seção anterior, você pode habilitar a cópia de dados através de um armazenamento intermediário do Azure Blob (não pode ser o Armazenamento Premium). Neste caso, o Azure Data Factory executa automaticamente transformações nos dados para atender aos requisitos do formato de dados do PolyBase, em seguida, use o PolyBase para carregar os dados no SQL Data Warehouse e, por fim, limpe os dados temporários do Armazenamento de Blobs. Confira [Cópia de Preparo](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes sobre como copiar dados por meio de um trabalho de preparo do Blob do Azure em geral.
 
 > [!NOTE]
-> Ao copiar dados de um armazenamento de dados on premises no Azure SQL Data Warehouse usando o PolyBase e o staging, se a versão do Data Management Gateway estiver abaixo de 2,4, jre (Java Runtime Environment) é necessário em sua máquina gateway que é usada para transformar sua fonte dados em formato adequado. Sugerimos que você faça upgrade do gateway para a versão mais recente para evitar essa dependência.
+> Ao copiar dados de um armazenamento de dados on premises no Azure SQL Data Warehouse usando o PolyBase e o staging, se a versão do Data Management Gateway estiver abaixo de 2,4, jre (Java Runtime Environment) é necessário em sua máquina gateway que é usada para transformar seus dados de origem em um formato adequado. Sugerimos que você faça upgrade do gateway para a versão mais recente para evitar essa dependência.
 >
 
 Para usar esse recurso, crie um [serviço vinculado de Armazenamento do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) que se refere à Conta de Armazenamento do Azure que tem o armazenamento de blobs provisório, então, especifique as propriedades `enableStaging` e `stagingSettings` para a Atividade de Cópia, como mostrado no código a seguir:
@@ -370,7 +370,7 @@ O mapeamento é o mesmo que o [Mapeamento de tipo de dados do SQL Server para o 
 | sql_variant |Object * |
 | text |String, Char[] |
 | time |TimeSpan |
-|  timestamp |Byte[] |
+| timestamp |Byte[] |
 | TINYINT |Byte |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
@@ -421,9 +421,9 @@ O exemplo copia os dados da série temporal (por hora, dia etc.) de uma tabela n
 ```
 **Conjunto de dados de entrada do SQL Data Warehouse do Azure:**
 
-O exemplo supõe que você criou uma tabela "MyTable" no SQL Data Warehouse do Azure e que ela contém uma coluna chamada "timestampcolumn" para dados de série temporal.
+A amostra pressupõe que você criou uma tabela "MyTable" no Azure SQL Data Warehouse e contém uma coluna chamada "coluna de carimbo de tempo" para dados de séries tempo.
 
-Configurar “external”: “true” informa ao serviço Data Factory que o conjunto de dados é externo ao Data Factory e não é produzido por uma atividade no Data Factory.
+Configurar “external”: “true” informa ao serviço Data Factory que o conjunto de dados é externo ao data factory e não é produzido por uma atividade no data factory.
 
 ```JSON
 {
@@ -607,7 +607,7 @@ O exemplo copia os dados da série temporal (por hora, dia etc.) de um blob do A
 ```
 **Conjunto de dados de entrada do Azure Blob:**
 
-Os dados são coletados de um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta e nome de arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa a parte do ano, mês e dia da hora de início e o nome de arquivo usa a parte da hora de início. A configuração “external”: ”true” informa ao serviço Data Factory que essa é uma tabela externa do data factory e não é produzida por uma atividade no data factory.
+Os dados são coletados de um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta e nome de arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa a parte do ano, mês e dia da hora de início e o nome de arquivo usa a parte da hora de início. "externo": A configuração "verdadeira" informa ao serviço data factory que esta tabela é externa à fábrica de dados e não é produzida por uma atividade na fábrica de dados.
 
 ```JSON
 {
@@ -675,7 +675,7 @@ Os dados são coletados de um novo blob a cada hora (frequência: hora, interval
 ```
 **Conjunto de dados de saída do SQL Data Warehouse do Azure:**
 
-O exemplo copia os dados em uma tabela chamada "MyTable" no SQL Data Warehouse do Azure. Crie a tabela no Azure SQL Data Warehouse com o mesmo número de colunas que você espera que o arquivo CSV de Blob contenha. Novas linhas são adicionadas à tabela a cada hora.
+A amostra copia dados para uma tabela chamada "MyTable" no Azure SQL Data Warehouse. Crie a tabela no Azure SQL Data Warehouse com o mesmo número de colunas que você espera que o arquivo CSV de Blob contenha. Novas linhas são adicionadas à tabela a cada hora.
 
 ```JSON
 {

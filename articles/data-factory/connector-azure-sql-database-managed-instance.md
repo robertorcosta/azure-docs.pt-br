@@ -11,14 +11,16 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 11f4005e802e2a584b21903bfead2c6b9701f065
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe803c918cbf60b8f0af76d8c9a94d022153acbb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238750"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417509"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados para e da Instância Gerenciada do Banco de Dados SQL do Azure usando o Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de e para uma Instância Gerenciada do Banco de Dados SQL do Azure. Ele se baseia no artigo visão geral da [atividade do Copy](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
 
@@ -63,7 +65,7 @@ As propriedades a seguir têm suporte no serviço vinculado da Instância Gerenc
 | connectionString |Essa propriedade especifica as informações de **conexãoString** necessárias para se conectar à instância gerenciada usando autenticação SQL. Para obter mais informações, confira os exemplos a seguir. <br/>A porta padrão é a 1433. Se você estiver usando a instância gerenciada do banco de dados Azure SQL com um ponto final público, especifique explicitamente a porta 3342.<br> Você também pode colocar uma senha no Azure Key Vault. Se for autenticação SQL, `password` puxe a configuração para fora da seqüência de conexão. Para obter mais informações, consulte o exemplo JSON seguindo a tabela e [as credenciais da loja no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim, quando você usa a autenticação Azure AD com um diretor de serviço |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como **SecureString** para armazená-lo com segurança na Fábrica de Dados do Azure ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim, quando você usa a autenticação Azure AD com um diretor de serviço |
-| locatário | Especifique as informações do inquilino, como o nome de domínio ou o ID do inquilino, o qual seu aplicativo reside. Recupere-o pairando o mouse no canto superior direito do portal Azure. | Sim, quando você usa a autenticação Azure AD com um diretor de serviço |
+| locatário | Especifique as informações do inquilino, como o nome de domínio ou o ID do inquilino, sob o qual seu aplicativo reside. Recupere-o pairando o mouse no canto superior direito do portal Azure. | Sim, quando você usa a autenticação Azure AD com um diretor de serviço |
 | connectVia | Esse [Integration Runtime](concepts-integration-runtime.md) é usado para se conectar ao armazenamento de dados. Você pode usar um tempo de execução de integração auto-hospedado ou um tempo de execução de integração do Azure se a instância gerenciada tiver um ponto final público e permitir que a Fábrica de Dados do Azure o acesse. Se não for especificado, o tempo de execução de integração padrão do Azure é usado. |Sim |
 
 Para diferentes tipos de autenticação, consulte as seções a seguir sobre pré-requisitos e amostras JSON, respectivamente:
@@ -598,7 +600,7 @@ Quando dados são copiados para e da Instância Gerenciada do Banco de Dados SQL
 | sql_variant |Objeto |
 | text |String, Char[] |
 | time |TimeSpan |
-|  timestamp |Byte[] |
+| timestamp |Byte[] |
 | TINYINT |Int16 |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |

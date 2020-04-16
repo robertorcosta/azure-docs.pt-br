@@ -10,17 +10,19 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/31/2018
-ms.openlocfilehash: eb887a7d9081875c28964ddb1e3d1b2e609862fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c39575e8ea60a091124c633f8958ec36e8a61885
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912964"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418840"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do Spark no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-spark.md)
 > * [Versão atual](transform-data-using-spark.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A atividade do Spark em um [pipeline](concepts-pipelines-activities.md) do Data Factory executa um programa do Spark em [seu próprio](compute-linked-services.md#azure-hdinsight-linked-service) ou [sob demanda](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) cluster HDInsight. Este artigo se baseia no artigo sobre [atividades de transformação de dados](transform-data.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas. Quando você usa um serviço vinculado do Spark sob demanda, o Data Factory cria automaticamente um cluster Spark para você Just-In-Time a fim de processar os dados e, em seguida, exclui o cluster quando o processamento for concluído. 
 
@@ -117,5 +119,5 @@ Consulte os seguintes artigos que explicam como transformar dados de outras mane
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md) (Atividade de streaming do Hadoop)
 * [Atividade de faísca](transform-data-using-spark.md)
 * [Atividade personalizada .NET](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md) (Atividade de execução em lotes do Machine Learning)
+* [Atividade de execução em lote de aprendizado de máquina](transform-data-using-machine-learning.md)
 * [Atividade do procedimento armazenado](transform-data-using-stored-procedure.md)

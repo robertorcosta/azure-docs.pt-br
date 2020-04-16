@@ -10,14 +10,16 @@ ms.author: daperlov
 author: djpmsft
 manager: anandsub
 ms.date: 10/10/2019
-ms.openlocfilehash: b54504cf8ca7b32bf14bd4b7e0c561ffd56d4098
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f033651eb7e52ba60cce9b74941a4ef0eb376d2b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76155156"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418993"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Execute os pipelines de aprendizado de máquina do Azure na fábrica de dados do Azure
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Execute seus pipelines de Aprendizado de Máquina do Azure como um passo em seus pipelines da Fábrica de Dados Do Azure. A atividade do Machine Learning Execute Pipeline permite cenários de previsão de lotes, como identificar possíveis inadimplências de empréstimos, determinar sentimentos e analisar padrões de comportamento do cliente.
 

@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 065610a9de4898d012cef8a16849c09a81f0774c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7470af23059ccd07e48050e6dc34521e299a986f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76841090"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418602"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Configure um Tempo de execução (SSIS) de integração de servidores Azure-SQL para ingressar em uma rede virtual
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este tutorial fornece etapas básicas para usar o portal Azure para configurar um Tempo de execução de integração de servidores Azure-SQL (SSIS) para se juntar a uma rede virtual.
 
@@ -51,7 +53,7 @@ As etapas são as seguintes:
 
     - Certifique-se de que não tem [bloqueio de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) no grupo de recursos/assinatura ao qual a rede virtual pertence. Se você configurar um bloqueio somente leitura/exclusão, iniciar e interromper o Azure-SSIS IR falhará ou ele deixará de responder.
 
-    - Certifique-se de que você não tem uma política do Azure que impeça a criação dos seguintes recursos o grupo de recursos/assinatura ao qual a rede virtual pertence:
+    - Certifique-se de que você não tem uma política do Azure que impeça a criação dos seguintes recursos sob o grupo de recursos/assinatura ao qual a rede virtual pertence:
         - Microsoft.Network/LoadBalancers
         - Microsoft.Network/NetworkSecurityGroups
 
@@ -70,7 +72,7 @@ Use o portal Azure para configurar uma rede virtual antes de tentar aderir a um 
 
 1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, apenas esses navegadores da Web suportam a interface do usuário da Fábrica de Dados.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. Selecione **Mais serviços**. Filtre e selecione **Redes virtuais**.
 

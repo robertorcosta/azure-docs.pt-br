@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: f63c78c59d7d6be3c66ea0785389eff73e3bff60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 764b41d1823e8edce134c5099e066486f4f08acc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73678359"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417922"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Atividade de validação na fábrica de dados do Azure
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Você pode usar uma Validação em um pipeline para garantir que o pipeline só continue a execução depois de validar a referência do conjunto de dados anexado, que ele atenda aos critérios especificados ou que o tempo foi alcançado.
 
 
@@ -72,10 +74,10 @@ Minimumsize | Tamanho mínimo de um arquivo em bytes. Se nenhum valor for especi
 ## <a name="next-steps"></a>Próximas etapas
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory:
 
-- [Atividade de Condição Se](control-flow-if-condition-activity.md)
+- [Atividade Condição Se](control-flow-if-condition-activity.md)
 - [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade de obtenção de metadados](control-flow-get-metadata-activity.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
-- [Atividade web](control-flow-web-activity.md)
+- [Atividade da Web](control-flow-web-activity.md)
 - [Atividade Until](control-flow-until-activity.md)

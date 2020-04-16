@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 96d0a5b2fb59e4612107d8ccbf7285fff7576585
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c4c1cfdb927cfd2ee607bfe2a951e06c80f9bfb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128382"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418534"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>O Processo de Ciência de Dados da Equipe em ação: usando o Azure Synapse Analytics
 Neste tutorial, nós o mostramos através da construção e implantação de um modelo de aprendizado de máquina usando o Azure Synapse Analytics para um conjunto de dados disponível publicamente -- o conjunto de dados [nyc Taxi Trips.](https://www.andresmh.com/nyctaxitrips/) O modelo de classificação binária construído prevê se uma gorjeta é paga ou não por uma viagem.  Os modelos incluem classificação multiclasse (se há ou não uma dica) e regressão (a distribuição dos valores de gorjeta pagos).
@@ -24,7 +24,7 @@ Neste tutorial, nós o mostramos através da construção e implantação de um 
 O procedimento segue o fluxo de trabalho [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) . Mostramos como configurar um ambiente de ciência de dados, como carregar os dados no Azure Synapse Analytics e como usar o Azure Synapse Analytics ou um Notebook IPython para explorar os recursos de dados e engenharia para modelar. Em seguida, mostraremos como compilar e implantar um modelo com o Azure Machine Learning.
 
 ## <a name="the-nyc-taxi-trips-dataset"></a><a name="dataset"></a>O conjunto de dados Corridas de Táxi de NYC
-Os dados de Corridas de Táxi de NYC são formados por cerca de 20 GB de arquivos CSV compactados (aproximadamente 48 GB descompactados) que incluem mais de 173 milhões de corridas individuais, com tarifas pagas por cada corrida. Cada registro de corrida inclui o local e o horário de saída e chegada, o número da carteira de habilitação do taxista anônimo e o número de medalhão (ID exclusiva do táxi). Os dados abrangem todas as corridas no ano de 2013 e são fornecidos nos dois conjuntos de dados a seguir para cada mês:
+Os dados de Corridas de Táxi de NYC são formados por cerca de 20 GB de arquivos CSV compactados (aproximadamente 48 GB descompactados) que incluem mais de 173 milhões de corridas individuais, com tarifas pagas por cada corrida. Cada registro de viagem inclui os locais e horários de retirada e entrega, o número da carteira de habilitação anonimizada (motorista) e o número do medalhão (identificação única do táxi). Os dados abrangem todas as corridas no ano de 2013 e são fornecidos nos dois conjuntos de dados a seguir para cada mês:
 
 1. O arquivo **trip_data.csv** contém detalhes da corrida, como o número de passageiros, pontos de saída e chegada, duração e quilometragem da corrida. Aqui estão alguns exemplos de registros:
 
@@ -79,12 +79,12 @@ Siga a documentação no [Criar e consulte um Depósito de Dados Azure SQL no po
 
 * **Nome do servidor:** \<nome do servidor>.database.windows.net
 * **Nome do SQLDW (Banco de Dados)**
-* **Username**
+* **Nome de usuário**
 * **Senha**
 
 **Instale o Visual Studio e o SQL Server Data Tools.** Para obter instruções, consulte [Como começar com o Visual Studio 2019 para SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Conecte-se ao seu Azure Synapse Analytics com o Visual Studio.** Para obter instruções, consulte as etapas 1 & 2 no [Connect to Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Conecte-se ao seu Azure Synapse Analytics com o Visual Studio.** Para obter instruções, consulte as etapas 1 & 2 em [Conectar-se ao SQL Analytics no Azure Synapse Analytics](../../synapse-analytics/sql/connect-overview.md).
 
 > [!NOTE]
 > Execute a seguinte consulta SQL no banco de dados criado no Azure Synapse Analytics (em vez da consulta fornecida na etapa 3 do tópico conectar)para **criar uma chave mestra**.
@@ -126,7 +126,7 @@ Em seu *-DestDir*, execute o seguinte script do PowerShell no modo de administra
 Quando o script do PowerShell for executado pela primeira vez, você será solicitado a inserir as informações do Azure Synapse Analytics e da sua conta de armazenamento blob do Azure. Ao concluir a primeira execução deste script do PowerShell, as credenciais inseridas serão gravadas em um arquivo de configuração SQLDW.conf no diretório de trabalho atual. A futura execução desse arquivo de script do PowerShell terá a opção de ler todos os parâmetros necessários desse arquivo de configuração. Se você precisar alterar alguns parâmetros, escolha inserir os parâmetros na tela ao receber uma solicitação por meio da exclusão desse arquivo de configuração e inserção dos valores de parâmetros conforme solicitado ou alterar os valores de parâmetro editando o arquivo SQLDW.conf em seu diretório *-DestDir* .
 
 > [!NOTE]
-> Para evitar conflitos de nome de esquema com aqueles que já existem no seu Azure Azure Synapse Analytics, ao ler parâmetros diretamente do arquivo SQLDW.conf, um número aleatório de 3 dígitos é adicionado ao nome do esquema do arquivo SQLDW.conf como o esquema padrão nome para cada corrida. O script do PowerShell pode solicitar um nome de esquema. Esse nome pode ser especificado a critério do usuário.
+> Para evitar conflitos de nome de esquema com aqueles que já existem no seu Azure Azure Synapse Analytics, ao ler parâmetros diretamente do arquivo SQLDW.conf, um número aleatório de 3 dígitos é adicionado ao nome do esquema do arquivo SQLDW.conf como o nome do esquema padrão para cada execução. O script do PowerShell pode solicitar um nome de esquema. Esse nome pode ser especificado a critério do usuário.
 >
 >
 
@@ -310,7 +310,7 @@ Esse arquivo de **script do PowerShell** conclui as seguintes tarefas:
 A localização geográfica de suas contas de armazenamento afeta os tempos de carregamento.
 
 > [!NOTE]
-> Dependendo da localização geográfica da sua conta de armazenamento de bolhas privada, o processo de cópia de dados de uma bolha pública para sua conta de armazenamento privado pode levar cerca de 15 minutos, ou até mesmo mais, e o processo de carregamento de dados da sua conta de armazenamento para o seu Azure A azure Synapse Analytics pode levar 20 minutos ou mais.
+> Dependendo da localização geográfica da sua conta de armazenamento de bolhas privada, o processo de cópia de dados de uma bolha pública para sua conta de armazenamento privado pode levar cerca de 15 minutos, ou até mais, e o processo de carregamento de dados de sua conta de armazenamento para o Azure Azure Synapse Analytics pode levar 20 minutos ou mais.
 >
 >
 
@@ -330,7 +330,7 @@ Você pode usar seus próprios dados. Se os dados estiverem em seu computador lo
 >
 >
 
-Este script PowerShell também conecta as informações do Azure Synapse Analytics nos arquivos de exemplo de exploração de dados SQLDW_Explorations.sql, SQLDW_Explorations.ipynb e SQLDW_Explorations_Scripts.py para que esses três arquivos estejam prontos para serem teletratados instantaneamente após o script PowerShell ser concluído.
+Este script PowerShell também conecta as informações do Azure Synapse Analytics nos arquivos de exemplo de exploração de dados SQLDW_Explorations.sql, SQLDW_Explorations.ipynb e SQLDW_Explorations_Scripts.py para que esses três arquivos estejam prontos para serem teletratados instantaneamente após a conclusão do script do PowerShell.
 
 Após a execução bem-sucedida, você verá uma tela parecida com a seguinte:
 
@@ -839,7 +839,7 @@ Neste exercício, já exploramos e projetamos os dados no Azure Synapse Analytic
 5. Insira o *Nome de usuário do SQL* em **Nome de conta do usuário do servidor** e a *senha* em **Senha da conta de usuário do servidor**.
 7. Na área de texto de edição de **consulta de banco de dados,** cole a consulta que extrai os campos de banco de dados necessários (incluindo quaisquer campos computados, como os rótulos) e desça os dados para o tamanho da amostra desejada.
 
-Um exemplo de um experimento de classificação binária lendo dados diretamente do banco de dados do Azure Synapse Analytics está na figura abaixo (lembre-se de substituir os nomes de tabela nyctaxi_trip e nyctaxi_fare pelo nome do esquema e os nomes de tabela que você usou em seu passo a passo). Experimentos semelhantes podem ser construídos por meio de classificação multiclasse e problemas de regressão.
+Um exemplo de um experimento de classificação binária lendo dados diretamente do banco de dados do Azure Synapse Analytics está na figura abaixo (lembre-se de substituir os nomes de tabela nyctaxi_trip e nyctaxi_fare pelo nome do esquema e os nomes de tabela que você usou no seu passo a passo). Experimentos semelhantes podem ser construídos por meio de classificação multiclasse e problemas de regressão.
 
 ![Treino do AM do Azure][10]
 

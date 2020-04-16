@@ -7,14 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: e2517ec4a02a5d61fb3ce1d9ca9ffa2b5f4e8bf8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7235e95e5b33fb931411a51796a8dbec96c46355
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74287036"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417650"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funções de transformação na disputa do fluxo de dados
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A disputa do fluxo de dados na Fábrica de Dados Azure permite que você faça preparação ágil de dados sem código e disputas em escala de nuvem. A disputa do fluxo de dados integra-se ao [Power Query Online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) e disponibiliza funções de Consulta de Energia M para a disputa de dados via execução de faíscas. 
 
@@ -50,7 +52,7 @@ As seguintes funções M adicionam ou transformam colunas: [Table.AddColumn,](ht
 * Concatenação de texto
 * Aritmética de Data e Hora (Operadores aritméticos, [Date.AddDays,](https://docs.microsoft.com/powerquery-m/date-adddays) [Date.AddMonths](https://docs.microsoft.com/powerquery-m/date-addmonths), [Date.AddQuarters,](https://docs.microsoft.com/powerquery-m/date-addquarters) [Date.AddWeeks](https://docs.microsoft.com/powerquery-m/date-addweeks), [Date.AddYears](https://docs.microsoft.com/powerquery-m/date-addyears))
 * Durações podem ser usadas para data e hora aritmética, mas devem ser transformadas em outro tipo antes de serem escritas em um dissipador (Operadores de Aritmética, [#duration,](https://docs.microsoft.com/powerquery-m/sharpduration) [Duração.Dias,](https://docs.microsoft.com/powerquery-m/duration-days) [Duração.Horas,](https://docs.microsoft.com/powerquery-m/duration-hours) [Duração,Minutos,](https://docs.microsoft.com/powerquery-m/duration-minutes) [Duração.Segundos,](https://docs.microsoft.com/powerquery-m/duration-seconds) [Duração.TotalDays,](https://docs.microsoft.com/powerquery-m/duration-totaldays) [Duração.TotalHours,](https://docs.microsoft.com/powerquery-m/duration-totalhours) [Duração.Minutes,](https://docs.microsoft.com/powerquery-m/duration-totalminutes) [Duração.TotalSeconds](https://docs.microsoft.com/powerquery-m/duration-totalseconds))    
-* A maioria das funções numéricas padrão, científicas e trigonométricas (Todas as funções [Operações,](https://docs.microsoft.com/powerquery-m/number-functions#operations) [Arredondamento](https://docs.microsoft.com/powerquery-m/number-functions#rounding)e [Trigonometria](https://docs.microsoft.com/powerquery-m/number-functions#trigonometry) *exceto* Número.Fatorial, Número.Permutações e Número.Combinações)
+* A maioria das funções numéricas padrão, científicas e trigonométricas (Todas as funções sob [Operações,](https://docs.microsoft.com/powerquery-m/number-functions#operations) [Arredondamento](https://docs.microsoft.com/powerquery-m/number-functions#rounding)e [Trigonometria](https://docs.microsoft.com/powerquery-m/number-functions#trigonometry) *exceto* Número.Fatorial, Número.Permutações e Número.Combinações)
 * Substituição[(Replacer.ReplaceText,](https://docs.microsoft.com/powerquery-m/replacer-replacetext) [Replacer.ReplaceValue,](https://docs.microsoft.com/powerquery-m/replacer-replacevalue) [Text.Replace,](https://docs.microsoft.com/powerquery-m/text-replace) [Text.Remove.Remove)](https://docs.microsoft.com/powerquery-m/text-remove)
 * Extração de texto posicional ([Text.PositionOf](https://docs.microsoft.com/powerquery-m/text-positionof), [Text.Length,](https://docs.microsoft.com/powerquery-m/text-length) [Text.Start,](https://docs.microsoft.com/powerquery-m/text-start) [Text.End](https://docs.microsoft.com/powerquery-m/text-end), [Text.Middle,](https://docs.microsoft.com/powerquery-m/text-middle) [Text.ReplaceRange](https://docs.microsoft.com/powerquery-m/text-replacerange), [Text.RemoveRange](https://docs.microsoft.com/powerquery-m/text-removerange))
 * Formatação básica do texto ([Text.Lower](https://docs.microsoft.com/powerquery-m/text-lower), [Text.Upper,](https://docs.microsoft.com/powerquery-m/text-upper) [Text.Trim](https://docs.microsoft.com/powerquery-m/text-trim)/[Start](https://docs.microsoft.com/powerquery-m/text-trimstart)/[End](https://docs.microsoft.com/powerquery-m/text-trimend), [Text.PadStart](https://docs.microsoft.com/powerquery-m/text-padstart)/[End](https://docs.microsoft.com/powerquery-m/text-padend), [Text.Reverse](https://docs.microsoft.com/powerquery-m/text-reverse))

@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 90573f77c77d614923f882053145d2f84598953d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 96674f059e9cbc21c5c8c64eff8c94c810c4aa32
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440227"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417769"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Carregar dados no Azure Data Lake Storage Gen2 com o Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 O Azure Data Lake Storage Gen2 é um conjunto de recursos dedicados à análise de Big Data, criado no [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md). Ele permite que você faça interface com seus dados usando os paradigmas de sistema de arquivos e armazenamento de objetos.
 
@@ -34,7 +36,7 @@ Este artigo descreve como usar a ferramenta Copiar Dados do Data Factory para ca
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure: Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Assinatura do Azure: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Conta do Azure Storage com Data Lake Storage Gen2 ativado: Se você não tiver uma conta de armazenamento, [crie uma conta](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 * Conta de AWS com um bucket S3 que contém dados: este artigo mostra como copiar dados do Amazon S3. Você pode usar outros repositórios de dados seguindo as etapas semelhantes.
 
@@ -101,7 +103,7 @@ Este artigo descreve como usar a ferramenta Copiar Dados do Data Factory para ca
 8. Na página **Especificar conexão do Armazenamento do Azure Data Lake**, siga as seguintes etapas:
 
    1. Selecione a conta do Data Lake Store Gen2 compatível na lista suspensa "Nome da conta de armazenamento".
-   2. Selecione **Concluir** para criar a conexão. Em seguida, selecione **Next**.
+   2. Selecione **Concluir** para criar a conexão. Em seguida, selecione **Avançar**.
    
    ![Especificar a conta do Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 

@@ -10,19 +10,18 @@ ms.subservice: ''
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 6e942130d9acf803665e52498ef6a4976cc9ade7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 6a3235d5edc5249bbbdc2e79dac8575ad26fd5e1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743177"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417035"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Ajuste de desempenho com exibições materializadas
 
 As visualizações materializadas no pool Synapse SQL fornecem um método de baixa manutenção para consultas analíticas complexas para obter desempenho rápido sem qualquer alteração de consulta. Este artigo discute as orientações gerais sobre o uso de visões materializadas.
 
-As visualizações materializadas no Azure SQL Data Warehouse fornecem um método de baixa manutenção para consultas analíticas complexas para obter desempenho rápido sem qualquer alteração de consulta. Este artigo discute as orientações gerais sobre o uso de visões materializadas.
+As visualizações materializadas no pool SQL fornecem um método de baixa manutenção para consultas analíticas complexas para obter desempenho rápido sem qualquer alteração de consulta. Este artigo discute as orientações gerais sobre o uso de visões materializadas.
 
 ## <a name="materialized-views-vs-standard-views"></a>Visualizações materializadas versus visualizações padrão
 
@@ -34,7 +33,7 @@ Uma visão materializada pré-computa, armazena e mantém seus dados no pool SQL
 
 A maioria dos requisitos em uma exibição padrão ainda se aplicam a uma exibição materializada. Para obter detalhes sobre a sintaxe de exibição materializada e outros requisitos, consulte [CRIAR EXIBIÇÃO MATERIALIZADA COMO SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-| Comparação                     | Exibir                                         | Exibição Materializada
+| Comparação                     | Visualizar                                         | Exibição Materializada
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
 |Exibir definição                 | Armazenado em pool SQL.              | Armazenado em pool SQL.
 |Exibir conteúdo                    | Gerado cada vez que a exibição é usada.   | Pré-processado e armazenado no pool SQL durante a criação da exibição. Atualizado à medida que os dados são adicionados às tabelas subjacentes.
@@ -45,7 +44,7 @@ A maioria dos requisitos em uma exibição padrão ainda se aplicam a uma exibi�
 
 ## <a name="benefits-of-using-materialized-views"></a>Benefícios do uso de visões materializadas
 
-Uma visão materializada adequadamente projetada pode fornecer os seguintes benefícios:
+Uma visão materializada devidamente projetada fornece os seguintes benefícios:
 
 - Reduza o tempo de execução para consultas complexas com JOINs e funções agregadas. Quanto mais complexa a consulta, maior o potencial de economia de tempo de execução. O maior benefício é obtido quando o custo de computação de uma consulta é alto e o conjunto de dados resultante é pequeno.  
 - O otimizador no pool SQL pode usar automaticamente visualizações materializadas implantadas para melhorar os planos de execução de consultas.  Esse processo é transparente para os usuários que fornecem desempenho de consulta mais rápido e não requer consultas para fazer referência direta às visualizações materializadas.
@@ -118,7 +117,7 @@ Opções para reduzir o número de visualizações materializadas:
 
 - Solte as vistas materializadas que têm baixo uso ou não são mais necessárias.  Uma visualização materializada desativada não é mantida, mas ainda incorre no custo de armazenamento.  
 
-- Combine visualizações materializadas criadas nas mesmas tabelas base ou similares, mesmo que seus dados não se sobreponham.  O penteamento de visualizações materializadas pode resultar em uma visão maior em tamanho do que a soma das vistas separadas, no entanto, o custo de manutenção da visualização deve reduzir.  Por exemplo:
+- Combine visualizações materializadas criadas nas mesmas tabelas base ou similares, mesmo que seus dados não se sobreponham.  A combinação de visualizações materializadas pode resultar em uma visão maior em tamanho do que a soma das vistas separadas, no entanto, o custo de manutenção da visualização deve reduzir.  Por exemplo:
 
 ```sql
 

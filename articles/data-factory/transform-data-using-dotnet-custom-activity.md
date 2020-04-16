@@ -10,18 +10,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74e381a9ad32acdaa8cbb719824d74ca6d339f30
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260573"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418942"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-use-custom-activities.md)
 > * [Versão atual](transform-data-using-dotnet-custom-activity.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Há dois tipos de atividades que você pode usar em um pipeline do Azure Data Factory.
 
@@ -115,7 +116,7 @@ A tabela a seguir descreve os nomes e as descrições de propriedades que são e
 &#42; As propriedades `resourceLinkedService` e `folderPath` devem ser ambas especificadas ou ambas omitidas.
 
 > [!NOTE]
-> Se você estiver passando serviços vinculados como referênciaObjetos em Atividade Personalizada, é uma boa prática de segurança passar um serviço vinculado ativado do Azure Key Vault (uma vez que não contém nenhuma strings seguras) e buscar as credenciais usando o nome secreto diretamente da Chave Cofre do código. Você pode encontrar um exemplo [aqui](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) que faz referência ao serviço vinculado habilitado para AKV, recupera as credenciais do Key Vault e, em seguida, acessa o armazenamento no código.
+> Se você estiver passando serviços vinculados como referênciaObjetos em Atividade Personalizada, é uma boa prática de segurança passar um serviço vinculado habilitado para Azure Key Vault (já que não contém nenhuma seqüência segura) e buscar as credenciais usando o nome secreto diretamente do Key Vault a partir do código. Você pode encontrar um exemplo [aqui](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) que faz referência ao serviço vinculado habilitado para AKV, recupera as credenciais do Key Vault e, em seguida, acessa o armazenamento no código.
 
 ## <a name="custom-activity-permissions"></a>Permissões de atividade personalizada
 
@@ -309,7 +310,7 @@ Você pode enviar valores personalizados do seu código em uma atividade persona
 
 ## <a name="retrieve-securestring-outputs"></a>Recuperar saídas do SecureString
 
-Os valores de propriedades confidenciais designados como tipo *SecureString*, conforme mostrado em alguns dos exemplos deste artigo, são mascarados na guia Monitoramento na interface do usuário do Data Factory.  Na execução real do pipeline, no entanto, uma propriedade *SecureString* é serializada como JSON no arquivo `activity.json` como texto simples. Por exemplo: 
+Os valores de propriedades confidenciais designados como tipo *SecureString*, conforme mostrado em alguns dos exemplos deste artigo, são mascarados na guia Monitoramento na interface do usuário do Data Factory.  Na execução real do pipeline, no entanto, uma propriedade *SecureString* é serializada como JSON no arquivo `activity.json` como texto simples. Por exemplo:
 
 ```json
 "extendedProperties": {
@@ -344,7 +345,7 @@ A tabela a seguir descreve as diferenças entre a Atividade Personalizada do Dat
 |Conjunto de dados necessário      |Opcional      |Necessário para atividades de cadeia e transmitir informações      |
 |Transmitir informações de atividade para lógica personalizada      |Por meio de ReferenceObjects (LinkedServices e conjuntos de dados) e ExtendedProperties (propriedades personalizadas)      |Por meio de conjuntos de dados de ExtendedProperties (propriedades personalizadas), de entrada e de saída      |
 |Recuperar informações em lógica personalizada      |Analisa o activity.json, o linkedServices.json e o datasets.json armazenados na mesma pasta do executável      |Através do .NET SDK (.NET Frame 4.5.2)      |
-|Registrando em log      |Grava diretamente no STDOUT      |Implementando logger em .NET DLL      |
+|Registro em log      |Grava diretamente no STDOUT      |Implementando logger em .NET DLL      |
 
 Se você tiver o código .NET existente escrito para uma atividade dodotNet versão 1 (Personalizada), você precisa modificar seu código para que ele funcione com a versão atual da Atividade Personalizada. Atualize seu código seguindo estas diretrizes de alto nível:
 
@@ -386,5 +387,5 @@ Consulte os seguintes artigos que explicam como transformar dados de outras mane
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md) (Atividade do MapReduce)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md) (Atividade de streaming do Hadoop)
 * [Atividade de faísca](transform-data-using-spark.md)
-* [Machine Learning Batch Execution activity](transform-data-using-machine-learning.md) (Atividade de execução em lotes do Machine Learning)
+* [Atividade de execução em lote de aprendizado de máquina](transform-data-using-machine-learning.md)
 * [Atividade do procedimento armazenado](transform-data-using-stored-procedure.md)
