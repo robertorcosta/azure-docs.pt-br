@@ -21,7 +21,7 @@
               href: call-endpoint-csharp.md
             - name: Usando Java
               href: call-endpoint-java.md
-            - name: Usando o Node.js
+            - name: Usando Node.js
               href: call-endpoint-nodejs.md
             - name: Usando Python
               href: call-endpoint-python.md
@@ -108,7 +108,7 @@
       href: 'https://aka.ms/bingcustomsearchtryit'
     - name: Ponto de extremidade da Pesquisa Personalizada do Bing
       href: endpoint-custom.md
-    - name: Suporte de idioma e região
+    - name: Suporte ao idioma
       href: language-support.md
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

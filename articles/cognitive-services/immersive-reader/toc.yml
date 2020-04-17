@@ -9,9 +9,9 @@
   items:
     - name: 'Usando C#'
       href: Quickstart.md
-    - name: Usando o Node.js
+    - name: Usando Node.js
       href: quickstart-nodejs.md
-    - name: Usando o Swift (iOS)
+    - name: Usando Swift (iOS)
       href: ios-quickstart.md
 - name: Tutoriais
   items:
@@ -42,6 +42,6 @@
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Suporte ao idioma
-      href: 'https://aka.ms/ltlangsupport'
+      href: language-support.md
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'

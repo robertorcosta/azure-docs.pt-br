@@ -16,7 +16,7 @@
           href: quickstarts/csharp.md
         - name: Usando Java
           href: quickstarts/java.md
-        - name: Usando o Node.js
+        - name: Usando Node.js
           href: quickstarts/nodejs.md
         - name: Usando o PHP
           href: quickstarts/php.md
@@ -107,7 +107,7 @@
       href: 'https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/'
     - name: Pontos de extremidade da Pesquisa de Imagem do Bing
       href: image-search-endpoint.md
-    - name: Suporte de idioma e região
+    - name: Suporte ao idioma
       href: language-support.md
     - name: Análise da API de Pesquisa de Imagem do Bing
       maintainContext: true

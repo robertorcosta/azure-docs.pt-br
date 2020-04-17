@@ -22,7 +22,7 @@
           href: quickstarts/java.md
         - name: Usando Python
           href: quickstarts/python.md
-        - name: Usando o Node.js
+        - name: Usando Node.js
           href: quickstarts/nodejs.md
         - name: Usando o PHP
           href: quickstarts/php.md
@@ -48,7 +48,7 @@
   items:
     - name: Tipos de entidade nomeada
       href: named-entity-types.md
-    - name: Suporte de idioma e região
+    - name: Suporte ao idioma
       href: language-support.md
     - name: Deslocamentos de texto
       href: concepts/text-offsets.md

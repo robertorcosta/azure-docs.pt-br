@@ -16,7 +16,7 @@
           href: quickstarts/csharp.md
         - name: Usando Java
           href: quickstarts/java.md
-        - name: Usando o Node.js
+        - name: Usando Node.js
           href: quickstarts/nodejs.md
         - name: Usando o PHP
           href: quickstarts/php.md
@@ -72,7 +72,7 @@
     - name: Análise da API de Verificação Ortográfica do Bing
       maintainContext: true
       href: ../bing-web-search/bing-web-stats.md
-    - name: Suporte de idioma e região
+    - name: Suporte ao idioma
       href: language-support.md
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
