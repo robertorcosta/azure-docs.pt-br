@@ -2,13 +2,13 @@
 title: Azure Migrate appliance FAQ
 description: Obtenha respostas para perguntas comuns sobre o aparelho Azure Migrate.
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: a08423637f255b973f52616f53172ef6e48d0804
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/15/2020
+ms.openlocfilehash: 529ead1baa769ee3e71f6fcf77ef7e020ed196a6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437607"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529681"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Aparelho Azure Migrate: Perguntas comuns
 
@@ -31,6 +31,15 @@ Aqui estão mais informações sobre o aparelho Azure Migrate:
 
 [Saiba mais](migrate-appliance.md) sobre o aparelho.
 
+## <a name="how-can-i-deploy-the-appliance"></a>Como posso implantar o aparelho?
+
+O aparelho pode ser implantado da seguinte forma:
+
+- Usando um modelo para VMs VMs vms e VMs Hyper-V (modelo OVA para VMware ou VHD para Hyper-V).
+- Se você não quiser usar um modelo ou estiver no Governo Azure, você pode implantar o aparelho para VMware ou Hyper-V usando um script PowerShell.
+- Para servidores físicos, você sempre implanta o aparelho usando um script.
+
+
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Como o aparelho se conecta ao Azure?
 
 O aparelho pode se conectar pela internet ou usando o Azure ExpressRoute com peering público/Microsoft.
@@ -45,11 +54,8 @@ Quando você usa o modelo baixado para criar a VM do aparelho, você pode adicio
 
 ## <a name="what-network-connectivity-is-required"></a>Que conectividade de rede é necessária?
 
-Consulte os seguintes artigos para obter informações sobre os requisitos de conectividade de rede para o aparelho Azure Migrate:
 
-- **Avaliação vMware**: [acesso à URL](migrate-appliance.md#url-access) e acesso à [porta](migrate-support-matrix-vmware.md#port-access)
-- **Migração sem agente VMware**: [acesso à URL](migrate-appliance.md#url-access) e acesso à [porta](migrate-support-matrix-vmware-migration.md#agentless-ports)
-- **Avaliação hiper-V**: [acesso à URL](migrate-appliance.md#url-access) e acesso à [porta](migrate-support-matrix-hyper-v.md#port-access)
+O aparelho precisa de acesso aos URLs do Azure. [Revise](migrate-appliance.md#url-access) a lista de URL.
 
 ## <a name="what-data-does-the-appliance-collect"></a>Quais dados o aparelho coleta?
 

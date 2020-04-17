@@ -1,11 +1,11 @@
 ---
-title: Restauração em massa de usuários excluídos (pré-visualização) no portal do Azure Active Directory | Microsoft Docs
+title: Restauração em massa de usuários excluídos no portal do Azure Active Directory | Microsoft Docs
 description: Restaurar usuários excluídos em massa no centro de administrador admin Azure AD no Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/15/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d392ae97a8325dd4a56acd807ebfb2b951216eae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f75fe224491c2853f819a45db678e87849dc72d1
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72174232"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532690"
 ---
-# <a name="bulk-restore-deleted-users-preview-in-azure-active-directory"></a>Restauração em massa de usuários excluídos (visualização) no Azure Active Directory
+# <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Restauração em massa de usuários excluídos no Azure Active Directory
 
 O Azure Active Directory (Azure AD) suporta operações de criação e exclusão em massa de usuários, convite em massa para convidados e suporta listas de download de usuários, grupos e membros do grupo.
 
@@ -36,7 +36,7 @@ O Azure Active Directory (Azure AD) suporta operações de criação e exclusão
 
    ![Selecione um arquivo CSV local no qual você lista os usuários que deseja adicionar](./media/users-bulk-restore/upload-button.png)
 
-1. Na página **Derção em massa (Visualização),** em **Upload seu arquivo csv**, navegue até o arquivo. Quando você selecionar o arquivo e clicar **em Enviar,** a validação do arquivo CSV é iniciada.
+1. Na página **de restauração em massa,** em **Upload seu arquivo csv**, navegue até o arquivo. Quando você selecionar o arquivo e clicar **em Enviar,** a validação do arquivo CSV é iniciada.
 1. Quando o conteúdo do arquivo for validado, você verá a mensagem **Arquivo carregado com êxito**. Se houver erros, você precisará corrigi-los antes de enviar o trabalho.
 1. Quando o arquivo passar pela validação, **selecione Enviar** para iniciar a operação em massa do Azure que restaura os usuários.
 1. Quando a operação de restauração for concluída, você verá uma notificação de que a operação em massa foi bem sucedida.
@@ -45,9 +45,9 @@ Se houver erros, você pode baixar e visualizar o arquivo de resultados na pági
 
 ## <a name="check-status"></a>Verificar o status
 
-Você pode ver o status de todas as suas solicitações em massa pendentes na página **resultados da operação Bulk (visualização).**
+Você pode ver o status de todas as suas solicitações em massa pendentes na página de resultados da **operação Bulk.**
 
-   ![Verifique o status de upload na página Resultados de Operações em Massa](./media/users-bulk-restore/bulk-center.png)
+[![](media/users-bulk-restore/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-restore/bulk-center.png#lightbox)
 
 Em seguida, você pode verificar se os usuários que você restaurou existem na organização Azure AD, seja no portal Azure ou usando o PowerShell.
 

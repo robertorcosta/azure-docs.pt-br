@@ -8,23 +8,25 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 12/03/2019
-ms.openlocfilehash: cda499b81a61a5b78ca86a96372640e368f90357
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.date: 04/16/2020
+ms.openlocfilehash: cc04d11475568af92ba6a617a1eb6b2b51accb45
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80364201"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481662"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (visualização)
 
 Este artigo descreve as mensagens de erro e os códigos de exceção no azure Machine Learning designer (visualização) para ajudá-lo a solucionar problemas em seus pipelines de aprendizado de máquina.
 
-Há duas maneiras de obter o texto completo de uma mensagem de erro no designer:  
+Você pode encontrar a mensagem de erro no designer seguindo estas etapas:  
 
-- Clique no link, **Exibir registro de**saída , no painel direito e role até a parte inferior. A mensagem de erro detalhada é exibida nas duas últimas linhas da janela.  
-  
-- Selecione o módulo que tem o erro e clique no X vermelho. Apenas o texto de erro pertinente é exibido.
+- Selecione o módulo com falha, vá para a guia **Saídas+logs,** você pode encontrar o login detalhado no arquivo **70_driver_log.txt** na categoria **azureml-logs.**
+
+- Para erro detalhado do módulo, você pode verificar no error_info.json em **module_statistics** categoria.
+
+A seguir estão os códigos de erro dos módulos no designer.
 
 ## <a name="error-0001"></a>Erro 0001  
  Ocorrerá uma exceção se uma ou mais das colunas especificadas do conjunto de dados não puder ser encontrada.  
@@ -326,7 +328,7 @@ Para colunas que você pretende usar para agrupamento ou categorização, tome m
 ## <a name="error-0017"></a>Erro 0017  
  A exceção ocorre se uma coluna selecionada usar um tipo de dados que não é suportado pelo módulo atual.  
 
- Por exemplo, você pode receber esse erro no Azure Machine Learning se a seleção da coluna incluir uma coluna com um tipo de dados que não pode ser processado pelo módulo, como uma coluna de strings para uma operação de matemática ou uma coluna de pontuação onde uma coluna de recurso categórica é Necessário.  
+ Por exemplo, você pode receber esse erro no Azure Machine Learning se a seleção da coluna incluir uma coluna com um tipo de dados que não pode ser processado pelo módulo, como uma coluna de strings para uma operação de matemática ou uma coluna de pontuação onde uma coluna de recurso categórica é necessária.  
 
 **Solução:**
  1. Identifique a coluna que é o problema.
@@ -352,7 +354,7 @@ Para colunas que você pretende usar para agrupamento ou categorização, tome m
 ## <a name="error-0018"></a>Erro 0018  
  Ocorrerá uma exceção se o conjunto de dados de entrada não for válido.  
 
-**Resolução:** Este erro no Azure Machine Learning pode aparecer em muitos contextos, portanto não há uma única resolução. Em geral, o erro indica que os dados fornecidos como entrada para um módulo têm o número errado de colunas, ou que o tipo de dados não corresponde aos requisitos do módulo. Por exemplo:   
+**Resolução:** Este erro no Azure Machine Learning pode aparecer em muitos contextos, portanto não há uma única resolução. Em geral, o erro indica que os dados fornecidos como entrada para um módulo têm o número errado de colunas, ou que o tipo de dados não corresponde aos requisitos do módulo. Por exemplo:  
 
 -   O módulo requer uma coluna de rótulo, mas nenhuma coluna está marcada como um rótulo ou você ainda não selecionou uma coluna de rótulo.  
   
@@ -433,7 +435,7 @@ Para colunas que você pretende usar para agrupamento ou categorização, tome m
 ## <a name="error-0022"></a>Erro 0022  
  Ocorrerá uma exceção se o número de colunas selecionadas no conjunto de dados de entrada não for igual ao número esperado.  
 
- Este erro no Azure Machine Learning pode ocorrer quando o módulo ou operação a jusante requer um número específico de colunas ou entradas, e você forneceu poucas ou muitas colunas ou entradas. Por exemplo:   
+ Este erro no Azure Machine Learning pode ocorrer quando o módulo ou operação a jusante requer um número específico de colunas ou entradas, e você forneceu poucas ou muitas colunas ou entradas. Por exemplo:  
 
 -   Você especifica uma única coluna de rótulo ou coluna-chave e selecionou acidentalmente várias colunas.  
   
@@ -656,7 +658,7 @@ Também pode acontecer que uma coluna de rótuloesteja presente no conjunto de d
 
 O recomendador matchbox tem certos requisitos que devem ser cumpridos ao usar recursos de itens ou recursos do usuário.  Este erro indica que falta um vetor de recurso para um usuário ou item fornecido como entrada. Certifique-se de que um vetor de recursos esteja disponível nos dados de cada usuário ou item.  
 
- Por exemplo, se você treinou um modelo de recomendação usando recursos como idade, localização ou renda do usuário, mas agora quer criar pontuações para novos usuários que não foram vistos durante o treinamento, você deve fornecer algum conjunto equivalente de recursos (ou seja, idade, localização e valores de renda) para os novos usuários, a fim de fazer previsões adequadas para eles. 
+ Por exemplo, se você treinou um modelo de recomendação usando recursos como idade, localização ou renda do usuário, mas agora quer criar pontuações para novos usuários que não foram vistos durante o treinamento, você deve fornecer algum conjunto equivalente de recursos (ou seja, idade, localização e valores de renda) para os novos usuários, a fim de fazer previsões apropriadas para eles. 
 
  Se você não tiver nenhum recurso para esses usuários, considere a engenharia de recursos para gerar recursos apropriados.  Por exemplo, se você não tiver valores individuais de idade ou renda do usuário, você pode gerar valores aproximados para usar para um grupo de usuários. 
 
@@ -1027,7 +1029,7 @@ Outra razão pela qual você pode obter esse erro se você tentar usar uma colun
 |O nome blob de armazenamento Do Zure está incorreto.|
 |O nome blob de armazenamento Azure "{blob_name}" está incorreto.|
 |O nome blob de armazenamento Do Zure com prefixo "{blob_name_prefix}" não existe.|
-|Não conseguiu encontrar nenhum blobs de armazenamento do Azure o contêiner {container_name}.|
+|Não conseguiu encontrar nenhum blobs de armazenamento do Azure sob o contêiner "{container_name}".|
 |Não conseguiu encontrar nenhum blobs de armazenamento do Azure com o caminho curinga "{blob_wildcard_path}".|
 
 

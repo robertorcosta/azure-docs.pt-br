@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/22/2020
+ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 16fa33999a38b21fd2016c986dd2db81f7d84051
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 274e85a914ebec31a03f1149bc4467ea142e7255
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383741"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482118"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações do provedor de recursos do Azure Resource Manager
 
@@ -157,7 +157,7 @@ Serviço Azure: [Diretório Ativo do Azure](../active-directory/index.yml)
 > | Ação | Microsoft.ADHybridHealthService/reports/tenantassigneddeployment/read | Dada uma ID de locatário, obtém o local de armazenamento do locatário. |
 > |  | **relatórios/atualizaçõesselectedimplantação** |  |
 > | Ação | Microsoft.ADHybridHealthService/reports/updateselecteddeployment/read | Obtém a localização geográfica da qual os dados serão acessados. |
-> |  | **Serviços** |  |
+> |  | **services** |  |
 > | Ação | Microsoft.ADHybridHealthService/services/write | Criar uma instância de serviço no locatário. |
 > | Ação | Microsoft.ADHybridHealthService/services/read | Ler as instâncias de serviço no locatário. |
 > | Ação | Microsoft.ADHybridHealthService/services/delete | Excluir uma instância de serviço no locatário. |
@@ -685,7 +685,7 @@ Serviço Azure: [Gerente de Recursos do Azure](../azure-resource-manager/index.y
 > | Ação | Microsoft.Authorization/locks/delete | Excluir bloqueios no escopo especificado. |
 > |  | **Operações** |  |
 > | Ação | Microsoft.Authorization/operations/read | Obtém a lista de operações |
-> |  | **Permissões** |  |
+> |  | **permissões** |  |
 > | Ação | Microsoft.Authorization/permissions/read | Listar todas as permissões que o chamador tem em determinado escopo. |
 > |  | **Políticas** |  |
 > | Ação | Microsoft.Authorization/policies/audit/action | Ação tomada como resultado da avaliação da Política Do Azure com efeito 'auditoria' |
@@ -2198,6 +2198,10 @@ Serviço Azure: [Máquinas Virtuais,](../virtual-machines/index.yml) [Conjuntos 
 > | Ação | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | Criar logs para mostrar agregações das solicitações limitadas, agrupadas por ResourceName, OperationName ou a política de limitação aplicada. |
 > |  | **locais/operações** |  |
 > | Ação | Microsoft.Compute/locations/operations/read | Obter o status de uma operação assíncrona |
+> |  | **localizações/privateEndpointConexãoProxyAzureAsyncOperação** |  |
+> | Ação | Microsoft.Compute/locations/privateEndpointConexãoProxyAzureAsyncOperação/leitura | Obtenha o status da operação proxy de conexão de ponto final privado assíncrona |
+> |  | **localizações/privateEndpointConexãoConexãoOperaçãoDeResultados** |  |
+> | Ação | Microsoft.Compute/localizações/privateEndpointConexãoProxyOperaçãoResultados/leitura | Obtenha os resultados da operação proxy de conexão de ponto final privado |
 > |  | **locais/editores** |  |
 > | Ação | Microsoft.Compute/locations/publishers/read | Obter as propriedades de um Publicador |
 > |  | **locais/editores/artefatos/ofertas** |  |
@@ -2233,6 +2237,14 @@ Serviço Azure: [Máquinas Virtuais,](../virtual-machines/index.yml) [Conjuntos 
 > | Ação | Microsoft.Compute/restorePointCollections/restorePoints/write | Criar um novo ponto de restauração |
 > | Ação | Microsoft.Compute/restorePointCollections/restorePoints/delete | Excluir o ponto de restauração |
 > | Ação | Microsoft.Compute/restorePointCollections/restorePoints/retrieveSasUris/action | Obter as propriedades de um ponto de restauração com URIs de SAS do blob |
+> |  | **extensões compartilhadasVM** |  |
+> | Ação | Microsoft.Compute/sharedVMExtensões/leitura | Obtém as propriedades da Extensão VM Compartilhada |
+> | Ação | Microsoft.Compute/compartilhadoVMExtensões/gravação | Cria uma nova extensão VM compartilhada ou atualiza uma já existente |
+> | Ação | Microsoft.Compute/sharedVMExtensions/delete | Exclui a extensão VM compartilhada |
+> |  | **extensões/versões compartilhadasVM** |  |
+> | Ação | Microsoft.Compute/sharedVMExtensões/versões/leitura | Obtém as propriedades da versão de extensão VM compartilhada |
+> | Ação | Microsoft.Compute/sharedVMExtensões/versões/gravação | Cria uma nova versão de extensão de VM compartilhada ou atualiza uma já existente |
+> | Ação | Microsoft.Compute/sharedVMExtensões/versões/exclusão | Exclui a versão de extensão VM compartilhada |
 > |  | **compartilhadoVMImages** |  |
 > | Ação | Microsoft.Compute/sharedVMImages/read | Obter as propriedades de um SharedVMImage |
 > | Ação | Microsoft.Compute/sharedVMImages/write | Criar um novo SharedVMImage ou atualizar um existente |
@@ -2250,6 +2262,10 @@ Serviço Azure: [Máquinas Virtuais,](../virtual-machines/index.yml) [Conjuntos 
 > | Ação | Microsoft.Compute/snapshots/delete | Excluir um instantâneo |
 > | Ação | Microsoft.Compute/snapshots/beginGetAccess/action | Obter o URI de SAS do Instantâneo para acesso de blob |
 > | Ação | Microsoft.Compute/snapshots/endGetAccess/action | Revogar o URI de SAS do Instantâneo |
+> |  | **sshPublicKeys** |  |
+> | Ação | Microsoft.Compute/sshPublicKeys/read | Obtenha as propriedades de uma chave pública SSH |
+> | Ação | Microsoft.Compute/sshPublicKeys/write | Cria uma nova chave pública SSH ou atualiza uma chave pública SSH existente |
+> | Ação | Microsoft.Compute/sshPublicKeys/delete | Exclui a chave pública SSH |
 > |  | **Máquinas virtuais** |  |
 > | Ação | Microsoft.Compute/virtualMachines/read | Obter as propriedades de uma máquina virtual |
 > | Ação | Microsoft.Compute/virtualMachines/write | Criar uma nova máquina virtual ou atualizar uma máquina virtual existente |
@@ -3161,7 +3177,7 @@ Serviço Azure: [Serviço de migração de banco de dados do Azure](../dms/index
 > | Ação | Microsoft.DataMigration/locations/operationResults/read | Obtém o status de uma operação de execução longa relacionada a uma resposta 202 Aceito |
 > |  | **locais/operaçãoStatuses** |  |
 > | Ação | Microsoft.DataMigration/locations/operationStatuses/read | Obtém o status de uma operação de execução longa relacionada a uma resposta 202 Aceito |
-> |  | **Serviços** |  |
+> |  | **services** |  |
 > | Ação | Microsoft.DataMigration/services/read | Lê informações sobre recursos |
 > | Ação | Microsoft.DataMigration/services/write | Cria ou atualiza recursos e suas propriedades |
 > | Ação | Microsoft.DataMigration/services/delete | Exclui um recurso e todos os seus filhos |
@@ -3934,6 +3950,83 @@ Serviço Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 > | Ação | Microsoft.DocumentDB/databaseContas/getBackupPolicy/action | Obtenha a política de backup da conta de banco de dados |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/restore/action | Enviar uma solicitação de restauração |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/backup/action | Envie uma solicitação para configurar o backup |
+> |  | **banco de dadosContas/apis/bancos de dados** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/gravação | (Preterido. Por favor, use caminhos de recursos sem segmento '/apis/' Criar um banco de dados. Aplicável apenas aos tipos de API: 'sql', 'mongodb', 'gremlin'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/leitura | (Preterido. Use caminhos de recursos sem segmento '/apis/' ) Leia um banco de dados ou liste todos os bancos de dados. Aplicável apenas aos tipos de API: 'sql', 'mongodb', 'gremlin'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/exclusão | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/' Exclua um banco de dados. Aplicável apenas aos tipos de API: 'sql', 'mongodb', 'gremlin'. |
+> |  | **banco de dadosContas/apis/bancos de dados/coleções** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/coleções/gravação | (Preterido. Por favor, use caminhos de recursos sem segmento '/apis/' Criar ou atualizar uma coleção. Aplicável apenas aos tipos de API: 'mongodb'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/coleções/leitura | (Preterido. Use caminhos de recursos sem segmento '/apis/' ) Leia uma coleção ou liste todas as coleções. Aplicável apenas aos tipos de API: 'mongodb'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/coleções/exclusão | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Exclua uma coleção. Aplicável apenas aos tipos de API: 'mongodb'. |
+> |  | **banco de dadosContas/apis/bancos de dados/coleções/operaçãoResultados** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/coleções/operaçãoResultados/leitura | (Preterido. Use caminhos de recursos sem segmento '/apis/') Leia o status da operação assíncrona. Aplicável apenas aos tipos de API: 'mongodb'. |
+> |  | **banco de dadosContas/apis/bancos de dados/coleções/configurações** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/coleções/configurações/gravação | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Atualize um throughput de coleta. Aplicável apenas aos tipos de API: 'mongodb'. Somente aplicável para definir tipos: 'throughput'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/coleções/configurações/leitura | (Preterido. Por favor, use caminhos de recursos sem segmento '/apis/') Leia um throughput de coleção. Aplicável apenas aos tipos de API: 'mongodb'. Somente aplicável para definir tipos: 'throughput'. |
+> |  | **banco de dadosContas/apis/bancos de dados/coleções/configurações/operaçãoResultados** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/coleções/configurações/operaçãoResultados/leitura | (Preterido. Use caminhos de recursos sem segmento '/apis/') Leia o status da operação assíncrona. Aplicável apenas aos tipos de API: 'mongodb'. Somente aplicável para definir tipos: 'throughput'. |
+> |  | **banco de dadosContas/apis/bancos de dados/contêineres** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/contêineres/gravação | (Preterido. Por favor, use caminhos de recursos sem segmento '/apis/') Crie ou atualize um contêiner. Aplicável apenas aos tipos de API: 'sql'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/contêineres/leitura | (Preterido. Use caminhos de recursos sem segmento '/apis/') Leia um contêiner ou liste todos os contêineres. Aplicável apenas aos tipos de API: 'sql'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/contêineres/exclusão | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Exclua um contêiner. Aplicável apenas aos tipos de API: 'sql'. |
+> |  | **banco de dadosContas/apis/bancos de dados/contêineres/operaçãoResultados** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/contêineres/operaçãoResultados/leitura | (Preterido. Use caminhos de recursos sem segmento '/apis/') Leia o status da operação assíncrona. Aplicável apenas aos tipos de API: 'sql'. |
+> |  | **banco de dadosContas/apis/bancos de dados/contêineres/configurações** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/contêineres/configurações/gravação | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Atualize uma throughput de contêiner. Aplicável apenas aos tipos de API: 'sql'. Somente aplicável para definir tipos: 'throughput'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/contêineres/configurações/leitura | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Leia uma produção de contêiner. Aplicável apenas aos tipos de API: 'sql'. Somente aplicável para definir tipos: 'throughput'. |
+> |  | **banco de dadosContas/apis/bancos de dados/contêineres/configurações/operaçãoResultados** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/contêineres/configurações/operaçãoResultados/leitura | (Preterido. Use caminhos de recursos sem segmento '/apis/') Leia o status da operação assíncrona. Aplicável apenas aos tipos de API: 'sql'. Somente aplicável para definir tipos: 'throughput'. |
+> |  | **banco de dadosContas/apis/bancos de dados/gráficos** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/gráficos/gravação | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/' Criar ou atualizar um gráfico. Aplicável apenas aos tipos de API: 'gremlin'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/gráficos/leitura | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Leia um gráfico ou liste todos os gráficos. Aplicável apenas aos tipos de API: 'gremlin'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/gráficos/exclusão | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Exclua um gráfico. Aplicável apenas aos tipos de API: 'gremlin'. |
+> |  | **banco de dadosContas/apis/bancos de dados/gráficos/operaçãoResultados** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/gráficos/operaçãoResultados/leitura | (Preterido. Use caminhos de recursos sem segmento '/apis/') Leia o status da operação assíncrona. Aplicável apenas aos tipos de API: 'gremlin'. |
+> |  | **banco de dadosContas/apis/bancos de dados/gráficos/configurações** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/gráficos/configurações/gravação | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Atualize um throughput de gráfico. Aplicável apenas aos tipos de API: 'gremlin'. Somente aplicável para definir tipos: 'throughput'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/gráficos/configurações/leitura | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Leia um throughput de gráfico. Aplicável apenas aos tipos de API: 'gremlin'. Somente aplicável para definir tipos: 'throughput'. |
+> |  | **banco de dadosContas/apis/bancos de dados/gráficos/configurações/operaçãoResultados** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/gráficos/configurações/operaçãoResultados/leitura | (Preterido. Use caminhos de recursos sem segmento '/apis/') Leia o status da operação assíncrona. Aplicável apenas aos tipos de API: 'gremlin'. Somente aplicável para definir tipos: 'throughput'. |
+> |  | **banco de dadosContas/apis/bancos de dados/operaçãoResultados** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/operaçãoResultados/leitura | (Preterido. Use caminhos de recursos sem segmento '/apis/') Leia o status da operação assíncrona. Aplicável apenas aos tipos de API: 'sql', 'mongodb', 'gremlin'. |
+> |  | **banco de dadosContas/apis/bancos de dados/configurações** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/configurações/gravação | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/' ) Atualize um throughput de banco de dados. Aplicável apenas aos tipos de API: 'sql', 'mongodb', 'gremlin'. Somente aplicável para definir tipos: 'throughput'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/configurações/leitura | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/' ) Leia um throughput de banco de dados. Aplicável apenas aos tipos de API: 'sql', 'mongodb', 'gremlin'. Somente aplicável para definir tipos: 'throughput'. |
+> |  | **banco de dadosContas/apis/bancos de dados/configurações/operaçãoResultados** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/bancos de dados/configurações/operaçãoResultados/leitura | (Preterido. Use caminhos de recursos sem segmento '/apis/') Leia o status da operação assíncrona. Aplicável apenas aos tipos de API: 'sql', 'mongodb', 'gremlin'. Somente aplicável para definir tipos: 'throughput'. |
+> |  | **banco de dadosContas/apis/keyspaces** |  |
+> | Ação | Microsoft.DocumentDB/databaseContas/apis/keyspaces/write | (Preterido. Por favor, use caminhos de recursos sem segmento '/apis/') Crie um espaço-chave. Apenas aplicável aos tipos de API: 'cassandra'. |
+> | Ação | Microsoft.DocumentDB/databaseContas/apis/keyspaces/read | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/' ) Leia um espaço-chave ou liste todos os espaços-chave. Apenas aplicável aos tipos de API: 'cassandra'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/keyspaces/delete | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Exclua um espaço-chave. Apenas aplicável aos tipos de API: 'cassandra'. |
+> |  | **banco de dadosContas/apis/keyspaces/operationResultados** |  |
+> | Ação | Microsoft.DocumentDB/databaseContas/apis/keyspaces/operationResultados/leitura | (Preterido. Use caminhos de recursos sem segmento '/apis/') Leia o status da operação assíncrona. Apenas aplicável aos tipos de API: 'cassandra'. |
+> |  | **banco de dadosContas/apis/keyspaces/configurações** |  |
+> | Ação | Microsoft.DocumentDB/databaseContas/apis/keyspaces/settings/write | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Atualize um throughput de espaço-chave. Apenas aplicável aos tipos de API: 'cassandra'. Somente aplicável para definir tipos: 'throughput'. |
+> | Ação | Microsoft.DocumentDB/databaseContas/apis/keyspaces/settings/read | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Leia um throughput de espaço-chave. Apenas aplicável aos tipos de API: 'cassandra'. Somente aplicável para definir tipos: 'throughput'. |
+> |  | **banco de dadosContas/apis/keyspaces/settings/operationResultados** |  |
+> | Ação | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/operationResults/read | (Preterido. Use caminhos de recursos sem segmento '/apis/') Leia o status da operação assíncrona. Apenas aplicável aos tipos de API: 'cassandra'. Somente aplicável para definir tipos: 'throughput'. |
+> |  | **banco de dadosContas/apis/keyspaces/tabelas** |  |
+> | Ação | Microsoft.DocumentDB/databaseContas/apis/keyspaces/tables/write | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/' Criar ou atualizar uma tabela. Apenas aplicável aos tipos de API: 'cassandra'. |
+> | Ação | Microsoft.DocumentDB/databaseContas/apis/keyspaces/tables/read | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/' ) Leia uma tabela ou liste todas as tabelas. Apenas aplicável aos tipos de API: 'cassandra'. |
+> | Ação | Microsoft.DocumentDB/databaseContas/apis/keyspaces/tables/delete | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Exclua uma tabela. Apenas aplicável aos tipos de API: 'cassandra'. |
+> |  | **banco de dadosContas/apis/keyspaces/tables/operationResultados** |  |
+> | Ação | Microsoft.DocumentDB/databaseContas/apis/keyspaces/tables/operationResultados/leitura | (Preterido. Use caminhos de recursos sem segmento '/apis/') Leia o status da operação assíncrona. Apenas aplicável aos tipos de API: 'cassandra'. |
+> |  | **banco de dadosContas/apis/keyspaces/tables/settings** |  |
+> | Ação | Microsoft.DocumentDB/databaseContas/apis/keyspaces/tables/settings/write | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Atualize uma throughput de tabela. Apenas aplicável aos tipos de API: 'cassandra'. Somente aplicável para definir tipos: 'throughput'. |
+> | Ação | Microsoft.DocumentDB/databaseContas/apis/keyspaces/tables/settings/read | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Leia um throughput de tabela. Apenas aplicável aos tipos de API: 'cassandra'. Somente aplicável para definir tipos: 'throughput'. |
+> |  | **banco de dadosContas/apis/keyspaces/tables/settings/operationResultados** |  |
+> | Ação | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/operationResults/read | (Preterido. Use caminhos de recursos sem segmento '/apis/') Leia o status da operação assíncrona. Apenas aplicável aos tipos de API: 'cassandra'. Somente aplicável para definir tipos: 'throughput'. |
+> |  | **banco de dadosContas/apis/tabelas** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/tabelas/gravação | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/' Criar ou atualizar uma tabela. Aplicável apenas aos tipos de API: 'tabela'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/tabelas/leitura | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/' ) Leia uma tabela ou liste todas as tabelas. Aplicável apenas aos tipos de API: 'tabela'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/tabelas/exclusão | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Exclua uma tabela. Aplicável apenas aos tipos de API: 'tabela'. |
+> |  | **banco de dadosContas/apis/tabelas/operaçãoResultados** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/tabelas/operaçãoResultados/leitura | (Preterido. Use caminhos de recursos sem segmento '/apis/') Leia o status da operação assíncrona. Aplicável apenas aos tipos de API: 'tabela'. |
+> |  | **banco de dadosContas/apis/tabelas/configurações** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/tabelas/configurações/gravação | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Atualize uma throughput de tabela. Aplicável apenas aos tipos de API: 'tabela'. Somente aplicável para definir tipos: 'throughput'. |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/tabelas/configurações/leitura | (Preterido. Por favor, use caminhos de recurso sem segmento '/apis/') Leia um throughput de tabela. Aplicável apenas aos tipos de API: 'tabela'. Somente aplicável para definir tipos: 'throughput'. |
+> |  | **banco de dadosContas/apis/tabelas/configurações/operaçãoResultados** |  |
+> | Ação | Microsoft.DocumentDB/banco de dadosContas/apis/tabelas/configurações/operaçãoResultados/leitura | (Preterido. Use caminhos de recursos sem segmento '/apis/') Leia o status da operação assíncrona. Aplicável apenas aos tipos de API: 'tabela'. Somente aplicável para definir tipos: 'throughput'. |
 > |  | **banco de dadosContas/cassandraKeyspaces** |  |
 > | Ação | Microsoft.DocumentDB/banco de dadosContas/cassandraKeyspaces/write | Crie um espaço-chave cassandra. |
 > | Ação | Microsoft.DocumentDB/banco de dadosContas/cassandraKeyspaces/read | Leia um espaço-chave de Cassandra ou liste todos os espaços-chave de Cassandra. |
@@ -4249,7 +4342,7 @@ Serviço Azure: [Grade de Eventos](../event-grid/index.yml)
 > | Ação | Microsoft.EventGrid/partnerTopics/delete | Exclua um tópico de parceiro |
 > | Ação | Microsoft.EventGrid/partnerTopics/activate/action | Ativar tópico de parceiro |
 > | Ação | Microsoft.EventGrid/partnerTopics/desativam/action | Desativar o tópico do parceiro |
-> |  | **sku** |  |
+> |  | **Sku** |  |
 > | Ação | Microsoft.EventGrid/sku/read | Leia as definições de Sku disponíveis para recursos da grade de eventos |
 > |  | **systemTopics** |  |
 > | Ação | Microsoft.EventGrid/systemTopics/read | Leia um tópico do sistema |
@@ -4390,7 +4483,7 @@ Serviço Azure: [Hubs de eventos](../event-hubs/index.yml)
 > | Ação | Microsoft.EventHub/namespaces/virtualNetworkRules/delete | Excluir Recurso de Regra VNET |
 > |  | **Operações** |  |
 > | Ação | Microsoft.EventHub/operations/read | Obter Operações |
-> |  | **sku** |  |
+> |  | **Sku** |  |
 > | Ação | Microsoft.EventHub/sku/read | Obter lista de Descrições de Recursos de SKU |
 > |  | **sku/regiões** |  |
 > | Ação | Microsoft.EventHub/sku/regions/read | Obter lista de Descrições de Recursos SkuRegions |
@@ -4406,7 +4499,7 @@ Serviço Azure: [Gerente de Recursos do Azure](../azure-resource-manager/index.y
 > | Tipo de ação | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.Features/register/action | Registra o recurso de uma assinatura. |
-> |  | **Características** |  |
+> |  | **recursos** |  |
 > | Ação | Microsoft.Features/features/read | Obter os recursos de uma assinatura. |
 > |  | **Operações** |  |
 > | Ação | Microsoft.Features/operations/read | Obtém a lista de operações. |
@@ -4558,7 +4651,7 @@ Serviço azure: [Monitor Azure](../azure-monitor/index.yml)
 > | Ação | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/logDefinitions/Read | Ler definições de log |
 > |  | **Configurações/provedores de escala automática/Microsoft.Insights/MetricDefinitions** |  |
 > | Ação | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read | Ler definições de métrica |
-> |  | **Base** |  |
+> |  | **Linha de base** |  |
 > | Ação | Microsoft.Insights/Linha de Base/Leitura | Leia uma linha de base métrica (visualização) |
 > |  | **Calcularlinha de base** |  |
 > | Ação | Microsoft.Insights/CalculateBaseline/Read | Calcular a linha de base para valores métricos (visualização) |
@@ -5532,7 +5625,7 @@ Serviço Azure: [Serviço de Aprendizagem de Máquina](../machine-learning/index
 > | Ação | Microsoft.MachineLearningServices/workspaces/write | Cria ou atualiza Workspaces dos Serviços de Machine Learning |
 > | Ação | Microsoft.MachineLearningServices/workspaces/delete | Exclui os Workspaces dos Serviços de Machine Learning |
 > | Ação | Microsoft.MachineLearningServices/workspaces/listKeys/action | Lista segredos para um Workspace dos Serviços de Machine Learning |
-> | Ação | Microsoft.MachineLearningServices/workspaces/PrivateEndpointConexõesAprovação/ação | Aprovar ou rejeitar uma conexão com um recurso Private EndPoint do provedor Microsoft.Network |
+> | Ação | Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionsApproval/action | Aprovar ou rejeitar uma conexão com um recurso Private EndPoint do provedor Microsoft.Network |
 > |  | **workspaces/computes** |  |
 > | Ação | Microsoft.MachineLearningServices/workspaces/computes/read | Obtém os recursos de computação nos Workspaces dos Serviços de Machine Learning |
 > | Ação | Microsoft.MachineLearningServices/workspaces/computes/write | Cria ou atualiza os recursos de computação nos Workspaces dos Serviços de Machine Learning |
@@ -5542,10 +5635,90 @@ Serviço Azure: [Serviço de Aprendizagem de Máquina](../machine-learning/index
 > | Ação | Microsoft.MachineLearningServices/workspaces/computes/start/action | Inicie o recurso de computação no espaço de trabalho dos serviços de aprendizagem de máquina |
 > | Ação | Microsoft.MachineLearningServices/workspaces/computes/stop/action | Parar o recurso de computação no espaço de trabalho dos serviços de aprendizagem de máquina |
 > | Ação | Microsoft.MachineLearningServices/workspaces/computes/restart/action | Reiniciar recurso de computação no espaço de trabalho dos serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/detectores de dados** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/read | Obtém detectores de deriva de dados em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/write | Cria ou atualiza detectores de deriva de dados em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/delete | Exclui detectores de deriva de dados em espaços de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/conjuntos de dados/registrados** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datasets/registered/read | Obtém conjuntos de dados registrados em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datasets/registered/write | Cria ou atualiza conjuntos de dados registrados no Espaço de Trabalho de Serviços de Aprendizagem de Máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datasets/registered/delete | Exclui conjuntos de dados registrados em espaços de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/conjuntos de dados/registrado/visualização** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datasets/registered/preview/read | Obtém visualização do conjunto de dados para conjuntos de dados registrados no Espaço de Trabalho dos Serviços de Aprendizagem de Máquina |
+> |  | **espaços de trabalho/conjuntos de dados/registrados/perfil** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read | Obtém perfis de conjuntos de dados para conjuntos de dados registrados em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/write | Cria ou atualiza perfis de conjuntos de dados para conjuntos de dados registrados em espaços de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/conjuntos de dados/registrados/esquemas** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datasets/registered/schema/read | Obtém esquema de conjunto de dados para conjuntos de dados registrados em espaços de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/conjuntos de dados/não registrados** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/read | Obtém conjuntos de dados não registrados em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/write | Cria ou atualiza conjuntos de dados não registrados no Espaço de Trabalho de Serviços de Aprendizagem de Máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete | Exclui conjuntos de dados não registrados em espaços de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/conjuntos de dados/não registrados/visualização** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/preview/read | Obtém visualização do conjunto de dados para conjuntos de dados não registrados no Espaço de trabalho dos Serviços de Aprendizagem de Máquina |
+> |  | **espaços de trabalho/conjuntos de dados/não registrados/perfil** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/read | Obtém perfis de conjunto de dados para conjuntos de dados não registrados em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/write | Cria ou atualiza perfis de conjuntos de dados para conjuntos de dados não registrados no Espaço de Trabalho de Serviços de Aprendizagem de Máquina |
+> |  | **espaços de trabalho/conjuntos de dados/não registrados/esquemas** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/schema/read | Obtém esquema de conjunto de dados para conjuntos de dados não registrados em espaços de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/datastores** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datastores/read | Obtém datastores em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datastores/write | Cria ou atualiza datastores em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/datastores/delete | Exclui datastores em espaços de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/pontos finais/pipelines** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read | Recebe pipelines publicados e pontos finais de pipeline em espaço de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write | Cria ou atualiza pipelines publicados e pontos finais de pipeline em espaços de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/ambientes** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/environments/read | Obtém ambientes em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/environments/readSecrets/action | Obtém ambientes com segredos em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/environments/write | Cria ou atualiza ambientes em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/environments/build/action | Constrói ambientes em espaços de trabalho de serviços de aprendizagem de máquina |
 > |  | **espaços de trabalho/eventGridFilters** |  |
 > | Ação | Microsoft.MachineLearningServices/workspaces/eventGridFilters/read | Obtenha um filtro event grid para um espaço de trabalho específico |
-> |  | **espaços de trabalho/recursos** |  |
-> | Ação | Microsoft.MachineLearningServices/workspaces/features/read | Obtém todos os recursos habilitados para um espaço de trabalho de serviços de aprendizagem de máquina |
+> |  | **workspaces/experiments** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/experimentos/read | Recebe experimentos em serviços de aprendizagem de máquina espaços de trabalho |
+> | Ação | Microsoft.MachineLearningServices/workspaces/experimentos/write | Cria ou atualiza experimentos em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/experimentos/delete | Exclui experimentos em espaços de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/experimentos/executações** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action | Cria ou atualiza a executação de scripts no Espaço de Trabalho de Serviços de Aprendizagem de Máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/experiments/runs/read | É executado em espaço de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/experiments/runs/write | Cria ou atualiza os serviços de aprendizagem de máquina espaços de trabalho |
+> |  | **espaços de trabalho/rotulagem** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/labeling/exportação/action | Exportar rótulos de projetos de rotulagem em espaços de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/rotulagem/rótulos** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/labeling/labels/read | Obtém rótulos de projetos de rotulagem em Espaços de Trabalho de Serviços de Aprendizagem de Máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/labeling/labels/write | Cria rótulos de projetos de rotulagem em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action | Rejeitar rótulos de projetos de rotulagem em Espaços de Trabalho de Serviços de Aprendizagem de Máquina |
+> |  | **espaços de trabalho/rotulagem/projetos** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/labeling/projects/read | Obtém projeto de rotulagem em Espaço de Trabalho de Serviços de Aprendizagem de Máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/labeling/projects/write | Cria ou atualiza projeto de rotulagem no Espaço de Trabalho de Serviços de Aprendizagem de Máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/labeling/projects/delete | Exclui projeto de rotulagem em espaços de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/rotulagem/projetos/resumo** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read | Obtém resumo do projeto de rotulagem em Machine Learning Services Workspace(s) |
+> |  | **espaços de trabalho/metadados/artefatos** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/metadados/artefatos/leitura | Recebe artefatos em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/metadados/artefatos/gravação | Cria ou atualiza artefatos em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/metadados/artefatos/exclusão | Exclui artefatos em espaços de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/metadados/segredos** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/metadata/secrets/read | Obtém segredos em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/metadata/secrets/write | Cria ou atualiza segredos em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/metadata/secrets/delete | Exclui segredos em espaços de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/metadados/instantâneos** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read | Obtém instantâneos em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write | Cria ou atualiza instantâneos em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/delete | Exclui instantâneos em espaços de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/modelos** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/models/read | Recebe modelos em serviços de aprendizagem de máquina espaços de trabalho |
+> | Ação | Microsoft.MachineLearningServices/workspaces/models/write | Cria ou atualiza modelos em Espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/models/delete | Exclui modelos em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/models/package/action | Modelos de pacotes em espaço de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/módulos** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/modules/read | Obtém módulos em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/modules/write | Cria ou atualiza módulo em espaço de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/rascunhos de gasodutos** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/read | Recebe rascunhos de pipeline em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write | Cria ou atualiza rascunhos de pipeline em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/delete | Exclui rascunhos de pipeline em espaços de trabalho de serviços de aprendizagem de máquina |
 > |  | **espaços de trabalho/privateEndpointConnectionProxies** |  |
 > | Ação | Microsoft.MachineLearningServices/workspaces/privateEndpoint ConnectionProxies/read | Exibir o estado de um proxy de conexão para um recurso Private Endpoint do provedor Microsoft.Network |
 > | Ação | Microsoft.MachineLearningServices/workspaces/privateEndpoint ConnectionProxies/write | Alterar o estado de um proxy de conexão para um recurso Private EndPoint do provedor Microsoft.Network |
@@ -5557,104 +5730,17 @@ Serviço Azure: [Serviço de Aprendizagem de Máquina](../machine-learning/index
 > | Ação | Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/delete | Exclua uma conexão a um recurso Private Endpoint do provedor Microsoft.Network |
 > |  | **espaços de trabalho/privateLinkResources** |  |
 > | Ação | Microsoft.MachineLearningServices/workspaces/privateLinkResources/read | Obtém os recursos de link privado disponíveis para a instância especificada do Espaço de Trabalho dos Serviços de Aprendizagem de Máquina |
-> |  | **espaços de trabalho/detectores de dados** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/read | Obtém detectores de deriva de dados em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/write | Cria ou atualiza detectores de deriva de dados em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/conjuntos de dados/registrados** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datasets/registered/read | Obtém conjuntos de dados registrados em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datasets/registered/write | Cria ou atualiza conjuntos de dados registrados no Espaço de Trabalho de Serviços de Aprendizagem de Máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datasets/registered/delete | Exclui conjuntos de dados registrados em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/conjuntos de dados/registrado/visualização** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datasets/registered/preview/read | Obtém visualização do conjunto de dados para conjuntos de dados registrados no Espaço de Trabalho dos Serviços de Aprendizagem de Máquina |
-> |  | **espaços de trabalho/conjuntos de dados/registrados/perfil** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read | Obtém perfis de conjuntos de dados para conjuntos de dados registrados em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/write | Cria ou atualiza perfis de conjuntos de dados para conjuntos de dados registrados em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/conjuntos de dados/registrados/esquemas** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datasets/registered/schema/read | Obtém esquema de conjunto de dados para conjuntos de dados registrados em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/conjuntos de dados/não registrados** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/read | Obtém conjuntos de dados não registrados em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/write | Cria ou atualiza conjuntos de dados não registrados no Espaço de Trabalho de Serviços de Aprendizagem de Máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete | Exclui conjuntos de dados não registrados em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/conjuntos de dados/não registrados/visualização** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/preview/read | Obtém visualização do conjunto de dados para conjuntos de dados não registrados no Espaço de trabalho dos Serviços de Aprendizagem de Máquina |
-> |  | **espaços de trabalho/conjuntos de dados/não registrados/perfil** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/read | Obtém perfis de conjunto de dados para conjuntos de dados não registrados em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/write | Cria ou atualiza perfis de conjuntos de dados para conjuntos de dados não registrados no Espaço de Trabalho de Serviços de Aprendizagem de Máquina |
-> |  | **espaços de trabalho/conjuntos de dados/não registrados/esquemas** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datasets/unregistered/schema/read | Obtém esquema de conjunto de dados para conjuntos de dados não registrados em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/datastores** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datastores/read | Obtém datastores em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datastores/write | Cria ou atualiza datastores em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/datastores/delete | Exclui datastores em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/pontos finais/pipelines** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read | Recebe pipelines publicados e pontos finais de pipeline em espaço de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write | Cria ou atualiza pipelines publicados e pontos finais de pipeline em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/ambientes** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/environments/read | Obtém ambientes em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/environments/readSecrets/action | Obtém ambientes com segredos em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/environments/write | Cria ou atualiza ambientes em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/environments/build/action | Constrói ambientes em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **workspaces/experiments** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/experimentos/read | Recebe experimentos em serviços de aprendizagem de máquina espaços de trabalho |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/experimentos/write | Cria ou atualiza experimentos em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/experimentos/delete | Exclui experimentos em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/experimentos/executações** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/experiments/runs/read | É executado em espaço de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/experiments/runs/write | Cria ou atualiza os serviços de aprendizagem de máquina espaços de trabalho |
-> |  | **espaços de trabalho/experimentos/runs/scriptRun** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/experiments/runs/scriptRun/submit/action | Cria ou atualiza a executação de scripts no Espaço de Trabalho de Serviços de Aprendizagem de Máquina |
-> |  | **espaços de trabalho/rotulagem** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/labeling/exportação/action | Exportar rótulos de projetos de rotulagem em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/rotulagem/rótulos** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/labeling/labels/read | Obtém rótulos de projetos de rotulagem em Espaços de Trabalho de Serviços de Aprendizagem de Máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/labeling/labels/write | Cria rótulos de projetos de rotulagem em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action | Rejeitar rótulos de projetos de rotulagem em Espaços de Trabalho de Serviços de Aprendizagem de Máquina |
-> |  | **espaços de trabalho/rotulagem/projetos** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/labeling/projects/read | Obtém projeto de rotulagem em Espaço de Trabalho de Serviços de Aprendizagem de Máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/labeling/projects/write | Cria ou atualiza projeto de rotulagem no Espaço de Trabalho de Serviços de Aprendizagem de Máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/labeling/projects/delete | Exclui projeto de rotulagem em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/rotulagem/projetos/resumo** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read | Obtém resumo do projeto de rotulagem em Machine Learning Services Workspace(s) |
-> |  | **espaços de trabalho/metadados/artefatos** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/metadados/artefatos/leitura | Recebe artefatos em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/metadados/artefatos/gravação | Cria ou atualiza artefatos em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/metadados/artefatos/exclusão | Exclui artefatos em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/metadados/segredos** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/metadata/secrets/read | Obtém segredos em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/metadata/secrets/write | Cria ou atualiza segredos em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/metadata/secrets/delete | Exclui segredos em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/metadados/instantâneos** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read | Obtém instantâneos em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write | Cria ou atualiza instantâneos em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/delete | Exclui instantâneos em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/modelos** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/models/read | Recebe modelos em serviços de aprendizagem de máquina espaços de trabalho |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/models/write | Cria ou atualiza modelos em Espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/models/delete | Exclui modelos em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/models/package/action | Modelos de pacotes em espaço de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/módulos** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/modules/read | Obtém módulos em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/modules/write | Cria ou atualiza módulo em espaço de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/rascunhos de gasodutos** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/read | Recebe rascunhos de pipeline em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write | Cria ou atualiza rascunhos de pipeline em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/delete | Exclui rascunhos de pipeline em espaços de trabalho de serviços de aprendizagem de máquina |
 > |  | **espaços de trabalho/serviços** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/services/read | Obtém serviços em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/services/read | Obtém serviços em espaços de trabalho de serviços de aprendizagem de máquina |
 > |  | **espaços de trabalho/serviços/aci** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/services/aci/write | Cria ou atualiza serviços de ACI em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/services/aci/listkeys/action | Lista chaves para serviços de ACI em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/services/aci/delete | Exclui serviços de ACI em espaços de trabalho de serviços de aprendizagem de máquina |
-> |  | **espaços de trabalho/serviços/aks/devtest** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/services/aks/devtest/write | Cria ou atualiza os serviços de AKS de vtest em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/services/aks/devtest/listkeys/action | Lista chaves para devtest serviços AKS em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/services/aks/devtest/delete | Exclui serviços AKS devtest em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/services/aks/devtest/score/action | Pontuações devtest aks serviços em machine learning services workspace(s) |
-> |  | **espaços de trabalho/serviços/aks/prod** |  |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/services/aks/prod/write | Cria ou atualiza os serviços de AKS do Prod em Espaços de Trabalho de Serviços de Aprendizagem de Máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/services/aks/prod/listkeys/action | Lista chaves para serviços de Prod AKS em Espaço de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/services/aks/prod/delete | Exclui serviços prod AKS em espaços de trabalho de serviços de aprendizagem de máquina |
-> | DataAction | Microsoft.MachineLearningServices/workspaces/services/aks/prod/score/action | Pontuação dos serviços de AKS em serviços de aprendizagem de máquina(s) |
+> | Ação | Microsoft.MachineLearningServices/workspaces/services/aci/write | Cria ou atualiza serviços de ACI em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/services/aci/listkeys/action | Lista chaves para serviços de ACI em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/services/aci/delete | Exclui serviços de ACI em espaços de trabalho de serviços de aprendizagem de máquina |
+> |  | **espaços de trabalho/serviços/aks** |  |
+> | Ação | Microsoft.MachineLearningServices/workspaces/services/aks/write | Cria ou atualiza os serviços aks em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/services/aks/listkeys/action | Lista chaves para serviços AKS em espaço de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/services/aks/delete | Exclui serviços AKS em espaços de trabalho de serviços de aprendizagem de máquina |
+> | Ação | Microsoft.MachineLearningServices/workspaces/services/aks/score/action | Pontuação serviços AKS em serviços de aprendizagem de máquina espaço de trabalho |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
@@ -5740,6 +5826,10 @@ Serviço Azure: [Mapas do Azure](../azure-maps/index.yml)
 > | Ação | Microsoft.Maps/accounts/eventGridFilters/delete | Excluir um filtro de Grade de Eventos |
 > | Ação | Microsoft.Maps/accounts/eventGridFilters/read | Obtenha um filtro de Grade de Eventos |
 > | Ação | Microsoft.Maps/accounts/eventGridFilters/write | Cria ou atualiza qualquer Filtro de Grade de Eventos |
+> |  | **contas/privateAtlases** |  |
+> | Ação | Microsoft.Maps/contas/privateAtlases/delete | Exclua um Atlas Privado |
+> | Ação | Microsoft.Maps/contas/privateAtlases/read | Obtenha um Atlas Privado |
+> | Ação | Microsoft.Maps/contas/privateAtlases/write | Criar ou atualizar um Atlas Privado |
 > |  | **Operações** |  |
 > | Ação | Microsoft.Maps/operações/leitura | Leia as operações do provedor |
 > |  | **contas/dados** |  |
@@ -5998,6 +6088,10 @@ Serviço Azure: [Âncoras Espaciais Azure](../spatial-anchors/index.yml)
 > | Ação | Microsoft.MixedReality/spatialAnchorsContas/provedores/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a configuração de diagnóstico do Microsoft.MixedReality/spatialAnchorsAccounts |
 > |  | **espacialAnchorsContas/provedores/Microsoft.Insights/metricDefinições** |  |
 > | Ação | Microsoft.MixedReality/spatialAnchorsContas/provedores/Microsoft.Insights/metricDefinições/leitura | Obtém as métricas disponíveis para Microsoft.MixedReality/spatialAnchorsContas |
+> |  | **Compreensão de objetosContas** |  |
+> | DataAction | Microsoft.MixedReality/ObjectUnderstandingContas/ingest/action | Criar trabalho de ingestão de modelos |
+> |  | **Compreensão de objetosContas/ingestão** |  |
+> | DataAction | Microsoft.MixedReality/ObjectUnderstandingContas/ingest/read | Obter status de trabalho de ingestão de modelo |
 > |  | **Contas de renderização remota** |  |
 > | DataAction | Microsoft.MixedReality/RemoteRenderingAccounts/convert/action | Iniciar a conversão de ativos |
 > | DataAction | Microsoft.MixedReality/RemoteRenderingAccounts/managesessions/action | Iniciar sessões |
@@ -6069,6 +6163,10 @@ Serviço Azure: [Arquivos do Azure NetApp](../azure-netapp-files/index.yml)
 > | Ação | Microsoft.NetApp/netAppContas/capacityPools/volumes/backups/leitura | Lê um recurso de backup. |
 > | Ação | Microsoft.NetApp/netAppContas/capacityPools/volumes/backups/write | Grava um recurso de backup. |
 > | Ação | Microsoft.NetApp/netAppContas/capacityPools/volumes/backups/exclusão | Exclui um recurso de backup. |
+> |  | **netAppContas/capacityPools/volumes/MountTargets** |  |
+> | Ação | Microsoft.NetApp/netAppContas/capacityPools/volumes/MountTargets/read | Lê um recurso de destino de montagem. |
+> |  | **netAppContas/capacityPools/volumes/ReplicationStatus** |  |
+> | Ação | Microsoft.NetApp/netAppContas/capacityPools/volumes/ReplicationStatus/read | Lê os status da replicação de volume. |
 > |  | **netAppContas/capacityPools/volumes/snapshots** |  |
 > | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/read | Lê um recurso de instantâneo. |
 > | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/write | Grava um recurso de instantâneo. |
@@ -6341,6 +6439,8 @@ Serviço Azure: [Rede Virtual,](../virtual-network/index.yml) [Balanceador de Ca
 > | Ação | Microsoft.Network/loadBalancers/delete | Excluir um balanceador de carga |
 > |  | **balancers/backendAddressPools** |  |
 > | Ação | Microsoft.Network/loadBalancers/backendAddressPools/read | Obter uma definição de pool de endereços de back-end do balanceador de carga |
+> | Ação | Microsoft.Network/loadBalancers/backendAddressPools/write | Cria um pool de endereços backend do balanceador de carga ou atualiza um pool de endereços backend do balanceador de carga existente |
+> | Ação | Microsoft.Network/loadBalancers/backendAddressPools/delete | Exclui um pool de endereços backend do balanceador de carga |
 > | Ação | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Junta-se a um pool de endereços backend do balanceador de carga. Não é alertável. |
 > |  | **balancers/frontendIPConfigurações** |  |
 > | Ação | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Obter uma definição de configuração de IP de front-end do balanceador de carga |
@@ -6565,6 +6665,7 @@ Serviço Azure: [Rede Virtual,](../virtual-network/index.yml) [Balanceador de Ca
 > | Ação | Microsoft.Network/privateEndpointRedirectMaps/read | Obtém um mapa de redirecionamento de ponto final privado |
 > | Ação | Microsoft.Network/privateEndpointRedirectMaps/write | Cria redirecionamento de ponto final privadoMap ou atualiza um redirecionamento de ponto final privado existente |
 > |  | **privateEndpoints** |  |
+> | Ação | Microsoft.Network/privateEndpoints/pushPropriedadesToResource/action | Operação para empurrar atualizações privadas de propriedade de endpoint do cliente NRP |
 > | Ação | Microsoft.Network/privateEndpoints/read | Obtém um recurso de ponto final privado. |
 > | Ação | Microsoft.Network/privateEndpoints/write | Cria um novo ponto final privado ou atualiza um ponto final privado existente. |
 > | Ação | Microsoft.Network/privateEndpoints/delete | Exclui um recurso de ponto final privado. |
@@ -6606,6 +6707,13 @@ Serviço Azure: [Rede Virtual,](../virtual-network/index.yml) [Balanceador de Ca
 > | Ação | Microsoft.Network/routeTables/routes/read | Obter uma definição de rota |
 > | Ação | Microsoft.Network/routeTables/routes/write | Criar uma rota ou atualizar uma rota existente |
 > | Ação | Microsoft.Network/routeTables/routes/delete | Excluir uma definição de rota |
+> |  | **securityPartnerProviders** |  |
+> | Ação | Microsoft.Rede/segurançaProvedores/leitura de parceiros | Obtém um SecurityPartnerProvider |
+> | Ação | Microsoft.Rede/segurançaProvedores/gravação de parceiros | Cria um Provedor de SegurançaPartnerOu atualiza um provedor de segurança existente |
+> | Ação | Microsoft.Rede/segurançaPartnerProviders/valida/action | Valida um SecurityPartnerProvider |
+> | Ação | Microsoft.Rede/segurançaProvedores de parceiros/atualizaçãoReferências/ações | Atualize referências em um SecurityPartnerProvider |
+> | Ação | Microsoft.Network/securityPartnerProviders/join/action | Junta-se a um SecurityPartnerProvider. Não é alertável. |
+> | Ação | Microsoft.Rede/segurançaProvedores/exclusão de parceiros | Exclui um SecurityPartnerProvider |
 > |  | **serviceEndpointPolicies** |  |
 > | Ação | Microsoft.Network/serviceEndpointPolicies/read | Obter uma descrição da política de ponto de extremidade de serviço |
 > | Ação | Microsoft.Network/serviceEndpointPolicies/write | Criar uma política de ponto de extremidade de serviço ou atualizar uma política de ponto de extremidade de serviço existente |
@@ -6678,6 +6786,7 @@ Serviço Azure: [Rede Virtual,](../virtual-network/index.yml) [Balanceador de Ca
 > | Ação | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
 > | Ação | Microsoft.Network/virtualNetworks/write | Criar uma rede virtual ou atualizar uma rede virtual existente |
 > | Ação | Microsoft.Network/virtualNetworks/delete | Excluir uma rede virtual |
+> | Ação | Microsoft.Network/virtualNetworks/joinLoadBalancer/action | Junta-se a um balanceador de carga para redes virtuais |
 > | Ação | Microsoft.Network/virtualNetworks/peer/action | Colocar uma rede virtual com outra rede virtual de mesmo nível |
 > | Ação | Microsoft.Network/virtualNetworks/join/action | Junta-se a uma rede virtual. Não é alertável. |
 > | Ação | Microsoft.Network/virtualNetworks/BastionHosts/action | Obtém referências de Host Bastião em uma Rede Virtual. |
@@ -7225,6 +7334,8 @@ Serviço azure: [Monitor Azure](../azure-monitor/index.yml)
 > | Ação | Microsoft.OperationalInsights/workspaces/query/AppDependencies/read | Leia dados da tabela AppDependencies |
 > |  | **espaços de trabalho/consulta/AppEvents** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/AppEvents/read | Leia dados da tabela AppEvents |
+> |  | **espaços de trabalho/consulta/AppExceptions** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/query/AppExceptions/read | Leia dados da tabela AppExceptions |
 > |  | **espaços de trabalho/consulta/ApplicationInsights** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | Lê dados da tabela ApplicationInsights |
 > |  | **espaços de trabalho/consulta/AppMetrics** |  |
@@ -7693,6 +7804,18 @@ Serviço azure: [Monitor Azure](../azure-monitor/index.yml)
 > | Ação | Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read | Lê dados da tabela WUDOAggregatedStatus |
 > |  | **espaços de trabalho/consulta/WUDOStatus** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | Lê dados da tabela WUDOStatus |
+> |  | **espaços de trabalho/consulta/WVDCheckpoints** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/query/WVDCheckpoints/read | Leia dados da tabela WVDCheckpoints |
+> |  | **espaços de trabalho/consulta/WVDConexões** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/query/WVDConnections/read | Leia dados da tabela WVDConnections |
+> |  | **espaços de trabalho/consulta/WVDErros** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/query/WVDErrors/read | Leia dados da tabela WVDErrors |
+> |  | **espaços de trabalho/consulta/WVDFeeds** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/query/WVDFeeds/read | Leia dados da tabela WVDFeeds |
+> |  | **espaços de trabalho/consulta/WVDHostInscrições** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/query/WVDHostInscrições/read | Leia dados da tabela WVDHostRegistrations |
+> |  | **espaços de trabalho/consulta/WVDManagement** |  |
+> | Ação | Microsoft.OperationalInsights/workspaces/query/WVDManagement/read | Leia dados da tabela WVDManagement |
 > |  | **espaços de trabalho/regras** |  |
 > | Ação | microsoft.operationalinsights/workspaces/rules/read | Obtenha todas as regras de alerta. |
 > |  | **workspaces/savedSearches** |  |
@@ -8285,7 +8408,7 @@ Serviço Azure: [Gerente de Recursos do Azure](../azure-resource-manager/index.y
 > | Ação | Microsoft.Resources/links/read | Obter ou listar links de recursos. |
 > | Ação | Microsoft.Resources/links/write | Criar ou atualizar um link de recurso. |
 > | Ação | Microsoft.Resources/links/delete | Excluir um link de recurso. |
-> |  | **marketplace** |  |
+> |  | **Mercado** |  |
 > | Ação | Microsoft.Resources/marketplace/purchase/action | Comprar um recurso do marketplace. |
 > |  | **providers** |  |
 > | Ação | Microsoft.Resources/providers/read | Obter a lista de provedores. |
@@ -8492,6 +8615,7 @@ Serviço azure: [Azure Sentinel](../sentinel/index.yml)
 > | --- | --- | --- |
 > | Ação | Microsoft.SecurityInsights/register/action | Registra a assinatura do Azure Sentinel |
 > | Ação | Microsoft.SecurityInsights/unregister/action | Cancelar o registro da assinatura do Azure Sentinel |
+> | Ação | Microsoft.SecurityInsights/dataConectoresVerificamrequisitos/ação | Verifique a autorização e a licença do usuário |
 > |  | **Agregações** |  |
 > | Ação | Microsoft.SecurityInsights/Aggregações/leitura | Obtém informações agregadas |
 > |  | **alertaRegras** |  |
@@ -8649,7 +8773,7 @@ Serviço Azure: [Ônibus de Serviço](../service-bus/index.md)
 > | Ação | Microsoft.ServiceBus/namespaces/virtualNetworkRules/delete | Excluir Recurso de Regra VNET |
 > |  | **Operações** |  |
 > | Ação | Microsoft.ServiceBus/operations/read | Obter Operações |
-> |  | **sku** |  |
+> |  | **Sku** |  |
 > | Ação | Microsoft.ServiceBus/sku/read | Obter lista de Descrições de Recursos de SKU |
 > |  | **sku/regiões** |  |
 > | Ação | Microsoft.ServiceBus/sku/regions/read | Obter lista de Descrições de Recursos SkuRegions |
@@ -8785,7 +8909,7 @@ Serviço Do Azure: [Aplicativos gerenciados do Azure](../azure-resource-manager/
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
-Serviço Azure: [Banco de Dados SQL Do Azure,](../sql-database/index.yml) [Data Warehouse SQL](../synapse-analytics/sql-data-warehouse/index.yml)
+Serviço Azure: [Banco de Dados SQL Do Azure,](../sql-database/index.yml) [Data Warehouse SQL](../sql-data-warehouse/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de ação | Operação | Descrição |
@@ -9980,21 +10104,21 @@ Serviço azure: núcleo
 > | Ação | Microsoft.Support/register/action | Registra provedor de recursos de suporte |
 > | Ação | Microsoft.Support/checkNameDisponibilidade/ação | Verifica se esse nome é válido e não está em uso para o tipo de recurso |
 > |  | **resultados de operação** |  |
-> | Ação | Microsoft.Support/operationresults/read | Obtém o resultado da operação |
+> | Ação | Microsoft.Support/operationresults/read | Obtém o resultado da operação assíncrona |
 > |  | **Operações** |  |
-> | Ação | Microsoft.Support/operations/read | Lista as operações disponíveis no provedor de recursos Microsoft.Support |
+> | Ação | Microsoft.Support/operations/read | Lista todas as operações disponíveis no provedor de recursos Microsoft.Support |
 > |  | **estado de operações** |  |
-> | Ação | Microsoft.Suporte/operaçõesstatus/leitura | Obter status da operação |
-> |  | **Serviços** |  |
-> | Ação | Microsoft.Support/services/read | Recebe lista de serviços do Azure disponíveis para suporte |
+> | Ação | Microsoft.Suporte/operaçõesstatus/leitura | Obtém o status da operação assíncrona |
+> |  | **services** |  |
+> | Ação | Microsoft.Support/services/read | Lista um ou todos os serviços do Azure disponíveis para suporte |
 > |  | **serviços/problemasClassificações** |  |
-> | Ação | Microsoft.Support/services/problemClassifications/read | Obtém lista de classificação de problemas disponível para um serviço Azure |
+> | Ação | Microsoft.Support/services/problemClassifications/read | Lista uma ou todas as classificações de problemas para um serviço Azure |
 > |  | **supportTickets** |  |
-> | Ação | Microsoft.Support/supportTickets/read | Recebe lista de ingressos de apoio. |
-> | Ação | Microsoft.Support/supportTickets/write | Cria o bilhete de suporte de forma assíncrona ou o atualiza. Você pode criar um tíquete de suporte para problemas técnicos, de cotas, de cobrança ou de gerenciamento de assinaturas. Você pode atualizar a gravidade e os detalhes de contato dos bilhetes de suporte existentes. |
+> | Ação | Microsoft.Support/supportTickets/read | Listas de um ou todos os bilhetes de suporte |
+> | Ação | Microsoft.Support/supportTickets/write | Permite criar e atualizar um ticket de suporte |
 > |  | **suporteTickets/comunicações** |  |
-> | Ação | Microsoft.Support/supportTickets/communications/read | Recebe lista de comunicações de bilhetes de suporte |
-> | Ação | Microsoft.Support/supportTickets/communications/write | Cria comunicações de bilhetes de suporte |
+> | Ação | Microsoft.Support/supportTickets/communications/read | Lista uma ou todas as comunicações de bilhetes de suporte |
+> | Ação | Microsoft.Support/supportTickets/communications/write | Adiciona uma nova comunicação a um bilhete de suporte |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 

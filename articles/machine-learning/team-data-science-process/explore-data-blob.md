@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 29011760a94a05020150ceddeba4303b87c2f610
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b602660142f70fb1442977b22fce2bc1bb275cd
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76722179"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481919"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explorar dados no repositório de blob do Azure com o Pandas
 
@@ -35,30 +35,30 @@ Para explorar e manipular um conjunto de dados, primeiro eles devem ser baixados
 
 1. Baixe os dados do Blob do Azure com a seguinte amostra de código Python usando o serviço Blob. Substitua a variável no código abaixo por seus valores específicos:
 
-```python
-from azure.storage.blob import BlockBlobService
-import tables
+    ```python
+    from azure.storage.blob import BlockBlobService
+    import tables
 
-STORAGEACCOUNTNAME= <storage_account_name>
-STORAGEACCOUNTKEY= <storage_account_key>
-LOCALFILENAME= <local_file_name>
-CONTAINERNAME= <container_name>
-BLOBNAME= <blob_name>
+    STORAGEACCOUNTNAME= <storage_account_name>
+    STORAGEACCOUNTKEY= <storage_account_key>
+    LOCALFILENAME= <local_file_name>
+    CONTAINERNAME= <container_name>
+    BLOBNAME= <blob_name>
 
-#download from blob
-t1=time.time()
-blob_service=BlockBlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
-blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
-t2=time.time()
-print(("It takes %s seconds to download "+blobname) % (t2 - t1))
-```
+    #download from blob
+    t1=time.time()
+    blob_service=BlockBlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
+    blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
+    t2=time.time()
+    print(("It takes %s seconds to download "+blobname) % (t2 - t1))
+    ```
 
 1. Leia os dados em um pandas DataFrame do arquivo baixado.
 
-```python
-# LOCALFILE is the file path
-dataframe_blobdata = pd.read_csv(LOCALFILE)
-```
+    ```python
+    # LOCALFILE is the file path
+    dataframe_blobdata = pd.read_csv(LOCALFILENAME)
+    ```
 
 Agora você está pronto para explorar os dados e gerar recursos neste conjunto de dados.
 
@@ -67,72 +67,72 @@ Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 
 1. Inspecionar o **número de linhas e colunas**
 
-```python
-print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
-```
+    ```python
+    print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
+    ```
 
 1. **Inspecione** as primeiras ou últimas **linhas** no conjunto de dados a seguir:
 
-```python
-dataframe_blobdata.head(10)
+    ```python
+    dataframe_blobdata.head(10)
 
-dataframe_blobdata.tail(10)
-```
+    dataframe_blobdata.tail(10)
+    ```
 
 1. Verifique o **tipo de dados** indicado para cada coluna importada usando o seguinte código de exemplo
 
-```python
-for col in dataframe_blobdata.columns:
-    print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
-```
+    ```python
+    for col in dataframe_blobdata.columns:
+        print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
+    ```
 
 1. Verifique as **estatísticas básicas** para as colunas no conjunto de dados da seguinte maneira
 
-```python
-dataframe_blobdata.describe()
-```
+    ```python
+    dataframe_blobdata.describe()
+    ```
 
 1. Veja o número de entradas para cada valor de coluna da seguinte maneira
 
-```python
-dataframe_blobdata['<column_name>'].value_counts()
-```
+    ```python
+    dataframe_blobdata['<column_name>'].value_counts()
+    ```
 
 1. **Conte os valores ausentes** em comparação com o número real de entradas em cada coluna usando o seguinte código de exemplo
 
-```python
-miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
-print miss_num
-```
+    ```python
+    miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
+    print miss_num
+    ```
 
 1. Se você tiver **valores ausentes** para uma coluna específica nos dados, poderá removê-los da seguinte maneira:
 
-```python
-dataframe_blobdata_noNA = dataframe_blobdata.dropna()
-dataframe_blobdata_noNA.shape
-```
+    ```python
+    dataframe_blobdata_noNA = dataframe_blobdata.dropna()
+    dataframe_blobdata_noNA.shape
+    ```
 
-Outra maneira de substituir valores ausentes é com a função de modo:
+    Outra maneira de substituir valores ausentes é com a função de modo:
 
-```python
-dataframe_blobdata_mode = dataframe_blobdata.fillna(
-    {'<column_name>': dataframe_blobdata['<column_name>'].mode()[0]})
-```
+    ```python
+    dataframe_blobdata_mode = dataframe_blobdata.fillna(
+        {'<column_name>': dataframe_blobdata['<column_name>'].mode()[0]})
+    ```
 
 1. Crie um gráfico de **histograma** usando um número variável de compartimentos para plotar a distribuição de uma variável
 
-```python
-dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
+    ```python
+    dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
 
-np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
-```
+    np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
+    ```
 
 1. Examine **correlações** entre variáveis usando um gráfico disperso ou a função interna de correlação
 
-```python
-# relationship between column_a and column_b using scatter plot
-plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
+    ```python
+    # relationship between column_a and column_b using scatter plot
+    plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
 
-# correlation between column_a and column_b
-dataframe_blobdata[['<column_a>', '<column_b>']].corr()
-```
+    # correlation between column_a and column_b
+    dataframe_blobdata[['<column_a>', '<column_b>']].corr()
+    ```

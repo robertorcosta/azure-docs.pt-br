@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.openlocfilehash: d3e267eab056589ed38c436620dd0db185291da1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1441ede9f448b3e6ffb0726c2ee92f192369e9a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77425894"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481845"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicativos multilocatários no Azure
 Um aplicativo multilocatário é um recurso compartilhado que permite que "usuários em inquilinos separados" visualizem o aplicativo como se fosse seu próprio. Um cenário típico que se presta a um aplicativo multilocatário é aquele em que todos os usuários do aplicativo de diferentes inquilinos podem desejar personalizar a experiência do usuário, mas de outra forma têm os mesmos requisitos básicos de negócios. Exemplos de grandes aplicativos multilocatários são o Office 365, o Outlook.com e o visualstudio.com.
@@ -48,15 +48,15 @@ O Azure oferece muitos recursos que permitem resolver os principais problemas en
 
 **Isolamento**
 
-* Segmentar locatários de sites por Cabeçalhos de Host com ou sem comunicação SSL
+* Inquilinos do site do segmento por cabeçalhos de host com ou sem comunicação TLS
 * Segmentar locatários de site por parâmetros de consulta
 * Serviços web em funções de trabalho
   * Funções do trabalhador que normalmente processam dados no backend de um aplicativo.
   * Funções Web que geralmente agem como o front-end de aplicativos.
 
-**Armazenamento**
+**Storage**
 
-Gerenciamento de dados, como o Banco de Dados SQL do Azure ou os serviços de armazenamento do Azure, como o serviço Table, que fornece serviços para armazenamento de grandes quantidades de dados não estruturados e o serviço Blob, que fornece serviços para armazenar grandes quantidades de texto não estruturado ou dados binários, como vídeo, áudio e imagens.
+O gerenciamento de dados, como o Banco de Dados Azure SQL ou os serviços de armazenamento do Azure, como o serviço Table, que fornece serviços para armazenamento de grandes quantidades de dados não estruturados e blob, que fornece serviços para armazenar grandes quantidades de texto não estruturado ou dados binários, como vídeo, áudio e imagens.
 
 * Protegendo dados multilocatários em logins SQL Database por inquilino do SQL Server.
 * Usando o Azure Tables for Application Resources especificando uma política de acesso ao nível de contêiner, você pode ter a capacidade de ajustar permissões sem ter que emitir novas URL's para os recursos protegidos com assinaturas de acesso compartilhada.
@@ -74,7 +74,7 @@ O Azure fornece vários serviços de rede que oferecem suporte à autenticação
 * A Rede Virtual do Azure permite que você provisione e gerencie VPNs (redes virtuais privadas) no Azure e vincule-as com segurança à infraestrutura de TI local.
 * O Gerenciador de Tráfego de Rede Virtual permite que você equilibre o tráfego de entrada entre os vários serviços hospedados do Azure, quer eles estejam em execução no mesmo datacenter ou em diferentes datacenters ao redor do mundo.
 * O Active Directory do Azure (AD do Azure) é um serviço moderno e baseado em REST que fornece recursos de gerenciamento de identidade e de controle de acesso para seus aplicativos na nuvem. O uso do Azure AD for Application Resources fornece uma maneira fácil de autenticar e autorizar os usuários a obter acesso aos seus aplicativos e serviços web, permitindo que os recursos de autenticação e autorização sejam contabilizados fora do seu código.
-* O Service Bus do Azure fornece um serviço de mensagens seguro e o recurso de fluxo de dados para aplicativos distribuídos e híbridos, como a comunicação entre aplicativos hospedados do Azure e aplicativos e serviços locais, sem a necessidade de firewall complexo e de infraestruturas de segurança. Usar o Relé de Ônibus de Serviço para Recursos de Aplicação para acessar os serviços expostos como pontos finais pode pertencer ao inquilino (por exemplo, hospedado fora do sistema, como no local), ou eles podem ser serviços prestados especificamente para o inquilino (porque dados sensíveis e específicos do inquilino viajam através deles).
+* O Service Bus do Azure fornece um serviço de mensagens seguro e o recurso de fluxo de dados para aplicativos distribuídos e híbridos, como a comunicação entre aplicativos hospedados do Azure e aplicativos e serviços locais, sem a necessidade de firewall complexo e de infraestruturas de segurança. Usar o Relé de Ônibus de Serviço para Recursos de Aplicação para acessar os serviços expostos como pontos finais pode pertencer ao inquilino (por exemplo, hospedado fora do sistema, como no local), ou eles podem ser serviços fornecidos especificamente para o inquilino (porque dados confidenciais e específicos do inquilino viajam através deles).
 
 **Provisionando recursos**
 

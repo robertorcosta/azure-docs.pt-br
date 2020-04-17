@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 9d8fce0772f13c6e009b2441ecd85779a7622c5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93f01b3c23e08e7f432841d8a77cbe3602bff1c5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243192"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482146"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs do SQL Server
 
@@ -56,7 +56,7 @@ Além disso, você tem a capacidade de definir o cache para os discos. As VMs do
 
 O cache de disco para SSD Premium pode ser *ReadOnly,* *ReadWrite* ou *None*. 
 
-- O cache *ReadOnly* é altamente benéfico para arquivos de dados do SQL Server que são armazenados no Armazenamento Premium. *ReadOnly* cache traz latência de leitura baixa, IOPS de leitura alta e throughput as, leituras são realizadas a partir de cache, que os dentro da memória VM e SSD local. Essas leituras são muito mais rápidas do que as leituras do disco de dados, que é do armazenamento blob do Azure. O armazenamento premium não conta as leituras servidas do cache para o disco IOPS e throughput. Portanto, o seu aplicável é capaz de alcançar maior rendimento total de formigas IOPS. 
+- O cache *ReadOnly* é altamente benéfico para arquivos de dados do SQL Server que são armazenados no Armazenamento Premium. O cache *ReadOnly* traz latência de leitura baixa, IOPS de leitura alta e throughput as, leituras são realizadas a partir do cache, que está dentro da memória VM e SSD local. Essas leituras são muito mais rápidas do que as leituras do disco de dados, que é do armazenamento blob do Azure. O armazenamento premium não conta as leituras servidas do cache para o disco IOPS e throughput. Portanto, o seu aplicável é capaz de alcançar iOPS e rendimento totais mais elevados. 
 - *Nenhuma* configuração de cache deve ser usada para os discos que hospedam o arquivo SQL Server Log, pois o arquivo de log é gravado sequencialmente e não se beneficia do cache *ReadOnly.* 
 - O cache *ReadWrite* não deve ser usado para hospedar arquivos do SQL Server, pois o SQL Server não suporta a consistência dos dados com o cache *ReadWrite.* Grava capacidade de desperdício do cache de bolhas *ReadOnly* e as latências aumentam ligeiramente se as gravações passarem por camadas de cache de bolha *readOnly.* 
 

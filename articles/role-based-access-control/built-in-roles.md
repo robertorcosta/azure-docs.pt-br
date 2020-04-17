@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 03/22/2020
+ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 2fe3b94463da07304f2c853910ac5d2a6771d070
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 14ff86bc47ab6de55d840c4b986c99caf2d4e99c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545653"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482021"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
@@ -41,7 +41,7 @@ A tabela a seguir fornece uma breve descrição e o ID único de cada função i
 > | [Proprietário](#owner) | Permite que você gerencie tudo, incluindo acesso aos recursos. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | [Leitor](#reader) | Permite que você veja tudo, mas não faça alterações. | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | [Administrador de Acesso do Usuário](#user-access-administrator) | Permite que você gerencie o acesso do usuário aos recursos do Azure. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
-> | **Calcular** |  |  |
+> | **Computação** |  |  |
 > | [Contribuinte clássico da máquina virtual](#classic-virtual-machine-contributor) | Permite gerenciar máquinas virtuais clássicas, mas não o acesso a elas, nem à rede virtual ou conta de armazenamento à qual estão conectadas. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 > | [Login do administrador de máquina virtual](#virtual-machine-administrator-login) | Máquinas Virtuais do Microsoft Azure no portal e logon como administrador | 1c0163c0-47E6-4577-8991-ea5c82e286e4 |
 > | [Colaborador de Máquina Virtual](#virtual-machine-contributor) | Permite gerenciar máquinas virtuais, mas não o acesso a elas, nem à rede virtual ou conta de armazenamento à qual estão conectadas. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
@@ -55,7 +55,7 @@ A tabela a seguir fornece uma breve descrição e o ID único de cada função i
 > | [Colaborador de zona DNS](#dns-zone-contributor) | Permite gerenciar zonas DNS e conjuntos de registros no DNS do Azure, mas não permite controlar quem tem acesso a eles. | befefa01-2a29-4197-83a8-272ff33ce314 |
 > | [Colaborador de rede](#network-contributor) | Permite gerenciar redes, mas não acessá-las. | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
 > | [Colaborador do Gerenciador de Tráfego](#traffic-manager-contributor) | Permite gerenciar perfis do Gerenciador de Tráfego, mas não permite controlar quem tem acesso a eles. | a4b10055-b0c7-44c2-b00f-c7b5b3550cf7 |
-> | **Armazenamento** |  |  |
+> | **Storage** |  |  |
 > | [Contribuinte Avere](#avere-contributor) | Pode criar e gerenciar um cluster Avere vFXT. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | [Operador de Avere](#avere-operator) | Usado pelo cluster Avere vFXT para gerenciar o cluster | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
 > | [Contribuinte de backup](#backup-contributor) | Permite que você gerencie o serviço de backup, mas não pode criar cofres e dar acesso a outros | 5e467623-bb1f-42f4-a55d-6e525e11384b |
@@ -2071,6 +2071,7 @@ Leia, escreva e exclua recipientes e blobs do Azure Storage. Para saber quais a�
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Excluir um blob. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devolva uma bolha ou uma lista de bolhas. |
+> | Microsoft.Armazenamento/armazenamentoContas/blobServices/contêiner/blobs/move/action | Move a bolha de um caminho para outro |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Escreva para uma bolha. |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
@@ -2095,6 +2096,7 @@ Leia, escreva e exclua recipientes e blobs do Azure Storage. Para saber quais a�
       "dataActions": [
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
       ],
       "notDataActions": []
@@ -4099,6 +4101,7 @@ O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Listar as chaves de acesso das contas de armazenamento. |
 > | Microsoft.Compute/virtualMachines/extensions/* |  |
+> | Microsoft.HybridCompute/máquinas/extensões/gravação | Instala ou atualiza extensões do Azure Arc |
 > | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do Insights |
 > | Microsoft.Insights/diagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
 > | Microsoft.OperationalInsights/* |  |
@@ -4130,6 +4133,7 @@ O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar
         "Microsoft.ClassicCompute/virtualMachines/extensions/*",
         "Microsoft.ClassicStorage/storageAccounts/listKeys/action",
         "Microsoft.Compute/virtualMachines/extensions/*",
+        "Microsoft.HybridCompute/machines/extensions/write",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Insights/diagnosticSettings/*",
         "Microsoft.OperationalInsights/*",
@@ -5515,6 +5519,7 @@ Leitor Sentinela Azure
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.SecurityInsights/dataConectoresVerificamrequisitos/ação | Verifique a autorização e a licença do usuário |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Pesquisar usando o novo mecanismo. |
 > | Microsoft.OperationalInsights/workspaces/*/read | Exibir dados de análise de log |
 > | Microsoft.OperationalInsights/workspaces/LinkedServices/read | Obter serviços vinculados em um determinado workspace. |
@@ -5548,6 +5553,7 @@ Leitor Sentinela Azure
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
         "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
@@ -5583,6 +5589,7 @@ Azure Sentinel Responder
 > | --- | --- |
 > | **Ações** |  |
 > | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.SecurityInsights/dataConectoresVerificamrequisitos/ação | Verifique a autorização e a licença do usuário |
 > | Microsoft.SecurityInsights/cases/* |  |
 > | Microsoft.SecurityInsights/incidents/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Pesquisar usando o novo mecanismo. |
@@ -5618,6 +5625,7 @@ Azure Sentinel Responder
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.SecurityInsights/cases/*",
         "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",

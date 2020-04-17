@@ -1,11 +1,11 @@
 ---
-title: Baixe uma lista de usuários (pré-visualização) no portal do Azure Active Directory | Microsoft Docs
+title: Baixe uma lista de usuários no portal do Azure Active Directory | Microsoft Docs
 description: Baixe registros de usuários em massa no centro de administradores do Azure no Azure Active Directory.
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 02/06/2020
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,20 +13,20 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4716ff9547f64dc6551b4d4adb0a8578da9fa83e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b35163387ed4ce71f7a2019835a1d9fdbff3051
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063825"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532622"
 ---
-# <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Baixe uma lista de usuários (pré-visualização) no portal do Azure Active Directory
+# <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Baixe uma lista de usuários no portal do Azure Active Directory
 
 O Azure Active Directory (Azure AD) suporta operações de importação (create) em massa de usuários.
 
 ## <a name="required-permissions"></a>Permissões necessárias
 
-Para baixar a lista de usuários do centro de administração Azure AD, você deve estar conectado com um usuário atribuído a uma ou mais funções de administrador de nível de organização no Azure AD. O convidado e o desenvolvedor de aplicativos não são considerados funções de administrador.
+Para baixar a lista de usuários do centro de administração Azure AD, você deve estar conectado com um usuário atribuído a uma ou mais funções de administrador de nível de organização no Azure AD (Administrador de usuário é a função mínima necessária). O convidado e o desenvolvedor de aplicativos não são considerados funções de administrador.
 
 ## <a name="to-download-a-list-of-users"></a>Para baixar uma lista de usuários
 
@@ -70,9 +70,9 @@ Para baixar a lista de usuários do centro de administração Azure AD, você de
 
 ## <a name="check-status"></a>Verificar o status
 
-Você pode ver o status de suas solicitações em massa pendentes na página **resultados da operação Bulk (visualização).**
+Você pode ver o status de suas solicitações em massa pendentes na página de resultados da **operação Bulk.**
 
-   ![Verifique o status de upload na página Resultados de Operações em Massa](./media/users-bulk-download/bulk-center.png)
+[![](media/users-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-download/bulk-center.png#lightbox)
 
 ## <a name="bulk-download-service-limits"></a>Limites de serviço de download em massa
 

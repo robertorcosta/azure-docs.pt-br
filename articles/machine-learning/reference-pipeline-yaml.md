@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: a677aaa891e21f4c9eeda02eebcb94e9d79a55ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40e6d7f3d9c28708c5adec26ddc3c0463e75adc0
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368818"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529698"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definir pipelines de aprendizado de máquina em YAML
 
@@ -319,7 +319,6 @@ pipeline:
 
 | Tecla YAML | Descrição |
 | ----- | ----- |
-| `compute_target` | O alvo de computação a ser usado para esta etapa. O alvo da computação pode ser um Azure Machine Learning Compute, Virtual Machine (como o Data Science VM) ou HDInsight. |
 | `inputs` | As entradas podem ser [InputPortBinding,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py) [DataReference,](#data-reference) [PortDataReference,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py) [PipelineData,](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) [Dataset,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) [Dataset, DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)ou [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
 | `outputs` | As saídas podem ser [pipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) ou [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
 | `script_name` | O nome do script Python `source_directory`(em relação a ). |
@@ -363,6 +362,65 @@ pipeline:
                     bind_mode: mount
 ```
 
+### <a name="pipeline-with-multiple-steps"></a>Pipeline com várias etapas 
+
+| Tecla YAML | Descrição |
+| ----- | ----- |
+| `steps` | Seqüência de uma ou mais definições pipelineStep. Note que `destination` o de `outputs` um passo se `inputs` tornou as chaves para o .| 
+
+```yaml
+pipeline:
+    name: SamplePipelineFromYAML
+    description: Sample multistep YAML pipeline
+    data_references:
+        TitanicDS:
+            dataset_name: 'titanic_ds'
+            bind_mode: download
+    default_compute: cpu-cluster
+    steps:
+        Dataprep:
+            type: "PythonScriptStep"
+            name: "DataPrep Step"
+            compute: cpu-cluster
+            runconfig: ".\\default_runconfig.yml"
+            script_name: "prep.py"
+            arguments:
+            - '--train_path'
+            - output:train_path
+            - '--test_path'
+            - output:test_path
+            allow_reuse: True
+            inputs:
+                titanic_ds:
+                    source: TitanicDS
+                    bind_mode: download
+            outputs:
+                train_path:
+                    destination: train_csv
+                    datastore: workspaceblobstore
+                test_path:
+                    destination: test_csv
+        Training:
+            type: "PythonScriptStep"
+            name: "Training Step"
+            compute: cpu-cluster
+            runconfig: ".\\default_runconfig.yml"
+            script_name: "train.py"
+            arguments:
+            - "--train_path"
+            - input:train_path
+            - "--test_path"
+            - input:test_path
+            inputs:
+                train_path:
+                    source: train_csv
+                    bind_mode: download
+                test_path:
+                    source: test_csv
+                    bind_mode: download
+
+```
+
 ## <a name="schedules"></a>Agendas
 
 Ao definir o cronograma de um pipeline, ele pode ser acionado pelo datastore ou recorrente com base em um intervalo de tempo. A seguir estão as chaves usadas para definir um cronograma:
@@ -378,7 +436,7 @@ Ao definir o cronograma de um pipeline, ele pode ser acionado pelo datastore ou 
 | `polling_interval` | Quanto tempo, em minutos, entre a votação para bolhas modificadas/adicionadas. Valor padrão: 5 minutos. Apenas suportado para agendamentos de datastore. |
 | `data_path_parameter_name` | O nome do parâmetro de pipeline de caminho de dados a ser definido com o caminho de bolha alterado. Apenas suportado para agendamentos de datastore. |
 | `continue_on_step_failure` | Se deve continuar a execução de outras etapas no PipelineRun submetido se uma etapa falhar. Se fornecido, substituirá `continue_on_step_failure` a configuração do gasoduto.
-| `path_on_datastore` | Opcional. O caminho no datastore para monitorar as bolhas modificadas/adicionadas. O caminho está o contêiner para o datastore, de modo`path_on_datastore`que o caminho real que o cronograma monitora é o contêiner/. Se não houver, o contêiner do armazenamento de dados é monitorado. As adições/modificações feitas em `path_on_datastore` uma subpasta não são monitoradas. Apenas suportado para agendamentos de datastore. |
+| `path_on_datastore` | Opcional. O caminho no datastore para monitorar as bolhas modificadas/adicionadas. O caminho está sob o contêiner para o datastore, de modo`path_on_datastore`que o caminho real que o cronograma monitora é o contêiner/ . Se não houver, o contêiner do armazenamento de dados é monitorado. As adições/modificações feitas em `path_on_datastore` uma subpasta não são monitoradas. Apenas suportado para agendamentos de datastore. |
 
 O exemplo a seguir contém a definição de um cronograma acionado pelo datastore:
 

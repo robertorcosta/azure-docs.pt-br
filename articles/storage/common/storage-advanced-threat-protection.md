@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 4219bb471b92e7ddae72c50403f635498c90080d
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: f390aececdbf9a20f191279892c1856332f2aa8e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81251683"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482086"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configure proteção avançada contra ameaças para armazenamento Azure
 
@@ -27,9 +27,7 @@ O serviço ingere registros de diagnóstico de leitura, gravação e exclusão d
 
 ## <a name="availability"></a>Disponibilidade
 
-A proteção avançada contra ameaças para o Armazenamento Azure está disponível atualmente apenas para [armazenamento Blob](https://azure.microsoft.com/services/storage/blobs/). 
-
-Este serviço está disponível em todas as nuvens públicas e nuvens do governo dos EUA, mas nenhuma outra região de nuvens do governo soberano ou azure.
+A proteção avançada contra ameaças para o Armazenamento Azure está disponível atualmente apenas para [armazenamento Blob](https://azure.microsoft.com/services/storage/blobs/). Os tipos de conta que suportam proteção avançada contra ameaças incluem contas de armazenamento v2 de uso geral, blob de bloco e blob. A proteção avançada contra ameaças está disponível em todas as nuvens públicas e nuvens do governo dos EUA, mas não em outras regiões de nuvens governamentais soberanas ou azure.
 
 Para obter detalhes sobre preços, incluindo um teste gratuito de 30 dias, consulte a página de preços do [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -86,7 +84,7 @@ Use uma diretiva do Azure para permitir proteção avançada contra ameaças em 
 
     ![Página definições de políticas](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-api"></a>[API REST](#tab/rest-api)
+### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
 Use comandos de API rest para criar, atualizar ou obter a configuração avançada de proteção contra ameaças para uma conta de armazenamento específica.
 

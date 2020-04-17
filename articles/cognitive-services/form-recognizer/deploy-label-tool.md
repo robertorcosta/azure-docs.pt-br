@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 795d21e05ade652b52c06d597ca4c5fef85e7245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ddb4b2cd465b5e9542d777d33b9bd8cb952becd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80152785"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531330"
 ---
-# <a name="deploy-the-sample-labeling-tool"></a>Implantar a ferramenta de rotulagem de amostras
+# <a name="deploy-the-sample-labeling-tool"></a>Implantar a ferramenta de rotulagem de exemplos
 
 A ferramenta de rotulagem de amostra do Form Recognizer é um aplicativo que fornece uma interface de usuário simples (UI), que você pode usar para rotular manualmente formulários (documentos) com o propósito de aprendizagem supervisionada. Neste artigo, forneceremos links e instruções que ensinam como:
 
@@ -34,14 +34,14 @@ A maneira mais rápida de começar a rotular dados é executar a ferramenta de r
 
 Antes de começarmos, é importante notar que existem duas maneiras de implantar a ferramenta de rotulagem de amostras em uma ACI (AC). Ambas as opções são usadas para executar a ferramenta de rotulagem de amostra com ACI: 
 
-* [Usando o portal Azure](#azure-portal)
+* [Usando o portal do Azure](#azure-portal)
 * [Usando o Cli Azure](#azure-cli)
 
 ### <a name="azure-portal"></a>Portal do Azure
 
 Siga estas etapas para criar um novo recurso usando o portal Azure: 
 
-1. Faça login no [portal Azure](https://portal.azure.com/signin/index/).
+1. Entre no [portal do Azure](https://portal.azure.com/signin/index/).
 2. Selecione **Criar um recurso**. 
 3. Em seguida, selecione **Web App**. 
 
@@ -76,6 +76,7 @@ Siga estas etapas para criar um novo recurso usando o portal Azure:
    * Nome de usuário (Opcional) - Crie um nome de usuário. 
    * Senha (Opcional) - Crie uma senha segura que você se lembrará.
    * Imagem e tag - Definir isso para`mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+   * Implantação contínua - Defina isso para **On** se você quiser receber atualizações automáticas quando a equipe de desenvolvimento fizer alterações na ferramenta de rotulagem de amostras.
    * Comando de inicialização - Defina isso para`./run.sh eula=accept`
 
    > [!div class="mx-imgBorder"]
@@ -120,7 +121,7 @@ Recomenda-se conectar seu aplicativo web ao Azure Active Directory. Isso garante
 
 ## <a name="open-source-on-github"></a>Código aberto no GitHub
 
-A Ferramenta de Rotulagem de Formulários OCR também está disponível como um projeto de código aberto no GitHub. A ferramenta é um aplicativo web construído usando React + Redux, e é escrito no TypeScript. Para saber mais ou contribuir, consulte [a ferramenta de rotulagem de formulários OCR](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
+A Ferramenta de Rotulagem de Formulários OCR também está disponível como um projeto de código aberto no GitHub. A ferramenta é um aplicativo Web criado com o React + Redux e escrito em TypeScript. Para saber mais ou contribuir, confira [Ferramenta de Rotulagem de Formulário OCR](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

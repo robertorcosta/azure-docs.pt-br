@@ -2,13 +2,13 @@
 title: Perguntas sobre descoberta, avaliação e análise de dependência no Azure Migrate
 description: Obtenha respostas para perguntas comuns sobre descoberta, avaliação e análise de dependência no Azure Migrate.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 7a63271811053ee2da79f134ac117559e31b0fed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 700e5318b66cdf4993a17b1dae85fb43f75ab035
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460799"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529766"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Análise de descoberta, avaliação e dependência - Perguntas comuns
 
@@ -19,9 +19,16 @@ Este artigo responde a perguntas comuns sobre a descoberta, avaliação e análi
 - Perguntas sobre [migração de servidores](common-questions-server-migration.md)
 - Receba perguntas respondidas no [fórum Azure Migrate](https://aka.ms/AzureMigrateForum)
 
+
+## <a name="what-geographies-are-supported-for-discovery-and-assessment-with-azure-migrate"></a>Quais geografias são apoiadas para descoberta e avaliação com o Azure Migrate?
+
+Reveja as geografias apoiadas para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
+
+
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quantas VMs posso descobrir com um aparelho?
 
 Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 250 servidores físicos usando um único aparelho. Se você tiver mais máquinas, leia sobre [escalar uma avaliação Hyper-V,](scale-hyper-v-assessment.md) [dimensionar uma avaliação vMware](scale-vmware-assessment.md)ou [dimensionar uma avaliação física do servidor](scale-physical-assessment.md).
+
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>O tamanho da minha VM mudou. Posso fazer uma avaliação de novo?
 
@@ -86,7 +93,7 @@ A visualização de dependência pode ajudá-lo a avaliar grupos de VMs para mig
 
 As diferenças entre visualização sem agente e visualização baseada em agentes são resumidas na tabela.
 
-**Exigência** | **Sem agente** | **Baseado em agentes**
+**Requisito** | **Sem agente** | **Baseado em agentes**
 --- | --- | ---
 Suporte | Esta opção está atualmente em pré-visualização, e está disponível apenas para VMware VMware. [Revisar](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) sistemas operacionais suportados. | Disponibilidade geral (GA).
 Agente | Não há necessidade de instalar agentes em máquinas que você deseja cruzar. | Agentes a serem instalados em cada máquina local que você deseja analisar: o [agente de monitoramento microsoft (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)e o agente de [dependência](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 

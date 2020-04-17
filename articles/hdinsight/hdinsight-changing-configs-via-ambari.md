@@ -5,19 +5,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/15/2019
-ms.openlocfilehash: 15a2c75a7619a815655be0fd9fd3044d86acd057
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/16/2020
+ms.openlocfilehash: c88882175ff256300dee486e680a9b63e9a65c99
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272559"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532491"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Use o Apache Ambari para otimizar as configurações de cluster do HDInsight
 
-O HDInsight fornece clusters [Apache Hadoop](https://hadoop.apache.org/) para aplicativos de processamento de dados em larga escala. Gerenciar, monitorar e otimizar esses clusters complexos com vários nós pode ser desafiador. [Apache Ambari](https://ambari.apache.org/) é uma interface da Web voltada para gerenciar e monitorar clusters Linux do HDInsight.  Para clusters windows, use a [API Ambari REST](hdinsight-hadoop-manage-ambari-rest-api.md).
+O HDInsight fornece clusters [Apache Hadoop](./hadoop/apache-hadoop-introduction.md) para aplicativos de processamento de dados em larga escala. Gerenciar, monitorar e otimizar esses clusters complexos com vários nós pode ser desafiador. [Apache Ambari](https://ambari.apache.org/) é uma interface da Web voltada para gerenciar e monitorar clusters Linux do HDInsight.  Para clusters windows, use a [API Ambari REST](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 Para ver uma introdução ao uso da interface do usuário da Web do Ambari, consulte [Gerenciar clusters HDInsight usando a interface de usuário do Apache Ambari Web](hdinsight-hadoop-manage-ambari.md)
 
@@ -25,17 +25,17 @@ Faça logon no Ambari em `https://CLUSTERNAME.azurehdidnsight.net` usando suas c
 
 ![Painel de usuário Apache Ambari exibido](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
 
-A interface do usuário da Web do Ambari pode ser usada para gerenciar hosts, serviços, alertas, configurações e modos de exibição. O Ambari não pode ser usado para criar um cluster HDInsight, atualizar serviços, gerenciar pilhas e versões, descomissionar ou recomissionar hosts ou adicionar serviços ao cluster.
+A ui da Web Ambari é usada para gerenciar hosts, serviços, alertas, configurações e visualizações. O Ambari não pode ser usado para criar um cluster HDInsight ou atualizar serviços. Também não é possível gerenciar pilhas e versões, desativar ou recomissionar hosts ou adicionar serviços ao cluster.
 
 ## <a name="manage-your-clusters-configuration"></a>Gerenciar a configuração do cluster
 
-As configurações ajudam a ajustar a um serviço específico. Para modificar as definições de configuração de um serviço, selecione o serviço na barra lateral **Serviços** (à esquerda) e, em seguida, navegue até a guia **Configurações** na página de detalhes do serviço.
+As configurações ajudam a ajustar a um serviço específico. Para modificar as configurações de configuração de um serviço, selecione o serviço na barra lateral **Serviços** (à esquerda). Em seguida, navegue até a guia **Configurações** na página detalhe do serviço.
 
 ![Barra lateral apache Ambari Services](./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png)
 
 ### <a name="modify-namenode-java-heap-size"></a>Modificar o tamanho do heap do NameNode Java
 
-O tamanho do heap do NameNode Java depende de muitos fatores, como a carga no cluster, o número de arquivos e os números de blocos. O tamanho padrão de 1 GB funciona bem com a maioria dos clusters, embora algumas cargas de trabalho possam exigir mais ou menos memória.
+O tamanho do heap NameNode Java depende de muitos fatores, como a carga no cluster. Além disso, o número de arquivos, e o número de blocos. O tamanho padrão de 1 GB funciona bem com a maioria dos clusters, embora algumas cargas de trabalho possam exigir mais ou menos memória.
 
 Para modificar o tamanho do heap do NameNode Java:
 
@@ -57,7 +57,7 @@ Para modificar o tamanho do heap do NameNode Java:
 
 1. Salve as alterações clicando no botão verde **Salvar** na parte superior da tela de configuração.
 
-    ![Configurações de salvamento ambari ambari](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
+    !['Configurações de salvamento apache ambari'](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
 
 ## <a name="apache-hive-optimization"></a>Otimização do Apache Hive
 
@@ -85,7 +85,7 @@ O Hadoop tenta dividir (*mapear*) arquivos únicos em vários arquivos e process
 * `tez.grouping.min-size`: limite inferior do tamanho de uma divisão agrupada, com um valor padrão de 16 MB (16.777.216 bytes).
 * `tez.grouping.max-size`: limite superior do tamanho de uma divisão agrupada, com um valor padrão de 1 GB (1.073.741.824 bytes).
 
-Como regra de desempenho geral, diminua esses dois parâmetros para melhorar a latência e aumente para aumentar a taxa de transferência.
+Como diretriz de desempenho, reduza ambos os parâmetros para melhorar a latência, aumente para maior rendimento.
 
 Por exemplo, para definir quatro tarefas de mapeador com o tamanho de dados de 128 MB, você definiria os dois parâmetros como 32 MB cada (33.554.432 bytes).
 
@@ -103,7 +103,7 @@ Essas alterações afetam todos os trabalhos do Tez no servidor. Para obter o re
 
 Por exemplo, digamos que você tenha um tamanho de dados de entrada igual a 50 GB. Esses dados em formato ORC com compactação do Snappy terão 1 GB. O Hive estima o número de redutores necessários como: (número de entrada de bytes para mapeadores / `hive.exec.reducers.bytes.per.reducer`).
 
-Com as configurações padrão, este exemplo terá 4 redutores.
+Com as configurações padrão, este exemplo é quatro redutores.
 
 O parâmetro `hive.exec.reducers.bytes.per.reducer` especifica o número de bytes processados por redutor. O valor padrão é 64 MB. Diminuir esse valor aumenta o paralelismo e pode melhorar o desempenho. Diminui-lo demais também pode produzir muitos redutores, o que pode prejudicar o desempenho. Este parâmetro é baseado em seus requisitos de dados específicos, nas configurações de compactação e em outros fatores ambientais.
 
@@ -115,7 +115,7 @@ O parâmetro `hive.exec.reducers.bytes.per.reducer` especifica o número de byte
 
     ![Dados ambari por redutor - editado](./media/hdinsight-changing-configs-via-ambari/data-per-reducer-edited.png)
   
-    Dado um tamanho de entrada de 1.024 MB, com 128 MB de dados por redutor, há 8 redutores (1024/128).
+    Dado um tamanho de entrada de 1.024 MB, com 128 MB de dados por redutor, há oito redutores (1024/128).
 
 1. Atribuir um valor incorreto para o parâmetro **Dados por Redutor** pode resultar em um grande número de redutores, afetando negativamente o desempenho da consulta. Para limitar o número máximo de redutores, defina um valor apropriado para `hive.exec.reducers.max`. O valor padrão é 1009.
 
@@ -141,7 +141,7 @@ O Hive processa dados linha por linha. A vetorização instrui o Hive a processa
 
 ### <a name="enable-cost-based-optimization-cbo"></a>Habilitar CBO (otimização baseada em custo)
 
-Por padrão, o Hive segue um conjunto de regras para encontrar um plano de execução de consulta ideal. A CBO (otimização baseada em custo) avalia vários planos para executar uma consulta, atribui um custo a cada plano e determina o plano mais barato para executar uma consulta.
+Por padrão, o Hive segue um conjunto de regras para encontrar um plano de execução de consulta ideal. A otimização baseada em custos (CBO) avalia vários planos para executar uma consulta. E atribui um custo a cada plano, então determina o plano mais barato para executar uma consulta.
 
 Para habilitar o CBO, navegue até**as configurações** do **Hive** > **Configs** > e encontre **o Optimizer baseado em custos**e, em seguida, alterne o botão de alternar para **Ligar**.
 
@@ -163,7 +163,7 @@ Os seguintes parâmetros de configuração adicionais aumentam o desempenho de c
 
 * `hive.stats.fetch.partition.stats`
 
-    Estatísticas de partição básicas, como número de linhas, tamanho de dados e tamanho do arquivo, são armazenadas no metastore. Quando definido como true, as estatísticas de partição são buscadas do metastore. Quando definido como false, o tamanho do arquivo é buscado do sistema de arquivos e o número de linhas é buscado do esquema de linha.
+    Estatísticas de partição básicas, como número de linhas, tamanho de dados e tamanho do arquivo, são armazenadas no metastore. Se definido como verdadeiro, as estatísticas de partição são buscadas no metastore. Quando falso, o tamanho do arquivo é obtido no sistema de arquivos. E o número de linhas é obtido a partir do esquema de linha.
 
     ![Estatísticas de partição, conjunto de estatísticas do Hive](./media/hdinsight-changing-configs-via-ambari/hive-stats-fetch-partition-stats.png)
 
@@ -175,18 +175,18 @@ Trabalhos do Hadoop normalmente têm um gargalo de E/S. Compactar os dados pode 
 
 Os tipos de compactação disponíveis são:
 
-| Formatar | Ferramenta | Algoritmo | Extensão de arquivo | Divisível? |
-| -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | .gz | Não |
-| Bzip2 | Bzip2 | Bzip2 |.bz2 | Sim |
-| LZO | Lzop | LZO | .lzo | Sim, se indexado |
+| Formatar | Ferramenta | Algoritmo | Extensão do arquivo | Divisível? |
+| --- | --- | --- | --- | --- |
+| Gzip | Gzip | DEFLATE | `.gz` | Não |
+| Bzip2 | Bzip2 | Bzip2 |`.bz2` | Sim |
+| LZO | `Lzop` | LZO | `.lzo` | Sim, se indexado |
 | Snappy | N/D | Snappy | Snappy | Não |
 
-Como regra geral, é importante que o método de compactação seja divisível. Caso contrário, poucos mapeadores serão criados. Se os dados de entrada forem texto, `bzip2` será a melhor opção. Para o formato ORC, o Snappy é a opção de compactação mais rápida.
+Como regra geral, ter o método de compressão splittable é importante, caso contrário, poucos mapeadores serão criados. Se os dados de entrada forem texto, `bzip2` será a melhor opção. Para o formato ORC, o Snappy é a opção de compactação mais rápida.
 
 1. Para habilitar a compactação intermediária, navegue até a guia **Configurações** do Hive e, em seguida, defina o parâmetro `hive.exec.compress.intermediate` como verdadeiro. O valor padrão é false.
 
-    ![Compactação intermediária de execução do Hive](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
+    !['Colmeia exec compress intermediária'](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
     > [!NOTE]  
     > Para compactar arquivos intermediários, escolha um codec de compactação com menor custo de CPU, mesmo se o codec não tiver uma alta saída de compactação.
@@ -203,9 +203,9 @@ Como regra geral, é importante que o método de compactação seja divisível. 
 
     d. Selecione **Adicionar**.
 
-    ![Propriedade personalizada da Colmeia Apache adiciona](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
+    !['Apache Hive propriedade personalizada adicionar'](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
-    Isso compactará o arquivo intermediário usando a compactação do Snappy. Após ser adicionada, a propriedade aparecerá no painel hive-site personalizado.
+    Esta configuração compactará o arquivo intermediário usando compactação Snappy. Após ser adicionada, a propriedade aparecerá no painel hive-site personalizado.
 
     > [!NOTE]  
     > Este procedimento modifica o arquivo `$HADOOP_HOME/conf/hive-site.xml`.
@@ -222,21 +222,21 @@ A saída final do Hive também pode ser compactada.
 
 ### <a name="enable-speculative-execution"></a>Habilitar a execução especulativa
 
-A execução especulativa inicializa um determinado número de tarefas duplicadas para detectar e colocar na lista negra o monitor de tarefas de execução lenta, melhorando a execução geral do trabalho ao otimizar os resultados das tarefas individuais.
+A execução especulativa lança um certo número de tarefas duplicadas para detectar e negar a lista do rastreador de tarefas em execução lenta. Ao mesmo tempo em que melhora a execução geral do trabalho otimizando os resultados individuais das tarefas.
 
 A execução especulativa não deve ser ativada para tarefas MapReduce de execução longa com grandes quantidades de entrada.
 
 * Para habilitar a execução especulativa, navegue até a guia **Configurações** do Hive e, em seguida, defina o parâmetro `hive.mapred.reduce.tasks.speculative.execution` como verdadeiro. O valor padrão é false.
 
-    ![Execução especulativa de tarefas de redução mapred do Hive](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
+    !['Colmeia mapeada reduz tarefas de execução especulativa'](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
 ### <a name="tune-dynamic-partitions"></a>Ajustar partições dinâmicas
 
-O Hive permite criar partições dinâmicas ao inserir registros em uma tabela sem predefinir cada uma das partições. Esse é um recurso poderoso, embora possa resultar na criação de um grande número de partições e de um grande número de arquivos para cada partição.
+A Colméia permite criar partições dinâmicas ao inserir registros em uma tabela, sem pré-definir cada partição. Essa habilidade é uma característica poderosa. Embora possa resultar na criação de um grande número de partições. E um grande número de arquivos para cada partição.
 
 1. Para o Hive fazer partições dinâmicas, o valor do parâmetro `hive.exec.dynamic.partition` deve ser true (o padrão).
 
-1. Altere o modo de partição dinâmica para *estrito*. No modo estrito, pelo menos uma partição deve ser estática. Isso impede consultas sem o filtro de partição na cláusula WHERE, ou seja, *estrito* impede consultas que examinam todas as partições. Navegue até a guia **Configurações** do Hive e, em seguida, defina `hive.exec.dynamic.partition.mode` como **estrito**. O valor padrão é **não estrito**.
+1. Altere o modo de partição dinâmica para *estrito*. No modo estrito, pelo menos uma partição deve ser estática. Essa configuração evita consultas sem o filtro de partição na cláusula WHERE, ou seja, *a estrita* impede consultas que escaneiam todas as partições. Navegue até a guia **Configurações** do Hive e, em seguida, defina `hive.exec.dynamic.partition.mode` como **estrito**. O valor padrão é **não estrito**.
 
 1. Para limitar o número de partições dinâmicas a serem criadas, modifique o parâmetro `hive.exec.max.dynamic.partitions`. O valor padrão é 5.000.
 
@@ -244,7 +244,7 @@ O Hive permite criar partições dinâmicas ao inserir registros em uma tabela s
 
 ### <a name="enable-local-mode"></a>Habilitar modo local
 
-O modo local permite que o Hive execute todas as tarefas de um trabalho em um único computador ou, às vezes, em um único processo. Isso melhorará o desempenho de consulta se os dados de entrada forem pequenos e a sobrecarga da inicialização de tarefas para consultas consumir um percentual significativo da execução de consulta geral.
+O modo local permite que hive faça todas as tarefas de um trabalho em uma única máquina. Ou às vezes em um único processo. Essa configuração melhora o desempenho da consulta se os dados de entrada forem pequenos. E a sobrecarga de iniciar tarefas para consultas consome uma porcentagem significativa da execução geral da consulta.
 
 Para habilitar o modo local, adicione o parâmetro `hive.exec.mode.local.auto` ao painel hive-site personalizado, conforme explicado na etapa 3 da seção [Habilitar compactação intermediária](#enable-intermediate-compression).
 
@@ -267,19 +267,19 @@ As seções a seguir descrevem otimizações adicionais relacionadas ao Hive que
 O tipo de junção padrão no Hive é a *junção em ordem aleatória*. No Hive, mapeadores especiais leem a entrada e emitem um par de chave/valor de junção para um arquivo intermediário. O Hadoop classifica e mescla esses pares em um estágio de ordem aleatória. Esse estágio de ordem aleatória é caro. Selecionar a junção correta com base em seus dados pode melhorar significativamente o desempenho.
 
 | Tipo de junção | Quando | Como | Configurações do Hive | Comentários |
-| -- | -- | -- | -- | -- |
+| --- | --- | --- | --- | --- |
 | Junção em ordem aleatória | <ul><li>Opção padrão</li><li>Sempre funciona</li></ul> | <ul><li>Lê de parte de uma das tabelas</li><li>Particiona em buckets e classifica de acordo com a chave de junção</li><li>Envia um bucket para cada redução</li><li>A junção é feita no lado de redução</li></ul> | Nenhuma configuração significativa do Hive é necessária | Sempre funciona |
-| Junção de mapa | <ul><li>Uma tabela pode caber na memória</li></ul> | <ul><li>Lê a tabela pequena na tabela de hash de memória</li><li>Transmite parte do arquivo grande</li><li>Junta cada registro da tabela de hash</li><li>As junções são feitas apenas pelo mapeador</li></ul> | `hive.auto.confvert.join=true` | Muito rápido, mas limitado |
-| Classificar bucket de mesclagem | Se as duas tabelas forem: <ul><li>Classificadas da mesma forma</li><li>Particionadas em bucket da mesma forma</li><li>União na coluna classificada/particionada em bucket</li></ul> | Cada processo: <ul><li>Lê um bucket de cada tabela</li><li>Processa a linha com o valor mais baixo</li></ul> | `hive.auto.convert.sortmerge.join=true` | Muito eficiente |
+| Junção de mapa | <ul><li>Uma tabela pode caber na memória</li></ul> | <ul><li>Lê a tabela pequena na tabela de hash de memória</li><li>Transmite parte do arquivo grande</li><li>Junta cada registro da tabela de hash</li><li>As junções são feitas apenas pelo mapeador</li></ul> | `hive.auto.confvert.join=true` | Rápido, mas limitado |
+| Classificar bucket de mesclagem | Se as duas tabelas forem: <ul><li>Classificadas da mesma forma</li><li>Particionadas em bucket da mesma forma</li><li>União na coluna classificada/particionada em bucket</li></ul> | Cada processo: <ul><li>Lê um bucket de cada tabela</li><li>Processa a linha com o valor mais baixo</li></ul> | `hive.auto.convert.sortmerge.join=true` | Eficiente |
 
 #### <a name="execution-engine-optimizations"></a>Otimizações do mecanismo de execução
 
 Recomendações adicionais para otimizar o mecanismo de execução do Hive:
 
 | Configuração | Recomendadas | Padrão do HDInsight |
-| -- | -- | -- |
+| --- | --- | --- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = mais seguro, mais lento; false = mais rápido | false |
-| `tez.am.resource.memory.mb` | Limite superior de 4 GB para a maioria | Ajustado automaticamente |
+| `tez.am.resource.memory.mb` | 4 GB de limite superior para a maioria | Ajustado automaticamente |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
@@ -317,7 +317,7 @@ De forma semelhante ao Hive, o modo local é usado para acelerar trabalhos com q
 
 ### <a name="copy-user-jar-cache"></a>Copiar o cache de jar do usuário
 
-O Pig copia os arquivos JAR exigidos pelo UDFs para um cache distribuído para torná-los disponíveis para nós de tarefa. Esses frascos não mudam com freqüência. Se habilitada, a configuração `pig.user.cache.enabled` permite que os jars sejam colocados em um cache para reutilizá-los para trabalhos executados pelo mesmo usuário. Isso resulta em uma pequena melhoria no desempenho do trabalho.
+O Pig copia os arquivos JAR exigidos pelo UDFs para um cache distribuído para torná-los disponíveis para nós de tarefa. Esses frascos não mudam com freqüência. Se habilitada, a configuração `pig.user.cache.enabled` permite que os jars sejam colocados em um cache para reutilizá-los para trabalhos executados pelo mesmo usuário. Essa configuração resulta em um pequeno aumento no desempenho do trabalho.
 
 1. Para habilitar, defina `pig.user.cache.enabled` como true. O padrão é false.
 
@@ -327,7 +327,7 @@ O Pig copia os arquivos JAR exigidos pelo UDFs para um cache distribuído para t
 
 As seguintes configurações de memória podem ajudar a otimizar o desempenho de script do Pig.
 
-* `pig.cachedbag.memusage`: a quantidade de memória alocada a um recipiente. Um recipiente é um conjunto de tuplas. Uma tupla é um conjunto ordenado de campos e um campo é uma parte dos dados. Se os dados em um saco estão além da memória alocada, ele é derramado em disco. O valor padrão é 0.2, que representa 20 por cento da memória disponível. Essa memória é compartilhada entre todos os recipientes em um aplicativo.
+* `pig.cachedbag.memusage`: A quantidade de memória dada a um saco. Um recipiente é um conjunto de tuplas. Uma tupla é um conjunto ordenado de campos e um campo é uma parte dos dados. Se os dados em um saco estão além da memória dada, é derramado em disco. O valor padrão é 0.2, que representa 20 por cento da memória disponível. Essa memória é compartilhada entre todos os recipientes em um aplicativo.
 
 * `pig.spill.size.threshold`: recipientes maiores que esse limite de tamanho de despejo (em bytes) são despejados para o disco. O valor padrão é 5 MB.
 
@@ -337,15 +337,15 @@ O Pig gera arquivos temporários durante a execução do trabalho. Compactar os 
 
 * `pig.tmpfilecompression`: quando for true, habilitará a compactação de arquivos temporários. O valor padrão é false.
 
-* `pig.tmpfilecompression.codec`: o codec de compactação a ser usado para compactar os arquivos temporários. Os codecs de compressão recomendados são [LZO](https://www.oberhumer.com/opensource/lzo/) e Snappy para menor utilização da CPU.
+* `pig.tmpfilecompression.codec`: o codec de compactação a ser usado para compactar os arquivos temporários. Os codecs de compressão recomendados são [LZO](https://www.oberhumer.com/opensource/lzo/) e Snappy para menor uso da CPU.
 
 ### <a name="enable-split-combining"></a>Habilitar combinação de divisão
 
-Quando habilitada, pequenos arquivos são combinados para que haja menos tarefas de mapeamento. Isso aumenta a eficiência de trabalhos com muitos arquivos pequenos. Para habilitar, defina `pig.noSplitCombination` como true. O valor padrão é false.
+Quando habilitada, pequenos arquivos são combinados para que haja menos tarefas de mapeamento. Esta configuração melhora a eficiência dos trabalhos com muitos arquivos pequenos. Para habilitar, defina `pig.noSplitCombination` como true. O valor padrão é false.
 
 ### <a name="tune-mappers"></a>Ajustar mapeadores
 
-O número de mapeadores é controlado modificando a propriedade `pig.maxCombinedSplitSize`. Isso especifica o tamanho dos dados a serem processados por uma única tarefa de mapeamento. O valor padrão é o tamanho do bloco padrão do sistema de arquivos. Aumentar esse valor resulta na redução do número de tarefas do mapeador.
+O número de mapeadores é controlado modificando a propriedade `pig.maxCombinedSplitSize`. Esta propriedade especifica o tamanho dos dados a serem processados por uma única tarefa de mapa. O valor padrão é o tamanho do bloco padrão do sistema de arquivos. Aumentar esse valor resulta em um menor número de tarefas mapeadas.
 
 ### <a name="tune-reducers"></a>Ajustar redutores
 
@@ -357,13 +357,13 @@ A configuração [do Apache HBase](https://hbase.apache.org/) é modificada a pa
 
 ### <a name="set-hbase_heapsize"></a>Definir HBASE_HEAPSIZE
 
-O tamanho do heap do HBase especifica a quantidade máxima do heap a ser usada, em megabytes, por *região* e por servidores *mestre*. O valor padrão é 1,000 MB. Isso deve ser ajustado de acordo com a carga de trabalho do cluster.
+O tamanho do heap do HBase especifica a quantidade máxima do heap a ser usada, em megabytes, por *região* e por servidores *mestre*. O valor padrão é 1,000 MB. Este valor deve ser ajustado para a carga de trabalho do cluster.
 
 1. Para modificar, navegue até o painel **HBase-env Avançado** na guia **Configurações** do HBase e, em seguida, localize a configuração `HBASE_HEAPSIZE`.
 
 1. Altere o valor padrão para 5.000 MB.
 
-    ![Tamanho de memória Apache Ambari HBase](./media/hdinsight-changing-configs-via-ambari/ambari-hbase-heapsize.png)
+    !['Apache Ambari HBase memória heapsize'](./media/hdinsight-changing-configs-via-ambari/ambari-hbase-heapsize.png)
 
 ### <a name="optimize-read-heavy-workloads"></a>Otimizar cargas de trabalho com uso intenso de leitura
 
@@ -381,7 +381,7 @@ O cache do bloco é o cache de leitura. Seu tamanho é controlado pelo parâmetr
 
 #### <a name="memstore-size"></a>Tamanho do Memstore
 
-Todas as edições são armazenadas no buffer de memória, chamado de *Memstore*. Isso aumenta a quantidade total de dados que podem ser gravados em disco em uma única operação e acelera o acesso posterior às edições recentes. O tamanho do Memstore é definido pelos dois parâmetros a seguir:
+Todas as edições são armazenadas no buffer de memória, chamado de *Memstore*. Este buffer aumenta a quantidade total de dados que podem ser gravados em disco em uma única operação. Também acelera o acesso às edições recentes. O tamanho do Memstore é definido pelos dois parâmetros a seguir:
 
 * `hbase.regionserver.global.memstore.UpperLimit`: define o percentual máximo do servidor de região que o Memstore combinado pode usar.
 
@@ -391,7 +391,7 @@ Para otimizar leituras aleatórias, você pode reduzir os limites superior e inf
 
 #### <a name="number-of-rows-fetched-when-scanning-from-disk"></a>Número de linhas buscadas ao fazer a varredura do disco
 
-A configuração `hbase.client.scanner.caching` define o número de linhas lidas do disco quando o método `next` é chamado em um scanner.  O valor padrão é 100. Quanto maior o número, menos chamadas remotas serão feitas do cliente para o servidor de região, resultando em verificações mais rápidas. No entanto, isso também aumentará a pressão de memória no cliente.
+A configuração `hbase.client.scanner.caching` define o número de linhas lidas do disco quando o método `next` é chamado em um scanner.  O valor padrão é 100. Quanto maior o número, menos chamadas remotas serão feitas do cliente para o servidor de região, resultando em verificações mais rápidas. No entanto, essa configuração também aumentará a pressão de memória sobre o cliente.
 
 ![Número de linhas Apache HBase buscadas](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
@@ -406,7 +406,7 @@ As configurações a seguir são importantes para melhorar o desempenho de carga
 
 O HBase armazena dados em um formato de arquivo interno, chamado *HFile*. A propriedade `hbase.hregion.max.filesize` define o tamanho de um único HFile para uma região.  Uma região será dividida em duas regiões se a soma de todos os HFiles nela for maior do que essa configuração.
 
-![Tamanho de arquivo máximo do Apache HBase HRegion](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-max-filesize.png)
+!['Tamanho máximo de arquivos Apache HBase HRegion'](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-max-filesize.png)
 
 Quanto maior o tamanho do arquivo de região, menor o número de divisões. É possível aumentar o tamanho do arquivo para determinar um valor que resulta no desempenho máximo de gravação.
 
@@ -428,7 +428,7 @@ O tamanho do Memstore é definido pelos parâmetros `hbase.regionserver.global.m
 
 ### <a name="set-memstore-local-allocation-buffer"></a>Definir o buffer de alocação local do Memstore
 
-O uso do buffer de alocação local do Memstore é determinado pela propriedade `hbase.hregion.memstore.mslab.enabled`. Quando habilitado (true), isso evita a fragmentação do heap durante a operação com uso intenso de gravação. O valor padrão é verdadeiro.
+O uso do buffer de alocação local do Memstore é determinado pela propriedade `hbase.hregion.memstore.mslab.enabled`. Quando ativado (true), esta configuração impede a fragmentação do pilha durante a operação de gravação pesada. O valor padrão é verdadeiro.
 
 ![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 

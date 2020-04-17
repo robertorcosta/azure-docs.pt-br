@@ -2,13 +2,13 @@
 title: Suporte de avaliação da VMware no Azure Migrate
 description: Saiba mais sobre o suporte para avaliação vmware vm com avaliação do servidor migração do Azure.
 ms.topic: conceptual
-ms.date: 03/29/2020
-ms.openlocfilehash: e0172656d06075f89a7c3a06e8d4e9be94e6f5d0
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.date: 04/15/2020
+ms.openlocfilehash: 8a09562f14b95256ee9c2b5ba7d9c308cde66397
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389300"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532197"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação de VMware 
 
@@ -39,15 +39,15 @@ Além de descobrir máquinas, o Server Assessment pode descobrir aplicativos, pa
 **Credenciais do vCenter** | A descoberta do aplicativo precisa de uma conta vCenter Server com acesso somente leitura e privilégios habilitados para máquinas virtuais > operações de hóspedes.
 **Credenciais de VM** | Atualmente, a descoberta de aplicativos suporta o uso de uma credencial para todos os servidores Windows e uma credencial para todos os servidores Linux.<br/><br/> Você cria uma conta de usuário convidado para VMs Windows e uma conta de usuário normal/normal (acesso não sudo) para todas as VMs Linux.
 **Ferramentas VMware** | As ferramentas VMware devem ser instaladas e em execução em VMs que você deseja descobrir. <br/> A versão de ferramentas VMware deve ser superior a 10.2.0.
-**Powershell** | As VMs devem ter a versão 2.0 ou posterior do PowerShell instalada.
+**PowerShell** | As VMs devem ter a versão 2.0 ou posterior do PowerShell instalada.
 **Acesso portuário** | Nos hosts ESXi que executam VMs que você deseja descobrir, o aparelho Azure Migrate deve ser capaz de se conectar à porta TCP 443.
-**Limites** | Para a descoberta de aplicativos, você pode descobrir até 10000 VMs em cada aparelho Azure Migrate.
+**limites** | Para a descoberta de aplicativos, você pode descobrir até 10000 VMs em cada aparelho Azure Migrate.
 
 
 
 ## <a name="vmware-requirements"></a>Requisitos da VMware
 
-**Vmware** | **Detalhes**
+**VMware** | **Detalhes**
 --- | ---
 **VMs VMware** | A avaliação é suportada para todos os sistemas operacionais Windows e Linux.
 **servidor vCenter** | As máquinas que você deseja desembasar e avaliar devem ser gerenciadas pelo vCenter Server versão 5.5, 6.0, 6.5 ou 6.7.
@@ -61,7 +61,9 @@ Além de descobrir máquinas, o Server Assessment pode descobrir aplicativos, pa
 O Azure Migrate usa o [aparelho Azure Migrate](migrate-appliance.md) para descoberta e avaliação. Você pode implantar o aparelho como um VMWare VM usando um modelo OVA, importado para o vCenter Server ou usando um [script PowerShell](deploy-appliance-script.md).
 
 - Saiba mais sobre [os requisitos do aparelho](migrate-appliance.md#appliance---vmware) para VMware.
-- Saiba mais sobre [URLs](migrate-appliance.md#url-access) que o aparelho precisa acessar.
+- Saiba mais sobre URLs que o aparelho precisa acessar em nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
+- No Governo Azure, você deve implantar o aparelho usando o script.
+
 
 ## <a name="port-access"></a>Acesso portuário
 
@@ -75,7 +77,7 @@ Hosts ESXi (análise de detecção de aplicativos/dependência sem agente) | Se 
 
 [A análise de dependência](concepts-dependency-visualization.md) ajuda você a identificar dependências entre máquinas locais que você deseja avaliar e migrar para o Azure. A tabela resume os requisitos para configurar a análise de dependência sem agente. 
 
-**Exigência** | **Detalhes**
+**Requisito** | **Detalhes**
 --- | --- 
 **Antes da implantação** | Você deve ter um projeto Azure Migrate em vigor, com a ferramenta Avaliação do servidor adicionada ao projeto.<br/><br/>  Você implanta visualização de dependência depois de configurar um aparelho Azure Migrate para descobrir suas máquinas VMWare no local.<br/><br/> [Aprenda a](create-manage-projects.md) criar um projeto pela primeira vez.<br/> [Saiba como](how-to-assess.md) adicionar uma ferramenta de avaliação a um projeto existente.<br/> [Saiba como](how-to-set-up-appliance-vmware.md) configurar o aparelho Azure Migrate para avaliação de VMs VMware.
 **Suporte a VM** | Atualmente suportado apenas para VMs VMware.
@@ -86,23 +88,25 @@ Hosts ESXi (análise de detecção de aplicativos/dependência sem agente) | Se 
 **Agentes necessários** | Nenhum agente necessário em máquinas que você queira analisar.
 **Ferramentas VMware** | As ferramentas VMware (mais de 10.2) devem ser instaladas e em execução em cada VM que você deseja analisar.
 **Credenciais do vCenter Server** | A visualização de dependência precisa de uma conta vCenter Server com acesso somente leitura e privilégios habilitados para máquinas virtuais > operações de hóspedes. 
-**Powershell** | As VMs devem ter a versão 2.0 ou superior do PowerShell instalada.
+**PowerShell** | As VMs devem ter a versão 2.0 ou superior do PowerShell instalada.
 **Acesso portuário** | Nos hosts ESXi que executam VMs que você deseja analisar, o aparelho Azure Migrate deve ser capaz de se conectar à porta TCP 443.
+
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Requisitos de análise de dependência baseados em agentes
 
 [A análise de dependência](concepts-dependency-visualization.md) ajuda você a identificar dependências entre máquinas locais que você deseja avaliar e migrar para o Azure. A tabela resume os requisitos para configurar a análise de dependência baseada em agentes. 
 
-**Exigência** | **Detalhes** 
+**Requisito** | **Detalhes** 
 --- | --- 
 **Antes da implantação** | Você deve ter um projeto Azure Migrate em vigor, com a ferramenta Azure Migrate: Server Assessment adicionada ao projeto.<br/><br/>  Você implanta visualização de dependência depois de configurar um aparelho Azure Migrate para descobrir suas máquinas no local<br/><br/> [Aprenda a](create-manage-projects.md) criar um projeto pela primeira vez.<br/> [Saiba como](how-to-assess.md) adicionar uma ferramenta de avaliação a um projeto existente.<br/> Saiba como configurar o aparelho Azure Migrate para avaliação de [servidores hyper-V,](how-to-set-up-appliance-hyper-v.md) [VMware](how-to-set-up-appliance-vmware.md)ou físicos.
 **Azure Governamental** | A visualização de dependência não está disponível no governo Azure.
-**Análise de log** | O Azure Migrate usa a solução [Mapa de Serviço](../operations-management-suite/operations-management-suite-service-map.md) nos registros do Monitor do [Azure](../log-analytics/log-analytics-overview.md) para visualização de dependência.<br/><br/> Você associa um espaço de trabalho novo ou existente do Log Analytics a um projeto do Azure Migrate. O espaço de trabalho para um projeto do Azure Migrate não pode ser modificado depois de adicionado. <br/><br/> O espaço de trabalho deve estar na mesma assinatura do projeto Azure Migrate.<br/><br/> O espaço de trabalho deve residir nas regiões leste dos EUA, sudeste da Ásia ou Europa Ocidental. Espaços de trabalho em outras regiões não podem ser associados a um projeto.<br/><br/> O espaço de trabalho deve estar em uma região na qual [o Mapa de Serviço é suportado](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).<br/><br/> No Log Analytics, o espaço de trabalho associado ao Azure Migrate é marcado com a tecla Migration Project e o nome do projeto.
+**Log Analytics** | O Azure Migrate usa a solução [Mapa de Serviço](../operations-management-suite/operations-management-suite-service-map.md) nos registros do Monitor do [Azure](../log-analytics/log-analytics-overview.md) para visualização de dependência.<br/><br/> Você associa um espaço de trabalho novo ou existente do Log Analytics a um projeto do Azure Migrate. O espaço de trabalho para um projeto do Azure Migrate não pode ser modificado depois de adicionado. <br/><br/> O espaço de trabalho deve estar na mesma assinatura do projeto Azure Migrate.<br/><br/> O espaço de trabalho deve residir nas regiões leste dos EUA, sudeste da Ásia ou Europa Ocidental. Espaços de trabalho em outras regiões não podem ser associados a um projeto.<br/><br/> O espaço de trabalho deve estar em uma região na qual [o Mapa de Serviço é suportado](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).<br/><br/> No Log Analytics, o espaço de trabalho associado ao Azure Migrate é marcado com a tecla Migration Project e o nome do projeto.
 **Agentes necessários** | Em cada máquina que deseja analisar, instale os seguintes agentes:<br/><br/> O [agente de monitoramento da Microsoft (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).<br/> O [agente de dependência.](../azure-monitor/platform/agents-overview.md#dependency-agent)<br/><br/> Se as máquinas locais não estão conectadas à internet, você precisa baixar e instalar o gateway Log Analytics neles.<br/><br/> Saiba mais sobre a instalação do [agente de dependência](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) e [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
 **Espaço de trabalho do Log Analytics** | O espaço de trabalho deve estar na mesma assinatura do projeto Azure Migrate.<br/><br/> O Azure Migrate suporta espaços de trabalho residentes nas regiões leste dos EUA, sudeste da Ásia e Europa Ocidental.<br/><br/>  O espaço de trabalho deve estar em uma região na qual [o Mapa de Serviço é suportado](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites).<br/><br/> O espaço de trabalho para um projeto do Azure Migrate não pode ser modificado depois de adicionado.
 **Custos** | A solução Mapa de Serviço não incorre em nenhuma cobrança pelos primeiros 180 dias (a partir do dia em que você associa o espaço de trabalho do Log Analytics ao projeto Azure Migrate)/<br/><br/> Após 180 dias, os encargos do Log Analytics Standard serão aplicados.<br/><br/> O uso de qualquer solução que não seja o Mapa de Serviço no espaço de trabalho log analytics associado incorrerá em [taxas padrão](https://azure.microsoft.com/pricing/details/log-analytics/) para o Log Analytics.<br/><br/> Quando o projeto de Migrações para Azure é excluído, o workspace não é excluído junto com ele. Após a exclusão do projeto, o uso do Mapa de Serviço não é gratuito e cada nó será cobrado de acordo com o nível pago do espaço de trabalho do Log Analytics/<br/><br/>Se você tiver projetos que você criou antes do Azure Migrate disponibilidade geral (GA- 28 de fevereiro de 2018), você pode ter incorrido em taxas adicionais do Mapa de Serviço. Para garantir o pagamento após apenas 180 dias, recomendamos que você crie um novo projeto, já que os espaços de trabalho existentes antes da GA ainda são cobrados.
 **Gerenciamento** | Quando você registra agentes no espaço de trabalho, você usa o ID e a chave fornecidas pelo projeto Azure Migrate.<br/><br/> Você pode usar o espaço de trabalho do Log Analytics fora de Migrações para Azure.<br/><br/> Se você excluir o projeto Azure Migrate associado, o espaço de trabalho não será excluído automaticamente. [Exclua-o manualmente](../azure-monitor/platform/manage-access.md).<br/><br/> Não exclua o espaço de trabalho criado pelo Azure Migrate, a menos que você exclua o projeto Azure Migrate. Se você fizer isso, a funcionalidade de visualização de dependência não funcionará conforme o esperado.
 **Conectividade com a Internet** | Se as máquinas não estão conectadas à internet, você precisa instalar o gateway Log Analytics neles.
+**Azure Governamental** | A análise de dependência baseada em agentes não é suportada.
 
 
 ## <a name="next-steps"></a>Próximas etapas

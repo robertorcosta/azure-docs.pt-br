@@ -2,27 +2,25 @@
 title: Mudanças de ponto final de previsão na API V3
 description: As APIs do ponto final de previsão de consulta V3 foram alteradas. Use este guia para entender como migrar para APIs de ponto final da versão 3.
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 9a8e8cb331dd11eebaddbcbf8f603c1148415aef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b6d28b24ffc6c0a848d1c7a34e863da0606d936
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79117376"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81530378"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Mudanças no ponto final da previsão para V3
 
 As APIs do ponto final de previsão de consulta V3 foram alteradas. Use este guia para entender como migrar para APIs de ponto final da versão 3.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
 **Geralmente disponível status** - esta API V3 inclui solicitações e alterações de resposta significativas da API V2.
 
 A API V3 fornece os seguintes novos recursos:
 
-* [Entidades externas](#external-entities-passed-in-at-prediction-time)
-* [Listas dinâmicas](#dynamic-lists-passed-in-at-prediction-time)
+* [Entidades externas](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time)
+* [Listas dinâmicas](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
 * [Mudanças de entidade pré-construída JSON](#prebuilt-entity-changes)
 
 A [solicitação](#request-changes) e [a resposta](#response-changes) do ponto final de previsão têm alterações significativas para suportar os novos recursos listados acima, incluindo o seguinte:
@@ -123,13 +121,11 @@ A API V3 tem diferentes parâmetros de seqüência de consulta.
 
 |Propriedade|Type|Versão|Padrão|Finalidade|
 |--|--|--|--|--|
-|`dynamicLists`|matriz|Somente V3|Não obrigatório.|[Listas dinâmicas](#dynamic-lists-passed-in-at-prediction-time) permitem que você amplie uma entidade de lista treinada e publicada já existente, já no aplicativo LUIS.|
-|`externalEntities`|matriz|Somente V3|Não obrigatório.|[Entidades externas](#external-entities-passed-in-at-prediction-time) dão ao seu aplicativo LUIS a capacidade de identificar e rotular entidades durante o tempo de execução, que podem ser usados como recursos para entidades existentes. |
+|`dynamicLists`|matriz|Somente V3|Não obrigatório.|[Listas dinâmicas](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) permitem que você amplie uma entidade de lista treinada e publicada já existente, já no aplicativo LUIS.|
+|`externalEntities`|matriz|Somente V3|Não obrigatório.|[Entidades externas](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) dão ao seu aplicativo LUIS a capacidade de identificar e rotular entidades durante o tempo de execução, que podem ser usados como recursos para entidades existentes. |
 |`options.datetimeReference`|string|Somente V3|Sem padrão|Usado para determinar a [datadedeslocamentov2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). O formato para a datadereferênciaReferência é [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
-|`options.preferExternalEntities`|booleano|Somente V3|false|Especifica se a entidade externa do usuário [(com o mesmo nome da entidade existente)](#override-existing-model-predictions) é usada ou se a entidade existente no modelo é usada para predição. |
+|`options.preferExternalEntities`|booleano|Somente V3|false|Especifica se a entidade externa do usuário [(com o mesmo nome da entidade existente)](schema-change-prediction-runtime.md#override-existing-model-predictions) é usada ou se a entidade existente no modelo é usada para predição. |
 |`query`|string|Somente V3|Obrigatórios.|**Em V2,** o enunciado a `q` ser previsto está no parâmetro. <br><br>**Em V3,** a funcionalidade é `query` passada no parâmetro.|
-
-
 
 ## <a name="response-changes"></a>Mudanças de resposta
 
@@ -281,185 +277,12 @@ Em V3, o mesmo `verbose` resultado com o sinalizador para retornar metadados da 
 }
 ```
 
-## <a name="external-entities-passed-in-at-prediction-time"></a>Entidades externas passaram na hora da previsão
+<a name="external-entities-passed-in-at-prediction-time"></a>
+<a name="override-existing-model-predictions"></a>
 
-Entidades externas dão ao seu aplicativo LUIS a capacidade de identificar e rotular entidades durante o tempo de execução, que podem ser usados como recursos para entidades existentes. Isso permite que você use seus próprios extratores de entidades separados e personalizados antes de enviar consultas para o seu ponto final de previsão. Como isso é feito no ponto final da previsão de consulta, você não precisa retreinar e publicar seu modelo.
+## <a name="extend-the-app-at-prediction-time"></a>Estender o aplicativo na hora da previsão
 
-O cliente-aplicativo está fornecendo seu próprio extrator de entidade, gerenciando a correspondência da entidade e determinando a localização dentro da expressão dessa entidade combinada e, em seguida, enviando essas informações com a solicitação.
-
-Entidades externas são o mecanismo para estender qualquer tipo de entidade enquanto ainda são usados como sinais para outros modelos, como papéis, compostos e outros.
-
-Isso é útil para uma entidade que tem dados disponíveis apenas em tempo de execução da previsão de consulta. Exemplos desse tipo de dados estão mudando constantemente dados ou específicos por usuário. Você pode estender uma entidade de contato LUIS com informações externas da lista de contatos de um usuário.
-
-### <a name="entity-already-exists-in-app"></a>Entidade já existe no aplicativo
-
-O valor `entityName` da entidade externa, passado no endpoint da solicitação DO órgão POST, já deve existir no aplicativo treinado e publicado no momento da solicitação. O tipo de entidade não importa, todos os tipos são suportados.
-
-### <a name="first-turn-in-conversation"></a>Primeira volta na conversa
-
-Considere uma primeira expressão em uma conversa de bot de bate-papo onde um usuário insere as seguintes informações incompletas:
-
-`Send Hazem a new message`
-
-A solicitação do bot de bate-papo para LUIS `Hazem` pode passar informações no corpo do POST sobre isso é diretamente correspondido como um dos contatos do usuário.
-
-```json
-    "externalEntities": [
-        {
-            "entityName":"contacts",
-            "startIndex": 5,
-            "entityLength": 5,
-            "resolution": {
-                "employeeID": "05013",
-                "preferredContactType": "TeamsChat"
-            }
-        }
-    ]
-```
-
-A resposta de previsão inclui essa entidade externa, com todas as outras entidades previstas, porque está definida no pedido.
-
-### <a name="second-turn-in-conversation"></a>Segunda volta na conversa
-
-A próxima expressão do usuário no bot de bate-papo usa um termo mais vago:
-
-`Send him a calendar reminder for the party.`
-
-No pronunciamento anterior, o enunciado `him` `Hazem`usa como referência a . O bot de bate-papo conversacional, `him` no corpo DO POST, pode `Hazem`mapear para o valor da entidade extraído do primeiro enunciado, .
-
-```json
-    "externalEntities": [
-        {
-            "entityName":"contacts",
-            "startIndex": 5,
-            "entityLength": 3,
-            "resolution": {
-                "employeeID": "05013",
-                "preferredContactType": "TeamsChat"
-            }
-        }
-    ]
-```
-
-A resposta de previsão inclui essa entidade externa, com todas as outras entidades previstas, porque está definida no pedido.
-
-### <a name="override-existing-model-predictions"></a>Substituir as previsões de modelo existentes
-
-A `preferExternalEntities` propriedade de opções especifica que se o usuário enviar uma entidade externa que se sobreponha a uma entidade prevista com o mesmo nome, a LUIS escolhe a entidade aprovada ou a entidade existente no modelo.
-
-Por exemplo, considere a consulta `today I'm free`. LUIS detecta `today` como um DatetimeV2 com a seguinte resposta:
-
-```JSON
-"datetimeV2": [
-    {
-        "type": "date",
-        "values": [
-            {
-                "timex": "2019-06-21",
-                "value": "2019-06-21"
-            }
-        ]
-    }
-]
-```
-
-Se o usuário enviar à entidade externa:
-
-```JSON
-{
-    "entityName": "datetimeV2",
-    "startIndex": 0,
-    "entityLength": 5,
-    "resolution": {
-        "date": "2019-06-21"
-    }
-}
-```
-
-Se `preferExternalEntities` o estiver `false`definido para , LUIS retorna uma resposta como se a entidade externa não fosse enviada.
-
-```JSON
-"datetimeV2": [
-    {
-        "type": "date",
-        "values": [
-            {
-                "timex": "2019-06-21",
-                "value": "2019-06-21"
-            }
-        ]
-    }
-]
-```
-
-Se `preferExternalEntities` o estiver `true`definido para , LUIS retorna uma resposta incluindo:
-
-```JSON
-"datetimeV2": [
-    {
-        "date": "2019-06-21"
-    }
-]
-```
-
-
-
-#### <a name="resolution"></a>Resolução
-
-A propriedade _opcional_ `resolution` retorna na resposta de previsão, permitindo que você passe os metadados associados à entidade externa e, em seguida, recebê-lo de volta na resposta.
-
-O objetivo principal é estender entidades pré-construídas, mas não se limita a esse tipo de entidade.
-
-A `resolution` propriedade pode ser um número, uma seqüência, um objeto ou uma matriz:
-
-* "Dallas"
-* {"texto": "valor"}
-* 12345
-* ["a", "b", "c"]
-
-
-
-## <a name="dynamic-lists-passed-in-at-prediction-time"></a>Listas dinâmicas aprovadas na hora da previsão
-
-Listas dinâmicas permitem que você amplie uma entidade de lista treinada e publicada já existente, já no aplicativo LUIS.
-
-Use esse recurso quando os valores da entidade da lista precisarem ser trocados periodicamente. Este recurso permite que você amplie uma entidade de lista já treinada e publicada:
-
-* No momento da solicitação de ponto final de previsão de consulta.
-* Por um único pedido.
-
-A entidade da lista pode estar vazia no aplicativo LUIS, mas tem que existir. A entidade de lista no aplicativo LUIS não foi alterada, mas a capacidade de previsão no ponto final é estendida para incluir até 2 listas com cerca de 1.000 itens.
-
-### <a name="dynamic-list-json-request-body"></a>Corpo de solicitação JSON da lista dinâmica
-
-Envie o seguinte órgão JSON para adicionar uma nova sublista com sinônimos à `LUIS`lista e `POST` prever a entidade de lista para o texto, com a solicitação de previsão de consulta:
-
-```JSON
-{
-    "query": "Send Hazem a message to add an item to the meeting agenda about LUIS.",
-    "options":{
-        "timezoneOffset": "-8:00"
-    },
-    "dynamicLists": [
-        {
-            "listEntity*":"ProductList",
-            "requestLists":[
-                {
-                    "name": "Azure Cognitive Services",
-                    "canonicalForm": "Azure-Cognitive-Services",
-                    "synonyms":[
-                        "language understanding",
-                        "luis",
-                        "qna maker"
-                    ]
-                }
-            ]
-        }
-    ]
-}
-```
-
-A resposta de previsão inclui essa entidade de lista, com todas as outras entidades previstas, pois está definida no pedido.
+Aprenda [conceitos](schema-change-prediction-runtime.md) sobre como estender o aplicativo em tempo de execução de previsão.
 
 ## <a name="deprecation"></a>Reprovação
 

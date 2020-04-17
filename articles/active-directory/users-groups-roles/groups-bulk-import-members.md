@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 09/11/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff4234d9fd28e655e868108e37b09c5afe2767c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 15960caa55274f06159263c1af4a6c8280e83f4e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72517133"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533455"
 ---
-# <a name="bulk-import-group-members-preview-in-azure-active-directory"></a>Membros do grupo de importação em massa (pré-visualização) no Azure Active Directory
+# <a name="bulk-import-group-members-in-azure-active-directory"></a>Membros do grupo de importação em massa no Azure Active Directory
 
 Usando o portal Azure Active Directory (Azure AD), você pode adicionar um grande número de membros a um grupo usando um arquivo CSV (Comma-Separated Values, valores separados por comuma) para membros do grupo de importação em massa.
 
@@ -30,7 +30,7 @@ Usando o portal Azure Active Directory (Azure AD), você pode adicionar um grand
 1. No Azure AD, selecione **Grupos Todos** > **os grupos**.
 1. Abra o grupo ao qual você está adicionando membros e, em seguida, selecione **Membros**.
 1. Na página **Membros,** selecione **Importar membros**.
-1. Na página Membros do **grupo de importação em massa (Preview),** selecione **Baixar** para obter o modelo de arquivo CSV com as propriedades de membro do grupo necessárias.
+1. Na página membros do **grupo de importação em massa,** selecione **Baixar** para obter o modelo de arquivo CSV com as propriedades de membro do grupo necessárias.
 
     ![O comando Importar Membros está na página de perfil do grupo](./media/groups-bulk-import-members/import-panel.png)
 
@@ -38,16 +38,16 @@ Usando o portal Azure Active Directory (Azure AD), você pode adicionar um grand
 
    ![O arquivo CSV contém nomes e IDs para os membros importarem](./media/groups-bulk-import-members/csv-file.png)
 
-1. Na página Membros do **grupo de importação em massa (Preview),** em Upload seu arquivo **csv**, navegue até o arquivo. Quando você seleciona o arquivo, a validação do arquivo CSV é iniciada.
+1. Na página membros do **grupo de importação Bulk,** em **Upload seu arquivo csv**, navegue até o arquivo. Quando você seleciona o arquivo, a validação do arquivo CSV é iniciada.
 1. Quando o conteúdo do arquivo é validado, a página de importação em massa exibe **o arquivo carregado com sucesso**. Se houver erros, você precisará corrigi-los antes de enviar o trabalho.
 1. Quando o arquivo passar pela validação, **selecione Enviar** para iniciar a operação em massa do Azure que importa os membros do grupo para o grupo.
 1. Quando a operação de importação for concluída, você verá uma notificação de que a operação em massa foi bem sucedida.
 
 ## <a name="check-import-status"></a>Verifique o status de importação
 
-Você pode ver o status de todas as suas solicitações em massa pendentes na página **resultados da operação Bulk (visualização).**
+Você pode ver o status de todas as suas solicitações em massa pendentes na página de resultados da **operação Bulk.**
 
-   ![A página de resultados de operações em massa mostra o status da solicitação em massa](./media/groups-bulk-import-members/bulk-center.png)
+[![](media/groups-bulk-import-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-import-members/bulk-center.png#lightbox)
 
 Para obter detalhes sobre cada item de linha dentro da operação em massa, selecione os valores nas colunas **#Sucesso**, **# Falha**ou Total **de Solicitações.** Se ocorrerem falhas, os motivos da falha serão listados.
 

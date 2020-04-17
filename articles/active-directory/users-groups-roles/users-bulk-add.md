@@ -1,11 +1,11 @@
 ---
-title: Usuários de criação em massa (pré-visualização) no portal do Azure Active Directory | Microsoft Docs
+title: A granel cria usuários no portal do Azure Active Directory | Microsoft Docs
 description: Adicionar usuários em massa no centro de administrador esporão Azure AD no Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/30/2019
+ms.date: 04/16/2020
 ms.topic: article
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a10dfffa69652ee2b75053c04b97f6492c46811e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c3a8b9cb9701288d24534ab08940f6dbd4a698ad
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72174344"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532911"
 ---
-# <a name="bulk-create-users-preview-in-azure-active-directory"></a>Usuários de criação em massa (visualização) no Azure Active Directory
+# <a name="bulk-create-users-in-azure-active-directory"></a>Usuários de criação em massa no Azure Active Directory
 
 O Azure Active Directory (Azure AD) suporta operações de criação e exclusão em massa de usuários, convite em massa para convidados e suporta listas de download de usuários, grupos e membros do grupo.
 
@@ -40,7 +40,7 @@ Para criar em massa usuários no portal de administração, você deve ser conec
 
    ![O arquivo CSV contém nomes e IDs dos usuários para criar](./media/users-bulk-add/add-csv-file.png)
 
-1. Na página **Bulk create user (Preview),** em Upload seu arquivo CSV, navegue até o arquivo. Quando você selecionar o arquivo e clicar **em Enviar,** a validação do arquivo CSV é iniciada.
+1. Na **página de usuário criar em massa,** em Upload seu arquivo CSV, navegue até o arquivo. Quando você selecionar o arquivo e clicar **em Enviar,** a validação do arquivo CSV é iniciada.
 1. Depois que o conteúdo do arquivo for validado, você verá **O arquivo carregado com sucesso**. Se houver erros, você precisará corrigi-los antes de enviar o trabalho.
 1. Quando o seu arquivo passar pela validação, **selecione Enviar** para iniciar a operação em massa do Azure que importa os novos usuários.
 1. Quando a operação de importação for concluída, você verá uma notificação do status do trabalho de operação em massa.
@@ -49,9 +49,9 @@ Se houver erros, você pode baixar e visualizar o arquivo de resultados na pági
 
 ## <a name="check-status"></a>Verificar o status
 
-Você pode ver o status de todas as suas solicitações em massa pendentes na página **resultados da operação Bulk (visualização).**
+Você pode ver o status de todas as suas solicitações em massa pendentes na página de resultados da **operação Bulk.**
 
-   ![Verifique o status de upload na página Resultados de Operações em Massa](./media/users-bulk-add/bulk-center.png)
+   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
 
 Em seguida, você pode verificar se os usuários que você criou existem na organização Azure AD, seja no portal Azure ou usando o PowerShell.
 

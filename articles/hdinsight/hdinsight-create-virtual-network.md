@@ -5,37 +5,37 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 6fd23e3d41dda15b1ec439c1e8b02073722b8871
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/16/2020
+ms.openlocfilehash: 0c7791d43ffbbc13ab151362c5c3026ebbdb0d34
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272533"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531009"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Crie redes virtuais para clusters Azure HDInsight
 
-Este artigo fornece exemplos e amostras de código para criar e configurar [redes virtuais do Azure](../virtual-network/virtual-networks-overview.md) para uso com clusters Azure HDInsight. São apresentados exemplos detalhados de criação de grupos de segurança de rede (NSGs) e configuração de DNS. 
+Este artigo fornece exemplos e amostras de código para criar e configurar [redes virtuais do Azure.](../virtual-network/virtual-networks-overview.md) Para usar com clusters Azure HDInsight. São apresentados exemplos detalhados de criação de grupos de segurança de rede (NSGs) e configuração de DNS.
 
 Para obter informações sobre o uso de redes virtuais com o Azure HDInsight, consulte [Planejar uma rede virtual para o Azure HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## <a name="prerequisites-for-code-samples-and-examples"></a>Pré-requisitos para amostras de código e exemplos
 
-Antes de executar qualquer uma das amostras de código neste artigo, ou deve ter um entendimento da rede TCP/IP. Se você não estiver familiarizado com a rede TCP/IP, consulte alguém que esteja antes de fazer modificações nas redes de produção.
+Antes de executar qualquer uma das amostras de código neste artigo, tenha um entendimento da rede TCP/IP. Se você não estiver familiarizado com a rede TCP/IP, consulte alguém antes de fazer modificações nas redes de produção.
 
-Outros pré-requisitos para as amostras deste artigo incluem o seguinte:
+Outros pré-requisitos para as amostras deste artigo incluem os seguintes itens:
 
 * Se você estiver usando o PowerShell, você precisará instalar o [Módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
-* Se você quiser usar o Azure CLI e ainda não o tiver instalado, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Se você quiser usar o Azure CLI e ainda não instalá-lo, consulte [Instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  
 > Se estiver buscando orientações passo a passo sobre como conectar o HDInsight à sua rede local usando uma Rede Virtual do Azure, consulte o documento [Conectar o HDInsight à sua rede local](connect-on-premises-network.md).
 
 ## <a name="example-network-security-groups-with-hdinsight"></a><a id="hdinsight-nsg"></a>Exemplo: grupos de segurança de rede com o HDInsight
 
-Os exemplos desta seção demonstram como criar regras do grupo de segurança de rede que permitem que o HDInsight se comunique com os serviços de gerenciamento do Azure. Antes de usar os exemplos, ajuste os endereços IP para que eles correspondam àqueles da região do Azure que estão sendo usados. Você pode encontrar essas informações em [endereços IP de gerenciamento HDInsight](hdinsight-management-ip-addresses.md).
+Os exemplos nesta seção demonstram como criar regras do grupo de segurança de rede. As regras permitem que o HDInsight se comunique com os serviços de gerenciamento do Azure. Antes de usar os exemplos, ajuste os endereços IP para corresponder aos da região do Azure que você está usando. Você pode encontrar essas informações em [endereços IP de gerenciamento HDInsight](hdinsight-management-ip-addresses.md).
 
 ### <a name="azure-resource-management-template"></a>Modelo do Azure Resource Manager
 
@@ -151,7 +151,7 @@ Set-AzVirtualNetworkSubnetConfig `
 $vnet | Set-AzVirtualNetwork
 ```
 
-Este exemplo demonstra como adicionar regras para permitir o tráfego de entrada nos endereços IP necessários. Ele não contém uma regra para restringir o acesso de entrada de outras fontes. O código a seguir demonstra como habilitar o acesso ssh a partir da Internet:
+Este exemplo demonstra como adicionar regras para permitir o tráfego de entrada nos endereços IP necessários. Não contém uma regra para restringir o acesso de entrada de outras fontes. O código a seguir demonstra como habilitar o acesso ssh a partir da Internet:
 
 ```powershell
 Get-AzNetworkSecurityGroup -Name hdisecure -ResourceGroupName RESOURCEGROUP |
@@ -202,7 +202,6 @@ Use as etapas a seguir para criar uma rede virtual que restringe o tráfego de e
 
     Depois que esse comando for concluído, instale o HDInsight na Rede Virtual.
 
-
 Essas etapas apenas abrem o acesso ao serviço de integridade e gerenciamento do HDInsight na nuvem do Azure. Qualquer outro acesso ao cluster HDInsight de fora da Rede Virtual permanecerá bloqueado. Para habilitar o acesso de fora da rede virtual, você deve acrescentar regras de Grupo de Segurança de Rede adicionais.
 
 O código a seguir demonstra como habilitar o acesso ssh a partir da Internet:
@@ -238,7 +237,7 @@ No servidor DNS personalizado da rede virtual:
     az network nic list --resource-group RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. No servidor DNS personalizado da rede virtual, use o seguinte texto como o conteúdo do arquivo `/etc/bind/named.conf.local`:
+1. No servidor DNS personalizado da rede virtual, use o seguinte texto como o conteúdo do arquivo `/etc/bind/named.conf.local`:
 
     ```
     // Forward requests for the virtual network suffix to Azure recursive resolver
@@ -252,7 +251,7 @@ No servidor DNS personalizado da rede virtual:
 
     Essa configuração encaminha todas as solicitações DNS do sufixo DNS da rede virtual para o resolvedor recursivo do Azure.
 
-2. No servidor DNS personalizado da rede virtual, use o seguinte texto como o conteúdo do arquivo `/etc/bind/named.conf.options`:
+1. No servidor DNS personalizado da rede virtual, use o seguinte texto como o conteúdo do arquivo `/etc/bind/named.conf.options`:
 
     ```
     // Clients to accept requests from
@@ -288,9 +287,9 @@ No servidor DNS personalizado da rede virtual:
     
     * Substitua o valor `192.168.0.1` pelo endereço IP do servidor DNS local. Essa entrada encaminha todas as outras solicitações DNS para o servidor DNS local.
 
-3. Para usar a configuração, reinicie o Bind. Por exemplo, `sudo service bind9 restart`.
+1. Para usar a configuração, reinicie o Bind. Por exemplo, `sudo service bind9 restart`.
 
-4. Adicione um encaminhador condicional ao servidor DNS local. Configure o encaminhador condicional para enviar solicitações para o sufixo DNS da etapa 1 para o servidor DNS personalizado.
+1. Adicione um encaminhador condicional ao servidor DNS local. Configure o encaminhador condicional para enviar solicitações para o sufixo DNS da etapa 1 para o servidor DNS personalizado.
 
     > [!NOTE]  
     > Consulte a documentação do software DNS para obter informações específicas sobre como adicionar um encaminhador condicional.
@@ -351,7 +350,7 @@ Este exemplo faz as seguintes suposições:
             allow-query { goodclients; };
 
             forwarders {
-            168.63.129.16;   # Azure recursive resolver         
+            168.63.129.16;   # Azure recursive resolver
             };
 
             dnssec-validation auto;
@@ -360,10 +359,10 @@ Este exemplo faz as seguintes suposições:
             listen-on { any; };
     };
     ```
-    
+
    Substitua os valores `10.0.0.0/16` e `10.1.0.0/16` pelos intervalos de endereços IP das redes virtuais. Essa entrada permite que os recursos em cada rede façam solicitações dos servidores DNS.
 
-    Todas as solicitações não referentes aos sufixos DNS das redes virtuais (por exemplo, microsoft.com) são manipuladas pelo resolvedor recursivo do Azure.
+    Quaisquer solicitações que não sejam para os sufixos DNS das redes virtuais (por exemplo, microsoft.com) são tratadas pelo aresta recursivo do Azure.
 
 4. Para usar a configuração, reinicie o Bind. Por exemplo, `sudo service bind9 restart` em ambos os servidores DNS.
 
@@ -371,7 +370,7 @@ Depois de concluir essas etapas, você poderá se conectar aos recursos na rede 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter um exemplo de ponta a ponta de como configurar o HDInsight para se conectar a uma rede local, consulte [Conectar o HDInsight a uma rede local](./connect-on-premises-network.md).
+* Para obter um exemplo completo de configuração do HDInsight para se conectar a uma rede local, consulte [Conectar HDInsight a uma rede local](./connect-on-premises-network.md).
 * Para configurar os clusters Apache HBase em redes virtuais Do Zure, consulte [Criar clusters Apache HBase no HDInsight na Rede Virtual Azure](hbase/apache-hbase-provision-vnet.md).
 * Para configurar a replicação geográfica do Apache HBase, consulte [Configurar a replicação de cluster do Apache HBase nas redes virtuais do Azure](hbase/apache-hbase-replication.md).
 * Para obter mais informações sobre redes virtuais do Azure, consulte a [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
