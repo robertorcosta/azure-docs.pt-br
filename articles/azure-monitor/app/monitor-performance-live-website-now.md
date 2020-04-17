@@ -3,12 +3,12 @@ title: Monitorar um aplicativo Web ASP.NET dinâmico com o Azure Application Ins
 description: Monitore o desempenho do site sem implantá-lo novamente. Funciona com aplicativos Web ASP.NET hospedado localmente ou em máquinas virtuais.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 63d632df61548d15a1e0a606cf2e198207faf341
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba17ee275a744b88f2c76e7e3f99a1ac9cc8e758
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670042"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536821"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Aplicativos web de instrumentos em tempo de execução com o App Insights Codeless Attach
 
@@ -84,7 +84,7 @@ Se você deseja publicar novamente sem adicionar Application Insights no código
 4. Reaplique as edições realizadas no arquivo .config.
 
 
-## <a name="troubleshooting"></a><a name="troubleshoot"></a>Solução de problemas 
+## <a name="troubleshooting"></a><a name="troubleshoot"></a>Solução de problemas
 
 ### <a name="confirm-a-valid-installation"></a>Confirmar uma instalação válida 
 
@@ -314,7 +314,7 @@ Para aplicativos já instrumentados em tempo de compilação:
 
 Exiba sua telemetria:
 
-* [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorar o desempenho e o uso
+* [Explore as métricas](../../azure-monitor/platform/metrics-charts.md) para monitorar o desempenho e o uso
 * [Pesquise eventos e logs][diagnostic] para diagnosticar problemas
 * [Analise](../../azure-monitor/app/analytics.md) para obter mais consultas avançadas
 

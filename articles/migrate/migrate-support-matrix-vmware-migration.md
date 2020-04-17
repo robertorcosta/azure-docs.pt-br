@@ -2,13 +2,13 @@
 title: Suporte para migração de VMware no Azure Migrate
 description: Saiba mais sobre o suporte para migração de VMware VMno no Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: bf9cc471eef31edd513358a97d2ece17015ba781
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.date: 04/15/2020
+ms.openlocfilehash: eee16b244ae4f9d517bdd42a0b7f37b1494ac480
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314005"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538130"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração de VMware
 
@@ -43,7 +43,7 @@ Revise [este artigo](server-migrate-overview.md) para descobrir qual método voc
 
 **Suporte** | **Detalhes**
 --- | ---
-**Sistemas operacionais suportados** | [Os](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) sistemas operacionais Windows e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) que são suportados pelo Azure podem ser migrados usando migração sem agente.
+**Sistemas operacionais compatíveis** | [Os](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) sistemas operacionais Windows e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) que são suportados pelo Azure podem ser migrados usando migração sem agente.
 **Mudanças necessárias para o Azure** | Algumas VMs podem precisar de alterações para que possam ser executadas no Azure. O Azure Migrate faz essas alterações automaticamente para os seguintes sistemas operacionais:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8<br/><br/> Para outros sistemas operacionais, você precisa fazer ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazer isso.
 **Inicialização do Linux** | Se /boot estiver em uma partição dedicada, ele deve residir no disco do SISTEMA OPERACIONAL e não ser espalhado por vários discos.<br/> Se /boot faz parte da partição raiz (/), então a partição '/' deve estar no disco do SISTEMA OPERACIONAL e não abranger outros discos.
 **Inicialização UEFI** | As VMs com inicialização UEFI não são suportadas para migração.
@@ -64,10 +64,12 @@ Revise [este artigo](server-migrate-overview.md) para descobrir qual método voc
 
 
 ## <a name="agentless-azure-migrate-appliance"></a>Aparelho de migração sem agente-Azure 
-A migração sem agente usa o aparelho Azure Migrate, implantado em uma VMware VMware.
+
+A migração sem agente usa o [aparelho Azure Migrate](migrate-appliance.md). Você pode implantar o aparelho como um VMWare VM usando um modelo OVA, importado para o vCenter Server ou usando um [script PowerShell](deploy-appliance-script.md).
 
 - Saiba mais sobre [os requisitos do aparelho](migrate-appliance.md#appliance---vmware) para VMware.
-- Saiba mais sobre [URLs](migrate-appliance.md#url-access) que o aparelho precisa acessar.
+- Saiba mais sobre URLs que o aparelho precisa acessar em nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
+- No Governo Azure, você deve implantar o aparelho usando o script.
 
 ## <a name="agentless-ports"></a>Portas sem agente
 
@@ -123,7 +125,8 @@ Quando você configura o dispositivo de replicação usando o modelo OVA forneci
 
 - Saiba mais sobre [os requisitos do aparelho de replicação](migrate-replication-appliance.md#appliance-requirements) para VMware.
 - O MySQL deve ser instalado no aparelho. Conheça as [opções de instalação](migrate-replication-appliance.md#mysql-installation).
-- Saiba mais sobre [URLs](migrate-replication-appliance.md#url-access) e [portas](migrate-replication-appliance.md#port-access) que o aparelho de replicação precisa acessar.
+- Saiba mais sobre URLs que o aparelho de replicação precisa acessar em nuvens [públicas](migrate-replication-appliance.md#url-access) e [governamentais.](migrate-replication-appliance.md#azure-government-url-access)
+- Revise as [portas](migrate-replication-appliance.md#port-access) que o aparelho de replicação precisa acessar.
 
 ## <a name="agent-based-ports"></a>Portas baseadas em agentes
 

@@ -4,12 +4,12 @@ description: Alerta para alterações incomuns na taxa de solicitações com fal
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: e1c07fca3a4eee19e56c313a889e5b86ce2b4c42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1bce3ab86748d8247a72da3bd70e0f2e8155dbf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671742"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536804"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detecção Inteligente - anomalias de falha
 [O Application Insights](../../azure-monitor/app/app-insights-overview.md) alerta automaticamente em tempo quase real se o seu aplicativo web experimentar um aumento anormal na taxa de solicitações com falha. Ele detecta um aumento excepcional na taxa de solicitações de HTTP ou chamadas de dependência são relatadas como falha. Para solicitações, as solicitações com falha geralmente têm códigos de resposta de 400 ou mais. Para ajudá-lo a triagem e diagnosticar o problema, uma análise das características das falhas e dados relacionados da aplicação é fornecida nos detalhes do alerta. Também há links para portal do Application Insights, onde você pode obter um diagnóstico mais detalhado. O recurso não precisa de qualquer configuração, pois usa algoritmos de aprendizado de máquina para prever a taxa normal de falhas.
@@ -353,7 +353,7 @@ A Detecção Inteligente de anomalias de falha complementa outros recursos disti
 ## <a name="next-steps"></a>Próximas etapas
 Essas ferramentas de diagnóstico ajudam você a inspecionar os dados do seu aplicativo:
 
-* [Metrics explorer](../../azure-monitor/app/metrics-explorer.md)
+* [Metrics explorer](../../azure-monitor/platform/metrics-charts.md)
 * [Explorador de pesquisa](../../azure-monitor/app/diagnostic-search.md)
 * [Analytics - linguagem de consulta poderosa](../../azure-monitor/log-query/get-started-portal.md)
 

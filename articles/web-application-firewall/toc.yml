@@ -22,6 +22,7 @@
   expanded: true
   items:
     - name: Gateway de Aplicativo
+      expanded: true
       items:
         - name: Implantar o WAF v2 – modelo do ARM
           displayName: Resource Manager

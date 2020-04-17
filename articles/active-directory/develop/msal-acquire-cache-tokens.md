@@ -13,16 +13,16 @@ ms.date: 11/07/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c1f1cbf85b96aade745cc4248aed4bc89e41b450
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 647dff9e6401322371ef795a25ca5ced2b517e9c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77085159"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534577"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquira e cachem tokens usando a biblioteca de autenticação da Microsoft (MSAL)
 
-Os [tokens de acesso](access-tokens.md) permitem que os clientes chamem com segurança as APIs Web protegidas pelo Azure. Há muitas maneiras de adquirir um token usando a MSAL (Biblioteca de Autenticação da Microsoft). Algumas formas exigem interações do usuário por meio de um navegador da Web. Algumas não exigem interações do usuário. Geralmente, a maneira de adquirir um token dependerá se o aplicativo for um aplicativo cliente público (área de trabalho ou aplicativo móvel) ou um aplicativo cliente confidencial (Aplicativo Web, API da Web ou aplicativo daemon, como um serviço do Windows).
+Os [tokens de acesso](access-tokens.md) permitem que os clientes chamem com segurança as APIs Web protegidas pelo Azure. Há muitas maneiras de adquirir um token usando a MSAL (Biblioteca de Autenticação da Microsoft). Algumas formas exigem interações do usuário por meio de um navegador da Web. Algumas não exigem interações do usuário. Em geral, a maneira de adquirir um token depende se o aplicativo é um aplicativo cliente público (desktop ou aplicativo móvel) ou um aplicativo cliente confidencial (aplicativo web, API web ou aplicativo daemon como um serviço windows).
 
 A MSAL armazena um token em cache após sua aquisição.  Primeiro, o código do aplicativo deve tentar obter um token silenciosamente (a partir do cache), antes de adquirir um token por outros meios.
 
@@ -63,18 +63,18 @@ A MSAL mantém um cache de tokens (ou dois caches para aplicativos cliente confi
 
 ### <a name="recommended-call-pattern-for-public-client-applications"></a>Padrão de chamada recomendado para aplicativos cliente públicos
 
-Primeiro, o código do aplicativo deve tentar obter um token silenciosamente (a partir do cache).  Se a chamada do método retornar um erro ou exceção "IU necessária", tente adquirir um token por outros meios. 
+Primeiro, o código do aplicativo deve tentar obter um token silenciosamente (a partir do cache).  Se a chamada do método retornar um erro ou exceção "IU necessária", tente adquirir um token por outros meios.
 
 No entanto, existem dois fluxos antes dos quais você **não deve** tentar adquirir um token silenciosamente:
 
 - [fluxo de credenciais de cliente](msal-authentication-flows.md#client-credentials), que não usa o cache de tokens do usuário, mas usa um cache de tokens do aplicativo. Esse método se encarrega de verificar o cache de tokens do aplicativo antes de enviar uma solicitação ao STS.
-- [fluxo de código de autorização](msal-authentication-flows.md#authorization-code) em aplicativos Web já que ele resgata o código recebido pelo aplicativo quando ele realizou a conexão do usuário e deu consentimento para mais escopos. Como um código é passado como parâmetro, e não uma conta, o método não pode procurar no cache antes de resgatar o código, o que requer, de qualquer maneira, uma chamada para o serviço.
+- [fluxo de código de autorização](msal-authentication-flows.md#authorization-code) em aplicativos web, pois resgata um código que o aplicativo obteve ao fazer login no usuário, e tê-lo consentir para mais escopos. Como um código é passado como parâmetro, e não uma conta, o método não pode procurar no cache antes de resgatar o código, o que requer, de qualquer maneira, uma chamada para o serviço.
 
-### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>Padrão de chamada recomendado em aplicativos Web usando o fluxo do Código de Autorização
+### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>Padrão de chamada recomendado em aplicativos web usando o fluxo do Código de Autorização
 
 Para aplicativos Web que usam o [fluxo de código de autorização do OpenID Connect](v2-protocols-oidc.md), o padrão recomendado nos controladores é:
 
-- Instancie um aplicativo cliente confidencial com um cache de tokens com serialização personalizada. 
+- Instancie um aplicativo cliente confidencial com um cache de tokens com serialização personalizada.
 - Adquira o token usando o fluxo do código de autorização
 
 ## <a name="acquiring-tokens"></a>Adquirir tokens
@@ -91,8 +91,8 @@ Para aplicativos cliente públicos (área de trabalho ou aplicativo móvel), voc
 
 ### <a name="confidential-client-applications"></a>Aplicativos cliente confidenciais
 
-Para aplicativos cliente confidenciais (aplicativo Web, API Web ou aplicativo daemon como um serviço do Windows), você:
-- Adquire tokens **para o próprio aplicativo** e não para um usuário utilizando o [fluxo de credenciais de cliente](msal-authentication-flows.md#client-credentials). Isso pode ser usado para ferramentas de sincronização ou ferramentas que processam usuários em geral e não um usuário específico. 
+Para aplicativos clientes confidenciais (aplicativo web, API web ou aplicativo daemon como um serviço windows), você:
+- Adquire tokens **para o próprio aplicativo** e não para um usuário utilizando o [fluxo de credenciais de cliente](msal-authentication-flows.md#client-credentials). Isso pode ser usado para ferramentas de sincronização ou ferramentas que processam usuários em geral e não um usuário específico.
 - Use o [fluxo On-behalf-of](msal-authentication-flows.md#on-behalf-of) para uma API Web para chamar uma API em nome do usuário. O aplicativo é identificado com as credenciais do cliente para adquirir um token com base na declaração de um usuário (SAML, por exemplo, ou um token JWT). Esse fluxo é usado por aplicativos que precisam acessar recursos de um usuário específico em chamadas de serviço a serviço.
 - Adquira tokens usando o [fluxo de código de autorização](msal-authentication-flows.md#authorization-code) em aplicativos Web depois que o usuário entrar usando a URL de solicitação de autorização. O aplicativo do OpenID Connect geralmente usa esse mecanismo que permite ao usuário entrar usando o Open ID Connect e acessar as APIs Web em nome do usuário.
 

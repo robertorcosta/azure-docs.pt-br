@@ -1,5 +1,5 @@
 ---
-title: Verifique escopos e funções de aplicativos protegidos da API da Web | Azure
+title: Verifique escopos e funções de aplicativos protegidos da API web | Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda a construir uma API web protegida e configure o código do seu aplicativo.
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: fe029cdec5bca8885a78267c45bace51e7b3c141
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 018e7f9bc389e3d148ff6860dae9fef88991e5c4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80882362"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537161"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API web protegida: verifique escopos e funções de aplicativos
 
@@ -29,8 +29,8 @@ Este artigo descreve como você pode adicionar autorização à sua API web. Ess
 > [!NOTE]
 > Os trechos de código deste artigo são extraídos das seguintes amostras, que são totalmente funcionais:
 >
-> - [ASP.NET tutorial incremental da API da Web](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs#L37) no GitHub
-> - [ASP.NET amostra de API da Web](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/dfd0115533d5a230baff6a3259c76cf117568bd9/TodoListService/Controllers/TodoListController.cs#L48)
+> - [tutorial incremental da Web API do ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs#L37) no GitHub
+> - [ASP.NET amostra de API web](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/dfd0115533d5a230baff6a3259c76cf117568bd9/TodoListService/Controllers/TodoListController.cs#L48)
 
 Para proteger uma API web ASP.NET ou `[Authorize]` ASP.NET Core, você deve adicionar o atributo a um dos seguintes itens:
 
@@ -89,7 +89,7 @@ O `VerifyUserHasAnyAcceptedScope` método faz algo como as seguintes etapas:
     /// method throws an HTTP Unauthorized error with a message noting which scopes are expected in the token.
     /// </summary>
     /// <param name="acceptedScopes">Scopes accepted by this API</param>
-    /// <exception cref="HttpRequestException"/> with a <see cref="HttpResponse.StatusCode"/> set to 
+    /// <exception cref="HttpRequestException"/> with a <see cref="HttpResponse.StatusCode"/> set to
     /// <see cref="HttpStatusCode.Unauthorized"/>
     public static void VerifyUserHasAnyAcceptedScope(this HttpContext context,
                                                      params string[] acceptedScopes)

@@ -3,12 +3,12 @@ title: Dispositivo de replicação de Migrações para Azure
 description: Saiba mais sobre o dispositivo de replicação Do Azure Migrate para migração VMWare baseada em agentes.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85641f514fc4367f02901eb1dd394cfa204c3ec4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245857"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535206"
 ---
 # <a name="replication-appliance"></a>Aparelho de replicação
 
@@ -28,14 +28,17 @@ O dispositivo de replicação é implantado quando você configura a migração 
 
 **Usado para** | **Detalhes**
 --- |  ---
-Migração baseada em agente VMware VM | Você baixa o modelo OVA do hub Azure Migrate e importa para o vCenter Server para criar a VM do aparelho.
-Migração baseada em agentes de máquina física | Se você não tiver uma infra-estrutura VMware ou se não puder criar um VMware VMM usando um modelo OVA, você baixa um instalador de software do hub Azure Migrate e executa-o para configurar a máquina do aparelho.
+**Migração baseada em agente VMware VM** | Você baixa o modelo OVA do hub Azure Migrate e importa para o vCenter Server para criar a VM do aparelho.
+**Migração baseada em agentes de máquina física** | Se você não tiver uma infra-estrutura VMware ou se não puder criar um VMware VMM usando um modelo OVA, você baixa um instalador de software do hub Azure Migrate e executa-o para configurar a máquina do aparelho.
+
+> [!NOTE]
+> Se você estiver implantando no Azure Government, use o arquivo de instalação para implantar o dispositivo de replicação.
 
 ## <a name="appliance-requirements"></a>Requisitos do aparelho
 
 Quando você configura o dispositivo de replicação usando o modelo OVA fornecido no hub Azure Migrate, o aparelho executa o Windows Server 2016 e cumpre com os requisitos de suporte. Se você configurar o aparelho de replicação manualmente em um servidor físico, certifique-se de que ele está em conformidade com os requisitos.
 
-**Componente** | **Exigência**
+**Componente** | **Requisito**
 --- | ---
  | **Aparelho VMware VM**
 PowerCLI | [A versão 6.0 do PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) deve ser instalada se o aparelho de replicação estiver em execução em uma VMware VMware.
@@ -74,9 +77,9 @@ Baixe e instale no Azure Migrate | Ao instalar o aparelho e for solicitado para 
 
 ## <a name="url-access"></a>acesso à URL
 
-O aparelho de replicação precisa ter acesso a essas URLs.
+O aparelho de replicação precisa ter acesso a essas URLs na nuvem pública do Azure.
 
-**Url** | **Detalhes**
+**URL** | **Detalhes**
 --- | ---
 \*.backup.windowsazure.com | Usado para transferência de dados replicados e coordenação
 \*.store.core.windows.net | Usado para transferência de dados replicados e coordenação
@@ -84,10 +87,26 @@ O aparelho de replicação precisa ter acesso a essas URLs.
 \*.hypervrecoverymanager.windowsazure.com | Usado para operações de gerenciamento de replicação e coordenação
 https:\//management.azure.com | Usado para operações de gerenciamento de replicação e coordenação
 *.services.visualstudio.com | Usado para fins de telemetria (é opcional)
-time.nist.gov | Usados para verificar a sincronização de horário entre a hora do sistema e a hora global.
 time.windows.com | Usados para verificar a sincronização de horário entre a hora do sistema e a hora global.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | A configuração do OVF precisa ter acesso a essas URLs. Elas são usadas pelo Azure Active Directory para o gerenciamento de identidade e controle de acesso
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para concluir o download do MySQL
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | A configuração do aparelho precisa ter acesso a esses URLs. Elas são usadas pelo Azure Active Directory para o gerenciamento de identidade e controle de acesso
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para completar o download do MySQL. Em algumas regiões, o download pode ser redirecionado para a URL do CDN. Certifique-se de que a URL do CDN também é permitida, se necessário.
+
+
+## <a name="azure-government-url-access"></a>Acesso à URL do governo azure
+
+O aparelho de replicação precisa ter acesso a esses URLs no Governo Azure.
+
+**URL** | **Detalhes**
+--- | ---
+\*.backup.windowsazure.us | Usado para transferência de dados replicados e coordenação
+\*.store.core.windows.net | Usado para transferência de dados replicados e coordenação
+\*.blob.core.windows.net | Usado para acessar a conta de armazenamento que armazena os dados replicados
+\*.hypervrecoverymanager.windowsazure.us | Usado para operações de gerenciamento de replicação e coordenação
+https:\//management.usgovcloudapi.net | Usado para operações de gerenciamento de replicação e coordenação
+*.services.visualstudio.com | Usado para fins de telemetria (é opcional)
+time.nist.gov | Usados para verificar a sincronização de horário entre a hora do sistema e a hora global.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | A configuração do aparelho com OVA precisa de acesso a essas URLs. Eles são usados para controle de acesso e gerenciamento de identidade pelo Azure Active Directory.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para completar o download do MySQL. Em algumas regiões, o download pode ser redirecionado para a URL do CDN. Certifique-se de que a URL do CDN também é permitida, se necessário.
 
 ## <a name="port-access"></a>Acesso portuário
 
@@ -107,7 +126,7 @@ Servidor de processo | O servidor de processo recebe dados de replicação, otim
     - As VMs se comunicam com o aparelho de replicação na porta HTTPS 443 de entrada, para o gerenciamento de replicação.
     - O dispositivo de replicação orquestra a replicação com o Azure sobre a porta HTTPS 443.
     - As VMs enviam dados de replicação para o servidor de processo (em execução no aparelho de replicação) na porta HTTPS 9443 de entrada. Essa porta pode ser modificada.
-    - O servidor de processo recebe dados de replicação, otimiza-os e criptografa-os e os envia para o armazenamento do Microsoft Azure pela porta 443 de saída.
+    - O servidor de processo recebe dados de replicação, otimiza e criptografa e os envia para o armazenamento Azure na porta 443.
 5. Os dados de replicação registram primeiro a terra em uma conta de armazenamento de cache no Azure. Esses logs são processados e os dados são armazenados em um disco gerenciado pelo Azure.
 
 ![Arquitetura](./media/migrate-replication-appliance/architecture.png)

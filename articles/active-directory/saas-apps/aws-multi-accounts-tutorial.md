@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/03/2020
+ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a6ab13dea1a1db96cbb2f2ac70b9779eca60591
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 5310c999cc44f0cf35f129751da7472031e6c57a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885208"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537076"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integração do Azure Active Directory com o Amazon Web Services (AWS) (Tutorial legado)
 
@@ -37,7 +37,7 @@ Se você quiser saber mais detalhes sobre a integração do aplicativo SaaS com 
 ![AWS (Amazon Web Services) na lista de resultados](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> Observe que conectar um aplicativo da AWS a todas as suas contas da AWS não é nossa abordagem recomendada. Em vez disso, recomendamos que você use [essa](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) abordagem para configurar várias instâncias da conta da AWS para Várias instâncias de aplicativos da AWS no Azure AD. Você só deve usar [essa](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) abordagem se tiver muito menos número de contas e funções AWS nela. [este](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) modelo não é escalável à medida que as contas e funções da AWS dentro dessas contas crescem. Além [disso, essa](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) abordagem não usa a funcionalidade de importação de funções aws usando o Provisionamento do Usuário Azure AD e, portanto, você tem que adicionar/atualizar/excluir manualmente as funções. Para obter outras limitações [nesta](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) abordagem, consulte os detalhes abaixo.
+> Observe que conectar um aplicativo da AWS a todas as suas contas da AWS não é nossa abordagem recomendada. Em vez disso, recomendamos que você use [essa](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) abordagem para configurar várias instâncias da conta da AWS para Várias instâncias de aplicativos da AWS no Azure AD. Você só deve usar essa abordagem se você tiver muito menos número de contas e funções AWS nele, este modelo não é escalável à medida que as contas e funções da AWS dentro dessas contas crescem. Além disso, essa abordagem não usa a funcionalidade de importação de funções aws usando o Provisionamento do Usuário Azure AD e, portanto, você tem que adicionar/atualizar/excluir manualmente as funções. Para obter outras limitações nesta abordagem, consulte os detalhes abaixo.
 
 **Tenha em atenção que não recomendamos a utilização desta abordagem pelas seguintes razões:**
 

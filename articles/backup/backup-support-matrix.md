@@ -3,12 +3,12 @@ title: Matriz de suporte do Backup do Azure
 description: Fornece um resumo de configurações compatíveis e limitações do serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 120882b15dcf9f27c280984ff6d0df31e38ebb73
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: b87430c9ff7d806fd1fc74d5d2a8270f9db43b53
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878945"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537314"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup do Azure
 
@@ -43,7 +43,7 @@ A tabela a seguir descreve as características dos cofres dos Serviços de Recup
 
 Aqui está o que é suportado se você quiser fazer backup de máquinas no local:
 
-**Computador** | **O que está em backup** | **Localidade** | **Recursos**
+**Computador** | **O que está em backup** | **Localidade** | **Características**
 --- | --- | --- | ---
 **Backup direto de computador Windows com o agente MARS** | Arquivos, pastas, estado do sistema | Volte para o cofre dos Serviços de Recuperação. | Recue três vezes por dia<br/><br/> Sem backup com reconhecimento de aplicativos<br/><br/> Restaurar arquivo, pasta, volume
 **Backup direto de computador Linux com o agente MARS** | Backup não suportado
@@ -63,7 +63,7 @@ Aqui está o que é suportado se você quiser fazer backup de máquinas no local
 
 Aqui está o que é suportado se você quiser fazer backup das VMs do Azure:
 
-**Computador** | **O que está em backup** | **Localidade** | **Recursos**
+**Computador** | **O que está em backup** | **Localidade** | **Características**
 --- | --- | --- | ---
 **Backup do Azure VM usando extensão VM** | Toda a VM | Volte para o cofre. | Extensão instalada quando você habilita o backup de uma VM.<br/><br/> Recue uma vez por dia.<br/><br/> Backup com reconhecimento de aplicativos para VMs do Windows; backup consistente com arquivos para VMs Linux. Você pode configurar a consistência do aplicativo para máquinas Linux usando scripts personalizados.<br/><br/> Restaurar VM ou disco.<br/><br/> Não é possível fazer backup de uma VM Azure para um local no local.
 **Backup do Azure VM usando o agente MARS** | Arquivos, pastas, estado do sistema | Volte para o cofre. | Recue três vezes por dia.<br/><br/> Se você quiser fazer backup de arquivos ou pastas específicas em vez de toda a VM, o agente MARS pode ser executado ao lado da extensão VM.
@@ -90,7 +90,7 @@ O Azure Backup não suporta ajuste automático do relógio para o horário de ve
 
 O suporte de eliminação de duplicação de disco ocorre da seguinte maneira:
 
-- A deduplicação de disco é suportada no local quando você usa DPM ou MABs para fazer backup de VMs Hyper-V que estão executando o Windows. O Windows Server executa a deduplicação de dados (no nível do host) em discos rígidos virtuais (VHDs) que são anexados à VM como armazenamento de backup.
+- A deduplicação de disco é suportada no local quando você usa DPM ou MABS para fazer backup de VMs Hyper-V que estão executando o Windows. O Windows Server executa a deduplicação de dados (no nível do host) em discos rígidos virtuais (VHDs) que são anexados à VM como armazenamento de backup.
 - Não há suporte para a eliminação de duplicação no Azure para qualquer componente de Backup. Quando o DPM e o MABS são implantados no Azure, os discos de armazenamento conectados à VM não podem ser duplicados.
 
 ## <a name="security-and-encryption-support"></a>Suporte de segurança e criptografia

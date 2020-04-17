@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações de suporte e limitações par
 ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: raynew
-ms.openlocfilehash: bf719f9179384ec3dca99d2429f569ef209b5daa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f766bf95bb7e26d942e7dde3f315bbef6d5dc5c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80127714"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535189"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte azure Migrate
 
@@ -69,13 +69,12 @@ Criar um projeto das Migrações para Azure | Sua conta do Azure precisa de perm
 Registrar o dispositivo de Migrações para Azure| O Azure Migrate usa um [aparelho leve do Azure Migrate](migrate-appliance.md) para avaliar máquinas com o Azure Migrate Server Assessment e executar a [migração sem agente](server-migrate-overview.md) de VMs do VMware com o Azure Migrate Server Migration. Este aparelho descobre máquinas e envia metadados e dados de desempenho para o Azure Migrate.<br/><br/> Durante o registro, os provedores de registro (Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault) são registrados com a assinatura escolhida no aparelho, para que a assinatura funcione com o provedor de recursos. Para se cadastrar, você precisa acessar o Contribuinte ou proprietário na assinatura.<br/><br/> **VMware**-Durante o onboarding, o Azure Migrate cria dois aplicativos do Azure Active Directory (Azure AD). O primeiro aplicativo se comunica entre os agentes do aparelho e o serviço Azure Migrate. O aplicativo não tem permissões para fazer chamadas de gerenciamento de recursos do Azure ou ter acesso ao RBAC para recursos. O segundo aplicativo acessa um Azure Key Vault criado na assinatura do usuário apenas para migração de VMware sem agente. Na migração sem agente, o Azure Migrate cria um Key Vault para gerenciar as chaves de acesso à conta de armazenamento de replicação em sua assinatura. Ele tem acesso RBAC no Azure Key Vault (no inquilino do cliente) quando a descoberta é iniciada a partir do aparelho.<br/><br/> **Hiper-V**- Durante o embarque. O Azure Migrate cria um aplicativo Azure AD. O aplicativo se comunica entre os agentes do aparelho e o serviço Azure Migrate. O aplicativo não tem permissões para fazer chamadas de gerenciamento de recursos do Azure ou ter acesso ao RBAC para recursos. | Configuração para [servidores VMware,](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance)ou [físicos.](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance)
 Crie um cofre-chave para migração sem agente VMware | Para migrar vMs vmware com migração de servidor Azure Migrate sem agente, o Azure Migrate cria um Key Vault para gerenciar chaves de acesso à conta de armazenamento de replicação em sua assinatura. Para criar o cofre, você define permissões (Proprietário, ou Administrador de Acesso ao Usuário) no grupo de recursos em que o projeto Azure Migrate reside. | [Configure](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) permissões.
 
-## <a name="supported-geographies"></a>Geografias suportadas
+## <a name="supported-geographies-public-cloud"></a>Geografias suportadas (nuvem pública)
 
-Você pode criar um projeto Azure Migrate em várias geografias. Embora você só possa criar projetos nessas geografias, você pode avaliar ou migrar máquinas para outros locais-alvo. A região geográfica do projeto é usada apenas para armazenar os metadados descobertos.
+Você pode criar um projeto Azure Migrate em várias geografias na nuvem pública. Embora você só possa criar projetos nessas geografias, você pode avaliar ou migrar máquinas para outros locais-alvo. A região geográfica do projeto é usada apenas para armazenar os metadados descobertos.
 
 **Geografia** | **Local de armazenamento de metadados**
 --- | ---
-Azure Government | Gov. dos EUA – Virgínia
 Pacífico Asiático | Leste da Ásia ou Sudeste Asiático
 Austrália | Austrália Leste ou Austrália Sudeste
 Brasil | Sul do Brasil
@@ -89,9 +88,13 @@ United Kingdom | Sul do Reino Unido ou Oeste do Reino Unido
 Estados Unidos | Eua Central ou Oeste dos EUA 2
 
 
- > [!NOTE]
- > O suporte ao Governo Azure está atualmente disponível apenas para a [versão mais antiga](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) do Azure Migrate.
+## <a name="supported-geographies-azure-government"></a>Geografias apoiadas (Governo Azure)
 
+**Tarefa** | **Geografia** | **Detalhes**
+--- | --- | ---
+Criar projeto | Estados Unidos | Metadados são armazenados em US Gov Arizona, US Gov Virginia
+Avaliação de metas | Estados Unidos | Regiões alvo: US Gov Arizona, US Gov Virginia/US Gov Texas
+Replicação de destino | Estados Unidos | Regiões alvo: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
 
 
 ## <a name="vmware-assessment-and-migration"></a>Avaliação e migração de VMware

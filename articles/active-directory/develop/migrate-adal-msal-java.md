@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
-ms.openlocfilehash: 2929b94a2cb624b96649292714fe93dea09a2085
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7ba845e79074313f0ccf2c066ba016bd72d46efe
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886493"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534560"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guia de migração ADAL para MSAL para Java
 
@@ -82,7 +82,7 @@ Se você `https://login.microsoftonline.com/common` usar a autoridade em v2.0, o
 
 O ponto de extremidade v1.0 (usado pela ADAL) só emite tokens v1.0.
 
-O ponto final v2.0 (usado pela MSAL) pode emitir tokens v1.0 e v2.0. Uma propriedade de manifesto do aplicativo de API Web permite que os desenvolvedores escolham qual versão do token é aceita. Veja `accessTokenAcceptedVersion` na [documentação de](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) referência do manifesto da aplicação.
+O ponto final v2.0 (usado pela MSAL) pode emitir tokens v1.0 e v2.0. Uma propriedade do manifesto de aplicação da API web permite que os desenvolvedores escolham qual versão do token é aceita. Veja `accessTokenAcceptedVersion` na [documentação de](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) referência do manifesto da aplicação.
 
 Para obter mais informações sobre tokens v1.0 e v2.0, consulte [tokens de acesso do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
 
@@ -109,7 +109,8 @@ PublicClientApplication app = PublicClientApplication.builder(CLIENT_ID) // Clie
 IAuthenticationResult result = app.acquireToken(parameters);
 ```
 
-O `IAuthenticationResult` retorna um token de acesso e token de ID, enquanto seu novo token de atualização é armazenado no cache. O aplicativo também agora conterá uma IConta:
+O `IAuthenticationResult` retorna um token de acesso e token de ID, enquanto seu novo token de atualização é armazenado no cache.
+O aplicativo também agora conterá uma IConta:
 
 ```java
 Set<IAccount> accounts =  app.getAccounts().join();
@@ -118,6 +119,6 @@ Set<IAccount> accounts =  app.getAccounts().join();
 Para usar os tokens que estão agora no cache, ligue para:
 
 ```java
-SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build(); 
+SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build();
 IAuthenticationResult result = app.acquireToken(parameters);
 ```

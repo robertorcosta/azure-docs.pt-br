@@ -3,12 +3,12 @@ title: Gerenciar e monitorar DBs do SQL Server em uma VM Azure
 description: Este artigo descreve como gerenciar e monitorar bancos de dados SQL Server que estão sendo executados em uma VM Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 4daf068e97a08d1a611ef64cb64569cacd5d7420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74172150"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537297"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerenciar e monitorar backup de bancos de dados do SQL Server
 
@@ -38,7 +38,7 @@ Uma vez que os backups de log ocorrem a cada 15 minutos, monitorar os trabalhos 
 
 Para monitorar os alertas de backup do banco de dados:
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. No painel de cofres, selecione **Alertas e Eventos**.
 
@@ -59,7 +59,7 @@ Se você optar por deixar os pontos de recuperação, tenha em mente estes detal
 
 - Todos os pontos de recuperação permanecerão intactos para sempre, toda a remoção será interrompida ao parar a proteção com os dados de retenção.
 - Você será cobrado pela instância protegida e pelo armazenamento consumido. Para obter mais informações, consulte [os preços do Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
-- Se você excluir uma fonte de dados sem interromper os backups, os novos backups falharão.
+- Se você excluir uma fonte de dados sem interromper os backups, os novos backups falharão. Os pontos de recuperação antigos expirarão de acordo com a política, mas um último ponto de recuperação será sempre mantido até que você pare os backups e exclua os dados.
 
 Para interromper a proteção para um banco de dados:
 
@@ -113,7 +113,7 @@ Você pode executar diferentes tipos de backups sob demanda:
 - Backup diferencial
 - Backup de log
 
-Embora você precise especificar a duração da retenção para backup completo somente do Copy, o intervalo de retenção para backup completo demanda será automaticamente definido para 45 dias a partir do momento atual.
+Embora você precise especificar a duração da retenção para backup completo somente do Copy, o intervalo de retenção para backup completo sob demanda será automaticamente definido para 45 dias a partir do momento atual.
 
 Para obter mais informações, consulte [os tipos de backup do SQL Server](backup-architecture.md#sql-server-backup-types).
 

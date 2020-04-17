@@ -1,17 +1,14 @@
 ---
 title: Adicione uma ferramenta de avaliação/migração no Azure Migrate
 description: Descreve como criar um projeto do Azure Migrate e adicionar uma ferramenta de avaliação/migração.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 319d97d96bd054aed90079777e2ff83d0e308e5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.date: 04/16/2020
+ms.openlocfilehash: 48bdea31d17ea1ddf0b983af962dce30b22d8dcf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74185945"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537722"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Adicionar uma ferramenta de avaliação/migração pela primeira vez
 
@@ -37,28 +34,14 @@ Configure um novo projeto do Azure Migrate em uma assinatura do Azure e adicione
 
 1. Em **Descobrir, avaliar e migrar servidores**, clique em **Adicionar ferramentas**.
 2. Em **Migrar projeto**, selecione sua assinatura do Azure e crie um grupo de recursos, caso não tenha um.
-3. Em **Detalhes do projeto,** especifique o nome do projeto e a geografia em que deseja criar o projeto. 
+3. Em **Detalhes do projeto,** especifique o nome do projeto e a geografia em que deseja criar o projeto.  Revisão apoiou geografias para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
 
     ![Criar um projeto das Migrações para Azure](./media/how-to-add-tool-first-time/migrate-project.png)
 
-    Você pode criar um projeto de Migrações para Azure em qualquer uma dessas regiões.
+    - A localização geográfica especificada para o projeto só é usada para armazenar os metadados coletados das VMs locais. Você pode selecionar qualquer região de destino para a migração real.
+    - Se você precisar implantar um projeto dentro de uma região específica em uma geografia, use a Seguinte API para criar um projeto. Especifique o ID de assinatura, o nome do grupo de recursos e o nome do projeto, juntamente com a localização. Revisar as geografias/regiões para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais](migrate-support-matrix.md#supported-geographies-azure-government).
 
-   **Geografia** | **Região de localização de armazenamento**
-    --- | ---
-    Ásia   | Sudeste Asiático ou Leste da Ásia
-    Europa | Norte da Europa ou Europa Ocidental
-    Japão  | Japão Leste ou Japão Oeste
-    United Kingdom | Sul do Reino Unido ou Oeste do Reino Unido
-    Estados Unidos | Eua Central ou Oeste dos EUA 2
-    Canada | Canadá Central
-    Índia  | Índia Central ou Índia Sul
-    Austrália | Austrália Sudeste
-
-    A localização geográfica especificada para o projeto só é usada para armazenar os metadados coletados das VMs locais. Você pode selecionar qualquer região de destino para a migração real.
-
-    Se você quiser especificar uma região específica dentro de uma geografia para implantar o projeto migração e seus recursos associados (as restrições de diretiva em sua assinatura podem permitir a implantação de recursos do Azure apenas para uma região Azure específica), você pode usar a API abaixo para criar um projeto de migração. Especifique o ID de assinatura, nome do grupo de recursos, nome do projeto Migrar junto com a localização (qualquer uma das regiões do Azure mencionadas na tabela onde o Azure Migrate é implantado.)
-
-    `PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"`   
+        `PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"`   
 
 
 4. Clique **em Next**e adicione uma ferramenta de avaliação ou migração.
@@ -68,7 +51,7 @@ Configure um novo projeto do Azure Migrate em uma assinatura do Azure e adicione
 
 5. Na **ferramenta de avaliação Select,** adicione uma ferramenta de avaliação. Se você não precisar de uma ferramenta de avaliação, selecione **Skip adicionando uma ferramenta de avaliação por enquanto** > **Next**. 
 2. Na **ferramenta De seleção de migração,** adicione uma ferramenta de migração conforme necessário. Se você não precisar de uma ferramenta de migração agora, **selecione Skip adicionando uma ferramenta de migração para agora** > **Next**.
-3. Em **'Revisar + adicionar ferramentas',** revise as configurações e clique **em Adicionar ferramentas**.
+3. Em **Examinar + adicionar ferramentas**, examine as configurações e clique em **Adicionar ferramentas**.
 
 Depois de criar o projeto, você pode selecionar ferramentas adicionais para avaliação e migração de servidores e cargas de trabalho, bancos de dados e aplicativos web.
 

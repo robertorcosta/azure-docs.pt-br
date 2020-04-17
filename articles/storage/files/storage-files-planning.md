@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 76a96d36387f55889b65f16ea1ca6ec07359c377
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5bf3a6df9d7292c18a93737fb7dea5d8c91f984
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502440"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536466"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 [Os arquivos do Azure](storage-files-introduction.md) podem ser implantados de duas maneiras principais: montando diretamente os compartilhamentos de arquivos Do Zure sem servidor ou arquivar os compartilhamentos de arquivos do Azure no local usando o Azure File Sync. Qual opção de implantação você escolhe muda as coisas que você precisa considerar como você planeja para sua implantação. 
@@ -28,7 +28,7 @@ Este artigo aborda principalmente considerações de implantação para a implan
 
 Ao implantar compartilhamentos de arquivos do Azure em contas de armazenamento, recomendamos:
 
-- Apenas a implantação de compartilhamentos de arquivos do Azure em contas de armazenamento com outros compartilhamentos de arquivos do Azure. Embora as contas de armazenamento GPv2 permitam que você tenha contas de armazenamento de propósito misto, uma vez que recursos de armazenamento, como compartilhamentos de arquivos do Azure e contêineres blob compartilham os limites da conta de armazenamento, a mistura de recursos em conjunto pode tornar mais difícil solucionar problemas problemas de desempenho mais tarde. 
+- Apenas a implantação de compartilhamentos de arquivos do Azure em contas de armazenamento com outros compartilhamentos de arquivos do Azure. Embora as contas de armazenamento GPv2 permitam que você tenha contas de armazenamento de propósito misto, uma vez que recursos de armazenamento, como compartilhamentos de arquivos do Azure e contêineres blob compartilham os limites da conta de armazenamento, a mistura de recursos em conjunto pode tornar mais difícil solucionar problemas de desempenho mais tarde. 
 
 - Prestando atenção às limitações de IOPS de uma conta de armazenamento ao implantar compartilhamentos de arquivos DoZure. Idealmente, você mapearia compartilhamentos de arquivos 1:1 com contas de armazenamento, no entanto, isso pode nem sempre ser possível devido a vários limites e restrições, tanto da sua organização quanto do Azure. Quando não for possível ter apenas um compartilhamento de arquivo implantado em uma conta de armazenamento, considere quais ações serão altamente ativas e quais ações serão menos ativas para garantir que as ações de arquivo mais quentes não sejam colocadas na mesma conta de armazenamento juntas.
 
@@ -36,8 +36,8 @@ Ao implantar compartilhamentos de arquivos do Azure em contas de armazenamento, 
 
 ## <a name="identity"></a>Identidade
 Para acessar um compartilhamento de arquivos do Azure, o usuário do compartilhamento de arquivos deve ser autenticado e ter autorização para acessar o compartilhamento. Isso é feito com base na identidade do usuário que acessa o compartilhamento de arquivos. O Azure Files integra-se a três principais provedores de identidade:
-- **Active Directory** (visualização) de propriedade do cliente: as contas de armazenamento do Azure podem ser acompanhadas de domínio a um diretório ativo do Windows Server de propriedade do cliente, assim como um servidor de arquivos do Windows Server ou um dispositivo NAS. O controlador de domínio do diretório ativo pode ser implantado no local, em uma VM azure ou até mesmo como uma VM em outro provedor de nuvem; Azure Files é agnóstico para onde seu DC está hospedado. Uma vez que uma conta de armazenamento é acompanhada por domínio, o usuário final pode montar um compartilhamento de arquivos com a conta de usuário com a que entrou em seu PC. A autenticação baseada em AD usa o protocolo de autenticação Kerberos.
-- **Azure Active Directory Domain Services (Azure AD DS)**: O Azure AD DS fornece um Controlador de Domínio de Diretório Ativo gerenciado pela Microsoft que pode ser usado para recursos do Azure. O domínio que une sua conta de armazenamento ao Azure AD DS fornece benefícios semelhantes ao domínio que a une a um Active Directory de propriedade do cliente. Essa opção de implantação é mais útil para cenários de elevação e mudança de aplicativos que requerem permissões baseadas em Anúncios. Como o Azure AD DS fornece autenticação baseada em AD, essa opção também usa o protocolo de autenticação Kerberos.
+- **Serviços de domínio de diretório ativo no local (AD DS, ou AD DS no local)** (visualização): as contas de armazenamento do Azure podem ser acompanhadas de domínio a um cliente, Active Directory Domain Services, assim como um servidor de arquivos do Windows Server ou um dispositivo NAS. Você pode implantar um controlador de domínio no local, em uma VM do Azure, ou mesmo como uma VM em outro provedor de nuvem; O Azure Files é agnóstico para onde seu controlador de domínio está hospedado. Uma vez que uma conta de armazenamento é acompanhada por domínio, o usuário final pode montar um compartilhamento de arquivos com a conta de usuário com a que entrou em seu PC. A autenticação baseada em AD usa o protocolo de autenticação Kerberos.
+- **Azure Active Directory Domain Services (Azure AD DS)**: O Azure AD DS fornece um controlador de domínio gerenciado pela Microsoft que pode ser usado para recursos do Azure. O domínio que une sua conta de armazenamento ao Azure AD DS fornece benefícios semelhantes ao domínio que a une a um Active Directory de propriedade do cliente. Essa opção de implantação é mais útil para cenários de elevação e mudança de aplicativos que requerem permissões baseadas em Anúncios. Como o Azure AD DS fornece autenticação baseada em AD, essa opção também usa o protocolo de autenticação Kerberos.
 - **Chave da conta de armazenamento do Azure**: os compartilhamentos de arquivos Do Azure também podem ser montados com uma chave de conta de armazenamento Azure. Para montar um compartilhamento de arquivos desta forma, o nome da conta de armazenamento é usado como nome de usuário e a chave da conta de armazenamento é usada como senha. Usar a chave da conta de armazenamento para montar o compartilhamento de arquivos do Azure é efetivamente uma operação de administrador, uma vez que o compartilhamento de arquivos montado terá permissões completas para todos os arquivos e pastas no compartilhamento, mesmo que eles tenham ACLs. Ao usar a chave da conta de armazenamento para montar sobre SMB, o protocolo de autenticação NTLMv2 é usado.
 
 Para clientes que migram de servidores de arquivos locais ou criam novos compartilhamentos de arquivos em Arquivos Azure destinados a se comportar como servidores de arquivos Windows ou dispositivos NAS, o domínio que une sua conta de armazenamento ao **Active Directory de propriedade do cliente** é a opção recomendada. Para saber mais sobre o domínio que adere sua conta de armazenamento a um Active Directory de propriedade do cliente, consulte [a visão geral do Azure Files Active Directory](storage-files-active-directory-overview.md).
@@ -49,7 +49,7 @@ Os compartilhamentos de arquivos do Azure são acessíveis de qualquer lugar atr
 
 Para desbloquear o acesso ao compartilhamento de arquivos do Azure, você tem duas opções principais:
 
-- Desbloquear porta 445 para a rede local da sua organização. Os compartilhamentos de arquivos do Azure só podem ser acessados externamente através do ponto final público usando protocolos seguros para a Internet, como o SMB 3.0 e a API FileREST. Esta é a maneira mais fácil de acessar o compartilhamento de arquivos do Azure no local, uma vez que não requer configuração avançada de rede além de alterar as regras de porta de saída da sua organização, no entanto, recomendamos que você remova versões herdadas e depreciadas do SMB protocolo, ou seja, SMB 1.0. Para saber como fazer isso, consulte [Protegendo o Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server) e protegendo o [Linux](storage-how-to-use-files-linux.md#securing-linux).
+- Desbloquear porta 445 para a rede local da sua organização. Os compartilhamentos de arquivos do Azure só podem ser acessados externamente através do ponto final público usando protocolos seguros para a Internet, como o SMB 3.0 e a API FileREST. Esta é a maneira mais fácil de acessar o compartilhamento de arquivos do Azure no local, uma vez que não requer configuração avançada de rede além de alterar as regras de porta de saída da sua organização, no entanto, recomendamos que você remova versões herdadas e depreciadas do protocolo SMB, ou seja, SMB 1.0. Para saber como fazer isso, consulte [Protegendo o Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server) e protegendo o [Linux](storage-how-to-use-files-linux.md#securing-linux).
 
 - Acesse os compartilhamentos de arquivos do Azure através de uma conexão ExpressRoute ou VPN. Quando você acessa o compartilhamento de arquivos do Azure através de um túnel de rede, você é capaz de montar o compartilhamento de arquivos do Azure como um compartilhamento de arquivos no local, uma vez que o tráfego de SMB não atravessa seu limite organizacional.   
 
@@ -153,7 +153,7 @@ Novas ações de arquivo começam com o número total de créditos em seu balde 
 ### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Permitir que as ações de arquivo padrão abrangem até 100 TiB
 [!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
 
-#### <a name="regional-availability"></a>Disponibilidade regional
+#### <a name="limitations"></a>Limitações
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## <a name="redundancy"></a>Redundância
@@ -171,6 +171,6 @@ Em muitos casos, você não estará estabelecendo um novo compartilhamento de ar
     - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: o AzCopy é um utilitário de linha de comando projetado para copiar dados de e para os Arquivos do Azure e o Armazenamento de Blobs do Azure, usando comandos simples com o desempenho ideal.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+* [Planejamento para uma implantação de sincronização de arquivos do Azure](storage-sync-files-planning.md)
 * [Implantando Arquivos do Azure](storage-files-deployment-guide.md)
 * [Implantando a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)

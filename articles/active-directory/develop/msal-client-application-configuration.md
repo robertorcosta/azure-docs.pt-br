@@ -13,12 +13,12 @@ ms.date: 09/27/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 0262d22ae00456ce06cb8efbf995f1a093b20043
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262887"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534458"
 ---
 # <a name="application-configuration-options"></a>Opções de configuração de aplicativos
 
@@ -106,11 +106,11 @@ O URI de redirecionamento é o URI para o que o provedor de identidade enviará 
 ### <a name="redirect-uri-for-public-client-apps"></a>Redirecionar uri para aplicativos de clientes públicos
 
 Se você é um desenvolvedor de aplicativos cliente público que está usando o MSAL:
-- Você gostaria de `.WithDefaultRedirectUri()` usar em aplicativos desktop ou UWP (MSAL.NET 4.1+). Esse método definirá a propriedade uri de redirecionamento do aplicativo cliente público para o uri de redirecionamento recomendado padrão para aplicações de clientes públicos. 
+- Você gostaria de `.WithDefaultRedirectUri()` usar em aplicativos desktop ou UWP (MSAL.NET 4.1+). Esse método definirá a propriedade uri de redirecionamento do aplicativo cliente público para o uri de redirecionamento recomendado padrão para aplicações de clientes públicos.
 
-  Plataforma  | URI de redirecionamento  
+  Plataforma  | URI de redirecionamento
   ---------  | --------------
-  Aplicativo para desktop (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+  Aplicativo para desktop (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
   UWP | valor `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`de . Isso permite o SSO com o navegador definindo o valor para o resultado do WebAuthenticationBroker.GetCurrentApplicationCallbackUri() que você precisa registrar
   .NET Core | `https://localhost`. Isso permite que o usuário use o navegador do sistema para autenticação interativa, já que o .NET Core não tem uma interface do usuário para a visualização da Web incorporada no momento.
 
@@ -130,7 +130,7 @@ Para obter mais detalhes do Android, consulte [Auth Intermediado no Android](bro
 
 ### <a name="redirect-uri-for-confidential-client-apps"></a>Redirecionar uri para aplicativos clientes confidenciais
 
-Para aplicativos web, o URI redirecionar (ou responder URI) é o URI que o Azure AD usará para enviar o token de volta ao aplicativo. Este URI pode ser a URL do aplicativo web/API da Web se o aplicativo confidencial for um desses. O URI de redirecionamento precisa ser registrado no registro do aplicativo. Este registro é especialmente importante quando você implanta um aplicativo que você testou inicialmente localmente. Em seguida, você precisa adicionar a URL de resposta do aplicativo implantado no portal de registro de aplicativos.
+Para aplicativos web, o URI redirecionar (ou responder URI) é o URI que o Azure AD usará para enviar o token de volta ao aplicativo. Este URI pode ser a URL do aplicativo web/API web se o aplicativo confidencial for um desses. O URI de redirecionamento precisa ser registrado no registro do aplicativo. Este registro é especialmente importante quando você implanta um aplicativo que você testou inicialmente localmente. Em seguida, você precisa adicionar a URL de resposta do aplicativo implantado no portal de registro de aplicativos.
 
 Para aplicativos daemon, você não precisa especificar um URI de redirecionamento.
 

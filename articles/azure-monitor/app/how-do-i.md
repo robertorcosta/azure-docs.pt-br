@@ -3,12 +3,12 @@ title: Como... no Azure Application Insights | Microsoft Docs
 description: Perguntas Frequentes no Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 5b65087c361911f0714723c315e0b7f7e9bb74e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d4b1e79c48b14ed7dce756468e4c48d633c3f04
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663850"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536855"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como ... no Application Insights?
 ## <a name="get-an-email-when-"></a>Receber um email quando...
@@ -45,7 +45,7 @@ Como os alertas têm dois estados, você precisa enviar um valor baixo quando co
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Crie um gráfico no [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) para ver o alarme:
+Crie um gráfico no [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) para ver o alarme:
 
 ![](./media/how-do-i/010-alarm.png)
 
@@ -82,7 +82,7 @@ Considere o seguinte:
 
 ## <a name="visualize-data"></a>Visualizar dados
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Painel com métricas de vários aplicativos
-* No [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md), personalize o gráfico e salve-o como um favorito. Fixe-o no painel do Azure.
+* No [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md), personalize o gráfico e salve-o como um favorito. Fixe-o no painel do Azure.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Painel com dados de outras fontes e Application Insights
 * [Exportar telemetria para o Power BI](../../azure-monitor/app/export-power-bi.md ).
@@ -159,5 +159,5 @@ Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto
 * **Servidor Unix** - [Instalar coletado](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Para exibir mais contadores de desempenho
-* Primeiro, [adicione um novo gráfico](../../azure-monitor/app/metrics-explorer.md) e veja se o contador está no conjunto básico que oferecemos.
+* Primeiro, [adicione um novo gráfico](../../azure-monitor/platform/metrics-charts.md) e veja se o contador está no conjunto básico que oferecemos.
 * Caso contrário, [adicione o contador ao conjunto coletado pelo módulo do contador de desempenho](../../azure-monitor/app/performance-counters.md).

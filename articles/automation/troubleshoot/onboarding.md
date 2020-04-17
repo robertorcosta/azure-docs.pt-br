@@ -8,12 +8,12 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c949556949e0c187d7c23c4dd32436e245bfbb95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae359e5210a9a11c33dd3ff9b474e28aa2548c57
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75889326"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536957"
 ---
 # <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>Solucionando problemas ao embarcar no gerenciamento de atualizações, no rastreamento de alterações e no inventário
 
@@ -72,7 +72,7 @@ Este erro é causado por permissões incorretas ou ausentes na máquina virtual,
 
 #### <a name="resolution"></a>Resolução
 
-Verifique se que você tem as permissões corretas para integrar a máquina virtual. Examine as [permissões necessárias para integrar máquinas](../automation-role-based-access-control.md#onboarding) e tente integrar a solução novamente. Se você receber `The solution cannot be enabled on this VM because the permission to read the workspace is missing`o erro, `Microsoft.OperationalInsights/workspaces/read` certifique-se de ter a permissão para encontrar se a VM está a bordo de um espaço de trabalho.
+Verifique se que você tem as permissões corretas para integrar a máquina virtual. Examine as [permissões necessárias para integrar máquinas](../automation-role-based-access-control.md#onboarding-permissions) e tente integrar a solução novamente. Se você receber `The solution cannot be enabled on this VM because the permission to read the workspace is missing`o erro, `Microsoft.OperationalInsights/workspaces/read` certifique-se de que você tem a permissão para ser capaz de encontrar se a VM está a bordo de um espaço de trabalho.
 
 ### <a name="scenario-onboarding-fails-with-the-message---failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Cenário: Onboarding falha com a mensagem - Falha ao configurar conta de automação para registro de diagnóstico
 
@@ -162,7 +162,7 @@ Depois de remover as soluções, poderá desvincular seu espaço de trabalho. É
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Ao implantar uma solução, vários recursos relacionados são implantados. Um desses recursos é o Microsoft Monitoring Agent Extension ou o agente do Log Analytics para Linux. Estas são extensões de máquina virtual instaladas pelo Agente Convidado da máquina virtual que é responsável por se comunicar com o espaço de trabalho configurado do Log Analytics, com o propósito de coordenar posteriormente o download de binários e outros arquivos que o solução que você está onboarding dependem de uma vez que começa a execução.
+Ao implantar uma solução, vários recursos relacionados são implantados. Um desses recursos é o Microsoft Monitoring Agent Extension ou o agente do Log Analytics para Linux. Estas são extensões de máquina virtual instaladas pelo Agente Convidado da máquina virtual que é responsável por se comunicar com o espaço de trabalho configurado do Log Analytics, com o propósito de coordenar posteriormente o download de binários e outros arquivos que a solução de que você está embarcando depende uma vez que ele começa a execução.
 Em geral, você primeiro toma conhecimento das falhas de instalação do MMA ou do agente do Log Analytics para Linux a partir de uma notificação exibida no Hub de Notificações. Clicar nessa notificação fornece mais informações sobre a falha específica. A navegação para o recurso Grupos de Recursos e, em seguida, para o elemento Deployments dentro dele também fornece detalhes sobre as falhas de implantação que ocorreram.
 A instalação do Agente MMA ou do Log Analytics para Linux pode falhar por diversos motivos, e as etapas a tomar para solucionar essas falhas variam, dependendo do problema. Seguem etapas específicas de solução de problemas.
 
@@ -241,7 +241,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 #### <a name="cause"></a>Causa
 
-Esse erro ocorre porque a máquina virtual está uma carga pesada durante a instalação.
+Esse erro ocorre porque a máquina virtual está sob uma carga pesada durante a instalação.
 
 ### <a name="resolution"></a>Resolução
 

@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 385806dca7dcac9fd0aac4c1bf9e1072e7fe5ecb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5f18e9365b09f06c1bd4f25a8efe909cc308dad
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979484"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537008"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitar o gerenciamento de atualizações, o controle de alterações e as soluções de inventário em várias VMs
 
@@ -33,9 +33,9 @@ Usando as caixas de seleção, selecione as máquinas virtuais que você deseja 
 Na barra de comandos, clique em **serviços** e selecione **controle de alterações**, **inventário**, ou **Update Management**.
 
 > [!NOTE]
-> **Controle de alterações** e **Inventário** usam a mesma solução, quando um está habilitado, o outro também está habilitado.
+> O Rastreamento de Alterações e o Inventário usam a mesma solução. Quando um está habilitado, o outro também está habilitado.
 
-A imagem a seguir é para o gerenciamento de atualizações. O controle de alterações e inventário têm o mesmo layout e comportamento.
+A imagem a seguir é para o gerenciamento de atualizações. O Rastreamento de Alterações e o Inventário têm o mesmo layout e comportamento.
 
 A lista de máquinas virtuais é filtrada para mostrar somente as máquinas virtuais que estão na mesma assinatura e local. Se suas máquinas virtuais estiverem em mais de três grupos de recursos, os três primeiros grupos de recursos serão selecionados.
 
@@ -71,8 +71,8 @@ Clique em ** Ativar ** para ativar a solução. A solução demora até 15 minut
 As seguintes soluções são dependentes de um espaço de trabalho do Log Analytics:
 
 * [Gerenciamento de atualizações](automation-update-management.md)
-* [Rastreamento de alterações](automation-change-tracking.md)
-* [Iniciar/Parar VMs durante os horários inativos](automation-solution-vm-management.md)
+* [Controle de Alterações](automation-change-tracking.md)
+* [Iniciar/parar VMs durante as horas de folga](automation-solution-vm-management.md)
 
 Se você decidir que não deseja mais integrar sua conta de Automação com um espaço de trabalho do Log Analytics, você pode desvincular sua conta diretamente do portal Azure. Antes de prosseguir, você precisa remover as soluções mencionadas anteriormente, caso contrário, esse processo será impedido de continuar. Examine o artigo sobre a solução específica que você importou para entender as etapas necessárias para removê-la.
 
@@ -107,13 +107,13 @@ Alternativamente, você também pode desvincular seu espaço de trabalho de sua 
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Ao integrar várias máquinas, pode haver máquinas que mostrem como ** Não é possível ativar **. Há diferentes razões que algumas máquinas não podem ser ativadas. As seções a seguir mostram possíveis razões para o estado ** Impossível ativar ** em uma VM ao tentar integrar.
+Ao embarcar em várias máquinas, `Cannot enable`pode haver máquinas que mostram como . Há diferentes razões que algumas máquinas não podem ser ativadas. As seções a seguir `Cannot enable` mostram possíveis razões para o estado em uma VM ao tentar embarcar.
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>Relatórios de VM para outro workspace: '\<workspaceName\>'.  Alterar a configuração para usá-lo para ativar
 
 **Causa**: este erro mostra a máquina virtual que você está tentando carregar relatórios para outro workspace.
 
-**Solução**: Clique em **Usar como configuração** para alterar o espaço de trabalho do Log Analytics e da conta de Automação.
+**Solução**: Clique em **Usar como configuração** para alterar a conta de automação direcionada e o espaço de trabalho do Log Analytics.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>Relatórios VM para um workspace que não está disponível nesta assinatura
 
@@ -143,12 +143,12 @@ Ao integrar várias máquinas, pode haver máquinas que mostrem como ** Não é 
 
 ** Solução **: para integrar uma VM a uma solução, a VM deve estar em execução. Clique no link embutido ** Iniciar VM ** para iniciar a VM sem sair da página.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover uma VM do Gerenciamento de Atualizações:
 
 * No espaço de trabalho do Log Analytics, remova a VM da pesquisa salva para a Configuração de Escopo `MicrosoftDefaultScopeConfig-Updates`. As pesquisas salvas podem ser encontradas em **Geral** no workspace.
-* Remover o [agente do Microsoft Monitoring](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente do Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Remova o [agente Log Analytics para Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o agente Log [Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Próximas etapas
 

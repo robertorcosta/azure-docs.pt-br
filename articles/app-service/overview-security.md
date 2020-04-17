@@ -5,12 +5,12 @@ keywords: serviço de aplicativo do azure, aplicativo Web, aplicativo móvel, ap
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: e28935f73511e5ad973929517658cc626b5a6ea2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a098b1924bf7c2866f6afd7452b8dd3b93f3109
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475367"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535648"
 ---
 # <a name="security-in-azure-app-service"></a>Segurança no Serviço de Aplicativo do Azure
 
@@ -31,14 +31,14 @@ As seções a seguir mostram como proteger ainda mais o aplicativo do Serviço d
 
 ## <a name="https-and-certificates"></a>HTTPS e certificados
 
-O Serviço de Aplicativo permite que você proteja os aplicativos com [HTTPS](https://wikipedia.org/wiki/HTTPS). Quando o aplicativo for criado, o nome do domínio padrão (\<app_name>.azurewebsites.net) já estará acessível usando HTTPS. Se você [configurar um domínio personalizado para o seu aplicativo,](app-service-web-tutorial-custom-domain.md)você também deve [protegê-lo com um certificado SSL](configure-ssl-bindings.md) para que os navegadores clientes possam fazer conexões HTTPS seguras ao seu domínio personalizado. Existem vários tipos de certificados suportados pelo App Service:
+O Serviço de Aplicativo permite que você proteja os aplicativos com [HTTPS](https://wikipedia.org/wiki/HTTPS). Quando o aplicativo for criado, o nome do domínio padrão (\<app_name>.azurewebsites.net) já estará acessível usando HTTPS. Se você [configurar um domínio personalizado para o seu aplicativo,](app-service-web-tutorial-custom-domain.md)você também deve [protegê-lo com um certificado TLS/SSL](configure-ssl-bindings.md) para que os navegadores clientes possam fazer conexões HTTPS seguras ao seu domínio personalizado. Existem vários tipos de certificados suportados pelo App Service:
 
 - Certificado gerenciado de serviço de aplicativo gratuito
 - Certificado de serviço de aplicativo
 - Certificado de terceiros
 - Certificado importado do Azure Key Vault
 
-Para obter mais informações, consulte [Adicionar um certificado SSL no Azure App Service](configure-ssl-certificate.md).
+Para obter mais informações, consulte [Adicionar um certificado TLS/SSL no Azure App Service](configure-ssl-certificate.md).
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>Protocolos não seguros (HTTP, TLS 1.0, FTP)
 

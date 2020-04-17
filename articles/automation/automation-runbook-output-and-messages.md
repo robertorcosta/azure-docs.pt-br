@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 457b2d2211ea1ba5fa36cec4b7e9a214f5bcad77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92b6378b00e12f618d07798b5ce789cbd9971544
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367084"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535529"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Saída e mensagens do runbook na Automação do Azure
 
@@ -240,7 +240,7 @@ No entanto, a menos que você exija essas informações para acompanhar o progre
 **Para habilitar o rastreamento em nível de atividade:**
 
 1. No portal do Azure, abra sua conta da Automação.
-2. Selecione **Runbooks** na seção **Automação de Processos** para abrir a lista de runbooks.
+2. Selecione **Runbooks** em **Automação de Processos** para abrir a lista de runbooks.
 3. Na página Runbooks, selecione um runbook gráfico da sua lista de runbooks.
 4. Em **Configurações**, clique em **Log e rastreamento**.
 5. Na página Registro e Rastreamento, em **Log verbose records**, clique **em On** para ativar o registro verbose.
@@ -253,7 +253,7 @@ No entanto, a menos que você exija essas informações para acompanhar o progre
 O Azure Automation pode enviar status de trabalho e fluxos de trabalho para o seu espaço de trabalho log analytics. O Azure Monitor suporta logs que permitem:
 
 * Obter informações sobre os Trabalhos de automação.
-* Acione um e-mail ou alerta com base no status do seu trabalho de runbook, por exemplo, falhou ou suspendeu.
+* Acione um e-mail ou alerta com base no status do seu trabalho de runbook, por exemplo, Falhou ou Suspendeu.
 * Escreva consultas avançadas em fluxos de trabalho.
 * Correlacionar trabalhos em Contas de automação.
 * Visualize o histórico do trabalho.

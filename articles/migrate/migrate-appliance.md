@@ -3,12 +3,12 @@ title: Dispositivo de Migrações para Azure
 description: Fornece uma visão geral do aparelho Azure Migrate usado na avaliação e migração do servidor.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: bccf4738d46b65f2d149eafc8e69591141d7d073
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 130de0824a1671fb0b0e3e980f06f4c3abc689d2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437581"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538215"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
 
@@ -25,11 +25,22 @@ O aparelho Azure Migrate é usado nos seguintes cenários.
 **Avaliação de HiperV VM** | Migração do Azure:Avaliação do servidor | Descubra Hiper-VVs<br/><br/> Coletar metadados da máquina e metadados de desempenho para avaliações.
 **Avaliação da máquina física** |  Migração do Azure:Avaliação do servidor |  Descubra servidores físicos (ou VMs que você trata como servidores físicos).<br/><br/> Coletar metadados da máquina e metadados de desempenho para avaliações.
 
+## <a name="deployment-methods"></a>Métodos de implantação
+
+O aparelho pode ser implantado usando alguns métodos:
+
+- O aparelho pode ser implantado usando um modelo para VMs VMs e VMs Hyper-V (modelo OVA para VMware ou VHD para Hyper-V).
+- Se você não quiser usar um modelo, você pode implantar o aparelho para VMware ou Hyper-V usando um script PowerShell.
+- No Governo Azure, você deve implantar o aparelho usando um script.
+- Para servidores físicos, você sempre implanta o aparelho usando um script.
+- Os links para download estão disponíveis nas tabelas abaixo.
+
+
 ## <a name="appliance---vmware"></a>Aparelho - VMware 
 
 A tabela a seguir resume os requisitos do aparelho Azure Migrate para VMware.
 
-**Exigência** | **Vmware** 
+**Requisito** | **VMware** 
 --- | ---
 **Componentes do aparelho** | O aparelho possui os seguintes componentes:<br/><br/> - **Aplicativo de gerenciamento**: Este é um aplicativo web para entrada do usuário durante a implantação do aparelho. Usado na avaliação de máquinas para migração para o Azure.<br/> - **Agente de descoberta**: O agente coleta dados de configuração da máquina. Usado na avaliação de máquinas para migração para o Azure.<br/>- **Agente de avaliação**: O agente coleta dados de desempenho. Usado na avaliação de máquinas para migração para o Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).<br/>- **Agente DRA**: Orquestra a replicação da VM e coordena a comunicação entre máquinas replicadas e o Azure. Usado apenas ao replicar VMs VMware para o Azure usando migração sem agente.<br/>- **Gateway**: Envia dados replicados para o Azure. Usado apenas ao replicar VMs VMware para o Azure usando migração sem agente.
 **Implantação suportada** | Implante como VMware VM usando o modelo OVA.<br/><br/> Implante como um VMware VM ou máquina física usando o script de instalação PowerShell.
@@ -48,7 +59,7 @@ A tabela a seguir resume os requisitos do aparelho Azure Migrate para VMware.
 
 ## <a name="appliance---hyper-v"></a>Aparelho - Hiper-V
 
-**Exigência** | **Hyper-V** 
+**Requisito** | **Hyper-V** 
 --- | ---
 **Componentes do aparelho** | O aparelho possui os seguintes componentes:<br/><br/>- **Aplicativo de gerenciamento**: Este é um aplicativo web para entrada do usuário durante a implantação do aparelho. Usado na avaliação de máquinas para migração para o Azure.<br/> - **Agente de descoberta**: O agente coleta dados de configuração da máquina. Usado na avaliação de máquinas para migração para o Azure.<br/>- **Agente de avaliação**: O agente coleta dados de desempenho. Usado na avaliação de máquinas para migração para o Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).
 **Implantação suportada** | Implante como Hyper-V VM usando um modelo VHD.<br/><br/> Implante como um VM Hiper-V ou máquina física usando um script de instalação PowerShell.
@@ -64,10 +75,10 @@ A tabela a seguir resume os requisitos do aparelho Azure Migrate para VMware.
 
 ## <a name="appliance---physical"></a>Aparelho - Físico
 
-**Exigência** | **Físico** 
+**Requisito** | **Físico** 
 --- | ---
 **Componentes do aparelho** | O aparelho possui os seguintes componentes: <br/><br/> - **Aplicativo de gerenciamento**: Este é um aplicativo web para entrada do usuário durante a implantação do aparelho. Usado na avaliação de máquinas para migração para o Azure.<br/> - **Agente de descoberta**: O agente coleta dados de configuração da máquina. Usado na avaliação de máquinas para migração para o Azure.<br/>- **Agente de avaliação**: O agente coleta dados de desempenho. Usado na avaliação de máquinas para migração para o Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).
-**Implantação suportada** | Implante como uma máquina física dedicada, ou uma VM, usando um script de instalação PowerShell.
+**Implantação suportada** | Implante como uma máquina física dedicada, ou uma VM, usando um script de instalação PowerShell. O roteiro está disponível para download no portal.
 **Suporte ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Limites de descoberta** | Um aparelho pode descobrir até 250 servidores físicos.
 **Script PowerShell** | Baixe o script (AzureMigrateInstaller.ps1) em uma pasta fechada do portal. [Saiba mais](tutorial-assess-physical.md#set-up-the-appliance). Alternativamente, [baixe diretamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> O tamanho do download é de 59,7 MB.
@@ -78,8 +89,10 @@ A tabela a seguir resume os requisitos do aparelho Azure Migrate para VMware.
 
 O aparelho Azure Migrate precisa de conectividade com a internet.
 
-- Quando você implanta o aparelho, o Azure Migrate faz uma verificação de conectividade para as URLs resumidas na tabela abaixo.
+- Quando você implanta o aparelho, o Azure Migrate faz uma verificação de conectividade para as URLs necessárias.
 - Se você estiver usando um proxy baseado em URL para se conectar à Internet, você precisa permitir o acesso a essas URLs, certificando-se de que o proxy resolva quaisquer registros CNAME recebidos ao procurar as URLs.
+
+### <a name="public-cloud-urls"></a>URLs de nuvem pública
 
 **URL** | **Detalhes**  
 --- | --- |
@@ -95,6 +108,25 @@ download.microsoft.com/download | Permitir downloads a partir do download da Mic
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Conecte-se às URLs de serviço do Azure Migrate.
 *.hypervrecoverymanager.windowsazure.com | **Usado para migração sem agente VMware**<br/><br/> Conecte-se às URLs de serviço do Azure Migrate.
 *.blob.core.windows.net |  **Usado para migração sem agente VMware**<br/><br/>Faça upload de dados para armazenamento para migração.
+
+### <a name="government-cloud-urls"></a>URLs de nuvem do governo
+
+**URL** | **Detalhes**  
+--- | --- |
+*.portal.azure.us  | Navegue até o Portal do Azure.
+graph.windows.net | Entre em sua assinatura do Azure.
+login.microsoftonline.us  | Crie aplicativos Azure Active Directory (AD) para que o aparelho se comunique com o Azure Migrate.
+management.usgovcloudapi.net | Crie aplicativos Azure AD para que o aparelho se comunique com o serviço Azure Migrate.
+dc.services.visualstudio.com | Faça upload de registros de aplicativos usados para monitoramento interno.
+*.vault.usgovcloudapi.net | Gerencie segredos no Cofre de Chaves Do Azure.
+aka.ms/* | Permitir acesso a links também conhecidos. Usado para atualizações de aparelhos Do Azure Migrate.
+download.microsoft.com/download | Permitir downloads a partir do download da Microsoft.
+*.servicebus.usgovcloudapi.net  | Comunicação entre o aparelho e o serviço Azure Migrate.
+*.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Conecte-se às URLs de serviço do Azure Migrate.
+*.hypervrecoverymanager.windowsazure.us | **Usado para migração sem agente VMware**<br/><br/> Conecte-se às URLs de serviço do Azure Migrate.
+*.blob.core.usgovcloudapi.net  |  **Usado para migração sem agente VMware**<br/><br/>Faça upload de dados para armazenamento para migração.
+*.applicationinsights.us | Usado pelo agente Gateway no aparelho para acessar o ponto final do Application Insights para monitoramento diagnóstico.
+
 
 
 
@@ -159,7 +191,7 @@ Detalhes do host por VM | ((HostSystem)contêiner). Vm
 
 Aqui estão os dados de desempenho da VMware VMque que o aparelho coleta e envia para o Azure.
 
-**Dados** | **Counter** | **Impacto de avaliação**
+**Dados** | **Contador** | **Impacto de avaliação**
 --- | --- | ---
 Utilização da CPU | cpu.usage.average | Tamanho/custo/custo/vm recomendado
 Utilização da memória | mem.usage.average | Tamanho/custo/custo/vm recomendado
@@ -254,7 +286,7 @@ NIC MAC ID (NICs legados) | MsvmEmdEthernetPortSetting data | Endereço
 
 Aqui estão os dados de desempenho do Hyper VM que o aparelho coleta e envia para o Azure.
 
-**Classe de contador de desempenho** | **Counter** | **Impacto de avaliação**
+**Classe de contador de desempenho** | **Contador** | **Impacto de avaliação**
 --- | --- | ---
 Processador virtual hyper-V hypervisor | % Tempo de execução dos hóspedes | Tamanho/custo/custo/vm recomendado
 VM de memória dinâmica hiper-v | Pressão atual (%)<br/> Memória Física Visível do Convidado (MB) | Tamanho/custo/custo/vm recomendado

@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: c606f6e60b1c906a0d5c29992287d126aaa37b7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1fd22772e72cba4cce3f9fa2751dc0df0e15bb9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77602947"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535591"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -155,14 +155,14 @@ Os disparadores automáticos chamam uma função em resposta a um evento. Consid
 ```cs
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
-    [Blob("samples-workitems/{myQueueItem}", FileAccess.Read)] Stream myBlob,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
     ILogger log)
 {
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
 
-O `QueueTrigger` atributo informa o tempo de execução para `myqueue-items` chamar a função sempre que uma mensagem de fila aparecer na fila. O `Blob` atributo informa o tempo de execução para usar a mensagem de fila para ler uma bolha no recipiente *de itens de trabalho de amostra.* O conteúdo da mensagem de fila, passada `myQueueItem` para a função no parâmetro, é o nome da bolha.
+O `QueueTrigger` atributo informa o tempo de execução para `myqueue-items` chamar a função sempre que uma mensagem de fila aparecer na fila. O `Blob` atributo informa o tempo de execução para usar a mensagem de fila para ler uma bolha no recipiente *de itens de trabalho de amostra.* O nome do item blob no `samples-workitems` recipiente é obtido diretamente do gatilho`{queueTrigger}`da fila como uma expressão de vinculação ( ).
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
@@ -789,7 +789,7 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 
 ### <a name="viewing-lease-blobs"></a>Exibição de blobs de concessão
 
-O WebJobs SDK usa [concessões de blob do Azure](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs) nos bastidores para implementar o bloqueio distribuído. As bolhas de locação usadas pela `azure-webjobs-host` Singleton podem `AzureWebJobsStorage` ser encontradas no contêiner na conta de armazenamento o caminho locks. Por exemplo, o caminho de blob de concessão para o primeiro exemplo `ProcessImage` mostrado anteriormente pode ser `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. Todos os caminhos incluem a ID de JobHost, 061851c758f04938a4426aa9ab3869c0 neste caso.
+O WebJobs SDK usa [concessões de blob do Azure](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs) nos bastidores para implementar o bloqueio distribuído. As bolhas de locação usadas pela `azure-webjobs-host` Singleton podem `AzureWebJobsStorage` ser encontradas no contêiner na conta de armazenamento sob o caminho "locks". Por exemplo, o caminho de blob de concessão para o primeiro exemplo `ProcessImage` mostrado anteriormente pode ser `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. Todos os caminhos incluem a ID de JobHost, 061851c758f04938a4426aa9ab3869c0 neste caso.
 
 ## <a name="async-functions"></a>Funções assíncronas
 

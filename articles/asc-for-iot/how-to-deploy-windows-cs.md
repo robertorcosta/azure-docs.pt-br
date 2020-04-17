@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: d667dd09c2276936e10cea0581e4c8d2810b2ccb
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4d7d2f0a423a50f85160a856480eaa973be7e2b0
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81311086"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537603"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Implantar um agente de segurança baseado em C# da Central de Segurança do Azure para IoT para Windows
 
@@ -135,9 +135,9 @@ Para ativar o log:
      sc.exe start "ASC IoT Agent"
      ```
 
-1. Examine o arquivo de log para obter mais informações sobre a falha.
+1. Examine o arquivo de log para obter mais informações sobre a falha. O arquivo de registro estaria presente no diretório de trabalho onde executamos o script. 
 
-   Localização do arquivo de log: `%WinDir%/System32/IoTAgentLog.log`
+   Localização do arquivo de log: `.\IoTAgentLog.log`
 
 ## <a name="next-steps"></a>Próximas etapas
 

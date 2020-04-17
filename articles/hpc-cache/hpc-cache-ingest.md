@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: a5625341e3dd279d93a59c57cd3325245351723e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd21a78d0271f91d334bba5aba748f3770ad38cf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271870"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537926"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Mova dados para o armazenamento Do Azure Blob
 
@@ -21,7 +21,7 @@ Este artigo explica as melhores maneiras de mover dados para o armazenamento Blo
 
 Tenha esses fatos em mente:
 
-* O Azure HPC Cache usa um formato de armazenamento especializado para organizar dados no armazenamento Blob. É por isso que um alvo de armazenamento Blob deve ser um recipiente novo e vazio ou um contêiner Blob que foi usado anteriormente para dados do Cache Azure HPC. <!--([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud file system.)-->
+* O Azure HPC Cache usa um formato de armazenamento especializado para organizar dados no armazenamento Blob. É por isso que um alvo de armazenamento Blob deve ser um recipiente novo e vazio ou um contêiner Blob que foi usado anteriormente para dados do Cache Azure HPC.
 
 * Copiar dados através do Cache Azure HPC para um destino de armazenamento back-end é mais eficiente quando você usa vários clientes e operações paralelas. Um simples comando de cópia de um cliente moverá dados lentamente.
 
@@ -31,13 +31,13 @@ Se você não quiser usar o utilitário de carregamento ou se quiser adicionar c
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>Dados de pré-carga no armazenamento Blob com CLFSLoad
 
-Você pode usar o cdmlet <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Utilitário Avere CLFSLoad para copiar dados para um novo contêiner de armazenamento Blob antes de adicioná-los como um alvo de armazenamento. Este utilitário é executado em um único sistema Linux e grava dados no formato proprietário necessário para o Cache Azure HPC. CLFSLoad é a maneira mais eficiente de preencher um contêiner de armazenamento Blob para uso com o cache.
+Você pode usar o utilitário Avere CLFSLoad para copiar dados em um novo contêiner de armazenamento Blob antes de adicioná-los como um alvo de armazenamento. Este utilitário é executado em um único sistema Linux e grava dados no formato proprietário necessário para o Cache Azure HPC. CLFSLoad é a maneira mais eficiente de preencher um contêiner de armazenamento Blob para uso com o cache.
 
 O utilitário Avere CLFSLoad está disponível por solicitação da sua equipe de cache Azure HPC. Peça o contato da sua equipe ou abra um [bilhete de suporte](hpc-cache-support-ticket.md) para solicitar ajuda.
 
 Esta opção funciona apenas com recipientes novos e vazios. Crie o recipiente antes de usar Avere CLFSLoad.
 
-Informações detalhadas estão incluídas na distribuição Avere CLFSLoad, que está disponível a pedido da equipe de cache do Azure HPC. <!-- [Avere CLFSLoad readme](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md). --><!-- caution literal link -->
+Informações detalhadas estão incluídas na distribuição Avere CLFSLoad, que está disponível a pedido da equipe de cache do Azure HPC.
 
 Uma visão geral do processo:
 
@@ -51,8 +51,6 @@ O utilitário Avere CLFSLoad precisa das seguintes informações:
 * O nome do recipiente de armazenamento Blob vazio
 * Um token de assinatura de acesso compartilhado (SAS) que permite que o utilitário escreva para o contêiner
 * Um caminho local para a fonte de dados - ou um diretório local que contém os dados a serem copiados, ou um caminho local para um sistema remoto montado com os dados
-
-<!-- The requirements are explained in detail in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload). -->
 
 ## <a name="copy-data-through-the-azure-hpc-cache"></a>Copiar dados através do cache Azure HPC
 

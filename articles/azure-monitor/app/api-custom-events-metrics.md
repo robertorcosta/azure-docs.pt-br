@@ -3,12 +3,12 @@ title: API do Application Insights para métricas e eventos personalizados | Mic
 description: Insira algumas linhas de código em seu aplicativo da área de trabalho ou de dispositivo, página da Web ou serviço para acompanhar o uso e diagnosticar problemas.
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.openlocfilehash: 06bd8bd0958afd26e1256a010b08c908c59aaf7d
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: d6cb2f5ab418e8d3b5935fef535565ccf55a3906
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585872"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536940"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -31,7 +31,7 @@ A API principal é uniforme em todas as plataformas, além de algumas variaçõe
 
 Você pode [anexar propriedades e métricas](#properties) à maioria dessas chamadas de telemetria.
 
-## <a name="before-you-start"></a><a name="prep"></a>Antes de iniciar
+## <a name="before-you-start"></a><a name="prep"></a>Antes de começar
 
 Se você ainda não tem uma referência no SDK do Application Insights:
 
@@ -107,7 +107,7 @@ Em projetos de Node.js, é possível usar `new applicationInsights.TelemetryClie
 
 ## <a name="trackevent"></a>TrackEvent
 
-No Application Insights, um *evento personalizado* é um ponto de dados que você pode exibir no [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) como uma contagem agregada e na [Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md) como ocorrências individuais. (Ele não está relacionado ao MVC ou a outros “eventos” de estrutura.)
+No Application Insights, um *evento personalizado* é um ponto de dados que você pode exibir no [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) como uma contagem agregada e na [Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md) como ocorrências individuais. (Ele não está relacionado ao MVC ou a outros “eventos” de estrutura.)
 
 Insira chamadas de `TrackEvent` em seu código para fazer a contagem de vários eventos. Com que frequência os usuários escolhem um determinado recurso, com que frequência eles atingem metas específicas ou talvez com que frequência cometem tipos de erro específicos.
 
@@ -443,7 +443,7 @@ requests
 
 Envie exceções ao Application Insights:
 
-* Para [contá-las](../../azure-monitor/app/metrics-explorer.md) como uma indicação da frequência de um problema.
+* Para [contá-las](../../azure-monitor/platform/metrics-charts.md) como uma indicação da frequência de um problema.
 * Para [examinar ocorrências individuais](../../azure-monitor/app/diagnostic-search.md).
 
 Os relatórios incluem os rastreamentos de pilha.
@@ -774,7 +774,7 @@ Se seu aplicativo agrupa os usuários em contas, você também pode passar um id
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-No [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md), você pode criar um gráfico que contabiliza **Usuários Autenticados** e **Contas de usuário**.
+No [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md), você pode criar um gráfico que contabiliza **Usuários Autenticados** e **Contas de usuário**.
 
 Você também pode [pesquisar](../../azure-monitor/app/diagnostic-search.md) por pontos de dados do cliente com contas e nomes de usuário específicos.
 

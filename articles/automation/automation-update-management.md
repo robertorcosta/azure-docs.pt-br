@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: c76b14e4f08ec930159498da4a35fdad0341929e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eaba4bf7760e150f2477ee743c797f94784b8506
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278500"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535495"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -123,11 +123,11 @@ Para linux, a máquina requer acesso a um repositório de atualização. O repos
 
 Para obter informações sobre como instalar o agente Log Analytics para Linux e baixar a versão mais recente, consulte [o agente Log Analytics para Linux](../azure-monitor/platform/agent-linux.md). Para obter informações sobre como instalar o agente Log Analytics para Windows, consulte [Conecte computadores Windows ao Monitor Do Azure](../log-analytics/log-analytics-windows-agent.md).
 
-As VMs que foram criadas a partir das imagens RHEL (Red Hat Enterprise Linux) demanda que estão disponíveis no Azure Marketplace estão registradas para acessar a [Red Hat Update Infrastructure (RHUI)](../virtual-machines/workloads/redhat/redhat-rhui.md) implantada no Azure. Qualquer outra distribuição Linux deve ser atualizada do repositório de arquivos on-line da distribuição usando os métodos suportados pela distribuição.
+As VMs que foram criadas a partir das imagens RHEL (Red Hat Enterprise Linux) sob demanda que estão disponíveis no Azure Marketplace estão registradas para acessar a [Red Hat Update Infrastructure (RHUI)](../virtual-machines/workloads/redhat/redhat-rhui.md) implantada no Azure. Qualquer outra distribuição Linux deve ser atualizada do repositório de arquivos on-line da distribuição usando os métodos suportados pela distribuição.
 
 ## <a name="permissions"></a>Permissões
 
-Para criar e gerenciar implantações de atualização, você precisa ter permissões específicas. Para saber mais sobre essas permissões, consulte [acesso baseado em função – Gerenciamento de atualizações](automation-role-based-access-control.md#update-management).
+Para criar e gerenciar implantações de atualização, você precisa ter permissões específicas. Para saber mais sobre essas permissões, consulte [acesso baseado em função – Gerenciamento de atualizações](automation-role-based-access-control.md#update-management-permissions).
 
 ## <a name="solution-components"></a>Componentes da solução
 

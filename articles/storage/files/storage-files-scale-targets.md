@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1a74ec3610367193b5eee53ea0e0818901433e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255126"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536415"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade do Arquivos do Azure
 
@@ -51,8 +51,7 @@ Consulte a seção de metas de metas da conta de [armazenamento do Azure](#azure
 ### <a name="file-share-and-file-scale-targets"></a>Metas de compartilhamento de arquivos e escala de arquivos
 
 > [!NOTE]
-> As ações de arquivo padrão maiores que 5 TiB têm certas limitações e restrições regionais.
-> Para obter uma lista de limitações, informações regionais e instruções para habilitar esses tamanhos maiores de compartilhamento de arquivos, consulte a seção [Onboard para compartilhamentos](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) de arquivos maiores do guia de planejamento.
+> As ações de arquivo padrão maiores que 5 TiB têm certas limitações. Para obter uma lista de limitações e instruções para habilitar tamanhos maiores de compartilhamento de arquivos, consulte o [habilitar compartilhamentos de arquivos maiores na](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) seção de compartilhamentos de arquivos padrão do guia de planejamento.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -114,4 +113,4 @@ Como um guia geral para sua implantação, você deve manter alguns pontos em me
 ## <a name="see-also"></a>Confira também
 
 - [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
-- [Planejamento para uma implantação do Azure File Sync](storage-sync-files-planning.md)
+- [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)

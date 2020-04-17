@@ -2,13 +2,13 @@
 title: Configure o Monitor Azure para contêineres Prometheus Integration | Microsoft Docs
 description: Este artigo descreve como você pode configurar o Monitor Azure para agente de contêineres para raspar métricas do Prometheus com o cluster Kubernetes.
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: b774bf042778ca9118a7bc9f051655b200d87659
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: 7fcf52cceb69834f68f8e4ce7a2674972a6430fd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931416"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537365"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configure a raspagem das métricas prometheus com o Monitor Azure para contêineres
 
@@ -22,7 +22,6 @@ ms.locfileid: "75931416"
 A raspagem das métricas prometheus é suportada com clusters Kubernetes hospedados em:
 
 - AKS (Serviço de Kubernetes do Azure)
-- Instâncias de Contêiner do Azure
 - Azure Stack ou no local
 - Red Hat OpenShift no Azure
 
@@ -102,7 +101,7 @@ Execute as seguintes etapas para configurar o arquivo de configuração ConfigMa
 2. Edite o arquivo de yaml ConfigMap com suas personalizações para raspar as métricas do Prometheus. Se você estiver editando o arquivo de yaml ConfigMap para `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` Azure Red Hat OpenShift, primeiro execute o comando para abrir o arquivo em um editor de texto.
 
     >[!NOTE]
-    >A anotação `openshift.io/reconcile-protect: "true"` a seguir deve ser adicionada os metadados do *container-azm-ms-agentconfig* ConfigMap para evitar a reconciliação. 
+    >A anotação `openshift.io/reconcile-protect: "true"` a seguir deve ser adicionada sob os metadados do *container-azm-ms-agentconfig* ConfigMap para evitar a reconciliação. 
     >```
     >metadata:
     >   annotations:

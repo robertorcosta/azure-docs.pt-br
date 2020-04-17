@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: afb40d0f3681bc02351e43166fccfaafe7741128
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47daf4ecd034c390a1460610e78d4fffd9277ac7
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259273"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535699"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar um nome de domínio personalizado para Serviço de Aplicativo do Azure
 
@@ -45,7 +45,7 @@ A página de gerenciamento do aplicativo do Serviço de Aplicativo é exibida.
 
 ### <a name="check-the-pricing-tier"></a>Verifique o tipo de preço
 
-No painel de navegação à esquerda da página do aplicativo, role até a seção **Configurações** e selecione **Escalar verticalmente (plano do Serviço de Aplicativo)**.
+No painel de navegação à esquerda da página do aplicativo, role até a seção **Configurações** e selecione **Escalar verticalmente (plano do Serviço de Aplicativo)** .
 
 ![Menu Escalar verticalmente](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -137,7 +137,7 @@ Você também verá os nomes de host selecionados na página **Domínios persona
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> Um rótulo **Não Seguro** para seu domínio personalizado significa que ele ainda não está vinculado a um certificado SSL, e qualquer solicitação HTTPS de um navegador para seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para configurar a vinculação SSL, consulte [Proteger um nome DNS personalizado com uma vinculação SSL no Azure App Service](configure-ssl-bindings.md).
+> Um rótulo **Não Seguro** para seu domínio personalizado significa que ele ainda não está vinculado a um certificado TLS/SSL, e qualquer solicitação HTTPS de um navegador para seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para configurar a vinculação TLS, consulte [Proteger um nome DNS personalizado com uma vinculação TLS/SSL no Azure App Service](configure-ssl-bindings.md).
 >
 
 Para testar os nomes de host, navegue até os nomes de host listados no navegador. No exemplo da captura de tela anterior, tente navegar para _kontoso.net_ e _www\.kontoso.net_.
@@ -168,7 +168,7 @@ Certifique-se de que seu domínio adquirido esteja listado na seção **Domínio
 Selecione **Adicionar nome do host**.
 
 ### <a name="configure-hostname"></a>Configurar nome do host
-Na caixa de diálogo **Adicionar nome do host**, digite o nome de domínio totalmente qualificado do Domínio do Serviço de Aplicativo ou qualquer subdomínio. Por exemplo: 
+Na caixa de diálogo **Adicionar nome do host**, digite o nome de domínio totalmente qualificado do Domínio do Serviço de Aplicativo ou qualquer subdomínio. Por exemplo:
 
 - kontoso.net
 - www\.kontoso.net

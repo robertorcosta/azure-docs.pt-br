@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c683e9847864de4e3409fb6dbd533497a5ae3cea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061006"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537671"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilite e crie grandes compartilhamentos de arquivos
 
@@ -33,7 +33,7 @@ Habilitar grandes compartilhamentos de arquivos em uma conta é um processo irre
 
 ### <a name="portal"></a>Portal
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. No portal Azure, selecione **Todos os serviços**. 
 1. Na lista de recursos, insira Contas de **armazenamento**. A lista filtra com base em sua entrada, à medida que você digita. Selecione **contas de armazenamento**.
 1. Na janela **Contas de armazenamento** que aparece, selecione **Adicionar**.
@@ -43,7 +43,7 @@ Habilitar grandes compartilhamentos de arquivos em uma conta é um processo irre
     ![Captura de tela mostrando como criar um grupo de recursos no portal](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. Em seguida, insira um nome para sua conta de armazenamento. O nome deve ser exclusivo em todo o Azure. O nome também deve ter de 3 a 24 caracteres de comprimento, e só pode ter números e letras minúsculas.
-1. Selecione um local para sua conta de armazenamento e certifique-se de que é [uma das replicação suportadas para grandes compartilhamentos de arquivos](storage-files-planning.md#regional-availability).
+1. Selecione um local para sua conta de armazenamento.
 1. Defina a replicação para **armazenamento localmente redundante** ou **armazenamento redundante de zona.**
 1. Deixe esses campos em seus valores padrão:
 
@@ -126,7 +126,7 @@ Criar um grande compartilhamento de arquivos é quase idêntico à criação de 
 
 1. Na sua conta de armazenamento, selecione **'Arquivo'**
 1. Selecione **+ Compartilhamento de arquivos**.
-1. Digite um nome para o seu compartilhamento de arquivos. Você também pode definir o tamanho da cota que você gostaria, até 100 TiB. Em seguida, **selecione Criar**. 
+1. Digite um nome para o seu compartilhamento de arquivos. Você também pode definir o tamanho da cota que você gostaria, até 100 TiB. Em seguida, selecione **Criar**. 
 
 ![A UI do portal Azure mostrando as caixas de Nome e Cota](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 

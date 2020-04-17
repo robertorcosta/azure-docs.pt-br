@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
-ms.openlocfilehash: f1012f8c00de4b19bbf6206408ec1a806e09e54f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77482336"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537637"
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano do Serviço de Aplicativo do Azure
 
@@ -32,7 +32,7 @@ O _tipo de preço_ de um plano de serviço de aplicativo determina quais recurso
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Cada tipo também fornece um subconjunto específico de recursos do serviço de aplicativo. Esses recursos incluem domínios personalizados e certificados SSL, dimensionamento automático, slots de implantação, backups, integração do Gerenciador de tráfego do Microsoft Azure e muito mais. Quanto maior o nível, mais recursos estão disponíveis. Para descobrir quais recursos têm suporte em cada tipo de preços, consulte os [Detalhes do plano do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Cada tipo também fornece um subconjunto específico de recursos do serviço de aplicativo. Esses recursos incluem domínios personalizados e certificados TLS/SSL, dimensionamento automático, slots de implantação, backups, integração do Gerenciador de tráfego e muito mais. Quanto maior o nível, mais recursos estão disponíveis. Para descobrir quais recursos têm suporte em cada tipo de preços, consulte os [Detalhes do plano do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 <a name="new-pricing-tier-premiumv2"></a>
 
@@ -71,11 +71,11 @@ Exceto para o tipo **Grátis**, um plano de Serviço de Aplicativo carrega uma c
 - Nos níveis de computação dedicados **(Básico**, **Padrão**, **Premium**, **PremiumV2**), o plano App Service define o número de instâncias de VM para as quais os aplicativos são dimensionados, de modo que _cada instância de VM_ no plano app service tem uma taxa horária. Essas instâncias de máquina virtual são cobradas da mesma forma, independentemente de quantos aplicativos forem executados nelas. Para evitar cobranças inesperadas, consulte [Limpar um plano do serviço de aplicativo](app-service-plan-manage.md#delete).
 - No tipo **Isolado**, o ambiente do serviço de aplicativo define o número de trabalhadores isolados que executam seus aplicativos, e _cada trabalhador_ é cobrado por hora. Além disso, há um valor base por hora para a execução do ambiente do serviço de aplicativo em si.
 
-Você não é cobrado por usar os recursos do serviço de aplicativo que estão disponíveis para você (como configurar domínios personalizados, certificados SSL, slots de implantação, backups, etc.). As exceções são:
+Você não é cobrado pelo uso dos recursos do App Service que estão disponíveis para você (configurando domínios personalizados, certificados TLS/SSL, slots de implantação, backups, etc.). As exceções são:
 
 - Domínios do serviço de aplicativo - você paga quando compra um no Azure e quando você o renova todo ano.
 - Certificados do serviço de aplicativo - você paga quando compra um no Azure e quando você o renova todo ano.
-- Conexões SSL com base em IP - há uma taxa por hora para cada conexão SSL com base em IP, mas alguns tipos **Standard** ou superior fornecem uma conexão SSL com base em IP gratuitamente. Conexões de SSL com base em SNI são gratuitas.
+- Conexões TLS baseadas em IP - Há uma taxa horária para cada conexão TLS baseada em IP, mas algum nível **Padrão** ou superior lhe dá uma conexão TLS baseada em IP gratuitamente. As conexões TLS baseadas em SNI são gratuitas.
 
 > [!NOTE]
 > Se você integrar o serviço de aplicativo com outro serviço do Azure, você precisará considerar encargos desses outros serviços. Por exemplo, se você usar o Azure Traffic Manager para dimensionar o seu aplicativo geograficamente, o Azure Traffic Manager também cobrará você com base em seu uso. Para estimar o custo de serviços no Azure, consulte [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/). 
@@ -86,7 +86,7 @@ Você não é cobrado por usar os recursos do serviço de aplicativo que estão 
 
 O seu plano do serviço de aplicativo pode ser dimensionado para mais ou para menos a qualquer momento. É tão simples quanto alterar o tipo de preço do plano. Você pode escolher um tipo de preço mais baixo a um primeiro momento, e aumentá-lo mais tarde quando você precisar de mais recursos do serviço de aplicativo.
 
-Por exemplo, você pode começar a testar seu aplicativo web em um plano do serviço de aplicativo **Grátis** sem pagar nada. Quando você desejar adicionar o [nome DNS personalizado](app-service-web-tutorial-custom-domain.md) para o aplicativo web, apenas dimensione o seu plano até o tipo **Compartilhado**. Mais tarde, quando você quiser [criar uma vinculação SSL,](configure-ssl-bindings.md)dimensione seu plano até **o nível Básico.** Quando você desejar ter [ambientes de preparo](deploy-staging-slots.md), dimensione até o tipo **Standard**. Quando você precisar de mais núcleos, memória ou armazenamento, escale verticalmente para um tamanho maior de máquina virtual no mesmo tipo.
+Por exemplo, você pode começar a testar seu aplicativo web em um plano do serviço de aplicativo **Grátis** sem pagar nada. Quando você desejar adicionar o [nome DNS personalizado](app-service-web-tutorial-custom-domain.md) para o aplicativo web, apenas dimensione o seu plano até o tipo **Compartilhado**. Mais tarde, quando você quiser [criar uma vinculação TLS,](configure-ssl-bindings.md)dimensione seu plano até **o nível Básico.** Quando você desejar ter [ambientes de preparo](deploy-staging-slots.md), dimensione até o tipo **Standard**. Quando você precisar de mais núcleos, memória ou armazenamento, escale verticalmente para um tamanho maior de máquina virtual no mesmo tipo.
 
 O mesmo funciona na ordem inversa. Quando você achar que não precisa mais dos recursos de um tipo superior, você pode reduzir a escala a um nível mais baixo, o que economiza dinheiro.
 

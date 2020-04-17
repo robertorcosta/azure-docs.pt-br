@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: bfbae282f9c383c19aae84a70dfc53f754bd9367
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4976be485a9b7609c6e8d23f6b897092217663fc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77592604"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535665"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -37,28 +37,31 @@ Este artigo mostra como implantar o WebJobs como um aplicativo de console .NET C
 
 ## <a name="webjobs-nuget-packages"></a>Adicionar pacotes WebJobs NuGet
 
-1. Instale a versão estável 3.x mais recente `Microsoft.Azure.WebJobs.Extensions` `Microsoft.Azure.WebJobs`do pacote NuGet, que inclui .
+1. Instale a versão estável 3.x mais recente `Microsoft.Azure.WebJobs`do [ `Microsoft.Azure.WebJobs.Extensions` pacote NuGet,](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions/)que inclui .
 
-     Aqui está o comando **Console do Gerenciador de Pacotes** para a versão 3.0.2:
+     Aqui está o comando **Console do Gerenciador de Pacotes:**
 
      ```powershell
-     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.2
+     Install-Package Microsoft.Azure.WebJobs.Extensions -version <3_X_VERSION>
      ```
+
+    Neste comando, `<3_X_VERSION>` substitua por uma versão suportada do pacote. 
 
 ## <a name="create-the-host"></a>Crie o Host
 
 O host é o recipiente de tempo de execução para funções que escutam funções de gatilhos e chamadas. As etapas a seguir [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost)criam um host que implementa , que é o Host genérico no ASP.NET Core.
 
-1. Em *Program.cs*, adicione uma instrução `using`:
+1. Em *Program.cs,* `using` adicione estas declarações:
 
     ```cs
+    using System.Threading.Tasks;
     using Microsoft.Extensions.Hosting;
     ```
 
 1. Substitua o método `Main` pelo seguinte código:
 
     ```cs
-    static void Main(string[] args)
+    static async Task Main()
     {
         var builder = new HostBuilder();
         builder.ConfigureWebJobs(b =>
@@ -68,7 +71,7 @@ O host é o recipiente de tempo de execução para funções que escutam funçõ
         var host = builder.Build();
         using (host)
         {
-            host.Run();
+            await host.RunAsync();
         }
     }
     ```
@@ -79,12 +82,12 @@ No ASP.NET Core, as configurações do host [`HostBuilder`](/dotnet/api/microsof
 
 Nesta seção, você configura o registro do console que usa a [ASP.NET framework Core logging .](/aspnet/core/fundamentals/logging)
 
-1. Instale a versão `Microsoft.Extensions.Logging.Console` estável mais recente do `Microsoft.Extensions.Logging`pacote NuGet, que inclui .
+1. Instale a versão estável mais recente do `Microsoft.Extensions.Logging` [ `Microsoft.Extensions.Logging.Console` pacote NuGet,](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/)que inclui .
 
-   Aqui está o comando **Console do Gerenciador de Pacotes** para a versão 2.2.0:
+   Aqui está o comando **Console do Gerenciador de Pacotes:**
 
    ```powershell
-   Install-Package Microsoft.Extensions.Logging.Console -version 2.2.0
+   Install-Package Microsoft.Extensions.Logging.Console -version <3_X_VERSION>
    ```
 
 1. Em *Program.cs*, adicione uma instrução `using`:
@@ -92,6 +95,8 @@ Nesta seção, você configura o registro do console que usa a [ASP.NET framewor
    ```cs
    using Microsoft.Extensions.Logging;
    ```
+
+    Neste comando, `<3_X_VERSION>` substitua por uma versão 3.x suportada do pacote.
 
 1. Ligue [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) para [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder)o método. O [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) método adiciona o registro do console à configuração.
 
@@ -105,7 +110,7 @@ Nesta seção, você configura o registro do console que usa a [ASP.NET framewor
     O método `Main` agora tem esta aparência:
 
     ```cs
-    static void Main(string[] args)
+    static async Task Main()
     {
         var builder = new HostBuilder();
         builder.ConfigureWebJobs(b =>
@@ -119,7 +124,7 @@ Nesta seção, você configura o registro do console que usa a [ASP.NET framewor
         var host = builder.Build();
         using (host)
         {
-            host.Run();
+            await host.RunAsync();
         }
     }
     ```
@@ -137,11 +142,13 @@ A partir da versão 3.x, você deve instalar explicitamente a extensão de vincu
 
 1. Instale a versão mais recente e estável do pacote NuGet, versão 3.x, do [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage). 
 
-    Aqui está o comando **Package Manager Console** para a versão 3.0.4:
+    Aqui está o comando **Console do Gerenciador de Pacotes:**
 
     ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.4
+    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version <3_X_VERSION>
     ```
+    
+    Neste comando, `<3_X_VERSION>` substitua por uma versão suportada do pacote. 
 
 2. No `ConfigureWebJobs` método de extensão, chame o `AddAzureStorage` método na [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instância para inicializar a extensão armazenamento. Neste ponto, o método `ConfigureWebJobs` é semelhante ao seguinte exemplo:
 
@@ -158,22 +165,22 @@ A partir da versão 3.x, você deve instalar explicitamente a extensão de vincu
 1. Clique com o botão direito do mouse no projeto, **selecione Adicionar** > **novo item...**, escolha **Classe,** nomeie o novo arquivo de classe C# *Functions.cs*e selecione **Adicionar**.
 
 1. Em Functions.cs, substitua o modelo gerado pelo seguinte código:
-
-   ```cs
-   using Microsoft.Azure.WebJobs;
-   using Microsoft.Extensions.Logging;
-
-   namespace WebJobsSDKSample
-   {
-       public class Functions
-       {
-           public static void ProcessQueueMessage([QueueTrigger("queue")] string message, ILogger logger)
-           {
-               logger.LogInformation(message);
-           }
-       }
-   }
-   ```
+    
+    ```cs
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Extensions.Logging;
+    
+    namespace WebJobsSDKSample
+    {
+        public class Functions
+        {
+            public static void ProcessQueueMessage([QueueTrigger("queue")] string message, ILogger logger)
+            {
+                logger.LogInformation(message);
+            }
+        }
+    }
+    ```
 
    O atributo `QueueTrigger` informa o runtime para chamar esta função quando uma nova mensagem é gravada em uma fila de Armazenamento do Microsoft Azure chamada `queue`. O conteúdo da mensagem da fila é fornecido para o código do método no parâmetro `message`. O corpo do método é onde você processa os dados de gatilho. Neste exemplo, o código apenas registra a mensagem.
 
@@ -332,7 +339,7 @@ Nesta seção, execute as seguintes tarefas para configurar o registro em log do
 
 1. Substitua *{chave de instrumentação}* pela chave de instrumentação do recurso do Application Insights que você está usando.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 1. Adicione a conexão Application Insights ao projeto para que você possa executá-lo localmente. No arquivo *appsettings.json* ou adicione o campo `APPINSIGHTS_INSTRUMENTATIONKEY`, como no exemplo a seguir:
 
@@ -351,21 +358,22 @@ Nesta seção, execute as seguintes tarefas para configurar o registro em log do
 
 Para aproveitar o registro em log do [Application Insights](../azure-monitor/app/app-insights-overview.md), atualize seu código de registro em log para fazer o seguinte:
 
-* Adicione um provedor de registro em log do Application Insights com [filtragem](webjobs-sdk-how-to.md#log-filtering) padrão; todas as informações e todos os logs de nível superior agora vão para o console e o Application Insights quando você estiver executando localmente.
+* Adicione um provedor de registro de insights de aplicativo com [filtragem](webjobs-sdk-how-to.md#log-filtering)padrão . Ao ser executado localmente, todas as Informações e registros de nível superior são gravados no console e no Application Insights.
 * Coloque o objeto [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) em um `using` bloco para garantir que a saída de log seja liberada quando o host sair.
 
-1. Instale a versão 3.x estável mais recente do pacote NuGet para o provedor de registro em log do Application Insights: `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
+1. Instale a versão estável 3.x mais recente do [ `Microsoft.Azure.WebJobs.Logging.ApplicationInsights` pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
-   Aqui está o comando **Console do Gerenciador de Pacotes** para a versão 3.0.2:
+   Aqui está o comando **Console do Gerenciador de Pacotes:**
 
    ```powershell
-   Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version 3.0.2
+   Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <3_X_VERSION>
    ```
+    Neste comando, `<3_X_VERSION>` substitua por uma versão suportada do pacote.
 
 1. Abra *Program.cs* e substitua o código no método `Main` pelo seguinte código:
 
     ```cs
-    static void Main(string[] args)
+    static async Task Main()
     {
         var builder = new HostBuilder();
         builder.UseEnvironment(EnvironmentName.Development);
@@ -388,7 +396,7 @@ Para aproveitar o registro em log do [Application Insights](../azure-monitor/app
         var host = builder.Build();
         using (host)
         {
-            host.Run();
+            await host.RunAsync();
         }
     }
     ```

@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: e78f822a88b093992f065a509c2250e6a5c0dec2
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 5252fdbbaf425662fc9725e618f8fc450b435722
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885558"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534645"
 ---
 # <a name="authentication-basics"></a>Noções básicas de autenticação
 
@@ -70,26 +70,26 @@ Uma reivindicação consiste em pares de valor-chave que fornecem informações 
 
 Para obter informações mais detalhadas sobre a reivindicação, consulte [tokens de acesso](access-tokens.md) e [tokens de ID](id-tokens.md).
 
-Cabe ao aplicativo para o qual o token foi gerado, o aplicativo web que fez o uso do usuário ou a API da Web a ser chamada, para validar o token. O token é assinado pelo Security Token Server (STS) com uma chave privada. O STS publica a chave pública correspondente. Para validar um token, o aplicativo verifica a assinatura usando a chave pública STS para validar que a assinatura foi criada usando a chave privada.
+Cabe ao aplicativo para o qual o token foi gerado, ao aplicativo web que fez o uso ou à API da Web a ser chamada, para validar o token. O token é assinado pelo Security Token Server (STS) com uma chave privada. O STS publica a chave pública correspondente. Para validar um token, o aplicativo verifica a assinatura usando a chave pública STS para validar que a assinatura foi criada usando a chave privada.
 
 Os tokens são válidos apenas por um período limitado de tempo. Normalmente, o STS fornece um par de tokens: um token de acesso para acessar o aplicativo ou recurso protegido, e um token de atualização usado para atualizar o token de acesso quando o token de acesso está perto de expirar.
 
-Os tokens de acesso são passados para uma `Authorization` API da Web como o token do portador no cabeçalho. Um aplicativo pode fornecer um token de atualização para o STS, e se o acesso do usuário ao aplicativo não foi revogado, ele receberá de volta um novo token de acesso e um novo token de atualização. É assim que o cenário de alguém deixando a empresa é tratado. Quando o STS recebe o token de atualização, ele não emitirá outro token de acesso válido se o usuário não estiver mais autorizado.
+Os tokens de acesso são passados para uma `Authorization` API web como o token do portador no cabeçalho. Um aplicativo pode fornecer um token de atualização para o STS, e se o acesso do usuário ao aplicativo não foi revogado, ele receberá de volta um novo token de acesso e um novo token de atualização. É assim que o cenário de alguém deixando a empresa é tratado. Quando o STS recebe o token de atualização, ele não emitirá outro token de acesso válido se o usuário não estiver mais autorizado.
 
 ### <a name="how-each-flow-emits-tokens-and-codes"></a>Como cada fluxo emite tokens e códigos
 
 Dependendo de como seu cliente é construído, ele pode usar um (ou vários) dos fluxos de autenticação suportados pelo Azure AD. Esses fluxos podem produzir uma variedade de tokens (id_tokens, tokens de atualização, tokens de acesso) bem como códigos de autorização, e exigem diferentes tokens para fazê-los funcionar. Este gráfico fornece uma visão geral:
 
-|Flow | Requer | id_token | o token de acesso | token de atualização | código de autorização | 
+|Flow | Requer | id_token | o token de acesso | token de atualização | código de autorização |
 |-----|----------|----------|--------------|---------------|--------------------|
-|[Fluxo de código de autorização](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Fluxo de código de autorização](v2-oauth2-auth-code-flow.md) | | x | x | x | x|
 |[Fluxo implícito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
 |[Fluxo oidc híbrido](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
 |[Atualizar resgate de tokens](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | token de atualização | x | x | x| |
 |[Fluxo em nome de](v2-oauth2-on-behalf-of-flow.md) | o token de acesso| x| x| x| |
 |[Credenciais do cliente](v2-oauth2-client-creds-grant-flow.md) | | | x (somente para aplicativos)| | |
 
-Os tokens emitidos através do modo implícito têm uma limitação de `response_mode` `query` comprimento `fragment`devido ao ser passado de volta para o navegador através da URL (onde está ou ).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falhar quando for muito longo.  Assim, esses tokens `groups` não `wids` têm ou reivindicações. 
+Os tokens emitidos através do modo implícito têm uma limitação de `response_mode` `query` comprimento `fragment`devido ao ser passado de volta para o navegador através da URL (onde está ou ).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falhar quando for muito longo.  Assim, esses tokens `groups` não `wids` têm ou reivindicações.
 
 Agora que você tem uma visão geral do básico, continue lendo para entender o modelo e a API do aplicativo de identidade, saiba como o provisionamento funciona no Azure AD e obtenha links para informações detalhadas sobre cenários comuns que o Azure AD suporta.
 
@@ -126,7 +126,7 @@ Consentimento é o processo de um proprietário de recursos concedendo autoriza�
 
 Na plataforma de identidade da Microsoft, um [objeto de aplicativo](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-object) descreve um aplicativo. No momento da implantação, a plataforma de identidade da Microsoft usa o objeto de aplicativo como um modelo para criar um [principal de serviço](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#service-principal-object), o que representa uma instância concreta de um aplicativo dentro de um diretório ou inquilino. O diretor de serviço define o que o aplicativo pode realmente fazer em um diretório específico de destino, quem pode usá-lo, quais recursos ele tem acesso e assim por diante. A plataforma de identidade da Microsoft cria um principal de serviço a partir de um objeto de aplicativo através do **consentimento**.
 
-O diagrama a seguir mostra um fluxo de provisionamento simplificado da plataforma de identidade da Microsoft orientado por consentimento. Mostra dois inquilinos: A e B. O inquilino A é dono do aplicativo. O inquilino B está instanciando o aplicativo através de um diretor de serviço.  
+O diagrama a seguir mostra um fluxo de provisionamento simplificado da plataforma de identidade da Microsoft orientado por consentimento. Mostra dois inquilinos: A e B. O inquilino A é dono do aplicativo. O inquilino B está instanciando o aplicativo através de um diretor de serviço.
 
 ![Fluxo de provisionamento simplificado orientado por consentimento](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
@@ -160,7 +160,7 @@ O diagrama de seqüência a seguir resume essa interação:
 
 ### <a name="how-a-web-app-determines-if-the-user-is-authenticated"></a>Como um aplicativo web determina se o usuário é autenticado
 
-Os desenvolvedores de aplicativos da Web podem indicar se todas ou apenas determinadas páginas requerem autenticação. Por exemplo, em ASP.NET/ASP.NET Core, isso `[Authorize]` é feito adicionando o atributo às ações do controlador. 
+Os desenvolvedores de aplicativos da Web podem indicar se todas ou apenas determinadas páginas requerem autenticação. Por exemplo, em ASP.NET/ASP.NET Core, isso `[Authorize]` é feito adicionando o atributo às ações do controlador.
 
 Esse atributo faz com que ASP.NET verifique a presença de um cookie de sessão contendo a identidade do usuário. Se um cookie não estiver presente, ASP.NET redireciona a autenticação para o provedor de identidade especificado. Se o provedor de identidade for Azure AD, `https://login.microsoftonline.com`o aplicativo web redirecionará a autenticação para , que exibe uma caixa de diálogo de login.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2cdf3ff45a400d4b8d0b2605bf7ddc364aff1fe6
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 997dd98d35b74effe5d195f9a781fa0935286ee9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80882379"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537212"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protegida: registro de aplicativos
 
@@ -82,9 +82,9 @@ Os escopos também aparecem na janela de consentimento apresentada aos usuários
     - Selecione **nome do escopo** e insira **access_as_user**.
     - Selecione **Quem pode consentir** e **certifique-se de que os admins e os usuários estão selecionados.**
     - Selecione **o nome de exibição de consentimento do Admin** e digite **Access TodoListService como usuário**.
-    - Selecione **a descrição do consentimento do Admin** e digite **AaPI da Web TodoListService como usuário**.
+    - Selecione **a descrição do consentimento do Admin** e digite A **aPI da Web TodoListService como usuário**.
     - Selecione **o nome de exibição de consentimento do usuário** e digite Access **TodoListService como usuário**.
-    - Selecione **a descrição do consentimento do usuário** e digite **Acessa a API da Web TodoListService como usuário**.
+    - Selecione **a descrição do consentimento do usuário** e digite **AaCIA todalistService como usuário**.
     - Mantenha o valor **do Estado** definido **como Ativado**.
  1. Selecione **Adicionar escopo**.
 

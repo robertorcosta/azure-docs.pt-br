@@ -4,12 +4,12 @@ description: Saiba como gerenciar e monitorar backups de agentes do Microsoft Az
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: c11d73edd32c197aac2cec58eeb1cc20e5c6a339
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 404341c8324d9e127e8d8e6bc8083926c0d3106f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673260"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537348"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerencie backups de agentes do Microsoft Azure Recovery Services (MARS) usando o serviço de backup do Azure
 
@@ -90,7 +90,7 @@ Existem duas maneiras de parar de proteger o backup de arquivos e pastas:
 
 - **Pare a proteção e retenha dados de backup**.
   - Essa opção impedirá todos os trabalhos de backup futuros de proteção.
-  - O serviço de backup do Azure manterá os pontos de recuperação que foram apoiados com base na política de retenção.
+  - O serviço de backup do Azure manterá todos os pontos de recuperação existentes indefinidamente. Os pontos de recuperação não serão verificados para expiração até que a proteção seja retomada.
   - Você poderá restaurar os dados de backup para pontos de recuperação não expirados.
   - Se você decidir retomar a proteção, então você pode usar a opção *Reativar o agendamento de backup.* Depois disso, os dados seriam retidos com base na nova política de retenção.
 - **Pare a proteção e exclua dados de backup**.
@@ -106,7 +106,7 @@ Existem duas maneiras de parar de proteger o backup de arquivos e pastas:
 1. Na página **Selecionar item de diretiva,** **selecione Modificar um cronograma de backup para seus arquivos e pastas** e clique em **Next**.
 
     ![Modificar ou interromper um backup programado.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
-1. Na página Modificar ou Interromper uma página **de backup agendada,** **selecione Pare de usar esse cronograma de backup, mas mantenha os backups armazenados até que um cronograma seja ativado novamente**. Em seguida, selecione **Next**.
+1. Na página Modificar ou Interromper uma página **de backup agendada,** **selecione Pare de usar esse cronograma de backup, mas mantenha os backups armazenados até que um cronograma seja ativado novamente**. Em seguida, selecione **Avançar**.
 
     ![Modificar ou interromper um backup programado.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
 1. Em **Pausa, backup agendado** revise as informações e clique **em Concluir**.
@@ -117,7 +117,7 @@ Existem duas maneiras de parar de proteger o backup de arquivos e pastas:
 ### <a name="stop-protection-and-delete-backup-data"></a>Parar a proteção e excluir dados de backup
 
 1. Abra o console de gerenciamento MARS, vá para o painel **Ações** e selecione **Agendamento Backup**.
-2. Na página Modificar ou Interromper uma página **de backup programada,** **selecione Parar de usar esse cronograma de backup e exclua todos os backups armazenados**. Em seguida, selecione **Next**.
+2. Na página Modificar ou Interromper uma página **de backup programada,** **selecione Parar de usar esse cronograma de backup e exclua todos os backups armazenados**. Em seguida, selecione **Avançar**.
 
     ![Modificar ou interromper um backup programado.](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 
@@ -172,4 +172,4 @@ Uma senha é usada para criptografar e descriptografar dados durante o backup ou
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter informações sobre cenários e limitações suportadas, consulte a [Matriz de Suporte para o Agente MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
-- Saiba mais sobre [o comportamento de retenção de políticas de backup demanda](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).
+- Saiba mais sobre [o comportamento de retenção de políticas de backup sob demanda](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).

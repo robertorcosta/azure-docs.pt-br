@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 3fbc4e683c2b0e72c3a084a59793dbf9eb4b658c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: cecafd9209b095270e9a06ca59ffef162326efc2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657415"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537994"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -117,8 +117,6 @@ Você pode [adicionar e editar caminhos de namespace](hpc-cache-edit-storage.md)
 Preencha esses valores para cada caminho de namespace:
 
 * **Caminho de namespace virtual** - Defina o caminho do arquivo voltado para o cliente para esse destino de armazenamento. Leia [Configure namespace agregado](hpc-cache-namespace.md) para saber mais sobre o recurso de namespace virtual.
-
-<!--  The virtual path should start with a slash ``/``. -->
 
 * **Caminho de exportação NFS** - Digite o caminho para a exportação nfs.
 

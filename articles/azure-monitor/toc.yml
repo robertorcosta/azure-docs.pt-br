@@ -318,8 +318,6 @@
               href: app/pre-aggregated-metrics-log-metrics.md
             - name: Definições de métrica baseadas em log
               href: platform/app-insights-metrics.md
-            - name: Metrics Explorer clássico
-              href: app/metrics-explorer.md
         - name: Search
           href: app/diagnostic-search.md
         - name: Criador de perfil

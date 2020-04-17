@@ -3,21 +3,25 @@ title: Configure um aparelho Azure Migrate para Hyper-V
 description: Saiba como configurar um aparelho Azure Migrate para avaliar e migrar VMs Hyper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 80db2c1d4f5482604ca1507174b127c150f76044
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77c13a3a8c87d116bd0863324d28669185c53c84
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336808"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538283"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configure um aparelho para Hiper-VVs
 
-Este artigo descreve como configurar o aparelho Azure Migrate para avaliação de VMs Hyper-V com a ferramenta [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
+Siga este artigo para configurar o aparelho Azure Migrate para avaliação de VMs Hyper-V com a ferramenta [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
 
 O [aparelho Azure Migrate](migrate-appliance.md) é um aparelho leve usado pelo Azure Migrate:Server Assessment/Migration para descobrir VMs Hyper-V no local e enviar dados de metadados/desempenho de VM para o Azure.
 
-Você pode configurar o aparelho Azure Migrate para avaliação de VM Hiper-V usando um modelo VHD que você baixa ou usando um script de instalação PowerShell. Este artigo descreve como configurar o aparelho usando o modelo VHD. Se quiser configurar o aparelho usando o script, siga as instruções [deste artigo](deploy-appliance-script.md).
+Você pode implantar o aparelho usando alguns métodos:
 
+- Configuração em um Hyper-V VM usando um VHD baixado. Este é o método descrito neste artigo.
+- Configurado em um Hyper-V VM ou máquina física com um script instalador PowerShell. [Este método](deploy-appliance-script.md) deve ser usado se você não puder configurar uma VM usando um VHD, ou se você estiver no Governo Azure.
+
+Depois de criar o dispositivo, você verifica se é possível conectá-lo ao Migrações para Azure: Avaliação do Servidor, configurá-lo pela primeira vez e registrá-lo com o projeto de Migrações para Azure.
 
 ## <a name="appliance-deployment-vhd"></a>Implantação do aparelho (VHD)
 
@@ -31,8 +35,8 @@ Para configurar o aparelho usando um modelo VHD:
 
 Baixe o modelo de VHD compactado para o dispositivo.
 
-1. Em **Metas de migração** > **Servidores** > **Azure Migrate: Avaliação do servidor,** clique em **Descobrir**.
-2. Em **Máquinas** > Discover**Suas máquinas são virtualizadas?**, clique **em Sim, com Hyper-V**.
+1. Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique em **Descobrir**.
+2. Em **Descobrir computadores** > **Os computadores estão virtualizados?** , clique em **Sim, com o Hyper-V**.
 3. Clique em **Download** para baixar o arquivo VHD.
 
     ![Baixar VM](./media/how-to-set-up-appliance-hyper-v/download-appliance-hyperv.png)
@@ -61,11 +65,11 @@ Importe o arquivo baixado e crie a VM.
     ![Implantar o VHD](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
 
 2. No Assistente para Importar Máquina Virtual > **Antes de começar**, clique em **Avançar**.
-3. Em **Localizar Pasta**, especifique a pasta que contém o VHD extraído. Em seguida, clique em **Avançar**.
+3. Em **Localizar Pasta**, especifique a pasta que contém o VHD extraído. Em seguida, clique em **Próximo**.
 1. Em **Selecionar Máquina Virtual**, clique em **Avançar**.
-2. Em **Escolher Tipo de Importação**, clique em **Copiar a máquina virtual (criar uma nova ID exclusiva)**. Em seguida, clique em **Avançar**.
-3. Em **Escolher Destino**, mantenha a configuração padrão. Clique em **Avançar**.
-4. Em **Pastas de Armazenamento**, mantenha a configuração padrão. Clique em **Avançar**.
+2. Em **Escolher Tipo de Importação**, clique em **Copiar a máquina virtual (criar uma nova ID exclusiva)** . Em seguida, clique em **Próximo**.
+3. Em **Escolher Destino**, mantenha a configuração padrão. Clique em **Próximo**.
+4. Em **Pastas de Armazenamento**, mantenha a configuração padrão. Clique em **Próximo**.
 5. Em **Escolher Rede**, especifique o comutador virtual que será usado pela VM. O comutador precisa de conectividade com a Internet para enviar dados ao Azure.
 6. Em **Resumo**, examine as configurações. Em seguida, clique em **Concluir**.
 7. No Gerenciador do Hyper-V, > **Máquinas Virtuais**, inicie a máquina virtual.
@@ -73,7 +77,7 @@ Importe o arquivo baixado e crie a VM.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
-Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-appliance.md#url-access).
+Certifique-se de que o aparelho VM possa se conectar a URLs azure para nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
 
 ## <a name="configure-the-appliance"></a>Configurar o dispositivo
 
@@ -81,21 +85,21 @@ Configure o dispositivo pela primeira vez. Se você implantar o aparelho usando 
 
 1. No Gerenciador do Hyper-V > **Máquinas Virtuais**, clique com o botão direito do mouse na VM > **Conectar**.
 2. Forneça o idioma, o fuso horário e a senha do dispositivo.
-3. Abra um navegador em qualquer máquina que possa se conectar à VM e abra a URL do aplicativo web do aparelho: **https:// nome do aparelho ou endereço*IP*: 44368**.
+3. Abra um navegador em qualquer computador que possa se conectar à VM e abra a URL do aplicativo Web do dispositivo: **https://*nome do dispositivo ou endereço IP*: 44368**.
 
    Como alternativa, você pode abrir o aplicativo na área de trabalho do dispositivo clicando no atalho do aplicativo.
 1. No aplicativo Web > **Configurar os pré-requisitos**, faça o seguinte:
-    - **Licença**: Aceite os termos da licença e leia as informações de terceiros.
-    - **Conectividade**: O aplicativo verifica se a VM tem acesso à internet. Se a VM usar um proxy:
+    - **Licença**: Aceite os termos de licença e leia as informações de terceiros.
+    - **Conectividade**: o aplicativo verifica se a VM tem acesso à Internet. Se a VM usar um proxy:
         - Clique em **Configurações de proxy** e especifique o endereço proxy e a porta de escuta, no formato http://ProxyIPAddress ou http://ProxyFQDN.
         - Especifique as credenciais caso o proxy exija autenticação.
         - Há suporte apenas para o proxy HTTP.
-    - **Sincronização de tempo**: O tempo é verificado. o horário no dispositivo deve ser sincronizado com o horário na Internet para que a descoberta da VM funcione corretamente.
-    - **Atualizações de instalação**: A avaliação do servidor migração do Azure verifica se o aparelho tem as últimas atualizações instaladas.
+    - **Sincronização do horário**: o horário é verificado. o horário no dispositivo deve ser sincronizado com o horário na Internet para que a descoberta da VM funcione corretamente.
+    - **Instalar as atualizações**: a Avaliação de Servidor das Migrações para Azure verifica se o dispositivo tem as atualizações mais recentes instaladas.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo nas Migrações para Azure
 
-1. Clique em **Entrar**. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
+1. Clique em **Fazer Logon**. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
 2. Na nova guia, entre usando suas credenciais do Azure.
     - Entre com seu nome de usuário e sua senha.
     - Não há suporte para a entrada com um PIN.
@@ -116,10 +120,10 @@ Se estiver executando VHDs em SMBs, você precisará habilitar a delegação de 
     ```
 
 2. Como alternativa, faça isso no Editor de Política de Grupo Local no dispositivo:
-    - Em **Configuração local do** > computador de**política de computador,** clique em Delegação de credenciais do**sistema** >  **de modelos administrativos** > .**Credentials Delegation**
+    - Em **Política do Computador local** > **Configuração do Computador**, clique em **Modelos Administrativos** > **Sistemas** > **Delegação de Credenciais**.
     - Clique duas vezes em **Permitir delegação de novas credenciais** e selecione **Habilitado**.
-    - Em **Opções**, clique em **Mostrar** e adicione cada host Hyper-V que você deseja descobrir à lista, com o prefixo **wsman/**.
-    - Em **Delegação de Credenciais**, clique duas vezes em **Permitir delegação de novas credenciais com autenticação de servidor somente NTLM**. Mais uma vez, adicione cada host Hyper-V que você deseja descobrir à lista, com o prefixo **wsman/**.
+    - Em **Opções**, clique em **Mostrar** e adicione cada host Hyper-V que você deseja descobrir à lista, com o prefixo **wsman/** .
+    - Em **Delegação de Credenciais**, clique duas vezes em **Permitir delegação de novas credenciais com autenticação de servidor somente NTLM**. Mais uma vez, adicione cada host Hyper-V que você deseja descobrir à lista, com o prefixo **wsman/** .
 
 ## <a name="start-continuous-discovery"></a>Iniciar a descoberta contínua
 
@@ -141,7 +145,7 @@ Isso iniciará a descoberta. São necessários cerca de 15 minutos para que os m
 Após a descoberta terminar, você poderá verificar se as VMs são exibidas no portal.
 
 1. Abra o painel das Migrações para Azure.
-2. No **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** page, clique no ícone que exibe a contagem de servidores **Descobertos**.
+2. Na página **Migrações para Azure – Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique no ícone que exibe a contagem de **Servidores descobertos**.
 
 
 ## <a name="next-steps"></a>Próximas etapas

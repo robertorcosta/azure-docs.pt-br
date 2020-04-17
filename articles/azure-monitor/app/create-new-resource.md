@@ -3,12 +3,12 @@ title: Criar um novo recurso do Azure Application Insights | Microsoft Docs
 description: Configure manualmente o monitoramento do Application Insights para um novo aplicativo em tempo real.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: c1b3a6920723ad59b714cce4bd69e1b95fe1995f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c8b9ccaa70a2fd1bf46c6f4537f54d702ecc48f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132415"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537569"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -28,7 +28,7 @@ Faça login no [portal do Azure](https://portal.azure.com)e crie um recurso appl
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor exclusivo | Nome que identifica o aplicativo que você está monitorando. |
    | **Grupo de recursos**     | myResourceGroup      | Nome do novo ou existente grupo de recursos para hospedar dados do App Insights. |
-   | **Local** | Leste dos EUA | Escolha um local perto de você ou perto de onde seu aplicativo está hospedado. |
+   | **Localidade** | Leste dos EUA | Escolha um local perto de você ou perto de onde seu aplicativo está hospedado. |
 
 > [!NOTE]
 > Embora você possa usar o mesmo nome de recurso em diferentes grupos de recursos, pode ser benéfico usar um nome único globalmente. Isso pode ser útil se você planeja [realizar consultas de recursos cruzados,](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) pois simplifica a sintaxe necessária.
@@ -153,12 +153,12 @@ Para obter a documentação completa do Azure CLI para este comando, e para sabe
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
-* [Explorar métricas](../../azure-monitor/app/metrics-explorer.md)
+* [Explorar métricas](../../azure-monitor/platform/metrics-charts.md)
 * [Escrever consultas do Analytics](../../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 [start]: ../../azure-monitor/app/app-insights-overview.md

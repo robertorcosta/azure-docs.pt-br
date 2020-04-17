@@ -3,12 +3,12 @@ title: Definir ordem de implantação de recursos
 description: Descreve como definir um recurso como dependente de outro recurso durante a implantação para garantir que os recursos sejam implantados na ordem correta.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: f11f79df875492a568a76f494dfffb4a163f64cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 764b718416e1185f56c7eb6b8335792a5822f212
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153277"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535461"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Defina a ordem de implantação de recursos em modelos ARM
 
@@ -18,7 +18,7 @@ O Gerenciador de Recursos avalia as dependências entre os recursos e os implant
 
 ## <a name="dependson"></a>dependsOn
 
-No seu modelo, o elemento dependsOn permite definir um recurso como um dependente em um ou mais recursos. Seu valor é uma lista separada por comma de nomes de recursos. A lista pode incluir recursos que são [condicionalmente implantados](conditional-resource-deployment.md). Quando um recurso condicional não é implantado, o Azure Resource Manager remove-o automaticamente das dependências necessárias.
+No seu modelo, o elemento dependsOn permite definir um recurso como um dependente em um ou mais recursos. Seu valor é uma matriz JSON de strings, cada uma das quais é um nome de recurso. A matriz pode incluir recursos que são [implantados condicionalmente](conditional-resource-deployment.md). Quando um recurso condicional não é implantado, o Azure Resource Manager remove-o automaticamente das dependências necessárias.
 
 O exemplo a seguir mostra um conjunto de escala de máquina virtual que depende de um balanceador de carga, de uma rede virtual e de um loop que cria várias contas de armazenamento. Esses outros recursos não são mostrados no exemplo a seguir, mas precisam ser existe em outro lugar no modelo.
 

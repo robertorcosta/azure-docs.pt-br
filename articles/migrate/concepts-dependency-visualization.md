@@ -2,13 +2,13 @@
 title: Análise de dependência na avaliação do servidor azure migrate
 description: Descreve como usar a análise de dependência para avaliação usando a avaliação do servidor Azure Migrate.
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: f96496b66d6bcfd397fb0a7303d3dbfb4fd6f6b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: b11796f2c5d7c1d87f383e6780444e572352eff5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455631"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537739"
 ---
 # <a name="dependency-analysis"></a>Análise de dependência
 
@@ -30,7 +30,7 @@ Existem duas opções para implantar análise de dependência
 - **Sem agente**: Com a análise sem agente, você não precisa instalar agentes em máquinas que deseja cruzar. Esta opção está atualmente em pré-visualização, e está disponível apenas para VMware VMware.
 
 > [!NOTE]
-> A análise de dependência não está disponível no governo Azure.
+> A análise de dependência baseada em agentes não está disponível no governo Azure. Você pode usar a análise de dependência sem agente.
 
 ## <a name="agentless-analysis"></a>Análise sem agente
 
@@ -62,7 +62,7 @@ Para visualização baseada em agentes, os seguintes dados são coletados:
 
 As diferenças entre visualização sem agente e visualização baseada em agentes são resumidas na tabela.
 
-**Exigência** | **Sem agente** | **Baseado em agentes**
+**Requisito** | **Sem agente** | **Baseado em agentes**
 --- | --- | ---
 Suporte | Esta opção está atualmente em pré-visualização, e está disponível apenas para VMware VMware. [Revisar](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) sistemas operacionais suportados. | Disponibilidade geral (GA).
 Agente | Não há necessidade de instalar agentes em máquinas que você deseja cruzar. | Agentes a serem instalados em cada máquina local que você deseja analisar: o [agente de monitoramento microsoft (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)e o agente de [dependência](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 

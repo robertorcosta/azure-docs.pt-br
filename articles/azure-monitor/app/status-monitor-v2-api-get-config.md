@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 93ab8f613e5634b2eabe7c02189e223d3dfbb0a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0cb5991b381acc9a0ec36113d0e15a7731b5074d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671266"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537484"
 ---
 # <a name="application-insights-agent-api-get-applicationinsightsmonitoringconfig"></a>API do agente de insights de aplicativos: Get-ApplicationInsightsMonitoringConfig
 
@@ -49,7 +49,7 @@ Filters:
 ## <a name="next-steps"></a>Próximas etapas
 
   Exiba sua telemetria:
- - [Explorar métricas](../../azure-monitor/app/metrics-explorer.md) para monitorar o desempenho e o uso.
+ - [Explorar métricas](../../azure-monitor/platform/metrics-charts.md) para monitorar o desempenho e o uso.
 - [Pesquise eventos e registros](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
 - Use [análises](../../azure-monitor/app/analytics.md) para consultas mais avançadas.
 - [Criar painéis](../../azure-monitor/app/overview-dashboard.md).

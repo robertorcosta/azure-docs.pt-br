@@ -3,12 +3,12 @@ title: Application Insights para serviços de nuvem do Azure | Microsoft Docs
 description: Monitorar suas funções da Web e de trabalho com eficiência com o Application Insights
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: ce794a7bd18635fddfa30056ab2d675dc138097d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276186"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537586"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para serviços de nuvem do Azure
 O [Application Insights][start] pode monitorar os [aplicativos de serviço de nuvem do Azure](https://azure.microsoft.com/services/cloud-services/) para analisar a disponibilidade, o desempenho, as falhas e o uso combinando os dados de SDKs do Application Insights com os dados do [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) a partir de seus serviços de nuvem. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
@@ -18,7 +18,7 @@ O [Application Insights][start] pode monitorar os [aplicativos de serviço de nu
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, você precisa de:
 
-* Uma assinatura do [Azure](https://azure.com). Entrar com sua conta da Microsoft para Windows, Xbox Live ou outros serviços de nuvem da Microsoft. 
+* Uma assinatura [do Azure.](https://azure.com) Entrar com sua conta da Microsoft para Windows, Xbox Live ou outros serviços de nuvem da Microsoft. 
 * Ferramentas do Microsoft Azure 2.9 ou posteriores.
 * Developer Analytics Tools 7.10 ou posterior.
 
@@ -31,7 +31,7 @@ Esta opção prepara o aplicativo em runtime, oferecendo a você toda a telemetr
 
 Se esta opção for tudo o que você precisa, então você terminou. 
 
-Os próximos [passos são visualizar métricas do seu aplicativo,](../../azure-monitor/app/metrics-explorer.md) [consultando seus dados com o Analytics](../../azure-monitor/app/analytics.md). 
+Os próximos [passos são visualizar métricas do seu aplicativo,](../../azure-monitor/platform/metrics-charts.md) [consultando seus dados com o Analytics](../../azure-monitor/app/analytics.md). 
 
 Para monitorar o desempenho no navegador, talvez você queira configurar os [testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) e [adicionar código às suas páginas da Web](../../azure-monitor/app/javascript.md).
 
@@ -165,7 +165,7 @@ Esta etapa só é necessária se você quiser capturar consultas SQL completas n
 
 1. Abra os recursos criados do Application Insights.
 
-   Os pontos de dados individuais são exibidos na [Pesquisa][diagnostic], e os dados agregados são exibidos no [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md).
+   Os pontos de dados individuais são exibidos na [Pesquisa][diagnostic], e os dados agregados são exibidos no [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md).
 
 1. Adicione mais telemetria (consulte as próximas seções) e, em seguida, publique seu aplicativo para obter comentários em tempo real sobre o diagnóstico e o uso. 
 
@@ -184,7 +184,7 @@ Para saber mais, consulte a [Solução de problemas][qna].
 * Os logs de eventos do Windows são mostrados como eventos de rastreamentos e personalizados.
 * Logs do aplicativo, logs de ETW e todos os logs de infraestrutura de diagnóstico são exibidos como rastreamentos.
 
-Para exibir os contadores de desempenho e as contagens de eventos, abra o [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) e adicione o seguinte gráfico:
+Para exibir os contadores de desempenho e as contagens de eventos, abra o [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) e adicione o seguinte gráfico:
 
 ![Dados de Diagnóstico do Azure](./media/cloudservices/23-wad.png)
 

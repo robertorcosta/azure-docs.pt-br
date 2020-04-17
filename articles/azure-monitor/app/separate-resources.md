@@ -3,12 +3,12 @@ title: Separando a telemetria no Azure Application Insights
 description: Direcione a telemetria para diferentes recursos para stamps de desenvolvimento, teste e produção.
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 3580d162f4b3955a04ffcd0f13933221bfef3b65
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 565d51751ad50479f4e227b6855ac63b80bd949e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671453"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536770"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separação da telemetria de desenvolvimento, teste e produção
 
@@ -34,7 +34,7 @@ Para facilitar a alteração da ikey à medida que o código percorre os estági
 
 Defina a chave em um método de inicialização como global.aspx.cs em um serviço ASP.NET:
 
-*C #*
+*C#*
 
     protected void Application_Start()
     {
@@ -69,7 +69,7 @@ No [portal.azure.com](https://portal.azure.com), adicione um recurso do Applicat
 
 ![Clique em Novo, Application Insights](./media/separate-resources/01-new.png)
 
-* O **tipo de aplicativo** afeta o que você vê na folha de visão geral e as propriedades disponíveis no [explorador de métricas](../../azure-monitor/app/metrics-explorer.md). Se você não vir o tipo de aplicativo, escolha um dos tipos da Web para páginas da Web.
+* O **tipo de aplicativo** afeta o que você vê na folha de visão geral e as propriedades disponíveis no [explorador de métricas](../../azure-monitor/platform/metrics-charts.md). Se você não vir o tipo de aplicativo, escolha um dos tipos da Web para páginas da Web.
 * **O grupo de** recursos é uma conveniência para gerenciar propriedades como [controle de acesso.](../../azure-monitor/app/resources-roles-access-control.md) Você pode usar grupos de recursos separados para desenvolvimento, teste e produção.
 * **Assinatura** é a sua conta de pagamento no Azure.
 * **Local** é onde podemos manter seus dados. Atualmente ele não pode ser alterado. 
@@ -89,7 +89,7 @@ Você precisará das chaves de instrumentação de todos os recursos aos quais s
 ## <a name="filter-on-build-number"></a>Filtrar por número de compilação
 Quando publicar uma nova versão do seu aplicativo, você desejará ser capaz de separar a telemetria das compilações diferentes.
 
-Você pode definir a propriedade de versão do aplicativo para que possa filtrar resultados da [pesquisa](../../azure-monitor/app/diagnostic-search.md) e do [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md).
+Você pode definir a propriedade de versão do aplicativo para que possa filtrar resultados da [pesquisa](../../azure-monitor/app/diagnostic-search.md) e do [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md).
 
 ![Filtragem em uma propriedade](./media/separate-resources/050-filter.png)
 
@@ -139,7 +139,7 @@ Para controlar a versão do aplicativo, certifique-se de `buildinfo.config` é g
     </PropertyGroup>
 ```
 
-Quando ele tem as informações de compilação, o módulo da web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico](../../azure-monitor/app/diagnostic-search.md) ou ao [explorar métricas](../../azure-monitor/app/metrics-explorer.md).
+Quando ele tem as informações de compilação, o módulo da web Application Insights adiciona automaticamente **Versão do aplicativo** como uma propriedade para cada item de telemetria. Isso permite que você filtre por versão ao executar [pesquisas de diagnóstico](../../azure-monitor/app/diagnostic-search.md) ou ao [explorar métricas](../../azure-monitor/platform/metrics-charts.md).
 
 No entanto, observe que o número da versão de compilação é gerado apenas pelo Microsoft Build Engine, não pela compilação do desenvolvedor do Visual Studio.
 

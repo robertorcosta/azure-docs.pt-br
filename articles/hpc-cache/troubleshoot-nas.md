@@ -4,14 +4,14 @@ description: Dicas para evitar e corrigir erros de configuração e outros probl
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/18/2020
 ms.author: rohogue
-ms.openlocfilehash: c88ffb9e87bc0688cc87b816efaa8e101e23407c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a24530810a448a713c01efbc8933b9f22d15b3b
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77652081"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536362"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Solucionar problemas de configuração nas e problemas de destino de armazenamento NFS
 
@@ -63,6 +63,9 @@ Diferentes sistemas de armazenamento usam métodos diferentes para permitir esse
 
 Se usar as regras de exportação, lembre-se de que o cache pode usar vários endereços IP diferentes da sub-rede de cache. Permitir o acesso a partir de toda a gama de possíveis endereços IP de sub-rede.
 
+> [!NOTE]
+> Por padrão, o Cache Azure HPC esmaga o acesso raiz. Ler [Configure configurações adicionais de cache](configuration.md#configure-root-squash) para detalhes.
+
 Trabalhe com o fornecedor de armazenamento NAS para habilitar o nível certo de acesso para o cache.
 
 ### <a name="allow-root-access-on-directory-paths"></a>Permitir acesso raiz em caminhos de diretório
@@ -100,7 +103,7 @@ Use um cliente Linux da mesma rede virtual que seu cache, se possível.
 Se esse comando não listar as exportações, o cache terá problemas para se conectar ao seu sistema de armazenamento. Trabalhe com seu fornecedor NAS para habilitar a listagem de exportação.
 
 ## <a name="adjust-vpn-packet-size-restrictions"></a>Ajuste as restrições de tamanho do pacote VPN
-<!-- link in prereqs article -->
+<!-- link in prereqs article and configuration article -->
 
 Se você tiver uma VPN entre o cache e o seu dispositivo NAS, a VPN poderá bloquear pacotes Ethernet de tamanho completo de 1500 bytes. Você pode ter esse problema se grandes trocas entre o NAS e a instância de cache Do Zure HPC não forem concluídas, mas atualizações menores funcionarem como esperado.
 
@@ -128,7 +131,11 @@ Não há uma maneira simples de dizer se seu sistema tem ou não esse problema, 
   1480 bytes from 10.54.54.11: icmp_seq=1 ttl=64 time=2.06 ms
   ```
 
-  Se o ping falhar com 1472 bytes, talvez seja necessário configurar a fixação mSS na VPN para fazer com que o sistema remoto detecte corretamente o tamanho máximo do quadro. Leia a documentação de [parâmetros do VPN Gateway IPsec/IKE](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) para saber mais.
+  Se o ping falhar com 1472 bytes, provavelmente haverá um problema de tamanho de pacote.
+
+Para corrigir o problema, talvez seja necessário configurar a fixação mSS na VPN para fazer com que o sistema remoto detecte corretamente o tamanho máximo do quadro. Leia a documentação de [parâmetros do VPN Gateway IPsec/IKE](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) para saber mais.
+
+Em alguns casos, alterar a configuração MTU para o Cache Azure HPC para 1400 pode ajudar. No entanto, se você restringir o MTU no cache, você também deve restringir as configurações de MTU para clientes e sistemas de armazenamento back-end que interagem com o cache. Leia [Configurar configuração adicional de cache Azure HPC](configuration.md#adjust-mtu-value) para obter detalhes.
 
 ## <a name="check-for-acl-security-style"></a>Verifique se há estilo de segurança da ACL
 

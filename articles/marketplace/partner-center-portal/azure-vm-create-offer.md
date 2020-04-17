@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: 12dd17045715a24d1e5151b30a5e7706b0e58717
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 161fd9276427db0d0d7d56da1bfc0bb8ccf52a52
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383797"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536651"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Crie uma oferta de máquina virtual do Azure
 
@@ -296,7 +296,7 @@ Selecione **Salvar rascunho** antes de prosseguir para a próxima seção, visã
 
 ## <a name="plan-overview"></a>Visão geral do plano
 
-Você pode fornecer diferentes opções de plano dentro da mesma oferta no Partner Center. Esses planos foram previamente referidos como SKUs. Uma oferta requer pelo menos um plano, que pode diferir em termos de audiência de monetização, nuvens Azure, recursos ou imagens em VM.
+Você pode fornecer diferentes opções de plano dentro da mesma oferta no Partner Center. Esses planos foram previamente referidos como SKUs. Uma oferta requer pelo menos um plano, que pode diferir em termos de audiência de monetização, regiões do Azure, recursos ou imagens de VM.
 
 Depois de criar seus planos, a guia **'Visão geral do Plano'** mostra:
 
@@ -326,7 +326,7 @@ Selecione **Criar**.
 
 ### <a name="plan-setup"></a>Configuração do plano
 
-Defina a configuração de alto nível para o tipo de plano, se ele reutiliza a configuração técnica de outro plano e em que nuvens o plano deve estar disponível. Suas seleções aqui determinam quais campos são exibidos em outras guias para o mesmo plano.
+Defina a configuração de alto nível para o tipo de plano, se ele reutiliza a configuração técnica de outro plano e em que regiões do Azure o plano deve estar disponível. Suas seleções aqui determinam quais campos são exibidos em outras guias para o mesmo plano.
 
 #### <a name="reuse-technical-configuration"></a>Reutilizar configuração técnica
 
@@ -335,24 +335,24 @@ Se você tiver mais de um plano do mesmo tipo, e os pacotes forem idênticos ent
 > [!NOTE]
 > Quando você reutiliza a configuração técnica de outro plano, toda a guia **de configuração técnica** desaparece desse plano. Os detalhes de configuração técnica do outro plano, incluindo quaisquer atualizações que você fizer no futuro, também serão usados para este plano. Esta configuração não pode ser alterada após a publicação deste plano.
 
-#### <a name="cloud-availability"></a>Disponibilidade de nuvem
+#### <a name="azure-regions"></a>Regiões do Azure
 
-Seu plano deve ser disponibilizado em pelo menos uma nuvem.
+Seu plano deve ser disponibilizado em pelo menos uma região Azure.
 
-Selecione a opção **Azure Global** para disponibilizar seu plano aos clientes em todas as regiões públicas do Azure que tenham integração de mercado comercial. Para obter detalhes, consulte [disponibilidade geográfica e suporte à moeda](https://aka.ms/AzureGovCurrencies).
+Selecione a opção **Azure Global** para disponibilizar seu plano aos clientes em todas as regiões públicas do Azure que tenham integração de mercado comercial. Para obter detalhes, consulte [disponibilidade geográfica e suporte à moeda](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Selecione a opção **Nuvem do Governo do Azure** para disponibilizar seu plano na Nuvem do Governo do [Azure](https://aka.ms/WhatIsAzureGovernment). esta é uma nuvem governamental-comunidade com acesso controlado para clientes de agências federais, estaduais, locais ou tribais dos EUA, bem como parceiros elegíveis para servir essas entidades. Como editor, você é responsável por quaisquer controles de conformidade, medidas de segurança e práticas recomendadas para atender a essa comunidade de nuvem. O governo azure usa data centers e redes fisicamente isolados (localizados apenas nos EUA).
+Selecione a opção **Governo Azure** para disponibilizar seu plano na região [do Governo Azure.](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) Esta região fornece acesso controlado para clientes de entidades federais, estaduais, locais ou tribais dos EUA, bem como parceiros elegíveis para atendê-los. Você, como editor, é responsável por quaisquer controles de conformidade, medidas de segurança e práticas recomendadas. O governo azure usa data centers e redes fisicamente isolados (localizados apenas nos EUA).
 
-Antes de publicar para [o Governo Do Azure,](https://aka.ms/azuregovpublish)teste e valide seu plano no ambiente, pois certos pontos finais podem ser diferentes. Para configurar e testar seu plano, solicite uma conta de teste do teste do [Governo do Microsoft Azure](https://aka.ms/AzureGovernmentTrial).
+Antes de publicar para [o Governo Do Azure,](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)teste e valide seu plano no ambiente, pois certos pontos finais podem ser diferentes. Para configurar e testar seu plano, solicite uma conta de teste do teste do [Governo do Microsoft Azure](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> Depois que seu plano é publicado e disponível em uma nuvem específica, você não pode remover essa nuvem.
+> Depois que seu plano for publicado e disponível em uma região específica do Azure, você não pode remover essa região.
 
-#### <a name="azure-government-cloud-certifications"></a>Certificações de Nuvem do Governo do Azure
+#### <a name="azure-government-certifications"></a>Certificações do Governo do Azure
 
-Essa opção só será visível se **o Azure Government Cloud** for selecionado sob disponibilidade na **Nuvem**.
+Esta opção só será visível se você selecionar **o Governo Azure** em **regiões Azure**.
 
-Os serviços do Governo Azure lidam com dados que estão sujeitos a certas regulamentações e requisitos governamentais. Por exemplo, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Para trazer consciência às suas certificações para esses programas, você pode fornecer até 100 links que os descrevem. Estes podem ser links para sua listagem no programa diretamente ou links para descrições de sua conformidade com eles em seus próprios sites. Esses links são visíveis apenas para clientes do Azure Government Cloud.
+Os serviços do Governo Azure lidam com dados que estão sujeitos a certas regulamentações e requisitos governamentais. Por exemplo, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Para trazer consciência às suas certificações para esses programas, você pode fornecer até 100 links que os descrevem. Estes podem ser links para sua listagem no programa diretamente ou links para descrições de sua conformidade com eles em seus próprios sites. Esses links são visíveis apenas para clientes do Governo Azure.
 
 Selecione **Salvar rascunho** antes de continuar.
 
@@ -384,7 +384,7 @@ Nesta guia, você configurará o seguinte:
 
 #### <a name="markets"></a>Mercados
 
-Todos os planos devem estar disponíveis em pelo menos um mercado. Selecione a caixa de seleção para cada local de mercado onde este plano deve estar disponível para compra (os usuários nesses mercados ainda podem implantar a oferta em todas as regiões do Azure para as nuvens selecionadas). O botão **Tax Remitted** mostra países em que a Microsoft reemite vendas e usa impostos em seu nome. A publicação para a China é limitada a planos que são **gratuitos** ou **trazem sua própria licença** (BYOL).
+Todos os planos devem estar disponíveis em pelo menos um mercado. Selecione a caixa de seleção para cada local de mercado onde este plano deve estar disponível para compra (os usuários nesses mercados ainda podem implantar a oferta em todas as regiões do Azure selecionadas na **[configuração do Plano](#plan-setup)**). O botão **Tax Remitted** mostra países em que a Microsoft reemite vendas e usa impostos em seu nome. A publicação para a China é limitada a planos que são **gratuitos** ou **trazem sua própria licença** (BYOL).
 
 Se você já definiu os preços para o seu plano em Dólares dos Estados Unidos (USD) e adicionar outra localização de mercado, o preço para o novo mercado será calculado de acordo com as taxas de câmbio atuais. Sempre revise o preço de cada mercado antes de publicar. Revise os preços usando o link **Preços de Exportação (xlsx)** depois de salvar suas alterações.
 
