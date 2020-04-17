@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 29a4d20390575778ccdecde390c257ccf6a48eb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ca36a7081aaf70ee2045ee7586184c89591df16
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720921"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461507"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Armazenar segredos em um cofre de chaves no Azure DevTest Labs
 Talvez seja necessário inserir um segredo complexo ao usar o Azure DevTest Labs: a senha para sua VM do Windows, a chave SSH pública para sua VM do Linux ou o token de acesso pessoal para clonar o repositório do Git por meio de um artefato. Segredos geralmente são longos e têm caracteres aleatórios. Portanto, inseri-los pode ser complicado e inconveniente, especialmente se você usar o mesmo segredo várias vezes.
 
-Para resolver esse problema e também manter seus segredos em um local seguro, o DevTest Labs dá suporte ao armazenamento de segredos em um [Azure Key Vault](../key-vault/key-vault-overview.md). Quando um usuário salva um segredo pela primeira vez, o serviço DevTest Labs cria automaticamente um cofre de chaves no mesmo grupo de recursos que contém o laboratório e armazena o segredo no cofre de chaves. O DevTest Labs cria um cofre de chaves separado para cada usuário. 
+Para resolver esse problema e também manter seus segredos em um local seguro, o DevTest Labs dá suporte ao armazenamento de segredos em um [Azure Key Vault](../key-vault/general/overview.md). Quando um usuário salva um segredo pela primeira vez, o serviço DevTest Labs cria automaticamente um cofre de chaves no mesmo grupo de recursos que contém o laboratório e armazena o segredo no cofre de chaves. O DevTest Labs cria um cofre de chaves separado para cada usuário. 
 
 Por favor, note que o usuário do laboratório precisará primeiro criar uma máquina virtual de laboratório antes que eles possam criar um segredo no cofre de chaves. Isso porque o serviço DevTest Lab precisa associar o usuário do laboratório a um documento de usuário válido antes que eles possam criar e armazenar segredos em seu cofre de chaves. 
 

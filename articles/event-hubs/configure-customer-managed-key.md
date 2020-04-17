@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 43e626355feaf1e51fc840f82506c559a1859b84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f515d3ad832db7f78f98111ab67628a2874033ff
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77622002"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459127"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configure chaves gerenciadas pelo cliente para criptografar dados do Azure Event Hubs em repouso usando o portal Azure
 O Azure Event Hubs fornece criptografia de dados em repouso com o Azure Storage Service Encryption (Azure SSE). O Event Hubs conta com o Azure Storage para armazenar os dados e, por padrão, todos os dados armazenados com o Azure Storage são criptografados usando chaves gerenciadas pela Microsoft. 
@@ -26,9 +26,9 @@ Ativar o recurso BYOK é um processo de configuração única no seu namespace.
 > [!NOTE]
 > O recurso BYOK é suportado por [clusters dedicados a um único inquilino do Event Hubs.](event-hubs-dedicated-overview.md) Ele não pode ser habilitado para espaços de nomes padrão do Event Hubs.
 
-Você pode usar o Azure Key Vault para gerenciar suas chaves e auditar seu uso de chaves. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves, ou pode usar as APIs do Azure Key Vault para gerar chaves. Para obter mais informações sobre o Azure Key Vault, consulte [O que é o Azure Key Vault?](../key-vault/key-vault-overview.md)
+Você pode usar o Azure Key Vault para gerenciar suas chaves e auditar seu uso de chaves. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves, ou pode usar as APIs do Azure Key Vault para gerar chaves. Para obter mais informações sobre o Azure Key Vault, consulte [O que é o Azure Key Vault?](../key-vault/general/overview.md)
 
-Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o portal Azure. Para aprender como criar um cofre de chaves usando o portal Azure, consulte [Quickstart: Configure e recupere um segredo do Azure Key Vault usando o portal Azure](../key-vault/quick-create-portal.md).
+Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o portal Azure. Para aprender como criar um cofre de chaves usando o portal Azure, consulte [Quickstart: Configure e recupere um segredo do Azure Key Vault usando o portal Azure](../key-vault/secrets/quick-create-portal.md).
 
 > [!IMPORTANT]
 > O uso de chaves gerenciadas pelo cliente com o Azure Event Hubs requer que o cofre-chave tenha duas propriedades necessárias configuradas. São eles: **Soft Delete** e **Não Purga .** Essas propriedades são habilitadas por padrão quando você cria um novo cofre de chaves no portal Azure. No entanto, se você precisar habilitar essas propriedades em um cofre de chaves existente, você deve usar o PowerShell ou o Azure CLI.
@@ -44,9 +44,9 @@ Para habilitar as chaves gerenciadas pelo cliente no portal Azure, siga estas et
     ![Habilitar a chave gerenciada pelo cliente](./media/configure-customer-managed-key/enable-customer-managed-key.png)
 
 ## <a name="set-up-a-key-vault-with-keys"></a>Configure um cofre de chaves com chaves
-Depois de habilitar as chaves gerenciadas pelo cliente, você precisa associar a chave gerenciada pelo cliente com o namespace do Azure Event Hubs. Event Hubs suporta apenas o Azure Key Vault. Se você habilitar a criptografia com a opção **de chave gerenciada pelo cliente** na seção anterior, você precisará ter a chave importada para o Azure Key Vault. Além disso, as teclas devem ter **Soft Delete** e **Não Purgar** configurados para a chave. Essas configurações podem ser configuradas usando [PowerShell](../key-vault/key-vault-soft-delete-powershell.md) ou [CLI](../key-vault/key-vault-soft-delete-cli.md#enabling-purge-protection).
+Depois de habilitar as chaves gerenciadas pelo cliente, você precisa associar a chave gerenciada pelo cliente com o namespace do Azure Event Hubs. Event Hubs suporta apenas o Azure Key Vault. Se você habilitar a criptografia com a opção **de chave gerenciada pelo cliente** na seção anterior, você precisará ter a chave importada para o Azure Key Vault. Além disso, as teclas devem ter **Soft Delete** e **Não Purgar** configurados para a chave. Essas configurações podem ser configuradas usando [PowerShell](../key-vault/general/soft-delete-powershell.md) ou [CLI](../key-vault/general/soft-delete-cli.md#enabling-purge-protection).
 
-1. Para criar um novo cofre de chaves, siga o Azure Key Vault [Quickstart](../key-vault/key-vault-overview.md). Para obter mais informações sobre a importação de chaves existentes, consulte [Sobre chaves, segredos e certificados](../key-vault/about-keys-secrets-and-certificates.md).
+1. Para criar um novo cofre de chaves, siga o Azure Key Vault [Quickstart](../key-vault/general/overview.md). Para obter mais informações sobre a importação de chaves existentes, consulte [Sobre chaves, segredos e certificados](../key-vault/about-keys-secrets-and-certificates.md).
 1. Para ativar a proteção de exclusão suave e purga ao criar um cofre, use o comando [az keyvault create.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
 
     ```azurecli-interactive
@@ -71,10 +71,10 @@ Depois de habilitar as chaves gerenciadas pelo cliente, você precisa associar a
 
 
 ## <a name="rotate-your-encryption-keys"></a>Gire suas chaves de criptografia
-Você pode girar sua chave no cofre da chave usando o mecanismo de rotação azure Key Vaults. Para obter mais informações, consulte [Configurar rotação e auditoria de chaves](../key-vault/key-vault-key-rotation-log-monitoring.md). As datas de ativação e expiração também podem ser definidas para automatizar a rotação de chaves. O serviço Event Hubs detectará novas versões-chave e começará a usá-las automaticamente.
+Você pode girar sua chave no cofre da chave usando o mecanismo de rotação azure Key Vaults. Para obter mais informações, consulte [Configurar rotação e auditoria de chaves](../key-vault/secrets/key-rotation-log-monitoring.md). As datas de ativação e expiração também podem ser definidas para automatizar a rotação de chaves. O serviço Event Hubs detectará novas versões-chave e começará a usá-las automaticamente.
 
 ## <a name="revoke-access-to-keys"></a>Revogar o acesso às chaves
-A revogação do acesso às chaves de criptografia não limpará os dados dos Hubs de eventos. No entanto, os dados não podem ser acessados a partir do namespace do Event Hubs. Você pode revogar a chave de criptografia através da política de acesso ou excluindo a chave. Saiba mais sobre políticas de acesso e proteção do cofre de chaves do [acesso seguro a um cofre-chave](../key-vault/key-vault-secure-your-key-vault.md).
+A revogação do acesso às chaves de criptografia não limpará os dados dos Hubs de eventos. No entanto, os dados não podem ser acessados a partir do namespace do Event Hubs. Você pode revogar a chave de criptografia através da política de acesso ou excluindo a chave. Saiba mais sobre políticas de acesso e proteção do cofre de chaves do [acesso seguro a um cofre-chave](../key-vault/general/secure-your-key-vault.md).
 
 Uma vez que a chave de criptografia seja revogada, o serviço Event Hubs no namespace criptografado se tornará inoperável. Se o acesso à chave estiver ativado ou a chave de exclusão for restaurada, o serviço Event Hubs escolherá a chave para que você possa acessar os dados do namespace do Event Hubs criptografado.
 
@@ -400,7 +400,7 @@ Nesta etapa, você atualizará o namespace do Event Hubs com informações do co
     New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
     ```
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 Como uma prática recomendada, sempre habilite logs como mostrado na seção anterior. Ele ajuda no rastreamento das atividades quando a criptografia BYOK é ativada. Também ajuda a diminuir os problemas.
 
 A seguir estão os códigos de erros comuns a serem procurar quando a criptografia BYOK estiver ativada.
@@ -423,7 +423,7 @@ A seguir estão os códigos de erros comuns a serem procurar quando a criptograf
 ## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir:
 - [Visão geral de Hubs de Evento](event-hubs-about.md)
-- [Visão geral do Cofre chave](../key-vault/key-vault-overview.md)
+- [Visão geral do Cofre chave](../key-vault/general/overview.md)
 
 
 

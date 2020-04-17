@@ -3,12 +3,12 @@ title: Monitore as mudanças de delegação em seu inquilino de gestão
 description: Saiba como monitorar a atividade da delegação desde os inquilinos do cliente até o seu inquilino gerenciador.
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 322580cc3d0246f7a34e28cdae94da57fda070b5
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: a4593b34311eca34e4fb68926a3820899ab3f324
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985143"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458804"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitore as mudanças de delegação em seu inquilino de gestão
 
@@ -44,7 +44,7 @@ Como este é um amplo nível de acesso, recomendamos que você atribua essa fun�
 
 - [Crie uma nova conta principal de serviço](../../active-directory/develop/howto-create-service-principal-portal.md) para ser usada apenas para esta função, em vez de atribuir essa função a um diretor de serviço existente usado para outras automaçãos.
 - Certifique-se de que este diretor de serviço não tenha acesso a nenhum recurso de cliente delegado.
-- [Use um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) e [armazená-lo com segurança no Azure Key Vault](../../key-vault/key-vault-best-practices.md).
+- [Use um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) e [armazená-lo com segurança no Azure Key Vault](../../key-vault/general/best-practices.md).
 - Limite os usuários que têm acesso a agir em nome do diretor do serviço.
 
 Use um dos seguintes métodos para fazer as atribuições de escopo raiz.

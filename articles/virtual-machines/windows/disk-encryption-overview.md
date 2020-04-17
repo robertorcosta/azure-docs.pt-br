@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e00fee8841a2d5a817a00b942bfe0733a80b2cfc
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: b2fe7e4fbe4830567533053580880315ceface5d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546333"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458872"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Criptografia de disco azure para VMs windows 
 
@@ -54,7 +54,7 @@ Para habilitar a criptografia de disco do Azure, as VMs devem atender aos seguin
   - Para obter um token para se conectar ao cofre principal, o VM do Windows deve \[\]ser capaz de se conectar a um ponto final do Azure Active Directory, login.microsoftonline.com .
   - Para escrever as chaves de criptografia do cofre da chave, o Windows VM deve ser capaz de se conectar ao ponto final do cofre chave.
   - O Windows VM deve ser capaz de se conectar a um ponto final de armazenamento do Azure que hospeda o repositório de extensão Azure e uma conta de armazenamento Azure que hospeda os arquivos VHD.
-  -  Se a política de segurança limita o acesso de VMs do Azure à Internet, você pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída para os IPs. Para obter mais informações, consulte [Azure Key Vault por trás de um firewall](../../key-vault/key-vault-access-behind-firewall.md).    
+  -  Se a política de segurança limita o acesso de VMs do Azure à Internet, você pode resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída para os IPs. Para obter mais informações, consulte [Azure Key Vault por trás de um firewall](../../key-vault/general/access-behind-firewall.md).    
 
 
 ## <a name="group-policy-requirements"></a>Requisitos de diretiva de grupo

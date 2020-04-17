@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: aa0dc204a017e2d40eb3952a9ede0755127f8de2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2b84427b9aad2d18368d808fc618f3bfbe774ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970670"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460113"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Criptografia de disco azure em uma rede isolada
 
@@ -43,7 +43,7 @@ Qualquer configuração do grupo de segurança de rede aplicada ainda deve permi
 
 Se usar [o Azure Disk Encryption com o Azure AD (versão anterior),](disk-encryption-overview-aad.md)a Biblioteca de Diretórios Ativos do [Azure](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) precisará ser instalada manualmente para todas as distros (além dos pacotes apropriados para o distro, conforme [listado acima).](#package-management)
 
-Quando a criptografia é habilitada com [credenciais do Azure AD](disk-encryption-linux-aad.md), a VM de destino deve permitir a conectividade com pontos de extremidade do Azure Active Directory e pontos de extremidade do Key Vault. Os pontos de extremidade de autenticação do Active Directory do Azure atuais são mantidos nas seções 56 e 59 da documentação [Intervalos de endereços IP e URLs do Office 365](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges). As instruções do Key Vault são fornecidas na documentação sobre como [Acessar o Azure Key Vault por trás de um firewall](../../key-vault/key-vault-access-behind-firewall.md).
+Quando a criptografia é habilitada com [credenciais do Azure AD](disk-encryption-linux-aad.md), a VM de destino deve permitir a conectividade com pontos de extremidade do Azure Active Directory e pontos de extremidade do Key Vault. Os pontos de extremidade de autenticação do Active Directory do Azure atuais são mantidos nas seções 56 e 59 da documentação [Intervalos de endereços IP e URLs do Office 365](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges). As instruções do Key Vault são fornecidas na documentação sobre como [Acessar o Azure Key Vault por trás de um firewall](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure 
 

@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f068b79f1b1eaa9a11df70052619c8e3993101cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 434cf3f9342ad10bab39030e65cdd4bc4d0edc27
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74033008"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458855"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Amostras do PowerShell de máquina virtual do Azure
 
@@ -37,9 +36,9 @@ A tabela a seguir fornece links para amostras de script do PowerShell que criam 
 | [Carregar um VHD e criar VMs](./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md) | Carrega um arquivo VHD local no Azure, cria uma imagem a partir do VHD e cria uma VM a partir dessa imagem. |
 | [Criar VM por meio de um disco do sistema operacional gerenciado](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Cria uma máquina virtual anexando um disco gerenciado existente como disco do sistema operacional. |
 | [Criar uma VM de um instantâneo](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Cria uma máquina virtual a partir de um instantâneo criando primeiro um disco gerenciado a partir do instantâneo e, em seguida, anexando o novo disco gerenciado como disco do sistema operacional. |
-|**Gerenciar o armazenamento**||
+|**Gerenciar armazenamento**||
 | [Crie um disco gerenciado a partir de um VHD na mesma ou em uma assinatura diferente](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Cria um disco gerenciado a partir de um VHD especializado como um disco do sistema operacional ou de um VHD de dados como um disco de dados, na mesma assinatura ou em uma assinatura diferente.  |
-| [Crie um disco gerenciado a partir de um snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Cria um disco gerenciado com base em um instantâneo. |
+| [Criar um disco gerenciado com base em um instantâneo](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Cria um disco gerenciado com base em um instantâneo. |
 | [Copie um disco gerenciado para a mesma ou para uma assinatura diferente](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json) | Copia um disco gerenciado para a mesma ou uma assinatura diferente que está na mesma região que o disco gerenciado pai.
 | [Exportar um instantâneo como um VHD para uma conta de armazenamento](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Exporta um instantâneo gerenciado como um VHD para uma conta de armazenamento em uma região diferente. |
 | [Exportar o VHD de um disco gerenciado para uma conta de armazenamento](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Exporta o VHD subjacente de um disco gerenciado para uma conta de armazenamento em uma região diferente. |

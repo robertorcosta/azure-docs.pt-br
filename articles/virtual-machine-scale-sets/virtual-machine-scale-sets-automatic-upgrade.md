@@ -7,12 +7,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mimckitt
-ms.openlocfilehash: ee6a25ac5a4cc7de8b8340afb186d170cc147a38
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 70810b21def1672758683abd49f92b86776c9d7b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393782"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458974"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas de imagem do sistema operacional do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -158,7 +158,7 @@ az provider register --namespace Microsoft.Compute
 - A nova versão de imagem não deve ser excluída da versão mais recente para essa imagem da galeria. As versões de imagem excluídas da versão mais recente da imagem da galeria não são distribuídas para a escala definida através de atualização automática de imagem do Sistema Operacional.
 
 > [!NOTE]
->Pode levar até 2 horas para um conjunto de escala para obter a primeira implantação de imagem depois que o conjunto de escala é configurado para upgrades automáticos do sistema operacional. Este é um atraso único por conjunto de escala. Os lançamentos de imagem subseqüentes são aplicados ao conjunto de escalas sem esse atraso.
+>Pode levar até 3 horas para um conjunto de escala para ativar a primeira implantação de upgrade de imagem depois que o conjunto de escala é configurado para upgrades automáticos do Sistema Operacional. Este é um atraso único por conjunto de escala. Os lançamentos de imagem subseqüentes são acionados na escala definida dentro de 30 minutos.
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Configurar a atualização automática da imagem do sistema operacional

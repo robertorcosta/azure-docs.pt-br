@@ -7,16 +7,16 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5d9acb525f35da756a986826574082f1ecafedf5
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 0038d5fdb38fdcfd4130a710f51d764e0cf9d907
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314112"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459807"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Criando e configurando um cofre de chaves para Azure Disk Encryption
 
-A Criptografia de Disco do Azure usa o Azure Key Vault para controlar e gerenciar chaves e segredos de criptografia de disco.  Para obter mais informações sobre cofres-chave, consulte [Introdução ao Cofre de Chaves do Azure](../../key-vault/key-vault-get-started.md) e [Proteja seu cofre de chaves](../../key-vault/key-vault-secure-your-key-vault.md). 
+A Criptografia de Disco do Azure usa o Azure Key Vault para controlar e gerenciar chaves e segredos de criptografia de disco.  Para obter mais informações sobre cofres-chave, consulte [Introdução ao Cofre de Chaves do Azure](../../key-vault/key-vault-get-started.md) e [Proteja seu cofre de chaves](../../key-vault/general/secure-your-key-vault.md). 
 
 > [!WARNING]
 > - Se você já usou a Criptografia de Disco Do Azure com o Azure AD para criptografar uma VM, você deve continuar usando essa opção para criptografar sua VM. Consulte [Criar e configurar um cofre de chaves para criptografia de disco Azure com o Azure AD (versão anterior)](disk-encryption-key-vault-aad.md) para obter detalhes.

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 2cdafa9a36a5f906151ca6946e18ef82bc7f1e01
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: eac195babebf300aa9770d35b7b98eba29c234cf
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529414"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460980"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configure seu laboratório no Azure DevTest Labs para usar um gateway de desktop remoto
 No Azure DevTest Labs, você pode configurar um gateway de desktop remoto para o seu laboratório para garantir acesso seguro às máquinas virtuais de laboratório (VMs) sem ter que expor a porta RDP. O laboratório fornece um lugar central para os usuários do laboratório visualizarem e se conectarem a todas as máquinas virtuais a que tenham acesso. O botão **Conectar** na página **Máquina Virtual** cria um arquivo RDP específico da máquina que você pode abrir para se conectar à máquina. Você pode personalizar e proteger ainda mais a conexão RDP conectando seu laboratório a um gateway de desktop remoto. 
@@ -64,7 +64,7 @@ A função Azure lida `https://{function-app-uri}/app/host/{lab-machine-name}/po
 ## <a name="configure-the-lab-to-use-token-authentication"></a>Configure o laboratório para usar a autenticação de tokens 
 Esta seção mostra como configurar um laboratório para usar uma máquina de gateway de desktop remota que suporta autenticação de token. Esta seção não cobre como configurar uma fazenda de gateway de desktop remota em si. Para obter essas informações, consulte a amostra para criar uma seção [de gateway de desktop remota](#sample-to-create-a-remote-desktop-gateway) no final deste artigo. 
 
-Antes de atualizar as configurações do laboratório, armazene a chave necessária para executar com sucesso a função para retornar um token de autenticação no cofre-chave do laboratório. Você pode obter o valor da chave da função na página **Gerenciar** para a função no portal Azure. Para obter mais informações sobre como salvar um segredo em um cofre de chaves, consulte [Adicionar um segredo ao Key Vault](../key-vault/quick-create-portal.md#add-a-secret-to-key-vault). Guarde o nome do segredo para uso posterior.
+Antes de atualizar as configurações do laboratório, armazene a chave necessária para executar com sucesso a função para retornar um token de autenticação no cofre-chave do laboratório. Você pode obter o valor da chave da função na página **Gerenciar** para a função no portal Azure. Para obter mais informações sobre como salvar um segredo em um cofre de chaves, consulte [Adicionar um segredo ao Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault). Guarde o nome do segredo para uso posterior.
 
 Para encontrar a iD do cofre chave do laboratório, execute o seguinte comando Azure CLI: 
 

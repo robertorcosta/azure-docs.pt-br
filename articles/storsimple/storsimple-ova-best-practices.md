@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 82608c98fc8ea15167b690547906c2238b1b3c04
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544334"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460640"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas do StorSimple Virtual Array
 
@@ -199,7 +199,7 @@ Use as seguintes práticas recomendadas ao configurar ACRs para volumes do StorS
 ### <a name="data-security-and-encryption"></a>Segurança e criptografia de dados
 O StorSimple Virtual Array tem recursos de segurança e criptografia de dados que garantem a confidencialidade e a integridade dos dados. Ao usar esses recursos, é recomendável que você siga estas práticas recomendadas: 
 
-* Defina uma chave de criptografia de armazenamento de nuvem para gerar a criptografia AES-256 antes que os dados sejam enviados da sua matriz virtual para a nuvem. Essa chave não será necessária se seus dados forem criptografados inicialmente. A chave pode ser gerada e mantida segura usando um sistema de gerenciamento de chaves como o [Cofre de Chaves do Azure](../key-vault/key-vault-overview.md).
+* Defina uma chave de criptografia de armazenamento de nuvem para gerar a criptografia AES-256 antes que os dados sejam enviados da sua matriz virtual para a nuvem. Essa chave não será necessária se seus dados forem criptografados inicialmente. A chave pode ser gerada e mantida segura usando um sistema de gerenciamento de chaves como o [Cofre de Chaves do Azure](../key-vault/general/overview.md).
 * Ao configurar a conta de armazenamento através do serviço StorSimple Manager, certifique-se de que você habilite o modo TLS para criar um canal seguro para comunicação de rede entre seu dispositivo StorSimple e a nuvem.
 * Regenere as chaves para suas contas de armazenamento (acessando o serviço de armazenamento do Azure) periodicamente para ser responsável por todas as alterações no acesso com base na lista de administradores alterada.
 * Os dados em sua matriz virtual são compactados e a eliminação de duplicação acontece antes que os dados sejam enviados para o Azure. Não recomendamos usar o serviço de função Eliminação de Duplicação de Dados no host do Windows Server.

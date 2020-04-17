@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb04a8e5a6d8c982a35cb5c448e4b6d93825bf73
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74851512"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460215"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 Tem perguntas? Confira a seguinte FAQ para obter mais informações.
@@ -154,12 +154,12 @@ Exemplos de regras de supressão válidas:
 
 Os seguintes recursos ajudam você a gerenciar segredos com segurança e acessar informações confidenciais de dentro de seus aplicativos:
 
- - [Cofre de Chaves Azure](../../key-vault/index.yml)
+ - [Cofre de Chave do Azure](../../key-vault/index.yml)
  - [Diretório Ativo do Azure (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
  - [Identidade de serviço gerenciado do AZure AD (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
- - [Identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md)
+ - [Identidades gerenciadas dos recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Identidades gerenciadas no Serviço de Aplicativos Azure e Funções Azure](../../app-service/overview-managed-identity.md)
- - [Biblioteca de autenticação de aplicativos](../../key-vault/service-to-service-authentication.md)
+ - [Biblioteca de autenticação de aplicativos](../../key-vault/general/service-to-service-authentication.md)
 
 
 Para obter mais informações, consulte o post do blog [Gerenciando Segredos Com Segurança na Nuvem](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).

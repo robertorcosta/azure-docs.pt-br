@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0643ae792c890b65f239d9a0c16a05639dd4f8b9
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811481"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461694"
 ---
 # <a name="securing-paas-deployments"></a>Proteção de implantações de PaaS
 
@@ -74,7 +74,7 @@ Os princípios e padrões do perímetro de rede estiveram disponíveis por déca
 A seguir estão as práticas recomendadas para gerenciar o perímetro de identidade.
 
 **Prática recomendada**: proteger suas chaves e credenciais para proteger a implantação de PaaS.   
-**Detalhe**: perder chaves e credenciais é um problema comum. Você pode usar uma solução centralizada onde chaves e segredos podem ser armazenados em módulos de segurança de hardware (HSMs). [O Azure Key Vault](../../key-vault/key-vault-overview.md) protege suas chaves e segredos criptografando chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .pfx e senhas usando chaves protegidas por HSMs.
+**Detalhe**: perder chaves e credenciais é um problema comum. Você pode usar uma solução centralizada onde chaves e segredos podem ser armazenados em módulos de segurança de hardware (HSMs). [O Azure Key Vault](../../key-vault/general/overview.md) protege suas chaves e segredos criptografando chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .pfx e senhas usando chaves protegidas por HSMs.
 
 **Prática recomendada**: não colocar as credenciais e outros segredos no código-fonte nem no GitHub.   
 **Detalhe**: a única coisa pior do que perder as chaves e credenciais é quando uma parte não autorizada obtém acesso a elas. Os invasores podem aproveitar as tecnologias de bot para encontrar chaves e segredos armazenados em repositórios de código, como o GitHub. Não coloque a chave e os segredos nesses repositórios de código público.
@@ -155,7 +155,7 @@ Neste artigo, nos concentramos nas vantagens de segurança de uma implantação 
 
 - [Serviço de Aplicativo do Azure](paas-applications-using-app-services.md)
 - [Banco de Dados SQL do Azure e SQL Data Warehouse do Azure](paas-applications-using-sql.md)
-- [Armazenamento do Azure](paas-applications-using-storage.md)
+- [Armazenamento Azure](paas-applications-using-storage.md)
 - Cache Redis do Azure
 - Barramento de Serviço do Azure
 - Firewalls de aplicativo Web

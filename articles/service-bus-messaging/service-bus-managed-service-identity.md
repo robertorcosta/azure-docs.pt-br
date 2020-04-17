@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 89de6bf80d14ec77fe6b1f98b6e1d15c6e573fbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46a1db94d576174b837a40c646fcf9e082e339c8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76756276"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461609"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerenciada com o Azure Active Directory para acessar os recursos do Azure Service Bus
 [Identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) é um recurso do Azure que permite criar uma identidade segura associada à implantação na qual o código do aplicativo é executado. Em seguida, você pode associar essa identidade a funções de controle de acesso que concedem permissões personalizadas para acessar os recursos do Azure específicos que seu aplicativo precisa.
@@ -63,8 +63,8 @@ A lista a seguir descreve os níveis nos quais você pode escopo de acesso aos r
         --assignee $assignee_id \
         --scope /subscriptions/$subscription_id/resourceGroups/$resource_group/providers/Microsoft.ServiceBus/namespaces/$service_bus_namespace/topics/$service_bus_topic/subscriptions/$service_bus_subscription
     ```
-- **Espaço de nome do ônibus de serviço**: A atribuição de função abrange toda a topologia do Service Bus o namespace e para o grupo de consumidores associado a ele.
-- **Grupo de recursos**: A atribuição de função se aplica a todos os recursos do Service Bus o grupo de recursos.
+- **Espaço de nome do ônibus de serviço**: A atribuição de função abrange toda a topologia do Service Bus sob o namespace e para o grupo de consumidores associado a ele.
+- **Grupo de recursos**: A atribuição de função se aplica a todos os recursos do Service Bus sob o grupo de recursos.
 - **Assinatura**: A atribuição de função se aplica a todos os recursos do Service Bus em todos os grupos de recursos da assinatura.
 
 > [!NOTE]
@@ -75,10 +75,10 @@ Para obter mais informações sobre como os papéis incorporados são [definidos
 ## <a name="enable-managed-identities-on-a-vm"></a>Habilitar identidades gerenciadas em uma VM
 Antes de usar identidades gerenciadas para recursos do Azure para autorizar os recursos do Service Bus de sua VM, você deve primeiro habilitar identidades gerenciadas para recursos do Azure na VM. Para saber como habilitar identidades gerenciadas para Recursos do Azure, confira um dos seguintes artigos:
 
-- [Portal Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
-- [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
-- [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Modelo de Gerenciador de recursos do Azure](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [PowerShell do Azure](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [CLI do Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Modelo do Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Bibliotecas de clientes do Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Conceder permissões a uma identidade gerenciada no Azure AD
@@ -87,7 +87,7 @@ Para autorizar uma solicitação ao serviço de Ônibus de Serviço a partir de 
 Para obter mais informações sobre como atribuir funções RBAC, consulte [Authenticate e autorize com o Azure Active Directory para acesso aos recursos do Service Bus](authenticate-application.md#built-in-rbac-roles-for-azure-service-bus).
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Usar Barramento de Serviço com identidades gerenciadas para recursos do Azure
-Para usar o Service Bus com identidades gerenciadas, você precisa atribuir à identidade a função e o escopo apropriado. O procedimento nesta seção usa um aplicativo simples que funciona uma identidade gerenciada e acessa os recursos do Service Bus.
+Para usar o Service Bus com identidades gerenciadas, você precisa atribuir à identidade a função e o escopo apropriado. O procedimento nesta seção usa um aplicativo simples que funciona sob uma identidade gerenciada e acessa os recursos do Service Bus.
 
 Aqui estamos usando um aplicativo web de exemplo hospedado no [Azure App Service](https://azure.microsoft.com/services/app-service/). Para obter instruções passo a passo para criar um aplicativo web, consulte [Criar um aplicativo web ASP.NET Core no Azure](../app-service/app-service-web-get-started-dotnet.md)
 
@@ -118,11 +118,11 @@ Para atribuir uma função a um namespace do Service Bus, navegue até o namespa
 4.  Na página **Adicionar função de função,** selecione as funções de Barramento de Serviço do Azure que você deseja atribuir. Em seguida, pesquise para localizar a identidade de serviço que você registrou para atribuir a função.
     
     ![Adicionar página de atribuição de função](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
-5.  Selecione **Salvar**. A identidade à qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem a seguir mostra que a identidade do serviço tem o proprietário do Azure Service Bus Data.
+5.  Clique em **Salvar**. A identidade à qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem a seguir mostra que a identidade do serviço tem o proprietário do Azure Service Bus Data.
     
     ![Identidade atribuída a um papel](./media/service-bus-managed-service-identity/role-assigned.png)
 
-Depois de atribuir a função, o aplicativo web terá acesso às entidades do Ônibus de Serviço o escopo definido. 
+Depois de atribuir a função, o aplicativo web terá acesso às entidades do Ônibus de Serviço sob o escopo definido. 
 
 ### <a name="run-the-app"></a>Executar o aplicativo
 
@@ -140,7 +140,7 @@ Para enviar ou receber mensagens, insira o nome do namespace e o nome da entidad
 
 
 > [!NOTE]
-> - A identidade gerenciada funciona somente dentro do ambiente do Azure, em serviços de aplicativos, VMs do Azure e nos conjuntos de dimensionamento. Para aplicativos .NET, a biblioteca Microsoft.Azure.Services.AppAuthentication, que é usada pelo pacote NuGet do Barramento de Serviço, fornece uma abstração sobre esse protocolo e dá suporte a uma experiência de desenvolvimento local. Essa biblioteca também permite testar o código localmente no computador de desenvolvimento, usando a conta de usuário do Visual Studio, a CLI 2.0 do Azure ou a Autenticação Integrada do Active Directory. Para obter mais informações sobre as opções de desenvolvimento local com essa biblioteca, consulte [Autenticação de serviço a serviço para o Azure Key Vault usando .NET](../key-vault/service-to-service-authentication.md).  
+> - A identidade gerenciada funciona somente dentro do ambiente do Azure, em serviços de aplicativos, VMs do Azure e nos conjuntos de dimensionamento. Para aplicativos .NET, a biblioteca Microsoft.Azure.Services.AppAuthentication, que é usada pelo pacote NuGet do Barramento de Serviço, fornece uma abstração sobre esse protocolo e dá suporte a uma experiência de desenvolvimento local. Essa biblioteca também permite testar o código localmente no computador de desenvolvimento, usando a conta de usuário do Visual Studio, a CLI 2.0 do Azure ou a Autenticação Integrada do Active Directory. Para obter mais informações sobre as opções de desenvolvimento local com essa biblioteca, consulte [Autenticação de serviço a serviço para o Azure Key Vault usando .NET](../key-vault/general/service-to-service-authentication.md).  
 > 
 > - Atualmente, as identidades gerenciadas não funcionam com slots de implantação do Serviço de Aplicativo.
 

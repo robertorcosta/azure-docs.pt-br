@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: f38fd7c8e14f58052912f68a277f194fd3866f2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 029743dbb44ab0ebb6ab8f695c0c966137c45107
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970575"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459790"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Criptografia de disco azure com Azure AD (versão anterior)
 
@@ -35,7 +35,7 @@ Para habilitar o recurso Azure Disk Encryption usando a sintaxe de parâmetros A
   - Para obter um token para se conectar ao seu cofre principal, a VM IaaS \[deve\]ser capaz de se conectar a um ponto final do Azure AD, login.microsoftonline.com .
   - Para gravar as chaves de criptografia no cofre de chaves, a VM IaaS deve ser capaz de se conectar ao ponto de extremidade do cofre de chaves.
   - A VM IaaS deve ser capaz de se conectar a um ponto de extremidade do armazenamento do Azure que hospeda o repositório de extensão do Azure e uma conta de armazenamento do Azure que hospeda os arquivos VHD.
-  -  Se sua política de segurança limitar o acesso das VMs do Azure à internet, você poderá resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída aos IPs. Para obter mais informações, consulte [Azure Key Vault por trás de um firewall](../../key-vault/key-vault-access-behind-firewall.md).
+  -  Se sua política de segurança limitar o acesso das VMs do Azure à internet, você poderá resolver o URI anterior e configurar uma regra específica para permitir a conectividade de saída aos IPs. Para obter mais informações, consulte [Azure Key Vault por trás de um firewall](../../key-vault/general/access-behind-firewall.md).
   - No Windows, se o TLS 1.0 estiver explicitamente desativado e a versão .NET não for atualizada para 4,6 ou mais, a seguinte alteração de registro permite que o Azure Disk Encryption selecione a versão TLS mais recente:
     
             [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]

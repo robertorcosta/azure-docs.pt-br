@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: ''
 author: mmccrory
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ca0e17e5-d78e-42e6-9dad-c1e8f1c58027
 ms.service: virtual-machines-linux
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: 3dd46f0c1c1e36e0373311ce6dcbf5d2f155dacc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd4a93f4c0b2f052fe5c9890bee01e5da0dcead2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616270"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460946"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Como marcar uma máquina virtual do Linux no Azure
 Este artigo descreve as diferentes maneiras de marcar uma máquina virtual do Linux no Azure por meio do modelo de implantação do Resource Manager. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou grupo de recursos. Atualmente, o Azure suporta até 50 tags por grupo de recursos e recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente. Observe que as marcas tem suporte apenas para recursos criados por meio do modelo de implantação do Resource Manager.

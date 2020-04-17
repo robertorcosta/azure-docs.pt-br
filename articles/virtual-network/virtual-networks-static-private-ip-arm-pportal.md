@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: KumudD
 manager: twooley
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
 ms.service: virtual-network
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
-ms.openlocfilehash: b50875105696dc5c556e2a4a9e756078cf995327
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 946926a8a805ec3c53ea3c57dc3eded2462f7673
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060400"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461541"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Configure um endereço IP privado para uma VM usando o portal Azure
 
@@ -56,10 +55,10 @@ Para criar uma VM chamada *DNS01* na sub-rede *FrontEnd* de uma rede virtual cha
     | **Assinatura** | Sua assinatura atual |
     | **Grupo de recursos** | **TestRG** (selecione na lista de isato) |
     | **Nome da máquina virtual** | *DNS01* |
-    | **Região** | **(EUA) Leste dos EUA** |
+    | **Região** | **EUA (Leste dos EUA)** |
     | **Imagem** | **Windows Server 2019 Datacenter** |
     | **Tamanho** | **Tamanho vm** de **B1ls**, **Oferta** de **Padrão** |
-    | **Username** | O nome de usuário da sua conta administradora |
+    | **Nome de usuário** | O nome de usuário da sua conta administradora |
     | **Senha** | A senha para o nome de usuário da sua conta administradora |
     | **Confirmar senha** | A senha novamente |
 
@@ -86,7 +85,7 @@ A mensagem a seguir aparece assim que a VM é criada.
 ## <a name="retrieve-private-ip-address-information-for-a-vm"></a>Recupere informações privadas de endereço IP para uma VM
 Para visualizar as informações privadas de endereço IP para sua nova VM:
 
-1. Vá ao [portal Azure](https://portal.azure.com) para encontrar sua VM. Procure e selecione **máquinas virtuais**.
+1. Vá ao [portal Azure](https://portal.azure.com) para encontrar sua VM. Pesquise por **Máquinas virtuais** e selecione essa opção.
 
     ![Máquinas virtuais, caixa de pesquisa, portal Azure](./media/virtual-networks-static-ip-arm-pportal/search-box-virtual-machines.png)
 

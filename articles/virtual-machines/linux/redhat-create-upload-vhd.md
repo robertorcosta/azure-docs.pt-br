@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: ''
 author: gbowerman
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 6c6b8f72-32d3-47fa-be94-6cb54537c69f
 ms.service: virtual-machines-linux
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: guybo
-ms.openlocfilehash: cd0a71c60930e3eb659255a23cdb03360730f2a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc806fe0c3894174835c99493ebf2ba19a11ca28
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060725"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460453"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada no Red Hat para o Azure
 Neste artigo, você aprenderá como preparar uma máquina virtual do Red Hat Enterprise Linux (RHEL) para usar no Azure. Neste artigo, abordamos as versões 6.7+ e 7.1+ do RHEL. Neste artigo, abordamos os seguintes hipervisores de preparação: Hyper-V, máquina virtual baseada em kernel (KVM) e VMware. Para saber mais informações sobre os requisitos de qualificação para participação no programa Red Hat Cloud Access, confira o [site Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e o artigo[Como executar o RHEL no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para obter maneiras de automatizar imagens RHEL de construção, consulte o [Azure Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
@@ -164,7 +163,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer esta modificação, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo: 
+1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer esta modificação, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -418,7 +417,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
         # subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer essa configuração, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo: 
+1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer essa configuração, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
@@ -568,7 +567,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMwa
 
         # subscription-manager repos --enable=rhel-6-server-extras-rpms
 
-1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo: 
+1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
    
@@ -676,7 +675,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMwa
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer esta modificação, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo: 
+1. Modifique a linha de inicialização do kernel em sua configuração de grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer esta modificação, abra `/etc/default/grub` em um editor de texto e edite o parâmetro `GRUB_CMDLINE_LINUX`. Por exemplo:
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    

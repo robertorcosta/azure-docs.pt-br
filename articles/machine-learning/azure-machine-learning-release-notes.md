@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: ce9919a0b0f614e427c12ee3e3fbda0be46470ea
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9ed17ed0825e0011d1402efc45155755a1ecbadf
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273300"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459161"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -721,10 +721,10 @@ O Azure Machine Learning agora é um provedor de recursos para a Event Grid, voc
       + Por meio de start_time e/ou end_time específicos de entrada, somente os resultados das corridas programadas serão devolvidos;
       + Parâmetro 'daily_latest_only' é preterido.
     + Suporte à recuperação de saídas de deriva de dados baseadas em dataset.
-  + **[azureml-explain-model](https://docs.microsoft.com/python/api/azureml-explain-model)**
+  + **azureml-explain-model**
     + Renomeie o pacote de modelo explicativo AzureML para a interpretação do AzureML, mantendo o pacote antigo para compatibilidade reversa por enquanto.
     + bug AutoML fixo com explicações brutas definidas para a tarefa de classificação em vez de regressão por padrão no download do ExplanationClient.
-    + Adicionar suporte para [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py) a ser criado diretamente usando [MimicWrapper](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic_wrapper.mimicwrapper)
+    + Adicionar suporte para [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py) a ser criado diretamente usando MimicWrapper
   + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
     + Melhor desempenho para a criação de grandes pipelines.
   + **[azureml-train-core](https://docs.microsoft.com/python/api/azureml-train-core)**
@@ -798,7 +798,7 @@ A guia Experimento no [novo portal do espaço de trabalho](https://ml.azure.com)
     + Adicionado seleções adicionais de tamanho vm (disco do SISTEMA OPERACIONAL, número de GPUs) à função [supported_vmsizes()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
     + Adicionado campos adicionais à função [list_nodes()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#list-nodes--) para mostrar a execução, o IP privado e público, a porta etc.
     + Capacidade de especificar um novo campo durante o [provisionamento de](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--) `--remotelogin_port_public_access` clusters que pode ser definido como ativado ou desativado, dependendo se você gostaria de deixar a porta SSH aberta ou fechada no momento da criação do cluster. Se você não especificar, o serviço abrirá ou fechará a porta de forma inteligente, dependendo se você estiver implantando o cluster dentro de um VNet.
-  + **[azureml-explain-model](https://docs.microsoft.com/python/api/azureml-explain-model)**
+  + **azureml-explain-model**
     + Documentação melhorada para saídas de explicação no cenário de classificação.
     + Adicionada a capacidade de carregar os valores y previstos na explicação para os exemplos de avaliação. Desbloqueia visualizações mais úteis.
     + Adicionado a propriedade explicativa ao MimicWrapper para permitir obter o MimicExplainer subjacente.

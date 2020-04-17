@@ -5,7 +5,6 @@ services: azure-portal
 documentationcenter: ''
 author: sewatson
 manager: mtillman
-editor: tysonn
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: azure-portal
 ms.devlang: NA
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 4c01321662b302103cdedfb5b78dadf89860fb8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6eda3b522a5b46cd82ef29ae493891a624d3272
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132055"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459280"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e compartilhar painéis no Portal do Azure
 
@@ -31,7 +30,7 @@ O portal Azure fornece um painel padrão como ponto de partida. Você pode edita
 
 Neste exemplo, criamos um novo painel de instrumentos privado e atribuímos um nome. Siga estas etapas para começar:
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. No menu portal Azure, selecione **Painel**. Sua exibição padrão já pode estar definida como painel de instrumentos.
 
@@ -119,7 +118,7 @@ Os dados no painel mostram automaticamente a atividade nas últimas 24 horas. Pa
 
 1. Escolha a granularidade de tempo a ser exibida. Você pode mostrar em qualquer lugar desde incrementos de um minuto até um mês.
 
-1. Selecione **Aplicar**.
+1. Escolha **Aplicar**.
 
 ## <a name="delete-a-tile"></a>Excluir um bloco
 

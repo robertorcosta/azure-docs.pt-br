@@ -8,12 +8,12 @@ author: axisc
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: aschhab
-ms.openlocfilehash: aeb9a9730ddc61793e49c9e042906457e0068d9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82a5fbef8c307d60d82b147f04a2a687b8b0433e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77624081"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459059"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configure chaves gerenciadas pelo cliente para criptografar os dados do Ônibus de Serviço do Azure em repouso usando o portal Azure
 O Azure Service Bus Premium fornece criptografia de dados em repouso com o Azure Storage Service Encryption (Azure SSE). O Service Bus Premium conta com o Azure Storage para armazenar os dados e, por padrão, todos os dados armazenados com o Azure Storage são criptografados usando chaves gerenciadas pela Microsoft. 
@@ -28,9 +28,9 @@ Ativar o recurso BYOK é um processo de configuração única no seu namespace.
 >   * Esse recurso é suportado pelo [nível Azure Service Bus Premium.](service-bus-premium-messaging.md) Ele não pode ser habilitado para espaços de nome de ônibus de serviço padrão.
 >   * A criptografia só pode ser habilitada para espaços de nomes novos ou vazios. Se o namespace contiver dados, a operação de criptografia falhará.
 
-Você pode usar o Azure Key Vault para gerenciar suas chaves e auditar seu uso de chaves. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves, ou pode usar as APIs do Azure Key Vault para gerar chaves. Para obter mais informações sobre o Azure Key Vault, consulte [O que é o Azure Key Vault?](../key-vault/key-vault-overview.md)
+Você pode usar o Azure Key Vault para gerenciar suas chaves e auditar seu uso de chaves. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves, ou pode usar as APIs do Azure Key Vault para gerar chaves. Para obter mais informações sobre o Azure Key Vault, consulte [O que é o Azure Key Vault?](../key-vault/general/overview.md)
 
-Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o portal Azure. Para aprender como criar um cofre de chaves usando o portal Azure, consulte [Quickstart: Configure e recupere um segredo do Azure Key Vault usando o portal Azure](../key-vault/quick-create-portal.md).
+Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o portal Azure. Para aprender como criar um cofre de chaves usando o portal Azure, consulte [Quickstart: Configure e recupere um segredo do Azure Key Vault usando o portal Azure](../key-vault/secrets/quick-create-portal.md).
 
 > [!IMPORTANT]
 > O uso de chaves gerenciadas pelo cliente com o Azure Service Bus requer que o cofre principal tenha duas propriedades necessárias configuradas. São eles: **Soft Delete** e **Não Purga .** Essas propriedades são habilitadas por padrão quando você cria um novo cofre de chaves no portal Azure. No entanto, se você precisar habilitar essas propriedades em um cofre de chaves existente, você deve usar o PowerShell ou o Azure CLI.
@@ -47,9 +47,9 @@ Para habilitar as chaves gerenciadas pelo cliente no portal Azure, siga estas et
 
 ## <a name="set-up-a-key-vault-with-keys"></a>Configure um cofre de chaves com chaves
 
-Depois de habilitar as chaves gerenciadas pelo cliente, você precisa associar a chave gerenciada pelo cliente com o espaço de nome do Azure Service Bus. Service Bus suporta apenas Azure Key Vault. Se você habilitar a criptografia com a opção **de chave gerenciada pelo cliente** na seção anterior, você precisará ter a chave importada para o Azure Key Vault. Além disso, as teclas devem ter **Soft Delete** e **Não Purgar** configurados para a chave. Essas configurações podem ser configuradas usando [PowerShell](../key-vault/key-vault-soft-delete-powershell.md) ou [CLI](../key-vault/key-vault-soft-delete-cli.md#enabling-purge-protection).
+Depois de habilitar as chaves gerenciadas pelo cliente, você precisa associar a chave gerenciada pelo cliente com o espaço de nome do Azure Service Bus. Service Bus suporta apenas Azure Key Vault. Se você habilitar a criptografia com a opção **de chave gerenciada pelo cliente** na seção anterior, você precisará ter a chave importada para o Azure Key Vault. Além disso, as teclas devem ter **Soft Delete** e **Não Purgar** configurados para a chave. Essas configurações podem ser configuradas usando [PowerShell](../key-vault/general/soft-delete-powershell.md) ou [CLI](../key-vault/general/soft-delete-cli.md#enabling-purge-protection).
 
-1. Para criar um novo cofre de chaves, siga o Azure Key Vault [Quickstart](../key-vault/key-vault-overview.md). Para obter mais informações sobre a importação de chaves existentes, consulte [Sobre chaves, segredos e certificados](../key-vault/about-keys-secrets-and-certificates.md).
+1. Para criar um novo cofre de chaves, siga o Azure Key Vault [Quickstart](../key-vault/general/overview.md). Para obter mais informações sobre a importação de chaves existentes, consulte [Sobre chaves, segredos e certificados](../key-vault/about-keys-secrets-and-certificates.md).
 1. Para ativar a proteção de exclusão suave e purga ao criar um cofre, use o comando [az keyvault create.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
 
     ```azurecli-interactive
@@ -81,28 +81,28 @@ Depois de habilitar as chaves gerenciadas pelo cliente, você precisa associar a
     > [!IMPORTANT]
     > Se você está procurando usar a chave gerenciada pelo cliente junto com a recuperação de desastres Geo, por favor, revise o abaixo - 
     >
-    > Para habilitar a criptografia em repouso com a chave gerenciada pelo cliente, uma política de [acesso](../key-vault/key-vault-secure-your-key-vault.md) é configurada para a identidade gerenciada do Service Bus no Azure KeyVault especificado. Isso garante o acesso controlado ao Azure KeyVault a partir do espaço de nome do Ônibus de Serviço do Azure.
+    > Para habilitar a criptografia em repouso com a chave gerenciada pelo cliente, uma política de [acesso](../key-vault/general/secure-your-key-vault.md) é configurada para a identidade gerenciada do Service Bus no Azure KeyVault especificado. Isso garante o acesso controlado ao Azure KeyVault a partir do espaço de nome do Ônibus de Serviço do Azure.
     >
     > Devido a isso:
     > 
     >   * Se [a recuperação de desastres geo](service-bus-geo-dr.md) já estiver habilitada para o espaço de nome do Ônibus de Serviço e você estiver procurando ativar a chave gerenciada pelo cliente, então 
     >     * Quebre o emparelhamento
-    >     * [Configure a política de acesso](../key-vault/managed-identity.md) para a identidade gerenciada para os namespaces primários e secundários para o cofre-chave.
+    >     * [Configure a política de acesso](../key-vault/general/managed-identity.md) para a identidade gerenciada para os namespaces primários e secundários para o cofre-chave.
     >     * Configure criptografia no namespace principal.
     >     * Reemparelhe os espaços de nome primário e secundário.
     > 
     >   * Se você está procurando ativar o Geo-DR em um namespace de ônibus de serviço onde a chave gerenciada pelo cliente já está configurada, então -
-    >     * [Configure a política de acesso](../key-vault/managed-identity.md) para a identidade gerenciada para o namespace secundário para o cofre de chaves.
+    >     * [Configure a política de acesso](../key-vault/general/managed-identity.md) para a identidade gerenciada para o namespace secundário para o cofre de chaves.
     >     * Emparelhe os espaços de nome primário e secundário.
 
 
 ## <a name="rotate-your-encryption-keys"></a>Gire suas chaves de criptografia
 
-Você pode girar sua chave no cofre da chave usando o mecanismo de rotação azure Key Vaults. Para obter mais informações, consulte [Configurar rotação e auditoria de chaves](../key-vault/key-vault-key-rotation-log-monitoring.md). As datas de ativação e expiração também podem ser definidas para automatizar a rotação de chaves. O serviço de ônibus de serviço detectará novas versões-chave e começará a usá-las automaticamente.
+Você pode girar sua chave no cofre da chave usando o mecanismo de rotação azure Key Vaults. Para obter mais informações, consulte [Configurar rotação e auditoria de chaves](../key-vault/secrets/key-rotation-log-monitoring.md). As datas de ativação e expiração também podem ser definidas para automatizar a rotação de chaves. O serviço de ônibus de serviço detectará novas versões-chave e começará a usá-las automaticamente.
 
 ## <a name="revoke-access-to-keys"></a>Revogar o acesso às chaves
 
-A revogação do acesso às chaves de criptografia não limpará os dados do Service Bus. No entanto, os dados não podem ser acessados a partir do espaço de nome do Service Bus. Você pode revogar a chave de criptografia através da política de acesso ou excluindo a chave. Saiba mais sobre políticas de acesso e proteção do cofre de chaves do [acesso seguro a um cofre-chave](../key-vault/key-vault-secure-your-key-vault.md).
+A revogação do acesso às chaves de criptografia não limpará os dados do Service Bus. No entanto, os dados não podem ser acessados a partir do espaço de nome do Service Bus. Você pode revogar a chave de criptografia através da política de acesso ou excluindo a chave. Saiba mais sobre políticas de acesso e proteção do cofre de chaves do [acesso seguro a um cofre-chave](../key-vault/general/secure-your-key-vault.md).
 
 Uma vez que a chave de criptografia seja revogada, o serviço de Ônibus de Serviço no namespace criptografado ficará inoperável. Se o acesso à chave estiver ativado ou a chave excluída for restaurada, o serviço de ônibus de serviço escolherá a chave para que você possa acessar os dados do espaço de nome do Service Bus criptografado.
 
@@ -327,6 +327,6 @@ Nesta etapa, você atualizará o espaço de nome do Service Bus com informaçõe
 ## <a name="next-steps"></a>Próximas etapas
 Veja os artigos a seguir:
 - [Visão geral do Ônibus de Serviço](service-bus-messaging-overview.md)
-- [Visão geral do Cofre chave](../key-vault/key-vault-overview.md)
+- [Visão geral do Cofre chave](../key-vault/general/overview.md)
 
 

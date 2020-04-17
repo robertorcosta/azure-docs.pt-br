@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: ae3743530440c9df9094a0b9784922d2d6a3dfdf
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 753d606e1fc2dc966c970a210cf6fc5066d5ed83
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985398"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460130"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Criptografia de disco azure para máquinas virtuais Linux FAQ
 
@@ -148,7 +148,9 @@ O Azure Disk Encryption usa o padrão de descriptografado do aes-xts-plain64 com
 Não, os dados não serão apagados de unidades de dados que já tiverem sido criptografadas usando o Azure Disk Encryption. Semelhante ao modo como o EncryptFormatAll não criptografou novamente a unidade do sistema operacional, ele não criptografará novamente a unidade de dados já criptografada. Para obter mais informações, veja os [critérios do EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).        
 
 ## <a name="is-xfs-filesystem-supported"></a>O sistema de arquivos XFS é suportado?
-Os volumes XFS são suportados para criptografia de disco de dados apenas com o EncryptFormatAll. Isso vai reformar o volume, apagando todos os dados anteriormente lá. Para obter mais informações, veja os [critérios do EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+A criptografia dos discos do Sistema Operacional XFS é suportada.
+
+A criptografia dos discos de dados XFS só é suportada quando o parâmetro EncryptFormatAll é usado. Isso vai reformar o volume, apagando todos os dados anteriormente lá. Para obter mais informações, veja os [critérios do EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Posso fazer backup e restaurar uma VM criptografada? 
 

@@ -3,12 +3,12 @@ title: Fazer backup e restaurar VMs Azure criptografados
 description: Descreve como fazer backup e restaurar VMs Azure criptografados com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: a3976cc83f749b1abe00cef3f5bf867ffbc30ab6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98febe9f91cb4b71d546300d4e65ade073d19e67
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206683"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461762"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Fazer backup e restaurar a VM Azure criptografada
 
@@ -30,7 +30,7 @@ O Azure Backup pode fazer backup e restaurar As VMs do Azure usando o ADE com e 
 **Gerenciado** | Sim | Sim
 **Gerenciado**  | Sim | Sim
 
-- Saiba mais sobre [ADE,](../security/azure-security-disk-encryption-overview.md) [Key Vault](../key-vault/key-vault-overview.md)e [KEKs](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
+- Saiba mais sobre [ADE,](../security/azure-security-disk-encryption-overview.md) [Key Vault](../key-vault/general/overview.md)e [KEKs](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
 - Leia a [FAQ](../security/azure-security-disk-encryption-faq.md) para criptografia de disco Azure VM.
 
 ### <a name="limitations"></a>Limitações

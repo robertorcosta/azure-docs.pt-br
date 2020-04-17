@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ef62b02e-bf35-468d-b4c3-71b63fe7f409
 ms.service: virtual-machines-windows
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 152df830f11cd5a73235559c5c5d65ced44f22fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c4f5df4a76792c64ab92bbe8d6e4b84080fbd8fe
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266761"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459178"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Como se conectar e entrar em uma máquina virtual do Azure executando o Windows
 Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão da Área de Trabalho Remota (RDP) a partir de uma área de trabalho do Windows. Primeiramente, conecte-se à máquina virtual então faça logon.
@@ -27,10 +26,10 @@ Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão d
 Para conectar-se a uma VM do Windows por meio de um Mac, será necessário instalar um cliente do RDP para Mac, como a [Área de Trabalho Remota da Microsoft](https://aka.ms/rdmac).
 
 ## <a name="connect-to-the-virtual-machine"></a>Conecte-se à máquina virtual
-1. Vá para o [portal Azure](https://portal.azure.com/) para se conectar a uma VM. Procure e selecione **máquinas virtuais**.
+1. Vá para o [portal Azure](https://portal.azure.com/) para se conectar a uma VM. Pesquise por **Máquinas virtuais** e selecione essa opção.
 2. Selecione a máquina virtual na lista.
 3. No início da página da máquina virtual, selecione **Conectar**.
-4. Na página **Conectar à máquina virtual,** selecione **RDP**e selecione o **endereço IP** e o número **da porta**apropriados . Na maioria dos casos, o endereço IP e a porta padrão devem ser usados. Selecione **Baixar arquivo RDP**. Se a VM tiver uma política Just-In-Time definida, você primeiro precisará selecionar o botão **Solicitar acesso** para solicitar acesso antes de baixar o arquivo RDP. Para obter mais informações sobre a política Just-In-Time, confira [Gerenciar o acesso à máquina virtual usando a política Just-In-Time](../../security-center/security-center-just-in-time.md).
+4. Na página **Conectar à máquina virtual,** selecione **RDP**e selecione o **endereço IP** e o número **da porta**apropriados . Na maioria dos casos, o endereço IP e a porta padrão devem ser usados. Selecione **Baixar Arquivo RDP**. Se a VM tiver uma política Just-In-Time definida, você primeiro precisará selecionar o botão **Solicitar acesso** para solicitar acesso antes de baixar o arquivo RDP. Para obter mais informações sobre a política Just-In-Time, confira [Gerenciar o acesso à máquina virtual usando a política Just-In-Time](../../security-center/security-center-just-in-time.md).
 5. Abra o arquivo RDP baixado e selecione **Conectar** quando solicitado. Você receberá um aviso de que o arquivo `.rdp` é proveniente de um editor desconhecido. Isso é esperado. Na janela **Conexão de Área de Trabalho Remota**, selecione **Conectar** para continuar.
    
     ![Captura de tela de um aviso sobre um editor desconhecido.](./media/connect-logon/rdp-warn.png)

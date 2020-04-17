@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7dd9106539b6756d74629ac663241a5b5562cefb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d48f83df4e83fd1d1fe38eea76432e1b1c711b76
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75437054"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461456"
 ---
 # <a name="expressroute-encryption"></a>Criptografia ExpressRoute
  
 O ExpressRoute suporta algumas tecnologias de criptografia para garantir a confidencialidade e a integridade dos dados que atravessam entre sua rede e a rede da Microsoft.
 
 ## <a name="point-to-point-encryption-by-macsec-faq"></a>Criptografia ponto a ponto por MACsec FAQ
-MACsec é um [padrão IEEE](https://1.ieee802.org/security/802-1ae/). Ele criptografa dados no nível de controle de acesso de mídia (MAC) ou na camada de rede 2. Você pode usar o MACsec para criptografar os links físicos entre seus dispositivos de rede e dispositivos de rede da Microsoft quando você se conectar à Microsoft via [ExpressRoute Direct](expressroute-erdirect-about.md). O MACsec está desativado nas portas ExpressRoute Direct por padrão. Você traz sua própria chave MACsec para criptografia e armazene-a no [Azure Key Vault](../key-vault/key-vault-overview.md). Você decide quando girar a chave. Veja outras perguntas frequentes abaixo.
+MACsec é um [padrão IEEE](https://1.ieee802.org/security/802-1ae/). Ele criptografa dados no nível de controle de acesso de mídia (MAC) ou na camada de rede 2. Você pode usar o MACsec para criptografar os links físicos entre seus dispositivos de rede e dispositivos de rede da Microsoft quando você se conectar à Microsoft via [ExpressRoute Direct](expressroute-erdirect-about.md). O MACsec está desativado nas portas ExpressRoute Direct por padrão. Você traz sua própria chave MACsec para criptografia e armazene-a no [Azure Key Vault](../key-vault/general/overview.md). Você decide quando girar a chave. Veja outras perguntas frequentes abaixo.
 ### <a name="can-i-enable-macsec-on-my-expressroute-circuit-provisioned-by-an-expressroute-provider"></a>Posso ativar o MACsec no meu circuito ExpressRoute provisionado por um provedor ExpressRoute?
 Não. A MACsec criptografa todo o tráfego em um link físico com uma chave de propriedade de uma entidade (ou seja, cliente). Portanto, está disponível apenas no ExpressRoute Direct.
 ### <a name="can-i-encrypt-some-of-the-expressroute-circuits-on-my-expressroute-direct-ports-and-leave-other-circuits-on-the-same-ports-unencrypted"></a>Posso criptografar alguns circuitos do ExpressRoute nas minhas portas ExpressRoute Direct e deixar outros circuitos nas mesmas portas descriptografados? 

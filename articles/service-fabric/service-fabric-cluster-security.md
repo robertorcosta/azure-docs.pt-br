@@ -4,12 +4,12 @@ description: Saiba mais sobre cenários de segurança para um cluster do Azure S
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 5912f98f6a1c82250a66ec4d9fe39f2f69b1cc8f
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: c43cfbd4468a64867d50482d9c8055622602f159
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80753803"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461575"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster do Service Fabric
 
@@ -65,7 +65,7 @@ Para saber como configurar a segurança de certificado em um cluster para um clu
 
 O Azure AD permite que as organizações (conhecidas como locatários) gerenciem o acesso dos usuários aos aplicativos. Os aplicativos são divididos entre os que têm IU de entrada na Web e os que têm experiência de cliente nativa. Se você ainda não criou um locatário, comece lendo [Como obter um locatário do Active Directory do Azure][active-directory-howto-tenant].
 
-Os clusters do Service Fabric oferecem vários pontos de entrada para a funcionalidade de gerenciamento, incluindo o [Service Fabric Explorer][service-fabric-visualizing-your-cluster] online o [Visual Studio][service-fabric-manage-application-in-visual-studio]. Como resultado, você criará dois aplicativos do Azure AD para controlar o acesso ao cluster, um aplicativo Web e um aplicativo nativo.
+Um cluster do Service Fabric oferece vários pontos de entrada para a funcionalidade de gerenciamento, incluindo o [Service Fabric Explorer][service-fabric-visualizing-your-cluster] e o [Visual Studio][service-fabric-manage-application-in-visual-studio] baseados na Web. Como resultado, você criará dois aplicativos do Azure AD para controlar o acesso ao cluster, um aplicativo Web e um aplicativo nativo.
 
 Para clusters em execução no Azure, você também pode proteger o acesso aos pontos de extremidade de gerenciamento usando o Azure AD (Azure Active Directory). Para aprender como criar os artefatos necessários do Azure AD e como preenchê-los ao criar o cluster, consulte [Configurar o Azure AD para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
 
@@ -90,7 +90,7 @@ Defina as funções de cliente de Administrador e de Usuário quando criar o clu
 
 ## <a name="x509-certificates-and-service-fabric"></a>Certificados X.509 e Service Fabric
 
-Os certificados digitais X.509 são usados normalmente para autenticar clientes e servidores. Eles também são usados para criptografar e assinar digitalmente as mensagens. O Service Fabric usa certificados x.509 para proteger um cluster e fornecer recursos de segurança do aplicativo. Para obter mais informações sobre certificados digitais X.509, consulte [Trabalhar com certificados](https://msdn.microsoft.com/library/ms731899.aspx). Use o [Key Vault](../key-vault/key-vault-overview.md) para gerenciar certificados de clusters do Service Fabric no Azure.
+Os certificados digitais X.509 são usados normalmente para autenticar clientes e servidores. Eles também são usados para criptografar e assinar digitalmente as mensagens. O Service Fabric usa certificados x.509 para proteger um cluster e fornecer recursos de segurança do aplicativo. Para obter mais informações sobre certificados digitais X.509, consulte [Trabalhar com certificados](https://msdn.microsoft.com/library/ms731899.aspx). Use o [Key Vault](../key-vault/general/overview.md) para gerenciar certificados de clusters do Service Fabric no Azure.
 
 Algumas coisas importantes a considerar:
 

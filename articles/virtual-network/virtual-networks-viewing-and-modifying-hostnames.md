@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: genlin
 manager: dcscontentpm
-editor: tysonn
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
 ms.service: virtual-network
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: cce248e2906f4a36737388e8cc7124b1bb19fbae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09c911838d34a083de8450145ce849fc966eb0e8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71058668"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459144"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Exibindo e modificando os nomes do host
 Para permitir que as instâncias de função sejam referenciadas pelo nome do host, você deve definir o valor para o nome do host no arquivo de configuração de serviço para cada função. Faça isso adicionando o nome do host desejado ao atributo **vmName** do elemento **Função**. O valor do atributo **vmName** é usado como base para o nome de host de cada instância de função. Por exemplo, se **vmName** for *webrole* e houver três instâncias dessa função, os nomes de host das instâncias serão *webrole0*, *webrole1* e *webrole2*. Você não precisa especificar um nome do host para máquinas virtuais no arquivo de configuração, porque o nome do host para uma máquina virtual é preenchido com base no nome da máquina virtual. Para obter mais informações sobre como configurar um serviço do Microsoft Azure, consulte [Esquema de configuração do serviço do Azure (arquivo .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx)

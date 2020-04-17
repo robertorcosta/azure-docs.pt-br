@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 0ce813e91750db3cdfa1e651a68fbb82d593eb32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e7c34e42d0ab68a5dab9718075f02a85322ce6c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650548"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458821"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens AS2 para Enterprise Integration B2B nos Aplicativos Lógicos do Azure com Enterprise Integration Pack
 
@@ -61,7 +61,7 @@ Este artigo mostra como adicionar as ações de codificação e decodificação 
 
 * Antes de usar o conector AS2, você deve criar um [contrato](../logic-apps/logic-apps-enterprise-integration-agreements.md) AS2 entre seus parceiros comerciais e armazenar esse contrato em sua conta de integração.
 
-* Se você usar [o Azure Key Vault](../key-vault/key-vault-overview.md) para gerenciamento de certificados, verifique se as chaves do cofre permitem as operações **Encrypt** e **Decrypt.** Caso contrário, as ações de codificação e decodificação falham.
+* Se você usar [o Azure Key Vault](../key-vault/general/overview.md) para gerenciamento de certificados, verifique se as chaves do cofre permitem as operações **Encrypt** e **Decrypt.** Caso contrário, as ações de codificação e decodificação falham.
 
   No portal Azure, vá até a chave do cofre principal, revise as **operações permitidas**da sua chave e confirme se as operações **Encrypt** e **Decrypt** estão selecionadas, por exemplo:
 
@@ -88,7 +88,7 @@ Este artigo mostra como adicionar as ações de codificação e decodificação 
    | **AS2 para** | O identificador para o receptor de mensagem conforme especificado pelo seu contrato AS2 |
    |||
 
-   Por exemplo: 
+   Por exemplo:
 
    ![Propriedades de codificação de mensagens](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 

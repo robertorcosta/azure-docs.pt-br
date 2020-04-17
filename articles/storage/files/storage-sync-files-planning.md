@@ -7,21 +7,31 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8666f51b88d2a70a2cb27e3606f24010771c8017
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255113"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460691"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
-[Os arquivos do Azure](storage-files-introduction.md) podem ser implantados de duas maneiras principais: montando diretamente os compartilhamentos de arquivos Do Zure sem servidor ou arquivar os compartilhamentos de arquivos do Azure no local usando o Azure File Sync. Qual opção de implantação você escolhe muda as coisas que você precisa considerar como você planeja para sua implantação. 
+
+:::row:::
+    :::column:::
+        [![Entrevista e demonstração apresentando Azure File Sync - clique para reproduzir!](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
+    :::column-end:::
+    :::column:::
+        O Azure File Sync é um serviço que permite fazer um cache de vários compartilhamentos de arquivos do Azure em um Windows Server ou VM na nuvem no local. 
+        
+        Este artigo apresenta conceitos e recursos do Azure File Sync. Uma vez que você esteja familiarizado com o Azure File Sync, considere seguir o [guia de implantação do Azure File Sync](storage-sync-files-deployment-guide.md) para testar este serviço.        
+    :::column-end:::
+:::row-end:::
+
+Os arquivos serão armazenados na nuvem em [compartilhamentos de arquivos do Azure](storage-files-introduction.md). Os compartilhamentos de arquivos do Azure podem ser usados de duas maneiras: montando diretamente esses compartilhamentos de arquivos Azure sem servidor (SMB) ou arquivar compartilhamentos de arquivos do Azure no local usando o Azure File Sync. Qual opção de implantação você escolhe altera os aspectos que você precisa considerar como você planeja para sua implantação. 
 
 - **Montagem direta de um compartilhamento de arquivos Azure**: Como o Azure Files fornece acesso ao SMB, você pode montar compartilhamentos de arquivos Do Zure no local ou na nuvem usando o cliente SMB padrão disponível no Windows, macOS e Linux. Como os compartilhamentos de arquivos do Azure não têm servidor, a implantação para cenários de produção não requer o gerenciamento de um servidor de arquivos ou dispositivo NAS. Isso significa que você não precisa aplicar patches de software ou trocar discos físicos. 
 
 - **O compartilhamento de arquivos do Cache Azure no local com o Azure File Sync**: O Azure File Sync permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos Azure, mantendo a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos no local. O Azure File Sync transforma um Windows Server no local (ou na nuvem) em um cache rápido do seu compartilhamento de arquivos Azure. 
-
-Este artigo aborda principalmente considerações de implantação para a implantação do Azure File Sync. Para planejar a implantação de compartilhamentos de arquivos Do Azure a ser montado diretamente por um cliente no local ou na nuvem, consulte Planejamento para uma implantação de [Arquivos Azure](storage-files-planning.md).
 
 ## <a name="management-concepts"></a>Conceitos de gerenciamento
 Uma implantação do Azure File Sync tem três objetos de gerenciamento fundamentais:
@@ -252,11 +262,11 @@ Para saber mais sobre a configuração da funcionalidade de rede do Azure File S
 Ao usar o Azure File Sync, existem três camadas diferentes de criptografia a considerar: criptografia no armazenamento em repouso do Windows Server, criptografia em trânsito entre o agente Azure File Sync e o Azure e a criptografia no resto de seus dados no compartilhamento de arquivos do Azure. 
 
 ### <a name="windows-server-encryption-at-rest"></a>Criptografia do Windows Server em repouso 
-Existem duas estratégias para criptografar dados no Windows Server que funcionam geralmente com o Azure File Sync: criptografia o sistema de arquivos, de tal forma que o sistema de arquivos e todos os dados gravados para ele sejam criptografados e criptografia dentro do próprio formato de arquivo. Esses métodos não são mutuamente exclusivos; eles podem ser usados juntos, se desejado, uma vez que o propósito da criptografia é diferente.
+Existem duas estratégias para criptografar dados no Windows Server que funcionam geralmente com o Azure File Sync: criptografia sob o sistema de arquivos, de tal forma que o sistema de arquivos e todos os dados gravados para ele sejam criptografados e criptografia dentro do próprio formato de arquivo. Esses métodos não são mutuamente exclusivos; eles podem ser usados juntos, se desejado, uma vez que o propósito da criptografia é diferente.
 
 Para fornecer criptografia abaixo do sistema de arquivos, o Windows Server fornece a caixa de entrada BitLocker. O BitLocker é totalmente transparente para o Azure File Sync. A principal razão para usar um mecanismo de criptografia como o BitLocker é evitar a exfiltração física de dados do seu datacenter local por alguém que rouba os discos e evitar que o carregamento lateral de um sistema operacional não autorizado realize leituras/gravações não autorizadas aos seus dados. Para saber mais sobre o BitLocker, consulte [visão geral do BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview).
 
-Produtos de terceiros que funcionam de forma semelhante ao BitLocker, na qual eles se sentam abaixo do volume NTFS, devem funcionar de forma semelhante totalmente transparente com o Azure File Sync. 
+Produtos de terceiros que funcionam de forma semelhante ao BitLocker, na qual se sentam abaixo do volume NTFS, devem funcionar de forma totalmente transparente com o Azure File Sync. 
 
 O outro método principal para criptografar dados é criptografar o fluxo de dados do arquivo quando o aplicativo salva o arquivo. Alguns aplicativos podem fazer isso nativamente, no entanto, este geralmente não é o caso. Um exemplo de método para criptografar o fluxo de dados do arquivo é o AIP (AIP)/Azure Rights Management Services (Azure RMS)/Active Directory RMS. A principal razão para usar um mecanismo de criptografia como o AIP/RMS é impedir a exfiltração de dados do seu compartilhamento de arquivos por pessoas que os copiam para locais alternativos, como uma unidade flash ou e-mail para uma pessoa não autorizada. Quando o fluxo de dados de um arquivo é criptografado como parte do formato do arquivo, este arquivo continuará a ser criptografado no compartilhamento de arquivos do Azure. 
 

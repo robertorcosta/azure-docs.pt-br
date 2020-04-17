@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: b2ff9869b0de7a0285644bea462101cd1dc80b99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb81cbb12605a9d4b8870aab4bb461c8af079cf5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74039231"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460742"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquina virtual Windows no Azure
 Cada VM (máquina virtual) no Azure é criada com base em uma imagem que define a distribuição do Windows e a versão do sistema operacional. As imagens podem incluir configurações e aplicativos pré-instalados. O Azure Marketplace fornece várias imagens internas e de terceiros para os ambientes de sistema operacional e de aplicativo mais comuns ou você pode criar suas próprias imagens personalizadas adequadas às suas necessidades. Este artigo fornece detalhes sobre como usar a ferramenta de software livre [Packer](https://www.packer.io/) para definir e compilar imagens personalizadas no Azure.
@@ -32,7 +31,7 @@ Este artigo foi testado pela última vez em 21/02/2019 usando a versão 1.3.0 [d
 ## <a name="create-azure-resource-group"></a>Criar um grupo de recursos do Azure
 Durante o processo de build, o Packer cria recursos temporários do Azure conforme cria a VM de origem. Para capturar essa VM de origem para uso como uma imagem, você precisa definir um grupo de recursos. A saída do processo de build do Packer é armazenada nesse grupo de recursos.
 
-Crie um grupo de recursos com [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus:*
+Crie um grupo de recursos com [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurepowershell
 $rgName = "myResourceGroup"

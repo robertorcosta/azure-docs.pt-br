@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a3b738d95b5b777f1cf0329fb3c1bc3e2860421e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: a7957c7cbcfa511ea441d8c7bd4371f56ab87560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545963"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461677"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Visão geral
@@ -73,7 +73,7 @@ Além disso, você pode configurar a Segurança e Conformidade para [realizar au
 
 As implantações baseadas em modelos do Azure Resource Manager ajudam a melhorar a segurança das soluções implantadas no Azure devido às configurações de controle de segurança padrão, e podem ser integradas às implantações baseadas em modelo padronizadas. Isso reduz o risco de erros de configuração de segurança que podem ocorrer durante as implantações manuais.
 
-### <a name="application-insights"></a>Application Insights
+### <a name="application-insights"></a>Informações do aplicativo
 [O Application Insights](https://docs.microsoft.com/azure/application-insights/) é um serviço extensível de Gerenciamento de Desempenho de Aplicativos (APM) para desenvolvedores web. Com o Application Insights, você pode monitorar seus aplicativos Web ativos e detectar automaticamente as anomalias no desempenho. Ele inclui ferramentas de análise avançadas para ajudar você a diagnosticar problemas e entender o que os usuários realmente fazem com seu aplicativo. Ele monitora seus aplicativos em todo o tempo de execução, tanto durante o teste quanto depois de publicado ou implantado.
 
 O Application Insights cria gráficos e tabelas que mostram, por exemplo, em que horas do dia você tem mais usuários, o nível de capacidade de resposta do aplicativo e quão bem ele é atendido por quaisquer serviços externos dos quais depende.
@@ -295,7 +295,7 @@ A seção fornece outras informações sobre os principais recursos nessa área 
 Com o Azure IaaS, você pode usar o software antimalware dos fornecedores de segurança, como Microsoft, Symantec, Trend Micro, McAfee e Kaspersky, para proteger suas máquinas virtuais contra arquivos maliciosos, adware e outras ameaças. O [Microsoft Antimalware](antimalware.md) para Serviços de Nuvem e Máquinas Virtuais do Azure é uma funcionalidade de proteção que ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. O Microsoft Antimalware fornece alertas configuráveis quando um software mal-intencionado ou indesejado conhecido tenta se instalar ou executar nos sistemas do Azure. O Microsoft Antimalware também podem ser implantado usando a Central de Segurança do Azure
 
 ### <a name="hardware-security-module"></a>Módulos de segurança de hardware
-A autenticação e a criptografia não melhoram a segurança, a menos que as próprias chaves estejam bem protegidas. Você pode simplificar o gerenciamento e a segurança de seus segredos e chaves críticas armazenando-os no [Azure Key Vault](../../key-vault/key-vault-overview.md). O Key Vault oferece a opção de armazenar as chaves em HSMs (módulos de segurança de hardware) certificados para os padrões FIPS 140-2 nível 2. Suas chaves de criptografia do SQL Server para backup ou [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx) podem ser armazenadas no Cofre de Chaves com quaisquer chaves ou segredos dos seus aplicativos. As permissões e o acesso a esses itens protegidos são gerenciados pelo [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+A autenticação e a criptografia não melhoram a segurança, a menos que as próprias chaves estejam bem protegidas. Você pode simplificar o gerenciamento e a segurança de seus segredos e chaves críticas armazenando-os no [Azure Key Vault](../../key-vault/general/overview.md). O Key Vault oferece a opção de armazenar as chaves em HSMs (módulos de segurança de hardware) certificados para os padrões FIPS 140-2 nível 2. Suas chaves de criptografia do SQL Server para backup ou [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx) podem ser armazenadas no Cofre de Chaves com quaisquer chaves ou segredos dos seus aplicativos. As permissões e o acesso a esses itens protegidos são gerenciados pelo [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 ### <a name="virtual-machine-backup"></a>Backup de máquinas virtuais
 O [Backup do Azure](../../backup/backup-overview.md) é uma solução que protege os dados do seu aplicativo com zero investimento de capital e custos operacionais mínimos. Erros de aplicativo podem corromper seus dados e erros humanos podem introduzir bugs em seus aplicativos, o que pode causar problemas de segurança. Com o Backup do Azure, suas máquinas virtuais executando Windows e Linux estão protegidas.

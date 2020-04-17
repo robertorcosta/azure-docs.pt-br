@@ -4,12 +4,12 @@ description: Saiba mais sobre o uso de identidades gerenciadas para o Azure com 
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: f6f3736bed4d3d59bce08d4df3ee0aa164a0a764
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a26f188ed2f5e18bdf775cd1fb21001495ffdc89
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415108"
+ms.locfileid: "81461439"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Usando identidades gerenciadas para Azure com malha de serviço
 
@@ -57,7 +57,7 @@ Os seguintes cenários não são suportados ou não recomendados; observe que es
 
 - Remover ou alterar as identidades atribuídas a um aplicativo; se você deve fazer alterações, envie implantações separadas para primeiro adicionar uma nova atribuição de identidade e, em seguida, para remover uma anteriormente atribuída. A remoção de uma identidade de um aplicativo existente pode ter efeitos indesejáveis, incluindo deixar seu aplicativo em um estado que não é atualizável. É seguro excluir o aplicativo completamente se a remoção de uma identidade for necessária; note que isso excluirá a identidade atribuída ao sistema (se assim definida) associada ao aplicativo e removerá quaisquer associações com as identidades atribuídas pelo usuário atribuídas ao aplicativo.
 
-- O suporte ao Service Fabric para identidades gerenciadas não está integrado no [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md).
+- O suporte ao Service Fabric para identidades gerenciadas não está integrado no [AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

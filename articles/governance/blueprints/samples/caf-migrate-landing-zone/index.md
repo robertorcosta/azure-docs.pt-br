@@ -3,12 +3,12 @@ title: Visão Geral do exemplo de blueprint da zona de destino de Migração do 
 description: Visão geral e arquitetura do exemplo de blueprint da zona de destino do CAF (Cloud Adoption Framework) para o Azure Migration.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: d0328a590d86677e098504a7498a696697fc38c8
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: c4720ec3e94ee928553cd62017831e5158ac9b97
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383539"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459858"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Visão geral do exemplo de blueprint da zona de aterrissagem de migração do Cloud Adoption Framework da Microsoft para o Azure
 
@@ -24,7 +24,7 @@ O exemplo de blueprint da zona de aterrissagem de migração do CAF implanta rec
 
 Este ambiente é composto de vários serviços do Azure usados para oferecer uma governança segura, totalmente monitorada e pronta para empresas. Esse ambiente é composto de:
 
-- Uma instância do [Azure Key Vault](../../../../key-vault/key-vault-overview.md) empregada para hospedar segredos usados para certificados, chaves e segredos implantados no ambiente de serviços compartilhados
+- Uma instância do [Azure Key Vault](../../../../key-vault/general/overview.md) empregada para hospedar segredos usados para certificados, chaves e segredos implantados no ambiente de serviços compartilhados
 - Implantar o [Log Analytics](../../../../azure-monitor/overview.md) garante que todas as ações e os serviços serão registrados em um local central desde o momento em que você iniciar sua migração
 - Implantar a [Central de Segurança do Azure](../../../../security-center/security-center-intro.md) (versão padrão) fornece proteção contra ameaças para suas cargas de trabalho migradas.
 - Implantar a [Rede Virtual do Azure](../../../../virtual-network/virtual-networks-overview.md) fornece uma rede isolada e sub-redes para sua máquina virtual.

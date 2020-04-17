@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 8ce949ac997ba7ee38cb057752d89f4b4d22388f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8578c518ac45bea147790028c2904c7ce36fffb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73838712"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459025"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Mova uma conta do Azure Storage para outra região
 
@@ -51,7 +51,7 @@ Este modelo contém configurações que descrevem sua conta de armazenamento.
 
 Para exportar um modelo usando o portal Azure:
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **Todos os recursos** e selecione sua conta de armazenamento.
 
@@ -63,7 +63,7 @@ Para exportar um modelo usando o portal Azure:
 
    Este arquivo zip contém os arquivos .json que compõem o modelo e scripts para implantar o modelo.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para exportar um modelo usando o PowerShell:
 
@@ -139,7 +139,7 @@ Para implantar o modelo usando o portal Azure:
     ```
     Para obter códigos de localização da região, consulte [Azure Localizações](https://azure.microsoft.com/global-infrastructure/locations/).  O código para uma região é o nome da região sem espaços, **central dos EUA.** = **centralus**
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para implantar o modelo usando o PowerShell:
 
@@ -186,7 +186,7 @@ Implante o modelo para criar uma nova conta de armazenamento na região de desti
 
 2. Digite ou selecione os valores da propriedade:
 
-- **Assinatura**: selecione uma assinatura do Azure.
+- **Assinatura**: Selecione uma assinatura do Azure.
 
 - **Grupo de recursos**: selecione **Criar novo** e dê um nome ao grupo de recursos.
 
@@ -194,7 +194,7 @@ Implante o modelo para criar uma nova conta de armazenamento na região de desti
 
 3. Clique no **Concordo com os termos e condições indicados acima** da caixa de seleção e, em seguida, clique no botão Selecionar **Compra.**
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Obtenha o ID de assinatura onde você deseja implantar o IP público de destino com [a Assinatura Get-Az](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
 
@@ -274,9 +274,9 @@ Para remover uma conta de armazenamento usando o portal Azure:
 
 3. Selecione **Excluir**e confirme.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para remover o grupo de recursos e seus recursos associados, incluindo a nova conta de armazenamento, use o comando [Remove-AzStorageAccount:](/powershell/module/az.resources/remove-azstorageaccount)
+Para remover o grupo de recursos e seus recursos associados, incluindo a nova conta de armazenamento, use o comando [Remove-AzStorageAccount:](/powershell/module/az.storage/remove-azstorageaccount)
 
 ```powershell
 Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount
@@ -289,4 +289,4 @@ Neste tutorial, você moveu uma conta de armazenamento do Azure de uma região p
 
 
 - [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Mover as VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Mover VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

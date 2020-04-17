@@ -5,15 +5,15 @@ services: app-service\mobile
 author: conceptdev
 ms.service: app-service-mobile
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 04/15/2020
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: a7e543dcad9ad1b016d1244451cd87cda5ad7492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5b6389491fd91b716a05e7c57c98addb6352bd9
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67440214"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461860"
 ---
 1. Baixe o cliente SDK quickstarts para as seguintes plataformas:
     
@@ -62,30 +62,20 @@ ms.locfileid: "67440214"
 
             5. O valor deve ser a seqüência de conexão que você formou na etapa anterior.
 
-            6. Se você estiver adicionando uma seqüência de conexão a um banco de dados SQL Azure, escolha **o SQLAzure** **o tipo**.
+            6. Se você estiver adicionando uma seqüência de conexão a um banco de dados SQL Azure, escolha **o SQLAzure** sob **o tipo**.
 
 3. O Azure Mobile Apps tem SDKs para backends .NET e Node.js.
 
    - **Back-end do Node.js**
     
      Se você vai usar o aplicativo Node.js quickstart, siga as instruções abaixo.
-
-     1. No portal Azure, vá para **Easy Tables**, você verá esta tela.
-      
-        ![Tabelas fáceis do nó](./media/app-service-mobile-configure-new-backend/node-easy-tables.png)
-
-     2. Certifique-se de que a seqüência de conexão SQL já está adicionada na guia **Configuração.** Em seguida, verifique a caixa de **eu reconheço que isso irá substituir todo** o conteúdo do site e clicar no botão Criar **todoitem tabela.**
      
-        ![Configuração de tabelas fáceis do nó](./media/app-service-mobile-configure-new-backend/node-easy-tables-configuration.png)
-
-     3. Em **Tabelas Fáceis,** clique no botão **+ Adicionar.**
-    
-        ![Tabelas fáceis do nó adicionar botão](./media/app-service-mobile-configure-new-backend/node-easy-tables-add.png)
-
-     4. Crie `TodoItem` uma tabela com acesso anônimo.
-      
-        ![Tabelas fáceis de nó adicionar tabela](./media/app-service-mobile-configure-new-backend/node-easy-tables-table-add.png)
-
+        1. Crie uma nova API - Você pode fazer alterações no portal do Azure ou modificar o código localmente em seu ambiente de desenvolvimento e, em seguida, publicar no Azure. Clique no `App Service Editor (Preview)` `Development Tools` menu abaixo que fornece uma experiência de edição no navegador para o código do aplicativo.
+        
+        2. Clique `Go` e, uma vez que o App Service Editor seja aberto, você terá controle total sobre o código-fonte. Supondo que você já tenha instalado o pacote de aplicativos expresso e azure-mobile com comando npm install, clique na pasta de api em WWWROOT para criar ou editar API personalizada. Faça suas alterações no arquivo de código e as alterações são salvas automaticamente.
+        
+        3. Você tem controle total no Banco de Dados SQL do Azure usado para armazenar os dados do aplicativo. Você pode facilmente criar novas tabelas no banco de dados.
+ 
    - **Back-end do .NET**
     
         Se você vai usar o aplicativo .NET quickstart, siga as instruções abaixo.

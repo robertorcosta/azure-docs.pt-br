@@ -4,18 +4,18 @@ description: Saiba mais sobre criptografia no resto do registro de contêineres 
 ms.topic: article
 ms.date: 03/10/2020
 ms.custom: ''
-ms.openlocfilehash: fe0736f83db2ba5b872d50bcf1262ca423de9f09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d5561998cf0b19698c8059a861a4014a171a7e7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79498956"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461745"
 ---
 # <a name="encryption-using-customer-managed-keys"></a>Criptografia usando chaves gerenciadas pelo cliente
 
 Quando você armazena imagens e outros artefatos em um registro de contêiner do Azure, o Azure criptografa automaticamente o conteúdo do registro em repouso com [chaves gerenciadas pelo serviço](../security/fundamentals/encryption-atrest.md#data-encryption-models). Você pode complementar a criptografia padrão com uma camada de criptografia adicional usando uma chave que você cria e gerencia no Azure Key Vault. Este artigo orienta você através das etapas usando o Azure CLI e o portal Azure.
 
-A criptografia do lado do servidor com chaves gerenciadas pelo cliente é suportada por meio da integração com [o Azure Key Vault](../key-vault/key-vault-overview.md). Você pode criar suas próprias chaves de criptografia e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves de criptografia. Com o Azure Key Vault, você também pode auditar o uso de chaves.
+A criptografia do lado do servidor com chaves gerenciadas pelo cliente é suportada por meio da integração com [o Azure Key Vault](../key-vault/general/overview.md). Você pode criar suas próprias chaves de criptografia e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves de criptografia. Com o Azure Key Vault, você também pode auditar o uso de chaves.
 
 Esse recurso está disponível no nível de serviço de registro de contêineres **Premium.** Para obter informações sobre os níveis e limites do serviço de registro, consulte [As SKUs de registro de contêineres do Azure](container-registry-skus.md).
 
@@ -32,7 +32,7 @@ Esse recurso está disponível no nível de serviço de registro de contêineres
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar as etapas do Azure CLI neste artigo, você precisa da versão 2.2.0 ou posterior do Azure CLI. Se você precisar instalar ou atualizar, consulte [Install Azure CLI](/cli/azure/install-azure-cli).
+Para usar as etapas do Azure CLI neste artigo, você precisa da versão 2.2.0 ou posterior do Azure CLI. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="enable-customer-managed-key---cli"></a>Habilitar a chave gerenciada pelo cliente - CLI
 
@@ -176,7 +176,7 @@ Anote o nome do **recurso** da identidade gerenciada. Você precisa desse nome e
 
 ### <a name="create-a-key-vault"></a>Criar um cofre de chave
 
-Para obter etapas para criar um cofre-chave, consulte [Quickstart: Configure e recupere um segredo do Azure Key Vault usando o portal Azure](../key-vault/quick-create-portal.md).
+Para obter etapas para criar um cofre-chave, consulte [Quickstart: Configure e recupere um segredo do Azure Key Vault usando o portal Azure](../key-vault/secrets/quick-create-portal.md).
 
 Ao criar um cofre de chaves para uma chave gerenciada pelo cliente, na guia **Basics,** você deve habilitar as seguintes configurações de proteção: **Exclusão suave** e **proteção de purga**. Essas configurações ajudam a evitar a perda de dados causada por exclusões acidentais de chave ou cofre de chaves.
 
@@ -378,7 +378,7 @@ az acr encryption rotatekey \
 
 ## <a name="revoke-key"></a>Revogar chave
 
-Revogue a chave de criptografia gerenciada pelo cliente alterando a política de acesso no cofre de chaves ou excluindo a chave. Por exemplo, use o comando [az keyvault delete-policy][az-keyvault-delete-policy] para alterar a política de acesso da identidade gerenciada usada pelo seu registro. Por exemplo: 
+Revogue a chave de criptografia gerenciada pelo cliente alterando a política de acesso no cofre de chaves ou excluindo a chave. Por exemplo, use o comando [az keyvault delete-policy][az-keyvault-delete-policy] para alterar a política de acesso da identidade gerenciada usada pelo seu registro. Por exemplo:
 
 ```azurecli
 az keyvault delete-policy \
@@ -392,7 +392,7 @@ A revogação da chave bloqueia efetivamente o acesso a todos os dados do regist
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [criptografia em repouso no Azure](../security/fundamentals/encryption-atrest.md).
-* Saiba mais sobre políticas de acesso e como [garantir o acesso a um cofre de chaves](../key-vault/key-vault-secure-your-key-vault.md).
+* Saiba mais sobre políticas de acesso e como [garantir o acesso a um cofre de chaves](../key-vault/general/secure-your-key-vault.md).
 * Para fornecer feedback sobre as chaves gerenciadas pelo cliente para o Registro de Contêineres do Azure, visite o site do [ACR GitHub](https://aka.ms/acr/issues).
 
 

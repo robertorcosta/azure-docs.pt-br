@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: befe8945468d220a04ec7f0b515f22159cb72b0f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549239"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461643"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Azure Service Fabric
 Implantar um aplicativo no Azure é rápido, fácil e econômico. Antes de implantar seu aplicativo na nuvem em produção, examine a nossa lista de melhores práticas recomendadas e essenciais para a implementação de clusters seguros no seu aplicativo.
@@ -155,7 +155,7 @@ O Service Fabric usa os certificados para fornecer autenticação e criptografia
 
 O Service Fabric usa certificados x.509 para proteger um cluster e fornecer recursos de segurança do aplicativo. O Azure Key Vault é usado para [gerenciar certificados](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md) de clusters do Service Fabric no Azure. O provedor de recursos do Azure que cria os clusters extrai os certificados de um cofre de chaves. O provedor, em seguida, instala os certificados nas máquinas virtuais quando o cluster for implantado no Azure.
 
-Existe uma relação de certificado entre o [Azure Key Vault](../../key-vault/key-vault-secure-your-key-vault.md), o cluster do Service Fabric e o provedor de recursos que usa os certificados. Quando o cluster for criado, as informações sobre a relação de certificado são armazenadas em um cofre de chaves.
+Existe uma relação de certificado entre o [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md), o cluster do Service Fabric e o provedor de recursos que usa os certificados. Quando o cluster for criado, as informações sobre a relação de certificado são armazenadas em um cofre de chaves.
 
 Há duas etapas básicas para configurar um cofre de chaves:
 1. Criar um grupo de recursos especificamente para o cofre de chaves.
@@ -166,7 +166,7 @@ Há duas etapas básicas para configurar um cofre de chaves:
 
     O cofre de chaves deve ser habilitado para a implantação. O provedor de recursos de computação, em seguida, pode obter os certificados do cofre e instalá-los em instâncias de VM.
 
-Para saber mais sobre como configurar um cofre de chaves, confira [O que é o Azure Key Vault?](../../key-vault/key-vault-overview.md).
+Para saber mais sobre como configurar um cofre de chaves, confira [O que é o Azure Key Vault?](../../key-vault/general/overview.md).
 
 ## <a name="assign-users-to-roles"></a>Atribuir usuários a funções
 Depois de criar os aplicativos para representar seu cluster, atribua seus usuários às funções suportadas pelo Service Fabric: somente leitura e administrador. Você pode atribuir essas funções usando o portal Azure.

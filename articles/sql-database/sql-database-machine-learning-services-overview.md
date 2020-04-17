@@ -12,23 +12,19 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 11/20/2019
-ms.openlocfilehash: 2a2cd4bfc3d393543b41eea776f02723d94054b1
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: 46ca4661d06b52c861431a680a69297575ac99b0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345820"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461405"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Serviços de Machine Learning do Banco de Dados SQL do Azure com R (versão prévia)
 
 Os Serviços do Machine Learning são um recurso do Banco de Dados SQL do Azure, usado para executar scripts do R no banco de dados. O recurso inclui pacotes R da Microsoft para análise preditiva de alto desempenho e machine learning. Os dados relacionais podem ser usados em scripts R por meio de procedimentos armazenados, do script T-SQL que contém instruções do R ou do código R que contém o T-SQL.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
-
-> [!NOTE]
-> A visualização está disponível para bancos de dados únicos e piscinas elásticas usando o modelo de compra baseado em vCore nos níveis de **serviços críticos** **de propósito geral** e de negócios. Nesta visualização inicial, o nível de serviço **de hiperescala** e a opção de implantação **de instância gerenciada** não são suportados. Atualmente, R é a única linguagem com suporte. No momento, não há suporte para Python.
->
-> A pré-visualização está disponível atualmente nas seguintes regiões: Europa Ocidental, Europa Do Norte, Oeste dos EUA 2, Leste dos EUA, Centro-Sul dos EUA, Norte Central dos EUA, Canadá Central, Sudeste Asiático, Índia Do Sul e Austrália Sudeste.
 
 ## <a name="what-you-can-do-with-r"></a>O que você pode fazer com o R
 

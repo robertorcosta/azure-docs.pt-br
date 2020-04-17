@@ -3,12 +3,12 @@ title: Use a identidade gerenciada com um aplicativo
 description: Como usar identidades gerenciadas no código do aplicativo Azure Service Fabric para acessar os Serviços do Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: cbdb1190ec3238a6accd34db3025e08c194d60b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415610"
+ms.locfileid: "81461558"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Como aproveitar a identidade gerenciada de um aplicativo de malha de serviço para acessar os serviços do Azure
 
@@ -41,10 +41,6 @@ Para obter um token, o cliente executa as seguintes etapas:
 Uma resposta bem-sucedida conterá uma carga json representando o token de acesso resultante, bem como metadados descrevendo-o. Uma resposta fracassada também incluirá uma explicação da falha. Veja abaixo mais detalhes sobre o manuseio de erros.
 
 Os tokens de acesso serão armazenados em cache pela Service Fabric em vários níveis (nó, cluster, serviço de provedor de recursos), de modo que uma resposta bem-sucedida não implica necessariamente que o token foi emitido diretamente em resposta à solicitação do aplicativo do usuário. Os tokens serão armazenados em cache por menos de sua vida útil e, portanto, um aplicativo é garantido para receber um token válido. Recomenda-se que o código do aplicativo cachê-se todos os tokens de acesso que adquirir; a chave de cache deve incluir (uma derivação de) o público. 
-
-
-> [!NOTE]
-> A única versão de API aceita está atualmente `2019-07-01-preview`, e está sujeita a alterações.
 
 Solicitação de exemplo:
 ```http
