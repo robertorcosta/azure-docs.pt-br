@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2b09a7765cff20fb49ce6ab3d1e7bce2e15f0e9e
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 179a2120714460c955d1fd3e345ebcd963ae564d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475220"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453550"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configure um aplicativo Windows Java para o Azure App Service
 
@@ -187,7 +187,7 @@ Siga as instruções no [Secure um nome DNS personalizado com uma vinculação T
 
 ### <a name="use-keyvault-references"></a>Use referências keyvault
 
-[O Azure KeyVault](../key-vault/key-vault-overview.md) fornece gerenciamento secreto centralizado com políticas de acesso e histórico de auditoria. Você pode armazenar segredos (como senhas ou strings de conexão) no KeyVault e acessar esses segredos em seu aplicativo através de variáveis de ambiente.
+[O Azure KeyVault](../key-vault/general/overview.md) fornece gerenciamento secreto centralizado com políticas de acesso e histórico de auditoria. Você pode armazenar segredos (como senhas ou strings de conexão) no KeyVault e acessar esses segredos em seu aplicativo através de variáveis de ambiente.
 
 Primeiro, siga as instruções para [conceder acesso ao seu aplicativo ao Key Vault](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) e fazer uma referência do [KeyVault ao seu segredo em uma configuração de aplicativo](app-service-key-vault-references.md#reference-syntax). Você pode validar que a referência resolve o segredo imprimindo a variável ambiente enquanto acessa remotamente o terminal do Serviço de Aplicativo.
 

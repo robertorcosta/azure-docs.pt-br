@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: cf82dddf281e8e6f1348884702e32330dee4781b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57378005bd668fa9c0f2aea70c411bbf911130db
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278669"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457647"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário
 
@@ -18,7 +18,7 @@ A Automação do Azure fornece soluções para gerenciar atualizações de segur
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no Azure em https://portal.azure.com
+Faça login no Azure em https://portal.azure.com.
 
 ## <a name="enable-solutions"></a>Habilitar soluções
 
@@ -82,7 +82,7 @@ Clique em **+Adicionar VMs do Azure**, selecione uma ou mais VMs na lista. Máqu
 
 Computadores que não estão no Azure precisam ser adicionados manualmente. Da sua conta de automação selecione O rastreamento **de inventário** ou **alteração** em gerenciamento **de configuração**ou **o gerenciamento de atualização** em gerenciamento **de atualização**.
 
-Clique em **Adicionar computador não Azure**. Esta ação abre uma nova janela do navegador com as instruções [sobre como instalar e configurar o Microsoft Monitoring Agent na máquina](../azure-monitor/platform/log-analytics-agent.md) para que a máquina possa começar a gerar relatórios para a solução. Se você estiver integrando uma máquina que atualmente é gerenciada pelo System Center Operations Manager, um novo agente não é necessário, as informações do workspace são inseridas no agente existente.
+Clique em **Adicionar computador não Azure**. Esta ação abre uma nova janela do navegador com [instruções para instalar e configurar o agente Log Analytics para Windows para](../azure-monitor/platform/log-analytics-agent.md) que a máquina possa começar a reportar à solução. Se você está embarcando em uma máquina que atualmente é gerenciada pelo System Center Operations Manager, um novo agente não é necessário e as informações do espaço de trabalho são inseridas no agente existente.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Integrar computadores no workspace
 
@@ -111,8 +111,8 @@ Para habilitar a solução para uma ou mais máquinas, **selecione Ativar em má
 As seguintes soluções são dependentes de um espaço de trabalho do Log Analytics:
 
 * [Gerenciamento de atualizações](automation-update-management.md)
-* [Rastreamento de alterações](automation-change-tracking.md)
-* [Iniciar/Parar VMs durante os horários inativos](automation-solution-vm-management.md)
+* [Controle de Alterações](automation-change-tracking.md)
+* [Iniciar/parar VMs durante as horas de folga](automation-solution-vm-management.md)
 
 Se você decidir que não deseja mais integrar sua conta de Automação com um espaço de trabalho do Log Analytics, você pode desvincular sua conta diretamente do portal Azure.  Antes de continuar, primeiro você precisa remover as soluções mencionadas anteriormente, caso contrário, esse processo será impedido de prosseguir. Revise o artigo para a solução específica que você importou para entender as etapas necessárias para removê-lo.
 
@@ -145,12 +145,12 @@ Se você usou as VMs Iniciar e Parar durante a solução fora do horário, opcio
 
 Alternativamente, você também pode desvincular seu espaço de trabalho de sua conta de automação do seu espaço de trabalho log analytics. Em seu espaço de trabalho, selecione **Conta de Automação** em Recursos **Relacionados**. Na página Da conta de automação, selecione **Desvincular conta**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover uma VM do Gerenciamento de Atualizações:
 
 * No espaço de trabalho do Log Analytics, remova a VM da pesquisa salva para a Configuração de Escopo `MicrosoftDefaultScopeConfig-Updates`. As pesquisas salvas podem ser encontradas em **Geral** no workspace.
-* Remover o [agente do Microsoft Monitoring](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente do Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Remova o [agente Log Analytics para Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o agente Log [Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Próximas etapas
 

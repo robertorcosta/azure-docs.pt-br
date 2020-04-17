@@ -10,18 +10,18 @@ ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ea944d4cfa3006c33f1dee3dd8e6ee6088681aa7
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 796e3b3f46bc83b776826baf6e078c696eda543b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618639"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456763"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configure as chaves gerenciadas pelo cliente com o Azure Key Vault usando o Azure CLI
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Este artigo mostra como configurar um Azure Key Vault com chaves gerenciadas pelo cliente usando o Azure CLI. Para aprender como criar um cofre de chaves usando o Azure CLI, consulte [Quickstart: Configure e recupere um segredo do Azure Key Vault usando o Azure CLI](../../key-vault/quick-create-cli.md).
+Este artigo mostra como configurar um Azure Key Vault com chaves gerenciadas pelo cliente usando o Azure CLI. Para aprender como criar um cofre de chaves usando o Azure CLI, consulte [Quickstart: Configure e recupere um segredo do Azure Key Vault usando o Azure CLI](../../key-vault/secrets/quick-create-cli.md).
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Atribuir uma identidade à conta de armazenamento
 
@@ -55,7 +55,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-Para saber como ativar **o Soft Delete** e o Não **Purgar** em um cofre de chaves existente com o Azure CLI, consulte as seções intituladas **Habilitando a exclusão suave** e permitindo a **proteção de purga** em como usar [soft-delete com CLI](../../key-vault/key-vault-soft-delete-cli.md).
+Para saber como ativar **o Soft Delete** e o Não **Purgar** em um cofre de chaves existente com o Azure CLI, consulte as seções intituladas **Habilitando a exclusão suave** e permitindo a **proteção de purga** em como usar [soft-delete com CLI](../../key-vault/general/soft-delete-cli.md).
 
 ## <a name="configure-the-key-vault-access-policy"></a>Configure a política de acesso ao cofre de chaves
 

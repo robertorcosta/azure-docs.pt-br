@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: abff2f16d9559f015417711820a993badd636f7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ebbdda39f019f374f8e5abe951d0180c0dd453f6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133086"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457868"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para gateway de aplicativo
 
@@ -102,7 +102,7 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
 - **Solicitações com falha**
 
-  Contagem de solicitações com falha que o Application Gateway atendeu. A contagem de solicitações pode ser filtrada ainda mais para mostrar a contagem por cada/combinação específica de configuração de pool-http de backend.
+  Número de solicitações que o Application Gateway serviu com códigos de erro do servidor 5xx. Isso inclui os códigos 5xx gerados a partir do Gateway de aplicativo, bem como os códigos 5xx gerados a partir do backend. A contagem de solicitações pode ser filtrada ainda mais para mostrar a contagem por cada/combinação específica de configuração de pool-http de backend.
    
 - **Unidades de capacidade de faturamento fixas**
 
@@ -162,7 +162,7 @@ Para o Gateway de Aplicativo, as seguintes métricas estão disponíveis:
 
 - **Solicitações com falha**
 
-  Contagem de solicitações com falha que o Application Gateway atendeu. A contagem de solicitações pode ser filtrada ainda mais para mostrar a contagem por cada/combinação específica de configuração de pool-http de backend.
+  Número de solicitações que o Application Gateway serviu com códigos de erro do servidor 5xx. Isso inclui os códigos 5xx gerados a partir do Gateway de aplicativo, bem como os códigos 5xx gerados a partir do backend. A contagem de solicitações pode ser filtrada ainda mais para mostrar a contagem por cada/combinação específica de configuração de pool-http de backend.
 
 - **Status da Resposta**
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 733a85e492185e7e83922a3cc91d53c848b939a1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f58887a056c8ca0cd175a44127556562338de38
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411140"
+ms.locfileid: "81450025"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configure chaves gerenciadas pelo cliente para sua conta Azure Cosmos com o Azure Key Vault
 
@@ -23,7 +23,7 @@ Os dados armazenados em sua conta do Azure Cosmos são criptografados automatica
 
 ![Camadas de criptografia em torno dos dados dos clientes](./media/how-to-setup-cmk/cmk-intro.png)
 
-Você deve armazenar chaves gerenciadas pelo cliente no [Azure Key Vault](../key-vault/key-vault-overview.md) e fornecer uma chave para cada conta do Azure Cosmos habilitada com chaves gerenciadas pelo cliente. Esta chave é usada para criptografar todos os dados armazenados nessa conta.
+Você deve armazenar chaves gerenciadas pelo cliente no [Azure Key Vault](../key-vault/general/overview.md) e fornecer uma chave para cada conta do Azure Cosmos habilitada com chaves gerenciadas pelo cliente. Esta chave é usada para criptografar todos os dados armazenados nessa conta.
 
 > [!NOTE]
 > Atualmente, as chaves gerenciadas pelo cliente estão disponíveis apenas para novas contas do Azure Cosmos. Você deve configurá-los durante a criação da conta.
@@ -44,8 +44,8 @@ O uso de chaves gerenciadas pelo cliente com o Azure Cosmos DB exige que você d
 
 Para saber como habilitar essas propriedades em uma instância existente do Azure Key Vault, consulte as seções "Habilitando a exclusão suave" e "Habilitando a proteção contra expurgo" em um dos seguintes artigos:
 
-- [Como usar soft-delete com powershell](../key-vault/key-vault-soft-delete-powershell.md)
-- [Como usar soft-delete com o Azure CLI](../key-vault/key-vault-soft-delete-cli.md)
+- [Como usar soft-delete com powershell](../key-vault/general/soft-delete-powershell.md)
+- [Como usar soft-delete com o Azure CLI](../key-vault/general/soft-delete-cli.md)
 
 ## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Adicione uma política de acesso à sua instância do Azure Key Vault
 

@@ -3,12 +3,12 @@ title: Visão Geral do exemplo de blueprint dos Serviços Compartilhados ISO 270
 description: Visão geral e arquitetura do exemplo de blueprint dos Serviços Compartilhados ISO 27001. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos do ISO 27001.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 9b0b49582023ee5c68fea0f21b70290a102a038a
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 5a18af942e1d1088b681712f7035f57d354ecb19
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381565"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458447"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Visão geral do exemplo de blueprint dos Serviços Compartilhados do ISO 27001
 
@@ -34,7 +34,7 @@ Este ambiente é composto de vários serviços do Azure usados para oferecer uma
   - Um host de jumpbox ou bastião usado para fins de gerenciamento, que pode ser acessado somente por um [Firewall do Azure](../../../../firewall/overview.md) implantado na sub-rede de pilha de entrada
   - Duas máquinas virtuais que executam o ADDS (Active Directory Domain Services) e o DNS podem ser acessadas somente por meio da jumpbox e podem ser configuradas apenas para replicar o AD em uma VPN ou conexão do [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (não implantada pelo blueprint)
   - Uso do [Observador de Rede do Azure](../../../../network-watcher/network-watcher-monitoring-overview.md) e proteção contra DDoS padrão
-- Uma instância do [Azure Key Vault](../../../../key-vault/key-vault-overview.md) usada para hospedar segredos usados para as VMs implantadas no ambiente de serviços compartilhados
+- Uma instância do [Azure Key Vault](../../../../key-vault/general/overview.md) usada para hospedar segredos usados para as VMs implantadas no ambiente de serviços compartilhados
 
 Todos esses elementos cumprem as práticas comprovadas publicadas no [Centro de Arquitetura do Azure – Arquiteturas de Referência](/azure/architecture/reference-architectures/).
 

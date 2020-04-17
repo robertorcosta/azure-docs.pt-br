@@ -3,16 +3,16 @@ title: Segredo do Key Vault com modelo
 description: Mostra como transmitir um segredo de um cofre da chave como um parâmetro durante a implantação.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 08b4042c6bad83f13ebaea0f46046ea7707fd868
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d21a7d727091b427fee59e22db6a77a495a4eab7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460187"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458259"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação
 
-Em vez de colocar um valor seguro (como uma senha) diretamente no seu modelo ou arquivo de parâmetros, você pode recuperar o valor de um [Cofre de Chaves do Azure](../../key-vault/key-vault-overview.md) durante uma implantação. Você recupera o valor fazendo referência ao cofre de chaves e ao segredo no arquivo de parâmetros. O valor nunca é exposto porque você apenas fazer referência à sua ID de cofre de chaves. O cofre-chave pode existir em uma assinatura diferente do grupo de recursos para o que você está implantando.
+Em vez de colocar um valor seguro (como uma senha) diretamente no seu modelo ou arquivo de parâmetros, você pode recuperar o valor de um [Cofre de Chaves do Azure](../../key-vault/general/overview.md) durante uma implantação. Você recupera o valor fazendo referência ao cofre de chaves e ao segredo no arquivo de parâmetros. O valor nunca é exposto porque você apenas fazer referência à sua ID de cofre de chaves. O cofre-chave pode existir em uma assinatura diferente do grupo de recursos para o que você está implantando.
 
 Este artigo foca no cenário de passar um valor sensível como parâmetro de modelo. Ele não cobre o cenário de definir uma propriedade de máquina virtual para a URL de um certificado em um Key Vault. Para obter um modelo de início rápido desse cenário, consulte [Instalar um certificado do Azure Key Vault em uma máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
 
@@ -22,13 +22,13 @@ Para acessar um cofre de `enabledForTemplateDeployment` chaves durante a `true`i
 
 Se você já tiver um Key Vault, certifique-se de que ele permite implantações de modelo.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az keyvault update  --name ExampleVault --enabled-for-template-deployment true
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Set-AzKeyVaultAccessPolicy -VaultName ExampleVault -EnabledForTemplateDeployment
@@ -38,7 +38,7 @@ Set-AzKeyVaultAccessPolicy -VaultName ExampleVault -EnabledForTemplateDeployment
 
 Para criar um novo Key Vault e adicionar um segredo, use:
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location centralus
@@ -50,7 +50,7 @@ az keyvault create \
 az keyvault secret set --vault-name ExampleVault --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name ExampleGroup -Location centralus
@@ -67,7 +67,7 @@ $secret = Set-AzKeyVaultSecret -VaultName ExampleVault -Name 'ExamplePassword' -
 
 Como dono do cofre de chaves, você automaticamente tem acesso à criação de segredos. Se o usuário que trabalha com segredos não for o proprietário do cofre de chaves, conceda acesso com:
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az keyvault set-policy \
@@ -76,7 +76,7 @@ az keyvault set-policy \
   --secret-permissions set delete get list
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $userPrincipalName = "<Email Address of the deployment operator>"
@@ -91,11 +91,11 @@ Set-AzKeyVaultAccessPolicy `
 
 Para obter mais informações sobre como criar cofres-chave e adicionar segredos, consulte:
 
-- [Definir e recuperar um segredo usando a CLI](../../key-vault/quick-create-cli.md)
-- [Definir e recuperar um segredo usando o PowerShell](../../key-vault/quick-create-powershell.md)
-- [Definir e recuperar um segredo usando o portal](../../key-vault/quick-create-portal.md)
-- [Definir e recuperar um segredo usando o .NET](../../key-vault/quick-create-net.md)
-- [Definir e recuperar um segredo usando o Node.js](../../key-vault/quick-create-node.md)
+- [Definir e recuperar um segredo usando a CLI](../../key-vault/secrets/quick-create-cli.md)
+- [Definir e recuperar um segredo usando o PowerShell](../../key-vault/secrets/quick-create-powershell.md)
+- [Definir e recuperar um segredo usando o portal](../../key-vault/secrets/quick-create-portal.md)
+- [Definir e recuperar um segredo usando o .NET](../../key-vault/secrets/quick-create-net.md)
+- [Definir e recuperar um segredo usando o Node.js](../../key-vault/secrets/quick-create-node.md)
 
 ## <a name="grant-access-to-the-secrets"></a>Permitir acesso aos segredos
 
@@ -125,7 +125,7 @@ O procedimento a seguir mostra como criar uma função com a permissão mínima 
 
 2. Crie a nova função usando o arquivo JSON:
 
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+    # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
     ```azurecli-interactive
     az role definition create --role-definition "<path-to-role-file>"
@@ -135,7 +135,7 @@ O procedimento a seguir mostra como criar uma função com a permissão mínima 
       --resource-group ExampleGroup
     ```
 
-    # <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
     ```azurepowershell-interactive
     New-AzRoleDefinition -InputFile "<path-to-role-file>"
@@ -231,7 +231,7 @@ Se você precisar usar uma versão do segredo diferente da versão atual, use a 
 
 Implante o modelo e passe o arquivo de parâmetro:
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create --name SqlGroup --location westus2
@@ -241,7 +241,7 @@ az deployment group create \
   --parameters <parameter-file>
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $resourceGroupName -Location $location
@@ -375,5 +375,5 @@ O seguinte modelo cria dinamicamente a ID do cofre de chaves e a passa como um p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter informações gerais sobre os cofres de chaves, consulte [O que é o Cofre de Chaves do Azure?](../../key-vault/key-vault-overview.md).
+- Para obter informações gerais sobre os cofres de chaves, consulte [O que é o Cofre de Chaves do Azure?](../../key-vault/general/overview.md).
 - Para obter exemplos completos de referência de segredos de chave, veja [Exemplos do cofre da chave](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

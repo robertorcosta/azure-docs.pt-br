@@ -4,15 +4,15 @@ description: Saiba como gerenciar usuários e funções de banco de dados em um 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 51c01869e6152d8e9357644457df11f4fcf5ec5f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7e3cc2b9d35eafcb875efa167821a8e9ad80146
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273694"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454196"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerenciar usuários e funções de banco de dados
 
@@ -25,10 +25,9 @@ As permissões de função incluem:
 *  **Processar** – os usuários podem se conectar e executar operações de processo no banco de dados e analisar os dados do modelo de banco de dados.
 *  **Leitura** – os usuários podem usar um aplicativo cliente para se conectar e analisar os dados do modelo de banco de dados.
 
-Ao criar um projeto de modelo tabular, você cria funções e adiciona usuários ou grupos a essas funções usando o Role Manager no Visual Studio com projetos de Serviços de Análise. Quando implantado em um servidor, você usa SQL Server Management Studio (SSMS), [Serviços de Análise CmShell cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)ou [Tabular Model Scripting Language](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) para adicionar ou remover funções e membros do usuário.
+Ao criar um projeto de modelo tabular, você cria funções e adiciona usuários ou grupos a essas funções usando o Role Manager no Visual Studio com projetos de Serviços de Análise. Quando implantado em um servidor, use SQL Server Management Studio (SSMS), [Serviços de Análise CmShell cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)ou [Tabular Model Scripting Language](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) para adicionar ou remover funções e membros do usuário.
 
-**Os grupos** de segurança devem `MailEnabled` ser [ativados por e-mail](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) com a propriedade definida como `True`. Ao especificar um grupo `obj:groupid@tenantid`por uso de endereço de e-mail .
-
+Ao adicionar um grupo `obj:groupid@tenantid`de **segurança,** use .
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Para adicionar ou gerenciar funções e usuários no Visual Studio  
   
@@ -133,7 +132,7 @@ Os filtros de linha definem quais linhas em uma tabela podem ser consultadas por
   
 Os filtros de linha podem ser definidos somente para funções com as permissões Ler e Ler e Processar. Por padrão, se um filtro de linha não está definido para uma tabela específica, os membros podem consultar todas as linhas na tabela, a menos que a filtragem cruzada se aplique de outra tabela.
   
- Os filtros de linha exigem uma fórmula DAX, que deve ser avaliada como um valor TRUE/FALSE, para definir as linhas que podem ser consultadas por membros daquela função específica. Não é possível consultar linhas não incluídas na fórmula DAX. Por exemplo, a tabela Customers com a seguinte expressão de filtros de linha, *=Customers [Country] = “USA”*, os membros da função Sales podem ver apenas os clientes nos EUA.  
+ Os filtros de linha exigem uma fórmula DAX, que deve ser avaliada como um valor TRUE/FALSE, para definir as linhas que podem ser consultadas por membros daquela função específica. Não é possível consultar linhas não incluídas na fórmula DAX. Por exemplo, a tabela Clientes com a seguinte expressão de filtros de linha, *=Clientes [País] = "EUA"*, os membros da função Vendas só podem ver clientes nos EUA.  
   
 Os filtros de linha são aplicados às linhas especificadas e às linhas relacionadas. Quando uma tabela tiver várias relações, os filtros aplicam segurança para a relação que está ativa. Os filtros de linha são interseccionados com outros filtros de linha definidos para tabelas relacionadas, por exemplo:  
   
@@ -141,7 +140,7 @@ Os filtros de linha são aplicados às linhas especificadas e às linhas relacio
 |-----------|--------------------|  
 |Região|= Região [País] = "USA"|  
 |ProductCategory|= ProductCategory [Name] = "Bicicletas"|  
-|Transactions|=Transactions[Year]=2016|  
+|Transações|=Transactions[Year]=2016|  
   
  O efeito líquido é que os membros podem consultar as linhas de dados em que o cliente está nos EUA, a categoria de produto é bicicletas e o ano é 2016. Os usuários não podem consultar transações fora dos EUA, transações que não são bicicletas ou transações que não são em 2016 amenos que sejam um membro de outra função que concede essas permissões.
   

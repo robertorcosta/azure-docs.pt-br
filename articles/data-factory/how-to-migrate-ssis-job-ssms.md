@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: ee51be1d994c3b81765266e95c48d321a2f43b14
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 6e357e98d6c5190c6dfef675dc1ab9cf30a717c1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80989435"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455080"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrar empregos de agente de servidor SQL para ADF com SSMS
 
@@ -35,7 +35,7 @@ Em geral, para trabalhos de agente SQL selecionados com tipos de etapas de traba
 |Etapa de trabalho do SSIS|Executar a atividade do pacote SSIS|<li> O nome da \<atividade será o nome da etapa>. <li> A conta proxy usada na etapa de trabalho será migrada à medida que o Windows autenticar essa atividade. <li> *Opções de execução,* *exceto Use o tempo de execução de 32 bits* definido na etapa de trabalho será ignorado na migração. <li> *A verificação* definida na etapa de trabalho será ignorada na migração.|
 |schedule      |agendar o gatilho        |O nome do gatilho de agendamento será *gerado para \<o nome do horário>*. <br> <br> As opções abaixo no cronograma de trabalho do SQL Agent serão ignoradas na migração: <li> Intervalo de segundo nível. <li> *Iniciar automaticamente quando o SQL Server Agent for iniciado* <li> *Iniciar sempre que as CPUs estiverem ociosas* <li> *dia da semana* e *dia de fim de semana*<time zone> <br> Abaixo estão as diferenças após o cronograma de trabalho do Agente SQL ser migrado para o gatilho de cronograma do ADF: <li> ADF Schedule Trigger a execução subseqüente é independente do estado de execução do antecedente acionado. <li> A configuração de recorrência do acionamento de gatilho do ADF difere da freqüência diária no trabalho de agente SQL.|
 
-- gerar modelos ARM (Azure Resource Manager) na pasta de saída local e implantar na fábrica de dados diretamente ou posteriormente. Para obter mais informações sobre os modelos do ADF Resource Manager, consulte [os tipos de recursos microsoft.dataFactory](https://docs.microsoft.com/azure/templates/microso.ft.datafactory/allversions).
+- gerar modelos ARM (Azure Resource Manager) na pasta de saída local e implantar na fábrica de dados diretamente ou posteriormente. Para obter mais informações sobre os modelos do ADF Resource Manager, consulte [os tipos de recursos microsoft.dataFactory](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

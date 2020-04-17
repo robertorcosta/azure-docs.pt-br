@@ -5,16 +5,16 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: f434ad6e19c89f248fec948c0a049fabb0f7c476
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248431"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458276"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Acessar segredo do Azure Key Vault durante a implantação de Aplicativos Gerenciados do Azure
 
-Quando você precisa passar um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível recuperar o valor de um [Azure Key Vault](../../key-vault/key-vault-overview.md). Para acessar o Key Vault ao implantar os Aplicativos Gerenciados, você precisa permitir acesso à entidade de serviço **Provedor de Recursos do Dispositivo**. O serviço de aplicativos gerenciados usa essa identidade para executar operações. Durante a implantação, a entidade de serviço deve ser capaz de acessar o Key Vault para recuperar um valor dele com êxito.
+Quando você precisa passar um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível recuperar o valor de um [Azure Key Vault](../../key-vault/general/overview.md). Para acessar o Key Vault ao implantar os Aplicativos Gerenciados, você precisa permitir acesso à entidade de serviço **Provedor de Recursos do Dispositivo**. O serviço de aplicativos gerenciados usa essa identidade para executar operações. Durante a implantação, a entidade de serviço deve ser capaz de acessar o Key Vault para recuperar um valor dele com êxito.
 
 Este artigo descreve como configurar o Key Vault para trabalhar com os Aplicativos Gerenciados.
 
@@ -48,7 +48,7 @@ Este artigo descreve como configurar o Key Vault para trabalhar com os Aplicativ
 
    ![Pesquisar por provedor](./media/key-vault-access/search-provider.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="reference-key-vault-secret"></a>Referenciar segredo do Key Vault
 

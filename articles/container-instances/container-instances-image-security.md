@@ -4,12 +4,12 @@ description: Recomendações para proteger imagens e segredos para instâncias d
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: b5f2c4d9ca80318574e288110fd4ce7f490af00d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87fa28cf9bdb546a5f108284023a9f787645a1fd
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76260490"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457987"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Considerações de segurança para instâncias de contêineres do Azure
 
@@ -37,7 +37,7 @@ Soluções de monitoramento de segurança e digitalização de imagens, como [Tw
 
 ### <a name="protect-credentials"></a>Proteger credenciais
 
-Os contêineres podem se espalhar por vários aglomerados e regiões do Azure. Assim, você deve proteger as credenciais necessárias para logins ou acesso a API, como senhas ou tokens. Certifique-se de que apenas usuários privilegiados podem acessar esses contêineres em trânsito e em repouso. Inventário de todos os segredos de credencial e, em seguida, exige que os desenvolvedores usem ferramentas emergentes de gerenciamento de segredos que são projetadas para plataformas de contêineres.  Certifique-se de que sua solução inclua bancos de dados criptografados, criptografia TLS para dados de segredos em trânsito e [controle de acesso baseado em função](../role-based-access-control/overview.md)de menor privilégio . [O Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md) é um serviço em nuvem que protege chaves e segredos de criptografia (como certificados, strings de conexão e senhas) para aplicativos contêiner. Como esses dados são sensíveis e essenciais para os negócios, o acesso seguro aos seus cofres principais para que apenas aplicativos autorizados e usuários possam acessá-los.
+Os contêineres podem se espalhar por vários aglomerados e regiões do Azure. Assim, você deve proteger as credenciais necessárias para logins ou acesso a API, como senhas ou tokens. Certifique-se de que apenas usuários privilegiados podem acessar esses contêineres em trânsito e em repouso. Inventário de todos os segredos de credencial e, em seguida, exige que os desenvolvedores usem ferramentas emergentes de gerenciamento de segredos que são projetadas para plataformas de contêineres.  Certifique-se de que sua solução inclua bancos de dados criptografados, criptografia TLS para dados de segredos em trânsito e [controle de acesso baseado em função](../role-based-access-control/overview.md)de menor privilégio . [O Azure Key Vault](../key-vault/general/secure-your-key-vault.md) é um serviço em nuvem que protege chaves e segredos de criptografia (como certificados, strings de conexão e senhas) para aplicativos contêiner. Como esses dados são sensíveis e essenciais para os negócios, o acesso seguro aos seus cofres principais para que apenas aplicativos autorizados e usuários possam acessá-los.
 
 ## <a name="considerations-for-the-container-ecosystem"></a>Considerações para o ecossistema de contêineres
 
@@ -114,7 +114,7 @@ Como em qualquer ambiente de TI, você deve monitorar consistentemente a ativida
 
 * [O Azure Monitor para contêineres](../azure-monitor/insights/container-insights-overview.md) monitora o desempenho de suas cargas de trabalho implantadas nos ambientes Kubernetes hospedados no Azure Kubernetes Service (AKS). O Azure Monitor para contêineres oferece visibilidade de desempenho coletando métricas de processador e memória de controladores, nós e contêineres disponíveis no Kubernetes por meio da API de Métricas. 
 
-* A [solução Azure Container Monitoring](../azure-monitor/insights/containers.md) ajuda você a visualizar e gerenciar outros hosts de contêineres Docker e Windows em um único local. Por exemplo: 
+* A [solução Azure Container Monitoring](../azure-monitor/insights/containers.md) ajuda você a visualizar e gerenciar outros hosts de contêineres Docker e Windows em um único local. Por exemplo:
 
   * Exibir informações detalhadas de auditoria que mostram os comandos usados com contêineres. 
   * Solucionar problemas de contêineres visualizando e pesquisando logs centralizados sem ter que visualizar remotamente hosts Docker ou Windows.  

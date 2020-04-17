@@ -10,18 +10,18 @@ ms.date: 03/19/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e7878cae7bc6aabf1db58bfd63338955b9e830d3
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 192e58b101b824ca0cc0c732e02647838be6dc35
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478244"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456474"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configure chaves gerenciadas pelo cliente com o Azure Key Vault usando o portal Azure
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Este artigo mostra como configurar um Azure Key Vault com chaves gerenciadas pelo cliente usando o [portal Azure](https://portal.azure.com/). Para aprender como criar um cofre de chaves usando o portal Azure, consulte [Quickstart: Configure e recupere um segredo do Azure Key Vault usando o portal Azure](../../key-vault/quick-create-portal.md).
+Este artigo mostra como configurar um Azure Key Vault com chaves gerenciadas pelo cliente usando o [portal Azure](https://portal.azure.com/). Para aprender como criar um cofre de chaves usando o portal Azure, consulte [Quickstart: Configure e recupere um segredo do Azure Key Vault usando o portal Azure](../../key-vault/secrets/quick-create-portal.md).
 
 ## <a name="configure-azure-key-vault"></a>Configurar o Azure Key Vault
 
@@ -29,8 +29,8 @@ O uso de chaves gerenciadas pelo cliente com criptografia de armazenamento Azure
 
 Para saber como habilitar essas propriedades em um cofre de chaves existente, consulte as seções intituladas **Habilitando a exclusão suave** e habilitando a **proteção contra expurgo** em um dos seguintes artigos:
 
-- [Como usar soft-delete com PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
-- [Como usar soft-delete com CLI](../../key-vault/key-vault-soft-delete-cli.md).
+- [Como usar soft-delete com PowerShell](../../key-vault/general/soft-delete-powershell.md).
+- [Como usar soft-delete com CLI](../../key-vault/general/soft-delete-cli.md).
 
 Apenas as chaves RSA e RSA-HSM de 2048 bits são suportadas com criptografia de armazenamento Azure. Para obter mais informações sobre as chaves, consulte **chaves do Cofre de Chaves** em [chaves, segredos e certificados do Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 

@@ -3,12 +3,12 @@ title: Use parâmetros para criar blueprints dinâmicos
 description: Aprenda sobre parâmetros estáticos e dinâmicos e como usá-los para criar projetos seguros e dinâmicos.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: ed596db2050ac788c2d98c63cb7314de473b5f4e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e5953617d5fa27098380f3f0e95843c69800f823
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383608"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458481"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando blueprints dinâmicos por meio de parâmetros
 
@@ -41,7 +41,7 @@ Se a atribuição do projeto usar uma **identidade gerenciada atribuída pelo us
 > [!IMPORTANT]
 > Em ambos os casos, o Key Vault deve ter **acesso ao Azure Resource Manager para implantação de modelos** configurados na página **de políticas de acesso.** Para obter instruções sobre como habilitar esse recurso, confira [Key Vault – Habilitar implantação de modelo](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
-Para obter mais informações sobre o Azure Key Vault, confira [Visão geral do Key Vault](../../../key-vault/key-vault-overview.md).
+Para obter mais informações sobre o Azure Key Vault, confira [Visão geral do Key Vault](../../../key-vault/general/overview.md).
 
 ## <a name="parameter-types"></a>Tipos de parâmetro
 
@@ -234,7 +234,7 @@ Definir **parâmetros dinâmicos** durante a atribuição é feito inserindo o v
 ## <a name="next-steps"></a>Próximas etapas
 
 - Veja a lista de [funções](../reference/blueprint-functions.md)do projeto .
-- Conheça o [ciclo de vida](lifecycle.md)do projeto .
+- Saiba mais sobre o [ciclo de vida do blueprint](lifecycle.md).
 - Saiba como personalizar a [ordem de sequenciamento de blueprint](sequencing-order.md).
 - Saiba como usar o [bloqueio de recurso de blueprint](resource-locking.md).
 - Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).

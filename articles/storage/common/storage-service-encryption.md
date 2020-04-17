@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ff9191c0994d4e26da69e1c4ceaf7ef6c93e9960
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c737ccf83dae0cc4b198b9cd708a55b988e6593b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81253145"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457936"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Criptografia de armazenamento do Azure para dados em repouso
 
@@ -54,7 +54,7 @@ A tabela a seguir compara as principais opções de gerenciamento para criptogra
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o Azure Key Vault?](../../key-vault/key-vault-overview.md)
+- [O que é o Azure Key Vault?](../../key-vault/general/overview.md)
 - [Configurar as chaves gerenciadas pelo cliente para a criptografia do Armazenamento do Azure do portal do Azure](storage-encryption-keys-portal.md)
 - [Configurar as chaves gerenciadas pelo cliente para a criptografia do Armazenamento do Azure do PowerShell](storage-encryption-keys-powershell.md)
 - [Configurar as chaves gerenciadas pelo cliente para a criptografia do Armazenamento do Azure do CLI do Azure](storage-encryption-keys-cli.md)

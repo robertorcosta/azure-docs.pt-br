@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 50c209483a12adc3545b63fb66685e386d9ad10a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252135"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453516"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implantar nas Instâncias de Contêiner do Azure por meio do Registro de Contêiner do Azure
 
@@ -36,7 +36,7 @@ Na seção a seguir, você cria um cofre de chaves do Azure e uma entidade de se
 
 ### <a name="create-key-vault"></a>Criar cofre chaves
 
-Se você ainda não tiver um cofre no [Azure Key Vault](../key-vault/key-vault-overview.md), crie um com a CLI do Azure usando os comandos a seguir.
+Se você ainda não tiver um cofre no [Azure Key Vault](../key-vault/general/overview.md), crie um com a CLI do Azure usando os comandos a seguir.
 
 Atualize a variável `RES_GROUP` com o nome do grupo de recursos existente no qual criar o cofre de chaves e `ACR_NAME` com o nome do registro de contêiner. Para a brevidade, os comandos deste artigo assumem que suas instâncias de registro, cofre de chaves e contêiner são criadas no mesmo grupo de recursos.
 

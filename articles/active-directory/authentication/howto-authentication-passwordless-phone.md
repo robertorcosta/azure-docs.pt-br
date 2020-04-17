@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 853e7143834a340b870b71ef1a287dab136e2783
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 3412938cfc2ad3fbec293fd33f64e114e14e6f7e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654063"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450965"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilite o login sem senha com o aplicativo Microsoft Authenticator (visualização)
 
@@ -41,7 +41,7 @@ Em vez de ver um pedido de senha depois de inserir um nome de usuário, uma pess
 
 ### <a name="enable-the-combined-registration-experience"></a>Habilite a experiência de registro combinada
 
-Os recursos de registro para métodos de autenticação sem senha dependem da visualização combinada do registro. Siga as etapas do artigo [Habilite o registro combinado de informações de segurança (pré-visualização)](howto-registration-mfa-sspr-combined.md), para habilitar a visualização combinada do registro.
+Os recursos de registro para métodos de autenticação sem senha dependem do recurso de registro combinado. Siga as etapas do artigo [Habilite](howto-registration-mfa-sspr-combined.md)o registro combinado de informações de segurança, para permitir o registro combinado.
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Habilite métodos de autenticação de login de telefone sem senha
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8574fcdff12e61f7039174ed6297d0558a66dc4
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 066ab7892bed6e7505e7ee114ff37a7850ef5c9b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653933"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450914"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilite o login de chave de segurança sem senha (visualização)
 
@@ -48,7 +48,7 @@ Os dispositivos azure ad híbridos devem executar o Windows 10 Insider Build 189
 
 ### <a name="enable-the-combined-registration-experience"></a>Habilite a experiência de registro combinada
 
-Os recursos de registro para métodos de autenticação sem senha dependem da visualização combinada do registro. Siga as etapas do artigo [Habilite o registro combinado de informações de segurança (pré-visualização)](howto-registration-mfa-sspr-combined.md), para habilitar a visualização combinada do registro.
+Os recursos de registro para métodos de autenticação sem senha dependem do recurso de registro combinado. Siga as etapas do artigo [Habilite o registro combinado de informações de segurança (pré-visualização)](howto-registration-mfa-sspr-combined.md), para permitir o registro combinado.
 
 ### <a name="enable-fido2-security-key-method"></a>Habilite o método-chave de segurança FIDO2
 

@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 7e6981fb57421846b491693bb6195ecef31a3773
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 012d27b44ecfbdd460adf241742df397880f78c6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986298"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450344"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Alterar os padrões de design de feed no Azure Cosmos DB
 
@@ -99,7 +99,7 @@ Por exemplo, considere um aplicativo de varejo usando o padrão de design de sou
 
 1. O cliente adiciona o Item A ao seu carrinho de compras
 2. Cliente adiciona item B ao seu carrinho de compras
-3. O cliente adiciona remove o Item A do carrinho de compras
+3. Cliente remove item A de seu carrinho de compras
 4. O conteúdo do carrinho de compras e o conteúdo do carrinho de compras são enviados
 
 Uma visão materializada do conteúdo atual do carrinho de compras é mantida para cada cliente. Este aplicativo deve garantir que esses eventos sejam processados na ordem em que ocorrem. Se, por exemplo, o checkout do carrinho fosse processado antes da remoção do Item A, é provável que o cliente tivesse enviado o Item A, ao contrário do item B desejado. Para garantir que esses quatro eventos sejam processados por ordem de ocorrência, eles devem se enquadrar no mesmo valor de chave de partição. Se você selecionar o **nome de usuário** (cada cliente tem um nome de usuário único) como a chave de partição, você pode garantir que esses eventos apareçam no feed de alterações na mesma ordem em que são gravados no Azure Cosmos DB.

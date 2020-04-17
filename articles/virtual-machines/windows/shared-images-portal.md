@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 6273b58d9db53cfc4f6647885c70148982f0b950
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83cdae95d43884647e257cbf1808222a542a212e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74975492"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458089"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Crie uma Galeria de Imagens Compartilhadas do Azure usando o portal
 
@@ -45,7 +44,7 @@ O recurso Galeria de Imagens Compartilhadas tem vários tipos de recursos. Usare
 
 > [!IMPORTANT]
 > Imagens especializadas estão atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 > **Limitações de visualização conhecidas** VMs só podem ser criados a partir de imagens especializadas usando o portal ou API. Não há suporte a CLI ou PowerShell para a visualização.
 
@@ -76,7 +75,7 @@ Agora você pode criar uma ou mais novas VMs. Este exemplo cria uma VM chamada *
 1. Depois que a VM passar a validação, selecione **Criar** na parte inferior da página para iniciar a implantação.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos da máquina virtual, selecione **Excluir**, em seguida, confirme o nome do grupo de recursos para excluir.
 

@@ -3,12 +3,12 @@ title: Visão Geral do exemplo de blueprint da Base do CAF
 description: Visão geral e arquitetura do exemplo de blueprint do CAF (Cloud Adoption Framework) para o Azure Foundation.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: a5616667ae909b63f406e399a23bdf568089bf52
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 1f14b4d4811b9bdcb64f3860b2cf25b82825d5c4
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383586"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458464"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Visão geral do exemplo de blueprint do Cloud Adoption Framework da Microsoft para o Azure Foundation
 
@@ -22,7 +22,7 @@ O exemplo de blueprint da Base do CAF implanta recursos de infraestrutura recome
 
 Essa implementação incorpora vários serviços do Azure usados para oferecer uma base segura, totalmente monitorada e pronta para empresas. Esse ambiente é composto de:
 
-- Uma instância do [Azure Key Vault](../../../../key-vault/key-vault-overview.md) usada para hospedar segredos usados para as VMs implantadas no ambiente de serviços compartilhados
+- Uma instância do [Azure Key Vault](../../../../key-vault/general/overview.md) usada para hospedar segredos usados para as VMs implantadas no ambiente de serviços compartilhados
 - Implantar o [Log Analytics](../../../../azure-monitor/overview.md) garante que todas as ações e os serviços serão registrados em um local central desde o momento em que você iniciar sua implantação segura nas [Contas de Armazenamento](../../../../storage/common/storage-introduction.md) para log de diagnósticos
 - Implantar a [Central de Segurança do Azure](../../../../security-center/security-center-intro.md) (versão padrão) fornece proteção contra ameaças para suas cargas de trabalho migradas
 - O blueprint também define e implanta as [Políticas do Azure](../../../policy/overview.md), para 

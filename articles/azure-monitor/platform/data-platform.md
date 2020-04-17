@@ -4,18 +4,17 @@ description: Os dados de monitoramento coletados pelo Azure Monitor são separad
 documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: tysonn
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: a1b5859341237c1b177ee8deaf636a67f4824948
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 58f542238c952088777ed9809b57dae3cdb9cf12
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666540"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457256"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de dados do Azure Monitor
 
@@ -42,7 +41,7 @@ As métricas estão disponíveis para análise interativa no portal Azure com [o
 Leia mais sobre o Azure Monitor Metrics, incluindo suas fontes de dados em [Métricas no Azure Monitor](data-platform-metrics.md).
 
 ### <a name="logs"></a>Logs
-[Logs](data-platform-logs.md) são eventos que ocorreram dentro do sistema. Eles podem conter diferentes tipos de dados e podem ser estruturados ou texto de formulário livre com um carimbo de data e hora. Eles podem ser criados esporadicamente à medida que eventos no ambiente geram entradas de log, e um sistema carga pesada normalmente gerará mais volume de log.
+[Logs](data-platform-logs.md) são eventos que ocorreram dentro do sistema. Eles podem conter diferentes tipos de dados e podem ser estruturados ou texto de formulário livre com um carimbo de data e hora. Eles podem ser criados esporadicamente à medida que eventos no ambiente geram entradas de log, e um sistema sob carga pesada normalmente gerará mais volume de log.
 
 Os logs no Azure Monitor são armazenados em um espaço de trabalho do Log Analytics baseado no [Azure Data Explorer,](/azure/data-explorer/) que fornece um poderoso mecanismo de análise e [uma linguagem de consulta rica.](/azure/kusto/query/) Os registros normalmente fornecem informações suficientes para fornecer o contexto completo do problema que está sendo identificado e são valiosos para identificar casos raiz de problemas.
 

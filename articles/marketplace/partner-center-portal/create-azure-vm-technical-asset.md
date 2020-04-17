@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: eb885d0e965579b1ab2d66395f9f96eab0845bae
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 46c59e8b4e60fbe17887ea0fc375b6da758ebf50
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266494"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457392"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Crie seus ativos técnicos da Máquina Virtual do Azure
 
@@ -46,7 +46,7 @@ Projetar, construir e testar esses ativos leva tempo e requer conhecimento técn
 
 Considere usar um dos seguintes ambientes de scriptpara ajudar a gerenciar VMs e VHDs:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview)
 * [CLI do Azure](https://code.visualstudio.com/)
 
 Além disso, considere adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
@@ -129,7 +129,7 @@ Este artigo detalha como usar o suporte integrado ao Windows RDP para se conecta
 Para se conectar a uma VM baseada em Linux, você precisa de um cliente ssh (secure Shell Protocol). As etapas seguintes utilizam o terminal SHH livre [putty.](https://www.ssh.com/ssh/putty/)
 
 1. Vá para o [Portal do Azure](https://ms.portal.azure.com/).
-2. Procure e selecione **máquinas virtuais**.
+2. Pesquise por **Máquinas virtuais** e selecione essa opção.
 3. Selecione a VM a que deseja se conectar.
 4. Inicie a VM se ela ainda não estiver funcionando.
 5. Selecione o nome da VM para abrir sua página **Visão Geral.**
@@ -281,8 +281,8 @@ O processo a seguir generaliza um VM Linux e o reimplanta como uma VM separada. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você encontrou dificuldades para criar seu novo VHD baseado no Azure, consulte [Problemas comuns durante a criação do VHD](https://aka.ms/AzureVM_VHDCreationFAQ).
+Se você encontrou dificuldades para criar seu novo VHD baseado no Azure, consulte [Problemas comuns durante a criação do VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues).
 
 Caso contrário:
 
-* [Certificar sua imagem VM](https://aks.ms/CertifyVMimage) explica como testar e enviar uma imagem VM para a certificação Do Azure Marketplace, incluindo onde obter a Ferramenta de Teste de Certificação para a ferramenta *Certificada Azure* e como usá-la para certificar sua imagem VM.
+* [Certificar sua imagem VM](https://docs.microsoft.com/azure/marketplace/partner-center-portal/get-sas-uri) explica como testar e enviar uma imagem VM para a certificação Do Azure Marketplace, incluindo onde obter a Ferramenta de Teste de Certificação para a ferramenta *Certificada Azure* e como usá-la para certificar sua imagem VM.

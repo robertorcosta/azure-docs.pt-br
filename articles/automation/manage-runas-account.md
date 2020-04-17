@@ -5,18 +5,18 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8d7d0baacd5f702e8f435ab440eaf0338a60f4cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a043bcc2f81214b68b166d443baead6cd230184
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500763"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457494"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerenciar contas Executar como da Automação do Azure
 
 Execute Como contas no Azure Automation fornecem autenticação para gerenciar recursos no Azure usando os cmdlets do Azure. Quando você cria uma conta Run As, ela cria um novo usuário principal de serviço no Azure Active Directory (AD) e atribui a função Contribuinte a esse usuário no nível de assinatura. Para runbooks que usam Hybrid Runbook Workers em máquinas virtuais do Azure, você pode usar [identidades gerenciadas para recursos do Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) em vez de contas Executar como para autenticar para recursos do Azure.
 
-O principal de serviço de uma conta run as não tem permissões para ler a Azure AD por padrão. Se você quiser adicionar permissões para ler ou gerenciar o Azure AD, você precisará conceder as permissões no principal de serviço **permissões de API**. Para saber mais, consulte [Adicionar permissões para acessar APIs da Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+O principal de serviço de uma conta run as não tem permissões para ler a Azure AD por padrão. Se você quiser adicionar permissões para ler ou gerenciar o Azure AD, você precisará conceder as permissões no principal de serviço sob **permissões de API**. Para saber mais, consulte [Adicionar permissões para acessar APIs da Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 >[!NOTE]
 >Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no trabalhador do runbook híbrido, consulte [Instalar o Módulo PowerShell do Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de Automação, você pode atualizar seus módulos para a versão mais recente usando [Como atualizar módulos Azure PowerShell no Azure Automation](automation-update-azure-modules.md).
@@ -63,9 +63,9 @@ Para criar ou atualizar uma conta Executar como, é necessário ter privilégios
 
 |Tarefa|Cmdlet  |Permissões mínimas  |Onde você define as permissões|
 |---|---------|---------|---|
-|Criar aplicativo do Azure AD|[New-AzADApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azadapplication?view=azps-3.5.0)     | Função de desenvolvedor de<sup>aplicativos 1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure AD > Inscrições de Aplicativos |
-|Adicione uma credencial ao aplicativo.|[New-AzADAppCredential](https://docs.microsoft.com/powershell/module/az.resources/new-azadappcredential?view=azps-3.5.0)     | Administrador de aplicativos ou Administrador Global<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure AD > Inscrições de Aplicativos|
-|Crie e obtenha um principal de serviço azure AD|[New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-3.5.0)</br>[Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal?view=azps-3.5.0)     | Administrador de aplicativos ou Administrador Global<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure AD > Inscrições de Aplicativos|
+|Criar aplicativo do Azure AD|[New-AzADApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azadapplication?view=azps-3.5.0)     | Função de desenvolvedor de<sup>aplicativos 1</sup>        |[AD do Azure](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure AD > Inscrições de Aplicativos |
+|Adicione uma credencial ao aplicativo.|[New-AzADAppCredential](https://docs.microsoft.com/powershell/module/az.resources/new-azadappcredential?view=azps-3.5.0)     | Administrador de aplicativos ou Administrador Global<sup>1</sup>         |[AD do Azure](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure AD > Inscrições de Aplicativos|
+|Crie e obtenha um principal de serviço azure AD|[New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-3.5.0)</br>[Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal?view=azps-3.5.0)     | Administrador de aplicativos ou Administrador Global<sup>1</sup>        |[AD do Azure](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure AD > Inscrições de Aplicativos|
 |Atribuir ou obter a função RBAC para a entidade especificada|[New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment?view=azps-3.5.0)</br>[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleAssignment?view=azps-3.5.0)      | Administrador ou Proprietário de Acesso ao Usuário, ou ter as seguintes permissões:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Assinatura](../role-based-access-control/role-assignments-portal.md)</br>Página Inicial > Assinaturas > \<nome da assinatura\> – Controle de Acesso (IAM)|
 |Criar ou remover um certificado de Automação|[Certificado de automação da New-Az](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.5.0)</br>[Certificado de automação remove-Az](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationcertificate?view=azps-3.5.0)     | Contribuinte no grupo de recursos         |Grupo de recursos de conta de automação|
 |Criar ou remover uma conexão de Automação|[Conexão New-AzAutomation](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.5.0)</br>[Conexão remove-azautomation](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationconnection?view=azps-3.5.0)|Contribuinte no grupo de recursos |Grupo de recursos de conta de automação|
@@ -464,7 +464,7 @@ Você pode permitir que o Azure Automation verifique se o Key Vault e o seu dire
 * Conceda permissões ao Key Vault.
 * Defina a política de acesso.
 
-Você pode usar o script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) na Galeria PowerShell para dar permissões de conta run as para o Key Vault. Consulte [os aplicativos Grant acessando um cofre de chaves](../key-vault/key-vault-group-permissions-for-apps.md) para obter mais detalhes sobre a definição de permissões no Key Vault.
+Você pode usar o script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) na Galeria PowerShell para dar permissões de conta run as para o Key Vault. Consulte [os aplicativos Grant acessando um cofre de chaves](../key-vault/general/group-permissions-for-apps.md) para obter mais detalhes sobre a definição de permissões no Key Vault.
 
 ## <a name="resolving-misconfiguration-issues-for-run-as-accounts"></a>Resolvendo problemas de configuração incorreta para contas execute como
 

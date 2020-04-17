@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 4fc4960eb3af8a3d3c9902c9b24505bb5610b709
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: e591a7035db82425952a16f5c4c220e25d8517fe
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657170"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457171"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Acesso seguro e dados em Aplicativos lógicos do Azure
 
@@ -182,7 +182,7 @@ Para impedir que outras pessoas alterem ou excluam seu aplicativo lógico, você
 
 Durante uma execução de aplicativo lógico, todos os dados são [criptografados durante](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) o trânsito usando TLS (Transport Layer Security) e [em repouso](../security/fundamentals/encryption-atrest.md). Quando seu aplicativo de lógica terminar de ser executado, você poderá visualizar o histórico dessa execução, incluindo as etapas que foram executadas junto com o status, duração, entradas e saídas para cada ação. Esse rico detalhe fornece uma visão de como seu aplicativo lógico foi funcionou e onde você pode começar a solucionar quaisquer problemas que surgirem.
 
-Quando você visualiza o histórico de execução do seu aplicativo lógico, o Logic Apps autentica seu acesso e, em seguida, fornece links para as entradas e saídas para as solicitações e respostas de cada execução. No entanto, para ações que lidam com senhas, segredos, chaves ou outras informações confidenciais, você deseja impedir que outras pessoas visualizam e acessem esses dados. Por exemplo, se o seu aplicativo lógico recebe um segredo do [Azure Key Vault](../key-vault/key-vault-overview.md) para usar ao autenticar uma ação HTTP, você deseja ocultar esse segredo da vista.
+Quando você visualiza o histórico de execução do seu aplicativo lógico, o Logic Apps autentica seu acesso e, em seguida, fornece links para as entradas e saídas para as solicitações e respostas de cada execução. No entanto, para ações que lidam com senhas, segredos, chaves ou outras informações confidenciais, você deseja impedir que outras pessoas visualizam e acessem esses dados. Por exemplo, se o seu aplicativo lógico recebe um segredo do [Azure Key Vault](../key-vault/general/overview.md) para usar ao autenticar uma ação HTTP, você deseja ocultar esse segredo da vista.
 
 Para controlar o acesso às entradas e saídas no histórico de execução do aplicativo lógico, você tem essas opções:
 
@@ -370,7 +370,7 @@ Para obter mais informações, consulte estas seções neste tópico:
 
 Se você [automatizar a implantação de aplicativos lógicos usando modelos do Resource Manager,](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)você `securestring` pode `secureobject` definir [parâmetros de modelo saqueados,](../azure-resource-manager/templates/template-parameters.md)que são avaliados na implantação, usando os e tipos. Para definir parâmetros de modelo, `parameters` use a seção de nível superior do `parameters` modelo, que é separada e diferente da seção de definição do fluxo de trabalho. Para fornecer os valores para parâmetros de modelo, use um [arquivo de parâmetro](../azure-resource-manager/templates/parameter-files.md)separado .
 
-Por exemplo, se você usar segredos, você pode definir e usar parâmetros de modelo protegidos que recuperam esses segredos do [Azure Key Vault](../key-vault/key-vault-overview.md) na implantação. Em seguida, você pode referenciar o cofre de chaves e o segredo em seu arquivo de parâmetros. Para saber mais, consulte esses tópicos:
+Por exemplo, se você usar segredos, você pode definir e usar parâmetros de modelo protegidos que recuperam esses segredos do [Azure Key Vault](../key-vault/general/overview.md) na implantação. Em seguida, você pode referenciar o cofre de chaves e o segredo em seu arquivo de parâmetros. Para saber mais, consulte esses tópicos:
 
 * [Passe valores sensíveis na implantação usando o Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 * [Parâmetros seguros nos modelos do Azure Resource Manager](#secure-parameters-deployment-template) mais tarde neste tópico
@@ -425,7 +425,7 @@ Para proteger informações confidenciais na definição do fluxo de trabalho do
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Parâmetros seguros nos modelos do Azure Resource Manager
 
-Um [modelo de Gerenciador de recursos](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) para um aplicativo lógico tem várias `parameters` seções. Para proteger senhas, chaves, segredos e outras informações confidenciais, defina parâmetros `securestring` `secureobject` protegidos no nível de modelo e no nível de definição do fluxo de trabalho usando o ou tipo. Em seguida, você pode armazenar esses valores no [Azure Key Vault](../key-vault/key-vault-overview.md) e usar o [arquivo parâmetro](../azure-resource-manager/templates/parameter-files.md) para referenciar o cofre de chaves e o segredo. Em seguida, seu modelo recupera essas informações na implantação. Para obter mais informações, consulte [Passar valores sensíveis na implantação usando o Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
+Um [modelo de Gerenciador de recursos](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) para um aplicativo lógico tem várias `parameters` seções. Para proteger senhas, chaves, segredos e outras informações confidenciais, defina parâmetros `securestring` `secureobject` protegidos no nível de modelo e no nível de definição do fluxo de trabalho usando o ou tipo. Em seguida, você pode armazenar esses valores no [Azure Key Vault](../key-vault/general/overview.md) e usar o [arquivo parâmetro](../azure-resource-manager/templates/parameter-files.md) para referenciar o cofre de chaves e o segredo. Em seguida, seu modelo recupera essas informações na implantação. Para obter mais informações, consulte [Passar valores sensíveis na implantação usando o Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
 
 Aqui estão mais `parameters` informações sobre essas seções:
 
@@ -625,7 +625,7 @@ Se a opção [Básico](../active-directory-b2c/secure-rest-api.md) estiver dispo
 | Propriedade (designer) | Property (JSON) | Obrigatório | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | Basic | O tipo de autenticação a ser usado |
-| **Nome de Usuário** | `username` | Sim | <*nome de usuário*>| O nome de usuário para autenticar o acesso ao ponto de extremidade de serviço de destino |
+| **Nome de usuário** | `username` | Sim | <*nome de usuário*>| O nome de usuário para autenticar o acesso ao ponto de extremidade de serviço de destino |
 | **Senha** | `password` | Sim | <*Senha*> | A senha para autenticar o acesso ao ponto de extremidade de serviço de destino |
 ||||||
 
@@ -684,7 +684,7 @@ Para obter mais informações sobre como proteger serviços usando a autenticaç
 * [Melhore a segurança para serviços back-end usando a autenticação de certificado sustal no Gerenciamento de API do Azure](../api-management/api-management-howto-mutual-certificates.md)
 * [Melhore a segurança do seu serviço RESTfuL usando certificados de cliente](../active-directory-b2c/secure-rest-api.md)
 * [Credenciais de certificado para autenticação do aplicativo](../active-directory/develop/active-directory-certificate-credentials.md)
-* [Use um certificado TLS/SSL em seu código no Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
+* [Usar um certificado TLS/SSL no seu código no Serviço de Aplicativo do Azure](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
@@ -695,7 +695,7 @@ Se a opção [Active Directory OAuth](../active-directory/develop/about-microsof
 | Propriedade (designer) | Property (JSON) | Obrigatório | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | **Active Directory OAuth** <br>ou <br>`ActiveDirectoryOAuth` | O tipo de autenticação a ser usado. Logic Apps atualmente segue o [protocolo OAuth 2.0](../active-directory/develop/v2-overview.md). |
-| **Autoridade** | `authority` | Não | <*Emissor de url-for-authority-token*> | A URL da autoridade que fornece o token de autenticação. Por padrão, esse valor é `https://login.windows.net`. |
+| **Authority** | `authority` | Não | <*Emissor de url-for-authority-token*> | A URL da autoridade que fornece o token de autenticação. Por padrão, esse valor é `https://login.windows.net`. |
 | **Locatário** | `tenant` | Sim | <*inquilino-ID*> | A ID do locatário para o locatário do Azure AD |
 | **Público** | `audience` | Sim | <*recurso para autorizar*> | O recurso que você deseja usar para autorização, por exemplo, `https://management.core.windows.net/` |
 | **ID do cliente** | `clientId` | Sim | <*iD cliente-iD*> | A ID do cliente para o aplicativo solicitando a autorização |

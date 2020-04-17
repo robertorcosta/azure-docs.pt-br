@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: jingwang
-ms.openlocfilehash: b5a181625488a57de4b878d13c01a8c90bf8785a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 22ab4433d84db926733fd0b18035875e63322dda
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414671"
+ms.locfileid: "81451679"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Armazenar credencial no Azure Key Vault
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Você pode armazenar credenciais para armazenamentos de dados e computar em um [Azure Key Vault](../key-vault/key-vault-overview.md). O Azure Data Factory recupera as credenciais ao executar uma atividade que usa o armazenamento de dados/computação.
+Você pode armazenar credenciais para armazenamentos de dados e computar em um [Azure Key Vault](../key-vault/general/overview.md). O Azure Data Factory recupera as credenciais ao executar uma atividade que usa o armazenamento de dados/computação.
 
 No momento, todos os tipos de atividade, exceto a atividade personalizada suportam esse recurso. Para configuração de conector especificamente, verifique a seção "propriedades do serviço vinculadas" em [cada tópico conector](copy-activity-overview.md#supported-data-stores-and-formats) para obter detalhes.
 

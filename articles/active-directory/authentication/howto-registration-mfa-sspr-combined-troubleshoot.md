@@ -1,31 +1,26 @@
 ---
 title: Solucionar problemas de registro combinado - Azure Active Directory
-description: Solução de problemas Autenticação multifatorial AD azure e redefinição de senha de autoatendimento (visualização)
+description: Solução de problemas Autenticação multifatorial AD azure e redefinição de senha de autoatendimento
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 11/21/2019
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab7c38d23cb1f05e07488810640aeb791ded3d4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74847381"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450931"
 ---
-# <a name="troubleshooting-combined-security-information-registration-preview"></a>Solução de problemas registro combinado de informações de segurança (visualização)
+# <a name="troubleshooting-combined-security-information-registration"></a>Solução de problemas registro combinado de informações de segurança
 
 As informações deste artigo destinam-se a orientar os admins que estão solucionando problemas relatados pelos usuários da experiência de registro combinado.
-
-|     |
-| --- |
-| O registro combinado de informações de segurança para autenticação multifatorial do Azure e redefinição de senha do Azure Active Directory (Azure AD) é um recurso de visualização pública do Azure AD. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
 
 ## <a name="audit-logs"></a>Logs de auditoria
 
@@ -150,16 +145,16 @@ Em uma janela PowerShell, execute o seguinte comando, fornecendo os locais de sc
 
 `<script location> -path <user file location>`
 
-### <a name="disable-the-preview-experience"></a>Desativar a experiência de visualização
+### <a name="disable-the-updated-experience"></a>Desabilite a experiência atualizada
 
-Para desativar a experiência de visualização para seus usuários, complete estas etapas:
+Para desativar a experiência atualizada para seus usuários, complete estas etapas:
 
 1. Faça login no portal Azure como administrador de usuários.
 2. Ir para as**configurações** > do usuário do diretório >  **ativo do Azure****Gerenciar configurações para recursos de visualização do painel de acesso**.
 3. Em **Usuários, os usuários podem usar recursos de visualização para registrar e gerenciar informações de segurança,** definir o seletor como **Nenhum**e, em seguida, selecionar **Salvar**.
 
-Os usuários não serão mais solicitados a se registrar usando a experiência de visualização.
+Os usuários não serão mais solicitados a se registrar usando a experiência atualizada.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba mais sobre a visualização pública do registro combinado para redefinição de senha de autoatendimento e autenticação multifatorial do Azure](concept-registration-mfa-sspr-combined.md)
+* [Saiba mais sobre o registro combinado para redefinição de senha de autoatendimento e autenticação multifatorial do Azure](concept-registration-mfa-sspr-combined.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c3491a54682e8f2b244c0400480a69e083335f5c
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81008382"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454672"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados em repouso no Azure
 
@@ -163,7 +163,7 @@ Para operações que utilizam chaves de criptografia, uma identidade do serviço
 Para obter uma chave para utilizar em criptografia ou descriptografia de dados em repouso, a identidade do serviço que a instância de serviço do Gerenciador de Recursos executará como deverá ter UnwrapKey (para obter a chave para descriptografar) e WrapKey (para inserir uma chave no cofre de chaves ao criar uma nova chave).
 
 >[!NOTE]
->Para obter mais detalhes sobre a autorização do Key Vault, consulte a página segura do cofre de chaves na [documentação do Azure Key Vault](../../key-vault/key-vault-secure-your-key-vault.md).
+>Para obter mais detalhes sobre a autorização do Key Vault, consulte a página segura do cofre de chaves na [documentação do Azure Key Vault](../../key-vault/general/secure-your-key-vault.md).
 
 **Vantagens**
 
@@ -282,7 +282,7 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 | Catálogo de Dados do Azure               | Sim                | -                  | -                  |
 | Azure HDInsight                  | Sim                | Todos                | -                  |
 | Insights do aplicativo do Monitor Do Azure | Sim                | Sim                | -                  |
-| Análise saqueadores do Monitor Do Azure | Sim                | Sim                | -                  |
+| Análise saqueadores do Monitor Do Azure      | Sim                | Sim                | -                  |
 | Azure Data Explorer              | Sim                | Sim                | -                  |
 | Fábrica de dados do Azure               | Sim                | Sim                | -                  |
 | Repositório Azure Data Lake            | Sim                | Sim, RSA 2048-bit  | -                  |
@@ -290,15 +290,16 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 | Serviço de Kubernetes do Azure         | Sim                | Sim                | -                  |
 | Instâncias de Contêiner              | Sim                | Sim                | -                  |
 | Registro de Contêiner               | Sim                | Sim                | -                  |
-| **Calcular**                      |                    |                    |                    |
+| **Computação**                      |                    |                    |                    |
 | Máquinas Virtuais                 | Sim                | Sim, RSA 2048-bit  | -                  |
 | Conjunto de escala de máquina virtual        | Sim                | Sim, RSA 2048-bit  | -                  |
 | SAP HANA                         | Sim                | Sim, RSA 2048-bit  | -                  |
-| Serviço de Aplicativo                      | Sim                | Sim                | -                  |
-| Automação                       | Sim                | Sim                | -                  |
-| Portal do Azure                     | Sim                | Sim                | -                  |
+| Serviço de Aplicativo                      | Sim                | Sim\*\*            | -                  |
+| Automação                       | Sim                | Sim\*\*            | -                  |
+| Funções do Azure                  | Sim                | Sim\*\*            | -                  |
+| Portal do Azure                     | Sim                | Sim\*\*            | -                  |
 | Aplicativos Lógicos                       | Sim                | Sim                | -                  |
-| Aplicativos gerenciados do Azure       | Sim                | Sim                | -                  |
+| Aplicativos gerenciados do Azure       | Sim                | Sim\*\*            | -                  |
 | Barramento de Serviço                      | Sim                | Sim                | -                  |
 | Site Recovery                    | Sim                | Sim                | -                  |
 | **Bancos de dados**                    |                    |                    |                    |
@@ -312,6 +313,7 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 | Armazenamento de Tabelas                    | Sim                | Sim                | Sim                |
 | Azure Cosmos DB                  | Sim                | Sim                | -                  |
 | Azure Databricks                 | Sim                | Sim                | -                  |
+| Serviço de Migração de Banco de Dados do Azure | Sim                | N/D\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Azure DevOps Services            | Sim                | -                  | Sim                |
 | Azure Repos                      | Sim                | -                  | Sim                |
@@ -344,6 +346,7 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 | Sincronização de Arquivos                        | Sim                | Sim, RSA 2048-bit  | -                  |
 | Armazenamento de Filas                    | Sim                | Sim                | Sim                |
 | Avere vFXT                       | Sim                | -                  | -                  |
+| Cache Redis do Azure            | Sim                | N/D\*              | -                  |
 | Azure NetApp Files               | Sim                | Sim                | -                  |
 | Armazenamento de Arquivos                  | Sim                | Sim, RSA 2048-bit  | -                  |
 | StorSimple                       | Sim                | Sim, RSA 2048-bit  | Sim                |
@@ -352,6 +355,8 @@ A criptografia do cliente dos dados do Banco de Dados SQL do Azure tem suporte p
 | Data Box Edge                    | Sim                | Sim                | -                  |
 
 \*Este serviço não persiste dados. Os caches transitórios, se houver, são criptografados com uma chave da Microsoft.
+
+\*\*Esse serviço suporta o armazenamento de dados em seu próprio Cofre de Chaves, conta de armazenamento ou outro serviço de persistência de dados que já suporta criptografia do lado do servidor com chave gerenciada pelo cliente.
 
 ## <a name="conclusion"></a>Conclusão
 

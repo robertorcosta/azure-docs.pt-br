@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 36b7b81a18c8725929ab5676b844e1ee319e287f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 40bff9585e64163039a8847ff868c982ffb20414
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393304"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458242"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault como fonte da Grade de Eventos
 
@@ -80,18 +80,18 @@ Um evento tem os seguintes dados de nível superior:
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e como fazer
 |Title  |Descrição  |
 |---------|---------|
-| [Monitorando eventos do Key Vault com a Grade de Eventos do Azure](../key-vault/event-grid-overview.md) | Visão geral da integração do Key Vault com o Event Grid. |
-| [Tutorial: Crie e monitore eventos do Key Vault com a Grade de Eventos](../key-vault/event-grid-tutorial.md) | Saiba como configurar notificações do Event Grid para key vault. |
+| [Monitorando eventos do Key Vault com a Grade de Eventos do Azure](../key-vault/general/event-grid-overview.md) | Visão geral da integração do Key Vault com o Event Grid. |
+| [Tutorial: Crie e monitore eventos do Key Vault com a Grade de Eventos](../key-vault/general/event-grid-tutorial.md) | Saiba como configurar notificações do Event Grid para key vault. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para uma introdução ao Azure Event Grid, veja [O que é a Grade de Eventos?](overview.md).
 * Para obter mais informações sobre como criar uma assinatura do Azure Event Grid, consulte [o esquema de assinatura do Event Grid](subscription-creation-schema.md).
-* Para saber mais sobre a integração do Key Vault com o Event Grid, consulte [Monitorando key vault com a Grade de Eventos do Azure (visualização).](../key-vault/event-grid-overview.md)
-* Para obter um tutorial sobre a integração do Key Vault com o Event Grid, consulte [Receber e responder às notificações principais do cofre com o Azure Event Grid (visualização)](../key-vault/event-grid-tutorial.md).
+* Para saber mais sobre a integração do Key Vault com o Event Grid, consulte [Monitorando key vault com a Grade de Eventos do Azure (visualização).](../key-vault/general/event-grid-overview.md)
+* Para obter um tutorial sobre a integração do Key Vault com o Event Grid, consulte [Receber e responder às notificações principais do cofre com o Azure Event Grid (visualização)](../key-vault/general/event-grid-tutorial.md).
 * Para obter orientação adicional para Key Vault e Azure Automation, consulte:
-    - [O que é o Azure Key Vault?](../key-vault/key-vault-overview.md)
-    - [Monitoramento do Key Vault com a Grade de Eventos do Azure (versão prévia)](../key-vault/event-grid-overview.md)
-    - [Receber notificações do cofre de chaves e responder a elas com a Grade de Eventos do Azure (versão prévia)](../key-vault/event-grid-tutorial.md)
+    - [O que é o Azure Key Vault?](../key-vault/general/overview.md)
+    - [Monitoramento do Key Vault com a Grade de Eventos do Azure (versão prévia)](../key-vault/general/event-grid-overview.md)
+    - [Receber notificações do cofre de chaves e responder a elas com a Grade de Eventos do Azure (versão prévia)](../key-vault/general/event-grid-tutorial.md)
     - [Visão geral da Automação do Azure](../automation/index.yml)

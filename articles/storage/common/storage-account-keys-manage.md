@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: b4e91aa59168deb18375bf86ae77f655ca3dab47
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 50c0980800bbc9b2951bf9107114c1a4d9265558
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521291"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454655"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gerenciar chaves de acesso à conta de armazenamento
 
@@ -31,8 +31,8 @@ A Microsoft recomenda que você use o Azure Key Vault para gerenciar suas chaves
 
 A Microsoft recomenda o uso do Azure Key Vault para gerenciar e girar suas chaves de acesso. Seu aplicativo pode acessar com segurança suas chaves no Key Vault, para que você possa evitar armazená-las com seu código de aplicativo. Para obter mais informações sobre como usar o Key Vault para gerenciamento de chaves, consulte os seguintes artigos:
 
-- [Gerenciar chaves de conta de armazenamento com o Azure Key Vault e o PowerShell](../../key-vault/key-vault-overview-storage-keys-powershell.md)
-- [Gerenciar chaves de conta de armazenamento com o Azure Key Vault e o Azure CLI](../../key-vault/key-vault-ovw-storage-keys.md)
+- [Gerenciar chaves de conta de armazenamento com o Azure Key Vault e o PowerShell](../../key-vault/secrets/overview-storage-keys-powershell.md)
+- [Gerenciar chaves de conta de armazenamento com o Azure Key Vault e o Azure CLI](../../key-vault/secrets/overview-storage-keys.md)
 
 ## <a name="manually-rotate-access-keys"></a>Gire manualmente as chaves de acesso
 

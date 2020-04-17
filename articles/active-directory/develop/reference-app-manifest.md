@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 487559aaf632a30b7efcda490f92a90d4f59b8f5
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 9f2ed6ea8cc75e2ee72f15c14f3de7bb8bf8cef6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80883467"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450864"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto do aplicativo do Azure Active Directory
 
-O manifesto do aplicativo contém uma definição de todos os atributos de um objeto de aplicativo na plataforma de identidade da Microsoft. Ele também serve como um mecanismo para atualizar o objeto do aplicativo. Para obter mais informações sobre a entidade do aplicativo e seu esquema, consulte a documentação da [entidade do aplicativo gráfico API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
+O manifesto do aplicativo contém uma definição de todos os atributos de um objeto de aplicativo na plataforma de identidade da Microsoft. Ele também serve como um mecanismo para atualizar o objeto do aplicativo. Para obter mais informações sobre a entidade do aplicativo e seu esquema, consulte a documentação da [entidade do aplicativo gráfico API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity).
 
 Você pode configurar os atributos de um aplicativo através do portal Azure ou programáticamente usando [a API REST](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) ou [powerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). No entanto, existem alguns cenários em que você precisará editar o manifesto do aplicativo para configurar o atributo de um aplicativo. Esses cenários incluem:
 
@@ -40,6 +40,20 @@ Para configurar o manifesto do aplicativo:
 ## <a name="manifest-reference"></a>Referência do manifesto
 
 Esta seção descreve os atributos encontrados no manifesto de aplicação.
+
+### <a name="id-attribute"></a>atributo id
+
+| Chave | Tipo de valor |
+| :--- | :--- |
+| id | String |
+
+O identificador exclusivo do aplicativo no diretório. Essa ID não é o identificador usado para identificar o aplicativo em qualquer transação de protocolo. Ele é usado para referenciar o objeto em consultas de diretório.
+
+Exemplo:
+
+```json
+    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
+```
 
 ### <a name="accesstokenacceptedversion-attribute"></a>atributo accessTokenAcceptedVersion
 
@@ -230,19 +244,7 @@ Exemplo:
     "optionalClaims": null,
 ```
 
-### <a name="id-attribute"></a>atributo id
 
-| Chave | Tipo de valor |
-| :--- | :--- |
-| id | String |
-
-O identificador exclusivo do aplicativo no diretório. Essa ID não é o identificador usado para identificar o aplicativo em qualquer transação de protocolo. Ele é usado para referenciar o objeto em consultas de diretório.
-
-Exemplo:
-
-```json
-    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
 
 ### <a name="identifieruris-attribute"></a>identificadorAaUris
 

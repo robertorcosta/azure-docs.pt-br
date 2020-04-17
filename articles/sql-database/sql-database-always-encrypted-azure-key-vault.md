@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 006c780aeb3db813c8fdfb5da0b5c13fc4dcfebc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1d08581c5d29fc41fb33541d766af7cece88cdc
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067425"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451662"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Sempre criptografado: proteja dados confidenciais e armazene chaves de criptografia no Cofre de Chaves do Azure
 
@@ -55,9 +55,9 @@ Para obter o *ID do Aplicativo* e *chave*, siga as etapas em [criar um aplicativ
 
 Agora que seu aplicativo cliente está configurado e você tem a ID do aplicativo, é hora de criar um cofre de chaves e configurar a política de acesso para que você e seu aplicativo possam acessar os segredos do cofre (as chaves Always Encrypted). As permissões *create*, *get*, *list*, *sign*, *verify*, *wrapKey* e *unwrapKey* são necessárias para criar uma nova chave mestra de coluna e configurar a criptografia com o SQL Server Management Studio.
 
-Você pode criar rapidamente um cofre de chaves executando o script a seguir. Para obter uma explicação detalhada desses comandos e mais informações sobre a criação e configuração de um cofre de chaves, consulte [O que é o Azure Key Vault?](../key-vault/key-vault-overview.md)
+Você pode criar rapidamente um cofre de chaves executando o script a seguir. Para obter uma explicação detalhada desses comandos e mais informações sobre a criação e configuração de um cofre de chaves, consulte [O que é o Azure Key Vault?](../key-vault/general/overview.md)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > O módulo RM (PowerShell Azure Resource Manager, gerente de recursos do Azure) ainda é suportado pelo Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará recebendo correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre sua compatibilidade, consulte [Introduzindo o novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
@@ -81,7 +81,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGro
 Set-AzKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
 $subscriptionName = '<subscriptionName>'
@@ -106,7 +106,7 @@ az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwr
 
 ## <a name="create-a-blank-sql-database"></a>Criar um banco de dados SQL em branco
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Vá para **criar um banco** > de**dados de** > recursos**SQL Database**.
 3. Crie um banco de dados **Em branco** chamado **Clínica** em um servidor novo ou existente. Para obter diretrizes detalhadas sobre como criar um banco de dados no Portal do Azure, consulte [Seu primeiro Banco de Dados SQL do Azure](sql-database-single-database-get-started.md).
 
@@ -135,7 +135,7 @@ Se a janela **Nova Regra de Firewall** for aberta, entre no Azure e deixe o SSMS
 
 Nesta seção, você criará uma tabela para armazenar os dados dos pacientes. Inicialmente ela não está criptografada; você vai configurar a criptografia na próxima seção.
 
-1. Expandir **bancos de dados**.
+1. Expanda os **Bancos de dados**.
 2. Clique com o botão direito do mouse no banco de dados **Clínica** e clique em **Nova Consulta**.
 3. Cole o T-SQL (Transact-SQL) a seguir na janela de nova consulta e o **execute** .
 
@@ -172,7 +172,7 @@ Clique em **Avançar** na página **Introdução** para abrir a página **Seleç
 
 Criptografe as informações de **SSN** e **BirthDate** de cada paciente. A coluna SSN usará criptografia determinística, que oferece suporte a pesquisas de igualdade, junções e agrupar por. A coluna BirthDate usará criptografia aleatória, que não oferece suporte a operações.
 
-Defina o **Tipo de Criptografia** para a coluna SSN como **Determinístico** e a coluna BirthDate como **Aleatório**. Clique em **Avançar**.
+Defina o **Tipo de Criptografia** para a coluna SSN como **Determinístico** e a coluna BirthDate como **Aleatório**. Clique em **Próximo**.
 
 ![Criptografar Colunas](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)
 
@@ -184,7 +184,7 @@ Este tutorial mostra como armazenar suas chaves no Cofre de Chaves do Azure.
 
 1. Selecione **Cofre de Chaves do Azure**.
 2. Selecione o cofre de chaves desejado na lista suspensa.
-3. Clique em **Avançar**.
+3. Clique em **Próximo**.
 
 ![Configuração da Chave Mestra](./media/sql-database-always-encrypted-azure-key-vault/master-key-configuration.png)
 
@@ -618,7 +618,7 @@ Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o se
 ## <a name="related-information"></a>Informações relacionadas
 
 - [Sempre criptografado (desenvolvimento de clientes)](https://msdn.microsoft.com/library/mt147923.aspx)
-- [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
+- [Criptografia de dados transparente](https://msdn.microsoft.com/library/bb934049.aspx)
 - [Criptografia sql server](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Assistente sempre criptografado](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog do Always Encrypted](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)

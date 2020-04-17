@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: fa39c8f65b00283044ef31dc7577a4668b3e634b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7314559849f0b2019820ec3cb4fb10c684d330d6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127639"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458430"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configure chaves gerenciadas pelo cliente para criptografar dados em repouso para ambientes de serviço de integração (ISEs) em Aplicativos de Lógica Do Azure
 
 O Azure Logic Apps conta com o Azure Storage para armazenar e [criptografar](../storage/common/storage-service-encryption.md)automaticamente dados em repouso . Essa criptografia protege seus dados e ajuda você a cumprir seus compromissos de segurança organizacional e conformidade. Por padrão, o Azure Storage usa chaves gerenciadas pela Microsoft para criptografar seus dados. Para obter mais informações sobre como funciona a criptografia do Azure Storage, consulte [a criptografia de armazenamento do Azure para obter dados em repouso](../storage/common/storage-service-encryption.md) e a criptografia de dados do [Azure em repouso](../security/fundamentals/encryption-atrest.md).
 
-Quando você cria um [ambiente de serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar seus aplicativos lógicos e deseja mais controle sobre as chaves de criptografia usadas pelo Azure Storage, você pode configurar, usar e gerenciar sua própria chave usando o [Azure Key Vault](../key-vault/key-vault-overview.md). Esse recurso também é conhecido como "Traga sua própria chave" (BYOK), e sua chave é chamada de "chave gerenciada pelo cliente".
+Quando você cria um [ambiente de serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar seus aplicativos lógicos e deseja mais controle sobre as chaves de criptografia usadas pelo Azure Storage, você pode configurar, usar e gerenciar sua própria chave usando o [Azure Key Vault](../key-vault/general/overview.md). Esse recurso também é conhecido como "Traga sua própria chave" (BYOK), e sua chave é chamada de "chave gerenciada pelo cliente".
 
 Este tópico mostra como configurar e especificar sua própria chave de criptografia para usar quando você criar seu ISE usando a API Logic Apps REST. Para obter as etapas gerais para criar um ISE através da API Logic Apps REST, consulte [Criar um ambiente de serviço de integração (ISE) usando a API Logic Apps REST](../logic-apps/create-integration-service-environment-rest-api.md).
 
@@ -39,7 +39,7 @@ Este tópico mostra como configurar e especificar sua própria chave de criptogr
 
 * Um cofre de chaves Do Zure que tenha as propriedades **Soft Delete** e **Não Expurgo** ativadas
 
-  Para obter mais informações sobre como habilitar essas propriedades, consulte [a visão geral do Azure Key Vault](../key-vault/key-vault-ovw-soft-delete.md) e [configure chaves gerenciadas pelo cliente com o Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Se você é novo no Azure Key Vault, [aprenda a criar um cofre de chaves](../key-vault/quick-create-portal.md#create-a-vault) usando o portal Azure ou usando o comando Azure PowerShell, [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault).
+  Para obter mais informações sobre como habilitar essas propriedades, consulte [a visão geral do Azure Key Vault](../key-vault/general/overview-soft-delete.md) e [configure chaves gerenciadas pelo cliente com o Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Se você é novo no Azure Key Vault, [aprenda a criar um cofre de chaves](../key-vault/secrets/quick-create-portal.md#create-a-vault) usando o portal Azure ou usando o comando Azure PowerShell, [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault).
 
 * No cofre principal, uma chave criada com esses valores de propriedade:
 
@@ -47,7 +47,7 @@ Este tópico mostra como configurar e especificar sua própria chave de criptogr
   |----------|-------|
   | **Tipo de chave** | RSA |
   | **Tamanho da chave RSA** | 2.048 |
-  | **Habilitado** | Sim |
+  | **Enabled** | Sim |
   |||
 
   ![Crie sua chave de criptografia gerenciada pelo cliente](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -225,8 +225,8 @@ Para esta tarefa, você pode usar o comando Azure PowerShell [Set-AzKeyVaultAcce
 
    1. Quando terminar com o painel **de políticas de acesso,** selecione **Salvar**.
 
-Para obter mais informações, consulte [Fornecer autenticação do Key Vault com uma identidade gerenciada](../key-vault/managed-identity.md#grant-your-app-access-to-key-vault).
+Para obter mais informações, consulte [Fornecer autenticação do Key Vault com uma identidade gerenciada](../key-vault/general/managed-identity.md#grant-your-app-access-to-key-vault).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre o [Azure Key Vault](../key-vault/key-vault-overview.md)
+* Saiba mais sobre o [Azure Key Vault](../key-vault/general/overview.md)

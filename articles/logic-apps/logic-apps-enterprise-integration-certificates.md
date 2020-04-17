@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: c1b48ae8191e2e5313d9037c791eca73c8a55691
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77191395"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450132"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Melhore a segurança para mensagens B2B usando certificados
 
@@ -34,7 +34,7 @@ Você pode usar esses tipos de certificados em seus aplicativos de integração 
 
 Para usar um *certificado público* em aplicativos lógicos com recursos de B2B, você deve carregá-lo em sua conta de integração. Depois de definir as propriedades nos [contratos](logic-apps-enterprise-integration-agreements.md) criados, o certificado fica disponível para ajudá-lo a proteger suas mensagens B2B.
 
-1. Faça login no [portal Azure](https://portal.azure.com). No menu principal do Azure, selecione **Todos os recursos**. Na caixa de pesquisa, insira o nome da conta de integração e selecione a conta de integração desejada.
+1. Entre no [portal do Azure](https://portal.azure.com). No menu principal do Azure, selecione **Todos os recursos**. Na caixa de pesquisa, insira o nome da conta de integração e selecione a conta de integração desejada.
 
    ![Localize e selecione a conta de integração](media/logic-apps-enterprise-integration-certificates/select-integration-account.png)  
 
@@ -66,14 +66,14 @@ Depois de definir as propriedades nos [contratos](logic-apps-enterprise-integrat
 > [!NOTE]
 > Para certificados privados, certifique-se de adicionar um certificado público correspondente que aparece nos [contratos AS2](logic-apps-enterprise-integration-as2.md) **Enviar e receber** configurações para assinar e criptografar mensagens.
 
-1. [Adicionar sua chave privada no Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) e **Nome de Chave**.
+1. [Adicionar sua chave privada no Azure Key Vault](../key-vault/certificates/certificate-scenarios.md#import-a-certificate) e **Nome de Chave**.
    
 2. Autorize os Aplicativos Lógicos do Azure a executarem operações no Azure Key Vault. Para conceder acesso à entidade de serviço de Aplicativos Lógicos, use o comando do PowerShell, [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), por exemplo:
 
    `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
-3. Faça login no [portal Azure](https://portal.azure.com). No menu principal do Azure, selecione **Todos os recursos**. Na caixa de pesquisa, insira o nome da conta de integração e selecione a conta de integração desejada.
+3. Entre no [portal do Azure](https://portal.azure.com). No menu principal do Azure, selecione **Todos os recursos**. Na caixa de pesquisa, insira o nome da conta de integração e selecione a conta de integração desejada.
 
    ![Localizar sua conta de integração](media/logic-apps-enterprise-integration-certificates/select-integration-account.png) 
 
@@ -89,7 +89,7 @@ Depois de definir as propriedades nos [contratos](logic-apps-enterprise-integrat
    | **Tipo de certificado** | Privado | O tipo do certificado |
    | **Certificado** | <*nome do arquivo de certificado*> | Para localizar e selecionar o arquivo de certificado que você quer enviar, escolha o ícone da pasta ao lado da caixa **Certificado**. Ao usar um cofre de chaves para a chave privada, o arquivo carregado será o certificado público. | 
    | **Grupo de recursos** | <*grupo de integração-conta-recurso*> | O grupo de recursos da conta de integração, que é "MyResourceGroup" neste exemplo | 
-   | **Cofre de Chaves** | <*chave-cofre-nome*> | O nome do cofre de chaves do Azure |
+   | **Key Vault** | <*chave-cofre-nome*> | O nome do cofre de chaves do Azure |
    | **Nome-chave** | <*nome-chave*> | O nome da chave |
    ||||
 

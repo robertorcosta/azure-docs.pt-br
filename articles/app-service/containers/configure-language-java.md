@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 970701606811cbd61a9bfebe39ff82cdc91d5693
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4f6de807628704051cdddf74bcefbed678f8fcd
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80245830"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457885"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Linux para o Serviço de Aplicativo do Azure
 
@@ -230,7 +230,7 @@ Siga as instruções no [Secure um nome DNS personalizado com uma vinculação S
 
 ### <a name="use-keyvault-references"></a>Use referências keyvault
 
-[O Azure KeyVault](../../key-vault/key-vault-overview.md) fornece gerenciamento secreto centralizado com políticas de acesso e histórico de auditoria. Você pode armazenar segredos (como senhas ou strings de conexão) no KeyVault e acessar esses segredos em seu aplicativo através de variáveis de ambiente.
+[O Azure KeyVault](../../key-vault/general/overview.md) fornece gerenciamento secreto centralizado com políticas de acesso e histórico de auditoria. Você pode armazenar segredos (como senhas ou strings de conexão) no KeyVault e acessar esses segredos em seu aplicativo através de variáveis de ambiente.
 
 Primeiro, siga as instruções para [conceder acesso ao seu aplicativo ao Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) e fazer uma referência do [KeyVault ao seu segredo em uma configuração de aplicativo](../app-service-key-vault-references.md#reference-syntax). Você pode validar que a referência resolve o segredo imprimindo a variável ambiente enquanto acessa remotamente o terminal do Serviço de Aplicativo.
 
@@ -244,8 +244,8 @@ Uma configuração adicional pode ser necessária para criptografar sua conexão
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
-- [Mysql](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
-- [Mongodb](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
+- [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+- [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
 #### <a name="initializing-the-java-key-store"></a>Inicializando a Loja de Chaves Java

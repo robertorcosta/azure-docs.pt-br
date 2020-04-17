@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f44e9a1e43da2b9ce6c817898c1722fba715c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 104bf51fb03d88ab0e5efd25ebebb0e3060bc264
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262172"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457919"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory
 
@@ -85,7 +85,7 @@ A alteração do diretório de assinatura é uma operação no nível do serviç
 
 Depois de associar uma assinatura a um diretório diferente, talvez seja necessário fazer as seguintes tarefas para retomar as operações:
 
-- Se você tem algum cofre chave, você deve mudar o id do inquilino do cofre chave. Para obter mais informações, consulte [Alterar um ID de inquilino do cofre de chave após um movimento de assinatura](../../key-vault/key-vault-subscription-move-fix.md).
+- Se você tem algum cofre chave, você deve mudar o id do inquilino do cofre chave. Para obter mais informações, consulte [Alterar um ID de inquilino do cofre de chave após um movimento de assinatura](../../key-vault/general/subscription-move-fix.md).
 
 - Se você usou identidades gerenciadas atribuídas ao sistema para recursos, você deve reativar essas identidades. Se você usou identidades gerenciadas atribuídas pelo usuário, você deve recriar essas identidades. Depois de reativar ou recriar as Identidades Gerenciadas, você deve restabelecer as permissões atribuídas a essas identidades. Para saber mais, confira [O que são identidades gerenciadas para recursos do Azure?](../managed-identities-azure-resources/overview.md).
 

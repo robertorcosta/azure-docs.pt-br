@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c11521ec074b63843b873c39102b68bf185d2821
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 8bec28b98a8d2640b5a8034569d49077ce6b4177
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80676734"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450982"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planeje a implantação de redefinição de senha do Azure Active Directory
 
@@ -115,7 +115,7 @@ Antes de implantar o SSPR, você pode optar por determinar o número e o custo m
 
 A Microsoft recomenda que as organizações habilitem a experiência de registro combinada para SSPR e autenticação multifatorial. Quando você habilita essa experiência de registro combinada, os usuários só precisam selecionar suas informações de registro uma vez para habilitar ambos os recursos.
 
-A experiência de registro combinada não exige que as organizações habilitem a autenticação multifatorial SSPR e Azure. O registro combinado proporciona às organizações uma melhor experiência do usuário. Para obter mais informações, consulte [registro de informações de segurança combinada (visualização)](concept-registration-mfa-sspr-combined.md)
+A experiência de registro combinada não exige que as organizações habilitem a autenticação multifatorial SSPR e Azure. O registro combinado proporciona às organizações uma melhor experiência do usuário. Para obter mais informações, consulte [registro de informações de segurança combinada](concept-registration-mfa-sspr-combined.md)
 
 ## <a name="plan-the-deployment-project"></a>Planejar o projeto de implantação
 

@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5749b2fc58c4e1c5c75142f85a5132946714e25b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ace34cf4a72b871ba6646b279007b8ce21c03e9b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77472629"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457426"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Use chaves gerenciadas pelo cliente para criptografar os dados de configuração do aplicativo
 A configuração do aplicativo Azure [criptografa informações confidenciais em repouso](../security/fundamentals/encryption-atrest.md). O uso de chaves gerenciadas pelo cliente fornece proteção de dados aprimorada, permitindo que você gerencie suas chaves de criptografia.  Quando a criptografia de chave gerenciada é usada, todas as informações confidenciais na configuração do aplicativo são criptografadas com uma chave Azure Key Vault fornecida pelo usuário.  Isso fornece a capacidade de girar a chave de criptografia sob demanda.  Ele também fornece a capacidade de revogar o acesso da configuração do aplicativo Azure a informações confidenciais, revogando o acesso da instância de configuração do aplicativo à chave.
@@ -20,7 +20,7 @@ A configuração do aplicativo Azure [criptografa informações confidenciais em
 A configuração do aplicativo Azure criptografa informações confidenciais em repouso usando uma chave de criptografia AES de 256 bits fornecida pela Microsoft. Cada instância de configuração de aplicativo tem sua própria chave de criptografia gerenciada pelo serviço e usada para criptografar informações confidenciais. Informações confidenciais incluem os valores encontrados em pares de valores-chave.  Quando o recurso de chave gerenciado pelo cliente é ativado, a Configuração do aplicativo usa uma identidade gerenciada atribuída à instância de configuração do aplicativo para autenticar com o Azure Active Directory. A identidade gerenciada então chama o Azure Key Vault e envolve a chave de criptografia da instância de configuração do aplicativo. A chave de criptografia embrulhada é então armazenada e a chave de criptografia desembrulhada é armazenada em cache na Configuração do Aplicativo por uma hora. A configuração do aplicativo atualiza a versão desembrulhada da chave de criptografia da instância de configuração do aplicativo de hora em hora. Isso garante a disponibilidade em condições normais de funcionamento. 
 
 >[!IMPORTANT]
-> Se a identidade atribuída à instância de configuração do aplicativo não estiver mais autorizada a desembrulhar a chave de criptografia da instância ou se a chave gerenciada for excluída permanentemente, não será mais possível descriptografar informações confidenciais armazenadas no Aplicativo Instância de configuração. O uso da função [de exclusão suave](../key-vault/key-vault-ovw-soft-delete.md) do Azure Key Vault reduz a chance de excluir acidentalmente sua chave de criptografia.
+> Se a identidade atribuída à instância de configuração do aplicativo não estiver mais autorizada a desembrulhar a chave de criptografia da instância ou se a chave gerenciada for excluída permanentemente, não será mais possível descriptografar informações confidenciais armazenadas na instância de configuração do aplicativo. O uso da função [de exclusão suave](../key-vault/general/overview-soft-delete.md) do Azure Key Vault reduz a chance de excluir acidentalmente sua chave de criptografia.
 
 Quando os usuários habilitam o recurso de chave gerenciado pelo cliente em sua instância de configuração do aplicativo Azure, eles controlam a capacidade do serviço de acessar suas informações confidenciais. A chave gerenciada serve como uma chave de criptografia raiz. Um usuário pode revogar o acesso da instância de configuração do aplicativo à sua chave gerenciada alterando sua política de acesso ao cofre principal. Quando esse acesso for revogado, a Configuração do Aplicativo perderá a capacidade de descriptografar dados do usuário dentro de uma hora. Neste ponto, a instância de configuração do aplicativo proibirá todas as tentativas de acesso. Essa situação é recuperável, concedendo ao serviço acesso à chave gerenciada mais uma vez.  Dentro de uma hora, a Configuração do Aplicativo será capaz de descriptografar dados do usuário e operar em condições normais.
 
