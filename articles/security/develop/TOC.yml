@@ -41,6 +41,8 @@
           href: security-code-analysis-faq.md
         - name: Configuração de YAML
           href: yaml-configuration.md
+        - name: Versões e roteiro
+          href: security-code-analysis-releases.md
     - name: Ferramenta de Modelagem de Ameaças da Microsoft
       displayName: stride
       href: threat-modeling-tool.md
