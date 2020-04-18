@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 274e85a914ebec31a03f1149bc4467ea142e7255
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 50a1971fed4cce49eea1922bc9b81f06667f4dd8
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81482118"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641010"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações do provedor de recursos do Azure Resource Manager
 
@@ -1681,7 +1681,7 @@ Serviço Azure: Armazenamento clássico do modelo de implantação
 > | Ação | Microsoft.ClassicStorage/checkStorageAccountAvailability/read | Obtenha a disponibilidade de uma conta de armazenamento. |
 > |  | **Discos** |  |
 > | Ação | Microsoft.ClassicStorage/disks/read | Retornar o disco da conta de armazenamento. |
-> |  | **Imagens** |  |
+> |  | **images** |  |
 > | Ação | Microsoft.ClassicStorage/images/read | Retornar a imagem. |
 > |  | **imagens/status de operação** |  |
 > | Ação | Microsoft.ClassicStorage/images/operationstatuses/read | Obtém o Status da Operação de Imagem. |
@@ -2185,7 +2185,7 @@ Serviço Azure: [Máquinas Virtuais,](../virtual-machines/index.yml) [Conjuntos 
 > | Ação | Microsoft.Compute/hostGroups/hosts/read | Obtenha as propriedades de um host |
 > | Ação | Microsoft.Compute/hostGroups/hosts/write | Cria um novo host ou atualiza um host existente |
 > | Ação | Microsoft.Compute/hostGroups/hosts/delete | Exclui o host |
-> |  | **Imagens** |  |
+> |  | **images** |  |
 > | Ação | Microsoft.Compute/images/read | Obter as propriedades da imagem |
 > | Ação | Microsoft.Compute/images/write | Criar uma nova imagem ou atualizar uma existente |
 > | Ação | Microsoft.Compute/images/delete | Excluir a imagem |
@@ -4499,7 +4499,7 @@ Serviço Azure: [Gerente de Recursos do Azure](../azure-resource-manager/index.y
 > | Tipo de ação | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.Features/register/action | Registra o recurso de uma assinatura. |
-> |  | **recursos** |  |
+> |  | **Características** |  |
 > | Ação | Microsoft.Features/features/read | Obter os recursos de uma assinatura. |
 > |  | **Operações** |  |
 > | Ação | Microsoft.Features/operations/read | Obtém a lista de operações. |
@@ -8410,7 +8410,7 @@ Serviço Azure: [Gerente de Recursos do Azure](../azure-resource-manager/index.y
 > | Ação | Microsoft.Resources/links/delete | Excluir um link de recurso. |
 > |  | **Mercado** |  |
 > | Ação | Microsoft.Resources/marketplace/purchase/action | Comprar um recurso do marketplace. |
-> |  | **providers** |  |
+> |  | **Provedores** |  |
 > | Ação | Microsoft.Resources/providers/read | Obter a lista de provedores. |
 > |  | **Recursos** |  |
 > | Ação | Microsoft.Resources/resources/read | Obter a lista de recursos com base em filtros. |
@@ -10859,5 +10859,5 @@ Serviço azure: [Monitor Azure](../azure-monitor/index.yml)
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Corresponder provedor de recursos ao serviço](../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Funções personalizadas do Azure](custom-roles.md)
 - [Funções incorporadas do Azure](built-in-roles.md)
+- [Framework de adoção na nuvem: gerenciamento de acesso de recursos no Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

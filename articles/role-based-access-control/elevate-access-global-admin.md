@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/03/2019
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1731c630cb98ac542ebcdc7aedf07f7bb63eaec0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18490ec7c3cfde33cef186b753e2adc809f854c6
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77137455"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641361"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure
 
@@ -30,7 +30,7 @@ Como um Administrador Global no Azure AD (Azure Active Directory), talvez você 
 
 ## <a name="why-would-you-need-to-elevate-your-access"></a>Por que você precisa elevar o acesso?
 
-Se você for um Administrador Global, poderá haver ocasiões em que você queira fazer o seguinte:
+Se você é um administrador global, pode haver momentos em que você deseja fazer as seguintes ações:
 
 - Recuperar o acesso a um grupo de gerenciamento ou assinatura do Azure quando um usuário tiver perdido o acesso
 - Conceder a outro usuário ou a você mesmo acesso a uma assinatura ou grupo de gerenciamento do Azure
@@ -55,9 +55,7 @@ Siga estas etapas para elevar o acesso de um administrador global usando o porta
 
 1. Faça login no [Portal do Azure](https://portal.azure.com) ou no [centro de administração do Active Directory do Azure](https://aad.portal.azure.com) como Administrador Global.
 
-1. Pesquise **Azure Active Directory** e selecione-o.
-
-   ![Selecione Diretório Ativo do Azure - captura de tela](./media/elevate-access-global-admin/search-for-azure-active-directory.png)
+1. Abrir **diretório ativo do Azure**.
 
 1. Em **Gerenciar,** selecione **Propriedades**.
 
@@ -98,7 +96,7 @@ Para remover a atribuição de função`/`Administrador de acesso ao usuário no
 
 1. Defina a **gestão de acesso para recursos do Azure** alternando de volta para **No**. Como essa é uma configuração por usuário, você deve estar conectado como o mesmo usuário que foi usado para elevar o acesso.
 
-    Se você tentar remover a atribuição de função Administrador de acesso ao usuário no painel de controle de acesso (IAM), você verá a seguinte mensagem. Para remover a atribuição de função, você deve definir o alternar de volta para **Não** ou usar o Azure PowerShell, a Azure CLI ou a API REST.
+    Se você tentar remover a atribuição de função Administrador de acesso ao usuário no painel de controle de acesso (IAM), você verá a seguinte mensagem. Para remover a atribuição de função, você deve definir o alternância de volta para **Não** ou usar o Azure PowerShell, Azure CLI ou a API REST.
 
     ![Remover atribuições de função com escopo raiz](./media/elevate-access-global-admin/iam-root-remove.png)
 
@@ -233,7 +231,7 @@ Você pode listar todas as atribuições de negação para um usuário no escopo
 
 ### <a name="remove-elevated-access"></a>Remover acesso elevado
 
-Quando você `elevateAccess`chama, você cria uma atribuição de função para si mesmo, de modo a revogar`/`esses privilégios que você precisa para remover a atribuição de função Administrador de Acesso ao Usuário para si mesmo no escopo raiz ( )
+Quando você `elevateAccess`chama, você cria uma atribuição de função para si mesmo, de modo a revogar`/`esses privilégios que você precisa para remover a atribuição de função Administrador de Acesso do Usuário para si mesmo no escopo raiz ().
 
 1. Chame [GET roleDefinitions](/rest/api/authorization/roledefinitions/get), em que `roleName` é igual a Administrador de Acesso do Usuário, para determinar a ID do nome da função de Administrador de Acesso do Usuário.
 

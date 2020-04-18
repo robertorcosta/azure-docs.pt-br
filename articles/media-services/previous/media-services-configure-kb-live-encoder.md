@@ -14,17 +14,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: afc0fcb6751a08b41010fa569c67a9827e0abec0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: babb5a10818c8108bae34402962fd2503dbecbdc
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77131924"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641692"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Haivision KB para enviar uma transmissão ao vivo de taxa de bits única  
 > [!div class="op_single_selector"]
 > * [Haivision](media-services-configure-kb-live-encoder.md)
-> * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 
 Este tópico mostra como configurar o [codificador ativo Havision KB](https://www.haivision.com/products/kb-series/) para enviar uma transmissão de taxa de bits única para os canais do AMS que estão habilitados para codificação ativa. Para obter mais informações, consulte [trabalhando com canais habilitados a executar codificação ativa com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
@@ -33,7 +32,7 @@ Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a f
 
 ## <a name="prerequisites"></a>Pré-requisitos
 *   Acesso a um codificador Haivision KB, executando o SW v5.01 ou superior.
-* [Criar uma conta dos Serviços de Mídia do Azure](media-services-portal-create-account.md)
+* [Criar uma conta de Serviços de Mídia do Azure](media-services-portal-create-account.md)
 * Verifique se há um Ponto de Extremidade de Streaming em execução. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
 * Instale a versão mais recente da ferramenta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
 * Inicie a ferramenta e conecte-se à sua conta do AMS.

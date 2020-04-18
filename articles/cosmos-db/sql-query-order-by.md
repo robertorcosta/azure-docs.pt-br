@@ -4,18 +4,18 @@ description: Saiba mais sobre a cláusula SQL ORDER BY para Azure Cosmos DB. Use
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 04/17/2020
 ms.author: tisande
-ms.openlocfilehash: b88184be39a41ec42f8fb304a7511073f645f1cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70702ee4a77e8b3c46de4354f3394bca4080d837
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77188742"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641390"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>ORDEM POR cláusula no Azure Cosmos DB
 
-A cláusula opcional ORDER BY especifica a ordem de classificação dos resultados retornados pela consulta.
+A `ORDER BY` cláusula opcional especifica a ordem de classificação dos resultados retornados pela consulta.
 
 ## <a name="syntax"></a>Sintaxe
   
@@ -31,9 +31,9 @@ ORDER BY <sort_specification>
   
    Especifica uma propriedade ou expressão pela qual classificar o conjunto de resultados da consulta. Uma coluna de classificação pode ser especificada como um nome ou alias de propriedade.  
   
-   Várias propriedades podem ser especificadas. Os nomes das propriedades devem ser únicos. A seqüência das propriedades do tipo na cláusula ORDER BY define a organização do conjunto de resultados ordenados. Ou seja, o conjunto de resultados é classificado pela primeira propriedade e, em seguida, essa lista ordenada é classificada pela segunda propriedade e assim por diante.  
+   Várias propriedades podem ser especificadas. Os nomes das propriedades devem ser únicos. A seqüência das `ORDER BY` propriedades do tipo na cláusula define a organização do conjunto de resultados ordenados. Ou seja, o conjunto de resultados é classificado pela primeira propriedade e, em seguida, essa lista ordenada é classificada pela segunda propriedade e assim por diante.  
   
-   Os nomes de propriedade mencionados na cláusula ORDER BY devem corresponder a uma propriedade na lista de seleção ou a uma propriedade definida na coleção especificada na cláusula FROM sem qualquer ambiguidade.  
+   Os nomes de propriedade `ORDER BY` mencionados na cláusula devem corresponder a uma propriedade na lista de `FROM` seleção ou a uma propriedade definida na coleção especificada na cláusula sem qualquer ambiguidade.  
   
 - `<sort_expression>`  
   
@@ -45,7 +45,7 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Define que os valores na coluna especificada devem ser classificados em ordem crescente ou decrescente. ASC classifica do valor mais baixo para o valor mais alto. DESC classifica do valor mais alto para o valor mais baixo. ASC é a ordem de classificação padrão. Valores nulos são tratados como os menores valores possíveis.  
+   Define que os valores na coluna especificada devem ser classificados em ordem crescente ou decrescente. `ASC`classifica do menor valor ao maior valor. `DESC`tipos de maior valor para menor valor. `ASC`é a ordem de classificação padrão. Valores nulos são tratados como os menores valores possíveis.  
   
 ## <a name="remarks"></a>Comentários  
   
@@ -152,7 +152,7 @@ Os resultados incluem apenas o `lastName`documento que tem um definido:
     ]
 ```
 
-Se atualizarmos a política de indexação do contêiner `lastName`para incluir explicitamente um caminho para, incluiremos documentos com uma propriedade de classificação indefinida nos resultados da consulta. Você deve definir explicitamente o caminho para levar a esse valor escalar (e não além dele). Você deve `?` usar o caractere em sua definição de caminho na política `lastName` de indexação para garantir que você indexe explicitamente a propriedade e nenhum caminho aninhado adicional além dele.
+Se atualizarmos a política de indexação do contêiner `lastName`para incluir explicitamente um caminho para, incluiremos documentos com uma propriedade de classificação indefinida nos resultados da consulta. Você deve definir explicitamente o caminho para levar a esse valor escalar (e não além dele). Você deve `?` usar o caractere em sua definição de caminho na política `lastName` de indexação para garantir que você indexe explicitamente a propriedade e nenhum caminho aninhado adicional além dele. Se `Order By` a consulta usar um [índice composto,](index-policy.md#composite-indexes)os resultados sempre incluirão documentos com uma propriedade de classificação indefinida nos resultados da consulta.
 
 Aqui está uma política de indexação de amostra `lastName` que permite que você tenha documentos com um aparecimento indefinido nos resultados da consulta:
 

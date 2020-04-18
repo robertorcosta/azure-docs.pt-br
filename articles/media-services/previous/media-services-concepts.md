@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 260ddccc1a1b0bd4090284025b79e20ff5ce4fdc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 44d6776a367a5cb1eeb86c955f083598d417aba6
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475254"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641663"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos dos Serviços de Mídia do Azure 
 
@@ -111,7 +111,7 @@ Para saber mais sobre codificadores com suporte, consulte [Codificadores](media-
 ## <a name="live-streaming"></a>Transmissão ao vivo
 Nos Serviços de Mídia do Azure, um Canal representa um pipeline para processamento de conteúdo de streaming ao vivo. Um Canal recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
 
-* Um codificador local ao vivo envia RTMP ou Smooth Streaming (MP4 fragmentado) com múltiplas taxas de bits para o Canal. Você pode usar os codificadores dinâmicos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores ao vivo saída RTMP: Adobe Flash Live Encoder, [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Teradek, Haivision e Tricaster encoders. Os fluxos ingeridos passam por Canais sem qualquer transcodificação e codificação adicionais. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
+* Um codificador local ao vivo envia RTMP ou Smooth Streaming (MP4 fragmentado) com múltiplas taxas de bits para o Canal. Você pode usar os codificadores dinâmicos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores ao vivo saída RTMP: Adobe Flash Live Encoder, [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Teradek, Haivision encoders. Os fluxos ingeridos passam por Canais sem qualquer transcodificação e codificação adicionais. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 * Um fluxo de taxa de bits única (em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado)) é enviado para o Canal que está habilitado a realizar a codificação ativa com os Serviços de Mídia. O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
 
 ### <a name="channel"></a>Canal
@@ -190,7 +190,7 @@ O download progressivo permite iniciar a reprodução da mídia antes do arquivo
 >[!NOTE]
 >Será necessário descriptografar ativos criptografados se você desejar que eles estejam disponíveis para download progressivo.
 
-Para fornecer aos usuários URLs de download progressivo, você deve primeiro criar um localizador OnDemandOrigin. Criar o localizador oferece a você o caminho base para o ativo. Em seguida, é necessário acrescentar o nome do arquivo MP4. Por exemplo: 
+Para fornecer aos usuários URLs de download progressivo, você deve primeiro criar um localizador OnDemandOrigin. Criar o localizador oferece a você o caminho base para o ativo. Em seguida, é necessário acrescentar o nome do arquivo MP4. Por exemplo:
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 

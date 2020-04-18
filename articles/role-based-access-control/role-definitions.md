@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: e4e4ac1b0a867130dd7b9e276db52e1ca1e72976
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 777ea7cc29679a3819e94d39913f167ea1cb3453
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062142"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641371"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Compreender as definições de função nos recursos do Azure
 
 Se você estiver tentando compreender o funcionamento de uma função ou se estiver criando sua própria [função personalizada para recursos do Azure](custom-roles.md), é aconselhável entender como as funções são definidas. Este artigo descreve os detalhes das definições de função e fornece alguns exemplos.
 
-## <a name="role-definition-structure"></a>Estrutura da definição da função
+## <a name="role-definition"></a>Definição de função
 
-Uma *definição de função* é um conjunto de permissões. Às vezes, é chamada apenas de *função*. Uma definição de função lista as operações que podem ser executadas, como leitura, gravação e exclusão. Ele também pode listar as operações que não podem ser executadas ou operações relacionadas a dados subjacentes. Uma definição de função tem a seguinte estrutura:
+Uma *definição de função* é um conjunto de permissões. Às vezes, é chamada apenas de *função*. Uma definição de função lista as operações que podem ser executadas, como leitura, gravação e exclusão. Ele também pode listar as operações que não podem ser executadas ou operações relacionadas a dados subjacentes. Uma definição de função tem as seguintes propriedades:
 
 ```
 Name
@@ -41,6 +41,20 @@ DataActions []
 NotDataActions []
 AssignableScopes []
 ```
+
+| Propriedade | Descrição |
+| --- | --- |
+| `Name` | O nome de exibição do papel. |
+| `Id` | A ID exclusiva da função. |
+| `IsCustom` | Indica se esta é uma função personalizada. Defina como `true` para funções personalizadas. |
+| `Description` | A descrição do papel. |
+| `Actions` | Uma matriz de cadeias de caracteres que especifica as operações de gerenciamento permitidas pela função. |
+| `NotActions` | Uma matriz de cadeias de caracteres que especifica as operações de gerenciamento que são excluídas do `Actions` permitido. |
+| `DataActions` | Uma matriz de cadeias de caracteres que especifica as operações de dados permitidas pela função em seus dados dentro desse objeto. |
+| `NotDataActions` | Uma matriz de cadeias de caracteres que especifica as operações de dados excluídas do `DataActions` permitido. |
+| `AssignableScopes` | Uma matriz de strings que especifica os escopos que a função está disponível para atribuição. |
+
+### <a name="operations-format"></a>Formato de operações
 
 Operações são especificadas com cadeias de caracteres que têm o seguinte formato:
 
@@ -55,6 +69,8 @@ A parte `{action}` de uma cadeia de caracteres de operação especifica o tipo d
 | `write` | Habilita operações de gravação (PUT ou PATCH). |
 | `action` | Permite operações personalizadas como reiniciar máquinas virtuais (POST). |
 | `delete` | Habilita operações de exclusão (DELETE). |
+
+### <a name="role-definition-example"></a>Exemplo de definição de função
 
 Aqui está a definição da função [Colaborador](built-in-roles.md#contributor) no formato JSON. A operação curinga (`*`) em `Actions` indica que a entidade de segurança atribuída a essa função pode executar todas as ações ou, em outras palavras, pode gerenciar tudo. Isso inclui ações definidas no futuro, conforme o Azure adiciona novos tipos de recurso. As operações em `NotActions` são subtraídas de `Actions`. No caso da função [Contribuidor](built-in-roles.md#contributor), `NotActions` remove a capacidade de essa função gerenciar o acesso a recursos e também atribuir acesso aos recursos.
 
@@ -92,7 +108,7 @@ O acesso ao gerenciamento não é herdado aos seus dados, desde que o método de
 
 Anteriormente, o controle de acesso baseado em função não foi usado para operações de dados. Autorização para operações de dados variadas em provedores de recursos. O mesmo modelo de autorização de controle de acesso baseado em função usado para operações de gerenciamento foi estendido às operações de dados.
 
-Para dar suporte a operações de dados, novas propriedades de dados foram adicionadas à estrutura de definição de função. Operações de dados são especificadas no `DataActions` e `NotDataActions` propriedades. Adicionando essas propriedades de dados, a separação entre o gerenciamento e de dados é mantida. Isso impede que as atribuições de função atual com curingas (`*`) de repente ter acesso a dados. Aqui estão algumas operações de dados que podem ser especificadas em `DataActions` e `NotDataActions`:
+Para suportar operações de dados, novas propriedades de dados foram adicionadas à definição da função. Operações de dados são especificadas no `DataActions` e `NotDataActions` propriedades. Adicionando essas propriedades de dados, a separação entre o gerenciamento e de dados é mantida. Isso impede que as atribuições de função atual com curingas (`*`) de repente ter acesso a dados. Aqui estão algumas operações de dados que podem ser especificadas em `DataActions` e `NotDataActions`:
 
 - Leia uma lista de blobs em um contêiner
 - Gravar um blob de armazenamento em um contêiner
@@ -160,8 +176,8 @@ Para visualizar e trabalhar com operações de dados, você deve ter as versões
 
 | Ferramenta  | Versão  |
 |---------|---------|
-| [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 ou posterior |
-| [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 ou posterior |
+| [PowerShell do Azure](/powershell/azure/install-az-ps) | 1.1.0 ou posterior |
+| [CLI do Azure](/cli/azure/install-azure-cli) | 2.0.30 ou posterior |
 | [Azure para .NET](/dotnet/azure/) | 2.8.0-versão prévia ou posterior |
 | [SDK do Azure para linguagem Go](/azure/go/azure-sdk-go-install) | 15.0.0 ou posterior |
 | [Azure para Java](/java/azure/) | 1.9.0 ou posterior |

@@ -15,18 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: 1d9d63aa6b3da1b8d8389722bd5af0eeed585d03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e3705aaecb0760513f0605aece89b7ffc0044a8
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77134968"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641656"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Wirecast para enviar uma transmissão ao vivo de taxa de bits única 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
-> * [Tricaster](media-services-configure-tricaster-live-encoder.md)
->
 >
 
 Este artigo mostra como configurar o codificador ativo [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) para enviar uma transmissão de taxa de bits única para os canais do AMS que estão habilitados para a codificação ativa. Para obter mais informações, consulte [trabalhando com canais habilitados a executar codificação ativa com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
@@ -37,7 +35,7 @@ Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a f
 > Os codificadores devem suportar o TLS 1.2 ao usar protocolos RTMPS. Use a versão Wirecast 13.0.2 ou superior devido ao requisito TLS 1.2.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* [Criar uma conta dos Serviços de Mídia do Azure](media-services-portal-create-account.md)
+* [Criar uma conta de Serviços de Mídia do Azure](media-services-portal-create-account.md)
 * Verifique se há um Ponto de Extremidade de Streaming em execução. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
 * Instale a versão mais recente da ferramenta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
 * Inicie a ferramenta e conecte-se à sua conta do AMS.

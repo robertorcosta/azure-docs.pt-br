@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.openlocfilehash: 100f95c20743f70bb4a9f2ac7e74853eab80f3e9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a0a01dad5ae86cf20d57ade845326838f8fd686a
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414479"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641446"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um gatilho que executa um pipeline com base em um agendamento
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,38 +31,46 @@ As seções a seguir fornecem etapas para criar um gatilho de agendamento de dif
 Crie um **gatilho de agendamento** para agendar a execução periódica de um pipeline (por hora, diariamente, etc.). 
 
 > [!NOTE]
-> Para obter um passo a passo completo de como criar um pipeline e um gatilho de agendamento, associar o gatilho ao pipeline e executar e monitorar o pipeline, consulte [Início Rápido: criar um data factory usando a interface do usuário do Data Factory](quickstart-create-data-factory-portal.md).
+> Para um passo a passo completo da criação de um pipeline e um gatilho de cronograma, que associa o gatilho ao gasoduto, e executa e monitora o pipeline, consulte [Quickstart: crie uma fábrica](quickstart-create-data-factory-portal.md)de dados usando a UI Data Factory .
 
-1. Alterne para a guia **Editar**. 
+1. Mude para a guia **Editar,** mostrada com um símbolo de lápis. 
 
     ![Mude para a guia Editar](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
-1. Clique em **Gatilho** no menu e clique em **Novo/Editar**. 
+
+1. Selecione **'Ativar'** no menu e, em seguida, selecione **Nova/Edição**. 
 
     ![Novo menu de gatilho](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
-2. Na página **Adicionar gatilhos**, clique em **Escolher gatilho...** e depois em **Novo**. 
+
+1. Na página **Adicionar gatilhos,** selecione **'Escolher gatilho...'** e selecione **+Novo**. 
 
     ![Adicionar gatilhos – novo gatilho](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
-3. Na página **Novo Gatilho**, execute as seguintes etapas: 
+
+1. Na página **Novo Gatilho,** faça as seguintes etapas: 
 
     1. Confirme se **Agendamento** está selecionado para **Tipo**. 
-    2. Especifique o datetime de início do gatilho em **Data de Início (UTC)**. Ele está definido como o datetime atual por padrão. 
-    3. Especifique **Recorrência** para o gatilho. Selecione um dos valores na lista suspensa (A Cada minuto, Por hora, Diariamente, Semanalmente e Mensalmente). Insira o multiplicador na caixa de texto. Por exemplo, se você deseja que o gatilho seja executado uma vez a cada 15 minutos, selecione **A Cada Minuto** e insira **15** na caixa de texto. 
-    4. Para o campo **Término**, caso não deseje especificar um datetime de término para o gatilho, selecione **Sem Término**. Para especificar um datetime de término, selecione **Na Data**, especifique o datetime de término e clique em **Aplicar**. Há um custo associado a cada execução do pipeline. Se estiver testando, recomendamos garantir que o pipeline é disparado apenas algumas vezes. No entanto, verifique se há tempo suficiente para a execução do pipeline entre a hora da publicação e a hora de término. O gatilho só entra em vigor depois de você publicar a solução no Data Factory, e não ao salvar o gatilho na interface do usuário.
+    1. Especifique o datetime de início do gatilho em **Data de Início (UTC)**. Ele está definido como o datetime atual por padrão. 
+    1. Especifique **Recorrência** para o gatilho. Selecione um dos valores na lista suspensa (A Cada minuto, Por hora, Diariamente, Semanalmente e Mensalmente). Insira o multiplicador na caixa de texto. Por exemplo, se você deseja que o gatilho seja executado uma vez a cada 15 minutos, selecione **A Cada Minuto** e insira **15** na caixa de texto. 
+    1. Para o campo **Término**, caso não deseje especificar um datetime de término para o gatilho, selecione **Sem Término**. Para especificar uma data de término, selecione **Na data**e especifique a data final e, em seguida, selecione **OK**. Há um custo associado a cada execução do pipeline. Se estiver testando, recomendamos garantir que o pipeline é disparado apenas algumas vezes. No entanto, verifique se há tempo suficiente para a execução do pipeline entre a hora da publicação e a hora de término. O gatilho só entra em vigor depois de você publicar a solução no Data Factory, e não ao salvar o gatilho na interface do usuário.
 
         ![Configurações do gatilho](./media/how-to-create-schedule-trigger/trigger-settings.png)
-4. Na janela **Novo Gatilho**, marque a opção **Ativado** e clique em **Avançar**. Use essa caixa de seleção para desativar o gatilho mais tarde. 
+
+1. Na janela **Novo gatilho,** **selecione Sim** na opção Ativado e **selecione** **OK**. Use essa caixa de seleção para desativar o gatilho mais tarde. 
 
     ![Configurações de gatilho – botão Avançar](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
-5. Na página **Novo Gatilho**, analise a mensagem de aviso e clique em **Concluir**.
+
+1. Na janela **Novo gatilho,** revise a mensagem de aviso e selecione **OK**.
 
     ![Configurações de gatilho – botão Concluir](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
-6. Clique em **Publicar** para publicar as alterações no Data Factory. Até que você publique alterações no Data Factory, o gatilho não começará a disparar as execuções do pipeline. 
+
+1. Selecione **Publicar tudo** para publicar as alterações na Fábrica de Dados. Até que você publique as alterações na Fábrica de Dados, o gatilho não começa a acionar as operações do pipeline. 
 
     ![Botão Publicar](./media/how-to-create-schedule-trigger/publish-2.png)
-8. Alterne para a guia **Monitorar** à esquerda. Clique em **Atualizar** para atualizar a lista. As execuções do pipeline disparadas pelo gatilho agendado são exibidas. Observe os valores na coluna **Disparado Por**. Se você usar a opção **Disparar Agora**, a execução de gatilho manual será exibida na lista. 
+
+1. Mude para a guia **Pipeline executa** a guia à esquerda e, em seguida, **selecione Atualizar** para atualizar a lista. Você verá as corridas do oleoduto acionadas pelo gatilho programado. Observe os valores na coluna **Disparado Por**. Se você usar a opção **Gatilho Agora,** você verá o gatilho manual executado na lista. 
 
     ![Monitorar execuções disparadas](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
-9. Clique na seta para baixo ao lado de **Execuções de Pipeline** para alternar para o modo de exibição **Execuções de Gatilho**. 
+
+1. Alterne para o modo de exibição **Execuções de gatilho**. 
 
     ![Monitorar execuções de gatilho](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -112,31 +120,31 @@ Esta seção mostra como usar o Azure PowerShell para criar, iniciar e monitorar
     - O gatilho está associado ao pipeline **Adfv2QuickStartPipeline**. Para associar vários pipelines a um gatilho, adicione mais seções **pipelineReference**.
     - O pipeline no Início Rápido usa dois valores de **parameters**: **inputPath** e **outputPath**. Portanto, você passa os valores para esses parâmetros por meio do gatilho.
 
-2. Criar um gatilho usando o **cmdlet Set-AzDataFactoryV2Trigger:**
+1. Criar um gatilho usando o **cmdlet Set-AzDataFactoryV2Trigger:**
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Confirme se o status do gatilho está **parado** usando o **cmdlet Get-AzDataFactoryV2Trigger:**
+1. Confirme se o status do gatilho está **parado** usando o **cmdlet Get-AzDataFactoryV2Trigger:**
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Inicie o gatilho usando o **cmdlet Start-AzDataFactoryV2Trigger:**
+1. Inicie o gatilho usando o **cmdlet Start-AzDataFactoryV2Trigger:**
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Confirme se o status do gatilho é **iniciado** usando o **cmdlet Get-AzDataFactoryV2Trigger:**
+1. Confirme se o status do gatilho é **iniciado** usando o **cmdlet Get-AzDataFactoryV2Trigger:**
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Obtenha o gatilho executado no Azure PowerShell usando o **cmdlet Get-AzDataFactoryV2TriggerRun.** Para obter as informações sobre as execuções do gatilho, execute o comando a seguir periodicamente. Atualize os valores de **TriggerRunStartedAfter** e **TriggerRunStartedBefore** para que correspondam aos valores na definição de gatilho:
+1.  Obtenha o gatilho executado no Azure PowerShell usando o **cmdlet Get-AzDataFactoryV2TriggerRun.** Para obter as informações sobre as execuções do gatilho, execute o comando a seguir periodicamente. Atualize os valores de **TriggerRunStartedAfter** e **TriggerRunStartedBefore** para que correspondam aos valores na definição de gatilho:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"

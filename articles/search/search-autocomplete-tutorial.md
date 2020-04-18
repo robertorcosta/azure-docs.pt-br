@@ -7,82 +7,104 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/10/2020
-ms.openlocfilehash: 8b64a583c11e794c30e1de12eb66941874a25462
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/15/2020
+ms.openlocfilehash: 1d8085c6056cb0d2541999c3e9c249cde3da8834
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262206"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641263"
 ---
-# <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Adicionar sugestões ou preenchimento automático ao aplicativo da Pesquisa Cognitiva do Azure
+# <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar preenchimento automático e sugestões aos aplicativos clientes
 
-Este exemplo demonstra uma caixa de pesquisa que suporta comportamentos de pesquisa como você tipo. Existem duas características, que você pode usar em conjunto ou separadamente:
+Pesquisar como você é uma técnica comum para melhorar a produtividade de consultas iniciadas pelo usuário. No Azure Cognitive Search, essa experiência é suportada por meio de *autocompletar,* que termina um termo ou frase baseado em entrada parcial (completando "micro" com "microsoft"). Outra forma são *as sugestões*: uma pequena lista de documentos correspondentes (devolvendo títulos de livro com um ID para que você possa vincular a uma página de detalhes). Tanto a autocompletar quanto as sugestões são baseadas em uma correspondência no índice. O serviço não oferecerá consultas que retornam zero resultados.
 
-+ *Sugestões* geram resultados de pesquisa à medida que você digita, onde cada sugestão é um único resultado ou documento de pesquisa do índice que corresponde ao que você digitou até agora. 
+Para implementar essas experiências na Pesquisa Cognitiva do Azure, você precisará:
 
-+ *A auto-conclusão* gera consultas ao "terminar" a palavra ou a frase. Em vez de retornar os resultados, ele conclui uma consulta que você pode, em seguida, executar para retornar os resultados. Assim como acontece com as sugestões, uma palavra ou expressão concluída em uma consulta é predicada em uma correspondência no índice. O serviço não oferece consultas que não retornam resultados no índice.
++ Um *sugestionista* na parte de trás.
++ Uma *consulta* especificando API de preenchimento automático ou sugestões na solicitação.
++ Um *controle de iu para* lidar com interações de pesquisa como você tipo em seu aplicativo cliente. Recomendamos o uso de uma biblioteca JavaScript existente para este fim.
 
-O código de exemplo demonstra sugestões e preenchimento automático, tanto nas versões C# quanto javaScript. 
+Na Pesquisa Cognitiva do Azure, as consultas autoconcluídas e os resultados sugeridos são recuperados do índice de pesquisa, a partir de campos selecionados que você registrou com um sugestionista. Um sugestionador faz parte do índice, e especifica quais campos fornecerão conteúdo que ou completa uma consulta, sugere um resultado ou faz ambos. Quando o índice é criado e carregado, uma estrutura de dados sugestionadora é criada internamente para armazenar prefixos usados para correspondência em consultas parciais. Para sugestões, escolher campos adequados que sejam únicos, ou pelo menos não repetitivos, é essencial para a experiência. Para obter mais informações, consulte [Criar um sugestionista](index-add-suggesters.md).
 
-Desenvolvedores de C# podem percorrer um aplicativo baseado no ASP.NET MVC que usa o [SDK do .NET da Pesquisa Cognitiva do Azure](https://aka.ms/search-sdk). A lógica para fazer chamadas de consultas sugeridas e com preenchimento automático pode ser encontrada no arquivo HomeController.cs. 
+O restante deste artigo é focado em consultas e código do cliente. Ele usa JavaScript e C# para ilustrar pontos-chave. Exemplos de API REST são usados para apresentar concisamente cada operação. Para obter links para amostras de código de ponta a ponta, consulte [Próximos passos](#next-steps).
 
-Desenvolvedores de JavaScript encontrarão uma lógica de consulta equivalente em IndexJavaScript.cshtml, que inclui chamadas diretas para a [API REST da Pesquisa Cognitiva do Azure](https://docs.microsoft.com/rest/api/searchservice/). 
+## <a name="set-up-a-request"></a>Configure um pedido
 
-Para as duas versões de linguagem, a experiência do usuário de front-end é baseada nas bibliotecas [jQuery UI](https://jqueryui.com/autocomplete/) e [XDSoft](https://xdsoft.net/jqplugins/autocomplete/). Usamos essas bibliotecas para criar a caixa de pesquisa com suporte para sugestões e preenchimento automático. As entradas coletadas na caixa de pesquisa são emparelhadas com ações de sugestões e preenchimento automático, como aquelas definidas em HomeController.cs ou IndexJavaScript.cshtml.
+Os elementos de uma solicitação incluem a API ([Autocomplete REST](https://docs.microsoft.com/rest/api/searchservice/autocomplete) ou [Suggestion REST](https://docs.microsoft.com/rest/api/searchservice/suggestions)), uma consulta parcial e um sugestor.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-+ [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-
-Um serviço de pesquisa cognitiva do Azure é opcional para este exercício porque a solução usa um serviço hospedado e um índice de demonstração nycjobs. Se você quiser construir este índice em seu próprio serviço de pesquisa, consulte [Criar o índice de empregos nyc](#configure-app) para obter instruções. Caso contrário, você pode usar o serviço e o índice existentes para apoiar um aplicativo cliente JavaScript.
-
-<!-- The sample is comprehensive, covering suggestions, autocomplete, faceted navigation, and client-side caching. Review the readme and comments for a full description of what the sample offers. -->
-
-## <a name="download-files"></a>Baixar arquivos
-
-O código de exemplo para os desenvolvedores C# e JavaScript pode ser encontrado na [pasta DotNetHowToAutoComplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) do repositório **GitHub Azure-Samples/search-dotnet-getting-getting-started** GitHub.
-
-A amostra tem como alvo um serviço de pesquisa de demonstração existente e um índice pré-construído preenchido com [dados de demonstração do NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). O índice NYCJobs contém um [Constructo de sugestor](index-add-suggesters.md), que é um requisito para usar sugestões ou o preenchimento automático.
-
-## <a name="run-the-sample"></a>Execute o exemplo
-
-1. Abra **AutocompleteTutorial.sln** no Visual Studio. A solução contém um projeto mvc ASP.NET com uma conexão com um serviço de pesquisa e índice existente.
-
-1. Atualize os pacotes NuGet:
-
-   1. No Solution Explorer, clique com o botão direito do mouse **DotNetHowToAutoComplete** e **selecione Gerenciar pacotes NuGet**.  
-   1. Selecione a guia **Atualizações,** selecione todos os pacotes e clique em **Atualizar**. Aceite qualquer contrato de licença. Mais de um passe pode ser necessário para atualizar todos os pacotes.
-
-1. Pressione F5 para executar o projeto e carregar a página em um navegador.
-
-Na parte superior, você verá uma opção para selecionar C# ou JavaScript. A opção de C# chama o HomeController do navegador e usa o SDK do .NET da Pesquisa Cognitiva do Azure para recuperar os resultados. 
-
-A opção JavaScript chama a API REST da Pesquisa Cognitiva do Azure diretamente do navegador. Essa opção normalmente tem desempenho claramente melhor, pois ela usa o controlador fora do fluxo. Você pode escolher a opção que atender às suas necessidades e preferências de linguagem. Há vários exemplos de preenchimento automático na página com algumas diretrizes para cada um. Cada exemplo tem um texto de exemplo recomendado que você pode usar para experimentar.  
-
-![Página de inicialização de exemplo](media/search-autocomplete-tutorial/startup-page.png "Página de inicialização de exemplo no localhost")
-
-Tente digitar algumas letras em cada caixa de pesquisa para ver o que acontece.
-
-## <a name="query-inputs"></a>Entradas de consulta
-
-Para as versões de C# e JavaScript, a implementação da caixa de pesquisa é exatamente a mesma. 
-
-Abra o arquivo **Index.cshtml** na pasta \Views\Home para exibir o código:
-
-```html
-<input class="searchBox" type="text" id="example1a" placeholder="search">
+```http
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+{
+  "search": "minecraf",
+  "suggesterName": "sg"
+}
 ```
 
-Esse exemplo é uma caixa de texto de entrada simples com uma classe para definir o estilo, uma ID para referência pelo JavaScript e o texto de espaço reservado.  A mágica está no JavaScript inserido.
+O **suggesterName** fornece os campos de reconhecimento de sugestões usados para completar termos ou sugestões. Para sugestões em particular, a lista de campo deve ser composta por aqueles que oferecem escolhas claras entre os resultados correspondentes. Em um site que vende jogos de computador, o campo pode ser o título do jogo.
 
-A amostra de linguagem C# usa JavaScript em Index.cshtml para aproveitar a [biblioteca de autocompletar de II jQuery](https://jqueryui.com/autocomplete/). Essa biblioteca adiciona a experiência de preenchimento automático à caixa de pesquisa fazendo chamadas assíncronas ao controlador MVC a fim de recuperar as sugestões. A versão da linguagem JavaScript está em IndexJavaScript.cshtml. Ela inclui o script abaixo para a barra de pesquisa, bem como chamadas à API REST para a Pesquisa Cognitiva do Azure.
+O parâmetro **de pesquisa** fornece a consulta parcial, onde os caracteres são alimentados à solicitação de consulta através do controle jQuery Autocomplete. No exemplo acima, "minecraf" é uma ilustração estática do que o controle poderia ter passado.
 
-Vamos examinar o código JavaScript para o primeiro exemplo, que chama a função de preenchimento automático da interface do usuário do jQuery, passando uma solicitação de sugestões:
+As APIs não impõem requisitos mínimos de comprimento na consulta parcial; pode ser tão pouco quanto um personagem. No entanto, o jQuery Autocomplete fornece um comprimento mínimo. Um mínimo de dois ou três caracteres é típico.
+
+As partidas estão no início de um termo em qualquer lugar da seqüência de entrada. Dada a "raposa marrom rápida", tanto a autocompletar como as sugestões corresponderão em versões parciais de "o", "rápido", "marrom" ou "raposa", mas não em termos parciais de infixo como "rown" ou "boi". Além disso, cada partida define o escopo para expansões a jusante. Uma consulta parcial de "br rápido" combinará em "marrom rápido" ou "pão rápido", mas nem "marrom" ou "pão" por si só seria compatível a menos que "rápido" os precedesse.
+
+### <a name="apis"></a>APIs
+
+Siga estes links para as páginas de referência REST e .NET SDK:
+
++ [Sugestões API REST](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
++ [API REST de preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
++ [SugerircomhttpMessagesAsync método](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
++ [Método AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
+
+## <a name="structure-a-response"></a>Estruturar uma resposta
+
+Respostas para preenchimento automático e sugestões são o que você pode esperar para o padrão: [Preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete#response) retorna uma lista de termos, [Sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions#response) retorna termos mais um ID de documento para que você possa buscar o documento (use a API [de documento](https://docs.microsoft.com/rest/api/searchservice/lookup-document) de pesquisa para buscar o documento específico para uma página de detalhes).
+
+As respostas são moldadas pelos parâmetros da solicitação. Para preenchimento automático, defina [**autocompleteMode**](https://docs.microsoft.com/rest/api/searchservice/autocomplete#autocomplete-modes) para determinar se a conclusão do texto ocorre em um ou dois termos. Em Sugestões, o campo escolhido determina o conteúdo da resposta.
+
+Para refinar ainda mais a resposta, inclua mais parâmetros na solicitação. Os seguintes parâmetros se aplicam tanto ao Autocomplete quanto às Sugestões.
+
+| Parâmetro | Uso |
+|-----------|-------|
+| **$select** | Se você tiver vários **campos de origem,** use`$select=GameTitle` **$select** para escolher qual campo contribui com valores ( ). |
+| **$filter** | Aplicar critérios de correspondência`$filter=ActionAdventure`no conjunto de resultados ( ). |
+| **$top** | Limitar os resultados a`$top=5`um número específico ( ).|
+
+## <a name="add-user-interaction-code"></a>Adicionar código de interação do usuário
+
+Preencher automaticamente um termo de consulta ou baixar uma lista de links correspondentes requer código de interação do usuário, tipicamente JavaScript, que pode consumir solicitações de fontes externas, como preenchimento automático ou consultas de sugestão contra um índice Azure Search Cognitive.
+
+Embora você possa escrever este código nativamente, é muito mais fácil usar funções da biblioteca JavaScript existente. Este artigo demonstra dois, um para sugestões e outro para preenchimento automático. 
+
++ [O widget de preenchimento automático (jQuery UI)](https://jqueryui.com/autocomplete/) é usado no exemplo Sugestão. Você pode criar uma caixa de pesquisa e, em seguida, referencia-la em uma função JavaScript que usa o widget Autocomplete. Propriedades no widget definem a origem (uma função de preenchimento automático ou sugestões), o comprimento mínimo dos caracteres de entrada antes da ação ser tomada e o posicionamento.
+
++ [O plug-in XDSoft Autocomplete](https://xdsoft.net/jqplugins/autocomplete/) é usado como exemplo de Autocomplete.
+
+Usamos essas bibliotecas para criar a caixa de pesquisa com suporte para sugestões e preenchimento automático. As entradas coletadas na caixa de pesquisa são emparelhadas com sugestões e ações de preenchimento automático.
+
+## <a name="suggestions"></a>Sugestões
+
+Esta seção orienta você através de uma implementação de resultados sugeridos, começando com a definição da caixa de pesquisa. Ele também mostra como e script que invoca a primeira biblioteca de autocompletar JavaScript referenciada neste artigo.
+
+### <a name="create-a-search-box"></a>Criar uma caixa de pesquisa
+
+Assumindo a [biblioteca de autocompletar a ui jQuery](https://jqueryui.com/autocomplete/) e um projeto MVC em C#, você pode definir a caixa de pesquisa usando JavaScript no arquivo **Index.cshtml.** A biblioteca adiciona a interação de pesquisa como você tipo à caixa de pesquisa, fazendo chamadas assíncronas para o controlador MVC para recuperar sugestões.
+
+Em **Index.cshtml** na pasta \Views\Home, uma linha para criar uma caixa de pesquisa pode ser a seguinte:
+
+```html
+<input class="searchBox" type="text" id="searchbox1" placeholder="search">
+```
+
+Esse exemplo é uma caixa de texto de entrada simples com uma classe para definir o estilo, uma ID para referência pelo JavaScript e o texto de espaço reservado.  
+
+Dentro do mesmo arquivo, incorpore JavaScript que faz referência à caixa de pesquisa. A função a seguir chama a API de sugerir, que solicita documentos correspondentes sugeridos com base em entradas parciais de prazo:
 
 ```javascript
 $(function () {
-    $("#example1a").autocomplete({
+    $("#searchbox1").autocomplete({
         source: "/home/suggest?highlights=false&fuzzy=false&",
         minLength: 3,
         position: {
@@ -93,82 +115,31 @@ $(function () {
 });
 ```
 
-O código acima é executado no navegador no carregamento da página para configurar o preenchimento automático da interface do usuário do jQuery para a caixa de entrada "example1a".  `minLength: 3` faz com que as recomendações só sejam exibidas quando há pelo menos três caracteres na caixa de pesquisa.  O valor de origem é importante:
+O `source` programa informa a função jQuery UI Autocomplete onde obter a lista de itens a serem exibidos na caixa de pesquisa. Como este projeto é um projeto De MVC, ele chama a função **Sugerir** em **HomeController.cs** que contém a lógica para o retorno de sugestões de consulta. Essa função também passa alguns parâmetros para controlar destaques, correspondências difusas e termos. A API JavaScript de preenchimento automático adiciona o parâmetro de termo.
 
-```javascript
-source: "/home/suggest?highlights=false&fuzzy=false&",
-```
+O `minLength: 3` garante que as recomendações só serão mostradas quando houver pelo menos três caracteres na caixa de pesquisa.
 
-A linha acima informa à função de preenchimento automático da interface do usuário do jQuery onde obter a lista de itens a serem mostrados na caixa de pesquisa. Como este é um projeto do MVC, ele chama a função Suggest de HomeController.cs, que contém a lógica para retornar sugestões de consulta (há mais informações sobre Suggest na próxima seção). Essa função também passa alguns parâmetros para controlar destaques, correspondências difusas e termos. A API JavaScript de preenchimento automático adiciona o parâmetro de termo.
+### <a name="enable-fuzzy-matching"></a>Habilite a correspondência difusa
 
-### <a name="extending-the-sample-to-support-fuzzy-matching"></a>Estendendo o exemplo para dar suporte à correspondência difusa
-
-A pesquisa difusa permite que você obtenha resultados com base em correspondências próximas, mesmo se o usuário errou a escrita de uma palavra na caixa de pesquisa. Embora não seja obrigatória, ela aumenta significativamente a qualidade da experiência de digitação antecipada. Vamos experimentar isso alterando a linha de origem para habilitar a correspondência difusa.
-
-Altere a linha abaixo da seguinte forma:
-
-```javascript
-source: "/home/suggest?highlights=false&fuzzy=false&",
-```
-
-para isto:
+A pesquisa difusa permite que você obtenha resultados com base em correspondências próximas, mesmo se o usuário errou a escrita de uma palavra na caixa de pesquisa. A distância de edição é 1, o que significa que pode haver uma discrepância máxima de um caractere entre a entrada do usuário e uma correspondência. 
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=true&",
 ```
 
-Inicie o aplicativo pressionando F5.
+### <a name="enable-highlighting"></a>Habilite o destaque
 
-Tente digitar algo como "execativo" e observe como os resultados retornam para "Executivo", mesmo que não sejam uma correspondência exata para as letras digitadas.
-
-### <a name="jquery-autocomplete--backed-by-azure-cognitive-search-autocomplete"></a>Preenchimento automático de jQuery com suporte do preenchimento automático da Pesquisa Cognitiva do Azure
-
-Até agora, o código da experiência do usuário de pesquisa estava centralizado nas sugestões. O próximo bloco de código mostra a função de preenchimento automático da interface do usuário do jQuery (linha 91 de index. cshtml), passando uma solicitação de preenchimento automático da Pesquisa Cognitiva do Azure:
+O destaque aplica o estilo de fonte aos caracteres no resultado correspondente à entrada. Por exemplo, se a entrada parcial for "micro", o resultado apareceria como **micro**macio, **micro**escopo, e assim por diante. O destaque é baseado nos parâmetros HighlightPreTag e HighlightPostTag, definidos em linha com a função Sugestão.
 
 ```javascript
-$(function () {
-    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
-    // $.autocomplete -> $.autocompleteInline
-    $("#example2").autocompleteInline({
-        appendMethod: "replace",
-        source: [
-            function (text, add) {
-                if (!text) {
-                    return;
-                }
-
-                $.getJSON("/home/autocomplete?term=" + text, function (data) {
-                    if (data && data.length > 0) {
-                        currentSuggestion2 = data[0];
-                        add(data);
-                    }
-                });
-            }
-        ]
-    });
-
-    // complete on TAB and clear on ESC
-    $("#example2").keydown(function (evt) {
-        if (evt.keyCode === 9 /* TAB */ && currentSuggestion2) {
-            $("#example2").val(currentSuggestion2);
-            return false;
-        } else if (evt.keyCode === 27 /* ESC */) {
-            currentSuggestion2 = "";
-            $("#example2").val("");
-        }
-    });
-});
+source: "/home/suggest?highlights=true&fuzzy=true&",
 ```
 
-## <a name="c-example"></a>Exemplo de C#
+### <a name="suggest-function"></a>Sugerir função
 
-Agora que examinamos o código JavaScript da página da Web, vamos examinar o código do controlador do lado do servidor em C# que, na verdade, recupera as correspondências sugeridas usando o SDK do .NET da Pesquisa Cognitiva do Azure.
+Se você estiver usando C# e um aplicativo MVC, **HomeController.cs** arquivo sob o diretório Controladores é onde você pode criar uma classe para resultados sugeridos. Em .NET, uma função Suggest é baseada no [método DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
-Abra o arquivo **HomeController.cs** no diretório Controllers. 
-
-A primeira coisa que você pode notar é um método na parte superior da classe chamada `InitSearch`. Esse método cria um cliente de índice HTTP autenticado para o serviço da Pesquisa Cognitiva do Azure. Para obter mais informações, confira [Como usar a Pesquisa Cognitiva do Azure em um Aplicativo .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
-
-Na linha 41, observe a função Suggest. Ele se baseia no [método DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
+O `InitSearch` método cria um cliente de índice HTTP autenticado para o serviço de pesquisa cognitiva do Azure. Para obter mais informações sobre o .NET SDK, consulte [Como usar a Pesquisa Cognitiva do Azure a partir de um aplicativo .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -202,7 +173,48 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 
 A função Suggest utiliza dois parâmetros que determinam se os destaques de ocorrências são retornados ou se correspondência difusa é usada em conjunto com o termo de pesquisa de entrada. O método cria um [objeto SuggestParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), que é então passado para a API sugerir. O resultado, em seguida, é convertido em JSON para que ele possa ser exibido no cliente.
 
-Na linha 69, observe a função Autocomplete. Ele se baseia no [método DocumentsOperationsExtensions.Autocomplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet).
+## <a name="autocomplete"></a>Preenchimento Automático
+
+Até agora, o código UX de pesquisa foi centrado em sugestões. O próximo bloco de código mostra autocompletar, usando a função XDSoft jQuery UI Autocomplete, passando uma solicitação para autocompletar a Pesquisa Cognitiva do Azure. Como acontece com as sugestões, em um aplicativo C#, o código que suporta a interação do usuário vai para **index.cshtml**.
+
+```javascript
+$(function () {
+    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
+    // $.autocomplete -> $.autocompleteInline
+    $("#searchbox1").autocompleteInline({
+        appendMethod: "replace",
+        source: [
+            function (text, add) {
+                if (!text) {
+                    return;
+                }
+
+                $.getJSON("/home/autocomplete?term=" + text, function (data) {
+                    if (data && data.length > 0) {
+                        currentSuggestion2 = data[0];
+                        add(data);
+                    }
+                });
+            }
+        ]
+    });
+
+    // complete on TAB and clear on ESC
+    $("#searchbox1").keydown(function (evt) {
+        if (evt.keyCode === 9 /* TAB */ && currentSuggestion2) {
+            $("#searchbox1").val(currentSuggestion2);
+            return false;
+        } else if (evt.keyCode === 27 /* ESC */) {
+            currentSuggestion2 = "";
+            $("#searchbox1").val("");
+        }
+    });
+});
+```
+
+### <a name="autocomplete-function"></a>Função de preenchimento automático
+
+O preenchimento automático é baseado no [método DocumentsOperationsExtensions.Autocomplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet). Como com sugestões, este bloco de código iria para o **arquivo HomeController.cs.**
 
 ```csharp
 public ActionResult AutoComplete(string term)
@@ -217,7 +229,7 @@ public ActionResult AutoComplete(string term)
     };
     AutocompleteResult autocompleteResult = _indexClient.Documents.Autocomplete(term, "sg", ap);
 
-    // Conver the Suggest results to a list that can be displayed in the client.
+    // Convert the Suggest results to a list that can be displayed in the client.
     List<string> autocomplete = autocompleteResult.Results.Select(x => x.Text).ToList();
     return new JsonResult
     {
@@ -229,98 +241,10 @@ public ActionResult AutoComplete(string term)
 
 A função Autocomplete usa a entrada do termo de pesquisa. O método cria um [objeto AutoCompleteParameters](https://docs.microsoft.com/rest/api/searchservice/autocomplete). O resultado, em seguida, é convertido em JSON para que ele possa ser exibido no cliente.
 
-(Opcional) Adicione um ponto de interrupção no início da função Suggest e explore o código. Observe a resposta retornada pelo SDK e como ela é convertida no resultado retornado pelo método.
-
-Os outros exemplos na página seguem o mesmo padrão para adicionar o realce de ocorrências e facetas para dar suporte ao armazenamento em cache dos resultados de preenchimento automático no lado do cliente. Examine cada um deles para entender como eles funcionam e como aproveitá-los em sua experiência de pesquisa.
-
-## <a name="javascript-example"></a>Exemplo de JavaScript
-
-Uma implementação JavaScript de preenchimento automático e sugestões chama a API REST, usando um URI como fonte para especificar o índice e a operação. 
-
-Para examinar a implementação do JavaScript, abra **IndexJavaScript.cshtml**. Observe que a função de preenchimento automático da interface do usuário do jQuery também é usada para a caixa de pesquisa, coletando entradas de termo de pesquisa e fazendo chamadas assíncronas para a Pesquisa Cognitiva do Azure para recuperar correspondências sugeridas ou termos concluídos. 
-
-Vamos examinar o código JavaScript do primeiro exemplo:
-
-```javascript
-$(function () {
-    $("#example1a").autocomplete({
-        source: function (request, response) {
-        $.ajax({
-            type: "POST",
-            url: suggestUri,
-            dataType: "json",
-            headers: {
-                "api-key": searchServiceApiKey,
-                "Content-Type": "application/json"
-            },
-            data: JSON.stringify({
-                top: 5,
-                fuzzy: false,
-                suggesterName: "sg",
-                search: request.term
-            }),
-                success: function (data) {
-                    if (data.value && data.value.length > 0) {
-                        response(data.value.map(x => x["@@search.text"]));
-                    }
-                }
-            });
-        },
-        minLength: 3,
-        position: {
-            my: "left top",
-            at: "left-23 bottom+10"
-        }
-    });
-});
-```
-
-Se comparar esse exemplo com o exemplo acima que chama o controlador Home, você verá várias semelhanças.  A configuração de preenchimento automático para `minLength` e `position` são exatamente iguais. 
-
-A alteração significativa aqui está na origem. Em vez de chamar o método Suggest no controlador principal, uma solicitação REST é criada em uma função de JavaScript e executada usando o Ajax. A resposta, em seguida, é processada em "success" e usada como a origem.
-
-As chamadas REST usam URIs para especificar se uma chamada à API de [Preenchimento Automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) ou [Sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) está sendo feita. Os URIs a seguir estão nas linhas 9 e 10, respectivamente.
-
-```javascript
-var suggestUri = "https://" + searchServiceName + ".search.windows.net/indexes/" + indexName + "/docs/suggest?api-version=" + apiVersion;
-var autocompleteUri = "https://" + searchServiceName + ".search.windows.net/indexes/" + indexName + "/docs/autocomplete?api-version=" + apiVersion;
-```
-
-Na linha 148, você pode encontrar um script que chama o `autocompleteUri`. A primeira chamada para `suggestUri` está na linha 39.
-
-> [!Note]
-> A capacidade de fazer chamadas REST para o serviço em JavaScript é oferecida aqui como uma demonstração conveniente da API REST, mas não deve ser interpretada como uma melhor prática ou recomendação. A inclusão de uma chave de API e de um ponto de extremidade em um script abre seu serviço para ataques de negação de serviço para qualquer pessoa que possa ler esses valores do script. Embora seja seguro usar JavaScript para fins de aprendizado, e talvez em índices hospedados no serviço gratuito, é recomendável usar C# ou Java para operações de indexação e consulta no código de produção. 
-
-<a name="configure-app"></a>
-
-## <a name="create-an-nycjobs-index"></a>Crie um índice NYCJobs
-
-Até agora, você usou o índice de demonstração NYCJobs hospedado. Se quiser ter visibilidade total do código, incluindo do índice, siga estas instruções para criar e carregar o índice em seu próprio serviço de pesquisa.
-
-1. [Crie um serviço da Pesquisa Cognitiva do Azure](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. Você pode usar um serviço gratuito para este exemplo. 
-
-   > [!Note]
-   > Se estiver usando o serviço gratuito da Pesquisa Cognitiva do Azure, você estará limitado a três índices. O carregador de dados NYCJobs cria dois índices. Não se esqueça de deixar um espaço em seu serviço para aceitar os novos índices.
-
-1. Baixe o código de exemplo [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
-
-1. Na pasta DataLoader do código de exemplo NYCJobs, abra **DataLoader.sln** no Visual Studio.
-
-1. Adicione as informações de conexão para seu serviço da Pesquisa Cognitiva do Azure. Abra o App.config dentro do projeto DataLoader e altere o appSettings TargetSearchServiceName e TargetSearchServiceApiKey para refletir seu serviço da Pesquisa Cognitiva do Azure e a chave de API do serviço da Pesquisa Cognitiva do Azure. Essas informações podem ser encontradas no portal do Azure.
-
-1. Pressione F5 para iniciar o aplicativo, criando dois índices e importando os dados de exemplo de NYCJob.
-
-1. Abra **AutocompleteTutorial.sln** e edite o Web.config no projeto **AutocompleteTutorial**. Altere os valores de SearchServiceName e SearchServiceApiKey para valores válidos para o serviço de pesquisa.
-
-1. Pressione F5 para executar o aplicativo. O aplicativo Web de exemplo é aberto no navegador padrão. A experiência é idêntica à versão da área restrita, somente o índice e os dados são hospedados em seu serviço.
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Este exemplo demonstra as etapas básicas para a criação de uma caixa de pesquisa com suporte ao preenchimento automático e a sugestões. Você viu como poderia criar um aplicativo ASP.NET MVC e usar a API REST ou o SDK do .NET da Pesquisa Cognitiva do Azure para recuperar sugestões.
+Siga esses links para instruções ou códigos de ponta a ponta que demonstrem experiências de pesquisa como tipo. Ambos os exemplos de código incluem implementações híbridas de sugestões e preenchimento automático juntos.
 
-Como a etapa seguinte, integre sugestões e preenchimento automático à sua experiência de pesquisa. Os artigos de referência a seguir devem ajudar.
-
-> [!div class="nextstepaction"]
-> [Preenchimento automático de sugestões de api](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
-> [rest API](https://docs.microsoft.com/rest/api/searchservice/suggestions)
-> [Facets em uma API Create Index REST](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [Tutorial: Crie seu primeiro aplicativo em C# (lição 3)](tutorial-csharp-type-ahead-and-suggestions.md)
++ [C# amostra de código: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead)
++ [C# e JavaScript com amostra de código LADO a lado REST](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

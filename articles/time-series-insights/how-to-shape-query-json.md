@@ -7,16 +7,16 @@ ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 04/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8232fd4c2a1e17800c96854b4ba7298e57ed84b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63a708f80ad18309269e37c354b047c304a260d3
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76989885"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641287"
 ---
-# <a name="shape-json-to-maximize-query-performance"></a>Modele JSON para maximizar o desempenho da consulta 
+# <a name="shape-json-to-maximize-query-performance"></a>Modele JSON para maximizar o desempenho da consulta
 
 Este artigo fornece orientações sobre como moldar o JSON para maximizar a eficiência das consultas do Azure Time Series Insights.
 
@@ -102,7 +102,7 @@ Considere a seguinte carga JSON enviada para o ambiente GA do Time Series Insigh
 
 * Tabela de eventos do Time Series Insights, após o achatamento:
 
-   | deviceId | messageId | deviceLocation |  timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
+   | deviceId | messageId | deviceLocation | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
    | --- | --- | --- | --- | --- | --- |
    | FXXX | DADOS\_LINHA | UE | 2018-01-17T01:17:00Z | 1,0172575712203979 | 34,7 |
    | FXXX | DADOS\_LINHA | UE | 2018-01-17T01:17:00Z | 2,445906400680542 | 49,2 |
@@ -174,7 +174,7 @@ Carga JSON de exemplo:
 
 * Tabela de eventos do Time Series Insights, após o achatamento:
 
-   | deviceId | series.tagId | messageId | deviceLocation | type | unit |  timestamp | series.value |
+   | deviceId | series.tagId | messageId | deviceLocation | type | unit | timestamp | series.value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | DADOS\_LINHA | UE | Taxa de Fluxo | ft3/s | 2018-01-17T01:17:00Z | 1,0172575712203979 | 
    | FXXX | oilPressure | DADOS\_LINHA | UE | Pressão de óleo do motor | psi | 2018-01-17T01:17:00Z | 34,7 |
@@ -194,7 +194,7 @@ Carga JSON de exemplo:
 Para uma propriedade com um grande número de valores possíveis, é melhor enviar valores distintos dentro de uma única coluna em vez de criar uma nova coluna para cada valor. Dos dois exemplos anteriores:
 
   - No primeiro exemplo, algumas propriedades têm vários valores, por isso é apropriado fazer de cada uma uma propriedade separada.
-  - No segundo exemplo, as medidas não são especificadas como propriedades individuais. Em vez disso, eles são uma matriz de valores ou medidas uma propriedade de série comum. A nova **tecla tagId** é enviada, o que cria a nova **série de colunas.tagId** na tabela achatada. O novo **tipo** de propriedades e **unidade** são criados usando dados de referência para que o limite de propriedade não seja atingido.
+  - No segundo exemplo, as medidas não são especificadas como propriedades individuais. Em vez disso, eles são uma matriz de valores ou medidas sob uma propriedade de série comum. A nova **tecla tagId** é enviada, o que cria a nova **série de colunas.tagId** na tabela achatada. O novo **tipo** de propriedades e **unidade** são criados usando dados de referência para que o limite de propriedade não seja atingido.
 
 ## <a name="next-steps"></a>Próximas etapas
 
