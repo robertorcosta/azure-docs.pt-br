@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: d127d3f9e66b7d2d40aa420e2116fee17d996514
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 7858bd467c6e3fd82fcb3803a98e96b265f17d23
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437300"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605263"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como habilitar a virtualização aninhada em uma VM do Azure
 
@@ -42,7 +42,7 @@ Inicie uma conexão da área de trabalho remota para a máquina virtual.
 
 1. Clique no botão **Conectar** nas propriedades da máquina virtual. Um arquivo do protocolo RDP (.rdp) é criado e baixado.
 
-2. Para se conectar à sua VM, abra o arquivo RDP baixado. Se solicitado, clique em **Conectar**. Em um Mac, você precisa de um cliente RDP, como este [Cliente de Área de Trabalho Remota](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) da Mac App Store.
+2. Para se conectar à sua VM, abra o arquivo RDP baixado. Se solicitado, clique em **Conectar**. Em um Mac, você precisa de um cliente RDP, como este [Cliente de Área de Trabalho Remota](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) da Mac App Store.
 
 3. Insira o nome de usuário e a senha especificados na criação da máquina virtual e clique em **Ok**.
 
@@ -98,7 +98,7 @@ Crie um novo adaptador de rede virtual para a máquina virtual convidada e confi
 4. Crie um endereço IP para o Gateway de NAT.
     
 Para configurar o gateway, você precisa de algumas informações sobre a rede:    
-  * IPAddress – o IP do Gateway de NAT especifica o endereço IPv4 ou IPv6 a ser usado como o endereço de gateway padrão da sub-rede da rede virtual. O formulário genérico é a.b.c. 1 (por exemplo, “192.168.0.1”). Embora a posição final não precise ser .1, geralmente ela é assim (com base no tamanho do prefixo). Normalmente, você deve usar um espaço de endereço de rede privada RFC 1918. 
+  * IPAddress – o IP do Gateway de NAT especifica o endereço IPv4 ou IPv6 a ser usado como o endereço de gateway padrão da sub-rede da rede virtual. O formulário genérico é a.b.c. 1 (por exemplo, “192.168.0.1”). Embora a posição final não precise ser 0,1, geralmente é (com base no comprimento do prefixo). Normalmente, você deve usar um espaço de endereço de rede privada RFC 1918. 
   * PrefixLength – o tamanho do prefixo da sub-rede define o tamanho da sub-rede local (máscara de sub-rede). O tamanho do prefixo de sub-rede será um valor inteiro entre 0 e 32. O valor 0 mapeará toda a Internet e 32 permitirá somente um IP mapeado. Os valores comuns variam de 24 a 12, dependendo de quantos IPs precisam ser anexados ao NAT. Um PrefixLength comum é 24 – essa é uma máscara de sub-rede igual a 255.255.255.0.
   * InterfaceIndex – **ifIndex** é o índice de interface do comutador virtual criado na etapa anterior. 
 

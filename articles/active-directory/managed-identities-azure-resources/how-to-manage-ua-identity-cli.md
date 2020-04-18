@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/15/2019
+ms.date: 04/17/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1e8587562ff452373fe2ee3b98fa20309e77cc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be5defb85547e8750dea9ceaa481217aa40a004e
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266579"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639772"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Criar, listar ou excluir uma identidade gerenciada atribuída ao usuário usando a CLI do Azure
 
@@ -37,6 +37,12 @@ Neste artigo, você aprende como criar, listar e excluir uma identidade gerencia
     - Usar o [Azure Cloud Shell](../../cloud-shell/overview.md) no Portal do Azure (confira a próxima seção).
     - Usar o Azure Cloud Shell inserido por meio do botão "Experimentar", localizado no canto superior direito de cada bloco de código.
     - [Instale a versão mais recente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 ou mais recente), se você preferir usar um console da CLI local. Entre no Azure usando `az login`, usando uma conta associada à assinatura do Azure na qual você quer implantar a identidade gerenciada atribuída ao usuário.
+
+
+> [!NOTE]
+> Para modificar as permissões do usuário ao usar um principal servivce de aplicativo usando CLI, você deve fornecer ao serviço permissões adicionais principais na API Azure AD Graph à medida que partes da CLI realizam solicitações GET contra a API do Graph. Caso contrário, você pode acabar recebendo uma mensagem 'Privilégios insuficientes para completar a operação'. Para fazer isso, você precisará entrar no registro do App no Azure Active Directory, selecionar seu aplicativo, clicar em permissões de API, rolar para baixo e selecionar Azure Active Directory Graph. A partir daí selecione permissões de aplicativo e adicione as permissões apropriadas. 
+
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

@@ -3,12 +3,12 @@ title: Monitore aplicativos Java em qualquer ambiente - Azure Monitor Applicatio
 description: Monitoramento de desempenho de aplicativos para aplicativos Java em execução em qualquer ambiente sem instrumentar o aplicativo. Rastreamento distribuído e mapa de aplicação.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 5a62be45320523ee0577d56eb557a4f87a58a1cc
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 5706d5a74bd6850a237f7418b1a86a8e9c7762e1
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886850"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604569"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java aplicativo sem código monitorando Azure Monitor Application Insights - visualização pública
 
@@ -24,11 +24,11 @@ Você ainda pode enviar telemetria personalizada a partir de sua aplicação. O 
 
 **1. Baixe o agente**
 
-Baixe [applicationinsights-agent-3.0.0-PREVIEW.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.2/applicationinsights-agent-3.0.0-PREVIEW.2.jar)
+Baixe [applicationinsights-agent-3.0.0-PREVIEW.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.3/applicationinsights-agent-3.0.0-PREVIEW.3.jar)
 
 **2. Aponte o JVM para o agente**
 
-Adicione `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.2.jar` aos args JVM do seu aplicativo
+Adicione `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.3.jar` aos args JVM do seu aplicativo
 
 Os args típicos `-Xmx512m` `-XX:+UseG1GC`da JVM incluem e . Então, se você sabe onde adicioná-los, então você já sabe onde adicionar isso.
 
@@ -37,7 +37,14 @@ Para obter ajuda adicional na configuração dos args JVM do seu aplicativo, con
 **3. Aponte o agente para o recurso Application Insights**
 
 Se você ainda não tiver um recurso application Insights, você pode criar um novo seguindo as etapas do [guia de criação de recursos](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
-Crie um arquivo `ApplicationInsights.json`de configuração chamado e `applicationinsights-agent-3.0.0-PREVIEW.2.jar`coloque-o no mesmo diretório com o seguinte conteúdo:
+
+Aponte o agente para o recurso Application Insights, seja definindo uma variável de ambiente:
+
+```
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
+```
+
+Ou criando um arquivo `ApplicationInsights.json`de configuração chamado e `applicationinsights-agent-3.0.0-PREVIEW.3.jar`colocando-o no mesmo diretório com o seguinte conteúdo:
 
 ```json
 {

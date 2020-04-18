@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4538afcef85c4a6eaef4213133963ecab9987e1f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: d7a596454a48a1d6fcee77634363dd38f34a4d58
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80876210"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603362"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implantação do Azure Active Directory
 Procurando orientação de ponta a ponta sobre a implantação de recursos do Azure Active Directory (Azure AD) ? Os planos de implantação do Azure AD o investigam sobre o valor do negócio, as considerações de planejamento e os procedimentos operacionais necessários para implantar com sucesso os recursos comuns do Azure AD.
@@ -70,7 +70,7 @@ A ampliação da implantação para grupos maiores de usuários deve ser realiza
 
 | Recurso | Descrição|
 | -| - |
-| [Logon único](../manage-apps/plan-sso-deployment.md)| O logon único ajuda seus usuários a acessar os aplicativos e recursos de que precisam para fazer negócios enquanto fazem login apenas uma vez. Depois de fazerem o registro, eles podem ir do Microsoft Office ao SalesForce to Box para aplicativos internos sem serem obrigados a inserir credenciais uma segunda vez. |
+| [Logon Único](../manage-apps/plan-sso-deployment.md)| O logon único ajuda seus usuários a acessar os aplicativos e recursos de que precisam para fazer negócios enquanto fazem login apenas uma vez. Depois de fazerem o registro, eles podem ir do Microsoft Office ao SalesForce to Box para aplicativos internos sem serem obrigados a inserir credenciais uma segunda vez. |
 | [Painel de acesso](../manage-apps/access-panel-deployment-plan.md)| Oferece a seus usuários um hub simples para descobrir e acessar todos os seus aplicativos. Permitir que eles sejam mais produtivos com recursos de autoatendimento, como solicitar acesso a aplicativos e grupos ou gerenciar o acesso a recursos em nome de terceiros. |
 
 
@@ -80,7 +80,7 @@ A ampliação da implantação para grupos maiores de usuários deve ser realiza
 | -| -|
 | [ADFS para sincronização de hash de senha](../hybrid/plan-migrate-adfs-password-hash-sync.md)| Com a sincronização do Hash password, os hashes das senhas de usuário são sincronizados do Active Directory on-premises para o Azure AD, permitindo que o Azure AD autentique usuários sem interação com o Active Directory no local |
 | [ADFS para autenticação de passagem](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| A autenticação de passagem do AD do Azure ajuda seus usuários a entrar em aplicativos no local e na nuvem usando as mesmas senhas. Esse recurso oferece aos usuários uma experiência melhor - uma senha a menos para lembrar - e reduz os custos do helpdesk de TI porque os usuários são menos propensos a esquecer como fazer login. Quando as pessoas entram usando o Azure AD, esse recurso valida as senhas dos usuários diretamente no Active Directory local. |
-| [Proxy de Aplicativo do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan.md) |Os funcionários de hoje querem ser produtivos em qualquer lugar, a qualquer momento e com qualquer dispositivo. Eles precisam acessar aplicativos SaaS na nuvem e aplicativos corporativos no local. O proxy do Aplicativo Azure AD permite esse acesso robusto sem vpns (vpns) ou zonas desmilitarizadas (DMZs) de redes virtuais caras e complexas. |
+| [Proxy de Aplicativo do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-deployment-plan) |Os funcionários de hoje querem ser produtivos em qualquer lugar, a qualquer momento e com qualquer dispositivo. Eles precisam acessar aplicativos SaaS na nuvem e aplicativos corporativos no local. O proxy do Aplicativo Azure AD permite esse acesso robusto sem vpns (vpns) ou zonas desmilitarizadas (DMZs) de redes virtuais caras e complexas. |
 | [SSO contínuo](../hybrid/how-to-connect-sso-quick-start.md)| O SSO Contínuo do Azure AD (Logon Único Contínuo do Azure Active Directory) conecta usuários automaticamente quando estiverem nos respectivos dispositivos corporativos conectados à sua rede corporativa. Com esse recurso, os usuários não precisarão digitar suas senhas para fazer login no Azure AD e geralmente não precisarão inserir seus nomes de usuário. Esse recurso fornece aos usuários autorizados acesso fácil aos seus aplicativos baseados na nuvem sem precisar de componentes adicionais no local. |
 
 ## <a name="deploy-user-provisioning"></a>Implantar provisionamento de usuários

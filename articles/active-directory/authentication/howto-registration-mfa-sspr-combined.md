@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 04/17/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d9544b1f4dd5ecbf66493f26c373c5502dce68a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 466b063253ee49ab58c2685f359b4bb8a4079532
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81451067"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639687"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Habilite o registro combinado de informações de segurança no Azure Active Directory
 
@@ -47,34 +47,34 @@ Se você configurou a Lista de atribuição de site para região no Internet Exp
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>Políticas de Acesso Condicional para registro combinado
 
-Garantir quando e como os usuários se registram para autenticação multifatorial do Azure e redefinição de senha de autoatendimento agora é possível com ações do usuário na política de Acesso Condicional. Esse recurso está disponível para organizações que habilitaram o [recurso de registro combinado](../authentication/concept-registration-mfa-sspr-combined.md). Essa funcionalidade pode ser habilitada em organizações onde eles desejam que os usuários se registrem para autenticação multifatorial e SSPR do Azure de um local central, como um local de rede confiável durante o onboarding de RH. Para obter mais informações sobre a criação de locais confiáveis no Acesso Condicional, consulte o artigo [Qual é a condição de localização no Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
+Garantir quando e como os usuários se registram para autenticação multifatorial do Azure e redefinição de senha de autoatendimento agora é possível com ações do usuário na política de Acesso Condicional. Esse recurso está disponível para organizações que habilitaram o [recurso de registro combinado](../authentication/concept-registration-mfa-sspr-combined.md). Essa funcionalidade pode ser habilitada em organizações onde eles desejam que os usuários se registrem para autenticação multifatorial e SSPR do Azure de um local central, como um local de rede confiável durante o onboarding de RH.
+
+Para obter mais informações sobre a criação de locais confiáveis no Acesso Condicional, consulte o artigo [Qual é a condição de localização no Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Crie uma diretiva para exigir o registro de um local confiável
 
-A política a seguir se aplica a todos os usuários selecionados, que tentam se registrar usando a experiência de registro combinada e bloqueiam o acesso, a menos que estejam se conectando a partir de um local marcado como rede confiável.
-
-![Crie uma política de CA para controlar o registro de informações de segurança](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
+A política a seguir se aplica a todos os usuários selecionados que tentam se registrar usando a experiência de registro combinada e bloqueia o acesso, a menos que estejam se conectando a partir de um local marcado como rede confiável.
 
 1. No **portal Azure,** navegue até o**Acesso Condicional de** **Segurança** > do Diretório >  **Ativo do Azure**
-1. Selecione **Nova política**
-1. Em Nome, Digite um Nome para esta política. Por exemplo, **registro combinado de informações de segurança em redes confiáveis**
-1. Em **Atribuições,** clique **em Usuários e grupos**e selecione os usuários e grupos que deseja que esta política se aplique a
+1. Selecione **+ Nova política**
+1. Digite um nome para esta diretiva, como *Registro combinado de informações de segurança em redes confiáveis*.
+1. Em **Atribuições**, selecione **Usuários e grupos**. Escolha os usuários e grupos a que deseja que esta política se aplique e selecione **'Feito ''Feito ''Feito'.**
 
    > [!WARNING]
-   > Os usuários devem ser habilitados para [o registro combinado.](../authentication/howto-registration-mfa-sspr-combined.md)
+   > Os usuários devem ser habilitados para o registro combinado.
 
-1. Em **aplicativos ou ações na Nuvem,** selecione ações do **usuário,** verifique **as informações de segurança do registro (visualização)**
-1. Em **Condições** > **Localizações**
+1. Em **aplicativos ou ações na Nuvem,** selecione ações do **Usuário**. Verifique **as informações de segurança do Registro**e selecione **"Feito".**
+
+    ![Crie uma política de acesso condicional para controlar o registro de informações de segurança](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
+
+1. Em Condições**Localizações,** configure as **seguintes** > opções:
    1. Configurar **Sim**
    1. Incluir **qualquer local**
    1. Excluir **todos os locais confiáveis**
-   1. Clique em **Feito** na lâmina Locais
-   1. Clique em **Feito** na lâmina Condições
-1. Sob **controles de** > **acesso, Grant**
-   1. Clique **em Bloquear o acesso**
-   1. Em seguida, clique em **Selecionar**
+1. Selecione **'Feito** na janela *Locais',* em seguida, **selecione Feito** na janela *Condições.*
+1. Em **Acesso controla** > **conceder,** escolha **bloquear acesso**e, em seguida, **selecionar**
 1. Definir **ativar a política** para **on**
-1. Em seguida, clique em **Criar**
+1. Para finalizar a diretiva, selecione **Criar**
 
 ## <a name="next-steps"></a>Próximas etapas
 

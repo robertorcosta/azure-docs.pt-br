@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
-ms.openlocfilehash: c55bee9880c4134f2e304a7fc5176225477fe5f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: 01dd8422658aa0c8982733e48782efd27c1bf5be
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480752"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617847"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Como atualizar o Monitor Do Azure para o agente de dependência de VMs
 
@@ -60,7 +60,7 @@ Você pode baixar a versão mais recente do agente windows [daqui](https://aka.m
 
 A atualização das versões anteriores do agente Dependency no Linux é suportada e realizada seguindo o mesmo comando de uma nova instalação.
 
-Você pode baixar a versão mais recente do agente windows [daqui](https://aka.ms/dependencyagentlinux).
+Você pode baixar a versão mais recente do agente Linux [daqui](https://aka.ms/dependencyagentlinux).
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 

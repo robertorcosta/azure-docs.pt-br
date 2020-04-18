@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2020
-ms.openlocfilehash: 381c6573dff1b3f1638af9090a535d9a1e59b2b5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 26852ec77194714c8236856b7cb496170bf0d777
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413154"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606332"
 ---
 # <a name="sort-transformation-in-mapping-data-flow"></a>Classificar a transformação no mapeamento do fluxo de dados
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A transformação de classificação permite classificar as linhas recebidas no fluxo de dados atual. Você pode escolher colunas individuais e classificá-las em ordem ascendente ou descendente.
 

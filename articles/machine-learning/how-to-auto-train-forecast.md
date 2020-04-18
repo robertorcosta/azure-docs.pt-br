@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: d4e36c0d3838af85768453496a51ecd295c22b93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be3046a343e14be4a527363751081ba3f2593cd3
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79081838"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605884"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Auto-train um modelo de previsão de série temporal
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -205,12 +205,7 @@ fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
 
 Use a melhor iteração do modelo para prever valores para o conjunto de dados do teste.
 
-```python
-predict_labels = fitted_model.predict(test_data)
-actual_labels = test_labels.flatten()
-```
-
-Alternativamente, você pode `forecast()` usar `predict()`a função em vez de , o que permitirá especificações de quando as previsões devem começar. No exemplo a seguir, você `y_pred` primeiro `NaN`substitui todos os valores com . A origem da previsão será no final dos dados de treinamento `predict()`neste caso, como normalmente seria quando se utiliza. No entanto, se você substituísse apenas a segunda metade com `y_pred` `NaN`, a função deixaria os `NaN` valores numéricos no primeiro semestre sem modificações, mas previu os valores no segundo semestre. A função retorna tanto os valores previstos quanto os recursos alinhados.
+A `forecast()` função deve ser `predict()`usada em vez de , isso permitirá especificações de quando as previsões devem começar. No exemplo a seguir, você `y_pred` primeiro `NaN`substitui todos os valores com . A origem da previsão será no final dos dados de treinamento `predict()`neste caso, como normalmente seria quando se utiliza. No entanto, se você substituísse apenas a segunda metade com `y_pred` `NaN`, a função deixaria os `NaN` valores numéricos no primeiro semestre sem modificações, mas previu os valores no segundo semestre. A função retorna tanto os valores previstos quanto os recursos alinhados.
 
 Você também pode `forecast_destination` usar o `forecast()` parâmetro na função para prever valores até uma data especificada.
 

@@ -3,18 +3,18 @@ title: Onde e como usar - Personalizador
 description: O Personalizador pode ser aplicado em qualquer situação em que seu aplicativo pode selecionar o item, a ação ou o produto correto a ser exibido – visando aprimorar a experiência, alcançar melhores resultados de negócios ou melhorar a produtividade.
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 63e66315898242beb5da59927e8d506e6f2cff78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c562d7a1853736204a7a03262547e083bd85fb75
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219319"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617686"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Onde e como usar o Personalr
 
 Use o Personaland em qualquer situação em que seu aplicativo precise selecionar a ação (conteúdo) correta para exibir - a fim de tornar a experiência melhor, alcançar melhores resultados de negócios ou melhorar a produtividade.
 
-O personalizador usa aprendizado de máquina para selecionar qual ação (conteúdo) para mostrar ao usuário. A seleção pode variar drasticamente, dependendo da quantidade, da qualidade e da distribuição dos dados enviados ao serviço.
+O personalizador usa o aprendizado reforçado para selecionar qual ação (conteúdo) para mostrar ao usuário. A seleção pode variar drasticamente, dependendo da quantidade, da qualidade e da distribuição dos dados enviados ao serviço.
 
 ## <a name="example-use-cases-for-personalizer"></a>Casos de uso de exemplo do Personalizador
 

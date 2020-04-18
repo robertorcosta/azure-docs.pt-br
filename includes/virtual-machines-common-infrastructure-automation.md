@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: f2eb503b58f1679d138b6a1dd9304896be098ad6
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7c1ad2581d025a9259c5cb2a84e4237f938fc892
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80419203"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81637138"
 ---
 Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é ideal ter algum grau de automação. Há muitas ferramentas e soluções que permitem automatizar a implantação de toda a infraestrutura do Azure e o ciclo de vida de gerenciamento. Este artigo apresenta algumas das ferramentas de automação de infraestrutura que você pode usar no Azure. Essas ferramentas normalmente se encaixam em uma das seguintes abordagens:
 
@@ -125,7 +125,7 @@ Saiba mais sobre:
 
 
 ## <a name="jenkins"></a>Jenkins
-O [Jenkins](https://www.jenkins.io) é um servidor de integração contínua que ajuda a implantar e testar aplicativos e a criar pipelines automatizados para entrega de código. Há centenas de plug-ins para estender a plataforma principal do Jenkins, e você também pode integrar com muitos outros produtos e soluções por meio de webhooks. Manualmente, você pode instalar o Jenkins em uma VM do Azure, executá-lo de dentro de um contêiner do Docker ou usar uma imagem do Azure Marketplace pré-criada.
+O [Jenkins](https://jenkins.io) é um servidor de integração contínua que ajuda a implantar e testar aplicativos e a criar pipelines automatizados para entrega de código. Há centenas de plug-ins para estender a plataforma principal do Jenkins, e você também pode integrar com muitos outros produtos e soluções por meio de webhooks. Manualmente, você pode instalar o Jenkins em uma VM do Azure, executá-lo de dentro de um contêiner do Docker ou usar uma imagem do Azure Marketplace pré-criada.
 
 Saiba como:
 

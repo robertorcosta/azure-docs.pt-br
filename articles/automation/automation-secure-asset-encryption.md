@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: a82d2b6d9521ba7dd5e7b194c26ff8fe5a100871
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 594bac257c2b9739f1ece276c881348b35d2f704
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457477"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604809"
 ---
 # <a name="encrypt-secure-assets-in-azure-automation"></a>Criptografar ativos seguros na Automação do Azure
 
@@ -56,11 +56,11 @@ Antes de habilitar as chaves gerenciadas pelo cliente para uma conta de Automaç
  - Apenas as chaves RSA são suportadas com criptografia Azure Automation. Para obter mais informações sobre chaves, consulte [sobre as chaves, segredos e certificados do Azure Key Vault](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 - A conta de Automação e o cofre-chave podem estar em assinaturas diferentes, mas precisam estar no mesmo inquilino do Azure Active Directory.
 
-### <a name="assign-an-identity-to-the-automation-account"></a>Atribuir uma identidade à conta de automação
+### <a name="assign-an-identity-to-the-automation-account"></a>Atribuir uma identidade à conta automação
 
-Para usar chaves gerenciadas pelo cliente com uma conta de Automação, sua conta de Automação precisa autenticar contra o cofre chave armazenando chaves gerenciadas pelo cliente. O Azure Automation usa identidades gerenciadas atribuídas ao sistema para autenticar a conta com o Azure Key Vault. Para obter mais informações sobre identidades gerenciadas, confira [O que são identidades gerenciadas para recursos do Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Para usar chaves gerenciadas pelo cliente com uma conta de Automação, sua conta de Automação precisa autenticar contra o cofre chave armazenando chaves gerenciadas pelo cliente. O Azure Automation usa identidades gerenciadas atribuídas ao sistema para autenticar a conta com o Azure Key Vault. Para obter mais informações sobre identidades gerenciadas, consulte [Quais são as identidades gerenciadas para os recursos do Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-Configure uma identidade gerenciada atribuída ao sistema para a conta de automação usando a seguinte chamada de API REST:
+Configure uma identidade gerenciada atribuída ao sistema para a conta Automação usando a seguinte chamada de API REST:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -133,7 +133,7 @@ Corpo da solicitação:
 
 ### <a name="change-the-configuration-of-automation-account-to-use-customer-managed-key"></a>Alterar a configuração da conta de automação para usar a chave gerenciada pelo cliente
 
-Finalmente, você pode mudar sua conta de automação de chaves gerenciadas pelo Microsft para chaves gerenciadas pelo cliente, usando a seguinte chamada de API REST:
+Finalmente, você pode mudar sua conta de automação de chaves gerenciadas pela Microsoft para chaves gerenciadas pelo cliente, usando a seguinte chamada de API REST:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -193,9 +193,6 @@ Para revogar o acesso às chaves gerenciadas pelo cliente, use o PowerShell ou o
 ## <a name="next-steps"></a>Próximas etapas
 
 - [O que é o Azure Key Vault?](../key-vault/general/overview.md)
-
 - [Ativos de certificado na Automação do Azure](shared-resources/certificates.md)
-
 - [Ativos de credenciais na Automação do Azure](shared-resources/credentials.md)
-
 - [Ativos variáveis na Automação do Azure](shared-resources/variables.md)

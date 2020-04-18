@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9c98cd5d3d4d76f9455e4c036aa32a4ead20cfff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d845e245a242a88d16a2597f0144a0ae4a727cb0
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671708"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640967"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Criar o perfil de aplicativos web ASP.NET Core Azure Linux com o Application Insights Profiler
 
@@ -150,7 +150,7 @@ Você deverá ver uma saída semelhante ao seguinte exemplo:
 
 ## <a name="add-application-insights-to-monitor-your-web-apps"></a>Adicionar o Application Insights para monitorar seus aplicativos web
 
-1. [Crie um recurso Application Insights](./../../azure-monitor/app/create-new-resource.md ).
+1. [Crie um recurso de insights de aplicativos](./../../azure-monitor/app/create-new-resource.md ).
 
 2. Copie o valor de **iKey** do recurso do Application Insights e defina as seguintes configurações nos seus aplicativos web:
 
@@ -168,10 +168,6 @@ Você deverá ver uma saída semelhante ao seguinte exemplo:
 
     ![Exibir rastreamentos do Profiler](./media/profiler-aspnetcore-linux/view-traces.png)
 
-## <a name="known-issues"></a>Problemas conhecidos
-
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>O botão Profile Now não funciona para o Linux Profiler
-A versão Linux do perfil App Insights ainda não suporta a criação de perfil demanda usando o botão profile now.
 
 
 ## <a name="next-steps"></a>Próximas etapas

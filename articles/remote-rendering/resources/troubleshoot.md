@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7ee219ae5ace0f0da398cc542f410d3c895c8bd4
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: ac7e721a863414cf0617177885e0ff1c9e9a35d4
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679979"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617861"
 ---
 # <a name="troubleshoot"></a>Solucionar problemas
 
@@ -76,6 +76,14 @@ A qualidade do vídeo pode ser comprometida tanto pela qualidade da rede quanto 
 
 * Veja as etapas para [identificar problemas de rede](#unstable-holograms).
 * Consulte os [requisitos](../overview/system-requirements.md#development-pc) do sistema para instalar o driver gráfico mais recente.
+
+## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>Vídeo gravado com MRC não reflete a qualidade da experiência ao vivo
+
+Um vídeo pode ser gravado no Hololens através [da Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). No entanto, o vídeo resultante tem pior qualidade do que a experiência ao vivo por duas razões:
+* O framerate de vídeo é limitado a 30 Hz em vez de 60 Hz.
+* As imagens de vídeo não passam pela etapa final de processamento de [reprojeção,](../overview/features/late-stage-reprojection.md) então o vídeo parece ser mais picado.
+
+Ambas são limitações inerentes à técnica de gravação.
 
 ## <a name="black-screen-after-successful-model-loading"></a>Tela preta após carregamento de modelo bem-sucedido
 

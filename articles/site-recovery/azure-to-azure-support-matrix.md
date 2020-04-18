@@ -4,12 +4,12 @@ description: Resume o suporte à recuperação de desastres do Azure VMs para um
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: f61f32ddc0a1cc6575907bc72522228b77552947
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 3e66d71011937c3e22c6f1537bcd448d4aa3bbf3
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673798"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605515"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação de desastres da Azure VM entre as regiões do Azure
 
@@ -20,9 +20,9 @@ Este artigo resume o suporte e os pré-requisitos para a recuperação de desast
 
 **Implantação** |  **Suporte**
 --- | ---
-**Portal do Azure** |  Com suporte.
+**Azure portal** |  Com suporte.
 **PowerShell** |  Com suporte. [Saiba mais](azure-to-azure-powershell.md)
-**API REST** |  Com suporte.
+**REST API** |  Com suporte.
 **CLI** | Sem suporte no momento
 
 
@@ -154,7 +154,7 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.29 | Todos os [kernels SUS
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Todos os [sUSE 15 e 15 núcleos](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15) de estoque são suportados.</br></br> 4.12.14-5.5-azure para 4.12.14-8.22-azure |
+SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Todos os sUSE 15 e 15 núcleos de estoque são suportados.</br></br> 4.12.14-5.5-azure para 4.12.14-8.22-azure |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Máquinas replicadas - sistema de arquivos Linux / armazenamento convidado
 

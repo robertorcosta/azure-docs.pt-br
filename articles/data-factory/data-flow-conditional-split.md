@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
-ms.openlocfilehash: 20def8ca51f21d914e7090999e8284244c5f3ec7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bd9241e526d7cf42f0697afb8635c085a08c80d8
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416504"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606475"
 ---
 # <a name="conditional-split-transformation-in-mapping-data-flow"></a>Transformação condicional dividida no mapeamento do fluxo de dados
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A transformação condicional dividida roteia linhas de dados para diferentes fluxos com base em condições de correspondência. A transformação condicional de divisão é semelhante a uma estrutura de decisão CASE em uma linguagem de programação. A transformação avalia expressões, e com base nos resultados, direciona a linha de dados para o fluxo especificado.
 

@@ -5,31 +5,31 @@ services: automation
 ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: eaba4bf7760e150f2477ee743c797f94784b8506
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 9bdc8cf97513854cf6a92ffd078febca6302d35c
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535495"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617401"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
-Você pode usar a solução Update Management no Azure Automation para gerenciar atualizações do sistema operacional para suas máquinas Windows e Linux no Azure, em ambientes locais e em outros ambientes na nuvem. Você pode avaliar rapidamente o status das atualizações disponíveis em todas as máquinas de agentes e gerenciar o processo de instalação de atualizações necessárias para servidores.
+Você pode usar a **solução Update Management** no Azure Automation para gerenciar atualizações do sistema operacional para suas máquinas Windows e Linux no Azure, em ambientes locais e em outros ambientes na nuvem. Você pode avaliar rapidamente o status das atualizações disponíveis em todas as máquinas de agentes e gerenciar o processo de instalação de atualizações necessárias para servidores.
 
 Você pode habilitar o Update Management para máquinas virtuais (VMs) usando os seguintes métodos:
 
 - A partir de sua [conta Azure Automation](automation-onboard-solutions-from-automation-account.md) para uma ou mais máquinas Azure e manualmente para máquinas não-Azure.
 
-- Para uma única VM Azure da página da máquina virtual no portal Azure. Este cenário está disponível para [VMs Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) e [Windows.](../virtual-machines/windows/tutorial-config-management.md#enable-update-management)
+- Para uma única VM Azure da página da máquina Virtual no portal Azure. Este cenário está disponível para [VMs Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) e [Windows.](../virtual-machines/windows/tutorial-config-management.md#enable-update-management)
 
-- Para [várias VMs do Azure,](manage-update-multi.md) selecionando-as na página **de máquinas virtuais** no portal Azure. 
+- Para [várias VMs do Azure,](manage-update-multi.md) selecionando-as na página de máquinas virtuais no portal Azure. 
 
 > [!NOTE]
-> A solução Update Management requer a vinculação de um espaço de trabalho do Log Analytics à sua conta de Automação. Para obter uma lista definitiva de regiões suportadas, consulte [mapeamentos do Azure Workspace](./how-to/region-mappings.md). Os mapeamentos da região não afetam a capacidade de gerenciar VMs em uma região separada da sua conta de Automação.
+> A **solução Update Management** requer a vinculação de um espaço de trabalho do Log Analytics à sua conta de Automação. Para obter uma lista definitiva de regiões suportadas, consulte [mapeamentos do Azure Workspace](./how-to/region-mappings.md). Os mapeamentos da região não afetam a capacidade de gerenciar VMs em uma região separada da sua conta de Automação.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Um modelo do Azure [Resource Manager](automation-update-management-deploy-template.md) está disponível que permite que você implante a solução de gerenciamento de atualizações para uma conta de automação nova ou existente e espaço de trabalho do Log Analytics em sua assinatura.
+Um modelo do Azure [Resource Manager](automation-update-management-deploy-template.md) está disponível para ajudá-lo a implantar a solução de gerenciamento **de atualizações** em uma conta de automação nova ou existente e espaço de trabalho do Log Analytics em sua assinatura.
 
 ## <a name="solution-overview"></a>Visão geral da solução
 
@@ -137,7 +137,7 @@ A solução consiste nos recursos a seguir. Esses recursos são adicionados auto
 
 Depois de habilitar essa solução, qualquer máquina do Windows conectada diretamente ao seu espaço de trabalho do Log Analytics é configurada automaticamente como um Trabalhador de Runbook Híbrido para suportar os runbooks incluídos nesta solução.
 
-Cada máquina Windows gerenciada pela solução é listada no painel **de grupos de trabalhadores híbridos** como um **grupo de trabalhadores híbridos do sistema** para a conta de Automação. As soluções usam o *nome hostFQDN_GUID* convenção de nomeação. Não é possível direcionar esses grupos com runbooks em sua conta. Se você tentar, a tentativa falha. Esses grupos destinam-se a apoiar apenas essa solução de gestão.
+Cada máquina Windows gerenciada pela solução é listada no painel de grupos de trabalhadores híbridos como um grupo de trabalhadores híbridos do sistema para a conta de Automação. As soluções `Hostname FQDN_GUID` usam a convenção de nomeação. Não é possível direcionar esses grupos com runbooks em sua conta. Se você tentar, a tentativa falha. Esses grupos destinam-se a apoiar apenas essa solução de gestão.
 
 Você pode adicionar a máquina do Windows a um grupo hybrid Runbook Worker em sua conta de automação para suportar livros de execução de automação se você usar a mesma conta tanto para a solução quanto para a associação do grupo Hybrid Runbook Worker. Essa funcionalidade foi adicionada à versão 7.2.12024.0 do Hybrid Runbook Worker.
 
@@ -150,12 +150,12 @@ Se o grupo de gerenciamento do System Center Operations Manager estiver [conecta
 * MP de Implantação de Atualizações
 
 > [!NOTE]
-> Se você tiver um grupo de gerenciamento do Operations Manager 1807 ou 2019 conectado a um espaço de trabalho do Log Analytics com agentes configurados no grupo de gerenciamento para coletar dados de log, você precisa substituir a seguinte regra para gerenciá-los com o Gerenciamento de atualizações: Substituir o parâmetro **IsAutoRegistrationEnabled** e definir **como True** na regra **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init.**
+> Se você tiver um grupo de gerenciamento do Operations Manager 1807 ou 2019 conectado a um espaço de trabalho do `IsAutoRegistrationEnabled` Log Analytics com agentes configurados no grupo de gerenciamento para coletar dados de log, você precisa substituir o parâmetro e defini-lo como True na regra **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init.**
 
 Para obter mais informações sobre como os pacotes de gerenciamento de soluções são atualizados, consulte [Connect Operations Manager nos registros do Monitor Do Azure](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
-> Para que as máquinas com o agente Operations Manger, a serem totalmente gerenciadas pelo Update Management, o agente deve ser atualizado para o agente Log Analytics para Windows ou Linux. Para saber como atualizar o agente, consulte [como atualizar um agente do Operations Manager](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents). Em ambientes que usam o Gerente de Operações, você deve estar executando o System Center Operations Manager 2012 R2 UR 14 ou posterior.
+> Para que as máquinas com o agente Operations Manger sejam totalmente gerenciadas pelo Update Management, o agente deve ser atualizado para o agente log analytics para Windows ou para o agente Log Analytics para Linux. Para saber como atualizar o agente, consulte [como atualizar um agente do Operations Manager](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents). Em ambientes que usam o Gerente de Operações, você deve estar executando o System Center Operations Manager 2012 R2 UR 14 ou posterior.
 
 ## <a name="data-collection"></a>Coleta de dados
 
@@ -249,13 +249,9 @@ O Gerenciamento de atualizações conta com o repositório de atualização conf
 Para começar a atualizar sistemas, você precisa ativar a solução Update Management. A seguir estão os métodos recomendados e suportados para embarcar na solução:
 
 - [De uma máquina virtual](automation-onboard-solutions-from-vm.md)
-
 - [Da navegação em várias máquinas](automation-onboard-solutions-from-browse.md)
-
 - [Da sua conta de Automação](automation-onboard-solutions-from-automation-account.md)
-
 - [Com um runbook de Automação do Azure](automation-onboard-solutions.md)
-
 - [Com um modelo de Gerenciador de recursos do Azure](automation-update-management-deploy-template.md)
 
 ## <a name="next-steps"></a>Próximas etapas

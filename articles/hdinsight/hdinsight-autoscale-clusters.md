@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/05/2020
-ms.openlocfilehash: 68bc30d08d95fe8e3d20a8ecb7af6c9710951921
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/07/2020
+ms.openlocfilehash: 4f9b43b6f800bb47942ccc00fee0fac4536d2ec0
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399719"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640572"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
@@ -39,9 +39,9 @@ A tabela a seguir descreve os tipos de cluster e as versões compatíveis com o 
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-Você pode escolher dimensionamento baseado em carga ou escala ção por cronograma para o cluster HDInsight. O dimensionamento baseado em carga altera o número de nós em seu cluster, dentro de um intervalo definido, para garantir a utilização ideal da CPU e minimizar o custo de execução.
+Você pode escolher dimensionamento baseado em carga ou escala ção por cronograma para o cluster HDInsight. O dimensionamento baseado em carga altera o número de nós em seu cluster, dentro de um intervalo definido, para garantir o melhor uso da CPU e minimizar o custo de execução.
 
-O dimensionamento baseado em cronograma altera o número de nódulos em seu cluster com base em condições que fazem efeito em momentos específicos. Essas condições dimensionam o cluster para um número desejado de nódulos.
+O dimensionamento baseado em cronograma altera o número de nódulos em seu cluster com base em condições que fazem efeito em momentos específicos. Essas condições dimensionam o cluster para um número pretendido de nódulos.
 
 ### <a name="metrics-monitoring"></a>Monitoramento de métricas
 
@@ -56,7 +56,7 @@ O dimensionamento automático monitora o cluster continuamente e coleta as segui
 |Memória usada por nó|A carga em um nó de trabalho. Um nó de trabalho no qual 10 GB de memória são usados é considerado como estando sob uma carga maior que um nó de trabalho com 2 GB de memória usada.|
 |Número de mestres de aplicação por nó|O número de contêineres de aplicativo mestre (AM) em execução em um nó de trabalho. Um nó de trabalhador que está hospedando dois contêineres AM, é considerado mais importante do que um nó de trabalhador que está hospedando contêineres am zero.|
 
-As métricas acima são verificadas a cada 60 segundos. A autoscale toma decisões de scale-up e scale-down com base nessas métricas.
+As métricas acima são verificadas a cada 60 segundos. A escala automática toma decisões com base nessas métricas.
 
 ### <a name="load-based-scale-conditions"></a>Condições de escala baseadas em carga
 
@@ -67,9 +67,9 @@ Quando as seguintes condições forem detectadas, a Autoscale emitirá uma solic
 |O total de CPU pendente é maior do que a CPU total gratuita por mais de 3 minutos.|O total de CPU pendente é menor que o total de CPU livre por mais de 10 minutos.|
 |A memória total pendente é maior do que a memória total livre por mais de 3 minutos.|O total de memória pendente é menor que o total de memória livre por mais de 10 minutos.|
 
-Para aumentar a escala, o serviço HDInsight calcula quantos novos nós de trabalhadores são necessários para atender aos requisitos atuais de CPU e memória e, em seguida, emite uma solicitação de scale-up para adicionar o número de nós necessários.
+Para aumentar a escala, a Autoscale emite uma solicitação de scale-up para adicionar o número de nomes necessários. O scale-up é baseado em quantos novos nós de trabalhadores são necessários para atender aos requisitos atuais de CPU e memória.
 
-Para reduzir a escala, com base no número de recipientes AM por nó e nos requisitos atuais de CPU e memória, a Escala automática emite uma solicitação para remover um determinado número de nomes. O serviço também detecta quais nós são candidatos à remoção com base na execução atual do trabalho. A operação de remoção de escala primeiro desativa os nódulos e, em seguida, remove-os do cluster.
+Para reduzir a escala, a Autoscale emite uma solicitação para remover um certo número de nomes. A rebaixação é baseada no número de recipientes AM por nó. E os requisitos atuais de CPU e memória. O serviço também detecta quais nós são candidatos à remoção com base na execução atual do trabalho. A operação de remoção de escala primeiro desativa os nódulos e, em seguida, remove-os do cluster.
 
 ## <a name="get-started"></a>Introdução
 
@@ -79,7 +79,7 @@ Para habilitar o recurso Autoscale com dimensionamento baseado em carga, complet
 
 1. Na guia **Configuração + preços,** selecione a caixa de seleção **Ativar em escala automática.**
 1. Selecione **'Carga', baseada em** carga, em **tipo autoescala .**
-1. Digite os valores desejados para as seguintes propriedades:  
+1. Digite os valores pretendidos para as seguintes propriedades:  
 
     * Número inicial **de nódulos** para **nó trabalhador**.
     * **Número min** de nódulos operários.
@@ -108,11 +108,11 @@ O número de nós deve ser entre 3 e o número máximo de nós de trabalhadores 
 
 ### <a name="final-creation-steps"></a>Etapas finais de criação
 
-Para dimensionamento baseado em carga e cronograma, selecione o tipo VM para nós do trabalhador, selecionando uma VM na lista de baixa em **tamanho de nó**. Depois de escolher o tipo de VM para cada tipo de nó, você pode ver a faixa de custo estimada para todo o cluster. Ajuste os tipos de VM para se adequar ao seu orçamento.
+Selecione o tipo VM para os nós do trabalhador selecionando uma VM na lista de baixa em **tamanho de nó**. Depois de escolher o tipo de VM para cada tipo de nó, você pode ver a faixa de custo estimada para todo o cluster. Ajuste os tipos de VM para se adequar ao seu orçamento.
 
 ![Habilite o tamanho do nó do nó do trabalhador baseado em cronograma](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png)
 
-Sua assinatura tem uma cota de capacidade para cada região. O número total de núcleos de seus nós de cabeça combinados com o número máximo de nós de trabalhadores não pode exceder a cota de capacidade. No entanto, essa cota é um limite flexível; você sempre pode criar um tíquete de suporte para aumentá-lo facilmente.
+Sua assinatura tem uma cota de capacidade para cada região. O número total de núcleos de seus nós de cabeça e os nós máximos do trabalhador não podem exceder a cota de capacidade. No entanto, essa cota é um limite flexível; você sempre pode criar um tíquete de suporte para aumentá-lo facilmente.
 
 > [!Note]  
 > Se você exceder o limite total de cota principal, você receberá uma mensagem de erro dizendo 'o nó máximo excedeu os núcleos disponíveis nesta região, escolha outra região ou entre em contato com o suporte para aumentar a cota'.
@@ -148,8 +148,6 @@ Você pode criar um cluster HDInsight com autodimensionamento automático basead
   "scriptActions": []
 }
 ```
-
-Para obter mais informações sobre como criar cluster com modelos do Resource Manager, confira [Criar clusters do Apache Hadoop no HDInsight usando modelos do Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  
 
 #### <a name="schedule-based-autoscaling"></a>Autoscaling baseado em cronograma
 
@@ -193,7 +191,7 @@ Para habilitar a escala automática em um cluster em execução, selecione **tam
 
 #### <a name="using-the-rest-api"></a>Usando a API REST
 
-Para ativar ou desativar a escala automática em um cluster em execução usando a API REST, faça uma solicitação POST para o ponto final da escala automática, conforme mostrado no trecho de código abaixo:
+Para ativar ou desativar a escala automática em um cluster em execução usando a API REST, faça uma solicitação POST para o ponto final da escala automática:
 
 ```
 https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{CLUSTERNAME}/roles/workernode/autoscale?api-version=2018-06-01-preview
@@ -207,7 +205,7 @@ Use os parâmetros apropriados na carga útil da solicitação. A carga json aba
 
 Consulte a seção anterior sobre [a habilitação da escala automática baseada em carga](#load-based-autoscaling) para obter uma descrição completa de todos os parâmetros de carga.
 
-## <a name="best-practices"></a>Práticas recomendadas
+## <a name="guidelines"></a>Diretrizes
 
 ### <a name="choosing-load-based-or-schedule-based-scaling"></a>Escolhendo dimensionamento baseado em carga ou com cronograma
 
@@ -224,9 +222,9 @@ Pode levar de 10 a 20 minutos para uma operação de escala ser concluída. Ao c
 
 ### <a name="preparation-for-scaling-down"></a>Preparação para reduzir
 
-Durante o processo de redução do cluster, a Autoscale desativará os nós para atender ao tamanho do destino. Se houver tarefas em execução nesses nós, a Autoscale esperará até que as tarefas sejam concluídas. Uma vez que cada nó do trabalhador também serve um papel no HDFS, os dados temporários serão transferidos para os demais. Então você deve ter certeza de que há espaço suficiente nos nós restantes para hospedar todos os dados temporários.
+Durante o processo de redução do cluster, a Autoscale desativará os nós para atender ao tamanho do destino. Se as tarefas estiverem sendo executados nesses nós, a Autoscale esperará até que as tarefas sejam concluídas. Uma vez que cada nó do trabalhador também serve um papel no HDFS, os dados temporários serão transferidos para os demais. Então você deve ter certeza de que há espaço suficiente nos nós restantes para hospedar todos os dados temporários.
 
-Os trabalhos de execução continuarão a funcionar e terminar. Os trabalhos pendentes serão agendados normalmente com menos nódulos disponíveis.
+Os trabalhos continuarão. Os empregos pendentes aguardarão o agendamento com menos vagas disponíveis.
 
 ### <a name="minimum-cluster-size"></a>Tamanho mínimo do cluster
 
@@ -250,7 +248,7 @@ Todas as mensagens de status do cluster que você pode ver são explicadas na li
 | Erro de atualização  | O HDInsight encontrou problemas durante a atualização de configuração da escala automática. Os clientes podem optar por tentar novamente a atualização ou desativar a escala automática.  |
 | Erro  | Algo está errado com o cluster, e não é utilizável. Exclua este cluster e crie um novo.  |
 
-Para exibir o número atual de números de nó sumido em seu cluster, vá para o gráfico **de tamanho de cluster** na página Visão **geral** para o cluster ou selecione Tamanho **de Cluster** em **Configurações**.
+Para exibir o número atual de números de nós em seu cluster, vá para o gráfico **de tamanho de cluster** na página Visão **geral** do cluster. Ou selecione **tamanho de cluster** em **Configurações**.
 
 ### <a name="operation-history"></a>Histórico da operação
 
@@ -262,4 +260,4 @@ Selecione **Métricas** em **Monitoramento**. Em seguida, **selecione Adicionar 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Leia sobre as práticas recomendadas para dimensionar os clusters manualmente em [Práticas recomendadas de dimensionamento](hdinsight-scaling-best-practices.md)
+Leia sobre as diretrizes para dimensionamento de clusters manualmente nas [diretrizes de dimensionamento](hdinsight-scaling-best-practices.md)

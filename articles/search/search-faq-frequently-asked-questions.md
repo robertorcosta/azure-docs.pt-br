@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d7ba62c795e23e41a1947def77300ffe5d2cc010
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 520699b81024de9491f34263f16872428ddbd487
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262444"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618027"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Azure Cognitive Search - perguntas frequentes (FAQ)
 
@@ -82,6 +82,14 @@ A maioria das consultas de pesquisa com caractere curinga, como prefixo, difusa 
 Por padrão, os resultados da pesquisa são pontuados com base nas [propriedades estatísticas dos termos de correspondência](search-lucene-query-architecture.md#stage-4-scoring) e classificados do mais alto para o mais baixo do conjunto de resultados. No entanto, alguns tipos de consulta (caractere curinga, prefixo, regex) sempre contribuem com uma pontuação constante para a pontuação total do documento. Este comportamento ocorre por design. O Azure Cognitive Search impõe uma pontuação constante para permitir que as partidas encontradas através da expansão da consulta sejam incluídas nos resultados, sem afetar o ranking.
 
 Por exemplo, suponha que uma entrada de "tour*" em uma busca curinga produz partidas em "tours", "tourettes" e "tourmaline". Dada a natureza desses resultados, não é possível inferir de forma razoável quais termos são mais valiosos do que outros. Por esse motivo, podemos ignorar as frequências dos termos ao pontuar resultados em consultas dos tipos caractere curinga, prefixo e regex. Os resultados da pesquisa com base em uma entrada parcial recebem uma pontuação constante para evitar a tendência de correspondências possivelmente inesperadas.
+
+## <a name="skillset-operations"></a>Operações skillset
+
+### <a name="are-there-any-tips-or-tricks-to-reduce-cognitive-services-charges-on-ingestion"></a>Existem dicas ou truques para reduzir os custos de serviços cognitivos na ingestão?
+
+É compreensível que você não queira executar habilidades incorporadas ou habilidades personalizadas mais do que é absolutamente necessário, especialmente se você está lidando com milhões de documentos para processar. Com isso em mente, adicionamos recursos de "enriquecimento incremental" à execução de skillset. Em essência, você pode fornecer um local de cache (uma seqüência de conexão de armazenamento blob) que será usado para armazenar a saída de etapas de enriquecimento "intermediárias".  Isso permite que o pipeline de enriquecimento seja inteligente e aplique apenas enriquecimentos necessários quando você modifica suas habilidades. Isso naturalmente também economizará tempo de indexação, pois o pipeline será mais eficiente.
+
+Saiba mais sobre [o enriquecimento incremental](cognitive-search-incremental-indexing-conceptual.md)
 
 ## <a name="design-patterns"></a>Padrões de design
 

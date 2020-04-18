@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: avverma
-ms.openlocfilehash: 8e73ef75b3313656b45d29270d9996c3ad17c630
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8156c563573183e51e06650914117f8787922e93
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538062"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603675"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparos automáticos de instâncias para conjuntos de escala de máquinas virtuais do Azure
 
@@ -90,6 +90,8 @@ Se o recurso [de notificação de término](./virtual-machine-scale-sets-termina
 ## <a name="enabling-automatic-repairs-policy-when-creating-a-new-scale-set"></a>Habilitar a política de reparos automáticos ao criar um novo conjunto de escalas
 
 Para habilitar a política de reparos automáticos ao criar um novo conjunto de escalas, certifique-se de que todos os [requisitos](#requirements-for-using-automatic-instance-repairs) para optar por esse recurso sejam atendidos. O ponto final do aplicativo deve ser configurado corretamente para instâncias de conjunto de escala para evitar o acionamento de reparos não intencionais enquanto o ponto final estiver sendo configurado. Para conjuntos de escala recém-criados, qualquer reparo de instância é realizado somente após a espera do período de carência. Para habilitar o reparo automático de instâncias em um conjunto de escalas, use o objeto *AutomaticRepairsPolicy* no modelo de conjunto de escalas de máquina virtual.
+
+Você também pode usar este [modelo quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-automatic-repairs-slb-health-probe) para implantar um conjunto de escala de máquina virtual com teste de saúde do balanceador de carga e reparos automáticos de instâncias habilitados com um período de carência de 30 minutos.
 
 ### <a name="azure-portal"></a>Portal do Azure
  

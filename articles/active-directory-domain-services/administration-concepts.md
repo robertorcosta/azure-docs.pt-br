@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 682935fa2324b8de4992ab2f90c7f71e05c4f8ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba281ffb30801e0ae10cab10ceb95c0a3bffde2d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264226"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640019"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Conceitos de gerenciamento de contas de usuário, senhas e administração em Serviços de Domínio do Diretório Ativo do Azure
 
@@ -48,7 +48,7 @@ Para obter mais informações sobre as diferenças na forma como as políticas d
 
 Para autenticar os usuários no domínio gerenciado, o Azure AD DS precisa de hashes de senha em um formato adequado para a autenticação NTLM (Gerenciador de LAN NT) e Kerberos. O Azure AD não gera nem armazena hashes de senha no formato necessário para a autenticação NTLM ou Kerberos, até que você habilite o Azure AD DS para seu locatário. Por motivos de segurança, o Azure AD também não armazena credenciais de senha no formato de texto não criptografado. Portanto, o Azure AD não pode gerar automaticamente essas hashes de senha NTLM ou Kerberos com base nas credenciais existentes dos usuários.
 
-Para contas de usuário somente de nuvem, os usuários devem alterar suas senhas antes de usar o Azure AD DS. Esse processo de alteração de senhas faz com que as hashes de senha para a autenticação Kerberos e NTLM sejam geradas e armazenadas no Azure AD.
+Para contas de usuário somente de nuvem, os usuários devem alterar suas senhas antes de usar o Azure AD DS. Esse processo de alteração de senhas faz com que as hashes de senha para a autenticação Kerberos e NTLM sejam geradas e armazenadas no Azure AD. A conta não está sincronizada do Azure AD para o Azure AD DS até que a senha seja alterada.
 
 Para usuários sincronizados a partir de um ambiente AD DS no local usando o Azure AD Connect, [habilite a sincronização de hashes de senha][hybrid-phs].
 
@@ -70,7 +70,7 @@ No Azure AD DS, a floresta contém apenas um domínio. As florestas AD DS no loc
 
 Por padrão, um domínio gerenciado pelo Azure AD DS é criado como uma floresta *de usuários.* Esse tipo de floresta sincroniza todos os objetos do Azure AD, incluindo qualquer conta de usuário criada em um ambiente do AD DS local. As contas de usuário podem autenticar diretamente contra o domínio gerenciado pelo Azure AD DS, como fazer login em uma VM com um domínio. Uma floresta de usuários funciona quando os hashes de senha podem ser sincronizados e os usuários não estão usando métodos exclusivos de login, como autenticação de cartão inteligente.
 
-Em uma floresta de *recursos* Azure AD DS, os usuários autenticam sobre uma *confiança* florestal unidirecional a partir de seus AD DS no local. Com essa abordagem, os objetos do usuário e os hashes de senha não são sincronizados com o Azure AD DS. Os objetos e credenciais do usuário só existem no AD DS no local. Essa abordagem permite que as empresas hospedem recursos e plataformas de aplicativos no Azure que dependem da autenticação clássica, como LDAPS, Kerberos ou NTLM, mas quaisquer problemas ou preocupações de autenticação são removidos. As florestas de recursos Azure AD DS estão atualmente em pré-visualização.
+Em uma floresta de *recursos* Azure AD DS, os usuários autenticam sobre uma *confiança* florestal unidirecional a partir de seus AD DS no local. Com essa abordagem, os objetos do usuário e os hashes de senha não são sincronizados com o Azure AD DS. Os objetos e credenciais do usuário só existem no AD DS no local. Essa abordagem permite que as empresas hospedem recursos e plataformas de aplicativos no Azure que dependem da autenticação clássica, como LDAPS, Kerberos ou NTLM, mas quaisquer problemas ou preocupações de autenticação são removidos. No momento, as florestas de recursos do Azure AD DS estão em versão prévia.
 
 Para obter mais informações sobre os tipos de florestas no Azure AD DS, veja quais são as [florestas][concepts-trust] [de recursos?][concepts-forest]
 

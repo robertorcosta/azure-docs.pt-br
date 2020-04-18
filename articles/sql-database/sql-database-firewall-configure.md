@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
-ms.openlocfilehash: af88fdf3378a6290c773c658ea6dd3469d7c92cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12280e8a5b90c6712703fefc60ec1bfb12ba8573
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531270"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606084"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Regras de firewall IP do Azure SQL e do Azure SQL Data Warehouse
 
@@ -101,7 +101,7 @@ Quando um computador tenta se conectar ao servidor de banco de dados a partir da
 
 ### <a name="connections-from-inside-azure"></a>Conexões de dentro do Azure
 
-Para permitir que aplicativos hospedados dentro do Azure se conectem ao seu servidor SQL, as conexões Do Zure devem ser ativadas. Quando um aplicativo do Azure tenta se conectar ao seu servidor de banco de dados, o firewall verifica se as conexões do Azure são permitidas. Uma configuração de firewall que tem endereços IP iniciais e finais iguais a *0.0.0.0 indica* que as conexões do Azure são permitidas. Isso pode ser ligado diretamente a partir da lâmina do Portal Do Azure, definindo as regras do Firewall, bem como alternando os **Serviços e recursos do Azure para acessar este servidor** para **ON** nas **configurações de Firewalls e redes virtuais.** Se a conexão não for permitida, a solicitação não chegará ao servidor SQL Database.
+Para permitir que aplicativos hospedados dentro do Azure se conectem ao seu servidor SQL, as conexões Do Zure devem ser ativadas. Quando um aplicativo do Azure tenta se conectar ao seu servidor de banco de dados, o firewall verifica se as conexões do Azure são permitidas. Isso pode ser ligado diretamente a partir da lâmina do Portal Do Azure, definindo as regras do Firewall, bem como alternando os **Serviços e recursos do Azure para acessar este servidor** para **ON** nas **configurações de Firewalls e redes virtuais.** Se a conexão não for permitida, a solicitação não chegará ao servidor SQL Database.
 
 > [!IMPORTANT]
 > Essa opção configura o firewall para permitir todas as conexões do Azure, incluindo conexões das assinaturas de outros clientes. Se você selecionar essa opção, certifique-se de que seu login e permissões de usuário limitem o acesso apenas a usuários autorizados.
@@ -149,7 +149,7 @@ A página de visão geral do servidor é aberta. Ele mostra o nome do servidor t
 
 | Visualização do catálogo ou procedimento armazenado | Nível | Descrição |
 | --- | --- | --- |
-| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Servidor |Exibe as regras de firewall de IP atuais no nível de servidor |
+| [sys. firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Servidor |Exibe as regras de firewall de IP atuais no nível de servidor |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Servidor |Cria ou atualiza as regras de firewall de IP no nível de servidor |
 | [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Servidor |Remove as regras de firewall de IP no nível de servidor |
 | [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |Banco de dados |Exibe as regras de firewall de IP atuais no nível de banco de dados |

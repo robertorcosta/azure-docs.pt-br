@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 68975f21ab810398da969384db4d3bddd22f1bd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 29713622be90ea280bff3c002be746bf1615718f
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284116"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605910"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Ligue para as funções do Azure a partir de aplicativos de lógica do Azure
 
@@ -101,7 +101,9 @@ Agora que você criou sua função do Azure, siga as etapas de como [ adicionar 
 
 ## <a name="create-functions-inside-logic-apps"></a>Criar funções dentro de aplicativos lógicos
 
-Antes de criar uma função Azure a partir de dentro do seu aplicativo lógico usando o Logic App Designer, você deve primeiro ter um aplicativo de função Azure, que é um contêiner para suas funções. Se você não tiver um aplicativo de funções, crie primeiro o aplicativo de função. Veja [Crie sua primeira função no portal do Azure](../azure-functions/functions-create-first-azure-function.md).
+Você pode criar funções do Azure diretamente do fluxo de trabalho do seu aplicativo lógico usando a ação Built-in Azure Functions no Logic App Designer, mas você pode usar este método apenas para funções do Azure escritas em JavaScript. Para outros idiomas, você pode criar funções do Azure através da experiência funções do Azure no portal Azure. Para obter mais informações, consulte [Criar sua primeira função no portal Azure](../azure-functions/functions-create-first-azure-function.md).
+
+No entanto, antes de criar qualquer função Azure, você já deve ter um aplicativo de função Azure, que é um contêiner para suas funções. Se você não tiver um aplicativo de funções, crie primeiro o aplicativo de função. Veja [Crie sua primeira função no portal do Azure](../azure-functions/functions-create-first-azure-function.md).
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
@@ -125,7 +127,7 @@ Antes de criar uma função Azure a partir de dentro do seu aplicativo lógico u
 
    1. Na caixa **Código,** adicione seu código ao modelo de função, incluindo a resposta e a carga que você deseja retornar ao seu aplicativo lógico depois que sua função terminar de ser em execução. Quando terminar, selecione **Criar**.
 
-   Por exemplo: 
+   Por exemplo:
 
    ![Definir sua função](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
@@ -162,7 +164,7 @@ Para chamar funções existentes do Azure de seus aplicativos lógicos, você po
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
-1. a etapa onde deseja adicionar a função, selecione **Novo passo**.
+1. Sob a etapa onde deseja adicionar a função, selecione **Novo passo**.
 
 1. Em **Escolha uma ação**, na caixa de pesquisa, digite "funções azure" como seu filtro. Na lista de ações, selecione a **ação Escolha uma função Azure.**
 

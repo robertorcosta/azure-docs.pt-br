@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 8aefe851708c0b8d8780d03e4364e034e783bf4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c52f2df34faf441ab70b48b11bbc393ebcecb65
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297179"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617613"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos finais de serviço em HTTP ou HTTPS de Aplicativos Azure Logic
 
@@ -59,7 +59,7 @@ Este artigo mostra como adicionar um gatilho ou ação HTTP ao fluxo de trabalho
 
 Este gatilho incorporado faz uma chamada HTTP para a URL especificada para um ponto final e retorna uma resposta.
 
-1. Faça login no [portal Azure](https://portal.azure.com). Abra seu aplicativo de lógica em branco no Logic App Designer.
+1. Entre no [portal do Azure](https://portal.azure.com). Abra seu aplicativo de lógica em branco no Logic App Designer.
 
 1. Na caixa de pesquisa do designer, **selecione Built-in**. Na caixa de pesquisa, insira `http` como o filtro. Na lista **Triggers,** selecione o gatilho **HTTP.**
 
@@ -88,7 +88,7 @@ Este gatilho incorporado faz uma chamada HTTP para a URL especificada para um po
 
 Essa ação incorporada faz uma chamada HTTP para a URL especificada para um ponto final e retorna uma resposta.
 
-1. Faça login no [portal Azure](https://portal.azure.com). Abra seu aplicativo lógico no Logic App Designer.
+1. Entre no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico no Logic App Designer.
 
    Este exemplo usa o gatilho HTTP como o primeiro passo.
 
@@ -140,8 +140,8 @@ Por exemplo, suponha que você tenha um aplicativo lógico que envie uma solicit
 Aqui está o mesmo exemplo que mostra a definição JSON da ação HTTP na definição de fluxo de trabalho subjacente:
 
 ```json
-{
-   "HTTP_action": {
+"HTTP_action": {
+   "inputs": {
       "body": {
          "$content-type": "multipart/form-data",
          "$multipart": [

@@ -1,30 +1,30 @@
 ---
-title: Ver avaliações de atualização do gerenciamento de atualizações do Azure Update
+title: Veja as avaliações de atualização de gerenciamento de atualização de atualização de automação do Azure
 description: Este artigo descreve como visualizar avaliações de atualização para implantações de atualização.
 services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75762afc9ae69da81e89ce320f454d9764f82914
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278409"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617397"
 ---
-# <a name="view-azure-update-management-update-assessments"></a>Ver avaliações de atualização do gerenciamento de atualizações do Azure Update
+# <a name="view-azure-automation-update-management-update-assessments"></a>Veja as avaliações de atualização de gerenciamento de atualização de atualização de automação do Azure
 
 Em sua conta azure Automação, selecione **Atualizar gerenciamento** para visualizar o status de suas máquinas.
 
 Essa exibição fornece informações sobre os computadores, atualizações ausentes, implantações de atualização e implementações de atualização agendada. Na coluna **COMPLIANCE,** você pode ver a última vez que a máquina foi avaliada. Na coluna **PRONTIDÃO DO AGENTE DE ATUALIZAÇÃO,** você pode ver a saúde do agente de atualização. Se houver um problema, selecione o link para ir para a documentação de solução de problemas que pode ajudá-lo a corrigir o problema.
 
-Para executar uma pesquisa de log que retorne informações sobre a máquina, atualização ou implantação, selecione o item correspondente na lista. O painel **Pesquisa de Logs** abre com uma consulta para o item selecionado:
+Para executar uma pesquisa de log que retorne informações sobre a máquina, atualização ou implantação, selecione o item correspondente na lista. O painel Pesquisa de log é aberto com uma consulta para o item selecionado.
 
 ![Exibição padrão do Gerenciamento de Atualizações](media/automation-update-management/update-management-view.png)
 
 ## <a name="view-missing-updates"></a>Exibir atualizações ausentes
 
-Selecione **Atualizações ausentes** para exibir a lista de atualizações que estão faltando nos computadores. Cada atualização é listada e pode ser selecionada. Informações sobre o número de máquinas que requerem a atualização, detalhes do sistema operacional e um link para mais informações são mostradas. O **painel de pesquisa Log** também mostra mais detalhes sobre as atualizações.
+Selecione **Atualizações ausentes** para exibir a lista de atualizações que estão faltando nos computadores. Cada atualização é listada e pode ser selecionada. Informações sobre o número de máquinas que requerem a atualização, detalhes do sistema operacional e um link para mais informações são mostradas. O painel Log Search também mostra mais detalhes sobre as atualizações.
 
 ![Atualizações ausentes](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
@@ -36,14 +36,14 @@ As tabelas a seguir listam as classificações de atualização suportadas no Ge
 
 |classificação  |Descrição  |
 |---------|---------|
-|Atualizações críticas     | Uma atualização para um problema específico que aborda um bug crítico não relacionado à segurança.        |
-|Atualizações de segurança     | Uma atualização para um problema específico do produto relacionadas à segurança.        |
-|Pacotes cumulativos de atualização     | Um conjunto cumulativo de hotfixes que são reunidos para facilitar a implantação.        |
+|Atualizações críticas     | Atualizações para problemas específicos que abordam bugs críticos e não relacionados à segurança.        |
+|Atualizações de segurança     | Atualizações para problemas específicos de segurança específicos do produto.        |
+|Pacotes cumulativos de atualização     | Conjuntos de hotfixes que são embalados juntos para fácil implantação.        |
 |Feature packs     | Novos recursos do produto que são distribuídos fora de uma versão do produto.        |
-|Service packs     | Um conjunto cumulativo de hotfixes que são aplicados a um aplicativo.        |
-|Atualizações de definição     | Uma atualização para vírus ou outros arquivos de definição.        |
-|Ferramentas     | Um utilitário ou recurso que ajuda a concluir uma ou mais tarefas.        |
-|Atualizações     | Uma atualização para um aplicativo ou arquivo que está atualmente instalado.        |
+|Service packs     | Conjuntos de hotfixes que são aplicados a um aplicativo.        |
+|Atualizações de definição     | Atualizações para vírus ou outros arquivos de definição.        |
+|Ferramentas     | Utilitários ou recursos que ajudam a completar uma ou mais tarefas.        |
+|Atualizações     | Atualizações para aplicativos ou arquivos que estão instalados atualmente.        |
 
 ### <a name="linux"></a><a name="linux-2"></a>Linux
 

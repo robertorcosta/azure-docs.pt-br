@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: f103db1d0de7a9d538f56b8ade331dc856b26bce
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: eb11a5cc2deef372ca91c23a8b9c82e17143c85b
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547006"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617709"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um nível de preço para a Pesquisa Cognitiva do Azure
 
@@ -89,6 +89,8 @@ Para [o enriquecimento de IA,](cognitive-search-concept-intro.md)você deve plan
 | Quebra de documento, extração de imagem | Cobrado de acordo com o número de imagens extraídas de seus documentos. Em uma [configuração indexador,](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters) **imageAction** é o parâmetro que aciona a extração de imagem. Se **a imageAction** estiver definida como "nenhum" (o padrão), você não será cobrado pela extração de imagem. A taxa de extração de imagens está documentada na página [de detalhes de preços](https://azure.microsoft.com/pricing/details/search/) para a Pesquisa Cognitiva do Azure.|
 | [Habilidades cognitivas internas](cognitive-search-predefined-skills.md) | Cobrado na mesma taxa como se você tivesse realizado a tarefa usando serviços cognitivos diretamente. |
 | Habilidades personalizadas | Uma habilidade personalizada é a funcionalidade que você fornece. O custo de usar uma habilidade personalizada depende inteiramente se o código personalizado está chamando outros serviços medidos. |
+
+O recurso [de enriquecimento incremental (visualização)](cognitive-search-incremental-indexing-conceptual.md) permite que você forneça um cache que permite que o indexador seja mais eficiente em executar apenas as habilidades cognitivas necessárias se você modificar suas habilidades no futuro, economizando tempo e dinheiro.
 
 <a name="search-units"></a>
 

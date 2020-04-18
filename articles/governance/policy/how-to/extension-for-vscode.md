@@ -3,12 +3,12 @@ title: Extensão da Política do Azure para Visual Studio Code
 description: Aprenda a usar a extensão de política do Azure para visual studio code para procurar aliases do Resource Manager.
 ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 0e9123f2975bda0d61e9d6e9bf894ecd359e6c5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e31af652f2746adbf0eda386bdb178c752f5f84
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264668"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641017"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use a extensão da Política do Azure para o Visual Studio Code
 
@@ -121,7 +121,7 @@ Clientes com centenas ou milhares de recursos em uma única assinatura podem pre
 
 ## <a name="discover-aliases-for-resource-properties"></a>Descubra aliases para propriedades de recursos
 
-Quando um recurso é selecionado, seja através da interface de pesquisa ou selecionando-o na exibição de árvores, a extensão Azure Policy abre o arquivo JSON representando esse recurso e todos os valores de propriedade do Gerenciador de Recursos.
+Quando um recurso é selecionado, seja através da interface de pesquisa ou selecionando-o na visão de árvore, a extensão Azure Policy abre o arquivo JSON representando esse recurso e todos os valores de propriedade do Gerenciador de Recursos.
 
 Uma vez que um recurso esteja aberto, pairando sobre o nome ou valor da propriedade do Gerenciador de recursos exibe o alias de Diretiva Do Azure se existir. Neste exemplo, o recurso `Microsoft.Compute/virtualMachines` é um tipo de recurso e a propriedade **properties.storageProfile.imageReference.offer** é pairada sobre. Pairar mostra os pseudônimos correspondentes.
 

@@ -3,12 +3,12 @@ title: Como criar políticas de configuração de hóspedes para Linux
 description: Saiba como criar uma política de configuração de hóspedes de política do Azure para Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f93aafc8f2c016218b1b7fea82558ea6ba4b4ff8
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 65e0082f87f05104e9a57ff0342cd3d2950b63e8
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365404"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617939"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de configuração de hóspedes para Linux
 
@@ -89,7 +89,7 @@ supports:
     - os-family: unix
 ```
 
-Salve este arquivo em `linux-path` uma pasta nomeada em seu diretório de projeto.
+Salve este arquivo `inspec.yml` com nome `linux-path` em uma pasta nomeada em seu diretório de projeto.
 
 Em seguida, crie o arquivo Ruby com a abstração de linguagem InSpec usada para auditar a máquina.
 
@@ -99,7 +99,7 @@ describe file('/tmp') do
 end
 ```
 
-Salve este arquivo em `controls` uma `linux-path` nova pasta nomeada dentro do diretório.
+Salve este arquivo `linux-path.rb` com nome `controls` em `linux-path` uma nova pasta nomeada dentro do diretório.
 
 Finalmente, crie uma configuração, importe o `ChefInSpecResource` módulo de recurso **GuestConfiguration** e use o recurso para definir o nome do perfil InSpec.
 

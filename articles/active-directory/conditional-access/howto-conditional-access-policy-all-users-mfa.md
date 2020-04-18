@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3e7b1a656c92e37a709b57dae463f6644003e42
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 60d0ad0a1c0a1b4d13ce4d386df22406a8ab8e51
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755198"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617634"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Acesso Condicional: Exigir MFA para todos os usuários
 
@@ -41,7 +41,7 @@ As organizações podem ter muitos aplicativos em nuvem em uso. Nem todos esses 
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de Acesso Condicional
 
-As etapas a seguir ajudarão a criar uma política de acesso condicional para exigir que as funções administrativas atribuídas realizem autenticação multifatorial.
+As etapas a seguir ajudarão a criar uma política de acesso condicional para exigir que todos os usuários realizem autenticação multifatorial.
 
 1. Faça login no **portal Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
 1. Navegue até o Acesso**Condicional de****Segurança** > do Diretório >  **Ativo do Azure**.
@@ -50,7 +50,7 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
 1. Em **Atribuições,** selecione **Usuários e grupos**
    1. Em **Incluir,** selecione **Todos os usuários**
    1. Em **Exclusão,** selecione **Usuários e grupos** e escolha o acesso de emergência ou contas de vidro de quebra de sua organização. 
-   1. Selecione **Feito**.
+   1. Selecione **Concluído**.
 1. Em **Aplicativos ou ações** > na**Nuvem, selecione** **Todos os aplicativos em nuvem.**
    1. Em **Exclusão,** selecione quaisquer aplicativos que não exijam autenticação multifatorial.
 1. Em **Condições,** > **aplicativos do cliente (Visualização)**, **configure Configuração** para **Sim**e selecione **Feito**.
@@ -68,8 +68,8 @@ Na política de exemplo acima, uma organização pode optar por não exigir aute
    1. Configure **Sim**.
    1. Inclua **qualquer local**.
    1. Excluir **todos os locais confiáveis**.
-   1. Selecione **Feito**.
-1. Selecione **Feito**.
+   1. Selecione **Concluído**.
+1. Selecione **Concluído**.
 1. **Salve** suas alterações de política.
 
 ## <a name="next-steps"></a>Próximas etapas

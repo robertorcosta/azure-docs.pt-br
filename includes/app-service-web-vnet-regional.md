@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: ccompy
-ms.openlocfilehash: 7f2b011b2de5af0e4ace9cbeb4399911d8e83b7f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: f7208307df51ecefb76f9adaedea59b327cdc19e
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312806"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604862"
 ---
 O uso da Integração VNet regional permite que seu aplicativo acesse:
 
@@ -19,7 +19,7 @@ O uso da Integração VNet regional permite que seu aplicativo acesse:
 * Recursos em conexões Azure ExpressRoute.
 * Recursos no VNet com os que você está integrado.
 * Recursos em conexões peered, que inclui conexões Azure ExpressRoute.
-* Pontos finais privados - Nota: o DNS deve ser gerenciado separadamente em vez de usar as zonas privadas do Azure DNS.
+* Pontos finais privados 
 
 Quando você usa a Integração VNet com VNets na mesma região, você pode usar os seguintes recursos de rede do Azure:
 
@@ -50,7 +50,7 @@ Existem algumas limitações com o uso da Integração VNet com VNets na mesma r
 * Você só pode se integrar com VNets na mesma assinatura do aplicativo.
 * Você pode ter apenas um plano regional de Integração VNet por Serviço de Aplicativo. Vários aplicativos no mesmo plano de Serviço de Aplicativo podem usar o mesmo VNet.
 * Você não pode alterar a assinatura de um aplicativo ou um plano enquanto há um aplicativo que está usando a Integração VNet regional.
-* Seu aplicativo não pode resolver endereços em Zonas Privadas Do Azure DNS.
+* Seu aplicativo não pode resolver endereços em Regiões Privadas DNS do Azure sem alterações de configuração
 
 Um endereço é usado para cada instância do plano. Se você dimensionar seu aplicativo para cinco instâncias, então cinco endereços serão usados. Uma vez que o tamanho da sub-rede não pode ser alterado após a atribuição, você deve usar uma sub-rede que seja grande o suficiente para acomodar qualquer escala que seu aplicativo possa alcançar. Um /26 com 64 endereços é o tamanho recomendado. Um /26 com 64 endereços acomoda um plano Premium com 30 instâncias. Quando você escala um plano para cima ou para baixo, você precisa de duas vezes mais endereços por um curto período de tempo.
 
@@ -83,9 +83,22 @@ Se você quiser encaminhar todo o tráfego de saída no local, você pode usar u
 
 As rotas do Border Gateway Protocol (BGP) também afetam o tráfego do aplicativo. Se você tiver rotas BGP a partir de algo como um gateway ExpressRoute, o tráfego de saída do aplicativo será afetado. Por padrão, as rotas BGP afetam apenas o tráfego de destino RFC1918. Se WEBSITE_VNET_ROUTE_ALL estiver definido como 1, todo o tráfego de saída pode ser afetado pelas rotas BGP.
 
+### <a name="azure-dns-private-zones"></a>Zonas privadas do Azure DNS 
+
+Depois que seu aplicativo se integra ao seu VNet, ele usa o mesmo servidor DNS com o que seu VNet está configurado. Por padrão, seu aplicativo não funcionará com as Zonas Privadas do Azure DNS. Para trabalhar com o Azure DNS Private Zones, você precisa adicionar as seguintes configurações do aplicativo:
+
+1. WEBSITE_DNS_SERVER com valor 168.63.129,16 
+1. WEBSITE_VNET_ROUTE_ALL com valor 1
+
+Essas configurações enviarão todas as suas chamadas de saída do seu aplicativo para o seu VNet, além de permitir que seu aplicativo use zonas privadas do Azure DNS.
+
+### <a name="private-endpoints"></a>Pontos finais privados
+
+Se você quiser fazer chamadas para [Pontos Finais Privados,][privateendpoints]então você precisa se integrar com as Zonas Privadas do Azure DNS ou gerenciar o ponto final privado no servidor DNS usado pelo aplicativo. 
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
 
 <!--Links-->
 [VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
+[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

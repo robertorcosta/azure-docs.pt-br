@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/16/2020
-ms.openlocfilehash: 1f11d6667c22990b3cba2079959bec6f413d5951
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a237beb72e35a236e353c58db520a8d611fdfdcd
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296950"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617995"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implantar um modelo usando uma imagem base docker personalizada
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -96,7 +96,7 @@ Se você já treinou ou implantou modelos usando o Azure Machine Learning, um re
 
     Siga as instruções para autenticar a assinatura.
 
-    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 2. Use o comando a seguir para listar o registro de contêiner para o espaço de trabalho. Substitua pelo `<myworkspace>` nome do espaço de trabalho azure Machine Learning. Substitua pelo `<resourcegroup>` grupo de recursos Do Azure que contém seu espaço de trabalho:
 

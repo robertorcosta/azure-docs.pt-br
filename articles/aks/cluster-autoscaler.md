@@ -4,12 +4,12 @@ description: Saiba como usar o dimensionador automático de cluster para dimensi
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 0b94865d81afc56c24d470012c668662f003a1b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2baa64779713d0bac063e1d2c06107ba2ab291fb
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596242"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617541"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às demandas de aplicativo no AKS (Serviço de Kubernetes do Azure)
 
@@ -19,7 +19,7 @@ Este artigo mostra como habilitar e gerenciar o dimensionador automático de clu
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo exige que você esteja executando a versão 2.0.76 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI][azure-cli-install].
+Este artigo exige que você esteja executando a versão 2.0.76 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="limitations"></a>Limitações
 
@@ -117,6 +117,7 @@ Você também pode configurar detalhes mais granulares do cluster autoscaler alt
 | scale-down-unready-time          | Quanto tempo um nó não-pronto deve ser desnecessário antes que ele seja elegível para reduzir a escala         | 20 minutos    |
 | escala-down-utilization-limiar | Nível de utilização do nó, definido como soma dos recursos solicitados divididos por capacidade, abaixo do qual um nó pode ser considerado para rebaixar a escala | 0.5 |
 | max-gracioso-termination-se     | Número máximo de segundos o cluster autoscaler espera pelo término do pod ao tentar reduzir um nó. | 600 segundos   |
+| equilíbrio-semelhante-nó-grupos | Detecte piscinas de nós semelhantes e equilibre o número de nós entre eles | false |
 
 > [!IMPORTANT]
 > O perfil do cluster autoscaler afeta todos os pools de nós que usam o cluster autoscaler. Você não pode definir um perfil de escalador automático por pool de nó.
@@ -144,7 +145,7 @@ az aks update \
   --cluster-autoscaler-profile scan-interval=30s
 ```
 
-Quando você habilitar o cluster autoscaler em pools de nó no cluster, esses clusters também usarão o perfil do cluster autoscaler. Por exemplo: 
+Quando você habilitar o cluster autoscaler em pools de nó no cluster, esses clusters também usarão o perfil do cluster autoscaler. Por exemplo:
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -161,7 +162,7 @@ az aks nodepool update \
 
 ### <a name="set-the-cluster-autoscaler-profile-when-creating-an-aks-cluster"></a>Defina o perfil do cluster autoscaler ao criar um cluster AKS
 
-Você também pode usar o parâmetro *cluster-autoscaler-profile* ao criar seu cluster. Por exemplo: 
+Você também pode usar o parâmetro *cluster-autoscaler-profile* ao criar seu cluster. Por exemplo:
 
 ```azurecli-interactive
 az aks create \

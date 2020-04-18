@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2ddfa9611143d5c3f823539e018c8afc885c6a46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f5ff48f4d5a658a1bbb4e6b9fb4b3f0f3fb190f
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77083217"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81602683"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrar cargas de trabalho usando redes ampliadas da camada 2
 
@@ -108,7 +108,7 @@ Para obter mais informações, consulte [Redes Privadas Virtuais](https://docs.v
 
 As etapas a seguir mostram como buscar o ID de roteador lógico da instância do roteador lógico Tier0 DR para os serviços IPsec e L2VPN. O ID de roteador lógico é necessário mais tarde ao implementar o L2VPN.
 
-1. Faça login no NSX-T Manager https://*nsx-t-manager-ip-address* e selecione Visão geral do Provedor de**Roteadores** > **de Rede-LR** > **Overview** **Networking** > . Para **o modo de alta disponibilidade,** selecione **Active-Standby**. Esta ação abre uma janela pop-up que mostra a VM edge na qual o roteador Tier0 está ativo no momento.
+1. Faça login no NSX-T `https://*nsx-t-manager-ip-address*` Manager e selecione Visão geral do Provedor de**Roteadores** > de **Networking** > **Rede-LR** > **Overview**. Para **o modo de alta disponibilidade,** selecione **Active-Standby**. Esta ação abre uma janela pop-up que mostra a VM edge na qual o roteador Tier0 está ativo no momento.
 
     ![Selecione ativo-standby](media/l2vpn-fetch01.png)
 
@@ -163,7 +163,7 @@ Para estabelecer uma VPN baseada em rota IPsec entre o roteador NSX-T Tier0 e o 
 
     ![Criar lista de prefixos IP](media/l2vpn-routing-security02.png)
 
-4. Faça login no NSX-T Manager e selecione **Networking** > **Roting Roting** > **Roting Rotrs** > **Provider-LR** > **Routing** > **BGP** > **Neighbors**. Selecione o primeiro vizinho. Clique **em Editar** > **famílias de endereços**. Para a família IPv4, edite a coluna **Filtro de saída** e selecione a lista de prefixos IP que você criou. Clique em **Salvar**. Repita este passo para o segundo vizinho.
+4. Faça login no NSX-T Manager e selecione **Networking** > **Roting Roting** > **Roting Rotrs** > **Provider-LR** > **Routing** > **BGP** > **Neighbors**. Selecione o primeiro vizinho. Clique **em Editar** > **famílias de endereços**. Para a família IPv4, edite a coluna **Filtro de saída** e selecione a lista de prefixos IP que você criou. Clique em **Save** (Salvar). Repita este passo para o segundo vizinho.
 
     ![Anexar lista de](media/l2vpn-routing-security03.png) ![prefixo IP 1 Anexar lista de prefixo IP 2](media/l2vpn-routing-security04.png)
 
@@ -180,7 +180,7 @@ Os endereços IP escolhidos para loopback e interface de túnel usados para L2VP
 ```
 Loopback interface ip : 192.168.254.254/32
 Tunnel interface subnet : 5.5.5.0/29
-Logical-router ID : UUID of Tier0 DR logical router obtained in section “Steps to fetch Logical-Router ID needed for L2VPN”
+Logical-router ID : UUID of Tier0 DR logical router obtained in section "Steps to fetch Logical-Router ID needed for L2VPN"
 Logical-switch ID(Stretch) : UUID of Stretch Logical Switch obtained earlier
 IPSec Service ID :
 IKE profile ID :
@@ -356,7 +356,7 @@ POST : https://192.168.110.201/api/v1/vpn/l2vpn/services
 
 Para o seguinte comando POST, o ID do serviço L2VPN é o ID que você acabou de obter e o ID de sessão iPsec VPN é o ID obtido na seção anterior.
 
-``` 
+```    
 POST: https://192.168.110.201/api/v1/vpn/l2vpn/sessions
 
 {
@@ -428,7 +428,7 @@ Antes de implantar, verifique se as regras de firewall no local permitem tráfeg
 
     ![Baixe o cliente autônomo NSX Edge](media/l2vpn-deploy-client01.png)
 
-2. Vá para a pasta com todos os arquivos extraídos. Selecione todos os vmdks (NSX-l2t-client-large.mf e NSX-l2t-client-large.ovf para tamanho de aparelho grande ou NSX-l2t-client-Xlarge.mf e NSX-l2t-client-Xlarge.ovf para tamanho extra grande do aparelho). Clique em **Avançar**.
+2. Vá para a pasta com todos os arquivos extraídos. Selecione todos os vmdks (NSX-l2t-client-large.mf e NSX-l2t-client-large.ovf para tamanho de aparelho grande ou NSX-l2t-client-Xlarge.mf e NSX-l2t-client-Xlarge.ovf para tamanho extra grande do aparelho). Clique em **Próximo**.
 
     ![Selecionar](media/l2vpn-deploy-client02.png) ![modelo Selecionar modelo](media/l2vpn-deploy-client03.png)
 
@@ -440,7 +440,7 @@ Antes de implantar, verifique se as regras de firewall no local permitem tráfeg
 
     ![Selecione o datastore](media/l2vpn-deploy-client06.png)
 
-5. Selecione os grupos de porta corretos para Trunk (Trunk PG), Public (Uplink PG) e HA interface (Uplink PG) para o cliente autônomo NSX-T. Clique em **Avançar**.
+5. Selecione os grupos de porta corretos para Trunk (Trunk PG), Public (Uplink PG) e HA interface (Uplink PG) para o cliente autônomo NSX-T. Clique em **Próximo**.
 
     ![Selecionar grupos de portas](media/l2vpn-deploy-client07.png)
 

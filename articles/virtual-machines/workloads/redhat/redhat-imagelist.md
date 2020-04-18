@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 40a715ea27be161f09dea59e57799b08406e8ca7
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 028c30fced14a60af9f5683e6c6e087b15591735
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393767"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605472"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Imagens do Red Hat Enterprise Linux (RHEL) disponíveis no Azure
 O Azure oferece uma variedade de imagens RHEL para diferentes casos de uso.
@@ -47,8 +47,12 @@ RHEL          | 6.7      | RAW    | Agente do Linux |
 |             | 7.6      | RAW    | Agente do Linux | Anexado aos repositórios da EUS por padrão a partir de maio de 2019.
 |             | 76-gen2  | RAW    | Agente do Linux | Anexado aos repositórios eus por padrão.
 |             | 7.7      | LVM    | Agente do Linux | Anexado aos repositórios eus por padrão.
-|             | 8        | LVM    | Agente do Linux | RHEL 8.x família de imagens
-|             | 8-gen2   | LVM    | Agente do Linux | Hyper-V Geração 2 - RHEL 8.x família de imagens.
+|             | 8-LVM    | LVM    | Agente do Linux | RHEL 8.x família de imagens. Anexado a repositórios regulares.
+|             | 8-lvm-gen2| LVM    | Agente do Linux | Hyper-V Geração 2 - RHEL 8.x família de imagens. Anexado a repositórios regulares.
+|             | 8        | LVM    | Agente do Linux | Imagens RHEL 8.0
+|             | 8-gen2   | LVM    | Agente do Linux | Hyper-V Geração 2 - Imagens RHEL 8.0.
+|             | 8.1      | LVM    | Agente do Linux | Imagens RHEL 8.1. Atualmente anexado a repositórios regulares.
+|             | 81gen2   | LVM    | Agente do Linux | Hyper-V Geração 2 - Imagens RHEL 8.1. Atualmente anexado a repositórios regulares.
 RHEL-SAP      | 7.4      | LVM    | Agente do Linux | RHEL 7.4 para SAP HANA e Aplicativos de Negócios. Anexado aos repositórios E4S, cobrará um prêmio por SAP e RHEL, bem como a taxa de computação base.
 |             | 74sap-gen2| LVM    | Agente do Linux | RHEL 7.4 para SAP HANA e Aplicativos de Negócios. Imagem da Geração 2. Anexado aos repositórios E4S, cobrará um prêmio por SAP e RHEL, bem como a taxa de computação base.
 |             | 7.5       | LVM    | Agente do Linux | RHEL 7.5 para SAP HANA e Aplicativos de Negócios. Anexado aos repositórios E4S, cobrará um prêmio por SAP e RHEL, bem como a taxa de computação base.

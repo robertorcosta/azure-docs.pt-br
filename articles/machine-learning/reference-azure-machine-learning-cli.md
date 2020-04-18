@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 471b26ebc4bd4aecb814ec43c7eba56e3d764fa0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 16f9080487af95e7de5c5f8c91fd5c8d356b7bde
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78402482"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618075"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Use a extensão CLI para Aprendizado de Máquina do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,11 +35,30 @@ O CLI não é um substituto para o SDK do Azure Machine Learning. É uma ferrame
 
 * Para usar a CLI, você deve ter uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
-* A [CLI Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+* Para usar os comandos CLI neste documento do ambiente **local,** você precisa do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+    Se você usa o [Azure Cloud Shell,](https://azure.microsoft.com//features/cloud-shell/)o CLI é acessado através do navegador e vive na nuvem.
 
 ## <a name="full-reference-docs"></a>Docs de referência completos
 
 Encontre os [docs de referência completos para a extensão azure-cli-ml do Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest).
+
+## <a name="connect-the-cli-to-your-azure-subscription"></a>Conectar a CLI à assinatura do Azure
+
+> [!IMPORTANT]
+> Se você estiver usando o Azure Cloud Shell, você pode pular esta seção. O shell na nuvem autentica automaticamente você usando a conta que você faz login na sua assinatura do Azure.
+
+Existem várias maneiras que você pode autenticar para a sua assinatura do Azure a partir da CLI. O mais básico é autenticar interativamente usando um navegador. Para autenticar interativamente, abra uma linha de comando ou terminal e use o seguinte comando:
+
+```azurecli-interactive
+az login
+```
+
+Se a CLI pode abrir seu navegador padrão, ela irá fazê-lo e carregar uma página de entrada. Caso contrário, você precisa abrir um navegador e seguir as instruções na linha de comando. As instruções [https://aka.ms/devicelogin](https://aka.ms/devicelogin) envolvem navegar e inserir um código de autorização.
+
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+
+Para obter outros métodos de autenticação, consulte [Entrar com o Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 ## <a name="install-the-extension"></a>Instalar a extensão
 
@@ -313,7 +332,7 @@ A tabela a seguir detalha cada campo de nível superior no arquivo JSON, seu tip
 
 | Campo JSON | Type | Descrição |
 |---|---|---|
-| `name` | `string` | Nome do meio ambiente. Não inicie o nome com **microsoft** ou **AzureML**. |
+| `name` | `string` | Nome do ambiente. Não inicie o nome com **microsoft** ou **AzureML**. |
 | `version` | `string` | Versão do ambiente. |
 | `environmentVariables` | `{string: string}` | Um mapa hash de nomes e valores variáveis de ambiente. |
 | `python` | [`PythonSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py) | Objeto que define o ambiente Python e o interpretador para usar no recurso de computação de destino. |

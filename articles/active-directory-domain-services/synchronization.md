@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 7e0e904b182a57a51b5d76f0acebc13bce5902b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38ed48df4d681543cc30daccf46b98635d973b89
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78944428"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639904"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Como objetos e credenciais são sincronizados em um domínio gerenciado do Azure AD Domain Services
 
@@ -31,6 +31,8 @@ O diagrama a seguir ilustra como a sincronização funciona entre o Azure AD DS,
 ## <a name="synchronization-from-azure-ad-to-azure-ad-ds"></a>Sincronização do Azure AD para o Azure AD DS
 
 Contas de usuário, membros de grupo e hashes de credenciais são sincronizadas de uma maneira do Azure AD ao Azure AD DS. Esse processo de sincronização é automático. Você não precisa configurar, monitorar ou gerenciar esse processo de sincronização. A sincronização inicial pode levar algumas horas a alguns dias, dependendo do número de objetos no diretório Azure AD. Depois que a sincronização inicial for concluída, as alterações feitas no Azure AD, como alterações de senha ou atributo, são sincronizadas automaticamente com o Azure AD DS.
+
+Quando um usuário é criado no Azure AD, ele não está sincronizado com o Azure AD DS até que eles alterem sua senha no Azure AD. Esse processo de alteração de senhas faz com que as hashes de senha para a autenticação Kerberos e NTLM sejam geradas e armazenadas no Azure AD. Os hashes de senha são necessários para autenticar com sucesso um usuário no Azure AD DS.
 
 O processo de sincronização é de uma maneira / unidirecional por design. Não há sincronização reversa de alterações do Azure AD DS de volta ao Azure AD. Um domínio gerenciado pelo Azure AD DS é em grande parte somente leitura, exceto para OUs personalizados que você pode criar. Você não pode fazer alterações nos atributos do usuário, senhas de usuário ou membros de grupo dentro de um domínio gerenciado pelo Azure AD DS.
 
@@ -134,7 +136,7 @@ As chaves de criptografia são exclusivas para cada inquilino do Azure AD. Esses
 
 Os hashes de senha legado são sincronizados do Azure AD nos controladores de domínio para um domínio gerenciado pelo Azure AD DS. Os discos para esses controladores de domínio gerenciados no Azure AD DS são criptografados em repouso. Esses hashes de senha são armazenados e protegidos nesses controladores de domínio semelhantes à forma como as senhas são armazenadas e protegidas em um ambiente AD DS no local.
 
-Para ambientes Azure AD somente na nuvem, [os usuários devem redefinir/alterar sua senha](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) para que os hashes de senha necessários sejam gerados e armazenados no Azure AD. Para qualquer conta de usuário de nuvem criada no Azure AD depois de habilitar o Azure AD Domain Services, os hashes de senha são gerados e armazenados nos formatos compatíveis com NTLM e Kerberos. Essas novas contas não precisam redefinir ou alterar sua senha gerando os hashes de senha legado.
+Para ambientes Azure AD somente na nuvem, [os usuários devem redefinir/alterar sua senha](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) para que os hashes de senha necessários sejam gerados e armazenados no Azure AD. Para qualquer conta de usuário de nuvem criada no Azure AD depois de habilitar o Azure AD Domain Services, os hashes de senha são gerados e armazenados nos formatos compatíveis com NTLM e Kerberos. Todas as contas de usuário na nuvem devem alterar sua senha antes de serem sincronizadas com o Azure AD DS.
 
 Para contas de usuário híbridos sincronizadas a partir do ambiente AD DS on-premises usando o Azure AD Connect, você deve [configurar o Azure AD Connect para sincronizar hashes de senha nos formatos compatíveis com NTLM e Kerberos.](tutorial-configure-password-hash-sync.md)
 

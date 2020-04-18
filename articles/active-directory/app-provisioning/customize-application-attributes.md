@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7003899b59e409a785c3a50e89aae6674e377b4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bfee19e9cfd1def71ebad82c2210ffc10146c896
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264083"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639752"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalização de mapeamentos de atributos de provisionamento de usuários para aplicativos SaaS no Azure Active Directory
 
@@ -143,7 +143,10 @@ O SCIM RFC define um esquema de usuário e grupo principal, ao mesmo tempo em qu
    4. Selecione **Editar lista de atributos para AppName**.
    5. Na parte inferior da lista de atributos, digite informações sobre o atributo personalizado nos campos fornecidos. Em seguida, **selecione Adicionar atributo**.
 
-Para aplicações SCIM, o nome do atributo deve seguir o padrão mostrado no exemplo abaixo. O "CustomExtensionName" e "CustomAttribute" podem ser personalizados de acordo com os requisitos do aplicativo, por exemplo: urna:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute ou urna:ietf:params:scim:schemas:extension: PersonalExtensionName:2.0:User.CustomAttributeName:value
+Para aplicações SCIM, o nome do atributo deve seguir o padrão mostrado no exemplo abaixo. O "CustomExtensionName" e "CustomAttribute" podem ser personalizados de acordo com os requisitos do aplicativo, por exemplo:  
+ * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
+ * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
+ * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User.CustomAttributeName:value
 
 Essas instruções só são aplicáveis a aplicativos habilitados para SCIM. Aplicativos como ServiceNow e Salesforce não são integrados com o Azure AD usando SCIM e, portanto, não exigem esse namespace específico ao adicionar um atributo personalizado.
 
@@ -313,7 +316,7 @@ A seleção dessa opção forçará efetivamente uma ressincronização de todos
 - A atualização de mapeamentos de atributo tem impacto no desempenho de um ciclo de sincronização. Uma atualização a uma configuração de mapeamento de atributo exige que todos os objetos gerenciados sejam reavaliados.
 - Uma prática recomendada é manter o número de alterações consecutivas em seus mapeamentos de atributos no mínimo.
 - Adicionar um atributo de foto a ser provisionado a um aplicativo não é suportado hoje, pois você não pode especificar o formato para sincronizar a foto. Você pode solicitar o recurso no [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
-- O atributo IsSoftDeleted é frequentemente parte dos mapeamentos padrão de um aplicativo. IsSoftdeleted pode ser verdadeiro em um dos quatro cenários (o usuário está fora de escopo devido a ser não atribuído do aplicativo, o usuário está fora de escopo devido a não atender a um filtro de escopo, o usuário foi excluído suavemente no Azure AD, ou a propriedade AccountEnabled está definida como falsa no usuário). 
+- O atributo IsSoftDeleted é frequentemente parte dos mapeamentos padrão de um aplicativo. IsSoftdeleted pode ser verdadeiro em um dos quatro cenários (o usuário está fora de escopo devido a ser não atribuído do aplicativo, o usuário está fora de escopo devido a não atender a um filtro de escopo, o usuário foi excluído suavemente no Azure AD, ou a propriedade AccountEnabled é definida como falsa no usuário). 
 - O serviço de provisionamento Azure AD não suporta provisionamento de valores nulos
 
 ## <a name="next-steps"></a>Próximas etapas

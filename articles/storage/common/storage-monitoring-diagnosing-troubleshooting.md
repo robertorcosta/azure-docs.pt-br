@@ -8,12 +8,12 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 3d5f3ade3ef3b79ddb3996b5bf2d609b11aff8a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0bbffacc0a8c47950b8637e826d1d5db9fbdb234
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255958"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605076"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -516,24 +516,24 @@ Entradas de log:
 
 | ID de solicitação | Texto de operação |
 | --- | --- |
-| 07b26a5d-... |Iniciando solicitação síncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |Iniciando solicitação síncrona para `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Esperando uma resposta. |
 | 07b26a5d-... |Resposta recebida. Status code = 200, Request ID = eeead849-...Content-MD5 = , ETag =    &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Cabeçalhos da resposta foram processados com êxito, procedendo com o resto da operação. |
 | 07b26a5d-... |Baixar o corpo da resposta. |
 | 07b26a5d-... |Operação concluída com sucesso. |
-| 07b26a5d-... |Iniciando solicitação síncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |Iniciando solicitação síncrona para `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Esperando uma resposta. |
 | 07b26a5d-... |Resposta recebida. Status code = 202, Request ID = 6ab2a4cf-..., Content-MD5 = , ETag = . |
 | 07b26a5d-... |Cabeçalhos da resposta foram processados com êxito, procedendo com o resto da operação. |
 | 07b26a5d-... |Baixar o corpo da resposta. |
 | 07b26a5d-... |Operação concluída com sucesso. |
-| e2d06d78-... |Iniciando solicitação assíncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
+| e2d06d78-... |Iniciando solicitação assíncrona para `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`.</td> |
 | e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Esperando uma resposta. |
-| de8b1c3c-... |Iniciando solicitação síncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
+| de8b1c3c-... |Iniciando solicitação síncrona para `https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt`. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Preparação para gravar os dados solicitados. |
 | e2d06d78-... |Exceção acionada enquanto aguarda a resposta: O servidor remoto retornou um erro: (404) Não encontrado. |
@@ -541,7 +541,7 @@ Entradas de log:
 | e2d06d78-... |Cabeçalhos da resposta foram processados com êxito, procedendo com o resto da operação. |
 | e2d06d78-... |Baixar o corpo da resposta. |
 | e2d06d78-... |Operação concluída com sucesso. |
-| e2d06d78-... |Iniciando solicitação assíncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| e2d06d78-... |Iniciando solicitação assíncrona para `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Esperando uma resposta. |
 | de8b1c3c-... |Gravação dos dados solicitados. |
@@ -567,10 +567,10 @@ A tabela a seguir mostra um exemplo de mensagem d log do lado do servidor a part
 | Hora de início da solicitação | 2014-05-30T06:17:48.4473697Z |
 | Tipo de operação     | GetBlobProperties            |
 | Status da solicitação     | SASAuthorizationError        |
-| Código de status HTTP   | 404                          |
+| Código de status HTTP   | 404                            |
 | Tipo de autenticação| Sas                          |
 | Tipo de serviço       | Blob                         |
-| URL de Solicitação        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| URL de Solicitação         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Cabeçalho da ID de solicitação  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID de solicitação do cliente  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
-ms.openlocfilehash: 64c2e77ffc43ec98c13ce8c0cad002cdb2053241
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a7d0b75140c50df61ff63f350e5b312a6a684c7
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296910"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617775"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Crie um espaço de trabalho para aprendizado de máquina do Azure com o Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ az login
 
 Se a CLI pode abrir seu navegador padrão, ela irá fazê-lo e carregar uma página de entrada. Caso contrário, você precisa abrir um navegador e seguir as instruções na linha de comando. As instruções [https://aka.ms/devicelogin](https://aka.ms/devicelogin) envolvem navegar e inserir um código de autorização.
 
-[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 Para obter outros métodos de autenticação, consulte [Entrar com o Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
@@ -66,8 +66,8 @@ O espaço de trabalho azure Machine Learning conta com os seguintes serviços ou
 | **Grupo de recursos do Azure** | `-g <resource-group-name>`
 | **Conta de Armazenamento do Azure** | `--storage-account <service-id>` |
 | **Azure Application Insights** | `--application-insights <service-id>` |
-| **Cofre de Chaves Azure** | `--keyvault <service-id>` |
-| **Registro de Contêineres Azure** | `--container-registry <service-id>` |
+| **Cofre de Chave do Azure** | `--keyvault <service-id>` |
+| **Registro de Contêiner do Azure** | `--container-registry <service-id>` |
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

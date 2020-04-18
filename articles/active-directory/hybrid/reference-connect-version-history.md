@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/03/2020
+ms.date: 04/17/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d2e3f8da4a05feedb8c1ab585fabcc74edbc71a
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 815d3afe68003f56a5748584b322b731ef5a3dc7
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998741"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639640"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -55,6 +55,15 @@ Nem todas as versões do Azure AD Connect serão disponibilizadas para atualiza�
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
 Esta compilação hotfix corrige um problema com a build 1.5.18.0 se você tiver o recurso de filtragem de grupo ativado e usar o mS-DS-ConsistencyGuid como âncora de origem.
+
+> [!IMPORTANT]
+> Se você usar o mS-DS-ConsistencyGuid como âncora de origem e clonar a regra de sincronização **In from AD - Group Join** e planejar atualizar, complete as seguintes etapas como parte da atualização:
+> 1. Durante a atualização, desmarque a opção **Inicie o processo de sincronização quando a configuração for concluída**.
+> 2. Edite a regra de sincronização de adesão clonada e adicione as duas transformações a seguir:
+>     - Defina `objectGUID` o `sourceAnchorBinary`fluxo direto para .
+>     - Defina `ConvertToBase64([objectGUID])` o `sourceAnchor`fluxo de expressão para .     
+> 3. Habilite o `Set-ADSyncScheduler -SyncCycleEnabled $true`agendador usando .
+
 
 ## <a name="15180"></a>1.5.18.0
 
@@ -1057,7 +1066,7 @@ Redefinição de senha
 ## <a name="113800"></a>1.1.380.0
 Lançamento: dezembro de 2016
 
-**Problema corrigido:**
+**Problema fixo:**
 
 * Foi corrigido o problema em que a regra de declaração de issuerid para AD FS (Serviços de Federação do Active Directory) está ausente desta compilação.
 
@@ -1071,7 +1080,7 @@ Lançamento: dezembro de 2016
 
 * A regra de declaração issuerid para o AD FS está ausente dessa compilação. A regra de declaração de issuerid é necessária se você está associando vários domínios ao Azure AD (Azure Active Directory). Se estiver usando o Azure AD Connect para gerenciar a implantação local do AD FS, atualizar para essa compilação removerá a regra de declaração issuerid existente da configuração do AD FS. Você pode contornar o problema adicionando a regra de declaração issuerid após a instalação/atualização. Para obter detalhes sobre como adicionar regra de declaração issuerid, confira este artigo sobre [Multiple Domain Support for Federating with Azure AD](how-to-connect-install-multiple-domains.md) (Suporte a vários domínios para federação com o Azure AD).
 
-**Problema corrigido:**
+**Problema fixo:**
 
 * Se a porta 9090 não estiver aberta para a conexão de saída, a atualização ou a instalação do Azure AD Connect falhará.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 95373ab8ff78c5bcb856e6d7e6d67d8525cd3f7e
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 74af841b777494744c72ed219bacd3b3835d41ac
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655126"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617566"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Junte-se a uma máquina virtual do Ubuntu Linux a um domínio gerenciado do Azure AD Domain Services
 
@@ -29,12 +29,12 @@ Este artigo mostra como juntar uma VM Linux do Ubuntu a um domínio gerenciado p
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
 * Uma assinatura ativa do Azure.
-    * Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
 * Um domínio gerenciado do Azure Active Directory Domain Services habilitado e configurado no locatário do Azure AD.
     * Se necessário, o primeiro tutorial [cria e configura uma instância do Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Uma conta de usuário que faz parte do domínio gerenciado pelo Azure AD DS.
+* Uma conta de usuário que faça parte do domínio gerenciado do Azure AD DS.
 
 ## <a name="create-and-connect-to-an-ubuntu-linux-vm"></a>Crie e conecte-se a um Ubuntu Linux VM
 
@@ -44,7 +44,7 @@ Se você precisar criar um VM Linux Ubuntu ou quiser criar uma VM de teste para 
 
 * [Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
-* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
+* [PowerShell do Azure](../virtual-machines/linux/quick-create-powershell.md)
 
 Ao criar a VM, preste atenção às configurações da rede virtual para garantir que a VM possa se comunicar com o domínio gerenciado pelo Azure AD DS:
 
@@ -154,6 +154,12 @@ Successfully enrolled machine in realm
 ```
 
 Se a VM não conseguir concluir com sucesso o processo de adesão ao domínio, certifique-se de que o grupo de segurança de rede da VM permita o tráfego kerberos de saída na porta TCP + UDP 464 para a sub-rede virtual para o domínio gerenciado pelo Azure AD DS.
+
+Se você recebeu o erro *Falha GSS não especificada.  O código menor pode fornecer mais informações (servidor não encontrado no banco de dados Kerberos)* `[libdefaults]` , abrir o arquivo */etc/krb5.conf* e adicionar o seguinte código na seção e tentar novamente:
+
+```console
+rdns=false
+```
 
 ## <a name="update-the-sssd-configuration"></a>Atualize a configuração do SSSD
 

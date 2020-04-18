@@ -4,15 +4,15 @@ description: Integre o aplicativo no Azure App Service com redes virtuais Do Zur
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 04/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cb5747c6780da134dfb2f5ab088348b848c5f04a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4866397af244ffb3c6aa9c7547b0a9413b10ccfd
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312849"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604878"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integre seu aplicativo com uma rede virtual Do Zure
 
@@ -41,8 +41,6 @@ O Azure App Service tem duas variações:
     ![Selecione VNet clássico][3]
 
 Durante a integração, o aplicativo é reiniciado. Quando a integração estiver concluída, você verá detalhes no VNet com o qual está integrado.
-
-Depois que seu aplicativo é integrado ao seu VNet, ele usa o mesmo servidor DNS com o que seu VNet está configurado, a menos que seja Azure DNS Private Zones. Atualmente, você não pode usar a Integração VNet com as Zonas Privadas do Azure DNS.
 
 ## <a name="regional-vnet-integration"></a>Integração VNet Regional
 
@@ -200,3 +198,4 @@ Para a integração VNet necessária pelo gateway, você pode integrar o App Ser
 [setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool
 [VNETRouteTables]: https://docs.microsoft.com/azure/virtual-network/manage-route-table/
 [installCLI]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest/
+[privateendpoints]: networking/private-endpoint.md

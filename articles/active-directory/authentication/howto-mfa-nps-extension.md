@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c8606f0b7ab47d624ec66c8cda539e571cec6ce
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: cc1be4637d56d7205d50ebfc6f7d1d5d22e62edf
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393047"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617655"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar sua infraestrutura do NPS existente à Autenticação Multifator do Azure
 
@@ -142,6 +142,14 @@ Use estas etapas para iniciar uma conta de teste:
 1. Faça login [https://aka.ms/mfasetup](https://aka.ms/mfasetup) com uma conta de teste.
 2. Siga os prompts para configurar um método de verificação.
 3. [Crie uma política de acesso condicional](howto-mfa-getstarted.md#create-conditional-access-policy) para exigir autenticação multifatorial para a conta de teste.
+
+> [!IMPORTANT]
+>
+> Certifique-se de que os usuários se registraram com sucesso para a Autenticação Multifatorial do Azure. Se os usuários anteriormente se registraram apenas para redefinição de senha de autoatendimento (SSPR), *strongAuthenticationMethods* está habilitado para sua conta. A autenticação multifatorial do Azure é aplicada quando *strongauthenticationMethods* é configurado, mesmo que o usuário só se registre para SSPR.
+>
+> O registro de segurança combinado pode ser ativado que configura a autenticação multifatorial SSPR e Azure ao mesmo tempo. Para obter mais informações, consulte [Ativar o registro combinado de informações de segurança no Azure Active Directory](howto-registration-mfa-sspr-combined.md).
+>
+> Você também pode [forçar os usuários a reregistrar métodos de autenticação](howto-mfa-userdevicesettings.md#manage-user-authentication-options) se eles anteriormente apenas habilitaram o SSPR.
 
 ## <a name="install-the-nps-extension"></a>Instalar a extensão NPS
 

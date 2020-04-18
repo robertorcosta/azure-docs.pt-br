@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ffb3d590aebe80994de1e7e834a2eba5777df9a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76262479"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604606"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hubs de tarefas nas Funções Duráveis (Azure Functions)
 
@@ -35,7 +35,13 @@ Todos esses recursos são criados automaticamente na conta padrão do Azure Stor
 
 ## <a name="task-hub-names"></a>Nomes de hub de tarefas
 
-Os hubs de tarefas são identificados por um nome declarado no arquivo *host.json*, conforme mostrado no exemplo a seguir:
+Os hubs de tarefas são identificados por um nome que está em conformidade com essas regras:
+
+* Contém apenas caracteres alfanuméricos
+* Começa com uma carta
+* Tem um comprimento mínimo de 3 caracteres, comprimento máximo de 45 caracteres
+
+O nome do hub de tarefas é declarado no arquivo *host.json,* conforme mostrado no exemplo a seguir:
 
 ### <a name="hostjson-functions-20"></a>host.json (Funções 2.0)
 
@@ -98,7 +104,7 @@ O nome do hub de tarefas será definido com o valor da configuração do aplicat
 
 O código a seguir demonstra como escrever uma função que usa a vinculação do [cliente de orquestração](durable-functions-bindings.md#orchestration-client) para trabalhar com um hub de tarefas configurado como uma configuração de aplicativo:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -121,7 +127,7 @@ public static async Task<HttpResponseMessage> Run(
 > [!NOTE]
 > O exemplo c# anterior é para Funções Duráveis 2.x. Para funções duráveis 1.x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre as versões, consulte o artigo [de funções duráveis.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 A propriedade do hub de tarefas no arquivo `function.json` é definida por meio da Configuração de Aplicativo:
 

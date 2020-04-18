@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a02c099871ce9748f4c5f604900a7c4d57bb96b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 298555da2056bc4c16d4d7b16615604f9798b91b
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473516"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639277"
 ---
-# <a name="azure-app-service-access-restrictions"></a>Restrições de acesso ao serviço do aplicativo Azure #
+# <a name="azure-app-service-access-restrictions"></a>Restrições de acesso ao Azure App Service
 
 As restrições de acesso permitem definir uma lista de permitir/negar ordenada prioritária que controla o acesso da rede ao seu aplicativo. A lista pode incluir endereços IP ou sub-redes da Rede Virtual Azure. Quando há uma ou mais entradas, há então um "negar tudo" implícito que existe no final da lista.
 
@@ -125,12 +125,12 @@ A sintaxe JSON para o exemplo anterior é:
 }
 ```
 
-## <a name="azure-function-app-access-restrictions"></a>Restrições de acesso ao aplicativo de função do Azure
+## <a name="azure-functions-access-restrictions"></a>Restrições de acesso às funções do Azure
 
 As restrições de acesso também estão disponíveis para aplicativos de função com a mesma funcionalidade que os planos do App Service. A ativação das restrições de acesso desativará o editor de código do portal para quaisquer IPs proibidos.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Restrições de acesso para aplicativos de função Do Zure](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
+[Restrições de acesso para funções do Azure](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
 [Integração do Application Gateway com pontos finais de serviço](networking/app-gateway-with-service-endpoints.md)
 

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 847b6c4616cbbb7fd9c6ccad18ec426dc38a887a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bceea53e6b177940305a2dc77f2a6ecfa37f277a
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430845"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617892"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Recursos de dados de cliente do Azure Key Vault
 
@@ -40,7 +40,7 @@ As informações a seguir identificam os dados do cliente dentro do Azure Key Va
 
 As mesmas APIs REST, experiência do Portal e SDKs usados para criar cofres, chaves, segredos, certificados e contas de armazenamento gerenciado, também são capazes de atualizar e excluir esses objetos.
 
-A exclusão reversível permite recuperar os dados excluídos por 90 dias após a exclusão. Ao usar a exclusão reversível, os dados poderão ser excluídos permanentemente antes de 90 dias, o período de retenção expira, executando uma operação de limpeza. Se o cofre ou a assinatura tiver sido configurado para operações de limpeza de bloco, não é possível excluir permanentemente os dados até que o período de retenção agendado tenha passado.
+A exclusão suave permite recuperar dados excluídos por 90 dias após a exclusão. Ao usar o soft-delete, os dados podem ser excluídos permanentemente antes do prazo de retenção de 90 dias expirar realizando uma operação de purga. Se o cofre ou a assinatura tiver sido configurado para operações de limpeza de bloco, não é possível excluir permanentemente os dados até que o período de retenção agendado tenha passado.
 
 ## <a name="exporting-customer-data"></a>Exportando os dados do cliente
 

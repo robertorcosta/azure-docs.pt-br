@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 2923e087426ee04c74da629f4e2d2d49a06eb1ef
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 77c58bb8dfa7d21b108d2aa63e90142f66877fb7
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416543"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606519"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Alterar a transformação da linha no mapeamento do fluxo de dados
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Use a transformação Alter Row para definir políticas de inserção, exclusão, atualização e upsert em linhas. Você pode adicionar de um a muitas condições como expressões. Essas condições devem ser especificadas por ordem de prioridade, pois cada linha será marcada com a política correspondente à primeira expressão correspondente. Cada uma dessas condições pode resultar em uma linha (ou linhas) sendo inseridas, atualizadas, excluídas ou upserted. Alter Row pode produzir ações DDL & DML contra seu banco de dados.
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33684a6292d7e51c04f6bacc7c49ee5986dbec10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3bc87b183803c0854542d6925af7429b593d2af
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502407"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605166"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Arquitetura de rede do SAP HANA (Instâncias Grandes)
 
@@ -86,7 +86,7 @@ Para fornecer latência de rede determinística entre VMs e HANA Large Instance,
 Para diminuir a latência, o ExpressRoute Fast Path foi introduzido e lançado em maio de 2019 para a conectividade específica de HANA Large Instances para redes virtuais Azure que hospedam as VMs do aplicativo SAP. A grande diferença para a solução implementada até agora, é que os fluxos de dados entre VMs e HANA Large Instances não são mais roteados através do gateway ExpressRoute. Em vez disso, as VMs atribuídas nas sub-redes da rede virtual Do Zure estão se comunicando diretamente com o roteador de borda corporativa dedicado. 
 
 > [!IMPORTANT] 
-> A funcionalidade ExpressRoute Fast Path requer que as sub-redes que executam as VMs do aplicativo SAP estejam na mesma rede virtual do Azure que foi conectada às Grandes Instâncias do HANA. As VMs localizadas em redes virtuais Do Zure que são acompanhadas pela rede virtual Azure conectada diretamente às unidades HANA Large Instance não estão se beneficiando do Caminho Rápido ExpressRoute. Como resultado, os projetos típicos de hub e rede virtual, onde os circuitos ExpressRoute estão se conectando contra uma rede virtual hub e redes virtuais contendo a camada de aplicativos SAP (raios) estão sendo pesquisados, a otimização pelo ExpressRoute Fast O caminho não vai funcionar. Em adição, o ExpressRoute Fast Path não suporta regras de roteamento definidas pelo usuário (UDR) hoje. Para obter mais informações, consulte [o gateway de rede virtual ExpressRoute e o FastPath](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways). 
+> A funcionalidade ExpressRoute Fast Path requer que as sub-redes que executam as VMs do aplicativo SAP estejam na mesma rede virtual do Azure que foi conectada às Grandes Instâncias do HANA. As VMs localizadas em redes virtuais Do Zure que são acompanhadas pela rede virtual Azure conectada diretamente às unidades HANA Large Instance não estão se beneficiando do Caminho Rápido ExpressRoute. Como resultado, os projetos típicos de hub e rede virtual, onde os circuitos ExpressRoute estão se conectando contra uma rede virtual hub e redes virtuais contendo a camada de aplicativos SAP (raios) estão sendo pesquisados, a otimização pelo ExpressRoute Fast Path não funcionará. Em adição, o ExpressRoute Fast Path não suporta regras de roteamento definidas pelo usuário (UDR) hoje. Para obter mais informações, consulte [o gateway de rede virtual ExpressRoute e o FastPath](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways). 
 
 
 Para obter mais detalhes sobre como configurar o Caminho Rápido expressroute, leia o documento [Conecte uma rede virtual a instâncias hana grandes](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route).    
@@ -151,7 +151,7 @@ Existem três maneiras de permitir o roteamento transitivo nesses cenários:
 - Usar [regras IPTables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) em uma VM Linux para habilitar o roteamento entre localidades locais e as unidades do SAP HANA em Instâncias Grandes ou entre unidades do SAP HANA em Instâncias Grandes em regiões diferentes. O VM executando IPTables precisa ser implantado na rede virtual Azure que se conecta a HANA Large Instances e a on-premises. A VM precisa ser dimensionada nesse concomção, de modo que o throughput de rede da VM seja suficiente para o tráfego de rede esperado. Para obter detalhes sobre a largura de banda da rede VM, verifique o artigo [Tamanhos de máquinas virtuais Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - [O Azure Firewall](https://azure.microsoft.com/services/azure-firewall/) seria outra solução para permitir tráfego direto entre unidades de ocorrência on-premises e HANA Large. 
 
-Todo o tráfego dessas soluções seria roteado através de uma rede virtual Do Zure e, como tal, o tráfego poderia ser adicionalmente restrito pelos aparelhos macios usados ou pelos Grupos de Segurança da Rede Azure, de modo que certos endereços IP ou endereço IP variam de no local, os locais podem ser bloqueados ou explicitamente permitidos acessando instâncias grandes do HANA. 
+Todo o tráfego dessas soluções seria roteado através de uma rede virtual do Azure e, como tal, o tráfego poderia ser adicionalmente restrito pelos aparelhos macios usados ou pelos Grupos de Segurança da Rede Azure, de modo que certos endereços IP ou endereços IP de locais poderiam ser bloqueados ou explicitamente permitidos acessando hana grandes instâncias. 
 
 > [!NOTE]  
 > Esteja ciente de que a implementação e o suporte para soluções personalizadas envolvendo IPTables ou dispositivos de rede de terceiros não são fornecidos pela Microsoft. O suporte deve ser fornecido pelo fornecedor do componente usado ou pelo integrador. 
@@ -182,7 +182,7 @@ Para obter mais detalhes sobre como habilitar o ExpressRoute Global Reach, leia 
 O SAP HANA em Instâncias Grandes *não* tem conectividade direta com a Internet. Por exemplo, essa limitação pode restringir a capacidade de registrar a imagem do SO diretamente com o fornecedor do SO. Talvez seja necessário trabalhar com o servidor da Ferramenta de Gerenciamento de Assinaturas do SUSE Linux Enterprise Server ou com o Gerenciador de Assinaturas do Red Hat Enterprise Linux.
 
 ## <a name="data-encryption-between-vms-and-hana-large-instance"></a>Criptografia de dados entre VMs e o SAP HANA em Instâncias Grandes
-Os dados transferidos entre o SAP HANA em Instâncias Grandes e as VMs não são criptografados. No entanto, apenas para a troca entre o lado do DBMS do HANA e aplicativos baseados em JDBC/ODBC, é possível habilitar criptografia do tráfego. Para obter mais informações, consulta [esta documentação pelo SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false).
+Os dados transferidos entre o SAP HANA em Instâncias Grandes e as VMs não são criptografados. No entanto, apenas para a troca entre o lado do DBMS do HANA e aplicativos baseados em JDBC/ODBC, é possível habilitar criptografia do tráfego. Para obter mais informações, consulta [esta documentação pelo SAP](https://help.sap.com/viewer/102d9916bf77407ea3942fef93a47da8/1.0.11/en-US/dbd3d887bb571014bf05ca887f897b99.html).
 
 ## <a name="use-hana-large-instance-units-in-multiple-regions"></a>Usar unidades do SAP HANA em Instâncias Grandes em várias regiões
 

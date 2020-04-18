@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 71a31228602ef161158eaa05c80d50f65de98a50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82fa5968d004bd4460f2c05ec944f6e568508675
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77133280"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641148"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Como configurar os codificadores locais ao usar os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
 Este tópico lista os codificadores ativos locais que podem ser usados para capturar os eventos ao vivo e enviar uma transmissão ao vivo de taxa de bits única para os canais do AMS (que são habilitados para a codificação ativa) para mais processamento. O tópico também contém links para os tutoriais que mostram como configurar os codificadores listados.
@@ -32,9 +32,6 @@ Para saber mais sobre como configurar o [Codificador Haivision KB](https://www.h
 
 ## <a name="telestream-wirecast"></a>Telestream Wirecast
 Para obter informações sobre como configurar o codificador [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) para enviar uma transmissão ao vivo de taxa de bits única para um Canal do AMS, veja [Configurando o Wirecast](media-services-configure-wirecast-live-encoder.md).
-
-## <a name="newtek-tricaster"></a>NewTek TriCaster
-Para obter informações sobre como configurar o codificador [Tricaster](https://newtek.com/products/tricaster-40.html) para enviar uma transmissão ao vivo de taxa de bits única para um Canal do AMS, veja [Configurando o Tricaster](media-services-configure-tricaster-live-encoder.md).
 
 ## <a name="elemental-live"></a>Elemental Live
 Para obter mais informações, consulte [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live).

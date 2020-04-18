@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 601c537a51e29ae1f107127e1b83c07448eee9ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59616fb217b28a8c47d9a5d13e2f4c1b9a8f6bb3
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256426"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605217"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar a replicação geográfica ativa para o Banco de Dados SQL do Azure usando o Portal do Azure e inicializar o failover
 
@@ -67,7 +67,7 @@ O banco de dados secundário pode ser alternado para se tornar primário.
 
 1. No [portal Azure,](https://portal.azure.com)navegue até o banco de dados principal na parceria de geo-replicação.
 2. Na lâmina SQL Database, selecione **Todas as configurações** > **de geo-replicação**.
-3. Na lista **SECUNDÁRIOS**, selecione o banco de dados que deverá se tornar o novo primário e clique em **Failover**.
+3. Na lista **SECONDARIES,** selecione o banco de dados que deseja tornar-se o novo primary e clique **em Failover forçado**.
 
     ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Clique em **Sim** para iniciar o failover.
