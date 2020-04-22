@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 4042fc05f278915fe72bf8fc4e6afd69a5bbb4b9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 626a8c96fdc247db174e2cbcd2e5c99cec43d2ea
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537416"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770957"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implantar o Azure Monitor Application Insights Agent para servidores locais
 
@@ -36,14 +36,14 @@ O Agente de Insights https://www.powershellgallery.com/packages/Az.ApplicationMo
 - Veja as [instruções detalhadas](status-monitor-v2-detailed-instructions.md) para um mergulho profundo sobre como começar.
 
 ## <a name="powershell-api-reference"></a>Referência da API powershell
-- [Desativar-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
-- [Mecanismo de desativação de instrumentação](status-monitor-v2-api-disable-instrumentation-engine.md)
-- [Aplicativo-aplicativoInsightsMonitoring](status-monitor-v2-api-enable-monitoring.md)
-- [Mecanismo de ativação de instrumentação](status-monitor-v2-api-enable-instrumentation-engine.md)
-- [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
-- [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
-- [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
-- [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
+- [Desativar-ApplicationInsightsMonitoring](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#disable-applicationinsightsmonitoring)
+- [Mecanismo de desativação de instrumentação](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#disable-instrumentationengine)
+- [Aplicativo-aplicativoInsightsMonitoring](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring)
+- [Mecanismo de ativação de instrumentação](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-instrumentationengine)
+- [Get-ApplicationInsightsMonitoringConfig](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringconfig)
+- [Get-ApplicationInsightsMonitoringStatus](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus)
+- [Set-ApplicationInsightsMonitoringConfig](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#set-applicationinsightsmonitoringconfig)
+- [Start-ApplicationInsightsMonitoringTrace](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#start-applicationinsightsmonitoringtrace)
 
 ## <a name="troubleshooting"></a>Solução de problemas
 - [Solução de problemas](status-monitor-v2-troubleshoot.md)
@@ -54,7 +54,7 @@ O Agente de Insights https://www.powershellgallery.com/packages/Az.ApplicationMo
 
 - O Application Insights Agent suporta instalações proxy?
 
-  *Sim, eu sei.* Existem várias maneiras de baixar o Application Insights Agent. Se o seu computador tiver acesso à internet, você `-Proxy` pode acessar a Galeria PowerShell usando parâmetros.
+  *Sim*. Existem várias maneiras de baixar o Application Insights Agent. Se o seu computador tiver acesso à internet, você `-Proxy` pode acessar a Galeria PowerShell usando parâmetros.
 Você também pode baixar manualmente o módulo e instalá-lo no computador ou usá-lo diretamente.
 Cada uma dessas opções está descrita nas [instruções detalhadas.](status-monitor-v2-detailed-instructions.md)
 
@@ -64,7 +64,7 @@ Cada uma dessas opções está descrita nas [instruções detalhadas.](status-mo
 
 - Como posso verificar se a habilitação foi bem sucedida?
 
-  - O [cmdlet Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) pode ser usado para verificar se a habilitação foi bem sucedida.
+  - O [cmdlet Get-ApplicationInsightsMonitoringStatus](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus) pode ser usado para verificar se a habilitação foi bem sucedida.
   - Recomendamos que você use [métricas ao vivo](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) para determinar rapidamente se seu aplicativo está enviando telemetria.
 
   - Você também pode usar [o Log Analytics](../log-query/get-started-portal.md) para listar todas as funções de nuvem que atualmente enviam telemetria:

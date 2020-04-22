@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2019
+ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 34d864c3902a1b9eb82be760259c08fb2e8c2ff9
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 227aae23babbcd5d734a10821d9311f91532ea4e
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260217"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770973"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura do CDN do Azure por Metro 
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "81260217"
 > 
 
 
-Este artigo lista os Metros atuais que contêm locais POP (ponto de presença), classificado por região, para produtos da CDN (Rede de Distribuição de Conteúdo) do Azure. Cada Metro pode conter mais de um POP. Por exemplo, o Azure CDN da Microsoft tem 130 POPs em 80 Metros. 
+Este artigo lista os Metros atuais que contêm locais POP (ponto de presença), classificado por região, para produtos da CDN (Rede de Distribuição de Conteúdo) do Azure. Cada Metro pode conter mais de um POP. Por exemplo, o Azure CDN da Microsoft tem 130 POPs em 82 Metros. 
 
 > [!IMPORTANT]
 > Os locais de cidade POP para o **Azure CDN da Akamai** não são divulgados individualmente.  
@@ -39,10 +39,10 @@ Este artigo lista os Metros atuais que contêm locais POP (ponto de presença), 
 | Região | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
 | América do Norte | Toronto, Canadá<br />Vancouver<br />Montreal, Canadá<br />Querétaro, México<br />San Juan, Porto Rico<br />Ashburn, VA, EUA<br />Atlanta, GA, EUA<br />Boston, MA, EUA<br />Cheyenne, WY, EUA<br />Chicago, IL, EUA<br /> Dallas, TX, EUA<br />Denver, CO, EUA<br />Honolulu, OI, EUA<br />Houston, TX, EUA<br />Las Vegas, NV, EUA<br />Los Angeles, CA, EUA<br />Miami, FL, EUA<br />Nova Iorque, EUA<br />Newark, NJ, EUA<br />Phoenix, AZ, EUA<br />Portland, OR, EUA<br />San Antonio, TX, EUA<br />San Jose, CA, EUA<br />Seattle, WA, EUA | Guadalajara, México<br />Cidade do México, México<br />Puebla, México<br />Querétaro, México<br />Atlanta, GA, EUA<br />Boston, MA, EUA<br />Chicago, IL, EUA<br />Dallas, TX, EUA<br />Denver, CO, EUA<br />Detroit, MI, EUA<br />Los Angeles, CA, EUA<br />Miami, FL, EUA<br />Nova Iorque, EUA<br />Filadélfia, PA, EUA<br />San Jose, CA, EUA<br />Seattle, WA, EUA<br />Washington, D.C., EUA | Canada<br />México<br />EUA |
-| América do Sul | Campinas, Brasil<br />Rio de Janeiro, Brasil<br />São Paulo, Brasil<br />Santiago, Chile | Buenos Aires, Argentina<br />Rio de Janeiro, Brasil<br />São Paulo, Brasil<br />Valparaíso, Chile<br />Barranquilla, Colômbia<br />Medellin, Colômbia<br />Quito, Equador<br />Lima, Peru | Argentina<br />Brasil<br />Chile<br />Colômbia<br />Equador<br />Peru<br />Uruguai |
+| América do Sul | Campinas, Brasil<br />Rio de Janeiro, Brasil<br />São Paulo, Brasil<br />Santiago, Chile | Buenos Aires, Argentina<br />Rio de Janeiro, Brasil<br />São Paulo, Brasil<br />Valparaíso, Chile<br />Bogotá<br />Barranquilla, Colômbia<br />Medellin, Colômbia<br />Quito, Equador<br />Lima, Peru | Argentina<br />Brasil<br />Chile<br />Colômbia<br />Equador<br />Peru<br />Uruguai |
 | Europa | Viena, Áustria<br />Bruxelas, Bélgica<br />Sófia, Bulgária<br />Zagreb<br />Praga, República Tcheca<br />Copenhague, Dinamarca<br /> Helsinki, Finlândia<br /> Oslo<br />Marseille, França<br />Paris, França<br />Berlin<br />Frankfurt, Alemanha<br />Atenas, Grécia<br />Budapeste, Hungria<br />Dublin, Irlanda<br />Milão, Itália<br />Amsterdã, Países Baixos<br />Varsóvia, Polônia<br />Lisboa, Portugal<br />Bucareste<br />Barcelona, Espanha<br />Madri, Espanha<br />Estocolmo, Suécia<br />Zurique, Suíça<br />Londres, Reino Unido<br />Manchester, Reino Unido | Viena, Áustria<br />Copenhague, Dinamarca<br />Helsinki, Finlândia<br />Marseille, França<br />Paris, França<br />Frankfurt, Alemanha<br />Milão, Itália<br />Riga, Letônia<br />Amsterdã, Países Baixos<br />Varsóvia, Polônia<br />Madri, Espanha<br />Estocolmo, Suécia<br />Londres, Reino Unido | Áustria<br />Bulgária<br />Dinamarca<br />Finlândia<br />França<br />Alemanha<br />Grécia<br />Irlanda<br />Itália<br />Países Baixos<br />Polônia<br />Rússia<br />Espanha<br />Suécia<br />Suíça<br />United Kingdom |
 | África | Cidade do Cabo, África do Sul<br />Joanesburgo, África do Sul<br />Lagos<br />Nairobi | Joanesburgo, África do Sul | África do Sul |
-| Oriente Médio | Dubai, Emirados Árabes Unidos | Mascate, Omã<br />Fujirah, Emirados Árabes Unidos | Catar<br />Emirados Árabes Unidos |
+| Oriente Médio | Dubai, Emirados Árabes Unidos<br />Tel Aviv<br />Istambul, Turquia | Mascate, Omã<br />Fujirah, Emirados Árabes Unidos | Catar<br />Emirados Árabes Unidos |
 | Índia | Chennai, Índia<br />Hyderabad<br />Mumbai, Índia<br />Nova Délhi, Índia | Bengaluru (Bangalore), Índia<br />Chennai, Índia<br />Mumbai, Índia<br />Nova Délhi, Índia<br /> | Índia |
 | Ásia | RAE de Hong Kong<br />Osaka, Japão<br />Tóquio, Japão<br />Kuala Lumpur, Malásia<br />Jacarta, Indonésia<br />Manila, Filipinas<br />Singapura<br />Busan, Coreia do Sul<br />Seul, Coreia do Sul<br />Taipé, Taiwan<br />Bancoc, Tailândia<br />Saigon | RAE de Hong Kong<br />Batam, Indonésia<br />Jacarta, Indonésia<br />Osaka, Japão<br />Tóquio, Japão<br />Singapura<br />Seul, Coreia do Sul<br />Kaohsiung, Taiwan<br />Taipé, Taiwan | RAE de Hong Kong<br />Indonésia<br />Israel<br />Japão<br />Macau<br />Malásia<br />Filipinas<br />Singapura<br />Coreia do Sul<br />Taiwan<br />Tailândia<br />Turquia<br />Vietnã |
 | Austrália e Nova Zelândia | Brisbane, Austrália<br />Melbourne, Austrália<br />Perth<br />Sydney, Austrália<br />Auckland, Nova Zelândia | Melbourne, Austrália<br />Sydney, Austrália<br />Auckland, Nova Zelândia | Austrália<br />Nova Zelândia |

@@ -1,6 +1,6 @@
 ---
 title: Porta da Frente do Azure - Suporte para domínios curinga
-description: Este artigo ajuda você a entender como o Azure Front Door suporta mapeamento e gerenciamento de domínios curinga na lista de domínios personalizados
+description: Este artigo ajuda você a entender como o Azure Front Door suporta o mapeamento e o gerenciamento de domínios curinga na lista de domínios personalizados.
 services: frontdoor
 author: sharad4u
 ms.service: frontdoor
@@ -10,64 +10,72 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2020
 ms.author: sharadag
-ms.openlocfilehash: c568c9cc5c57098385cc7399459ec656cdbfc305
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d8a6d6f0b05b9b7fd0144959c82b6a2c9e659a3
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79537434"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768309"
 ---
 # <a name="wildcard-domains"></a>Domínios curinga
 
-Além de domínios e subdomínios apex, você também pode mapear um nome de domínio curinga para sua lista de hosts frontend ou domínios personalizados do seu perfil front door. Ter domínios curinga na configuração da Porta da Frente simplifica o comportamento de roteamento de tráfego para vários subdomínios para uma API, aplicativo ou site da mesma regra de roteamento sem ter que modificar a configuração para adicionar e/ou especificar cada subdomínio separadamente. Como exemplo, você pode definir `customer1.contoso.com`o `customer2.contoso.com`roteamento para , e `customerN.contoso.com` usando a `*.contoso.com`mesma regra de roteamento adicionando um domínio curinga .
+Além dos domínios e subdomínios do apex, você pode mapear um nome de domínio curinga para sua lista de hosts front-end ou domínios personalizados no perfil do Azure Front Door. Ter domínios curingas na configuração do Azure Front Door simplifica o comportamento de roteamento de tráfego para vários subdomínios para uma API, aplicativo ou site da mesma regra de roteamento. Você não precisa modificar a configuração para adicionar ou especificar cada subdomínio separadamente. Como exemplo, você pode definir `customer1.contoso.com`o `customer2.contoso.com`roteamento para , e `customerN.contoso.com` usando a `*.contoso.com`mesma regra de roteamento e adicionando o domínio curinga .
 
-Alguns dos principais cenários que são resolvidos com suporte para domínios curinga incluem:
+Os principais cenários que são melhorados com suporte para domínios curinga incluem:
 
-- Não é mais necessário embarcar em cada subdomínio na porta da frente e, em seguida, habilitar o HTTPS para vincular um certificado para cada subdomínio.
-- Se um aplicativo adicionar um novo subdomínio, então você não será mais obrigado a alterar sua configuração de porta frontal de produção. Em caso contrário, antes, ele exigia adicionar o subdomínio, vinculando um certificado a ele, anexando uma política de firewall de aplicativo web (WAF), adicionando o domínio a diferentes regras de roteamento.
+- Você não precisa embarcar em cada subdomínio no perfil do Azure Front Door e, em seguida, habilitar o HTTPS para vincular um certificado para cada subdomínio.
+- Você não é mais obrigado a alterar sua configuração de produção do Azure Front Door se um aplicativo adicionar um novo subdomínio. Anteriormente, você tinha que adicionar o subdomínio, vincular um certificado a ele, anexar uma diretiva waf (web application firewall) e, em seguida, adicionar o domínio a diferentes regras de roteamento.
 
 > [!NOTE]
-> Atualmente, os domínios curinga só são suportados através da API, PowerShell e CLI. O suporte para adicionar o gerenciamento de domínios curinga via portal Azure não está disponível.
+> Atualmente, os domínios curinga só são suportados via API, PowerShell e a CLI do Azure. O suporte para adicionar e gerenciar domínios curinga no portal Azure não está disponível.
 
 ## <a name="adding-wildcard-domains"></a>Adicionando domínios curinga
 
-Você pode embarcar em um domínio curinga na seção Hosts ou domínios do Frontend. Semelhante aos subdomínios, o Front Door valida que há um mapeamento CNAME para o seu domínio curinga também. Este mapeamento DeDN pode ser `*.contoso.com` um mapeamento `contoso.azurefd.net` CNAME direto como mapeado para ou através do mapeamento temporário afdverify como `afdverify.contoso.com` mapeado para `afdverify.contoso.azurefd.net` validar o mapa CNAME para curinga (O Azure DNS suporta registros curinga).
-
-Você também pode adicionar tantos subdomínios de nível único do domínio curinga em hosts frontend se eles não estiverem atingindo o máximo. limite de hosts frontend. Essa funcionalidade pode ser necessária para definir uma rota diferente para um subdomínio do que o resto dos domínios (do domínio curinga) ou ter uma política WAF diferente para um subdomínio específico. Assim, `*.contoso.com` permitirá `foo.contoso.com` adicionar sem ter que `foo.bar.contoso.com` provar novamente a propriedade do `*.contoso.com`domínio, mas não como isso não é um subdomínio de nível único de . Para `foo.bar.contoso.com` adicionar sem validação `*.bar.contosonews.com` adicional de propriedade de domínio, será necessário adicionar.
-
-### <a name="limitations"></a>Limitações
-
-1. Se um domínio curinga for adicionado em um determinado perfil da Porta da Frente, o mesmo não poderá ser adicionado a qualquer outro perfil da Porta da Frente. 
-2. Se um domínio curinga for adicionado em um determinado perfil front door, então quaisquer subdomínios desse domínio curinga não poderão ser adicionados a outra porta frontal ou a um CDN do Azure do perfil da Microsoft
-3. Se um subdomínio de um domínio curinga for adicionado em um perfil da Porta da Frente ou em um CDN do Azure do perfil da Microsoft, o domínio curinga não poderá ser adicionado a nenhum outro perfil do Front Door. 
-4. Se dois perfis (Front Door ou Azure CDN da Microsoft) tiverem vários subdomínios de um domínio raiz, então os domínios curinga não podem ser adicionados em nenhum dos perfis.
-
-## <a name="certificate-binding-for-wildcard-domains-and-its-subdomains"></a>Certificado de vinculação para domínios curinga e seus subdomínios
-
-Para aceitar tráfego HTTPS em seu domínio curinga, você deve ativar HTTPS no domínio curinga. A vinculação do certificado para domínio curinga requer um certificado curinga, ou seja, o nome do assunto do certificado também deve ter o domínio curinga.
+Você pode adicionar um domínio curinga sob a seção para hosts ou domínios front-end. Semelhante aos subdomínios, o Azure Front Door valida que há mapeamento de registro CNAME para o seu domínio curinga. Este mapeamento DNS pode ser um `*.contoso.com` mapeamento direto `contoso.azurefd.net`do registro CNAME como mapeado para . Ou você pode usar afdverificar mapeamento temporário. Por exemplo, `afdverify.contoso.com` mapeado para `afdverify.contoso.azurefd.net` validar o mapa de registro CNAME para o curinga.
 
 > [!NOTE]
-> Atualmente, apenas usando sua própria opção de certificado SSL personalizado está disponível para habilitar HTTPS para domínios curinga. Os certificados gerenciados do Front Door não podem ser usados para domínios curinga. 
+> O DNS do Azure dá suporte a registros curinga.
 
-Você pode optar por usar o mesmo certificado curinga do seu Key Vault para os subdomínios, ou, o uso de certificados gerenciados pela porta frontal para subdomínios também é suportado.
-Se um subdomínio for adicionado para um domínio curinga e o domínio curinga já tiver um certificado associado, então o HTTPS para este subdomínio não poderá ser desativado. O subdomínio usará, por padrão, a vinculação do certificado do domínio curinga, a menos que seja substituído por um certificado de Key Vault diferente ou certificado gerenciado pela Porta da Frente.
+Você pode adicionar o máximo de subdomínios de nível único do domínio curinga em hosts front-end, até o limite dos hosts front-end. Essa funcionalidade pode ser necessária para:
 
-## <a name="web-application-firewall-for-wildcard-domains-and-its-subdomains"></a>Firewall de aplicativos web para domínios curinga e seus subdomínios
+- Definindo uma rota diferente para um subdomínio do que o resto dos domínios (a partir do domínio curinga).
 
-As políticas WAF podem ser anexadas a um domínio curinga semelhante a outros domínios. Uma política WAF diferente pode ser aplicada a um subdomínio de um domínio curinga. Para os subdomínios, você deve especificar explicitamente a política WAF a ser usada e mesmo que seja a mesma política do domínio curinga. Os subdomínios **não** herdarão automaticamente a política WAF do domínio curinga.
+- Ter uma política WAF diferente para um subdomínio específico. Por exemplo, `*.contoso.com` `foo.contoso.com` permite adicionar sem ter que provar novamente a propriedade do domínio. Mas não permite `foo.bar.contoso.com` porque não é um subdomínio `*.contoso.com`de nível único de . Para `foo.bar.contoso.com` adicionar sem validação `*.bar.contosonews.com` adicional de propriedade de domínio, precisa ser adicionado.
 
-Se você tem um cenário em que você não quer que o WAF seja executado para um subdomínio, então você pode criar uma diretiva WAF em branco sem conjuntos de regras gerenciados ou personalizados.
+Você pode adicionar domínios curinga e seus subdomínios com certas limitações:
 
-## <a name="routing-rules-for-wildcard-domains-and-its-subdomains"></a>Regras de roteamento para domínios curinga e seus subdomínios
+- Se um domínio curinga for adicionado a um perfil do Azure Front Door:
+  - O domínio curinga não pode ser adicionado a nenhum outro perfil do Azure Front Door.
+  - Os subdomínios de primeiro nível do domínio curinga não podem ser adicionados a outro perfil do Azure Front Door ou a um perfil da Azure Content Delivery Network.
+- Se um subdomínio de um domínio curinga for adicionado a um perfil do Azure Front Door ou ao perfil Azure Content Delivery Network, o domínio curinga não poderá ser adicionado a outros perfis do Azure Front Door.
+- Se dois perfis (Azure Front Door ou Azure Content Delivery Network) tiverem vários subdomínios de um domínio raiz, os domínios curingas não poderão ser adicionados a nenhum dos perfis.
 
-Ao configurar uma regra de roteamento, você pode selecionar um domínio curinga como um host frontend. Você também pode ter diferentes comportamentos de rota para domínio curinga vs. subdomínios. Como descrito em [como o Front Door faz a correspondência de rotas,](front-door-route-matching.md)a correspondência mais específica para o domínio em diferentes regras de roteamento será escolhida em tempo de execução.
+## <a name="certificate-binding"></a>Vinculação de certificados
 
-> [!WARNING]
-> Se você tiver duas regras de roteamento como **a Rota 1** `*.foo.com/*` : mapeada para backend `bar.foo.com/anotherPath/*`pool A e rota **2**: `bar.foo.com/somePath/*` mapeada para Backend Pool B e se uma solicitação chegar para , então seus clientes verão falhas, pois a Porta da Frente não encontrará nenhuma correspondência em ambas as rotas. Isso porque, de acordo com nosso [algoritmo de correspondência de rotas,](front-door-route-matching.md)o Front Door selecionará a Rota 2 com base em correspondência de domínio mais específica, mas apenas para descobrir que não há padrões de caminho correspondentes. 
+Para aceitar tráfego HTTPS em seu domínio curinga, você deve ativar HTTPS no domínio curinga. A vinculação do certificado para um domínio curinga requer um certificado curinga. Ou seja, o nome do assunto do certificado também deve ter o domínio curinga.
 
+> [!NOTE]
+> Atualmente, apenas usando sua própria opção de certificado SSL personalizado está disponível para habilitar HTTPS para domínios curinga. Os certificados gerenciados do Azure Front Door não podem ser usados para domínios curinga.
+
+Você pode optar por usar o mesmo certificado curinga do Azure Key Vault ou dos certificados gerenciados do Azure Front Door para subdomínios.
+
+Se um subdomínio for adicionado para um domínio curinga que já tenha um certificado associado a ele, então o HTTPS para o subdomínio não poderá ser desativado. O subdomínio usa a vinculação do certificado para o domínio curinga, a menos que um certificado gerenciado pelo Key Vault ou a Azure Front Door o sobretenha.
+
+## <a name="waf-policies"></a>Políticas do WAF
+
+As políticas waf podem ser anexadas a domínios curinga, semelhantes a outros domínios. Uma política WAF diferente pode ser aplicada a um subdomínio de um domínio curinga. Para os subdomínios, você deve especificar a política WAF a ser usada mesmo que seja a mesma política do domínio curinga. Os subdomínios *não* herdam automaticamente a política WAF do domínio curinga.
+
+Se você não quiser que uma política WAF seja executada para um subdomínio, você pode criar uma diretiva WAF vazia sem conjuntos de regras gerenciados ou personalizados.
+
+## <a name="routing-rules"></a>Regras de roteamento
+
+Ao configurar uma regra de roteamento, você pode selecionar um domínio curinga como um host front-end. Você também pode ter diferentes comportamentos de rota para domínios e subdomínios curinga. Como descrito em [How Azure Front Door faz a correspondência de rotas,](front-door-route-matching.md)a correspondência mais específica para o domínio em diferentes regras de roteamento é escolhida em tempo de execução.
+
+> [!IMPORTANT]
+> Você deve ter padrões de caminho correspondentes através de suas regras de roteamento, ou seus clientes verão falhas. Por exemplo, você tem duas regras`*.foo.com/*` de roteamento como a Rota 1`bar.foo.com/somePath/*` (mapeada para o pool de back-end A) e a Rota 2 (mapeada para o pool b de back-end). Então, chega um `bar.foo.com/anotherPath/*`pedido para . O Azure Front Door seleciona a Rota 2 com base em uma correspondência de domínio mais específica, apenas para não encontrar padrões de caminho correspondentes entre as rotas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [criar um Front Door](quickstart-create-front-door.md).
-- Aprenda a [adicionar um domínio personalizado na Porta da Frente](front-door-custom-domain.md).
+- Aprenda a [criar um perfil do Azure Front Door](quickstart-create-front-door.md).
+- Aprenda a [adicionar um domínio personalizado na porta frontal do Azure](front-door-custom-domain.md).
 - Saiba como [ativar https em um domínio personalizado](front-door-custom-domain-https.md).

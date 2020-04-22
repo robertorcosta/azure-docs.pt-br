@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1054328216d0517b3f450ba4fe08f3bef32d68f7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 645baf9102785d223fd1f23ae52a4609725f795b
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81431716"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770803"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consultar arquivos JSON usando SQL sob demanda (visualização) no Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Neste artigo, você aprenderá a escrever uma consulta usando SQL sob demanda (v
 
 Antes de ler o resto deste artigo, revise os seguintes artigos:
 
-- [Configuração pela primeira vez](query-data-storage.md#first-time-setup)
+- [Configuração inicial](query-data-storage.md#first-time-setup)
 - [Pré-requisitos](query-data-storage.md#prerequisites)
 
 ## <a name="sample-json-files"></a>Amostra de arquivos JSON
@@ -145,4 +145,4 @@ WHERE
 Os próximos artigos desta série demonstrarão como:
 
 - [Consultando pastas e vários arquivos](query-folders-multiple-csv-files.md)
-- [Crie e use visualizações](create-use-views.md).
+- [Criar e usar modos de exibição](create-use-views.md)

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: ad9b4b69b0be34c89d03b677c1889e486aae0379
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db37a56ffbf0cb64530f8f7af38841bac72c77d4
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931692"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767543"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
 
@@ -159,15 +159,15 @@ Neste exemplo, o comando `hdfs` usa o armazenamento de cluster padrão de modo t
 HDInsight registra em log a saída do script que é gravada para STDOUT e STDERR. Você pode exibir essas informações usando a interface do usuário da Web do Ambari.
 
 > [!NOTE]  
-> O Apache Ambari só estará disponível se o cluster for criado com êxito. Se você usar uma ação de script durante a criação do cluster e a criação falhar, confira a seção de solução de problemas [Personalizar clusters HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) para conhecer outras maneiras de acessar informações registradas em log.
+> O Apache Ambari só estará disponível se o cluster for criado com êxito. Se você usar uma ação de script durante a criação de clusters e a criação falhar, consulte ['Solucionar as ações](./troubleshoot-script-action.md) de script' para obter outras formas de acessar informações registradas.
 
-A maioria dos pacotes de instalação e utilitários já grava informações para STDOUT e STDERR; no entanto, talvez você queira adicionar registro em log adicional. Para enviar texto para STDOUT, use `echo`. Por exemplo: 
+A maioria dos pacotes de instalação e utilitários já grava informações para STDOUT e STDERR; no entanto, talvez você queira adicionar registro em log adicional. Para enviar texto para STDOUT, use `echo`. Por exemplo:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Por padrão, `echo` envia a cadeia de caracteres para STDOUT. Para direcioná-lo para STDERR, adicione `>&2` antes de `echo`. Por exemplo: 
+Por padrão, `echo` envia a cadeia de caracteres para STDOUT. Para direcioná-lo para STDERR, adicione `>&2` antes de `echo`. Por exemplo:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -175,7 +175,7 @@ Por padrão, `echo` envia a cadeia de caracteres para STDOUT. Para direcioná-lo
 
 Isso redireciona as informações gravadas em STDOUT para STDERR (2) em vez disso. Para obter mais informações sobre [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html)o redirecionamento do IO, consulte .
 
-Para saber mais sobre exibição de informações registradas em log por ações de script, confira [Personalizar clusters HDInsight usando ação de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
+Para obter mais informações sobre a visualização de informações registradas por ações de script, consulte [''Solucionar as ações do script'.](./troubleshoot-script-action.md)
 
 ### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a>Salvar arquivos como ASCII com terminações de linha LF
 

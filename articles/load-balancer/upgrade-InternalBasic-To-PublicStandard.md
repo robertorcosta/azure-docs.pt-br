@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 346fc3d5a4e7b165caafd9847b9797abae0c9113
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3eca498e5716ae7c0a03e5e624d618899da8dc8
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659978"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770396"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Upgrade Azure Internal Load Balancer - Conexão de saída necessária
 [O Azure Standard Load Balancer](load-balancer-overview.md) oferece um rico conjunto de funcionalidades e alta disponibilidade através da redundância de zona. Para saber mais sobre load balancer SKU, consulte [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Como o Standard Internal Load Balancer não fornece conexão de saída, fornecemos uma solução para criar um Balanceador de Carga Pública Padrão.
@@ -21,8 +21,7 @@ Há quatro estágios em uma atualização:
 
 1. Migre a configuração para o Balanceador de Carga Pública Padrão
 2. Adicionar VMs aos pools backend do Balancer de Carga Pública Padrão
-3. Crie uma regra de saída no Balanceador de carga para conexão de saída
-4. Configure as regras do NSG para Subnet/VMs que devem ser evitadas/para a Internet
+3. Configure as regras do NSG para Subnet/VMs que devem ser evitadas/para a Internet
 
 Este artigo abrange a migração de configuração. A adição de VMs em pools de back-end pode variar dependendo do seu ambiente específico. No entanto, algumas recomendações gerais de alto nível [são fornecidas.](#add-vms-to-backend-pools-of-standard-load-balancer)
 
@@ -32,6 +31,7 @@ Um script Do Azure PowerShell está disponível que faz o seguinte:
 
 * Cria um Balanceador de Carga Pública Padrão SKU no grupo de recursos e local que você especifica.
 * Copia perfeitamente as configurações do Balancer de carga interna SKU básico para o recém-criado Balancer de Carga Pública Padrão.
+* Cria uma regra de saída que permite a conectividade de saída.
 
 ### <a name="caveatslimitations"></a>Ressalvas\Limitações
 
@@ -42,7 +42,7 @@ Um script Do Azure PowerShell está disponível que faz o seguinte:
 
 ## <a name="download-the-script"></a>Baixe o script
 
-Baixe o script de migração da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
+Baixe o script de migração da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0).
 ## <a name="use-the-script"></a>Use o script
 
 Existem duas opções para você, dependendo da configuração e preferências do ambiente PowerShell local:
@@ -104,7 +104,7 @@ Aqui estão alguns cenários de como você adiciona VMs aos pools de back-end do
    
     1. Selecione o pool de backend que corresponde ao pool de backend do Balancer de carga básica, selecione o seguinte valor: 
       - **Máquina Virtual**: Desça e selecione as VMs no pool de backend correspondente do Balanceador de Carga Básica.
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
     >[!NOTE]
     >Para VMs que possuem IPs públicos, você precisará criar endereços IP padrão primeiro onde o mesmo endereço IP não é garantido. Desassilocem As VMs dos IPs Básicos e asassociam-nas aos endereços IP padrão recém-criados. Em seguida, você poderá seguir as instruções para adicionar VMs no pool de back-end do Standard Load Balancer. 
 
@@ -128,7 +128,7 @@ Sim. Ver [Ressalvas/Limitações](#caveatslimitations).
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>O script Azure PowerShell também alterna o tráfego do meu Balanceador de Carga Básica para o recém-criado Standard Load Balancer?
 
-Não. O script Azure PowerShell migra apenas a configuração. A migração real do tráfego é sua responsabilidade e está seu controle.
+Não. O script Azure PowerShell migra apenas a configuração. A migração real do tráfego é sua responsabilidade e está sob seu controle.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Tive alguns problemas com o uso deste roteiro. Como posso conseguir ajuda?
   

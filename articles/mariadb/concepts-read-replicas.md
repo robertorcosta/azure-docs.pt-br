@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 39edaa32b0695f4ab83206cd5701629f12295a0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/21/2020
+ms.openlocfilehash: b2e8bec18f4f5df6fb78a3c31aa0956ec7333eb5
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79527904"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770118"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de leitura no Banco de Dados do Azure para MariaDB
 
@@ -73,7 +73,7 @@ Saiba como [criar uma réplica de leitura no portal do Azure](howto-read-replica
 
 ## <a name="connect-to-a-replica"></a>Conectar-se a uma réplica
 
-Na criação, uma réplica herda as regras de firewall ou o ponto final de serviço VNet do servidor mestre. Depois, essas regras são independentes do servidor mestre.
+Na criação, uma réplica herda as regras de firewall do servidor mestre. Depois, essas regras são independentes do servidor mestre.
 
 A réplica herda a conta do administrador do servidor mestre. Todas as contas de usuário no servidor mestre são replicadas para as réplicas de leitura. Você só pode se conectar a uma réplica de leitura usando as contas de usuário disponíveis no servidor mestre.
 
@@ -126,7 +126,7 @@ Uma réplica é criada usando a mesma configuração de servidor que o mestre. D
 > [!IMPORTANT]
 > Antes de uma configuração de servidor mestre ser atualizada com novos valores, atualize a configuração de réplica para valores iguais ou maiores. Esta ação garante que a réplica pode acompanhar as alterações feitas ao mestre.
 
-Regras de firewall, regras de rede virtual e configurações de parâmetros são herdados do servidor mestre para a réplica quando a réplica é criada. Depois, as regras da réplica são independentes.
+As regras de firewall e as configurações dos parâmetros são herdadas do servidor mestre para a réplica quando a réplica é criada. Depois, as regras da réplica são independentes.
 
 ### <a name="stopped-replicas"></a>Réplicas paradas
 

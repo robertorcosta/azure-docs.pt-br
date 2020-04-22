@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52c37e293941a767621cf56ef75f8cc83b1925
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 541deb5cf44ad5440e31641b673ed5da5b5d2b26
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297996"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768549"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configure o gerenciamento de grupo de autoatendimento no Azure Active Directory 
 
@@ -32,8 +32,8 @@ Quando grupos de segurança são criados no portal Azure ou usando o Azure AD Po
 
 Grupos criados em | Comportamento padrão do grupo de segurança | Comportamento padrão do grupo Office 365
 ------------------ | ------------------------------- | ---------------------------------
-[PowerShell do Azure AD](groups-settings-cmdlets.md) | Apenas os proprietários podem adicionar membros<br>Visível, mas não disponível para participar do painel Access | Aberto para participar para todos os usuários
-[Portal Azure](https://portal.azure.com) | Apenas os proprietários podem adicionar membros<br>Visível, mas não disponível para participar do painel Access<br>O proprietário não é atribuído automaticamente na criação do grupo | Aberto para participar para todos os usuários
+[Azure AD PowerShell](groups-settings-cmdlets.md) | Apenas os proprietários podem adicionar membros<br>Visível, mas não disponível para participar do painel Access | Aberto para participar para todos os usuários
+[Azure portal](https://portal.azure.com) | Apenas os proprietários podem adicionar membros<br>Visível, mas não disponível para participar do painel Access<br>O proprietário não é atribuído automaticamente na criação do grupo | Aberto para participar para todos os usuários
 [Painel de acesso](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Aberto para participar para todos os usuários<br>As opções de adesão podem ser alteradas quando o grupo é criado | Aberto para participar para todos os usuários<br>As opções de adesão podem ser alteradas quando o grupo é criado
 
 ## <a name="self-service-group-management-scenarios"></a>Cenários de gerenciamento de grupos de autoatendimento
@@ -56,6 +56,9 @@ Você também pode usar **proprietários que podem atribuir membros como proprie
 
 Quando os usuários podem criar grupos, todos os usuários da sua organização podem criar novos grupos e, em seguida, podem, como proprietário padrão, adicionar membros a esses grupos. Você não pode especificar indivíduos que podem criar seus próprios grupos. Você pode especificar indivíduos apenas para fazer de outro membro do grupo um proprietário de grupo.
 
+> [!NOTE]
+> Uma licença Azure Active Directory Premium (P1 ou P2) é necessária para que os usuários solicitem para se juntar a um grupo de segurança ou grupo Office 365 e para que os proprietários aprovem ou neguem solicitações de associação. Sem uma licença Premium do Azure Active Directory, os usuários ainda podem gerenciar seus grupos no Painel de Acesso, mas não podem criar um grupo que exija aprovação do proprietário no Painel de Acesso e não podem solicitar a adesão a um grupo. 
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
@@ -63,5 +66,5 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Gerenciar o acesso a recursos com grupos do Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
 * [Cmdlets do Azure Active Directory para definir configurações de grupo](groups-settings-cmdlets.md)
 * [Gerenciamento de aplicativos no Microsoft Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [O que é o Azure Active Directory?](../fundamentals/active-directory-whatis.md)
+* [O que é o Active Directory do Azure?](../fundamentals/active-directory-whatis.md)
 * [Integrar suas identidades locais com o Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

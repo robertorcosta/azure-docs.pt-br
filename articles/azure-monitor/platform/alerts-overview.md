@@ -4,12 +4,12 @@ description: Visão geral de alertas no Azure. Alertas, alertas clássicos e a i
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: 7ca77531ed3e1fae8ec297e430597452c7512aea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274782"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769780"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral dos alertas no Microsoft Azure 
 
@@ -125,7 +125,10 @@ Para mostrar a página **Regras,** **selecione Gerenciar regras de alerta**. A p
 
 
 ## <a name="create-an-alert-rule"></a>Criar uma regra de alerta
-Você pode criar alertas de forma consistente, independentemente do serviço de monitoramento ou tipo de sinal. Todos os alertas disparados e os detalhes relacionados ficam disponíveis em uma mesma página.
+Você pode criar regras de alerta de forma consistente, independentemente do serviço de monitoramento ou tipo de sinal.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tflw]
+
  
 Veja como criar uma nova regra de alerta:
 1. Escolha o _destino_ para o alerta.

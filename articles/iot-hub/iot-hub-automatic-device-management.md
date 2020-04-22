@@ -1,19 +1,19 @@
 ---
 title: Gerenciamento automático de dispositivos em escala com o Azure IoT Hub | Microsoft Docs
 description: Use configurações automáticas do Azure IoT Hub para gerenciar vários dispositivos e módulos de IoT
-author: ChrisGMsft
+author: Philmea
 manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: chrisgre
-ms.openlocfilehash: 75c6b7d89e7ae540e7428afde127281aa3f15fc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: philmea
+ms.openlocfilehash: 1de7c34d8f8cbfa139212f29ca6be5d4eca64655
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271298"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767495"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Gerenciamento automático de dispositivos ioT e módulos usando o portal Azure
 
@@ -106,7 +106,7 @@ Cada configuração pode ter até cinco métricas personalizadas.
 
 2. Insira uma consulta para **Critérios da métrica**.  A consulta é baseada nas propriedades reportadas de dispositivo gêmeo.  A métrica representa o número de linhas retornadas pela consulta.
 
-Por exemplo: 
+Por exemplo:
 
 ```sql
 SELECT deviceId FROM devices 
@@ -121,7 +121,7 @@ SELECT deviceId FROM devices
   WHERE configurations.[[yourconfigname]].status='Applied'
 ```
 
-Se você estiver construindo uma métrica para relatar `moduleId` em `devices.modules`módulos configurados, selecione a partir de . Por exemplo: 
+Se você estiver construindo uma métrica para relatar `moduleId` em `devices.modules`módulos configurados, selecione a partir de . Por exemplo:
 
 ```sql
 SELECT deviceId, moduleId FROM devices.modules
@@ -211,7 +211,7 @@ Para modificar uma configuração, use as seguintes etapas:
    * Prioridade 
    * Métricas
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 5. Siga as etapas em [Monitorar uma configuração](#monitor-a-configuration) para observar as mudanças. 
 

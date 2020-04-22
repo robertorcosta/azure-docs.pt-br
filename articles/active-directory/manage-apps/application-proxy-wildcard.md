@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17cc4bf6f70901e3bb5d250f0a55f073ad8d99e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1e5861e802f39adecb5661bc17c22b432f137d59
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406722"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770296"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicativos curinga no proxy do aplicativo do Azure Active Directory
 
@@ -48,8 +48,6 @@ Você poderá publicar aplicativos com curingas se ambas as URLs, interna e exte
 Por exemplo: `http(s)://*.adventure-works.com`.
 
 Embora as URLs interna e externa possam usar domínios diferentes, como melhor prática, elas devem ser iguais. Ao publicar o aplicativo, você verá um erro se uma das URLs não tiver um curinga.
-
-Se tiver aplicativos adicionais com definições de configuração diferentes, você deverá publicar essas exceções como aplicativos à parte para substituir os padrões definidos para o curinga. Aplicativos sem um curinga sempre têm precedência sobre aplicativos curinga. Do ponto de vista da configuração, esses são aplicativos "apenas" regulares.
 
 A criação de um aplicativo curinga se baseia no mesmo [fluxo de publicação do aplicativo](application-proxy-add-on-premises-application.md) disponível para todos os outros aplicativos. A única diferença é que você inclui um curinga na URL e, talvez, a configuração SSO.
 

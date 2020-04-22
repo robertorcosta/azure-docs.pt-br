@@ -3,12 +3,12 @@ title: Loja de segredos centrais de malha de serviço do Azure
 description: Este artigo descreve como usar a Central Secrets Store no Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: 11fb94a9fba40e6f2474ad64f5eb0c454be28ca0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4087e7ccdcb2281c4a08af155d35a10c66147a85
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77589157"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770425"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Loja central de segredos em tecido de serviço azure 
 Este artigo descreve como usar a Central Secrets Store (CSS) no Azure Service Fabric para criar segredos em aplicativos de Malha de Serviço. CSS é um cache de loja secreta local que mantém dados confidenciais, como senha, tokens e chaves, criptografados na memória.
@@ -47,31 +47,9 @@ Adicione o script a seguir `fabricSettings` à configuração de cluster para at
      ]
 ```
 ## <a name="declare-a-secret-resource"></a>Declare um recurso secreto
-Você pode criar um recurso secreto usando o modelo do Azure Resource Manager ou a API REST.
-
-### <a name="use-resource-manager"></a>Usar o Resource Manager
-
-Use o modelo a seguir para usar o Resource Manager para criar o recurso secreto. O modelo `supersecret` cria um recurso secreto, mas nenhum valor é definido para o recurso secreto ainda.
-
-
-```json
-   "resources": [
-      {
-        "apiVersion": "2018-07-01-preview",
-        "name": "supersecret",
-        "type": "Microsoft.ServiceFabricMesh/secrets",
-        "location": "[parameters('location')]", 
-        "dependsOn": [],
-        "properties": {
-          "kind": "inlinedValue",
-            "description": "Application Secret",
-            "contentType": "text/plain",
-          }
-        }
-      ]
-```
-
-### <a name="use-the-rest-api"></a>Usar a API REST
+Você pode criar um recurso secreto usando a API REST.
+  > [!NOTE] 
+  > Se o cluster estiver usando a autenticação do windows, a solicitação REST será enviada por um canal HTTP não seguro. A recomendação é usar um cluster baseado em X509 com pontos finais seguros.
 
 Para criar `supersecret` um recurso secreto usando a API `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`REST, faça uma solicitação PUT para . Você precisa do certificado de cluster ou do certificado de cliente administrador para criar um recurso secreto.
 
@@ -81,48 +59,6 @@ Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecre
 ```
 
 ## <a name="set-the-secret-value"></a>Defina o valor secreto
-
-### <a name="use-the-resource-manager-template"></a>Use o modelo Gerenciador de recursos
-
-Use o modelo seguinte do Gerenciador de recursos para criar e definir o valor secreto. Este modelo define o `supersecret` valor secreto `ver1`para o recurso secreto como versão .
-```json
-  {
-  "parameters": {
-  "supersecret": {
-      "type": "string",
-      "metadata": {
-        "description": "supersecret value"
-      }
-   }
-  },
-  "resources": [
-    {
-      "apiVersion": "2018-07-01-preview",
-        "name": "supersecret",
-        "type": "Microsoft.ServiceFabricMesh/secrets",
-        "location": "[parameters('location')]", 
-        "dependsOn": [],
-        "properties": {
-          "kind": "inlinedValue",
-            "description": "Application Secret",
-            "contentType": "text/plain",
-        }
-    },
-    {
-      "apiVersion": "2018-07-01-preview",
-      "name": "supersecret/ver1",
-      "type": "Microsoft.ServiceFabricMesh/secrets/values",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "Microsoft.ServiceFabricMesh/secrets/supersecret"
-      ],
-      "properties": {
-        "value": "[parameters('supersecret')]"
-      }
-    }
-  ],
-  ```
-### <a name="use-the-rest-api"></a>Usar a API REST
 
 Use o script a seguir para usar a API REST para definir o valor secreto.
 ```powershell
@@ -179,7 +115,7 @@ O trecho a seguir é o **aplicativo modificadoManifest.xml**.
        </Policies>
      </ServiceManifestImport>
    ```
-   Segredos estão disponíveis o ponto de montagem dentro do seu recipiente.
+   Segredos estão disponíveis sob o ponto de montagem dentro do seu recipiente.
 
 1. Você pode vincular um segredo a uma `Type='SecretsStoreRef`variável de ambiente de processo especificando . O trecho a seguir é um exemplo `supersecret` `ver1` de como `MySuperSecret` vincular a versão à variável ambiente em **ServiceManifest.xml**.
 

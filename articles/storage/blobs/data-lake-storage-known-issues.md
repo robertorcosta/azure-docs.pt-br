@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 204b5dd4661b34aae8b76d65505a65e20f293f0f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: dfa4d65464192b90d4a6f74255faaf8b664ce118
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115338"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767966"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs
 
@@ -62,14 +62,11 @@ Discos VM não gerenciados não são suportados em contas que tenham um namespac
 
 <a id="api-scope-data-lake-client-library" />
 
-## <a name="file-system-support-in-sdks"></a>Suporte ao sistema de arquivos em SDKs
+## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Suporte ao sistema de arquivos em SDKs, PowerShell e Azure CLI
 
-As operações de ACL não são atualmente recursivas.
-
-## <a name="file-system-support-in-powershell-and-azure-cli"></a>Suporte ao sistema de arquivos no PowerShell e no Azure CLI
-
-- O suporte ao [PowerShell](data-lake-storage-directory-file-acl-powershell.md) e [ao Azure CLI](data-lake-storage-directory-file-acl-cli.md) está em pré-visualização pública.
 - As operações de ACL não são atualmente recursivas.
+- O suporte [ao Azure CLI](data-lake-storage-directory-file-acl-cli.md) está em visualização pública.
+
 
 ## <a name="lifecycle-management-policies"></a>Políticas de gerenciamento do ciclo de vida
 

@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: a4c8b029b199915cce9a417430e67675a03d327f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2d6f41756d87e43ac7db9e6a8670c453920c834
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659944"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770361"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Upgrade Azure Public Load Balancer
 [O Azure Standard Load Balancer](load-balancer-overview.md) oferece um rico conjunto de funcionalidades e alta disponibilidade através da redundância de zona. Para saber mais sobre load balancer SKU, consulte [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
@@ -21,7 +21,6 @@ Há três estágios em uma atualização:
 
 1. Migrar a configuração
 2. Adicionar VMs aos pools back-end do Standard Load Balancer
-3. Crie uma regra de saída no balanceador de carga para conexão de saída
 
 Este artigo abrange a migração de configuração. A adição de VMs em pools de back-end pode variar dependendo do seu ambiente específico. No entanto, algumas recomendações gerais de alto nível [são fornecidas.](#add-vms-to-backend-pools-of-standard-load-balancer)
 
@@ -31,17 +30,18 @@ Um script Do Azure PowerShell está disponível que faz o seguinte:
 
 * Cria um Balanceador de carga SKU padrão no grupo de recursos e localização que você especificar.
 * Copia perfeitamente as configurações do Balanceador de Carga SKU Básico para o recém-criado Standard Load Balancer.
+* Cria uma regra de saída padrão que permite a conectividade de saída.
 
 ### <a name="caveatslimitations"></a>Ressalvas\Limitações
 
-* O script só suporta atualização do Balancer de Carga Pública. Para o upgrade do Balancer de carga básica interna, crie um Balancer de carga interna padrão se a conectividade de saída não for desejada e crie um Balancer de carga interna padrão e um balanceador de carga pública padrão se a conectividade de saída for necessária.
+* O script só suporta atualização do Balancer de Carga Pública. Para obter instruções sobre o Balancer de carga básica interna, consulte [esta página](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard) para obter instruções.
 * O Balanceador de Carga Padrão tem um novo endereço público. É impossível mover os endereços IP associados ao Balancer de Carga Básica existente perfeitamente para o Standard Load Balancer, uma vez que eles têm SKUs diferentes.
 * Se o balanceador de carga Padrão for criado em uma região diferente, você não poderá associar as VMs existentes na região antiga ao recém-criado Standard Load Balancer. Para contornar essa limitação, certifique-se de criar uma nova VM na nova região.
 * Se o balanceador de carga não tiver nenhuma configuração de IP frontend ou pool de back-end, é provável que você acerte um erro executando o script. Por favor, certifique-se de que eles não estão vazios.
 
 ## <a name="download-the-script"></a>Baixe o script
 
-Baixe o script de migração da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
+Baixe o script de migração da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
 ## <a name="use-the-script"></a>Use o script
 
 Existem duas opções para você, dependendo da configuração e preferências do ambiente PowerShell local:
@@ -103,7 +103,7 @@ Aqui estão alguns cenários de como você adiciona VMs aos pools de back-end do
    
     1. Selecione o pool de backend que corresponde ao pool de backend do Balancer de carga básica, selecione o seguinte valor: 
       - **Máquina Virtual**: Desça e selecione as VMs no pool de backend correspondente do Balanceador de Carga Básica.
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
     >[!NOTE]
     >Para VMs que possuem IPs públicos, você precisará criar endereços IP padrão primeiro onde o mesmo endereço IP não é garantido. Desassilocem As VMs dos IPs Básicos e asassociam-nas aos endereços IP padrão recém-criados. Em seguida, você poderá seguir as instruções para adicionar VMs no pool de back-end do Standard Load Balancer. 
 

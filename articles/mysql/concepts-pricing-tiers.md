@@ -1,23 +1,23 @@
 ---
 title: 'Tipos de preço: Banco de Dados do Azure para MySQL'
 description: Conheça os vários níveis de preços do Azure Database for MySQL, incluindo gerações de computação, tipos de armazenamento, tamanho de armazenamento, vCores, memória e períodos de retenção de backup.
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: cf959112a2a717da1005be062dda3b83163d8d6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0123436eab2cdfa91066a2bd0652e16896ee838a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269439"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767859"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Tipos de preço no Banco de Dados do Azure para MySQL
 
 Você pode criar um servidor do Banco de Dados do Azure para MySQL em um dos três tipos de preço diferentes: Básico, Uso Geral e Otimizado para Memória. Os tipos de preço são diferenciados pela quantidade de computação nos vCores que pode ser provisionada, pela memória por vCore e pela tecnologia de armazenamento usada para armazenar os dados. Todos os recursos são provisionados no nível do servidor MySQL. Um servidor pode ter um ou vários bancos de dados.
 
-|    | **Basic** | **Propósito Geral** | **Otimizado para memória** |
+|    | **Basic** | **Propósito Geral** | **Memória Otimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Geração de computação | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -43,7 +43,7 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 
 O armazenamento provisionado é a quantidade de capacidade de armazenamento disponível para o Banco de Dados do Azure para servidor MySQL. O armazenamento é usado para os arquivos de banco de dados, os logs de transações e os logs do servidor MySQL. A quantidade total de armazenamento que você provisiona também define a capacidade disponível para o servidor.
 
-|    | **Basic** | **Propósito Geral** | **Otimizado para memória** |
+|    | **Basic** | **Propósito Geral** | **Memória Otimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento básico | Armazenamento para propósitos gerais | Armazenamento para propósitos gerais |
 | Tamanho de armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
@@ -51,7 +51,7 @@ O armazenamento provisionado é a quantidade de capacidade de armazenamento disp
 | IOPS | Variável |3 IOPS/GB<br/>Mín 100 IOPS<br/>Max 20.000 IOPS | 3 IOPS/GB<br/>Mín 100 IOPS<br/>Max 20.000 IOPS |
 
 > [!NOTE]
-> O armazenamento de até 16TB e 20.000 IOPS é suportado nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Eua Central, Oeste dos EUA, Norte dos EUA, Norte da Europa, Europa Ocidental, Reino Unido Sul, Reino Unido Oeste, Sudeste Asiático, Leste da Ásia, Japão Leste, Japão Oeste, Coréia Central , Coréia do Sul, Austrália Leste, Austrália Sudeste.
+> O armazenamento de até 16TB e 20.000 IOPS é suportado nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Central dos EUA, Oeste dos EUA, Norte dos EUA, Europa Norte, Europa Ocidental, Reino Unido Sul, Reino Unido Oeste, Sudeste Asiático, Leste da Ásia, Japão Leste, Japão Oeste, Coréia Central, Coréia do Sul, Austrália Leste, Austrália Sudeste.
 >
 > Todas as outras regiões suportam até 4TB de armazenamento e até 6000 IOPS.
 >

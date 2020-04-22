@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 76ef9f92b6b6633982242ccafab1950e0ef5f410
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: b4849b4fbfdbaece46f5669f4c242e864b1ca533
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582794"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769761"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -32,10 +32,16 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 ## <a name="known-issues"></a>Problemas conhecidos
 
 > [!NOTE]
-> Você pode usar o [portal Azure](https://portal.azure.com/) para gerenciar v3 [Eventos ao Vivo,](live-events-outputs-concept.md)ver v3 [Assets,](assets-concept.md)obter informações sobre como acessar APIs. Para todas as outras tarefas de gerenciamento (por exemplo, Transformações e Empregos), use a [API REST,](https://aka.ms/ams-v3-rest-ref) [CLI](https://aka.ms/ams-v3-cli-ref)ou uma das [SDKs](media-services-apis-overview.md#sdks)suportadas.
+> Você pode usar o [portal do Azure](https://portal.azure.com/) para gerenciar [Eventos ao Vivo](live-events-outputs-concept.md) v3, exibir [Ativos](assets-concept.md) v3, obter informações sobre como acessar APIs. Para todas as outras tarefas de gerenciamento (por exemplo, Transformações e Trabalhos), use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) compatíveis.
 
 Para obter mais informações, consulte [Guia de migração para migrar do Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md#known-issues).
- 
+
+## <a name="april-2020"></a>Abril de 2020
+
+### <a name="improvements-in-documentation"></a>Melhorias na documentação
+
+Os documentos do Azure Media Player foram migrados para a documentação do [Azure.](../azure-media-player/azure-media-player-overview.md)
+
 ## <a name="january-2020"></a>Janeiro de 2020
 
 ### <a name="improvements-in-media-processors"></a>Melhorias nos processadores de mídia
@@ -361,4 +367,5 @@ Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-co
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral](media-services-overview.md)
+- [Atualizações de documentação do Media Services v3](docs-release-notes.md)
 - [Notas de versão v2 do Media Services v2](../previous/media-services-release-notes.md)

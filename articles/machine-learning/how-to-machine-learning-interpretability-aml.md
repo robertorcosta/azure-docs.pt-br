@@ -1,5 +1,5 @@
 ---
-title: Explique modelos e previsões de aprendizado de máquina
+title: Interprete & explicar modelos ML em Python
 titleSuffix: Azure Machine Learning
 description: Saiba como obter explicações de como seu modelo de aprendizado de máquina determina a importância dos recursos e faz previsões ao usar o Azure Machine Learning SDK.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
-ms.openlocfilehash: c1282ed16c9e3b92e7d5ec3f9969bee6fc3d917f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 45eef976fe10bbb5acda2cd348a77b28c3ffbe02
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257191"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769801"
 ---
-# <a name="explain-machine-learning-models-and-predictions"></a>Explique modelos e previsões de aprendizado de máquina
+# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Use o pacote de interpretabilidade para explicar os modelos ML & previsões em Python
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -41,10 +41,10 @@ Para obter mais informações sobre as técnicas de interpretabilidade suportada
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Gerar valor de importância de recurso em sua máquina pessoal 
 O exemplo a seguir mostra como usar o pacote de interpretação em sua máquina pessoal sem entrar em contato com os serviços do Azure.
 
-1. Instalação `azureml-interpret` `azureml-interpret-contrib` e pacotes.
+1. Instalação `azureml-interpret` `azureml-contrib-interpret` e pacotes.
     ```bash
     pip install azureml-interpret
-    pip install azureml-interpret-contrib
+    pip install azureml-contrib-interpret
     ```
 
 2. Treine um modelo de amostra em um caderno jupyter local.

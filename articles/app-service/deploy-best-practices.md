@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 14946a05f021a9b155fd9a9621f73bde980970fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dd959d75fd582d787e68db4a415a4a694b9cda8
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75750475"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770678"
 ---
 # <a name="deployment-best-practices"></a>Práticas recomendadas de implantação
 
@@ -37,6 +37,92 @@ O mecanismo de implantação é a ação usada para colocar seu aplicativo incor
 
 Ferramentas de implantação como Azure Pipelines, Jenkins e plugins de editores usam um desses mecanismos de implantação.
 
+## <a name="use-deployment-slots"></a>Use slots de implantação
+
+Sempre que possível, use [slots de implantação](deploy-staging-slots.md) ao implantar uma nova compilação de produção. Ao usar um nível padrão de plano de serviço de aplicativo ou melhor, você pode implantar seu aplicativo em um ambiente de preparação, validar suas alterações e fazer testes de fumaça. Quando estiver pronto, poderá trocar seus slots de encenação e produção. A operação de swap aquece as instâncias de trabalho necessárias para corresponder à sua escala de produção, eliminando assim o tempo de inatividade.
+
+### <a name="continuously-deploy-code"></a>Implantar código continuamente
+
+Se o seu projeto designou ramos para testes, QA e encenação, então cada um desses ramos deve ser continuamente implantado em um slot de preparação. (Isso é conhecido como o [projeto Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).) Isso permite que seus stakeholders avaliem e testem facilmente o ramo implantado. 
+
+A implantação contínua nunca deve ser habilitada para o seu slot de produção. Em vez disso, seu ramo de produção (muitas vezes mestre) deve ser implantado em um slot de não-produção. Quando estiver pronto para liberar o ramo base, troque-o pelo slot de produção. A troca na produção — em vez de ser implantada na produção — impede o tempo de inatividade e permite que você reverta as alterações trocando novamente. 
+
+![Visual de uso de slot](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+
+### <a name="continuously-deploy-containers"></a>Implantar continuamente contêineres
+
+Para contêineres personalizados do Docker ou outros registros de contêineres, implante a imagem em um slot de preparação e troque-o em produção para evitar o tempo de inatividade. A automação é mais complexa do que a implantação de código, porque você deve empurrar a imagem para um registro de contêiner e atualizar a tag de imagem no webapp.
+
+Para cada ramo que você deseja implantar em um slot, configure a automação para fazer o seguinte em cada compromisso com a filial.
+
+1. **Construa e marque a imagem**. Como parte do pipeline de compilação, marque a imagem com o ID de confirmação do git, carimbo de data e hora ou outras informações identificáveis. É melhor não usar a tag padrão "mais recente". Caso contrário, é difícil rastrear qual código está atualmente implantado, o que torna a depuração muito mais difícil.
+1. **Empurre a imagem marcada**. Uma vez que a imagem é construída e marcada, o pipeline empurra a imagem para o nosso registro de contêiner. Na próxima etapa, o slot de implantação puxará a imagem marcada do registro do contêiner.
+1. **Atualize o slot de implantação com a nova tag de imagem**. Quando esta propriedade for atualizada, o site reiniciará automaticamente e puxará a nova imagem do contêiner.
+
+![Visual de uso de slot](media/app-service-deploy-best-practices/slot_flow_container_diagram.png)
+
+Há exemplos abaixo para estruturas de automação comuns.
+
+### <a name="use-azure-devops"></a>Use Azure DevOps
+
+O App Service tem [entrega contínua incorporada](deploy-continuous-deployment.md) para contêineres através do Centro de Implantação. Navegue até o seu aplicativo no [portal Azure](https://portal.azure.com/) e selecione **Centro de Implantação** em **Implantação**. Siga as instruções para selecionar seu repositório e ramo. Isso configurará um pipeline de compilação e liberação de DevOps para construir, marcar e implantar automaticamente seu contêiner quando novos compromissos forem empurrados para o ramo selecionado.
+
+### <a name="use-github-actions"></a>Use as ações do GitHub
+
+Você também pode automatizar sua implantação de contêineres [com o GitHub Actions](containers/deploy-container-github-action.md).  O arquivo de fluxo de trabalho abaixo irá construir e marcar o contêiner com o ID de confirmação, empurrá-lo para um registro de contêiner e atualizar o slot do site especificado com a nova tag de imagem.
+
+```yaml
+name: Build and deploy a container image to Azure Web Apps
+
+on:
+  push:
+    branches:
+    - <your-branch-name>
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@master
+
+    -name: Authenticate using a Service Principal
+      uses: azure/actions/login@v1
+      with:
+        creds: ${{ secrets.AZURE_SP }}
+
+    - uses: azure/container-actions/docker-login@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and push the image tagged with the git commit hash
+      run: |
+        docker build . -t contoso/demo:${{ github.sha }}
+        docker push contoso/demo:${{ github.sha }}
+
+    - name: Update image tag on the Azure Web App
+      uses: azure/webapps-container-deploy@v1
+      with:
+        app-name: '<your-webapp-name>'
+        slot-name: '<your-slot-name>'
+        images: 'contoso/demo:${{ github.sha }}'
+```
+
+### <a name="use-other-automation-providers"></a>Use outros provedores de automação
+
+As etapas listadas anteriormente se aplicam a outros utilitários de automação, como CircleCI ou Travis CI. No entanto, você precisa usar o Cli do Azure para atualizar os slots de implantação com novas tags de imagem na etapa final. Para usar o Azure CLI em seu script de automação, gere um Diretor de Serviço usando o seguinte comando.
+
+```shell
+az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
+   --scopes /subscriptions/{subscription}/resourceGroups/{resource-group} \
+   --sdk-auth
+```
+
+Em seu script, `az login --service-principal`faça login usando, fornecendo as informações do diretor. Em seguida, `az webapp config container set` você pode usar para definir o nome do contêiner, tag, URL de registro e senha de registro. Abaixo estão alguns links úteis para você construir seu processo de CI de contêiner.
+
+- [Como fazer login no Azure CLI no Circle CI](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
+
 ## <a name="language-specific-considerations"></a>Considerações específicas do idioma
 
 ### <a name="java"></a>Java
@@ -49,13 +135,9 @@ Por padrão, kudu executa as etapas`npm install`de compilação para o aplicativ
 
 ### <a name="net"></a>.NET 
 
-Por padrão, kudu executa as etapas`dotnet build`de compilação para o seu aplicativo .Net ( ). Se você estiver usando um serviço de compilação como o Azure DevOps, então a compilação Kudu é desnecessária. Para desativar a compilação Kudu, `SCM_DO_BUILD_DURING_DEPLOYMENT`crie uma configuração de aplicativo, com um valor de `false`.
+Por padrão, kudu executa as etapas`dotnet build`de compilação para o seu aplicativo .NET ( ). Se você estiver usando um serviço de compilação como o Azure DevOps, então a compilação Kudu é desnecessária. Para desativar a compilação Kudu, `SCM_DO_BUILD_DURING_DEPLOYMENT`crie uma configuração de aplicativo, com um valor de `false`.
 
 ## <a name="other-deployment-considerations"></a>Outras considerações de implantação
-
-### <a name="use-deployment-slots"></a>Use slots de implantação
-
-Sempre que possível, use [slots de implantação](deploy-staging-slots.md) ao implantar uma nova compilação de produção. Ao usar um nível padrão de plano de serviço de aplicativo ou melhor, você pode implantar seu aplicativo em um ambiente de preparação, validar suas alterações e fazer testes de fumaça. Quando estiver pronto, poderá trocar seus slots de encenação e produção. A operação de swap aquece as instâncias de trabalho necessárias para corresponder à sua escala de produção, eliminando assim o tempo de inatividade. 
 
 ### <a name="local-cache"></a>Cache Local
 

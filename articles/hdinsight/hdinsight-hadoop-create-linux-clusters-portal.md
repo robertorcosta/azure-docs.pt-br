@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: a5f6ac76d509a0a63c2d641f91cd91cdb2e0d19d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 88392e4e61c28d4fe821c8176242246d10e52b23
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313818"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770888"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight usando o portal do Azure
 
@@ -94,7 +94,7 @@ A partir da guia **Segurança + rede,** forneça as seguintes informações:
 |Propriedade |Descrição |
 |---|---|
 |Pacote de segurança empresarial|Opcional: Selecione a caixa de seleção para usar **o Enterprise Security Package**. Para obter mais informações, consulte [Configurar um cluster HDInsight com o Enterprise Security Package usando o Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
-|TLS|Opcional: Selecione uma versão TLS na lista de paradas. Para obter mais informações, consulte [Transport Layer Security](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security).|
+|TLS|Opcional: Selecione uma versão TLS na lista de paradas. Para obter mais informações, consulte [Transport Layer Security](./transport-layer-security.md).|
 |Rede virtual|Opcional: Selecione uma rede virtual e uma sub-rede existentes na lista de baixa. Para obter informações, consulte [Planejar uma implantação de rede virtual para clusters Azure HDInsight](hdinsight-plan-virtual-network-deployment.md). O artigo inclui requisitos de configuração específicos para a rede virtual.|
 |Configurações de criptografia de disco|Opcional: Selecione a caixa de seleção para usar criptografia. Para obter mais informações, consulte [a criptografia de disco de chave gerenciada pelo cliente](./disk-encryption.md).|
 |Proxy REST do Kafka|Esta configuração só está disponível para o tipo de cluster Kafka. Para obter mais informações, consulte [Usando um proxy REST](./kafka/rest-proxy.md).|

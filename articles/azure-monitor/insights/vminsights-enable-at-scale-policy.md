@@ -1,19 +1,19 @@
 ---
-title: Habilite o Monitor Azure para VMs usando a política do Azure
+title: Habilitar o Azure Monitor para VMs usando o Azure Policy
 description: Este artigo descreve como você habilita o Monitor Azure para VMs para várias máquinas virtuais do Azure ou conjuntos de escala de máquinas virtuais usando a Política do Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 7069f2cc96b8876f5514acfa4ba49274b61be46f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73c18d45136eea90ad29dc1bd40c4539dddc0ee6
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282929"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767263"
 ---
-# <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Habilite o Monitor Azure para VMs usando a política do Azure
+# <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Habilitar o Azure Monitor para VMs usando o Azure Policy
 
 Este artigo explica como habilitar o Monitor Azure para VMs para máquinas virtuais Azure ou conjuntos de escala de máquinas virtuais usando a Política do Azure. Ao final deste processo, você terá configurado com sucesso a ativação dos agentes de Análise e Dependência de Log e máquinas virtuais identificadas que não estão em conformidade.
 
@@ -63,7 +63,7 @@ A tabela a seguir fornece um detalhamento das informações apresentadas na pág
 |----------|-------------| 
 | **Escopo** | Grupo de gerenciamento e assinaturas aos que você tem ou herdou acesso com capacidade de detalhar através da hierarquia do grupo de gerenciamento.|
 | **Role** | Seu papel para o escopo, que pode ser leitor, proprietário ou contribuinte. Em alguns casos, pode parecer em branco para indicar que você pode ter acesso à assinatura, mas não ao grupo de gerenciamento a que pertence. As informações em outras colunas variam dependendo do seu papel. O papel é fundamental para determinar quais dados você pode ver e ações que você pode executar em termos de atribuir políticas ou iniciativas (proprietário), editá-los ou visualizar conformidade. |
-| **Total VMs** | Número de VMs esse escopo. Para um grupo de gestão, é uma soma de VMs aninhados as assinaturas ou grupo de gestão infantil. |
+| **Total VMs** | Número de VMs sob esse escopo. Para um grupo de gestão, é uma soma de VMs aninhados sob as assinaturas ou grupo de gestão infantil. |
 | **Cobertura de atribuição** | Percentual de VMs que são cobertos pela política ou iniciativa. |
 | **Status da atribuição** | Informações sobre o status de sua política ou atribuição de iniciativa. |
 | **VMs compatíveis** | Número de VMs que estejam em conformidade com a política ou iniciativa. Para a iniciativa **Enable Azure Monitor for VMs**, este é o número de VMs que possuem agente log analytics e agente de dependência. Em alguns casos, pode parecer em branco por causa de nenhuma atribuição, sem VMs, ou não permissões suficientes. As informações são fornecidas em **Compliance State**. |
@@ -79,7 +79,7 @@ Para habilitar o Azure Monitor para VMs usando o Azure Policy no locatário:
 - Atribuir a iniciativa a um escopo: grupo de gerenciamento, assinatura ou grupo de recursos.
 - Revisar e remediar os resultados de conformidade.
 
-Para obter mais informações sobre como atribuir o Azure Policy, confira [Visão geral do Azure Policy](../../governance/policy/overview.md#policy-assignment) e examine a [Visão geral dos grupos de gerenciamento](../../governance/management-groups/overview.md) antes de continuar.
+Para obter mais informações sobre como atribuir o Azure Policy, confira [Visão geral do Azure Policy](../../governance/policy/overview.md#assignments) e examine a [Visão geral dos grupos de gerenciamento](../../governance/management-groups/overview.md) antes de continuar.
 
 ### <a name="policies-for-azure-vms"></a>Políticas para VMs Azure
 
@@ -90,10 +90,10 @@ As definições de diretiva para uma VM Azure estão listadas na tabela a seguir
 |Habilitar o Azure Monitor para VMs |Habilite o Monitor Azure para as máquinas virtuais no escopo especificado (grupo de gerenciamento, assinatura ou grupo de recursos). Usa o espaço de trabalho do Log Analytics como parâmetro. |Iniciativa |
 |Implantação do agente de dependência de auditoria – imagem VM (OS) não listada |Reporta as VMs como incompatíveis se a imagem VM (OS) não for definida na lista e o agente não estiver instalado. |Política |
 |Implantação do agente audit log analytics – imagem VM (OS) não listada |Reporta as VMs como incompatíveis se a imagem VM (OS) não for definida na lista e o agente não estiver instalado. |Política |
-|Implantar agente de dependência para VMs Linux |Implantar agente de dependência para VMs Linux se a imagem vm (OS) for definida na lista e o agente não estiver instalado. |Política |
-|Implantar agente de dependência para VMs windows |Implante o agente dependency para VMs do Windows se a imagem vm (OS) for definida na lista e o agente não estiver instalado. |Política |
-|Implantar agente de Análise de Log para VMs Linux |Implantar o agente Log Analytics para VMs Linux se a imagem vm (OS) for definida na lista e o agente não estiver instalado. |Política |
-|Implantar o agente de análise de log para VMs do Windows |Implantar o agente Log Analytics para VMs do Windows se a imagem vm (OS) for definida na lista e o agente não estiver instalado. |Política |
+|Implantar o Dependency Agent para VMs do Linux |Implantar agente de dependência para VMs Linux se a imagem vm (OS) for definida na lista e o agente não estiver instalado. |Política |
+|Implantar o Dependency Agent para VMs do Windows |Implante o agente dependency para VMs do Windows se a imagem vm (OS) for definida na lista e o agente não estiver instalado. |Política |
+|Implantar o agente do Log Analytics para VMs do Linux |Implantar o agente Log Analytics para VMs Linux se a imagem vm (OS) for definida na lista e o agente não estiver instalado. |Política |
+|Implantar o agente do Log Analytics para VMs do Windows |Implantar o agente Log Analytics para VMs do Windows se a imagem vm (OS) for definida na lista e o agente não estiver instalado. |Política |
 
 ### <a name="policies-for-azure-virtual-machine-scale-sets"></a>Políticas para conjuntos de escala de máquinas virtuais do Azure
 
@@ -104,10 +104,10 @@ As definições de diretiva para um conjunto de escala de máquina virtual do Az
 |Habilite o Monitor Azure para conjuntos de escala de máquinas virtuais |Habilite o Monitor Azure para os conjuntos de escala de máquina virtual no escopo especificado (grupo de gerenciamento, assinatura ou grupo de recursos). Usa o espaço de trabalho do Log Analytics como parâmetro. Nota: Se a política de upgrade do conjunto de escala estiver definida como Manual, aplique a extensão a todas as VMs do conjunto, chamando a atualização sobre elas. Na CLI, isso `az vmss update-instances`é . |Iniciativa |
 |Implantação do agente de dependência de auditoria em conjuntos de escala de máquinavirtual – imagem VM (OS) não listada |Informa a escala da máquina virtual definida como incompatível se a imagem VM (OS) não for definida na lista e o agente não estiver instalado. |Política |
 |Implantação do agente audit log analytics em conjuntos de escala de máquinavirtual – imagem VM (OS) não listada |Informa a escala da máquina virtual definida como incompatível se a imagem VM (OS) não for definida na lista e o agente não estiver instalado. |Política |
-|Implantar agente de dependência para conjuntos de escala de máquinavirtual Linux |Implantar agente de dependência para os conjuntos de escala de máquina virtual Linux se a imagem vm (OS) for definida na lista e o agente não estiver instalado. |Política |
-|Implantar agente de dependência para conjuntos de escala de máquinavirtual do Windows |Implantar agente de dependência para conjuntos de escala de máquina virtual do Windows se a imagem vm (OS) for definida na lista e o agente não estiver instalado. |Política |
-|Implantar o agente Log Analytics para conjuntos de escala de máquinas virtuais Linux |Implantar o agente Log Analytics para os conjuntos de escala de máquina virtual Linux se a Imagem VM (OS) for definida na lista e o agente não estiver instalado. |Política |
-|Implantar o agente Log Analytics para conjuntos de escala de máquinavirtual do Windows |Implantar o agente Log Analytics para os conjuntos de escala da máquina virtual do Windows se a imagem vm (OS) for definida na lista e o agente não estiver instalado. |Política |
+|Implantar o Dependency Agent em conjuntos de dimensionamento de máquinas virtuais do Linux |Implantar agente de dependência para os conjuntos de escala de máquina virtual Linux se a imagem vm (OS) for definida na lista e o agente não estiver instalado. |Política |
+|Implantar o Dependency Agent em conjuntos de dimensionamento de máquinas virtuais do Windows |Implantar agente de dependência para conjuntos de escala de máquina virtual do Windows se a imagem vm (OS) for definida na lista e o agente não estiver instalado. |Política |
+|Implantar o agente do Log Analytics em conjuntos de dimensionamento de máquinas virtuais do Linux |Implantar o agente Log Analytics para os conjuntos de escala de máquina virtual Linux se a Imagem VM (OS) for definida na lista e o agente não estiver instalado. |Política |
+|Implantar o agente do Log Analytics em conjuntos de dimensionamento de máquinas virtuais do Windows |Implantar o agente Log Analytics para os conjuntos de escala da máquina virtual do Windows se a imagem vm (OS) for definida na lista e o agente não estiver instalado. |Política |
 
 A política independente (não incluída com a iniciativa) é descrita aqui:
 
@@ -121,7 +121,7 @@ Para criar a atribuição de diretiva a partir da página **Azure Monitor for VM
 
 Quando você atribui a política ou iniciativa, o escopo selecionado na atribuição pode ser o escopo listado aqui ou um subconjunto dele. Por exemplo, você pode ter criado uma atribuição para a assinatura (escopo de política) e não para o grupo de gerenciamento (escopo de cobertura). Nesse caso, o percentual de cobertura indicaria as VMs no escopo de política ou iniciativa dividido pelas VMs no escopo de cobertura. Em outro caso, você pode ter excluído algumas VMs, ou grupos de recursos, ou uma assinatura do escopo de diretiva. Se estiver em branco, indica que a política ou a iniciativa não existe ou você não tem permissões. As informações são fornecidas em **Status de Atribuição**.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. No portal Azure, selecione **Monitor**. 
 
@@ -157,7 +157,7 @@ A matriz a seguir mapeia cada estado de conformidade possível para a iniciativa
 | **Não está em conformidade** | Nem todas as VMs no escopo têm os agentes de Análise de Log e Dependência implantados para eles e podem exigir remediação.|
 | **Não Começou** | Uma nova tarefa foi adicionada. |
 | **Bloqueio** | Você não tem privilégios suficientes para o grupo de gestão. <sup>1</sup> | 
-| **Vazio** | Nenhuma política é atribuída. | 
+| **Em branco** | Nenhuma política é atribuída. | 
 
 <sup>1</sup> Se você não tiver acesso ao grupo de gerenciamento, peça a um proprietário para fornecer acesso. Ou, veja conformidade e gerencie atribuições através dos grupos de gerenciamento de crianças ou assinaturas. 
 
@@ -166,10 +166,10 @@ A tabela a seguir mapeia cada possível status de atribuição para a iniciativa
 | Status da atribuição | Descrição | 
 |------------------|-------------|
 | **Sucesso** | Todas as VMs no escopo têm os agentes de Análise de Log e Dependência implantados para eles.|
-| **Aviso** | A assinatura não está um grupo de gestão.|
+| **Aviso** | A assinatura não está sob um grupo de gestão.|
 | **Não Começou** | Uma nova tarefa foi adicionada. |
 | **Bloqueio** | Você não tem privilégios suficientes para o grupo de gestão. <sup>1</sup> | 
-| **Vazio** | Não existem VMs ou uma apólice não é atribuída. | 
+| **Em branco** | Não existem VMs ou uma apólice não é atribuída. | 
 | **Ação** | Atribuir uma diretiva ou editar uma atribuição. | 
 
 <sup>1</sup> Se você não tiver acesso ao grupo de gerenciamento, peça a um proprietário para fornecer acesso. Ou, veja conformidade e gerencie atribuições através dos grupos de gerenciamento de crianças ou assinaturas.
@@ -184,10 +184,10 @@ Com base nos resultados das políticas incluídas na iniciativa, as VMs são rel
 
 * O agente de análise de log ou agente de dependência não está implantado.  
     Esse cenário é típico para um escopo com as VMs existentes. Para atenuá-lo, implante os agentes [necessários criando tarefas de remediação](../../governance/policy/how-to/remediate-resources.md) em uma política não conforme.  
-    - Implantar agente de dependência para VMs Linux
-    - Implantar agente de dependência para VMs windows
-    - Implantar agente de Análise de Log para VMs Linux
-    - Implantar o agente de análise de log para VMs do Windows
+    - Implantar o Dependency Agent para VMs do Linux
+    - Implantar o Dependency Agent para VMs do Windows
+    - Implantar o agente do Log Analytics para VMs do Linux
+    - Implantar o agente do Log Analytics para VMs do Windows
 
 * A imagem VM (OS) não é identificada na definição da diretiva.  
     Os critérios da política de implantação incluem apenas as VMs implantadas com base em imagens de VM conhecidas do Azure. Verifique a documentação para ver se o sistema operacional da VM é compatível. Caso ele não seja, duplique a política de implantação e atualize-a ou modifique-a para fazer com que a imagem fique em conformidade.  

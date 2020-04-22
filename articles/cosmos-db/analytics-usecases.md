@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b9bac14ff47107a4b39f12989685e2e510569ba2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adf1db2d737de7004b5ab71c8e0e44d61d1da8c9
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72757070"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768508"
 ---
 # <a name="use-cases-for-built-in-analytics-with-azure-cosmos-db"></a>Casos de uso para análises incorporadas com o Azure Cosmos DB
 
@@ -31,17 +31,17 @@ O Azure Cosmos DB suporta cenários de Processamento Transacional/Analítico Hí
 
 ## <a name="globally-distributed-data-lake-without-requiring-any-etl"></a>Lago de dados distribuído globalmente sem exigir qualquer ETL
 
-Com o Apache Spark embutido nativamente, o Azure Cosmos DB fornece uma maneira rápida, simples e escalável de construir um lago de dados distribuído globalmente que fornece uma única imagem do sistema. Os dados multimodelodistribuídos globalmente eliminam a necessidade de investir em gasodutos e escalas eescalas eescalas caras demanda, revolucionando a forma como as equipes de dados analisam seus conjuntos de dados.
+Com o Apache Spark embutido nativamente, o Azure Cosmos DB fornece uma maneira rápida, simples e escalável de construir um lago de dados distribuído globalmente que fornece uma única imagem do sistema. Os dados multimodelodistribuídos globalmente eliminam a necessidade de investir em gasodutos e escalas eescalas eescalas caras sob demanda, revolucionando a forma como as equipes de dados analisam seus conjuntos de dados.
 
 ## <a name="time-series-analytics-over-historic-data"></a>Análise de séries tempois sobre dados históricos
 
 Em alguns casos, você pode precisar responder perguntas com base em dados como em um ponto específico no tempo sobre eventos concluídos no passado. Por exemplo, para obter a contagem de status de atividade de CRM em uma determinada data. Se você publicasse o relatório há uma semana, a contagem dos status seria de acordo com os status de cada atividade naquele momento. A execução do mesmo relatório hoje lhe dará a contagem das atividades cujos status são como são hoje, que podem ter mudado desde a semana passada, à medida que passam pelo seu ciclo de vida de aberto a fechar. Então, você precisa informar sobre o instantâneo em cada estágio do ciclo de vida do caso.
 
-Em cenários tradicionais de data warehouse, o conceito de snapshot não é possível porque os data warehouses não foram projetados para incorporá-lo e os dados apenas fornecem uma visão atual do que está acontecendo. Com o Azure Cosmos DB, os usuários têm a possibilidade de implementar o conceito de viagem no tempo, podendo consultar e executar análises sobre os dados retrospectivamente e perguntar como os dados olharam para um ponto específico do tempo na história. Isso significa que os usuários podem visualizar facilmente as visualizações atuais e históricas dos dados e executar análises sobre ele.
+Com o Azure Cosmos DB, os usuários têm a possibilidade de implementar o conceito de viagem no tempo, podendo consultar e executar análises sobre os dados retrospectivamente e perguntar como os dados olharam para um ponto específico do tempo na história. Isso significa que os usuários podem visualizar facilmente as visualizações atuais e históricas dos dados e executar análises sobre ele.
 
 ## <a name="globally-distributed-machine-learning-and-ai"></a>Aprendizado de máquina distribuído globalmente e IA
 
-À medida que as empresas enfrentam volumes de dados em rápido crescimento e uma variedade crescente de tipos e formatos de dados, a capacidade de obter insights mais profundos e precisos torna-se quase impossível em escala petabyte em todo o mundo. Com o Apache Spark embutido nativamente, o Azure Cosmos DB fornece uma plataforma de análise distribuída globalmente que oferece uma extensa biblioteca de algoritmos de aprendizagem de máquina. Você pode usar notebooks Jupyter interativos para construir e treinar modelos e recursos de gerenciamento de clusters. Esses recursos permitem que você prover clusters Spark altamente sintonizados e auto-elásticos demanda.
+À medida que as empresas enfrentam volumes de dados em rápido crescimento e uma variedade crescente de tipos e formatos de dados, a capacidade de obter insights mais profundos e precisos torna-se quase impossível em escala petabyte em todo o mundo. Com o Apache Spark embutido nativamente, o Azure Cosmos DB fornece uma plataforma de análise distribuída globalmente que oferece uma extensa biblioteca de algoritmos de aprendizagem de máquina. Você pode usar notebooks Jupyter interativos para construir e treinar modelos e recursos de gerenciamento de clusters. Esses recursos permitem que você prover clusters Spark altamente sintonizados e auto-elásticos sob demanda.
 
 ## <a name="deep-learning-on-multi-model-globally-distributed-data"></a>Deep Learning em dados distribuídos globalmente
 

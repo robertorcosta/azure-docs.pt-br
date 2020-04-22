@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 8fe9e551a4ca7dea8f53e0f8c2975ca3d88c48f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b25e9d860f118c1b044b13e01a80aaf7a24963cf
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366250"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768241"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicativos personalizados do Apache Hadoop no HDInsight do Azure
 
@@ -77,7 +77,7 @@ Para **Matiz,** você pode usar as seguintes etapas:
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o cluster onde você instalou o aplicativo.
 1. No menu **Configurações,** selecione **Aplicativos**.
 1. Selecione **matiz** na lista para visualizar as propriedades.  
@@ -119,13 +119,13 @@ Se uma instalação de aplicativo falhar, você poderá ver as mensagens de erro
 
 * UI da Web Do Ambari Apache: Se o script de instalação foi a causa da falha, use a Ambari Web UI para verificar registros completos sobre os scripts de instalação.
 
-    Para saber mais, consulte a [Solução de problemas](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
+    Para obter mais informações, consulte [''''''Solucionar as ações de script'.](./troubleshoot-script-action.md)
 
 ## <a name="remove-hdinsight-applications"></a>Remover aplicativos do HDInsight
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o cluster onde você instalou o aplicativo.
 1. No menu **Configurações,** selecione **Aplicativos**.
 1. Clique com o botão direito do mouse no aplicativo que deseja remover e, em seguida, **selecione Excluir**.

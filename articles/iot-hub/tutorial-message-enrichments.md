@@ -7,12 +7,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
-ms.openlocfilehash: c812e00699cd8f8cfbaf32feea1b43866ffb0990
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 78aee7829e58feede3360f30f10260903713c52f
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78674365"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770073"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: Use enriquecimentos de mensagens do Azure IoT Hub
 
@@ -309,7 +310,7 @@ Você pode usar um modelo de Gerenciador de recursos para criar e configurar os 
    | nome da rota 1 | ContosoStorageRouteOriginal |
    | rota Nome 2 | ContosoStorageRouteEnriqueed |
 
-1. Selecione **Salvar**. O painel **de implantação Personalizado** aparece e mostra todos os parâmetros usados pelo modelo. O único campo que você precisa definir é **o grupo Resource**. Crie um novo ou selecione um na lista de paradas.
+1. Clique em **Salvar**. O painel **de implantação Personalizado** aparece e mostra todos os parâmetros usados pelo modelo. O único campo que você precisa definir é **o grupo Resource**. Crie um novo ou selecione um na lista de paradas.
 
    Aqui está a metade superior do painel de **implantação personalizado.** Você pode ver onde você preenche o grupo de recursos.
 
@@ -379,7 +380,7 @@ Aqui está uma mensagem não enriquecida. Observe que "meu IoT Hub", "localizaç
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover todos os recursos criados neste tutorial, exclua o grupo de recursos. Essa ação também exclui todos os recursos contidos no grupo. Nesse caso, ela remove o hub IoT, a conta de armazenamento e o próprio grupo de recursos.
 

@@ -1,18 +1,18 @@
 ---
-title: Atualizar módulos do Azure na Automação do Azure
+title: Atualize os módulos Do Azure PowerShell na Automação Azure
 description: Este artigo descreve como você pode atualizar módulos comuns do Azure PowerShell fornecidos por padrão na Automação do Azure.
 services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ba926ccbb069c8620259514e0a64c56957529a0f
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: bb73b3d644e96f9596f887faaf62eb15f01956ab
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617467"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769660"
 ---
-# <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Como atualizar módulos do Azure PowerShell na Automação do Azure
+# <a name="update-azure-powershell-modules-in-azure-automation"></a>Atualize os módulos Do Azure PowerShell na Automação Azure
 
 Para atualizar os módulos do Azure em sua conta de Automação, você precisa usar o [runbook de módulos Update Azure](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), que está disponível como código aberto. Para começar a usar o runbook **Update-AutomationAzureModulesForAccount** para atualizar os módulos do Azure, baixe-o do [repositório de runbooks de atualização de módulos do Azure](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) no GitHub. Em seguida, você pode importá-lo em sua conta de Automação ou executá-lo como um script. Para saber como importar um runbook em sua conta de Automação, consulte [Importar um runbook](manage-runbooks.md#importing-a-runbook).
 
@@ -37,7 +37,7 @@ Se você desenvolver seus scripts localmente, é recomendável ter as mesmas ver
 
 A seguir, algumas considerações a serem consideradas ao usar este artigo para atualizar seus Módulos Azure:
 
-* O manual descrito neste artigo suporta a atualização dos módulos Azure, AzureRM e Az por padrão. Revise o [runbook de módulos Update Azure README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) para obter mais informações sobre a atualização de módulos Az.Automation com este runbook. Existem fatores importantes adicionais que você precisa levar em conta ao usar os módulos Az em sua conta de Automação. Para saber mais, consulte [Usando módulos Az em sua conta de Automação](az-modules.md).
+* O manual descrito neste artigo suporta a atualização dos módulos Azure, AzureRM e Az por padrão. Revise o [runbook de módulos Update Azure README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) para obter mais informações sobre a atualização de módulos Az.Automation com este runbook. Existem fatores importantes adicionais que você precisa levar em conta ao usar os módulos Az em sua conta de Automação. Para saber mais, consulte [Gerenciar módulos no Azure Automation](shared-resources/modules.md).
 
 * Antes de iniciar esse runbook, verifique se sua conta de Automação tem uma [credencial da conta Executar como do Azure](manage-runas-account.md) criada.
 

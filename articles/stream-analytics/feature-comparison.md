@@ -6,16 +6,19 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: cdae6a3b7319aefa9d4f19b5d613d1afb8b6804a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3b27a50fa86916b71c84b30ecdbf45deb0ec45c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235317"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770766"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparação de recursos do Azure Stream Analytics
 
 Com o Azure Stream Analytics, você pode criar soluções de streaming na nuvem e na Borda IoT usando o [portal Azure,](stream-analytics-quick-create-portal.md) [Visual Studio](stream-analytics-quick-create-vs.md)e Visual [Studio Code.](quick-create-vs-code.md) As tabelas deste artigo mostram quais características são suportadas por cada plataforma para ambos os tipos de trabalho.
+
+> [!NOTE]
+> As ferramentas Visual Studio e Visual Studio Code não suportam empregos nas regiões nordeste da China, China, Alemanha Central e Alemanha.
 
 ## <a name="cloud-job-features"></a>Recursos de trabalho em nuvem
 
@@ -57,7 +60,7 @@ Com o Azure Stream Analytics, você pode criar soluções de streaming na nuvem 
 |Exportar um emprego para um projeto local     |Não         |Sim         |Não         |
 |Teste de consulta com um arquivo de amostra     |Sim         |Sim         |Não         |
 |Compartilhe entradas e saídas em várias consultas     |Não         |Sim         |Não         |
-|C# UDF     |Não         |Sim         |Não         |
+|UDF do C#     |Não         |Sim         |Não         |
 |Enviar trabalhos     |Sim         |Sim         |Não         |
 |Liste empregos e veja entidades de trabalho     |Sim         |Sim         |Não         |
 |Ver métricas de trabalho e diagrama     |Sim         |Parcial         |Não         |

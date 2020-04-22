@@ -1,45 +1,46 @@
 ---
-title: HTTPS Endpoint | Mercado Azure
-description: Configurar o gerenciamento de cliente potencial para um ponto de extremidade HTTPS.
+title: Configure o gerenciamento de lead usando um ponto final HTTPS | Mercado Azure
+description: Aprenda a usar um ponto final HTTP para lidar com os leads do Microsoft AppSource e do Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/24/2018
+ms.date: 04/21/2020
 ms.author: dsindona
-ms.openlocfilehash: cb6ef173e97a7c2bbd7d7cad5e5074b1f2d0f066
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f56cc5aaad7d77ff8dc753115ef1becb08ddde73
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288590"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770151"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configurar o gerenciamento de cliente potencial usando um ponto de extremidade HTTPS
 
-É possível usar um ponto de extremidade HTTPS para tratar clientes potenciais do AppSource e do Microsoft Azure Marketplace. Esses clientes potenciais podem ser gravados em um sistema de CRM (Gerenciamento de relacionamento com o cliente) ou enviados como uma notificação por email. Este artigo descreve como configurar o gerenciamento de cliente potencial usando o serviço de automação do [Microsoft Flow](https://powerapps.microsoft.com/automate-processes/).
+Você pode usar um ponto final HTTPS para lidar com os leads Microsoft AppSource e Azure Marketplace. Esses leads podem ser gravados em um sistema de CRM (Customer Relationship Management, gerenciamento de relacionamento com o cliente) ou enviados como uma notificação por e-mail. Este artigo descreve como usar o serviço de automação [Microsoft Power Automate](https://powerapps.microsoft.com/automate-processes/) para configurar o gerenciamento de chumbo.
 
-## <a name="create-a-flow-using-microsoft-flow"></a>Criar um fluxo usando o Microsoft Flow
+## <a name="create-a-flow-using-microsoft-power-automate"></a>Crie um fluxo usando o Microsoft Power Automate
 
-1. Abra a página da Web do [Flow](https://flow.microsoft.com/). Selecione **Inscrever-se** ou selecione**Inscreva-se gratuitamente** para criar uma conta gratuita do Flow.
+1. Abra a página do [Power Automate.](https://flow.microsoft.com/) Selecione **Inscrever-se** ou selecione**Inscreva-se gratuitamente** para criar uma conta gratuita do Flow.
 
-2. Inscreva-se e selecione **Meus fluxos** na barra de menus.
+1. Inscreva-se e selecione **Meus fluxos** na barra de menus.
+    > [!div class="mx-imgBorder"]
+    > ![Meus fluxos](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows.png)
 
-    ![Meus fluxos](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows.png)
+1. Em **+ Novo**, selecione + Instantâneo — em **branco**.
+    > [!div class="mx-imgBorder"]
+    > ![Criar do zero](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-3. Selecione **+ Criar em branco**.
+1. Nomeie seu fluxo e, em seguida, **Escolha como ativar esse fluxo,** **selecione Quando uma solicitação HTTP for recebida**.
 
-    ![Criar do zero](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-create-fromblank.png)
+    > [!div class="mx-imgBorder"]
+    > ![Selecione o gatilho de solicitação HTTP recebido](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
-4. Selecione **Criar em branco**.
+1. Clique na etapa de fluxo para expandi-lo.
 
-    ![Criar do zero](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-create-fromblank2.png)
+    > [!div class="mx-imgBorder"]
+    > ![Expanda a etapa de fluxo](./media/cloud-partner-portal-lead-management-instructions-https/expand-flow-step.png)
 
-5. No campo **Pesquisar conectores e gatilhos**, digite "solicitar" para localizar o conector de Solicitação.
-6. Em **Gatilhos**, selecione **Quando uma solicitação HTTP é recebida**. 
-
-    ![Selecione o gatilho de solicitação HTTP recebido](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
-
-7. Use uma das etapas a seguir para configurar o **Esquema JSON do Corpo da Solicitação**:
+1. Use um dos seguintes métodos para configurar o **Esquema JSON do Corpo de Solicitação**:
 
    - Copie o [Esquema JSON](#json-schema) no final deste artigo na caixa de texto **Esquema JSON do Corpo da Solicitação**.
    - Selecione **Use o conteúdo de amostra para gerar o esquema**. Na caixa de texto **Digite ou cole uma carga de exemplo de conteúdo JSON**, cole o [Exemplo de JSON](#json-example). Selecione **Concluído** para criar o esquema.
@@ -90,6 +91,7 @@ ms.locfileid: "80288590"
    ![Adicionar uma ação de e-mail](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-action.png)
 
 5. Selecione **Salvar** para concluir seu fluxo.
+
 6. Uma URL de HTTP POST é criada na solicitação. Copie essa URL e use-a como o ponto de extremidade HTTPS.
 
     ![URL de HTTP POST](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-get-post-url.png)
@@ -100,7 +102,7 @@ Ao configurar as informações de gerenciamento de cliente potencial para a ofer
 
 ![Adicionar conteúdo dinâmico](./media/cloud-partner-portal-lead-management-instructions-https/https-image017.png)
 
-Quando clientes potenciais forem gerados, a Microsoft enviará clientes potenciais ao Flow, que serão encaminhados para o sistema de CRM ou endereço de email que você configurou.
+Quando os leads são gerados, a Microsoft envia leads para o fluxo power automate, que são roteados para o sistema de CRM ou endereço de e-mail que você configurou.
 
 ## <a name="json-schema-and-example"></a>Esquema JSON e exemplo
 
@@ -124,6 +126,10 @@ O exemplo de teste do JSON usa o esquema a seguir:
     },
     "LeadSource": {
       "id": "/properties/LeadSource",
+      "type": "string"
+    },
+    "Description": {
+      "id": "/properties/Description",
       "type": "string"
     },
     "UserDetails": {
@@ -165,23 +171,25 @@ O exemplo de teste do JSON usa o esquema a seguir:
 }
 ```
 
-Você pode copiar e editar o seguinte exemplo de JSON a ser usado como um teste em seu MS Flow.
+Você pode copiar e editar o seguinte exemplo JSON para usar como um teste no seu fluxo.
 
 ### <a name="json-example"></a>Exemplo de JSON
 
 ```json
 {
-"OfferTitle": "Test Microsoft",
-"LeadSource": "Test run through MS Flow",
-"UserDetails": {
-"Company": "Contoso",
-"Country": "USA",
-"Email": "someone@contoso.com",
-"FirstName": "Some",
-"LastName": "One",
-"Phone": "16175555555",
-"Title": "Esquire"
-}
+  "UserDetails": {
+    "FirstName": "Some",
+    "LastName": "One",
+    "Email": "someone@contoso.com",
+    "Phone": "16175555555",
+    "Country": "USA",
+    "Company": "Contoso",
+    "Title": "Esquire"
+ },
+  "LeadSource": "AzureMarketplace",
+  "ActionCode": "INS",
+  "OfferTitle": "Test Microsoft",
+  "Description": "Test run through Power Automate"
 }
 ```
 

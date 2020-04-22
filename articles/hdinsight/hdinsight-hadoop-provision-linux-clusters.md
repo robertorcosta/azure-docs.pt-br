@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 02/12/2020
-ms.openlocfilehash: 246ec08e9b4edb33fa49318b68cc4364534282b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bba71ab35920027cc7296e774936c3d1deb8f92
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064657"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770309"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configure os clusters no HDInsight com o Apache Hadoop, o Apache Spark, o Apache Kafka e muito mais
 
@@ -32,11 +32,11 @@ A tabela a seguir mostra os diferentes métodos que você pode usar para configu
 
 | Clusters criados com | Navegador da Web | Linha de comando | API REST | . |
 | --- |:---:|:---:|:---:|:---:|
-| [Portal Azure](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
-| [Fábrica de Dados Azure](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
-| [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
-| [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
-| [Onda](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
+| [Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
+| [CLI do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [PowerShell do Azure](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [Modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
 Este artigo orienta você através da configuração no [portal Azure,](https://portal.azure.com)onde você pode criar um cluster HDInsight.
@@ -74,13 +74,13 @@ Atualmente, o Azure HDInsight apresenta os seguintes tipos de cluster, cada um c
 
 | Tipo de cluster | Funcionalidade |
 | --- | --- |
-| [Hadoop](hadoop/apache-hadoop-introduction.md) |Consulta de Lote e a análise de dados armazenados |
+| [O Hadoop](hadoop/apache-hadoop-introduction.md) |Consulta de Lote e a análise de dados armazenados |
 | [HBase](hbase/apache-hbase-overview.md) |Processamento de grandes quantidades de dados NoSQL sem esquema |
 | [Consulta Interativa](./interactive-query/apache-interactive-query-get-started.md) |Caching na memória para consultas de Hive interativas e mais rápidas |
 | [Kafka](kafka/apache-kafka-introduction.md) | Uma plataforma de streaming distribuída que pode ser usada para compilar pipelines e aplicativos de dados de streaming em tempo real |
 | [ML Services](r-server/r-server-overview.md) |Uma variedade de recursos de estatísticas de Big Data, modelagem preditiva e aprendizado de máquina |
 | [Spark](spark/apache-spark-overview.md) |Processamento na memória, consultas interativas, processamento de transmissão de microlotes |
-| [Tempestade](storm/apache-storm-overview.md) |Processamento de eventos em tempo real |
+| [Storm](storm/apache-storm-overview.md) |Processamento de eventos em tempo real |
 
 #### <a name="version"></a>Versão
 
@@ -104,7 +104,7 @@ O nome de usuário SSH tem as seguintes restrições:
 * Personagens especiais`_` permitidos: e`@`
 * Personagens não permitidos:\/#;."', :'!*?(){}[]<>|&-=+%~^espaço
 * Comprimento máximo: 64
-* Nomes reservados: hadoop, usuários, oozie, colmeia, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, fio, hcat, ams, hbase, storm, administrador, administrador, administrador, administrador, usuário, usuário1, teste, usuário2, test1, user3, admin1, 1, 123, a, actuser, adm, adm2, asp convidado, john, proprietário, raiz, servidor, sql, suporte, support_388945a0, sys, test2, test3, user4, user5, spark
+* Nomes reservados: hadoop, usuários, oozie, colmeia, maped, ambari-qa, zookeeper, tez, hdfs, sqoop, fio, hcat, ams, hbase, tempestade, administrador, administrador, administrador, usuário, usuário1, teste, usuário2, test1, user3, admin1, 1, 123, a, actuser, adm, adm2, aspnet, backup, console, david, convidado, john, proprietário, raiz, servidor, sql, suporte, support_388945a0, sys, test2, test3, user
 
 ## <a name="storage"></a>Armazenamento
 
@@ -169,7 +169,7 @@ Para obter mais informações sobre a criação de cluster HDInsight ingressado 
 
 ### <a name="tls"></a>TLS
 
-Para obter mais informações, consulte [Transport Layer Security](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security)
+Para obter mais informações, consulte [Transport Layer Security](./transport-layer-security.md)
 
 ### <a name="virtual-network"></a>Rede virtual
 

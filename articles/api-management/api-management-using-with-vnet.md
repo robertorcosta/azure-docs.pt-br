@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 462a44f7766e0ec52ba7156d6de5ae5261e21376
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 0ecb7ee7f5c7c0ebaa87eb6b32eee1926d9e294d
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547358"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768962"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o Gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure, confira [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -108,7 +108,7 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 
 <a name="required-ports"> </a> Quando uma instância de serviço de gerenciamento de API é hospedada em um VNET, as portas na tabela a seguir são usadas.
 
-| Porta(s) de Origem/Destino | Direção          | Protocolo de transporte |   [Tags de serviço](../virtual-network/security-overview.md#service-tags) <br> Origem/Destino   | Finalidade ( * )                                                 | Tipo de Rede Virtual |
+| Porta(s) de Origem/Destino | Direção          | Protocolo de transporte |   [Tags de serviço](../virtual-network/security-overview.md#service-tags) <br> Origem/Destino   | Propósito\*( )                                                 | Tipo de Rede Virtual |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | Entrada            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicação do cliente com o Gerenciamento de API                      | Externo             |
 | * / 3443                     | Entrada            | TCP                | ApiManagement/VIRTUAL_NETWORK       | Ponto de extremidade de gerenciamento para o Portal do Azure e o Powershell         | Interno e externo  |
@@ -132,9 +132,7 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 
 + **Acesos de DNS**: O acesso de saída na porta 53 é necessário para a comunicação com servidores DNS. Se houver um servidor DNS personalizado na outra extremidade de um gateway de VPN, o servidor DNS deverá estar acessível pela sub-rede que hospeda o Gerenciamento de API.
 
-+ **Monitoramento de integridade e métricas**: conectividade de rede de saída para pontos de extremidade do Monitoramento do Azure, que são resolvidos sob os seguintes domínios:
-
-+ **Tags de serviço regionais**": as regras do NSG que permitem conectividade de saída às tags de serviço Storage, SQL e EventHubs podem usar as versões regionais dessas tags correspondentes à região que contém a instância de gerenciamento de API (por exemplo, Storage.WestUS para uma instância de gerenciamento de API na região oeste dos EUA). Em implantações multi-regiões, o NSG em cada região deve permitir o tráfego para as etiquetas de serviço para aquela região.
++ **Métricas e Monitoramento de Saúde**: Conectividade de rede de saída aos pontos finais do Azure Monitoring, que se resolvem nos seguintes domínios. Como mostrado na tabela, esses URLs são representados sob a tag de serviço AzureMonitor para uso com Grupos de Segurança de Rede.
 
     | Azure Environment | Pontos de extremidade                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -142,8 +140,10 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com**new**</li><li>shoebox2.metrics.nsatc.net **(a ser preterido)**</li><li>prod3.metrics.microsoftmetrics.com**new**</li><li>prod3.metrics.nsatc.net **(a ser preterido)**</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
     | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com**new**</li><li>shoebox2.metrics.nsatc.net **(a ser preterido)**</li><li>prod3.metrics.microsoftmetrics.com**new**</li><li>prod3.metrics.nsatc.net **(a ser preterido)**</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
 
->[!IMPORTANT]
-> A mudança de clusters acima com a zona dns **.nsatc.net** para **.microsoftmetrics.com** é principalmente uma alteração de DNS. O endereço IP do cluster não será alterado.
+  >[!IMPORTANT]
+  > A mudança de clusters acima com a zona dns **.nsatc.net** para **.microsoftmetrics.com** é principalmente uma alteração de DNS. O endereço IP do cluster não será alterado.
+
++ **Tags de serviço regionais**: as regras do NSG que permitem conectividade de saída às tags de serviço Storage, SQL e Event Hubs podem usar as versões regionais dessas tags correspondentes à região que contém a instância de gerenciamento de API (por exemplo, Storage.WestUS para uma instância de gerenciamento de API na região oeste dos EUA). Em implantações multi-regiões, o NSG em cada região deve permitir o tráfego para as etiquetas de serviço para aquela região e a região primária.
 
 + **Relé SMTP**: Conectividade de rede de saída para o Relé `smtpi-ch1.msn.com` `smtpi-db3.msn.com`SMTP, que se resolve sob o host `smtpi-sin.msn.com` `smtpi-co1.msn.com`, e`ies.global.microsoft.com`
 
@@ -151,7 +151,7 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 
 + **Diagnóstico do portal do Azure**: para habilitar o fluxo de log de diagnóstico do portal do Azure ao usar a extensão de Gerenciamento de API de dentro de uma Rede Virtual, é necessário ter acesso de saída a `dc.services.visualstudio.com` na porta 443. Isso ajuda na solução de problemas que você pode enfrentar ao usar a extensão.
 
-+ **Forçar tráfego de tunelamento para firewall on-prem usando express route ou network virtual appliance**: Uma configuração comum do cliente é definir sua própria rota padrão (0.0.0.0/0) que força todo o tráfego da sub-rede delegada de gerenciamento de API a fluir através de um firewall no local ou para um dispositivo virtual da Rede. Esse fluxo de tráfego invariavelmente interrompe a conectividade com o Gerenciamento de API do Azure, pois o tráfego de saída é bloqueado localmente ou convertido em NAT para um conjunto irreconhecível de endereços que não funcionam mais com vários pontos de extremidade do Azure. A solução exige que você faça algumas coisas:
++ **Forçar tráfego de tunelamento para firewall no local Usando rota expressa ou dispositivo virtual de rede**: Uma configuração comum do cliente é definir sua própria rota padrão (0.0.0.0/0) que força todo o tráfego da sub-rede delegada de gerenciamento de API a fluir através de um firewall no local ou para um dispositivo virtual da Rede. Esse fluxo de tráfego invariavelmente interrompe a conectividade com o Gerenciamento de API do Azure, pois o tráfego de saída é bloqueado localmente ou convertido em NAT para um conjunto irreconhecível de endereços que não funcionam mais com vários pontos de extremidade do Azure. A solução exige que você faça algumas coisas:
 
   * Habilite pontos finais de serviço na sub-rede na qual o serviço de gerenciamento de API é implantado. [Os pontos finais de][ServiceEndpoints] serviço precisam ser habilitados para O Azure Sql, Azure Storage, Azure EventHub e Azure ServiceBus. A habilitação de pontos finais diretamente da sub-rede delegada de gerenciamento de API para esses serviços permite que eles usem a rede backbone do Microsoft Azure, fornecendo roteamento ideal para o tráfego de serviços. Se você usar pontos finais de serviço com um Gerenciamento de Api em túneis forçados, o tráfego de serviços azure acima não será forçado a fazer um túnel forçado. O outro tráfego de dependência de serviço de gerenciamento de API é forçado em túneis e não pode ser perdido ou o serviço de gerenciamento de API não funcionaria corretamente.
     
@@ -267,7 +267,7 @@ Os endereços IP são divididos pelo **Ambiente Azure**. Ao permitir solicitaç�
 * [Conectar uma rede virtual de diferentes modelos de implantação](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure](api-management-howto-api-inspector.md)
 * [Rede Virtual Perguntas frequentes](../virtual-network/virtual-networks-faq.md)
-* [Marcas de serviço](../virtual-network/security-overview.md#service-tags)
+* [Tags de serviço](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
