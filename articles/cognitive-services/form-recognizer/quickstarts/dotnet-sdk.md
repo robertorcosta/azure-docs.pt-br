@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: b9db9daf06b59e1a26a9b03a93aff63984841862
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 8d05f5ad07f9b3affba9442d6caa6e63162b813c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77118356"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399415"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Início Rápido: Biblioteca de clientes do Reconhecimento de Formulários para .NET
 
@@ -42,7 +42,7 @@ Use a biblioteca de clientes do Reconhecimento de Formulários para .NET para:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-Depois de obter uma chave da assinatura ou do recurso de avaliação, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e o ponto de extremidade, chamados `FORM_RECOGNIZER_KEY` e `FORM_RECOGNIZER_ENDPOINT`, respectivamente.
+Depois de obter uma chave e um ponto de extremidade, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e o ponto de extremidade, chamadas `FORM_RECOGNIZER_KEY` e `FORM_RECOGNIZER_ENDPOINT`, respectivamente.
 
 ### <a name="create-a-new-c-application"></a>Criar um aplicativo em C#
 
@@ -99,12 +99,6 @@ As classes a seguir tratam da funcionalidade principal do SDK do Reconhecimento 
 |[ExtractedPage](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.extractedpage?view=azure-dotnet-preview)| Essa classe representa todos os dados extraídos de um único documento de formulário.|
 
 ## <a name="code-examples"></a>Exemplos de código
-
-<!--
-    Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.
-
-    Include links to the service's reference content when introducing a class for the first time
--->
 
 Estes snippets de códigos mostram como realizar as seguintes tarefas com a biblioteca de clientes do Reconhecimento de Formulários para .NET:
 
@@ -193,7 +187,7 @@ Além disso, se você treinou um modelo personalizado que deseja excluir de sua 
 Neste Início Rápido, você usou a biblioteca de clientes .NET do Reconhecimento de Formulários para treinar um modelo personalizado e analisar formulários. Em seguida, aprenda dicas para criar um conjunto de dados de treinamento melhor e produzir modelos mais precisos.
 
 > [!div class="nextstepaction"]
->[Criar um conjunto de dados de treinamento](../build-training-data-set.md)
+> [Criar um conjunto de dados de treinamento](../build-training-data-set.md)
 
 * [O que é o Reconhecimento de Formulários?](../overview.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/FormRecognizer).

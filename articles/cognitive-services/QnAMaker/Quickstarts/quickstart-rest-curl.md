@@ -1,16 +1,16 @@
 ---
 title: 'Início Rápido: Usar cURL e REST para gerenciar a base de dados de conhecimento – QnA Maker'
 description: Este início rápido mostra como criar, publicar e consultar sua base de dados de conhecimento usando APIs REST.
-ms.date: 02/27/2020
+ms.date: 04/13/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
-ms.openlocfilehash: 00ec52fe20fb0e6a976f3e7142386e835713c98c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: facc45ab8f916181f7eeceb65c5102a60ae7d7e9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78851197"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261696"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Início Rápido: Usar cURL e REST para gerenciar a base de dados de conhecimento
 
@@ -21,9 +21,9 @@ Este início rápido explica como criar, publicar e consultar sua base de dados 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A versão atual do [cURL](https://curl.haxx.se/). Várias opções de linha de comando são usadas nos inícios rápidos, indicadas na [documentação do cURL](https://curl.haxx.se/docs/manpage.html).
-* Você precisa ter um [recurso do QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a chave e o nome do recurso, selecione **Início Rápido** para o recurso no portal do Azure. O nome do recurso é a primeira parte da URL do ponto de extremidade:
+* Você deve ter um [Recurso do QnA Maker](../How-To/set-up-qnamaker-service-azure.md) para usar a chave e o nome do recurso. Você inseriu o **Nome** do recurso durante a criação dele e a chave foi criada para você. O nome do recurso é usado como o subdomínio para seu ponto de extremidade. Para recuperar a chave e o nome do recurso, selecione **Início Rápido** para o recurso no portal do Azure. O nome do recurso é o primeiro subdomínio da URL do ponto de extremidade:
 
-    `https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
+    `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
 
 > [!CAUTION]
 > Os exemplos de BASH a seguir usam o caractere de continuação de linha `\`. Se o console ou o terminal usar um caractere de continuação de linha diferente, use esse caractere.

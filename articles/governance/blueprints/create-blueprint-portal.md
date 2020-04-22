@@ -3,12 +3,12 @@ title: 'Início Rápido: Criar um blueprint no portal'
 description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos por meio do portal do Azure.
 ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: 457f4f9c53f45077129b291c904bc1580b6d965e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd50b1833f16d364a4494483fcccfee017bb982b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282045"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381900"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Início Rápido: Definir e atribuir um blueprint no portal
 
@@ -28,7 +28,7 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
 
    Ou, selecione **Criar** na página **Introdução** para ir direto para a criação de um blueprint.
 
-   ![Criar blueprint da página de definições de blueprint](./media/create-blueprint-portal/create-blueprint-button.png)
+   :::image type="content" source="./media/create-blueprint-portal/create-blueprint-button.png" alt-text="Criar um blueprint da página de definições do Blueprint" border="false":::
 
 1. Selecione **Começar com um blueprint em branco** do cartão na parte superior da lista de blueprints.
 
@@ -48,10 +48,10 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
 
    1. Clique em **Adicionar** para adicionar este artefato ao blueprint.
 
-   ![Atribuição de função para um artefato de blueprint](./media/create-blueprint-portal/add-role-assignment.png)
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment.png" alt-text="Atribuição de função para um artefato de blueprint" border="false":::
 
    > [!NOTE]
-   > A maioria dos artefatos suporta parâmetros. Um parâmetro atribuído a um valor durante a criação do blueprint é um *parâmetro estático*. Se o parâmetro for atribuído durante a atribuição de blueprint, ele será um *parâmetro dinâmico*. Para obter mais informações, consulte [parâmetros de blueprint](./concepts/parameters.md).
+   > A maioria dos artefatos suporta parâmetros. Um parâmetro atribuído a um valor durante a criação do blueprint é um _parâmetro estático_. Se o parâmetro for atribuído durante a atribuição de blueprint, ele será um _parâmetro dinâmico_. Para obter mais informações, consulte [parâmetros de blueprint](./concepts/parameters.md).
 
 1. Incluir uma atribuição de política em um nível de assinatura:
 
@@ -144,11 +144,11 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
 
    1. Clique em **Adicionar** para adicionar este artefato ao blueprint.
 
-   ![Modelo do Resource Manager para o artefato de blueprint](./media/create-blueprint-portal/add-resource-manager-template.png)
+   :::image type="content" source="./media/create-blueprint-portal/add-resource-manager-template.png" alt-text="Modelo do Resource Manager para o artefato de blueprint" border="false":::
 
 1. Seu blueprint concluído deve ser semelhante ao seguinte. Observe que cada artefato tem **_x_ de _y_ parâmetros preenchidos** sob a coluna **Parâmetros**. Os parâmetros dinâmicos são definidos durante cada atribuição do blueprint.
 
-   ![Definição de blueprint concluído](./media/create-blueprint-portal/completed-blueprint.png)
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint.png" alt-text="Definição de blueprint concluído" border="false":::
 
 1. Agora que todos os artefatos planejados foram adicionados, selecione **Salvar rascunho** na parte inferior da página.
 
@@ -174,13 +174,13 @@ Em [Criar um blueprint](#create-a-blueprint), uma descrição não foi fornecida
 
    1. Procure e selecione um usuário, aplicativo ou grupo a ser adicionado. Esse artefato usa um parâmetro static definido igualmente em todas as atribuições deste blueprint.
 
-   e. Clique em **Adicionar** para adicionar este artefato ao blueprint.
+   1. Clique em **Adicionar** para adicionar este artefato ao blueprint.
 
-   ![Segunda atribuição de função para um artefato de blueprint](./media/create-blueprint-portal/add-role-assignment-2.png)
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment-2.png" alt-text="Segunda atribuição de função para um artefato de blueprint" border="false":::
 
 1. Seu blueprint concluído deve ser semelhante ao seguinte. Observe que a designação de função adicionada recentemente mostra **1 de 1 parâmetros preenchidos**. Isso significa que ele é um parâmetro estático.
 
-   ![Segunda definição para o blueprint concluído](./media/create-blueprint-portal/completed-blueprint-2.png)
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint-2.png" alt-text="Segunda definição para o blueprint concluído" border="false":::
 
 1. Selecione **Salvar rascunho** agora que foi atualizado.
 
@@ -219,10 +219,10 @@ Depois que um blueprint for publicado, ele poderá ser atribuído a uma assinatu
 
    1. Selecione **Criar** na parte inferior da página.
 
-   ![Criar uma assinatura para uma assinatura de atribuição de blueprint](./media/create-blueprint-portal/assignment-create-subscription.png)
+      :::image type="content" source="./media/create-blueprint-portal/assignment-create-subscription.png" alt-text="Criar uma assinatura para uma assinatura de atribuição de blueprint" border="false":::
 
-   > [!IMPORTANT]
-   > A nova assinatura será criada imediatamente quando **Criar** for selecionado.
+      > [!IMPORTANT]
+      > A nova assinatura será criada imediatamente quando **Criar** for selecionado.
 
    > [!NOTE]
    > Uma atribuição é criada para cada assinatura que você selecionar. Você pode fazer alterações a uma única atribuição de assinatura posteriormente, sem forçar alterações no restante das assinaturas selecionadas.
@@ -235,7 +235,7 @@ Depois que um blueprint for publicado, ele poderá ser atribuído a uma assinatu
 
 1. Para **Atribuição de Bloqueio**, deixe o padrão de **Não Bloquear**. Para obter mais informações, consulte [bloqueio de recursos de projetos](./concepts/resource-locking.md).
 
-   ![Bloqueio e identidades gerenciadas da atribuição](./media/create-blueprint-portal/assignment-locking-mi.png)
+   :::image type="content" source="./media/create-blueprint-portal/assignment-locking-mi.png" alt-text="Bloqueio e identidades gerenciadas da atribuição" border="false":::
 
 1. Em **Identidade gerenciada**, deixe o padrão de **Atribuído pelo sistema**.
 
@@ -266,7 +266,7 @@ Agora que o blueprint foi atribuído a uma assinatura, verifique o progresso da 
 
 1. Na lista de blueprints, clique com o botão direito do mouse no que você atribuiu anteriormente e selecione **Exibir detalhes da atribuição**.
 
-   ![Exibir detalhes da atribuição da página de Blueprints atribuídos](./media/create-blueprint-portal/view-assignment-details.png)
+   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Exibir detalhes da atribuição da página de Blueprints atribuídos" border="false":::
 
 1. Na página **Atribuição de blueprint**, valide se todos os artefatos foram implantados com sucesso e se não houve erros durante a implantação. Em caso de erro, confira a [solução de problemas de blueprint](./troubleshoot/general.md) a fim de obter as etapas para determinar o que deu errado.
 

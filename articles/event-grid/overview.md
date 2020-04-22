@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 65fd9d06c8b25e0aff94429f8eb95bb922da330c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b6f987eb283edea7f2d8e6b207b5b4e5b14f9120
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77505916"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393198"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é a Grade de Eventos do Azure?
 
@@ -32,22 +32,21 @@ Esta imagem mostra como a Grade de Eventos conecta origens e manipuladores, mas 
 
 ## <a name="event-sources"></a>Origens de eventos
 
-Para obter detalhes completos sobre os recursos de cada origem, bem como artigos relacionados, confira [origens do evento](event-sources.md). Atualmente, os serviços do Azure a seguir dão suporte para envio de eventos à Grade de Eventos:
+Atualmente, os serviços do Azure a seguir dão suporte para envio de eventos à Grade de Eventos:
 
-* [Assinaturas do Azure (operações de gerenciamento)](event-sources.md#azure-subscriptions)
-* [Registro de Contêiner](event-sources.md#container-registry)
-* [Tópicos personalizados](event-sources.md#custom-topics)
-* [Hubs de Evento](event-sources.md#event-hubs)
-* [Hub IoT](event-sources.md#iot-hub)
-* [Key Vault (versão prévia)](event-sources.md#key-vault-preview)
-* [Serviços de Mídia](event-sources.md#media-services)
-* [Grupos de recursos (operações de gerenciamento)](event-sources.md#resource-groups)
-* [Barramento de Serviço](event-sources.md#service-bus)
-* [Armazenamento de Blobs](event-sources.md#storage)
-* [Mapas do Azure](event-sources.md#maps)
-* [Configuração de Aplicativos](event-sources.md#app-configuration)
-* [Signal R](event-sources.md#azure-signalr)
-* [Machine Learning](event-sources.md#azure-machine-learning)
+- [Configuração de Aplicativos do Azure](event-schema-app-configuration.md)
+- [Armazenamento de Blobs do Azure](event-schema-blob-storage.md)
+- [Registro de Contêiner do Azure](event-schema-container-registry.md)
+- [Hubs de eventos do Azure](event-schema-event-hubs.md)
+- [Hub IoT do Azure](event-schema-iot-hub.md)
+- [Cofre da Chave do Azure](event-schema-key-vault.md)
+- [Azure Machine Learning](event-schema-machine-learning.md)
+- [Mapas do Azure](event-schema-azure-maps.md)
+- [Serviços de Mídia do Azure](event-schema-media-services.md)
+- [Grupos de recursos do Azure](event-schema-resource-groups.md)
+- [Barramento de Serviço do Azure](event-schema-service-bus.md)
+- [Azure SignalR](event-schema-azure-signalr.md)
+- [Assinaturas do Azure](event-schema-subscriptions.md)
 
 ## <a name="event-handlers"></a>Manipuladores de eventos
 

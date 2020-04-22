@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 570d55c8523e1c1deca3242a8841b0cc34322786
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f28f2bcf5d04c9a6354b8135bd39546b9d8b9bf3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80053883"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404291"
 ---
 # <a name="what-is-azure-content-moderator"></a>O que é o Azure Content Moderator?
 
@@ -38,7 +38,7 @@ Estes são alguns cenários nos quais um desenvolvedor ou equipe de software usa
 
 ## <a name="what-it-includes"></a>O que inclui
 
-O serviço Content Moderator consiste em várias APIs de serviço Web disponíveis por meio de chamadas REST e um SDK do .NET. Ele também inclui a ferramenta de análise humana, o que permite que revisores humanos ajudem o serviço e aprimorem ou ajustem sua função de moderação.
+O serviço Content Moderator consiste em várias APIs de serviço Web disponíveis por meio de chamadas REST e um SDK do .NET. Ele também inclui a ferramenta de análise, o que permite que revisores humanos ajudem o serviço e aprimorem ou ajustem sua função de moderação.
 
 ## <a name="moderation-apis"></a>APIs de Moderação
 
@@ -48,7 +48,7 @@ O serviço Content Moderator inclui APIs de Moderação que verificam se o conte
 
 A tabela a seguir descreve os diferentes tipos de APIs de moderação.
 
-| Grupo de APIs | DESCRIÇÃO |
+| Grupo de APIs | Descrição |
 | ------ | ----------- |
 |[**Moderação de texto**](text-moderation-api.md)| Examina o texto quanto a conteúdo ofensivo, conteúdo sexualmente explícito ou sugestivo, conteúdo ofensivo e dados pessoais.|
 |[**Listas de termos personalizadas**](try-terms-list-api.md)| Examina o texto em relação a uma lista de termos personalizados juntamente com os termos internos. Use listas personalizadas para bloquear ou permitir conteúdo de acordo com suas próprias políticas de conteúdo.|  
@@ -58,18 +58,18 @@ A tabela a seguir descreve os diferentes tipos de APIs de moderação.
 
 ## <a name="review-apis"></a>Analisar APIs
 
-As APIs de Revisão permitem integrar seu pipeline de moderação com os revisores humanos. Use as operações [Trabalhos](review-api.md#jobs), [Revisões](review-api.md#reviews) e [Fluxo de Trabalho](review-api.md#workflows) para criar e automatizar fluxos de trabalho com envolvimento humano (human-in-the-loop) dentro da [Ferramenta de Revisão](#the-review-tool) (abaixo).
+As APIs de Revisão permitem integrar seu pipeline de moderação com os revisores humanos. Use as operações [Trabalhos](review-api.md#jobs), [Revisões](review-api.md#reviews) e [Fluxo de Trabalho](review-api.md#workflows) para criar e automatizar fluxos de trabalho com envolvimento humano (human-in-the-loop) dentro da [Ferramenta de Revisão](#review-tool) (abaixo).
 
 > [!NOTE]
 > A API de Fluxo de Trabalho ainda não está disponível no SDK do .NET, mas pode ser usada com o ponto de extremidade REST.
 
 ![diagrama de bloco para APIs de revisão do Content Moderator](images/content-moderator-rev-api.png)
 
-## <a name="the-review-tool"></a>A ferramenta de análise
+## <a name="review-tool"></a>Ferramenta de análise
 
 O serviço do Content Moderator também inclui a [ferramenta Examinar](Review-Tool-User-Guide/human-in-the-loop.md) baseada na Web, que hospeda o conteúdo de revisões para moderadores humanos processarem. A entrada humana não treina o serviço, mas o trabalho combinado do serviço e das equipes de análise humana permite que os desenvolvedores alcancem o equilíbrio entre a precisão e a eficiência. A ferramenta de Análise também fornece um front-end amigável para uma variedade de recursos do Content Moderator.
 
-![Página inicial da ferramenta de análise humana do Content Moderator](images/homepage.PNG)
+![Page inicial da ferramenta de análise do Content Moderator](images/homepage.PNG)
 
 ## <a name="data-privacy-and-security"></a>Segurança e privacidade de dados
 

@@ -3,18 +3,18 @@ title: Início rápido da implantação automatizada de VM com a Configuração 
 description: Este início rápido demonstra como usar o módulo do Azure PowerShell e os modelos do Azure Resource Manager para implantar um repositório da Configuração de Aplicativos do Azure. Em seguida, use os valores no repositório para implantar uma VM.
 author: lisaguthrie
 ms.author: lcozzens
-ms.date: 03/05/2020
+ms.date: 04/14/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
 ms.custom:
 - mvc
 - subject-armqs
-ms.openlocfilehash: c45f6855c33dff2790ced306fd7f049b98dd1387
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 02afa2cb36323e0c3c38c2451b1924b636f7faed
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79126389"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309103"
 ---
 # <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Início Rápido: Implantação automatizada de VM com a Configuração de Aplicativos e o modelo do Resource Manager
 
@@ -152,6 +152,9 @@ Você pode criar um repositório da Configuração de Aplicativos usando um mode
 ## <a name="deploy-vm-using-stored-key-values"></a>Implantar a VM usando pares chave-valor armazenados
 
 Agora que adicionou pares chave-valor ao repositório, você está pronto para implantar uma VM usando um modelo do Azure Resource Manager. O modelo referencia as chaves **windowsOsVersion** e **diskSizeGB** criadas.
+
+> [!WARNING]
+> Os modelos do ARM não podem referenciar chaves em um repositório de Configurações de Aplicativos que tenha o Link Privado habilitado.
 
 1. Copie e cole o código JSON a seguir em um novo arquivo chamado *azuredeploy.json* ou baixe o arquivo nos [Modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.json).
 
@@ -423,13 +426,13 @@ Agora que adicionou pares chave-valor ao repositório, você está pronto para i
    |storageAccountName|Um nome exclusivo para uma conta de armazenamento associada à VM.|
    |domainNameLabel|Um nome de domínio exclusivo.|
 
-1. Na janela do PowerShell, execute o comando a seguir para implantar o repositório da Configuração de Aplicativos do Azure. Não se esqueça de substituir o nome do grupo de recursos, o caminho do arquivo de modelo e o caminho do arquivo de parâmetro do modelo.
+1. Na janela do PowerShell, execute o comando a seguir para implantar a VM. Não se esqueça de substituir o nome do grupo de recursos, o caminho do arquivo de modelo e o caminho do arquivo de parâmetro do modelo.
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
-       -ResourceGroupName "<your resource group>" 
-       -TemplateFile "<path to prereq.azuredeploy.json>" `
-       -TemplateParameterFile "<path to prereq.azuredeploy.parameters.json>"
+       -ResourceGroupName "<your resource group>"
+       -TemplateFile "<path to azuredeploy.json>" `
+       -TemplateParameterFile "<path to azuredeploy.parameters.json>"
    ```
 
 Parabéns! Você implantou uma VM usando as configurações armazenadas na Configuração de Aplicativos do Azure.

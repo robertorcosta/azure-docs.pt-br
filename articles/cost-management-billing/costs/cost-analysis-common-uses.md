@@ -3,16 +3,16 @@ title: Usos comuns da análise de custo no Gerenciamento de Custos do Azure
 description: Este artigo explica como você pode obter resultados para tarefas comuns de análise de custo no Gerenciamento de Custos do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/31/2020
+ms.date: 04/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: a333cad51e6fc089e7e6994c7b89210b12686cd5
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 2e0e222e636f694328835e20fda97deca1d9986a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520871"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261475"
 ---
 # <a name="common-cost-analysis-uses"></a>Usos comuns da análise de custo
 
@@ -27,6 +27,17 @@ A exibição de custos por um serviço do Azure pode ajudá-lo a entender melhor
 1. Altere a exibição para **Tabela**.
 
 [![Detalhamento de custos por serviço do Azure](./media/cost-analysis-common-uses/breakdown-by-service.png)](./media/cost-analysis-common-uses/breakdown-by-service.png#lightbox)
+
+## <a name="review-invoiced-charges-in-cost-analysis"></a>Examinar encargos faturados na Análise de custo
+
+Para ver os detalhes de sua fatura no portal do Azure, navegue até a Análise de custo do escopo associado à fatura que você está analisado. Selecione a exibição **Detalhes da fatura**. Os detalhes da fatura mostram os encargos como foi visto na fatura.
+
+[![Exemplo mostrando a seleção de detalhes da fatura](./media/cost-analysis-common-uses/invoice-details.png)](./media/cost-analysis-common-uses/invoice-details.png#lightbox)
+
+Vendo os detalhes da fatura, é possível identificar o serviço que tem custos inesperados e determinar quais recursos estão diretamente associados ao recurso na Análise de custo. Por exemplo, se desejar analisar encargos do serviço de Máquinas Virtuais, navegue até a exibição **Custo acumulado**. Em seguida, defina a granularidade como **Diária** e filtre os encargos **Nome do serviço: máquinas virtuais** e agrupe-os por **Recurso**.
+
+[![Exemplo mostrando os custos acumulados para máquinas virtuais](./media/cost-analysis-common-uses/virtual-machines.png)](./media/cost-analysis-common-uses/virtual-machines.png#lightbox)
+
 
 ## <a name="view-cost-breakdown-by-azure-resource"></a>Exibir detalhamento de custos por recurso do Azure
 

@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 9f3802ada79ee87d1a04634f7caac3b1b4286dce
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f66347727ad3c1b8eaf1f0e023abe1f2eeefcacb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74978025"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403730"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Tutorial: usar a Visão Personalizada com um dispositivo IoT para relatar estados visuais
 
-Este exemplo de aplicativo ilustra como usar a Visão Personalizada para treinar um dispositivo com uma câmera para detectar estados visuais. É possível executar esse cenário de detecção em um dispositivo IoT usando um modelo ONNX exportado do serviço Visão Personalizada.
+Este exemplo de aplicativo ilustra como usar a Visão Personalizada para treinar um dispositivo com uma câmera para detectar estados visuais. Você pode executar esse cenário de detecção em um dispositivo IoT usando um modelo ONNX exportado.
 
-Um estado visual descreve o conteúdo de uma imagem: uma sala vazia ou uma sala com pessoas, uma garagem vazia ou uma garagem com um caminhão, e assim por diante. Na imagem abaixo, você pode ver que o aplicativo detecta quando um banana ou uma maçã é colocada na frente da câmera.
+Um estado visual descreve o conteúdo de uma imagem: uma sala vazia ou uma sala com pessoas, uma entrada de garagem vazia com um caminhão e assim por diante. Na imagem abaixo, você pode ver que o aplicativo detecta quando um banana ou uma maçã é colocada na frente da câmera.
 
 ![Animação de uma interface do usuário rotulando as frutas na frente da câmera](./media/iot-visual-alerts-tutorial/scoring.gif)
 
@@ -41,7 +41,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 * Você também precisará [criar um recurso do Hub IoT](https://ms.portal.azure.com/#create/Microsoft.IotHub) no Azure.
 * [Visual Studio 2015 ou posterior](https://www.visualstudio.com/downloads/)
 * Se desejar, um dispositivo IoT que execute o Windows 10 IoT Core versão 17763 ou superior. Você também pode executar o aplicativo diretamente do seu PC.
-   * Para o Raspberry Pi 2 e 3, é possível configurar o Windows 10 diretamente do aplicativo Painel de IoT. Para outros dispositivos, como o DrangonBoard, você precisará instalar a imagem usando o [método eMMC](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). Se precisar de ajuda para configurar um novo dispositivo, consulte [Configurar o dispositivo](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) na documentação do Windows IoT.
+   * Para o Raspberry Pi 2 e 3, é possível configurar o Windows 10 diretamente do aplicativo Painel de IoT. Para outros dispositivos, como o DrangonBoard, você precisará instalar a imagem usando o [método eMMC](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). Se precisar de ajuda para configurar um novo dispositivo, confira [Configurando seu dispositivo](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) na documentação do Windows IoT.
 
 ## <a name="about-the-visual-alerts-app"></a>Sobre o aplicativo Alertas Visuais
 
@@ -92,7 +92,7 @@ Para configurar um modelo, é preciso colocar o aplicativo no estado **Capturand
 * Se você está executando o aplicativo no PC, use o botão no canto superior direito da interface do usuário.
 * Se está executando o aplicativo em um dispositivo IoT, chame o método `EnterLearningMode` no dispositivo por meio do Hub IoT. Você pode chamá-lo por meio da entrada de dispositivo no menu do Hub IoT no portal do Azure ou com uma ferramenta, como o [Gerenciador de Dispositivos do Hub IoT](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
  
-Quando o aplicativo entra no estado **Capturando imagens de treinamento**, vai capturar cerca de duas imagens a cada segundo, até que tenha atingido a quantidade alvo de imagens. Por padrão, são 30 imagens, mas você pode definir esse parâmetro passando o número desejado como um argumento para o método `EnterLearningMode` do Hub IoT. 
+Quando o aplicativo entra no estado **Capturando imagens de treinamento**, vai capturar cerca de duas imagens a cada segundo, até que tenha atingido a quantidade alvo de imagens. Por padrão, a meta são 30 imagens, mas você pode definir esse parâmetro passando o número desejado como um argumento para o método `EnterLearningMode` do Hub IoT. 
 
 Enquanto o aplicativo estiver capturando imagens, você deverá expor a câmera aos tipos de estado visual que deseja detectar (por exemplo, uma sala vazia, uma sala com pessoas, uma mesa vazia, uma mesa com um carrinho de brinquedo e assim por diante).
 

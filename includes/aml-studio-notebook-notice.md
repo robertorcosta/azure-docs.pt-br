@@ -7,14 +7,14 @@ ms.custom: include file
 ms.topic: include
 author: peterclu
 ms.author: peterclu
-ms.date: 03/12/2020
-ms.openlocfilehash: 900eea5b7807b718274690bc34a32213bfe7ea7c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/15/2020
+ms.openlocfilehash: 1ae0b4bda584e86bc3a25f6cd5181175fc7fa282
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79204231"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411917"
 ---
 > [!NOTE]
-> O recurso Notebooks (versão prévia) do Studio (clássico) será desligado no dia 13 de abril de 2020. Após 13 de abril, a guia Notebooks será removida, bem como os notebooks salvos. Para obter instruções de como baixar os notebooks, confira [este artigo](../articles/machine-learning/studio/download-notebooks-data.md).
+> O recurso Notebooks (versão prévia) foi removido em *13 de abril de 2020*. A remoção da guia Notebooks e dos arquivos de notebook do usuário está atualmente em distribuição para as regiões do Azure em todo o mundo.
       

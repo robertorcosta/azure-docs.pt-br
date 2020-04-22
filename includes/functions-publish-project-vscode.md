@@ -4,16 +4,20 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: 256510f855256e648ae9203f46eb9f66c9ffaed6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d8665b4cec3357baee5d6c1b77b5719645575419
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77029143"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81112868"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar o projeto no Azure
 
 Nesta seção, você criará um aplicativo de funções e os recursos relacionados em sua assinatura do Azure e, em seguida, implantará seu código. 
+
+> [!IMPORTANT]
+> Publicar em um aplicativo de funções existente substitui o conteúdo desse aplicativo no Azure. 
+
 
 1. Escolha o ícone do Azure na Barra de atividade e, em seguida, na área **Azure: Functions**, escolha o botão **Implantar no aplicativo de funções...** .
 
@@ -23,11 +27,8 @@ Nesta seção, você criará um aplicativo de funções e os recursos relacionad
 
     + **Selecione a assinatura**: Escolha a assinatura a ser usada. Essa opção não será exibida caso você possua apenas uma assinatura.
 
-    + **Selecione o aplicativo de funções no Azure**: Escolha `+ Create new Function App` (não `Advanced`). Este artigo não dá suporte ao [fluxo de publicação avançado](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options). 
-    
-    >[!IMPORTANT]
-    > Publicar em um aplicativo de funções existente substitui o conteúdo desse aplicativo no Azure. 
-    
+    + **Selecione o aplicativo de funções no Azure**: Escolha `+ Create new Function App`. (Não escolha a opção `Advanced`, que não é abordada neste artigo.)
+      
     + **Insira um nome exclusivo globalmente para o aplicativo de funções**: Digite um nome que seja válido em um caminho de URL. O nome que você digitar é validado para ter certeza de que ele é exclusivo no Azure Functions. 
     
     ::: zone pivot="programming-language-python"
@@ -40,13 +41,13 @@ Nesta seção, você criará um aplicativo de funções e os recursos relacionad
 
     + **Selecione uma localização para novos recursos**:  Para obter um melhor desempenho, escolha uma [região](https://azure.microsoft.com/regions/) perto de você. 
     
-1.  Quando concluído, os seguintes recursos do Azure serão criados em sua assinatura:
-
-    + **[Grupo de recursos](../articles/azure-resource-manager/management/overview.md)** : Contém todos os recursos criados do Azure. O nome é baseado no nome de seu aplicativo de funções.
-    + **[Conta de armazenamento](../articles//storage/common/storage-introduction.md#types-of-storage-accounts)** : Uma conta de armazenamento padrão é criada com um nome exclusivo baseado no nome de seu aplicativo de funções.
-    + **[Plano de hospedagem](../articles/azure-functions/functions-scale.md)** : Um plano de consumo é criado na região Oeste dos EUA para hospedar seu aplicativo de funções sem servidor.
-    + **Aplicativo de funções**: Seu projeto é implantado e executado no novo aplicativo de funções.
-    + **Application Insights**: uma instância, que está conectada ao seu aplicativo de funções, é criada com base no nome da função.
+1.  Quando concluído, os seguintes recursos do Azure serão criados em sua assinatura, usando nomes baseados em seu nome do aplicativo de funções:
+    
+    + Um grupo de recursos, que é um contêiner lógico para recursos relacionados.
+    + Uma conta de Armazenamento do Azure padrão, que mantém o estado e outras informações sobre seus projetos.
+    + Um plano de consumo, que define o host subjacente para o aplicativo de funções sem servidor. 
+    + Um aplicativo de funções, que fornece o ambiente para a execução do código de função. Um aplicativo de funções lhe permite agrupar funções como uma unidade lógica para facilitar o gerenciamento, a implantação e o compartilhamento de recursos dentro do mesmo plano de hospedagem.
+    + Uma instância do Application Insights conectada ao aplicativo de funções, que controla o uso de sua função sem servidor.
 
     Uma notificação é exibida depois que seu aplicativo de funções é criado e o pacote de implantação é aplicado. 
     

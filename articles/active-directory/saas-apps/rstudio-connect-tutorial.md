@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9a9b49f75ad377a9377a2311ed16c17ca3d749e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2bb5dd845b03bd94f0a94db50c01b804cf6f55c2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67092585"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407094"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Tutorial: Integração do Azure Active Directory ao RStudio Connect
 
@@ -158,9 +158,9 @@ IdPAttributeProfile = azure
 SSOInitiated = IdPAndSP
 ```
 
-Armazene o **Endereço do Servidor** no valor `Server.Address` e o **Url de Metadados da Federação de Aplicativos** no valor `SAML.IdPMetaData`.
+Armazene o **Endereço do Servidor** no valor `Server.Address` e o **Url de Metadados da Federação de Aplicativos** no valor `SAML.IdPMetaData`. Observe que essa configuração de exemplo usa uma conexão HTTP não criptografada, enquanto o Azure AD requer o uso de uma conexão HTTPS criptografada. Você pode usar um [proxy reverso](https://docs.rstudio.com/connect/admin/proxy/) na frente do RStudio Connect ou configurar o RStudio Connect para [usar HTTPS diretamente](https://docs.rstudio.com/connect/admin/appendix/configuration/#HTTPS). 
 
-Se você tiver problemas com a configuração, pode ler o [Guia do Administrador do RStudio Connect](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) ou enviar um email para a [equipe de suporte do RStudio](mailto:support@rstudio.com) para obter ajuda.
+Se você tiver problemas com a configuração, pode ler o [Guia do Administrador do RStudio Connect](https://docs.rstudio.com/connect/admin/authentication/saml/) ou enviar um email para a [equipe de suporte do RStudio](mailto:support@rstudio.com) para obter ajuda.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 

@@ -1,23 +1,23 @@
 ---
 title: 'Tutorial: Operações de ETL usando Interactive Query – Azure HDInsight'
-description: Tutorial - Saiba como extrair dados de um conjunto de dados CSV brutos, transformá-los usando a Consulta Interativa no HDInsight e, em seguida, carregar os dados transformados no banco de dados SQL do Azure usando o Apache Sqoop.
+description: Tutorial – Saiba como extrair dados de um conjunto de dados CSV bruto. Transforme-os usando o Interactive Query no HDInsight. Em seguida, carregue os dados transformados no Banco de Dados SQL do Azure usando o Apache Sqoop.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 07/02/2019
-ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/02/2019
+ms.openlocfilehash: 7413a32fdddb579bad61c9cfe539be6aaeae9881
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73494151"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313736"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados usando a Consulta Interativa no Azure HDInsight
 
-Neste tutorial, você pega um arquivo de dados CSV brutos de dados de voo publicamente disponíveis, importa-o em um armazenamento de cluster do HDInsight e, em seguida, transforma os dados usando a Consulta Interativa no Azure HDInsight. Depois que os dados são transformados, você carrega esses dados em um banco de dados SQL do Azure usando o [Apache Sqoop](https://sqoop.apache.org/).
+Neste tutorial, você baixará um arquivo de dados CSV bruto de dados de voos publicamente disponível. Importe-os no armazenamento de cluster do HDInsight e, em seguida, transforme os dados usando o Interactive Query no Azure HDInsight. Depois que os dados são transformados, você carrega esses dados em um banco de dados SQL do Azure usando o [Apache Sqoop](https://sqoop.apache.org/).
 
 Este tutorial cobre as seguintes tarefas:
 
@@ -46,7 +46,7 @@ Este tutorial cobre as seguintes tarefas:
    | --- | --- |
    | Filtrar por ano |2019 |
    | Filtrar por período |Janeiro |
-   | Campos |Ano, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   | Campos |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`. |
 
 3. Selecione **Baixar**. Você obtém um arquivo .zip com os campos de dados selecionados.
 
@@ -60,7 +60,7 @@ Há muitas maneiras de carregar dados para o armazenamento associado a um cluste
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
 
-    Se for solicitado que você insira sim ou não para continuar, digite yes no prompt de comando e pressione Enter. O texto não fica visível na janela conforme você digita.
+    Digite sim ou não para continuar, se solicitado. O texto não fica visível na janela conforme você digita.
 
 2. Após o upload ser concluído, conecte-se ao cluster usando SSH. Edite o comando abaixo substituindo `CLUSTERNAME` pelo nome do cluster do HDInsight. Em seguida, digite o seguinte comando:
 
@@ -283,7 +283,7 @@ Nas seções anteriores, você copiou os dados transformados em `/tutorials/flig
     GO
     ```
 
-    Você deve ver uma listagem dos dados na tabela. A tabela inclui o nome da cidade e o tempo de atraso de voo médio dessa cidade. 
+    Você deve ver uma listagem dos dados na tabela. A tabela inclui o nome da cidade e o tempo de atraso de voo médio dessa cidade.
 
     Digite `exit` para sair do utilitário tsql.
 
@@ -298,4 +298,4 @@ Para excluir um cluster, confira [Delete an HDInsight cluster using your browser
 Neste tutorial, você pegou um arquivo de dados CSV brutos, importou-o em um armazenamento de cluster do HDInsight e, em seguida, transformou os dados usando a Consulta Interativa no Azure HDInsight.  Avance para o próximo tutorial para saber mais sobre o Apache Hive Warehouse Connector.
 
 > [!div class="nextstepaction"]
->[Integrar o Apache Spark e Apache Hive ao Hive Warehouse Connector](./apache-hive-warehouse-connector.md)
+> [Integrar o Apache Spark e Apache Hive ao Hive Warehouse Connector](./apache-hive-warehouse-connector.md)

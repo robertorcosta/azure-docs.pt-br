@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: c64d87b2430cc1d733a67bbc1e803590a37b1714
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9d25e2e32f09cc681d85d5adffe53f1237d7200c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78190765"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255491"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicar modelos de machine learning no Azure Functions com o Python e o TensorFlow
 
@@ -153,8 +153,10 @@ No Azure Functions, um projeto de função é um contêiner para uma ou mais fun
 
 Para modificar a função `classify` para classificar uma imagem com base no conteúdo, você usará um modelo predefinido do TensorFlow que foi treinado com o Serviço de Visão Personalizada do Azure e exportado dele. O modelo, que está contido na pasta *resources* da amostra clonada anteriormente, classifica uma imagem com base em se ela contém um cachorro ou um gato. Em seguida, você adicionará um código auxiliar e as dependências ao projeto.
 
+Para criar o próprio modelo usando a camada gratuita do Serviço de Visão Personalizada, siga as instruções no [repositório do projeto de exemplo](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
+
 > [!TIP]
-> Caso deseje criar o próprio modelo usando a Camada gratuita do Serviço de Visão Personalizada, siga as instruções do [repositório do projeto de exemplo](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
+> Se desejar hospedar seu modelo TensorFlow independente do aplicativo de funções, poderá montar um compartilhamento de arquivo que contenha seu modelo para seu aplicativo de funções do Linux. Para saber mais, confira [Montar um compartilhamento de arquivo para um aplicativo de funções Python usando a CLI do Azure](./scripts/functions-cli-mount-files-storage-linux.md).
 
 1. Na pasta *start*, execute o comando a seguir para copiar os arquivos de modelo para a pasta *classify*. Lembre-se de incluir `\*` no comando. 
 
@@ -315,3 +317,4 @@ Consulte também:
 
 - [Implantar a função no Azure usando o Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-azure-functions).
 - [Guia do desenvolvedor do Python para o Azure Functions](./functions-reference-python.md)
+- [Montar um compartilhamento de arquivo para um aplicativo de funções Python usando a CLI do Azure](./scripts/functions-cli-mount-files-storage-linux.md)

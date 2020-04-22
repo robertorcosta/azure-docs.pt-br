@@ -2,13 +2,13 @@
 title: 'Início Rápido: Criar um aplicativo no portal do LUIS'
 description: Neste início rápido, você criará as partes básicas de um aplicativo, intenções e entidades, bem como um teste com enunciado de exemplo no portal do LUIS.
 ms.topic: quickstart
-ms.date: 03/24/2020
-ms.openlocfilehash: f0c8f0c77f832e049dfc494f82e90edb61a8cb2a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/14/2020
+ms.openlocfilehash: 2d601646c43c0f0d99dc6934cf1f1c960e0b0f79
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80244607"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382579"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início Rápido: Criar um aplicativo no portal do LUIS
 
@@ -88,11 +88,10 @@ Adicione os 15 enunciados de exemplo a seguir à intenção `FindForm`.
 Por design, esses enunciados de exemplo variam das seguintes maneiras:
 
 * tamanho do enunciado
-* pontuação
+* [pontuação](luis-reference-application-settings.md#punctuation-normalization)
 * escolha de palavras
 * tempos verbais (é, foi, será)
 * ordem das palavras
-
 
 
 ## <a name="create-a-regular-expression-entity"></a>Criar uma entidade de expressão regular

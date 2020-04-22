@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Detectar faces em uma imagem usando a API REST e cURL'
+title: 'Início Rápido: Detectar rostos em uma imagem com a API REST do Azure e cURL'
 titleSuffix: Azure Cognitive Services
 description: Neste Início Rápido, você usará a API de Detecção Facial do Azure com cURL para detectar faces em uma imagem.
 services: cognitive-services
@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6a1a6d1fdce4853a2ac73f10eb4cf0a0505fa4c7
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 7e7eb9ba942cd29db824388c02b2933c533c4b45
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76165900"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403027"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Início Rápido: Detectar faces em uma imagem usando a API REST de Detecção Facial e cURL
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Início Rápido: Detectar rostos em uma imagem com a API REST de Detecção Facial e cURL
 
-Neste Início Rápido, você usará a API REST de Detecção Facial do Azure com cURL para detectar faces em uma imagem.
+Neste início rápido, você usará a API REST de Detecção Facial do Azure com cURL para detectar faces em uma imagem.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma chave de assinatura da Detecção Facial. É possível obter uma chave de assinatura de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou siga as instruções descritas em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço de Detecção Facial e obter a sua chave.
 

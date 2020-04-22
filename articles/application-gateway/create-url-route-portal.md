@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: bc810ac7901d83f03d3f3ac2199561225326d261
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8d48ea133aaabbe9fd44bda545d672e68c93c08d
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74048129"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312190"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Tutorial: Criar um gateway de aplicativo com regras de roteamentos com base no caminho usando o portal do Azure
 
@@ -207,4 +207,4 @@ Examine as configurações na guia **Examinar + criar** e selecione **Criar** pa
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Habilitando o SSL de ponta a ponta no Gateway de Aplicativo Azure AD](application-gateway-backend-ssl.md)
+- [Habilitar o TLS de ponta a ponta no Gateway de Aplicativo Azure](application-gateway-backend-ssl.md)

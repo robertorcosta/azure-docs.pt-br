@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 02/24/2020
-ms.openlocfilehash: 583071ee22e4fb9cffc741520b1583790002a5bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/13/2020
+ms.openlocfilehash: 731ab18346ac9f100862174312c2c9950026f1eb
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77604821"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272893"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Configurar a extensão do Azure Machine Learning para Visual Studio Code
 
@@ -70,36 +70,36 @@ Agora que você entrou no Azure com suas credenciais de conta, use as etapas des
 1. Quando a paleta de comandos for expandida, siga os avisos.
 
     1. Selecione sua assinatura do Azure.
-    1. Selecione **Criar um Workspace do Azure ML**
-    1. Selecione o tipo de trabalho **Treinamento de Nó Único do TensorFlow**.
-    1. Insira `train.py` como o script a ser treinado. Esse é o arquivo que contém o código para um modelo de machine learning que categoriza imagens de dígitos manuscritos.
-    1. Especifique os pacotes a seguir como requisitos para execução.
-
-        ```text
-        pip: azureml-defaults; conda: python=3.6.2, tensorflow=1.15.0
-        ```
+    1. Na lista de ambientes, selecione **Arquivo de dependências do Conda**.
+    1. Pressione **Enter** para procurar o arquivo de dependências do Conda. Esse arquivo contém as dependências necessárias para executar seu script. Nesse caso, o arquivo de dependências é o arquivo `env.yml` dentro do diretório `mnist-vscode-docs-sample`.
+    1. Pressione **Enter** para procurar o arquivo de script de treinamento. Esse é o arquivo que contém o código para um modelo de machine learning que categoriza imagens de dígitos manuscritos. Nesse caso, o script para treinar o modelo é o arquivo `train.py` dentro do diretório `mnist-vscode-docs-sample`.
 
 1. Neste ponto, um arquivo de configuração semelhante ao mostrado abaixo é exibido no editor de texto. A configuração contém as informações necessárias para executar o trabalho de treinamento, como o arquivo que contém o código para treinar o modelo e as dependências do Python especificadas na etapa anterior.
 
     ```json
     {
-        "workspace": "WS01311608",
-        "resourceGroup": "WS01311608-rg1",
+        "workspace": "WS04131142",
+        "resourceGroup": "WS04131142-rg1",
         "location": "South Central US",
-        "experiment": "WS01311608-exp1",
+        "experiment": "WS04131142-exp1",
         "compute": {
-            "name": "WS01311608-com1",
+            "name": "WS04131142-com1",
             "vmSize": "Standard_D1_v2, Cores: 1; RAM: 3.5GB;"
         },
         "runConfiguration": {
-            "filename": "WS01311608-com1-rc1",
-            "condaDependencies": [
-                "python=3.6.2",
-                "tensorflow=1.15.0"
-            ],
-            "pipDependencies": [
-                "azureml-defaults"
-            ]
+            "filename": "WS04131142-com1-rc1",
+            "environment": {
+                "name": "WS04131142-env1",
+                "conda_dependencies": [
+                    "python=3.6.2",
+                    "tensorflow=1.15.0",
+                    "pip"
+                ],
+                "pip_dependencies": [
+                    "azureml-defaults"
+                ],
+                "environment_variables": {}
+            }
         }
     }
     ```

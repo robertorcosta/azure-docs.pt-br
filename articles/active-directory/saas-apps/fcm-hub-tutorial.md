@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/25/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee1ea7d2623d6315007257218ddfc4e6ce445e65
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 5abc1e093dc7d4e8da823227dc3e3caa556e37e4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80669022"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406840"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fcm-hub"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao FCM HUB
 
@@ -92,9 +92,18 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Entre em contato com o gerente de conta atribuído a você ou com a [equipe de suporte do cliente do FCM HUB](mailto:fcmssoadmin@us.fcm.travel) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Gerenciar Declaração**, na seção **Atributos e Declarações do Usuário**, adicione estes atributos personalizados:
+   - **Name**: PortalID
+   - **Fonte**: Atributo
+   - **Atributo de Origem**: PortalID, valor fornecido pelo FCM
+
+1. Na seção **Certificado de Autenticação SAML**, use a opção Editar para selecionar ou inserir as seguintes configurações e, em seguida, selecione **Salvar**:
+   - **Opção de Assinatura**: Assinar resposta SAML
+   - **Algoritmo de Assinatura**: SHA-256
+
+1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 

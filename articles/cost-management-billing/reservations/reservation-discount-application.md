@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: banders
-ms.openlocfilehash: fb6e7e3fe3b7b45b503dca66dc5b039a9eceb689
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5781ade7b2f3cfc7514208861de025cc84944fcd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135480"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380643"
 ---
 # <a name="how-a-reservation-discount-is-applied"></a>Como um desconto de reserva é aplicado
 
@@ -39,7 +39,7 @@ Quando você compra uma reserva, o desconto pode ser aplicado a outras instânci
 Planos de serviço:
 
 - Instâncias de VM reservadas: Ao comprar a reserva, se você selecionar **Otimizado para flexibilidade de tamanho da instância**, a cobertura de desconto dependerá do tamanho da VM que você selecionar. A reserva pode ser aplicada aos tamanhos de VMs (máquinas virtuais) no mesmo grupo de série de tamanho. Para obter mais informações, confira [Flexibilidade de tamanho de máquina virtual com Instâncias de VM Reservadas](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
-- Capacidade reservada do Armazenamento do Azure: você pode comprar capacidade reservada para contas de armazenamento padrão do Azure em unidades de 100 TiB ou 1 PiB por mês. A capacidade reservada do armazenamento do Azure está disponível em todas as regiões para qualquer camada de acesso (quente, fria ou arquivo) e para qualquer opção de replicação (LRS, GRS ou ZRS).
+- Capacidade reservada do Armazenamento do Azure: você pode comprar capacidade reservada para contas de armazenamento padrão do Azure em unidades de 100 TiB ou 1 PiB por mês. Para obter informações sobre quais regiões dão suporte à capacidade reservada do Armazenamento do Azure, confira [Preço do blob de blocos](https://azure.microsoft.com/pricing/details/storage/blobs/). A capacidade reservada do Armazenamento do Azure está disponível para todas as camadas de acesso (quente, fria ou de arquivos) e para qualquer configuração de replicação (LRS, GRS ou ZRS).
 - Capacidade reservada do Banco de Dados SQL: A cobertura de desconto depende do nível de desempenho escolhido. Para obter mais informações, confira [Entender como um desconto de reserva do Azure é aplicado](understand-reservation-charges.md).
 - Capacidade reservada do Azure Cosmos DB: A cobertura de desconto depende da taxa de transferência provisionada. Para obter mais informações, confira [Entender como um desconto de reserva do Azure Cosmos DB é aplicado](understand-cosmosdb-reservation-charges.md).
 

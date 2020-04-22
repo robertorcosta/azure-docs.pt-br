@@ -1,7 +1,7 @@
 ---
-title: Usar conjuntos de dados de exemplo no designer do Azure Machine Learning
+title: Dados de exemplo para o designer
 titleSuffix: Azure Machine Learning
-description: Saiba mais sobre os conjuntos de dados de exemplo incluídos no designer do Azure Machine Learning.
+description: Saiba mais sobre conjuntos de dados de exemplo disponíveis com o designer do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.date: 03/03/2020
-ms.openlocfilehash: 943e23aa9d83df33bbe636ce7aee62e6e5a2950e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b19c1ed5aa556a2cfb633ac6fbc0cf9f95d0337f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79037298"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256970"
 ---
-# <a name="use-the-sample-datasets-in-azure-machine-learning-designer-preview"></a>Usar os conjuntos de dados de exemplo no designer do Azure Machine Learning (versão prévia)
+# <a name="sample-datasets-in-azure-machine-learning-designer-preview"></a>Conjuntos de dados de exemplo no designer do Azure Machine Learning (versão prévia)
 
 Ao criar um pipeline no designer do Azure Machine Learning (versão prévia), diversos conjuntos de dados de exemplo são incluídos por padrão. Esses conjuntos de dados de exemplo são usados pelos pipelines de exemplo na home page do designer. 
 

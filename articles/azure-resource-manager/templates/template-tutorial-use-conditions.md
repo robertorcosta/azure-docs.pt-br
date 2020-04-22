@@ -5,12 +5,12 @@ author: mumian
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f88f141257e8e614f62c7441c313002b5735116d
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 8f51c65489efeed1fa18e70bd75e7370a9e59903
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239184"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260609"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Usar condição em modelos do ARM
 
@@ -55,23 +55,25 @@ Para concluir este artigo, você precisa do seguinte:
 Modelos de Início Rápido do Azure é um repositório de modelos do ARM. Em vez de criar um modelo do zero, você pode encontrar um exemplo de modelo e personalizá-lo. O modelo usado neste tutorial é chamado [Implantar uma VM Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. No Visual Studio Code, escolha **Arquivo**>**Abrir Arquivo**.
-2. Em **Nome do arquivo**, cole a seguinte URL:
+1. Em **Nome do arquivo**, cole a seguinte URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 
-3. Escolha **Abrir** para abrir o arquivo.
-4. Há cinco recursos definidos pelo modelo:
+1. Escolha **Abrir** para abrir o arquivo.
+1. Há seis recursos definidos pelo modelo:
 
-   * `Microsoft.Storage/storageAccounts`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * `Microsoft.Network/publicIPAddresses`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * `Microsoft.Network/virtualNetworks`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * `Microsoft.Network/networkInterfaces`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * `Microsoft.Compute/virtualMachines`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
-     É útil ter algumas noções básicas do modelo antes de personalizá-lo.
-5. Selecione **Arquivo**>**Salvar como** para salvar uma cópia do arquivo no computador local com o nome **azuredeploy.json**.
+    É útil examinar a referência do modelo antes de personalizar um modelo.
+
+1. Selecione **Arquivo**>**Salvar como** para salvar uma cópia do arquivo no computador local com o nome **azuredeploy.json**.
 
 ## <a name="modify-the-template"></a>Modificar o modelo
 
@@ -83,12 +85,12 @@ Faça duas alterações no modelo existente:
 Aqui está o procedimento para fazer as alterações:
 
 1. Abra **azuredeploy.json** no Visual Studio Code.
-2. Substitua as três **variables('storageAccountName')** por **parameters('storageAccountName')** em todo o modelo.
-3. Remova as declarações de variável a seguir:
+1. Substitua as três **variables('storageAccountName')** por **parameters('storageAccountName')** em todo o modelo.
+1. Remova as declarações de variável a seguir:
 
     ![Diagrama de condição de uso do modelo do Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
-4. Adicione os dois parâmetros a seguir ao modelo:
+1. Adicione os dois parâmetros seguintes ao início da seção de parâmetros:
 
     ```json
     "storageAccountName": {
@@ -103,11 +105,13 @@ Aqui está o procedimento para fazer as alterações:
     },
     ```
 
+    Pressione **[ALT]+[SHIFT]+F** para formatar o modelo no Visual Studio Code.
+
     A definição dos parâmetros atualizados ficará assim:
 
     ![Condição de uso do Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
 
-5. Adicione a seguinte linha no início da definição da conta de armazenamento.
+1. Adicione a seguinte linha no início da definição da conta de armazenamento.
 
     ```json
     "condition": "[equals(parameters('newOrExisting'),'new')]",
@@ -118,7 +122,7 @@ Aqui está o procedimento para fazer as alterações:
     A definição da conta de armazenamento atualizada será assim:
 
     ![Condição de uso do Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. Atualize a propriedade **storageUri** da definição de recurso de máquina virtual pelo seguinte valor:
+1. Atualize a propriedade **storageUri** da definição de recurso de máquina virtual pelo seguinte valor:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -126,20 +130,25 @@ Aqui está o procedimento para fazer as alterações:
 
     Essa alteração é necessária quando você usa uma conta de armazenamento existente em um grupo de recursos diferentes.
 
-7. Salve as alterações.
+1. Salve as alterações.
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-Siga as instruções em [Implementar o modelo](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para abrir o Cloud Shell e carregar o modelo revisado e, em seguida, execute o script do PowerShell a seguir para implantar o modelo.
+Siga as instruções em [Implantar o modelo](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para abrir o Cloud Shell e carregar o modelo revisado e, em seguida, execute o script do PowerShell a seguir para implantar o modelo.
+
+> [!IMPORTANT]
+> O nome da conta de armazenamento deve ser exclusivo no Azure. O nome deve ter apenas letras minúsculas ou números. Ele não pode ter mais de 24 caracteres. O nome de conta de armazenamento é o nome do projeto acrescentado de "store". Verifique se o nome do projeto e o nome da conta de armazenamento gerada atendem aos requisitos de nome da conta de armazenamento.
 
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
-$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
 $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
 $location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
 $vmAdmin = Read-Host -Prompt "Enter the admin username"
 $vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
+
+$resourceGroupName = "${projectName}rg"
+$storageAccountName = "${projectName}store"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
@@ -150,6 +159,8 @@ New-AzResourceGroupDeployment `
     -storageAccountName $storageAccountName `
     -newOrExisting $newOrExisting `
     -TemplateFile "$HOME/azuredeploy.json"
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 > [!NOTE]
@@ -162,8 +173,12 @@ Tente criar outra implantação com **newOrExisting** definido como “existing�
 Quando os recursos do Azure já não forem necessários, limpe os recursos implantados excluindo o grupo de recursos. Para excluir o grupo de recursos, selecione **Testar** para abrir o Cloud Shell. Para colar o script do PowerShell, clique com o botão direito do mouse no painel do shell e, em seguida, selecione **Colar**.
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"
+$projectName = Read-Host -Prompt "Enter the same project name you used in the last procedure"
+$resourceGroupName = "${projectName}rg"
+
 Remove-AzResourceGroup -Name $resourceGroupName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

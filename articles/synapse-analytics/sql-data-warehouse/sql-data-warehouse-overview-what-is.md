@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 397eb6fbfea88b0eab0648275fc59764505f7d42
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: a9506d45350a567e3643b6edd6afc7668662f6e5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633099"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416018"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>O que é o Azure Synapse Analytics (antigo SQL DW)?
 
-O Azure Synapse é um serviço de análise ilimitado que reúne data warehouse empresarial e análise de Big Data. Ele oferece a liberdade para consultar dados da forma que você quiser, usando recursos sob demanda sem servidor ou provisionados em escala. O Azure Synapse conecta esses dois mundos com uma experiência unificada para ingerir, preparar, gerenciar e fornecer dados para necessidades imediatas de BI e aprendizado de máquina
+O Azure Synapse é um serviço de análise que reúne data warehouse empresarial e análise de Big Data. Ele oferece a liberdade para consultar dados da forma que você quiser, usando recursos sob demanda sem servidor ou provisionados em escala. O Azure Synapse conecta esses dois mundos com uma experiência unificada para ingerir, preparar, gerenciar e fornecer dados para necessidades imediatas de BI e de aprendizado de máquina.
 
 O Azure Synapse tem quatro componentes:
 
@@ -27,11 +27,13 @@ O Azure Synapse tem quatro componentes:
   - Pool do SQL (pagamento por DWU provisionado)
   - SQL sob demanda (pagamento por TB processado, versão prévia)
 - Spark: Apache Spark profundamente integrado (versão prévia)
-- Integração de dados: Integração de dados híbridos (versão prévia)
+- Pipelines do Synapse: Integração de dados híbridos (versão prévia)
 - Estúdio: Experiência de usuário unificada.  (Visualização)
 
 > [!NOTE]
 > Para acessar os recursos de versão prévia do Azure Synapse, solicite o acesso [aqui](https://aka.ms/synapsepreview). A Microsoft fará a triagem de todas as solicitações e responderá assim que possível.
+>
+> Veja a [Documentação de versão prévia do Azure Synapse](../overview-what-is.md).
 
 ## <a name="synapse-sql-pool-in-azure-synapse"></a>Pool de SQL do Synapse no Azure Synapse
 

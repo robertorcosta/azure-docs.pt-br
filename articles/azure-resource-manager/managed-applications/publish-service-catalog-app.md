@@ -2,23 +2,21 @@
 title: Publicar um aplicativo gerenciado do catálogo de serviços
 description: Mostra como criar um aplicativo gerenciado do Azure destinado aos membros de sua organização.
 author: tfitzmac
-ms.topic: tutorial
-ms.date: 10/04/2018
+ms.topic: quickstart
+ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 13c45bc6e67d9d3d06a70b7cf3326cc112cd7829
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 48aaca64949aafecff27c76ad7572b3c2fa44732
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79473006"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391498"
 ---
-# <a name="tutorial-create-and-publish-a-managed-application-definition"></a>Tutorial: Criar e publicar uma definição de aplicativo gerenciado
+# <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Início Rápido: Criar e publicar uma definição de aplicativo gerenciado
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+Este guia de início rápido fornece uma introdução para trabalhar com [Aplicativos Gerenciados do Azure](overview.md). Crie e publique um aplicativo gerenciado destinado aos membros de sua organização.
 
-Crie e publique [aplicativos gerenciados](overview.md) do Azure destinados aos membros de sua organização. Por exemplo, um departamento de TI pode publicar aplicativos gerenciados que atendem aos padrões organizacionais. Esses aplicativos gerenciados estão disponíveis por meio do catálogo de serviços, não pelo Azure Marketplace.
-
-Para publicar um aplicativo gerenciado para o Catálogo de Serviços do Azure, você precisa:
+Para publicar um aplicativo gerenciado no catálogo de serviços, você precisa:
 
 * Crie um modelo que define os recursos para implantar com o aplicativo gerenciado.
 * Defina os elementos da interface do usuário para o portal ao implantar o aplicativo gerenciado.
@@ -26,13 +24,9 @@ Para publicar um aplicativo gerenciado para o Catálogo de Serviços do Azure, v
 * Decidir qual usuário, grupo ou aplicativo precisa de acesso ao grupo de recursos na assinatura do usuário.
 * Criar a definição de aplicativo gerenciado que aponta para o pacote .zip e solicita o acesso à identidade.
 
-Para este artigo, seu aplicativo gerenciado contém apenas uma conta de armazenamento. Sua finalidade é ilustrar as etapas da publicação de um aplicativo gerenciado. Para obter exemplos completos, consulte [Projetos de exemplo para aplicativos gerenciados pelo Azure](sample-projects.md).
+## <a name="create-the-arm-template"></a>Criar um modelo do ARM
 
-Os exemplos de PowerShell neste artigo exigem a versão 6.2 ou posterior do Azure PowerShell. Se necessário, [atualize sua versão](/powershell/azure/install-Az-ps).
-
-## <a name="create-the-resource-template"></a>Criar o modelo de recurso
-
-Cada definição de aplicativo gerenciado contém um arquivo chamado **mainTemplate.json**. Nele, você pode definir os recursos do Azure que serão implantados. O modelo não é diferente de um modelo normal do Resource Manager.
+Cada definição de aplicativo gerenciado contém um arquivo chamado **mainTemplate.json**. Nele, você pode definir os recursos do Azure que serão implantados. O modelo não é diferente de um modelo normal do ARM (Azure Resource Manager).
 
 Crie um arquivo chamado **mainTemplate.json**. O nome diferencia maiúsculas de minúsculas.
 
@@ -60,20 +54,20 @@ Adicione o seguinte JSON ao seu arquivo. Ele define os parâmetros para a criaç
     "resources": [
         {
             "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
             "name": "[variables('storageAccountName')]",
-            "apiVersion": "2016-01-01",
             "location": "[parameters('location')]",
             "sku": {
                 "name": "[parameters('storageAccountType')]"
             },
-            "kind": "Storage",
+            "kind": "StorageV2",
             "properties": {}
         }
     ],
     "outputs": {
         "storageEndpoint": {
             "type": "string",
-            "value": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
+            "value": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
         }
     }
 }
@@ -81,9 +75,9 @@ Adicione o seguinte JSON ao seu arquivo. Ele define os parâmetros para a criaç
 
 Salve o arquivo mainTemplate.json.
 
-## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>Definir a experiência de criação usando CreateUiDefinition.json
+## <a name="define-your-create-experience"></a>Definir a experiência de criação
 
-Como editor, você define a experiência de criação usando o arquivo **createUiDefinition.json**, que gera a interface para usuários que criam aplicativos gerenciados. Você define como os usuários fornecem a entrada para cada parâmetro usando [elementos de controle](create-uidefinition-elements.md), incluindo menus suspensos, caixas de texto e caixas de senha.
+Como editor, você define a experiência do portal para criar o aplicativo gerenciado. O arquivo **createUiDefinition.json** gera a interface do portal. Você define como os usuários fornecem a entrada para cada parâmetro usando [elementos de controle](create-uidefinition-elements.md), incluindo menus suspensos, caixas de texto e caixas de senha.
 
 Criar um arquivo chamado **createUiDefinition.json** (esse nome diferencia maiúsculas de minúsculas)
 
@@ -142,59 +136,123 @@ Para saber mais, consulte [Introdução a CreateUiDefinition](create-uidefinitio
 
 ## <a name="package-the-files"></a>Empacote os arquivos
 
-Adicione os dois arquivos em um arquivo zip chamado app.zip. Os dois arquivos devem estar no nível raiz do arquivo .zip. Se você colocá-los em uma pasta, receberá um erro ao criar a definição de aplicativo gerenciado que indica que os arquivos necessários não estão presentes. 
+Adicione os dois arquivos em um arquivo zip chamado app.zip. Os dois arquivos devem estar no nível raiz do arquivo .zip. Se você colocá-los em uma pasta, receberá um erro ao criar a definição de aplicativo gerenciado que indica que os arquivos necessários não estão presentes.
 
-Carregue o pacote em um local acessível no qual ele pode ser consumido. 
+Carregue o pacote em um local acessível no qual ele pode ser consumido. Você precisará fornecer um nome exclusivo para a conta de armazenamento.
 
-```powershell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
 New-AzResourceGroup -Name storageGroup -Location eastus
-$storageAccount = New-AzStorageAccount -ResourceGroupName storageGroup `
+
+$storageAccount = New-AzStorageAccount `
+  -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
-  -Kind Storage
+  -Kind StorageV2
 
 $ctx = $storageAccount.Context
 
 New-AzStorageContainer -Name appcontainer -Context $ctx -Permission blob
 
-Set-AzStorageBlobContent -File "D:\myapplications\app.zip" `
+Set-AzStorageBlobContent `
+  -File "D:\myapplications\app.zip" `
   -Container appcontainer `
   -Blob "app.zip" `
   -Context $ctx 
 ```
 
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli-interactive
+az group create --name storageGroup --location eastus
+
+az storage account create \
+    --name mystorageaccount \
+    --resource-group storageGroup \
+    --location eastus \
+    --sku Standard_LRS \
+    --kind StorageV2
+
+az storage container create \
+    --account-name mystorageaccount \
+    --name appcontainer \
+    --public-access blob
+
+az storage blob upload \
+    --account-name mystorageaccount \
+    --container-name appcontainer \
+    --name "app.zip" \
+    --file "D:\myapplications\app.zip"
+
+```
+
+---
+
 ## <a name="create-the-managed-application-definition"></a>Criar a definição de aplicativo gerenciado
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Criar um grupo de usuários ou aplicativo do Azure Active Directory
 
-A próxima etapa é selecionar um grupo de usuários ou um aplicativo para gerenciar os recursos em nome do cliente. Esse grupo de usuários ou aplicativo tem permissões no grupo de recursos gerenciados de acordo com a função atribuída. A função pode ser qualquer função interna de RBAC (Controle de acesso baseado em função) como Proprietário ou Colaborador. Também é possível conceder a um usuário individual permissões para gerenciar os recursos, mas, normalmente, você atribui essa permissão a um grupo de usuários. Para criar um novo grupo de usuários do Active Directory, consulte [Criar um grupo e adicionar membros no Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+A próxima etapa é selecionar um grupo de usuários, um usuário ou um aplicativo a fim de gerenciar os recursos para o cliente. Essa identidade tem permissões no grupo de recursos gerenciado de acordo com a função atribuída. A função pode ser qualquer função interna de RBAC (Controle de acesso baseado em função) como Proprietário ou Colaborador. Para criar um novo grupo de usuários do Active Directory, consulte [Criar um grupo e adicionar membros no Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 É necessário usar a ID de objeto do grupo de usuários para gerenciar os recursos. 
 
-```powershell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
 $groupID=(Get-AzADGroup -DisplayName mygroup).Id
 ```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli-interactive
+groupid=$(az ad group show --group mygroup --query objectId --output tsv)
+```
+
+---
 
 ### <a name="get-the-role-definition-id"></a>Obter a ID de definição da função
 
 Em seguida, é necessário o ID de definição de função da função RBAC interna para conceder acesso ao usuário, grupo de usuários ou aplicativo. Normalmente, você usa a função Proprietário, Colaborador ou Leitor. O comando a seguir mostra como obter a ID de definição de função para a função Proprietário:
 
-```powershell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
 $ownerID=(Get-AzRoleDefinition -Name Owner).Id
 ```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli-interactive
+ownerid=$(az role definition list --name Owner --query [].name --output tsv)
+```
+
+---
 
 ### <a name="create-the-managed-application-definition"></a>Criar a definição de aplicativo gerenciado
 
 Se você ainda não tiver um grupo de recursos para armazenar a definição de aplicativo gerenciado, crie um agora:
 
-```powershell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
 New-AzResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```
 
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli-interactive
+az group create --name appDefinitionGroup --location westcentralus
+```
+
+---
+
 Agora, crie o recurso de definição de aplicativo gerenciado.
 
-```powershell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
 $blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
 
 New-AzManagedApplicationDefinition `
@@ -208,25 +266,55 @@ New-AzManagedApplicationDefinition `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli-interactive
+blob=$(az storage blob url --account-name mystorageaccount --container-name appcontainer --name app.zip --output tsv)
+
+az managedapp definition create \
+  --name "ManagedStorage" \
+  --location "westcentralus" \
+  --resource-group appDefinitionGroup \
+  --lock-level ReadOnly \
+  --display-name "Managed Storage Account" \
+  --description "Managed Azure Storage Account" \
+  --authorizations "$groupid:$ownerid" \
+  --package-file-uri "$blob"
+```
+
+---
+
+Quando o comando for concluído, você tem uma definição de aplicativo gerenciado no seu grupo de recursos.
+
+Alguns dos parâmetros usados no exemplo anterior são:
+
+* **grupo de recursos**: o nome do grupo de recursos no qual a definição de aplicativo gerenciado é criada.
+* **nível de bloqueio**: o tipo de bloqueio colocado no grupo de recursos gerenciados. Ela impede que o cliente execute operações indesejáveis no grupo de recursos. Atualmente, ReadOnly é o único nível de bloqueio com suporte. Quando ReadOnly é especificado, o cliente pode ler somente os recursos presentes no grupo de recursos gerenciados. As identidades do publicador que concedem acesso ao grupo de recursos gerenciado são isentas de bloqueio.
+* **authorizations**: descreve a ID da entidade e a ID de definição de função que são usadas para conceder permissão ao grupo de recursos gerenciados. Ele é especificado no formato `<principalId>:<roleDefinitionId>`. Se for necessário mais de um valor, especifique-os no formato `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Os valores são separados por um espaço.
+* **URI do arquivo de pacote**: o local de um pacote .zip que contém os arquivos necessários.
+
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Traga seu próprio armazenamento para a definição de aplicativo gerenciado
-Você pode optar por armazenar a definição de aplicativo gerenciado em uma conta de armazenamento fornecida por você durante a criação, para que a localização dessa definição e o acesso a ela possam ser totalmente gerenciados por você para suas necessidades regulatórias.
+
+É possível optar por armazenar a definição de aplicativo gerenciado em uma conta de armazenamento fornecida por você durante a criação, para que a localização dessa definição e o acesso a ela possam ser totalmente gerenciados por você para suas necessidades regulatórias.
 
 > [!NOTE]
 > O modelo "traga seu próprio armazenamento" só é compatível com as implantações de modelo do ARM ou da API REST da definição de aplicativo gerenciado.
 
 ### <a name="select-your-storage-account"></a>Selecione sua conta de armazenamento
+
 Você deve [criar uma conta de armazenamento](../../storage/common/storage-account-create.md) para conter a definição de aplicativo gerenciado para uso com o Catálogo de Serviços.
 
 Copie a ID do recurso da conta de armazenamento. Ela será usada posteriormente ao implantar a definição.
 
 ### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>Defina a atribuição de função para "Provedor de Recursos de Dispositivo" em sua conta de armazenamento
+
 Antes que a definição de aplicativo gerenciado possa ser implantada em sua conta de armazenamento, você deverá fornecer permissões de colaborador para a função de **Provedor de Recursos do Dispositivo** para que ela possa gravar os arquivos de definição no contêiner da sua conta de armazenamento.
 
 1. No [Portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento.
 1. Selecione **Controle de Acesso (IAM)** para exibir as configurações de controle de acesso da conta de armazenamento. Selecione a guia **Atribuições de função** para ver as atribuições de função atuais.
 1. Na janela **Adicionar atribuição de função**, selecione a função **Colaborador**. 
 1. No campo **Atribuir acesso a**, selecione **usuário, grupo ou entidade de serviço do Azure AD**.
-1. Em **Selecionar**, pesquise pela função **Provedor de Recursos do Dispositivo** e selecione-a.
+1. Em **Selecionar**, pesquise a função **Provedor de Recursos do Dispositivo** e selecione-a.
 1. Salve a atribuição de função.
 
 ### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Implantar a definição de aplicativo gerenciado com um modelo de ARM 
@@ -310,11 +398,13 @@ Você pode verificar se os arquivos de definição de aplicativo são salvos em 
 > [!NOTE]
 > Para aumentar a segurança, você pode criar uma definição de aplicativos gerenciados armazenando-a em um [blob de conta de Armazenamento do Azure em que a criptografia está habilitada](../../storage/common/storage-service-encryption.md). O conteúdo da definição é criptografado por meio das opções de criptografia da conta de armazenamento. Somente os usuários com permissões para o arquivo podem ver a definição no Catálogo de Serviços.
 
-### <a name="make-sure-users-can-see-your-definition"></a>Verifique se os usuários podem ver sua definição
+## <a name="make-sure-users-can-see-your-definition"></a>Verifique se os usuários podem ver sua definição
 
 Você tem acesso à definição de aplicativo gerenciado, mas você deve certificar-se de que outros usuários na sua organização podem acessá-lo. Conceda a eles pelo menos a função de Leitor para a definição. Eles podem ter herdado esse nível de acesso da assinatura ou grupo de recursos. Para verificar quem tem acesso à definição e adicionar usuários ou grupos, consulte [Usar Controle de acesso baseado em função para gerenciar o acesso aos recursos da sua assinatura do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para publicar o aplicativo gerenciado no Azure Marketplace, veja [Aplicativos Gerenciados do Azure no Marketplace](publish-marketplace-app.md).
-* Para implantar uma instância de aplicativo gerenciado, veja [Implantar aplicativo do catálogo de serviços por meio do portal do Azure](deploy-service-catalog-quickstart.md).
+Você publicou a definição de aplicativo gerenciado. Agora, saiba como implantar uma instância dessa definição.
+
+> [!div class="nextstepaction"]
+> [Início Rápido: Implantar aplicativo do catálogo de serviços](deploy-service-catalog-quickstart.md)

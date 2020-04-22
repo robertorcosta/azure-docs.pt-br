@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/19/2020
+ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e62b3c551f41bca0055f35cf6bf62c59d921c73b
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 927696d029bf1b8742dc0001e03799322f368191
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80294823"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261713"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows? 
 
@@ -89,21 +89,36 @@ As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windo
 
 As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windows precisam ter acesso às seguintes URLs:
 
-|Endereço|Porta de saída|Finalidade|
-|---|---|---|
-|*.wvd.microsoft.com|Porta TCP 443|Tráfego de serviço|
-|*.blob.core.windows.net|Porta TCP 443|Agente, atualizações de pilha de SXS e tráfego de Agente|
-|*.core.windows.net|Porta TCP 443|Tráfego de agente|
-|*.servicebus.windows.net|Porta TCP 443|Tráfego de agente|
-|prod.warmpath.msftcloudes.com|Porta TCP 443|Tráfego de agente|
-|catalogartifact.azureedge.net|Porta TCP 443|Azure Marketplace|
-|kms.core.windows.net|Porta TCP 1688|Ativação do Windows 10|
+|Endereço|Porta TCP de saída|Finalidade|Marca de serviço|
+|---|---|---|---|
+|*.wvd.microsoft.com|443|Tráfego de serviço|WindowsVirtualDesktop|
+|mrsglobalsteus2prod.blob.core.windows.net|443|Atualizações do agente e da pilha de SXS|AzureCloud|
+|*.core.windows.net|443|Tráfego de agente|AzureCloud|
+|*.servicebus.windows.net|443|Tráfego de agente|AzureCloud|
+|prod.warmpath.msftcloudes.com|443|Tráfego de agente|AzureCloud|
+|catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
+|kms.core.windows.net|1688|Ativação do Windows|Internet|
 
 >[!IMPORTANT]
->Abrir essas URLs é essencial para uma implantação da Área de Trabalho Virtual do Windows confiável. Não há suporte ao bloqueio do acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs são correspondentes apenas aos sites e recursos da Área de Trabalho Virtual do Windows e não incluem URLs para outros serviços, como o Azure Active Directory.
+>Recomendamos que você use as tags de serviço em vez de URLs na maioria dos casos para evitar problemas de serviço. Desbloquear essas URLs é essencial para uma implantação da Área de Trabalho Virtual do Windows confiável. Não há suporte ao bloqueio do acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs são correspondentes apenas aos sites e recursos da Área de Trabalho Virtual do Windows e não incluem URLs para outros serviços, como o Azure Active Directory.
+
+A seguinte tabela lista as URLs opcionais às quais suas máquinas virtuais do Azure podem ter acesso:
+
+|Endereço|Porta TCP de saída|Finalidade|Marca de serviço|
+|---|---|---|---|
+|*.microsoftonline.com|443|Autenticação no MS Online Services|Nenhum|
+|*.events.data.microsoft.com|443|Serviço de telemetria|Nenhum|
+|www.msftconnecttest.com|443|Detecta se o sistema operacional está conectado à Internet|Nenhum|
+|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|Nenhum|
+|login.windows.net|443|Fazer logon no MS Online Services, Office 365|Nenhum|
+|*.sfx.ms|443|Atualizações do software cliente do OneDrive|Nenhum|
+|*.digicert.com|443|Verificação de revogação do certificado|Nenhum|
+
 
 >[!NOTE]
 >No momento, a Área de Trabalho Virtual do Windows não tem uma lista de intervalos de endereços IP que você pode adicionar à lista de permissões para permitir o tráfego de rede. Neste momento, só damos suporte à adição de URLs específicas à lista de permissões.
+>
+>Para obter uma lista de URLs relacionadas ao Office, incluindo as URLs obrigatórias relacionadas ao Azure Active Directory, confira [URLs e intervalos de endereços IP do Office 365](/office365/enterprise/urls-and-ip-address-ranges).
 >
 >Você precisa usar o caractere curinga (*) para URLs que envolvem tráfego de serviço. Se preferir não usar * para o tráfego relacionado ao agente, encontre as URLs sem curinga da seguinte forma:
 >
@@ -137,15 +152,15 @@ Os seguintes clientes da Área de Trabalho Remota são compatíveis com a Área 
 
 Os clientes da Área de Trabalho Remota precisam ter acesso às seguintes URLs:
 
-|Endereço|Porta de saída|Finalidade|Cliente(s)|
+|Endereço|Porta TCP de saída|Finalidade|Cliente(s)|
 |---|---|---|---|
-|*.wvd.microsoft.com|Porta TCP 443|Tráfego de serviço|Todos|
-|*.servicebus.windows.net|Porta TCP 443|Solucionar problemas de dados|Todos|
-|go.microsoft.com|Porta TCP 443|FWLinks da Microsoft|Todos|
-|aka.ms|Porta TCP 443|Redutor de URL da Microsoft|Todos|
-|docs.microsoft.com|Porta TCP 443|Documentação|Todos|
-|privacy.microsoft.com|Porta TCP 443|Política de privacidade|Todos|
-|query.prod.cms.rt.microsoft.com|Porta TCP 443|Atualizações do cliente|Área de Trabalho do Windows|
+|*.wvd.microsoft.com|443|Tráfego de serviço|Todos|
+|*.servicebus.windows.net|443|Solucionar problemas de dados|Todos|
+|go.microsoft.com|443|FWLinks da Microsoft|Todos|
+|aka.ms|443|Redutor de URL da Microsoft|Todos|
+|docs.microsoft.com|443|Documentação|Todos|
+|privacy.microsoft.com|443|Política de privacidade|Todos|
+|query.prod.cms.rt.microsoft.com|443|Atualizações do cliente|Área de Trabalho do Windows|
 
 >[!IMPORTANT]
 >Abrir essas URLs é essencial para ter uma experiência do cliente confiável. Não há suporte ao bloqueio do acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs correspondem apenas aos sites e recursos do cliente e não incluem URLs para outros serviços, como o Azure Active Directory.

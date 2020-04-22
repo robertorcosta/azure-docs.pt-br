@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/05/2020
+ms.date: 04/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: abb38dfc342c8ff692ed1a3a05376b5dcefe8a3d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3e1ca14d967b0e88ea7eb559fd9962a3824ff9b0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78399564"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406219"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Início Rápido: Direcionar o tráfego da Web com o Gateway de Aplicativo do Azure usando o Azure PowerShell
 
@@ -99,12 +99,10 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool"></a>Criar o pool de back-end
 
-1. Use `New-AzApplicationGatewayBackendAddressPool` para criar o pool de back-end para o gateway de aplicativo. O pool de back-end estará vazio por enquanto e, ao criar as NICs do servidor back-end na próxima seção, você as adicionará ao pool de back-end.
+1. Use `New-AzApplicationGatewayBackendAddressPool` para criar o pool de back-end para o gateway de aplicativo. O pool de back-end ficará vazio por enquanto. Ao criar as NICs do servidor de back-end na próxima seção, você as adicionará ao pool de back-end.
 2. Defina as configurações para o pool de back-end com `New-AzApplicationGatewayBackendHttpSetting`.
 
 ```azurepowershell-interactive
-$address1 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
-$address2 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic2
 $backendPool = New-AzApplicationGatewayBackendAddressPool `
   -Name myAGBackendPool
 $poolSettings = New-AzApplicationGatewayBackendHttpSetting `

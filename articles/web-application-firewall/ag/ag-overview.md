@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 1a210ff7da57147762dcf13e1dda7fee26dbe5f0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e0e5c143e619b1c381a4a618a811883ad189719b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74384107"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314350"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Firewall do aplicativo Web Azure no Gateway de Aplicativo do Azure
 
@@ -28,9 +28,9 @@ Todos os recursos de WAF listados abaixo existem dentro de uma política de WAF.
 
 ![Diagrama do WAF do Gateway de Aplicativo](../media/ag-overview/waf1.png)
 
-O Gateway de Aplicativo opera como um controlador de entrega de aplicativos (ADC). Ele oferece a terminação de protocolo SSL, a afinidade de sessão baseada em cookies, a distribuição de carga round robin, o roteamento baseado em conteúdo, a capacidade de hospedar vários sites e os aprimoramentos de segurança.
+O Gateway de Aplicativo opera como um controlador de entrega de aplicativos (ADC). Ele oferece o protocolo TLS, anteriormente conhecido como protocolo SSL, o encerramento, a afinidade de sessão baseada em cookies, a distribuição de carga round robin, o roteamento baseado em conteúdo, a capacidade de hospedar vários sites e os aprimoramentos de segurança.
 
-Os aprimoramentos de segurança do Gateway de Aplicativo incluem o gerenciamento de políticas SSL e o suporte de ponta a ponta a SSL. A segurança do aplicativo é reforçada pela integração do WAF ao Gateway de Aplicativo. A combinação protege seus aplicativos Web contra vulnerabilidades comuns. E fornece um local central fácil de configurar para gerenciá-lo.
+Os aprimoramentos de segurança do Gateway de Aplicativo incluem o gerenciamento de políticas TLS e o suporte ao TLS de ponta a ponta. A segurança do aplicativo é reforçada pela integração do WAF ao Gateway de Aplicativo. A combinação protege seus aplicativos Web contra vulnerabilidades comuns. E fornece um local central fácil de configurar para gerenciá-lo.
 
 ## <a name="benefits"></a>Benefícios
 

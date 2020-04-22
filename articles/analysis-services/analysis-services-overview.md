@@ -4,31 +4,31 @@ description: Saiba mais sobre o Azure Analysis Services, uma PaaS (plataforma co
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 02/20/2020
+ms.date: 04/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3a18218635b5fc576bd9255eb73c136756ac3caa
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 350fd9c7057df96a4ad1abc0d9c8b5ec3871ef38
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215544"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271651"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-O Azure Analysis Services é uma PaaS (plataforma como serviço) totalmente gerenciada que fornece modelos de dados de nível empresarial na nuvem. Utilize recursos de modelagem e mashup avançados para combinar dados de várias fontes de dados, definir métricas e proteger os dados em um único modelo de dados semânticos tabulares confiável. O modelo de dados fornece uma maneira mais rápida e fácil para os usuários navegarem enormes quantidades de dados para análise de dados ad hoc.
+O Azure Analysis Services é uma PaaS (plataforma como serviço) totalmente gerenciada que fornece modelos de dados de nível empresarial na nuvem. Utilize recursos de modelagem e mashup avançados para combinar dados de várias fontes de dados, definir métricas e proteger os dados em um único modelo de dados semânticos tabulares confiável. O modelo de dados fornece uma forma mais fácil e rápida para os usuários executarem análises de dados ad hoc usando ferramentas como o Power BI e o Excel.
 
 ![Fontes de dados](./media/analysis-services-overview/aas-overview-overall.png)
 
-**Vídeo:** fazer check-out [Visão geral do Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) para saber como o Azure Analysis Services ajusta-se nos recursos gerais de BI da Microsoft.
+**Vídeo:** Confira a [Visão geral do Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) para saber como o Azure Analysis Services ajusta-se nos recursos gerais de BI da Microsoft.
 
 ## <a name="get-up-and-running-quickly"></a>Entre rapidamente em funcionamento
 
 No Portal do Azure, você pode [criar um servidor](analysis-services-create-server.md) em questão de minutos. E com os [modelos](../azure-resource-manager/resource-manager-create-first-template.md) do Azure Resource Manager e PowerShell, você pode criar servidores usando um modelo declarativo. Com um único modelo, é possível implantar recursos do servidor junto com outros componentes do Azure, como contas de armazenamento e Azure Functions. 
 
-**Vídeo:** confira [Automatizar implantação](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) para saber mais sobre como é possível utilizar a Automação do Azure para acelerar a criação de servidor.
+**Vídeo:** Confira [Automatizar implantação](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) para saber mais sobre como é possível usar a Automação do Azure para acelerar a criação de servidor.
 
 O Azure Analysis Services integra-se com vários serviços do Azure, permitindo que você crie soluções sofisticadas de análise. A integração com o [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) fornece acesso seguro e baseado em função para seus dados críticos. Integre com pipelines do [Azure Data Factory](../data-factory/introduction.md), incluindo uma atividade que carrega dados no modelo. A [Automação do Azure](../automation/automation-intro.md) e o [Azure Functions](../azure-functions/functions-overview.md) podem ser usados para coordenação leve de modelos usando código personalizado. 
 
@@ -38,7 +38,7 @@ Azure Analysis Services está disponível nas camadas **Desenvolvedor**, **Bási
 
 ### <a name="developer-tier"></a>Camada de Desenvolvedor
 
-Essa camada é recomendada para cenários de avaliação, desenvolvimento e teste. Um único plano inclui a mesma funcionalidade da camada Standard, mas é limitado em capacidade de processamento, QPUs e tamanho de memória. Escalar horizontalmente réplica de consulta *não está disponível* para essa camada. Essa camada não oferece um SLA.
+Essa camada é recomendada para cenários de avaliação, desenvolvimento e teste. Um único plano inclui a mesma funcionalidade da camada Standard, mas é limitado em capacidade de processamento, QPUs e tamanho de memória. A expansão de réplica de consulta *não está disponível* para essa camada. Essa camada não oferece um SLA.
 
 |Plano  |QPUs  |Memória (GB)  |
 |---------|---------|---------|
@@ -64,12 +64,14 @@ Essa camada é para aplicativos de produção críticos, que exigem simultaneida
 |S1    |    100     |    25     |
 |S2    |    200     |    50     |
 |S4    |    400     |    100     |
-|S8*    |    320     |    200     |
-|S9*    |    640    |    400     |
-|S8v2*    |    640     |    200     |
-|S9v2*    |    1280    |    400     |
+|S8 <sup>[1](#depr)</sup>, <sup>[2](#rec)</sup>    |    320    |    200     |
+|S9 <sup>[1](#depr)</sup>, <sup>[2](#rec)</sup>    |    640    |    400     |
+|S8v2 <sup>[1](#depr)</sup>   |    640     |    200     |
+|S9v2 <sup>[1](#depr)</sup>    |    1280    |    400     |
 
-\* Não disponível em todas as regiões.  
+<a name="depr">1</a> – Não disponível em todas as regiões.   
+<a name="rec">2</a> – Esse plano está preterido. Recomenda-se v2.
+
 
 ## <a name="availability-by-region"></a>Disponibilidade por região
 
@@ -83,15 +85,15 @@ O Azure Analysis Services tem suporte em regiões do mundo todo. Os planos com s
 |Canadá Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Leste dos EUA     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |Leste dos EUA 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Leste dos EUA 2     |     S8, S9, S8v2, S9v2   |    1    |
+|Leste dos EUA 2     |     S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2   |    1    |
 |Centro-Norte dos EUA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centro dos EUA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centro-Sul dos Estados Unidos     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centro-Oeste dos EUA   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Oeste dos EUA     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|Oeste dos EUA     |    S8, S9, S8v2, S9v2   |    2  |
+|Oeste dos EUA     |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2   |    2  |
 |Oeste dos EUA 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|Oeste dos EUA 2    |    S8, S9, S8v2, S9v2  |    1     |
+|Oeste dos EUA 2    |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2  |    1     |
 
 ### <a name="europe"></a>Europa
 
@@ -101,17 +103,17 @@ O Azure Analysis Services tem suporte em regiões do mundo todo. Os planos com s
 |Norte da Europa     |    S8v2, S9v2      |    3     |
 |Sul do Reino Unido     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Europa Ocidental     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Europa Ocidental    |   S8, S9, S8v2, S9v2  |  1  |
+|Europa Ocidental    |   S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Pacífico Asiático 
 
 |Região  | Planos com suporte | Consultar réplicas (somente planos Standard) |
 |---------|---------|:---------:|
 |Leste da Austrália     |    B1, B2, S0, S1, S2, S4     |    3     |
-|Leste da Austrália     |    S8, S9, S8v2, S9v2    |    1     |
+|Leste da Austrália     |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2    |    1     |
 |Sudeste da Austrália     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Leste do Japão     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2, D1     |   1      |
 |Oeste da Índia     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Escalar de acordo com suas necessidades
@@ -208,6 +210,10 @@ Os Projetos do Microsoft Analysis Services estão disponíveis como um pacote VS
 
 Gerencie seus servidores e bancos de dados modelo usando o [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Conecte-se aos servidores na nuvem. Execute scripts TMSL diretamente da janela de consulta XMLA e automatize tarefas usando scripts TMSL e PowerShell. Novos recursos e funcionalidades acontecem rapidamente. O SSMS é atualizado mensalmente.
 
+### <a name="open-source-tools"></a>Ferramentas de software livre
+
+O Analysis Services tem uma comunidade ativa de desenvolvedores que criam ferramentas. Confira o [Editor de Tabelas](https://tabulareditor.github.io/), uma ferramenta de software livre para criar, manter e gerenciar modelos de tabela usando um editor intuitivo e leve. O [DAX Studio](https://daxstudio.org/), é uma excelente ferramenta de software livre para criação, diagnóstico, ajuste de desempenho e análise de DAX.
+
 ### <a name="powershell"></a>PowerShell
 
 As tarefas de gerenciamento de recursos de servidor, como criar servidores, suspender ou retomar operações de servidor ou alterar o nível de serviço (camada), usam cmdlets do Azure PowerShell. Outras tarefas de gerenciamento de bancos de dados, como adição ou remoção de membros da função, processamento ou execução de scripts TMSL usam os cmdlets incluídos no módulo SqlServer. Para saber mais, consulte [Gerenciar o Azure Analysis Services com o PowerShell ](analysis-services-powershell.md).
@@ -232,19 +238,15 @@ O Azure Analysis Services também dá suporte para uso de [DMVs (Modos de Exibi�
 
 A documentação específica do Azure Analysis Services está incluída aqui. Use o índice no lado esquerdo da tela do navegador para localizar artigos. 
 
-Como os modelos de tabela do Azure Analysis Services são muito parecidos com os modelos de tabela do SQL Server Analysis Services, há uma extensa biblioteca de tutoriais de modelagem de dados, artigos conceituais, procedurais, do desenvolvedor e de referência compartilhados na [documentação do SQL Server Analysis Services](https://docs.microsoft.com/analysis-services/analysis-services-overview). Artigos na documentação do SQL Server Analysis Services mostram se também aplicam-se ao Azure Analysis Services por uma faixa APPLIES TO abaixo do título.
+Como os modelos de tabela do Azure Analysis Services são muito parecidos com os modelos de tabela do SQL Server Analysis Services e os conjuntos dados do Power BI Premium, há uma extensa biblioteca de tutoriais de modelagem de dados, artigos conceituais, de procedimentos, do desenvolvedor e de referência compartilhados na [documentação do Analysis Services](https://docs.microsoft.com/analysis-services/?view=azure-analysis-services-current). Os artigos da documentação compartilhada do Analysis Services mostram se eles também se aplicam ao Azure Analysis Services por uma barra de notificação APLICA-SE AO abaixo do título. Use também o seletor de versão acima do sumário para ver apenas os artigos que se aplicam à plataforma que você está usando.
 
 ![Documentação compartilhada](./media/analysis-services-overview/aas-overview-applies-to.png)
 
 ### <a name="contribute"></a>Contribua!
 
-A documentação do Analysis Services, como este artigo, é software livre. Se você tiver uma conta do GitHub, poderá editar um artigo, clicando em Editar (lápis) no canto superior direito da tela do navegador. Use o editor do navegador e clique em Propor alteração do arquivo. 
+A documentação do Analysis Services, como este artigo, é software livre. Para saber mais sobre como você pode colaborar com a documentação, confira o [guia do colaborador do Docs](https://docs.microsoft.com/contribute/). 
 
-![Documentação compartilhada](./media/analysis-services-overview/aas-overview-edit.png)
-
-Sua contribuição será analisada pela equipe de documentação e, se aprovada, seu nome de conta do GitHub será mostrado como colaborador. Para saber mais, consulte o [Guia do colaborador de documentos](https://docs.microsoft.com/contribute/).
-
-A documentação do Azure Analysis Services também usa [Problemas do GitHub](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs). Você pode fornecer comentários sobre o produto ou a documentação. Use os **Comentários** na parte inferior de um artigo. Os problemas do GitHub ainda não estão habilitados para a documentação do SQL Server Analysis Services. 
+A documentação do Azure Analysis Services também usa [Problemas do GitHub](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs). Você pode fornecer comentários sobre o produto ou a documentação. Use os **Comentários** na parte inferior de um artigo. Os problemas do GitHub não estão habilitados para a documentação compartilhada do Analysis Services. 
 
 ## <a name="blogs"></a>Blogs
 
@@ -260,7 +262,7 @@ O Analysis Services tem uma comunidade de usuários vibrante. Participe das conv
 > [Inscrever-se para um teste gratuito do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
-> [Início rápido: Criar um servidor - Portal](analysis-services-create-server.md)   
+> [Início Rápido: Criar um servidor – Portal](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [Início rápido: Criar um servidor - PowerShell](analysis-services-create-powershell.md)  
+> [Início Rápido: Criar um servidor – PowerShell](analysis-services-create-powershell.md)  

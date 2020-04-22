@@ -1,26 +1,18 @@
 ---
 title: 'Tutorial: Padrões – LUIS'
-titleSuffix: Azure Cognitive Services
 description: Use padrões para aumentar a previsão de intenção e entidade enquanto fornece menos enunciados de exemplo neste tutorial. O padrão é fornecido como um enunciado de modelo de exemplo, que inclui sintaxe para identificar entidades e texto ignorável.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 69894dfc6bcbe9eb56451524c78e82da2745aa52
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/14/2020
+ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979757"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380779"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Adicionar formatos de enunciado de modelo de padrão comuns para aprimorar previsões
 
-Neste tutorial, use padrões para aumentar a previsão de intenção e entidade, o que permite fornecer menos enunciados de exemplo. O padrão é o enunciado de modelo atribuído a uma intenção, contendo a sintaxe para identificar entidades e texto ignorável.
+Neste tutorial, use padrões para aumentar a previsão de intenção e entidade, o que permite fornecer menos enunciados de exemplo. O padrão é um enunciado de modelo atribuído a uma intenção, que contém a sintaxe para identificar as entidades e o texto ignorável.
 
 **Neste tutorial, você aprenderá a:**
 
@@ -41,7 +33,7 @@ Há dois tipos de enunciados armazenados no aplicativo LUIS:
 
 Adicionar enunciados de modelo como um padrão permite fornecer menos enunciados de exemplo para uma intenção.
 
-Um padrão é aplicado como uma combinação da correspondência entre expressões e o aprendizado de máquina.  O enunciado de modelo, junto com os enunciados de exemplo, fornecem ao LUIS uma melhor compreensão de quais enunciados se encaixam na intenção.
+Um padrão é aplicado como uma combinação da correspondência de texto e do machine learning.  O enunciado de modelo no padrão, junto com os enunciados de exemplo na intenção, fornecem ao LUIS uma melhor compreensão de quais enunciados se encaixam na intenção.
 
 ## <a name="import-example-app-and-clone-to-new-version"></a>Importar aplicativo de exemplo e clonar para a nova versão
 
@@ -49,11 +41,13 @@ Use as seguintes etapas:
 
 1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
-1. Importe o JSON para um novo aplicativo para o [portal do LUIS em versão prévia](https://preview.luis.ai).
+1. Importe o JSON para um novo aplicativo para o [portal do LUIS em versão prévia](https://preview.luis.ai). Na página **Meus Aplicativos**, selecione **+ Novo aplicativo para conversa** e, em seguida, **Importar como JSON**. Escolha o arquivo que você baixou na etapa anterior.
 
-1. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `patterns`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
+1. Na seção **Gerenciar**, na guia **Versões**, escolha a versão ativa e, em seguida, **Clonar**. Dê à versão clonada o nome `patterns`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Crie novas intenções e seus enunciados
+
+As duas intenções localizam o gerente ou os subordinados diretos do gerente, com base no texto do enunciado. A dificuldade é que as duas intenções _significam_ coisas diferentes, mas a maioria das palavras é a mesma. Somente a ordem das palavras é diferente. Para que a intenção seja prevista corretamente, ela precisará ter muitos exemplos.
 
 1. Selecione **Build** no menu de navegação.
 
@@ -105,7 +99,7 @@ Use as seguintes etapas:
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Vá até o final da URL no endereço e insira `Who is the boss of Jill Jones?`. O último parâmetro querystring é o enunciado `query`.
+1. Vá para o final da URL na barra de endereços e substitua _YOUR_QUERY_HERE_ por: `Who is the boss of Jill Jones?`.
 
     ```json
     {
@@ -195,16 +189,16 @@ Use as seguintes etapas:
     }
     ```
 
-Essa consulta foi realizada com êxito? Para este ciclo de treinamento, teve êxito. As pontuações das duas principais intenções estão próximas, mas a intenção mais alta não é significativamente alta (mais de 60%) e não é está suficientemente acima da pontuação da próxima intenção.
+As pontuações das duas principais intenções estão próximas, mas a intenção mais alta não é significativamente alta (mais de 60%) e não é está suficientemente acima da pontuação da próxima intenção.
 
-Como o treinamento de LUIS não é exatamente o mesmo a cada vez, há um pouco de variação, essas duas pontuações podem se inverter no próximo ciclo de treinamento. O resultado é que a intenção errada pode ser retornada.
+Como o treinamento do LUIS não é exatamente o mesmo todas as vezes (há um pouco de variação), essas duas pontuações principais podem se inverter no próximo ciclo de treinamento. O resultado é que a intenção errada pode ser retornada.
 
 Use padrões para tornar a pontuação da intenção correta significativamente maior em porcentagem e mais distante da próxima pontuação mais alta.
 
 Uma nova e segunda janela do navegador é aberta. Você usará esse valor posteriormente no tutorial.
 
 ## <a name="template-utterances"></a>Enunciados de modelo
-Devido à natureza do domínio de Recursos Humanos, há algumas maneiras comuns de perguntar sobre relações de funcionário em organizações. Por exemplo:
+Devido à natureza do domínio de assunto de Recursos Humanos, há algumas maneiras comuns de perguntar sobre as relações de funcionários em organizações. Por exemplo:
 
 |Declarações|
 |--|
@@ -220,11 +214,11 @@ Exemplos de enunciado de modelo para essa intenção incluem:
 |`Who does {Employee} report to[?]`|`{Employee}` intercambiável<br>ignorar `[?]`|
 |`Who reports to {Employee}[?]`|`{Employee}` intercambiável<br>ignorar `[?]`|
 
-A sintaxe `{Employee}` marca o local da entidade dentro da declaração de modelo, bem como qual entidade é. A sintaxe opcional, `[?]`, marca palavras ou pontuações opcionais. O LUIS corresponde ao enunciado, ignorando o texto opcional dentro dos parênteses.
+A sintaxe `{Employee}` marca o local da entidade dentro da declaração de modelo, bem como qual entidade é. A sintaxe opcional, `[?]`, marca palavras ou [pontuações](luis-reference-application-settings.md#punctuation-normalization) opcionais. O LUIS corresponde ao enunciado, ignorando o texto opcional dentro dos parênteses.
 
 Embora a sintaxe se pareça com uma expressão regular, ela não é uma expressão regular. Apenas a sintaxe com aspas inglesas, `{}`, e colchetes, `[]`, tem suporte. Eles podem ser aninhados em até dois níveis.
 
-Para que um padrão seja correspondido a um enunciado, as entidades dentro do enunciado têm que corresponder primeiro às entidades no enunciado de modelo. Isso significa que as entidades precisam ter exemplos suficientes em enunciados de exemplo com um alto grau de previsão antes que os padrões com entidades sejam bem-sucedidos. No entanto, o modelo não ajuda a prever entidades, apenas intenções.
+Para que um padrão seja correspondido a um enunciado, _primeiro_, as entidades do enunciado precisam corresponder às entidades do enunciado de modelo. Isso significa que as entidades precisam ter exemplos suficientes em enunciados de exemplo com um alto grau de previsão antes que os padrões com entidades sejam bem-sucedidos. No entanto, o modelo não ajuda a prever entidades, apenas intenções.
 
 **Embora os padrões permitam que você forneça menos enunciados de exemplo, se as entidades não forem detectadas, o padrão não corresponderá.**
 
@@ -245,6 +239,8 @@ Para que um padrão seja correspondido a um enunciado, as entidades dentro do en
     |`Who is {Employee}['s] supervisor[?]`|
     |`Who is the boss of {Employee}[?]`|
 
+    Esses enunciados de modelo incluem a entidade **Employee** com a notação de chave.
+
 1. Selecione a intenção **OrgChart-Reports** e, em seguida, insira os seguintes enunciados de modelo, enquanto ainda estiver na página de Padrões:
 
     |Enunciados de modelo|
@@ -264,7 +260,7 @@ Agora que os padrões foram adicionados ao aplicativo, treine, publique e consul
 
 1. Após a conclusão da publicação, alterne as guias do navegador de volta para a guia da URL do ponto de extremidade.
 
-1. Vá até o final da URL no endereço e insira `Who is the boss of Jill Jones?` como o enunciado. O último parâmetro querystring é `query`.
+1. Vá para o final da URL na barra de endereços e substitua _YOUR_QUERY_HERE_ por: `Who is the boss of Jill Jones?`
 
     ```json
     {
@@ -375,7 +371,7 @@ Declarações de modelo de exemplo que permitem essas informações opcionais:
 
 |Intencional|Exemplo de enunciado com texto opcional e as entidades predefinidas|
 |:--|:--|
-|Organograma-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
+|Organograma-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
 |Organograma-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
 
 
@@ -389,14 +385,6 @@ O uso da sintaxe de colchetes, opcional `[]`, facilita esse texto opcional adici
 **Pergunta: E quanto a expressões mal formuladas como `Who will {Employee}['s] manager be on March 3?`.** Tempos verbais gramaticalmente diferentes, como este, em que o `will` e `be` são separados precisarão ser uma nova declaração de modelo. A expressão de modelo existente não coincida com isso. Embora a intenção da declaração não foi alterada, o posicionamento da palavra na declaração foi alterada. Essa alteração afeta a previsão no LUIS. Você pode [grupo e ou](#use-the-or-operator-and-groups) verbais combinar essas declarações.
 
 **Lembre-se: entidades encontram-se em primeiro lugar, em seguida, o padrão é correspondido.**
-
-### <a name="edit-the-existing-pattern-template-utterance"></a>Editar a expressão de modelo padrão existente
-
-1. No portal do LUIS em versão prévia, selecione **Build** no menu superior e então **Padrões** no menu à esquerda.
-
-1. Pesquise a declaração de modelo existente `Who is {Employee}['s] manager[?]`e selecione as reticências (***...*** ) para a direita, em seguida, selecione **Editar** no menu pop-up.
-
-1. Alterar a definição do modelo para: `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
 ### <a name="add-new-pattern-template-utterances"></a>Adicionar novas declarações de modelo padrão
 
@@ -428,9 +416,9 @@ O uso da sintaxe de colchetes, opcional `[]`, facilita esse texto opcional adici
 Todas essas declarações encontradas as entidades dentro, portanto eles coincidir com o mesmo padrão e têm uma pontuação alta de previsão. Você adicionou alguns padrões que corresponderão a muitas variações de enunciados. Você não precisa adicionar nenhum enunciado de exemplo na intenção para que o enunciado de modelo funcione no padrão.
 
 Esse uso de padrões forneceu:
-* pontuações de previsão mais altas
-* com os mesmos enunciados de exemplo na intenção
-* com apenas alguns enunciados de modelo bem construídos no padrão
+* Pontuações de previsão mais altas
+* Com os mesmos enunciados de exemplo na intenção
+* Com apenas alguns enunciados de modelo bem construídos no padrão
 
 ### <a name="use-the-or-operator-and-groups"></a>Use o operador OR e grupos
 
@@ -472,7 +460,7 @@ Isso usa um **grupo** em torno dos tempos verbais exigidos e o `in` opcional e `
     |`Who will be Jill Jones manager in a month`|
     |`Who will be Jill Jones manager on July 5th`|
 
-Usando mais sintaxe de padrão, é possível reduzir o número de enunciados de modelo que você precisa manter em seu aplicativo, ao mesmo tempo ainda obtendo uma pontuação de previsão alta.
+Usando mais sintaxe de padrão, você pode reduzir o número de enunciados de modelo que precisa manter no aplicativo, obtendo, ainda, uma alta pontuação de previsão.
 
 ### <a name="use-the-utterance-beginning-and-ending-anchors"></a>Use as âncoras de início e término da declaração
 
@@ -514,7 +502,7 @@ O comprimento variável inclui palavras que podem confundir o LUIS sobre onde a 
 
 1. Selecione **FindForm** na lista de intenções.
 
-1. Adicione alguns enunciados de exemplo:
+1. Adicione alguns enunciados de exemplo. O texto que deve ser previsto como um Pattern.any está em **negrito**. O nome do formulário é difícil de ser determinado com base nas outras palavras no enunciado. O Pattern.any ajudará com isso marcando os limites da entidade.
 
     |Exemplo de enunciado|Nome do formulário|
     |--|--|

@@ -1,14 +1,14 @@
 ---
 title: 'Padrão: Operadores lógicos em uma definição de política'
 description: Esse padrão de Política do Azure fornece exemplos de como usar os operadores lógicos em uma definição de política.
-ms.date: 01/31/2020
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 8e57efaea81848c6b2d0188dbf3f91e06ed74c67
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 691383b1f8ae34bbd51ce7f4f9310980e3c66537
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77170234"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272501"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Padrão do Azure Policy: operadores lógicos
 
@@ -38,6 +38,18 @@ Esta definição de política avalia recursos para um padrão de nomenclatura. S
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-2.json" range="7-21" highlight="2,3,9":::
 
 Esse bloco **policyRule.if** também inclui um único **allOf**, mas cada condição é agrupada com o operador lógico **not**. A condicional dentro do operador lógico **not** avalia primeiro e depois avalia o **not** para determinar se a cláusula inteira é verdadeira ou falsa. Se os dois operadores lógicos **not** forem avaliados como true, o efeito da política será acionado.
+
+## <a name="sample-3-combining-logical-operators"></a>Exemplo 3: combinar operadores lógicos
+
+Essa definição de política avalia as contas Java Spring para ver se o rastreamento não está habilitado ou se ele não está em um estado bem-sucedido.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
+
+### <a name="sample-3-explanation"></a>Exemplo 3: Explicação
+
+:::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json" range="6-28" highlight="3,8":::
+
+Esse bloco **policyRule.if** inclui os operadores lógicos **allOf** e **anyOf**. O operador lógico **anyOf** é avaliado como true, desde que uma condição incluída seja true. Como _type_ está no núcleo de **allOf**, ele sempre deve ser avaliado como true. Se _type_ e uma das condições em **anyOf** forem true, o efeito de política será disparado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Configurar a terminação SSL no portal – Gateway de Aplicativo do Azure'
-description: Neste tutorial, você aprende como configurar um gateway de aplicativo e adicionar um certificado para terminação SSL usando o portal do Azure.
+title: 'Tutorial: Configurar o encerramento de TLS no portal – Gateway de Aplicativo do Azure'
+description: Neste tutorial, você aprenderá a configurar um gateway de aplicativo e a adicionar um certificado para o encerramento de TLS usando o portal do Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: b4278fc6d44f32921713681cb094b659901cc87c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b40eb107fc975d2ef0170944892b936680de3c9f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74012320"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312386"
 ---
-# <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Tutorial: Configurar um gateway de aplicativo com terminação SSL usando o portal do Azure
+# <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Configurar um gateway de aplicativo com o encerramento de TLS usando o portal do Azure
 
-É possível usar o portal do Azure para configurar um [gateway de aplicativos](overview.md) com um certificado para terminação SSL que use máquinas virtuais para servidores back-end.
+É possível usar o portal do Azure para configurar um [gateway de aplicativo](overview.md) com um certificado para encerramento de TLS que usa máquinas virtuais para servidores back-end.
 
 Neste tutorial, você aprenderá como:
 
@@ -265,4 +265,4 @@ Neste exemplo, você instala IIS nas máquinas virtuais apenas para verificar se
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o suporte a SSL do Gateway de Aplicativo](ssl-overview.md)
+> [Saiba mais sobre o suporte a TLS do Gateway de Aplicativo](ssl-overview.md)
