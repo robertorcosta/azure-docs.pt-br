@@ -119,7 +119,11 @@
             - name: Descoberta e classificação de dados
               href: sql-database-data-discovery-and-classification.md
             - name: Avaliação de vulnerabilidade
-              href: sql-vulnerability-assessment.md
+              items:
+                - name: Avaliação de vulnerabilidade
+                  href: sql-vulnerability-assessment.md
+                - name: Armazenar verificações de AV atrás de firewalls e VNets
+                  href: sql-database-vulnerability-assessment-storage.md
             - name: Proteção Avançada contra Ameaças
               href: sql-database-threat-detection-overview.md
             - name: Atributos de segurança

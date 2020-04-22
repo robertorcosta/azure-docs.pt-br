@@ -87,7 +87,7 @@
             - name: Soluções baseadas em CEF
               href: connect-common-event-format.md
               items:
-                - name: 'ETAPA 1: implantar o agente'
+                - name: 'ETAPA 1: implantar o encaminhador de log'
                   href: connect-cef-agent.md
                 - name: 'ETAPA 2: configurar sua solução de segurança'
                   href: connect-cef-solution-config.md

@@ -156,8 +156,6 @@
         - name: Adicionar descritor
           displayName: 'synonym, interchange, phrase list, descriptor'
           href: luis-how-to-add-features.md
-        - name: Migrar para o Authoring V3
-          href: luis-migration-authoring-entities.md
         - name: Com APIs REST
           items:
             - name: Compilar aplicativo programaticamente usando o Node.js
@@ -193,6 +191,8 @@
           displayName: 'import, export'
     - name: Publicar
       href: luis-how-to-publish-app.md
+    - name: Runtime de previsão da consulta
+      href: luis-get-started-get-intent-from-browser.md
     - name: Gerenciar aplicativo
       items:
         - name: Recursos do Azure
@@ -216,11 +216,10 @@
       items:
         - name: Para desenvolvedores
           href: developer-reference-resource.md
-        - name: APIs de criação
-          href: luis-migration-api-authoring.md
-        - name: Migração para a API V3
+        - name: Migrar para APIs de criação V3
+          href: luis-migration-authoring-entities.md
+        - name: Migrar para APIs de previsão V3
           href: luis-migration-api-v3.md
-          displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override'
         - name: Migrar para API V2
           href: luis-migration-api-v1-to-v2.md
     - name: Usar contêineres

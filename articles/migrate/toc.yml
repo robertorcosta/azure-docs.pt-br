@@ -96,14 +96,16 @@
       href: how-to-assess.md
     - name: Implantar dispositivo de Migrações para Azure
       items:
-        - name: Implantar o dispositivo para VMware (OVA)
+        - name: Implantar dispositivo com modelo (VMware)
           href: how-to-set-up-appliance-vmware.md
-        - name: Implantar o dispositivo para Hyper-V (VHD)
+        - name: Implantar dispositivo com modelo (Hyper-V)
           href: how-to-set-up-appliance-hyper-v.md
-        - name: Implantar o dispositivo para VMware/Hyper-V (script)
+        - name: Implantar dispositivo com script (VMware/Hyper-V)
           href: deploy-appliance-script.md
         - name: Implantar dispositivo para servidores físicos
           href: how-to-set-up-appliance-physical.md
+        - name: Implantar dispositivo no Azure Government
+          href: deploy-appliance-script-government.md
     - name: Limitar o escopo da descoberta para VMs VMware
       href: set-discovery-scope.md
     - name: Descobrir aplicativos/funções/recursos
