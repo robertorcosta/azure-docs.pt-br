@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 262129084be5c6a68bfd8d8708c9a10fbb606144
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e51b8c705533fd74a5e46eaa2570563fef485309
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383737"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730632"
 ---
 # <a name="create-an-azure-vm-technical-asset"></a>Criar um ativo técnico do Azure VM
 
@@ -41,12 +41,12 @@ Além do domínio da solução, sua equipe de engenharia deve ter conhecimento s
 
 Escolha um ou ambos os seguintes ambientes de script para ajudar a gerenciar sua imagem de Contêiner:
 
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-3.7.0&viewFallbackFrom=azps-3.6.1)
+- [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/?view=azps-3.7.0&viewFallbackFrom=azps-3.6.1)
 - [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 Recomendamos adicionar essas ferramentas ao seu ambiente de desenvolvimento:
 
-- [Gerenciador de Armazenamento do Azure](https://aka.ms/GetStartedWithStorageExplorer)
+- [Gerenciador de Armazenamento do Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Extensão: [Ferramentas do Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Extensão: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)

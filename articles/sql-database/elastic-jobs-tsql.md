@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: c228f3d6591cd72845101c00188f3fc4a55be644
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 740a42dc94cdfa8d5c5a91b32b58cbff4c1bcda0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77087355"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687777"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usar o T-SQL (Transact-SQL) para criar e gerenciar trabalhos de Banco de Dados Elástico
 
@@ -435,7 +435,7 @@ Adiciona um novo trabalho.
 #### <a name="syntax"></a>Sintaxe  
   
 
-```sql
+```syntaxsql
 [jobs].sp_add_job [ @job_name = ] 'job_name'  
     [ , [ @description = ] 'description' ]   
     [ , [ @enabled = ] enabled ]
@@ -500,7 +500,7 @@ Atualiza um trabalho existente.
 
 #### <a name="syntax"></a>Sintaxe
 
-```sql
+```syntaxsql
 [jobs].sp_update_job [ @job_name = ] 'job_name'  
     [ , [ @new_name = ] 'new_name' ]
     [ , [ @description = ] 'description' ]   
@@ -563,7 +563,7 @@ Excluir um trabalho existente.
 
 #### <a name="syntax"></a>Sintaxe
 
-```sql
+```syntaxsql
 [jobs].sp_delete_job [ @job_name = ] 'job_name'
     [ , [ @force = ] force ]
 ```
@@ -596,7 +596,7 @@ Adiciona uma etapa a um trabalho.
 #### <a name="syntax"></a>Sintaxe
 
 
-```sql
+```syntaxsql
 [jobs].sp_add_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]   
      [ , [ @step_name = ] step_name ]   
@@ -721,7 +721,7 @@ Atualiza uma etapa de trabalho.
 
 #### <a name="syntax"></a>Sintaxe
 
-```sql
+```syntaxsql
 [jobs].sp_update_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]   
      [ , [ @step_name = ] 'step_name' ]   
@@ -847,7 +847,7 @@ Remove uma etapa de trabalho de um trabalho.
 #### <a name="syntax"></a>Sintaxe
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]
      [ , [ @step_name = ] 'step_name' ]   
@@ -893,7 +893,7 @@ Inicia a execução de um trabalho.
 #### <a name="syntax"></a>Sintaxe
 
 
-```sql
+```syntaxsql
 [jobs].sp_start_job [ @job_name = ] 'job_name'   
      [ , [ @job_execution_id = ] job_execution_id OUTPUT ]   
 ```
@@ -924,7 +924,7 @@ Interrompe a execução de um trabalho.
 #### <a name="syntax"></a>Sintaxe
 
 
-```sql
+```syntaxsql
 [jobs].sp_stop_job [ @job_execution_id = ] ' job_execution_id '
 ```
 
@@ -953,7 +953,7 @@ Adiciona um grupo de destino.
 #### <a name="syntax"></a>Sintaxe
 
 
-```sql
+```syntaxsql
 [jobs].sp_add_target_group [ @target_group_name = ] 'target_group_name'   
      [ , [ @target_group_id = ] target_group_id OUTPUT ]
 ```
@@ -984,7 +984,7 @@ Exclui um grupo de destino.
 #### <a name="syntax"></a>Sintaxe
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_target_group [ @target_group_name = ] 'target_group_name'
 ```
 
@@ -1011,7 +1011,7 @@ Adiciona um banco de dados ou um grupo de bancos de dados a um grupo de destino.
 
 #### <a name="syntax"></a>Sintaxe
 
-```sql
+```syntaxsql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
          [ @membership_type = ] 'membership_type' ]   
         [ , [ @target_type = ] 'target_type' ]   
@@ -1101,7 +1101,7 @@ Remove um membro do grupo de destino de um grupo de destino.
 #### <a name="syntax"></a>Sintaxe
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_target_group_member [ @target_group_name = ] 'target_group_name'
         [ , [ @target_id = ] 'target_id']
 ```
@@ -1145,14 +1145,14 @@ EXEC jobs.sp_delete_target_group_member
 GO
 ```
 
-### <a name="sp_purge_jobhistory"></a><a name="sp_purge_jobhistory"></a>sp_purge_jobhistory 
+### <a name="sp_purge_jobhistory"></a><a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
 Remove os registros históricos de um trabalho.
 
 #### <a name="syntax"></a>Sintaxe
 
 
-```sql
+```syntaxsql
 [jobs].sp_purge_jobhistory [ @job_name = ] 'job_name'   
       [ , [ @job_id = ] job_id ]
       [ , [ @oldest_date = ] oldest_date []
@@ -1334,8 +1334,8 @@ Mostra todos os membros de todos os grupos de destino.
 |**refresh_credential_name**    |nvarchar(128)  |O nome da credencial no escopo do banco de dados usada para conectar-se ao membro do grupo de destino.|
 |**subscription_id**    |UNIQUEIDENTIFIER|  ID exclusiva da assinatura.|
 |**resource_group_name**    |nvarchar(128)| Nome do grupo de recursos no qual o membro do grupo de destino reside.|
-|**Server_name**    |nvarchar(128)  |Nome do servidor do Banco de Dados SQL contido no grupo de destino. Especificado somente se target_type for 'SqlServer'. |
-|**Database_name**  |nvarchar(128)  |Nome do banco de dados contido no grupo de destino. Especificado somente quando target_type for 'SqlDatabase'.|
+|**server_name**    |nvarchar(128)  |Nome do servidor do Banco de Dados SQL contido no grupo de destino. Especificado somente se target_type for 'SqlServer'. |
+|**database_name**  |nvarchar(128)  |Nome do banco de dados contido no grupo de destino. Especificado somente quando target_type for 'SqlDatabase'.|
 |**elastic_pool_name**  |nvarchar(128)| Nome do pool elástico contido no grupo de destino. Especificado somente quando target_type for 'SqlElasticPool'.|
 |**shard_map_name** |nvarchar(128)| Nome do mapa de fragmentos contido no grupo de destino. Especificado somente quando target_type for 'SqlShardMap'.|
 

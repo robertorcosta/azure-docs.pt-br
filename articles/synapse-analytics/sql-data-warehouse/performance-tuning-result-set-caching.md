@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 42f8f51545f643e1ed9e1a23c9445f6e216fdabe
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: eadbe13269ce1259b4560af117f5b15b3b294151
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273402"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730595"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ajuste de desempenho com cache de conjunto de resultados
 
@@ -42,10 +42,11 @@ Quando o armazenamento em cache do conjunto de resultados estiver ATIVADO para u
 - Consultas que usam funções definidas pelo usuário
 - Consultas usando tabelas com segurança de nível de linha ou segurança de nível de coluna ativada
 - Consultas que retornam dados com tamanho de linha maior que 64 KB
+- Consultas que retornam grandes dados em tamanho (>10GB) 
 
 > [!IMPORTANT]
 > As operações para criar cache conjunto de resultados e recuperar dados do cache acontecem no nó de controle de uma instância de pool Synapse SqL.
-> Quando o cache do conjunto de resultados está ATIVADO, a execução de consultas que retornam um conjunto de resultados grande (por exemplo, mais de 1 milhão de linhas) pode causar alto uso da CPU no nó de controle e reduzir a resposta geral de consultas na instância.  Normalmente, essas consultas são usadas normalmente durante a exploração de dados ou operações de ETL. Para evitar sobrecarregar o nó de controle e causar problemas de desempenho, os usuários devem DESATIVAR o cache do conjunto de resultados no banco de dados antes de executar esses tipos de consultas.  
+> Quando o cache definido por resultado é ligado, a execução de consultas que retornam grandes conjuntos de resultados (por exemplo, >1GB) pode causar um alto estrangulamento no nó de controle e retardar a resposta geral de consulta na instância.  Normalmente, essas consultas são usadas normalmente durante a exploração de dados ou operações de ETL. Para evitar sobrecarregar o nó de controle e causar problemas de desempenho, os usuários devem DESATIVAR o cache do conjunto de resultados no banco de dados antes de executar esses tipos de consultas.  
 
 Execute esta consulta para o tempo decorrido pelas operações de cache set de resultados para uma consulta:
 
@@ -71,7 +72,7 @@ O conjunto de resultados armazenado em cache será reutilizado em uma consulta s
 - Há uma correspondência exata entre a nova consulta e a anterior que gerou o armazenamento em cache do conjunto de resultados.
 - Não há alterações de dados ou esquemas nas tabelas em que o conjunto de resultados armazenado em cache foi gerado.
 
-Execute esse comando para verificar se uma consulta foi executada com uma perda ou ocorrência no cache de resultado. A coluna result_cache_hit retorna 1 para acerto de cache, 0 para cache miss e valores negativos por razões pelas quais o cache conjunto de resultados não foi usado. Verifique [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para obter detalhes.
+Execute esse comando para verificar se uma consulta foi executada com uma perda ou ocorrência no cache de resultado. A coluna result_cache_hit retorna 1 para acerto de cache, 0 para cache miss e valores negativos por razões pelas quais o cache conjunto de resultados não foi usado. Confira [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para obter detalhes.
 
 ```sql
 SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests

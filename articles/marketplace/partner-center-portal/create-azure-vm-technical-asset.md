@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 46c59e8b4e60fbe17887ea0fc375b6da758ebf50
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 4d2d33f9d83132147b5b257ffcd6d659f272b8ec
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457392"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730711"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Crie seus ativos técnicos da Máquina Virtual do Azure
 
@@ -109,7 +109,7 @@ Siga estas etapas para criar a imagem vm base no [portal Azure](https://ms.porta
 
 O Azure começa a provisionar a máquina virtual especificada. Você pode acompanhar seu progresso selecionando a guia **Máquinas Virtuais** à esquerda. Depois de criado, o status mudará para **Running**.
 
-Se você encontrar dificuldade em criar seu novo VHD baseado no Azure, consulte [Problemas comuns durante a criação de VHD (FAQs)](https://aka.ms/VHDcreationIssues).
+Se você encontrar dificuldade em criar seu novo VHD baseado no Azure, consulte [Problemas comuns durante a criação de VHD (FAQs)](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation).
 
 ### <a name="connect-to-your-azure-vm"></a>Conectar-se à VM do Azure
 

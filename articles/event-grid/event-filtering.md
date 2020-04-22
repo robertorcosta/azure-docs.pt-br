@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: f9fca0a9fefb5959747a4492139ae422a118db02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce1bb3760ae73a9eaeee3cde957cc94841ebdf29
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70390186"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731948"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem para assinaturas da Grade de Eventos
 
@@ -59,7 +59,7 @@ Para filtrar por valores nos campos de dados e especificar o operador de compara
 
 * tipo de operador: o tipo de comparação.
 * chave – o campo nos dados do evento que você está usando para filtragem. Ele pode ser um número, booliano ou cadeia de caracteres.
-* valor ou valores: o valor ou os valores a serem comparados com a chave.
+* valores - O valor ou valores para comparar com a chave.
 
 Se você especificar um único filtro com valores múltiplos, uma operação **OR** será realizada, então o valor do campo-chave deve ser um desses valores. Veja um exemplo:
 

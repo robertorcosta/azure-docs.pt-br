@@ -2,17 +2,17 @@
 title: Configure gestão de lead no Marketo | Mercado Azure
 description: Configure a gestão de líderes para os clientes do mercado Azure.
 author: qianw211
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.author: dsindona
-ms.openlocfilehash: 04eae529efcf9509d8cd43a7629bb0b76b593cd0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 90f42954fd4d7324a7684795fca6ec302411790c
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81252399"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731110"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Configurar o gerenciamento de cliente potencial no Marketo
 
@@ -21,16 +21,21 @@ Este artigo descreve como configurar seu sistema de CRM Marketo para processar l
 ## <a name="set-up-your-marketo-crm-system"></a>Configure seu sistema de CRM Marketo
 
 1. Entre no Marketo.
+
 2. Selecione **Design Studio**.
+
     ![Marketo Design Studio](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
 
 3.  Selecione **Novo Formulário**.
+
     ![Novo formulário do Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
 
 4.  Preencha os campos obrigatórios no Novo formulário e selecione **Criar**.
+
     ![Criar novo formulário do Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
 
 5.  Em Detalhes do Campo, selecione **Concluir**.
+
     ![Formulário de conclusão do Marketo](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
 
 6.  Aprovar e fechar.
@@ -41,7 +46,7 @@ Este artigo descreve como configurar seu sistema de CRM Marketo para processar l
 
 8. O Código de Inserção do Marketo exibe um código semelhante ao exemplo a seguir.
 
-    ```
+    ```html
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
     ```
@@ -60,9 +65,10 @@ Este artigo descreve como configurar seu sistema de CRM Marketo para processar l
 
 ## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Configure sua oferta para enviar leads para o Marketo
 
-Quando estiver pronto para configurar as informações de gerenciamento de chumbo para sua oferta no portal de publicação, siga as etapas abaixo: 
+Quando estiver pronto para configurar as informações de gerenciamento de chumbo para sua oferta no portal de publicação, siga estas etapas: 
 
 1. Navegue até a página **de configuração oferta** para obter sua oferta.
+
 1. Selecione **Conectar** na seção Gerenciamento de líderes. 
 
     ![Gerenciamento de chumbo - Conectar](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
@@ -73,12 +79,13 @@ Quando estiver pronto para configurar as informações de gerenciamento de chumb
 
 4. Forneça o **ID**do servidor, **o ID da conta**de Munching e **o ID do Formulário.**
 
-    >[!Note]
-    >Você deve terminar de configurar o resto da oferta e publicá-la antes de receber leads para a oferta. 
+    > [!Note]
+    > Você deve terminar de configurar o resto da oferta e publicá-la antes de receber leads para a oferta. 
 
 5. **E-mail de contato** - Forneça e-mails para pessoas da sua empresa que devem receber notificações por e-mail quando um novo lead é recebido. Você pode fornecer vários e-mails separando-os com um ponto e vírgula.
+
 6. Selecione **OK**.
 
-Para ter certeza de que você se conectou com sucesso a um destino de chumbo, clique no botão validar. Se for bem sucedido, você terá uma pista de teste no destino principal.
+   Para ter certeza de que você se conectou com sucesso a um destino de chumbo, clique no botão validar. Se for bem sucedido, você terá uma pista de teste no destino principal.
 
-![Detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)
+   ![Detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

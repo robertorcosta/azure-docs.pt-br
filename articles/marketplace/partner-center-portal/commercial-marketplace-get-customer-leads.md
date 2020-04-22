@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 05b166b2ec46900d9e3972025efb581d9619ec6a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: a1ec89dfd2dda91a10f2cc00b6ca4d9d7abbf032
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81252584"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731150"
 ---
 # <a name="customer-leads-from-your-marketplace-offer"></a>Clientes potenciais de sua oferta do marketplace
 
@@ -96,7 +96,7 @@ As informações do cliente são enviadas através de vários campos. O exemplo 
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Onde posso obter ajuda na configuração de meu destino de cliente potencial?
 
-Você pode encontrar a documentação [aqui](#connect-to-your-crm-system) ou enviar um bilhete de suporte através de aka.ms/marketplacepublishersupport, em seguida, selecione **'criação de oferta'** → **seu tipo de oferta** → **'configuração de gerenciamento de chumbo'.**
+Você pode [here](#connect-to-your-crm-system) encontrar a documentação https://partner.microsoft.com/support/v2/?stage=1 aqui ou enviar um bilhete de suporte através de, em seguida, selecionar **'criação de oferta'** → **seu tipo de oferta** → **'configuração de gerenciamento de chumbo.'**
 
 ### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-on-the-marketplace"></a>Sou obrigado a configurar um destino líder para publicar uma oferta no mercado?
 
@@ -133,7 +133,7 @@ O destino líder do Azure Blob não é mais suportado, então você está perden
 
 ### <a name="i-received-an-email-from-marketplace-why-cant-i-find-the-lead-in-my-crm"></a>Recebi um email do Marketplace, por que não é possível localizar o cliente potencial no meu CRM?
 
-É possível que o domínio de email do usuário final é de. edu. Por razões de privacidade, não passamos informações identificáveis privadas do domínio .edu. Envie um bilhete de apoio através de aka.ms/marketplacepublishersupport.
+É possível que o domínio de email do usuário final é de. edu. Por razões de privacidade, não passamos informações identificáveis privadas do domínio .edu. Envie um bilhete https://partner.microsoft.com/support/v2/?stage=1de suporte através de .
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Configurei a Tabela Azure como meu destino principal, como posso ver os leads?
 

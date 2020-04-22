@@ -3,12 +3,12 @@ title: Insights do aplicativo Azure para aplicações ASP.NET Core | Microsoft D
 description: Monitorar aplicativos web ASP.NET Core de disponibilidade, desempenho e uso.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: d6a0e507022452f1491e71651ba3bc8db3d1c090
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1a9a81d76df7f14fb99b8521e7bfa2edff6c9e9e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284782"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687382"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Insights de aplicativos para aplicativos ASP.NET Principais
 
@@ -103,7 +103,7 @@ O [Application Insights SDK para ASP.NET Core](https://nuget.org/packages/Micros
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Por exemplo: 
+    Por exemplo:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -162,11 +162,11 @@ As etapas anteriores são suficientes para ajudá-lo a começar a coletar teleme
     
 Alternativamente, o `FullScript` `ScriptBody` uso do está disponível a partir de SDK v2.14. Use isso se precisar `<script>` controlar a tag para definir uma Política de Segurança de Conteúdo:
 
-    ```cshtml
-        <script> // apply custom changes to this script tag.
-            @Html.Raw(JavaScriptSnippet.ScriptBody)
-        </script>
-    ```
+```cshtml
+ <script> // apply custom changes to this script tag.
+     @Html.Raw(JavaScriptSnippet.ScriptBody)
+ </script>
+```
 
 Os `.cshtml` nomes dos arquivos mencionados anteriormente são de um modelo de aplicativo MVC padrão. Em última análise, se você quiser habilitar adequadamente o monitoramento do lado do `<head>` cliente para o seu aplicativo, o trecho JavaScript deve aparecer na seção de cada página do seu aplicativo que você deseja monitorar. Você pode alcançar esse objetivo para este modelo de `_Layout.cshtml`aplicativo adicionando o trecho JavaScript para . 
 

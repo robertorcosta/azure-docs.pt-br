@@ -1,21 +1,21 @@
 ---
-title: Tutorial – Preparar um aplicativo Spring em Java para implantação no Azure Spring Cloud
-description: Neste tutorial, você vai preparar um aplicativo Spring em Java para implantação no Azure Spring Cloud.
+title: Como fazer - Prepare um aplicativo java spring para implantação no Azure Spring Cloud
+description: Neste tópico, você prepara um aplicativo Java Spring para implantação no Azure Spring Cloud.
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 49ebfec131c8b9fa7b8535163c03eb7cb692790d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+ms.openlocfilehash: 16cee333d52765755b732c4de4dd8a6e092a130d
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78200015"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731174"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Preparar um aplicativo Spring Java para implantação no Azure Spring Cloud
 
-Este início rápido mostra como preparar um aplicativo Java Spring existente para implantação no Azure Spring Cloud. Se configurado corretamente, o Azure Spring Cloud fornecerá serviços robustos para monitorar, dimensionar e atualizar seu aplicativo Java Spring Cloud.
+Este tópico mostra como preparar um aplicativo Java Spring existente para implantação no Azure Spring Cloud. Se configurado corretamente, o Azure Spring Cloud fornecerá serviços robustos para monitorar, dimensionar e atualizar seu aplicativo Java Spring Cloud.
 
 Outros exemplos explicam como implantar um aplicativo no Azure Spring Cloud quando o arquivo POM é configurado. 
 * [Iniciar o aplicativo usando o portal do Azure](spring-cloud-quickstart-launch-app-portal.md)
@@ -27,7 +27,7 @@ Este artigo explica as dependências necessárias e como adicioná-las ao arquiv
 
 Somente aplicativos Spring/Java podem ser executados no Azure Spring Cloud.
 
-O Azure Spring Cloud dá suporte ao Java 8 e ao Java 11. O ambiente de hospedagem contém a última versão do Azul Zulu OpenJDK para Azure. Para obter mais informações sobre o Azul Zulu OpenJDK para Azure, confira [Instalar o JDK](https://docs.microsoft.com/azure/java/jdk/java-jdk-install).
+O Azure Spring Cloud dá suporte ao Java 8 e ao Java 11. O ambiente de hospedagem contém a última versão do Azul Zulu OpenJDK para Azure. Para obter mais informações sobre o Azul Zulu OpenJDK para Azure, confira [Instalar o JDK](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
 
 ## <a name="spring-boot-and-spring-cloud-versions"></a>Versões Spring Boot e Spring Cloud
 
@@ -225,7 +225,7 @@ Inclua as seguintes dependências `spring-cloud-starter-sleuth` e `spring-cloud-
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a configurar o aplicativo Java Spring para implantação no Azure Spring Cloud. Para saber como configurar uma instância do Servidor de Configuração, prossiga para o próximo tutorial.
+Neste tópico, você aprendeu como configurar seu aplicativo Java Spring para implantação no Azure Spring Cloud. Para saber como configurar uma instância do Config Server, consulte o artigo a seguir.
 
 > [!div class="nextstepaction"]
 > [Saiba como configurar uma instância do Servidor de Configuração](spring-cloud-tutorial-config-server.md)

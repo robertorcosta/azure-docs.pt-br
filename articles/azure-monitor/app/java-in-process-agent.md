@@ -3,12 +3,12 @@ title: Monitore aplicativos Java em qualquer ambiente - Azure Monitor Applicatio
 description: Monitoramento de desempenho de aplicativos para aplicativos Java em execução em qualquer ambiente sem instrumentar o aplicativo. Rastreamento distribuído e mapa de aplicação.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 5706d5a74bd6850a237f7418b1a86a8e9c7762e1
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: b9c1a52051e63beee9a784714a7bb1a6a79e8759
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604569"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687728"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java aplicativo sem código monitorando Azure Monitor Application Insights - visualização pública
 
@@ -32,7 +32,7 @@ Adicione `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.3.jar` aos 
 
 Os args típicos `-Xmx512m` `-XX:+UseG1GC`da JVM incluem e . Então, se você sabe onde adicioná-los, então você já sabe onde adicionar isso.
 
-Para obter ajuda adicional na configuração dos args JVM do seu aplicativo, consulte [3.0 Preview: Dicas para atualizar seus args JVM](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Tips-for-updating-your-JVM-args).
+Para obter ajuda adicional na configuração dos args JVM do seu aplicativo, consulte [3.0 Preview: Dicas para atualizar seus args JVM](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments).
 
 **3. Aponte o agente para o recurso Application Insights**
 
@@ -80,7 +80,7 @@ No `ApplicationInsights.json` arquivo, você pode configurar adicionalmente:
 * HTTP Proxy
 * Autodiagnóstico
 
-Veja detalhes em [3.0 Visualização Pública: Opções de configuração](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Configuration-Options).
+Veja detalhes em [3.0 Visualização Pública: Opções de configuração](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config).
 
 ## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Solicitações, dependências, logs e métricas coletadas automaticamente
 

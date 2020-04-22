@@ -3,12 +3,12 @@ title: Acompanhamento de dependência no Azure Application Insights | Microsoft 
 description: Monitore chamadas de dependência de seus locais ou do aplicativo web Microsoft Azure com o Application Insights.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 1d4e8d1a0482257c92f47a00bd440e786c09c7aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e30d8036c1fc624d39f027f38e314c6c57360f6
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80292117"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731501"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rastreamento de dependência em insights de aplicativos do Azure 
 
@@ -97,7 +97,7 @@ Para aplicações ASP.NET, a consulta SQL completa é coletada com a ajuda da in
 | Plataforma | Etapa(s) Necessária para obter consulta SQL completa |
 | --- | --- |
 | Aplicativo Web do Azure |No painel de controle do aplicativo web, [abra a lâmina Application Insights](../../azure-monitor/app/azure-web-apps.md) e habilite os comandos SQL em .NET |
-| Servidor IIS (Azure VM, on-prem, e assim por diante.) | Use o Módulo PowerShell do Monitor de Status para [instalar o Mecanismo de Instrumentação](../../azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md) e reiniciar o IIS. |
+| Servidor IIS (Azure VM, on-prem, e assim por diante.) | Use o Módulo PowerShell do Monitor de Status para [instalar o Mecanismo de Instrumentação](../../azure-monitor/app/status-monitor-v2-api-reference.md) e reiniciar o IIS. |
 | Serviço de Nuvem do Azure | Adicionar [tarefa de inicialização para instalar o StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Seu aplicativo deve estar a bordo do ApplicationInsights SDK no momento da compilação, instalando pacotes NuGet para [aplicativos ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) ou [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | Sem suporte
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c5fb585d0eb6aeb7866c2ab04b324ee31fe903ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658042"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687335"
 ---
 # <a name="workbook-text-parameters"></a>Parâmetros de texto da carteira de trabalho
 
@@ -59,6 +59,8 @@ Um uso comum de caixas de texto é como variáveis internas usadas por outros co
 
     ![Imagem mostrando um parâmetro de texto referenciado em KQL](./media/workbooks-text/text-reference.png)
 
+> [!NOTE]
+> No exemplo acima, `{SlowRequestThreshold}` representa um valor inteiro. Se você estivesse consultando uma `{ComputerName}` string como você precisaria modificar sua consulta `"{ComputerName}"` kusto para adicionar cotações para que o campo de parâmetros para uma entrada de aceitação sem aspas.
 
 ## <a name="setting-default-values"></a>Definindo valores padrão
 1. Comece com uma carteira de trabalho vazia no modo de edição.

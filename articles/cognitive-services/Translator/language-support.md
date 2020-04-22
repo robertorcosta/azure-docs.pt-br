@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ecde5acb7dc57ed9e5802c1589d5813a9206643
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77206116"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684837"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Idiomas e regiões compatíveis com a API de Tradução de Texto
 
@@ -40,7 +40,7 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 > [!NOTE]
 > Atualmente, um subconjunto das linguagens neurais estão disponíveis no Custom Translator e estamos gradualmente adicionando outras. [Exibir idiomas atualmente disponíveis no Personal Translator](#customization).
 
-|Idioma|  Código de idioma|  API V3|
+|Linguagem|  Código de idioma|  API V3|
 |:-----|:-----:|:-----|
 |Africâner| `af`|   Neural|
 |Árabe|    `ar`    |   Neural|
@@ -63,6 +63,7 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 |Francês|    `fr`    |   Neural|
 |Alemão|    `de`    |   Neural|
 |Grego| `el`    |   Neural|
+|Guzerate|  `gu`    |   Neural|
 |Crioulo haitiano|    `ht`        |Estatística|
 |Hebraico |`he`   |Neural
 |Híndi| `hi`    |   Neural|
@@ -85,6 +86,7 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 |Malaiala| `ml` | Neural
 |Maltês|   `mt`    |   Estatística|
 |Maori| `mi`  | Neural|
+|Marati| `mr`  | Neural|
 |Norueguês| `nb`    |   Neural|
 |Persa|   `fa`    |   Neural|
 |Polonês|    `pl`    |   Neural|
@@ -120,7 +122,7 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 
 O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indica que o idioma pode ser transliterado de ou para qualquer um dos scripts listados. O "->" indica que o idioma só pode ser transliterado de um script para outro.
 
-| Idioma    | Código de idioma | Script | Para/De | Script|
+| Linguagem    | Código de idioma | script | Para/De | script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 |Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
@@ -147,7 +149,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 
 O dicionário suporta os seguintes idiomas para ou do inglês usando os métodos Lookup e Examples.
 
-| Idioma    | Código de idioma |
+| Linguagem    | Código de idioma |
 |:----------- |:-------------:|
 | Africâner      | `af`          |
 | Árabe       | `ar`          |
@@ -215,7 +217,7 @@ Você pode recuperar uma lista de idiomas com suporte para a API de Tradução d
 
 Os seguintes idiomas estão disponíveis para personalização para ou a partir do inglês usando [O Tradutor Personalizado](https://aka.ms/CustomTranslator).
 
-| Idioma    | Código de idioma |
+| Linguagem    | Código de idioma |
 |:----------- |:-------------:|
 | Árabe       | `ar`          |
 | Bangla      | `bn`          |

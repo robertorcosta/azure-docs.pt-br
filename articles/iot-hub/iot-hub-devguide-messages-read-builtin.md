@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: a2674ca0f4808cb6f01781565e57369ca5d3ac37
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.custom: amqp
+ms.openlocfilehash: 169d926e466559bc83ba64ce9e976e0d725f614d
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478774"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729980"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno
 
@@ -60,11 +61,11 @@ Dessa forma, você poderá usar qualquer política de acesso compartilhado com p
 
 Os SDKs que você pode usar para se conectar ao ponto final incorporado compatível com o Hub de Eventos que o IoT Hub expõe incluem:
 
-| Idioma | . | Exemplo | Observações |
+| Linguagem | . | Exemplo | Observações |
 | -------- | --- | ------ | ----- |
-| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Guia de Início Rápido](quickstart-send-telemetry-dotnet.md) | Usa informações compatíveis com hubs de eventos |
- Java | https://github.com/Azure/azure-event-hubs-java | [Guia de Início Rápido](quickstart-send-telemetry-java.md) | Usa informações compatíveis com hubs de eventos |
-| Node.js | https://github.com/Azure/azure-event-hubs-node | [Guia de Início Rápido](quickstart-send-telemetry-node.md) | Usa string de conexão IoT Hub |
+| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Início rápido](quickstart-send-telemetry-dotnet.md) | Usa informações compatíveis com hubs de eventos |
+ Java | https://github.com/Azure/azure-event-hubs-java | [Início rápido](quickstart-send-telemetry-java.md) | Usa informações compatíveis com hubs de eventos |
+| Node.js | https://github.com/Azure/azure-event-hubs-node | [Início rápido](quickstart-send-telemetry-node.md) | Usa string de conexão IoT Hub |
 | Python | https://github.com/Azure/azure-event-hubs-python | https://github.com/Azure/azure-event-hubs-python/blob/master/examples/iothub_recv.py | Usa string de conexão IoT Hub |
 
 As integrações de produtos que você pode usar com o ponto final compatível com o Hub de eventos incorporado que o IoT Hub expõe incluem:

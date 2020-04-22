@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 77c58bb8dfa7d21b108d2aa63e90142f66877fb7
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/20/2020
+ms.openlocfilehash: 6b353967c9b9c7517f1a42581717c6394c0e6374
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606519"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729132"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Alterar a transformação da linha no mapeamento do fluxo de dados
 
@@ -48,10 +48,12 @@ Para que as políticas de alter row funcionem, o fluxo de dados deve ser escrito
 
 ![Alterar pia de linha](media/data-flow/alter-row2.png "Pia de alter row")
 
- O comportamento padrão é apenas permitir inserções. Para permitir atualizações, upserts ou exclusões, verifique a caixa na pia correspondente a essa condição. Se as atualizações, upserts ou, exclusões estiverem ativadas, você deve especificar quais colunas-chave na pia devem ser compatíveis.
+O comportamento padrão é apenas permitir inserções. Para permitir atualizações, upserts ou exclusões, verifique a caixa na pia correspondente a essa condição. Se as atualizações, upserts ou, exclusões estiverem ativadas, você deve especificar quais colunas-chave na pia devem ser compatíveis.
 
 > [!NOTE]
 > Se suas inserções, atualizações ou upserts modificarem o esquema da tabela de destino na pia, o fluxo de dados falhará. Para modificar o esquema de destino em seu banco de dados, escolha **Recriar tabela** como a ação da tabela. Isso vai cair e recriar sua tabela com a nova definição de esquema.
+
+A transformação do dissipador requer uma única tecla ou uma série de chaves para identificação de linha única em seu banco de dados de destino. Para dissipar SQL, defina as teclas na guia de configurações do dissipador. Para CosmosDB, defina a tecla de partição nas configurações e também defina o campo do sistema CosmosDB "id" no mapeamento do dissipador. Para o CosmosDB, é obrigatório incluir a coluna do sistema "id" para atualizações, upserts e exclusões.
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 

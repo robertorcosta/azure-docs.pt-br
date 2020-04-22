@@ -8,12 +8,15 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 13eab175356ed1ec20caa3263ba00d0563384f0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 3529d6a67c6c8c19c053fe3170298658e90b4a54
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064388"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729267"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções para o Azure IoT Edge
 
@@ -332,7 +335,7 @@ Em seu IoT Hub, selecione seu dispositivo IoT Edge e na página de detalhes do d
 
 ![OptimizeForPerformance definido como false](./media/troubleshoot/optimizeforperformance-false.png)
 
-**Ou**
+**OU**
 
 No manifesto de implantação:
 
@@ -413,7 +416,7 @@ Por padrão, o IoT Edge inicia módulos em sua própria rede isolada de contêin
 
 **Opção 1: Definir o servidor DNS nas configurações do mecanismo do contêiner**
 
-Especifique o servidor DNS para o seu ambiente nas configurações do mecanismo do contêiner, que se aplicará a todos os módulos de contêiner iniciados pelo motor. Crie um `daemon.json` arquivo chamado especificando o servidor DNS para usar. Por exemplo: 
+Especifique o servidor DNS para o seu ambiente nas configurações do mecanismo do contêiner, que se aplicará a todos os módulos de contêiner iniciados pelo motor. Crie um `daemon.json` arquivo chamado especificando o servidor DNS para usar. Por exemplo:
 
 ```json
 {
@@ -441,7 +444,7 @@ Reinicie o motor do recipiente para que as atualizações entrem em vigor.
 
 **Opção 2: Definir o servidor DNS na implantação do IoT Edge por módulo**
 
-Você pode definir o servidor DNS para a criação de cada *móduloOpções* na implantação do IoT Edge. Por exemplo: 
+Você pode definir o servidor DNS para a criação de cada *móduloOpções* na implantação do IoT Edge. Por exemplo:
 
 ```json
 "createOptions": {

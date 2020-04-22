@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
-ms.date: 01/15/2019
-ms.openlocfilehash: 958d937ad85fd62249c7ce3f0e0ab2f8cc1d1b80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/19/2020
+ms.openlocfilehash: 992c981d49e7c6fbf8b6156570f6554a05caab5d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73819933"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687750"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introdução aos recursos do JSON no Banco de Dados SQL do Azure
 O Banco de Dados SQL do Azure permite que você analise e consulte os dados representados no formato JavaScript Object Notation [(JSON)](https://www.json.org/) e exporte seus dados relacionais como texto JSON. Os cenários JSON a seguir estão disponíveis no Banco de Dados SQL do Azure:
@@ -30,7 +30,7 @@ Se você tiver um serviço Web que usa dados da camada de banco de dados e forne
 
 No exemplo a seguir, as linhas da tabela Sales.Customer são formatadas como JSON usando a cláusula FOR JSON:
 
-```
+```sql
 select CustomerName, PhoneNumber, FaxNumber
 from Sales.Customers
 FOR JSON PATH
@@ -38,7 +38,7 @@ FOR JSON PATH
 
 A cláusula FOR JSON PATH formata os resultados da consulta como texto JSON. Nomes de coluna são usados como chaves, enquanto os valores de célula são gerados como valores JSON:
 
-```
+```json
 [
 {"CustomerName":"Eric Torres","PhoneNumber":"(307) 555-0100","FaxNumber":"(307) 555-0101"},
 {"CustomerName":"Cosmina Vlad","PhoneNumber":"(505) 555-0100","FaxNumber":"(505) 555-0101"},
@@ -50,7 +50,7 @@ O conjunto de resultados é formatado como uma matriz JSON em que cada linha é 
 
 PATH indica que você pode personalizar o formato de saída do seu resultado JSON usando a notação de pontos de aliases de coluna. A consulta a seguir altera o nome da chave "CustomerName" no formato JSON de saída e coloca os números de telefone e fax no subobjeto "Contact":
 
-```
+```sql
 select CustomerName as Name, PhoneNumber as [Contact.Phone], FaxNumber as [Contact.Fax]
 from Sales.Customers
 where CustomerID = 931
@@ -59,7 +59,7 @@ FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 
 A saída dessa consulta tem o seguinte aspecto:
 
-```
+```json
 {
     "Name":"Nada Jovanovic",
     "Contact":{
@@ -73,7 +73,7 @@ Neste exemplo é retornado um único objeto JSON em vez de uma matriz, especific
 
 O principal valor da cláusula FOR JSON é que ela permite retornar dados hierárquicos complexos de seu banco de dados formatado como matrizes ou objetos JSON aninhados. O exemplo a seguir mostra como incluir as linhas da tabela `Orders` que pertencem ao `Customer` como uma matriz aninhada de `Orders`:
 
-```
+```sql
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
         Orders.OrderID, Orders.OrderDate, Orders.ExpectedDeliveryDate
 from Sales.Customers Customer
@@ -81,12 +81,11 @@ from Sales.Customers Customer
         on Customer.CustomerID = Orders.CustomerID
 where Customer.CustomerID = 931
 FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
-
 ```
 
 Em vez de enviar consultas separadas para obter dados do Cliente e, em seguida, para obter uma lista de Pedidos relacionados, você pode obter todos os dados necessários com uma única consulta, conforme mostrado na seguinte saída de exemplo:
 
-```
+```json
 {
   "Name":"Nada Jovanovic",
   "Phone":"(215) 555-0100",
@@ -95,7 +94,7 @@ Em vez de enviar consultas separadas para obter dados do Cliente e, em seguida, 
     {"OrderID":382,"OrderDate":"2013-01-07","ExpectedDeliveryDate":"2013-01-08"},
     {"OrderID":395,"OrderDate":"2013-01-07","ExpectedDeliveryDate":"2013-01-08"},
     {"OrderID":1657,"OrderDate":"2013-01-31","ExpectedDeliveryDate":"2013-02-01"}
-]
+  ]
 }
 ```
 
@@ -104,7 +103,7 @@ Se você não tiver dados estritamente estruturados, se tiver subobjetos, matriz
 
 JSON é um formato textual que pode ser usado como qualquer outro tipo de cadeia de caracteres no Banco de Dados SQL do Azure. Você pode enviar ou armazenar dados JSON como um NVARCHAR padrão:
 
-```
+```sql
 CREATE TABLE Products (
   Id int identity primary key,
   Title nvarchar(200),
@@ -120,7 +119,7 @@ END
 
 Os dados JSON usados neste exemplo são representados usando o tipo NVARCHAR(MAX). JSON pode ser inserido nessa tabela ou fornecido como um argumento de procedimento armazenado usando sintaxe Transact-SQL padrão, conforme mostrado no exemplo a seguir:
 
-```
+```sql
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
@@ -131,7 +130,7 @@ Se você tiver dados formatados como JSON armazenados em tabelas SQL do Azure, a
 
 As funções JSON que estão disponíveis no Banco de Dados SQL do Azure permitem que você trate os dados formatados como JSON como qualquer outro tipo de dados do SQL. Você pode facilmente extrair valores de texto JSON e usar dados JSON em qualquer consulta:
 
-```
+```sql
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')
 from Products
 where JSON_VALUE(Data, '$.Color') = 'White'
@@ -149,7 +148,7 @@ A função JSON_MODIFY permite especificar o caminho do valor em texto JSON que 
 
 Como JSON é armazenado em um texto padrão, não há nenhuma garantia de que os valores armazenados em colunas de texto estão formatados corretamente. Você pode verificar se o texto armazenado na coluna do JSON está formatado corretamente usando restrições de verificação padrão do Banco de Dados SQL do Azure e a função ISJSON:
 
-```
+```sql
 ALTER TABLE Products
     ADD CONSTRAINT [Data should be formatted as JSON]
         CHECK (ISJSON(Data) > 0)
@@ -168,7 +167,7 @@ No exemplo acima, podemos especificar onde localizar a matriz JSON que deve ser 
 
 Podemos transformar uma matriz JSON na variável @orders em um conjunto de linhas, analisar o conjunto de resultados ou inserir linhas em uma tabela padrão:
 
-```
+```sql
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))
 AS BEGIN
 
@@ -181,9 +180,9 @@ AS BEGIN
             Customer varchar(200),
             Quantity int
      )
-
 END
 ```
+
 A coleção de pedidos formatada como uma matriz JSON e fornecida como um parâmetro para o procedimento armazenado pode ser analisada e inserida na tabela Pedidos.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -8,12 +8,12 @@ ms.author: spelluru
 ms.date: 03/31/2020
 ms.topic: article
 ms.service: event-hubs
-ms.openlocfilehash: d90bf8efab28624672dcedb5bf53d45052dd9123
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: b4d9dc51451a06b2c87ddce78547655b51c6fabd
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605122"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729635"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Guia de desenvolvedores Apache Kafka para Azure Event Hubs
 Este artigo fornece links para artigos que descrevem como integrar seus aplicativos Apache Kafka com o Azure Event Hubs. 
@@ -21,7 +21,7 @@ Este artigo fornece links para artigos que descrevem como integrar seus aplicati
 ## <a name="overview"></a>Visão geral
 Os Hubs de Eventos fornecem um ponto de extremidade Kafka que pode ser usado por seus aplicativos baseados em Kafka existentes como uma alternativa para executar seu próprio cluster Kafka. Os Hubs de Eventos dão suporte ao protocolo 1.0 e posterior do Apache Kafka e funciona com aplicativos existentes do Kafka, incluindo o MirrorMaker. Para obter mais informações, consulte [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
-## <a name="quickstarts"></a>Inícios rápidos
+## <a name="quickstarts"></a>Guias de Início Rápido
 Você pode encontrar quickstarts no GitHub e neste conjunto de conteúdo que ajuda você a aumentar rapidamente em Event Hubs for Kafka.
 
 ### <a name="quickstarts-in-github"></a>Quickstarts no GitHub
@@ -39,7 +39,7 @@ Veja as seguintes partidas rápidas no **azure-event-hubs-for-kafka** repo:
 | [Kafkacat](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/kafkacat) | Kafkacat é um consumidor e produtor não-JVM baseado em librdkafka, popular devido à sua velocidade e pequena pegada. Este quickstart contém uma configuração de amostra e vários comandos kafkacat de amostra simples. | 
  
 ### <a name="quickstarts-in-docs"></a>Quickstarts em DOCS
-Veja o quickstart: [Fluxo de dados com hubs de eventos usando o protocolo Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md) neste conjunto de conteúdo, que fornece instruções passo a passo sobre como transmitir em Hubs de Eventos. Você aprende a usar seus produtores e consumidores para conversar com o Event Hubs com apenas uma mudança de configuração em seus aplicativos. 
+Veja o quickstart: [Fluxo de dados com hubs de eventos usando o protocolo Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md) neste conjunto de conteúdo, que fornece instruções passo a passo sobre como transmitir em Hubs de Eventos. Você aprenderá a usar seus produtores e os consumidores para se comunicar com os Hubs de Eventos com apenas uma alteração de configuração nos seus aplicativos. 
 
 
 ## <a name="tutorials"></a>Tutoriais 
@@ -58,7 +58,7 @@ Veja os tutoriais a seguir no GitHub:
 | [Logstash](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/logstash) | Este tutorial irá levá-lo através da integração logstash com hubs de eventos habilitados para Kafka usando plugins de entrada/saída Logstash Kafka. | 
 | [Criador de espelhos](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker) | Este tutorial mostra como um hub de eventos e o Kafka MirrorMaker podem integrar um pipeline Kafka existente no Azure, espelhando o fluxo de entrada Kafka no serviço Event Hubs. |
 | [NiFi](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/nifi) | Este tutorial mostrará como conectar o Apache NiFi a um namespace do Event Hubs. | 
-| [OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth) | Os quickstarts mostram como criar e conectar-se a um ponto final do Event Hubs Kafka usando um exemplo de produtor e consumidor escrito em linguagens de programação Go e Java. |
+| [Oauth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth) | Os quickstarts mostram como criar e conectar-se a um ponto final do Event Hubs Kafka usando um exemplo de produtor e consumidor escrito em linguagens de programação Go e Java. |
 | [Registro de Esquemade Confluente](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/schema-registry) | Este tutorial irá levá-lo através da integração de Schema Registry e Event Hubs for Kafka. | 
 | [Spark](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/spark) | Este tutorial mostrará como conectar seu aplicativo Spark a um hub de eventos sem alterar seus clientes de protocolo ou executar seus próprios clusters Kafka. | 
 
@@ -75,7 +75,7 @@ Veja os seguintes guias de como fazer em nossa documentação:
 | [Conectar o Apache Flink a um hub de eventos](event-hubs-kafka-flink-tutorial.md) | Mostra como conectar o Apache Flink a um hub de eventos sem alterar seus clientes de protocolo ou executar seus próprios clusters. |
 | [Integre o Apache Kafka Connect com um hub de eventos (Preview)](event-hubs-kafka-connect-tutorial.md) | Orienta você a integrar o Kafka Connect com um hub de eventos e implantar conectores básicos fileStreamSource e FileStreamSink. |
 | [Conectar o Akka Streams a um hub de eventos](event-hubs-kafka-akka-streams-tutorial.md) | Mostra como conectar a Akka Streams a um hub de eventos sem alterar seus clientes de protocolo ou executar seus próprios clusters. |
-| [Use o Starter de bota de mola para Apache Kafka com hubs de eventos azure](/azure/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub) | Demonstra como configurar um Spring Cloud Stream Binder baseado em Java criado com o Iniciador de Inicialização de Inicialização de Inicialização de Mola para usar o Apache Kafka com hubs de eventos Azure. |
+| [Use o Starter de bota de mola para Apache Kafka com hubs de eventos azure](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub) | Demonstra como configurar um Spring Cloud Stream Binder baseado em Java criado com o Iniciador de Inicialização de Inicialização de Inicialização de Mola para usar o Apache Kafka com hubs de eventos Azure. |
 
 ## <a name="next-steps"></a>Próximas etapas
 Revise amostras no repo do GitHub [azure-event-hubs-for-kafka](https://github.com/Azure/azure-event-hubs-for-kafka) em pastas quickstart e tutoriais.

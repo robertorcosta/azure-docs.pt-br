@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: dea0f9a038958ea747147a179020545f2f6922a2
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/17/2020
+ms.openlocfilehash: 18099e853aa44e4434a14d7ea913f968593021ec
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605335"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687909"
 ---
 # <a name="monitor-data-flows"></a>Monitorar Fluxo de Dados
 
@@ -32,6 +32,10 @@ Você verá estatísticas neste nível, incluindo os tempos de execução e stat
 Quando você estiver na exibição de monitoramento de nós de gráfico, uma versão somente exibição simplificada do grafo do fluxo de dados será exibida.
 
 ![Monitoramento do fluxo de dados](media/data-flow/mon003.png "Monitoramento de fluxo de dados")
+
+Aqui está uma visão geral do vídeo do desempenho de monitoramento de seus fluxos de dados a partir da tela de monitoramento do ADF:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4u4mH]
 
 ## <a name="view-data-flow-execution-plans"></a>Exibir Planos de Execução do Fluxo de Dados
 

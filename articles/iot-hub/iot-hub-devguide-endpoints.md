@@ -8,12 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: da6d17e42407048b7ecbcacade67ef48046d7fe1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 53660ad93ab2218d546ae6f363873c4d66872e2b
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284636"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730302"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos de extremidade do Hub IoT
 
@@ -102,6 +105,6 @@ Você pode usar o [Azure IoT Edge](/azure/iot-edge/) para implementar um gateway
 Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
 
 * [Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens](iot-hub-devguide-query-language.md)
-* [Cotas e estrangulamento](iot-hub-devguide-quotas-throttling.md)
+* [Cotas e limitação](iot-hub-devguide-quotas-throttling.md)
 * [Suporte ao MQTT do Hub IoT](iot-hub-mqtt-support.md)
 * [Entenda seu endereço IP do hub de IoT](iot-hub-understand-ip-address.md)

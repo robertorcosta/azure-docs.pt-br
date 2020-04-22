@@ -3,12 +3,13 @@ title: Monitorar desempenho dos serviços de aplicativos do Azure | Microsoft Do
 description: Monitoramento do desempenho de aplicativos para serviços de aplicativos do Azure. Mapeie o tempo de carga e o tempo de resposta, as informações de dependência e defina alertas sobre o desempenho.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d2134e059a446c18108e8dd16bcc74504b42b15a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom: fasttrack-edit
+ms.openlocfilehash: dd0d3be6ed7e5185183618cc2bdeff5ee8d749f3
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437162"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729800"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
@@ -55,15 +56,16 @@ Existem duas maneiras de habilitar o monitoramento de aplicativos para aplicativ
 2. Depois de especificar qual recurso usar, você pode escolher como deseja que o Application Insights colete dados por plataforma para seu aplicativo. ASP.NET monitoramento de aplicativos está on-default com dois níveis diferentes de coleta.
 
     ![Escolha as opções por plataforma](./media/azure-web-apps/choose-options-new.png)
-
-   * O nível **de coleta básico** .NET oferece recursos APM essenciais de instância única.
-
-   * O nível **Coleção recomendada** do .NET:
-       * Adiciona as tendências de uso de CPU, memória e E/S.
-       * Correlaciona microsserviços entre limites de solicitação/dependência.
-       * Coleta as tendências de uso e permite a correlação entre resultados de disponibilidade e transações.
-       * Coleta as exceções não tratadas pelo processo de host.
-       * Aumenta a precisão de métricas de APM com carga quando a amostragem é usada.
+ 
+ Abaixo está um resumo dos dados coletados para cada rota:
+        
+|  | .NET Coleção Básica | .NET Coleta recomendada |
+| --- | --- | --- |
+| Adiciona as tendências de uso de CPU, memória e E/S |Sim |Sim |
+| Coleta as tendências de uso e permite a correlação entre resultados de disponibilidade e transações | Sim |Sim |
+| Coleta as exceções não tratadas pelo processo de host | Sim |Sim |
+| Aumenta a precisão de métricas de APM com carga quando a amostragem é usada | Sim |Sim |
+| Correlaciona microsserviços entre limites de solicitação/dependência | Não (somente recursos APM de instância única) |Sim |
 
 3. Para configurar configurações como amostragem, que você pode controlar anteriormente através do arquivo applicationinsights.config, agora você pode interagir com essas mesmas configurações através de configurações de aplicativo com um prefixo correspondente. 
 

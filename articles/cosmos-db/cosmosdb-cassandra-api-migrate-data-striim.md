@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: af99f369245d6006d0d4784e572020b820e406a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50028e81c4ca130aa3266c164a431dc935a271cb
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71266050"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730034"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrar dados para a conta API Azure Cosmos DB Cassandra usando striim
 
@@ -22,13 +22,13 @@ Este artigo mostra como usar o Striim para migrar dados de um banco de **dados O
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se você não tiver uma [assinatura do Azure,](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+* Se você não tiver uma [assinatura do Azure](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
 * Um banco de dados Oracle executando no local com alguns dados nele.
 
 ## <a name="deploy-the-striim-marketplace-solution"></a>Implantar a solução de mercado Striim
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Criar um recurso** e procurar por **Striim** no mercado Azure. Selecione a primeira opção e **Crie**.
 
@@ -155,7 +155,7 @@ Nesta seção, você configurará a conta Api Azure Cosmos DB Cassandra como o a
 
    ![Conectar-se ao destino](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. Antes de configurar o alvo, certifique-se de ter adicionado um [certificado de raiz de Baltimore ao ambiente Java da Striim](/azure/java/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store).
+1. Antes de configurar o alvo, certifique-se de ter adicionado um [certificado de raiz de Baltimore ao ambiente Java da Striim](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store).
 
 1. Digite as propriedades de configuração da instância DB do Azure Cosmos e selecione **Salvar** para continuar. Aqui estão os principais parâmetros a serem observados:
 

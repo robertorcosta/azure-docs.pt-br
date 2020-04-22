@@ -8,12 +8,15 @@ ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c184972789c412406f264f725f8b94e1f7f162ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: ef31bd74c73aa081c32031b71392f69a1ca14f75
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284896"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730903"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Reconhecer o runtime do Azure IoT Edge e sua arquitetura
 
@@ -48,7 +51,7 @@ Para reduzir a largura de banda que sua solução IoT Edge usa, o hub IoT Edge o
 
 ![O hub do IoT Edge é um gateway entre os dispositivos físicos e o Hub IoT](./media/iot-edge-runtime/Gateway.png)
 
-O hub do IoT Edge pode determinar se ele está conectado ao Hub IoT. Se a conexão for perdida, o hub do IoT Edge salvará mensagens ou as atualizações duplicadas localmente. Depois que uma conexão é restabelecida, ela sincroniza todos os dados. A localização usada para esse cache temporário é determinado por uma propriedade do gêmeo do módulo do hub do IoT Edge. O tamanho do cache não tem limite e aumentará até atingir toda a capacidade de armazenamento do dispositivo.Para obter mais informações, consulte [recursos offline](offline-capabilities.md).
+O hub do IoT Edge pode determinar se ele está conectado ao Hub IoT. Se a conexão for perdida, o hub do IoT Edge salvará mensagens ou as atualizações duplicadas localmente. Depois que uma conexão é restabelecida, ela sincroniza todos os dados. O local usado para este cache temporário é determinado por uma propriedade do módulo gêmeo do hub IoT Edge. O tamanho do cache não tem limite e aumentará até atingir toda a capacidade de armazenamento do dispositivo.Para obter mais informações, consulte [recursos offline](offline-capabilities.md).
 
 ### <a name="module-communication"></a>Comunicação do módulo
 
@@ -82,7 +85,7 @@ O agente do IoT Edge é o outro módulo que compõe o runtime do Azure IoT Edge.
 
 O [daemon de segurança do IoT Edge](iot-edge-security-manager.md) inicia o agente do IoT Edge na inicialização do dispositivo. O agente recupera seu módulo gêmeo do Hub IoT e inspeciona o manifesto de implantação. O manifesto de implantação é um arquivo JSON que declara os módulos que precisam ser iniciados.
 
-Cada item no manifesto de implantação contém informações específicas sobre um módulo e é usado pelo agente o IoT Edge para controlar o ciclo de vida do módulo. Estas são algumas das propriedades mais interessantes:
+Cada item no manifesto de implantação contém informações específicas sobre um módulo e é usado pelo agente IoT Edge para controlar o ciclo de vida do módulo. Estas são algumas das propriedades mais interessantes:
 
 * **Settings.Image**: a imagem de contêiner que o agente do IoT Edge usa para iniciar o módulo. O agente do IoT Edge deverá ser configurado com as credenciais para o registro de contêiner se a imagem estiver protegida por senha. As credenciais para o registro de contêiner pode ser configurado remotamente usando o manifesto de implantação ou no próprio dispositivo IoT Edge atualizando o `config.yaml` arquivo na pasta de programa do IoT Edge.
 * **configurações.createOptions** – Uma string que é passada diretamente para o daemon do contêiner Moby ao iniciar o contêiner de um módulo. A adição de opções nesta propriedade permite configurações avançadas, como encaminhamento de portas ou volumes de montagem no contêiner de um módulo.  
@@ -119,10 +122,10 @@ Para obter mais informações, consulte [Saiba como implantar módulos e estabel
 
 ### <a name="security"></a>Segurança
 
-O agente do IoT Edge desempenha um papel fundamental na segurança de um dispositivo IoT Edge. Por exemplo, ele executa ações como verificar a imagem de um módulo antes de iniciá-lo.
+O agente do IoT Edge desempenha um papel fundamental na segurança de um dispositivo IoT Edge. Por exemplo, ele executa ações como verificar a imagem de um módulo antes de insuanite.
 
 Para obter mais informações sobre a estrutura de segurança do Azure IoT Edge, leia sobre o [gerenciador de segurança IoT Edge](iot-edge-security-manager.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Entender os módulos do Azure IoT Edge](iot-edge-modules.md)
+[Entenda os módulos do Azure IoT Edge](iot-edge-modules.md)

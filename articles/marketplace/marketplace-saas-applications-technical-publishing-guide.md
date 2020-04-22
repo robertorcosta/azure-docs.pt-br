@@ -1,19 +1,19 @@
 ---
-title: Guia de Publicação Técnica de Aplicativos SaaS do Azure Marketplace
+title: Guia de publicação de aplicativos do Azure Marketplace SaaS
 description: Guia passo a passo e listas de verificação de publicação para publicação de aplicativos SaaS no Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-author: keithcharlie
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: kevidal
-ms.openlocfilehash: 641297ea74a08dea163cf768b8e9b245348824a4
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.author: dsindona
+ms.openlocfilehash: 1bc2feb4d8f3f103802bd823c66cd3f54ac5d74a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544290"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687549"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de Publicação da Oferta de Aplicativos SaaS
 
@@ -110,8 +110,8 @@ Certifique sua integração azure AD de algumas maneiras diferentes, dependendo 
 **Para aplicativos multilocatários:**  
 
 Se você já dá suporte ao Azure AD, faça o seguinte:
-1.  Registre seu aplicativo no Portal do Azure
-2.  Habilite o recurso de suporte multilocatário no Azure AD para obter uma experiência de avaliação com um clique. Encontre mais informações específicas [aqui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+1.    Registre seu aplicativo no Portal do Azure
+2.    Habilite o recurso de suporte multilocatário no Azure AD para obter uma experiência de avaliação com um clique. Encontre mais informações específicas [aqui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 Se você é novo no SSO Federado do Azure AD, faça o seguinte: 
 1.  Registre seu aplicativo no Portal do Azure
@@ -144,9 +144,9 @@ A Microsoft hospeda a transação comercial. A Microsoft cobra o cliente em seu 
 ## <a name="next-steps"></a>Próximas etapas
 Caso ainda não tenha feito isso,
 
-- [Registre-se](https://azuremarketplace.microsoft.com/sell) no Marketplace.
+* [Conheça](https://azuremarketplace.microsoft.com/sell) o mercado.
 
-Se você estiver registrado e estiver criando uma nova oferta ou trabalhando em uma existente,
+Para se registrar no Partner Center, comece a criar uma nova oferta ou trabalhar em uma já existente:
 
-- [Entre no Portal do Cloud Partner](https://cloudpartner.azure.com) para criar ou concluir a oferta.
-- Consulte [Oferta de aplicativo SaaS do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) para obter mais informações.
+* [Faça login no Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou concluir sua oferta.
+* Consulte [criar uma oferta de aplicativo SaaS](./partner-center-portal/create-new-saas-offer.md) para obter mais informações.

@@ -2,13 +2,13 @@
 title: Estrutura do modelo e sintaxe
 description: Descreve a estrutura e as propriedades dos modelos do Azure Resource Manager usando a sintaxe JSON declarativa.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 4e8334e4ddfaee52c5d1aa68fb8689fcde0a6cbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 60d800eb5251fb3454ba60a67bd109261c6ff9d4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79459983"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687875"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Entenda a estrutura e a sintaxe dos modelos ARM
 
@@ -276,7 +276,7 @@ O exemplo a seguir mostra a estrutura de uma definição de saída:
 |:--- |:--- |:--- |
 | nome de saída |Sim |Nome do valor de saída. Deve ser um identificador JavaScript válido. |
 | condition |Não | Valor booliano que indica se esse valor de saída é retornado. Quando `true`, o valor é incluído na saída para a implantação. Quando `false`, o valor de saída é ignorado para esta implantação. Quando não especificado, o valor padrão é `true`. |
-| type |Sim |Tipo do valor de saída. Valores de saída oferecem suporte aos mesmos tipos que os parâmetros de entrada do modelo. Se você especificar **a string segura** para o tipo de saída, o valor não será exibido no histórico de implantações e não poderá ser recuperado de outro modelo. Para usar um valor secreto em mais de um modelo, armazene o segredo em um Key Vault e faça referência ao segredo no arquivo parâmetro. Para obter mais informações, consulte [Use Azure Key Vault para passar o valor do parâmetro seguro durante a implantação](key-vault-parameter.md). |
+| type |Sim |Tipo do valor de saída. Valores de saída oferecem suporte aos mesmos tipos que os parâmetros de entrada do modelo. Se você especificar **a string segura** para o tipo de saída, o valor não será exibido no histórico de implantações e não poderá ser recuperado de outro modelo. Para usar um valor secreto em mais de um modelo, armazene o segredo em um Key Vault e faça referência ao segredo no arquivo parâmetro. Para saber mais, confira [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](key-vault-parameter.md). |
 | value |Não |Expressão de linguagem do modelo avaliada e retornada como valor de saída. Especifique **o valor** ou **a cópia**. |
 | copy |Não | Usado para devolver mais de um valor para uma saída. Especificar **valor** ou **cópia**. Para obter mais informações, consulte [iteração de saída nos modelos do Azure Resource Manager](copy-outputs.md). |
 
@@ -293,7 +293,7 @@ Você tem algumas opções para adicionar comentários e metadados ao seu modelo
 Para comentários inline, você `//` `/* ... */` pode usar qualquer um ou mas esta sintaxe não funciona com todas as ferramentas. Você não pode usar o editor de modelos de portal para trabalhar em modelos com comentários inline. Se você adicionar esse estilo de comentário, verifique se as ferramentas que você usa apoiam comentários JSON embutidos.
 
 > [!NOTE]
-> Para implantar modelos com comentários usando o Azure CLI, você deve usar o `--handle-extended-json-format` switch.
+> Para implantar modelos com comentários usando o Azure CLI com a versão `--handle-extended-json-format` 2.3.0 ou mais antiga, você deve usar o switch.
 
 ```json
 {
@@ -404,7 +404,7 @@ Você pode quebrar uma seqüência em várias linhas. Por exemplo, veja a propri
   ],
 ```
 
-Para implantar modelos com strings multi-linha usando o Azure CLI, você deve usar o `--handle-extended-json-format` switch.
+Para implantar modelos com strings multi-linha usando o Azure CLI com a `--handle-extended-json-format` versão 2.3.0 ou mais antiga, você deve usar o switch.
 
 ## <a name="next-steps"></a>Próximas etapas
 

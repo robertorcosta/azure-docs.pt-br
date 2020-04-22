@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/27/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6aea537ebff4ae61e00861e6cafe742a7feb165e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cac7e6feb632456b63b97ead057f9ecaf49322ea
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186770"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729711"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformações de declarações StringCollection
 
@@ -159,4 +159,38 @@ O exemplo a `roles` seguir verifica se o tipo de reclamação stringCollection c
 - Declarações de saída:
     - **saídaReclamação:**"verdadeiro"
 
+## <a name="stringcollectioncontainsclaim"></a>StringCollectioncontémdereclamação
 
+Verifica se um tipo de reclamação stringcollection contém um valor de reclamação.
+
+| Item | TransformationClaimType | Tipo de Dados | Observações |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | collection | stringCollection | O tipo de sinistro que deve ser pesquisado. |
+| InputClaim | item|string| O tipo de solicitação que contém o valor a ser pesquisado.|
+|InputParameter|ignoreCase|string|Especifica se essa comparação deve ignorar maiúsculas e minúsculas das cadeias de caracteres que estão sendo comparadas.|
+| OutputClaim | outputClaim | booleano | O ClaimType produzido depois de invocar esta ClaimsTransformation. Um indicador booleano se a coleção contém tal string |
+
+O exemplo a `roles` seguir verifica se o `role` tipo de reclamação stringCollection contém o valor do tipo de solicitação.
+
+```XML
+<ClaimsTransformation Id="HasRequiredRole" TransformationMethod="StringCollectionContainsClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="collection" />
+    <InputClaim ClaimTypeReferenceId="role" TransformationClaimType="item" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="hasAccess" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation> 
+```
+
+- Declarações de entrada:
+    - **coleção**: ["leitor", "autor", "admin"]
+    - **item**: "Admin"
+- Parâmetros de entrada:
+    - **ignorarCase**: "verdadeiro"
+- Declarações de saída:
+    - **saídaReclamação:**"verdadeiro"
