@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 9fbf55fbe16d958bf10541894159dade26668bef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cb83a87f2e96eb62696e5d92095ef2b8d7c7def
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336718"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677333"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do aparelho E discovery do Azure Migrate
 
@@ -41,6 +41,15 @@ Isso pode acontecer se a máquina do aparelho estiver atrás de um proxy.
 - Certifique-se de fornecer as credenciais de autorização se o proxy precisar delas.
 - Se você estiver usando um proxy de firewall baseado em URL para controlar a conectividade de saída, adicione [essas URLs](migrate-appliance.md#url-access) a uma lista de permitir.
 - Se você estiver usando um proxy de interceptação para se conectar à internet, importe o certificado proxy para a VM do aparelho usando [essas etapas](https://docs.microsoft.com/azure/migrate/concepts-collector).
+
+## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Não é possível entrar no Azure a partir do aplicativo web do aparelho
+
+O erro "Desculpe, mas estamos tendo problemas para inscrevê-lo" aparece se você estiver usando a conta incorreta do Azure para entrar no Azure. Este erro ocorre por algumas razões:
+
+- Se você entrar no aplicativo web do aparelho para a nuvem pública, usando credenciais de conta de usuário para o portal de nuvem do Governo.
+- Se você entrar no aplicativo web do aparelho para a nuvem do governo usando credenciais de conta de usuário para o portal privado em nuvem.
+
+Certifique-se de que está usando as credenciais corretas.
 
 ##  <a name="datetime-synchronization-error"></a>Erro de sincronização de data/hora
 

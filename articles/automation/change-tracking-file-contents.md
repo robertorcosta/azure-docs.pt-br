@@ -1,16 +1,16 @@
 ---
 title: Exibir alterações de conteúdo do arquivo com a Automação do Azure
-description: Use o recurso de alteração de conteúdo do arquivo do Controle de Alterações para exibir o conteúdo de um arquivo que foi alterado.
+description: Use o recurso de alteração de conteúdo do arquivo do Alterar rastreamento para exibir o conteúdo de um arquivo que foi alterado.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 23c4f24e430d58895eb551c3e2cb62b5f0003ac0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57c3c2c7a0c923921c727ccea7839940457bc1ee
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75418822"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682990"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Exibir o conteúdo de um arquivo que está sendo controlado com o Controle de Alterações
 
@@ -20,9 +20,9 @@ O controle de conteúdo do arquivo permite que você exiba o conteúdo de um arq
 
 * Uma conta de armazenamento Standard usando o modelo de implantação do Resource Manager é necessária para armazenar o conteúdo do arquivo. As contas de armazenamento do modelo de implantação Premium e Clássico não devem ser usadas. Para obter mais informações sobre contas de armazenamento, consulte [Contas de armazenamento sobre o Azure](../storage/common/storage-create-storage-account.md)
 
-* A conta de armazenamento usada só pode ter uma única Conta de Automação conectada.
+* A conta de armazenamento usada só pode ter 1 conta de automação conectada.
 
-* O [Controle de Alterações](automation-change-tracking.md) é habilitado na sua Conta de Automação.
+* [O rastreamento de](automation-change-tracking.md) alterações está ativado em sua conta de Automação.
 
 ## <a name="enable-file-content-tracking"></a>Habilitar o controle de conteúdo do arquivo
 
@@ -44,19 +44,19 @@ O controle de conteúdo do arquivo permite que você exiba o conteúdo de um arq
 
 As etapas a seguir mostram como habilitar o Controle de Alterações para um arquivo:
 
-1. Na página **Editar configurações** do **Controle de Alterações**, selecione a guia **Arquivos do Windows** ou **Arquivos do Linux** e, em seguida, clique em **Adicionar**
+1. Na página Editar configurações de rastreamento de **alterações,** selecione os **arquivos do Windows** ou a guia Arquivos **Linux** e clique em **Adicionar**
 
-1. Preencha as informações de caminho do arquivo e selecione **Verdadeiro** em **Carregar conteúdo do arquivo para todas as configurações**. Essa configuração habilita o controle de conteúdo do arquivo somente para esse caminho de arquivo.
+1. Preencha as informações de caminho do arquivo e selecione Verdadeiro em **Carregar conteúdo do arquivo para todas as configurações**. Essa configuração habilita o controle de conteúdo do arquivo somente para esse caminho de arquivo.
 
    ![Adicionar um arquivo do linux](./media/change-tracking-file-contents/add-linux-file.png)
 
 ## <a name="viewing-the-contents-of-a-tracked-file"></a>Exibindo o conteúdo de um arquivo controlado
 
-1. Quando uma alteração é detectada para o arquivo ou para um arquivo no caminho, ela é mostrada no portal. Selecione a alteração de arquivo na lista de alterações. O painel **Detalhes da alteração** é exibido.
+1. Quando uma alteração é detectada para o arquivo ou para um arquivo no caminho, ela é mostrada no portal. Selecione a alteração de arquivo na lista de alterações. O painel Detalhes da alteração é exibido.
 
    ![listar alterações](./media/change-tracking-file-contents/change-list.png)
 
-1. Na página **Detalhes da alteração**, veja as informações padrão anteriores e posteriores do arquivo no canto superior esquerdo, clique em **Exibir alterações de conteúdo do arquivo** para ver o conteúdo do arquivo.
+1. No painel De detalhes alterar, você verá o padrão antes e depois das informações do arquivo. Selecione **Exibir alterações de conteúdo do arquivo** para ver o conteúdo do arquivo.
 
    ![detalhes da alteração](./media/change-tracking-file-contents/change-details.png)
 

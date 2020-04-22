@@ -8,17 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: e80b03f696a78887676e9f16750055a4dcfac230
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 641d7410e414be2adae2a83840c90a680aedd2fc
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60755164"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683346"
 ---
 # <a name="azure-data-box-gateway-limits"></a>Limites do Gateway da caixa de dados do Azure
 
 Considere esses limites ao implantar e operar sua solução do Microsoft Azure Data Box Gateway. 
-
 
 ## <a name="data-box-gateway-service-limits"></a>Limites do serviço do Data Box Gateway
 
@@ -30,7 +29,7 @@ A tabela a seguir descreve esses limites para o dispositivo do Data Box Gateway.
 
 | Descrição | Valor |
 |---|---|
-|Não. de arquivos por dispositivo |100 milhões <br> O limite é aproximadamente 25 milhões de arquivos para cada 2 TB de espaço em disco com o limite máximo em 100 milhões |
+|Não. de arquivos por dispositivo |100 milhões <br> Para cada 25 milhões de arquivos que estão sendo adicionados (com limite máximo de 100 milhões), você deve adicionar 2 TB de espaço em disco, 8 GB de RAM e 4 núcleos de CPU. |
 |Não. de compartilhamentos por dispositivo |24 |
 |Não. de compartilhamentos por contêiner de armazenamento do Azure |1 |
 |Tamanho máximo do arquivo gravado em um compartilhamento|Para um dispositivo virtual de 2 TB, o tamanho máximo do arquivo é de 500 GB. <br> O tamanho máximo do arquivo aumenta com o tamanho do disco de dados na proporção anterior até atingir um máximo de 5 TB. |

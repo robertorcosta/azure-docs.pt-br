@@ -4,17 +4,17 @@ description: Reidrate suas bolhas do armazenamento de arquivos para que você po
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/14/2019
+ms.date: 04/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 0a7012d9daa808933a51ac05862a8a9aa4cfcf77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82ea4ad23e3207f5641ade196f69595cd1e7b323
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77614794"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684084"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Reidratar dados blob do nível de arquivo
 
@@ -31,15 +31,21 @@ Enquanto uma bolha está no nível de acesso ao arquivo, ela é considerada offl
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copiar um blob arquivado para uma camada online
 
-Se você não quiser reidratar sua bolha de arquivo, você pode optar por fazer uma operação [Copy Blob.](https://docs.microsoft.com/rest/api/storageservices/copy-blob) Sua bolha original permanecerá não modificada no arquivo enquanto uma nova bolha é criada no nível quente ou legal on-line para você trabalhar. Na operação Copiar Blob, você também pode definir a propriedade opcional *x-ms-reidrat-priority* para Padrão ou Alto (visualização) para especificar a prioridade na qual deseja que sua cópia blob seja criada.
-
-Os blobs de arquivamento só podem ser copiados para níveis de destino on-line dentro da mesma conta de armazenamento. A cópia de uma bolha de arquivo para outra bolha de arquivo não é suportada.
+Se você não quiser reidratar sua bolha de arquivo, você pode optar por fazer uma operação [Copy Blob.](https://docs.microsoft.com/rest/api/storageservices/copy-blob) Sua bolha original permanecerá não modificada no arquivo enquanto uma nova bolha é criada no nível quente ou legal on-line para você trabalhar. Na operação Copiar Blob, você também pode definir a propriedade *opcional x-ms-reidrat-priority* para Padrão ou Alto para especificar a prioridade na qual você deseja que sua cópia blob seja criada.
 
 Copiar uma bolha do arquivo pode levar horas para ser concluída, dependendo da prioridade de reidratar selecionada. Nos bastidores, a operação **Copy Blob** lê sua bolha de origem de arquivo para criar uma nova bolha on-line no nível de destino selecionado. A nova bolha pode ser visível quando você lista blobs, mas os dados não estão disponíveis até que a leitura da bolha do arquivo de origem esteja completa e os dados sejam gravados para a nova bolha de destino on-line. A nova bolha é como uma cópia independente e qualquer modificação ou exclusão a ela não afeta a bolha do arquivo de origem.
 
+Os blobs de arquivamento só podem ser copiados para níveis de destino on-line dentro da mesma conta de armazenamento. A cópia de uma bolha de arquivo para outra bolha de arquivo não é suportada. A tabela a seguir indica as capacidades do CopyBlob.
+
+|                                           | **Fonte de camada quente**   | **Fonte de camada legal** | **Fonte de camada de arquivamento**    |
+| ----------------------------------------- | --------------------- | -------------------- | ------------------- |
+| **Destino de nível quente**                  | Com suporte             | Com suporte            | Suportado dentro da mesma conta; pendente de reidratar               |
+| **Destino de nível legal**                 | Com suporte             | Com suporte            | Suportado dentro da mesma conta; pendente de reidratar               |
+| **Destino de nível de arquivamento**              | Com suporte             | Com suporte            | Sem suporte         |
+
 ## <a name="pricing-and-billing"></a>Preços e cobrança
 
-Reidratação de bolhas fora do arquivo em níveis quentes ou frios são carregadas como operações de leitura e recuperação de dados. O uso de alta prioridade (pré-visualização) tem custos de operação e recuperação de dados mais elevados em comparação com a prioridade padrão. Reidratação de alta prioridade aparece como um item de linha separado em sua conta. Se uma solicitação de alta prioridade para retornar uma bolha de arquivo de alguns gigabytes leva mais de 5 horas, você não será cobrado a taxa de recuperação de alta prioridade. No entanto, as taxas de recuperação padrão ainda se aplicam à medida que a reidratação foi priorizada em relação a outras solicitações.
+Reidratação de bolhas fora do arquivo em níveis quentes ou frios são carregadas como operações de leitura e recuperação de dados. O uso de alta prioridade tem custos de operação e recuperação de dados mais elevados em comparação com a prioridade padrão. Reidratação de alta prioridade aparece como um item de linha separado em sua conta. Se uma solicitação de alta prioridade para retornar uma bolha de arquivo de alguns gigabytes leva mais de 5 horas, você não será cobrado a taxa de recuperação de alta prioridade. No entanto, as taxas de recuperação padrão ainda se aplicam à medida que a reidratação foi priorizada em relação a outras solicitações.
 
 A cópia de bolhas de arquivo em camadas quentes ou frias é cobrada como operações de leitura e recuperação de dados. Uma operação de gravação é cobrada para a criação da nova cópia blob. As taxas de exclusão antecipadas não se aplicam quando você copia para uma bolha on-line porque a bolha de origem permanece não modificada no nível de arquivo. As taxas de recuperação de alta prioridade se aplicam se selecionadas.
 
@@ -52,7 +58,7 @@ Blobs no nível de arquivo devem ser armazenados por um mínimo de 180 dias. A e
 
 ### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>Reidrate uma bolha de arquivo para um nível on-line
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. No portal Azure, procure e selecione **Todos os Recursos**.
 
@@ -68,9 +74,10 @@ Blobs no nível de arquivo devem ser armazenados por um mínimo de 180 dias. A e
 
 1. Selecione **Salvar** na parte inferior.
 
-![Alterar o nível da conta de armazenamento](media/storage-tiers/blob-access-tier.png)
+![Alterar o](media/storage-tiers/blob-access-tier.png)
+![nível da conta de armazenamento Verifique o status de reidratar](media/storage-tiers/rehydrate-status.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 O script PowerShell a seguir pode ser usado para alterar o nível blob de uma bolha de arquivo. A `$rgName` variável deve ser inicializada com o nome do seu grupo de recursos. A `$accountName` variável deve ser inicializada com o nome da sua conta de armazenamento. A `$containerName` variável deve ser inicializada com o nome do recipiente. A `$blobName` variável deve ser inicializada com o seu nome blob. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names

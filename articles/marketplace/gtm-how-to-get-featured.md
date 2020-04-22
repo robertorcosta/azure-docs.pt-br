@@ -1,18 +1,18 @@
 ---
-title: Serviços Go-To-Market – como obter destaque no Marketplace | Azure
+title: Serviços Go-To-Market - Como se destacar no marketplace | Mercado Azure
 description: Serviços Go-To-Market – esta seção descreve como colocar uma listagem em destaque no Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 266070a6292e41af6ce1b4258774d20a9bd90312
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe18ca41942ff58b8d9eefef3122c90980029766
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286278"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684612"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Como obter destaque no AppSource e no Azure Marketplace
 
@@ -38,7 +38,7 @@ Você pode realizar as seguintes ações para melhorar sua pontuação:
 Promoções de aplicativos em destaque operam de forma separada do algoritmo de pesquisa.
 
 >[!Note]
->Se a solução não está aparecendo corretamente nos resultados da pesquisa, registre um tíquete de suporte por meio do menu Ajuda no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
+>Se a sua solução não estiver aparecendo corretamente nos resultados da pesquisa, arquive um bilhete de suporte através do menu Ajuda na [Central de Parceiros](https://partner.microsoft.com/).
 
 O suporte GTM também inclui uma biblioteca completa de modelos de autoajuda, conteúdo da Web, treinamento e ferramentas para ajudá-lo a promover ainda mais seu negócio e suas listagens.
 
@@ -46,6 +46,6 @@ O suporte GTM também inclui uma biblioteca completa de modelos de autoajuda, co
 
 Saiba mais sobre os [benefícios do seu mercado comercial.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)
 
-Faça logon no [Portal do Cloud Partner](https://cloudpartner.azure.com) para criar e configurar a oferta.
+Faça login no [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar e configurar sua oferta.
 
 ---

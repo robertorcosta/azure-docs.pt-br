@@ -6,15 +6,17 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom:
+- mvc
+- amqp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: bc08cd5183bcaac6cb77ccb0938b07893f082862
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c49745b30d2c4acc115a72af095f3e941dc4d509
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250221"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683999"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializar a telemetria usando Buffers de Protocolo
 
@@ -174,7 +176,7 @@ Quando você tiver um arquivo **proto**, a próxima etapa será gerar as classes
 
 1. [Baixe o compilador Protobuf do GitHub](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)
 
-1. Execute o compilador, especificando o diretório de origem, o diretório de destino e o nome do seu arquivo **proto**. Por exemplo: 
+1. Execute o compilador, especificando o diretório de origem, o diretório de destino e o nome do seu arquivo **proto**. Por exemplo:
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -204,9 +206,9 @@ Abra o **arquivo WebService\appsettings.ini** e modifique as configurações da 
 
 #### <a name="configure-the-solution-to-include-your-new-device-model-files"></a>Configurar a solução para incluir seus novos arquivos de modelo do dispositivo
 
-Por padrão, os arquivos JSON e JS de seu novo modelo de dispositivo não serão copiados para a solução criada. Você precisa incluí-los explicitamente.
+Por padrão, os novos arquivos JSON e JS do modelo do dispositivo não serão copiados para a solução incorporada. Você precisa incluí-los explicitamente.
 
-Adicione uma entrada para o arquivo **services\services.csproj** para cada arquivo que você quer incluir. Por exemplo: 
+Adicione uma entrada para o arquivo **services\services.csproj** para cada arquivo que você quer incluir. Por exemplo:
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -265,7 +267,7 @@ Para configurar e executar a simulação:
 
 Para parar a simulação, selecione a solicitação **Parar a simulação** no Postman e clique em **Enviar**.
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Você pode parar os dois microsserviços em execução local em suas instâncias do Visual Studio Code (**Depurar \> Parar Depuração**).
 

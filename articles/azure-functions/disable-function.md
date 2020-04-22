@@ -3,12 +3,12 @@ title: Como desabilitar funções no Azure Functions
 description: Saiba como desativar e ativar funções em Funções Azure.
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: fb8edf635856078655b8640ba0e1723fdd5e8a5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11585e92e7d239731b02d06c5093f979cd65cfba
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116154"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686893"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Como desabilitar funções no Azure Functions
 
@@ -42,6 +42,9 @@ az functionapp config appsettings set --name <myFunctionApp> \
 Você também pode usar o interruptor **Estado de função** na guia **Gerenciar** da função. O switch funciona criando e `AzureWebJobs.<FUNCTION_NAME>.Disabled` excluindo a configuração do aplicativo.
 
 ![Alternar o estado da Função](media/disable-function/function-state-switch.png)
+
+> [!NOTE]  
+> A funcionalidade de teste integrada ao `Disabled` portal ignora a configuração. Isso significa que uma função desativada ainda é executada quando iniciada a partir da janela **teste** no portal. 
 
 ## <a name="other-methods"></a>Outros métodos
 

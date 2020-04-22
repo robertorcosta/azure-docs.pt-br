@@ -2,13 +2,13 @@
 title: Criar e gerenciar projetos de Migrações para Azure
 description: Encontre, crie, gerencie e exclua projetos no Azure Migrate.
 ms.topic: how-to
-ms.date: 02/17/2020
-ms.openlocfilehash: a49595f0580e71048239d5c5d8f4d1a66e24fe6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/19/2020
+ms.openlocfilehash: f5079ed979d98f2c6f0c654c860c6f176f366497
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269634"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676385"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerenciar projetos de Migrações para Azure
 
@@ -23,7 +23,7 @@ A primeira vez que você configura o Azure Migrate, você cria um projeto e adic
 
 Se você já tem um projeto do Azure Migrate e deseja criar um projeto adicional, faça o seguinte:  
 
-1. No [portal Azure,](https://portal.azure.com)procure **o Azure Migrate**.
+1. No [portal público azure](https://portal.azure.com) ou [governo azure](https://portal.azure.us), procure **por Azure Migrate**.
 2. No painel do Azure Migrate > **Servers**, selecione **a alteração** no canto superior direito.
 
    ![Alterar projeto do Azure Migrate](./media/create-manage-projects/switch-project.png)

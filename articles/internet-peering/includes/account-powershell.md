@@ -8,30 +8,30 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 3a5f7157ef8f3645dd03ec93684238dd8bbc067e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: beffb2babefd86c2807e21e9337cba66f42fcfc2
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774218"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678479"
 ---
-Antes de iniciar a configuração, instale e importe os módulos necessários. Você precisará de privilégios de administrador para instalar módulos no PowerShell.
+Antes de iniciar a configuração, instale e importe os módulos necessários. Você precisa de privilégios de administrador para instalar módulos no PowerShell.
 
-1. Instalar e importar módulo Az
+1. Instale e importe o módulo Az.
     ```powershell
     Install-Module Az -AllowClobber
     Import-Module Az
     ```
-1. Instalar e importar módulo Az.Peering
+1. Instale e importe o módulo Az.Peering.
     ```powershell
     Install-Module -Name Az.Peering -AllowClobber
     Import-Module Az.Peering
     ```
-1. Verifique se os módulos são importados com multa usando o comando abaixo.
+1. Verifique se os módulos importados corretamente usando este comando:
     ```powershell
     Get-Module
     ```
-1. Faça login na sua conta do Azure usando o seguinte comando.
+1. Conecte à sua conta do Azure usando este comando:
     ```powershell
     Connect-AzAccount
     ```
@@ -46,8 +46,8 @@ Antes de iniciar a configuração, instale e importe os módulos necessários. V
     New-AzResourceGroup -Name "PeeringResourceGroup" -Location "Central US"
     ```
 > [!IMPORTANT]
-> Se você ainda não associou seu ASN e assinatura, siga as etapas do [Associate Peer ASN](../howto-subscription-association-powershell.md). Isso é necessário para solicitar um peering.
+> Se você ainda não associou seu ASN e sua assinatura, siga os passos em [Associate Peer ASN](../howto-subscription-association-powershell.md). Esta ação é necessária para solicitar um peering.
 
 > [!NOTE]
-> A localização do grupo de recursos é independente do local onde você escolhe configurar um peering.
+> A localização de um grupo de recursos é independente do local onde você escolhe configurar um peering.
 &nbsp;

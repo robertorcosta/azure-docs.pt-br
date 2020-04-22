@@ -1,22 +1,22 @@
 ---
-title: Serviços Go-To-Market – práticas recomendadas para listagem de ofertas | Azure
+title: Serviços Go-To-Market - Oferta de ofertade melhores práticas | Mercado Azure
 description: Serviços Go-To-Market – esta seção descreve as práticas recomendadas para listagem de uma oferta
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 3cb625e613d8dbe9398e947925a8dc574a277614
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95f5083b5f00834e65a8385835635588033bd977
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286244"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684571"
 ---
 # <a name="offer-listing-best-practices"></a>Práticas recomendadas de listagem de ofertas
 
-As tabelas nesta seção fornecem sugestões para a criação de ofertas de marketplace atraentes. Para escrever e configurar seus materiais de marketing, acesse o [portal do Cloud Partner](https://cloudpartner.azure.com/#insights). 
+As tabelas nesta seção fornecem sugestões para a criação de ofertas de marketplace atraentes. Para escrever e configurar seus materiais de marketing, vá ao [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights). 
 
 ## <a name="storefront-offer-details"></a>Detalhes da oferta vitrine
 
@@ -25,14 +25,14 @@ As tabelas nesta seção fornecem sugestões para a criação de ofertas de mark
 | Nome da oferta | Forneça um título forte:<br> <ul> <li> O nome do seu aplicativo deve comunicar o valor principal para os clientes. </li> <li> Inclua palavras-chave de pesquisa no nome do aplicativo para receber uma maior classificação nos resultados do mecanismo de pesquisa. </li> </ul> Siga um formato de título definido para consultar listagens de serviços:<br>[Nome da oferta: [Duração] [Tipo de oferta] (por exemplo, *Contoso: Implementação de 2 semanas*) <br><br> Cumprir as diretrizes de marca:<br>Siga as [Diretrizes sobre Marcas Registradas e Marcas da Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e outras diretrizes relevantes sobre produtos específicas ao se referir às marcas registradas da Microsoft e aos nomes de softwares, produtos e serviços da Microsoft. |
 | Descrição da oferta | Forneça uma descrição clara de oferta:<br> <ul> <li> Descreva claramente a proposição de valor da sua oferta nas primeiras frases de sua descrição. </li> <li> Tenha em mente que as primeiras frases podem ser exibidas nos resultados da pesquisa. </li> <li> Não dependa de recursos e em funcionalidades para vender seu produto. Em vez disso, concentre-se no valor que você oferece. </li> <li> Use o vocabulário específico do setor ou palavras com base no benefício tanto quanto possível.</li> <li> Além disso, as listagens de serviço de consultoria precisam declarar com clareza o serviço profissional que você fornece. </li></ul> Os componentes principais da sua proposta de valor devem incluir informações sobre:<ul><li>Descrição do produto.</li><li>Tipo de usuário que se beneficia do produto.</li><li>Necessidade do cliente ou problemas que o produto resolve.</li></ul> |
 
-As tabelas nesta seção fornecem sugestões para a criação de ofertas de marketplace atraentes. Para escrever e configurar seus materiais de marketing, acesse o [portal do Cloud Partner](https://cloudpartner.azure.com/#insights). 
+As tabelas nesta seção fornecem sugestões para a criação de ofertas de marketplace atraentes. Para escrever e configurar seus materiais de marketing, vá até a [Central de Parceiros](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights). 
 
 ## <a name="storefront-listing-details"></a>Detalhes da vitrine listagem
 
 | Configuração de vitrine | Melhor prática |
 |:--- |:--- |  
-| Setores: Aplicativos do AppSource e apenas os serviços de consultoria | Selecione setores se sua oferta atender a necessidades específicas do setor: <ul><li> Chame recursos específicos do setor na descrição de sua oferta.</li> </ul> **Nota**: O número máximo de opções varia de acordo com o tipo de oferta e é indicado no [portal Cloud Partner](https://cloudpartner.azure.com/#insights). |
-| Categorias | Selecione as categorias que melhor se alinhem com sua oferta:<br> <ul> <li> Escolha as categorias com cuidado, porque os clientes as usam para pesquisar aplicativos relevantes. </li> <li> Lembre-se de como sua oferta oferece suporte a necessidades específicas de categoria na descrição da oferta. </li> </ul> **Nota**: O número máximo de opções varia de acordo com o tipo de oferta e é indicado no [portal Cloud Partner](https://cloudpartner.azure.com/#insights). |
+| Setores: Aplicativos do AppSource e apenas os serviços de consultoria | Selecione setores se sua oferta atender a necessidades específicas do setor: <ul><li> Chame recursos específicos do setor na descrição de sua oferta.</li> </ul> **Nota**: O número máximo de opções varia de acordo com o tipo de oferta e é indicado na [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights). |
+| Categorias | Selecione as categorias que melhor se alinhem com sua oferta:<br> <ul> <li> Escolha as categorias com cuidado, porque os clientes as usam para pesquisar aplicativos relevantes. </li> <li> Lembre-se de como sua oferta oferece suporte a necessidades específicas de categoria na descrição da oferta. </li> </ul> **Nota**: O número máximo de opções varia de acordo com o tipo de oferta e é indicado na [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights). |
 | Produtos com os que seu aplicativo funciona (3 no máximo): apenas aplicativos AppSource | Listar produtos e tecnologias adicionais que sua solução usa ou estende. Por exemplo, Hub IoT do Azure ou Aprendizado de Máquina do Azure. |
 | Palavras-chave para pesquisa (no máx. 3) | Palavras-chave para pesquisa podem ajudar os usuários empresariais a encontrar sua oferta ao pesquisar <ul> <li> no Azure Marketplace </li> <li> no AppSource </li> <li> usando mecanismos de pesquisa </li> </ul> Para que sua listagem apareça nessas pesquisas, você precisa: <ul> <li> Identificar as três principais palavras-chave de pesquisa para sua oferta; </li> <li> incorporar as palavras-chave de pesquisa no resumo da oferta e em sua descrição; </li> <li> listar as palavras-chave de pesquisa aqui. </li> </ul> |
 
@@ -89,12 +89,12 @@ Ao vincular o selo do AppSource ou do Azure Marketplace no seu site à sua lista
 
 O exemplo de URL a seguir contém os dois parâmetros de consulta anteriores: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
-Ao adicionar os parâmetros à URL do seu AppSource, você pode analisar a eficácia de sua campanha no painel de análise no [Portal do Cloud Partner](https://cloudpartner.azure.com/#insights).
+Adicionando os parâmetros à URL do AppSource, você pode rever a eficácia de sua campanha no painel de análise no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre os [benefícios do seu mercado comercial.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)
+Saiba mais sobre os [benefícios do seu mercado comercial.](./gtm-your-marketplace-benefits.md)
 
-Faça logon no [Portal do Cloud Partner](https://cloudpartner.azure.com) para criar e configurar a oferta.
+Faça login no [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar e configurar sua oferta.
 
 ---

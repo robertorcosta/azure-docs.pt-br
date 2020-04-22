@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 4e20129502e7538bd2f3354b75b33095970e1595
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9e8aa9bbbdf166ba0caf29cd0bce22b8ed321e4e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411856"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685194"
 ---
 # <a name="azure-sql-auditing"></a>Auditoria do SQL do Azure
 
@@ -111,9 +111,6 @@ Para configurar a gravação de logs de auditoria para uma conta de armazenament
 ### <a name=""></a><a id="audit-log-analytics-destination">Auditar o destino do Log Analytics</a>
   
 Para configurar a gravação de logs de auditoria em um espaço de trabalho do Log Analytics, selecione **Log Analytics (Visualizar)** e abra **detalhes do Log Analytics**. Selecione ou crie o espaço de trabalho do Log Analytics, onde os logs serão gravados e, em seguida, clique em **Ok**.
-    
-  > [!WARNING]
-   > Permitir a auditoria no Log Analytics incorrerá em custos com base nas taxas de ingestão. Por favor, esteja ciente do custo associado com o uso dessa [opção](https://azure.microsoft.com/pricing/details/monitor/)ou considere armazenar os registros de auditoria em uma conta de armazenamento DoZure.
    
    ![LogAnalyticsworkspace](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 

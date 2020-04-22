@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 4583c02b52ab6b3a4e5056a47db096d4e34399ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3eedb5440711c7a45a13dcd53dd489c490588fc
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248015"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677418"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 
@@ -52,7 +52,7 @@ Depois de se registrar e agendar uma VM para o serviço de backup do Azure, o Ba
 
 Esse erro ocorre quando uma das falhas de extensão coloca a VM em estado de falha no provisionamento.<br>**O portal Open Azure > o > status de Configurações > Extensões > De extensões > da VM** e verifique se todas as extensões estão em **provisionamento do** estado de sucesso. Para saber mais, consulte [Estados de Provisionamento](https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle#provisioning-states).
 
-- Se a extensão VMSnapshot estiver em um estado com falha, clique com o botão direito do mouse na extensão com falha e remova-a. Acione um backup demanda. Esta ação reinstalará as extensões e executará o trabalho de backup.  <br>
+- Se a extensão VMSnapshot estiver em um estado com falha, clique com o botão direito do mouse na extensão com falha e remova-a. Acione um backup sob demanda. Esta ação reinstalará as extensões e executará o trabalho de backup.  <br>
 - Se qualquer outra extensão estiver em um estado falho, então ela pode interferir com o backup. Certifique-se de que esses problemas de extensão sejam resolvidos e tente novamente a operação de backup.
 - Se o estado de provisionamento da VM estiver em estado de atualização, ele pode interferir com o backup. Certifique-se de que está saudável e tente novamente a operação de backup.
 
@@ -142,6 +142,13 @@ Se a operação de backup programada estiver demorando mais, conflitante com a p
 
 Este erro é relatado a partir do VM IaaS. Para identificar a causa raiz do problema, vá para as configurações do cofre dos Serviços de Recuperação. Na seção **Monitoramento,** selecione **Trabalhos de backup** para filtrar e visualizar o status. Clique em **Falhas** para revisar os detalhes da mensagem de erro subjacente. Tome outras ações de acordo com as recomendações na página de detalhes de erro.
 
+## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresente - Falha de backup: Esta máquina virtual não está (ativamente) protegida pelo Backup do Azure
+
+**Código de erro**: UserErrorBcmDatasourceNotPresent <br>
+**Mensagem de erro**: Falha de backup: Esta máquina virtual não está (ativamente) protegida pelo Backup do Azure.
+
+Verifique se a determinada máquina virtual está ativamente (não em estado de pausa) protegida pelo Azure Backup. Para superar esse problema, certifique-se de que a máquina virtual esteja ativa e, em seguida, tente novamente a operação.
+
 ## <a name="causes-and-solutions"></a>Causas e soluções
 
 ### <a name="the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms"></a><a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>O agente é instalado na VM, mas não responde (para VMs do Windows)
@@ -211,7 +218,7 @@ As seguintes condições podem causar falha na tarefa de instantâneo:
 
 ### <a name="remove-lock-from-the-recovery-point-resource-group"></a><a name="remove_lock_from_the_recovery_point_resource_group"></a>Remover o bloqueio do grupo de recursos de ponto de recuperação
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Ir para a **opção Todos os recursos,** selecione`<Geo>`o`<number>`grupo de recursos de coleta de pontos de restauração no formato a AzureBackupRG_ _ .
 3. Na seção **Configurações**, selecione **Bloqueios** para exibir os bloqueios.
 4. Para remover o bloqueio, selecione as reticências e clique em **Excluir**.
@@ -226,21 +233,21 @@ Se você excluir o Grupo de recursos da VM ou a própria VM, os instantâneos de
 
 Para limpar os pontos de restauração, siga qualquer um dos seguintes métodos:<br>
 
-- [Limpe a coleta de pontos de restauração executando backup demanda](#clean-up-restore-point-collection-by-running-on-demand-backup)<br>
+- [Limpe a coleta de pontos de restauração executando backup sob demanda](#clean-up-restore-point-collection-by-running-on-demand-backup)<br>
 - [Limpar a coleção de pontos de restauração do portal do Azure](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a><a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a>Limpe a coleta de pontos de restauração executando backup demanda
+#### <a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a><a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a>Limpe a coleta de pontos de restauração executando backup sob demanda
 
-Depois de remover o bloqueio, acione um backup demanda. Esta ação garantirá que os pontos de restauração sejam automaticamente limpos. Espere que esta operação demanda falhe na primeira vez; no entanto, ele garantirá a limpeza automática em vez da exclusão manual dos pontos de restauração. Após a limpeza, seu próximo backup programado deve ter sucesso.
+Depois de remover o bloqueio, acione um backup sob demanda. Esta ação garantirá que os pontos de restauração sejam automaticamente limpos. Espere que esta operação sob demanda falhe na primeira vez; no entanto, ele garantirá a limpeza automática em vez da exclusão manual dos pontos de restauração. Após a limpeza, seu próximo backup programado deve ter sucesso.
 
 > [!NOTE]
-> A limpeza automática acontecerá após algumas horas de acionamento do backup demanda. Se o backup agendado ainda falhar, tente excluir manualmente a coleção de pontos de restauração usando as etapas listadas [aqui](#clean-up-restore-point-collection-from-azure-portal).
+> A limpeza automática acontecerá após algumas horas de acionamento do backup sob demanda. Se o backup agendado ainda falhar, tente excluir manualmente a coleção de pontos de restauração usando as etapas listadas [aqui](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal-br"></a><a name="clean-up-restore-point-collection-from-azure-portal"></a>Limpar a coleção de pontos de restauração do portal do Azure <br>
 
 Para limpar manualmente a coleta de pontos de restauração, que não é liberada por causa do bloqueio no grupo de recursos, tente as seguintes etapas:
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. No menu **Hub**, clique em **Todos os recursos**, selecione o grupo de recursos com o formato AzureBackupRG_`<Geo>`_`<number>` a seguir em que sua VM se encontra.
 
     ![Excluir bloqueio](./media/backup-azure-arm-vms-prepare/resource-group.png)

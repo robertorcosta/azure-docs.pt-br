@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9ad51e113a752e0692cb377a83d4819b4e284bb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 320723744e1366fdc73cd0593fb0ebece03367f8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188424"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678117"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada para o Azure Active Directory multilocatário usando políticas personalizadas no Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Conclua as etapas em [Introdução às políticas personalizadas no Azure Active
 
 Para habilitar a entrada para usuários de uma organização específica do Azure AD, você precisa registrar um aplicativo no locatário organizacional do Azure AD.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Certifique-se de que está usando o diretório que contém seu inquilino Azure AD organizacional (por exemplo, contoso.com). Selecione o **filtro de assinatura Diretório +** no menu superior e escolha o diretório que contém o inquilino.
 1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 1. Selecione **Novo registro**.
@@ -44,7 +44,7 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    Por exemplo, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+    Por exemplo, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
 1. Selecione **Registrar**. Registre a **ID do aplicativo (cliente)** para uso em uma etapa posterior.
 1. Selecione **Certificados & segredos**e selecione **Novo segredo do cliente**.
@@ -54,13 +54,13 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
 
 Se você quiser `family_name` obter `given_name` as e reivindicações do Azure AD, você pode configurar reivindicações opcionais para o seu aplicativo no portal Azure UI ou manifesto de aplicativo. Para obter mais informações, consulte [Como fornecer reclamações opcionais para o seu aplicativo Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
-1. Faça login no [portal Azure](https://portal.azure.com). Pesquise **Azure Active Directory** e selecione-o.
+1. Entre no [portal do Azure](https://portal.azure.com). Pesquise **Azure Active Directory** e selecione-o.
 1. Na seção **Gerenciar,** selecione **registros do Aplicativo**.
 1. Selecione o aplicativo para o aplicativo que deseja configurar reivindicações opcionais na lista.
-1. Na seção **Gerenciar,** selecione **Configuração de Token (visualização)**.
+1. Na seção **Gerenciar,** selecione **Configuração Token**.
 1. Selecione **Adicionar reivindicação opcional**.
-1. Selecione o tipo de token que deseja configurar.
-1. Selecione as reivindicações opcionais a serem adicionais.
+1. Para o **tipo Token,** **selecione ID**.
+1. Selecione as reivindicações `family_name` `given_name`opcionais a serem adicionadas e .
 1. Clique em **Adicionar**.
 
 ## <a name="create-a-policy-key"></a>Criar uma chave de política
@@ -147,7 +147,7 @@ Você pode definir o Azure AD como um provedor de declarações adicionando o Az
 
 Você precisa atualizar a lista de emissores de token válidos e restringir o acesso a uma lista específica de locatários do Azure AD que podem entrar.
 
-Para obter os valores, consulte os metadados de descoberta do OpenID Connect para cada um dos inquilinos do Azure AD que você gostaria de fazer login com os usuários. O formato da URL de `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`metadados `your-tenant` é semelhante ao , onde está o nome do inquilino do Azure AD. Por exemplo: 
+Para obter os valores, consulte os metadados de descoberta do OpenID Connect para cada um dos inquilinos do Azure AD que você gostaria de fazer login com os usuários. O formato da URL de `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`metadados `your-tenant` é semelhante ao , onde está o nome do inquilino do Azure AD. Por exemplo:
 
 `https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 

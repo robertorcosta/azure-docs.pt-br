@@ -3,31 +3,22 @@ title: Configure um aparelho Azure Migrate com um script
 description: Saiba como configurar um aparelho Do Azure Migrate com um script
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: faed7f96ea8c1850af5523d35f9f891011a48df8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 0c4d85909bbfa623b5ad8590e973250474d9d95a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537705"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676308"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configure um aparelho com um script
 
-Este artigo descreve como configurar o [aparelho Azure Migrate](deploy-appliance.md) usando um script instalador PowerShell, para VMs VMware e VMs Hyper-V. Se você quiser configurar o aparelho para servidores físicos, [revise este artigo](how-to-set-up-appliance-physical.md).
+Siga este artigo para criar um [aparelho Azure Migrate](deploy-appliance.md) para avaliação/migração de VMs VMware e VMs Hyper-V. Você executa um script para criar um aparelho e verifique se ele pode se conectar ao Azure. 
 
+Você pode implantar o aparelho para VMware e Hyper-V VMs usando um script ou usando um modelo que você baixa do portal Azure. Usar um script é útil se você não conseguir criar uma VM usando o modelo baixado.
 
-Você pode implantar o aparelho usando alguns métodos:
-
-
-- Usando um modelo para VMware VMs (OVA) ou Hyper-V VMs (VHD).
-- Usando um script. Este é o método descrito neste artigo. O script fornece:
-    - Uma alternativa para configurar o aparelho usando um modelo OVA, para avaliação e migração sem agente de VMware VMs.
-    - Uma alternativa para configurar o aparelho usando um modelo VHD, para avaliação e migração de VMs Hyper-V.
-    - Para avaliação de servidores físicos (ou VMs que você deseja migrar como servidores físicos), o script é o único método para configurar o aparelho.
-    - Uma maneira de implantar o aparelho no governo Azure.
-
-
-Depois de criar o aparelho, verifique se ele pode se conectar ao Azure Migrate. Em seguida, configure o aparelho pela primeira vez e registre-o no projeto Azure Migrate.
-
+- Para usar um modelo, siga os tutoriais para [VMware](tutorial-prepare-vmware.md) ou [Hyper-V](tutorial-prepare-hyper-v.md).
+- Para configurar um aparelho para servidores físicos, você só pode usar um script. Siga [este artigo](how-to-set-up-appliance-physical.md).
+- Para configurar um aparelho em uma nuvem do Governo Azure, siga [este artigo](deploy-appliance-script-government.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,24 +46,15 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 1. No computador no qual você baixou o arquivo, abra uma janela de comando do administrador.
 2. Execute o seguinte comando para gerar o hash para o arquivo zip
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Uso de exemplo para nuvem pública:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
-    - Exemplo de uso para nuvem governamental:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip```
+    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+3. Verifique o valor de hash gerado. Para a versão mais recente do aparelho:
 
-3. Verifique os valores de hash gerados:
+    **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
-    - Para a nuvem pública (para a versão mais recente do aparelho):
 
-        **Algoritmo** | **Valor de hash**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
-
-    - Para o governo Azure (para a versão mais recente do aparelho):
-
-        **Algoritmo** | **Valor de hash**
-          --- | ---
-          MD5 | 6316bcc8bc932204295bfe33f4be3949
-          
 
 ### <a name="run-the-script"></a>Executar o script
 
@@ -92,15 +74,14 @@ Para executar o script:
 2. Inicie o PowerShell na máquina, com privilégios de administrador (elevados).
 3. Altere o diretório PowerShell para a pasta que contém o conteúdo extraído do arquivo fechado baixado.
 4. Execute o script **AzureMigrateInstaller.ps1**, da seguinte forma:
-    - Para a nuvem pública:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario VMware ```
-    - Para o governo azure:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
+
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario VMware ```
    
 5. Depois que o script é executado com sucesso, ele inicia a aplicação web do aparelho para que você possa configurar o aparelho. Se você encontrar algum problema, revise os logs de script em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Marcação de tempo</em>.log.
 
 ### <a name="verify-access"></a>Verificar acesso
 
-Certifique-se de que o aparelho pode se conectar a URLs do Azure para [o público](migrate-appliance.md#public-cloud-urls) e [nuvens do governo](migrar-appliance.md#government-cloud-urls.
-
+Certifique-se de que o aparelho pode se conectar aos URLs do Azure para a nuvem [pública.](migrate-appliance.md#public-cloud-urls)
 
 ## <a name="set-up-the-appliance-for-hyper-v"></a>Configure o aparelho para Hyper-V
 
@@ -120,24 +101,14 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 1. No computador no qual você baixou o arquivo, abra uma janela de comando do administrador.
 2. Execute o seguinte comando para gerar o hash para o arquivo zip
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Uso de exemplo para nuvem pública:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
-    - Exemplo de uso para nuvem governamental:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
+    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
 
-3. Verifique os valores de hash gerados:
+3. Verifique os valores de hash gerados. Para a versão mais recente do aparelho:
 
-    - Para a nuvem pública (para a versão mais recente do aparelho):
-
-        **Algoritmo** | **Valor de hash**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
-
-    - Para o governo Azure (para a versão mais recente do aparelho):
-
-        **Algoritmo** | **Valor de hash**
-          --- | ---
-          MD5 | 717f8b9185f565006b5aff0215ecadac
-          
+    **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
 ### <a name="run-the-script"></a>Executar o script
 
@@ -156,22 +127,17 @@ Para executar o script:
 1. Extrair o arquivo fechado para uma pasta na máquina que hospedará o aparelho. Certifique-se de que você não execute o script em uma máquina em um aparelho Azure Migrate existente.
 2. Inicie o PowerShell na máquina, com privilégios de administrador (elevados).
 3. Altere o diretório PowerShell para a pasta que contém o conteúdo extraído do arquivo fechado baixado.
-4. Execute o script **AzureMigrateInstaller.ps1**, da seguinte forma:
-    - Para a nuvem pública:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv ```
-    - Para o governo azure:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ```
+4. Execute o script **AzureMigrateInstaller.ps1**, da seguinte forma:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv ```
    
 5. Depois que o script é executado com sucesso, ele inicia a aplicação web do aparelho para que você possa configurar o aparelho. Se você encontrar algum problema, revise os logs de script em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Marcação de tempo</em>.log.
 
 ### <a name="verify-access"></a>Verificar acesso
 
-Certifique-se de que o aparelho pode se conectar a URLs do Azure para [o público](migrate-appliance.md#public-cloud-urls) e [nuvens do governo](migrar-appliance.md#government-cloud-urls.
-
-
+Certifique-se de que o aparelho pode se conectar aos URLs do Azure para a nuvem [pública.](migrate-appliance.md#public-cloud-urls)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como configurar o aparelho com um modelo, ou para servidores físicos, revise estes artigos:
+Depois de implantar o aparelho, você precisa configurá-lo pela primeira vez e registrá-lo no projeto Azure Migrate.
 
 - Configure o aparelho para [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance).
 - Configure o aparelho para [Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).
-- Configure o aparelho para [servidores físicos](how-to-set-up-appliance-physical.md).

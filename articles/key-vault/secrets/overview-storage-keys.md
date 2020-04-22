@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 0b855584ef6efef574e8264f3cead79000a51b13
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1125bafa43ce1752c58d1cce0bba66a6bbd32c32
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81432002"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685429"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerenciar chaves de conta de armazenamento com key vault e o Azure CLI
 
@@ -71,13 +71,23 @@ az login
 Use o comando a [atribuição de função](/cli/azure/role/assignment?view=azure-cli-latest) Azure CLI az criar o comando para dar ao Key Vault acesso à sua conta de armazenamento. Forneça ao comando os seguintes valores de parâmetro:
 
 - `--role`: Passe a função rBAC "Função de serviço do operador chave da conta de armazenamento". Essa função limita o escopo de acesso à sua conta de armazenamento. Para obter uma conta de armazenamento clássica, passe "Classic Storage Account Key Operator Service Role" em vez disso.
-- `--assignee-object-id`: Passe o valor "93c27d83-f79b-4cb2-8dd4-4aa716542e74", que é o Object ID do Key Vault na nuvem pública do Azure. (Para obter o ID do Objeto para Cofre de Chaves na nuvem do Governo Do Azure, consulte [ID de aplicativo principal do serviço](#service-principal-application-id).)
+- `--assignee`: Passe ohttps://vault.azure.netvalor " ", que é a url para Key Vault na nuvem pública do Azure. (Para o azure Goverment, use '-asingee-object-id', consulte [ID de aplicativo principal do serviço](#service-principal-application-id).)
 - `--scope`: Passe o ID de recurso da `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`sua conta de armazenamento, que está no formulário . Para encontrar seu ID de assinatura, use o comando Azure CLI [az account list;](/cli/azure/account?view=azure-cli-latest#az-account-list) para encontrar o nome da sua conta de armazenamento e o grupo de recursos da conta de armazenamento, use o comando Azure CLI [az storage account list.](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list)
 
 ```azurecli-interactive
-az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
+az role assignment create --role "Storage Account Key Operator Service Role" --assignee 'https://vault.azure.net' --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
  ```
+### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Dê a sua permissão de conta de usuário para as contas de armazenamento gerenciadas
 
+Use o cmdlet de política de [configuração de keyvault az](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) do Azure CLI para atualizar a política de acesso do Key Vault e conceder permissões de conta de armazenamento à sua conta de usuário.
+
+```azurecli-interactive
+# Give your user principal access to all storage account permissions, on your Key Vault instance
+
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage-permissions get list delete set update regeneratekey getsas listsas deletesas setsas recover backup restore purge
+```
+
+Observe que as permissões para contas de armazenamento não estão disponíveis na página de "Políticas de acesso" da conta de armazenamento no portal do Azure.
 ### <a name="create-a-key-vault-managed-storage-account"></a>Crie uma conta de armazenamento gerenciada do Cofre chave
 
  Crie uma conta de armazenamento gerenciado do Key Vault usando o comando [azure CLI az keyvault storage.](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) Estabeleça um período de regeneração de 90 dias. Após 90 dias, key `key1` vault regenera e `key2` troca `key1`a chave ativa de . `key1`é então marcado como a chave ativa. Forneça ao comando os seguintes valores de parâmetro:

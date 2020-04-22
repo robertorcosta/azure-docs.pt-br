@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3e27550ecc5b42c2bf0d947690da09e13d88ea4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91451ff3024a9a5019b3982b0e4471e2c4d80c74
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128039"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683909"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Acesso delegado na Área de Trabalho Virtual do Windows
 
@@ -37,7 +37,7 @@ O acesso delegado do Windows Virtual Desktop suporta os seguintes valores para c
 O acesso delegado no Windows Virtual Desktop tem várias definições de função incorporadas que você pode atribuir aos usuários e diretores de serviço.
 
 * Um proprietário rds pode gerenciar tudo, incluindo acesso a recursos.
-* Um colaborador RDS pode gerenciar tudo, menos acesso a recursos.
+* Um colaborador rds pode gerenciar tudo, mas não pode acessar recursos.
 * Um leitor RDS pode ver tudo, mas não pode fazer nenhuma alteração.
 * Um operador RDS pode visualizar atividades de diagnóstico.
 

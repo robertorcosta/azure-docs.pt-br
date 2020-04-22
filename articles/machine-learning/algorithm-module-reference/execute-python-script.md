@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 0f86d1ad03062797764af6a0d49beacaa3458a8f
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 79dc1b188e91028a98f43dc24972228f2d2101be
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365552"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684721"
 ---
 # <a name="execute-python-script-module"></a>Executar módulo de script python
 
@@ -164,7 +164,7 @@ O exemplo a seguir mostra como carregar um arquivo de imagem no módulo **Execut
 # imports up here can be used to
 import pandas as pd
 
-# The entry point function can contain up to two input arguments:
+# The entry point function must have two input arguments:
 #   Param<dataframe1>: a pandas.DataFrame
 #   Param<dataframe2>: a pandas.DataFrame
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -217,10 +217,17 @@ O módulo **Execute Python Script** contém código Python de amostra que você 
 
 5. Na caixa de texto **do script Python,** digite ou cole o script Python válido.
 
+    > [!NOTE]
+    > Por favor, tenha muito cuidado ao escrever seu script e certifique-se de que não há erro de sintaxe, como usar um objeto não declarado ou um módulo não importado. Também preste atenção extra à lista de módulos pré-instalados. Para importar módulos que não estão listados, instale os pacotes correspondentes em seu script, como
+    >  ``` Python
+    > import os
+    > os.system(f"pip install scikit-misc")
+    > ```
+    
     A caixa de texto **do script Python** é pré-preenchida com algumas instruções nos comentários e código de exemplo para acesso e saída de dados. Você deve editar ou substituir este código. Certifique-se de seguir as convenções Python sobre recuo e invólucro.
 
     + O script deve conter `azureml_main` uma função nomeada como o ponto de entrada deste módulo.
-    + A função de ponto de entrada pode `Param<dataframe1>` conter até dois argumentos de entrada: e`Param<dataframe2>`
+    + A função ponto de entrada deve `Param<dataframe1>` `Param<dataframe2>`ter dois argumentos de entrada: e, mesmo quando esses argumentos não são usados em seu script.
     + Os arquivos com zíper conectados à terceira porta de `.\Script Bundle`entrada são descompactados e armazenados no diretório, que também é adicionado ao Python `sys.path`. 
 
     Portanto, se o seu `mymodule.py`arquivo zip `import mymodule`contiver, importe-o usando .

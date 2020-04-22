@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 0b2b9dbe52a5696f21b287402fc4cbaa32b29c73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4138c4ae24ae599d4058c9fd06c33b69657fe38
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263173"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680065"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (versão prévia)
 
@@ -243,19 +243,25 @@ Neste exemplo, você cria uma política que permite que o login de seus usuário
         }')
         ```
 
-    2. Para criar a política, execute o seguinte comando:
+    1. Para criar a política, execute o seguinte comando:
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3. Para ver a nova política e obter a **ObjectId** da política, execute o comando a seguir:
+    1. Para remover qualquer espaço em branco, execute o seguinte comando:
+
+        ```powershell
+        Get-AzureADPolicy -id | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id ).Replace(" ","")))
+        ```
+
+    1. Para ver a nova política e obter a **ObjectId** da política, execute o comando a seguir:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Atualizar a política.
+1. Atualizar a política.
 
     Talvez você decida que a primeira política definida neste exemplo não é tão estrita quanto seu serviço exige. Para definir a expiração do Token de Atualização de Fator Único para dois dias, execute o seguinte comando:
 
@@ -277,13 +283,13 @@ Neste exemplo, crie uma política que exige dos usuários a autenticação mais 
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. Para ver a nova política e obter a **ObjectId** da política, execute o comando a seguir:
+    1. Para ver a nova política e obter a **ObjectId** da política, execute o comando a seguir:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Atribuir a política à entidade de serviço. Você também precisará da **ObjectId** de sua entidade de serviço.
+1. Atribuir a política à entidade de serviço. Você também precisará da **ObjectId** de sua entidade de serviço.
 
     1. Use o [cmdlet Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) para ver todos os diretores de serviço da sua organização ou um único diretor de serviço.
         ```powershell
@@ -291,7 +297,7 @@ Neste exemplo, crie uma política que exige dos usuários a autenticação mais 
         $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
         ```
 
-    2. Quando tiver o diretor de serviço, execute o seguinte comando:
+    1. Quando tiver o diretor de serviço, execute o seguinte comando:
         ```powershell
         # Assign policy to a service principal
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
@@ -308,13 +314,13 @@ Neste exemplo, crie uma política que exige dos usuários a autenticação menos
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. Para ver sua nova política, execute o seguinte comando:
+    1. Para ver sua nova política, execute o seguinte comando:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Atribua a política à sua API da Web. Você também precisará da **ObjectId** de seu aplicativo. Use o [cmdlet Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) para encontrar o **ObjectId**do seu aplicativo ou use o [portal Azure](https://portal.azure.com/).
+1. Atribua a política à sua API da Web. Você também precisará da **ObjectId** de seu aplicativo. Use o [cmdlet Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) para encontrar o **ObjectId**do seu aplicativo ou use o [portal Azure](https://portal.azure.com/).
 
     Obtenha o **ObjectId** do seu aplicativo e atribua a política:
 
@@ -337,19 +343,19 @@ Neste exemplo, você cria algumas políticas para aprender como o sistema priori
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2. Para ver sua nova política, execute o seguinte comando:
+    1. Para ver sua nova política, execute o seguinte comando:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Atribuir a política a uma entidade de serviço.
+1. Atribuir a política a uma entidade de serviço.
 
     Agora, você tem uma política que se aplica a toda a organização. Convém preservar essa política de 30 dias para uma entidade de serviço específica, mas altere a política padrão de organização para o limite superior de "until-revoked".
 
     1. Para ver todos os diretores de serviço saem da sua organização, você usa o [cmdlet Get-AzureAAAAAServicePrincipal.](/powershell/module/azuread/get-azureadserviceprincipal)
 
-    2. Quando tiver o diretor de serviço, execute o seguinte comando:
+    1. Quando tiver o diretor de serviço, execute o seguinte comando:
 
         ```powershell
         # Get ID of the service principal
@@ -359,13 +365,13 @@ Neste exemplo, você cria algumas políticas para aprender como o sistema priori
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-3. Defina o sinalizador `IsOrganizationDefault` como false:
+1. Defina o sinalizador `IsOrganizationDefault` como false:
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
-4. Crie uma nova política padrão de organização:
+1. Crie uma nova política padrão de organização:
 
     ```powershell
     New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"

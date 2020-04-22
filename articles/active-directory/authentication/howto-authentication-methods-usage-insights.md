@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1730939de399cacd13c62988259904ba84ee78ff
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654140"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680197"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Métodos de autenticação de uso & insights (visualização)
 
@@ -37,7 +37,7 @@ Nenhum licenciamento adicional é necessário para acessar o uso e os insights. 
 
 Para acessar o uso do método de autenticação e insights:
 
-1. Navegue até [o portal Azure](https://portal.azure.com).
+1. Navegue até o [Portal do Azure](https://portal.azure.com).
 1. Navegue até a senha do diretório ativo do >  **Azure****redefinir** > **informações de & de uso**.
 1. A partir das visões **gerais de registro** ou **uso,** você pode optar por abrir os relatórios pré-filtrados para filtrar com base em suas necessidades.
 
@@ -93,6 +93,8 @@ Usando os controles no topo da lista, você pode procurar um usuário e filtrar 
 Os dados mostrados nestes relatórios serão adiados em até 60 minutos. Existe um campo "Última atualização" no portal Azure para identificar o quão recentes são seus dados.
 
 Os dados de uso e insights não são uma substituição para os relatórios de atividade de autenticação multifatorial do Azure ou informações contidas no relatório de login saque do Azure AD.
+
+No momento, o relatório não pode ser filtrado para excluir usuários externos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

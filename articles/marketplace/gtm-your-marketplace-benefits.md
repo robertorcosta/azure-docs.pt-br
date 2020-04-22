@@ -1,18 +1,18 @@
 ---
-title: Go-To-Market Services - seus benefícios no mercado comercial | Azure
+title: Go-To-Market Services - seus benefícios no mercado comercial | Mercado Azure
 description: Go-To-Market Services – os recursos da Microsoft que os publicadores podem usar são descritos nesta seção.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/08/2020
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: d34fb989e7f656df93faae63ef4dc42ed0fe5abe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5c8b2f5cb03c7e1777137100547fbbbaf107f0b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286227"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684548"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Seus benefícios no mercado comercial
 
@@ -44,7 +44,7 @@ Seus passos para começar são fáceis:
 2. A equipe contata o "proprietário" ou "contato primário" por oferta de marketplace. É uma prática recomendada para inserir um indivíduo ou um pseudônimo que você verifica info@company.com regularmente: mensagens enviadas para pseudônimos, como muitas vezes se perdem.
 
 >[!Note]
->Se sua oferta está ao vivo há mais de quatro semanas e você não recebeu uma mensagem, por favor, verifique dentro de sua organização quem é o proprietário da oferta em questão, seja olhando no Cloud Partner Portal ou no Partner Center. Eles devem ter a comunicação e os próximos passos. <br> <br> Se você não puder determinar o proprietário, ou se o proprietário https://aka.ms/marketplacepublishersupportdeixou sua empresa, você pode levantar um bilhete de suporte em .
+>Se sua oferta está ao vivo há mais de quatro semanas e você não recebeu uma mensagem, por favor, verifique dentro de sua organização quem é o proprietário da oferta em questão, olhando no Partner Center. Eles devem ter a comunicação e os próximos passos. <br> <br> Se você não puder determinar o proprietário, ou se o proprietário https://aka.ms/marketplacepublishersupportdeixou sua empresa, você pode levantar um bilhete de suporte em .
 
 O escopo das atividades disponíveis para você se expande conforme o crescimento de suas ofertas no Marketplace. Todas as listagens recebem um nível básico de recomendações de otimização e promoção como parte de um e-mail de autoatendimento de recursos e práticas recomendadas.
 
@@ -96,7 +96,7 @@ A Microsoft se reserva o direito de revogar e encerrar os benefícios do Marketp
 * se envolver em atividade ilegal usando sua listagem de marketplace.
 * são deslistados do mercado comercial. 
 * usar sua oferta para mostrar marketing ou outro conteúdo que viole leis de direitos autorais ou marcas registradas.
-* violar as políticas do programa de [patrocínio do Azure,](https://azure.microsoft.com/offers/ms-azr-0036p/)incluindo, mas não se limitando a, usar o financiamento de patrocínio do Azure para suas próprias operações internas ou mineração de bitcoin. 
+* violar as políticas do programa de [patrocínio do Azure,](https://azure.microsoft.com/offers/ms-azr-0036p/)incluindo, mas não se limitando a, usar o financiamento de patrocínio do Azure para suas próprias operações internas ou mineração de Bitcoin. 
 
 ### <a name="offer-availability"></a>Disponibilidade de Oferta
 
@@ -106,9 +106,7 @@ As transações comprovadamente fraudulentas não contarão para o nível de pro
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você criou sua oferta no [Cloud Partner Portal,](https://cloudpartner.azure.com)faça login para criar ou configurar sua oferta.
-
-Se você criou sua oferta no [Partner Center,](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview)faça login para criar ou configurar sua oferta.
+Se você criou sua oferta no [Partner Center,](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)faça login para criar ou configurar sua oferta.
 
 Revise os [recursos de auto-saque disponíveis para você](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

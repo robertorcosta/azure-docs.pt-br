@@ -8,14 +8,14 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c66b1728144b8517f6ac444059b3a8def956c6e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7b5e7171ac679384966e9dce79425cd1fa881c53
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80300999"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679391"
 ---
-# <a name="automation-account-troubleshooting"></a>Solução de problemas da conta de automação
+# <a name="troubleshoot-the-automation-account"></a>Solucionar problemas na conta de Automação
 
 Este artigo discute soluções para problemas que você pode encontrar quando usa uma conta de Automação. As seções a seguir destacam mensagens de erro específicas e possíveis resoluções para cada uma. Para obter informações gerais sobre contas de automação, consulte [Criar uma conta do Azure](../automation-quickstart-create-account.md).
 
@@ -45,11 +45,11 @@ Para registrar o Provedor de Recursos de Automação, siga estas etapas no porta
 
 4. Na lista de provedores de recursos, verifique se o provedor de recursos **Microsoft.Automation** está registrado.
 
-5. Se não estiver listado, registre o provedor **Microsoft.Automation** seguindo as etapas em [Resolver erros para registro de provedor de recursos](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+5. Se o provedor não estiver listado, registre-o como descrito em [Resolver erros para registro de provedor de recursos](/azure/azure-resource-manager/resource-manager-register-provider-errors).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você não viu o seu problema ou não conseguiu resolver o seu problema, tente um dos seguintes canais para obter suporte adicional:
+Se você não vê o seu problema acima ou não consegue resolver o seu problema, tente um dos seguintes canais para obter suporte adicional:
 
 * Obtenha respostas de especialistas do Azure através [do Azure Forums](https://azure.microsoft.com/support/forums/).
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.

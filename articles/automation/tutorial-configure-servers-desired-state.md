@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 9e2f04f59a56be6c516eb90de45fdf7327673086
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a02c664ddf0802ad5ac306f98de14b7c0d5d7271
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75416585"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678701"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurar servidores para um estado desejado e gerenciar dessincronização
 
@@ -23,30 +23,40 @@ A Configuração do Estado de Automação do Azure permite que você especifique
 > - Atribuir uma configuração de nó a um nó gerenciado
 > - Verificar o status de conformidade de um nó gerenciado
 
+Para este tutorial, usamos uma [configuração DSC](/powershell/scripting/dsc/configurations/configurations) simples que garante que o IIS esteja instalado na VM.
+
+>[!NOTE]
+>Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no trabalhador do runbook híbrido, consulte [Instalar o Módulo PowerShell do Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de Automação, você pode atualizar seus módulos para a versão mais recente usando [Como atualizar módulos Azure PowerShell no Azure Automation](automation-update-azure-modules.md).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Neste tutorial, você precisará de:
+Para concluir este tutorial, você precisará:
 
 - Uma conta de Automação do Azure. Para obter instruções sobre como criar uma conta Executar Como de Automação do Azure, consulte [Conta Executar Como do Azure](automation-sec-configure-azure-runas-account.md).
-- Uma VM do Azure Resource Manager (não clássica) executando o Windows Server 2008 R2 ou posterior. Para obter instruções sobre a criação de uma VM, consulte [Criar sua primeira máquina virtual do Windows no portal do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
-- Versão de módulo do Azure PowerShell 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
-- Familiaridade com a Configuração do Estado Desejado (DSC). Para obter informações sobre a DSC, consulte [Visão Geral da Desired State Configuration do Windows PowerShell](/powershell/scripting/dsc/overview/overview)
+- Um VM do Azure Resource Manager (não clássico) executando o Windows Server 2008 R2 ou posterior. Para obter instruções sobre como criar uma VM, consulte [Criar sua primeira máquina virtual do Windows no portal Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+- Versão de módulo do Azure PowerShell 3.6 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+- Familiaridade com a Configuração do Estado Desejado (DSC). Para obter informações sobre o DSC, consulte [visão geral da configuração do estado desejado do Windows PowerShell](/powershell/scripting/dsc/overview/overview).
+
+## <a name="support-for-partial-configurations"></a>Suporte para configurações parciais
+
+A configuração do estado de automação do Azure suporta o uso de [configurações parciais](/powershell/scripting/dsc/pull-server/partialconfigs). Nesse cenário, o DSC é configurado para gerenciar várias configurações de forma independente, e cada configuração é recuperada do Azure Automation. No entanto, apenas uma configuração pode ser atribuída a um nó por conta de automação. Isso significa que se você estiver usando duas configurações para um nó, você precisará de duas contas de automação.
+
+Para obter detalhes sobre como registrar uma configuração parcial de um serviço de tração, consulte a documentação para [configurações parciais](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+
+Para obter mais informações sobre como as equipes podem trabalhar juntas para gerenciar servidores de forma colaborativa usando a configuração como código, consulte [Entendendo a função do DSC em um pipeline de CI/CD](/powershell/scripting/dsc/overview/authoringadvanced).
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Faça logon na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e siga as instruções na tela.
+Faça login na sua assinatura do Azure com o cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) e siga as instruções na tela.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="create-and-upload-a-configuration-to-azure-automation"></a>Criar e carregar uma configuração na Automação do Azure
 
-Para este tutorial, usaremos uma configuração DSC simples que garanta que o IIS seja instalado na VM.
 
-Para obter informações sobre as configurações DSC, consulte [Configurações DSC](/powershell/scripting/dsc/configurations/configurations).
-
-Em um editor de texto, digite o seguinte e salve localmente como `TestConfig.ps1`.
+Em um editor de texto, digite o seguinte e salve-o localmente como **TestConfig.ps1**.
 
 ```powershell
 configuration TestConfig {
@@ -63,56 +73,46 @@ configuration TestConfig {
 > [!NOTE]
 > Em cenários mais avançados, onde você precisa de vários módulos para serem `Import-DscResource` importados que fornecem recursos DSC, certifique-se de que cada módulo tenha uma linha única em sua configuração.
 
-Chame o cmdlet `Import-AzureRmAutomationDscConfiguration` para carregar a configuração em sua conta de Automação:
+Chame o [cmdlet import-AzAutomationDscconfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/Import-AzAutomationDscConfiguration?view=azps-3.7.0) para carregar a configuração em sua conta de Automação.
 
 ```powershell
- Import-AzureRmAutomationDscConfiguration -SourcePath 'C:\DscConfigs\TestConfig.ps1' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Published
+ Import-AzAutomationDscConfiguration -SourcePath 'C:\DscConfigs\TestConfig.ps1' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Published
 ```
 
 ## <a name="compile-a-configuration-into-a-node-configuration"></a>Compilar uma configuração em uma configuração de nó
 
-Uma configuração DSC deverá ser compilada em uma configuração de nó para que ela possa ser atribuída a um nó.
+Uma configuração DSC deverá ser compilada em uma configuração de nó para que ela possa ser atribuída a um nó. Consulte [as configurações do DSC](/powershell/scripting/dsc/configurations/configurations).
 
-Para obter informações de como compilar configurações, consulte [Configurações DSC](/powershell/scripting/dsc/configurations/configurations).
-
-Chame o cmdlet `Start-AzureRmAutomationDscCompilationJob` para compilar a configuração `TestConfig` em uma configuração de nó:
+Ligue para o [cmdlet Start-AzAutomationDscCompilationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob?view=azps-3.7.0) para compilar `TestConfig` `TestConfig.WebServer` a configuração em uma configuração de nó nomeada em sua conta de Automação.
 
 ```powershell
-Start-AzureRmAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount'
+Start-AzAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount'
 ```
-
-Isso cria uma configuração de nó chamada `TestConfig.WebServer` na conta de Automação.
 
 ## <a name="register-a-vm-to-be-managed-by-state-configuration"></a>Registrar uma VM a ser gerenciada pela Configuração do Estado
 
 É possível usar a Configuração de Estado da Automação do Azure para gerenciar VMs do Azure (tanto Clássica quanto do Gerenciador de Recursos), VMs locais, computadores Linux, VMs de AWS e computadores físicos locais. Neste tópico, abordaremos como registrar somente VMs do Azure Resource Manager. Para obter mais informações sobre como registrar outros tipos de computadores, consulte [Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure](automation-dsc-onboarding.md).
 
-Chame o `Register-AzureRmAutomationDscNode` cmdlet para registrar a VM na Configuração do Estado de Automação do Azure.
+Ligue para o [cmdlet Register-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationDscNode?view=azps-3.7.0) para registrar sua VM com a Configuração do Estado de Automação do Azure como um nó gerenciado. 
 
 ```powershell
-Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm'
+Register-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm'
 ```
-
-Isso registra a VM especificada como um nó gerenciado na Configuração do Estado.
 
 ### <a name="specify-configuration-mode-settings"></a>Especificar definições do modo de configuração
 
-Ao registrar uma VM como um nó gerenciado, também é possível especificar as propriedades da configuração. Por exemplo, você pode especificar que o estado do computador deve ser aplicado somente uma vez (a DSC não tentará aplicar a configuração após a verificação inicial), especificando `ApplyOnly` como o valor da propriedade **ConfigurationMode**:
+Use o [cmdlet Register-AzAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) para registrar uma VM como um nó gerenciado e especificar propriedades de configuração. Por exemplo, você pode especificar que o estado da máquina `ApplyOnly` deve ser aplicado `ConfigurationMode` apenas uma vez, especificando como o valor da propriedade. A configuração do estado não tenta aplicar a configuração após a verificação inicial.
 
 ```powershell
-Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm' -ConfigurationMode 'ApplyOnly'
+Register-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm' -ConfigurationMode 'ApplyOnly'
 ```
 
-Você também pode especificar a frequência em que a DSC verifica o estado de configuração usando a propriedade **ConfigurationModeFrequencyMins**:
+Você também pode especificar com que frequência o `ConfigurationModeFrequencyMins` DSC verifica o estado de configuração usando a propriedade. Para obter mais informações sobre as definições de configuração de DSC, consulte [Configurando o Gerenciador de Configurações Local](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 ```powershell
 # Run a DSC check every 60 minutes
-Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm' -ConfigurationModeFrequencyMins 60
+Register-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm' -ConfigurationModeFrequencyMins 60
 ```
-
-Para obter mais informações de como definir as propriedades de configuração para um nó gerenciado, consulte [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode).
-
-Para obter mais informações sobre as definições de configuração de DSC, consulte [Configurando o Gerenciador de Configurações Local](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 ## <a name="assign-a-node-configuration-to-a-managed-node"></a>Atribuir uma configuração de nó a um nó gerenciado
 
@@ -120,43 +120,30 @@ Agora podemos atribuir a configuração de nó compilada à VM que queremos conf
 
 ```powershell
 # Get the ID of the DSC node
-$node = Get-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Name 'DscVm'
+$node = Get-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Name 'DscVm'
 
 # Assign the node configuration to the DSC node
-Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -NodeConfigurationName 'TestConfig.WebServer' -NodeId $node.Id
+Set-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -NodeConfigurationName 'TestConfig.WebServer' -NodeId $node.Id
 ```
 
-Isso atribuirá a configuração de nó denominada `TestConfig.WebServer` ao nó de DSC registrado chamado `DscVm`.
-Por padrão, o nó de DSC é verificado quanto à conformidade com a configuração do nó a cada 30 minutos.
-Para obter informações de como alterar o intervalo de verificação de conformidade, consulte [Configurando System Center Configuration Manager Local](/powershell/scripting/dsc/managing-nodes/metaConfig).
-
-## <a name="working-with-partial-configurations"></a>Trabalhando com configurações parciais
-
-A configuração do estado de automação do Azure suporta o uso de [configurações parciais](/powershell/scripting/dsc/pull-server/partialconfigs).
-Nesse cenário, o DSC é configurado para gerenciar várias configurações de forma independente, e cada configuração é recuperada do Azure Automation.
-No entanto, apenas uma configuração pode ser atribuída a um nó por conta de automação.
-Isso significa que se você estiver usando duas configurações para um nó, você precisará de duas contas de automação.
-
-Para obter detalhes sobre como registrar uma configuração parcial do serviço pull, consulte a documentação para [configurações parciais](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
-
-Para obter mais informações sobre como as equipes podem trabalhar juntas para gerenciar servidores de forma colaborativa usando a configuração como código, consulte [Entendendo a função do DSC em um pipeline de CI/CD](/powershell/scripting/dsc/overview/authoringadvanced).
+Isso atribui a configuração `TestConfig.WebServer` do nó nomeada ao `DscVm`nó DSC registrado . Por padrão, o nó de DSC é verificado quanto à conformidade com a configuração do nó a cada 30 minutos. Para obter informações de como alterar o intervalo de verificação de conformidade, consulte [Configurando System Center Configuration Manager Local](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>Verificar o status de conformidade de um nó gerenciado
 
-Você pode obter relatórios sobre o status de conformidade de um nó gerenciado chamando o cmdlet `Get-AzureRmAutomationDscNodeReport`:
+Você pode obter relatórios sobre o status de conformidade de um nó gerenciado usando o [cmdlet Get-AzAutomationDscNodeReport.](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationDscNodeReport?view=azps-3.7.0)
 
 ```powershell
 # Get the ID of the DSC node
-$node = Get-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Name 'DscVm'
+$node = Get-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Name 'DscVm'
 
 # Get an array of status reports for the DSC node
-$reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -NodeId $node.Id
+$reports = Get-AzAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -NodeId $node.Id
 
 # Display the most recent report
 $reports[0]
 ```
 
-## <a name="removing-nodes-from-service"></a>Removendo os nódulos do serviço
+## <a name="remove-nodes-from-service"></a>Remova os nódulos do serviço
 
 Quando você adiciona um nó à configuração do estado de automação do Azure, as configurações do Local Configuration Manager são definidas para registrar-se com as configurações de serviço e puxar e módulos necessários para configurar a máquina.
 Se você optar por remover o nó do serviço, você pode fazê-lo usando o portal Azure ou os cmdlets Az.
@@ -179,9 +166,9 @@ Para cancelar o registro de um nó do serviço de configuração do Estado de Au
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para começar, consulte [Introdução à Configuração de Estado da Automação do Azure](automation-dsc-getting-started.md)
-- Para saber mai sobre nós de integração, veja [Máquinas de integração para o gerenciamento pela Configuração do Estado de Automação do Azure](automation-dsc-onboarding.md)
-- Para saber como compilar configurações de DSC para que possam ser atribuídas a nós de destino, consulte [Compilar configurações na Configuração de Estado da Automação do Azure](automation-dsc-compile.md)
-- Para referência de cmdlet do PowerShell, consulte [Cmdlets da Configuração de Estado da Automação do Azure](/powershell/module/azurerm.automation/#automation)
-- Para obter informações sobre preços, consulte [Preço da Configuração de Estado da Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
+- Para começar, consulte [Como começar com a configuração do estado de automação do Azure](automation-dsc-getting-started.md).
+- Para aprender como a bordo de nódulos, consulte [máquinas de onboarding para gerenciamento pela Configuração do Estado de Automação do Azure](automation-dsc-onboarding.md).
+- Para saber mais sobre a compilação das configurações do DSC para que você possa atribuí-las a nós de destino, consulte [Compilando configurações na configuração do estado de automação do Azure](automation-dsc-compile.md).
+- Para obter referência de cmdlet PowerShell, consulte [cmdlets de configuração do estado de automação do Azure](/powershell/module/azurerm.automation/#automation).
+- Para obter informações sobre preços, consulte os preços de [configuração do estado de automação do Azure](https://azure.microsoft.com/pricing/details/automation/).
 - Para ver um exemplo de uso da Configuração de Estado da Automação do Azure em um pipeline de implantação contínua, consulte [Implantação contínua usando Configuração de Estado da Automação do Azure e Chocolatey](automation-dsc-cd-chocolatey.md)

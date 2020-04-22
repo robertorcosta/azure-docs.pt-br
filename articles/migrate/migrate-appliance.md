@@ -3,12 +3,12 @@ title: Dispositivo de Migrações para Azure
 description: Fornece uma visão geral do aparelho Azure Migrate usado na avaliação e migração do servidor.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: 130de0824a1671fb0b0e3e980f06f4c3abc689d2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 1c21f06e674871aefde1ae952a459db16feeb717
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538215"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676347"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
 
@@ -125,7 +125,7 @@ download.microsoft.com/download | Permitir downloads a partir do download da Mic
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Conecte-se às URLs de serviço do Azure Migrate.
 *.hypervrecoverymanager.windowsazure.us | **Usado para migração sem agente VMware**<br/><br/> Conecte-se às URLs de serviço do Azure Migrate.
 *.blob.core.usgovcloudapi.net  |  **Usado para migração sem agente VMware**<br/><br/>Faça upload de dados para armazenamento para migração.
-*.applicationinsights.us | Usado pelo agente Gateway no aparelho para acessar o ponto final do Application Insights para monitoramento diagnóstico.
+*.applicationinsights.us | Faça upload de registros de aplicativos usados para monitoramento interno.
 
 
 

@@ -1,14 +1,14 @@
 ---
 title: Tipos de recursos gerenciados de recursos suportados
 description: Forneça uma lista dos tipos de recursos do Gerenciador de recursos suportados pelo Gráfico de Recursos do Azure e pelo Histórico de Alterações.
-ms.date: 04/15/2020
+ms.date: 04/20/2020
 ms.topic: reference
-ms.openlocfilehash: 99cb2176e4b0642be1fc31d49528ebf915ea440a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 99a10e084f8ae24156c447f7abca31a8ef977720
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415149"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685472"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráficos de recursos do Azure e referência de tipo de recurso
 
@@ -50,7 +50,11 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - livearena.broadcast/services
 - mailjet.email/services
 - serviços microsoft.aad/domain
+- microsoft.aadiam/privatelinkforazuread
 - microsoft.aadiam/tenants
+- microsoft.aisupercomputador/contas
+- microsoft.aisupercomputador/contas/grupos de trabalho
+- microsoft.aisupercomputador/contas/jobgroups/jobs
 - microsoft.alertsmanagement/actionrules
 - microsoft.alertsmanagement/smartdetectoralertrules
 - microsoft.analysisservices/servidores
@@ -63,6 +67,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.automation/automationaccounts/runbooks
 - lojas microsoft.azconfig/configurationstores
 - microsoft.azureactivedirectory/b2cdirectories
+- microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
 - microsoft.azuredata/sqlbigdataclusters
@@ -351,6 +356,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.remoteapp/coleções
 - microsoft.resourcegraph/consultas
 - microsoft.resources/deploymentscripts
+- microsoft.resources/templatespecs
 - microsoft.saas/aplicativos
 - microsoft.scheduler/jobcollections
 - microsoft.search/searchservices
@@ -405,6 +411,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.visualstudio/conta
 - microsoft.visualstudio/conta/extensão
 - microsoft.visualstudio/account/project
+- microsoft.vmware/arczones
 - microsoft.vmwarecloudsimple/dedicatedcloudnodes
 - serviços microsoft.vmwarecloudsimple/dedicatedcloudservices
 - máquinas microsoft.vmwarecloudsimple/virtual
@@ -454,7 +461,6 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 
 ## <a name="securityresources"></a>recursos de segurança
 
-- avaliaçãometadata
 - microsoft.security/avaliações
 - microsoft.security/avaliações/subavaliações
 - microsoft.security/pricings

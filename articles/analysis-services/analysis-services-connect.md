@@ -4,15 +4,15 @@ description: Saiba como se conectar e obter dados de um servidor do Azure Analys
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2875959a833134131fa6db6d51df0c2b47a39377
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: cc671629934d80b3e727ca69f9026f534d05e160
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411307"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676642"
 ---
 # <a name="connecting-to-servers"></a>Conectando-se a servidores
 
@@ -23,6 +23,9 @@ Este artigo descreve a conexão a um servidor usando aplicativos de modelagem e 
 [Obter as bibliotecas de Cliente mais recentes](analysis-services-data-providers.md)
 
 Todas as conexões a um servidor, independentemente do tipo, exigem bibliotecas de cliente OLEDB, ADOMD.NET e AMO atualizadas para a conexão e interface com um servidor do Analysis Services. Para SSMS, Visual Studio, Excel 2016 e posterior, e Power BI, as bibliotecas de clientes mais recentes são instaladas ou atualizadas com lançamentos mensais. No entanto, em alguns casos, é possível que um aplicativo não tenha a mais recente. Por exemplo, quando políticas atrasam atualizações ou, as atualizações do Office 365 estão no Canal Adiado.
+
+> [!NOTE]
+> As bibliotecas de clientes não podem se conectar aos Serviços de Análise do Azure através de servidores proxy que requerem um nome de usuário e senha. 
 
 ## <a name="server-name"></a>Nome do servidor
 

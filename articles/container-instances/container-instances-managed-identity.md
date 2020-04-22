@@ -3,12 +3,12 @@ title: Habilitar identidade gerenciada no grupo de contêineres
 description: Saiba como ativar uma identidade gerenciada no Azure Container Instances que pode autenticar com outros serviços do Azure
 ms.topic: article
 ms.date: 01/29/2020
-ms.openlocfilehash: 003055d5021dd8ad7c3bab6d2900298ffd13b222
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19d2ab22eea15278c7753046f9222c7856fbf5ef
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76901938"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685655"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Como usar identidades gerenciadas com Instâncias de Contêiner do Azure
 
@@ -31,7 +31,7 @@ Adapte os exemplos para habilitar e usar identidades em Instâncias de Contêine
 Use uma identidade gerenciada em um contêiner gerenciado para autenticar em qualquer serviço [ que dá suporte à autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), sem ter as credenciais no seu código de contêiner. Para serviços que não suportam a autenticação de AD, você pode armazenar segredos em um cofre de chaves do Azure e usar a identidade gerenciada para acessar o cofre de chaves para recuperar credenciais. Para saber mais sobre como usar uma identidade gerenciada, consulte [O que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
-> Esse recurso está atualmente na visualização. As visualizações são disponibilizadas para você com a condição de que você concorde com os [termos de uso suplementar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral). Atualmente, as identidades gerenciadas no Azure Container Instances, são suportadas apenas com contêineres Linux e ainda não com contêineres do Windows.
+> Esse recurso está atualmente na visualização. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral). Atualmente, as identidades gerenciadas no Azure Container Instances, são suportadas apenas com contêineres Linux e ainda não com contêineres do Windows.
 >  
 
 ### <a name="enable-a-managed-identity"></a>Habilitar uma identidade gerenciada
@@ -52,7 +52,7 @@ Usar uma identidade gerenciada em um contêiner em execução é essencialmente 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá que esteja em execução a CLI do Azure versão 2.0.49 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI](/cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este artigo exigirá que esteja em execução a CLI do Azure versão 2.0.49 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-an-azure-key-vault"></a>Criar um cofre chave Azure
 
@@ -189,7 +189,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Agora use o token de acesso para autenticar o cofre de chaves e ler um segredo. Certifique-se de substituir o nome do*https://mykeyvault.vault.azure.net/..* seu cofre de chaves na URL ( .
+Agora use o token de acesso para autenticar o cofre de chaves e ler um segredo. Certifique-se de substituir o nome do seu cofre de chaves na URL *(https:\//mykeyvault.vault.azure.net/...*):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

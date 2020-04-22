@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9d98660230e0ab9f4edcd9a7af8a3797106dd17a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03f5b0124f95465c4a5da5043364a2f5816dae62
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255655"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685741"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicativos seguros no Azure
 Neste artigo apresentamos atividades de segurança e controles a serem considerados quando você desenvolve aplicações para a nuvem. Perguntas e conceitos de segurança a serem considerados durante as fases de implementação e verificação do [Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) são abordados. O objetivo é ajudá-lo a definir atividades e serviços do Azure que você pode usar para desenvolver um aplicativo mais seguro.
@@ -44,7 +44,7 @@ O Azure Marketplace oferece [ferramentas de desenvolvedor](https://azuremarketpl
 
 ### <a name="validate-and-sanitize-every-input-for-your-application"></a>Valide e higienize cada entrada para sua aplicação
 
-Trate todas as entradas como não confiáveis para proteger seu aplicativo das vulnerabilidades mais comuns do aplicativo web. Dados não confiáveis são um veículo para ataques de injeção. A entrada para o seu aplicativo inclui parâmetros na URL, entrada do usuário, dados do banco de dados ou de uma API, e qualquer coisa que seja passada em que um usuário poderia potencialmente manipular. Um aplicativo deve [validar](https://www.owasp.org/index.php/OWASP_Proactive_Controls_2016#4:_Validate_All_Inputs) que os dados são sintáticamente e semanticamente válidos antes que o aplicativo use os dados de qualquer maneira (incluindo exibi-los de volta para o usuário).
+Trate todas as entradas como não confiáveis para proteger seu aplicativo das vulnerabilidades mais comuns do aplicativo web. Dados não confiáveis são um veículo para ataques de injeção. A entrada para o seu aplicativo inclui parâmetros na URL, entrada do usuário, dados do banco de dados ou de uma API, e qualquer coisa que seja passada em que um usuário poderia potencialmente manipular. Um aplicativo deve [validar](https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs) que os dados são sintáticamente e semanticamente válidos antes que o aplicativo use os dados de qualquer maneira (incluindo exibi-los de volta para o usuário).
 
 Valide a entrada no início do fluxo de dados para garantir que apenas dados devidamente formados entrem no fluxo de trabalho. Você não quer dados malformados persistindo em seu banco de dados ou desencadeando um mau funcionamento em um componente a jusante.
 
@@ -97,7 +97,7 @@ Se o aplicativo tiver que gerar senhas automaticamente, certifique-se de que as 
 
 ### <a name="validate-file-uploads"></a>Validar uploads de arquivos
 
-Se o seu aplicativo permitir [uploads de arquivos,](https://www.owasp.org/index.php/Unrestricted_File_Upload)considere as precauções que você pode tomar para esta atividade de risco. O primeiro passo em muitos ataques é colocar algum código malicioso em um sistema que está ataque. O uso de um upload de arquivo ajuda o invasor a conseguir isso. A OWASP oferece soluções para validar um arquivo para garantir que o arquivo que você está carregando esteja seguro.
+Se o seu aplicativo permitir [uploads de arquivos,](https://www.owasp.org/index.php/Unrestricted_File_Upload)considere as precauções que você pode tomar para esta atividade de risco. O primeiro passo em muitos ataques é colocar algum código malicioso em um sistema que está sob ataque. O uso de um upload de arquivo ajuda o invasor a conseguir isso. A OWASP oferece soluções para validar um arquivo para garantir que o arquivo que você está carregando esteja seguro.
 
 A proteção antimalware ajuda a identificar e remover vírus, spyware e outros softwares maliciosos. Você pode instalar o [Microsoft Antimalware](../fundamentals/antimalware.md) ou a solução de proteção de ponto final de um parceiro Microsoft[(Trend Micro,](https://www.trendmicro.com/azure/) [Broadcom,](https://www.broadcom.com/products) [McAfee,](https://www.mcafee.com/us/products.aspx) [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)e [Endpoint Protection).](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)
 

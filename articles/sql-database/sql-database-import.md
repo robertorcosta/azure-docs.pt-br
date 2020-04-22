@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 05698596f966f879da1affc58af0122d08d519ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7db3f6f50745526876ef2ca6e3253f1931420f0f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256231"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683258"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Quickstart: Importe um arquivo BACPAC para um banco de dados no Banco de Dados SQL do Azure
 
@@ -88,7 +88,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!NOTE]
 > As máquinas que processam solicitações de importação/exportação enviadas através do portal ou do Powershell precisam armazenar o arquivo bacpac, bem como arquivos temporários gerados pelo Data-Tier Application Framework (DacFX). O espaço em disco necessário varia significativamente entre os DBs com o mesmo tamanho e pode levar até 3 vezes o tamanho do banco de dados. As máquinas que executam a solicitação de importação/exportação têm apenas 450GB de espaço em disco local. Como resultado, algumas solicitações podem falhar com o erro "Não há espaço suficiente no disco". Neste caso, a solução é executar sqlpackage.exe em uma máquina com espaço em disco local suficiente. Ao importar/exportar bancos de dados maiores que 150GB, use o SqlPackage para evitar esse problema.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > O módulo RM (PowerShell Azure Resource Manager, gerente de recursos do Azure) ainda é suportado pelo Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará recebendo correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre sua compatibilidade, consulte [Introduzindo o novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
@@ -123,7 +123,7 @@ while ($importStatus.Status -eq "InProgress") {
 $importStatus
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Use o comando [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) para enviar uma solicitação de banco de dados de importação ao serviço Azure SQL Database. Dependendo do tamanho do banco de dados, a importação pode levar algum tempo para ser concluída.
 
@@ -144,14 +144,15 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 ## <a name="limitations"></a>Limitações
 
-Não há suporte para a importação de um banco de dados no pool elástico. Você pode importar dados para um banco de dados individual e, em seguida, mover o banco de dados para um pool elástico.
+- Não há suporte para a importação de um banco de dados no pool elástico. Você pode importar dados para um banco de dados individual e, em seguida, mover o banco de dados para um pool elástico.
+- O Serviço de Exportação de Importação não funciona quando o permitir que o acesso aos serviços do Azure seja definido como OFF. No entanto, você pode contornar o problema executando manualmente sqlpackage.exe a partir de um VM Azure ou realizando a exportação diretamente em seu código usando a API DACFx.
 
 ## <a name="import-using-wizards"></a>Importar usando assistentes
 
 Você também pode usar esses assistentes.
 
 - [Importar o Assistente de Aplicativo da Camada de Dados no SQL Server Management Studio](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database#using-the-import-data-tier-application-wizard).
-- [Assistente de Importação e Exportação do SQL Server](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard).
+- [Assistente de importação e exportação do servidor SQL](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard).
 
 ## <a name="next-steps"></a>Próximas etapas
 

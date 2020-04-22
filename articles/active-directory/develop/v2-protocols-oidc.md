@@ -12,19 +12,16 @@ ms.date: 04/12/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: fa42bf65ea5f4469f714dda4331d3cb66156d187
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ebec4cb6bbbac5b331eb2eb4145716e16e7320fa
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535784"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677678"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidade Microsoft e protocolo OpenID Connect
 
 O OpenID Connect é um protocolo de autenticação baseado no OAuth 2.0 que você pode usar para assinar com segurança em um usuário a um aplicativo Web. Quando você usa a implementação do OpenID Connect da plataforma de identidade Microsoft, você pode adicionar acesso de login e API aos seus aplicativos baseados na Web. Este artigo mostra como fazer isso independentemente da linguagem e descreve como enviar e receber mensagens HTTP em usar nenhuma das bibliotecas de software livre da Microsoft.
-
-> [!NOTE]
-> O ponto final da plataforma de identidade da Microsoft não suporta todos os cenários e recursos do Azure Active Directory (Azure AD). Para determinar se você deve usar o ponto final da plataforma de identidade da Microsoft, leia sobre [as limitações da plataforma de identidade da Microsoft](active-directory-v2-limitations.md).
 
 O [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) estende o protocolo de *autorização* do OAuth 2.0 para uso como um protocolo de *autenticação*, o que permite executar o logon único usando o OAuth. O OpenID Connect apresenta o conceito de um *token de ID*, que é um token de segurança que permite ao cliente verificar a identidade do usuário. O token de ID também obtém informações de perfil básico sobre o usuário. Como o OpenID Connect estende o OAuth 2.0, os aplicativos podem adquirir *access_tokens* com segurança, os quais podem ser usados para acessar os recursos protegidos por um [servidor de autorização](active-directory-v2-protocols.md#the-basics). O ponto final da plataforma de identidade da Microsoft também permite que aplicativos de terceiros registrados no Azure AD emitam tokens de acesso para recursos protegidos, como APIs da Web. Para obter mais informações sobre como configurar um aplicativo para emitir tokens de acesso, consulte [Como registrar um aplicativo com o ponto final da plataforma de identidade Microsoft](quickstart-register-app.md). É recomendável que você use o OpenID Connect se estiver criando um [aplicativo Web](v2-app-types.md#web-apps) que fica hospedado em um servidor e é acessado por meio de um navegador.
 

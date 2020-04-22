@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 218fb96f6960e194f0fc4a4a3a3e603388b961c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1198d3cc7ccc0013e7c894488027d8e162470247
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760803"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677595"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O processo de ciência de dados da equipe em ação - Usando um Cluster Hadoop Azure HDInsight em um conjunto de dados de 1 TB
 
@@ -434,7 +434,7 @@ Para o módulo **Importar Dados**, os valores dos parâmetros que são fornecido
 
 1. Escolha "Consulta de Hive" para **Fonte de dados**
 2. Na caixa **Consulta de banco de dados Hive**, um simples SELECT * FROM <your\_database\_name.your\_table\_name> é suficiente.
-3. **URI do servidor Hcatalog**: se o cluster for "abc", isso é simplesmente: https://abc.azurehdinsight.net
+3. **Hcatalog server URI**: Se o seu cluster é\/"abc", então isso é simplesmente: https: /abc.azurehdinsight.net
 4. **Nome da conta de usuário do Hadoop**: o nome de usuário escolhido no momento da programação do cluster. (NÃO o nome de usuário do Acesso Remoto!)
 5. **Senha da conta de usuário do Hadoop**: a senha para o nome de usuário escolhido no momento da programação do cluster. (NÃO a senha de Acesso Remoto!)
 6. **Local dos dados de saída**: escolha "Azure"

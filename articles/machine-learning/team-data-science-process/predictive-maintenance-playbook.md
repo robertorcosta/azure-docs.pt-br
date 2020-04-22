@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 5cf3f02284777a54a9d26cad8a7f3b5b4fa6b335
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 301e2be0c8b971a0236de6a8b5c8bd5f278c3aee
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087799"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686744"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -231,7 +231,7 @@ As especificações técnicas do equipamento, como data de fabricação, número
 
 Os esforços de preparação de dados discutidos até aqui devem gerar os dados sendo organizados conforme mostrado abaixo. Dados de treinamento, teste e validação devem ter esse esquema lógico (este exemplo mostra o tempo em unidades de dias).
 
-| ID do ativo | Hora | \<Colunas de recursos> | Rótulo |
+| ID do ativo | Hora | \<Colunas de recursos> | Rotular |
 | ---- | ---- | --- | --- |
 | A123 |Dia 1 | . . . | . |
 | A123 |Dia 2 | . . . | . |
@@ -449,6 +449,6 @@ O Microsoft Azure oferece roteiros de aprendizagem para os conceitos fundamentai
 | [Microsoft AI YouTube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
 | [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Público |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Parceiros |
-| [Microsoft Partner Network](https://learningportal.microsoft.com) | Parceiros |
+| [Microsoft Partner Network](https://partner.microsoft.com/training/training-center) | Parceiros |
 
 Além disso, MOOCS livres (cursos online abertos massivos) em AI estão online oferecidos por instituições acadêmicas como Stanford e MIT e outras empresas educacionais.

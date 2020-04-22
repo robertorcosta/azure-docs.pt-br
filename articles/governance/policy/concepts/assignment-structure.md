@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de atribuição de políticas
 description: Descreve a definição de atribuição de diretiva usada pela Diretiva Azure para relacionar definições de políticas e parâmetros a recursos para avaliação.
-ms.date: 09/23/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdb2fc0c6f057ece44383f68bc79fca54507db9b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265292"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683212"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -20,6 +20,7 @@ Você usa json para criar uma atribuição de política. A atribuição de diret
 - descrição
 - metadata
 - modo de aplicação
+- escopos excluídos
 - definição de política
 - parâmetros
 
@@ -34,6 +35,7 @@ Por exemplo, o JSON a seguir mostra uma atribuição de diretiva no modo _DoNotE
             "assignedBy": "Cloud Center of Excellence"
         },
         "enforcementMode": "DoNotEnforce",
+        "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
         "parameters": {
             "prefix": {
@@ -65,6 +67,10 @@ Esta propriedade tem os seguintes valores:
 |Desabilitado |Não faça cumprir |string |Sim |Não | O efeito de política não é aplicado durante a criação ou atualização de recursos. |
 
 Se **enforcementMode** não for especificado em uma definição de política ou iniciativa, o _padrão de_ valor será usado. [As tarefas de remediação](../how-to/remediate-resources.md) podem ser iniciadas para [implantarpolíticasIfNotExist,](./effects.md#deployifnotexists) mesmo quando **o enforcementMode** é definido como _DoNotEnforce_.
+
+## <a name="excluded-scopes"></a>Escopos excluídos
+
+O **escopo** da atribuição inclui todos os contêineres de recursos infantis e recursos infantis. Se um contêiner de recursos filho ou recurso filho não tiver a definição aplicada, cada um pode ser excluído da avaliação definindo **notScopes**. Esta propriedade é uma matriz para permitir a exclusão de um ou mais contêineres de recursos ou recursos da avaliação. **notScopes** podem ser adicionados ou atualizados após a criação da atribuição inicial.
 
 ## <a name="policy-definition-id"></a>ID de definição de política
 

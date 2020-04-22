@@ -6,14 +6,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 987d04a4138c37d9073e5e9925f06c93d7ebb8e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 528c393983cb3d8d96dbcee9157e38ebc4f193f4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281571"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685397"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Consulte de Serviços para o Azure Marketplace e AppSource
 Os Serviços de Consultoria no Azure Marketplace e AppSource fornecem a parceiros da Microsoft a meta de conectar clientes com os serviços de suporte e estender seu uso e objetivos de negócios. 
@@ -27,22 +27,22 @@ As vitrines do Marketplace estão alinhadas com o público e os produtos de nuve
 
 |         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
-|**Público**   |**Os profissionais de TI e desenvolvedores de nuvem**|**Os usuários empresariais / tomadores de decisão de linha de negócios**|
-|Relevância da solução     |Aplicativos técnicos criados para ou criados no Azure|Aplicativos de negócios que aproveitam/estendem D365, Power BI, O365, Azure. (Suplemento ou complemento de aplicativos terminados)|
-|Opções de publicação     |Entre em contato comigo, Trial, Transact ou Serviços para o Azure|Entre em contato comigo, teste ou serviços para dinâmica 365 e Power BI|
+|**Público**      |**Os profissionais de TI e desenvolvedores de nuvem**|**Os usuários empresariais / tomadores de decisão de linha de negócios**|
+|Relevância da solução      |Aplicativos técnicos criados para ou criados no Azure|Aplicativos de negócios que aproveitam/estendem D365, Power BI, O365, Azure. (Suplemento ou complemento de aplicativos terminados)|
+|Opções de publicação      |Entre em contato comigo, Trial, Transact ou Serviços para o Azure|Entre em contato comigo, teste ou serviços para dinâmica 365 e Power BI|
 |Experiência de produto      |Portal de Gerenciamento do Azure|Dynamics 365, Office 365, aplicativos de cliente do Office| 
 |Outros      |Publicação no local via Azure Stack, Serviços de Consultoria para o Azure, Serviços Gerenciados para o Azure|Serviços de Consultoria para Dynamics e Power BI|
 
 As ofertas de Serviços de Consultoria baseadas no Microsoft Dynamics 365, Power Apps e Power BI são elegíveis para serem listadas no Microsoft AppSource. Para obter mais informações, consulte [diretrizes da lista de serviços de consultoria do Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 
-As ofertas de Serviços de Consultoria e Serviços Gerenciados que são baseadas no Microsoft Azure são elegíveis para serem listadas no Azure Marketplace. Para obter mais informações, consulte artigos sobre [a publicação de um serviço de consultoria Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) e publique uma oferta de [serviços gerenciados ao Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
+As ofertas de Serviços de Consultoria e Serviços Gerenciados que são baseadas no Microsoft Azure são elegíveis para serem listadas no Azure Marketplace. Para obter mais informações, consulte artigos sobre [a publicação de um serviço de consultoria Azure](./partner-center-portal/create-consulting-service-offer.md) e publique uma oferta de [serviços gerenciados ao Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
 > [!Note]
 > Os serviços de consultoria no Azure Marketplace devem alavancar ofertas voltadas para um público técnico com foco em *soluções e serviços técnicos do Azure.* ** Os serviços de consultoria no AppSource devem aproveitar as ofertas voltadas para sua expertise na entrega de soluções de qualidade para dynamics 365, Power BI ou Power Apps para listar suas ofertas de serviços de consultoria no AppSource
 > 
 > 
 > [!TIP]
-> Para publicar na vitrine do Microsoft Azure Market Place, você fará essa seleção escolhendo "Azure" no menu suspenso "Produto principal" no Portal do Microsoft Cloud Partner. Para publicar no AppSource, você fará essa seleção escolhendo "Dynamics 365," "Power BI," ou "Power Apps"no menu suspenso "Primary Product" no Portal do Microsoft Cloud Partner.
+> Para publicar na vitrine do Azure Marketplace, você fará essa seleção escolhendo "Azure" no menu suspenso "Produto Principal" no Partner Center. Para publicar no AppSource, você fará essa seleção escolhendo "Dynamics 365", "Power BI" ou "Power Apps" no menu suspenso "Produto Primário" no Partner Center.
 
 ## <a name="eligible-partners-and-supported-countriesregions"></a>Parceiros/regiões elegíveis
 
@@ -87,13 +87,18 @@ Recursos adicionais e suporte:
 | United Kingdom  |
 
 
-## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Como se registrar para Serviços de consultoria no Azure Marketplace e AppSource
-Comece [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) as informações da sua empresa no marketplace. Os editores podem consultar [Tornar-se um editor no Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), para obter uma lista de verificação completa dos requisitos de registro. 
+## <a name="how-to-register-for-consulting-services-in-commercial-marketplace"></a>Como se cadastrar para serviços de consultoria no mercado comercial
 
-**O que esperar após registro** A equipe de integração entrará em contato em 1 a 3 dias úteis com um email de boas-vindas que incluirá suas informações de logon do CPP (Portal do Cloud Partner). [Portal do Cloud Partner](https://cloudpartner.azure.com) é o portal de listagem de ofertas onde os editores enviam informações de listagem e envios. 
+Comece [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) as informações da sua empresa no marketplace. Os editores podem consultar [Tornar-se um editor no Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), para obter uma lista de verificação completa dos requisitos de registro. 
+
+<!---
+**What To Expect After Registration**
+The Onboarding Team will reach out in 1-3 business days with a welcome email, which will include your Cloud Partner Portal (CPP) login information. [Cloud Partner Portal](https://cloudpartner.azure.com) is the offer listing portal where publishers submit listing information and submissions. 
 
 >[!Note]
->Os parceiros só precisam se registrar uma vez para se tornarem um editor. Depois de receber o email de boas-vindas e fazer logon no Portal do Cloud Partner, os editores não precisam registrar novamente para publicar tipos de diferentes de listagem. 
+>Partners only need to register once to become a publisher. Once you receive your welcome email and Partner Center login, publishers do not need to re-register in order to publish different listing types. 
+
+--->
 
 ## <a name="prepare-your-publishing-artifacts"></a>Preparar os artefatos de publicação
 Antes do registro, é possível iniciar a coleta e preparação do conteúdo que ajudará sua listagem a articular o valor do serviço e solução para seu cliente-alvo. 
@@ -120,7 +125,7 @@ Antes do registro, é possível iniciar a coleta e preparação do conteúdo que
 ## <a name="publishing-process"></a>Processo de publicação
 A listagem da sua oferta de serviço de consultoria no Azure Marketplace e AppSource envolve os seguintes estágios:
 
-1. **Listando**: começar esboçando uma nova oferta listando fazendo logon na sua conta do [Portal do Cloud Partner](https://cloudpartner.azure.com). Selecione “Nova oferta” e “Serviços de consultoria” no menu suspenso. Insira o artefato de listagem e publique.
+1. **Listagem**: Comece a elaborar uma nova listagem de ofertas fazendo login na sua conta [do Partner Center.](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) Selecione “Nova oferta” e “Serviços de consultoria” no menu suspenso. Insira o artefato de listagem e publique.
 2. **Validação**: sua solicitação é revisada para garantir que você atenda aos critérios de qualificação. Em seguida, enviamos instruções para listar sua oferta de serviços de consultoria. 
 3. **Enviar:** forneça as informações exigidas listadas nas instruções. Todo o conteúdo e o material de apoio deverão ser enviados em inglês. 
 4. **Revisão:** nossa equipe editorial e de marketing revisa seu envio e otimiza-o em relação à legibilidade, à gramática e à eficácia. 
@@ -165,7 +170,7 @@ Ao revisar Descrições da Oferta e Resumos da Oferta, a equipe aplicará os seg
 |**Prova de conceito**    |    Articule quais alterações de engenharia, artefatos técnicos ou outros artefatos que um cliente pode esperar como resultados do engajamento     | Otimize seu resumo de ofertas com suas principais palavras-chave de Otimização do Mecanismo de Pesquisa        |
 |**Workshop**    |   Inclua uma agenda detalhada diária, semanal ou mensal, dependendo da duração escolhida da sua oferta. Articule quais são os objetivos de aprendizado ou outras entregas de seu workshop     |   Otimize seu resumo de ofertas com suas principais palavras-chave de Otimização do Mecanismo de Pesquisa      |
 
-Dentro do Portal do Microsoft Cloud Partner você pode adicionar a formatação para a sua listagem usando [Markdown](/contribute/markdown-reference). Esta é uma linguagem de design leve que ajudará a adicionar polimento à sua listagem. 
+Dentro do Partner Center, você pode adicionar formatação à sua listagem usando [Markdown](/contribute/markdown-reference). Esta é uma linguagem de design leve que ajudará a adicionar polimento à sua listagem. 
 
 **Anotações de exemplo de Markdown**
 * Adicione * no início e no final do bloco de cópia - sem espaço para criar o itálico (por exemplo: *conteúdo*)
@@ -181,9 +186,9 @@ Dentro do Portal do Microsoft Cloud Partner você pode adicionar a formatação 
 
 Caso ainda não tenha feito isso, 
 
-- [Registre-se](https://azuremarketplace.microsoft.com/sell) no Marketplace.
+- [Conheça](https://azuremarketplace.microsoft.com/sell) o mercado.
 
-Se você estiver registrado e trabalhando no Portal do Cloud Partner, 
+Para se inscrever e começar a trabalhar no Partner Center, 
 
-- [Entre no Portal do Cloud Partner](https://cloudpartner.azure.com) para criar ou concluir a oferta.
-- Consulte [Oferta de serviço de consultoria do Dynamics 365 e do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) para obter mais informações.
+- [Faça login no Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou concluir sua oferta.
+- Consulte [criar uma oferta de serviço de consultoria](./partner-center-portal/create-consulting-service-offer.md) para obter mais informações.

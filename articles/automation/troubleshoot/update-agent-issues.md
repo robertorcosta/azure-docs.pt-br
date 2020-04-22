@@ -1,6 +1,6 @@
 ---
-title: Diagnosticar o Windows Hybrid Runbook Worker - Gerenciamento de atualização do Azure
-description: Saiba como solucionar e resolver problemas com o Azure Automation Hybrid Runbook Worker no Windows que suporta gerenciamento de atualizações.
+title: Solução de problemas problemas do agente de atualização do Windows no Gerenciamento de Atualização de Automação do Azure
+description: Saiba como solucionar problemas e resolver problemas com o agente de atualização do Windows usando a solução Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,36 +9,36 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: ec35d11eba59ea21947e2c3cd5286bababa4eabb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6983a2ac7ab5fafcb00aee0b72221a8540ea1668
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76153847"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678982"
 ---
-# <a name="understand-and-resolve-windows-hybrid-runbook-worker-health-in-update-management"></a>Entenda e resolva a saúde do Trabalhador do Runbook Híbrido do Windows em Gestão de Atualizações
+# <a name="troubleshoot-windows-update-agent-issues"></a>Solucionar problemas do agente de atualização do Windows
 
-Pode haver vários motivos pelos quais o computador não mostra o status **Pronto** no Gerenciamento de Atualizações. No Update Management, você pode verificar a saúde de um agente Híbrido Runbook Worker para determinar o problema subjacente. Este artigo discute como executar o solucionador de problemas para máquinas Azure a partir do portal Azure e máquinas não-Azure no [cenário offline](#troubleshoot-offline).
+Pode haver muitas razões pelas quais sua máquina não está aparecendo tão pronta (saudável) no Gerenciamento de Atualizações. No Update Management, você pode verificar a saúde de um agente Híbrido Runbook Worker para determinar o problema subjacente. Este artigo discute como executar o solucionador de problemas para máquinas Azure a partir do portal Azure e máquinas não-Azure no [cenário offline](#troubleshoot-offline).
 
-A lista a seguir é composta pelos três estados de preparação em que um computador pode estar:
+A seguir estão os três estados de prontidão para uma máquina:
 
-* **Pronto** - O Híbrido Runbook Worker foi implantado e foi visto pela última vez há menos de 1 hora.
-* **Desconectado** - O Híbrido Runbook Worker foi implantado e foi visto pela última vez há mais de 1 hora.
-* **Não configurado** - O Hybrid Runbook Worker não foi encontrado ou não terminou o onboarding.
+* Pronto - O Híbrido Runbook Worker foi implantado e foi visto pela última vez há menos de 1 hora.
+* Desconectado - O Híbrido Runbook Worker foi implantado e foi visto pela última vez há mais de 1 hora.
+* Não configurado - O Hybrid Runbook Worker não foi encontrado ou não terminou o onboarding.
 
 > [!NOTE]
-> Pode haver um pequeno atraso entre o que o portal Azure mostra e o estado atual da máquina.
+> Pode haver um pequeno atraso entre o que o portal Azure mostra e o estado atual de uma máquina.
 
 ## <a name="start-the-troubleshooter"></a>Iniciar a solução de problemas
 
-Para computadores do Azure, ao clicar no link **Solução de Problemas** na coluna **Preparação do Agente de Atualização** no portal, a página **Solucionar Problemas do Agente de Atualização** será iniciada. Para máquinas não-Azure, o link traz você para este artigo. Consulte as [instruções off-line](#troubleshoot-offline) para solucionar problemas de uma máquina não-Azure.
+Para computadores do Azure, ao clicar no link **Solução de Problemas** na coluna **Preparação do Agente de Atualização** no portal, a página Solucionar Problemas do Agente de Atualização será iniciada. Para máquinas não-Azure, o link traz você para este artigo. Consulte as [instruções off-line](#troubleshoot-offline) para solucionar problemas de uma máquina não-Azure.
 
 ![Atualizar lista de gerenciamento de máquinas virtuais](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
 > Para verificar a saúde do Trabalhador híbrido, a VM deve estar funcionando. Se a VM não estiver em execução, será exibido o botão **Iniciar a VM**.
 
-Sobre o **solucionar problemas de atualização de agente** página, selecione **executar verificações de** para iniciar a solução de problemas. O solucionador de problemas usa [o Comando executar](../../virtual-machines/windows/run-command.md) para executar um script na máquina para verificar dependências. Quando a solução de problemas é concluída, ela retorna o resultado das verificações.
+Sobre o solucionar problemas de atualização de agente página, selecione **executar verificações de** para iniciar a solução de problemas. O solucionador de problemas usa [o Comando executar](../../virtual-machines/windows/run-command.md) para executar um script na máquina para verificar dependências. Quando a solução de problemas é concluída, ela retorna o resultado das verificações.
 
 ![Solucionar problemas de agente de atualização de página](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -86,15 +86,13 @@ As configurações de proxy e firewall devem permitir que o agente do Hybrid Run
 
 ### <a name="monitoring-agent-service-status"></a>Monitoramento de status de serviço do agente
 
-Essa verificação determina se `HealthService`, o Microsoft Monitoring Agent, está em execução no computador.
+Esta verificação determina se o agente`healthservice`log analytics para Windows ( ) está sendo executado na máquina. Para saber mais sobre como solucionar problemas no serviço, consulte [o agente Log Analytics para Windows que não está sendo executado](hybrid-runbook-worker.md#mma-not-running).
 
-Para saber mais sobre a solução de problemas do serviço, confira [O Microsoft Monitoring Agent não está em execução](hybrid-runbook-worker.md#mma-not-running).
-
-Para reinstalar o Microsoft Monitoring Agent, consulte [Instalar e configurar o Microsoft Monitoring Agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+Para reinstalar o agente Log Analytics para Windows, consulte [Instalar e configurar o agente Log Analytics para Windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### <a name="monitoring-agent-service-events"></a>Monitoramento de eventos de serviço de agente
 
-Essa verificação determina se qualquer evento `4502` aparece no log do Azure Operations Manager na máquina nas últimas 24 horas.
+Esta verificação determina se algum evento 4502 aparecerá no log do Azure Operations Manager na máquina nas últimas 24 horas.
 
 Para saber mais sobre esse evento, confira o [guia de solução de problemas](hybrid-runbook-worker.md#event-4502) para este evento.
 
@@ -167,9 +165,9 @@ RuleName                    : Monitoring Agent service status
 RuleGroupName               : VM Service Health Checks
 RuleDescription             : HealthService must be running on the machine
 CheckResult                 : Failed
-CheckResultMessage          : Microsoft Monitoring Agent service (HealthService) is not running
+CheckResultMessage          : Log Analytics for Windows service (HealthService) is not running
 CheckResultMessageId        : MonitoringAgentServiceRunningCheck.Failed
-CheckResultMessageArguments : {Microsoft Monitoring Agent, HealthService}
+CheckResultMessageArguments : {Log Analytics agent for Windows, HealthService}
 
 RuleId                      : MonitoringAgentServiceEventsCheck
 RuleGroupId                 : servicehealth
@@ -177,9 +175,9 @@ RuleName                    : Monitoring Agent service events
 RuleGroupName               : VM Service Health Checks
 RuleDescription             : Event Log must not have event 4502 logged in the past 24 hours
 CheckResult                 : Failed
-CheckResultMessage          : Microsoft Monitoring Agent service Event Log (Operations Manager) does not exist on the machine
+CheckResultMessage          : Log Analytics agent for Windows service Event Log (Operations Manager) does not exist on the machine
 CheckResultMessageId        : MonitoringAgentServiceEventsCheck.Failed.NoLog
-CheckResultMessageArguments : {Microsoft Monitoring Agent, Operations Manager, 4502}
+CheckResultMessageArguments : {Log Analytics agent for Windows, Operations Manager, 4502}
 
 RuleId                      : CryptoRsaMachineKeysFolderAccessCheck
 RuleGroupId                 : permissions

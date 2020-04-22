@@ -4,12 +4,12 @@ description: Neste artigo, saiba como fazer backup de bancos de dados SQL Server
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 5b10907738feeecbec06669175e82578f2915f92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 887f15deed74330cf132e0574d166c074d2c7cad
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273326"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685723"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SQL Server nas VMs do Azure
 
@@ -112,7 +112,7 @@ Evite usar os seguintes elementos em nomes de banco de dados:
 * Ponto e vírgula ';'
 * Barra para frente '/'
 
-Aliasing está disponível para caracteres sem suporte, mas recomendamos evitá-los. Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
+Aliasing está disponível para caracteres sem suporte, mas recomendamos evitá-los. Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 >[!NOTE]
 >A operação **Configurar proteção** para bancos de dados com caracteres especiais como "+" ou "&" em seu nome não é suportada. Você pode alterar o nome do banco de dados ou ativar **o Auto Protection,** que pode proteger com sucesso esses bancos de dados.
@@ -271,7 +271,7 @@ Você pode habilitar a proteção automática para fazer backup automático de t
 
 * Não há limite no número de bancos de dados que você pode selecionar para proteção automática de uma só vez.
 * Você não pode proteger ou excluir seletivamente bancos de dados de proteção em uma instância no momento em que você habilitar a proteção automática.
-* Se a sua instância já incluir alguns bancos de dados protegidos, eles permanecerão protegidos suas respectivas políticas, mesmo depois de você ativar a proteção automática. Todos os bancos de dados desprotegidos adicionados posteriormente terão apenas uma única política que você definir no momento de habilitar a proteção automática, listada em **Configure Backup**. No entanto, você pode alterar a política associada a um banco de dados protegido automaticamente mais tarde.  
+* Se a sua instância já incluir alguns bancos de dados protegidos, eles permanecerão protegidos sob suas respectivas políticas, mesmo depois de você ativar a proteção automática. Todos os bancos de dados desprotegidos adicionados posteriormente terão apenas uma única política que você definir no momento de habilitar a proteção automática, listada em **Configure Backup**. No entanto, você pode alterar a política associada a um banco de dados protegido automaticamente mais tarde.  
 
 Para habilitar a proteção automática:
 

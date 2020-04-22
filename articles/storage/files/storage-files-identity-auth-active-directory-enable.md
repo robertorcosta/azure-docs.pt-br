@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/20/2020
 ms.author: rogarana
-ms.openlocfilehash: 8d1e1262c592f0120b191e18a5c16b97b887a6a2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 44debc299054568769bfbe6cfc089cc528594274
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536516"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677069"
 ---
 # <a name="enable-on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Habilite a autenticação de serviços de domínio do Active Directory on-premises sobre smb para compartilhamentos de arquivos do Azure
 
@@ -68,11 +68,7 @@ Antes de habilitar a autenticação Do DS para compartilhamentos de arquivos Do 
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A autenticação de arquivos do Azure com AD DS (visualização) está disponível na [maioria das regiões públicas](https://azure.microsoft.com/global-infrastructure/regions/).
-
-A autenticação do Azure Files com DS de entrada não está disponível em:
-- Oeste dos EUA
-
+A autenticação de Arquivos Azure com AD DS (visualização) está disponível em [todas as regiões Públicas e regiões do Azure Gov](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
 
@@ -84,13 +80,13 @@ A seguir, siga as etapas abaixo para configurar arquivos Azure para autenticaç�
 
 1. Habilite a autenticação AD DS do Azure Files em sua conta de armazenamento. 
 
-1. Atribua permissões de acesso para um compartilhamento à identidade Azure AD (um usuário, grupo ou diretor de serviço) que esteja em sincronia com a identidade AD de destino. 
+2. Atribua permissões de acesso para um compartilhamento à identidade Azure AD (um usuário, grupo ou diretor de serviço) que esteja em sincronia com a identidade AD de destino. 
 
-1. Configure ACLs sobre SMB para diretórios e arquivos. 
+3. Configure ACLs sobre SMB para diretórios e arquivos. 
  
-1. Monte um compartilhamento de arquivos Azure para uma VM junto ao seu DS AD. 
+4. Monte um compartilhamento de arquivos Azure para uma VM junto ao seu DS AD. 
 
-1. Atualize a senha da sua identidade de conta de armazenamento no AD DS.
+5. Atualize a senha da sua identidade de conta de armazenamento no AD DS.
 
 O diagrama a seguir ilustra o fluxo de trabalho de ponta a ponta para habilitar a autenticação do Azure AD sobre sMB para compartilhamentos de arquivos Azure. 
 

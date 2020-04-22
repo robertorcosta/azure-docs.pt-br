@@ -8,33 +8,33 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 3/18/2020
 ms.author: derekol
-ms.openlocfilehash: 60752cf1b3c05ab7817083e70310ba7b40227dec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e5804aa1b005e670d8b430b1c0a3bd62efd0bb06
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129915"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687037"
 ---
-1. Clique em uma conexão de peering que você deseja ativar para peering Service e, em seguida, clique no **...**  > Editar botão **de conexão.**
+1. Selecione uma conexão de peering que deseja habilitar para o Azure Peering Service. Então **selecione...**  >  **Editar conexão**.
     > [!div class="mx-imgBorder"]
-    > ![Edição de conexão de peering](../media/setup-direct-modify-editconnection.png)
-1. Na seção ***Use for Peering Service***, clique em **Ativado** e **Salve**.
+    > ![Conexão de conexão de peering Editar conexão](../media/setup-direct-modify-editconnection.png)
+1. Em **Uso para serviço de peering,** selecione Ativado e **selecione** **Salvar**.
     > [!div class="mx-imgBorder"]
     > ![Conexão de peering habilita risque o serviço peering](../media/setup-direct-modify-editconnectionsettings-peering-service.png)
-1. Na tela Visão geral, você verá os detalhes de implantação. Uma vez que sua implantação esteja concluída, clique em **Ir para recurso**.
+1. Na **tela Visão geral,** você vê os detalhes de implantação. Depois que sua implantação for concluída, **selecione Ir para recurso**.
     > [!div class="mx-imgBorder"]
     > ![Sua implantação está completa](../media/setup-direct-modify-overview-deployment-complete.png)
 
-1. Em seguida, você verá em Configurações **Prefixos registrados**. Clique em **Adicionar prefixo registrado**.
+1. No painel **Prefixos registrados,** selecione **Adicionar prefixo registrado**.
     > [!div class="mx-imgBorder"]
-    > ![Prefixos e Conexões Registrados](../media/setup-direct-modify-add-registered-prefix.png)
-1. Registre um prefixo selecionando um **Nome** e um **Prefixo** e clique **em Salvar**
+    > ![Adicionar prefixo registrado](../media/setup-direct-modify-add-registered-prefix.png)
+1. Registre um prefixo selecionando um **Nome** e um **Prefixo** e selecionando **Salvar**.
     > [!div class="mx-imgBorder"]
     >  ![Registre um prefixo](../media/setup-direct-modify-register-a-prefix.png) 
 
-1. Uma vez que um prefixo é criado, você vai vê-lo na lista de Prefixos Registrados. Clique no **nome** do prefixo para ver mais detalhes.
+1. Depois que um prefixo é criado, você vê-lo na lista de **Prefixos Registrados**. Selecione o **nome** do prefixo para ver mais detalhes.
     > [!div class="mx-imgBorder"]
-    > ![Prefixos e Conexões Registrados](../media/setup-direct-modify-registered-prefixes.png)
-1. Na página de prefixo cadastrado, você verá os detalhes completos para incluir a **chave Prefixo** para cada prefixo. Essa chave precisará ser fornecida ao cliente alocado neste prefixo do provedor ISP. O cliente pode então registrar seu prefixo dentro de sua assinatura com esta chave.
+    > ![Prefixos e conexões registrados](../media/setup-direct-modify-registered-prefixes.png)
+1. Na página de prefixo cadastrado, você vê os detalhes completos, que incluem a **tecla Prefixpara** cada prefixo. Esta chave deve ser fornecida ao cliente alocado este prefixo de seu provedor isp. O cliente pode então registrar seu prefixo em sua assinatura usando esta chave.
     > [!div class="mx-imgBorder"]
     > ![Prefixo com chave prefixo](../media/setup-direct-modify-registered-prefix-detail.png)

@@ -2,13 +2,13 @@
 title: Implantar recursos com a CLI e modelo do Azure
 description: Use o Azure Resource Manager e o Azure CLI para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager.
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 241b84bc7b8c0b213e74cd7ee5f3d7668fe0d808
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 8ee15699a085178add05137be895fe6b660b715b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282640"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685698"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implantar recursos com modelos ARM e Cli do Azure
 
@@ -168,7 +168,7 @@ az deployment group create \
 
 ## <a name="handle-extended-json-format"></a>Lidar com o formato JSON estendido
 
-Para implantar um modelo com seqüências ou `--handle-extended-json-format` comentários de várias linhas, você deve usar o switch.  Por exemplo: 
+Para implantar um modelo com seqüências ou comentários de várias linhas usando o Azure CLI com a versão 2.3.0 ou mais antiga, você deve usar o `--handle-extended-json-format` switch.  Por exemplo:
 
 ```json
 {

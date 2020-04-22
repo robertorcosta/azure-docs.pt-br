@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 5fec72ce5f86c1bee9ec0e978e458f5be454c8e3
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: e061baa8e7eb73bae0a78f4215f0d48610e85fcb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81256562"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686743"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribuição de parceiro si e uso do cliente do Mercado Comercial
 
@@ -31,7 +31,7 @@ A atribuição de uso do cliente suporta três opções de implantação:
 >
 >- A atribuição de uso do cliente é para novas implantações e NÃO suporta a marcação de recursos existentes que já foram implantados.
 >
->- A atribuição de uso do cliente é necessária para as ofertas [do Azure Application](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) publicadas no Azure Marketplace.
+>- A atribuição de uso do cliente é necessária para as ofertas [do Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) publicadas no Azure Marketplace.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -83,7 +83,7 @@ Muitas soluções de parceiros são implantadas usando modelos do Azure Resource
 > [!NOTE]
 > Para saber mais sobre como criar e publicar Modelos de Solução, confira
 > * [Crie e implante seu primeiro modelo de Gerenciador de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
->* [Oferta de aplicação do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+>* [Oferta de aplicação do Azure](./partner-center-portal/create-new-azure-apps-offer.md).
 >* Vídeo: [Construindo modelos de soluções e aplicativos gerenciados para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 

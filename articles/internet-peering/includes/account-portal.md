@@ -8,23 +8,23 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 7316dba7559c4a50e94771d69ce03bac51c0f3c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e9a9a0415a85c8b8c5fb27d911124c43a2447d0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774530"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678538"
 ---
-A partir de um navegador, navegue até o [portal](https://portal.azure.com/) e faça login com sua conta do Azure.
+A partir de um navegador, vá até o [portal](https://portal.azure.com/) Azure e faça login com sua conta do Azure.
 
 Se você tem várias assinaturas e precisa trocar de assinaturas:
 
-1. Clique no botão de perfil e escolha **'Diretório de switch'.**
+1. Selecione o botão de perfil e, em seguida, selecione **'Diretório de switch'.**
 
     > [!div class="mx-imgBorder"]
-    > ![Selecione o diretório do switch](../media/choose-subscription-2.png)
+    > ![Selecione o diretório Switch](../media/choose-subscription-2.png)
 
-1. Escolha uma assinatura que você deseja usar para configurar peering.
+1. Escolha uma assinatura que você deseja usar para a configuração de peering.
 
     > [!div class="mx-imgBorder"]
     > ![Escolha uma assinatura](../media/choose-subscription-3.png)

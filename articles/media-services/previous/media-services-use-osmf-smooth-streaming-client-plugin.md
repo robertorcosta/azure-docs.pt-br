@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 45a2829411ea4713df898c90be73792718160cd2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71d28a19316bf1b618ec9008a5e96a503687b202
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255106"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681957"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Como usar o plug-in do Microsoft Smooth Streaming para o Adobe Open Source Media Framework  
 ## <a name="overview"></a>Visão geral
@@ -331,7 +331,7 @@ pacote {
 O plug-in dinâmico do Smooth Streaming para o OSMF é compatível com o [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). Você pode usar o SS para o plug-in OSMF para adicionar reprodução de conteúdo de Smooth Streaming ao SMP. Para fazer isso, copie o "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" em um servidor web para carga HTTP, usando as seguintes etapas:
 
 1. Procure a [página de configuração do Strobe Media Playback](http://osmf.org/dev/2.0gm/setup.html). 
-2. Defina o src a uma fonte de Smooth Streaming (por exemplo http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
+2. Defina o src como uma fonte de streaming\/suave (por exemplo, http: /devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
 3. Faça as alterações desejadas na configuração e clique em Visualizar e Atualizar.
    
    **Observação** o servidor web de conteúdo precisa de um crossdomain.xml válido. 
@@ -391,6 +391,6 @@ Para obter mais informações sobre o desenvolvimento de OSMF geral, consulte a 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 [plug-in Microsoft Adaptive Streaming para atualização OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 
 

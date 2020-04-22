@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8b38b38789edfd5a0a30fdd589849bfa345eaac9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77157849"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682039"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD  
 
@@ -79,7 +79,7 @@ No diagrama anterior, os números representam o fluxo das solicitações em orde
        As informações do locatário podem ser recuperadas no portal do Azure. Coloque o cursor sobre o nome do usuário conectado no canto superior direito.
    * URI de recurso dos Serviços de Mídia. 
 
-       Esse URI é o mesmo para contas de Serviços de Mídia que estão no mesmo ambiente do Azure (por exemplo, https://rest.media.azure.net).
+       Este URI é o mesmo para contas de Serviços de Mídia que\/estão no mesmo ambiente Azure (por exemplo, https: /rest.media.azure.net).
 
    * ID do cliente do aplicativo (nativo) dos Serviços de Mídia.
    * URI de redirecionamento do aplicativo (nativo) dos Serviços de Mídia.
@@ -121,7 +121,7 @@ Na figura anterior, os números representam o fluxo das solicitações em ordem 
        As informações do locatário podem ser recuperadas no portal do Azure. Coloque o cursor sobre o nome do usuário conectado no canto superior direito.
    * URI de recurso dos Serviços de Mídia. 
 
-       Esse URI é o mesmo para contas de Serviços de Mídia localizadas no mesmo ambiente do Azure (por exemplo, https://rest.media.azure.net).
+       Este URI é o mesmo para contas de Serviços de Mídia que estão\/localizados no mesmo ambiente Azure (por exemplo, https: /rest.media.azure.net).
 
    * URI de recurso dos Serviços de Mídia REST.
 

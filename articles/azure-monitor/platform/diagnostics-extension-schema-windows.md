@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 4c711e1b0a63fbcf978c0e4467eadaed8d91f3de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274704"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676426"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
 A extensão azure Diagnostics é um agente no Azure Monitor que coleta dados de monitoramento do sistema operacional convidado e cargas de trabalho dos recursos computacionais do Azure. Este artigo detalha o esquema usado para a configuração da extensão de diagnóstico em máquinas virtuais windows e outros recursos de computação.
@@ -223,9 +223,8 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 |Elemento filho|Descrição|  
 |-------------------|-----------------|  
-|**Datasource**|Os logs de Eventos do Windows a serem coletados. Atributo obrigatório:<br /><br /> **name** - a consulta XPath que descreve os eventos do windows a serem coletados. Por exemplo: <br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para coletar todos os eventos, especifique "*"|  
-
-
+|**DataSource**|Os logs de Eventos do Windows a serem coletados. Atributo obrigatório:<br /><br /> **name** - a consulta XPath que descreve os eventos do windows a serem coletados. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para coletar todos os eventos, especifique "*" |
+|**coletores** | Adicionado em 1.5. Opcional. Aponta para um local do coletor para também enviar dados de diagnóstico para todos os elementos filho que são suporte a coletores. Exemplo de coletor é Application Insights ou Hubs de Eventos.|  
 
 
 ## <a name="logs-element"></a>Elemento Logs  
@@ -238,9 +237,9 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
-|**scheduledTransferLogLevelFilter**|**String**|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
+|**scheduledTransferLogLevelFilter**|**cadeia de caracteres**|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
 |**scheduledTransferPeriod**|**Duração**|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
-|**coletores** |**String**| Adicionado em 1.5. Opcional. Aponta para um local de coletor para também enviar dados de diagnóstico. Por exemplo, Application Insights ou Hubs de Eventos.|  
+|**coletores** |**cadeia de caracteres**| Adicionado em 1.5. Opcional. Aponta para um local de coletor para também enviar dados de diagnóstico. Por exemplo, Application Insights ou Hubs de Eventos.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -274,7 +273,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 |Elemento|Type|Descrição|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|Usado somente durante o envio de dados para o Application Insights. Contém a Chave de Instrumentação para uma conta ativa do Application Insights a que você tem acesso.|  
-|**Canais**|string|Uma para cada filtragem adicional que o fluxo que você|  
+|**Channels**|string|Uma para cada filtragem adicional que o fluxo que você|  
 
 ## <a name="channels-element"></a>Elemento Channels  
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -296,8 +295,8 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 |Atributos|Type|Descrição|  
 |----------------|----------|-----------------|  
-|**logLevel**|**String**|Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
-|**name**|**String**|Um nome exclusivo do canal que será mencionado|  
+|**logLevel**|**cadeia de caracteres**|Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
+|**name**|**cadeia de caracteres**|Um nome exclusivo do canal que será mencionado|  
 
 
 ## <a name="privateconfig-element"></a>Elemento PrivateConfig

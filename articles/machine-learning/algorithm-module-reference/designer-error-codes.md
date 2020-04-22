@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: cc04d11475568af92ba6a617a1eb6b2b51accb45
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 38e728de22d49de760e998ddc97c5067beb3ecd1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81481662"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684690"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (visualização)
 
@@ -145,6 +145,7 @@ A seguir estão os códigos de erro dos módulos no designer.
 |O valor do parâmetro "{arg_name}" deve ser menor ou igual ao valor do parâmetro "{upper_boundary_parameter_name}".|
 |O parâmetro "{arg_name}" tem o valor "{actual_value}" que deve ser menor ou igual a {upper_boundary}.|
 |O valor do parâmetro "{arg_name}" {actual_value} deve ser menor ou igual ao parâmetro "{upper_boundary_parameter_name}" valor {upper_boundary}.|
+|O valor do parâmetro "{arg_name}" {actual_value} deve ser menor ou igual ao valor {upper_boundary_meaning} {upper_boundary}.|
 
 
 ## <a name="error-0008"></a>Erro 0008  
@@ -271,6 +272,7 @@ Se o modelo foi treinado utilizando qualquer um dos módulos de treinamento espe
 |Aprendiz de tipo inválido foi passado.|
 |O aluno "{arg_name}" tem tipo inválido.|
 |O aluno "{arg_name}" tem o tipo inválido "{learner_type}".|
+|Aprendiz de tipo inválido foi passado. Mensagem de exceção: {exception_message}|
 
 
 ## <a name="error-0014"></a>Erro 0014  
@@ -393,6 +395,7 @@ Para colunas que você pretende usar para agrupamento ou categorização, tome m
 |Os valores da coluna não estão classificados.|
 |Os valores na coluna "{col_index}" não são classificados.|
 |Os valores na coluna "{col_index}" do conjunto de dados "{dataset}" não são classificados.|
+|Os valores no argumento "{arg_name}" não são classificados na ordem "{sorting_order}".|
 
 
 ## <a name="error-0020"></a>Erro 0020  
@@ -633,6 +636,7 @@ Também pode acontecer que uma coluna de rótuloesteja presente no conjunto de d
 |------------------------|
 |O argumento deve ser finito.|
 |"{arg_name}" não é finito.|
+|A coluna "{column_name}" contém valores infinitos.|
 
 
 ## <a name="error-0034"></a>Erro 0034  
@@ -1492,6 +1496,18 @@ Resolução:
 |------------------------------------------------------------|
 |Dado que o Diretório de Transformação é inválido.|
 |A formação "{arg_name}" é inválida. Razão: {razão}. Por favor, execute o experimento de treinamento que gera o arquivo Transform. Se o experimento de treinamento foi excluído, por favor, recrie e salve o arquivo Transform.|
+|A formação "{arg_name}" é inválida. Razão: {razão}. {troubleshoot_hint}|
+
+
+## <a name="error-0159"></a>Erro 0159
+ A exceção ocorre se o diretório do modelo do módulo for inválido. 
+
+|Mensagens de Exceção|
+|------------------------------------------------------------|
+|Dado que o ModelDirectory é inválido.|
+|ModelDirectory "{arg_name}" é inválido.|
+|ModelDirectory "{arg_name}" é inválido. Razão: {razão}.|
+|ModelDirectory "{arg_name}" é inválido. Razão: {razão}. {troubleshoot_hint}|
 
 
 ## <a name="error-1000"></a>Erro 1000  

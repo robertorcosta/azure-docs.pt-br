@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 9c9f069ad38c65aa0bbfdcde9eef3fed32585d9e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 288d4e4d0c5faa6bb2b51451fb36bbb6d666c9eb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756420"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683190"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Configurar a exportação de streaming da telemetria de diagnóstico do Banco de Dados Azure SQL
 
@@ -25,7 +25,7 @@ Neste artigo, você aprenderá sobre as métricas de desempenho e registros de r
 Você também aprenderá sobre os destinos para os quais você pode transmitir essa telemetria diagnóstica e como escolher entre essas escolhas. Suas opções de destino incluem:
 
 - [Análise de log e análise sql](#stream-into-sql-analytics)
-- [Hubs de Eventos](#stream-into-event-hubs)
+- [Hubs de Evento](#stream-into-event-hubs)
 - [Armazenamento Azure](#stream-into-azure-storage)
 
 ## <a name="diagnostic-telemetry-for-export-for-azure-sql-database"></a>Telemetria de diagnóstico para exportação para banco de dados Azure SQL
@@ -95,7 +95,7 @@ Você pode usar o menu **de configurações diagnósticos** no portal Azure para
 
 Selecione uma das seguintes guias para obter orientação passo a passo para configurar a exportação de streaming de telemetria de diagnóstico no portal Azure e para scripts para realizar o mesmo com o PowerShell e o Azure CLI.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
 ### <a name="elastic-pools"></a>Pools elásticos
 
@@ -363,7 +363,7 @@ Você pode usar o SQL Analytics como um painel hierárquico para visualizar seus
 
 ## <a name="stream-into-event-hubs"></a>Transmitir para os Hubs de Eventos
 
-Você pode transmitir métricas e logins de recursos do SQL Database em Hubs de eventos usando o Fluxo incorporado para uma opção **de hub** de eventos no portal Azure. Você também pode habilitar o ID da regra do Barramento de Serviço usando configurações de diagnóstico através de cmdlets PowerShell, a CLI do Azure ou a API Do Monitor do Azure REST.
+Você pode transmitir métricas e logins de recursos do SQL Database em Hubs de eventos usando o Fluxo incorporado para uma opção **de hub** de eventos no portal Azure. Você também pode habilitar o ID da regra do Barramento de Serviço usando configurações de diagnóstico através de cmdlets PowerShell, a CLI do Azure ou a API Do Monitor do Azure REST. Verifique se o hub de eventos está na mesma região que o banco de dados e o servidor.
 
 ### <a name="what-to-do-with-metrics-and-resource-logs-in-event-hubs"></a>O que fazer com métricas e logins de recursos em Event Hubs
 

@@ -3,12 +3,12 @@ title: Plantas de importação e exportação com powershell
 description: Aprenda a trabalhar com as definições do seu projeto como código. Compartilhe, controle de origem e gerencie-os usando os comandos de exportação e importação.
 ms.date: 09/03/2019
 ms.topic: how-to
-ms.openlocfilehash: 98bd21aad944346a17d8bdce7fb74c0eb8be2ed7
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: dcdf48f8941198591b39d6cf89ec5e6dac7ba94c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677146"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686831"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Definições de projetos de importação e exportação com powershell
 
@@ -88,7 +88,7 @@ As etapas para exportar sua definição de projeto são simples. Exportar a defi
 
 Uma vez que você tenha uma [definição de projeto exportado](#export-your-blueprint-definition) ou tenha uma definição de projeto criada manualmente na [estrutura de pasta necessária,](#folder-structure-of-a-blueprint-definition)você pode importar essa definição de projeto para um grupo de gerenciamento ou assinatura diferente.
 
-Para exemplos de definições de projeto incorporadas, consulte o [repo do Azure Blueprint GitHub](https://github.com/Azure/azure-blueprints/tree/master/samples/builtins).
+Para exemplos de definições de projeto incorporadas, consulte o [repo do Azure Blueprint GitHub](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins).
 
 - **Nome** [necessário]
   - Especifica o nome para a nova definição do projeto
@@ -121,7 +121,7 @@ Para obter informações sobre a criação de definições avançadas de projeto
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Conheça o [ciclo de vida](../concepts/lifecycle.md)do projeto .
+- Saiba mais sobre o [ciclo de vida do blueprint](../concepts/lifecycle.md).
 - Saiba como usar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
 - Saiba como personalizar a [ordem de sequenciamento de blueprint](../concepts/sequencing-order.md).
 - Saiba como usar o [bloqueio de recurso de blueprint](../concepts/resource-locking.md).

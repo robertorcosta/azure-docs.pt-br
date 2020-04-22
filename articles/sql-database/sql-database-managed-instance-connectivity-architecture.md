@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: f30ccd498b79c36c8892ae38a3e26d169249621a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4d6098b7b4de76461e924fc7d42d039046d7ce5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481092"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677163"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerenciada no Banco de Dados SQL do Azure
 
@@ -306,6 +306,7 @@ Aseguir recursos de rede virtual não são suportados com instância gerenciada:
 - **Peering microsoft**: Permitir que [a Microsoft espione](../expressroute/expressroute-faqs.md#microsoft-peering) em circuitos de rota expressa susceptíamos de forma direta ou transitória com a rede virtual onde a Instância Gerenciada reside afeta o fluxo de tráfego entre componentes de Instância Gerenciada dentro da rede virtual e os serviços que dependem de causar problemas de disponibilidade. Espera-se que as implantações de instâncias gerenciadas para rede virtual com o peering da Microsoft já habilitado falhem.
 - **Peering de rede virtual**global : A conectividade [de peering de rede virtual](../virtual-network/virtual-network-peering-overview.md) em todas as regiões do Azure não funciona para instância gerenciada devido a [restrições documentadas do balanceador de carga](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 - **AzurePlatformDNS**: O uso da [tag de serviço](../virtual-network/service-tags-overview.md) AzurePlatformDNS para bloquear a resolução dNS da plataforma tornaria a Instância Gerenciada indisponível. Embora a Instância Gerenciada suporte dns definido pelo cliente para resolução DNS dentro do motor, há uma dependência do DNS da plataforma para operações da plataforma.
+- **Gateway NAT**: O uso do [NAT de rede virtual](../virtual-network/nat-overview.md) para controlar a conectividade de saída com endereço IP público específico tornaria a Instância Gerenciada indisponível. O serviço De instância gerenciada está atualmente limitado ao uso do balanceador de carga básico que não fornece coexistência de fluxos de entrada e saída com o NAT da Rede Virtual.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[Preterido] Requisitos de rede sem configuração de sub-rede auxiliada por serviço
 

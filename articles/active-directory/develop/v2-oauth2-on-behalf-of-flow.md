@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7a91f61302b5944e69f71c3cfee2f41cd87b809f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 947286a7238e3ddf2aebe66c6ea87e0e1cf8a853
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309371"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677723"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade Microsoft e OAuth 2.0 On-Behalf-Of flow
 
@@ -27,9 +27,7 @@ O fluxo On-Behalf-Of (OBO) do OAuth 2.0 serve para o caso em que um aplicativo c
 Este artigo descreve como programar diretamente contra o protocolo em sua aplicação.  Quando possível, recomendamos que você use as Bibliotecas de Autenticação Microsoft (MSAL) suportadas em vez de [adquirir tokens e chamar APIs da Web protegidas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Também dê uma olhada nos [aplicativos de exemplo que usam msal](sample-v2-code.md).
 
 > [!NOTE]
->
-> - O ponto final da plataforma de identidade da Microsoft não suporta todos os cenários e recursos. Para determinar se você deve usar o ponto final da plataforma de identidade da Microsoft, leia sobre [as limitações da plataforma de identidade da Microsoft](active-directory-v2-limitations.md). 
-> - Desde maio de 2018, alguns `id_token` derivados de fluxo implícito não podem ser usados para o fluxo OBO. Os aplicativos de página única (SPAs) devem aprovar um token de **acesso** para um cliente confidencial de camada intermediária a fim de executar fluxos OBO. Para saber mais sobre quais clientes podem fazer chamadas OBO, confira as [limitações](#client-limitations).
+> Desde maio de 2018, alguns `id_token` derivados de fluxo implícito não podem ser usados para o fluxo OBO. Os aplicativos de página única (SPAs) devem aprovar um token de **acesso** para um cliente confidencial de camada intermediária a fim de executar fluxos OBO. Para saber mais sobre quais clientes podem fazer chamadas OBO, confira as [limitações](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
@@ -186,10 +184,10 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Obter consentimento para o aplicativo de camada intermediária
 
-Dependendo da arquitetura ou uso do seu aplicativo, você pode considerar diferentes estratégias para garantir que o fluxo de OBO seja bem-sucedido. Em todos os casos, o objetivo final é garantir que o consentimento adequado seja dado para que o aplicativo cliente possa ligar para o aplicativo de nível intermediário, e o aplicativo de nível intermediário tem permissão para chamar o recurso back-end. 
+Dependendo da arquitetura ou uso do seu aplicativo, você pode considerar diferentes estratégias para garantir que o fluxo de OBO seja bem-sucedido. Em todos os casos, o objetivo final é garantir que o consentimento adequado seja dado para que o aplicativo cliente possa ligar para o aplicativo de nível intermediário, e o aplicativo de nível intermediário tem permissão para chamar o recurso back-end.
 
 > [!NOTE]
-> Anteriormente, o sistema de contas microsoft (contas pessoais) não suportava o campo "Aplicativo cliente conhecido", nem poderia mostrar consentimento combinado.  Isso foi adicionado e todos os aplicativos da plataforma de identidade da Microsoft podem usar a abordagem conhecida do aplicativo cliente para obter consentimento para chamadas OBO. 
+> Anteriormente, o sistema de contas microsoft (contas pessoais) não suportava o campo "Aplicativo cliente conhecido", nem poderia mostrar consentimento combinado.  Isso foi adicionado e todos os aplicativos da plataforma de identidade da Microsoft podem usar a abordagem conhecida do aplicativo cliente para obter consentimento para chamadas OBO.
 
 ### <a name="default-and-combined-consent"></a>/.default e consentimento combinado
 

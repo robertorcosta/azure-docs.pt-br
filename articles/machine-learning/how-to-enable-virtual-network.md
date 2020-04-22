@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/17/2020
-ms.openlocfilehash: 1f3c9f86072eeedbc999946d0f846fbc3b41f94d
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: f94136ca6bfcb7e33415f2f44fdf4c44ef9f6a6f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641747"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682790"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Trabalhos de experimentação e inferência do Secure Azure ML dentro de uma Rede Virtual Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -140,12 +140,13 @@ Para usar uma instância de computação do Azure Machine Learning ou um cluster
 > * Se as contas de armazenamento do Azure para o espaço de trabalho também estiverem protegidas em uma rede virtual, elas devem estar na mesma rede virtual que a instância de computação de aprendizado de máquina do Azure ou cluster. 
 
 > [!TIP]
-> A instância de cálculo de aprendizado de máquina ou cluster aloca automaticamente recursos adicionais de rede no grupo de recursos que contém a rede virtual. Para cada instância de computação ou cluster, o serviço aloca os seguintes recursos:
+> A instância de cálculo de aprendizado de máquina ou cluster aloca automaticamente recursos adicionais de rede __no grupo de recursos que contém a rede virtual__. Para cada instância de computação ou cluster, o serviço aloca os seguintes recursos:
 > 
 > * Um grupo de segurança de rede
 > * Um endereço IP público
 > * Um balanceador de carga
 > 
+> No caso de clusters, esses recursos são excluídos (e recriados) toda vez que o cluster reduz para 0 nós, no entanto, por exemplo, os recursos são mantidos até que a instância seja completamente excluída (parar não remove os recursos). 
 > Esses recursos são limitados pelas [cotas de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) da assinatura.
 
 

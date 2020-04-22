@@ -1,20 +1,21 @@
 ---
-title: Suporte para o mercado comercial | Azure
+title: Suporte para o mercado comercial | Mercado Azure
 description: Informações e links de suporte para o Azure Marketplace e o AppSource
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 3/19/2020
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: b2dba23bdf07233a9945086fba2274602cb2dcf1
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 2b73fee33692b65770caeea651c12e9780dba2c4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81252227"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681375"
 ---
-# <a name="support-for-the-marketplace"></a>Suporte para o Marketplace  
+# <a name="support-for-the-marketplace"></a>Suporte para o Marketplace
+
 Aqui está uma lista de opções de suporte para o Marketplace.  
 
 Além disso, você pode obter muitas das suas dúvidas na [canal do Marketplace do Fórum da comunidade de C + AI](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
@@ -23,11 +24,11 @@ Além disso, você pode obter muitas das suas dúvidas na [canal do Marketplace 
 
 Abra um ticket com [o suporte ao publisher do microsoft marketplace](https://aka.ms/marketplacepublishersupport) para problemas com onboarding e início.
 
-## <a name="partner-center-or-cloud-partner-portal"></a>Centro de Parceiros ou Portal de Parceiros na Nuvem  
+## <a name="partner-center"></a>Partner Center   
 
 | Canal de suporte | Descrição | Disponibilidade |  
 |:--- |:--- |:--- |  
-| Para obter assistência, visite Criar uma página de incidentes localizada em [Suporte do Marketplace](https://aka.ms/marketplacepublishersupport)</li> </ul> | Suporte para Centro de Parceiros ou Portal de Parceiros na Nuvem. | O suporte é fornecido 24x5. |  
+| Para obter assistência, visite Criar uma página de incidentes localizada em [Suporte do Marketplace](https://aka.ms/marketplacepublishersupport)</li> </ul> | Suporte para o Partner Center. | O suporte é fornecido 24x5. |  
 
 ## <a name="technical"></a>Técnicos  
 

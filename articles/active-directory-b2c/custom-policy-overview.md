@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f18f44208b97ab5bc8d9cd9ff01d604c62deb963
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246039"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678156"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Azure Active Directory B2C
 
@@ -43,7 +43,9 @@ Esses três tipos de arquivos de política são usados:
 - **Arquivo de extensões** - retém as alterações de configuração exclusivas do locatário.
 - **Arquivo RP (Terceira Parte Confiável)** - O arquivo único focado na tarefa que é chamado diretamente pelo aplicativo ou serviço (também conhecido como Terceira Parte Confiável). Cada tarefa exclusiva requer o próprio RP e, dependendo dos requisitos de marca, o número pode ser "total de aplicativos x número total de casos de uso."
 
-Fluxos de usuário no Azure AD B2C seguem o padrão de três arquivos descrito acima, mas o desenvolvedor somente vê o arquivo RP, enquanto o portal do Azure faz alterações em segundo plano do arquivo de extensões.
+Os fluxos de usuário no Azure AD B2C seguem o padrão de arquivo descrito acima, mas o desenvolvedor só vê o arquivo RP, enquanto o portal Azure faz alterações no plano de fundo do arquivo de extensões.
+
+Embora existam três tipos de arquivos de política, você não está restrito a apenas três arquivos. Você pode ter vários arquivos de cada tipo de arquivo. Por exemplo, se você não quiser fazer alterações no seu arquivo Extensões, você pode criar um arquivo Extensões2 para estender ainda mais o arquivo Extensões.
 
 ## <a name="custom-policy-core-concepts"></a>Conceitos básicos de política personalizada
 
@@ -55,7 +57,7 @@ O serviço de CIAM (gerenciamento de acesso e identidade do cliente) no Azure in
 
 O Azure AD B2C interage com provedores de identidade, usuários, outros sistemas e com o diretório do usuário local em sequência para obter uma tarefa de identidade. Por exemplo, entre em um usuário, registre um novo usuário ou redefina uma senha. A Estrutura de Experiência de Identidade e uma política (também chamada de percurso do usuário ou uma política de estrutura confiável) estabelecem a confiança de vários participantes e define explicitamente os atores, as ações, os protocolos e a sequência de etapas a serem concluídas.
 
-O Identity Experience Framework é uma plataforma Azure totalmente configurável, orientada por políticas e baseada em nuvem que orquestra a confiança entre entidades em formatos de protocolo padrão, como OpenID Connect, OAuth, SAML e algumas não-padronizadas, por exemplo, REST Trocas de sinistros de sistema para sistema baseadas em API. A estrutura cria experiências fáceis de usar e rotuladas em branco que dão suporte a HTML e CSS.
+O Identity Experience Framework é uma plataforma Azure totalmente configurável, orientada por políticas e baseada em nuvem, que orquestra a confiança entre entidades em formatos de protocolo padrão, como OpenID Connect, OAuth, SAML e algumas não-padrão, por exemplo, trocas de sinistros de sistema para sistema baseadas em REST API. A estrutura cria experiências fáceis de usar e rotuladas em branco que dão suporte a HTML e CSS.
 
 Uma política personalizada é representada como um ou vários arquivos formatados em XML que se referenciam entre si em uma cadeia hierárquica. Os elementos XML definem o esquema de declarações, as transformações de declarações, as definições de conteúdo, os provedores de declarações, os perfis técnicos e as etapas de orquestração do percurso do usuário, entre outros elementos. Uma política personalizada é acessível como um ou vários arquivos XML que são executados pela Estrutura de Experiência de Identidade quando invocados por uma terceira parte confiável. Os desenvolvedores que configuram as políticas personalizadas devem definir as relações de confiança em detalhes para incluir pontos de extremidade de metadados, definições exatas de troca de declarações e configurar segredos, chaves e certificados, conforme necessário, para cada provedor de identidade.
 
@@ -66,4 +68,4 @@ Quando um aplicativo chama o arquivo de política RP, a Estrutura de Experiênci
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Comece com políticas personalizadas](custom-policy-get-started.md)
+> [Introdução às políticas personalizadas](custom-policy-get-started.md)

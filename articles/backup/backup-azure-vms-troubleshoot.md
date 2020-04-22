@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas encontrados com backu
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 15e4b4c8850798fd2386cd2874b6ab58a18d5406
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 019c27b1f7e8560c86252aaf2ed1fb79df2439fa
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297383"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677351"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solução de problemas falhas de backup em máquinas virtuais do Azure
 
@@ -174,7 +174,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 Isso garantirá que os instantâneos são executados por meio do host em vez do convidado. Tente a operação de backup novamente.
 
-**Passo 2**: Tente alterar o cronograma de backup para um momento em que a VM está menos carga (menos CPU/IOps etc.)
+**Passo 2**: Tente alterar o cronograma de backup para um momento em que a VM está sob menos carga (menos CPU/IOps etc.)
 
 **Passo 3**: Tente [aumentar o tamanho da VM](https://azure.microsoft.com/blog/resize-virtual-machines/) e tentar novamente a operação
 
@@ -191,6 +191,7 @@ Isso garantirá que os instantâneos são executados por meio do host em vez do 
 | **Código de erro:** ExtensãoSnapshotFailedNoSecureNetwork <br/> **Mensagem de erro**: A operação de instantâneo falhou devido à falha na criação de um canal de comunicação de rede seguro. | <ol><li> Abra o Editor do Registro executando **regedit.exe** no modo elevado. <li> Identificar todas as versões do .NET Framework presente no seu sistema. Eles estão presentes na hierarquia de chave do Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada .NET Framework presente na chave do registro, adicione a seguinte chave: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | **Código de erro**: ExtensionVCRedistInstallationFailure <br/> **Mensagem de erro**: A operação de instantâneo falhou devido à falha na instalação do Visual C++ Redistributable para o Visual Studio 2012. | Navegue até C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersão e instale vcredist2013_x64.<br/>Certifique-se de que o valor-chave do registro que permite a instalação do serviço esteja definido como o valor correto. Ou seja, defina o valor **Iniciar** em **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** para **3** e não **4**. <br><br>Se você ainda estiver enfrentando problemas com a instalação, reinicie o serviço de instalação executando **MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** em um prompt de comandos com privilégios elevados.  |
 | **Código de erro**: UserErrorRequestDsallowedByPolicy <BR> **Mensagem de erro**: Uma diretiva inválida está configurada na VM que está impedindo a operação snapshot. | Se você tiver uma Diretiva Azure que [rege as tags dentro](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags)do seu ambiente, considere alterar a política de um efeito [Negar](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) para um [efeito Modificar,](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)ou crie o grupo de recursos manualmente de acordo com o [esquema de nomeação exigido pelo Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
+
 ## <a name="jobs"></a>Trabalhos
 
 | Detalhes do erro | Solução alternativa |
@@ -229,12 +230,12 @@ Normalmente, o agente de VM já está presente em máquinas virtuais que são cr
 #### <a name="windows-vms"></a>VMs Windows
 
 * Baixe e instale o [agente MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisa de privilégios de administrador para concluir a instalação.
-* Para máquinas virtuais criadas usando o modelo de implantação clássico, [atualizar a propriedade de VM](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. Essa etapa não é necessária para máquinas virtuais do Azure Resource Manager.
+* Para máquinas virtuais criadas usando o modelo de implantação clássico, [atualizar a propriedade de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) para indicar que o agente está instalado. Essa etapa não é necessária para máquinas virtuais do Azure Resource Manager.
 
 #### <a name="linux-vms"></a>VMs Linux
 
 * Instale a versão mais recente do agente do repositório de distribuição. Para obter detalhes sobre o nome do pacote, consulte o [repositório do Agente Linux](https://github.com/Azure/WALinuxAgent).
-* Para VMs criadas usando o modelo de implantação clássico [use este blog](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para atualizar a propriedade de VM e verificar se o agente está instalado. Essa etapa não é necessária para máquinas virtuais do Resource Manager.
+* Para VMs criados usando o modelo clássico de implantação, [atualize a propriedade vm](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) e verifique se o agente está instalado. Essa etapa não é necessária para máquinas virtuais do Resource Manager.
 
 ### <a name="update-the-vm-agent"></a>Atualizar o agente de VM
 
@@ -271,7 +272,7 @@ O backup de VM depende da emissão de comandos de instantâneo para o armazename
 
 * **O status da VM é informado incorretamente porque a VM está desligada em RDP**. Se você usou a área de trabalho remota para desligar a máquina virtual, verifique se o status da VM no portal está correto. Se o status não estiver correto, use a opção **Desligar** no painel da VM do portal para desligar a VM.
 * **Se mais de quatro VMs compartilharem o mesmo serviço em nuvem, espalhe as VMs em várias políticas de backup**. Escalone os horários do backup para que não tenha mais de quatro backups de VM iniciados ao mesmo tempo. Tente separar as horas de início nas políticas por pelo menos uma hora.
-* **A VM é executada no alto da CPU ou memória**. Se a máquina virtual é executada em alta utilização de memória ou uso da CPU, mais de 90 por cento, a tarefa de instantâneo será enfieirada e postergada. Eventualmente, ele se adiaà. Se esse problema acontecer, tente um backup demanda.
+* **A VM é executada no alto da CPU ou memória**. Se a máquina virtual é executada em alta utilização de memória ou uso da CPU, mais de 90 por cento, a tarefa de instantâneo será enfieirada e postergada. Eventualmente, ele se adiaà. Se esse problema acontecer, tente um backup sob demanda.
 
 ## <a name="networking"></a>Rede
 
@@ -280,4 +281,3 @@ Obtenha mais informações sobre como configurar um endereço IP estático por m
 
 * [Como adicionar um IP interno estático a uma VM existente](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description)
 * [Alterar o método de alocação para um endereço IP privado atribuído a uma interface de rede](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
-

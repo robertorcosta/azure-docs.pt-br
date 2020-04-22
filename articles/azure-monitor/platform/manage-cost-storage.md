@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 04/20/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: d03b053f2aa5de4a6f7874dbf4e6ccb3a305a964
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 9a7d0530c4f03138fad3e4aaa473d54e1cfd5b0a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80992072"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686568"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerencie o uso e os custos com logs do Monitor do Azure
 
@@ -38,8 +38,7 @@ O preço padrão para o Log Analytics é um modelo **Pay-As-You-Go** baseado no 
   - Número de VMs monitorados
   - Tipo de dados coletados de cada VM monitorada 
   
-Além do modelo Pay-As-You-Go, o Log Analytics possui níveis **de reserva de capacidade** que permitem economizar até 25% em comparação com o preço pay-as-you-go. O preço de reserva de capacidade permite que você compre uma reserva a partir de 100 GB/dia. Qualquer uso acima do nível de reserva será cobrado na taxa Pay-As-You-Go. Os níveis de Reserva de Capacidade têm um período de compromisso de 31 dias. Durante o período de compromisso, você pode mudar para um nível de reserva de capacidade de nível mais alto (que reiniciará o período de compromisso de 31 dias), mas você não pode voltar para o Pay-As-You-Go ou para um nível de reserva de capacidade mais baixo até que o período de compromisso seja concluído. 
-[Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre os preços de reserva de pagamento e reserva de capacidade do Log Analytics. 
+Além do modelo Pay-As-You-Go, o Log Analytics possui níveis **de reserva de capacidade** que permitem economizar até 25% em comparação com o preço pay-as-you-go. O preço de reserva de capacidade permite que você compre uma reserva a partir de 100 GB/dia. Qualquer uso acima do nível de reserva será cobrado na taxa Pay-As-You-Go. Os níveis de Reserva de Capacidade têm um período de compromisso de 31 dias. Durante o período de compromisso, você pode mudar para um nível de reserva de capacidade de nível mais alto (que reiniciará o período de compromisso de 31 dias), mas você não pode voltar para o Pay-As-You-Go ou para um nível de reserva de capacidade mais baixo até que o período de compromisso seja concluído. O faturamento dos níveis de Reserva de Capacidade é feito diariamente. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre os preços de reserva de pagamento e reserva de capacidade do Log Analytics. 
 
 Em todos os níveis de preços, o volume de dados é calculado a partir de uma representação de seqüência dos dados à medida que ele está preparado para ser armazenado. Várias [propriedades comuns a todos os tipos de](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) dados `_ResourceId` `_ItemId`não `_IsBillable` estão incluídas no cálculo do tamanho do evento, incluindo , e `_BilledSize`.
 
@@ -112,10 +111,14 @@ Para definir a retenção padrão do seu espaço de trabalho,
 3. No painel, mova o controle deslizante para aumentar ou diminuir o número de dias e, em seguida, clique em **Salvar**.  Se você usar a camada *Gratuita*, não será possível modificar o período de retenção de dados, sendo necessário atualizar para a camada paga para controlar essa configuração.
 
     ![Alterar a configuração de retenção de dados do workspace](media/manage-cost-storage/manage-cost-change-retention-01.png)
+
+Quando a retenção é reduzida, há um período de carência de vários dias antes que os dados mais antigos sejam removidos. 
     
 A retenção também pode ser [definida via Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando o `retentionInDays` parâmetro. Além disso, se você definir a retenção de dados para 30 `immediatePurgeDataOn30Days` dias, você pode desencadear uma eliminação imediata de dados mais antigos usando o parâmetro, o que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade só é exposta via Azure Resource Manager. 
 
 Dois tipos de `Usage` `AzureActivity` dados - e - são retidos por 90 dias por padrão, e não há cobrança para esta retenção de 90 dias. Esses tipos de dados também estão livres de taxas de ingestão de dados. 
+
+
 
 ### <a name="retention-by-data-type"></a>Retenção por tipo de dados
 
@@ -446,7 +449,7 @@ A decisão de saber se os espaços de trabalho com acesso ao nível de preços *
 Para facilitar essa avaliação, a seguinte consulta pode ser usada para fazer uma recomendação para o nível ideal de preços com base nos padrões de uso de um espaço de trabalho.  Esta consulta analisa os nódulos e dados monitorados ingeridos em um espaço de trabalho nos últimos 7 dias, e para cada dia avalia qual nível de preços teria sido ideal. Para usar a consulta, você precisa especificar se o espaço de `workspaceHasSecurityCenter` `true` trabalho `false`está usando o Azure Security Center definindo ou , e então (opcionalmente) atualizando os preços por nó e por GB que seu organizaiton recebe. 
 
 ```kusto
-// Set these paramaters before running query
+// Set these parameters before running query
 let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
 let PerNodePrice = 15.; // Enter your price per node / month 
 let PerGBPrice = 2.30; // Enter your price per GB 
@@ -459,6 +462,14 @@ union withsource = tt *
 | summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
 | summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
 | join (
+    Heartbeat 
+    | where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+    | where Computer != ""
+    | summarize ASCnodesPerHour = dcount(Computer) by bin(TimeGenerated, 1h) 
+    | extend ASCnodesPerHour = iff(workspaceHasSecurityCenter, ASCnodesPerHour, 0)
+    | summarize ASCnodesPerDay = sum(ASCnodesPerHour)/24.  by day=bin(TimeGenerated, 1d)   
+) on day
+| join (
     Usage 
     | where TimeGenerated > ago(8d)
     | where StartTime >= startofday(now(-7d)) and EndTime < startofday(now())
@@ -469,18 +480,20 @@ union withsource = tt *
 ) on day
 | extend AvgGbPerNode =  NonSecurityDataGB / nodesPerDay
 | extend PerGBDailyCost = iff(workspaceHasSecurityCenter,
-             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*nodesPerDay, 0.)) * PerGBPrice,
+             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*ASCnodesPerDay, 0.)) * PerGBPrice,
              DataGB * PerGBPrice)
 | extend OverageGB = iff(workspaceHasSecurityCenter, 
-             max_of(DataGB - 1.0*nodesPerDay, 0.), 
+             max_of(DataGB - 0.5*nodesPerDay - 0.5*ASCnodesPerDay, 0.), 
              max_of(DataGB - 0.5*nodesPerDay, 0.))
 | extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerGBPrice
 | extend Recommendation = iff(PerNodeDailyCost < PerGBDailyCost, "Per Node tier", 
              iff(NonSecurityDataGB > 85., "Capacity Reservation tier", "Pay-as-you-go (Per GB) tier"))
-| project day, nodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
+| project day, nodesPerDay, ASCnodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
 | project day, Recommendation // Comment this line to see details
 | sort by day asc
 ```
+
+Esta consulta não é uma replicação exata de como o uso é calculado, mas funcionará para fornecer recomendações de nível de preços na maioria dos casos.  
 
 ## <a name="create-an-alert-when-data-collection-is-high"></a>Crie um alerta quando a coleta de dados for alta
 

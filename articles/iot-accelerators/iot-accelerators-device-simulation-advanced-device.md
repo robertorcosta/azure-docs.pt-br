@@ -6,15 +6,18 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
-ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- mvc
+- amqp
+- mqtt
+ms.openlocfilehash: c568dddcbbf57ebd6ed5906bb83af01a84dafa41
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61448967"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683823"
 ---
 # <a name="create-an-advanced-device-model"></a>Criar um modelo de dispositivo avançados
 
@@ -169,7 +172,7 @@ Os campos listados no esquema podem ser dos tipos a seguir:
 
 ### <a name="supported-methods"></a>Métodos com suporte
 
-Dispositivos simulados também podem reagir a chamadas de método, caso em que executam alguma lógica e fornecem alguma resposta. Da mesma forma que a simulação, a lógica do método é armazenada em um arquivo JavaScript e pode interagir com o estado do dispositivo. Por exemplo: 
+Dispositivos simulados também podem reagir a chamadas de método, caso em que executam alguma lógica e fornecem alguma resposta. Da mesma forma que a simulação, a lógica do método é armazenada em um arquivo JavaScript e pode interagir com o estado do dispositivo. Por exemplo:
 
 ```json
 "CloudToDeviceMethods": {
@@ -259,7 +262,7 @@ Os arquivos JavaScript devem ter uma função **principal**, que aceita dois par
     * **dispositivoModelo**. Por exemplo, **elevador**.
 * Um **estado** objeto que é o valor retornado pela função na chamada anterior. Esse estado do dispositivo é mantido pelo serviço de simulação e usado para gerar mensagens de telemetria.
 
-A função **principal** retorna o novo estado do dispositivo. Por exemplo: 
+A função **principal** retorna o novo estado do dispositivo. Por exemplo:
 
 ```JavaScript
 function main(context, state) {

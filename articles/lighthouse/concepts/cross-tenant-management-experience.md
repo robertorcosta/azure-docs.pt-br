@@ -1,14 +1,14 @@
 ---
 title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 04/06/2020
+ms.date: 04/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 66e2b2f7fbbae5940b576ead22a416625af3c058
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 107350cdab90751e918d4c7845776464b43abbdd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418500"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682823"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -72,6 +72,14 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 - Análise de log: consultar dados de espaços de trabalho remotos de clientes em vários inquilinos
 - Crie alertas em locatários do cliente que disparam a automação, tais como os runbooks de Automação do Azure ou o Azure Functions, no locatário do provedor de serviços por meio de webhooks
 
+[Rede Azure](../../networking/networking-overview.md):
+
+- Implantar e gerenciar [a VNet (Azure Virtual Network)](../../virtual-network/index.yml) e cartões de interface de rede virtual (vNICs) dentro dos inquilinos do cliente
+- Implantar e configurar [o Firewall Do Azure](../../firewall/overview.md) para proteger os recursos da Rede Virtual dos clientes
+- Gerencie serviços de conectividade como [Azure Virtual WAN,](../../virtual-wan/virtual-wan-about.md) [ExpressRoute](../../expressroute/expressroute-introduction.md)e [VPN Gateways](../../vpn-gateway/vpn-gateway-about-vpngateways.md) para clientes
+- Use o Azure Lighthouse para apoiar cenários-chave para o [Programa MSP de Rede Azure](../../networking/networking-partners-msp.md)
+
+
 [Política do Azure](../../governance/policy/index.yml):
 
 - Instantâneos de conformidade mostram detalhes para políticas atribuídas dentro de assinaturas delegadas
@@ -121,10 +129,6 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 - Use diagnóstico de inicialização para solucionar problemas de VMs do Azure em locatários do cliente
 - Acesse VMs com console serial em locatários do cliente
 - Observe que você não pode usar o Azure Active Directory para acesso remoto em uma VM e não pode integrar uma VM com um Key Vault para senhas, segredos ou chaves de criptografia para criptografia de disco
-
-[Rede Virtual Azure](../../virtual-network/index.yml):
-
-- Implante e gerencie redes virtuais e vNICs (placas de adaptador de rede virtual) em locatários do cliente
 
 Solicitações de suporte:
 

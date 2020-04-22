@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2020
 ms.author: shvija
-ms.openlocfilehash: 806a1f16327ad72a7f3527c813b355e1ba807dda
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 32b08e565b86af8f6373c9848211646128bb346d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606750"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677362"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Migre para hubs de eventos do Azure para ecossistemas Apache Kafka
 O Azure Event Hubs expõe um ponto final apache kafka, que permite que você se conecte aos Hubs de Eventos usando o protocolo Kafka. Ao fazer alterações mínimas no aplicativo Kafka existente, você pode se conectar ao Azure Event Hubs e colher os benefícios do ecossistema Azure. Hubs de eventos para Kafka suportam [Apache Kafka versão 1.0](https://kafka.apache.org/10/documentation.html) e posterior.
@@ -71,4 +71,3 @@ Para saber mais sobre os Hubs de Eventos e Hubs de Eventos para o Kafka, confira
 - [Perguntas frequentes - Hubs de eventos para Apache Kafka](apache-kafka-frequently-asked-questions.md)
 - [Guia de desenvolvedores Apache Kafka para Azure Event Hubs](apache-kafka-developer-guide.md)
 - [Configurações recomendadas](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
-- 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74d38af4a64a184b26bd6ba1105db0d2530d8ba6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260014"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676401"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Rastreamento e registro de eventos para sua Caixa de Dados Azure e Azure Data Box Heavy
 
@@ -47,7 +47,7 @@ Para restringir o acesso a uma ordem, você pode:
 - Atribua um papel em um nível de ordem. O usuário só tem essas permissões definidas pelas funções para interagir apenas com essa ordem específica da Data Box e nada mais.
 - Atribuir uma função no nível de grupo de recursos, o usuário tem acesso a todas as ordens da Data Box dentro de um grupo de recursos.
 
-Para obter mais informações sobre o uso sugerido do RBAC, consulte [As melhores práticas para rbac](../role-based-access-control/overview.md#best-practice-for-using-rbac).
+Para obter mais informações sobre o uso sugerido do RBAC, consulte [As melhores práticas para o Azure RBAC](../role-based-access-control/best-practices.md).
 
 ## <a name="track-the-order"></a>Acompanhar o pedido
 

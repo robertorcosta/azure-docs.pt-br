@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7eb01f3997ac4ab2e439c00f07990c51ec3e3d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdf0cbfb91332d60516432a7a67fb10404d89113
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370356"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683843"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário
 
@@ -281,6 +281,7 @@ Nesta etapa, você concederá permissões de política de “segurança de domí
     ![Políticas de segurança do domínio](./media/workday-inbound-tutorial/wd_isu_06.png "Políticas de segurança do domínio")  
 2. Na caixa de texto **Domínio**, pesquise pelos seguintes domínios e adicione-os ao filtro individualmente.  
    * *Provisionamento de conta externa*
+   * *Dados do trabalhador: Trabalhadores*
    * *Dados de trabalho: Relatórios de trabalho público*
    * *Dados pessoais: informações de contato de trabalho*
    * *Dados de trabalho: Todas as posições*
@@ -312,6 +313,7 @@ Nesta etapa, você concederá permissões de política de “segurança de domí
    | ---------- | ---------- |
    | Get e Put | Dados de trabalho: Relatórios de trabalho público |
    | Get e Put | Dados pessoais: informações de contato de trabalho |
+   | Obter | Dados do trabalhador: Trabalhadores |
    | Obter | Dados de trabalho: Todas as posições |
    | Obter | Dados de trabalho: Informações atuais sobre a equipe |
    | Obter | Dados de trabalho: Cargo de negócios no perfil de trabalhado |
@@ -451,11 +453,15 @@ Nesta etapa, estabelecemos conectividade com Workday e Active Directory no porta
 
 1. Conclua a seção **Credenciais de Administrador**, conforme a seguir:
 
-   * **Nome de Usuário Administrador ** – digite o nome de usuário da conta do sistema de integração do Workday com o nome de domínio do locatário acrescentado. Deve se parecer com: **nome de\@usuário tenant_name**
+   * **Nome de usuário do dia** de trabalho – Digite o nome de usuário da conta do sistema de integração workday, com o nome de domínio do inquilino anexado. Deve se parecer com: **nome de\@usuário tenant_name**
 
-   * **Senha de admin -** Digite a senha da conta do sistema de integração do Workday
+   * **Senha do dia de trabalho –** Digite a senha da conta do sistema de integração do Workday
 
-   * **URL do locatário –** digite a URL para o ponto de extremidade de serviços Web do Workday para seu locatário. Este valor deve https://wd3-impl-services1.workday.com/ccx/service/contoso4parecer: , onde *contoso4* é substituído pelo nome correto do inquilino e *wd3-impl* é substituído pela seqüência de ambiente correta.
+   * **URL de API de Serviços Web de jornada de trabalho –** Digite a URL no ponto final dos serviços web do Workday para o seu inquilino. Este valor deve https://wd3-impl-services1.workday.com/ccx/service/contoso4parecer: , onde *contoso4* é substituído pelo nome correto do inquilino e *wd3-impl* é substituído pela seqüência de ambiente correta.
+
+     > [!NOTE]
+     > Por padrão, o aplicativo usa o Workday Web Services v21.1 se nenhuma informação de versão for especificada na URL. Para usar uma versão específica da API do Workday Web Services, use o formato URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Exemplo: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
 
    * **Floresta do Active Directory –** o “Nome” de seu domínio do Active Directory, conforme registrado com o agente. Use a lista suspensa para selecionar o domínio de destino para o provisionamento. Geralmente, esse valor é uma cadeia de caracteres como: *contoso.com*
 
@@ -554,7 +560,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 | **SelectUniqueValue(\@"Join" ,"Join(".), \[FirstName\], \[LastName\],\@"contoso.com"), Join("),Join(".), Mid(1,\[1),\] \[\]LastName\@), "contoso.com"),\[Join(".", "Join",, Mid(1,\]2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Gravado na criação somente 
 | **Substituir\[(Mid(Substituir(UserID,\]"\[\\\\/\\\\\\\\\\\\\[\\\\\]\\(:\\\\;\\\\ \\\|\\\\=\\\\,\\\\+\\\\\*\\\\? \\\\\\""," " " \\ &lt; \\ \\ &gt; \] \*](file:///\\ \$.) *$)", , "", , )**      |    sAMAccountName            |     |         Gravado na criação somente |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Criar + atualizar |
-| **Firstname**   | givenName       |     |    Criar + atualizar |
+| **Nome**   | givenName       |     |    Criar + atualizar |
 | **LastName**   |   sn   |     |  Criar + atualizar |
 | **PreferredNameData**  |  displayName |     |   Criar + atualizar |
 | **Empresa**         | company   |     |  Criar + atualizar |
@@ -607,11 +613,16 @@ As seções a seguir descrevem as etapas para configurar o provisionamento de us
 
 8. Conclua a seção **Credenciais de Administrador**, conforme a seguir:
 
-   * **Nome de usuário do administrador** – Digite o nome de usuário da conta do sistema de integração workday, com o nome de domínio do inquilino anexado. Deve ser semelhante a: username@contoso4
+   * **Nome de usuário do dia** de trabalho – Digite o nome de usuário da conta do sistema de integração workday, com o nome de domínio do inquilino anexado. Deve ser semelhante a: username@contoso4
 
-   * **Senha de admin -** Digite a senha da conta do sistema de integração do Workday
+   * **Senha do dia de trabalho –** Digite a senha da conta do sistema de integração do Workday
 
-   * **URL do locatário –** digite a URL para o ponto de extremidade de serviços Web do Workday para seu locatário. Esse valor deve ser semelhante a: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, onde *contoso4* é substituído pelo nome do locatário correto e *wd3-impl* é substituído pela cadeia de caracteres de ambiente correta. Se essa URL não for conhecida, trabalhe com seu representante de suporte ou parceiro de integração do Workday para determinar a URL correta a ser usada.
+   * **URL de API de Serviços Web de jornada de trabalho –** Digite a URL no ponto final dos serviços web do Workday para o seu inquilino. Esse valor deve ser semelhante a: https://wd3-impl-services1.workday.com/ccx/service/contoso4, onde *contoso4* é substituído pelo nome do locatário correto e *wd3-impl* é substituído pela cadeia de caracteres de ambiente correta. Se essa URL não for conhecida, trabalhe com seu representante de suporte ou parceiro de integração do Workday para determinar a URL correta a ser usada.
+
+     > [!NOTE]
+     > Por padrão, o aplicativo usa o Workday Web Services v21.1 se nenhuma informação de versão for especificada na URL. Para usar uma versão específica da API do Workday Web Services, use o formato URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Exemplo: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
+
 
    * **E-mail de notificação –** Digite seu endereço de e-mail e verifique a caixa de seleção "enviar e-mail se ocorrer falha".
 
@@ -737,7 +748,7 @@ Depois que as configurações do aplicativo de provisionamento do Workday tivere
 
 1. Na guia **Provisionamento**, defina o **Status de Provisionamento** para **Em**.
 
-2. Clique em **Salvar**.
+2. Clique em **Save** (Salvar).
 
 3. Essa operação dará início à sincronização inicial, o que poderá demorar algumas horas dependendo de quantos usuários estiverem no locatário do Workday. 
 
@@ -807,9 +818,13 @@ Não há suporte para essa funcionalidade no momento. A solução recomendada é
 
 Atualmente, a solução usa as seguintes APIs do Workday:
 
-* Get_Workers (v21.1) para buscar informações de trabalho
-* Maintain_Contact_Information (v26.1) para o recurso de write-back de email de trabalho
-* Update_Workday_Account (v31.2) para recurso Deregravação de nome de usuário
+* O formato **de URL da API do Workday Web Services** usado na seção Credenciais de **Administração,** determina a versão de API usada para Get_Workers
+  * Se o formato de\#\#\#\#\.URL\.for: https:// workday com/ccx/service/tenantName, então a API v21.1 é usada. 
+  * Se o formato de\#\#\#\#\.URL\.for: https:// workday com/ccx/service/tenantName/Human\_Resources , então a API v21.1 é usada 
+  * Se o formato de\#\#\#\#\.URL\.\_for: https:// workday com/ccx/service/tenantName/Human Resources/v,\# \# \. \# então a versão de API especificada será usada. (Exemplo: se v34.0 for especificado, então ele será usado.)  
+   
+* O recurso de gravação de e-mail do dia de trabalho usa Maintain_Contact_Information (v26.1) 
+* O recurso Workday Username Writeback usa Update_Workday_Account (v31.2) 
 
 #### <a name="can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants"></a>Posso configurar meu locatário do HCM do Workday com dois locatários do Azure AD?
 

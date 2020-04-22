@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: 54ddf6818b95a4037188ab222501ddfa69b28149
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52af688917aa531d125f83844df29a988ed7cb7e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587891"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686626"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Busca por ameaças com o Azure Sentinel
 
@@ -33,7 +33,7 @@ Por exemplo, uma consulta incorporada fornece dados sobre os processos mais inco
 
 Com a caça do Azure Sentinel, você pode aproveitar as seguintes capacidades:
 
-- Consultas incorporadas: Para que você comece, uma página inicial fornece exemplos de consulta pré-carregados projetados para que você comece e familiarize-o com as tabelas e o idioma de consulta. Essas consultas de caça incorporadas são desenvolvidas por pesquisadores de segurança da Microsoft de forma contínua, adicionando novas consultas e afinando as consultas existentes para fornecer-lhe um ponto de entrada para procurar novas detecções e descobrir por onde começar a caçar para o inícios de novos ataques. 
+- Consultas incorporadas: Para que você comece, uma página inicial fornece exemplos de consulta pré-carregados projetados para que você comece e familiarize-o com as tabelas e o idioma de consulta. Essas consultas de caça incorporadas são desenvolvidas por pesquisadores de segurança da Microsoft de forma contínua, adicionando novas consultas e afinando as consultas existentes para fornecer-lhe um ponto de entrada para procurar novas detecções e descobrir por onde começar a caçar para o início de novos ataques. 
 
 - Linguagem de consulta poderosa com o IntelliSense: Construído em cima de uma linguagem de consulta que lhe dá a flexibilidade necessária para levar a caça ao próximo nível.
 
@@ -54,7 +54,7 @@ Com a caça do Azure Sentinel, você pode aproveitar as seguintes capacidades:
 
 3. Realize uma revisão rápida da consulta subjacente no painel de detalhes da consulta ou clique **em Exibir o resultado da consulta** para abrir a consulta no Log Analytics. Na parte inferior, revise as correspondências para a consulta.
 
-4.  Clique na linha e selecione **Adicionar marcador** para adicionar as linhas a serem investigadas - você pode fazer isso para qualquer coisa que pareça suspeita. 
+4.    Clique na linha e selecione **Adicionar marcador** para adicionar as linhas a serem investigadas - você pode fazer isso para qualquer coisa que pareça suspeita. 
 
 5. Em seguida, volte para a página principal **de Caça** e clique na guia **Marcadores** para ver todas as atividades suspeitas. 
 
@@ -66,7 +66,7 @@ Com a caça do Azure Sentinel, você pode aproveitar as seguintes capacidades:
 
 ## <a name="query-language"></a>Idioma de consulta 
 
-Caçar no Azure Sentinel é baseado na linguagem de consulta kusto. Para obter mais informações sobre o idioma de consulta e operadores suportados, consulte [Consulta De Referência de Idioma](https://docs.loganalytics.io/docs/Language-Reference/).
+Caçar no Azure Sentinel é baseado na linguagem de consulta kusto. Para obter mais informações sobre o idioma de consulta e operadores suportados, consulte [Consulta De Referência de Idioma](/azure/azure-monitor/log-query/get-started-queries).
 
 ## <a name="public-hunting-query-github-repository"></a>Repositório gitHub de consulta de caça pública
 

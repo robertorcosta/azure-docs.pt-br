@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bc5204518cb6e801ba661aecd5498a501122225f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5990f79891a9cbc0d18c3499691a3d7ef309a73
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473652"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678263"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: Habilite atributos personalizados em uma política de perfil personalizado
 
@@ -46,7 +46,7 @@ Os termos *propriedade de extensão*, *atributo personalizado* e *declaração p
 
 ## <a name="get-the-application-properties"></a>Obtenha as propriedades do aplicativo
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
 1. Selecione **inscrições de aplicativos (Preview)** e selecione **Todos os aplicativos**.
@@ -75,13 +75,13 @@ Para habilitar atributos personalizados em sua política, forneça **ID de aplic
             <Item Key="ApplicationObjectId"></Item>
           </Metadata>
         </TechnicalProfile>
-      <TechnicalProfiles> 
+      </TechnicalProfiles> 
     </ClaimsProvider>
     ```
 
 ## <a name="upload-your-custom-policy"></a>Faça upload de sua política personalizada
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está usando o diretório que contém o inquilino Azure AD selecionando o filtro **de assinatura Diretório +** no menu superior e escolhendo o diretório que contém o inquilino Azure AD B2C.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 4. Selecione **Estrutura de Experiência de Identidade**.

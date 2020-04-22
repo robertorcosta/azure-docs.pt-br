@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: ac7e721a863414cf0617177885e0ff1c9e9a35d4
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: b86af2ff8fad3793fc47cec9399fd499c1cabba7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617861"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681850"
 ---
 # <a name="troubleshoot"></a>Solucionar problemas
 
@@ -101,6 +101,35 @@ Se essas duas etapas não ajudaram, é necessário descobrir se os quadros de v�
 **O modelo não está dentro da vista frustum:**
 
 Em muitos casos, o modelo é exibido corretamente, mas localizado fora da câmera frustum. Uma razão comum é que o modelo foi exportado com um pivô muito fora do centro, por isso é cortado pelo plano de recorte distante da câmera. Ele ajuda a consultar a caixa delimitadora do modelo de forma programática e visualizar a caixa com unity como uma caixa de linha ou imprimir seus valores para o log de depuração.
+
+Além disso, o processo de conversão gera um [arquivo json de saída](../how-tos/conversion/get-information.md) juntamente com o modelo convertido. Para depurar problemas de posicionamento do `boundingBox` modelo, vale a pena olhar para a entrada na [seção outputStatistics](../how-tos/conversion/get-information.md#the-outputstatistics-section):
+
+```JSON
+{
+    ...
+    "outputStatistics": {
+        ...
+        "boundingBox": {
+            "min": [
+                -43.52,
+                -61.775,
+                -79.6416
+            ],
+            "max": [
+                43.52,
+                61.775,
+                79.6416
+            ]
+        }
+    }
+}
+```
+
+A caixa delimitador `min` é `max` descrita como uma posição e posição em espaço 3D, em metros. Então uma coordenada de 1000.0 significa que está a 1 quilômetro da origem.
+
+Pode haver dois problemas com esta caixa delimitadorque que levam à geometria invisível:
+* **A caixa pode estar longe do centro,** de modo que o objeto é cortado completamente devido ao recorte distante do plano. Os `boundingBox` valores neste caso seriam `min = [-2000, -5,-5], max = [-1990, 5,5]`assim: , usando um grande deslocamento no eixo x como exemplo aqui. Para resolver esse tipo de `recenterToOrigin` problema, habilite a opção na [configuração de conversão](../how-tos/conversion/configure-model-conversion.md)do modelo .
+* **A caixa pode ser centrada, mas são ordens de magnitude muito grande.** Isso significa que, embora a câmera comece no centro do modelo, sua geometria é cortada em todas as direções. Valores típicos `boundingBox` neste caso `min = [-1000,-1000,-1000], max = [1000,1000,1000]`seriam assim: . A razão para este tipo de problema é geralmente uma incompatibilidade de escala de unidade. Para compensar, especifique um [valor de dimensionamento durante](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) a conversão ou marque o modelo de origem com as unidades corretas. O dimensionamento também pode ser aplicado ao nó raiz ao carregar o modelo em tempo de execução.
 
 **O pipeline de renderização Unity não inclui os ganchos de renderização:**
 

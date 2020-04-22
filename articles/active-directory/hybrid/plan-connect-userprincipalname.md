@@ -10,12 +10,12 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c198b329f07c5c7459f25165b2dc0a3bfa032276
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c748df10e432e3bebbce0dc8cb39dd2101d52e2
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60382011"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680036"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Preenchimento de UserPrincipalName do Azure AD
 
@@ -52,7 +52,7 @@ Em alguns ambientes, os usuários finais só pode estar atento a seu endereço d
 
 ID de logon alternativo permite configurar uma experiência de entrada, onde os usuários podem entrar com um atributo diferente de seu UPN, como e-mail.
 
-Ao usar o Azure AD Connect, não são necessárias etapas de configurações adicionais para se habilitar a ID de logon alternativa com o Azure AD. A ID alternativa pode ser configurada no assistente. Consulte a configuração de login do Azure AD para seus usuários a seção Sincronizar. Na versão do nome principal do **usuário,** selecione o atributo para ID de login alternativo.
+Ao usar o Azure AD Connect, não são necessárias etapas de configurações adicionais para se habilitar a ID de logon alternativa com o Azure AD. A ID alternativa pode ser configurada no assistente. Consulte a configuração de login do Azure AD para seus usuários sob a seção Sincronizar. Na versão do nome principal do **usuário,** selecione o atributo para ID de login alternativo.
 
 ![Domínios não verificados](./media/plan-connect-userprincipalname/altloginid.png)  
 
@@ -93,7 +93,7 @@ Objeto de usuário local:
 - mailNickName: &lt;não definido&gt;
 - proxyAddresses: {SMTP:us1@contoso.com}
 - email: us2@contoso.com
-- userPrincipalName: us3@contoso.com`
+- userPrincipalName: us3@contoso.com
 
 Objeto de usuário sincronizado com o locatário do Azure AD pela primeira vez
 - Defina o atributo MailNickName do Azure Active Directory para o prefixo de endereço SMTP primário.

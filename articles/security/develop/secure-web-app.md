@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 55c6d374c8a3c308323c0d003726492477e33ff8
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 730e478622da8cd90af1c559e4d0c6fd04151cca
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811246"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686803"
 ---
 # <a name="develop-a-secure-web-app"></a>Desenvolver um aplicativo Web seguro
 
@@ -104,7 +104,7 @@ Este aplicativo utilizado:
 - [Cli Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para implantação.
 - [Docker Hub](https://hub.docker.com/) como registro de contêineres.
 
-## <a name="security-considerations"></a>Considerações de segurança
+## <a name="security-considerations"></a>Considerações sobre segurança
 
 ### <a name="network"></a>Rede
 
@@ -803,7 +803,7 @@ No portal Azure, configure o aplicativo para usar as credenciais necessárias:
 Depois de adicionar a configuração e os segredos do Azure AD ao Key Vault, os usuários podem ser autenticados no aplicativo usando a autenticação Do Azure OAuth.
 No código do aplicativo, isso é tratado pela Azure Active Directory Authenticy Library (ADAL).
 
-Depois que os segredos estiverem no Key Vault e o aplicativo tiver acesso aos segredos e aohttps://GATEWAY_HASH.cloudapp.net)banco de dados, o serviço de aplicativo pode ser alcançado através da URL do aplicativo do gateway ( , que você pode obter a partir de sua lâmina.
+Depois que os segredos estiverem no Key Vault e o aplicativo tiver acesso aos segredos e ao banco\/de dados, o serviço de aplicativo pode ser alcançado através da URL do aplicativo do gateway (https: /GATEWAY_HASH.cloudapp.net), que você pode obter a partir de sua lâmina.
 
 Se, ao fazer login no Azure AD, você tiver um erro que diz "O usuário não está registrado no diretório em que você está tentando fazer login", você precisa adicionar o usuário. Para adicionar o usuário, vá para a guia **Usuários** do Azure AD e adicione o usuário manualmente inserindo seus dados ou convide o usuário inserindo seu endereço de e-mail como usuário convidado para o Azure AD na lâmina **Convidar convidado.**
 
@@ -978,7 +978,7 @@ A ferramenta [ZAP do OWASP](https://www.zaproxy.org/) é um scanner de vulnerabi
 
 ### <a name="find-and-fix-vulnerabilities-in-app-dependencies"></a>Encontrar e corrigir vulnerabilidades nas dependências de aplicativos
 
-Para encontrar e corrigir dependências de aplicativos, você pode usar [a verificação de dependência do OWASP](https://www.owasp.org/index.php/OWASP_Dependency_Check).
+Para encontrar e corrigir dependências de aplicativos, você pode usar [a verificação de dependência do OWASP](https://owasp.org/www-project-dependency-check/).
 
 Segurança é uma aplicação semelhante que verifica dependências. Você pode encontrá-lo no [GitHub](https://github.com/pyupio/safety). Verificações de segurança para vulnerabilidades encontradas em bancos de dados de vulnerabilidades bem conhecidos.
 

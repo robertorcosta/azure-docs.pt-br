@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: ad1fcb67704e79f5aef62a59604e47f477804405
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68385721"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680712"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoramento remoto IoT e notificações com os Aplicativos Lógicos do Azure conectando o hub IoT e a caixa de correio
 
@@ -22,7 +22,7 @@ ms.locfileid: "68385721"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Os Aplicativos de Lógica do Azure](https://docs.microsoft.com/azure/logic-apps/) podem ajudá-lo a orquestrar fluxos de trabalho em locais e serviços em nuvem, uma ou mais empresas e em vários protocolos. Um aplicativo lógico começa com um gatilho, que é seguido por uma ou mais ações que podem ser sequenciadas usando controles incorporados, como condições e iterizadores. Essa flexibilidade faz da Logic Apps uma solução ideal de IoT para cenários de monitoramento de IoT. Por exemplo, a chegada de dados de telemetria de um dispositivo em um ponto final do IoT Hub pode iniciar fluxos de trabalho de aplicativos lógicos para armazenar os dados em uma bolha de armazenamento Azure, enviar alertas de e-mail para alertar sobre anomalias de dados, agendar uma visita técnica se um dispositivo relatar uma falha , e assim por diante.
+[Os Aplicativos de Lógica do Azure](https://docs.microsoft.com/azure/logic-apps/) podem ajudá-lo a orquestrar fluxos de trabalho em locais e serviços em nuvem, uma ou mais empresas e em vários protocolos. Um aplicativo lógico começa com um gatilho, que é seguido por uma ou mais ações que podem ser sequenciadas usando controles incorporados, como condições e iterizadores. Essa flexibilidade faz da Logic Apps uma solução ideal de IoT para cenários de monitoramento de IoT. Por exemplo, a chegada de dados de telemetria de um dispositivo em um ponto final do IoT Hub pode iniciar fluxos de trabalho de aplicativos lógicos para armazenar os dados em uma bolha de armazenamento Azure, enviar alertas de e-mail para alertar sobre anomalias de dados, agendar uma visita técnica se um dispositivo relatar uma falha e assim por diante.
 
 ## <a name="what-you-learn"></a>O que você aprenderá
 
@@ -142,7 +142,7 @@ Adicione um ponto final personalizado para a fila de Barra de Serviço ao seu hu
 
    ![Adicionar uma regra de roteamento no portal do Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
-1. Selecione **Salvar**. Você pode fechar o painel **de roteamento de mensagens.**
+1. Clique em **Salvar**. Você pode fechar o painel **de roteamento de mensagens.**
 
 ## <a name="create-and-configure-a-logic-app"></a>Criar e configurar um aplicativo lógico
 
@@ -212,7 +212,7 @@ Na seção anterior, você configura seu hub de IoT para encaminhar mensagens co
       Obtenha as informações de SMTP para [Hotmail/Outlook.com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en) e [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
 
       > [!NOTE]
-      > Talvez seja necessário desativar o SSL para estabelecer a conexão. Se este for o caso e você quiser reativar o SSL depois que a conexão for estabelecida, consulte a etapa opcional no final desta seção.
+      > Talvez seja necessário desativar o TLS/SSL para estabelecer a conexão. Se este for o caso e você quiser reativar o TLS depois que a conexão for estabelecida, consulte a etapa opcional no final desta seção.
 
    1. A partir do **novo parâmetro** de isto na etapa **Enviar e-mail,** selecione **De**, Para , **Assunto**e **Corpo**. **Subject** Clique ou toque em qualquer lugar da tela para fechar a caixa de seleção.
 
@@ -224,7 +224,7 @@ Na seção anterior, você configura seu hub de IoT para encaminhar mensagens co
 
    1. Selecione **Salvar** para salvar a conexão SMTP.
 
-1. (Opcional) Se você teve que desativar o SSL para estabelecer uma conexão com seu provedor de e-mail e deseja reativá-lo, siga estas etapas:
+1. (Opcional) Se você teve que desativar o TLS para estabelecer uma conexão com seu provedor de e-mail e deseja reativá-lo, siga estas etapas:
 
    1. No painel do **aplicativo Logic,** em **Ferramentas de Desenvolvimento,** selecione **conexões de API**.
 

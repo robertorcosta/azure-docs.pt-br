@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
-ms.openlocfilehash: d64735e683ba1133e7d381a68611d204c4068026
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1665c535d4b1fb6190ee5736b688b402f8b4a541
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313108"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683902"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>Recuperação de desastres para FarmBeats
 
@@ -28,7 +28,7 @@ As seções a seguir fornecem informações sobre como você pode configurar a r
 
 A FarmBeats armazena dados em três serviços de primeira parte do Azure, que são **o armazenamento Azure,** **cosmos DB** e Time Series **Insights**. Use as seguintes etapas para habilitar a redundância de dados para esses serviços em uma região Azure emparelhada:
 
-1.  **Armazenamento azure** - Siga esta diretriz para habilitar a redundância de dados para cada conta de armazenamento em sua implantação farmBbeats.
+1.  **Armazenamento azure** - Siga esta diretriz para habilitar a redundância de dados para cada conta de armazenamento em sua implantação farmbeats.
 2.  **Azure Cosmos DB** - Siga esta diretriz para habilitar a redundância de dados para a conta Cosmos DB sua implantação farmbeats.
 3.  **Azure Time Series Insights (TSI)** - Atualmente, a TSI não oferece redundância de dados. Para recuperar os dados do Time Series Insights, vá para o seu parceiro de sensores/tempo e empurre os dados novamente para a implantação do FarmBeats.
 
