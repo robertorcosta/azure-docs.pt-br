@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ac44661dd5a52ba19a3b2dd461aabec1ec250bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd24650c9bf0c4de155b5bfc8723cfa1fef01548
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284867"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81755404"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administrador no Azure Active Directory
 
@@ -76,9 +76,9 @@ Configurar propriedades da empresa | Administrador global |
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Autenticação de passagem | Administrador global | 
-Ler todas as configurações | Leitor global | 
-Logon único contínuo | Administrador global | 
+Autenticação de passagem | Administrador de Identidade Híbrida | 
+Ler todas as configurações | Leitor global | Administrador de Identidade Híbrida |
+Logon único contínuo | Administrador de Identidade Híbrida | 
 
 ## <a name="connect-health"></a>Connect Health
 
@@ -346,7 +346,7 @@ Atualizar configurações do usuário | Administrador global |
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Enviar tíquete de suporte | Administrador de serviços | Administrador de aplicativos, administrador de proteção de informações do Azure, administrador de faturamento, administrador de aplicativos em nuvem, administrador de conformidade, administrador dinâmico 365, administrador de análisede desktop, administrador de exchange, senha Administrador, Administrador intune, Skype para administrador de empresas, administrador de BI de energia, administrador de autenticação privilegiada, administrador de sharePoint, administrador de comunicações de equipes, administrador de equipes, administrador de usuário, Administrador de Análises de Local de Trabalho
+Enviar tíquete de suporte | Administrador de serviços | Administrador de aplicativos, administrador de proteção de informações do Azure, administrador de faturamento, administrador de aplicativos em nuvem, administrador de conformidade, administrador dinâmico 365, administrador de desktop analytics, administrador de exchange, administrador de senhas, administrador intune, Skype para administrador de empresas, administrador de power bi, administrador de autenticação privilegiada, administrador de compartilhamento, administrador de comunicações de equipes, administrador de equipes, administrador de usuário, administrador de análise de local de trabalho
 
 ## <a name="next-steps"></a>Próximas etapas
 

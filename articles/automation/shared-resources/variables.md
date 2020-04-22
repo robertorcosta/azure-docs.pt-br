@@ -1,5 +1,5 @@
 ---
-title: Ativos variáveis na Automação do Azure
+title: Gerenciar variáveis no Azure Automation
 description: Ativos de variáveis são valores que estão disponíveis para todos os runbooks e configurações DSC na Automação do Azure.  Este artigo explica os detalhes das variáveis e como trabalhar com elas na criação de textos e gráficos.
 services: automation
 ms.service: automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d4a4a92feb3e1b400c0f40076148f7898c4bdef1
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 4778e9b2c0d3b442b214966ab69810d2f42b70b8
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365832"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732758"
 ---
-# <a name="variable-assets-in-azure-automation"></a>Ativos variáveis na Automação do Azure
+# <a name="manage-variables-in-azure-automation"></a>Gerenciar variáveis no Azure Automation
 
 Ativos variáveis são valores disponíveis para todos os runbooks e configurações de DSC em sua conta de Automação. Você pode gerenciá-los a partir do portal Azure, do PowerShell, dentro de um runbook ou em uma configuração DSC.
 
@@ -45,11 +45,14 @@ Ao criar uma variável com o portal Azure, você deve especificar um tipo de dad
 * Boolean
 * Nulo
 
-A variável não está restrita ao tipo de dados designado. Você deve definir a variável usando o Windows PowerShell se quiser especificar um valor de um tipo diferente. Se você `Not defined`indicar, o valor da variável será definido como Nulo e você deve definir o `Set-AutomationVariable` valor com o cmdlet [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) ou com a atividade.
+A variável não está restrita ao tipo de dados designado. Você deve definir a variável usando o Windows PowerShell se quiser especificar um valor de um tipo diferente. Se você `Not defined`indicar, o valor da variável será definido como Nulo. Você deve definir o valor com o cmdlet `Set-AutomationVariable` [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) ou com a atividade.
 
 Você não pode usar o portal Azure para criar ou alterar o valor para um tipo de variável complexa. No entanto, você pode fornecer um valor de qualquer tipo usando o Windows PowerShell. Tipos complexos são recuperados como um [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 Você pode armazenar vários valores para uma única variável criando uma matriz ou hashtable e salvando-a na variável.
+
+>[!NOTE]
+>As variáveis de nome VM podem ser no máximo 80 caracteres. As variáveis do grupo de recursos podem ser no máximo 90 caracteres. Consulte [regras de nomeação e restrições para os recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules).
 
 ## <a name="powershell-cmdlets-that-create-and-manage-variable-assets"></a>Cmdlets powershell que criam e gerenciam ativos variáveis
 
@@ -140,7 +143,7 @@ $vmIpAddress = $vmValue.IpAddress
 
 ### <a name="create-and-use-a-variable-in-a-runbook-or-dsc-configuration"></a>Criar e usar uma variável em um runbook ou configuração DSC
 
-A única maneira de criar uma nova variável dentro de um `New-AzAutomationVariable` runbook ou configuração DSC é usar o cmdlet, ou seu equivalente a módulo AzureRM. O script usa este cmdlet para definir o valor inicial da variável. O script pode então `Get-AzAutomationVariable`recuperar o valor usando . Se o valor for um tipo simples, esse mesmo tipo será recuperado. Se é um tipo complexo, `PSCustomObject` então um tipo é recuperado.
+A única maneira de criar uma nova variável dentro de um `New-AzAutomationVariable` runbook ou configuração DSC é usar o cmdlet ou seu equivalente ao módulo AzureRM. O script usa este cmdlet para definir o valor inicial da variável. O script pode então `Get-AzAutomationVariable`recuperar o valor usando . Se o valor for um tipo simples, esse mesmo tipo será recuperado. Se é um tipo complexo, `PSCustomObject` então um tipo é recuperado.
 
 >[!NOTE]
 >A única maneira de recuperar um valor `Get-AutomationVariable` criptografado é usando a atividade no manual ou na configuração do DSC. 

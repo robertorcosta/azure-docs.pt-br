@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: fe7d076fab6a70736843fc644cd56bef44a55df2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/21/2020
+ms.openlocfilehash: 4db9624fbc71e48fcc10ae1d9a1d700d301248a2
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415118"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759539"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Segurança e privacidade de dados na Pesquisa Cognitiva do Azure
 
@@ -40,7 +40,7 @@ A criptografia se estende por todo o pipeline de indexação: desde conexões, p
 
 | Camada de segurança | Descrição |
 |----------------|-------------|
-| Criptografia em trânsito <br>(HTTPS/SSL/TLS) | A Pesquisa Cognitiva do Azure ouve na porta HTTPS 443. Na plataforma, as conexões com os serviços do Azure são criptografadas. <br/><br/>Todas as interações de pesquisa cognitiva do Cliente para serviço são capazes de SSL/TLS 1.2.  Certifique-se de usar o TLSv1.2 para conexões SSL ao seu serviço.|
+| Criptografia em trânsito <br>(HTTPS/SSL/TLS) | A Pesquisa Cognitiva do Azure ouve na porta HTTPS 443. Na plataforma, as conexões com os serviços do Azure são criptografadas. <br/><br/>Todas as interações de pesquisa cognitiva do Cliente para serviço usam criptografia SSL/TLS 1.2. Versões anteriores (1.0 ou 1.1) não são suportadas.|
 | Criptografia em repouso <br>Chaves gerenciadas pela Microsoft | A criptografia é totalmente internalizada no processo de indexação, sem nenhum impacto mensurável no tempo para conclusão da indexação ou no tamanho do índice. Isso ocorre automaticamente em toda a indexação, incluindo em atualizações incrementais em um índice que não está totalmente criptografado (criado antes de janeiro de 2018).<br><br>Internamente, a criptografia é baseada na [Criptografia do Serviço de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) do 256 bits.<br><br> A criptografia é interna para o Azure Cognitive Search, com certificados e chaves de criptografia gerenciados internamente pela Microsoft, e aplicados universalmente. Não é possível ativar ou desativar a criptografia, gerenciar ou substituir suas próprias chaves ou exibir configurações de criptografia no portal ou de forma programática.<br><br>A criptografia em repouso foi anunciada em 24 de janeiro de 2018 e se aplica a todos os níveis de serviço, incluindo o nível gratuito, em todas as regiões. Para a criptografia completa, os índices criados antes dessa data precisam ser removidos e recompilados para que a criptografia ocorra. Caso contrário, somente os novos dados adicionados após 24 de janeiro são criptografados.|
 | Criptografia em repouso <br>Chaves gerenciadas do cliente | A criptografia com chaves gerenciadas pelo cliente agora está geralmente disponível para serviços de pesquisa criados em ou após janeiro de 2019. Não é suportado em serviços gratuitos (compartilhados).<br><br>Os índices de pesquisa cognitiva do Azure e os mapas de sinônimos agora podem ser criptografados em repouso com chaves gerenciadas pelo cliente no Azure Key Vault. Para saber mais, consulte [Gerenciar chaves de criptografia na Pesquisa Cognitiva do Azure](search-security-manage-encryption-keys.md).<br><br>Esse recurso não está substituindo a criptografia padrão em repouso, mas sim aplicada além dela.<br><br>A habilitação desse recurso aumentará o tamanho do índice e degradará o desempenho da consulta. Com base em observações até o momento, você pode esperar ver um aumento de 30%-60% nos tempos de consulta, embora o desempenho real varie dependendo da definição do índice e tipos de consultas. Devido a esse impacto de desempenho, recomendamos que você só habilite esse recurso em índices que realmente o requerem.
 

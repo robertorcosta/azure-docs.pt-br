@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ad8fcf578ae1c89856a9d7929af0aec813cb4082
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b42c2a414333e7ed262441321a808fc45425fc3b
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78187586"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756747"
 ---
 # <a name="json-claims-transformations"></a>Transformações de declarações JSON
 
@@ -223,6 +223,39 @@ No exemplo a seguir, a transformação de declarações extrai o elemento `id` d
 - Declarações de saída:
     - **extractedClaim**: 6353399
 
+## <a name="getsingleitemfromjson"></a>GetSingleItemFromJson
+
+Obtém o primeiro elemento a partir de um dado JSON.
+
+| Item | TransformationClaimType | Tipo de Dados | Observações |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputJson | string | Os Tipos de Sinistros que são usados pela transformação de sinistros para obter o item a partir dos dados JSON. |
+| OutputClaim | chave | string | A chave do primeiro elemento no JSON. |
+| OutputClaim | value | string | O primeiro valor de elemento no JSON. |
+
+No exemplo a seguir, a transformação de sinistros extrai o primeiro elemento (nome) dos dados JSON.
+
+```XML
+<ClaimsTransformation Id="GetGivenNameFromResponse" TransformationMethod="GetSingleItemFromJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="json" TransformationClaimType="inputJson" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="givenNameKey" TransformationClaimType="key" />
+    <OutputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="value" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemplo
+
+- Declarações de entrada:
+  - **inputJson**: {"givenName": "Emilty", "lastName": "Smith"}
+- Declarações de saída:
+  - **chave**: dadoNome
+  - **valor**: Emilty
+
+
 ## <a name="getsinglevaluefromjsonarray"></a>GetSingleValueFromJsonArray
 
 Obtém o primeiro elemento de uma matriz de dados JSON.
@@ -294,3 +327,5 @@ Declaração de saída:
   }
 }
 ```
+
+

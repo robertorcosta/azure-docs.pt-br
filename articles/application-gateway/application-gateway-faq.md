@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: victorh
-ms.openlocfilehash: e64b0a8602a4a0806ada15546972856743c38161
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 0e5a683c95e213a0fc37ec4f559e89abfecf034a
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312460"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758917"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Application Gateway
 
@@ -72,7 +72,7 @@ Para o V2 SKU, abra o recurso IP público e selecione **Configuração**. O **ca
 
 *O tempo hámenos do Keep-Alive* rege quanto tempo o Gateway de aplicativo esperará que um cliente envie outra solicitação HTTP em uma conexão persistente antes de reúna-a ou fechá-la. *O tempo livre de ociosidade tcp* rege quanto tempo uma conexão TCP é mantida aberta em caso de nenhuma atividade. 
 
-O *tempo de manter-vivo* no gateway de aplicativo v1 SKU é de 120 segundos e no V2 SKU é de 75 segundos. O *tempo de espera ocioso TCP* é um padrão de 4 minutos no IP virtual frontend (VIP) do V1 e v2 SKU do Application Gateway. 
+O *tempo de manter-vivo* no gateway de aplicativo v1 SKU é de 120 segundos e no V2 SKU é de 75 segundos. O *tempo de espera ocioso TCP* é um padrão de 4 minutos no IP virtual frontend (VIP) do V1 e v2 SKU do Application Gateway. Você não pode mudar esses valores.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>O nome IP ou DNS muda ao longo da vida útil do gateway de aplicativo?
 

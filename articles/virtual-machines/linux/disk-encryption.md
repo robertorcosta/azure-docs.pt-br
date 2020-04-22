@@ -2,17 +2,17 @@
 title: Criptografia do lado do servidor dos discos gerenciados do Azure - Azure CLI
 description: O Azure Storage protege seus dados criptografando-os em repouso antes de permê-los em clusters de armazenamento. Você pode confiar em chaves gerenciadas pela Microsoft para a criptografia de seus discos gerenciados ou usar chaves gerenciadas pelo cliente para gerenciar criptografia com suas próprias chaves.
 author: roygara
-ms.date: 04/02/2020
+ms.date: 04/21/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 68341de82ae15df91477947664c500caaa96a09a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 151c84424e33233cd48414875230a63df598d8e2
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81452716"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757438"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Criptografia do lado do servidor dos discos gerenciados do Azure
 
@@ -72,7 +72,7 @@ Por enquanto, as chaves gerenciadas pelo cliente têm as seguintes restrições:
 
 - Se esse recurso estiver habilitado para o disco, não será possível desativá-lo.
     Se você precisar contornar isso, você deve [copiar todos os dados](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) para um disco gerenciado totalmente diferente que não esteja usando chaves gerenciadas pelo cliente.
-- Apenas [as teclas RSA "macias" e "duras"](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) do tamanho 2048 são suportadas, sem outras chaves ou tamanhos.
+- Apenas [as teclas RSA "macias" e "duras"](../../key-vault/keys/about-keys.md) do tamanho 2048 são suportadas, sem outras chaves ou tamanhos.
 - Os discos criados a partir de imagens personalizadas que são criptografadas usando criptografia do lado do servidor e chaves gerenciadas pelo cliente devem ser criptografados usando as mesmas chaves gerenciadas pelo cliente e devem estar na mesma assinatura.
 - Os snapshots criados a partir de discos criptografados com criptografia do lado do servidor e chaves gerenciadas pelo cliente devem ser criptografados com as mesmas chaves gerenciadas pelo cliente.
 - Imagens personalizadas criptografadas usando criptografia do lado do servidor e chaves gerenciadas pelo cliente não podem ser usadas na galeria de imagens compartilhadas.

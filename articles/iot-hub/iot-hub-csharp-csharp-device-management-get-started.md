@@ -9,12 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 3b37d7e049e7daabbbb4fe1a7b49feb654e8accc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 3cc74faa39b21b1ab275149db4f85de8f55fd07e
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110247"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733467"
 ---
 # <a name="get-started-with-device-management-net"></a>Comece com o gerenciamento de dispositivos (.NET)
 
@@ -76,7 +77,7 @@ Nesta seção, você cria um aplicativo de console .NET, usando C#, que inicia u
 
    Esta etapa baixa, instala e adiciona uma referência ao pacote NuGet do [SDK do serviço IoT do Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices/) e suas dependências.
 
-1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
+1. Adicione as `using` seguintes instruções na parte superior do arquivo **Program.cs:**
 
    ```csharp
    using Microsoft.Azure.Devices;
@@ -92,7 +93,7 @@ Nesta seção, você cria um aplicativo de console .NET, usando C#, que inicia u
    static string targetDevice = "myDeviceId";
    ```
 
-1. Adicione o seguinte método à classe **Programa.**  Esse código obtém o dispositivo gêmeo para o dispositivo de reinicialização e gera as propriedades relatadas.
+1. Adicione o seguinte método à classe **Programa**.  Esse código obtém o dispositivo gêmeo para o dispositivo de reinicialização e gera as propriedades relatadas.
 
    ```csharp
    public static async Task QueryTwinRebootReported()
@@ -102,7 +103,7 @@ Nesta seção, você cria um aplicativo de console .NET, usando C#, que inicia u
    }
    ```
 
-1. Adicione o seguinte método à classe **Programa.**  Esse código inicia uma reinicialização no dispositivo usando um método direto.
+1. Adicione o seguinte método à classe **Programa**.  Esse código inicia uma reinicialização no dispositivo usando um método direto.
 
    ```csharp
    public static async Task StartReboot()
@@ -159,7 +160,7 @@ Para criar o aplicativo de dispositivo simulado, siga estas etapas:
 
    Esta etapa baixa, instala e adiciona uma referência ao pacote SDK NuGet [do dispositivo Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e suas dependências.
 
-1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
+1. Adicione as `using` seguintes instruções na parte superior do arquivo **Program.cs:**
 
     ```csharp
     using Microsoft.Azure.Devices.Client;

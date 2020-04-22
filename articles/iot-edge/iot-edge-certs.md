@@ -8,12 +8,13 @@ ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 58294c7afdf31ddd29611351d6442db1c4966157
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: d3e456d57d98b796fb1aea2e82de51f9fae40c68
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78269044"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733174"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Entenda como o Azure IoT Edge usa certificados
 
@@ -23,7 +24,7 @@ Este artigo explica como os certificados de IoT Edge podem funcionar em cenário
 
 ## <a name="iot-edge-certificates"></a>Certificados do IoT Edge
 
-Normalmente, os fabricantes não são os usuários finais de um dispositivo IoT Edge. Às vezes, a única relação entre os dois é quando o usuário final ou o operador, adquire um dispositivo genérico feito pelo fabricante. Outras vezes, o fabricante trabalha contrato para construir um dispositivo personalizado para o operador. O design do certificado IoT Edge tenta levar em conta os dois cenários.
+Normalmente, os fabricantes não são os usuários finais de um dispositivo IoT Edge. Às vezes, a única relação entre os dois é quando o usuário final ou o operador, adquire um dispositivo genérico feito pelo fabricante. Outras vezes, o fabricante trabalha sob contrato para construir um dispositivo personalizado para o operador. O design do certificado IoT Edge tenta levar em conta os dois cenários.
 
 A figura a seguir ilustra o uso de certificados da IoT Edge. Pode haver zero, um ou muitos certificados de assinatura intermediários entre o Certificado de Autoridade de Certificação raiz e o Certificado de Autoridade de Certificação do dispositivo, dependendo do número de entidades envolvidas. Aqui, mostramos um caso.
 
@@ -100,6 +101,6 @@ Você pode ver a hierarquia da profundidade do certificado representada na captu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Entender os módulos do Azure IoT Edge](iot-edge-modules.md)
+[Entenda os módulos do Azure IoT Edge](iot-edge-modules.md)
 
 [Configure um dispositivo IoT Edge para atuar como um gateway transparente](how-to-create-transparent-gateway.md)

@@ -2,18 +2,17 @@
 title: Executar scripts em uma VM Linux do Azure
 description: Este tópico descreve como executar scripts dentro de uma máquina virtual
 services: automation
-ms.service: automation
+ms.service: virtual-machines-linux
 author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: article
-manager: carmonm
-ms.openlocfilehash: 6175ae4263aee0ecdca5b1d768438ad20352375c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9dbfb3e76fe1c0e80dd8020b79f4edd6d32a24a3
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67477029"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758589"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Executar scripts em sua VM Linux
 
@@ -68,7 +67,7 @@ O [Console serial](serial-console.md) fornece acesso direto a uma VM, semelhante
 
 Saiba mais sobre os diferentes recursos disponíveis para executar scripts e comandos dentro de suas VMs.
 
-* [Extensão de script personalizada](../extensions/custom-script-linux.md)
+* [Extensão de script personalizado](../extensions/custom-script-linux.md)
 * [Executar Comando](run-command.md)
-* [Runbook Worker Híbrido](../../automation/automation-hybrid-runbook-worker.md)
+* [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)
 * [Console serial](serial-console.md)

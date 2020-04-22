@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a1fd22772e72cba4cce3f9fa2751dc0df0e15bb9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 5a8d5f96449cfecd4628c38fa2788a1e06e96b07
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535591"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758898"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -125,7 +125,7 @@ Na versão 3. *x*, o limite de conexão padrão para conexões infinitas. Se por
 
 Na versão 2. *x*, você controla o número de conexões simultâneas a um host usando a API [ServicePointManager.DefaultConnectionLimit.](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) Em dois. *x*, você deve aumentar esse valor a partir do padrão de 2 antes de iniciar seu host WebJobs.
 
-Todas as solicitações HTTP que você `HttpClient` faz `ServicePointManager`a partir de uma função usando flow through . Depois de atingir o `DefaultConnectionLimit` `ServicePointManager` valor definido, inicia a fila de solicitações antes de enviá-las. Suponha que seu `DefaultConnectionLimit` seja definido como 2 e seu código faça 1.000 solicitações HTTP. Inicialmente, apenas duas solicitações são permitidas por meio do sistema operacional. As outras 998 são colocadas na fila até que haja espaço para elas. Isso significa `HttpClient` que o seu tempo de saída pode porque parece ter feito a solicitação, mas a solicitação nunca foi enviada pelo SISTEMA OPERACIONAL para o servidor de destino. Para que você possa ver o comportamento que não faz sentido: o `HttpClient` local está demorando 10 segundos para concluir uma solicitação, mas o serviço está retornando cada solicitação em 200 ms. 
+Todas as solicitações HTTP que você `HttpClient` faz `ServicePointManager`a partir de uma função usando flow through . Depois de atingir o `DefaultConnectionLimit` `ServicePointManager` valor definido, inicia a fila de solicitações antes de enviá-las. Suponha que seu `DefaultConnectionLimit` seja definido como 2 e seu código faça 1.000 solicitações HTTP. Inicialmente, apenas duas solicitações são permitidas por meio do sistema operacional. Os outros 998 estão na fila até que haja espaço para eles. Isso significa `HttpClient` que o seu tempo de saída pode porque parece ter feito a solicitação, mas a solicitação nunca foi enviada pelo SISTEMA OPERACIONAL para o servidor de destino. Para que você possa ver o comportamento que não faz sentido: o `HttpClient` local está demorando 10 segundos para concluir uma solicitação, mas o serviço está retornando cada solicitação em 200 ms. 
 
 O valor padrão para `Int32.MaxValue`ASP.NET aplicativos é , e isso provavelmente funcionará bem para o WebJobs em execução em um Plano básico ou superior de serviço de aplicativo. Os WebJobs normalmente precisam da configuração Always On, e isso é suportado apenas por Planos básicos e mais altos de serviço de aplicativos.
 
@@ -277,9 +277,9 @@ Para usar o gatilho de Temporizador ou a associação de Arquivos, que fazem par
 
 Estes tipos de gatilho e vinculação estão incluídos na versão 2. *x* do `Microsoft.Azure.WebJobs` pacote:
 
-* Armazenamento de blob
+* Armazenamento de Blobs
 * Armazenamento de filas
-* Armazenamento de tabela
+* Armazenamento de tabelas
 
 Para usar outros tipos de associação e gatilho, instale o pacote do NuGet que os contém e chame um método `Use<binding>` no objeto `JobHostConfiguration`. Por exemplo, se você quiser usar um `Microsoft.Azure.WebJobs.Extensions` gatilho `UseTimers` temporizador, instale e chame no `Main` método, conforme mostrado aqui:
 
@@ -423,7 +423,7 @@ static async Task Main()
 }
 ```
 
-Para obter mais detalhes, consulte o artigo [de vinculação do Event Hubs.](../azure-functions/functions-bindings-event-hubs-output.md#hostjson-settings)
+Para obter mais detalhes, consulte o artigo [de vinculação do Event Hubs.](../azure-functions/functions-bindings-event-hubs-trigger.md#host-json)
 
 ### <a name="queue-storage-trigger-configuration"></a>Configuração do gatilho de armazenamento na fila
 

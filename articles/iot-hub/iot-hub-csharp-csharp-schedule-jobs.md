@@ -8,12 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 7925ca5c69d01b098764ff744fb832eaa43118d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 4c71a108d1967027465d127db50737119af3e2c1
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77108962"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733363"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Programação e transmissão de empregos (.NET)
 
@@ -83,7 +84,7 @@ Nesta seção, você cria um aplicativo de console .NET que responde a um métod
 
     Esta etapa baixa, instala e adiciona uma referência ao pacote SDK NuGet [do dispositivo Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e suas dependências.
 
-1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
+1. Adicione as `using` seguintes instruções na parte superior do arquivo **Program.cs:**
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
@@ -178,7 +179,7 @@ Nesta seção, você cria um aplicativo de console .NET (usando C#) que usa trab
 
    Esta etapa baixa, instala e adiciona uma referência ao pacote NuGet do [SDK do serviço IoT do Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices/) e suas dependências.
 
-1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
+1. Adicione as `using` seguintes instruções na parte superior do arquivo **Program.cs:**
 
     ```csharp
     using Microsoft.Azure.Devices;

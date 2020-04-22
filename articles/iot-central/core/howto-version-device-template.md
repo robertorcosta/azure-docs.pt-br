@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bb77d1a09cb2692765c4c834ce617d13465d4d67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37c7bc99881c8d1106c8464cfe18c9e63b8a1b02
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157561"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756728"
 ---
 # <a name="create-a-new-device-template-version"></a>Criar uma nova versão do modelo de dispositivo
 
-
+*Este artigo se aplica a construtores de soluções e desenvolvedores de dispositivos.*
 
 A Microsoft IoT Central permite o rápido desenvolvimento de Aplicativos IoT. Você pode iterar rapidamente os projetos do modelo do dispositivo adicionando, editando ou excluindo recursos, visualizações e personalizações do dispositivo. Depois de publicar o modelo do dispositivo, o modelo de capacidade do dispositivo será **publicado** com ícones de bloqueio ao lado do modelo. Para fazer alterações no modelo de capacidade do dispositivo, você precisará criar uma nova versão do modelo do dispositivo. Enquanto isso, as propriedades na nuvem, as personalizações e as visualizações podem ser editadas a qualquer momento sem a necessidade de versácia o modelo do dispositivo. Depois de salvar qualquer uma dessas alterações, você pode publicar o modelo do dispositivo para tornar as últimas alterações disponíveis para o operador visualizar no Device Explorer.
 
@@ -32,7 +32,7 @@ Certos elementos dos recursos do dispositivo podem ser editados sem precisar ver
 1. Selecione o modelo de dispositivo que deseja personalizar.
 1. Escolha a guia **Personalizar.**
 1. Todos os recursos definidos no modelo de capacidade do dispositivo serão listados aqui. Todos os campos que você pode editar aqui podem ser salvos e usados em todo o seu aplicativo, sem precisar versificar o modelo do seu dispositivo. Se houver campos que você deseja editar que são somente leitura, você precisará versácia seu modelo de dispositivo para alterá-los. Selecione um campo que deseja editar e insira em quaisquer novos valores.
-1. Clique em **Salvar**. Agora, esses valores substituirão qualquer coisa que foi inicialmente salva no modelo do seu dispositivo e será usada em todo o aplicativo.
+1. Clique em **Save** (Salvar). Agora, esses valores substituirão qualquer coisa que foi inicialmente salva no modelo do seu dispositivo e será usada em todo o aplicativo.
 
 ## <a name="versioning-a-device-template"></a>Versão de um modelo de dispositivo
 
@@ -81,7 +81,4 @@ Para a versão de uma interface:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu a usar as versões de modelos de dispositivo no aplicativo Azure IoT Central, a próxima etapa sugerida é apresentada:
-
-> [!div class="nextstepaction"]
-> [Como criar regras de telemetria](tutorial-create-telemetry-rules.md)
+Se você é um desenvolvedor de dispositivos, um próximo passo sugerido é ler sobre [dispositivos Azure IoT Edge e Azure IoT Central](./concepts-iot-edge.md).

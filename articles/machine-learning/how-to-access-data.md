@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: ca892b5f360f523ee2b5ff875dfb0707136a5ab5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 4a2102f442fc176762b7d5d69f7b367a94633ef5
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383436"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758798"
 ---
 # <a name="connect-to-azure-storage-services"></a>Conecte-se aos serviços de armazenamento do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -99,7 +99,7 @@ Selecione **Contas de armazenamento** no painel esquerdo e escolha a conta de ar
 * Para atender itens principais do serviço, como, ID do inquilino e ID do cliente, vá para seus **registros do Aplicativo** e selecione qual aplicativo você deseja usar. Sua página **de visão geral** correspondente conterá esses itens.
 
 > [!IMPORTANT]
-> Se sua conta de armazenamento estiver em uma rede virtual, somente a criação de armazenamentos de dados Blob, File share, ADLS Gen 1 e ADLS Gen 2 **através do SDK** é suportada. Para conceder seu acesso ao espaço de trabalho `grant_workspace_access` `True`à sua conta de armazenamento, defina o parâmetro para .
+> Se sua conta de armazenamento estiver em uma rede virtual, somente a criação de datastores **através do SDK** é suportada.
 
 Os exemplos a seguir mostram como registrar um contêiner de blob do Azure, um compartilhamento de arquivos Azure e o Azure Data Lake Storage Generation 2 como um data store. Para outros serviços de armazenamento, consulte a [documentação de referência para os métodos `register_azure_*` aplicáveis.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods)
 
@@ -121,6 +121,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                                                          account_name=account_name,
                                                          account_key=account_key)
 ```
+Se o recipiente blob estiver `skip_validation=True` na [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)rede virtual, defina o uso .
 
 #### <a name="file-share"></a>Compartilhamento de arquivo
 
@@ -140,6 +141,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
                                                      account_name=account_name,
                                                      account_key=account_key)
 ```
+Se o compartilhamento de arquivos `skip_validation=True` estiver [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)em rede virtual, defina o uso . 
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage Generation 2
 
@@ -176,7 +178,7 @@ Crie um novo datastore em alguns passos no estúdio Azure Machine Learning:
 
 1. Entre no [Estúdio do Azure Machine Learning](https://ml.azure.com/).
 1. Selecione **Datastores** no painel esquerdo em **Gerenciar**.
-1. Selecione **+ Novo datastore**.
+1. Selecione **+ Novo armazenamento de dados**.
 1. Preencha o formulário para um novo datastore. O formulário se atualiza de forma inteligente com base em suas seleções para o tipo de armazenamento e tipo de autenticação do Azure.
   
 Você pode encontrar as informações necessárias para preencher o formulário no [portal Azure](https://portal.azure.com). Selecione **Contas de armazenamento** no painel esquerdo e escolha a conta de armazenamento que deseja registrar. A **página Visão geral** fornece informações como o nome da conta, contêiner e nome do compartilhamento de arquivos. 
@@ -271,7 +273,7 @@ O Azure Machine Learning fornece várias maneiras de usar seus modelos para marc
 | Método | Acesso ao datastore | Descrição |
 | ----- | :-----: | ----- |
 | [Previsão em lote](how-to-use-parallel-run-step.md) | ✔ | Fazer previsões sobre grandes quantidades de dados assincronamente. |
-| [Serviço Web](how-to-deploy-and-where.md) | &nbsp; | Implantar modelos como um serviço web. |
+| [Serviço web](how-to-deploy-and-where.md) | &nbsp; | Implantar modelos como um serviço web. |
 | [Módulo Azure IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Implantar modelos para dispositivos IoT Edge. |
 
 Para situações em que o SDK não fornece acesso a datastores, você pode ser capaz de criar código personalizado usando o SDK Azure relevante para acessar os dados. Por exemplo, o [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) é uma biblioteca de clientes que você pode usar para acessar dados armazenados em blobs ou arquivos.
@@ -287,5 +289,5 @@ A Fábrica de Dados Do Azure fornece transferência de dados eficiente e resilie
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Crie um conjunto de dados de aprendizado de máquina do Azure](how-to-create-register-datasets.md)
-* [Treinar um modelo](how-to-train-ml-models.md)
+* [Treine um modelo](how-to-train-ml-models.md)
 * [Implantar um modelo](how-to-deploy-and-where.md)

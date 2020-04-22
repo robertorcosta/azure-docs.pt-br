@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fef1afb9748fd6f2f59b972c451d95ae1204ef70
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 8bda712523faa90f32a12fe7eecce27dccf3a55c
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011626"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756625"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Linha de base de segurança do Azure para lote
 
@@ -712,7 +712,7 @@ Opcionalmente, se você tiver uma assinatura de plataforma de gerenciamento de v
 
 Embora os recursos clássicos do Azure possam ser descobertos através do Resource Graph, é altamente recomendável criar e usar os recursos do Arm (Arm) do Azure de recursos daqui para frente.
 
-Como criar consultas com o Azure Graph:
+Como criar consultas com o Gráfico de Recursos do Azure:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 

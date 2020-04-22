@@ -4,12 +4,12 @@ description: Saiba como configurar um contêiner PHP pré-construído para o seu
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: ad121d605e521704597471b446fa79cb43dfccc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e87466f810dc4ebf767c36ad74c358cbf6069e5
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255844"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758880"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configure um aplicativo Linux PHP para o Azure App Service
 
@@ -86,7 +86,7 @@ A imagem PHP padrão para serviço de aplicativo usa apache, e não permite que 
 <IfModule mod_rewrite.c>
     RewriteEngine on
 
-    RewriteRule ^.*$ /public/$1 [NC,L,QSA]
+    RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
 </IfModule>
 ```
 
@@ -116,7 +116,7 @@ Se você precisar fazer alterações na instalação do PHP, você pode alterar 
 
 Para personalizar PHP_INI_USER, PHP_INI_PERDIR e diretivas PHP_INI_ALL (consulte [diretivas php.ini),](https://www.php.net/manual/ini.list.php)adicione um arquivo *.htaccess* ao diretório raiz do seu aplicativo.
 
-No arquivo *.htaccess,* adicione as `php_value <directive-name> <value>` diretivas usando a sintaxe. Por exemplo: 
+No arquivo *.htaccess,* adicione as `php_value <directive-name> <value>` diretivas usando a sintaxe. Por exemplo:
 
 ```
 php_value upload_max_filesize 1000M
@@ -198,7 +198,7 @@ Para que as alterações entrem em vigor, reinicie o aplicativo.
 Quando um aplicativo PHP em funcionamento se comportar de forma diferente no App Service ou tiver erros, tente o seguinte:
 
 - [Acessar o fluxo de log](#access-diagnostic-logs).
-- Teste o aplicativo localmente no modo de produção. O App Service executa seus aplicativos Node.js no modo de produção, então você precisa ter certeza de que seu projeto funciona como esperado no modo de produção localmente. Por exemplo: 
+- Teste o aplicativo localmente no modo de produção. O App Service executa seus aplicativos Node.js no modo de produção, então você precisa ter certeza de que seu projeto funciona como esperado no modo de produção localmente. Por exemplo:
     - Dependendo do seu *compositor.json,* diferentes pacotes podem`require` ser `require-dev`instalados para o modo de produção (vs. ).
     - Certos frameworks da Web podem implantar arquivos estáticos de forma diferente no modo de produção.
     - Certos frameworks da Web podem usar scripts de inicialização personalizados ao ser executados no modo de produção.
@@ -209,7 +209,7 @@ Quando um aplicativo PHP em funcionamento se comportar de forma diferente no App
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: aplicativo PHP com MySQL](tutorial-php-mysql-app.md)
+> [Tutorial: Aplicativo PHP com o MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
 > [Perguntas frequentes sobre o Serviço de Aplicativo no Linux](app-service-linux-faq.md)

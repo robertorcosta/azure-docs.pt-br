@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: f1387273f9736fea70682177d5d48dc2f141bbad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5aa7abf7aafc14e71af5618cec892ef9f843d88a
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76933855"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733061"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de lançamento do Azure Media Services Video Indexer
 
@@ -29,6 +29,20 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de bug
 * Funcionalidades preteridas
+
+## <a name="april-2020"></a>Abril de 2020
+
+### <a name="new-widget-parameters-capabilities"></a>Novos recursos de parâmetros de widget
+
+O widget **Insights** inclui `language` novos `control`parâmetros: e .
+
+O widget **Player** `locale` tem um novo parâmetro. Ambos `locale` `language` os parâmetros controlam a linguagem do jogador.
+
+Para obter mais informações, consulte a seção [de tipos de widget.](video-indexer-embed-widgets.md#widget-types) 
+
+## <a name="new-player-skin"></a>Nova pele do jogador
+
+Uma nova skin player lançada com design atualizado.
 
 ## <a name="january-2020"></a>Janeiro de 2020
  
@@ -46,7 +60,7 @@ Um novo Índice de Vídeo GitHub com diferentes projetos, recebendo guias de in�
  
 ### <a name="swagger-update"></a>Atualização de Swagger
 
-O Video Indexer unificou **autenticações** e **operações** em uma única [especificação openapi (swagger) do indexador](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson)de vídeo. Os Develpers podem encontrar as APIs no [Portal de Desenvolvedores de Indexadores de Vídeo](https://api-portal.videoindexer.ai/).
+O Video Indexer unificou **autenticações** e **operações** em uma única [especificação openapi (swagger) do indexador](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson)de vídeo. Os desenvolvedores podem encontrar as APIs no [Portal de Desenvolvedores do Indexador de Vídeo](https://api-portal.videoindexer.ai/).
 
 ## <a name="december-2019"></a>Dezembro de 2019
 

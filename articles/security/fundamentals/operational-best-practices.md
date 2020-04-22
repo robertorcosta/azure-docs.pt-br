@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 72d7a2dd112e5e7a5105ff977e3917ccdfd7b53e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5724a9e4308f05a82df84ae6a7d5602747f5a140
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500299"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757366"
 ---
 # <a name="azure-operational-security-best-practices"></a>Práticas recomendadas de Segurança Operacional do Azure
 Este artigo fornece um conjunto de práticas recomendadas operacionais para proteger seus dados, aplicativos e outros ativos no Azure.
@@ -63,7 +63,7 @@ Aqui estão algumas práticas recomendadas para usar grupos de gestão:
 **Detalhe**: Use o grupo de gerenciamento raiz para atribuir elementos de segurança em toda a empresa que se aplicam a todos os ativos do Azure. Políticas e permissões são exemplos de elementos.
 
 **Melhores práticas**: Alinhar os principais níveis dos grupos de gestão com a estratégia de segmentação para fornecer um ponto de controle e consistência de políticas dentro de cada segmento.   
-**Detalhe**: Crie um único grupo de gestão para cada segmento o grupo de gerenciamento raiz. Não crie outros grupos de gerenciamento a raiz.
+**Detalhe**: Crie um único grupo de gestão para cada segmento sob o grupo de gerenciamento raiz. Não crie outros grupos de gerenciamento sob a raiz.
 
 **Melhores práticas**: Limitar a profundidade do grupo de gerenciamento para evitar confusão que dificulte tanto as operações quanto a segurança.   
 **Detalhe:** Limite sua hierarquia a três níveis, incluindo a raiz.
@@ -92,7 +92,7 @@ A [Análise de Armazenamento do Azure](../../storage/common/storage-analytics.md
 ## <a name="prevent-detect-and-respond-to-threats"></a>Evitar, detectar e reagir a ameaças
 [O Azure Security Center](../../security-center/security-center-intro.md) ajuda você a prevenir, detectar e responder a ameaças, fornecendo maior visibilidade (e controle sobre) a segurança de seus recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com um diversas soluções de segurança.
 
-O nível gratuito do Security Center oferece segurança limitada apenas para os recursos do Azure. A camada Standard estende esses recursos para locais e outras nuvens. O Security Center Standard ajuda você a encontrar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e aplicativos para bloquear atividades maliciosas, detectar ameaças usando análises e inteligência e responder rapidamente quando estiver ataque. Você pode experimentar a Central de Segurança Standard sem nenhum custo pelos primeiros 60 dias. Recomendamos que você [atualize sua assinatura do Azure para o Security Center Standard](../../security-center/security-center-get-started.md).
+O nível gratuito do Security Center oferece segurança limitada apenas para os recursos do Azure. A camada Standard estende esses recursos para locais e outras nuvens. O Security Center Standard ajuda você a encontrar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e aplicativos para bloquear atividades maliciosas, detectar ameaças usando análises e inteligência e responder rapidamente quando estiver sob ataque. Você pode experimentar a Central de Segurança Standard sem nenhum custo pelos primeiros 60 dias. Recomendamos que você [atualize sua assinatura do Azure para o Security Center Standard](../../security-center/security-center-get-started.md).
 
 Use o Security Center para obter uma visão central do estado de segurança de todos os seus recursos do Azure. Verifique rapidamente se os controles de segurança apropriados estão em vigor e configurados de maneira correta, além disso, identifique com rapidez os recursos que exigem atenção.
 
@@ -108,7 +108,7 @@ Aqui estão algumas práticas recomendadas para prevenir, detectar e responder a
 **Detalhe**: Investigue os recursos e recursos do [Azure Sentinel](/azure/sentinel/overview) e compare-os com as capacidades do que você está usando no local. Considere adotar o Azure Sentinel se ele atender aos requisitos de SIEM da sua organização.
 
 **Melhores práticas**: Encontre as vulnerabilidades de segurança mais graves para que você possa priorizar a investigação.   
-**Detalhe**: Revise sua [pontuação segura do Azure](../../security-center/security-center-secure-score.md) para ver as recomendações resultantes das políticas e iniciativas do Azure incorporadas ao Azure Security Center. Essas recomendações ajudam a lidar com os principais riscos, como atualizações de segurança, proteção contra ponto final, criptografia, configurações de segurança, WAF ausente, VMs conectados à Internet e muito mais.
+**Detalhe**: Revise sua [pontuação segura do Azure](../../security-center/secure-score-security-controls.md) para ver as recomendações resultantes das políticas e iniciativas do Azure incorporadas ao Azure Security Center. Essas recomendações ajudam a lidar com os principais riscos, como atualizações de segurança, proteção contra ponto final, criptografia, configurações de segurança, WAF ausente, VMs conectados à Internet e muito mais.
 
 A pontuação segura, que é baseada nos controles do Center for Internet Security (CIS), permite que você faça benchmarkda segurança do Azure da sua organização em relação a fontes externas. A validação externa ajuda a validar e enriquecer a estratégia de segurança da sua equipe.
 
@@ -116,7 +116,7 @@ A pontuação segura, que é baseada nos controles do Center for Internet Securi
 **Detalhe**: Siga as [recomendações de segurança](../../security-center/security-center-recommendations.md) no Security Center a partir, com os itens de maior prioridade.
 
 **Melhores práticas**: Integre alertas do Security Center em sua solução de gerenciamento de informações de segurança e eventos (SIEM).   
-**Detalhe**: A maioria das organizações com um SIEM usa-o como uma central de compensação para alertas de segurança que requerem uma resposta de analistas. Os eventos processados produzidos pelo Security Center são publicados no Azure Activity Log, um dos logs disponíveis através do Azure Monitor. O Azure Monitor oferece um pipeline consolidado para qualquer um dos seus dados de monitoramentos de roteamento para uma ferramenta do SIEM. Consulte [Integrar soluções de segurança no Security Center](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) para obter instruções. Se você estiver usando o Azure Sentinel, consulte [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Detalhe**: A maioria das organizações com um SIEM usa-o como uma central de compensação para alertas de segurança que requerem uma resposta de analistas. Os eventos processados produzidos pelo Security Center são publicados no Azure Activity Log, um dos logs disponíveis através do Azure Monitor. O Azure Monitor oferece um pipeline consolidado para qualquer um dos seus dados de monitoramentos de roteamento para uma ferramenta do SIEM. Consulte [alertas de segurança de exportação e recomendações](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) para obter instruções.. Se você estiver usando o Azure Sentinel, consulte [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Melhores práticas**: Integre os logs do Azure com o seu SIEM.   
 **Detalhe**: Use [o Monitor Azure para coletar e exportar dados](/azure/azure-monitor/overview#integrate-and-export-data). Essa prática é fundamental para permitir a investigação de incidentes de segurança e a retenção de registros on-line é limitada. Se você estiver usando o Azure Sentinel, consulte [Conectar fontes de dados](../../sentinel/connect-data-sources.md).

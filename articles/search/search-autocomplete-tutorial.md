@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 1d8085c6056cb0d2541999c3e9c249cde3da8834
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 60e9a435d705ee0fee6509e92cdcb056ac7ab609
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641263"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758113"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar preenchimento automático e sugestões aos aplicativos clientes
 
@@ -22,7 +22,7 @@ Pesquisar como você é uma técnica comum para melhorar a produtividade de cons
 Para implementar essas experiências na Pesquisa Cognitiva do Azure, você precisará:
 
 + Um *sugestionista* na parte de trás.
-+ Uma *consulta* especificando API de preenchimento automático ou sugestões na solicitação.
++ Uma *consulta* especificando [API de preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) ou [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) na solicitação.
 + Um *controle de iu para* lidar com interações de pesquisa como você tipo em seu aplicativo cliente. Recomendamos o uso de uma biblioteca JavaScript existente para este fim.
 
 Na Pesquisa Cognitiva do Azure, as consultas autoconcluídas e os resultados sugeridos são recuperados do índice de pesquisa, a partir de campos selecionados que você registrou com um sugestionista. Um sugestionador faz parte do índice, e especifica quais campos fornecerão conteúdo que ou completa uma consulta, sugere um resultado ou faz ambos. Quando o índice é criado e carregado, uma estrutura de dados sugestionadora é criada internamente para armazenar prefixos usados para correspondência em consultas parciais. Para sugestões, escolher campos adequados que sejam únicos, ou pelo menos não repetitivos, é essencial para a experiência. Para obter mais informações, consulte [Criar um sugestionista](index-add-suggesters.md).
@@ -31,7 +31,7 @@ O restante deste artigo é focado em consultas e código do cliente. Ele usa Jav
 
 ## <a name="set-up-a-request"></a>Configure um pedido
 
-Os elementos de uma solicitação incluem a API ([Autocomplete REST](https://docs.microsoft.com/rest/api/searchservice/autocomplete) ou [Suggestion REST](https://docs.microsoft.com/rest/api/searchservice/suggestions)), uma consulta parcial e um sugestor.
+Os elementos de uma solicitação incluem uma das APIs do tipo pesquisa-como-você, uma consulta parcial e um sugestionador. O script a seguir ilustra componentes de uma solicitação, usando a API Rest autocompletar como exemplo.
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
@@ -49,7 +49,7 @@ As APIs não impõem requisitos mínimos de comprimento na consulta parcial; pod
 
 As partidas estão no início de um termo em qualquer lugar da seqüência de entrada. Dada a "raposa marrom rápida", tanto a autocompletar como as sugestões corresponderão em versões parciais de "o", "rápido", "marrom" ou "raposa", mas não em termos parciais de infixo como "rown" ou "boi". Além disso, cada partida define o escopo para expansões a jusante. Uma consulta parcial de "br rápido" combinará em "marrom rápido" ou "pão rápido", mas nem "marrom" ou "pão" por si só seria compatível a menos que "rápido" os precedesse.
 
-### <a name="apis"></a>APIs
+### <a name="apis-for-search-as-you-type"></a>APIs para pesquisar como você tipo
 
 Siga estes links para as páginas de referência REST e .NET SDK:
 
@@ -64,12 +64,13 @@ Respostas para preenchimento automático e sugestões são o que você pode espe
 
 As respostas são moldadas pelos parâmetros da solicitação. Para preenchimento automático, defina [**autocompleteMode**](https://docs.microsoft.com/rest/api/searchservice/autocomplete#autocomplete-modes) para determinar se a conclusão do texto ocorre em um ou dois termos. Em Sugestões, o campo escolhido determina o conteúdo da resposta.
 
-Para refinar ainda mais a resposta, inclua mais parâmetros na solicitação. Os seguintes parâmetros se aplicam tanto ao Autocomplete quanto às Sugestões.
+Para sugestões, você deve refinar ainda mais a resposta para evitar duplicatas ou o que parece ser resultados não relacionados. Para controlar os resultados, inclua mais parâmetros na solicitação. Os seguintes parâmetros se aplicam tanto ao preenchimento automático quanto às sugestões, mas talvez sejam mais necessários para sugestões, especialmente quando um sugestionista inclui vários campos.
 
 | Parâmetro | Uso |
 |-----------|-------|
-| **$select** | Se você tiver vários **campos de origem,** use`$select=GameTitle` **$select** para escolher qual campo contribui com valores ( ). |
-| **$filter** | Aplicar critérios de correspondência`$filter=ActionAdventure`no conjunto de resultados ( ). |
+| **$select** | Se você tiver vários **campos de origem** em um sugestor, use **$select** para escolher qual campo contribui com valores (`$select=GameTitle`). |
+| **searchFields** | Restringir a consulta a campos específicos. |
+| **$filter** | Aplicar critérios de correspondência`$filter=Category eq 'ActionAdventure'`no conjunto de resultados ( ). |
 | **$top** | Limitar os resultados a`$top=5`um número específico ( ).|
 
 ## <a name="add-user-interaction-code"></a>Adicionar código de interação do usuário
@@ -149,6 +150,8 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
     // Call suggest API and return results
     SuggestParameters sp = new SuggestParameters()
     {
+        Select = HotelName,
+        SearchFields = HotelName,
         UseFuzzyMatching = fuzzy,
         Top = 5
     };

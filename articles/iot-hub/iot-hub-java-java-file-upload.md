@@ -9,12 +9,15 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: fcc2013f67c6e91182979a9bcab683894088a1d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: f0753827fe5f7f2b866726683d4cb1f205da4599
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284519"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732475"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Carregar arquivos do seu dispositivo para a nuvem com o IoT Hub (Java)
 
@@ -26,7 +29,7 @@ Este tutorial baseia-se no código nas mensagens de enviar nuvem para dispositiv
 
 * Usar as notificações de carregamento de arquivo do Hub IoT para disparar o processamento do arquivo no back-end do aplicativo.
 
-A [telemetria Enviar de um dispositivo para um hub de IoT](quickstart-send-telemetry-java.md) e [enviar mensagens nuvem-para-dispositivo com tutorial ioT Hub](iot-hub-java-java-c2d.md) mostram a funcionalidade básica de mensagens dispositivo-para-nuvem e nuvem-para-dispositivo do IoT Hub. O [configurar o roteamento de mensagens com o IoT Hub](tutorial-routing.md) tutorial descreve uma maneira de armazenar mensagens do dispositivo para nuvem de forma confiável no armazenamento de BLOBs do Azure. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo: 
+A [telemetria Enviar de um dispositivo para um hub de IoT](quickstart-send-telemetry-java.md) e [enviar mensagens nuvem-para-dispositivo com tutorial ioT Hub](iot-hub-java-java-c2d.md) mostram a funcionalidade básica de mensagens dispositivo-para-nuvem e nuvem-para-dispositivo do IoT Hub. O [configurar o roteamento de mensagens com o IoT Hub](tutorial-routing.md) tutorial descreve uma maneira de armazenar mensagens do dispositivo para nuvem de forma confiável no armazenamento de BLOBs do Azure. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo:
 
 * Arquivos grandes que contêm imagens
 * vídeos

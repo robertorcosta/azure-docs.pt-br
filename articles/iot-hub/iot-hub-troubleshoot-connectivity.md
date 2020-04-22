@@ -8,12 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: bed6736fda0c1815964f9017adb1e6fffa9335d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 82139eef9708ff8d76e1087c71aa5445ba898385
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110679"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759614"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitorar, diagnosticar e solucionar problemas se desconecta com o Azure IoT Hub
 
@@ -27,7 +28,7 @@ Use o Monitor Azure para obter alertas e gravar registros quando os dispositivos
 
 Para registrar erros e eventos de conexão do dispositivo, ative o diagnóstico do Hub IoT. Recomendamos ligar esses registros o mais cedo possível, porque se os registros de diagnóstico não forem habilitados, quando ocorrerem desconexões do dispositivo, você não terá nenhuma informação para solucionar o problema.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Navegue até seu hub IoT.
 
@@ -47,7 +48,7 @@ Para obter mais informações, consulte [monitorar a integridade do IoT Hub do A
 
 Para obter alertas quando os dispositivos se desconectarem, configure alertas na métrica **de dispositivos conectados (preview).**
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Navegue até seu hub IoT.
 
@@ -69,7 +70,7 @@ Para detectar desconexões *por dispositivo,* como quando você precisa saber qu
 
 Quando você ativa logs de diagnóstico e alertas para dispositivos conectados, você recebe alertas quando ocorrem erros. Esta seção descreve como procurar problemas comuns quando você recebe um alerta. As etapas abaixo supõem que você configurou registros do Monitor Do Azure para seus registros de diagnóstico.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. Navegue até seu hub IoT.
 

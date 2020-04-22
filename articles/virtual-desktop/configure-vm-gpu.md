@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 941a1ff23668a3202028e8b693b57d902095b3b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b675a78041b68210fa7583510582783c506c720
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78384815"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767033"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configure a aceleração da unidade de processamento gráfico (GPU) para o Windows Virtual Desktop
 
@@ -88,7 +88,7 @@ Para verificar se a área de trabalho remota está usando codificação acelerad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Estas instruções devem tê-lo em funcionamento com aceleração de GPU em uma única sessão de VM host. Algumas considerações adicionais para habilitar a aceleração da GPU em um pool de host maior:
+Estas instruções devem tê-lo em funcionamento com aceleração de GPU em um host de sessão (uma VM). Algumas considerações adicionais para habilitar a aceleração da GPU em um pool de host maior:
 
 * Considere usar uma [extensão VM](/azure/virtual-machines/extensions/overview) para simplificar a instalação do driver e atualizações em uma série de VMs. Use a extensão do [driver de GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para VMs com GPUs NVIDIA, e use o AMD GPU Driver Extension (em breve) para VMs com GPUs AMD.
 * Considere usar a Active Directory Group Policy para simplificar a configuração da diretiva de grupo em uma série de VMs. Para obter informações sobre a implantação da Política de Grupo no domínio Active Directory, consulte [Trabalhando com objetos de diretiva de grupo](https://go.microsoft.com/fwlink/p/?LinkId=620889).

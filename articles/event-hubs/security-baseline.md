@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 10fc822f9f36512405dd4e3b5aba6270b53e163f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 1c7e18214ec175b8b21d25643098631a044da19c
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549038"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758324"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Linha de base de segurança do Azure para hubs de eventos
 
@@ -335,7 +335,7 @@ Como usar a política do Azure:https://docs.microsoft.com/azure/governance/polic
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Use o single sign-on (SSO) com o Azure Active Directory
 
-**Orientação**: O Microsoft Azure fornece gerenciamento integrado de controle de acesso para recursos e aplicativos com base no Azure Active Directory (AD). Uma vantagem fundamental de usar o Azure AD com o Azure Event Hubs é que você não precisa mais armazenar suas credenciais no código. Em vez disso, você pode solicitar um token de acesso OAuth 2.0 da plataforma Microsoft Identity. O nome do recurso para https://eventhubs.azure.net/solicitar um token é . O Azure AD autentica o principal de segurança (um usuário, grupo ou diretor de serviço) executando o aplicativo. Se a autenticação for bem-sucedida, o Azure AD retorna um token de acesso ao aplicativo e, em seguida, o aplicativo poderá usar o token de acesso para autorizar a solicitação aos recursos do Azure Event Hubs.
+**Orientação**: O Microsoft Azure fornece gerenciamento integrado de controle de acesso para recursos e aplicativos com base no Azure Active Directory (AD). Uma vantagem fundamental de usar o Azure AD com o Azure Event Hubs é que você não precisa mais armazenar suas credenciais no código. Em vez disso, você pode solicitar um token de acesso OAuth 2.0 da plataforma Microsoft Identity. O nome do recurso para solicitar\/um token é https: /eventhubs.azure.net/. O Azure AD autentica o principal de segurança (um usuário, grupo ou diretor de serviço) executando o aplicativo. Se a autenticação for bem-sucedida, o Azure AD retorna um token de acesso ao aplicativo e, em seguida, o aplicativo poderá usar o token de acesso para autorizar a solicitação aos recursos do Azure Event Hubs.
 
 Como autenticar um aplicativo com o Azure AD para acessar os recursos do Event Hubs:https://docs.microsoft.com/azure/event-hubs/authenticate-application
 
@@ -631,7 +631,7 @@ Como criar alertas para eventos do Azure Activity Log:https://docs.microsoft.com
 
 **Orientação**: Use o Gráfico de Recursos do Azure para consultar e descobrir todos os recursos (incluindo os namespaces do Azure Event Hubs) em sua assinatura(s). Certifique-se de ter permissões apropriadas (leia) em seu inquilino e seja capaz de enumerar todas as assinaturas do Azure, bem como recursos dentro de suas assinaturas.
 
-Como criar consultas com o Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Como criar consultas com o Gráfico de Recursos do Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Como ver suas assinaturas do Azure:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 

@@ -3,12 +3,12 @@ title: Como criar políticas de configuração de hóspedes para Windows
 description: Saiba como criar uma política de configuração de hóspedes de política do Azure para Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: deb51cf502d26dc994bf74ef3cb0c728f624afde
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 7b06aa0a70bfa17d67da9c6af447138f8bb9e712
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313977"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757424"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de configuração de hóspedes para Windows
 
@@ -25,6 +25,11 @@ Use as seguintes ações para criar sua própria configuração para validar o e
 
 > [!IMPORTANT]
 > Políticas personalizadas com configuração de hóspedes é um recurso de visualização.
+>
+> A extensão Configuração do Convidado é necessária para realizar auditorias em máquinas virtuais do Azure.
+> Para implantar a extensão em escala, atribua as seguintes definições de diretiva:
+>   - Implantar os pré-requisitos para habilitar a Política de Configuração de Convidado nas VMs do Windows.
+>   - Implantar os pré-requisitos para habilitar a Política de Configuração de Convidado nas VMs do Linux.
 
 ## <a name="install-the-powershell-module"></a>Instalar o módulo do PowerShell
 
@@ -176,8 +181,10 @@ Configuration AuditBitLocker
 }
 
 # Compile the configuration to create the MOF files
-AuditBitLocker -out ./Config
+AuditBitLocker ./Config
 ```
+
+Salvar este arquivo `config.ps1` com nome na pasta do projeto. Execute-o no PowerShell `./config.ps1` executando-o no terminal. Um novo arquivo mof será criado.
 
 O `Node AuditBitlocker` comando não é tecnicamente necessário, mas `AuditBitlocker.mof` produz um `localhost.mof`arquivo nomeado em vez do padrão, . Ter o nome do arquivo .mof seguir a configuração facilita a organização de muitos arquivos ao operar em escala.
 

@@ -2,18 +2,18 @@
 title: incluir arquivo
 description: incluir arquivo
 services: batch
-author: laurenhughes
+author: LauraBrenner
 ms.service: batch
 ms.topic: include
 ms.date: 05/28/2019
-ms.author: lahugh
+ms.author: labrenne
 ms.custom: include file
-ms.openlocfilehash: 22bfc3c86605f4c2eed4c022919b3643f394ea95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0d74aa38dffdd41fbe617066391ef271a507349
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67080914"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81736275"
 ---
 | **Recurso** | **Limite padrão** | **Limite máximo** |
 | --- | --- | --- |
@@ -23,7 +23,10 @@ ms.locfileid: "67080914"
 | **[Empregos ativos](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)** e horários de trabalho por conta de lote (trabalhos**concluídos** não têm limite) | 100-300 | 1.000<sup>1</sup> |
 | Núcleos por conta do Lote | 20-100 | 500<sup>1</sup> |
 
+<sup>1</sup> Para solicitar um aumento além desse limite, entre em contato com o Suporte azure.
+
 > [!NOTE]
 > Os limites padrão variam dependendo do tipo de assinatura que você usa para criar uma conta do Lote. As cotas de núcleos mostradas são para as contas do Lote no modo do Serviço de lote. [Exibir as cotas na conta do Lote](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
-<sup>1</sup> Para solicitar um aumento além desse limite, entre em contato com o Suporte azure.
+> [!IMPORTANT]
+> Para nos ajudar a gerenciar melhor a capacidade durante a pandemia global de saúde, as cotas principais padrão para novas contas batch em algumas regiões e para alguns tipos de assinatura foram reduzidas da faixa acima de valores, em alguns casos para zero núcleos. Ao criar uma nova conta de lote, [verifique sua cota principal](../articles/batch/batch-quota-limit.md#view-batch-quotas) e [solicite um aumento de cota principal,](../articles/batch/batch-quota-limit.md#increase-a-quota)se necessário. 

@@ -3,12 +3,12 @@ title: Modelo para criar alertas de saúde de recursos
 description: Crie alertas por meio de programação que notificam você quando seus recursos do Azure se tornam não disponíveis.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: c01934cc88dc29d0503abfafc203ab0f04bf1761
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60ff5bdf2f4f0dab94c18fd7c751869c1893ad65
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062904"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759009"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurar alertas de integridade de recursos do Azure usando modelos do Resource Manager
 
@@ -228,6 +228,9 @@ Você pode deseja ser notificado apenas quando um recurso se tornar não íntegr
 ```
 
 Se quiser ser notificado para todos os quatro estágios de eventos de integridade, você poderá remover essa condição conjuntamente e o alerta notificará você independentemente da propriedade `status`.
+
+> [!NOTE]
+> Cada seção "anyOf" deve conter apenas um valor de tipo de campo.
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Ajustar os alertas do Resource Health para evitar eventos "desconhecidos"
 

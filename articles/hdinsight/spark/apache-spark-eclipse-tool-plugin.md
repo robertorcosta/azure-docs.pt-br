@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
-ms.openlocfilehash: 07ed22879180d8126711eba9af0a2cac5b7b2953
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5ae9190213f753f8b9440ced52e4d04626af13f9
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272104"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732990"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Use o Azure Toolkit for Eclipse para criar aplicativos do Apache Spark para um cluster do HDInsight
 
@@ -35,7 +35,7 @@ Use o HDInsight Tools no Azure Toolkit para [Eclipse](https://www.eclipse.org/) 
 
 ### <a name="install-azure-toolkit-for-eclipse"></a>Instalar Kit de Ferramentas do Azure para Eclipse
 
-Para obter instruções de instalação, consulte [Instalando o Kit de Ferramentas do Azure para Eclipse](https://docs.microsoft.com/azure/java/eclipse/azure-toolkit-for-eclipse-installation).
+Para obter instruções de instalação, consulte [Instalando o Kit de Ferramentas do Azure para Eclipse](https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation).
 
 ### <a name="install-the-scala-plug-in"></a>Instalar o plug-in Scala
 
@@ -73,7 +73,7 @@ Quando você abre o Eclipse, as ferramentas do HDInsight detectam automaticament
 
    ![Caixa de diálogo Selecionar Assinaturas](./media/apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
 
-1. Do **Azure Explorer**, navegue até **o Azure** >  **HDInsight** para ver os clusters do HDInsight Spark sua assinatura.
+1. Do **Azure Explorer**, navegue até **o Azure** >  **HDInsight** para ver os clusters do HDInsight Spark sob sua assinatura.
 
    ![Clusters HDInsight Spark no Azure Explorer3](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer3.png)
 
@@ -111,7 +111,7 @@ Você pode vincular um cluster normal usando o nome de usuário gerenciado do Am
 
 1. A partir do espaço de trabalho Eclipse IDE, selecione **File** > **New** > **Project...**.
 
-1. No **assistente do Novo Projeto,** selecione **HDInsight Project** > **Spark no HDInsight (Scala)**. Em seguida, selecione **Next**.
+1. No **assistente do Novo Projeto,** selecione **HDInsight Project** > **Spark no HDInsight (Scala)**. Em seguida, selecione **Avançar**.
 
    ![Selecionando o projeto Spark no HDInsight (Scala)](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 
@@ -128,7 +128,7 @@ Você pode vincular um cluster normal usando o nome de usuário gerenciado do Am
 
 1. A partir **do Package Explorer,** expanda o projeto que você criou anteriormente. Clique com o botão direito do mouse **src,** selecione **New** > **Other...**.
 
-1. Na caixa de diálogo **Selecionar um assistente,** selecione **Scala Wizards** > **Scala Object**. Em seguida, selecione **Next**.
+1. Na caixa de diálogo **Selecionar um assistente,** selecione **Scala Wizards** > **Scala Object**. Em seguida, selecione **Avançar**.
 
    ![Selecione um assistente Criar um objeto Scala](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
 
@@ -240,7 +240,7 @@ Você pode usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para 
 
 ### <a name="prerequisite"></a>Pré-requisito
 
-Durante a execução do aplicativo Spark Scala local em um computador Windows, você pode receber uma exceção, conforme explicado em [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). Essa exceção ocorre porque **WinUtils.exe** está ausente no Windows.
+Enquanto você estiver executando o aplicativo spark scala local em um computador Windows, você pode obter uma exceção como explicado no [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). Essa exceção ocorre porque **WinUtils.exe** está ausente no Windows.
 
 Para resolver esse erro, você precisa do [Winutils.exe](https://github.com/steveloughran/winutils) para um local como **C:\WinUtils\bin**e, em seguida, adicionar a variável de ambiente **HADOOP_HOME** e definir o valor da variável para **C\WinUtils**.
 
@@ -248,7 +248,7 @@ Para resolver esse erro, você precisa do [Winutils.exe](https://github.com/stev
 
 1. Inicie o Eclipse e crie um projeto. Na caixa de diálogo **Novo Projeto**, faça as opções a seguir e selecione **Avançar**.
 
-1. No **assistente do Novo Projeto,** selecione **HDInsight Project** > **Spark no HDInsight Local Run Sample (Scala)**. Em seguida, selecione **Next**.
+1. No **assistente do Novo Projeto,** selecione **HDInsight Project** > **Spark no HDInsight Local Run Sample (Scala)**. Em seguida, selecione **Avançar**.
 
    ![Novo projeto seleciona um diálogo de assistente](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
 

@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 0a393ae8629f1742002344ee717a6719269a6722
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcf1dd2f89cf049d7da5b56170b2c13874c83ba4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158521"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756798"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo MXChip IoT DevKit ao aplicativo Azure IoT Central
+
+*Este artigo se aplica aos desenvolvedores de dispositivos.*
 
 Este artigo mostra como conectar um dispositivo MXChip IoT DevKit (DevKit) a um aplicativo Azure IoT Central. O dispositivo usa o modelo certificado IoT Plug and Play (preview) para o dispositivo DevKit para configurar sua conexão com a IoT Central.
 
@@ -44,7 +46,7 @@ Para concluir as etapas neste artigo, você precisa dos seguintes recursos:
 
     ![Novo dispositivo](media/howto-connect-devkit/new-device.png)
 
-1. Na janela pop-up, digite o `SampleDevKit` **ID** do dispositivo como e **o nome do dispositivo** como `MXChip IoT DevKit - Sample`. Certifique-se **de que a opção Simulada** está desligada. Em seguida, **selecione Criar**.
+1. Na janela pop-up, digite o `SampleDevKit` **ID** do dispositivo como e **o nome do dispositivo** como `MXChip IoT DevKit - Sample`. Certifique-se **de que a opção Simulada** está desligada. Em seguida, selecione **Criar**.
 
     ![ID do dispositivo e nome](media/howto-connect-devkit/device-id-name.png)
 
@@ -104,4 +106,7 @@ Para revisar o código ou modificá-lo e compilá-lo, vá para o [Code Samples](
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu a conectar um dispositivo DevKit ao seu aplicativo Azure IoT Central, o próximo passo sugerido é aprender como [configurar um modelo de dispositivo personalizado](./howto-set-up-template.md) para o seu próprio dispositivo IoT.
+Se você é um desenvolvedor de dispositivos, alguns passos sugeridos são:
+
+- Leia sobre [a conectividade do dispositivo na Central de IoT do Azure](./concepts-get-connected.md)
+- Saiba como monitorar a [conectividade do dispositivo usando o Azure CLI](./howto-monitor-devices-azure-cli.md)

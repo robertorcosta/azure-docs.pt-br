@@ -8,12 +8,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
-ms.openlocfilehash: a1fd99ee595c4ae91ccd06aa41fa421ca8fcc074
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: a67d90a0888c39938f07c294f8e161ce98fd945a
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284545"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732511"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir aos eventos do Hub IoT usando a Grade de Eventos para disparar ações
 
@@ -178,7 +181,7 @@ Event Grid também permite filtrar atributos de cada evento, incluindo o conteú
 
 Para eventos de não-telemetria como DeviceConnected, DeviceDisconnected, DeviceCreated e DeviceDeleted, a filtragem Event Grid pode ser usada ao criar a assinatura. Para eventos de telemetria, além da filtragem em Event Grid, os usuários também podem filtrar em gêmeos do dispositivo, propriedades de mensagem e corpo através da consulta de roteamento de mensagens. 
 
-Quando você se inscreve em eventos de telemetria via Event Grid, o IoT Hub cria uma rota de mensagem padrão para enviar mensagens de dispositivo do tipo fonte de dados para event grid. Para obter mais informações sobre o roteamento de mensagens, consulte [roteamento de mensagens do IoT Hub](iot-hub-devguide-messages-d2c.md). Esta rota será visível no portal IoT Hub > Message Routing. Apenas uma rota para event grid é criada independentemente do número de assinaturas de EG criadas para eventos de telemetria. Então, se você precisar de várias assinaturas com filtros diferentes, você pode usar o operador OR nessas consultas na mesma rota. A criação e exclusão da rota é controlada por meio de assinatura de eventos de telemetria via Event Grid. Não é possível criar ou excluir uma rota para a Grade de Eventos usando o roteamento de mensagens do Hub IoT.
+Quando você se inscreve em eventos de telemetria via Event Grid, o IoT Hub cria uma rota de mensagem padrão para enviar mensagens de dispositivo do tipo fonte de dados para event grid. Para obter mais informações sobre o roteamento de mensagens, consulte [roteamento de mensagens do IoT Hub](iot-hub-devguide-messages-d2c.md). Esta rota será visível no portal sob IoT Hub > Message Routing. Apenas uma rota para event grid é criada independentemente do número de assinaturas de EG criadas para eventos de telemetria. Então, se você precisar de várias assinaturas com filtros diferentes, você pode usar o operador OR nessas consultas na mesma rota. A criação e exclusão da rota é controlada por meio de assinatura de eventos de telemetria via Event Grid. Não é possível criar ou excluir uma rota para a Grade de Eventos usando o roteamento de mensagens do Hub IoT.
 
 Para filtrar mensagens antes que os dados de telemetria sejam enviados, você pode atualizar sua [consulta de roteamento](iot-hub-devguide-routing-query-syntax.md). Observe que a consulta de roteamento só pode ser aplicada ao corpo da mensagem se o corpo for JSON. Você também deve definir o conteúdoType para **aplicativo/json** e contentEncoding para **UTF-8** nas propriedades do [sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)de mensagens .
 

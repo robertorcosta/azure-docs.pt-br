@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: 67660e3e98f5a12236798d74cc61f71616e6751d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a012c3ce8f7c9e105a42d8383a502f3608c84070
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934759"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732917"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Debug Apache Spark aplicativos em um cluster HDInsight com Azure Toolkit para IntelliJ através do SSH
 
@@ -25,11 +25,11 @@ Este artigo fornece orientações passo a passo sobre como usar o HDInsight Tool
 
 * Para usuários do Windows: Enquanto você estiver executando o aplicativo Spark Scala local em um computador Windows, você pode obter uma exceção, como explicado no [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). A exceção ocorre porque WinUtils.exe está ausente no Windows.
 
-    Para resolver esse erro, baixe [Winutils.exe](https://github.com/steveloughran/winutils) para um local como **C:\WinUtils\bin**. Em seguida, adicione a variável de ambiente **HADOOP_HOME**e defina o valor da variável como **C:\WinUtils**.
+    Para resolver esse erro, baixe [Winutils.exe](https://github.com/steveloughran/winutils) para um local como **C:\WinUtils\bin**. Em seguida, adicione uma variável de ambiente **HADOOP_HOME** e defina o valor da variável para **C\WinUtils**.
 
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows) (A edição comunitária é gratuita.).
 
-* [Kit de Ferramentas do Azure para IntelliJ](https://docs.microsoft.com/azure/java/intellij/azure-toolkit-for-intellij-installation).
+* [Kit de Ferramentas do Azure para IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/installation).
 
 * [Plugin Scala para IntelliJ.](../spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea)
 
@@ -45,8 +45,8 @@ Este artigo fornece orientações passo a passo sobre como usar o HDInsight Tool
 
 1. Na lista suspensa **Ferramenta de build**, selecione uma das seguintes opções:
 
-    * **Maven** para suporte de assistente de criação de projeto Scala.
-    * **SBT** para gestão das dependências e construção para o projeto Scala.
+    * **Maven** para obter suporte ao assistente de criação de projetos Scala.
+    * **SBT** para gerenciar as dependências e para criar no projeto Scala.
 
      ![Intellij cria novo projeto faísca](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
@@ -73,11 +73,11 @@ Este artigo fornece orientações passo a passo sobre como usar o HDInsight Tool
 
 1. Uma vez concluída a execução local, você pode ver o arquivo de saída salvar o**__padrão de__** dados do explorador de **projeto** > atual .
 
-    ![Resultado local de execução do Projeto Intellij](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
+    ![Resultado da execução local do projeto do IntelliJ](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
 
 1. Nossas ferramentas definiram a configuração de execução local automaticamente quando você executar a execução local e depuração local. Abra a configuração **[Spark no HDInsight] XXX** no canto superior direito, você pode ver o **[Spark no HDInsight]XXX** já criado em **Apache Spark no HDInsight**. Mude para a guia **Executar localmente**.
 
-    ![Intellij Run debug configurações de execução local](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
+    ![Execução do IntelliJ configurações de depuração execução local](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
 
     - [Variáveis de ambiente](#prerequisites): se você já definiu a variável de ambiente do sistema **HADOOP_HOME** como **C:\WinUtils**, ela pode detectar automaticamente que não é necessário adicionar manualmente.
     - [Local de WinUtils.exe](#prerequisites): se você não tiver definido a variável de ambiente do sistema, poderá encontrar o local clicando em seu botão.

@@ -8,14 +8,19 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8178e585ecb7b1cdfd5e530f3d3406b7397f0968
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: f37b070c74abd8511fc597f9b159312d91281083
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476042"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759120"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conecte-se ao Azure IoT Central
+
+*Este artigo se aplica a operadores e desenvolvedores de dispositivos.*
 
 Este artigo descreve as opções para conectar seus dispositivos a um aplicativo Central Azure IoT.
 
@@ -265,7 +270,8 @@ Todos os dados trocados entre dispositivos e o Azure IoT Central são criptograf
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu sobre conectividade de dispositivos no Azure IoT Central, aqui estão os próximos passos sugeridos:
+Se você é um desenvolvedor de dispositivos, alguns passos sugeridos são:
 
-- [Preparar e conectar um dispositivo DevKit](howto-connect-devkit.md)
-- [C SDK: Provisionamento do dispositivo cliente SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
+- Saiba como monitorar a [conectividade do dispositivo usando o Azure CLI](./howto-monitor-devices-azure-cli.md)
+- Saiba como [definir um novo tipo de dispositivo IoT no seu aplicativo Azure IoT Central](./howto-set-up-template.md)
+- Leia sobre [dispositivos Azure IoT Edge e Azure IoT Central](./concepts-iot-edge.md)

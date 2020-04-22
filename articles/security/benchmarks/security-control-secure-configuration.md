@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 981e13e772ee21e0e4a680e6d07b4ad4892a7cee
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bfa16f59155e420209ab6370056a7c612b5327e4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417061"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759048"
 ---
 # <a name="security-control-secure-configuration"></a>Controle de segurança: configuração segura
 
@@ -30,7 +30,7 @@ Além disso, o Azure Resource Manager tem a capacidade de exportar o modelo em J
 
 Você também pode usar recomendações do Azure Security Center como uma linha de base de configuração segura para seus recursos do Azure.
 
-- [Como ver aliases de política do Azure disponíveis](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como visualizar aliases disponíveis da Política Do Azure](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Tutorial: Crie e gerencie políticas para impor a conformidade](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 

@@ -1,24 +1,21 @@
 ---
-title: Criar imagens compartilhadas do Azure VM para Linux usando o portal
-description: Aprenda a usar o portal Azure para criar e compartilhar imagens de máquinas virtuais.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
+title: Crie imagens compartilhadas do Azure Linux VM usando o portal
+description: Aprenda a usar o portal Azure para criar e compartilhar imagens de máquinas virtuais linux.
 author: cynthn
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
-ms.custom: ''
-ms.openlocfilehash: 44df85a94ad26d3abcd48f01c31e7aa093c1123f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: akjosh
+ms.openlocfilehash: 74c87d589f1c50551ac5685fe0fa126a82bffbde
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74978689"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758440"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Crie uma Galeria de Imagens Compartilhadas do Azure usando o portal
 
@@ -42,7 +39,7 @@ O recurso Galeria de Imagens Compartilhadas tem vários tipos de recursos. Usare
 
 > [!IMPORTANT]
 > Imagens especializadas estão atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 > **Limitações de visualização conhecidas** VMs só podem ser criados a partir de imagens especializadas usando o portal ou API. Não há suporte a CLI ou PowerShell para a visualização.
 
@@ -74,7 +71,7 @@ Agora você pode criar uma ou mais novas VMs. Este exemplo cria uma VM chamada *
 1. Depois que a VM passar a validação, selecione **Criar** na parte inferior da página para iniciar a implantação.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos da máquina virtual, selecione **Excluir**, em seguida, confirme o nome do grupo de recursos para excluir.
 

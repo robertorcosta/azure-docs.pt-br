@@ -9,12 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: 426430c075cfcb084cfe3238ebd83a19e909369b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 620e0213733d278a28ec1bcad4b031f5764ccda9
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77110759"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733125"
 ---
 # <a name="get-started-with-device-twins-net"></a>Comece com gêmeos de dispositivo (.NET)
 
@@ -72,7 +73,7 @@ Nesta seção, você cria um aplicativo de console .NET, usando C#, que adiciona
 
    Esta etapa baixa, instala e adiciona uma referência ao pacote NuGet do [SDK do serviço IoT do Azure](https://www.nuget.org/packages/Microsoft.Azure.Devices/) e suas dependências.
 
-1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
+1. Adicione as `using` seguintes instruções na parte superior do arquivo **Program.cs:**
 
     ```csharp  
     using Microsoft.Azure.Devices;
@@ -150,7 +151,7 @@ Nesta seção, você cria um aplicativo de console do .NET que se conecta ao seu
 
    Esta etapa baixa, instala e adiciona uma referência ao pacote SDK NuGet [do dispositivo Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) e suas dependências.
 
-1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
+1. Adicione as `using` seguintes instruções na parte superior do arquivo **Program.cs:**
 
     ```csharp  
     using Microsoft.Azure.Devices.Client;

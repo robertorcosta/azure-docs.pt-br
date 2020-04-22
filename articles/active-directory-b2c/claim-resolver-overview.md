@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/30/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1c4bbd98682d964cfdf72031c7d6cb77cf42a809
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 0bdede482b79c82e6e05b1429cb7c17399bc2277
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396081"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756615"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
@@ -90,7 +90,14 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 | {Context:IPAddress} | O endereço IP do usuário. | 11.111.111.11 |
 | {Contexto:KMSI} | Indica se [Keep me assinado na](custom-policy-keep-me-signed-in.md) caixa de seleção está selecionado. |  true |
 
-### <a name="non-protocol-parameters"></a>Parâmetros não de protocolo
+### <a name="claims"></a>Declarações 
+
+| Declaração | Descrição | Exemplo |
+| ----- | ----------- | --------|
+| {Reivindicação:tipo de reivindicação} | Um identificador de um tipo de reclamação já definido na seção ClaimsSchema no arquivo de diretiva ou arquivo de diretiva pai.  Por exemplo: `{Claim:displayName}` `{Claim:objectId}`, ou . | Um valor do tipo de reivindicação.|
+
+
+### <a name="oauth2-key-value-parameters"></a>Parâmetros de valor-chave OAuth2
 
 Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OAuth2 pode ser mapeado para uma declaração no percurso do usuário. Por exemplo, a solicitação do aplicativo pode incluir um parâmetro da cadeia de consulta com um nome de `app_session`, `loyalty_number` ou qualquer cadeia de consulta personalizada.
 
@@ -118,6 +125,7 @@ Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OA
 | {SAML:AllowCreate} | O `AllowCreate` valor do `NameIDPolicy` atributo, a partir do elemento da solicitação SAML. | True |
 | {SAML:ForceAuthn} | O `ForceAuthN` valor do `AuthnRequest` atributo, a partir do elemento da solicitação SAML. | True |
 | {SAML:ProviderName} | O `ProviderName` valor do `AuthnRequest` atributo, a partir do elemento da solicitação SAML.| Contoso.com |
+| {SAML:RelayState} | O parâmetro de cadeia de caracteres da consulta `RelayState`.| 
 
 ## <a name="using-claim-resolvers"></a>Usando resolver sinistros
 
