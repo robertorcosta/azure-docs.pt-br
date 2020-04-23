@@ -5,18 +5,18 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 01/04/2017
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b385136183fba5d1e64db3763453d2f4b23d4d96
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f8449c516bce3f3ab949e88808f73c7240995f99
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80045181"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535631"
 ---
 # <a name="app-service-overview"></a>Visão geral do Serviço de Aplicativo
 
 O *Serviço de Aplicativo do Azure* é um serviço com base em HTTP para hospedagem de aplicativos Web, APIs REST e back-ends móveis. Você pode desenvolver usando sua linguagem favorita, seja .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python. Os aplicativos são executados e dimensionados com facilidade em ambientes baseados no Windows e no Linux. Para ambientes baseados em Linux, confira [Serviço de Aplicativo do Azure](containers/app-service-linux-intro.md). 
 
-O Serviço de Aplicativo não agrega apenas o poder do Microsoft Azure ao seu aplicativo, como segurança, balanceamento de carga, dimensionamento automático e gerenciamento automatizado. Você pode também aproveitar seus recursos de DevOps, como implantação contínua desde o Azure DevOps, GitHub, Hub do Docker e outras fontes, gerenciamento de pacote, ambientes de preparo, domínio personalizado e certificados SSL. 
+O Serviço de Aplicativo não agrega apenas o poder do Microsoft Azure ao seu aplicativo, como segurança, balanceamento de carga, dimensionamento automático e gerenciamento automatizado. Você pode também aproveitar seus recursos de DevOps, como implantação contínua desde o Azure DevOps, GitHub, Docker Hub e outras fontes, gerenciamento de pacotes, ambientes de preparo, domínio personalizado e certificados TLS/SSL. 
 
 Com o Serviço de Aplicativo, você paga pelos recursos de computação do Azure que usar. Os recursos de computação usados são determinados pelo _Plano do Serviço de Aplicativo_ no qual os aplicativos são executados. Para obter mais informações, confira [Visão geral dos Planos do Serviço de Aplicativo do Azure](overview-hosting-plans.md).
 

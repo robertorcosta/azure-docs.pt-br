@@ -1,5 +1,5 @@
 ---
-title: Chamar uma ASP.NET Web API protegida – plataforma de identidade da Microsoft
+title: Chamar uma ASP.NET Web API protegida pela plataforma de identidade da Microsoft
 description: Neste início rápido, saiba como chamar uma ASP.NET Web API protegida pela plataforma de identidade da Microsoft de um aplicativo WPF (Área de Trabalho do Windows). O cliente do WPF autentica um usuário, solicita um token de acesso e chama a API Web.
 services: active-directory
 author: jmprieur
@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 582afef8929da2ba75aab70c1ed0fa9e57fd3f19
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 084083a704a007e6675234883c62350d1d9a0849
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76703466"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536141"
 ---
-# <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Início Rápido: Chamar uma ASP.NET Web API protegida – plataforma de identidade da Microsoft
+# <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Início Rápido: Chamar uma ASP.NET Web API protegida pela plataforma de identidade da Microsoft
 
-Neste início rápido, você expõe uma API Web e a protege para que somente o usuário autenticado possa acessá-la. Este exemplo mostra como expor uma ASP.NET Web API para que ela possa aceitar tokens emitidos por contas pessoais (incluindo outlook.com, live.com e outras), bem como contas corporativas e de estudante de qualquer empresa ou organização integrada à plataforma de identidade da Microsoft.
+Neste guia de início rápido, você expõe uma API Web e a protege para que somente o usuário autenticado possa acessá-la. Este exemplo mostra como expor uma ASP.NET Web API para que ela possa aceitar tokens emitidos por contas pessoais (incluindo outlook.com, live.com e outras), bem como contas corporativas e de estudante de qualquer empresa ou organização integrada à plataforma de identidade da Microsoft.
 
-O exemplo também inclui um cliente do WPF (aplicativo de Área de Trabalho do Windows) que demonstra como você pode solicitar um token de acesso para acessar uma API Web.
+O exemplo também inclui um cliente de aplicativo de Área de Trabalho do Windows (WPF) que demonstra como você pode solicitar um token de acesso para acessar uma API Web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,13 +69,13 @@ Se você quiser registrar seus aplicativos manualmente, como uma primeira etapa,
      - para **Nome de escopo**, use `access_as_user`
      - Verifique se a opção **Administradores e usuários** está selecionada para **Quem pode consentir**
      - em **Nome de exibição de consentimento do administrador**, digite `Access TodoListService as a user`
-     - em **Descrição do consentimento do administrador**, digite `Accesses the TodoListService Web API as a user`
+     - em **Descrição do consentimento do administrador**, digite `Accesses the TodoListService web API as a user`
      - em **Nome de exibição de consentimento do usuário**, digite `Access TodoListService as a user`
-     - em **Descrição do consentimento do usuário**, digite `Accesses the TodoListService Web API as a user`
+     - em **Descrição do consentimento do usuário**, digite `Accesses the TodoListService web API as a user`
      - Manter **Estado** como **Habilitado**
      - Selecione **Adicionar escopo**
 
-### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Configurar o projeto de serviço para que corresponda à API Web registrada 
+### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Configurar o projeto de serviço para que corresponda à API Web registrada
 
 1. Abra a solução no Visual Studio e, em seguida, abra o arquivo **Web.config** na raiz do projeto **TodoListService**.
 1. Substitua o valor do parâmetro `ida:ClientId` pela **ID do Cliente (ID do Aplicativo)** do aplicativo que você acabou de registrar no Portal de Registro de Aplicativo.
@@ -86,7 +86,7 @@ Se você quiser registrar seus aplicativos manualmente, como uma primeira etapa,
 
    > Observação: Verifique se ele usa o seguinte formato:
    >
-   > `api://{TodoListService-Application-ID}/access_as_user` 
+   > `api://{TodoListService-Application-ID}/access_as_user`
    >
    >(em que {TodoListService-Application-ID} é o GUID que representa a ID do aplicativo para seu TodoListService).
 
@@ -126,7 +126,7 @@ Nesta etapa, você configura seu projeto *TodoListClient* registrando um novo ap
 
 ## <a name="pre-authorize-your-client-application"></a>Pré-autorizar seu aplicativo cliente
 
-Uma das maneiras de permitir que os usuários de outros diretórios acessem sua API Web é *pré-autorizar* os aplicativos cliente para acessar sua API Web adicionando as IDs de aplicativos dos aplicativos cliente na lista de aplicativos *pré-autorizados* para sua API Web. Ao adicionar um cliente previamente autorizado, você não precisará que o usuário consinta com o uso de sua API Web. Siga as etapas abaixo para autorizar previamente seu Aplicativo Web:
+Uma das maneiras de permitir que os usuários de outros diretórios acessem a API Web é *pré-autorizar* os aplicativos cliente para acessá-la. Isso é feito adicionando as IDs de aplicativo dos aplicativos cliente à lista de aplicativos *pré-autorizados* para a API Web. Ao adicionar um cliente previamente autorizado, você não precisará que o usuário consinta com o uso da API Web. Siga as etapas abaixo para autorizar previamente seu Aplicativo Web:
 
 1. Volte para o *Portal de registro de aplicativo* e abra as propriedades de seu **TodoListService**.
 1. Na seção **Expor uma API**, clique em **Adicionar um aplicativo cliente** na seção *Aplicativos cliente autorizados*.
@@ -141,7 +141,7 @@ Uma das maneiras de permitir que os usuários de outros diretórios acessem sua 
 
 ## <a name="optional-restrict-sign-in-access-to-your-application"></a>Opcional: Limite o acesso de entrada para seu aplicativo
 
-Por padrão, quando você baixa este exemplo de código e configura o aplicativo para usar o ponto de extremidade Azure Active Directory v2 seguindo as etapas anteriores, as contas pessoais, como outlook.com, live.com e outras, bem como contas corporativas ou de estudante de qualquer as organizações integradas ao Azure AD, podem solicitar tokens e acessar sua API Web. 
+Por padrão, quando você baixa este exemplo de código e configura o aplicativo para usar o ponto de extremidade do Azure Active Directory v2 seguindo as etapas anteriores, as contas pessoais, como outlook.com, live.com e outras, bem como contas corporativas ou de estudante de organizações integradas ao Azure AD, podem solicitar tokens e acessar a sua API Web.
 
 Para restringir quem pode entrar em seu aplicativo, use uma destas opções:
 

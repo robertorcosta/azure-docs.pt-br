@@ -1,24 +1,24 @@
 ---
-title: Configurar as informações de segurança (versão prévia) de um prompt de entrada – Azure AD
-description: Como configurar as informações de segurança (versão prévia) para sua conta corporativa ou de estudante após isso ser solicitado a você na página de entrada da organização.
+title: Configurar as informações de segurança de um prompt de entrada – Azure AD
+description: Como configurar as informações de segurança para sua conta corporativa ou de estudante após isso ser solicitado a você na página de entrada da organização.
 services: active-directory
 author: curtand
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 08/05/2019
+ms.date: 04/07/2020
 ms.author: curtand
-ms.openlocfilehash: c216dbfef99422fc49fde774dc57d5cbcc9f879a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: eb6b124ea0ec036cd9846652fbd9eac5f81eb560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77063978"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454370"
 ---
-# <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Configurar informações de segurança (versão prévia) de um prompt de entrada
+# <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Configurar as informações de segurança de um prompt de entrada
 
 Você poderá seguir estas etapas se for solicitado a você que configure suas informações de segurança imediatamente após entrar na sua conta corporativa ou de estudante.
 
@@ -122,7 +122,7 @@ Siga estas etapas para configurar suas informações de segurança para sua cont
 Alguns aplicativos, como o Outlook 2010, não dão suporte à verificação em duas etapas. Essa falta de suporte significa que, se você estiver usando a verificação em duas etapas, o aplicativo não funcionará. Para contornar este problema, você pode criar uma senha gerada automaticamente para usar com cada aplicativo que não seja o navegador, separado da sua senha normal.
 
 >[!Note]
->Caso você não veja essa opção no assistente, isso significa que o administrador não a configurou. Se ela não estiver configurada, mas você souber que precisa usar senhas de aplicativo, siga as etapas em [Configurar senhas de aplicativo da página Informações de segurança (versão prévia)](security-info-app-passwords.md).
+>Caso você não veja essa opção no assistente, isso significa que o administrador não a configurou. Se ela não estiver configurada, mas você souber que precisa usar senhas de aplicativo, siga as etapas em [Configurar senhas de aplicativo da página Informações de segurança](security-info-app-passwords.md).
 
 Ao usar senhas de aplicativos, é importante lembrar:
 

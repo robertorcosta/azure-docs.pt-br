@@ -1,6 +1,6 @@
 ---
 title: Adicionar entrada com a conta da Microsoft a aplicativos Web do ASP.NET Core – plataforma de identidade da Microsoft | Azure
-description: Saiba como implementar a Entrada da Microsoft em um aplicativo Web do ASP.NET Core usando o OpenID Connect
+description: Saiba como implementar a opção Entrar com a conta da Microsoft em um aplicativo Web do ASP.NET Core usando o OpenID Connect
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: ac53a6cf6953255f51a6b586703147c5ce2338b6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a34264870ce812da5d7e7c790a1482d90b33d06a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81407149"
+ms.locfileid: "81536158"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início Rápido: Adicionar entrada com a Microsoft para um aplicativo Web do ASP.NET Core
 Neste início rápido, você usará um exemplo de código para saber como um aplicativo Web ASP.NET Core pode entrar em contas pessoais (hotmail.com, outlook.com e outras) e contas corporativas e de estudante em qualquer instância do Azure AD (Azure Active Directory). (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
@@ -71,15 +71,15 @@ Neste início rápido, você usará um exemplo de código para saber como um apl
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Etapa 3: seu aplicativo está configurado e pronto para ser executado
-> Configuramos seu projeto com os valores das propriedades do aplicativo e ele está pronto para ser executado. 
+> Configuramos seu projeto com os valores das propriedades do aplicativo e ele está pronto para ser executado.
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
 > #### <a name="step-3-run-your-visual-studio-project"></a>Etapa 3: Executar o projeto do Visual Studio
 > 1. Extraia o arquivo zip para uma pasta local na pasta raiz, por exemplo, **C:\Azure-Samples**
-> 1. Abra a solução no Visual Studio 
-> 1. Edite o arquivo **appsettings.json**. Localize `ClientId` e atualize o valor de `ClientId` com o valor da **ID do Aplicativo (cliente)** do aplicativo que você registrou. 
+> 1. Abra a solução no Visual Studio
+> 1. Edite o arquivo **appsettings.json**. Localize `ClientId` e atualize o valor de `ClientId` com o valor da **ID do Aplicativo (cliente)** do aplicativo que você registrou.
 >
 >    ```json
 >    "ClientId": "Enter_the_Application_Id_here"
@@ -141,7 +141,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-O método `AddAuthentication` configura o serviço para adicionar a autenticação baseada em cookies, que é usada em cenários do navegador, e para definir o desafio para OpenId Connect. 
+O método `AddAuthentication` configura o serviço para adicionar a autenticação baseada em cookies, que é usada em cenários do navegador, e para definir o desafio para OpenId Connect.
 
 A linha que contém `.AddAzureAd` adiciona a autenticação de plataforma de identidade da Microsoft ao seu aplicativo. Em seguida, ele é configurado para se conectar usando o ponto de extremidade de plataforma de identidade da Microsoft.
 

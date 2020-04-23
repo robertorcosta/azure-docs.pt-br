@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/25/2020
+ms.date: 04/18/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 707b03d46615f3acfa0797d1dc0865d53ef75dc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2231d70e6c4368a7c896f9063b58cc97ee292f53
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282113"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682583"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
 
@@ -51,8 +51,12 @@ Há dois tipos de identidades gerenciadas:
 - Uma **identidade gerenciada atribuída pelo usuário** é criada como um recurso autônomo do Azure. Por meio de um processo de criação, o Microsoft Azure cria uma identidade no locatário do Azure AD confiado pela assinatura em uso. Depois que a identidade é criada, ela pode ser atribuída a uma ou mais instâncias de serviço do Azure. O ciclo de vida de uma identidade atribuída pelo usuário é gerenciado separadamente do ciclo de vida das instâncias de serviço do Azure a que ela é atribuída.
 
 Internamente, as identidades gerenciadas são entidades de serviço de um tipo especial, que estão bloqueadas para serem usadas apenas com recursos do Azure. Quando a identidade gerenciada é excluída, a entidade de serviço correspondente é removida automaticamente.
+Além disso, quando uma identidade atribuída pelo usuário ou pelo sistema é criada, o MSRP (Provedor de Recursos de Identidade Gerenciada) emite um certificado internamente para essa identidade. 
 
-Seu código pode usar uma identidade gerenciada para solicitar tokens de acesso para os serviços que dão suporte à autenticação do Azure AD. O Azure é responsável por reverter as credenciais que são usadas pela instância de serviço.
+Seu código pode usar uma identidade gerenciada para solicitar tokens de acesso para os serviços que dão suporte à autenticação do Azure AD. O Azure é responsável por reverter as credenciais que são usadas pela instância de serviço. 
+
+## <a name="credential-rotation"></a>Rotação de credenciais
+A rotação de credenciais é controlada pelo provedor de recursos que hospeda o recurso do Azure. A rotação padrão da credencial ocorre a cada 46 dias. Cabe ao provedor de recursos chamar novas credenciais, então o provedor de recursos poderia esperar mais de 46 dias por isso.
 
 O diagrama abaixo mostra como as identidades de serviço gerenciadas funcionam com VMs (máquinas virtuais):
 

@@ -4,14 +4,14 @@ description: Descreve o Azure HPC Cache, uma solução de acelerador de acesso a
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: 2a008d22de5df8d091e868153205697b4bb343ee
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/15/2020
+ms.author: v-erkel
+ms.openlocfilehash: 084c33874b474fc1789df93e088d3cec4263eac9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79216384"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536634"
 ---
 # <a name="what-is-azure-hpc-cache"></a>O que é o Azure HPC Cache?
 
@@ -49,22 +49,20 @@ Uma implantação do Azure HPC Cache pode ajudar a acelerar cálculos de anális
 
 O Azure HPC Cache está disponível nessas regiões do Azure:
 
+| América do Norte      | Europa         | Ásia            | Austrália      |
+|--------------------|----------------|-----------------|----------------|
+| Leste dos EUA            | Norte da Europa   | Coreia Central   | Leste da Austrália |
+| Leste dos EUA 2          | Europa Ocidental    | Sudeste Asiático  |               |
+| Centro-Sul dos Estados Unidos | | | |
+| Oeste dos EUA 2        | | | |
+
+Apenas estas regiões dão suporte ao [recurso de chaves gerenciadas pelo cliente](customer-keys.md):
+
 * Leste dos EUA
-* Leste dos EUA 2
-* Norte da Europa
-* Europa Ocidental
-* Sudeste Asiático
-* Sydney
+* Centro-Sul dos Estados Unidos
 * Oeste dos EUA 2
-* Coreia Central
 
 Verifique a [página do produto do Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache) para obter as informações de disponibilidade mais recentes.
-
-## <a name="service-availability"></a>Disponibilidade do serviço
-
-Você deve solicitar acesso para cada assinatura que usará com o Azure HPC Cache. Essa restrição ajuda a garantir a qualidade do serviço nos meses iniciais de disponibilidade geral.
-
-Solicite acesso preenchendo [este formulário](https://aka.ms/onboard-hpc-cache). Depois que sua assinatura for adicionada à lista de acesso, você poderá criar caches.
 
 ## <a name="next-steps"></a>Próximas etapas
 

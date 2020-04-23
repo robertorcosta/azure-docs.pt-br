@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: 7103afc29e4021d950d9a3634b190f4439ecfe8d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 23dc784586e85b8cbdc816ac5f4d54556fc1ffb7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76768504"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456984"
 ---
 # <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>Início Rápido: Usar o R com os Serviços do Machine Learning para consultar um Banco de Dados SQL do Azure (versão prévia)
 
@@ -30,16 +31,13 @@ Neste início rápido, você usará o R com os Serviços do Machine Learning par
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Um [Banco de Dados SQL do Azure](sql-database-single-database-get-started.md)
-- [Serviços do Machine Learning](sql-database-machine-learning-services-overview.md) com R habilitado. [Inscrever-se na versão prévia](sql-database-machine-learning-services-overview.md#signup).
+- [Serviços do Machine Learning](sql-database-machine-learning-services-overview.md) com R habilitado.
 - SSMS ([SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms))
 
 > [!IMPORTANT]
 > Os scripts deste artigo são escritos para usar o banco de dados do **Adventure Works**.
 
-> [!NOTE]
-> Durante a versão prévia pública, a Microsoft integrará você e habilitará o aprendizado de máquina para seu banco de dados novo ou existente; no entanto, não há mais suporte para a opção de implantação da instância gerenciada no momento.
-
-Os Serviços do Machine Learning com R são um recurso do Banco de Dados SQL do Azure, usado para executar scripts do R no banco de dados. Para obter mais informações, confira o [Projeto R](https://www.r-project.org/).
+Os Serviços de Machine Learning com R são um recurso do Banco de Dados SQL do Azure, usado para executar scripts do R no banco de dados. Para obter mais informações, confira o [Projeto R](https://www.r-project.org/).
 
 ## <a name="get-sql-server-connection-information"></a>Obter informações de conexão do SQL Server
 

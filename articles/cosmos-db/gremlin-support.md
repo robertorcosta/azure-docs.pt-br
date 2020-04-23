@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: 564e69e3cd852c6a0f8c20278d4742b77f064298
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 59c45497ea6d9fcb216c83060a858ee6c96f1151
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75499985"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81449962"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte do Azure Cosmos DB para grafo do Gremlin
 Azure Cosmos DB suporta a linguagem transversal de gráficos [Apache Tinkerpop](https://tinkerpop.apache.org), conhecida como gráfica [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). É possível usar a linguagem Gremlin para criar entidades de grafo (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 
@@ -46,11 +46,9 @@ A tabela a seguir lista os recursos do TinkerPop que são implementados pelo BD 
 | Recursos da borda | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Dá suporte à criação, modificação e exclusão de bordas |
 | Recursos de propriedade da borda | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Dá suporte à criação, modificação e exclusão de propriedades da borda |
 
-## <a name="gremlin-wire-format-graphson"></a>Formato de transmissão do Gremlin: GraphSON
+## <a name="gremlin-wire-format"></a>Formato de transmissão do Gremlin
 
-O Azure Cosmos DB usa o [formato GraphSON](https://tinkerpop.apache.org/docs/current/reference/#graphson) ao retornar resultados de operações Gremlin. No momento, o Azure Cosmos DB dá suporte à versão “GraphSONv2”. GraphSON é o formato padrão do Gremlin para representar vértices, bordas e propriedades (propriedades com um ou vários valores) usando JSON.
-
-Por exemplo, o snippet a seguir mostra uma representação em GraphSON de um vértice *retornado ao cliente* no Azure Cosmos DB. 
+O Azure Cosmos DB usa o formato JSON ao retornar resultados de operações do Gremlin. No momento, o Azure Cosmos DB é compatível com o formato JSON. Por exemplo, o snippet de código a seguir mostra uma representação em JSON de um vértice *retornado ao cliente* do Azure Cosmos DB:
 
 ```json
   {
@@ -89,9 +87,9 @@ Por exemplo, o snippet a seguir mostra uma representação em GraphSON de um vé
   }
 ```
 
-As propriedades usadas por GraphSON para vértices são descritas a seguir:
+As propriedades usadas pelo formato JSON para vértices são descritas abaixo:
 
-| Propriedade | DESCRIÇÃO | 
+| Propriedade | Descrição | 
 | --- | --- | --- |
 | `id` | A ID do vértice. Deve ser exclusiva (em combinação com o valor de `_partition`, se aplicável). Se nenhum valor for fornecido, ele será automaticamente fornecido com um GUID | 
 | `label` | O rótulo do vértice. Esta propriedade é usada para descrever o tipo de entidade. |
@@ -102,7 +100,7 @@ As propriedades usadas por GraphSON para vértices são descritas a seguir:
 
 E a borda contém as seguintes informações para ajudar com a navegação para outras partes do grafo.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 | --- | --- |
 | `id` | A ID da borda. Deve ser exclusiva (em combinação com o valor de `_partition`, se aplicável) |
 | `label` | O rótulo da borda. Esta propriedade é opcional e é usada para descrever o tipo de relacionamento. |
@@ -111,14 +109,14 @@ E a borda contém as seguintes informações para ajudar com a navegação para 
 
 Cada propriedade pode armazenar diversos valores em uma matriz. 
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 | --- | --- |
 | `value` | O valor da propriedade
 
 ## <a name="gremlin-steps"></a>Etapas do Gremlin
 Agora, vejamos as etapas do Gremlin com suporte do BD Cosmos do Azure. Para obter uma referência completa sobre o Gremlin, consulte [Referência do TinkerPop](https://tinkerpop.apache.org/docs/3.3.2/reference).
 
-| Etapa | DESCRIÇÃO | Documentação do TinkerPop 3.2 |
+| Etapa | Descrição | Documentação do TinkerPop 3.2 |
 | --- | --- | --- |
 | `addE` | Adiciona uma borda entre dois vértices | [Etapa addE](https://tinkerpop.apache.org/docs/3.3.2/reference/#addedge-step) |
 | `addV` | Adiciona um vértice ao grafo | [Etapa addV](https://tinkerpop.apache.org/docs/3.3.2/reference/#addvertex-step) |
