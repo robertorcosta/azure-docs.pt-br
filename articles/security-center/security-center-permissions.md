@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 0e60e782fa65cd5868bebe081673f9a158e07799
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e61571400930d4a781d6d67647bd662a7f2d350
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77921310"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106212"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissões na Central de Segurança do Azure
 
@@ -30,10 +30,10 @@ A Central de Segurança avalia a configuração de seus recursos para identifica
 Além dessas funções, há duas funções específicas da Central de Segurança:
 
 * **Leitor de Segurança**: um usuário que pertence a essa função tem direitos de exibição para a Central de Segurança. O usuário pode exibir as recomendações, alertas, uma política de segurança e estados de segurança, mas não pode fazer alterações.
-* **Administrador de Segurança**: um usuário que pertence a essa função tem os mesmos direitos que o Leitor de Segurança e também pode atualizar a política de segurança e ignorar alertas e recomendações.
+* **Administrador de segurança**: um usuário que pertence a essa função tem os mesmos direitos que o leitor de segurança e também pode atualizar a política de segurança e ignorar alertas e recomendações.
 
 > [!NOTE]
-> As funções de segurança, o Leitor de Segurança e o Administrador de Segurança têm acesso somente na Central de Segurança. As funções de segurança não têm acesso a outras áreas de serviço do Azure como Armazenamento, Web e Móveis ou Internet das Coisas.
+> As funções de segurança, o leitor de segurança e o administrador de segurança têm acesso apenas na central de segurança. As funções de segurança não têm acesso a outras áreas de serviço do Azure como Armazenamento, Web e Móveis ou Internet das Coisas.
 >
 >
 
@@ -41,14 +41,14 @@ Além dessas funções, há duas funções específicas da Central de Segurança
 
 A tabela a seguir exibe as funções e as ações permitidas na Central de Segurança.
 
-| Função | Editar política de segurança | Aplicar as recomendações de segurança a um recurso</br> (inclusive com 'Quick Fix!') | Ignorar alertas e recomendações | Exibir alertas e recomendações |
+| Função | Editar política de segurança | Aplicar as recomendações de segurança a um recurso</br> (incluindo com ' correção rápida! ') | Ignorar alertas e recomendações | Exibir alertas e recomendações |
 |:--- |:---:|:---:|:---:|:---:|
 | Proprietário da assinatura | ✔ | ✔ | ✔ | ✔ |
 | Colaborador da assinatura | -- | ✔ | ✔ | ✔ |
 | Proprietário do Grupo de Recursos | -- | ✔ | -- | ✔ |
 | Colaborador do Grupo de Recursos | -- | ✔ | -- | ✔ |
 | Leitor | -- | -- | -- | ✔ |
-| Administrador de segurança | ✔ | -- | ✔ | ✔ |
+| Administrador de Segurança | ✔ | -- | ✔ | ✔ |
 | Leitor de segurança | -- | -- | -- | ✔ |
 
 > [!NOTE]
@@ -62,5 +62,5 @@ Este artigo explicou como a Central de Segurança usa o RBAC para atribuir permi
 - [Definir políticas de segurança na Central de Segurança](tutorial-security-policy.md)
 - [Gerenciando recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md)
 - [Monitoramento da integridade da segurança na Central de Segurança do Azure](security-center-monitoring.md)
-- [Gerencie e responda a alertas de segurança no Security Center](security-center-managing-and-responding-alerts.md)
+- [Gerenciar e responder a alertas de segurança na central de segurança](security-center-managing-and-responding-alerts.md)
 - [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) (Monitorando soluções de parceiros com a Central de Segurança do Azure)

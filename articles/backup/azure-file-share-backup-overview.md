@@ -3,12 +3,12 @@ title: Sobre o backup do compartilhamento de arquivos do Azure
 description: Saiba como fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: bea5035ff50eaf4047f56cde3bd671d81e21f5d3
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: c79100724b882c0682c86070ee74a8726d6b049f
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101409"
+ms.locfileid: "82105736"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre o backup do compartilhamento de arquivos do Azure
 
@@ -47,12 +47,7 @@ O backup de compartilhamento de arquivos do Azure é uma solução de backup nat
 
 ## <a name="backup-costs"></a>Custos de backup
 
-O backup de compartilhamento de arquivos do Azure é uma solução baseada em instantâneos e os encargos de armazenamento incorridos para os instantâneos são cobrados junto com o uso dos arquivos do Azure de acordo com os detalhes de preço mencionados [aqui](https://azure.microsoft.com/pricing/details/storage/files/).
-
-No entanto, a taxa de instância protegida para aproveitar a solução de backup é de acordo com o modelo de preços descrito na seção [backup para arquivos do Azure](https://azure.microsoft.com/pricing/details/backup/) . Atualmente, o preço real foi atualizado apenas para EUA Central ocidental. Para outras regiões, os preços exatos serão atualizados em breve com algumas variações regionais, mas usando o mesmo modelo de preços.
-
->[!NOTE]
->Agora não há uma "taxa de instância protegida" e você será cobrado apenas pelos instantâneos de acordo com os preços mencionados [aqui](https://azure.microsoft.com/pricing/details/storage/files/).
+No momento, você será cobrado apenas pelos instantâneos, já que o backup do compartilhamento de arquivos do Azure é uma solução baseada em instantâneo. Os encargos de armazenamento incorridos para instantâneos são cobrados junto com o uso de arquivos do Azure de acordo com os detalhes de preços mencionados [aqui](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,6 +1,6 @@
 ---
-title: Faq do Azure Security Center - Perguntas gerais
-description: Perguntas gerais frequentes sobre o Azure Security Center, um produto que ajuda você a prevenir, detectar e responder a ameaças
+title: Perguntas frequentes sobre a central de segurança do Azure-perguntas gerais
+description: Perguntas gerais frequentes sobre a central de segurança do Azure, um produto que ajuda você a prevenir, detectar e responder a ameaças
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 54263a8be900ed381d8450b460e5cf9e6117ac54
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: e2cc04be5a79009f92e275f9de46df60a8e23c8b
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436129"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106569"
 ---
-# <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Perguntas gerais sobre o Azure Security Center
+# <a name="faq---general-questions-about-azure-security-center"></a>Perguntas frequentes-perguntas gerais sobre a central de segurança do Azure
 
 ## <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
-O Azure Security Center ajuda você a prevenir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança de seus recursos. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
+A central de segurança do Azure ajuda você a prevenir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança de seus recursos. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
-O Security Center usa o agente Log Analytics para coletar e armazenar dados. Para obter detalhes aprofundados, consulte [coleta de dados no Azure Security Center](security-center-enable-data-collection.md).
+A central de segurança usa o agente de Log Analytics para coletar e armazenar dados. Para obter detalhes detalhados, consulte [coleta de dados na central de segurança do Azure](security-center-enable-data-collection.md).
 
 
 ## <a name="how-do-i-get-azure-security-center"></a>Como posso obter a Central de Segurança do Azure?
-A Central de Segurança do Azure é habilitada com sua assinatura do Microsoft Azure e pode ser acessada no [portal do Azure](https://azure.microsoft.com/features/azure-portal/). Para acessá-lo, [entre no portal,](https://portal.azure.com) **selecione Procurar**e role até o Security **Center**.
+A Central de Segurança do Azure é habilitada com sua assinatura do Microsoft Azure e pode ser acessada no [portal do Azure](https://azure.microsoft.com/features/azure-portal/). Para acessá-lo, [entre no portal](https://portal.azure.com), selecione **procurar**e role até a **central de segurança**.
 
 
 ## <a name="which-azure-resources-are-monitored-by-azure-security-center"></a>Quais recursos do Azure são monitorados pela Central de Segurança do Azure?
 A Central de Segurança do Azure monitora os seguintes recursos do Azure:
 
-* Máquinas virtuais (VMs) (incluindo [Serviços em Nuvem)](../cloud-services/cloud-services-choose-me.md)
+* VMs (máquinas virtuais) (incluindo [serviços de nuvem](../cloud-services/cloud-services-choose-me.md))
 * conjuntos de escala de máquina virtual
 * Redes Virtuais do Azure
 * Contêineres
@@ -44,11 +44,11 @@ A Central de Segurança do Azure monitora os seguintes recursos do Azure:
 * Aplicativos Web do Azure (em um [Ambiente do Serviço de Aplicativo](../app-service/environment/intro.md))
 * Soluções de parceiros integradas com sua assinatura do Azure, como um firewall de aplicativo Web em VMs e no Ambiente do Serviço de Aplicativo
 
-Além disso, máquinas não-Azure (incluindo no local) também podem ser monitoradas pelo Azure Security Center. Tanto [as máquinas Windows](./quick-onboard-windows-computer.md) quanto as [máquinas Linux](./quick-onboard-linux-computer.md) são suportadas.
+Além disso, os computadores não Azure (incluindo o local) também podem ser monitorados pela central de segurança do Azure. Há suporte para [máquinas com Windows](./quick-onboard-windows-computer.md) e [computadores Linux](./quick-onboard-linux-computer.md) .
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Como é possível ver o estado atual da segurança dos meus recursos do Azure?
-A página **Visão Geral do Centro de Segurança** mostra a postura geral de segurança do ambiente discriminada por Dados de Computação, Rede, armazenamento & dados e Aplicativos. Cada tipo de recurso tem um indicador que mostra vulnerabilidades de segurança identificadas. Clicar em cada bloco exibe uma lista dos problemas de segurança identificados pela Central de Segurança, junto com um inventário dos recursos em sua assinatura.
+A página **visão geral da central de segurança** mostra a postura de segurança geral do seu ambiente dividido por computação, rede, armazenamento & dados e aplicativos. Cada tipo de recurso tem um indicador mostrando vulnerabilidades de segurança identificadas. Clicar em cada bloco exibe uma lista dos problemas de segurança identificados pela Central de Segurança, junto com um inventário dos recursos em sua assinatura.
 
 
 
@@ -59,7 +59,7 @@ As políticas de segurança habilitadas na Central de Segurança do Azure determ
 
 
 ## <a name="who-can-modify-a-security-policy"></a>Quem pode modificar uma política de segurança?
-Para modificar uma política de segurança, você deve ser um Administrador de Segurança ou o Proprietário ou Colaborador dessa assinatura.
+Para modificar uma política de segurança, você deve ser um administrador de segurança ou um proprietário ou colaborador dessa assinatura.
 
 Para saber como configurar uma política de segurança, consulte a seção [Como configurar de políticas de segurança na Central de segurança do Azure](tutorial-security-policy.md).
 
@@ -86,8 +86,8 @@ A Central de Segurança do Azure automaticamente coleta, analisa e funde os dado
 * Alertas de segurança das soluções de segurança de parceiro integradas, como antimalware ou Firewalls de aplicativo Web
 
 
-## <a name="why-did-secure-score-values-change"></a>Por que os valores do Secure Score mudaram? <a name="secure-score-faq"></a>
-A partir de fevereiro de 2019, o Security Center ajustou a pontuação de algumas recomendações, a fim de melhor se adequar à sua gravidade. Como resultado desse ajuste, pode haver alterações nos valores gerais do Secure Score.  Para obter mais informações sobre o Secure Score, consulte [o cálculo Secure Score](security-center-secure-score.md).
+## <a name="why-did-secure-score-values-change"></a>Por que a segurança dos valores de pontuação foi alterada? <a name="secure-score-faq"></a>
+A partir de fevereiro de 2019, a central de segurança ajustou a pontuação de algumas recomendações, a fim de se adequar melhor à sua gravidade. Como resultado desse ajuste, pode haver alterações nos valores gerais de Pontuação segura.  Para obter mais informações sobre Pontuação segura, consulte [cálculo de Pontuação segura](security-center-secure-score.md).
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Qual é a diferença entre ameaças detectadas e alertadas pelo Microsoft Security Response Center versus pela Central de Segurança do Azure?

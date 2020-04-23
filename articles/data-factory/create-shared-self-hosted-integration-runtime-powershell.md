@@ -1,5 +1,5 @@
 ---
-title: Crie um tempo de execução de integração auto-hospedado compartilhado com o PowerShell
+title: Criar um tempo de execução de integração auto-hospedado compartilhado com o PowerShell
 description: Aprenda como criar um runtime de integração auto-hospedada compartilhado no Azure Data Factory, para que vários data factories possam acessar o runtime de integração.
 services: data-factory
 documentationcenter: ''
@@ -11,22 +11,22 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 10/31/2018
-ms.openlocfilehash: cabdb45467f71749184c5f9a6a112242a82d618b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0f018d6b94d1c5b9d9002a767b3ebceb6c9c746c
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416598"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106603"
 ---
-# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Crie um tempo de execução de integração auto-hospedado compartilhado na Fábrica de Dados do Azure
+# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Criar um tempo de execução de integração auto-hospedado compartilhado no Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Este guia mostra como criar um tempo de execução de integração auto-hospedado compartilhado na Fábrica de Dados Azure. Em seguida, você pode usar o runtime de integração auto-hospedada compartilhado em outro data factory.
+Este guia mostra como criar um tempo de execução de integração auto-hospedado compartilhado no Azure Data Factory. Em seguida, você pode usar o runtime de integração auto-hospedada compartilhado em outro data factory.
 
-## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Crie um IR auto-hospedado compartilhado usando a ui da fábrica de dados do Azure
+## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Criar um IR compartilhado auto-hospedado usando a interface do usuário do Azure Data Factory
 
-Para criar um IR auto-hospedado compartilhado usando a ui da Fábrica de Dados do Azure, você pode tomar as seguintes etapas:
+Para criar um IR compartilhado auto-hospedado usando Azure Data Factory interface do usuário, você pode executar as seguintes etapas:
 
 1. No IR auto-hospedado que será compartilhado, conceda permissão para o data factory no qual deseja criar o IR vinculado.
       
@@ -44,9 +44,9 @@ Para criar um IR auto-hospedado compartilhado usando a ui da Fábrica de Dados d
       
     ![Caixas de nome e ID do recurso](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
-## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Crie um IR auto-hospedado compartilhado usando o Azure PowerShell
+## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Criar um IR compartilhado auto-hospedado usando Azure PowerShell
 
-Para criar um IR auto-hospedado compartilhado usando o Azure PowerShell, você pode tomar as seguintes etapas: 
+Para criar um IR compartilhado auto-hospedado usando Azure PowerShell, você pode executar as seguintes etapas: 
 1. Criar um data factory. 
 1. Criar um runtime de integração auto-hospedada.
 1. Compartilhe o runtime de integração auto-hospedada com outros data factories.
@@ -174,7 +174,7 @@ Conceda permissão para o data factory que precisa acessar o runtime de integra�
 ```powershell
 New-AzRoleAssignment `
     -ObjectId $factory.Identity.PrincipalId ` #MSI of the Data Factory with which it needs to be shared
-    -RoleDefinitionId 'b24988ac-6180-42a0-ab88-20f7382dd24c' ` #This is the Contributor role
+    -RoleDefinitionName 'Contributor' `
     -Scope $SharedIR.Id
 ```
 
@@ -201,7 +201,7 @@ Para revogar o acesso de um data factory a partir do runtime de integração com
 ```powershell
 Remove-AzRoleAssignment `
     -ObjectId $factory.Identity.PrincipalId `
-    -RoleDefinitionId 'b24988ac-6180-42a0-ab88-20f7382dd24c' `
+    -RoleDefinitionName 'Contributor' `
     -Scope $SharedIR.Id
 ```
 

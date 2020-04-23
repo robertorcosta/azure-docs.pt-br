@@ -1,96 +1,96 @@
 ---
 title: Dispositivo de Migrações para Azure
-description: Fornece uma visão geral do aparelho Azure Migrate usado na avaliação e migração do servidor.
+description: Fornece uma visão geral do dispositivo de migrações para Azure usado em avaliação e migração de servidor.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: 1c21f06e674871aefde1ae952a459db16feeb717
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.date: 04/23/2020
+ms.openlocfilehash: 71a17211a530b4cb55764f3b3ab84ff5a4d5f3e6
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676347"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106331"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
 
-Este artigo resume os pré-requisitos e os requisitos de suporte para o aparelho Azure Migrate. 
+Este artigo resume os pré-requisitos e os requisitos de suporte para o dispositivo de migrações para Azure. 
 
 ## <a name="deployment-scenarios"></a>Cenários de implantação
 
-O aparelho Azure Migrate é usado nos seguintes cenários.
+O dispositivo migrações para Azure é usado nos cenários a seguir.
 
 **Cenário** | **Ferramenta** | **Usado para** 
 --- | --- | ---
-**Avaliação vMware VM** | Migração do Azure:Avaliação do servidor | Descubra VMs VMware<br/><br/> Descubra aplicativos e dependências de máquinas<br/><br/> Coletar metadados da máquina e metadados de desempenho para avaliações.
-**VMware VM migração sem agente** | Migração do Azure:Migração do servidor | Descubra VMs VMware <br/><br/> Replique VMware VMs com migração sem agente.
-**Avaliação de HiperV VM** | Migração do Azure:Avaliação do servidor | Descubra Hiper-VVs<br/><br/> Coletar metadados da máquina e metadados de desempenho para avaliações.
-**Avaliação da máquina física** |  Migração do Azure:Avaliação do servidor |  Descubra servidores físicos (ou VMs que você trata como servidores físicos).<br/><br/> Coletar metadados da máquina e metadados de desempenho para avaliações.
+**Avaliação de VM VMware** | Migrações para Azure: avaliação do servidor | Descobrir VMs VMware<br/><br/> Descobrir aplicativos e dependências de computador<br/><br/> Coletar metadados de computador e metadados de desempenho para avaliações.
+**Migração sem agente de VM VMware** | Migrações para Azure: migração de servidor | Descobrir VMs VMware <br/><br/> Replique VMs VMware com migração sem agente.
+**Avaliação de VM do Hyper-V** | Migrações para Azure: avaliação do servidor | Descobrir VMs do Hyper-V<br/><br/> Coletar metadados de computador e metadados de desempenho para avaliações.
+**Avaliação de máquina física** |  Migrações para Azure: avaliação do servidor |  Descobrir servidores físicos (ou VMs que você trata como servidores físicos).<br/><br/> Coletar metadados de computador e metadados de desempenho para avaliações.
 
 ## <a name="deployment-methods"></a>Métodos de implantação
 
-O aparelho pode ser implantado usando alguns métodos:
+O dispositivo pode ser implantado usando dois métodos:
 
-- O aparelho pode ser implantado usando um modelo para VMs VMs e VMs Hyper-V (modelo OVA para VMware ou VHD para Hyper-V).
-- Se você não quiser usar um modelo, você pode implantar o aparelho para VMware ou Hyper-V usando um script PowerShell.
-- No Governo Azure, você deve implantar o aparelho usando um script.
-- Para servidores físicos, você sempre implanta o aparelho usando um script.
-- Os links para download estão disponíveis nas tabelas abaixo.
+- O dispositivo pode ser implantado usando um modelo para VMs VMware e VMs do Hyper-V (modelo OVA para VMware ou VHD para Hyper-V).
+- Se você não quiser usar um modelo, poderá implantar o dispositivo para VMware ou Hyper-V usando um script do PowerShell.
+- No Azure governamental, você deve implantar o dispositivo usando um script.
+- Para servidores físicos, você sempre implanta o dispositivo usando um script.
+- Links de download estão disponíveis nas tabelas a seguir.
 
 
-## <a name="appliance---vmware"></a>Aparelho - VMware 
+## <a name="appliance---vmware"></a>Dispositivo – VMware 
 
-A tabela a seguir resume os requisitos do aparelho Azure Migrate para VMware.
+A tabela a seguir resume os requisitos do dispositivo de migração do Azure para VMware.
 
 **Requisito** | **VMware** 
 --- | ---
-**Componentes do aparelho** | O aparelho possui os seguintes componentes:<br/><br/> - **Aplicativo de gerenciamento**: Este é um aplicativo web para entrada do usuário durante a implantação do aparelho. Usado na avaliação de máquinas para migração para o Azure.<br/> - **Agente de descoberta**: O agente coleta dados de configuração da máquina. Usado na avaliação de máquinas para migração para o Azure.<br/>- **Agente de avaliação**: O agente coleta dados de desempenho. Usado na avaliação de máquinas para migração para o Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).<br/>- **Agente DRA**: Orquestra a replicação da VM e coordena a comunicação entre máquinas replicadas e o Azure. Usado apenas ao replicar VMs VMware para o Azure usando migração sem agente.<br/>- **Gateway**: Envia dados replicados para o Azure. Usado apenas ao replicar VMs VMware para o Azure usando migração sem agente.
-**Implantação suportada** | Implante como VMware VM usando o modelo OVA.<br/><br/> Implante como um VMware VM ou máquina física usando o script de instalação PowerShell.
-**Suporte ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
-**Limites de descoberta** | Um aparelho pode descobrir até 10.000 VMs VMware em um vCenter Server.<br/> Um aparelho pode se conectar a um único servidor vCenter.
-**Modelo ova** | Baixe do portal https://aka.ms/migrate/appliance/vmwareou de .<br/><br/> O tamanho do download é de 11,2 GB.<br/><br/> O modelo do aparelho baixado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo do vencimento, recomendamos que você baixe e implante um novo aparelho, ou que você ative a licença do sistema operacional do aparelho VM.
-**Script PowerShell** | Download de [script](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> 
-**Software/hardware** |  O aparelho deve funcionar em máquina com Windows Server 2016, MEMÓRIA RAM de 32 GB, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um switch virtual externo.<br/> O aparelho requer acesso à internet, diretamente ou através de um proxy.<br/><br/> Se você executar o aparelho em uma VMware VM, você precisará de recursos suficientes no vCenter Server para alocar uma VM que atenda aos requisitos.<br/><br/> Se você executar o aparelho em uma máquina física, certifique-se de que ele está executando o Windows Server 2016 e atenda aos requisitos de hardware. 
-**Requisitos da VMware** | Se você implantar o aparelho como uma VMware VMware, ele deve ser implantado em um host ESXi em execução versão 5.5 ou posterior.<br/><br/> vCenter Server executando 5.5, 6.0, 6.5 ou 6.7.
-**VDDK (migração sem agente)** | Se você implantar o aparelho como uma VMware VMm e estiver executando uma migração sem agente, o VMware vSphere VDDK deve ser instalado na VM do aparelho.
-**Hash value-OVA** | [Verifique](tutorial-assess-vmware.md#verify-security) os valores de hash do modelo OVA.
-**Hash value-PowerShell script** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores de hash do script PowerShell.
+**Componentes do dispositivo** | O dispositivo tem os seguintes componentes:<br/><br/> - **Aplicativo de gerenciamento**: Este é um aplicativo Web para entrada do usuário durante a implantação do dispositivo. Usado ao avaliar computadores para migração para o Azure.<br/> - **Agente de descoberta**: o agente reúne os dados de configuração do computador. Usado ao avaliar computadores para migração para o Azure.<br/>- **Agente de avaliação**: o agente coleta dados de desempenho. Usado ao avaliar computadores para migração para o Azure.<br/>- **Serviço de atualização automática**: atualiza os componentes do dispositivo (é executado a cada 24 horas).<br/>- **Agente Dra**: Orquestra a replicação de VM e coordena a comunicação entre máquinas replicadas e o Azure. Usado somente ao replicar VMs VMware para o Azure usando a migração sem agente.<br/>- **Gateway**: envia dados replicados para o Azure. Usado somente ao replicar VMs VMware para o Azure usando a migração sem agente.
+**Implantação com suporte** | Implante como VM do VMware usando o modelo OVA.<br/><br/> Implante como uma VM VMware ou uma máquina física usando o script de instalação do PowerShell.
+**Suporte do projeto** |  Um dispositivo pode ser associado a um único projeto. <br/> Qualquer número de dispositivos pode ser associado a um único projeto.<br/> 
+**Limites de descoberta** | Um dispositivo pode descobrir até 10.000 VMs VMware em um vCenter Server.<br/> Um dispositivo pode se conectar a um único vCenter Server.
+**Modelo OVA** | Baixar do portal ou do https://aka.ms/migrate/appliance/vmware.<br/><br/> O tamanho do download é 11,2 GB.<br/><br/> O modelo de dispositivo baixado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo da expiração, recomendamos que você baixe e implante um novo dispositivo ou ative a licença do sistema operacional da VM do dispositivo.
+**Script do PowerShell** | [Download](https://go.microsoft.com/fwlink/?linkid=2105112)de script.<br/><br/> 
+**Software/hardware** |  O dispositivo deve ser executado no computador com o Windows Server 2016, 32-GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo requer acesso à Internet, seja diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo em uma VM VMware, precisará de recursos suficientes no vCenter Server para alocar uma VM que atenda aos requisitos.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e atende aos requisitos de hardware. 
+**Requisitos da VMware** | Se você implantar o dispositivo como uma VM VMware, ele deverá ser implantado em um host ESXi executando a versão 5,5 ou posterior.<br/><br/> vCenter Server executando 5,5, 6,0, 6,5 ou 6,7.
+**VDDK (migração sem agente)** | Se você implantar o dispositivo como uma VM VMware e estiver executando uma migração sem agente, o VMware vSphere VDDK deverá ser instalado na VM do dispositivo.
+**Valor de hash-OVA** | [Verifique](tutorial-assess-vmware.md#verify-security) os valores de hash do modelo ova.
+**Valor de hash-script do PowerShell** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores de hash de script do PowerShell.
 
 
 
 
-## <a name="appliance---hyper-v"></a>Aparelho - Hiper-V
+## <a name="appliance---hyper-v"></a>Dispositivo – Hyper-V
 
 **Requisito** | **Hyper-V** 
 --- | ---
-**Componentes do aparelho** | O aparelho possui os seguintes componentes:<br/><br/>- **Aplicativo de gerenciamento**: Este é um aplicativo web para entrada do usuário durante a implantação do aparelho. Usado na avaliação de máquinas para migração para o Azure.<br/> - **Agente de descoberta**: O agente coleta dados de configuração da máquina. Usado na avaliação de máquinas para migração para o Azure.<br/>- **Agente de avaliação**: O agente coleta dados de desempenho. Usado na avaliação de máquinas para migração para o Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).
-**Implantação suportada** | Implante como Hyper-V VM usando um modelo VHD.<br/><br/> Implante como um VM Hiper-V ou máquina física usando um script de instalação PowerShell.
-**Suporte ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
-**Limites de descoberta** | Um aparelho pode descobrir até 5000 VMs Hiper-V.<br/> Um aparelho pode se conectar a até 300 hosts Hyper-V.
-**Modelo VHD** | Pasta com zíper, incluindo VHD. Baixe do portal https://aka.ms/migrate/appliance/hypervou de .<br/><br/> O tamanho do download é de 10 GB.<br/><br/> O modelo do aparelho baixado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo do vencimento, recomendamos que você baixe e implante um novo aparelho, ou que você ative a licença do sistema operacional do aparelho VM.
-**Script PowerShell** | Download de [script](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> 
-**Software/hardware***   |  O aparelho deve funcionar em máquina com Windows Server 2016, MEMÓRIA RAM de 32 GB, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um switch virtual externo.<br/> O aparelho precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou através de um proxy.<br/><br/> Se você executar o aparelho como um Hyper-V VM, você precisa de recursos suficientes no host Hyper-V para alocar 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um interruptor externo para o aparelho VM.<br/><br/> Se você executar o aparelho em uma máquina física, certifique-se de que ele está executando o Windows Server 2016 e atenda aos requisitos de hardware. 
-**Requisitos de hiper-V** | Se você implantar o aparelho com o modelo VHD, o aparelho VM fornecido pelo Azure Migrate é a versão 5.0 do Hyper-V VM.<br/><br/> O host Hyper-V deve estar executando o Windows Server 2012 R2 ou posterior. 
-**Valor hash -VHD** | [Verifique](tutorial-assess-hyper-v.md#verify-security) os valores de hash do modelo VHD.
-**Hash value-PowerShell script** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores de hash do script PowerShell.
+**Componentes do dispositivo** | O dispositivo tem os seguintes componentes:<br/><br/>- **Aplicativo de gerenciamento**: Este é um aplicativo Web para entrada do usuário durante a implantação do dispositivo. Usado ao avaliar computadores para migração para o Azure.<br/> - **Agente de descoberta**: o agente reúne os dados de configuração do computador. Usado ao avaliar computadores para migração para o Azure.<br/>- **Agente de avaliação**: o agente coleta dados de desempenho. Usado ao avaliar computadores para migração para o Azure.<br/>- **Serviço de atualização automática**: atualiza os componentes do dispositivo (é executado a cada 24 horas).
+**Implantação com suporte** | Implante como VM Hyper-V usando um modelo VHD.<br/><br/> Implante como uma VM ou máquina física do Hyper-V usando um script de instalação do PowerShell.
+**Suporte do projeto** |  Um dispositivo pode ser associado a um único projeto. <br/> Qualquer número de dispositivos pode ser associado a um único projeto.<br/> 
+**Limites de descoberta** | Um dispositivo pode descobrir até 5000 VMs do Hyper-V.<br/> Um dispositivo pode se conectar a até 300 hosts Hyper-V.
+**Modelo VHD** | Pasta compactada, incluindo VHD. Baixar do portal ou do https://aka.ms/migrate/appliance/hyperv.<br/><br/> O tamanho do download é 10 GB.<br/><br/> O modelo de dispositivo baixado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo da expiração, recomendamos que você baixe e implante um novo dispositivo ou ative a licença do sistema operacional da VM do dispositivo.
+**Script do PowerShell** | [Download](https://go.microsoft.com/fwlink/?linkid=2105112)de script.<br/><br/> 
+**Software/hardware***   |  O dispositivo deve ser executado no computador com o Windows Server 2016, 32-GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, seja diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo como uma VM do Hyper-V, precisará de recursos suficientes no host do Hyper-V para alocar 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um comutador externo para a VM do dispositivo.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e atende aos requisitos de hardware. 
+**Requisitos do Hyper-V** | Se você implantar o dispositivo com o modelo VHD, a VM do dispositivo fornecida pela migração do Azure será a VM Hyper-V versão 5,0.<br/><br/> O host Hyper-V deve estar executando o Windows Server 2012 R2 ou posterior. 
+**Valor de hash-VHD** | [Verifique](tutorial-assess-hyper-v.md#verify-security) os valores de hash do modelo VHD.
+**Valor de hash-script do PowerShell** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores de hash de script do PowerShell.
 
 
-## <a name="appliance---physical"></a>Aparelho - Físico
+## <a name="appliance---physical"></a>Dispositivo-físico
 
 **Requisito** | **Físico** 
 --- | ---
-**Componentes do aparelho** | O aparelho possui os seguintes componentes: <br/><br/> - **Aplicativo de gerenciamento**: Este é um aplicativo web para entrada do usuário durante a implantação do aparelho. Usado na avaliação de máquinas para migração para o Azure.<br/> - **Agente de descoberta**: O agente coleta dados de configuração da máquina. Usado na avaliação de máquinas para migração para o Azure.<br/>- **Agente de avaliação**: O agente coleta dados de desempenho. Usado na avaliação de máquinas para migração para o Azure.<br/>- **Serviço de atualização automática**: Atualiza os componentes do aparelho (funciona a cada 24 horas).
-**Implantação suportada** | Implante como uma máquina física dedicada, ou uma VM, usando um script de instalação PowerShell. O roteiro está disponível para download no portal.
-**Suporte ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
-**Limites de descoberta** | Um aparelho pode descobrir até 250 servidores físicos.
-**Script PowerShell** | Baixe o script (AzureMigrateInstaller.ps1) em uma pasta fechada do portal. [Saiba mais](tutorial-assess-physical.md#set-up-the-appliance). Alternativamente, [baixe diretamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> O tamanho do download é de 59,7 MB.
-**Software/hardware** |  O aparelho deve funcionar em máquina com Windows Server 2016, MEMÓRIA RAM de 32 GB, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um switch virtual externo.<br/> O aparelho precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou através de um proxy.<br/><br/> Se você executar o aparelho em uma máquina física, certifique-se de que ele está executando o Windows Server 2016 e atenda aos requisitos de hardware. 
-**Valor de hash** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores de hash do script PowerShell.
+**Componentes do dispositivo** | O dispositivo tem os seguintes componentes: <br/><br/> - **Aplicativo de gerenciamento**: Este é um aplicativo Web para entrada do usuário durante a implantação do dispositivo. Usado ao avaliar computadores para migração para o Azure.<br/> - **Agente de descoberta**: o agente reúne os dados de configuração do computador. Usado ao avaliar computadores para migração para o Azure.<br/>- **Agente de avaliação**: o agente coleta dados de desempenho. Usado ao avaliar computadores para migração para o Azure.<br/>- **Serviço de atualização automática**: atualiza os componentes do dispositivo (é executado a cada 24 horas).
+**Implantação com suporte** | Implante como uma máquina física dedicada ou uma VM usando um script de instalação do PowerShell. O script está disponível para download no Portal.
+**Suporte do projeto** |  Um dispositivo pode ser associado a um único projeto. <br/> Qualquer número de dispositivos pode ser associado a um único projeto.<br/> 
+**Limites de descoberta** | Um dispositivo pode descobrir até 250 servidores físicos.
+**Script do PowerShell** | Baixe o script (AzureMigrateInstaller. ps1) em uma pasta compactada do Portal. [Saiba mais](tutorial-assess-physical.md#set-up-the-appliance). Como alternativa, [Baixe diretamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> O tamanho do download é 59,7 MB.
+**Software/hardware** |  O dispositivo deve ser executado no computador com o Windows Server 2016, 32-GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, seja diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e atende aos requisitos de hardware. 
+**Valor de hash** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores de hash de script do PowerShell.
 
 ## <a name="url-access"></a>acesso à URL
 
-O aparelho Azure Migrate precisa de conectividade com a internet.
+O dispositivo de migrações para Azure precisa de conectividade com a Internet.
 
-- Quando você implanta o aparelho, o Azure Migrate faz uma verificação de conectividade para as URLs necessárias.
-- Se você estiver usando um proxy baseado em URL para se conectar à Internet, você precisa permitir o acesso a essas URLs, certificando-se de que o proxy resolva quaisquer registros CNAME recebidos ao procurar as URLs.
+- Quando você implanta o dispositivo, as migrações para Azure realizam uma verificação de conectividade para as URLs necessárias.
+- Se você estiver usando um proxy baseado em URL para se conectar à Internet, será necessário permitir o acesso a essas URLs, certificando-se de que o proxy resolva todos os registros CNAME recebidos ao pesquisar as URLs.
 
 ### <a name="public-cloud-urls"></a>URLs de nuvem pública
 
@@ -98,16 +98,16 @@ O aparelho Azure Migrate precisa de conectividade com a internet.
 --- | --- |
 *. portal.azure.com  | Navegue até o Portal do Azure.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Entre em sua assinatura do Azure.
-*.microsoftonline.com <br/> *.microsoftonline p.com | Crie aplicativos Azure Active Directory (AD) para que o aparelho se comunique com o Azure Migrate.
-management.azure.com | Crie aplicativos Azure AD para que o aparelho se comunique com o serviço Azure Migrate.
-dc.services.visualstudio.com | Faça upload de registros de aplicativos usados para monitoramento interno.
-*.vault.azure.net | Gerencie segredos no Cofre de Chaves Do Azure.
-aka.ms/* | Permitir acesso a links também conhecidos. Usado para atualizações de aparelhos Do Azure Migrate.
-download.microsoft.com/download | Permitir downloads a partir do download da Microsoft.
-*.servicebus.windows.net | Comunicação entre o aparelho e o serviço Azure Migrate.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Conecte-se às URLs de serviço do Azure Migrate.
-*.hypervrecoverymanager.windowsazure.com | **Usado para migração sem agente VMware**<br/><br/> Conecte-se às URLs de serviço do Azure Migrate.
-*.blob.core.windows.net |  **Usado para migração sem agente VMware**<br/><br/>Faça upload de dados para armazenamento para migração.
+*.microsoftonline.com <br/> *.microsoftonline p.com | Crie aplicativos de Azure Active Directory (AD) para que o dispositivo se comunique com as migrações para Azure.
+management.azure.com | Crie aplicativos do Azure AD para o dispositivo se comunicar com o serviço migrações para Azure.
+dc.services.visualstudio.com | Carregar logs de aplicativo usados para monitoramento interno.
+*.vault.azure.net | Gerenciar segredos no Azure Key Vault.
+aka.ms/* | Permitir acesso a links conhecidos. Usado para atualizações do dispositivo de migração do Azure.
+download.microsoft.com/download | Permitir downloads do download da Microsoft.
+*.servicebus.windows.net | Comunicação entre o dispositivo e o serviço de migrações para Azure.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Conecte-se às URLs de serviço de migrações para Azure.
+*.hypervrecoverymanager.windowsazure.com | **Usado para migração sem agente do VMware**<br/><br/> Conecte-se às URLs de serviço de migrações para Azure.
+*.blob.core.windows.net |  **Usado para migração sem agente do VMware**<br/><br/>Carregar dados no armazenamento para migração.
 
 ### <a name="government-cloud-urls"></a>URLs de nuvem do governo
 
@@ -115,100 +115,100 @@ download.microsoft.com/download | Permitir downloads a partir do download da Mic
 --- | --- |
 *.portal.azure.us  | Navegue até o Portal do Azure.
 graph.windows.net | Entre em sua assinatura do Azure.
-login.microsoftonline.us  | Crie aplicativos Azure Active Directory (AD) para que o aparelho se comunique com o Azure Migrate.
-management.usgovcloudapi.net | Crie aplicativos Azure AD para que o aparelho se comunique com o serviço Azure Migrate.
-dc.services.visualstudio.com | Faça upload de registros de aplicativos usados para monitoramento interno.
-*.vault.usgovcloudapi.net | Gerencie segredos no Cofre de Chaves Do Azure.
-aka.ms/* | Permitir acesso a links também conhecidos. Usado para atualizações de aparelhos Do Azure Migrate.
-download.microsoft.com/download | Permitir downloads a partir do download da Microsoft.
-*.servicebus.usgovcloudapi.net  | Comunicação entre o aparelho e o serviço Azure Migrate.
-*.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Conecte-se às URLs de serviço do Azure Migrate.
-*.hypervrecoverymanager.windowsazure.us | **Usado para migração sem agente VMware**<br/><br/> Conecte-se às URLs de serviço do Azure Migrate.
-*.blob.core.usgovcloudapi.net  |  **Usado para migração sem agente VMware**<br/><br/>Faça upload de dados para armazenamento para migração.
-*.applicationinsights.us | Faça upload de registros de aplicativos usados para monitoramento interno.
+login.microsoftonline.us  | Crie aplicativos de Azure Active Directory (AD) para que o dispositivo se comunique com as migrações para Azure.
+management.usgovcloudapi.net | Crie aplicativos do Azure AD para o dispositivo se comunicar com o serviço migrações para Azure.
+dc.services.visualstudio.com | Carregar logs de aplicativo usados para monitoramento interno.
+*. vault.usgovcloudapi.net | Gerenciar segredos no Azure Key Vault.
+aka.ms/* | Permitir acesso a links conhecidos. Usado para atualizações do dispositivo de migração do Azure.
+download.microsoft.com/download | Permitir downloads do download da Microsoft.
+*. servicebus.usgovcloudapi.net  | Comunicação entre o dispositivo e o serviço de migrações para Azure.
+*. discoverysrv.windowsazure.us <br/> *. migration.windowsazure.us | Conecte-se às URLs de serviço de migrações para Azure.
+*.hypervrecoverymanager.windowsazure.us | **Usado para migração sem agente do VMware**<br/><br/> Conecte-se às URLs de serviço de migrações para Azure.
+*.blob.core.usgovcloudapi.net  |  **Usado para migração sem agente do VMware**<br/><br/>Carregar dados no armazenamento para migração.
+*. applicationinsights.us | Carregar logs de aplicativo usados para monitoramento interno.
 
 
 
 
 
-## <a name="collected-data---vmware"></a>Dados coletados - VMware
+## <a name="collected-data---vmware"></a>Dados coletados-VMware
 
-O aparelho coleta metadados, dados de desempenho e dados de análise de dependência (se a [análise de dependência](concepts-dependency-visualization.md) sem agente for usada).
+O dispositivo coleta metadados, dados de desempenho e dados de análise de dependência (se a [análise de dependência](concepts-dependency-visualization.md) sem agente for usada).
 
 ### <a name="metadata"></a>Metadados
 
-Os metadados descobertos pelo aparelho Azure Migrate ajudam você a descobrir se máquinas e aplicativos estão prontos para migração para o Azure, máquinas e aplicativos de tamanho certo, custos de planos e análise de dependências de aplicativos. A Microsoft não usa esses dados em nenhuma auditoria de conformidade de licença.
+Os metadados descobertos pelo dispositivo de migrações para Azure ajudam a descobrir se os computadores e aplicativos estão prontos para migração para o Azure, para computadores e aplicativos de tamanho adequado, planos de custos e para analisar dependências de aplicativos. A Microsoft não usa esses dados em nenhuma auditoria de conformidade de licença.
 
-Aqui está a lista completa de metadados VMware VMque que o aparelho coleta e envia para o Azure.
+Aqui está a lista completa de metadados de VM do VMware que o dispositivo coleta e envia para o Azure.
 
-**Dados** | **Counter**
+**DADO** | **NEUTRALIZA**
 --- | --- 
-**Detalhes da máquina** | 
+**Detalhes do computador** | 
 ID da VM | vm.Config.InstanceUuid 
 Nome da VM | vm.Config.Name
-ID do vCenter Server | VMwareClient.Instance.Uuid
+ID do vCenter Server | VMwareClient. Instance. UUID
 Descrição da VM | vm.Summary.Config.Annotation
 Nome do produto de licença | vm.Client.ServiceContent.About.LicenseProductName
-Tipo de sistema operacional | Vm. ResumoConfig.GuestFullName
+Tipo de sistema operacional | VM. SummaryConfig.GuestFullName
 Tempo de inicialização | vm.Config.Firmware
 Número de núcleos | vm.Config.Hardware.NumCPU
 Memória (MB) | vm.Config.Hardware.MemoryMB
-Número de discos | Vm. config.hardware.device.tolist(). FindAll(x => é VirtualDisk).contagem
-Lista de tamanhos de disco | Vm. config.hardware.device.tolist(). FindAll(x => é VirtualDisk)
-Lista de adaptadores de rede | Vm. config.hardware.device.tolist(). FindAll(x => é VirtualEthernet).contagem
+Número de discos | VM. Config. hardware. Device. ToList (). FindAll (x => é VirtualDisk). Count
+Lista de tamanhos de disco | VM. Config. hardware. Device. ToList (). FindAll (x => é VirtualDisk)
+Lista de adaptadores de rede | VM. Config. hardware. Device. ToList (). FindAll (x => é VirtualEthernet). Count
 Utilização da CPU | cpu.usage.average
 Utilização da memória |mem.usage.average
-**Por detalhes de disco** | 
+**Detalhes de por disco** | 
 Valor de chave do disco | disk.Key
 Número de Dikunit | disk.UnitNumber
 Valor de chave de controlador de disco | disk.ControllerKey.Value
 Gigabytes provisionados | virtualDisk.DeviceInfo.Summary
-Nome do disco | Valor gerado usando disco. UnitNumber, disco. Chave, disco. ControllerKey.VAlue
+Nome do disco | Valor gerado usando disco. UnitNumber, disco. Chave, disco. ControllerKey. VAlue
 Operações de leitura por segundo | virtualDisk.numberReadAveraged.average
 Operações de gravação por segundo | virtualDisk.numberWriteAveraged.average
-Leitura de throughput (MB por segundo) | virtualDisk.read.average
-Gravar throughput (MB por segundo) | virtualDisk.write.average
+Taxa de transferência de leitura (MB por segundo) | virtualDisk.read.average
+Taxa de transferência de gravação (MB por segundo) | virtualDisk.write.average
 **Por detalhes da NIC** | 
 Nome do adaptador de rede | nic.Key
 Endereço MAC | ((VirtualEthernetCard)nic).MacAddress
 Endereços IPv4 | vm.Guest.Net
 Endereços IPv6 | vm.Guest.Net
-Leitura de throughput (MB por segundo) | net.received.average
-Gravar throughput (MB por segundo) | net.transmitted.average
-**Detalhes do caminho do inventário** | 
+Taxa de transferência de leitura (MB por segundo) | net.received.average
+Taxa de transferência de gravação (MB por segundo) | net.transmitted.average
+**Detalhes do caminho de inventário** | 
 Nome | container.GetType().Name
 Tipo de objeto filho | container.ChildType
 Detalhes de referência | container.MoRef
 Detalhes do pai | Container.Parent
 Detalhes da pasta por VM | ((Folder)container).ChildEntity.Type
 Detalhes do datacenter por VM | ((Datacenter)container).VmFolder
-Detalhes do datacenter por pasta host | ((Datacenter)container).HostFolder
-Detalhes de cluster por host | ((ClusterComputeResource)contêiner). Host
-Detalhes do host por VM | ((HostSystem)contêiner). Vm
+Detalhes do datacenter por pasta de host | ((Datacenter)container).HostFolder
+Detalhes do cluster por host | (Contêiner (ClusterComputeResource)). Hospedeira
+Detalhes do host por VM | (Contêiner (HostSystem)). VM
 
 ### <a name="performance-data"></a>Dados de desempenho
 
 
-Aqui estão os dados de desempenho da VMware VMque que o aparelho coleta e envia para o Azure.
+Aqui estão os dados de desempenho da VM VMware que o dispositivo coleta e envia para o Azure.
 
 **Dados** | **Contador** | **Impacto de avaliação**
 --- | --- | ---
-Utilização da CPU | cpu.usage.average | Tamanho/custo/custo/vm recomendado
-Utilização da memória | mem.usage.average | Tamanho/custo/custo/vm recomendado
-Throughput de leitura de disco (MB por segundo) | virtualDisk.read.average | Cálculo para tamanho do disco, custo de armazenamento, tamanho de VM
-Throughput de gravações de disco (MB por segundo) | virtualDisk.write.average | Cálculo para tamanho do disco, custo de armazenamento, tamanho de VM
-Operações de leitura de disco por segundo | virtualDisk.numberReadAveraged.average | Cálculo para tamanho do disco, custo de armazenamento, tamanho de VM
-O disco grava operações por segundo | virtualDisk.numberWriteAveraged.average  | Cálculo para tamanho do disco, custo de armazenamento, tamanho de VM
-Throughput de leitura de NIC (MB por segundo) | net.received.average | Cálculo para tamanho de VM
-NIC grava throughput (MB por segundo) | net.transmitted.average  |Cálculo para tamanho de VM
+Utilização da CPU | cpu.usage.average | Tamanho/custo da VM recomendado
+Utilização da memória | mem.usage.average | Tamanho/custo da VM recomendado
+Taxa de transferência de leitura de disco (MB por segundo) | virtualDisk.read.average | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
+Taxa de transferência de gravações de disco (MB por segundo) | virtualDisk.write.average | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
+Operações de leitura de disco por segundo | virtualDisk.numberReadAveraged.average | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
+Operações de gravações de disco por segundo | virtualDisk.numberWriteAveraged.average  | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
+Taxa de transferência de leitura de NIC (MB por segundo) | net.received.average | Cálculo para o tamanho da VM
+Taxa de transferência de gravações da NIC (MB por segundo) | net.transmitted.average  |Cálculo para o tamanho da VM
 
-### <a name="app-dependencies-metadata"></a>Metadados de dependências de aplicativos
+### <a name="app-dependencies-metadata"></a>Metadados de dependências de aplicativo
 
-A análise de dependência sem agente coleta dados de conexão e processo.
+A análise de dependência sem agente coleta dados de conexão e de processo.
 
 #### <a name="connection-data"></a>Dados de conexão
 
-Aqui estão os dados de conexão que o aparelho coleta de cada VM habilitado para análise de dependência sem agente. Esses dados são enviados ao Azure.
+Aqui estão os dados de conexão que o dispositivo coleta de cada VM habilitada para análise de dependência sem agente. Esses dados são enviados para o Azure.
 
 **Dados** | **Comando usado** 
 --- | --- 
@@ -216,22 +216,22 @@ Porta local | netstat
 Endereço IP local | netstat
 Porta remota | netstat
 Endereço IP remoto | netstat
-Estado de conexão TCP | netstat
+Estado da conexão TCP | netstat
 ID do Processo | netstat
 Não. de conexões ativas | netstat
 
 #### <a name="process-data"></a>Processar dados
-Aqui estão os dados do processo que o aparelho coleta de cada VM habilitado para análise de dependência sem agente. Esses dados são enviados ao Azure.
+Aqui estão os dados de processo que o dispositivo coleta de cada VM habilitada para análise de dependência sem agente. Esses dados são enviados para o Azure.
 
-**Dados** | **classe WMI** | **Propriedade da classe WMI**
+**Dados** | **classe WMI** | **Propriedade de classe WMI**
 --- | --- | ---
-Nome do processo | Win32_Process | Executablepath
+Nome do processo | Win32_Process | ExecutablePath
 Argumentos de processo | Win32_Process | CommandLine
-Nome do aplicativo | Win32_Process | Parâmetro VersionInfo.ProductName da propriedade ExecutablePath
+Nome do aplicativo | Win32_Process | Parâmetro VersionInfo. ProductName da Propriedade ExecutablePath
 
-#### <a name="linux-vm-data"></a>Dados do Linux VM
+#### <a name="linux-vm-data"></a>Dados da VM do Linux
 
-Aqui estão os dados de conexão e processo que o aparelho coleta de cada VM Linux habilitado para análise de dependência sem agente. Esses dados são enviados ao Azure.
+Aqui estão os dados de conexão e de processo que o dispositivo coleta de cada VM Linux habilitada para análise de dependência sem agente. Esses dados são enviados para o Azure.
 
 **Dados** | **Comando usado** 
 --- | ---
@@ -239,78 +239,144 @@ Porta local | netstat
 Endereço IP local | netstat 
 Porta remota | netstat 
 Endereço IP remoto | netstat 
-Estado de conexão TCP | netstat 
+Estado da conexão TCP | netstat 
 Não. de conexões ativas | netstat
 ID do Processo  | netstat 
 Nome do processo | ps
 Argumentos de processo | ps
-Nome do aplicativo | dpkg ou rpm
+Nome do aplicativo | dpkg ou RPM
 
 
 
-## <a name="collected-data---hyper-v"></a>Dados coletados - Hyper-V
+## <a name="collected-data---hyper-v"></a>Dados coletados-Hyper-V
 
-O aparelho coleta metadados, dados de desempenho e dados de análise de dependência (se a [análise de dependência](concepts-dependency-visualization.md) sem agente for usada).
+O dispositivo coleta metadados, dados de desempenho e dados de análise de dependência (se a [análise de dependência](concepts-dependency-visualization.md) sem agente for usada).
 
 ### <a name="metadata"></a>Metadados
-Os metadados descobertos pelo aparelho Azure Migrate ajudam você a descobrir se máquinas e aplicativos estão prontos para migração para o Azure, máquinas e aplicativos de tamanho certo, custos de planos e análise de dependências de aplicativos. A Microsoft não usa esses dados em nenhuma auditoria de conformidade de licença.
+Os metadados descobertos pelo dispositivo de migrações para Azure ajudam a descobrir se os computadores e aplicativos estão prontos para migração para o Azure, para computadores e aplicativos de tamanho adequado, planos de custos e para analisar dependências de aplicativos. A Microsoft não usa esses dados em nenhuma auditoria de conformidade de licença.
 
-Aqui está a lista completa de metadados Hyper-V VM que o aparelho coleta e envia para o Azure.
+Aqui está a lista completa de metadados de VM do Hyper-V que o dispositivo coleta e envia para o Azure.
 
-**Dados* | **Classe WMI** | **Propriedade da Classe WMI**
+**DADO* | **CLASSE WMI** | **PROPRIEDADE DE CLASSE WMI**
 --- | --- | ---
-**Detalhes da máquina** | 
-Número de série de BIOS _ Msvm_BIOSElement | NÚMERO DE SÉRIE DO BIOSSerial
-Tipo VM (Gen 1 ou 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubtype
-Nome de exibição de VM | Msvm_VirtualSystemSettingData | ElementName
-Versão VM | Msvm_ProcessorSettingData | VirtualQuantity
+**Detalhes do computador** | 
+Número de série de BIOS _ Msvm_BIOSElement | BIOSSerialNumber
+Tipo de VM (Gen 1 ou 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
+Nome de exibição da VM | Msvm_VirtualSystemSettingData | ElementName
+Versão da VM | Msvm_ProcessorSettingData | VirtualQuantity
 Memória (bytes) | Msvm_MemorySettingData | VirtualQuantity
 Memória máxima que pode ser consumida pela VM | Msvm_MemorySettingData | Limite
-Memória dinâmica ativada | Msvm_MemorySettingData | DynamicMemoryEnabled
-Nome do sistema operacional/versão/FQDN | Msvm_KvpExchangeComponent | Dados de nome do GuestIntrinsicExchangeItems
-Status de energia vm | Msvm_ComputerSystem | EnabledState
-**Por detalhes de disco** | 
+Memória dinâmica habilitada | Msvm_MemorySettingData | DynamicMemoryEnabled
+Nome/versão/FQDN do sistema operacional | Msvm_KvpExchangeComponent | Dados do nome do GuestIntrinsicExchangeItems
+Status de energia da VM | Msvm_ComputerSystem | EnabledState
+**Detalhes de por disco** | 
 Identificador de disco | Msvm_VirtualHardDiskSettingData | VirtualDiskId
 Tipo de disco rígido virtual | Msvm_VirtualHardDiskSettingData | Type
-Tamanho do disco rígido virtual | Msvm_VirtualHardDiskSettingData | MaxInternalsize
-Pai de disco rígido virtual | Msvm_VirtualHardDiskSettingData | PaiPath
+Tamanho do disco rígido virtual | Msvm_VirtualHardDiskSettingData | MaxInternalSize
+Pai do disco rígido virtual | Msvm_VirtualHardDiskSettingData | ParentPath
 **Por detalhes da NIC** | 
-Endereços IP (NICs sintéticos) | Msvm_GuestNetworkAdapterConfiguration | Ipaddresses
-Habilitado para DHCP (NICs sintéticos) | Msvm_GuestNetworkAdapterConfiguration | DHCPEnabled
-Nic ID (NICs sintéticos) | Msvm_SyntheticEthernetPortSettingData | InstanceID
-Endereço NIC MAC (NICs sintéticos) | Msvm_SyntheticEthernetPortSettingData | Endereço
-NIC ID (NICs legados) | MsvmEmdEthernetPortSetting data | InstanceID
-NIC MAC ID (NICs legados) | MsvmEmdEthernetPortSetting data | Endereço
+Endereços IP (NICs sintéticas) | Msvm_GuestNetworkAdapterConfiguration | IPAddresses
+DHCP habilitado (NICs sintéticas) | Msvm_GuestNetworkAdapterConfiguration | DHCPEnabled
+ID da NIC (NICs sintéticas) | Msvm_SyntheticEthernetPortSettingData | InstanceID
+Endereço MAC NIC (NICs sintéticas) | Msvm_SyntheticEthernetPortSettingData | Endereço
+ID da NIC (NICs herdadas) | Dados do MsvmEmulatedEthernetPortSetting | InstanceID
+ID de NIC MAC (NICs herdadas) | Dados do MsvmEmulatedEthernetPortSetting | Endereço
 
 ### <a name="performance-data"></a>Dados de desempenho
 
-Aqui estão os dados de desempenho do Hyper VM que o aparelho coleta e envia para o Azure.
+Aqui estão os dados de desempenho do Hyper VM que o dispositivo coleta e envia para o Azure.
 
 **Classe de contador de desempenho** | **Contador** | **Impacto de avaliação**
 --- | --- | ---
-Processador virtual hyper-V hypervisor | % Tempo de execução dos hóspedes | Tamanho/custo/custo/vm recomendado
-VM de memória dinâmica hiper-v | Pressão atual (%)<br/> Memória Física Visível do Convidado (MB) | Tamanho/custo/custo/vm recomendado
-Dispositivo de armazenamento virtual hyper-V | Leia Bytes/Segundo | Cálculo para tamanho do disco, custo de armazenamento, tamanho de VM
-Dispositivo de armazenamento virtual hyper-V | Escrever Bytes/Segundo | Cálculo para tamanho do disco, custo de armazenamento, tamanho de VM
-Adaptador de Rede Virtual Hyper-V | Bytes recebidos/segundo | Cálculo para tamanho de VM
-Adaptador de Rede Virtual Hyper-V | Bytes Enviados/Segundo | Cálculo para tamanho de VM
+Processador virtual do hipervisor do Hyper-V | % De tempo de execução de convidado | Tamanho/custo da VM recomendado
+VM Memória Dinâmica Hyper-V | Pressão atual (%)<br/> Memória física visível de convidado (MB) | Tamanho/custo da VM recomendado
+Dispositivo de armazenamento virtual do Hyper-V | Bytes de leitura/segundo | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
+Dispositivo de armazenamento virtual do Hyper-V | Bytes de gravação/segundo | Cálculo para tamanho do disco, custo de armazenamento, tamanho da VM
+Adaptador de Rede Virtual Hyper-V | Bytes recebidos/segundo | Cálculo para o tamanho da VM
+Adaptador de Rede Virtual Hyper-V | Bytes enviados/segundo | Cálculo para o tamanho da VM
 
-- A utilização da CPU é a soma de todo o uso, para todos os processadores virtuais conectados a uma VM.
-- Utilização da memória é (Pressão atual * Memória Física Visível do Convidado) / 100.
-- Os valores de utilização de disco e rede são coletados nos contadores de desempenho Hyper-V listados.
+- A utilização da CPU é a soma de todo o uso, para todos os processadores virtuais anexados a uma VM.
+- A utilização de memória é (pressão atual * memória física visível de convidado)/100.
+- Os valores de utilização de disco e rede são coletados dos contadores de desempenho do Hyper-V listados.
 
-## <a name="appliance-upgrades"></a>Atualizações de aparelhos
+## <a name="appliance-upgrades"></a>Atualizações de dispositivo
 
-O aparelho é atualizado à medida que os agentes do Azure Migrate em execução no aparelho são atualizados. Isso acontece automaticamente porque a atualização automática é ativada no aparelho por padrão. Você pode alterar essa configuração padrão para atualizar os agentes manualmente.
+O dispositivo é atualizado conforme os agentes de migração do Azure em execução no dispositivo são atualizados. Isso ocorre automaticamente, pois a atualização automática está habilitada no dispositivo por padrão. Você pode alterar essa configuração padrão para atualizar os serviços de dispositivo manualmente.
 
-- **Desativar a atualização automática**: Desativar a atualização automática no registro definindo HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" tecla 0 (DWORD). Se você decidir usar atualizações manuais, é importante atualizar todos os agentes no aparelho ao mesmo tempo, usando o botão **Atualizar** para cada agente desatualizado no aparelho.
-- **Atualização manual**: Para atualizações manuais, certifique-se de atualizar todos os agentes no aparelho, usando o botão **Atualizar** para cada agente desatualizado no aparelho. Você pode mudar a configuração de atualização de volta para atualizações automáticas a qualquer momento.
+### <a name="turn-off-auto-update"></a>Desativar atualização automática
 
-![Atualize automaticamente o aparelho](./media/migrate-appliance/autoupdate.png)
+1. No computador que executa o dispositivo, abra o editor do registro.
+2. Navegue até **HKEY_LOCAL_MACHINE \software\microsoft\azureappliance**.
+3. Para desativar a atualização automática, crie uma chave de **atualização** de chave de registro com o valor DWORD de 0.
+
+    ![Definir chave do registro](./media/migrate-appliance/registry-key.png)
+
+
+### <a name="turn-on-auto-update"></a>Ativar atualização automática
+
+Você pode ativar a atualização automática usando um destes métodos:
+
+- Excluindo a chave do registro de atualização automática de HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance.
+- Após a conclusão da descoberta, no Configuration Manager do dispositivo.
+
+Para excluir a chave do registro:
+
+1. No computador que executa o dispositivo, abra o editor do registro.
+2. Navegue até **HKEY_LOCAL_MACHINE \software\microsoft\azureappliance**.
+3. Exclua a chave do registro **AutoUpdate**, que foi criada anteriormente para desativar a atualização automática.
+
+Para ativar o dispositivo Configuration Manager, após a conclusão da descoberta:
+
+1. No computador do dispositivo, abra o dispositivo Configuration Manager.
+2. Em **serviço** > **de dispositivo a atualização automática de componentes de migração do Azure está desativada**, clique para ativar a atualização automática.
+
+    ![Ativar atualizações automáticas](./media/migrate-appliance/turn-on.png)
+
+### <a name="check-the-appliance-services-version"></a>Verificar a versão dos serviços de dispositivo
+
+Você pode verificar a versão dos serviços de dispositivo usando um destes métodos:
+
+- Em Configuration Manager do dispositivo, após a conclusão da descoberta.
+- No computador do dispositivo, nos**programas e recursos**do **painel** > de controle.
+
+Para fazer check-in no Configuration Manager do dispositivo:
+
+1. Após a conclusão da descoberta, abra o dispositivo Configuration Manager (no aplicativo Web do dispositivo).
+2. Em **serviços de dispositivo**, verifique as versões dos serviços de dispositivo.
+
+    ![Verificar a versão](./media/migrate-appliance/version.png)
+
+Para fazer check-in no painel de controle:
+
+1. No dispositivo, clique em **Iniciar** > **painel** > **de controle programas e recursos**
+2. Verifique as versões dos serviços de dispositivo na lista.
+
+    ![Verificar a versão no painel de controle](./media/migrate-appliance/programs-features.png)
+
+### <a name="manually-update-an-older-version"></a>Atualizar manualmente uma versão mais antiga
+
+Se você estiver executando uma versão mais antiga para qualquer um dos componentes, deverá desinstalar o serviço e atualizar manualmente para a versão mais recente.
+
+1. Para verificar as versões mais recentes do serviço de dispositivo, [Baixe](https://aka.ms/latestapplianceservices) o arquivo LatestComponents. JSON.
+2.  Após o download, abra o arquivo LatestComponents. JSON no bloco de notas.
+3. Localize a versão de serviço mais recente no arquivo e o link de download para ela. Por exemplo:
+
+    "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
+
+4.  Baixe a versão mais recente de um serviço desatualizado, usando o link de download no arquivo.
+5. Após o download, execute o comando a seguir em uma janela de comando do administrador para verificar a integridade do MSI baixado.
+
+    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```Por exemplo: C:\>certutil-hashfile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.msi MD5
+
+5. Verifique se a saída do comando corresponde à entrada de valor de hash para o serviço no arquivo (por exemplo, o valor de hash MD5 acima).
+6. Agora, execute o MSI para instalar o serviço. É uma instalação silenciosa e a janela de instalação é fechada após a conclusão.
+7. Após a conclusão da instalação, verifique a versão do serviço em **Control panel** > **programas e recursos**do painel de controle. A versão do serviço agora deve ser atualizada para a mais recente mostrada no arquivo JSON.
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Saiba como](how-to-set-up-appliance-vmware.md) configurar o aparelho para VMware.
-- [Saiba como](how-to-set-up-appliance-hyper-v.md) configurar o aparelho para Hyper-V.
-- [Saiba como](how-to-set-up-appliance-physical.md) configurar o aparelho para servidores físicos.
+- [Saiba como](how-to-set-up-appliance-vmware.md) configurar o dispositivo para VMware.
+- [Saiba como](how-to-set-up-appliance-hyper-v.md) configurar o dispositivo para o Hyper-V.
+- [Saiba como](how-to-set-up-appliance-physical.md) configurar o dispositivo para servidores físicos.
 

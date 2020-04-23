@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre fazer backup de Arquivos do Azure
 description: Neste artigo, descubra respostas para perguntas comuns sobre como proteger seus compartilhamentos de arquivo do Azure com o serviço de Backup do Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: b89e4a55bc8bc4ef2f4cdb50059537fe7708b6a6
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: d7b19fd11e6784a188a18f6a613eef5ff4f77764
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82101154"
+ms.locfileid: "82105634"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre como fazer backup de Arquivos do Azure
 
@@ -74,7 +74,7 @@ Sim. Consulte a documentação detalhada [aqui](backup-azure-afs-automation.md).
 
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-them"></a>Posso acessar os instantâneos tirados pelos backups do Azure e montá-los?
 
-Todos os instantâneos feitos pelo backup do Azure podem ser acessados exibindo instantâneos no portal, no PowerShell ou na CLI. Para saber mais sobre instantâneos de compartilhamento de arquivos do Azure, consulte [Visão geral de instantâneos de compartilhamento de arquivos do Azure (versão prévia)](../storage/files/storage-snapshots-files.md).
+Todos os instantâneos feitos pelo backup do Azure podem ser acessados exibindo instantâneos no portal, no PowerShell ou na CLI. Para saber mais sobre os instantâneos de compartilhamento de arquivos do Azure, consulte [visão geral de instantâneos de compartilhamento para arquivos do Azure](../storage/files/storage-snapshots-files.md).
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Qual é a retenção máxima que posso configurar para backups?
 

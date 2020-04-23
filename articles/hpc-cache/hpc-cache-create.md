@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: v-erkel
-ms.openlocfilehash: befbe2435a518b82cf5a3ab12e6129aa3ce5c22b
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: efa9037b345cdfc5f165e9c5e0c1831ea97b52ed
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537960"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106484"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar um Azure HPC Cache
 
@@ -23,7 +23,7 @@ Use o portal do Azure para criar seu cache.
 
 ![captura de tela da página de detalhes do projeto no portal do Azure](media/hpc-cache-create-basics.png)
 
-Em **Detalhes do Projeto**, selecione a assinatura e o grupo de recursos que hospedarão o cache.
+Em **Detalhes do Projeto**, selecione a assinatura e o grupo de recursos que hospedarão o cache. Verifique se a assinatura está na lista de [acesso](hpc-cache-prereqs.md#azure-subscription).
 
 Em **Detalhes do Serviço**, defina o nome do cache e estes outros atributos:
 
@@ -51,27 +51,27 @@ O Azure HPC Cache gerencia quais arquivos são armazenados em cache e pré-carre
 
 ![captura de tela da página de dimensionamento do cache](media/hpc-cache-create-capacity.png)
 
-## <a name="enable-azure-key-vault-encryption-optional"></a>Habilite a criptografia do Azure Key Vault (opcional)
+## <a name="enable-azure-key-vault-encryption-optional"></a>Habilitar criptografia de Azure Key Vault (opcional)
 
-Se o cache estiver em uma região que suporte as chaves de criptografia gerenciadas pelo cliente, a página **Chaves de criptografia de disco** será exibida entre as guias **Cache** e **Tags.** A partir do momento da publicação, esta opção é apoiada no Leste dos EUA, Centro-Sul dos EUA e Oeste dos EUA 2.
+Se o cache estiver em uma região que dá suporte a chaves de criptografia gerenciadas pelo cliente, a página **chaves de criptografia de disco** aparecerá entre as guias **cache** e **marcas** . A partir do momento da publicação, essa opção tem suporte no leste dos EUA, no Sul EUA Central e no oeste dos EUA 2.
 
-Se você quiser gerenciar as chaves de criptografia usadas com o armazenamento do cache, forneça as informações do Azure Key Vault na página **chaves de criptografia do Disco.** O cofre-chave deve estar na mesma região e na mesma assinatura do cache.
+Se você quiser gerenciar as chaves de criptografia usadas com o armazenamento de cache, forneça suas Azure Key Vault informações na página **chaves de criptografia de disco** . O cofre de chaves deve estar na mesma região e na mesma assinatura que o cache.
 
-Você pode pular esta seção se não precisar de chaves gerenciadas pelo cliente. O Azure criptografa dados com chaves gerenciadas pela Microsoft por padrão. Leia [a criptografia de armazenamento do Azure](../storage/common/storage-service-encryption.md) para saber mais.
+Você poderá ignorar esta seção se não precisar de chaves gerenciadas pelo cliente. Por padrão, o Azure criptografa dados com chaves gerenciadas pela Microsoft. Leia [criptografia de armazenamento do Azure](../storage/common/storage-service-encryption.md) para saber mais.
 
 > [!NOTE]
 >
-> * Não é possível alterar entre chaves gerenciadas pela Microsoft e chaves gerenciadas pelo cliente após a criação do cache.
-> * Depois que o cache for criado, você deve autorizá-lo para acessar o cofre de chaves. Clique no botão **Ativar criptografia** na página **Visão geral** do cache para ativar a criptografia. Dê este passo dentro de 90 minutos após a criação do cache.
-> * Os discos de cache são criados após essa autorização. Isso significa que o tempo inicial de criação do cache é curto, mas o cache não estará pronto para usar por dez minutos ou mais depois de autorizar o acesso.
+> * Você não pode alterar entre chaves gerenciadas pela Microsoft e chaves gerenciadas pelo cliente depois de criar o cache.
+> * Depois que o cache é criado, você deve autorizá-lo a acessar o cofre de chaves. Clique no botão **habilitar criptografia** na página **visão geral** do cache para ativar a criptografia. Siga esta etapa dentro de 90 minutos da criação do cache.
+> * Os discos de cache são criados após essa autorização. Isso significa que o tempo de criação do cache inicial é curto, mas o cache não estará pronto para ser usado por dez minutos ou mais depois que você autorizar o acesso.
 
-Para obter uma explicação completa do processo de criptografia de chaves gerenciado pelo cliente, leia [Usar chaves de criptografia gerenciadas pelo cliente para cache Azure HPC](customer-keys.md).
+Para obter uma explicação completa do processo de criptografia de chave gerenciada pelo cliente, leia [usar chaves de criptografia gerenciadas pelo cliente para o cache do Azure HPC](customer-keys.md).
 
-![captura de tela da página chaves de criptografia com campos de "gerenciados pelo cliente" selecionados e campos de cofre de chaves mostrando](media/create-encryption.png)
+![captura de tela da página chaves de criptografia com os campos "gerenciado pelo cliente" selecionados e cofre de chaves mostrando](media/create-encryption.png)
 
-O Cliente selecionado **conseguiu** escolher a criptografia de chave gerenciada pelo cliente. Os campos de especificação do cofre chave aparecem. Selecione o Azure Key Vault para usar e selecione a chave e a versão a serem usados para este cache. A chave deve ser uma chave RSA de 2048 bits. Você pode criar uma nova versão de cofre, chave ou chave a partir desta página.
+Selecione **cliente gerenciado** para escolher criptografia de chave gerenciada pelo cliente. Os campos de especificação do cofre de chaves são exibidos. Selecione a Azure Key Vault a ser usada e, em seguida, selecione a chave e a versão a serem usadas para esse cache. A chave deve ser uma chave RSA de 2048 bits. Você pode criar um novo cofre de chaves, chave ou versão de chave nesta página.
 
-Depois de criar o cache, você deve autorizá-lo a usar o serviço de cofre de chaves. Leia [autorizar a criptografia do Azure Key Vault do cache](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) para obter detalhes.
+Depois de criar o cache, você deve autorizá-lo a usar o serviço de cofre de chaves. Leia [autorizar Azure Key Vault criptografia do cache](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) para obter detalhes.
 
 ## <a name="add-resource-tags-optional"></a>Adicionar marcas de recurso (opcional)
 
@@ -79,7 +79,7 @@ A página **Marcas** permite que você adicione [tags de recurso](https://go.mic
 
 ## <a name="finish-creating-the-cache"></a>Concluir a criação do cache
 
-Depois de configurar o novo cache, clique na guia **'Revisar + criar'.** O portal valida suas seleções e permite que você revise suas escolhas. Se tudo estiver correto, clique em **Criar**.
+Depois de configurar o novo cache, clique na guia **revisar + criar** . O portal valida suas seleções e permite que você examine suas escolhas. Se tudo estiver correto, clique em **Criar**.
 
 A criação do cache leva cerca de 10 minutos. Você pode acompanhar o progresso no painel de notificações do portal do Azure.
 
@@ -90,11 +90,11 @@ Quando a criação for concluída, uma notificação será exibida com um link p
 ![captura de tela da instância do Azure HPC Cache no portal do Azure](media/hpc-cache-new-overview.png)
 
 > [!NOTE]
-> Se o cache usar chaves de criptografia gerenciadas pelo cliente, o cache pode aparecer na lista de recursos antes que o status de implantação seja concluído. Assim que o status do cache estiver **esperando a chave,** você pode [autorizá-lo](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) a usar o cofre de chaves.
+> Se o cache usar chaves de criptografia gerenciadas pelo cliente, o cache poderá aparecer na lista de recursos antes que o status da implantação seja alterado para concluído. Assim que o status do cache estiver **aguardando a chave** , você poderá [autorizá-lo](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) a usar o cofre de chaves.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois que seu cache aparecer na lista **Recursos,** você pode passar para a próxima etapa.
+Depois que o cache aparecer na lista de **recursos** , você poderá passar para a próxima etapa.
 
-* [Defina metas de armazenamento](hpc-cache-add-storage.md) para dar ao seu cache acesso às suas fontes de dados.
-* Se você usar chaves de criptografia gerenciadas pelo cliente, você precisa autorizar a [criptografia do Azure Key Vault](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) a partir da página de visão geral do cache para concluir sua configuração de cache. Você deve fazer este passo antes de adicionar armazenamento. Leia [Usar chaves de criptografia gerenciadas pelo cliente](customer-keys.md) para obter detalhes.
+* [Defina os destinos de armazenamento](hpc-cache-add-storage.md) para dar acesso ao cache às suas fontes de dados.
+* Se você usar chaves de criptografia gerenciadas pelo cliente, será necessário [autorizar Azure Key Vault criptografia](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) na página Visão geral do cache para concluir a configuração do cache. Você deve fazer essa etapa antes de poder adicionar armazenamento. Leia [usar chaves de criptografia gerenciadas pelo cliente](customer-keys.md) para obter detalhes.

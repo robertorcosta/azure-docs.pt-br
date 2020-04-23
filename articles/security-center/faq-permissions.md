@@ -1,6 +1,6 @@
 ---
-title: Faq do Azure Security Center - perguntas sobre permissões
-description: Esta perguntas frequentes responde a perguntas sobre permissões no Azure Security Center, um produto que ajuda você a prevenir, detectar e responder a ameaças.
+title: Perguntas frequentes sobre a central de segurança do Azure-perguntas sobre permissões
+description: Estas perguntas FREQUENTEs respondem a perguntas sobre permissões na central de segurança do Azure, um produto que ajuda você a prevenir, detectar e responder a ameaças.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 66a260fbb03f770ee98ec29a5f5e15e3d7dd1310
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89b3233966ac53d6c384ca6bd5ac30322fbb0b02
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77599386"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106586"
 ---
 # <a name="permissions"></a>Permissões
 
-## <a name="how-do-permissions-work-in-azure-security-center"></a>Como funcionam as permissões no Azure Security Center?
+## <a name="how-do-permissions-work-in-azure-security-center"></a>Como as permissões funcionam na central de segurança do Azure?
 
 A Central de Segurança do Azure usa o [RBAC (Controle de Acesso Baseado em Função)](../role-based-access-control/role-assignments-portal.md), que fornece [funções internas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a usuários, grupos e serviços no Azure.
 
@@ -34,6 +34,6 @@ Confira [Permissões na Central de Segurança do Azure](security-center-permissi
 
 ## <a name="who-can-modify-a-security-policy"></a>Quem pode modificar uma política de segurança?
 
-Para modificar uma política de segurança, você deve ser um Administrador de Segurança ou o Proprietário ou Colaborador dessa assinatura.
+Para modificar uma política de segurança, você deve ser um administrador de segurança ou um proprietário ou colaborador dessa assinatura.
 
 Para saber como configurar uma política de segurança, consulte a seção [Como configurar de políticas de segurança na Central de segurança do Azure](tutorial-security-policy.md).

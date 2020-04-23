@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: 4d65ca8d97e1cca81886259d4f15cc880e45be9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46ff4d9c941af25fcec3a70d7a2e6da95da59f32
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77604279"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106688"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na Central de Segurança do Azure
 Saiba como configurar o FIM (Monitoramento de Integridade de Arquivo) na Central de Segurança do Azure usando este passo a passo.
@@ -37,15 +37,47 @@ A Central de Segurança recomenda entidades para serem monitoradas, nas quais vo
 > [!NOTE]
 > O recurso de FIM (Monitoramento de Integridade de Arquivo) funciona para computadores e VMs Windows e Linux e está disponível na camada Standard da Central de Segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança. O FIM carrega dados no espaço de trabalho do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
 
-O FIM usa a solução de Controle de Alterações do Azure para controlar e identificar as alterações em seu ambiente. Quando o monitoramento de integridade do arquivo é ativado, você tem um recurso de rastreamento de **alteração** da solução de **tipo**. Para obter detalhes da freqüência de coleta de dados, consulte [Os detalhes da coleta de dados](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) do Alterar para o Azure Change Tracking.
+O FIM usa a solução de Controle de Alterações do Azure para controlar e identificar as alterações em seu ambiente. Quando o monitoramento de integridade de arquivo estiver habilitado, você terá um recurso de **controle de alterações** do tipo **solução**. Para obter detalhes de frequência de coleta de dados, consulte [controle de alterações detalhes da coleta de dados](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) para controle de alterações do Azure.
 
 > [!NOTE]
-> Se você remover o recurso **'Alterar rastreamento',** você também desativará o recurso De monitoramento de integridade de arquivos no Security Center.
+> Se você remover o recurso de **controle de alterações** , desabilitará também o recurso de monitoramento de integridade de arquivo na central de segurança.
 
 ## <a name="which-files-should-i-monitor"></a>Quais arquivos devo monitorar?
 Você deve pensar sobre os arquivos que são críticos para seu sistema e aplicativos ao escolher quais arquivos monitorar. Considere a possibilidade de escolher os arquivos que você não pretende alterar sem planejamento. Escolher arquivos que são alterados com frequência por aplicativos ou sistema operacional (como arquivos de log e arquivos de texto) cria muito ruído que torna difícil de identificar um ataque.
 
-A Central de Segurança recomenda quais arquivos você deve monitorar como padrão de acordo com padrões de ataque conhecidos que incluem alterações de arquivo e do Registro.
+A central de segurança fornece a seguinte lista de itens recomendados para monitorar com base em padrões de ataque conhecidos. Isso inclui arquivos e chaves do registro do Windows. Todas as chaves estão em HKEY_LOCAL_MACHINE ("HKLM" na tabela).
+
+|**Arquivos do Linux**|**Arquivos do Windows**|**Chaves do registro do Windows**|
+|:----|:----|:----|
+|/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4B59-4E08-B724-D2C6297EF351}|
+|/etc/*. conf|C:\config.sys|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\IniFileMapping\SYSTEM.ini\boot|
+|/usr/bin|C:\Windows\system.ini|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows|
+|/usr/sbin|C:\Windows\win.ini|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon|
+|/bin|C:\Windows\regedit.exe|Pastas HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell|
+|/sbin|C:\Windows\System32\userinit.exe|Pastas do Shell HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User|
+|/boot|C:\Windows\explorer.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run|
+|/usr/local/bin|C:\Arquivos de Programas\microsoft Security Client\msseces.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce|
+|/usr/local/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx|
+|/opt/bin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices|
+|/opt/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServicesOnce|
+|/etc/crontab||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|/etc/init.d||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4B59-4E08-B724-D2C6297EF351}|
+|/etc/cron.hourly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\IniFileMapping\system.ini\boot|
+|/etc/cron.daily||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Windows|
+|/etc/cron.weekly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Winlogon|
+|/etc/cron.monthly||Pastas HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\Shell|
+|||Pastas do Shell HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\User|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnce|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnceEx|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServices|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServicesOnce|
+|||HKLM\SYSTEM\CurrentControlSet\Control\hivelist|
+|||HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\DomainProfile|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\PublicProfile|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile|
 
 ## <a name="using-file-integrity-monitoring"></a>Usando o Monitoramento de Integridade de Arquivo
 1. Abra o painel **Central de Segurança**.
@@ -85,15 +117,14 @@ Para habilitar o FIM em um workspace:
 
 > [!NOTE]
 > Você pode alterar as configurações a qualquer momento. Consulte Editar entidades monitoradas abaixo para saber mais.
->
->
+
 
 ## <a name="view-the-fim-dashboard"></a>Exibir o painel do FIM
 O painel do **Monitoramento de integridade de arquivo** é exibido para workspaces em que o FIM está habilitado. O painel do FIM é aberto depois de habilitar o FIM em um workspace ou quando você seleciona um workspace na janela **Monitoramento de Integridade de Arquivo** que já tenha o FIM habilitado.
 
 ![Painel do Monitoramento de Integridade de Arquivo][6]
 
-O painel FIM para um espaço de trabalho exibe os seguintes detalhes:
+O painel do FIM de um espaço de trabalho exibe os seguintes detalhes:
 
 - Número total de computadores conectados ao workspace
 - Número total de alterações que ocorreram durante o período selecionado
@@ -109,7 +140,7 @@ A guia **Computadores** (mostrada acima) lista todos os computadores que se repo
 - Total de alterações que ocorreram durante o período selecionado
 - Uma divisão do total de alterações como alterações de arquivo ou do Registro
 
-**A pesquisa de log** é aberta quando você digita um nome de máquina no campo de pesquisa ou seleciona uma máquina listada na guia Computadores. Log Search exibe todas as alterações feitas durante o período de tempo selecionado para a máquina. Você pode expandir uma alteração para obter mais informações.
+A **pesquisa de logs** é aberta quando você insere um nome de computador no campo de pesquisa ou seleciona um computador listado na guia computadores. a pesquisa de log exibe todas as alterações feitas durante o período de tempo selecionado para o computador. Você pode expandir uma alteração para obter mais informações.
 
 ![Pesquisa de log][8]
 
@@ -177,7 +208,7 @@ Em **Editar para Controle de Alterações** você pode:
 
    ![Definir Habilitado como false][19]
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ## <a name="folder-and-path-monitoring-using-wildcards"></a>Pasta e o caminho de monitoramento usando caracteres curinga
 
@@ -199,13 +230,10 @@ Você pode desabilitar o FIM. O FIM usa a solução de Controle de Alterações 
 4. Selecione **Remover** para desabilitar.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu a usar o File Integrity Monitoring (FIM) no Security Center. Para saber mais sobre o Security Center, consulte as seguintes páginas:
+Neste artigo, você aprendeu a usar o FIM (monitoramento de integridade de arquivo) na central de segurança. Para saber mais sobre a central de segurança, consulte as seguintes páginas:
 
-* [Definindo políticas de segurança](tutorial-security-policy.md) -- Saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Configurando políticas de segurança](tutorial-security-policy.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciar recomendações de segurança](security-center-recommendations.md): saiba como as recomendações ajudam a proteger seus recursos do Azure.
-* [Monitoramento da integridade da segurança](security-center-monitoring.md): saiba como monitorar a integridade dos seus recursos do Azure.
-* [Gerenciar e responder aos alertas de segurança](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
-* [Monitoramento de soluções de parceiros](security-center-partner-solutions.md) -- Saiba como monitorar o estado de saúde das soluções de seu parceiro.
 * [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
 
 <!--Image references-->
