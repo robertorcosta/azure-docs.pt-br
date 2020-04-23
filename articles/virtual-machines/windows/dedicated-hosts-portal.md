@@ -7,12 +7,13 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 3d014014b540e5ea5959483427dec4b239ceaf7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: zivr
+ms.openlocfilehash: 53a9cd33f7bd2223be1c9f199b7a6d10d876c322
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476783"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082927"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Implantar VMs para hosts dedicados usando o portal
 
@@ -28,7 +29,7 @@ Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md
 1. Em **Detalhes da instância**, digite *myVM* para o **Nome da máquina virtual** e escolha *Leste dos EUA* para **Localização**.
 1. Em **Opções de Disponibilidade** **selecione Zona disponibilidade,** selecione *1* na queda.
 1. Para o tamanho, selecione **Alterar tamanho**. Na lista de tamanhos disponíveis, escolha um da série Esv3, como **o Standard E2s v3**. Você pode precisar limpar o filtro para ver todos os tamanhos disponíveis.
-1. Em **conta de administrador,** forneça um nome de usuário, como *azureuser* e uma senha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. Em **Conta de administrador**, forneça um nome de usuário, como *azureuser* e uma senha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 1. Em **Regras de portas de entrada**, escolha **Permitir portas selecionadas** e, em seguida, selecione **RDP (3389)** na lista suspensa.
 1. Na parte superior da página, selecione a guia **Avançado** e na seção **Hospedar,** selecione o **grupo** *myHostGroup* for Host e *myHost* for the **Host**. 
     ![Selecione grupo de host e host](./media/dedicated-hosts-portal/advanced.png)

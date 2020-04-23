@@ -2,17 +2,18 @@
 title: Criptografia de disco azure com Azure AD para VMs Windows (versão anterior)
 description: Este artigo fornece instruções sobre como habilitar as VMs da IaaS do Microsoft Azure Disk Encryption para Windows.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: d06be85e4d18bc0867835a307b44ec8813c79d7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8677fa2620c1edc646dcffe120938f03fd13a0e5
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72245000"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085614"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Criptografia de disco azure com Azure AD para VMs Windows (versão anterior)
 
@@ -330,4 +331,4 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -Aa
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Visão geral da criptografia de disco do Azure](disk-encryption-overview.md)
+> [Visão geral do Azure Disk Encryption](disk-encryption-overview.md)

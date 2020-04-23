@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
-ms.openlocfilehash: cb7580929a40683603263db03f2cfca0e1824233
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 407e5cefe9f7f60c86de6e80133ff1b3f8b9003d
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873796"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086531"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Aplicar políticas a VMs Windows com o Azure Resource Manager
 Usando políticas, uma organização pode impor várias convenções e regras em toda a empresa. A imposição do comportamento desejado pode ajudar a reduzir o risco e contribui para o sucesso da organização. Neste artigo, descrevemos como você pode usar as políticas do Azure Resource Manager para definir o comportamento desejado das Máquinas Virtuais de sua organização.
@@ -36,7 +36,6 @@ Para garantir que as máquinas virtuais de sua organização são compatíveis c
       {
         "field": "type",
         "in": [
-          "Microsoft.Compute/disks",
           "Microsoft.Compute/virtualMachines",
           "Microsoft.Compute/VirtualMachineScaleSets"
         ]

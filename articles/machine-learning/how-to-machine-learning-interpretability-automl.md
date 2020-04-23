@@ -1,5 +1,5 @@
 ---
-title: Explanabilidade em aprendizado automatizado de máquina
+title: Explicabilidade em ML automatizado
 titleSuffix: Azure Machine Learning
 description: Saiba como obter explicações de como seu modelo ML automatizado determina a importância dos recursos e faz previsões ao usar o Azure Machine Learning SDK.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.date: 03/11/2020
-ms.openlocfilehash: ecf7cde1a7f804ef1c43b21ac5c1d2a488660590
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: e9155104905ae3e686a01b90cbcad2610b6f4c91
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257157"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086412"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretabilidade: explicações do modelo em aprendizado automatizado de máquina
 

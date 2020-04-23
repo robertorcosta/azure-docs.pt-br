@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: d2d74a90d6712089cff681381e11b1caec9d469d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f6e1896c97c96cd484d15fb9e6a3056e5c5d6b2
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283660"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086361"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
 
@@ -182,7 +182,7 @@ No teste, usamos os critérios a seguir:
 Os resultados dão uma ideia do que pode ser alcançado com um cluster dedicado de Hubs de Eventos. Além disso, um cluster dedicado vem com a Captura de Hubs de Eventos habilitada para seus cenários de microlote e de retenção de longo prazo.
 
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Como criar um cluster dedicado de Hubs de Eventos?
-Crie um cluster dedicado de Hubs de Eventos enviando uma [solicitação de suporte de aumento de cota](https://portal.azure.com/#create/Microsoft.Support) ou contatando a [equipe dos Hubs de Eventos](mailto:askeventhubs@microsoft.com). Geralmente, demora cerca de duas semanas para implantar o cluster e disponibilizá-lo para seu uso. Esse processo é temporário até que um autoatendimento completo seja disponibilizado através do portal Azure ou modelos do Azure Resource Manager, que levam cerca de duas horas para implantar o cluster.
+Crie um cluster dedicado de Hubs de Eventos enviando uma [solicitação de suporte de aumento de cota](https://portal.azure.com/#create/Microsoft.Support) ou contatando a [equipe dos Hubs de Eventos](mailto:askeventhubs@microsoft.com). Geralmente, demora cerca de duas semanas para implantar o cluster e disponibilizá-lo para seu uso. Esse processo é temporário até que um auto-saque completo seja disponibilizado através do portal Azure.
 
 ## <a name="best-practices"></a>Práticas recomendadas
 

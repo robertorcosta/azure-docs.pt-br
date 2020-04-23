@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 4a8b3cf47235e061e5dbcc08a409fce84d421771
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57ca5b0880d4b027e33bc0d01fc6225eb886029b
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77562200"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084984"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implantar no Serviço de Aplicativos usando as ações do GitHub
 
@@ -28,7 +28,7 @@ Para um fluxo de trabalho do Azure App Service, o arquivo tem três seções:
 |Seção  |Tarefas  |
 |---------|---------|
 |**Autenticação** | 1. Defina um diretor de serviço <br /> 2. Crie um segredo do GitHub |
-|**Construir** | 1. Configurar o ambiente <br /> 2. Construa o aplicativo web |
+|**Compilar** | 1. Configurar o ambiente <br /> 2. Construa o aplicativo web |
 |**Implantar** | 1. Implantar o aplicativo web |
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço
@@ -62,7 +62,7 @@ Você também pode usar credenciais de nível de aplicativo, ou seja, publicar p
 4. Agora, no arquivo de fluxo `.github/workflows/workflow.yml` de trabalho em `publish-profile` sua filial: substitua o segredo para a entrada da ação do Aplicativo Web do Azure.
     
     ```yaml
-        - uses: azure/webapps-deploy@v1
+        - uses: azure/webapps-deploy@v2
           with:
             creds: ${{ secrets.azureWebAppPublishProfile }}
     ```
@@ -79,12 +79,12 @@ A configuração do ambiente pode ser feita usando uma das ações de configura�
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**Java**     | `actions/setup-java` |
-|**Javascript** | `actions/setup-node` |
+|**JavaScript** | `actions/setup-node` |
 |**Python**     | `actions/setup-python` |
 
 Os exemplos a seguir mostram a parte do fluxo de trabalho que configura o ambiente para as várias línguas suportadas:
 
-**Javascript**
+**JavaScript**
 
 ```yaml
     - name: Setup Node 10.x
@@ -127,7 +127,7 @@ Isso depende do idioma e para os idiomas suportados pelo Azure App Service, esta
 
 Os exemplos a seguir mostram a parte do fluxo de trabalho que constrói o aplicativo web, nos vários idiomas suportados.
 
-**Javascript**
+**JavaScript**
 
 ```yaml
     - name: 'Run npm'
@@ -182,13 +182,13 @@ Os exemplos a seguir mostram a parte do fluxo de trabalho que constrói o aplica
 ```
 ## <a name="deploy-to-app-service"></a>Implantar no Serviço de Aplicativo
 
-Para implantar seu código em um `azure/webapps-deploy@v1 ` aplicativo do App Service, use a ação. Esta ação tem quatro parâmetros:
+Para implantar seu código em um `azure/webapps-deploy@v2` aplicativo do App Service, use a ação. Esta ação tem quatro parâmetros:
 
 | **Parâmetro**  | **Explicação**  |
 |---------|---------|
 | **nome de aplicativo** | (Obrigatório) Nome do aplicativo App Service | 
 | **publicar perfil** | (Opcional) Publicar conteúdo de arquivo de perfil com segredos de Implantação da Web |
-| **Pacote** | (Opcional) Caminho para pacote ou pasta. *.zip, *.war, *.jar ou uma pasta para implantar |
+| **package** | (Opcional) Caminho para pacote ou pasta. *.zip, *.war, *.jar ou uma pasta para implantar |
 | **nome de caça-níquel** | (Opcional) Digite um slot existente que não seja o slot de produção |
 
 ### <a name="deploy-using-publish-profile"></a>Implantar usando o Perfil de Publicação
@@ -219,7 +219,7 @@ jobs:
         npm run test --if-present
        
     - name: 'Run Azure webapp deploy action using publish profile credentials'
-          uses: azure/webapps-deploy@v1
+          uses: azure/webapps-deploy@v2
           with: 
             app-name: node-rn
             publish-profile: ${{ secrets.azureWebAppPublishProfile }}
@@ -258,7 +258,7 @@ jobs:
         npm run test --if-present
                
     # deploy web app using Azure credentials
-    - uses: azure/webapps-deploy@v1
+    - uses: azure/webapps-deploy@v2
       with:
         app-name: 'node-rn'
 

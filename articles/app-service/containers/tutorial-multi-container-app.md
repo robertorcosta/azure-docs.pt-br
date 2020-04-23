@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
 ms.custom: cli-validate
-ms.openlocfilehash: 92a9368bf6aa4f2cf043b3aabd443b37cdcde390
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2cafcab4e7f8e9d98fa993a13def1bfca061135f
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77523940"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085800"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar um aplicativo multicontêiner (versão prévia) no Aplicativo Web para Contêineres
 
@@ -87,7 +87,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 Quando o Plano do Serviço de Aplicativo tiver sido criado, o Cloud Shell mostrará informações semelhantes ao exemplo a seguir:
 
-```json
+<pre>
 {
   "adminSiteName": null,
   "appServicePlanName": "myAppServicePlan",
@@ -98,12 +98,12 @@ Quando o Plano do Serviço de Aplicativo tiver sido criado, o Cloud Shell mostra
   "location": "South Central US",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
   "targetWorkerSizeId": 0,
   "type": "Microsoft.Web/serverfarms",
   "workerTierName": null
 }
-```
+</pre>
 
 ### <a name="docker-compose-with-wordpress-and-mysql-containers"></a>Docker Compose com contêineres do WordPress e MySQL
 
@@ -117,7 +117,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 Quando o aplicativo Web tiver sido criado, o Cloud Shell mostrará um resultado semelhante ao exemplo a seguir:
 
-```json
+<pre>
 {
   "additionalProperties": {},
   "availabilityState": "Normal",
@@ -126,11 +126,11 @@ Quando o aplicativo Web tiver sido criado, o Cloud Shell mostrará um resultado 
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 ### <a name="browse-to-the-app"></a>Navegar até o aplicativo
 
@@ -156,18 +156,18 @@ az mysql server create --resource-group myResourceGroup --name <mysql-server-nam
 
 A conclusão da criação do servidor pode demorar alguns minutos. Quando o servidor MySQL for criado, o Cloud Shell mostrará informações semelhantes ao exemplo a seguir:
 
-```json
+<pre>
 {
   "administratorLogin": "adminuser",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql-server-name>.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>",
+  "fullyQualifiedDomainName": "&lt;mysql-server-name&gt;.database.windows.net",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/&lt;mysql-server-name&gt;",
   "location": "southcentralus",
-  "name": "<mysql-server-name>",
+  "name": "&lt;mysql-server-name&gt;",
   "resourceGroup": "myResourceGroup",
   ...
 }
-```
+</pre>
 
 ### <a name="configure-server-firewall"></a>Configurar o firewall do servidor
 
@@ -189,17 +189,17 @@ az mysql db create --resource-group myResourceGroup --server-name <mysql-server-
 
 Quando o banco de dados for criado, o Cloud Shell mostrará informações semelhantes ao exemplo a seguir:
 
-```json
+<pre>
 {
   "additionalProperties": {},
   "charset": "latin1",
   "collation": "latin1_swedish_ci",
-  "id": "/subscriptions/12db1644-4b12-4cab-ba54-8ba2f2822c1f/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>/databases/wordpress",
+  "id": "/subscriptions/12db1644-4b12-4cab-ba54-8ba2f2822c1f/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/&lt;mysql-server-name&gt;/databases/wordpress",
   "name": "wordpress",
   "resourceGroup": "myResourceGroup",
   "type": "Microsoft.DBforMySQL/servers/databases"
 }
-```
+</pre>
 
 ### <a name="configure-database-variables-in-wordpress"></a>Configurar variáveis de banco de dados no WordPress
 
@@ -213,17 +213,17 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 
 Após a criação da configuração do aplicativo, o Cloud Shell mostrará informações semelhantes ao exemplo a seguir:
 
-```json
+<pre>
 [
   {
     "name": "WORDPRESS_DB_HOST",
     "slotSetting": false,
-    "value": "<mysql-server-name>.mysql.database.azure.com"
+    "value": "&lt;mysql-server-name&gt;.mysql.database.azure.com"
   },
   {
     "name": "WORDPRESS_DB_USER",
     "slotSetting": false,
-    "value": "adminuser@<mysql-server-name>"
+    "value": "adminuser@&lt;mysql-server-name&gt;"
   },
   {
     "name": "WORDPRESS_DB_NAME",
@@ -241,7 +241,7 @@ Após a criação da configuração do aplicativo, o Cloud Shell mostrará infor
     "value": "BaltimoreCyberTrustroot.crt.pem"
   }
 ]
-```
+</pre>
 
 Para obter mais informações sobre variáveis de ambiente, confira [Configurar variáveis de ambiente](configure-custom-container.md#configure-environment-variables).
 
@@ -287,14 +287,14 @@ az webapp config container set --resource-group myResourceGroup --name <app-name
 
 Quando o aplicativo for reconfigurado, o Cloud Shell mostrará informações semelhantes ao exemplo a seguir:
 
-```json
+<pre>
 [
   {
     "name": "DOCKER_CUSTOM_IMAGE_NAME",
     "value": "COMPOSE|dmVyc2lvbjogJzMuMycKCnNlcnZpY2VzOgogICB3b3JkcHJlc3M6CiAgICAgaW1hZ2U6IG1zYW5nYXB1L3dvcmRwcmVzcwogICAgIHBvcnRzOgogICAgICAgLSAiODAwMDo4MCIKICAgICByZXN0YXJ0OiBhbHdheXM="
   }
 ]
-```
+</pre>
 
 ### <a name="browse-to-the-app"></a>Navegar até o aplicativo
 
@@ -316,9 +316,9 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 
 Após a criação da configuração do aplicativo, o Cloud Shell mostrará informações semelhantes ao exemplo a seguir:
 
-```json
+<pre>
 [
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
   {
     "name": "WORDPRESS_DB_NAME",
     "slotSetting": false,
@@ -330,7 +330,7 @@ Após a criação da configuração do aplicativo, o Cloud Shell mostrará infor
     "value": "TRUE"
   }
 ]
-```
+</pre>
 
 ### <a name="modify-configuration-file"></a>Modifique o arquivo de configuração
 
@@ -363,7 +363,7 @@ az webapp config container set --resource-group myResourceGroup --name <app-name
 
 Após a execução do comando, ele mostrará uma saída semelhante ao exemplo a seguir:
 
-```json
+<pre>
 [
   {
     "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
@@ -375,7 +375,7 @@ Após a execução do comando, ele mostrará uma saída semelhante ao exemplo a 
     "value": "COMPOSE|dmVyc2lvbjogJzMuMycKCnNlcnZpY2VzOgogICBteXNxbDoKICAgICBpbWFnZTogbXlzcWw6NS43CiAgICAgdm9sdW1lczoKICAgICAgIC0gZGJfZGF0YTovdmFyL2xpYi9teXNxbAogICAgIHJlc3RhcnQ6IGFsd2F5cwogICAgIGVudmlyb25tZW50OgogICAgICAgTVlTUUxfUk9PVF9QQVNTV09SRDogZXhhbXBsZXBhc3MKCiAgIHdvcmRwcmVzczoKICAgICBkZXBlbmRzX29uOgogICAgICAgLSBteXNxbAogICAgIGltYWdlOiB3b3JkcHJlc3M6bGF0ZXN0CiAgICAgcG9ydHM6CiAgICAgICAtICI4MDAwOjgwIgogICAgIHJlc3RhcnQ6IGFsd2F5cwogICAgIGVudmlyb25tZW50OgogICAgICAgV09SRFBSRVNTX0RCX1BBU1NXT1JEOiBleGFtcGxlcGFzcwp2b2x1bWVzOgogICAgZGJfZGF0YTo="
   }
 ]
-```
+</pre>
 
 ### <a name="browse-to-the-app"></a>Navegar até o aplicativo
 
@@ -421,13 +421,13 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app-na
 
 Após a criação da configuração do aplicativo, o Cloud Shell mostrará informações semelhantes ao exemplo a seguir:
 
-```json
+<pre>
 [
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
   {
     "name": "WORDPRESS_DB_USER",
     "slotSetting": false,
-    "value": "adminuser@<mysql-server-name>"
+    "value": "adminuser@&lt;mysql-server-name&gt;"
   },
   {
     "name": "WP_REDIS_HOST",
@@ -435,7 +435,7 @@ Após a criação da configuração do aplicativo, o Cloud Shell mostrará infor
     "value": "redis"
   }
 ]
-```
+</pre>
 
 ### <a name="update-app-with-new-configuration"></a>Atualizar aplicativo com nova configuração
 
@@ -447,14 +447,14 @@ az webapp config container set --resource-group myResourceGroup --name <app-name
 
 Após a execução do comando, ele mostrará uma saída semelhante ao exemplo a seguir:
 
-```json
+<pre>
 [
   {
     "name": "DOCKER_CUSTOM_IMAGE_NAME",
     "value": "COMPOSE|dmVyc2lvbjogJzMuMycKCnNlcnZpY2VzOgogICBteXNxbDoKICAgICBpbWFnZTogbXlzcWw6NS43CiAgICAgdm9sdW1lczoKICAgICAgIC0gZGJfZGF0YTovdmFyL2xpYi9teXNxbAogICAgIHJlc3RhcnQ6IGFsd2F5cwogICAgIGVudmlyb25tZW50OgogICAgICAgTVlTUUxfUk9PVF9QQVNTV09SRDogZXhhbXBsZXBhc3MKCiAgIHdvcmRwcmVzczoKICAgICBkZXBlbmRzX29uOgogICAgICAgLSBteXNxbAogICAgIGltYWdlOiB3b3JkcHJlc3M6bGF0ZXN0CiAgICAgcG9ydHM6CiAgICAgICAtICI4MDAwOjgwIgogICAgIHJlc3RhcnQ6IGFsd2F5cwogICAgIGVudmlyb25tZW50OgogICAgICAgV09SRFBSRVNTX0RCX1BBU1NXT1JEOiBleGFtcGxlcGFzcwp2b2x1bWVzOgogICAgZGJfZGF0YTo="
   }
 ]
-```
+</pre>
 
 ### <a name="browse-to-the-app"></a>Navegar até o aplicativo
 
@@ -494,17 +494,17 @@ Se você tiver problemas ao usar vários contêineres, poderá acessar os logs d
 
 Você verá uma saída semelhante ao exemplo a seguir:
 
-```json
+<pre>
 [
    {
       "machineName":"RD00XYZYZE567A",
       "lastUpdated":"2018-05-10T04:11:45Z",
       "size":25125,
-      "href":"https://<app-name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_05_10_RD00XYZYZE567A_docker.log",
+      "href":"https://&lt;app-name&gt;.scm.azurewebsites.net/api/vfs/LogFiles/2018_05_10_RD00XYZYZE567A_docker.log",
       "path":"/home/LogFiles/2018_05_10_RD00XYZYZE567A_docker.log"
    }
 ]
-```
+</pre>
 
 Você verá um log para cada contêiner e um log adicional para o processo pai. Copie o respectivo valor `href` no navegador para exibir o log.
 

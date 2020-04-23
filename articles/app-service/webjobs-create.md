@@ -6,21 +6,21 @@ ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: glenga
-ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
+ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 4c568c95a5dbc1799a765c95a2b224de53dfbe9f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 028551f04b2e44e9456e2f7343159ad9b52fd25f
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279137"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085137"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Execute tarefas em segundo plano com webJobs no Azure App Service
 
 Este artigo mostra como implantar o WebJobs usando o [portal do Azure](https://portal.azure.com) para carregar um executável ou um script. Para obter informações sobre como desenvolver e implantar o WebJobs usando o Visual Studio, consulte [Implantar o WebJobs usando o Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 ## <a name="overview"></a>Visão geral
-WebJobs é um recurso do [Serviço de Aplicativo do Azure](index.yml) que permite executar um programa ou script no mesmo contexto de um aplicativo Web, aplicativo de API ou aplicativo móvel. Não há nenhum custo adicional para usar Trabalhos Web.
+WebJobs é um recurso do [Azure App Service](index.yml) que permite executar um programa ou script na mesma instância que um aplicativo web, aplicativo de API ou aplicativo móvel. Não há nenhum custo adicional para usar Trabalhos Web.
 
 > [!IMPORTANT]
 > O WebJobs ainda não é suportado para o Serviço de Aplicativo no Linux.
@@ -179,7 +179,7 @@ Para saber mais, consulte [Agendar um WebJob acionado](webjobs-dotnet-deploy-vs.
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a> Exibir o histórico de trabalhos
+## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a>Veja o histórico de trabalho
 
 1. Selecione o WebJob do qual você deseja ver o histórico e, em seguida, selecione o botão **Logs**.
    

@@ -1,25 +1,18 @@
 ---
-title: Mova um VMs do Windows AWS para o Azure
+title: Mova uma instância do Windows AWS EC2 para o Azure
 description: Mova uma instância do Windows de EC2 da Amazon Web Services (AWS) para uma máquina virtual do Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 9bd01f24ac2cada02f51089d238519cd6c7e0248
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59d1bf08c0680d222710b55c6d6bdb4d5745da56
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74039278"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084508"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Mover uma VM Windows do Amazon AWS (Web Services) para uma máquina virtual do Azure
 

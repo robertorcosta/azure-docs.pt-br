@@ -1,25 +1,19 @@
 ---
 title: Crie uma imagem gerenciada no Azure
 description: Crie uma imagem gerenciada de uma VM ou um VHD generalizado no Azure. Imagens podem ser usadas para criar várias VMs que usam discos gerenciados.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 01619027ddc79530dc9541584efa9a3e518f5136
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 258bddec85e4ab182ff0b07c49cdc93f92264f95
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74842051"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084457"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerenciada de uma VM generalizada no Azure
 
@@ -70,7 +64,7 @@ Para generalizar a VM do Windows, siga estas etapas:
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Criação de uma imagem gerenciada no portal 
 
-1. Vá até o [portal Azure](https://portal.azure.com) para gerenciar a imagem da VM. Procure e selecione **máquinas virtuais**.
+1. Vá até o [portal Azure](https://portal.azure.com) para gerenciar a imagem da VM. Pesquise por **Máquinas virtuais** e selecione essa opção.
 
 2. Selecione sua VM na lista.
 

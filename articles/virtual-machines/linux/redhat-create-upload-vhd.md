@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: guybo
-ms.openlocfilehash: 625dd1c8051d7949987d0dd19ee8a08347eedf14
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 4140f9f07a0fd653c8e0370d017cbae7effd0a07
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758644"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084304"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada no Red Hat para o Azure
 Neste artigo, você aprenderá como preparar uma máquina virtual do Red Hat Enterprise Linux (RHEL) para usar no Azure. Neste artigo, abordamos as versões 6.7+ e 7.1+ do RHEL. Neste artigo, abordamos os seguintes hipervisores de preparação: Hyper-V, máquina virtual baseada em kernel (KVM) e VMware. Para saber mais informações sobre os requisitos de qualificação para participação no programa Red Hat Cloud Access, confira o [site Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e o artigo[Como executar o RHEL no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para obter maneiras de automatizar imagens RHEL de construção, consulte o [Azure Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
@@ -202,7 +202,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
 1. Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -326,7 +326,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
 1. Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # waagent -force -deprovision
 
@@ -477,7 +477,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 
 1. Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -608,7 +608,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMwa
 
 1. Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -724,7 +724,7 @@ Esta seção pressupõe que você já instalou uma máquina virtual RHEL no VMwa
 
 1. Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 

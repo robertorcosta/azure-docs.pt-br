@@ -3,12 +3,12 @@ title: CI/CD com Pipelines e modelos azure
 description: Descreve como configurar a integração contínua no Azure Pipelines usando projetos de implantação do Azure Resource Group no Visual Studio para implantar modelos de Gerenciador de recursos.
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 7617bf47595fce7baa533b0f7cc94a1803ddd349
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153447"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084644"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integre modelos ARM com pipelines azure
 
@@ -28,7 +28,7 @@ Este artigo pressupõe que seu projeto Visual Studio e a organização Azure Dev
 
 * Você tem uma organização Azure DevOps. Se você não tem um, [crie um de graça.](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops) Se sua equipe já possui uma organização Azure DevOps, certifique-se de que você é um administrador do projeto Azure DevOps que você deseja usar.
 
-* Você configurou uma [conexão de serviço](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) para sua assinatura do Azure. As tarefas no pipeline são executadas a identidade do diretor de serviço. Para obter etapas para criar a conexão, consulte [Criar um projeto DevOps](template-tutorial-use-azure-pipelines.md#create-a-devops-project).
+* Você configurou uma [conexão de serviço](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) para sua assinatura do Azure. As tarefas no pipeline são executadas sob a identidade do diretor de serviço. Para obter etapas para criar a conexão, consulte [Criar um projeto DevOps](deployment-tutorial-pipeline.md#create-a-devops-project).
 
 * Você tem um projeto do Visual Studio que foi criado a partir do modelo inicial do **Azure Resource Group.** Para obter informações sobre como criar esse tipo de projeto, consulte [Criar e implantar grupos de recursos do Azure através do Visual Studio](create-visual-studio-deployment-project.md).
 
@@ -122,7 +122,7 @@ Agora, que você entenda como criar a tarefa, vamos passar pelas etapas para edi
        azurePowerShellVersion: LatestVersion
    ```
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
    ![Salve o pipeline](./media/add-template-to-azure-pipelines/save-pipeline.png)
 
@@ -249,7 +249,7 @@ Agora, que você entenda como criar as tarefas, vamos passar pelas etapas para e
         deploymentMode: 'Incremental'
    ```
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 1. Forneça uma mensagem para o compromisso e comprometa-se diretamente com o **mestre**.
 
@@ -261,4 +261,4 @@ Você pode selecionar o pipeline em execução no momento para ver detalhes sobr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter o passo-a-passo do processo sobre o uso do Azure Pipelines com modelos ARM, consulte [Tutorial: Integração contínua dos modelos ARM com pipelines do Azure](template-tutorial-use-azure-pipelines.md).
+Para obter o passo-a-passo do processo sobre o uso do Azure Pipelines com modelos ARM, consulte [Tutorial: Integração contínua dos modelos do Azure Resource Manager com o Azure Pipelines](deployment-tutorial-pipeline.md).

@@ -3,12 +3,12 @@ title: Visão geral de modelos
 description: Descreve os benefícios usando modelos do Azure Resource Manager para implantação de recursos.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 02602b4d12ae4333c88b352e4c13923d67f2c591
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b3b5fb383ac89d0968a437f35aab656afa1913f0
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885728"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086327"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos ARM?
 
@@ -50,7 +50,7 @@ Se você está tentando decidir entre usar modelos ARM e uma das outras infra-es
 
 * **Plantas de implantação**: Você pode aproveitar [os projetos fornecidos](../../governance/blueprints/overview.md) pela Microsoft para atender aos padrões normatéticos e de conformidade. Esses projetos incluem modelos pré-construídos para várias arquiteturas.
 
-* **Integração CI/CD**: Você pode integrar modelos em suas ferramentas de integração contínua e implantação contínua (CI/CD), que podem automatizar seus pipelines de liberação para atualizações rápidas e confiáveis de aplicativos e infra-estrutura. Ao usar a tarefa de modelo Do Azure DevOps e Do Gerenciador de Recursos, você pode usar o Azure Pipelines para construir e implantar continuamente projetos de modelo saqueadores do ARM. Para saber mais, consulte [o projeto VS com pipelines](add-template-to-azure-pipelines.md) e [integração contínua com pipelines Azure](template-tutorial-use-azure-pipelines.md).
+* **Integração CI/CD**: Você pode integrar modelos em suas ferramentas de integração contínua e implantação contínua (CI/CD), que podem automatizar seus pipelines de liberação para atualizações rápidas e confiáveis de aplicativos e infra-estrutura. Ao usar a tarefa de modelo Do Azure DevOps e Do Gerenciador de Recursos, você pode usar o Azure Pipelines para construir e implantar continuamente projetos de modelo saqueadores do ARM. Para saber mais, consulte [o projeto VS com pipelines](add-template-to-azure-pipelines.md) e [Tutorial: Integração contínua dos modelos do Azure Resource Manager com o Azure Pipelines](./deployment-tutorial-pipeline.md).
 
 * **Código exportável**: Você pode obter um modelo para um grupo de recursos existente exportando o estado atual do grupo de recursos ou visualizando o modelo usado para uma determinada implantação. A exibição do [modelo exportado](export-template-portal.md) é uma maneira útil de saber mais sobre a sintaxe do modelo.
 

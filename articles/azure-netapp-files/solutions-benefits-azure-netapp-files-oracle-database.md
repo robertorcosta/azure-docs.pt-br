@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: b-juche
-ms.openlocfilehash: d28f5469174a2659869ebb01ef01653b7190e30e
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: a73da39dafcc8be78fbe1c023693ffa4a19aa1d3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772074"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085001"
 ---
-# <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Benefícios de usar arquivos Do Azure NetApp com o Banco de Dados Oracle
+# <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Benefícios do uso do Azure NetApp Files com o Oracle Database
 
 O Oracle Direct NFS (dNFS) permite obter um desempenho superior ao driver NFS do próprio sistema operacional. Este artigo explica a tecnologia e fornece uma comparação de desempenho entre o dNFS e o cliente NFS tradicional (Kernel NFS). Ele também mostra as vantagens e a facilidade de usar o dNFS com arquivos Do Azure NetApp.  
 
@@ -39,7 +39,7 @@ Em contraste, o Oracle dNFS melhora o desempenho equilibrando o tráfego de rede
 
 O [Oracle FAQ for Direct NFS](http://www.orafaq.com/wiki/Direct_NFS) mostra que o Oracle dNFS é um cliente NFS otimizado. Ele fornece acesso rápido e escalável ao armazenamento NFS que está localizado em dispositivos de armazenamento NAS (acessíveis sobre TCP/IP). O dNFS é incorporado no kernel de banco de dados, assim como o ASM, que é usado principalmente com armazenamento DAS ou SAN. Como tal, *a diretriz é usar o dNFS ao implementar o armazenamento NAS e usar o ASM ao implementar o armazenamento de SAN.*
 
-dNFS é a opção padrão no Oracle 18c e o padrão para RAC.
+dNFS é a opção padrão no Oracle 18c.
 
 O dNFS está disponível a partir do Oracle Database 11g. O diagrama abaixo compara o dNFS com o NFS nativo. Quando você usa dNFS, um banco de dados Oracle que é executado em uma máquina virtual do Azure pode dirigir mais I/O do que o cliente NFS nativo.
 

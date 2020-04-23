@@ -2,13 +2,13 @@
 title: Funções de modelo - data
 description: Descreve as funções a serem utilizadas em um modelo do Azure Resource Manager para trabalhar com datas.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 75234a142b9f2fbe61c337bfeb378b47534bac79
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/22/2020
+ms.openlocfilehash: 364b41e9e92cb248a7bd2fac5a41eb535adbf440
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986272"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084780"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funções de data para modelos ARM
 
@@ -21,9 +21,9 @@ O Resource Manager fornece as seguintes funções para trabalhar com datas em se
 
 `dateTimeAdd(base, duration, [format])`
 
-Adiciona uma duração de tempo a um valor de data-hora base.
+Adiciona uma duração de tempo a um valor base. O formato ISO 8601 é esperado.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
@@ -140,7 +140,7 @@ O modelo seguinte mostra como definir a hora de início de um cronograma de Auto
 
 Retorna o valor de data-hora atual (UTC) no formato especificado. Se nenhum formato for fornecido, o formato ISO 8601 (yyyyMddTHHmmssZ) é usado. **Esta função só pode ser usada no valor padrão de um parâmetro.**
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |

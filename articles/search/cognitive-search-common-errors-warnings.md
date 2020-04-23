@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 72bf08dce36d857c1fe91bbe9806336dfa185f7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed10e998ea05b6687190b1f87095f8bc28265905
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671985"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086599"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solução de problemas erros e avisos comuns de indexadores no Azure Cognitive Search
 
@@ -92,6 +92,8 @@ O indexador não era capaz de executar uma habilidade no skillset.
 ## <a name="error-could-not-execute-skill-because-the-web-api-request-failed"></a>Erro: Não foi possível executar a habilidade porque a solicitação de API da Web falhou
 A execução de habilidades falhou porque a chamada para a API da Web falhou. Normalmente, essa classe de falha ocorre quando as habilidades personalizadas são usadas, nesse caso você precisará depurar seu código personalizado para resolver o problema. Se, em vez disso, a falha for de uma habilidade incorporada, consulte a mensagem de erro para obter ajuda na correção do problema.
 
+Durante a depuração deste problema, certifique-se de prestar atenção a quaisquer [avisos de entrada de habilidade](#warning-skill-input-was-invalid) suscetido a essa habilidade. Seu ponto final da API da Web pode estar falhando porque o indexador está passando uma entrada inesperada.
+
 <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"/>
 
 ## <a name="error-could-not-execute-skill-because-web-api-skill-response-is-invalid"></a>Erro: Não foi possível executar a habilidade porque a resposta de habilidade da API da Web é inválida
@@ -145,7 +147,7 @@ O documento foi lido e processado, mas o indexador não pôde adicioná-lo ao í
 | Um campo contém um termo que é muito grande | Um termo em seu documento é maior que o [limite de 32 KB](search-limits-quotas-capacity.md#api-request-limits) | Você pode evitar essa restrição garantindo que o campo não esteja configurado como filtrante, facetable ou classificável.
 | O documento é muito grande para ser indexado | Um documento é maior do que o [tamanho máximo da solicitação de API](search-limits-quotas-capacity.md#api-request-limits) | [Como indexar grandes conjuntos de dados](search-howto-large-index.md)
 | Documento contém muitos objetos na coleção | Uma coleção em seu documento excede os [elementos máximos em todos os limites de coleções complexas](search-limits-quotas-capacity.md#index-limits) "O documento com chave `'1000052'` tem `'4303'` objetos em coleções (matrizes JSON). Na `'3000'` maioria dos objetos são permitidos estar em coleções em todo o documento. Por favor, remova objetos das coleções e tente indexar o documento novamente." | Recomendamos reduzir o tamanho da coleção complexa no documento para abaixo do limite e evitar alta utilização de armazenamento.
-| Problemas de conexão ao índice de destino (que persiste após tentativas) porque o serviço está outra carga, como consulta ou indexação. | Falha ao estabelecer conexão para atualizar índice. O serviço de busca está carga pesada. | [Dimensione seu serviço de pesquisa](search-capacity-planning.md)
+| Problemas de conexão ao índice de destino (que persiste após tentativas) porque o serviço está sob outra carga, como consulta ou indexação. | Falha ao estabelecer conexão para atualizar índice. O serviço de busca está sob carga pesada. | [Dimensione seu serviço de pesquisa](search-capacity-planning.md)
 | O serviço de pesquisa está sendo corrigido para atualização de serviço, ou está no meio de uma reconfiguração de topologia. | Falha ao estabelecer conexão para atualizar índice. O serviço de pesquisa está atualmente em baixa/O serviço de pesquisa está passando por uma transição. | Configure o serviço com pelo menos 3 réplicas para 99,9% de disponibilidade por [documentação SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Falha no recurso de computação/rede subjacente (raro) | Falha ao estabelecer conexão para atualizar índice. Ocorreu uma falha desconhecida. | Configure indexadores para [executar em um cronograma](search-howto-schedule-indexers.md) para pegar de um estado com falha.
 | Uma solicitação de indexação feita ao índice-alvo não foi reconhecida dentro de um período de tempo devido a problemas de rede. | Não foi possível estabelecer conexão com o índice de pesquisa em tempo hábil. | Configure indexadores para [executar em um cronograma](search-howto-schedule-indexers.md) para pegar de um estado com falha. Além disso, tente reduzir o tamanho do [lote](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) do indexador se essa condição de erro persistir.

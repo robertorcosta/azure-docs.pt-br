@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 39e3521339947263161979033406fb39e397373f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 61fbaf37577efdab0b147d437ae78fc4df0764cb
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348967"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084950"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento Do Zure Blob para funções do Azure
 
@@ -40,7 +40,7 @@ Outra abordagem para processar bolhas é escrever mensagens de fila que correspo
 
 ## <a name="example"></a>Exemplo
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que grava um log quando um blob é adicionado ou atualizado no contêiner `samples-workitems`.
 
@@ -103,7 +103,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma associação de gatilho de blob em um arquivo *function.json* e [código JavaScript](functions-reference-node.md) que usa a associação. A função grava um log quando um blob é adicionado ou atualizado no `samples-workitems` contêiner.
 
@@ -196,7 +196,7 @@ public void run(
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Em [bibliotecas de classe C#](functions-dotnet-class-library.md), use os seguintes atributos para configurar um gatilho de blob:
 
@@ -256,7 +256,7 @@ A conta de armazenamento a ser usada é determinada na seguinte ordem:
 
 Os atributos não são suportados pelo script C#.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Os atributos não são suportados pelo JavaScript.
 
@@ -276,8 +276,8 @@ A tabela a seguir explica as propriedades de configuração de `BlobTrigger` vin
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type** | n/d | Deve ser definido como `blobTrigger`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
-|**direction** | n/d | Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. As exceções são mencionadas na seção [uso](#usage). |
+|**tipo** | n/d | Deve ser definido como `blobTrigger`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
+|**Direção** | n/d | Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. As exceções são mencionadas na seção [uso](#usage). |
 |**name** | n/d | O nome da variável que representa o blob no código de função. |
 |**path** | **BlobPath** |O [contêiner](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) para monitorar.  Pode ser um [padrão de nome de blob](#blob-name-patterns). |
 |**Conexão** | **Conexão** | O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome aqui. Por exemplo, se você configurar `connection` para “MyStorage”, o runtime do Functions procura por uma configuração de aplicativo que esteja nomeada “AzureWebJobsMyStorage." Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.<br><br>A cadeia de conexão deve ser uma conta de armazenamento para uso geral e não uma [conta de Armazenamento de Blobs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
@@ -286,7 +286,7 @@ A tabela a seguir explica as propriedades de configuração de `BlobTrigger` vin
 
 ## <a name="usage"></a>Uso
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
@@ -294,7 +294,7 @@ A tabela a seguir explica as propriedades de configuração de `BlobTrigger` vin
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Acessar dados blob usando `context.bindings.<NAME>` onde `<NAME>` corresponde ao valor definido em *function.json*.
 
@@ -352,7 +352,7 @@ Se a bolha for nomeada `name` * {20140101}-soundfile.mp3*, o valor variável no 
 
 ## <a name="metadata"></a>Metadados
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
@@ -360,7 +360,7 @@ Se a bolha for nomeada `name` * {20140101}-soundfile.mp3*, o valor variável no 
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 module.exports = function (context, myBlob) {
@@ -391,7 +391,7 @@ O Azure Functions armazena recibos do blob em um contêiner denominado *azure-we
 * O nome do blob
 * O ETag (um identificador de versão de blob, por exemplo: "0x8D1DC6E70A277EF")
 
-Para forçar o reprocessamento de um blob, exclua manualmente o recebimento desse blob do contêiner *azure-webjobs-hosts*. Embora o reprocessamento possa não ocorrer imediatamente, é garantido que ocorra em um momento posterior.
+Para forçar o reprocessamento de um blob, exclua manualmente o recebimento desse blob do contêiner *azure-webjobs-hosts*. Embora o reprocessamento possa não ocorrer imediatamente, é garantido que ocorra em um momento posterior. Para reprocessar imediatamente, o *blob scaninfo* em *azure-webjobs-hosts/blobscaninfo* pode ser atualizado. Quaisquer bolhas com um último carimbo `LatestScan` de tempo modificado após a propriedade serão digitalizadas novamente.
 
 ## <a name="poison-blobs"></a>Bolhas venenosas
 

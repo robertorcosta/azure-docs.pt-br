@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a6c9eb354bce09a5f652895f4af34df1f6750bec
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2609ff908b3c2f872cb63d3dcd7dcd481d316484
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80045751"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085851"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Tutorial: Criar uma imagem personalizada e executá-la no Serviço de Aplicativo por meio de um registro particular
 
@@ -123,7 +123,7 @@ az acr credential show --name <azure-container-registry-name>
 
 O resultado revela duas senhas, juntamente com o nome de usuário.
 
-```json
+<pre>
 {
   "passwords": [
     {
@@ -135,9 +135,9 @@ O resultado revela duas senhas, juntamente com o nome de usuário.
       "value": "{password}"
     }
   ],
-  "username": "<registry-username>"
+  "username": "&lt;registry-username&gt;"
 }
-```
+</pre>
 
 Na janela do terminal local, entre no Registro de Contêiner do Azure usando o comando `docker login`, conforme mostrado no exemplo a seguir. Substitua *\<azure-container-registry-name>* e *\<registry-username>* pelos valores do registro. Quando solicitado, digite uma das senhas da etapa anterior.
 
@@ -168,11 +168,11 @@ az acr repository list -n <azure-container-registry-name>
 
 Você deverá obter o resultado a seguir.
 
-```json
+<pre>
 [
   "mydockerimage"
 ]
-```
+</pre>
 
 ### <a name="create-app-service-plan"></a>Criar plano de Serviço de Aplicativo
 
@@ -188,7 +188,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 Quando o aplicativo Web for criado, a CLI do Azure mostrará um resultado semelhante ao seguinte exemplo:
 
-```json
+<pre>
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -196,12 +196,12 @@ Quando o aplicativo Web for criado, a CLI do Azure mostrará um resultado semelh
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 ### <a name="configure-registry-credentials-in-web-app"></a>Configurar as credenciais de registro no aplicativo Web
 

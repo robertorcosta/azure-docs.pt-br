@@ -134,7 +134,7 @@
           href: source-control-integration.md
     - name: Gerenciamento de configuração
       items:
-        - name: Gerenciar a DSC (State Configuration)
+        - name: State Configuration (DSC)
           items:
             - name: Visão geral
               href: automation-dsc-overview.md
@@ -156,7 +156,7 @@
               href: automation-dsc-diagnostics.md
             - name: Solucionar problemas com a DSC
               href: troubleshoot/desired-state-configuration.md
-        - name: Gerenciar Controle de Alterações e Inventário
+        - name: Controle de Alterações e Inventário
           items:
             - name: Visão geral
               href: change-tracking.md
@@ -182,7 +182,7 @@
                   href: troubleshoot/onboarding.md
                 - name: Usar o Controle de Alterações e o Inventário
                   href: troubleshoot/change-tracking.md
-    - name: Iniciar/Parar VMs nos horários inativos
+    - name: Iniciar/Parar VMs durante os horários inativos
       items:
         - name: Visão geral
           href: automation-solution-vm-management.md

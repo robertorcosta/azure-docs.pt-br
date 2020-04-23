@@ -6,21 +6,21 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 95bfa7b1918da09e4f5913eeb2b57c290b093efe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 432e22879ce0eba89f04a1084e2d4a93a487dd45
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270440"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086429"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implantar modelos do Azure Resource Manager para aplicativos de lógica do Azure
 
 Depois de criar um modelo do Azure Resource Manager para o seu aplicativo lógico, você pode implantar seu modelo destamaneira:
 
-* [Portal Azure](#portal)
+* [Azure portal](#portal)
 * [Visual Studio](#visual-studio)
-* [Azure PowerShell](#powershell)
-* [Azure CLI](#cli)
+* [PowerShell do Azure](#powershell)
+* [CLI do Azure](#cli)
 * [APIs REST do Gerenciador de Recursos do Azure](../azure-resource-manager/templates/deploy-rest.md)
 * [Azure DevOps](#azure-pipelines)
 
@@ -79,7 +79,7 @@ az group deployment create -g <Azure-resource-group-name> --template-uri https:/
 
 Para saber mais, consulte esses tópicos:
 
-* [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../azure-resource-manager/templates/deploy-cli.md) 
+* [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../azure-resource-manager/templates/deploy-cli.md)
 * [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
 
 <a name="azure-pipelines"></a>
@@ -91,7 +91,7 @@ Para implantar modelos de aplicativos lógicos e gerenciar ambientes, as equipes
 Para obter mais informações sobre integração contínua e implantação contínua (CI/CD) para modelos do Azure Resource Manager com o Azure Pipelines, consulte esses tópicos e amostras:
 
 * [Integre modelos de gerenciador de recursos com pipelines do Azure](../azure-resource-manager/templates/add-template-to-azure-pipelines.md)
-* [Tutorial: Integração contínua para modelos do Azure Resource Manager com pipelines do Azure](../azure-resource-manager/templates/template-tutorial-use-azure-pipelines.md)
+* [Tutorial: Integração contínua dos modelos do Azure Resource Manager com o Azure Pipelines](../azure-resource-manager/templates/deployment-tutorial-pipeline.md)
 * [Exemplo: Conecte-se às filas de ônibus de serviço do Azure a partir de aplicativos azure logic e implante com pipelines Azure no Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Exemplo: Conecte-se às contas de armazenamento do Azure a partir de aplicativos azure logic e implante com pipelines Azure no Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Exemplo: Configure uma ação de aplicativo de função para aplicativos azure logic e implante com pipelines Azure no Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)

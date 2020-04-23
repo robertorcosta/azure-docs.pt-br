@@ -8,17 +8,17 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 8674438032ebd925296c95e9ffa0a2a0b95322f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3659070d4ffd4346a8827d2748e67db436fc15b3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79369770"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085732"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Habilidade cognitiva de procurar entidades personalizadas (Visualização)
 
 > [!IMPORTANT] 
-> Esta habilidade está atualmente em visualização pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente, não há suporte a portal ou .NET SDK.
+> Esta habilidade está atualmente em visualização pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Atualmente, não há suporte a portal ou .NET SDK.
 
 A habilidade **de Pesquisa de Entidade personalizada** procura texto de uma lista personalizada de palavras e frases definida pelo usuário. Usando esta lista, ele rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência difusa que pode ser aplicada para encontrar correspondências que são semelhantes, mas não muito exatas.  
 
@@ -29,7 +29,7 @@ Microsoft.Skills.Text.CustomEntityLookupSkill
 
 ## <a name="data-limits"></a>Limites de dados
 + O tamanho máximo do registro de entrada suportado é de 256 MB. Se você precisar quebrar seus dados antes de enviá-los para a habilidade de pesquisa de entidade sucursada personalizada, considere usar a [habilidade Text Split](cognitive-search-skill-textsplit.md).
-+ A tabela de definição máxima de entidades suportada é de 10 MB se for fornecida usando o parâmetro *entidadesDefitionUri.* 
++ A tabela de definição de entidades máximas suportada é de 10 MB se for fornecida usando o parâmetro *entidadesDefinitionUri.* 
 + Se as entidades forem definidas inline, usando o parâmetro *inlineEntitiesDefinition,* o tamanho máximo suportado é de 10 KB.
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidades
@@ -63,13 +63,13 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 Existem 3 maneiras diferentes de fornecer a lista de entidades personalizadas para a habilidade de Procurar entidades personalizadas. Você pode fornecer a lista em um . Arquivo CSV, a . Arquivo JSON ou como uma definição inline como parte da definição de habilidade.  
 
-Se o arquivo de definição for um . CSV ou . Arquivo JSON, o caminho do arquivo precisa ser fornecido como parte do parâmetro *entidadesDefitionUri.* Neste caso, o arquivo é baixado uma vez no início de cada execução do indexador. O arquivo deve estar acessível desde que o indexador seja executado. Além disso, o arquivo deve ser codificado UTF-8.
+Se o arquivo de definição for um . CSV ou . Arquivo JSON, o caminho do arquivo precisa ser fornecido como parte do parâmetro *entidadesDefinitionUri.* Neste caso, o arquivo é baixado uma vez no início de cada execução do indexador. O arquivo deve estar acessível desde que o indexador seja executado. Além disso, o arquivo deve ser codificado UTF-8.
 
 Se a definição for fornecida inline, ela deve ser fornecida tão inline quanto o conteúdo do parâmetro de habilidade *inlineEntitiesDefinition.* 
 
 ### <a name="csv-format"></a>Formato CSV
 
-Você pode fornecer a definição das entidades personalizadas a serem procurar em um arquivo CSV (Comma-Separated Value, valor separado pela comuma) fornecendo o caminho para o arquivo e definindo-o no parâmetro de habilidade sacaneado *DefitionUri.* O caminho deve ser em um local https. O arquivo de definição pode ter até 10 MB de tamanho.
+Você pode fornecer a definição das entidades personalizadas a serem procurar em um arquivo CSV (Comma-Separated Value, valor separado pela comuma) fornecendo o caminho para o arquivo e definindo-o no parâmetro de habilidade *situito das entidadesDefinitionUri.* O caminho deve ser em um local https. O arquivo de definição pode ter até 10 MB de tamanho.
 
 O formato CSV é simples. Cada linha representa uma entidade única, como mostrado abaixo:
 
@@ -85,7 +85,7 @@ Neste caso, existem três entidades que podem ser devolvidas como entidades enco
 
 Você pode fornecer a definição das entidades personalizadas para procurar em um arquivo JSON também. O formato JSON lhe dá um pouco mais de flexibilidade, pois permite definir regras de correspondência por termo. Por exemplo, você pode especificar a distância de correspondência difusa (distância Damerau-Levenshtein) para cada termo ou se a correspondência deve ser sensível a maiúsculas ou não. 
 
- Assim como nos arquivos CSV, você precisa fornecer o caminho para o arquivo JSON e defini-lo no parâmetro de habilidade *satisfatoitário de entidadesDefitionUri.* O caminho deve ser em um local https. O arquivo de definição pode ter até 10 MB de tamanho.
+ Assim como nos arquivos CSV, você precisa fornecer o caminho para o arquivo JSON e defini-lo no parâmetro de habilidade *situito das entidadesDefinitionUri.* O caminho deve ser em um local https. O arquivo de definição pode ter até 10 MB de tamanho.
 
 A definição mais básica da lista de entidades personalizadas do JSON pode ser uma lista de entidades a combinar:
 

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 04/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5c7919dcc89e34831cb4cae7921b60b35eb4c69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae244d93d679199aaa0bd08891cd34d4ca3a2ddc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74024959"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085103"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Funções de administrador personalizado no Azure Active Directory (visualização)
 
@@ -35,6 +35,22 @@ A concessão de permissão usando funções Ad personalizadas do Azure é um pro
 Depois de criar sua definição de função, você pode atribuí-la a um usuário criando uma atribuição de função. Uma atribuição de função concede ao usuário as permissões em uma definição de função em um escopo especificado. Este processo de duas etapas permite criar uma definição de função única e atribuí-la muitas vezes em diferentes escopos. Um escopo define o conjunto de recursos Azure AD aos quais o membro da função tem acesso. O escopo mais comum é o escopo de toda a organização (org-wide). Uma função personalizada pode ser atribuída em escopo de abrangência org, o que significa que o membro da função tem as permissões de função sobre todos os recursos da organização. Uma função personalizada também pode ser atribuída em um escopo de objeto. Um exemplo de escopo de objeto seria um único aplicativo. A mesma função pode ser atribuída a um usuário em todos os aplicativos da organização e, em seguida, a outro usuário com um escopo apenas do aplicativo Contoso Expense Reports.  
 
 As funções incorporadas e personalizadas do Azure AD operam em conceitos semelhantes ao [controle de acesso baseado em função do Azure.](../../role-based-access-control/overview.md) A [diferença entre esses dois sistemas de controle de acesso baseados em função](../../role-based-access-control/rbac-and-directory-admin-roles.md) é que o Azure RBAC controla o acesso aos recursos do Azure, como máquinas virtuais ou armazenamento usando o Azure Resource Management, e as funções personalizadas do Azure AD controlam o acesso aos recursos do Azure AD usando a API do Graph. Ambos os sistemas aproveitam o conceito de definições de papéis e atribuições de papéis.
+
+### <a name="how-azure-ad-determines-if-a-user-has-access-to-a-resource"></a>Como o Azure AD determina se um usuário tem acesso a um recurso
+
+A seguir estão as etapas de alto nível que o Azure AD usa para determinar se você tem acesso a um recurso de gerenciamento. Use essas informações para solucionar problemas de acesso.
+
+1. Um usuário (ou diretor de serviço) adquire um token para o ponto final do Microsoft Graph ou Azure AD Graph.
+
+1. O usuário faz uma chamada de API para o Azure Active Directory (Azure AD) via Microsoft Graph ou Azure AD Graph usando o token emitido.
+
+1. Dependendo da circunstância, o Azure AD toma uma das seguintes ações:
+
+    - Avalia as adesões de função do usuário com base na [reivindicação de wids](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) no token de acesso do usuário.
+    - Recupera todas as atribuições de função que se aplicam ao usuário, diretamente ou através da associação em grupo, para o recurso no qual a ação está sendo tomada.
+
+1. O Azure AD determina se a ação na chamada da API está incluída nas funções que o usuário tem para esse recurso.
+1. Se o usuário não tem uma função com a ação no escopo solicitado, o acesso não é concedido. Caso contrário, o acesso será permitido.
 
 ### <a name="role-assignments"></a>Atribuições de função
 

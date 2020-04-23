@@ -1,26 +1,20 @@
 ---
 title: Cálculo de pontuações de benchmark para VMs do Windows do Azure
 description: Compare as pontuações de parâmetro de computação SPECint para VMs do Azure executando Windows Server.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
 ms.service: virtual-machines-windows
+ms.subservice: sizes
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 14e2cdd5d4a1662e86a055165fdd15a38d29225b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea6bca1367d4b34aa54b65e92e7cbfdd02642f4c
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651042"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086225"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Pontuações de parâmetro de comparação de computação de VMs do Windows
 As pontuações de benchmark do SPECInt a seguir mostram o desempenho da computação para VMs selecionados que executam o Windows Server. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -39,7 +33,7 @@ As pontuações de benchmark do SPECInt a seguir mostram o desempenho da computa
 | Standard_A2m_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 11 | 26.3 | 0.8 | 
 | Standard_A2m_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 21 | 28.4 | 1.0 | 
 | Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2,20 GHz | 27 | 56.6 | 1.0 | 
-| Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 13 | 52.8 | 2,0 | 
+| Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 13 | 52.8 | 2.0 | 
 | Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 15 | 52.1 | 4.5 | 
 | Standard_A4m_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2,20 GHz | 17 | 56.4 | 1.8 | 
 | Standard_A4m_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 6 | 53.4 | 1.9 | 
@@ -217,7 +211,7 @@ SPEC Int é um teste bastante longo que normalmente esgota créditos de estouro 
 | Tamanho | vCPUs | Nós NUMA | CPU | Execuções | Taxa Básica de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F1s | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 31 | 33.2 | 1.0 | 
-| Standard_F1s | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 41 | 35.1 | 2,0 | 
+| Standard_F1s | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 41 | 35.1 | 2.0 | 
 | Standard_F2s | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 18 | 63.7 | 1.8 | 
 | Standard_F2s | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 21 | 66.6 | 3.8 | 
 | Standard_F4s | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 14 | 128.4 | 2,9 | 
@@ -231,7 +225,7 @@ SPEC Int é um teste bastante longo que normalmente esgota créditos de estouro 
 | Tamanho | vCPUs | Nós NUMA | CPU | Execuções | Taxa Básica de Avg | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F1 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 15 | 32.8 | 1.8 | 
-| Standard_F1 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 13 | 33.3 | 2,0 | 
+| Standard_F1 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 13 | 33.3 | 2.0 | 
 | Standard_F2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 27 | 64.9 | 6,0 | 
 | Standard_F2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2,30 GHz | 21 | 67.8 | 4.9 | 
 | Standard_F4 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2,40 GHz | 18 | 128.4 | 3.3 | 
