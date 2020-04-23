@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ad821036047dcf46821b2b2722e3dd17f8e318c2
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 2b30c176cf3c9dd31ae3efa85d308b3f89bd4dbe
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80386080"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81734686"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O usuário precisa ter hub e spoke com dispositivos SD-WAN/VPN para usar a WAN virtual do Azure?
 
@@ -131,6 +131,8 @@ Sim. Confira a página [Preços](https://azure.microsoft.com/pricing/details/vir
 
 * Se você tivesse o gateway do ExpressRoute devido à conexão de circuitos do ExpressRoute a um hub virtual, você pagaria pelo preço da unidade de escala. Cada unidade de escala no ER é de 2 Gbps e cada unidade de conexão é cobrada com a mesma taxa que a unidade de conexão de VPN.
 
+* Se você tivesse VNETs de spoke conectadas ao hub, os encargos de emparelhamento nas VNETs de spoke ainda seriam aplicados. 
+
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Como integrar novos parceiros que não estejam na sua lista de parceiros de lançamento?
 
 Todas as APIs de WAN Virtual são de API aberta. Você pode examinar a documentação para avaliar a viabilidade técnica. Se você tiver alguma pergunta, envie um email para azurevirtualwan@microsoft.com. Um parceiro ideal é aquele que tem um dispositivo que pode ser provisionado para conectividade IPsec IKEv1 ou IKEv2.
@@ -206,6 +208,13 @@ Sim. Uma conexão de Internet e um dispositivo físico que é compatível com IP
 ### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Como fazer habilitar a rota padrão (0.0.0.0/0) em uma conexão (VPN, ExpressRoute ou Rede Virtual):
 
 Um hub virtual poderá propagar uma rota padrão aprendida para uma conexão VPN/ExpressRoute de rede virtual/site a site se o sinalizador for 'Habilitado' na conexão. Esse sinalizador fica visível quando o usuário edita uma conexão de rede virtual, uma conexão VPN ou uma conexão ExpressRoute. Por padrão, esse sinalizador é desabilitado quando um site ou um circuito ExpressRoute é conectado a um hub. Ele é habilitado por padrão quando uma conexão de rede virtual é adicionada para conectar uma VNet a um hub virtual. A rota padrão não é originada no hub de WAN Virtual; a rota padrão é propagada se já foi aprendida pelo hub de WAN Virtual como resultado da implantação de um firewall no hub ou se a opção de túnel forçado está habilitada em outro site conectado.
+
+### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Como o hub virtual em uma WAN Virtual seleciona o melhor caminho para uma rota de vários hubs
+
+Se um hub virtual aprende a mesma rota de vários hubs remotos, a ordem na qual ele decide é a mostrada a seguir
+1) Origem da rota a) Rotas de rede – prefixos de VNET aprendidos diretamente pelos gateways de hub virtual b) RouteTable do hub (rotas configuradas estaticamente) c) BGP d) Rotas InterHub
+2)  Métrica de rota: a WAN Virtual prefere o ExpressRoute à VPN. O par de ExpressRoute tem um peso maior se comparado com o par de VPN
+3)  Comprimento do caminho de sistema autônomo
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quais são as diferenças entre os tipos de WAN Virtual (Básico e Standard)?
 
