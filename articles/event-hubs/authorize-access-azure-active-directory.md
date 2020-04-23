@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 1fa8f7a48c03ead7e939185b23834b3049b3e21c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6216b56c8e8f0de4f9cd60306bbf9c5ed49a11ad
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064852"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025196"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorize o acesso aos recursos do Event Hubs usando o Azure Active Directory
 O Azure Event Hubs suporta o uso do Azure Active Directory (Azure AD) para autorizar solicitações aos recursos do Event Hubs. Com o Azure AD, você pode usar o RBAC (Role-Based Access Control, controle de acesso baseado em função) para conceder permissões a um diretor de segurança, que pode ser um usuário ou um diretor de serviço de aplicativo. Para saber mais sobre papéis e atribuições de papéis, consulte [Entendendo os diferentes papéis.](../role-based-access-control/overview.md)
@@ -33,7 +33,7 @@ Aplicativos nativos e aplicativos web que fazem solicitações aos Event Hubs ta
 ## <a name="assign-rbac-roles-for-access-rights"></a>Atribuir funções RBAC para direitos de acesso
 Azure Active Directory (Azure AD) autoriza os direitos de acesso aos recursos protegidos por meio do [controle de acesso baseado em função (RBAC)](../role-based-access-control/overview.md). O Azure Event Hubs define um conjunto de funções RBAC incorporadas que abrangem conjuntos comuns de permissões usadas para acessar dados do hub de eventos e você também pode definir funções personalizadas para acessar os dados.
 
-Quando uma função RBAC é atribuída a um diretor de segurança do Azure AD, o Azure concede acesso a esses recursos para esse principal de segurança. O acesso pode ser escopo para o nível de assinatura, o grupo de recursos, o namespace do Event Hubs ou qualquer recurso ele. Um diretor de segurança Azure AD pode ser um usuário, ou um diretor de serviço de aplicativo ou uma [identidade gerenciada para os recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Quando uma função RBAC é atribuída a um diretor de segurança do Azure AD, o Azure concede acesso a esses recursos para esse principal de segurança. O acesso pode ser escopo para o nível de assinatura, o grupo de recursos, o namespace do Event Hubs ou qualquer recurso sob ele. Um diretor de segurança Azure AD pode ser um usuário, ou um diretor de serviço de aplicativo ou uma [identidade gerenciada para os recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="built-in-rbac-roles-for-azure-event-hubs"></a>Funções RBAC incorporadas para hubs de eventos do Azure
 O Azure fornece as seguintes funções de RBAC incorporadas para autorizar o acesso aos dados do Event Hubs usando o Azure AD e o OAuth:
@@ -48,9 +48,9 @@ Antes de atribuir uma função RBAC a um diretor de segurança, determine o esco
 A lista a seguir descreve os níveis nos quais você pode escopo de acesso aos recursos do Event Hubs, começando pelo escopo mais estreito:
 
 - **Grupo de consumidores**: Neste escopo, a atribuição de papéis aplica-se apenas a esta entidade. Atualmente, o portal Azure não suporta atribuir uma função RBAC a um diretor de segurança neste nível. 
-- **Hub de eventos**: A atribuição de função se aplica à entidade Event Hub e ao grupo de consumidores ele.
-- **Namespace**: A atribuição de funções abrange toda a topologia dos Hubs de Eventos o namespace e para o grupo de consumidores associado a ele.
-- **Grupo de recursos**: A atribuição de função se aplica a todos os recursos do Event Hubs o grupo de recursos.
+- **Hub de eventos**: A atribuição de função se aplica à entidade Event Hub e ao grupo de consumidores sob ele.
+- **Namespace**: A atribuição de funções abrange toda a topologia dos Hubs de Eventos sob o namespace e para o grupo de consumidores associado a ele.
+- **Grupo de recursos**: A atribuição de função se aplica a todos os recursos do Event Hubs sob o grupo de recursos.
 - **Assinatura**: A atribuição de função se aplica a todos os recursos do Event Hubs em todos os grupos de recursos da assinatura.
 
 > [!NOTE]
@@ -65,7 +65,7 @@ Para obter mais informações sobre como os papéis incorporados são [definidos
 ## <a name="samples"></a>Exemplos
 - [Amostras do Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    Essas amostras usam a antiga biblioteca **Microsoft.Azure.EventHubs,** mas você pode atualizá-la facilmente para usar a biblioteca mais recente **do Azure.Messaging.EventHubs.** Para mover a amostra do uso da biblioteca antiga para uma nova, consulte o [Guia para migrar do Microsoft.Azure.EventHubs para o Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+    Essas amostras usam a antiga biblioteca **Microsoft.Azure.EventHubs,** mas você pode atualizá-la facilmente para usar a biblioteca mais recente **do Azure.Messaging.EventHubs.** Para mover a amostra do uso da biblioteca antiga para uma nova, consulte o [Guia para migrar do Microsoft.Azure.EventHubs para o Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [Azure.Messaging.EventHubs amostras](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     Esta amostra foi atualizada para usar a biblioteca Mais recente **do Azure.Messaging.EventHubs.**

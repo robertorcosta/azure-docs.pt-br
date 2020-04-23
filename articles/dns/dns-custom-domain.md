@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 7/13/2019
 ms.author: rohink
-ms.openlocfilehash: d84a7a908bd3bb5cfb2958a617be437f3b6b154e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56a7680de3127da06341ac03252a9ab0cff9da7c
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266228"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024941"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usar o DNS do Azure para fornecer as configurações de domínio personalizadas para um serviço do Azure
 
@@ -134,7 +134,7 @@ Navegue para a sua zona DNS e clique em **+ Conjunto de registros**. Preencha as
 |Unidade de TTL     | Horas        | Horas são usadas como a medida de tempo         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | Neste exemplo, o nome DNS para o qual você está criando o alias é o nome DNS asverify.adatumfunctiona9ed.blob.core.windows.net fornecido por padrão para a conta de armazenamento.        |
 
-Navegue de volta para sua conta de armazenamento **clicando** > em**Contas de armazenamento,** selecione sua conta de armazenamento e clique **em Domínio personalizado**. Digite o alias criado sem o prefixo asverify na caixa de texto, marque **Usar validação indireta de CNAME e, em seguida, clique em **Salvar**. Depois que essa etapa estiver concluída, volte para a zona DNS e crie um registro CNAME sem o prefixo asverify.  Depois desse ponto, você pode excluir com segurança o registro CNAME com o prefixo cdnverify.
+Navegue de volta para sua conta de armazenamento **clicando** > em**Contas de armazenamento,** selecione sua conta de armazenamento e clique **em Domínio personalizado**. Digite o alias que você criou sem o prefixo asverify na caixa de texto, verifique **Usar validação CNAME indireta**e clique **em Salvar**. Depois que essa etapa estiver concluída, volte para a zona DNS e crie um registro CNAME sem o prefixo asverify.  Depois desse ponto, você pode excluir com segurança o registro CNAME com o prefixo cdnverify.
 
 ![domínio personalizado de armazenamento de blobs](./media/dns-custom-domain/indirectvalidate.png)
 

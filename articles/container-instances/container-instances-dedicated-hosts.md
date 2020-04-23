@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: adad0ddfc78530b3a3a7c139d9a95ec4790c8053
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a614d6b5d0cf5c6c1df5ffcb90e56960d6b8a2a9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934140"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025026"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Implantar em hosts dedicados
 
@@ -28,7 +28,7 @@ O sku dedicado é apropriado para cargas de trabalho de contêiner que requerem 
 > O uso do sku dedicado só está disponível na versão mais recente da API (2019-12-01) que está sendo lançado no momento. Especifique esta versão da API no modelo de implantação.
 >
 
-Começando com a versão 2019-12-01 `sku` da API, há uma propriedade a seção de propriedades do grupo de contêineres de um modelo de implantação, que é necessária para uma implantação de ACI. Atualmente, você pode usar essa propriedade como parte de um modelo de implantação do Azure Resource Manager para ACI. Saiba mais sobre a implantação de recursos ACI com um modelo no [Tutorial: Implante um grupo de vários contêineres usando um modelo de Gerenciador de recursos](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Começando com a versão 2019-12-01 `sku` da API, há uma propriedade sob a seção de propriedades do grupo de contêineres de um modelo de implantação, que é necessária para uma implantação de ACI. Atualmente, você pode usar essa propriedade como parte de um modelo de implantação do Azure Resource Manager para ACI. Saiba mais sobre a implantação de recursos ACI com um modelo no [Tutorial: Implante um grupo de vários contêineres usando um modelo de Gerenciador de recursos](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
 
 A `sku` propriedade pode ter um dos seguintes valores:
 * `Standard`- a escolha padrão de implantação da ACI, que ainda garante segurança em nível de hipervisor 
@@ -37,8 +37,8 @@ A `sku` propriedade pode ter um dos seguintes valores:
 ## <a name="modify-your-json-deployment-template"></a>Modifique seu modelo de implantação JSON
 
 No modelo de implantação, modifique ou adicione as seguintes propriedades:
-* Em `resources`, `apiVersion` `2012-12-01`definido para .
-* as propriedades do `sku` grupo de `Dedicated`contêineres, adicione uma propriedade com valor.
+* Em `resources`, `apiVersion` `2019-12-01`definido para .
+* Sob as propriedades do `sku` grupo de `Dedicated`contêineres, adicione uma propriedade com valor .
 
 Aqui está um exemplo de trecho para a seção de recursos de um modelo de implantação de grupo de contêiner que usa o sku dedicado:
 
@@ -131,7 +131,7 @@ A seguir está um modelo completo que implanta um grupo de contêiner de amostra
 
 Se você criou e editou o arquivo de modelo de implantação em sua área de trabalho, você pode carregá-lo para o diretório Cloud Shell arrastando o arquivo para ele. 
 
-Crie um grupo de recursos com o comando [az group create.][az-group-create]
+Crie um grupo de recursos com o comando [az group create][az-group-create].
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus

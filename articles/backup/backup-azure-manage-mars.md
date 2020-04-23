@@ -4,12 +4,12 @@ description: Saiba como gerenciar e monitorar backups de agentes do Microsoft Az
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 404341c8324d9e127e8d8e6bc8083926c0d3106f
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: a88ec4dc9283114e06eed424172dbb958850c2e9
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537348"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025094"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerencie backups de agentes do Microsoft Azure Recovery Services (MARS) usando o serviço de backup do Azure
 
@@ -79,8 +79,8 @@ Você pode adicionar regras de exclusão para pular arquivos e pastas que você 
 
     ![Selecione os itens](./media/backup-azure-manage-mars/select-items-remove.png)
 
-> [!NOTE]
-> Proceda com cautela quando remover completamente um volume da diretiva.  Se você precisar adicioná-lo novamente, então ele será tratado como um novo volume. O próximo backup programado executará um backup inicial (backup completo) em vez de backup incremental. Se você precisar remover e adicionar itens temporariamente mais tarde, então é recomendável usar **Configurações de Exclusões** em vez de **Remover itens** para garantir backup incremental em vez de backup completo.
+    > [!NOTE]
+    > Proceda com cautela quando remover completamente um volume da diretiva.  Se você precisar adicioná-lo novamente, então ele será tratado como um novo volume. O próximo backup programado executará um backup inicial (backup completo) em vez de backup incremental. Se você precisar remover e adicionar itens temporariamente mais tarde, então é recomendável usar **Configurações de Exclusões** em vez de **Remover itens** para garantir backup incremental em vez de backup completo.
 
 2. Complete as etapas subseqüentes e clique **em Concluir** para concluir a operação.
 
@@ -90,7 +90,7 @@ Existem duas maneiras de parar de proteger o backup de arquivos e pastas:
 
 - **Pare a proteção e retenha dados de backup**.
   - Essa opção impedirá todos os trabalhos de backup futuros de proteção.
-  - O serviço de backup do Azure manterá todos os pontos de recuperação existentes indefinidamente. Os pontos de recuperação não serão verificados para expiração até que a proteção seja retomada.
+  - O serviço de backup do Azure continuará a reter todos os pontos de recuperação existentes.  
   - Você poderá restaurar os dados de backup para pontos de recuperação não expirados.
   - Se você decidir retomar a proteção, então você pode usar a opção *Reativar o agendamento de backup.* Depois disso, os dados seriam retidos com base na nova política de retenção.
 - **Pare a proteção e exclua dados de backup**.
@@ -167,7 +167,6 @@ Uma senha é usada para criptografar e descriptografar dados durante o backup ou
 
     ![Gerar senha.](./media/backup-azure-manage-mars/passphrase2.png)
 - Certifique-se de que a senha é salva com segurança em um local alternativo (diferente da máquina de origem), de preferência no Cofre de Chaves Do Azure. Acompanhe todas as frases-senhas se você tiver várias máquinas sendo apoiadas com os agentes mars.
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

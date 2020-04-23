@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 828bdab26684b29d664ea42d0b36f475c7872a80
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a282264ed3e9539bcc96babfc41376d2c6c35628
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309457"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868644"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidade Microsoft e Credenciais de senha do proprietário de recursos OAuth 2.0
 
@@ -50,8 +50,8 @@ O fluxo DE ROPC é uma única solicitação: ele envia a identificação do clie
 > [![Tente executar este pedido no Carteiro](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
-```
-// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required. 
+```HTTP
+// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required.
 
 POST {tenant}/oauth2/v2.0/token
 Host: login.microsoftonline.com
@@ -67,13 +67,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
 | `tenant` | Obrigatório | O locatário do diretório no qual você deseja fazer o login. Pode estar no formato de nome amigável ou de GUID. Este parâmetro não pode ser definido como `common` ou `consumers`, mas pode ser definido como `organizations`. |
-| `client_id` | Obrigatório | O ID do aplicativo (cliente) que o [portal Azure - Página de registros do aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuído ao seu aplicativo. | 
+| `client_id` | Obrigatório | O ID do aplicativo (cliente) que o [portal Azure - Página de registros do aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuído ao seu aplicativo. |
 | `grant_type` | Obrigatório | Deve ser definido como `password`. |
 | `username` | Obrigatório | Endereço de email do usuário. |
 | `password` | Obrigatório | A senha do usuário. |
 | `scope` | Recomendadas | Uma lista separada por espaço de [escopos](v2-permissions-and-consent.md) ou permissões que o aplicativo exige. Em um fluxo interativo, o admin ou o usuário devem consentir com esses escopos antes do tempo. |
-| `client_secret`| Às vezes necessário | Se o seu aplicativo é `client_secret` um `client_assertion` cliente público, então o ou não pode ser incluído.  Se o aplicativo é um cliente confidencial, então ele deve ser incluído. | 
-| `client_assertion` | Às vezes necessário | Uma forma `client_secret`diferente de, gerada usando um certificado.  Consulte [as credenciais de certificado](active-directory-certificate-credentials.md) para obter mais detalhes. | 
+| `client_secret`| Às vezes necessário | Se o seu aplicativo é `client_secret` um `client_assertion` cliente público, então o ou não pode ser incluído.  Se o aplicativo é um cliente confidencial, então ele deve ser incluído. |
+| `client_assertion` | Às vezes necessário | Uma forma `client_secret`diferente de, gerada usando um certificado.  Consulte [as credenciais de certificado](active-directory-certificate-credentials.md) para obter mais detalhes. |
 
 ### <a name="successful-authentication-response"></a>Resposta de autenticação bem sucedida
 

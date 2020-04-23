@@ -6,19 +6,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 6a4ae2932f8d294ecf71de0ae405204a1f4d7b4d
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/21/2020
+ms.openlocfilehash: cd6ba50cf81b93da887134e89d75313acb6bd936
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436937"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869852"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usar o Armazenamento do Azure com clusters HDInsight
 
-Para analisar os dados no cluster HDInsight, você pode armazenar os dados no [Azure Storage,](../storage/common/storage-introduction.md) [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)ou em uma combinação. Essas opções de armazenamento permitem que você exclua com segurança os clusters HDInsight que são usados para computação sem perder dados do usuário.
+Você pode armazenar dados no [Azure Storage,](../storage/common/storage-introduction.md) [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)ou [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md). Ou uma combinação dessas opções. Essas opções de armazenamento permitem que você exclua com segurança os clusters HDInsight que são usados para computação sem perder dados do usuário.
 
-O Apache Hadoop dá suporte a uma noção do sistema de arquivos padrão. O sistema de arquivos padrão implica esquema e autoridade padrões. Ele também pode ser usado para resolver caminhos relativos. Durante o processo de criação do cluster HDInsight, você pode especificar um contêiner de blobs no Armazenamento do Azure como o sistema de arquivos padrão ou, com o HDInsight 3.6, você pode selecionar o Armazenamento do Azure ou o Azure Data Lake Storage Gen 1/Azure Data Lake Storage Gen 2 como o sistema de arquivos padrão com algumas exceções. Para o suporte do uso do Data Lake Storage Gen 1 como o armazenamento padrão e o vinculado, veja [Disponibilidade para o cluster HDInsight](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
+O Apache Hadoop dá suporte a uma noção do sistema de arquivos padrão. O sistema de arquivos padrão implica esquema e autoridade padrões. Ele também pode ser usado para resolver caminhos relativos. Durante o processo de criação de cluster hdInsight, você pode especificar um contêiner blob no Azure Storage como o sistema de arquivos padrão. Ou com o HDInsight 3.6, você pode selecionar o Azure Storage ou o Azure Data Lake Storage Gen 1/ Azure Data Lake Storage Gen 2 como o sistema de arquivos padrão com algumas exceções. Para o suporte do uso do Data Lake Storage Gen 1 como o armazenamento padrão e o vinculado, veja [Disponibilidade para o cluster HDInsight](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
 Neste artigo, você aprenderá como funciona o Armazenamento do Azure com clusters HDInsight. Para saber como o Data Lake Storage Gen 1 funciona com clusters HDInsight, veja [Usar o Azure Data Lake Storage com clusters Azure HDInsight](hdinsight-hadoop-use-data-lake-store.md). Para saber mais sobre a criação de um cluster HDInsight, consulte [Criar clusters do Apache Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -68,7 +68,7 @@ Exemplos são baseados em uma [conexão ssh](./hdinsight-hadoop-linux-use-ssh-un
 
 #### <a name="a-few-hdfs-commands"></a>Alguns comandos hdfs
 
-1. Crie um arquivo simples no armazenamento local.
+1. Crie um arquivo no armazenamento local.
 
     ```bash
     touch testFile.txt
@@ -128,9 +128,9 @@ A Microsoft fornece as seguintes ferramentas para trabalhar com o Azure Storage:
 
 | Ferramenta | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [CLI do Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
-| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
+| [PowerShell do Azure](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
 
 ## <a name="identify-storage-path-from-ambari"></a>Identificar o caminho de armazenamento da Ambari
@@ -147,31 +147,30 @@ Para obter o caminho usando a API Ambari REST, consulte [Obter o armazenamento p
 
 ## <a name="blob-containers"></a>Contêineres de blob
 
-Para usar blobs, primeiro crie uma [conta do Azure Storage](../storage/common/storage-create-storage-account.md). Como parte desse processo, especifique uma região do Azure na qual a conta de armazenamento será criada. O cluster e a conta de armazenamento devem ser hospedados na mesma região. O banco de dados SQL Server do metastore do Hive e o banco de dados SQL Server do metastore do Oozie do Apache também devem estar localizados na mesma região.
+Para usar blobs, primeiro crie uma [conta do Azure Storage](../storage/common/storage-create-storage-account.md). Como parte desta etapa, você especifica uma região Do Zure onde a conta de armazenamento é criada. O cluster e a conta de armazenamento devem ser hospedados na mesma região. O banco de dados SQL Server metastore da Hive e o banco de dados SQL Server do metastore Apache Oozie devem estar localizados na mesma região.
 
-Independentemente de onde estiverem, cada blob que você criar pertencerá a um contêiner na sua conta de armazenamento do Azure. Esse contêiner pode ser um contêiner de armazenamento de blob existente criado fora do HDInsight, ou pode ser um contêiner criado para um cluster HDInsight.
+Independentemente de onde estiverem, cada blob que você criar pertencerá a um contêiner na sua conta de armazenamento do Azure. Este contêiner pode ser uma bolha existente criada fora do HDInsight. Ou pode ser um contêiner criado para um cluster HDInsight.
 
-O contêiner de blob padrão armazena informações específicas do cluster como logs e o histórico do trabalho. Não compartilhe um contêiner de armazenamento de blob padrão com vários clusters HDInsight. Isso pode corromper o histórico de trabalhos. Recomenda-se usar um contêiner diferente para cada cluster e colocar dados compartilhados em uma conta de armazenamento vinculada especificada na implantação de todos os clusters relevantes em vez da conta de armazenamento padrão. Para obter mais informações sobre como configurar contas de armazenamento vinculadas, veja [Criar clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md). No entanto, você pode reutilizar um contêiner de armazenamento padrão depois que o cluster HDInsight original for excluído. Para clusters HBase, você pode realmente manter o esquema e os dados da tabela HBase criando um novo cluster HBase usando o contêiner blob padrão que é usado por um cluster HBase que foi excluído.
+O contêiner de blob padrão armazena informações específicas do cluster como logs e o histórico do trabalho. Não compartilhe um contêiner de armazenamento de blob padrão com vários clusters HDInsight. Esta ação pode corromper o histórico de empregos. Recomenda-se usar um recipiente diferente para cada cluster. Coloque dados compartilhados em uma conta de armazenamento vinculada especificada para todos os clusters relevantes em vez da conta de armazenamento padrão. Para obter mais informações sobre como configurar contas de armazenamento vinculadas, veja [Criar clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md). No entanto, você pode reutilizar um contêiner de armazenamento padrão depois que o cluster HDInsight original for excluído. Para clusters HBase, você pode realmente manter o esquema e os dados da tabela HBase criando um novo cluster HBase usando o contêiner blob padrão que é usado por um cluster HBase excluído
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
 ## <a name="use-additional-storage-accounts"></a>Usar contas de armazenamento adicionais
 
-Ao criar um cluster HDInsight, você especifica a conta de armazenamento do Azure que deseja associar a ele. Além dessa conta de armazenamento, você pode adicionar mais contas de armazenamento da mesma assinatura do Azure ou de diferentes assinaturas do Azure durante o processo de criação ou após a criação de um cluster. Para obter instruções sobre como adicionar mais contas de armazenamento, veja [Criar clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Ao criar um cluster HDInsight, você especifica a conta de armazenamento do Azure que deseja associar a ele. Além disso, você pode adicionar contas de armazenamento adicionais da mesma assinatura do Azure ou de diferentes assinaturas do Azure durante o processo de criação. Ou depois que um cluster foi criado. Para obter instruções sobre como adicionar mais contas de armazenamento, veja [Criar clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]  
 > Não há suporte para o uso de uma conta de armazenamento adicional em um local diferente do cluster HDInsight.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a usar o armazenamento do Azure compatível com HDFS com o HDInsight. Isso permite que você crie soluções de aquisição de dados para arquivamento de longo prazo escalonáveis e use o HDInsight para desbloquear as informações nos dados armazenados estruturados e não estruturados.
+Neste artigo, você aprendeu a usar o armazenamento do Azure compatível com HDFS com o HDInsight. Esse armazenamento permite que você crie soluções adaptáveis, de longo prazo, de arquivamento de dados e use o HDInsight para desbloquear as informações dentro dos dados armazenados estruturados e não estruturados.
 
 Para obter mais informações, consulte:
 
 * [Comece com o Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Introdução ao Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)
 * [Carregar dados para hdinsight](hdinsight-upload-data.md)
-* [Usar o Apache Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
 * [Usar Assinaturas de Acesso Compartilhado do Armazenamento do Azure para restringir o acesso a dados com o HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)
 * [Use o Azure Data Lake Storage Gen2 com clusters Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)
-* [Tutorial: Extraia, transforme e carregue dados usando consulta interativa no Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+* [Tutorial: Extrair, transformar e carregar dados usando a Consulta Interativa no Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

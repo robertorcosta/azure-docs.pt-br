@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f9b39a672cb5640a36490f2cd088092f40065870
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ef715ed7df1cc203e66bb33cd1493a7f7a713327
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454774"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081601"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança - um guia de referência
 
@@ -399,8 +399,8 @@ As intenções de cadeia de morte suportadas pelo Security Center são baseadas 
 
 |Intencional|Descrição|
 |------|-------|
-|**Pré-ataque**</br>(substitui a sondagem)|O PreAttack pode ser uma tentativa de acessar um determinado recurso, independentemente de uma intenção maliciosa, ou uma tentativa fracassada de obter acesso a um sistema de destino para coletar informações antes da exploração. Esta etapa geralmente é detectada como uma tentativa, originária de fora da rede, de escanear o sistema de destino e identificar um ponto de entrada.</br>Mais detalhes sobre o estágio Pré-Ataque podem ser lidos na [página do MITRE](https://attack.mitre.org/matrices/pre/).|
-|**Acesso Inicial**</br>(substitui exploração)|InitialAccess é o estágio em que um invasor consegue obter uma posição sobre o recurso atacado. Esta etapa é relevante para hosts de computação e recursos como contas de usuário, certificados etc. Os atores de ameaças muitas vezes serão capazes de controlar o recurso após esta fase.|
+|**Pré-ataque**|O PreAttack pode ser uma tentativa de acessar um determinado recurso, independentemente de uma intenção maliciosa, ou uma tentativa fracassada de obter acesso a um sistema de destino para coletar informações antes da exploração. Esta etapa geralmente é detectada como uma tentativa, originária de fora da rede, de escanear o sistema de destino e identificar um ponto de entrada.</br>Mais detalhes sobre o estágio Pré-Ataque podem ser lidos na [página do MITRE](https://attack.mitre.org/matrices/pre/).|
+|**Acesso Inicial**|InitialAccess é o estágio em que um invasor consegue obter uma posição sobre o recurso atacado. Esta etapa é relevante para hosts de computação e recursos como contas de usuário, certificados etc. Os atores de ameaças muitas vezes serão capazes de controlar o recurso após esta fase.|
 |**Persistência**|Persistência é qualquer alteração de acesso, ação ou configuração para um sistema que dá a um ator de ameaça uma presença persistente nesse sistema. Os atores de ameaças muitas vezes precisarão manter o acesso aos sistemas através de interrupções, como reinicializações do sistema, perda de credenciais ou outras falhas que exigiriam uma ferramenta de acesso remoto para reiniciar ou fornecer um backdoor alternativo para que eles recuperem o acesso.|
 |**PrivilegiarEscalada**|A escalonamento de privilégios é o resultado de ações que permitem a um adversário obter um nível mais alto de permissões em um sistema ou rede. Certas ferramentas ou ações requerem um maior nível de privilégio para trabalhar e são provavelmente necessárias em muitos pontos ao longo de uma operação. Contas de usuários com permissões para acessar sistemas específicos ou executar funções específicas necessárias para que os adversários atinjam seu objetivo também podem ser consideradas uma escalada de privilégios.|
 |**Evasão de Defesa**|A evasão de defesa consiste em técnicas que um adversário pode usar para evitar a detecção ou evitar outras defesas. Às vezes, essas ações são as mesmas (ou variações de) técnicas em outras categorias que têm o benefício adicional de subverter uma determinada defesa ou mitigação.|

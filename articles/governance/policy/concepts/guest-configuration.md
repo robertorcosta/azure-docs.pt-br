@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como a Diretiva Azure usa o agente de configuração de hóspedes para auditar as configurações dentro de máquinas virtuais.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1721c0f1ca7c084d636278aabc96f8dac3293038
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 89f7cc3931971d70b441490f77b67ace89434c2b
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759086"
+ms.locfileid: "82025213"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -31,8 +31,8 @@ Para auditar as configurações dentro de uma máquina, uma [extensão de máqui
 > [!Important]
 > A extensão Configuração do Convidado é necessária para realizar auditorias em máquinas virtuais do Azure.
 > Para implantar a extensão em escala, atribua as seguintes definições de diretiva:
->   - Implantar os pré-requisitos para habilitar a Política de Configuração de Convidado nas VMs do Windows.
->   - Implantar os pré-requisitos para habilitar a Política de Configuração de Convidado nas VMs do Linux.
+>   - [Implantar os pré-requisitos para habilitar a Política de Configuração de Convidado nas VMs do Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+>   - [Implantar os pré-requisitos para habilitar a Política de Configuração de Convidado nas VMs do Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ### <a name="limits-set-on-the-extension"></a>Limites definidos na extensão
 
@@ -67,6 +67,8 @@ As políticas de configuração de hóspedes incluem novas versões. Versões ma
 |OpenLogic|CentOS|7.3 e posterior|
 |Red Hat|Red Hat Enterprise Linux|7.4 e posterior|
 |Suse|SLES|12 SP3 e posteriores|
+
+As imagens personalizadas da máquina virtual são suportadas pelas políticas de configuração do convidado, desde que sejam um dos sistemas operacionais na tabela acima.
 
 ### <a name="unsupported-client-types"></a>Tipos de clientes sem suporte
 

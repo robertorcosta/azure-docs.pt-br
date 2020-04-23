@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: a8124e9860ba5703e96f96c90bc0cf37e42baf9c
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 2a3b14acad4990059a27201b7e1e6b9e93123194
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398350"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025162"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Envie eventos para ou receba eventos do Azure Event Hubs usando o .NET Core (Microsoft.Azure.EventHubs)
 Esse quickstart mostra como enviar eventos e receber eventos de um hub de eventos usando a biblioteca **Microsoft.Azure.EventHubs** .NET Core.
@@ -373,7 +373,7 @@ Leia os seguintes artigos:
 
 - [Amostras de controle de acesso baseado em função (RBAC).](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) 
     
-    Essas amostras usam a antiga biblioteca **Microsoft.Azure.EventHubs,** mas você pode atualizá-la facilmente para usar a biblioteca mais recente **do Azure.Messaging.EventHubs.** Para mover a amostra do uso da biblioteca antiga para uma nova, consulte o [Guia para migrar do Microsoft.Azure.EventHubs para o Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).)
+    Essas amostras usam a antiga biblioteca **Microsoft.Azure.EventHubs,** mas você pode atualizá-la facilmente para usar a biblioteca mais recente **do Azure.Messaging.EventHubs.** Para mover a amostra do uso da biblioteca antiga para uma nova, consulte o [Guia para migrar do Microsoft.Azure.EventHubs para o Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Características e terminologia no Azure Event Hubs](event-hubs-features.md)
 - [Perguntas frequentes dos Hubs de Eventos](event-hubs-faq.md)

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 6baf5d77b70fa6e2717b492163826f27d80fbb88
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: c040907c6101d11ee645f9967278d3cf297bd74a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991613"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869808"
 ---
 # <a name="create-a-new-managed-service-offer"></a>Crie uma nova oferta de serviço gerenciado
 
@@ -137,6 +137,9 @@ Se você tiver sites de suporte para **clientes azure global** e/ou **azure Gove
 ### <a name="marketplace-images"></a>Imagens de mercado
 
 Nesta seção, você pode fornecer logotipos e imagens que serão usadas ao mostrar sua oferta ao cliente. Todas as imagens devem estar no formato .png.
+
+>[!Note]
+>Se você tiver um problema de upload de arquivos, https://upload.xboxlive.com certifique-se de que sua rede local não bloqueie o serviço usado pelo Partner Center.
 
 #### <a name="marketplace-logos"></a>Logotipos de marketplace
 

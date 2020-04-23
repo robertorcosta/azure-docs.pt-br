@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 544de1b4ac46a58d533f71a46266807a3b93820a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adbcf28cfbbe2ea3b7cc9c7fd0d1c76246938344
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920035"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870399"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar registros e métricas com configurações de diagnóstico
 
@@ -22,6 +22,9 @@ Usando a funcionalidade de diagnóstico do Azure Spring Cloud, você pode analis
 * Faça logs de stream no seu hub de eventos para ingestão por um serviço de terceiros ou uma solução de análise personalizada.
 
 Escolha a categoria de log e a categoria métrica que deseja monitorar.
+
+> [!TIP]
+> Só quer transmitir seus registros? Confira este [comando Azure CLI](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)!
 
 ## <a name="logs"></a>Logs
 
@@ -46,7 +49,7 @@ Para começar, habilite um desses serviços para receber os dados. Para saber ma
     * **Enviar para o Log Analytics**
 
 1. Escolha qual categoria de log e categoria métrica você deseja monitorar e, em seguida, especifique o tempo de retenção (em dias). O tempo de retenção se aplica apenas à conta de armazenamento.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 > [!NOTE]
 > Pode haver uma lacuna de até 15 minutos entre quando logs ou métricas são emitidos e quando eles aparecem em sua conta de armazenamento, seu hub de eventos ou Log Analytics.

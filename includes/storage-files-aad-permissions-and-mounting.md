@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: e40171b95e6faae0020f8bf61410aad8999ddecb
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 608c2619c19a2b5fa7e39c1ecb82be40ff4e83f4
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536515"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82072613"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2. Atribuir permissões de acesso a uma identidade
 
@@ -87,15 +87,6 @@ Conjuntos de permissões a seguir têm suporte para o diretório raiz de um comp
 - NT AUTHORITY\SYSTEM:(F)
 - CREATOR OWNER:(OI)(CI)(IO)(F)
 
-### <a name="configure-ntfs-permissions-with-icacls"></a>Configurar permissões NTFS com icacls
-Use o seguinte comando do Windows para conceder permissões completas para todos os diretórios e arquivos no compartilhamento de arquivos, incluindo o diretório raiz. Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores.
-
-```
-icacls <mounted-drive-letter>: /grant <user-email>:(f)
-```
-
-Para obter mais informações sobre como usar icacls para definir permissões NTFS e sobre os diferentes tipos de permissões suportadas, consulte [a referência de linha de comando para icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
-
 ### <a name="mount-a-file-share-from-the-command-prompt"></a>Montar um compartilhamento de arquivos do Azure no prompt de comando
 
 Usar o Windows **net use** comando para montar o compartilhamento de arquivos do Azure. Lembre-se de substituir os valores do espaço reservado no exemplo a seguir por seus próprios valores. Para obter mais informações sobre a montagem de compartilhamentos de arquivos, consulte [Usar um compartilhamento de arquivos Do Zure com o Windows](../articles/storage/files/storage-how-to-use-files-windows.md). 
@@ -103,6 +94,7 @@ Usar o Windows **net use** comando para montar o compartilhamento de arquivos do
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
 ```
+
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Configure permissões NTFS com o Windows File Explorer
 Use o Windows File Explorer para conceder permissão total a todos os diretórios e arquivos sob o compartilhamento de arquivos, incluindo o diretório raiz.
 
@@ -114,6 +106,15 @@ Use o Windows File Explorer para conceder permissão total a todos os diretório
 7.    Selecione **OK**.
 8.    Na guia **Segurança,** selecione todas as permissões desejadas para conceder ao seu novo usuário.
 9.    Escolha **Aplicar**.
+
+### <a name="configure-ntfs-permissions-with-icacls"></a>Configurar permissões NTFS com icacls
+Use o seguinte comando do Windows para conceder permissões completas para todos os diretórios e arquivos no compartilhamento de arquivos, incluindo o diretório raiz. Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores.
+
+```
+icacls <mounted-drive-letter>: /grant <user-email>:(f)
+```
+
+Para obter mais informações sobre como usar icacls para definir permissões NTFS e sobre os diferentes tipos de permissões suportadas, consulte [a referência de linha de comando para icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
 ## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4. Monte um compartilhamento de arquivos de uma VM com um domínio
 

@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d723af5d994006c4ae4f90905ede73fa87326bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2808c8431a6b98b162920fb58a6e2ac0498d2055
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74014259"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081703"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutorial: Obter dados usando a API de Relatório do Azure Active Directory com certificados
 
@@ -44,9 +44,9 @@ Neste tutorial, você aprende como usar um certificado de teste para acessar a A
     - Tokens de acesso do usuário, chaves de aplicativo e certificados usando ADAL
     - Resultados paginados de manipulação da API do Graph
 
-6. Se é a primeira vez que você está usando o módulo, execute **Install-MSCloudIdUtilsModule**, caso contrário, importe-o usando o comando do Powershell **Import-Module**. Sua sessão deve ser semelhante ![a esta tela: Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Se for a primeira vez que for usando o módulo execute **Install-MSCloudIdUtilsModule,** importe-o usando o comando **Import-Module** PowerShell. Sua sessão deve ser semelhante ![a esta tela: Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-7. Use o commandlet do Powershell **New-SelfSignedCertificate** para criar um certificado de teste.
+7. Use o **comando PowerShell do New-SelfSignedCertificate** para criar um certificado de teste.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
@@ -63,13 +63,13 @@ Neste tutorial, você aprende como usar um certificado de teste para acessar a A
 
 1. Navegue até o [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory** e, em seguida, selecione **Registros de aplicativo** e escolha o aplicativo na lista. 
 
-2. Selecione **Teclas de** > **configurações** e **selecione Enviar tecla pública**.
+2. Selecione **Certificados & segredos** na seção **Gerenciar** na lâmina de registro do aplicativo e selecione Certificado **de upload**.
 
-3. Selecione o arquivo de certificado da etapa anterior e selecione **Salvar**. 
+3. Selecione o arquivo de certificado da etapa anterior e **selecione Adicionar**. 
 
-4. Anote a ID do Aplicativo e a impressão digital do certificado que você acabou de registrar no aplicativo. Para encontrar a impressão digital, na página do aplicativo no portal, acesse **Configurações** e clique em **Chaves**. A impressão digital estará na lista **Chaves Públicas**.
+4. Anote a ID do Aplicativo e a impressão digital do certificado que você acabou de registrar no aplicativo. Para encontrar a impressão digital, na página do seu aplicativo no portal, acesse **Certificados & segredos** na seção **Gerenciar.** A impressão digital estará na lista **de Certificados.**
 
-5. Abra o manifesto do aplicativo no editor de manifesto sequencial e substitua a propriedade *keyCredentials* pelas novas informações de certificado usando o esquema a seguir. 
+5. Abra o manifesto do aplicativo no editor de manifesto inline e verifique se a propriedade *keyCredentials* é atualizada com suas novas informações de certificado, conforme mostrado abaixo - 
 
    ```
    "keyCredentials": [
@@ -81,23 +81,20 @@ Neste tutorial, você aprende como usar um certificado de teste para acessar a A
             "value":  "$base64Value" //base64 encoding of the certificate raw data
         }
     ]
-   ```
-
-6. Salve o manifesto. 
-  
-7. Agora, você pode obter um token de acesso para a API Graph usando este certificado. Use o cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** do módulo MSCloudIdUtils PowerShell, passando a ID do aplicativo e a impressão digital obtida na etapa anterior. 
+   ``` 
+6. Agora, você pode obter um token de acesso para a API Graph usando este certificado. Use o cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** do módulo MSCloudIdUtils PowerShell, passando a ID do aplicativo e a impressão digital obtida na etapa anterior. 
 
    ![Portal do Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-8. Use o token de acesso em seu script Powershell para consultar a API do Graph. Use o cmdlet **Invoke-MSCloudIdMSGraphQuery** do MSCloudIDUtils para enumerar o ponto de extremidade de directoryAudits e signins. Esse cmdlet manipula resultados com várias páginas e envia esses resultados para o pipeline do PowerShell.
+7. Use o token de acesso em seu script PowerShell para consultar a API do Gráfico. Use o cmdlet **Invoke-MSCloudIdMSGraphQuery** do MSCloudIDUtils para enumerar o ponto de extremidade de directoryAudits e signins. Esse cmdlet manipula resultados com várias páginas e envia esses resultados para o pipeline do PowerShell.
 
-9. Consulte o ponto de extremidade directoryAudits para recuperar os logs de auditoria. 
+8. Consulte o ponto de extremidade directoryAudits para recuperar os logs de auditoria. 
    ![Azure portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-10. Consulte o ponto de extremidade signins para recuperar os logs de entrada.
+9. Consulte o ponto de extremidade signins para recuperar os logs de entrada.
     ![Azure portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
-11. Agora, você pode optar por exportar esses dados para um CSV e salvá-lo em um sistema SIEM. Você pode também encapsular o script em uma tarefa agendada para obter dados do Azure AD do seu locatário periodicamente sem a necessidade de armazenar as chaves de aplicativo no código-fonte. 
+10. Agora, você pode optar por exportar esses dados para um CSV e salvá-lo em um sistema SIEM. Você pode também encapsular o script em uma tarefa agendada para obter dados do Azure AD do seu locatário periodicamente sem a necessidade de armazenar as chaves de aplicativo no código-fonte. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

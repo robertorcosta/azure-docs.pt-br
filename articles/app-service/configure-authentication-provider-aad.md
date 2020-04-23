@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 6f4dbedad56f6867558a8b70575ad906c8796612
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: f625f5df4f33c6516bd5c50f97c52404d76757a0
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392553"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024448"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure seu aplicativo App Service ou Azure Functions para usar o login do Azure AD
 
@@ -100,7 +100,7 @@ Execute as seguintes etapas:
     |Campo|Descrição|
     |-|-|
     |ID do Cliente| Use o **ID do aplicativo (cliente)** do registro do aplicativo. |
-    |Url do emissor| Use `https://login.microsoftonline.com/<tenant-id>/v2.0`e * \<substitua o id de inquilino>* pelo ID do **Diretório (inquilino)** do registro do aplicativo. Esse valor é usado para redirecionar os usuários para o inquilino Azure AD correto, bem como para baixar os metadados apropriados para determinar as chaves de assinatura de token apropriadas e o valor de reclamação do emissor do token, por exemplo. A `/v2.0` seção pode ser omitida para aplicações usando AAD v1. |
+    |Url do emissor| Use `<authentication-endpoint>/<tenant-id>/v2.0`, e substitua * \<o ponto final de autenticação>* com o [ponto final de autenticação para o seu ambiente de nuvem](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por exemplo, "https://login.microsoft.com" para o Global Azure), substituindo * \<também o>id de inquilino si locadem* pelo ID do Diretório **(inquilino)** no qual o registro do aplicativo foi criado. Esse valor é usado para redirecionar os usuários para o inquilino Azure AD correto, bem como para baixar os metadados apropriados para determinar as chaves de assinatura de token apropriadas e o valor de reclamação do emissor do token, por exemplo. A `/v2.0` seção pode ser omitida para aplicações usando AAD v1. |
     |Client Secret (Opcional)| Use o segredo do cliente que você gerou no registro do aplicativo.|
     |Audiências de token permitidas| Se este é um aplicativo de nuvem ou servidor e você deseja permitir tokens de autenticação a partir de um aplicativo web, adicione o **ID** de aplicativo URI do aplicativo web aqui. O **ID do Cliente** configurado é *sempre* considerado implicitamente como um público permitido. |
 

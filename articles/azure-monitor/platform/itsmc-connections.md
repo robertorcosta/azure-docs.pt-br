@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 9441e7bb970508df4c002897ab726d6e683fa848
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 0773492c3042a6f8c906aa6ba1bc3c76ea8c0d8f
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733353"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870584"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviços de TI
 Este artigo fornece informações sobre como configurar a conexão entre seu produto/serviço de ITSM e o ITSMC (Conector de Gerenciamento de Serviços de TI) no Log Analytics para gerenciar seus itens de trabalho de forma centralizada. Para obter mais informações sobre o ITSMC, consulte [Visão Geral](../../azure-monitor/platform/itsmc-overview.md).
@@ -61,7 +61,7 @@ Use o procedimento a seguir para conectar a instância do System Center Service 
 
 | **Campo** | **Descrição** |
 | --- | --- |
-| **Nome da conexão**   | Digite um nome para a instância do System Center Service Manager que você deseja conectar ao ITSMC.  Use esse nome posteriormente quando você configurar os itens de trabalho nesta instância / exibir a análise de logs detalhado. |
+| **Nome da Conexão**   | Digite um nome para a instância do System Center Service Manager que você deseja conectar ao ITSMC.  Use esse nome posteriormente quando você configurar os itens de trabalho nesta instância / exibir a análise de logs detalhado. |
 | **Tipo de parceiro**   | Selecione **System Center Service Manager**. |
 | **Servidor URL**   | Digite a URL do aplicativo Web do Service Manager. Veja mais sobre o aplicativo Web do Service Manager [aqui](#create-and-deploy-service-manager-web-app-service).
 | **ID do Cliente**   | Digite a ID de cliente gerado (usando o script automática) para autenticar o aplicativo Web. Veja mais informações sobre o script automatizado [aqui.](../../azure-monitor/platform/itsmc-service-manager-script.md)|
@@ -197,12 +197,12 @@ Verifique se os seguintes pré-requisitos foram atendidos:
 > [!NOTE]
 > Como parte da definição do "Configurar OAuth" recomendamos:
 >
-> 1) **Atualize a vida útil do token de atualização para 90 dias (7.776.000 segundos):** Como parte do [Configure OAuth](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_SettingUpOAuth.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696739125&sdata=Q7mF6Ej8MCupKaEJpabTM56EDZ1T8vFVyihhoM594aA%3D&reserved=0) na fase 2: [Crie um ponto final para os clientes acessarem a instância](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_CreateEndpointforExternalClients.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696749123&sdata=hoAJHJAFgUeszYCX1Q%2FXr4N%2FAKiFcm5WV7mwR2UqeWA%3D&reserved=0) Após a definição do ponto final, a pesquisa de lâmina sin servicenow para o System OAuth->Application Registry selecione o nome do OAuth que foi definido e atualize o campo de "Refresh token Lifespan" para 7.776.000.
+> 1) **Atualize a vida útil do token de atualização para 90 dias (7.776.000 segundos):** Como parte do [Configure OAuth](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_SettingUpOAuth.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696739125&sdata=Q7mF6Ej8MCupKaEJpabTM56EDZ1T8vFVyihhoM594aA%3D&reserved=0) na fase 2: [Crie um ponto final para os clientes acessarem a instância](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_CreateEndpointforExternalClients.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696749123&sdata=hoAJHJAFgUeszYCX1Q%2FXr4N%2FAKiFcm5WV7mwR2UqeWA%3D&reserved=0) Após a definição do ponto final, no ServiceNow a pesquisa de lâminas para o System OAuth do que selecionar Registro de Aplicativos. Escolha o nome do OAuth que foi definido e atualize o campo de Vida útil do token Refresh para 7.776.000 (90 dias em segundos).
 > No final clique em atualização.
-> 2) **Recomendamos estabelecer um procedimento interno para garantir que a conexão permaneça viva:** De acordo com o "Refresh Token Lifespan" para atualizar o token. Certifique-se de executar as seguintes operações antes do tempo de expiração esperado do token de atualização (alguns dias antes do vencimento do "Refresh Token Lifespan" que recomendamos):
+> 2) **Recomendamos estabelecer um procedimento interno para garantir que a conexão permaneça viva:** De acordo com o Refresh Token Lifespan para atualizar o token. Certifique-se de executar as seguintes operações antes do tempo de expiração esperado do token de atualização (alguns dias antes do prazo de vida do Token de atualização expirar, recomendamos):
 >
 >>  1) [Complete um processo de sincronização manual para a configuração do conector ITSM](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
- >> 2) Revogue ao token de atualização antigo, pois não é recomendável manter chaves antigas por razões de segurança. Na análise da lâmina ServiceNow para "System OAuth"->"Manage Tokens" e, em seguida, selecione o token antigo da lista de acordo com o nome e a data de validade do OAuth. Clique em "Revogar acesso"->".
+ >> 2) Revogue ao token de atualização antigo, pois não é recomendável manter chaves antigas por razões de segurança. Na lâmina ServiceNow procure o System OAuth do que selecionar Gerenciar tokens. Escolha o token antigo da lista de acordo com o nome oAuth e a data de validade. Clique em Revogar acesso e não em Revogar.
 
 - Instale o aplicativo de usuário para integração com o Microsoft Log Analytics (aplicativo ServiceNow). [Saiba mais](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Crie função de usuário de integração para o aplicativo de usuário instalado. Veja informações sobre como criar a função de usuário de integração [aqui](#create-integration-user-role-in-servicenow-app).
@@ -226,7 +226,7 @@ Use o procedimento a seguir para criar uma conexão do ServiceNow:
 
 | **Campo** | **Descrição** |
 | --- | --- |
-| **Nome da conexão**   | Digite um nome para a instância do ServiceNow que você deseja conectar com o ITSMC.  Use esse nome posteriormente no Log Analytics quando você configurar os itens de trabalho nesse ITSM/exibir o Log Analytics detalhado. |
+| **Nome da Conexão**   | Digite um nome para a instância do ServiceNow que você deseja conectar com o ITSMC.  Use esse nome posteriormente no Log Analytics quando você configurar os itens de trabalho nesse ITSM/exibir o Log Analytics detalhado. |
 | **Tipo de parceiro**   | Selecione **ServiceNow**. |
 | **Nome de usuário**   | Digite o nome de usuário de integração que você criou no aplicativo ServiceNow para dar suporte à conexão com o ITSMC. Mais informações: [Criar função de usuário de aplicativo do ServiceNow](#create-integration-user-role-in-servicenow-app).|
 | **Senha**   | Digite a senha associada a esse nome de usuário. **Nota**: O nome do usuário e a senha são usados apenas para gerar tokens de autenticação e não são armazenados em nenhum lugar dentro do serviço ITSMC.  |
@@ -321,7 +321,7 @@ Use o procedimento a seguir para criar uma conexão do Provance:
 
 | **Campo** | **Descrição** |
 | --- | --- |
-| **Nome da conexão**   | Digite um nome para a instância do Provance que você deseja conectar com o ITSMC.  Você usará esse nome posteriormente ao configurar itens de trabalho neste ITSM/análise de logs detalhado da exibição. |
+| **Nome da Conexão**   | Digite um nome para a instância do Provance que você deseja conectar com o ITSMC.  Você usará esse nome posteriormente ao configurar itens de trabalho neste ITSM/análise de logs detalhado da exibição. |
 | **Tipo de parceiro**   | Selecione **Provance**. |
 | **Nome de usuário**   | Digite o nome de usuário que pode se conectar ao ITSMC.    |
 | **Senha**   | Digite a senha associada a esse nome de usuário. **Observação:** o nome de usuário e a senha são usados apenas para gerar tokens de autenticação e não são armazenados em nenhum lugar do serviço ITSMC.|
@@ -372,7 +372,7 @@ Use o procedimento a seguir para criar uma conexão do Provance:
 
 | **Campo** | **Descrição** |
 | --- | --- |
-| **Nome da conexão**   | Digite um nome para a instância do Cherwell que você deseja conectar ao ITSMC.  Você usará esse nome posteriormente ao configurar itens de trabalho neste ITSM/análise de logs detalhado da exibição. |
+| **Nome da Conexão**   | Digite um nome para a instância do Cherwell que você deseja conectar ao ITSMC.  Você usará esse nome posteriormente ao configurar itens de trabalho neste ITSM/análise de logs detalhado da exibição. |
 | **Tipo de parceiro**   | Selecione **Cherwell.** |
 | **Nome de usuário**   | Digite o nome de usuário do Cherwell que pode se conectar ao ITSMC. |
 | **Senha**   | Digite a senha associada a esse nome de usuário. **Nota:** O nome de usuário e a senha são usados apenas para gerar tokens de autenticação e não são armazenados em nenhum lugar dentro do serviço ITSMC.|

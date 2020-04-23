@@ -4,15 +4,14 @@ description: Crie uma nova versão de imagem VM a partir de uma versão de image
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines-windows
-manager: gwallace
-ms.openlocfilehash: 60a37588ddcac339d9545fb6f597ef7bdc17ccb4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 766e7d5c4151000a582bcf07d80b89af3b7d8a65
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247360"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869531"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Visualização: Crie uma nova versão de imagem VM a partir de uma versão de imagem existente usando o Azure Image Builder
 
@@ -22,7 +21,7 @@ Usaremos um modelo sample .json para configurar a imagem. O arquivo .json que es
 
 > [!IMPORTANT]
 > O Azure Image Builder está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Registre os recursos
 Para usar o Azure Image Builder durante a visualização, você precisa registrar o novo recurso.

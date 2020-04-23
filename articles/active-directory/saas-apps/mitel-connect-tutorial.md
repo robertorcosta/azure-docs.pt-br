@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 30a4dcbd15d8a47d99b3a61879a7e61938d3b133
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 26a761708f56ff7aba8daf86d2991579e60291cb
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160544"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870205"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Tutorial: Integração do Azure Active Directory ao Mitel MiCloud Connect
 
@@ -202,7 +202,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 Nesta seção, você criará um usuário chamado Brenda Fernandes em sua conta do MiCloud Connect. Os usuários precisam ser criados e ativados para usarem o logon único.
 
-Para obter detalhes sobre como adicionar usuários no portal da conta do Mitel, confira o artigo [Adding a User](https://docs.shoretel.com/connectcloud/Account/Users/AddUser) (Como adicionar um usuário) da Base de Dados de Conhecimento da Mitel.
+Para obter detalhes sobre como adicionar usuários no portal da conta do Mitel, confira o artigo [Adding a User](https://oneview.mitel.com/s/article/Adding-a-User-092815) (Como adicionar um usuário) da Base de Dados de Conhecimento da Mitel.
 
 Crie um usuário em sua conta do MiCloud Connect com os seguintes detalhes:
 

@@ -6,17 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 5aa025fb366634e796abfb2eb9c0035d9b87dc3c
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 2c6eb5407ec62b6e9e771ce257b66fca2a91e0a5
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437037"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82023598"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Microsoft Azure | (Versão prévia)
 
 ![Logotipo do Office 365](media/solution-office-365/icon.png)
-
 
 > [!IMPORTANT]
 > ## <a name="solution-update"></a>Atualização de soluções
@@ -36,8 +35,8 @@ ms.locfileid: "80437037"
 >
 > ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 > 
-> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-april-30th"></a>P: É possível embarcar na solução do Office 365 Azure Monitor entre agora e 30 de abril?
-> Não, os scripts de onboarding da solução Azure Monitor Office 365 não estão mais disponíveis. A solução será removida em 30 de abril.
+> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-july-30th"></a>P: É possível embarcar na solução do Office 365 Azure Monitor entre agora e 30 de julho?
+> Não, os scripts de onboarding da solução Azure Monitor Office 365 não estão mais disponíveis. A solução será removida em 30 de julho.
 > 
 > ### <a name="q-will-the-tables-and-schemas-be-changed"></a>P: As tabelas e esquemas serão alterados?
 > O nome e o esquema da tabela **OfficeActivity** permanecerão os mesmos da solução atual. Você pode continuar usando as mesmas consultas na nova solução, excluindo consultas que fazem referência aos dados do Azure AD.
@@ -103,11 +102,11 @@ ms.locfileid: "80437037"
 > ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>P: O Azure Sentinel fornece conectores adicionais como parte da solução?
 > Sim, veja [o Azure Sentinel conectar fontes de dados](../../sentinel/connect-data-sources.md).
 > 
-> ###    <a name="q-what-will-happen-on-april-30-do-i-need-to-offboard-beforehand"></a>P: O que acontecerá em 30 de abril? Preciso sair do mar antes?
+> ###    <a name="q-what-will-happen-on-july-30-do-i-need-to-offboard-beforehand"></a>P: O que acontecerá em 30 de julho? Preciso sair do mar antes?
 > 
 > - Você não poderá receber dados da solução **Office365.** A solução não estará mais disponível no Marketplace
 > - Para os clientes do Azure Sentinel, a solução de espaço de trabalho Log Analytics **Office365** será incluída na solução Azure Sentinel **SecurityInsights.**
-> - Se você não desligar sua solução manualmente, seus dados serão desconectados automaticamente em 30 de abril.
+> - Se você não desligar sua solução manualmente, seus dados serão desconectados automaticamente em 30 de julho.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>P: Minha transferência de dados para a nova solução?
 > Sim. Quando você remover a solução **office 365** do seu espaço de trabalho, seus dados ficarão temporariamente indisponíveis porque o esquema é removido. Quando você habilita o novo conector **Office 365** no Sentinel, o esquema é restaurado no espaço de trabalho e todos os dados já coletados serão disponibilizados. 
@@ -348,7 +347,7 @@ Esses registros são criados quando são feitas alterações à configuração d
 | ModifiedObjectResolvedName |     Esse é o nome amigável de usuário do objeto modificado pelo cmdlet. Isso é registrado apenas se o cmdlet modificar o objeto. |
 | OrganizationName | O nome do locatário. |
 | OriginatingServer | O nome do servidor do qual o cmdlet foi executado. |
-| parâmetros | O nome e o valor para todos os parâmetros que foram usados com o cmdlet identificado na propriedade Operations. |
+| Parâmetros | O nome e o valor para todos os parâmetros que foram usados com o cmdlet identificado na propriedade Operations. |
 
 
 ### <a name="exchange-mailbox"></a>Caixa de correio do Exchange

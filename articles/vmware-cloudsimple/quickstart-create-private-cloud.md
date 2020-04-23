@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 10831c0dc39fa241a43541850afae39593ae033b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: a2fe7daf1476f19f6a6eea83174342fa1273fe14
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81678281"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867973"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Quickstart - Configure um ambiente de nuvem privada
 
@@ -148,7 +148,7 @@ A VLAN/sub-rede será criada.  Agora você pode usar este ID VLAN para criar um 
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Conecte seu ambiente a uma rede virtual do Azure
 
-O CloudSimple fornece um circuito ExpressRoute para sua Nuvem Privada. Você pode conectar sua rede virtual no Azure ao circuito ExpressRoute. Para obter detalhes completos sobre a configuração da conexão, siga as etapas do [Azure Virtual Network Connection usando o ExpressRoute](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/).
+O CloudSimple fornece um circuito ExpressRoute para sua Nuvem Privada. Você pode conectar sua rede virtual no Azure ao circuito ExpressRoute. Para obter detalhes completos sobre a configuração da conexão, siga as etapas do [Azure Virtual Network Connection usando o ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-azure-network-connection).
 
 ## <a name="sign-in-to-vcenter"></a>Faça login no vCenter
 

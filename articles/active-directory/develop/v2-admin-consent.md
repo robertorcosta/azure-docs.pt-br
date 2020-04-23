@@ -12,16 +12,16 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c9f633e0d205adaf5cefb2e3c036ce7f48253651
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 537d609c1281929203d1891f37614b7627e1683a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886374"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868676"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentimento do admin na plataforma de identidade da Microsoft
 
-Algumas permissões exigem o consentimento de um administrador antes que possam ser concedidas dentro de um inquilino.  Você também pode usar o ponto final do consentimento do admin para conceder permissões a um inquilino inteiro.  
+Algumas permissões exigem o consentimento de um administrador antes que possam ser concedidas dentro de um inquilino.  Você também pode usar o ponto final do consentimento do admin para conceder permissões a um inquilino inteiro.
 
 ## <a name="recommended-sign-the-user-into-your-app"></a>Recomendado: Inscreva o usuário em seu aplicativo
 
@@ -33,15 +33,15 @@ Ao conectar o usuário ao seu aplicativo, você pode identificar a organização
 
 Quando você estiver pronto para solicitar permissões do admin da sua organização, você pode redirecionar o usuário para o *ponto final de consentimento da*plataforma de identidade Microsoft .
 
-```
+```HTTP
 // Line breaks are for legibility only.
-    GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
-  client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-  &state=12345
-  &redirect_uri=http://localhost/myapp/permissions
-    &scope=
-    https://graph.microsoft.com/calendars.read 
-    https://graph.microsoft.com/mail.send
+GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&state=12345
+&redirect_uri=http://localhost/myapp/permissions
+&scope=
+https://graph.microsoft.com/calendars.read
+https://graph.microsoft.com/mail.send
 ```
 
 
@@ -51,7 +51,7 @@ Quando você estiver pronto para solicitar permissões do admin da sua organiza�
 | `client_id` | Obrigatório | O **ID do aplicativo (cliente)** que o [portal Azure – Registros de aplicativos](https://go.microsoft.com/fwlink/?linkid=2083908) experimenta atribuído ao seu aplicativo. |
 | `redirect_uri` | Obrigatório |O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ela deve corresponder exatamente a um redirecionamento de URIs que você registrou no portal de registro de aplicativo. |
 | `state` | Recomendadas | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
-|`scope`        | Obrigatório      | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Isso pode ser estático (usando /.default) ou escopos dinâmicos.  Isso pode incluir os escopos`openid` `profile`OIDC ( , ). `email` | 
+|`scope`        | Obrigatório      | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Isso pode ser estático (usando /.default) ou escopos dinâmicos.  Isso pode incluir os escopos`openid` `profile`OIDC ( , ). `email` |
 
 
 Neste ponto, o Azure AD requer um administrador de locatários para entrar e concluir a solicitação. O administrador é solicitado a aprovar todas as permissões que você solicitou no `scope` parâmetro.  Se você usou um`/.default`valor estático ( ), ele funcionará como o ponto final de consentimento do admin v1.0 e solicitará consentimento para todos os escopos encontrados nas permissões necessárias para o aplicativo.

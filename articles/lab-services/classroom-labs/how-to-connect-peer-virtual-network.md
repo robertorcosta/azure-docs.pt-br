@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: b0efed83237c191f02bfffd9b26a0fd9cd2c871f
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 6ed0d743f9b9cdc136b8f52f4d9d02583fc63eb9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606586"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870188"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conecte a rede do seu laboratório com uma rede virtual de pares no Azure Lab Services
 
@@ -46,7 +46,7 @@ Durante a criação da nova [conta de laboratório,](tutorial-setup-lab-account.
 
 ### <a name="address-range"></a>Intervalo de endereços
 
-Há também uma opção para fornecer **linha de endereços** para máquinas virtuais para os laboratórios. Se o intervalo de endereços for fornecido, todas as máquinas virtuais nos laboratórios sob a conta do laboratório serão criadas nessa faixa de endereços. O intervalo de endereços deve estar na notação CIDR (por exemplo, 10.20.0.0/20) e não se sobrepor a nenhuma faixa de endereço existente.  Ao fornecer uma gama de endereços, é importante pensar no número de laboratórios que serão *criados* e fornecer uma gama de endereços para acomodar isso. A Lab Services assume um máximo de 512 máquinas virtuais por laboratório.  Por exemplo, um intervalo ip com '/23' pode criar apenas um laboratório.  Um intervalo com um '/21' permitirá a criação de quatro laboratórios.
+Há também uma opção para fornecer **linha de endereços** para máquinas virtuais para os laboratórios.  A propriedade **''''Linha endereço'** só se aplica se **a rede virtual Peer** estiver habilitada para o laboratório.  Se o intervalo de endereços for fornecido, todas as máquinas virtuais nos laboratórios sob a conta do laboratório serão criadas nessa faixa de endereços. O intervalo de endereços deve estar na notação CIDR (por exemplo, 10.20.0.0/20) e não se sobrepor a nenhuma faixa de endereço existente.  Ao fornecer uma gama de endereços, é importante pensar no número de laboratórios que serão *criados* e fornecer uma gama de endereços para acomodar isso. A Lab Services assume um máximo de 512 máquinas virtuais por laboratório.  Por exemplo, um intervalo ip com '/23' pode criar apenas um laboratório.  Um intervalo com um '/21' permitirá a criação de quatro laboratórios.
 
 Se a **faixa de endereço** não for especificada, os Serviços de Laboratório usarão o intervalo de endereçopadrão dado a ele pelo Azure ao criar a rede virtual a ser acompanhada pela sua rede virtual.  O alcance é muitas vezes algo como 10.x.0.0/16.  Isso pode levar à sobreposição do intervalo ip, por isso certifique-se de especificar e abordar o intervalo nas configurações do laboratório ou verificar o intervalo de endereços da sua rede virtual sendo espiado.
 

@@ -4,22 +4,22 @@ description: Saiba como identificar, diagnosticar e solucionar problemas de cons
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 02/10/2020
+ms.date: 04/20/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 852ed8c49eda7f13542eb0bad63d84e1cf770e92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a8b61f3719a60af567d10f8839987e613babc9e
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131372"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870447"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solucionar problemas de consulta ao usar o Azure Cosmos DB
 
 Este artigo percorre uma abordagem geral recomendada para solucionar problemas no Azure Cosmos DB. Embora você não deva considerar as etapas descritas neste artigo como uma defesa completa contra possíveis problemas de consulta, incluímos as dicas de desempenho mais comuns aqui. Você deve usar este artigo como um local de partida para solucionar consultas lentas ou caras na API do núcleo Azure Cosmos DB (SQL). Você também pode usar [registros de diagnóstico para](cosmosdb-monitor-resource-logs.md) identificar consultas que são lentas ou que consomem quantidades significativas de throughput.
 
-Você pode categorizar amplamente otimizações de consulta no Azure Cosmos DB: 
+Você pode categorizar amplamente otimizações de consulta no Azure Cosmos DB:
 
 - Otimizações que reduzem a carga da unidade de solicitação (RU) da consulta
 - Otimizações que apenas reduzem a latência
@@ -28,19 +28,18 @@ Se você reduzir a carga RU de uma consulta, você quase certamente diminuirá a
 
 Este artigo fornece exemplos que você pode recriar usando o conjunto de dados [nutricionais.](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)
 
-## <a name="important"></a>Importante
+## <a name="common-sdk-issues"></a>Problemas comuns de SDK
 
 - Para obter o melhor desempenho, siga as [dicas de Desempenho](performance-tips.md).
     > [!NOTE]
     > Para melhorar o desempenho, recomendamos o processamento do host do Windows de 64 bits. O SQL SDK inclui um ServiceInterop.dll nativo para analisar e otimizar consultas localmente. ServiceInterop.dll é suportado apenas na plataforma Windows x64. Para Linux e outras plataformas não suportadas onde o ServiceInterop.dll não está disponível, uma chamada de rede adicional será feita para o gateway para obter a consulta otimizada.
-- As consultas do Azure Cosmos DB não suportam uma contagem mínima de itens.
-    - O código deve lidar com qualquer tamanho de página, de zero à contagem máxima de itens.
-    - O número de itens em uma página pode e mudará sem aviso prévio.
-- Páginas vazias são esperadas para consultas e podem aparecer a qualquer momento.
-    - Páginas vazias são expostas nos SDKs porque essa exposição permite mais oportunidades de cancelar uma consulta. Também deixa claro que o SDK está fazendo várias chamadas de rede.
-    - Páginas vazias podem aparecer em cargas de trabalho existentes porque uma partição física é dividida no Azure Cosmos DB. A primeira partição terá zero resultados, o que causa a página vazia.
-    - As páginas vazias são causadas pelo backend que antecipa uma consulta porque a consulta está demorando mais do que algum tempo fixo no backend para recuperar os documentos. Se o Azure Cosmos DB antecipar uma consulta, ele retornará um token de continuação que permitirá que a consulta continue.
-- Certifique-se de drenar completamente a consulta. Olhe para as amostras de SDK, e use um `while` loop `FeedIterator.HasMoreResults` para drenar toda a consulta.
+- Você pode `MaxItemCount` definir um para suas consultas, mas não pode especificar uma contagem mínima de itens.
+    - O código deve lidar com qualquer `MaxItemCount`tamanho de página, do zero ao .
+    - O número de itens em uma página será sempre `MaxItemCount`menor do que o especificado . No `MaxItemCount` entanto, é estritamente um máximo e poderia haver menos resultados do que este montante.
+- Às vezes, as consultas podem ter páginas vazias mesmo quando há resultados em uma página futura. As razões para isso podem ser:
+    - O SDK pode estar fazendo várias chamadas de rede.
+    - A consulta pode estar demorando para recuperar os documentos.
+- Todas as consultas têm um token de continuação que permitirá que a consulta continue. Certifique-se de drenar completamente a consulta. Olhe para as amostras de SDK, e use um `while` loop `FeedIterator.HasMoreResults` para drenar toda a consulta.
 
 ## <a name="get-query-metrics"></a>Obter métricas de consulta
 
@@ -61,6 +60,8 @@ Consulte as seguintes seções para entender as otimizações de consulta releva
 - [Inclua os caminhos necessários na política de indexação.](#include-necessary-paths-in-the-indexing-policy)
 
 - [Entenda quais funções do sistema usam o índice.](#understand-which-system-functions-use-the-index)
+
+- [Entenda quais consultas agregadas usam o índice.](#understand-which-aggregate-queries-use-the-index)
 
 - [Modifique as consultas que tenham um filtro e uma cláusula ORDER BY.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
 
@@ -190,7 +191,7 @@ Você pode adicionar propriedades à política de indexação a qualquer momento
 
 Se uma expressão pode ser traduzida em uma variedade de valores de seqüência, ela pode usar o índice. Caso contrário, não pode.
 
-Aqui está a lista de funções de string que podem usar o índice:
+Aqui está a lista de algumas funções comuns de string que podem usar o índice:
 
 - STARTSWITH(str_expr, str_expr)
 - LEFT(str_expr, num_expr) = str_expr
@@ -207,6 +208,50 @@ A seguir estão algumas funções comuns do sistema que não usam o índice e de
 ------
 
 Outras partes da consulta ainda podem usar o índice, mesmo que as funções do sistema não.
+
+### <a name="understand-which-aggregate-queries-use-the-index"></a>Entenda quais consultas agregadas usam o índice
+
+Na maioria dos casos, funções agregadas do sistema no Azure Cosmos DB usarão o índice. No entanto, dependendo dos filtros ou cláusulas adicionais em uma consulta agregada, o mecanismo de consulta pode ser necessário para carregar um alto número de documentos. Normalmente, o mecanismo de consulta aplicará primeiro filtros de igualdade e alcance. Após a aplicação desses filtros, o mecanismo de consulta pode avaliar filtros adicionais e recorrer ao carregamento de documentos restantes para calcular o agregado, se necessário.
+
+Por exemplo, dadas essas duas consultas de amostra, `CONTAINS` a consulta com um filtro de igualdade e `CONTAINS` função do sistema geralmente será mais eficiente do que uma consulta com apenas um filtro de função do sistema. Isso porque o filtro de igualdade é aplicado primeiro e usa o índice `CONTAINS` antes que os documentos precisem ser carregados para o filtro mais caro.
+
+Consulta com `CONTAINS` apenas filtro - maior carga RU:
+
+```sql
+SELECT COUNT(1) FROM c WHERE CONTAINS(c.description, "spinach")
+```
+
+Consulta com filtro e `CONTAINS` filtro de igualdade - menor carga DE RU:
+
+```sql
+SELECT AVG(c._ts) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" AND CONTAINS(c.description, "spinach")
+```
+
+Aqui estão exemplos adicionais de consultas de agregados que não usarão totalmente o índice:
+
+#### <a name="queries-with-system-functions-that-dont-use-the-index"></a>Consultas com funções do sistema que não usam o índice
+
+Você deve consultar a [página da função do sistema](sql-query-system-functions.md) relevante para ver se ela usa o índice.
+
+```sql
+SELECT MAX(c._ts) FROM c WHERE CONTAINS(c.description, "spinach")
+```
+
+#### <a name="aggregate-queries-with-user-defined-functionsudfs"></a>Consultas agregadas com funções definidas pelo usuário (UDF's)
+
+```sql
+SELECT AVG(c._ts) FROM c WHERE udf.MyUDF("Sausages and Luncheon Meats")
+```
+
+#### <a name="queries-with-group-by"></a>Consultas com GROUP BY
+
+A carga `GROUP BY` ru de aumentará à medida `GROUP BY` que a cardinalidade das propriedades na cláusula aumenta. Neste exemplo, o mecanismo de consulta deve `c.foodGroup = "Sausages and Luncheon Meats"` carregar todos os documentos que correspondem ao filtro para que a carga RU seja alta.
+
+```sql
+SELECT COUNT(1) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" GROUP BY c.description
+```
+
+Se você planeja executar frequentemente as mesmas consultas agregadas, pode ser mais eficiente construir uma exibição materializada em tempo real com o [feed de alteração Do Azure Cosmos DB](change-feed.md) do que executar consultas individuais.
 
 ### <a name="modify-queries-that-have-both-a-filter-and-an-order-by-clause"></a>Modificar consultas que tenham um filtro e uma cláusula ORDER BY
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: e591a7035db82425952a16f5c4c220e25d8517fe
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ee8bee832e48dc7354b4136e25be9bcc43eb90c5
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457171"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870550"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Acesso seguro e dados em Aplicativos lógicos do Azure
 
@@ -655,7 +655,7 @@ Se a opção [Certificado do Cliente](../active-directory/authentication/active-
 
 | Propriedade (designer) | Property (JSON) | Obrigatório | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticação** | `type` | Sim | **Certificado do Cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a ser usado para certificados clientes TLS/SSL. Embora os certificados auto-assinados sejam suportados, os certificados auto-assinados para TLS/SSL não são suportados. |
+| **Autenticação** | `type` | Sim | **Certificado do Cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a ser usado para certificados clienteS TLS/SSL <p><p>**Nota:** Embora os certificados auto-assinados sejam suportados, os certificados auto-assinados para TLS/SSL não são suportados. O conector HTTP não suporta certificados TLS/SSL intermediários. |
 | **Pfx** | `pfx` | Sim | <*codificado-pfx-conteúdo de arquivo*> | O conteúdo codificado na base64 do arquivo PFX (Troca de Informações Pessoais) <p><p>Para converter o arquivo PFX em formato codificado pelo base64, você pode usar o PowerShell seguindo estas etapas: <p>1. Salve o conteúdo do certificado em uma variável: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Converta o conteúdo `ToBase64String()` do certificado usando a função e salve esse conteúdo em um arquivo de texto: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Senha** | `password`| Não | <*senha-para-pfx-arquivo*> | A senha para acessar o arquivo PFX |
 |||||
@@ -698,7 +698,7 @@ Se a opção [Active Directory OAuth](../active-directory/develop/about-microsof
 | **Authority** | `authority` | Não | <*Emissor de url-for-authority-token*> | A URL da autoridade que fornece o token de autenticação. Por padrão, esse valor é `https://login.windows.net`. |
 | **Locatário** | `tenant` | Sim | <*inquilino-ID*> | A ID do locatário para o locatário do Azure AD |
 | **Público** | `audience` | Sim | <*recurso para autorizar*> | O recurso que você deseja usar para autorização, por exemplo, `https://management.core.windows.net/` |
-| **ID do cliente** | `clientId` | Sim | <*iD cliente-iD*> | A ID do cliente para o aplicativo solicitando a autorização |
+| **ID do Cliente** | `clientId` | Sim | <*iD cliente-iD*> | A ID do cliente para o aplicativo solicitando a autorização |
 | **Tipo de credencial** | `credentialType` | Sim | Certificado <br>ou <br>Segredo | O tipo de credencial que o cliente usa para solicitar autorização. Essa propriedade e valor não aparecem na definição subjacente do seu aplicativo lógico, mas determina as propriedades que aparecem para o tipo de credencial selecionada. |
 | **Segredo** | `secret` | Sim, mas apenas para o tipo de credencial "Segredo" | <*cliente secreto*> | O segredo do cliente para solicitar autorização |
 | **Pfx** | `pfx` | Sim, mas apenas para o tipo de credencial "Certificado" | <*codificado-pfx-conteúdo de arquivo*> | O conteúdo codificado na base64 do arquivo PFX (Troca de Informações Pessoais) |
@@ -783,8 +783,8 @@ Se a opção [Identidade Gerenciada](../active-directory/managed-identities-azur
 
    | Propriedade (designer) | Property (JSON) | Obrigatório | Valor | Descrição |
    |---------------------|-----------------|----------|-------|-------------|
-   | **Autenticação** | `type` | Sim | **Identidade Gerenciada** <br>ou <br>`ManagedServiceIdentity` | O tipo de autenticação a ser usado |
-   | **Identidade Gerenciada** | `identity` | Sim | * **Identidade gerenciada atribuída ao sistema** <br>ou <br>`SystemAssigned` <p><p>* <*nome de identidade atribuído pelo usuário*> | A identidade gerenciada para usar |
+   | **Autenticação** | `type` | Sim | **Identidade gerenciada** <br>ou <br>`ManagedServiceIdentity` | O tipo de autenticação a ser usado |
+   | **Identidade gerenciada** | `identity` | Sim | * **Identidade gerenciada atribuída ao sistema** <br>ou <br>`SystemAssigned` <p><p>* <*nome de identidade atribuído pelo usuário*> | A identidade gerenciada para usar |
    | **Público** | `audience` | Sim | <*ID de recursos de destino*> | O ID de recurso para o recurso de destino que você deseja acessar. <p>Por exemplo, `https://storage.azure.com/` torna válido os tokens de acesso para autenticação para todas as contas de armazenamento. No entanto, você também pode especificar uma URL de serviço raiz, como `https://fabrikamstorageaccount.blob.core.windows.net` para uma conta de armazenamento específica. <p>**Nota**: A propriedade **Audience** pode estar escondida em alguns gatilhos ou ações. Para tornar essa propriedade visível, no gatilho ou ação, abra a lista **Adicionar novo parâmetro** e selecione **Audiência**. <p><p>**Importante**: Certifique-se de que esse ID de recurso de destino *corresponda exatamente* ao valor que o Azure AD espera, incluindo quaisquer barras de arrasto necessárias. Assim, o `https://storage.azure.com/` ID de recurso para todas as contas do Azure Blob Storage requer uma barra de saque. No entanto, o ID de recurso para uma conta de armazenamento específica não requer uma barra de arrasto. Para encontrar esses IDs de recursos, consulte [os serviços do Azure que suportam o Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 

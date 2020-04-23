@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: b2e8bec18f4f5df6fb78a3c31aa0956ec7333eb5
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 9129cb308a364a3ed0654055f8afe9dd8c89010a
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770118"
+ms.locfileid: "82024618"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de leitura no Banco de Dados do Azure para MariaDB
 
@@ -33,9 +33,6 @@ O recurso de réplica de leitura usa replicação assíncrona. O recurso não se
 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
 Você pode criar uma réplica de leitura em uma região diferente do seu servidor mestre. A replicação entre regiões pode ser útil para cenários como o planejamento de recuperação de desastres ou a aproximação de dados com seus usuários.
-
-> [!NOTE]
-> A replicação entre regiões está em pré-visualização.
 
 Você pode ter um servidor mestre em qualquer [banco de dados do Azure para a região do MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Um servidor mestre pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal. A imagem abaixo mostra quais regiões de réplica estão disponíveis dependendo da sua região mestre.
 

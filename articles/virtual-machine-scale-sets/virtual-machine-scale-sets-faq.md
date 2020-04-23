@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: 1dbc08e01b9a36b1bc80ee6b81ceb2d92ff831cc
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: c2db0cca120d08b85229618547a2aaabbba437ad
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273708"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870209"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -61,7 +61,7 @@ Um conjunto de dimensionamento regional (não zonal) usa *grupos de veiculaçõe
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>Os conjuntos de dimensionamento funcionam com as zonas de disponibilidade do Azure?
 
- Sim! Para obter mais informações, confira a [documentação de zona de conjunto de dimensionamento](./virtual-machine-scale-sets-use-availability-zones.md).
+Sim! Para obter mais informações, confira a [documentação de zona de conjunto de dimensionamento](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Autoscale
@@ -445,7 +445,7 @@ Há duas maneiras de alterar a senha de VMs em conjuntos de escala.
 
     Atualize as credenciais de administrador diretamente no modelo do conjunto de escala (por exemplo usando o Gerenciador de recursos do Azure, PowerShell ou CLI). Depois que o conjunto de escala é atualizado, todas as novas máquinas virtuais têm as novas credenciais. Máquinas virtuais existentes têm somente as novas credenciais caso tenham as imagens refeitas.
 
-- Redefina a senha usando as extensões de acesso da VM.
+- Redefina a senha usando as extensões de acesso da VM. Certifique-se de seguir os requisitos de senha conforme descrito [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
 
     Use o seguinte exemplo do PowerShell:
 

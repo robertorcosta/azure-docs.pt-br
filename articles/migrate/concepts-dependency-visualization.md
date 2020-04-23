@@ -3,12 +3,12 @@ title: Análise de dependência na avaliação do servidor azure migrate
 description: Descreve como usar a análise de dependência para avaliação usando a avaliação do servidor Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: b11796f2c5d7c1d87f383e6780444e572352eff5
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f0b956620895ae2264b53916015d440f5e586eb2
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537739"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024754"
 ---
 # <a name="dependency-analysis"></a>Análise de dependência
 
@@ -51,7 +51,7 @@ Para análise baseada em agentes, a Avaliação do Servidor usa a [solução Map
 
 ### <a name="collected-data"></a>Dados coletados
 
-Para visualização baseada em agentes, os seguintes dados são coletados:
+Para análise baseada em agentes, os seguintes dados são coletados:
 
 - Nome do servidor da máquina de origem, processo, nome do aplicativo.
 - Nome do servidor da máquina de destino, processo, nome do aplicativo e porta.

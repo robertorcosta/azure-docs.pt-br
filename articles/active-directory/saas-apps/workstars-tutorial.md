@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: c13c6ab180a172c034d25ac84781f5d3f83ae186
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 43fbc158c9ed0bbe87a75cd845433c7a7be2e6d1
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67086632"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867908"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Tutorial: integração do Azure Active Directory com o Workstars
 
@@ -110,7 +110,7 @@ Para configurar o logon único do Azure AD com o Workstars, execute as seguintes
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.workstars.com/saml/login_check`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com a URL de Resposta real. Contate a [equipe de suporte ao cliente do Workstars](https://support.workstars.com/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > O valor não é real. Atualize o valor com a URL de Resposta real. Contate a [equipe de suporte ao cliente do Workstars](http://support.workstars.com/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -210,7 +210,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ### <a name="create-workstars-test-user"></a>Criar usuário de teste do Workstars
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Workstars. Trabalhe com a [equipe de suporte do Workstars](https://support.workstars.com) para adicionar os usuários na plataforma do Workstars.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Workstars. Trabalhe com a [equipe de suporte do Workstars](http://support.workstars.com) para adicionar os usuários na plataforma do Workstars.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 

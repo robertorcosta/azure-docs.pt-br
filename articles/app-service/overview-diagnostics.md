@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: e06e71d4436ac6c64ff2edc876d7849d084482f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df8f68e47776f46ae2d1331f85bd76d6cfe17b80
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671628"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869938"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Visão geral de diagnóstico do Serviço de Aplicativo do Azure
 
@@ -31,6 +31,10 @@ Para funções do Azure, navegue até o aplicativo de função e, na navegação
 Na página inicial de diagnósticos do App Service, você pode escolher a categoria que melhor descreve o problema com seu aplicativo usando as palavras-chave em cada azulejo da página inicial. Além disso, esta página é onde você pode encontrar **ferramentas de diagnóstico** para aplicativos windows. Consulte [ferramentas de diagnóstico (apenas para o aplicativo Windows)](#diagnostic-tools-only-for-windows-app).
 
 ![Home page](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+
+> [!NOTE]
+> Se o aplicativo estiver desligado ou com desempenho lento, você pode [coletar um traçado de perfil](https://azure.github.io/AppService/2018/06/06/App-Service-Diagnostics-Profiling-an-ASP.NET-Web-App-on-Azure-App-Service.html) para identificar a causa raiz do problema. O perfil é leve e é projetado para cenários de produção.
+>
 
 ## <a name="interactive-interface"></a>Interface interativa
 

@@ -1,19 +1,19 @@
 ---
-title: Implantar contêineres com Helm no Kubernetes no Azure
+title: Instale aplicativos existentes com o Helm em AKS
 description: Saiba como usar a ferramenta de embalagem Helm para implantar contêineres em um cluster Azure Kubernetes Service (AKS)
 services: container-service
 author: zr-msft
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4a9ccaff0e3425c365a64ecb4fbadf3c7aa8dcfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e46bed5fc9fd83a907f8c9e716317a54548c58cc
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595171"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870245"
 ---
-# <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalar aplicativos com o Helm no AKS (Serviço de Kubernetes do Azure)
+# <a name="install-existing-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instale aplicativos existentes com o Helm no Azure Kubernetes Service (AKS)
 
 [Helm][helm] é uma ferramenta de empacotamento de software livre que ajuda a instalar e gerenciar o ciclo de vida de aplicativos Kubernetes. Semelhante a gerenciadores de pacotes do Linux, como *APT* e *Yum*, o Helm é usado para gerenciar gráficos Kubernetes, que são pacotes de recursos de Kubernetes pré-configurados.
 
@@ -180,7 +180,7 @@ NAME                NAMESPACE   REVISION    UPDATED                             
 my-nginx-ingress    default     1           2019-11-22 10:08:06.048477 -0600 CST    deployed    nginx-ingress-1.25.0    0.26.1 
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, use o comando [helm desinstalar][helm-cleanup] e `helm list` especifique seu nome de lançamento, como encontrado no comando anterior.
 
@@ -365,7 +365,7 @@ NAME                REVISION    UPDATED                     STATUS      CHART   
 flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingress-1.6.13    0.24.1      default
 ```
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, use o comando `helm delete` e especifique o nome do release, conforme encontrado no comando `helm list` anterior. O exemplo a seguir exclui a versão *denominada flailing-alpaca*:
 

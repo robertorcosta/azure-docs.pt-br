@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: e0ac09a68bda539fe7abd05fce1739d1a58a3c99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc6cbbd0aa9cb0750e497c7cc7edbd42f21bda55
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62127337"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024992"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orquestrar a implementação do Azure DevTest Labs
 Este artigo fornece uma abordagem recomendada para implantação e implementação rápidas do Azure DevTest Labs. A imagem a seguir enfatiza o processo geral como diretrizes prescritivas, observando simultaneamente a flexibilidade para dar suporte a vários cenários e requisitos do setor.
@@ -43,7 +43,7 @@ A primeira área de foco ao implantar uma solução do Azure DevTest Labs é est
 ## <a name="milestone-2-deploy-the-pilot-lab"></a>Marco 2: Implantar o laboratório piloto
 Depois que a topologia de rede está em vigor, o primeiro laboratório/laboratório piloto pode ser criado executando as seguintes etapas:
 
-1. Crie um ambiente inicial do DevTest Labs (instruções passo a passo podem ser encontradas [aqui](https://github.com/Azure/fta-devops/blob/master/devtest-labs/articles/devtest-labs-walkthrough-it.md))
+1. Crie um ambiente inicial do DevTest Labs.
 2. Determine as imagens e os tamanhos de VM que serão permitidos para uso com o laboratório. Decida se imagens personalizadas podem ser carregadas no Azure para uso com o DevTest Labs.
 3. Proteja o acesso ao laboratório com a criação dos RBACs (controles de acesso baseados em função) iniciais para o laboratório (proprietários e usuários do laboratório). É recomendável que você use contas sincronizadas do Active Directory com o Azure Active Directory para identidade com o DevTest Labs.
 4. Configure o DevTest Labs para usar políticas como agendas, fórmulas, VMs declaráveis, imagens personalizadas ou gerenciamento de custos.

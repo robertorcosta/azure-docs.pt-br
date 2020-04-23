@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b6f7634d16eeaa631f6d9f3c13ce23181ce7b40b
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: c07241345a724e4489fb137cfe862cde6518b318
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881801"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868726"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Um aplicativo web que chama APIs da Web: Chame uma API web
 
@@ -26,7 +26,7 @@ Agora que você tem um token, você pode chamar uma API da Web protegida.
 
 Aqui está um código simplificado `HomeController`para a ação do . Este código recebe um token para chamar microsoft graph. O código foi adicionado para mostrar como chamar o Microsoft Graph como uma API REST. A URL da API do Microsoft Graph é fornecida no arquivo appsettings.json e é lida em uma variável chamada `webOptions`:
 
-```JSon
+```json
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",

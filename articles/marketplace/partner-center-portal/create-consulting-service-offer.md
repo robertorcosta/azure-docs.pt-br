@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: f1354ce824bc4e57ab55846c714d4a0a73a46966
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: eff37750f0580a28c9644ee1ffb7fe4e95038709
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80873813"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869789"
 ---
 # <a name="create-a-consulting-service-offer"></a>Crie uma oferta de serviço de Consultoria
 
@@ -173,6 +173,9 @@ Adicione até três (mas pelo menos um) documentos PDF com suporte para sua ofer
 ### <a name="marketplace-images"></a>Imagens de mercado
 
 Forneça logotipos e imagens para usar com sua oferta. Todas as imagens devem estar no formato .png. As imagens embaçadas serão rejeitadas.
+
+>[!Note]
+>Se você tiver um problema de upload de arquivos, https://upload.xboxlive.com certifique-se de que sua rede local não bloqueie o serviço usado pelo Partner Center.
 
 #### <a name="store-logos"></a>Logotipos da Loja
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3139d39797c3bc576bb39f1438b7e6d3f37e3c5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f307553a97973d03b0699248373e53e4845aa39a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78248855"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869911"
 ---
 # <a name="what-are-security-defaults"></a>O que são padrões de segurança?
 
@@ -93,8 +93,6 @@ Usar o Azure Resource Manager para gerenciar seus serviços é uma ação altame
 
 Depois de ativar os padrões de segurança no seu inquilino, qualquer usuário que estiver acessando o portal Azure, o Azure PowerShell ou o Azure CLI precisará completar a autenticação adicional. Essa política se aplica a todos os usuários que estão acessando o Azure Resource Manager, seja ele um administrador ou um usuário. 
 
-Se o usuário não estiver registrado para autenticação multifatorial, o usuário será obrigado a se registrar usando o aplicativo Microsoft Authenticator para prosseguir. Não será fornecido um período de registro de autenticação multifatorial de 14 dias.
-
 > [!NOTE]
 > Os inquilinos do Exchange Online pré-2017 têm autenticação moderna desativada por padrão. Para evitar a possibilidade de um loop de login enquanto autentica através desses inquilinos, você deve [habilitar a autenticação moderna](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
@@ -141,7 +139,7 @@ Para habilitar padrões de segurança em seu diretório:
 1. Navegue até as > **propriedades**do diretório **ativo do Azure**.
 1. Selecione **Gerenciar padrões de segurança**.
 1. Defina o **alternar padrão de segurança** Enable para **Sim**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="disabling-security-defaults"></a>Desativar padrões de segurança
 
@@ -155,7 +153,7 @@ Para desativar os padrões de segurança em seu diretório:
 1. Navegue até as > **propriedades**do diretório **ativo do Azure**.
 1. Selecione **Gerenciar padrões de segurança**.
 1. Defina o **alternar padrão de segurança** Enable para **Não**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

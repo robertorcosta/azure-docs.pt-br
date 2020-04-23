@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6102b1e1d6ddbac01033b9cecfeba96a7eb33777
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41f9f267880d199d2e221453eea5c3584ce96881
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473533"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868403"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar contas de desenvolvedor usando o Active Directory do Azure no Gerenciamento de API do Azure
 
@@ -26,19 +26,19 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
+- Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 - Importar e publicar uma instância de gerenciamento de API do Azure. Para obter mais informações, consulte [Importar e publicar](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizar contas de desenvolvedor usando o Azure AD
 
-1. Faça login no [portal Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 2. Selecionar ![seta](./media/api-management-howto-aad/arrow.png).
 3. Digite **api** na caixa de pesquisa.
 4. Selecione **Serviços de Gerenciamento de API**.
 5. Selecione uma instância do Serviço de Gerenciamento de API.
-6. Em **Segurança,** **selecione Identidades**.
+6. Em **Portal desenvolvedor,** **selecione Identidades**.
 7. Selecione **+Adicionar** na parte superior.
 
     O painel **Adicionar provedor de identidade** aparece à direita.
@@ -50,7 +50,7 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
    ![Etapas para adicionar um provedor de identidade no portal do Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. No navegador, abra uma guia diferente. 
 11. Navegue até o [portal Azure - Inscrições de aplicativos](https://go.microsoft.com/fwlink/?linkid=2083908) para registrar um aplicativo no Active Directory.
-12. Em **Gerenciar,** selecione **registros de aplicativos**.
+12. Em **Gerenciar**, selecione **Registros de aplicativo**.
 13. Selecione **Novo registro**. Na **página Registrar uma página de aplicativo,** defina os valores da seguinte forma:
     
     * Defina **nome** para um nome significativo. por exemplo, *desenvolvedor-portal*

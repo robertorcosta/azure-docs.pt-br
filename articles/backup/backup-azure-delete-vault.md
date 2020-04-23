@@ -1,18 +1,18 @@
 ---
 title: Exclua um cofre do Microsoft Azure Recovery Services
-description: Neste artigo, saiba como remover dependências e, em seguida, excluir um cofre do Microsoft Azure Backup Recovery Services (MARS).
+description: Neste artigo, saiba como remover dependências e, em seguida, excluir um cofre do Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: f33f52048729b50015ba86db71118b9a21e1a2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69fed6c53914ed7aa16b04b5311ec69966734f25
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500398"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025128"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Exclua um cofre de serviços de recuperação de backup do Azure
 
-Este artigo descreve como excluir um cofre mars [(Microsoft Azure Backup](backup-overview.md) Recovery Services, serviços de recuperação de backup do Microsoft Azure). Ele contém instruções para remover dependências e, em seguida, excluir um cofre.
+Este artigo descreve como excluir um cofre [do Azure Backup](backup-overview.md) Recovery Services. Ele contém instruções para remover dependências e, em seguida, excluir um cofre.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -107,7 +107,7 @@ Depois que esse processo terminar, você pode excluir os itens de backup do cons
 ### <a name="delete-backup-items-from-the-mars-management-console"></a>Exclua itens de backup do console de gerenciamento MARS
 
 1. Abra o console de gerenciamento MARS, vá para o painel **Ações** e selecione **Agendamento Backup**.
-2. Na página Modificar ou Interromper uma página **de backup programada,** **selecione Parar de usar esse cronograma de backup e exclua todos os backups armazenados**. Em seguida, selecione **Next**.
+2. Na página Modificar ou Interromper uma página **de backup programada,** **selecione Parar de usar esse cronograma de backup e exclua todos os backups armazenados**. Em seguida, selecione **Avançar**.
 
     ![Modificar ou interromper um backup programado.](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 

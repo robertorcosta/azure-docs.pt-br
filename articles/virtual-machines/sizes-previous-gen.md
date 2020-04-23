@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 6cf43df756e9bed0438169c9c01b868653d84b57
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: ac49d2da9d05c9677dbb6f5328874ab3a45ff661
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985721"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081533"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Gerações anteriores de tamanhos de máquinas virtuais
 
@@ -217,6 +217,8 @@ Cache de armazenamento premium: não suportado
 
 ## <a name="preview-dc-series"></a>Pré-visualização: SÉRIE DC
 
+**Recomendação de tamanho mais novo**: série [DCsv2](dcv2-series.md)
+
 Armazenamento Premium: com suporte
 
 Cache de armazenamento premium: suportado
@@ -369,9 +371,9 @@ Atualizações de preservação de memória: não suportadas
 ## <a name="other-sizes"></a>Outros tamanhos
 
 * [Propósito geral](sizes-general.md)
-* [Otimizado para computação](sizes-compute.md)
-* [Otimizado para memória](sizes-memory.md)
-* [Otimizado para armazenamento](sizes-storage.md)
+* [Computação otimizada](sizes-compute.md)
+* [Memória otimizada](sizes-memory.md)
+* [Armazenamento otimizado](sizes-storage.md)
 * [GPU](sizes-gpu.md)
 * [Computação de alto desempenho](sizes-hpc.md)
 

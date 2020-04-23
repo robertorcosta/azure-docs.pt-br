@@ -7,12 +7,12 @@ manager: saudas
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: saudas
-ms.openlocfilehash: 907aa83bc293aacd9920d8fd79a1b3184dd1d5dc
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 7a71d3bd70d97df884f1bc962c0ef9897d7fd2cb
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767603"
+ms.locfileid: "82024397"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Use identidades gerenciadas no Serviço Azure Kubernetes
 
@@ -25,7 +25,7 @@ A KS cria duas identidades gerenciadas:
 - **Identidade gerenciada atribuída ao sistema**: A identidade que o provedor de nuvem Kubernetes usa para criar recursos do Azure em nome do usuário. O ciclo de vida da identidade atribuída ao sistema está ligado ao do cluster. A identidade é excluída quando o cluster é excluído.
 - **Identidade gerenciada atribuída pelo usuário**: A identidade usada para autorização no cluster. Por exemplo, a identidade atribuída pelo usuário é usada para autorizar a AKS a usar AcRs (ACRs) ou autorizar o kubelet a obter metadados do Azure.
 
-Os complementos também autenticam usando uma identidade gerenciada. Para cada complemento, uma identidade gerenciada é criada pela AKS e dura para a vida útil do complemento. Para criar e usar seu próprio VNet, endereço IP estático ou disco Azure conectado onde os recursos estão fora do grupo de recursos MC_*, use o PrincipalID do cluster para executar uma atribuição de função. Para obter mais informações sobre a atribuição de papéis, consulte [O acesso do Delegado a outros recursos do Azure](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
+Os complementos também autenticam usando uma identidade gerenciada. Para cada complemento, uma identidade gerenciada é criada pela AKS e dura para a vida útil do complemento. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -58,6 +58,9 @@ Uma criação de cluster bem-sucedida usando identidades gerenciadas contém ess
     "secret": null
   }
 ```
+
+> [!NOTE]
+> Para criar e usar seu próprio VNet, endereço IP estático ou disco Azure anexado onde os recursos estão fora do grupo de recursos MC_*, use o PrincipalID do sistema de cluster Identidade Gerenciada atribuído para executar uma atribuição de função. Para obter mais informações sobre a atribuição de papéis, consulte [O acesso do Delegado a outros recursos do Azure](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
 
 Finalmente, obtenha credenciais para acessar o cluster:
 

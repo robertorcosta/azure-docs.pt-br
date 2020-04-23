@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 70a6359923734c83590d4677bb2c93966c925d14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 81a8c5030f716246caf3dcd8b540bb47fcaf6520
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76718132"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82023615"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatize adicionar um usuário de laboratório a um laboratório no Azure DevTest Labs
-O Azure DevTest Labs permite criar rapidamente ambientes de teste de dev de autoatendimento usando o portal Azure. No entanto, se você tiver várias equipes e várias instâncias do DevTest Labs, automatizar o processo de criação pode economizar tempo. [Os modelos do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) permitem criar laboratórios, VMs de laboratório, imagens personalizadas, fórmulas e adicionar usuários de forma automatizada. Este artigo se concentra especificamente em adicionar usuários a uma instância do DevTest Labs.
+O Azure DevTest Labs permite criar rapidamente ambientes de teste de dev de autoatendimento usando o portal Azure. No entanto, se você tiver várias equipes e várias instâncias do DevTest Labs, automatizar o processo de criação pode economizar tempo. [Os modelos do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) permitem criar laboratórios, VMs de laboratório, imagens personalizadas, fórmulas e adicionar usuários de forma automatizada. Este artigo se concentra especificamente em adicionar usuários a uma instância do DevTest Labs.
 
 Para adicionar um usuário a um laboratório, você adiciona o usuário à função **de usuário do DevTest Labs** para o laboratório. Este artigo mostra como automatizar a adição de um usuário a um laboratório usando uma das seguintes maneiras:
 

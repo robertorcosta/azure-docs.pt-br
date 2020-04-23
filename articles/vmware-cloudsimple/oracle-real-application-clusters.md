@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 733a225c66040cb2ab819f041647120c8b63b6a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b945beaa7497e1ad19315bacf1284dd0cbc24d6a
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77016010"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868071"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Otimize sua Nuvem Privada Cloud Simple para instalar o Oracle RAC
 
@@ -169,7 +169,7 @@ Para implantar um cluster vSphere em sua Nuvem Privada, siga este processo:
 
 As políticas vSAN definem as falhas de toleração e striping de disco para os dados armazenados nos discos VM.  A política de armazenamento criada deve ser aplicada nos discos VM durante a criação da VM.
 
-1. [Faça login no cliente vSphere](https://docs.azure.cloudsimple.com/vsphere-access) da sua Nuvem Privada.
+1. [Faça login no cliente vSphere](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access) da sua Nuvem Privada.
 2. No menu superior, selecione **Políticas e Perfis**.
 3. No menu à esquerda, selecione **Políticas de armazenamento em VM** e selecione Criar uma política de armazenamento em **VM**.
 4. Digite um nome significativo para a política e clique **EM NEXT**.

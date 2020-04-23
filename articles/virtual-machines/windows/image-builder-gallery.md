@@ -4,15 +4,15 @@ description: Crie versões de imagem compartilhadas do Azure Gallery usando o Az
 author: cynthn
 ms.author: cynthn
 ms.date: 01/14/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines-windows
-manager: gwallace
-ms.openlocfilehash: d5856780d0d9f1a1943bca1c2f076bb3ec914e1d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.subservice: imaging
+ms.openlocfilehash: 48eff11facf0f1432534d61f003f61e6755caf33
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76263346"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869514"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Visualização: Crie uma imagem do Windows e distribua-a para uma Galeria de Imagens Compartilhadas 
 
@@ -28,7 +28,7 @@ Saiba quantas vezes você faz personalizações em camadas. Você pode executar 
 
 > [!IMPORTANT]
 > O Azure Image Builder está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Suplementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Registre os recursos
 Para usar o Azure Image Builder durante a visualização, você precisa registrar o novo recurso.
@@ -264,7 +264,7 @@ dir c:\
 Você deve ver um `buildActions` diretório chamado que foi criado durante a personalização da imagem.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se você quiser agora tentar repersonalizar a versão de imagem para criar uma nova versão da mesma imagem, **pule essa etapa** e vá em frente para [usar o Azure Image Builder para criar outra versão de imagem](image-builder-gallery-update-image-version.md).
 
 

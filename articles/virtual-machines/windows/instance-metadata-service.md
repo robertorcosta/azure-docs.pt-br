@@ -1,25 +1,21 @@
 ---
 title: Serviço de metadados de instância do Azure
-description: Interface RESTful para obter informações sobre computação, rede e eventos de manutenção futuros do Windows VMs.
-services: virtual-machines-windows
-documentationcenter: ''
+description: Interface RESTful para obter informações sobre computação em VMs, rede e eventos de manutenção futuros.
 author: KumariSupriya
 manager: paulmey
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.service: virtual-machines
+ms.subservice: monitoring
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f351bba9cd474eab0774efa5ffbd2b24499d105b
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: cb9453e1a25f4042c45d4e89229b555c996d4c8b
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520964"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870074"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
 
@@ -39,7 +35,7 @@ Esse serviço está disponível nas regiões do Azure disponíveis para o públi
 Regiões                                        | Disponibilidade?                                 | Versões compatíveis
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Todas as regiões globais do Azure disponíveis](https://azure.microsoft.com/regions/)     | Disponível | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponível | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[Azure Governamental](https://azure.microsoft.com/overview/clouds/government/)              | Disponível | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
 [Azure China 21Vianet](https://www.azure.cn/)                                            | Disponível | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
 [Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponível | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
 
@@ -110,7 +106,7 @@ API | Formato de dados padrão | Outros formatos
 /scheduledevents | json | none
 /attested | json | none
 
-Para acessar um formato de resposta não padrão, especifique o formato solicitado como um parâmetro de cadeia de caracteres de consulta na solicitação. Por exemplo: 
+Para acessar um formato de resposta não padrão, especifique o formato solicitado como um parâmetro de cadeia de caracteres de consulta na solicitação. Por exemplo:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -126,7 +122,7 @@ As solicitações também devem conter um `Metadata: true` cabeçalho para garan
 
 ### <a name="error"></a>Erro
 
-Se houver um elemento de dados não encontrado ou solicitações malformadas, o serviço de metadados da instância retornará o erro de HTTP padrão. Por exemplo: 
+Se houver um elemento de dados não encontrado ou solicitações malformadas, o serviço de metadados da instância retornará o erro de HTTP padrão. Por exemplo:
 
 Código de status HTTP | Motivo
 ----------------|-------
@@ -726,7 +722,7 @@ As regiões e os valores do Ambiente Azure estão listados abaixo.
  Regiões | Azure Environment
 ---------|-----------------
 [Todas as regiões globais do Azure disponíveis](https://azure.microsoft.com/regions/)     | AzurePublicCloud
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
+[Azure Governamental](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
 [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china)          | AzureChinaCloud
 [Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
@@ -840,7 +836,7 @@ Depois de obter a assinatura acima, você pode verificar se a assinatura é da M
  Nuvem | Certificado
 ---------|-----------------
 [Todas as regiões globais do Azure disponíveis](https://azure.microsoft.com/regions/)     | *.metadata.azure.com
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *.metadata.azure.us
+[Azure Governamental](https://azure.microsoft.com/overview/clouds/government/)              | *.metadata.azure.us
 [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *.metadata.azure.cn
 [Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
 
@@ -934,7 +930,7 @@ Dados    | Descrição
 caching | Requisitos de cache
 createOption | Informações sobre como a VM foi criada
 diffDiskSettings | Configurações do disco efêmero
-discoSizeGB | Tamanho do disco em GB
+diskSizeGB | Tamanho do disco em GB
 image   | Disco rígido virtual da imagem do usuário de origem
 Lun     | Número da unidade lógica do disco
 disco gerenciado | Parâmetros de disco gerenciados
@@ -949,7 +945,7 @@ Dados    | Descrição
 caching | Requisitos de cache
 createOption | Informações sobre como a VM foi criada
 diffDiskSettings | Configurações do disco efêmero
-discoSizeGB | Tamanho do disco em GB
+diskSizeGB | Tamanho do disco em GB
 criptografiaConfigurações | Configurações de criptografia para o disco
 image   | Disco rígido virtual da imagem do usuário de origem
 disco gerenciado | Parâmetros de disco gerenciados
@@ -1029,7 +1025,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageP
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Exemplos de como chamar o serviço de metadados usando diferentes idiomas dentro da VM 
 
-Idioma | Exemplo
+Linguagem | Exemplo
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go

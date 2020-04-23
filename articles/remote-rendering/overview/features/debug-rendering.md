@@ -1,18 +1,18 @@
 ---
-title: Renderização de depuração
+title: Depurar renderização
 description: Visão geral dos efeitos de renderização de depuração do lado do servidor
 author: jumeder
 ms.author: jumeder
 ms.date: 04/09/2020
 ms.topic: article
-ms.openlocfilehash: 675f8d988e64ed7b556f154f681ccb53ed1000c6
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: f10c736cad9322752d5d552d29ef0c63635628a5
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81394287"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81868154"
 ---
-# <a name="debug-rendering"></a>Renderização de depuração
+# <a name="debug-rendering"></a>Depurar renderização
 
 A API de renderização de depuração fornece uma gama de opções globais para alterar a renderização do lado do servidor com diferentes efeitos de depuração.
 
@@ -56,7 +56,7 @@ No entanto, os efeitos fornecidos não dão qualquer introspecção detalhada na
 ## <a name="performance-considerations"></a>Considerações sobre o desempenho
 
 * Habilitar as sobreposições de texto incorre pouco ou nenhuma sobrecarga de desempenho.
-* Além disso, habilitar a sobreposição incorre em uma sobrecarga de desempenho não trivial, embora possa variar dependendo da cena. Para cenas complexas, este modo pode fazer com que o framerate caia abaixo da meta de 60 Hz.
+* A ativação do modo wireframe incorre em uma sobrecarga de desempenho não trivial, embora possa variar dependendo da cena. Para cenas complexas, este modo pode fazer com que a taxa de quadros caia abaixo da meta de 60 Hz.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b84e972584562be741919c7dccb6bdfe1bdea628
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 18ffb48b2e7978831155afaf2e675bb720e57544
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312866"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082196"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticação de passagem do diretório ativo do Azure: Quickstart
 
@@ -37,6 +37,9 @@ Siga estas instruções para implantar a Autenticação de Passagem no seu locat
 ## <a name="step-1-check-the-prerequisites"></a>Etapa 1: Verificar os pré-requisitos
 
 Verifique se os pré-requisitos a seguir estão em vigor.
+
+>[!IMPORTANT]
+>Do ponto de vista de segurança, os administradores devem tratar o servidor executando o agente PTA como se fosse um controlador de domínio.  Os servidores de agentes PTA devem ser endurecidos na mesma linha descrita em [Proteger Controladores de Domínio contra Ataque](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>No centro de administração do Azure Active Directory
 

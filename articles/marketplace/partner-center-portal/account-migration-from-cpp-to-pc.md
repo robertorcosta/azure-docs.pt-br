@@ -1,18 +1,18 @@
 ---
 title: Migração de conta do Cloud Partner Portal para o Partner Center - mercado comercial para o Azure
-description: Como migrar sua conta de CPP para Partner Center. - mercado comercial para Azure
+description: Como migrar sua conta de CPP para Partner Center - marketplace comercial para Azure
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 3979be6f49f4ad01a6092fc0d5aa767d342c4642
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 49fb2da05b7284fff10e6271de177551000995ed
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81730499"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024414"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migração de conta do Portal do Cloud Partner para o Partner Center
 
@@ -42,6 +42,16 @@ Clique no banner para iniciar seu processo de migração da conta. Espera-se que
 2. Inscreva-se no programa Microsoft Partner Network
 
     Se sua conta CPP não tiver um ID da Rede de Parceiros Microsoft ou tiver uma inválida, você precisará se inscrever no programa Microsoft Partner Network como parte do processo de ativação.
+
+## <a name="publishers-moving-from-cpp"></a>Editores saindo do CPP
+
+Se sua conta foi migrada do Portal de Parceiros na [Nuvem (CPP),](https://cloudpartner.azure.com)você não precisa criar uma nova conta do Partner Center. Você deveria ter recebido um link personalizado para sua nova conta do Partner Center por e-mail e em uma notificação de banner após fazer login na sua conta CPP existente.
+
+Depois de habilitar sua nova conta do Partner Center visitando este link personalizado, você pode retornar à sua conta visitando o painel de [marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) no Partner Center.
+
+O contrato de publicação e as informações do perfil da empresa serão migrados para sua nova conta do Partner Center, juntamente com quaisquer informações de perfil de pagamento de conta previamente configuradas, contas de usuário e permissões e ofertas ativas associadas à sua conta CPP.
+
+Depois que as informações da sua conta forem transferidas do CPP para a Partner Center, você não usará mais o CPP para fazer atualizações de conta ou gerenciar usuários, permissões e faturamento. Por um tempo limitado, todas as atualizações de conta que você fizer no Partner Center serão automaticamente atualizadas em sua conta CPP somente leitura até que o portal CPP seja eventualmente preterido.
 
 ## <a name="sign-up-for-microsoft-partner-network-program"></a>Inscreva-se no programa Microsoft Partner Network
 

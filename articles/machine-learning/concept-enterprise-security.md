@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 9f3a1c3455aadfbd243cdc6ab2920849c8558841
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1af1a1ccd8bff8fc4b578ecdeec3ac5f7c2352b1
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414637"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082128"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança corporativa para aprendizado de máquina do Azure
 
@@ -183,7 +183,7 @@ Para habilitar o provisionamento de uma instância do Cosmos DB em sua assinatur
         > [!NOTE]
         > Esta instância do cofre chave pode ser diferente do cofre de chaves que é criado pelo Azure Machine Learning quando você fornece o espaço de trabalho. Se você quiser usar a mesma instância do cofre de chaves para o espaço de trabalho, passe o mesmo cofre de chaves enquanto provisiona o espaço de trabalho usando o [parâmetro key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-Esta instância do Cosmos DB é criada em um grupo de recursos gerenciado pela Microsoft em sua assinatura. 
+Esta instância do Cosmos DB é criada em um grupo de recursos gerenciado pela Microsoft em sua assinatura. O grupo de recursos gerenciados é nomeado no formato<AML Workspace Resource Group Name><GUID>
 
 > [!IMPORTANT]
 > * Se você precisar excluir esta instância do Cosmos DB, você deve excluir o espaço de trabalho azure Machine Learning que o usa. 

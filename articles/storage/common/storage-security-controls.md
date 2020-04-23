@@ -1,23 +1,24 @@
 ---
-title: Controles de segurança para armazenamento Azure
-description: Uma lista de verificação de controles de segurança para avaliar o Armazenamento Azure
+title: Controles de segurança
+titleSuffix: Azure Storage
+description: Uma lista de verificação de controles de segurança para avaliar o Armazenamento Azure.
 services: storage
 author: msmbaldwin
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 379acaf48c02f0a579c07773cd48366d962a44f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f03f497051367d36bd229a3f358d28a1130ec620
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061127"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082349"
 ---
 # <a name="security-controls-for-azure-storage"></a>Controles de segurança para armazenamento Azure
 
-Este artigo documenta os controles de segurança incorporados ao Azure Storage. 
+Este artigo documenta os controles de segurança incorporados ao Azure Storage.
 
 [!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
@@ -36,8 +37,9 @@ Este artigo documenta os controles de segurança incorporados ao Azure Storage.
 | Controle de segurança | Sim/Não | Observações |
 |---|---|--|
 | Suporte a ponto final de serviço| Sim |  |
+| Suporte a tags de serviço| Sim | Consulte [a visão geral das tags de serviço do Azure](../../virtual-network/service-tags-overview.md) para obter mais informações sobre tags de serviço suportadas pelo Azure Storage. |
 | Suporte à injeção VNet| N/D |  |
-| Suporte de isolamento de rede e firewall| Sim | |
+| Isolamento de rede e suporte a firewall| Sim | |
 | Suporte forçado de tunelamento| N/D |  |
 
 ## <a name="monitoring--logging"></a>Monitoramento & registro

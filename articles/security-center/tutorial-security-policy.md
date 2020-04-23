@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 45a27be400753b56c42310a340334feba8a420c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73906869"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024873"
 ---
 # <a name="working-with-security-policies"></a>Trabalhando com políticas de segurança
 
@@ -62,11 +62,11 @@ Para exibir suas políticas de segurança na Central de Segurança:
 
 1. Escolha entre as opções disponíveis nesta página:
 
-    1. Para trabalhar com políticas do setor, clique **em Adicionar mais padrões**. Para obter mais informações, consulte [Atualizar para pacotes de conformidade dinâmica](update-regulatory-compliance-packages.md).
+    1. Para trabalhar com políticas do setor, selecione **Adicionar mais padrões**. Para obter mais informações, consulte [Atualizar para pacotes de conformidade dinâmica](update-regulatory-compliance-packages.md).
 
-    1. Para atribuir e gerenciar iniciativas personalizadas, clique **em Adicionar iniciativas personalizadas**. Para obter mais informações, consulte [Usando políticas de segurança personalizadas](custom-security-policies.md).
+    1. Para atribuir e gerenciar iniciativas personalizadas, selecione **Adicionar iniciativas personalizadas**. Para obter mais informações, consulte [Usando políticas de segurança personalizadas](custom-security-policies.md).
 
-    1. Para exibir e editar a diretiva padrão, clique **em Exibir política eficaz** e proceda conforme descrito abaixo. 
+    1. Para exibir e editar a diretiva padrão, **selecione Exibir política eficaz** e proceder conforme descrito abaixo. 
 
        ![tela de política](./media/security-center-policies/policy-screen.png)
        
@@ -96,20 +96,20 @@ A Central de Segurança usa o RBAC (Controle de Acesso Baseado em Função) que 
 Se a política de segurança padrão estiver gerando uma recomendação que não é relevante para o seu ambiente, você pode pará-la desativando a definição de política que envia a recomendação.
 Para obter mais informações sobre recomendações, consulte [Gerenciando recomendações de segurança](security-center-recommendations.md).
 
-1. No Centro de Segurança, da seção **Política & Compliance,** clique em **Política de Segurança**.
+1. No Security Center, da seção **Política & Compliance,** selecione **Política de Segurança**.
 
    ![gestão de políticas](./media/tutorial-security-policy/policy-management.png)
 
-2. Clique no grupo de assinatura ou gerenciamento para o qual deseja desativar a recomendação.
+2. Selecione o grupo de assinatura ou gerenciamento para o qual deseja desativar a recomendação.
 
    > [!NOTE]
    > Lembre-se de que um grupo de gerenciamento aplica suas políticas a suas assinaturas. Portanto, se você desabilitar a política de uma assinatura e a assinatura pertencer a um grupo de gerenciamento que ainda usa a mesma política, continuará recebendo as recomendações de política. A política ainda será aplicada do nível de gerenciamento e as recomendações ainda serão geradas.
 
-1. Clique **em Exibir política eficaz**.
+1. Selecione **Exibir política eficaz**.
 
    ![política desativação](./media/tutorial-security-policy/view-effective-policy.png)
 
-1. Clique na diretiva atribuída.
+1. Selecione a política atribuída.
 
    ![política desativação](./media/tutorial-security-policy/security-policy.png)
 

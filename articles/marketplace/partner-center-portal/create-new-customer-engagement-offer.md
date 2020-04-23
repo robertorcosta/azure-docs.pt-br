@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 10d5449cb77ea09f62db0a2f2bbdab6761646738
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ec62095f14b38d0c4ffebfabc14c4a0a27a70fb
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295452"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869818"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>Crie uma nova dinâmica 365 para o engajamento do cliente & oferta de PowerApps
 
@@ -215,6 +215,9 @@ Você deve fornecer pelo menos um (e até três) documentos de marketing relacio
 
 Nesta seção, você pode fornecer logotipos e imagens que serão usadas ao mostrar sua oferta ao cliente. Todas as imagens devem estar no formato .png.
 
+>[!Note]
+>Se você tiver um problema de upload de arquivos, https://upload.xboxlive.com certifique-se de que sua rede local não bloqueie o serviço usado pelo Partner Center.
+
 #### <a name="store-logos"></a>Logotipos da Loja
 
 Você pode fornecer o logotipo da sua oferta em três tamanhos: **Pequeno (48 x 48)**, **Grande (216 x 216)** e **Largo (255 x 115)**. Os tamanhos Pequeno e Grande são necessários.
@@ -292,7 +295,7 @@ A página **test drive** permite configurar uma demonstração (ou "test drive")
 
 Os seguintes tipos de test drives estão disponíveis, cada um com seus próprios requisitos de configuração técnica.
 
-- [Gerente de Recursos do Azure](#technical-configuration-for-azure-resource-manager-test-drive)
+- [Azure Resource Manager](#technical-configuration-for-azure-resource-manager-test-drive)
 - [Dynamics 365](#technical-configuration-for-dynamics-365-test-drive)
 - [Aplicativo lógico](#technical-configuration-for-logic-app-test-drive)
 - [BI de](#technical-configuration-not-required-for-power-bi-test-drives) potência (configuração técnica não necessária)

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d5626f00e9627338349d9b579bcf26256148b551
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: d598f741c5add58a89aa2b7aa01802a7e35f9a19
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81731258"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81869054"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Crie uma oferta de máquina virtual do Azure
 
@@ -254,6 +254,9 @@ Forneça informações de contato para a Microsoft usar quando houver problemas 
 ### <a name="marketplace-media"></a>Mídia de mercado
 
 Forneça logotipos e imagens para usar com sua oferta. Todas as imagens devem estar em formato PNG. Imagens embaçadas farão com que sua submissão seja rejeitada.
+
+>[!Note]
+>Se você tiver um problema de upload de arquivos, https://upload.xboxlive.com certifique-se de que sua rede local não bloqueie o serviço usado pelo Partner Center.
 
 #### <a name="marketplace-logos"></a>Logotipos de marketplace
 
