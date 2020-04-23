@@ -1,25 +1,20 @@
 ---
-title: Crie um instantâneo de um disco rígido virtual no Azure
+title: Criar um instantâneo de um disco rígido virtual no Azure
 description: Saiba como criar uma cópia de uma VM do Azure como um backup ou para solução de problemas.
-documentationcenter: ''
 author: roygara
 manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: bc74a3eea1f99de6080788d6f3fddcac823092dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92957bd078c04a9bb7ac35f9d30f042a44e10764
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75370894"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100627"
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo
 
@@ -29,9 +24,9 @@ Se você pretende usar o instantâneo para criar uma nova VM, recomendamos desli
 
 ## <a name="use-the-azure-portal"></a>Use o Portal do Azure 
 
-Para criar um instantâneo, complete as seguintes etapas: 
-1.  No [portal Azure,](https://portal.azure.com)selecione **Criar um recurso**.
-2. Procure e selecione **Snapshot**.
+Para criar um instantâneo, conclua as seguintes etapas: 
+1.  Na [portal do Azure](https://portal.azure.com), selecione **criar um recurso**.
+2. Pesquise e selecione **instantâneo**.
 3. Na janela **Instantâneo**, selecione **Criar**. A janela **Criar novo instantâneo** é exibida.
 4. Insira um **Nome** para o instantâneo.
 5. Selecione um [Grupo de Recursos](../../azure-resource-manager/management/overview.md#resource-groups) existente ou insira o nome de um novo. 
@@ -42,7 +37,7 @@ Para criar um instantâneo, complete as seguintes etapas:
 
 ## <a name="use-powershell"></a>Usar o PowerShell
 
-As etapas a seguir mostram como copiar o disco VHD e criar a configuração de snapshot. Em seguida, você pode tirar um instantâneo do disco usando o cmdlet [New-AzSnapshot.](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) 
+As etapas a seguir mostram como copiar o disco VHD e criar a configuração de instantâneo. Em seguida, você pode tirar um instantâneo do disco usando o cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
 
  
 

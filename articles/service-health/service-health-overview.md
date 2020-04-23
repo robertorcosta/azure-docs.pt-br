@@ -3,28 +3,28 @@ title: Visão geral da Integridade de Serviço | Microsoft Docs
 description: Informações personalizadas sobre como seus aplicativos do Azure são afetados pela manutenção e pelos problemas de serviço atuais e futuros do Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: a1c6a10ab48125c030c9a35864f829438404ad97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 280be9f0df1f94dad59c1af147d499860571f86e
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898434"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097244"
 ---
-# <a name="service-health-overview"></a>Visão geral do Serviço de Saúde
+# <a name="service-health-overview"></a>Visão geral da integridade do serviço
 
 A Integridade do Serviço oferece um painel personalizável que controla a integridade de seus serviços do Azure nas regiões onde você os usa. Neste painel, você pode rastrear eventos ativos, como problemas de serviço em andamento, manutenção planejada futura ou avisos de saúde relevantes. Quando os eventos se tornam inativos, eles são inseridos em seu histórico de integridade por até 90 dias. Por fim, você pode usar o painel de Integridade do Serviço para criar e gerenciar alertas de integridade do serviço que notificam proativamente quando problemas de serviço estão afetando você.
 
 ## <a name="service-health-events"></a>Eventos de Integridade do Serviço
 
-O Serviço saúde acompanha quatro tipos de eventos de saúde que podem impactar seus recursos:
+A integridade do serviço rastreia quatro tipos de eventos de integridade que podem afetar seus recursos:
 
 1. **Problemas de serviço** – problemas nos serviços do Azure que lhe afetam imediatamente. 
 2. **Manutenção planejada** – próxima manutenção que poderá afetar a disponibilidade de seus serviços no futuro.  
-3. **Aconselhamento de integridade** – alterações nos serviços do Azure que exigem sua atenção. Exemplos incluem quando os recursos do Azure são preteridos ou se você excede uma cota de uso.
-4. **Avisos de segurança (visualização)** - Notificações relacionadas à segurança que podem afetar a disponibilidade de seus serviços do Azure.
+3. **Aconselhamento de integridade** – alterações nos serviços do Azure que exigem sua atenção. Os exemplos incluem a substituição de recursos do Azure ou requisitos de atualização (por exemplo, atualizar para uma estrutura PHP com suporte).
+4. **Avisos de segurança (versão prévia)** – notificações relacionadas à segurança que podem afetar a disponibilidade dos serviços do Azure.
 
 > [!NOTE]
-> Para ver os eventos de Saúde do Serviço, os usuários devem [receber a função de Leitor](../role-based-access-control/role-assignments-portal.md) em uma assinatura.
+> Para exibir eventos de integridade do serviço, os usuários devem receber [a função leitor](../role-based-access-control/role-assignments-portal.md) em uma assinatura.
 
 ## <a name="get-started-with-service-health"></a>Introdução à integridade de serviço
 
@@ -44,7 +44,7 @@ Escolha a guia **Impacto potencial** para ver a lista específica de recursos qu
 
 ## <a name="get-links-and-downloadable-explanations"></a>Obter links e explicações para download 
 
-Você pode obter um link para o problema a fim de usá-lo em seu sistema de gerenciamento de problemas. Você pode baixar arquivos PDF e às vezes CSV para compartilhar com pessoas que não têm acesso ao portal Azure.   
+Você pode obter um link para o problema a fim de usá-lo em seu sistema de gerenciamento de problemas. Você pode baixar PDF e, às vezes, arquivos CSV para compartilhar com pessoas que não têm acesso ao portal do Azure.   
 
 ![Gerenciar problema de serviço – gerenciamento de problemas](./media/service-health-overview/azure-service-health-overview-3.png)
 
@@ -62,10 +62,10 @@ Filtre a Integridade do Serviço para mostrar suas assinaturas, regiões e tipos
 
 ## <a name="configure-service-health-alerts"></a>Configurar alertas de integridade de serviço
 
-A Integridade de Serviço integra-se ao Azure Monitor para alertar você por emails, mensagens de texto e notificações de webhook quando seus recursos críticos para os negócios são afetados. Configure um alerta de log de atividades para o evento de integridade de serviço apropriado. Direcione esse alerta para as pessoas apropriadas em sua organização usando Grupos de Ações. Para obter mais informações, consulte [Configurar alertas para a saúde do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
+A Integridade de Serviço integra-se ao Azure Monitor para alertar você por emails, mensagens de texto e notificações de webhook quando seus recursos críticos para os negócios são afetados. Configure um alerta de log de atividades para o evento de integridade de serviço apropriado. Direcione esse alerta para as pessoas apropriadas em sua organização usando Grupos de Ações. Para obter mais informações, consulte [configurar alertas para integridade do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Configure alertas para receber notificações de problemas de integridade. Para obter mais informações, consulte [As melhores práticas para configurar alertas de saúde do Azure Service](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 
+Configure alertas para receber notificações de problemas de integridade. Para obter mais informações, consulte [práticas recomendadas para configurar alertas de integridade do serviço do Azure](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 

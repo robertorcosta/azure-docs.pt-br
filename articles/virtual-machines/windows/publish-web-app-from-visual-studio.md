@@ -1,28 +1,25 @@
 ---
 title: Publicar um aplicativo Web para uma VM do Azure a partir do Visual Studio
 description: Publicar um aplicativo Web ASP.NET para uma Máquina Virtual do Azure a partir do Visual Studio
-services: virtual-machines-windows
 author: ghogen
 manager: jillfra
-tags: azure-service-management
-ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 6e5db9b4e46019aa386057d51d956ff11d90f498
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: abf0570ee9f01a2378e8c0370cfc3ba5fecc7406
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71970872"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098223"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicar um aplicativo Web ASP.NET para uma VM do Azure a partir do Visual Studio
 
-Este documento descreve como publicar um aplicativo web ASP.NET para uma máquina virtual (VM) do Azure usando o recurso de publicação **Microsoft Azure Virtual Machines** no Visual Studio 2019.  
+Este documento descreve como publicar um aplicativo Web ASP.NET em uma VM (máquina virtual) do Azure usando o recurso de publicação **máquinas virtuais do Microsoft Azure** no Visual Studio 2019.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para usar o Visual Studio para publicar um projeto ASP.NET em uma VM do Azure, a VM deve estar configurada corretamente.
@@ -34,7 +31,7 @@ Para usar o Visual Studio para publicar um projeto ASP.NET em uma VM do Azure, a
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Publicar seu aplicativo Web ASP.NET na VM do Azure usando o Visual Studio
 A seção a seguir descreve como publicar um aplicativo Web ASP.NET existente em uma máquina virtual do Azure.
 
-1. Abra sua solução de aplicativo web no Visual Studio 2019.
+1. Abra sua solução de aplicativo Web no Visual Studio 2019.
 2. Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e escolha **Publicar...**
 3. Use a seta à direita da página para rolar pelas opções de publicação até encontrar **Máquinas Virtuais do Microsoft Azure**.  
 
@@ -58,7 +55,7 @@ A seção a seguir descreve como publicar um aplicativo Web ASP.NET existente em
 
 7. Clique em OK para começar a publicar.
 
-8. Quando solicitado para credenciais, forneça o nome de usuário e a senha de uma conta de usuário na VM de destino configurada com direitos de publicação. Essas credenciais são tipicamente o nome de usuário e senha do admin usados ao criar a VM.  
+8. Quando solicitado a fornecer credenciais, forneça o nome de usuário e a senha de uma conta de utilizador na VM de destino configurada com direitos de publicação. Essas credenciais normalmente são o nome de usuário e a senha do administrador usados ao criar a VM.  
 
    ![Logon no WebDeploy]
 
@@ -72,7 +69,7 @@ A seção a seguir descreve como publicar um aplicativo Web ASP.NET existente em
 
 11. Se a publicação for bem-sucedida, um navegador é inicializado para abrir a URL do site recém-publicado.
 
-**Sucesso!**
+**Êxito!**
 
 Você publicou com êxito seu aplicativo Web para uma máquina virtual do Azure.
 
@@ -99,12 +96,12 @@ Suas configurações devem se parecer com isto:
 ![Configurações da publicação – página Conexão]
 
 #### <a name="save-user-name-and-password"></a>Salvar nome de usuário e senha
-- Evite fornecer informações de autenticação toda vez que publicar. Para isso, preencha os campos **Nome de Usuário** e **Senha** e selecione a caixa **Salvar senha.**
+- Evite fornecer informações de autenticação toda vez que publicar. Para fazer isso, preencha os campos **nome de usuário** e **senha** e selecione a caixa **salvar senha** .
 - Use o botão **Validar Conexão** para confirmar que foram inseridas as informações corretas.
 
 #### <a name="deploy-to-clean-web-server"></a>Implantar para limpar o servidor Web
 
-- Se você quiser garantir que o servidor web tenha uma cópia limpa do aplicativo web após cada upload e que nenhum outro arquivo seja deixado de uma implantação anterior, você pode verificar os **arquivos adicionais Remove na** caixa de seleção de destino na guia **Configurações.**
+- Se você quiser garantir que o servidor Web tenha uma cópia limpa do aplicativo Web após cada upload e que nenhum outro arquivo seja deixado de uma implantação anterior, marque a caixa de seleção **remover arquivos adicionais no destino** na guia **configurações** .
 
 - Aviso: publicar com essa configuração exclui todos os arquivos que existem no servidor Web (diretório wwwroot). Verifique se você sabe o estado do computador antes de publicar com essa opção habilitada. 
 
@@ -125,7 +122,7 @@ Para configurar um pipeline de entrega contínua com o Azure Pipelines, confira 
 [Seletor de VM do Azure]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
 [Logon no WebDeploy]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png
 [Erro no Certificado]: ../../../includes/media/publish-web-app-from-visual-studio/CertificateError.png
-[Janela de saída]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
+[Janela de Saída]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
 [Página Publicar – botão Publicar]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png
 [Página Publicar – botão Configurações]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
 [Configurações da publicação – página Conexão]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png

@@ -1,25 +1,20 @@
 ---
-title: Crie uma imagem não gerenciada de uma VM generalizada no Azure
+title: Criar uma imagem não gerenciada de uma VM generalizada no Azure
 description: Criar uma imagem não gerenciada de uma VM Windows generalizada para usar ao criar várias cópias de uma VM no Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1f44f30666ead84b2bd2fc63d8a8eb624f70c85c
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.custom: storage-accounts
+ms.openlocfilehash: 130764ad5504ded398a9fdf9fa27d6cb936fbacc
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458072"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82099777"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Como criar uma imagem de VM não gerenciada a partir de uma VM do Azure
 
@@ -32,14 +27,14 @@ Este artigo mostra como usar o Azure PowerShell para criar uma imagem de uma VM 
 ## <a name="generalize-the-vm"></a>Generalizar a VM 
 Esta seção mostra como generalizar a máquina virtual do Windows para usar como uma imagem. Generalizar uma VM remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem. Para obter detalhes sobre o Sysprep, consulte [Como usar o Sysprep: uma introdução](https://technet.microsoft.com/library/bb457073.aspx).
 
-Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para obter mais informações, consulte [o suporte ao Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para obter mais informações, consulte [suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
 > Se você estiver enviando seu VHD para o Azure pela primeira vez, certifique-se de que [preparou sua VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) antes de executar o Sysprep. 
 > 
 > 
 
-Você também pode generalizar uma VM Linux usando `sudo waagent -deprovision+user` e depois o PowerShell para capturar a VM. Para obter informações sobre como usar a CLI para capturar uma VM, consulte [Como generalizar e capturar uma máquina virtual Linux usando o Azure CLI](../linux/capture-image.md).
+Você também pode generalizar uma VM Linux usando `sudo waagent -deprovision+user` e depois o PowerShell para capturar a VM. Para obter informações sobre como usar a CLI para capturar uma VM, consulte [como generalizar e capturar uma máquina virtual Linux usando o CLI do Azure](../linux/capture-image.md).
 
 
 1. Entre na máquina virtual Windows.
@@ -110,7 +105,7 @@ Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
     -Path <C:\local\Filepath\Filename.json>
 ```
    
-Você pode obter a URL da imagem no modelo do arquivo JSON. Ir para o armazenamento de >  > **recursosPerfildo** > **perfil** > da seção uri**de imagem****do disco** para obter o caminho completo da sua imagem. **resources** A URL da imagem parece com esta: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
+Você pode obter a URL da imagem no modelo do arquivo JSON. Vá para a seção **Resources** > **storageProfile** > **osDisk** > **Image** > **URI** para obter o caminho completo da imagem. A URL da imagem parece com esta: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
    
 Você também pode verificar o URI no portal. A imagem é copiada em um contêiner denominado **sistema** em sua conta de armazenamento. 
 

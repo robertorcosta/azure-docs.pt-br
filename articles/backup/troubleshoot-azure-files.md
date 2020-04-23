@@ -1,73 +1,284 @@
 ---
-title: Solucionar problemas de Backup de compartilhamento de Arquivos do Azure
+title: Solucionar problemas de backup de compartilhamento de arquivos do Azure
 description: Este artigo tem informações sobre a solução de problemas que ocorrem ao proteger seus compartilhamentos de arquivos no Azure.
-ms.date: 08/20/2019
+ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 050df5b96c265e468346535ff011e1baf7d86ad5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a6ce613b8c0fe8a7a5df6397ba2f1eb508d61aae
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252383"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100049"
 ---
-# <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Solucionar problemas do backup de Compartilhamentos de Arquivos do Azure
+# <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Solucionar problemas ao fazer backup de compartilhamentos de arquivos do Azure
 
-É possível solucionar os problemas e os erros encontrados durante a utilização do backup de Compartilhamentos de Arquivos do Azure com as informações listadas nas tabelas a seguir.
+Este artigo fornece informações de solução de problemas para resolver os problemas que você chega ao configurar o backup ou a restauração de compartilhamentos de arquivos do Azure usando o serviço de backup do Azure.
 
-## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitações do backup do compartilhamento de arquivos do Azure durante a versão prévia
+## <a name="common-configuration-issues"></a>Problemas comuns de configuração
 
-O backup para compartilhamentos de Arquivos do Azure está em versão prévia. Há suporte para Compartilhamentos de Arquivos do Azure em contas de armazenamento de uso geral v2 e de uso geral v1. Não há suporte para os cenários de backup a seguir para compartilhamentos de arquivos do Azure:
+### <a name="could-not-find-my-storage-account-to-configure-backup-for-the-azure-file-share"></a>Não foi possível localizar minha conta de armazenamento para configurar o backup para o compartilhamento de arquivos do Azure
 
-- Não há nenhuma CLI disponível para a proteção de Arquivos do Azure usando o Backup do Azure.
-- A quantidade máxima de backups agendados por dia é de um.
-- A quantidade máxima de backups sob demanda por dia é de quatro.
-- Use [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) na conta de armazenamento para evitar a exclusão acidental de backups no cofre dos Serviços de Recuperação.
-- Não exclua os instantâneos criados pelo Backup do Azure. A exclusão de instantâneos pode resultar na perda de pontos de recuperação e/ou em falhas de restauração.
-- Não exclua os compartilhamentos de arquivos protegidos pelo Backup do Azure. A solução atual excluirá todos os instantâneos tirados pelo Backup do Azure após a exclusão do compartilhamento de arquivos e, portanto, perderá todos os pontos de restauração
+- Aguarde até a descoberta ser concluída.
+- Verifique se algum compartilhamento de arquivos na conta de armazenamento já está protegido com outro cofre dos serviços de recuperação.
 
-O backup para Compartilhamentos de Arquivos do Azure nas contas de armazenamento com replicação de [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) está disponível apenas no EUA Central (CUS), Leste dos EUA (EUS), Leste dos EUA 2 (EUS2), Norte da Europa (NE), Sudeste Asiático (SEA), Europa Ocidental (WE) e Oeste dos EUA 2 (WUS2).
+  >[!NOTE]
+  >Todos os compartilhamentos de arquivos em uma conta de armazenamento podem ser protegidos somente em um cofre dos Serviços de Recuperação. Você pode usar [esse script](scripts/backup-powershell-script-find-recovery-services-vault.md) para localizar o cofre dos serviços de recuperação em que sua conta de armazenamento está registrada.
 
-## <a name="configuring-backup"></a>Configurar o backup
+- Verifique se o compartilhamento de arquivos não está presente em nenhuma das contas de armazenamento sem suporte. Você pode consultar a [matriz de suporte para o backup do compartilhamento de arquivos do Azure](azure-file-share-support-matrix.md) para localizar as contas de armazenamento com suporte.
 
-A tabela abaixo serve para configurar o backup:
+### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Erro no portal declara que a descoberta de contas de armazenamento falhou
 
-| Mensagens de erro | Dicas de solução alternativa ou resolução |
-| ------------------ | ----------------------------- |
-| Não foi possível encontrar a minha Conta de Armazenamento para configurar o backup para o compartilhamento de arquivo do Azure | <ul><li>Aguarde até a descoberta ser concluída. <li>Verifique se algum compartilhamento de arquivos da conta de armazenamento já está protegido com outro cofre dos Serviços de Recuperação. **Observação**: todos os compartilhamentos de arquivos em uma Conta de Armazenamento só podem ser protegidos em um cofre dos Serviços de Recuperação. <li>Verifique se o compartilhamento de arquivos não está presente em nenhuma das Contas de Armazenamento sem suporte.<li> Verifique se a caixa de seleção **Permitir que serviços da Microsoft confiáveis acessem essa conta de armazenamento** está marcada na conta de armazenamento.[Saiba mais.](../storage/common/storage-network-security.md)|
-| O erro no portal indica que a descoberta de contas de armazenamento falhou. | Se sua assinatura for de parceiro (habilitado para CSP), ignore o erro. Se sua assinatura não estiver habilitada para CSP e suas contas de armazenamento não puderem ser descobertas, entre em contato com o suporte.|
-| A validação ou o registro da Conta de Armazenamento selecionada falhou.| Repita a operação, e se o problema persistir, entre em contato com o suporte.|
-| Não foi possível listar ou localizar os compartilhamentos de arquivos na Conta de Armazenamento selecionada. | <ul><li> Verifique se a Conta de Armazenamento existe no Grupo de Recursos (e se não foi excluída ou movida após a última validação/registro no cofre).<li>Verifique se o compartilhamento de arquivos que você deseja proteger não foi excluído. <li>Verifique se a Conta de Armazenamento tem suporte para backup de compartilhamento de arquivos.<li>Verifique se o compartilhamento de arquivos já está protegido no mesmo cofre dos Serviços de Recuperação.|
-| A configuração de compartilhamento de arquivos de backup (ou a configuração de política de proteção) está falhando. | <ul><li>Repita a operação para ver se o problema persiste. <li> Verifique se o compartilhamento de arquivos que você deseja proteger não foi excluído. <li> Se estiver tentando proteger vários compartilhamentos de arquivos ao mesmo tempo e alguns deles estiverem falhando, repita a configuração de backup para os compartilhamentos de arquivos com falha. |
-| Não é possível excluir o cofre dos Serviços de Recuperação depois de desproteger um compartilhamento de arquivos. | No portal Azure, abra o Cofre > contas **de armazenamento de infra-estrutura** > **de** backup e clique **em Descadastrar** para remover a conta de armazenamento do cofre dos Serviços de Recuperação.|
+Se você tiver uma assinatura de parceiro (habilitada para CSP), ignore o erro. Se sua assinatura não estiver habilitada para CSP e suas contas de armazenamento não puderem ser descobertas, contate o suporte.
 
-## <a name="error-messages-for-backup-or-restore-job-failures"></a>Mensagens de erro para falhas de trabalho de backup ou restauração
+### <a name="selected-storage-account-validation-or-registration-failed"></a>Falha na validação ou no registro da conta de armazenamento selecionada
 
-| Mensagens de erro | Dicas de solução alternativa ou resolução |
-| -------------- | ----------------------------- |
-| A operação falhou porque o compartilhamento de arquivos não foi encontrado. | Verifique se o compartilhamento de arquivos que você deseja proteger não foi excluído.|
-| Conta de armazenamento não encontrada ou sem suporte. | <ul><li>Verifique se a conta de armazenamento existe no Grupo de Recursos e se não foi excluída ou removida após a última validação. <li> Verifique se a conta de armazenamento tem suporte para backup de compartilhamento de arquivos.|
-| Você atingiu o limite máximo de instantâneos para este compartilhamento de arquivos e poderá tirar outros depois que os antigos expirarem. | <ul><li> Este erro pode ocorrer ao criar vários backups sob demanda para um arquivo. <li> Há um limite de 200 instantâneos por compartilhamento de arquivos, incluindo aqueles tirados pelo Backup do Azure. Os backups (ou instantâneos) agendados mais antigos são limpos automaticamente. Os backups (ou instantâneos) sob demanda devem ser excluídos se o limite máximo for atingido.<li> Exclua os backups sob demanda (instantâneos de compartilhamento de arquivo do Azure) no portal de Arquivos do Azure. **Observação**: os pontos de recuperação são perdidos se você exclui instantâneos criados pelo Backup do Azure. |
-| O backup de compartilhamento de arquivos ou a restauração falhou devido à limitação do serviço de armazenamento. Isso pode ser devido ao serviço de armazenamento estar ocupado processando outras solicitações para determinada conta de armazenamento.| Repita a operação após algum tempo. |
-| Falha na restauração com o compartilhamento de arquivos de destino não encontrado. | <ul><li>Verifique se a Conta de Armazenamento selecionada existe e se o compartilhamento de Arquivos de Destino não foi excluído. <li> Verifique se a Conta de Armazenamento tem suporte para backup de compartilhamento de arquivos. |
-| Os trabalhos de backup ou restauração falharam porque a conta de armazenamento estava no estado Bloqueado. | Remova o bloqueio da Conta de Armazenamento ou use o bloqueio de exclusão em vez do bloqueio de leitura e repita a operação. |
-| A recuperação falhou porque o número de arquivos com falha é maior do que o limite. | <ul><li> As razões da falha de recuperação são listadas em um arquivo (caminho fornecido nos detalhes do trabalho). Aborde as falhas e repita a operação de restauração apenas para os arquivos com falha. <li> Motivos comuns para falhas na restauração de arquivo: <br/> – verifique se os arquivos que falharam não estão em uso no momento; <br/> – existe um diretório com o mesmo nome que o arquivo com falha no diretório pai. |
-| A recuperação falhou porque nenhum arquivo pôde ser recuperado. | <ul><li> As razões da falha de recuperação são listadas em um arquivo (caminho fornecido nos detalhes do trabalho). Aborde as falhas e repita as operações de restauração apenas para os arquivos com falha. <li> Motivos comuns para falhas na restauração de arquivo: <br/> – verifique se os arquivos que falharam não estão em uso no momento; <br/> – existe um diretório com o mesmo nome que o arquivo com falha no diretório pai. |
-| A restauração falhou porque um dos arquivos de origem não existe. | <ul><li> Os itens selecionados não estão presentes nos dados de ponto de recuperação. Para recuperar os arquivos, forneça a lista correta de arquivos. <li> O instantâneo de compartilhamento de arquivos que corresponde ao ponto de recuperação é excluído manualmente. Selecione um ponto de recuperação diferente e repita a operação de restauração. |
-| Um trabalho de recuperação está em andamento para o mesmo destino. | <ul><li>O backup do compartilhamento de arquivos não oferece suporte à recuperação paralela para o mesmo compartilhamento de arquivos de destino. <li>Aguarde até que recuperação existente seja concluída e tente novamente. Caso não encontre um trabalho de recuperação no cofre dos Serviços de Recuperação, verifique outros cofres dos Serviços de Recuperação na mesma assinatura. |
-| A operação de restauração falhou porque o compartilhamento de arquivos de destino está cheio. | Aumente a cota de tamanho do compartilhamento de arquivo de destino para acomodar os dados de restauração e repita a operação. |
-| A operação de restauração falhou porque ocorreu um erro ao executar operações de pré-restauração em recursos do Serviço de Sincronização de Arquivos associados ao compartilhamento de arquivos de destino. | Tente novamente dentro de instantes. Se o problema persistir, entre em contato com o suporte da Microsoft. |
-| Um ou mais arquivos não puderam ser recuperados. Para obter mais informações, verifique a lista de arquivos com falha no caminho fornecido acima. | <ul> <li> Os motivos para falha na recuperação estão listados no arquivo (caminho fornecido nos detalhes do trabalho). Aborde os motivos e repita a operação de restauração apenas para os arquivos com falha. <li> Alguns motivos comuns para falhas na restauração de arquivo incluem: <br/> – verifique se os arquivos com falha não estão em uso no momento. <br/> – existe um diretório com o mesmo nome que o arquivo com falha no diretório pai. |
+Repita o registro. Se o problema persistir, contate o Suporte.
 
-## <a name="modify-policy"></a>Modificar a política
+### <a name="could-not-list-or-find-file-shares-in-the-selected-storage-account"></a>Não foi possível listar ou localizar compartilhamentos de arquivos na conta de armazenamento selecionada
 
-| Mensagens de erro | Dicas de solução alternativa ou resolução |
-| ------------------ | ----------------------------- |
-| Outra operação de configuração de proteção está em andamento para esse item. | Aguarde a conclusão da operação anterior de modificação da política e tente novamente após alguns instantes.|
-| Outra operação está em andamento no item selecionado. | Aguarde a conclusão da outra operação em andamento e tente novamente após alguns instantes |
+- Verifique se a conta de armazenamento existe no grupo de recursos e não foi excluída ou movida após a última validação ou o registro no cofre.
+- Verifique se o compartilhamento de arquivos que você está procurando proteger não foi excluído.
+- Verifique se a conta de armazenamento é uma conta de armazenamento com suporte para backup de compartilhamento de arquivos. Você pode consultar a [matriz de suporte para o backup do compartilhamento de arquivos do Azure](azure-file-share-support-matrix.md) para localizar as contas de armazenamento com suporte.
+- Verifique se o compartilhamento de arquivos já está protegido no mesmo cofre dos serviços de recuperação.
+
+### <a name="backup-file-share-configuration-or-the-protection-policy-configuration-is-failing"></a>A configuração do compartilhamento de arquivos de backup (ou a configuração da política de proteção) está falhando
+
+- Tente a configuração novamente para ver se o problema persiste.
+- Verifique se o compartilhamento de arquivos que você deseja proteger não foi excluído.
+- Se você estiver tentando proteger vários compartilhamentos de arquivos ao mesmo tempo e alguns dos compartilhamentos de arquivos estiverem falhando, tente configurar o backup para os compartilhamentos de arquivos com falha novamente.
+
+### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>Não é possível excluir o cofre dos serviços de recuperação após desproteger um compartilhamento de arquivos
+
+Na portal do Azure, abra seu **cofre** > **infraestrutura** > de backup**contas de armazenamento** e clique em **Cancelar registro** para remover as contas de armazenamento do cofre dos serviços de recuperação.
+
+>[!NOTE]
+>Um cofre dos serviços de recuperação só pode ser excluído após o cancelamento do registro de todas as contas de armazenamento registradas no cofre.
+
+## <a name="common-backup-or-restore-errors"></a>Erros comuns de backup ou restauração
+
+### <a name="filesharenotfound--operation-failed-as-the-file-share-is-not-found"></a>FileShareNotFound-a operação falhou porque o compartilhamento de arquivos não foi encontrado
+
+Código de erro: FileShareNotFound
+
+Mensagem de erro: falha na operação porque o compartilhamento de arquivos não foi encontrado
+
+Verifique se o compartilhamento de arquivos que você está tentando proteger não foi excluído.
+
+### <a name="usererrorfileshareendpointunreachable--storage-account-not-found-or-not-supported"></a>UserErrorFileShareEndpointUnreachable-conta de armazenamento não encontrada ou sem suporte
+
+Código de erro: UserErrorFileShareEndpointUnreachable
+
+Mensagem de erro: conta de armazenamento não encontrada ou sem suporte
+
+- Verifique se a conta de armazenamento existe no grupo de recursos e se não foi excluída ou removida do grupo de recursos após a última validação.
+
+- Verifique se a conta de armazenamento é uma conta de armazenamento com suporte para backup de compartilhamento de arquivos.
+
+### <a name="afsmaxsnapshotreached--you-have-reached-the-max-limit-of-snapshots-for-this-file-share-you-will-be-able-to-take-more-once-the-older-ones-expire"></a>AFSMaxSnapshotReached-você atingiu o limite máximo de instantâneos para este compartilhamento de arquivos; Você poderá levar mais uma vez as antigas expirarem
+
+Código de erro: AFSMaxSnapshotReached
+
+Mensagem de erro: você atingiu o limite máximo de instantâneos para este compartilhamento de arquivos; Você poderá levar mais uma vez as antigas expirarem.
+
+- Esse erro pode ocorrer quando você cria vários backups sob demanda para um compartilhamento de arquivos.
+- Há um limite de 200 instantâneos por compartilhamento de arquivos, incluindo aqueles feitos pelo backup do Azure. Os backups (ou instantâneos) agendados mais antigos são limpos automaticamente. Os backups (ou instantâneos) sob demanda devem ser excluídos se o limite máximo for atingido.
+
+Exclua os backups sob demanda (instantâneos de compartilhamento de arquivo do Azure) no portal de Arquivos do Azure.
+
+>[!NOTE]
+> os pontos de recuperação são perdidos quando você exclui os instantâneos criados pelo Backup do Azure.
+
+### <a name="usererrorstorageaccountnotfound--operation-failed-as-the-specified-storage-account-does-not-exist-anymore"></a>UserErrorStorageAccountNotFound-a operação falhou porque a conta de armazenamento especificada não existe mais
+
+Código de erro: UserErrorStorageAccountNotFound
+
+Mensagem de erro: a operação falhou porque a conta de armazenamento especificada não existe mais.
+
+Verifique se a conta de armazenamento ainda existe e não foi excluída.
+
+### <a name="usererrordtsstorageaccountnotfound--the-storage-account-details-provided-are-incorrect"></a>UserErrorDTSStorageAccountNotFound-os detalhes da conta de armazenamento fornecidos estão incorretos
+
+Código de erro: UserErrorDTSStorageAccountNotFound
+
+Mensagem de erro: os detalhes da conta de armazenamento fornecidos estão incorretos.
+
+Verifique se a conta de armazenamento ainda existe e não foi excluída.
+
+### <a name="usererrorresourcegroupnotfound--resource-group-doesnt-exist"></a>UserErrorResourceGroupNotFound-o grupo de recursos não existe
+
+Código de erro: UserErrorResourceGroupNotFound
+
+Mensagem de erro: o grupo de recursos não existe
+
+Selecione um grupo de recursos existente ou crie um grupo de recursos.
+
+### <a name="parallelsnapshotrequest--a-backup-job-is-already-in-progress-for-this-file-share"></a>ParallelSnapshotRequest-um trabalho de backup já está em andamento para este compartilhamento de arquivos
+
+Código de erro: ParallelSnapshotRequest
+
+Mensagem de erro: um trabalho de backup já está em andamento para este compartilhamento de arquivos.
+
+- O backup de compartilhamento de arquivos não dá suporte a solicitações de instantâneo paralelo no mesmo compartilhamento de arquivos.
+
+- Aguarde até que o trabalho de backup existente seja concluído e tente novamente. Se você não encontrar um trabalho de backup no cofre dos serviços de recuperação, verifique outros cofres dos serviços de recuperação na mesma assinatura.
+
+### <a name="filesharebackupfailedwithazurerprequestthrottling-filesharerestorefailedwithazurerprequestthrottling--file-share-backup-or-restore-failed-due-to-storage-service-throttling-this-may-be-because-the-storage-service-is-busy-processing-other-requests-for-the-given-storage-account"></a>FileshareBackupFailedWithAzureRpRequestThrottling/FileshareRestoreFailedWithAzureRpRequestThrottling-falha no backup ou na restauração do compartilhamento de arquivos devido à limitação do serviço de armazenamento. Isso pode ocorrer porque o serviço de armazenamento está ocupado processando outras solicitações para a conta de armazenamento determinada
+
+Código de erro: FileshareBackupFailedWithAzureRpRequestThrottling/FileshareRestoreFailedWithAzureRpRequestThrottling
+
+Mensagem de erro: falha no backup ou na restauração do compartilhamento de arquivos devido à limitação do serviço de armazenamento. Isso pode ser devido ao serviço de armazenamento estar ocupado processando outras solicitações para determinada conta de armazenamento.
+
+Tente a operação de backup/restauração posteriormente.
+
+### <a name="targetfilesharenotfound--target-file-share-not-found"></a>TargetFileShareNotFound-compartilhamento de arquivos de destino não encontrado
+
+Código de erro: TargetFileShareNotFound
+
+Mensagem de erro: compartilhamento de arquivos de destino não encontrado.
+
+- Verifique se a conta de armazenamento selecionada existe e se o compartilhamento de arquivos de destino não foi excluído.
+
+- Verifique se a conta de armazenamento é uma conta de armazenamento com suporte para backup de compartilhamento de arquivos.
+
+### <a name="usererrorstorageaccountislocked--backup-or-restore-jobs-failed-due-to-storage-account-being-in-locked-state"></a>UserErrorStorageAccountIsLocked-falha nos trabalhos de backup ou restauração devido à conta de armazenamento estar em estado bloqueado
+
+Código de erro: UserErrorStorageAccountIsLocked
+
+Mensagem de erro: falha nos trabalhos de backup ou restauração devido à conta de armazenamento estar em estado bloqueado.
+
+Remova o bloqueio na conta de armazenamento ou use o **bloqueio de exclusão** em vez do bloqueio de **leitura** e repita a operação de backup ou restauração.
+
+### <a name="datatransferservicecoflimitreached--recovery-failed-because-number-of-failed-files-are-more-than-the-threshold"></a>DataTransferServiceCoFLimitReached-Recovery falhou porque o número de arquivos com falha é maior que o limite
+
+Código de erro: DataTransferServiceCoFLimitReached
+
+Mensagem de erro: falha na recuperação porque o número de arquivos com falha é maior que o limite.
+
+- Os motivos da falha de recuperação são listados em um arquivo (caminho fornecido nos detalhes do trabalho). Resolva as falhas e repita a operação de restauração somente para os arquivos com falha.
+
+- Motivos comuns para falhas de restauração de arquivo:
+
+  - arquivos que falharam estão em uso no momento
+  - um diretório com o mesmo nome que o arquivo com falha existe no diretório pai.
+
+### <a name="datatransferserviceallfilesfailedtorecover--recovery-failed-as-no-file-could-be-recovered"></a>DataTransferServiceAllFilesFailedToRecover-Recovery falhou, pois nenhum arquivo pôde ser recuperado
+
+Código de erro: DataTransferServiceAllFilesFailedToRecover
+
+Mensagem de erro: falha na recuperação, pois nenhum arquivo pôde ser recuperado.
+
+- Os motivos da falha de recuperação são listados em um arquivo (caminho fornecido nos detalhes do trabalho). Aborde as falhas e repita as operações de restauração apenas para os arquivos com falha.
+
+- Motivos comuns para falhas de restauração de arquivo:
+
+  - arquivos que falharam estão em uso no momento
+  - um diretório com o mesmo nome que o arquivo com falha existe no diretório pai.
+
+### <a name="usererrordtssourceurinotvalid---restore-fails-because-one-of-the-files-in-the-source-does-not-exist"></a>Falha na restauração de UserErrorDTSSourceUriNotValid porque um dos arquivos na origem não existe
+
+Código de erro: DataTransferServiceSourceUriNotValid
+
+Mensagem de erro: falha na restauração porque um dos arquivos na origem não existe.
+
+- Os itens selecionados não estão presentes nos dados de ponto de recuperação. Para recuperar os arquivos, forneça a lista correta de arquivos.
+- O instantâneo de compartilhamento de arquivos que corresponde ao ponto de recuperação é excluído manualmente. Selecione um ponto de recuperação diferente e repita a operação de restauração.
+
+### <a name="usererrordtsdestlocked--a-recovery-job-is-in-process-to-the-same-destination"></a>UserErrorDTSDestLocked-um trabalho de recuperação está em processo para o mesmo destino
+
+Código de erro: UserErrorDTSDestLocked
+
+Mensagem de erro: um trabalho de recuperação está em processo para o mesmo destino.
+
+- O backup de compartilhamento de arquivos não dá suporte à recuperação paralela para o mesmo compartilhamento de arquivos de destino.
+
+- Aguarde até que recuperação existente seja concluída e tente novamente. Se você não encontrar um trabalho de recuperação no cofre dos serviços de recuperação, verifique outros cofres dos serviços de recuperação na mesma assinatura.
+
+### <a name="usererrortargetfilesharefull--restore-operation-failed-as-target-file-share-is-full"></a>Falha na operação UserErrorTargetFileShareFull-Restore porque o compartilhamento de arquivos de destino está cheio
+
+Código de erro: UserErrorTargetFileShareFull
+
+Mensagem de erro: falha na operação de restauração porque o compartilhamento de arquivos de destino está cheio.
+
+Aumente a cota de tamanho do compartilhamento de arquivos de destino para acomodar os dados de restauração e repita a operação de restauração.
+
+### <a name="usererrortargetfilesharequotanotsufficient--target-file-share-does-not-have-sufficient-storage-size-quota-for-restore"></a>UserErrorTargetFileShareQuotaNotSufficient-o compartilhamento de arquivos de destino não tem cota de tamanho de armazenamento suficiente para restauração
+
+Código de erro: UserErrorTargetFileShareQuotaNotSufficient
+
+Mensagem de erro: o compartilhamento de arquivos de destino não tem cota de tamanho de armazenamento suficiente para restauração
+
+Aumente a cota de tamanho do compartilhamento de arquivos de destino para acomodar os dados de restauração e repita a operação
+
+### <a name="file-sync-prerestorefailed--restore-operation-failed-as-an-error-occurred-while-performing-pre-restore-operations-on-file-sync-service-resources-associated-with-the-target-file-share"></a>Sincronização de Arquivos operação de PreRestoreFailed falhou porque ocorreu um erro ao executar operações de pré-restauração em Sincronização de Arquivos recursos de serviço associados ao compartilhamento de arquivos de destino
+
+Código de erro: Sincronização de Arquivos PreRestoreFailed
+
+Mensagem de erro: falha na operação de restauração porque ocorreu um erro ao executar operações de pré-restauração em Sincronização de Arquivos recursos de serviço associados ao compartilhamento de arquivos de destino.
+
+Tente restaurar os dados em um momento posterior. Se o problema persistir, contate o Suporte da Microsoft.
+
+### <a name="azurefilesyncchangedetectioninprogress--azure-file-sync-service-change-detection-is-in-progress-for-the-target-file-share-the-change-detection-was-triggered-by-a-previous-restore-to-the-target-file-share"></a>A detecção de alteração do serviço de Sincronização de Arquivos do Azure de AzureFileSyncChangeDetectionInProgress está em andamento para o compartilhamento de arquivos de destino. A detecção de alteração foi disparada por uma restauração anterior para o compartilhamento de arquivos de destino
+
+Código de erro: AzureFileSyncChangeDetectionInProgress
+
+Mensagem de erro: a detecção de alteração do serviço de Sincronização de Arquivos do Azure está em andamento para o compartilhamento de arquivos de destino. A detecção de alteração foi disparada por uma restauração anterior para o compartilhamento de arquivos de destino.
+
+Use um compartilhamento de arquivos de destino diferente. Como alternativa, você pode aguardar a conclusão da detecção de alteração do serviço de Sincronização de Arquivos do Azure para o compartilhamento de arquivos de destino antes de tentar novamente a restauração.
+
+### <a name="usererrorafsrecoverysomefilesnotrestored--one-or-more-files-could-not-be-recovered-successfully-for-more-information-check-the-failed-file-list-in-the-path-given-above"></a>UserErrorAFSRecoverySomeFilesNotRestored-um ou mais arquivos não puderam ser recuperados com êxito. Para obter mais informações, verifique a lista de arquivos com falha no caminho fornecido acima
+
+Código de erro: UserErrorAFSRecoverySomeFilesNotRestored
+
+Mensagem de erro: um ou mais arquivos não puderam ser recuperados com êxito. Para obter mais informações, verifique a lista de arquivos com falha no caminho fornecido acima.
+
+- Os motivos da falha de recuperação são listados no arquivo (caminho fornecido nos detalhes do trabalho). Resolva os motivos e repita a operação de restauração somente para os arquivos com falha.
+- Motivos comuns para falhas de restauração de arquivo:
+
+  - arquivos que falharam estão em uso no momento
+  - um diretório com o mesmo nome que o arquivo com falha existe no diretório pai.
+
+### <a name="usererrorafssourcesnapshotnotfound--azure-file-share-snapshot-corresponding-to-recovery-point-cannot-be-found"></a>UserErrorAFSSourceSnapshotNotFound-instantâneo de compartilhamento de arquivos do Azure correspondente ao ponto de recuperação não pode ser encontrado
+
+Código de erro: UserErrorAFSSourceSnapshotNotFound
+
+Mensagem de erro: não foi possível encontrar o instantâneo de compartilhamento de arquivos do Azure correspondente ao ponto de recuperação
+
+- Verifique se o instantâneo de compartilhamento de arquivos, correspondente ao ponto de recuperação que você está tentando usar para recuperação, ainda existe.
+
+  >[!NOTE]
+  >Se você excluir um instantâneo de compartilhamento de arquivos que foi criado pelo backup do Azure, os pontos de recuperação correspondentes se tornarão inutilizáveis. É recomendável não excluir instantâneos para garantir a recuperação garantida.
+
+- Tente selecionar outro ponto de restauração para recuperar os dados.
+
+### <a name="usererroranotherrestoreinprogressonsametarget--another-restore-job-is-in-progress-on-the-same-target-file-share"></a>UserErrorAnotherRestoreInProgressOnSameTarget-outro trabalho de restauração está em andamento no mesmo compartilhamento de arquivos de destino
+
+Código de erro: UserErrorAnotherRestoreInProgressOnSameTarget
+
+Mensagem de erro: outro trabalho de restauração está em andamento no mesmo compartilhamento de arquivos de destino
+
+Use um compartilhamento de arquivos de destino diferente. Como alternativa, você pode cancelar ou aguardar a conclusão da outra restauração.
+
+## <a name="common-modify-policy-errors"></a>Erros comuns de política de modificação
+
+### <a name="bmsusererrorconflictingprotectionoperation--another-configure-protection-operation-is-in-progress-for-this-item"></a>BMSUserErrorConflictingProtectionOperation-outra operação de configuração de proteção está em andamento para este item
+
+Código de erro: BMSUserErrorConflictingProtectionOperation
+
+Mensagem de erro: outra operação de configuração de proteção está em andamento para este item.
+
+Aguarde a conclusão da operação de modificação anterior da política e tente novamente mais tarde.
+
+### <a name="bmsusererrorobjectlocked--another-operation-is-in-progress-on-the-selected-item"></a>BMSUserErrorObjectLocked-outra operação está em andamento no item selecionado
+
+Código de erro: BMSUserErrorObjectLocked
+
+Mensagem de erro: outra operação está em andamento no item selecionado.
+
+Aguarde a conclusão da outra operação em andamento e tente novamente mais tarde.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre o backup de compartilhamentos de arquivos do Azure, confira:
 
-- [Faça backup das ações de arquivos do Azure](backup-afs.md)
+- [Fazer backup de compartilhamentos de arquivos do Azure](backup-afs.md)
 - [Perguntas frequentes sobre backup de compartilhamentos de arquivos do Azure](backup-azure-files-faq.md)

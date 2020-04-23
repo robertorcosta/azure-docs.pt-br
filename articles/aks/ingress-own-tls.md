@@ -1,16 +1,16 @@
 ---
-title: Use seus certificados TLS para ingress
+title: Usar seus certificados TLS para entrada
 titleSuffix: Azure Kubernetes Service
 description: Aprenda como instalar e configurar um controlador de ingresso NGINX que usa seus próprios certificados em um cluster do Serviço Azure Kubernetes (AKS).
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: ec6a398b52424c142b3d7ee82625c10c733456ab
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 4c3edb40c6d0c9a64ce3cb01f665e8e9cf60d12e
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668466"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100967"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Crie um controlador de ingresso HTTPS e use seus próprios certificados TLS no Serviço de Kubernetes do Azure (AKS)
 
@@ -27,21 +27,21 @@ Também é possível:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo usa o Helm para instalar o controlador de ingresso NGINX e um aplicativo da web de amostra. Você precisa ter o Helm inicializado dentro do cluster do AKS e usar uma conta de serviço para Tiller. Verifique se você está usando a versão mais recente do Helm. Para obter instruções de atualização, consulte os [docs de instalação do Helm][helm-install]. Para obter mais informações sobre a configuração e o uso do Helm, consulte [Instalar aplicativos com o Helm no Azure Kubernetes Service (AKS)][use-helm].
+Este artigo usa [Helm 3][helm] para instalar o controlador de entrada do Nginx e um aplicativo Web de exemplo. Você precisa ter o Helm inicializado dentro do cluster do AKS e usar uma conta de serviço para Tiller. Verifique se você está usando a versão mais recente do Helm. Para obter instruções de atualização, consulte o [Helm instalar documentos][helm-install]. Para obter mais informações sobre como configurar e usar o Helm, consulte [instalar aplicativos com Helm no serviço kubernetes do Azure (AKs)][use-helm].
 
-Este artigo também exige que você esteja executando a versão 2.0.64 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
+Este artigo também requer que você esteja executando o CLI do Azure versão 2.0.64 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Criar um controlador de entrada
 
 Para criar o controlador de entrada, use `Helm` para instalar *nginx-ingress*. Para redundância adicional, duas réplicas dos controladores de entrada NGINX são implementadas com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de entrada, verifique se há mais de um nó em seu cluster AKS.
 
-O controlador de entrada também precisa ser agendado em um nó do Linux. Os nós do Windows Server (atualmente em pré-visualização no AKS) não devem executar o controlador de ingestão. Um seletor de nó é especificado usando o parâmetro `--set nodeSelector` para instruir o agendador do Kubernetes a executar o controlador de entrada NGINX em um nó baseado em Linux.
+O controlador de entrada também precisa ser agendado em um nó do Linux. Os nós do Windows Server (atualmente em visualização no AKS) não devem executar o controlador de entrada. Um seletor de nó é especificado usando o parâmetro `--set nodeSelector` para instruir o agendador do Kubernetes a executar o controlador de entrada NGINX em um nó baseado em Linux.
 
 > [!TIP]
-> O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamado *ingress-basic*. Especifique um namespace para seu próprio ambiente conforme necessário. Se o cluster AKS não estiver `--set rbac.create=false` habilitado para RBAC, adicione aos comandos Helm.
+> O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamados *ingress-Basic*. Especifique um namespace para seu próprio ambiente, conforme necessário. Se o cluster AKS não estiver habilitado para RBAC, `--set rbac.create=false` adicione aos comandos Helm.
 
 > [!TIP]
-> Se você quiser habilitar a [preservação de IP da][client-source-ip] `--set controller.service.externalTrafficPolicy=Local` fonte do cliente para solicitações de contêineres em seu cluster, adicione ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho de solicitação em *X-Forwarded-For*. Ao usar um controlador de entrada com a preservação de IP da fonte do cliente ativada, a passagem do SSL não funcionará.
+> Se você quiser habilitar a [preservação de IP de origem do cliente][client-source-ip] para solicitações a contêineres em seu `--set controller.service.externalTrafficPolicy=Local` cluster, adicione ao comando Helm install. O IP de origem do cliente é armazenado no cabeçalho da solicitação em *X-forwardd-for*. Ao usar um controlador de entrada com preservação de IP de origem do cliente habilitada, a passagem SSL não funcionará.
 
 ```console
 # Create a namespace for your ingress resources
@@ -131,7 +131,7 @@ Ambos os aplicativos estão em execução no cluster de Kubernetes, no entanto, 
 No exemplo a seguir, o tráfego para o endereço `https://demo.azure.com/` é roteado para o serviço nomeado `aks-helloworld`. O tráfego para o endereço `https://demo.azure.com/hello-world-two` é roteado para o serviço `ingress-demo`. Para este artigo, você não precisa alterar esses nomes de host de demonstração. Para uso em produção, forneça os nomes especificados como parte do processo de solicitação e geração de certificado.
 
 > [!TIP]
-> Se o nome do host especificado durante o processo de solicitação de certificado, o nome CN, não corresponder ao host definido na sua rota de ingress, o controlador de ingestão exibirá um aviso *de Certificado Falso do Controlador Kubernetes Ingress.* Certifique-se de que seus nomes de host de certificado e de rota de ingresso correspondam.
+> Se o nome do host especificado durante o processo de solicitação de certificado, o nome CN não corresponder ao host definido em sua rota de entrada, o controlador de entrada exibirá um aviso de *certificado falso do controlador de entrada do kubernetes* . Certifique-se de que seus nomes de host de certificado e de rota de ingresso correspondam.
 
 A seção *tls* diz à rota de ingresso para usar o Segredo chamado *aks-ingress-tls* para o host *demo.azure.com*. Novamente, para uso em produção, especifique seu próprio endereço de host.
 
@@ -181,7 +181,7 @@ Para testar os certificados com nosso host *demo.azure.com* falso, use `curl` e 
 curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
 ```
 
-Nenhum caminho adicional foi fornecido com o endereço, de modo que */* o controlador de ingestão padrão para a rota. O primeiro aplicativo de demonstração é retornado, conforme mostrado na saída de exemplo condensada a seguir:
+Nenhum caminho adicional foi fornecido com o endereço, portanto, o controlador de entrada usa como padrão */* a rota. O primeiro aplicativo de demonstração é retornado, conforme mostrado na saída de exemplo condensada a seguir:
 
 ```
 $ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
@@ -224,17 +224,17 @@ $ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/h
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Este artigo usou o Helm para instalar os componentes de ingresso e os aplicativos de amostra. Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, você pode excluir todo o namespace da amostra ou os recursos individuais.
+Este artigo usou o Helm para instalar os componentes de ingresso e os aplicativos de amostra. Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, você pode excluir o namespace de exemplo inteiro ou os recursos individuais.
 
-### <a name="delete-the-sample-namespace-and-all-resources"></a>Exclua o namespace da amostra e todos os recursos
+### <a name="delete-the-sample-namespace-and-all-resources"></a>Excluir o namespace de exemplo e todos os recursos
 
-Para excluir todo o namespace `kubectl delete` da amostra, use o comando e especifique seu nome de namespace. Todos os recursos no namespace são excluídos.
+Para excluir o namespace de exemplo inteiro, use `kubectl delete` o comando e especifique o nome do namespace. Todos os recursos no namespace são excluídos.
 
 ```console
 kubectl delete namespace ingress-basic
 ```
 
-Em seguida, remova o repo Helm para o aplicativo AKS hello world:
+Em seguida, remova o repositório Helm para o aplicativo Hello World do AKS:
 
 ```console
 helm repo remove azure-samples
@@ -242,7 +242,7 @@ helm repo remove azure-samples
 
 ### <a name="delete-resources-individually"></a>Excluir recursos individualmente
 
-Alternativamente, uma abordagem mais granular é excluir os recursos individuais criados. Liste os lançamentos `helm list` do Helm com o comando. Procure gráficos nomeados *nginx -gresso* e *aks-helloworld*, conforme mostrado na saída do exemplo a seguir:
+Como alternativa, uma abordagem mais granular é excluir os recursos individuais criados. Liste as versões Helm com `helm list` o comando. Procure gráficos nomeados *nginx -gresso* e *aks-helloworld*, conforme mostrado na saída do exemplo a seguir:
 
 ```
 $ helm list
@@ -275,13 +275,13 @@ Remova a rota de entrada que direcionava o tráfego para os aplicativos de exemp
 kubectl delete -f hello-world-ingress.yaml
 ```
 
-Excluir o certificado Segredo:
+Exclua o segredo do certificado:
 
 ```console
 kubectl delete secret aks-ingress-tls
 ```
 
-Finalmente, você pode excluir o próprio namespace. Use `kubectl delete` o comando e especifique seu nome de namespace:
+Por fim, você pode excluir o namespace em si. Use o `kubectl delete` comando e especifique o nome do namespace:
 
 ```console
 kubectl delete namespace ingress-basic
@@ -304,6 +304,7 @@ Também é possível:
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+[helm]: https://helm.sh/
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 
 <!-- LINKS - internal -->

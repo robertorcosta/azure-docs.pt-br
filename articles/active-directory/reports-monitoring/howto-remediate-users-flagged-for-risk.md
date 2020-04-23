@@ -1,5 +1,5 @@
 ---
-title: Usuários sinalizados para risco no portal do Azure Active Directory | Microsoft Docs
+title: Usuários sinalizados para risco no portal de Azure Active Directory | Microsoft Docs
 description: Saiba mais sobre os usuários sinalizados para o relatório de risco na segurança no portal do Azure Active Directory
 services: active-directory
 author: MarkusVi
@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d02c5484ea4cce2953eac6b1b7b26a17c142bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea1360499c4f4f9b2f6cfa07e81d8f692d0353d3
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68989707"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100780"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Corrigir usuários sinalizados como de risco no portal do Azure Active Directory
 
@@ -32,7 +32,7 @@ Se atividades incomuns que possam indicar acesso não autorizado a algumas das c
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Acesse os usuários sinalizados para o relatório de risco
 
-Você pode revisar usuários sinalizados para risco por meio do [usuário no relatório de risco](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) no portal do Azure. Se você não tem Azure AD, você pode [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD)se inscrever gratuitamente em . 
+Você pode revisar usuários sinalizados para risco por meio do [usuário no relatório de risco](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) no portal do Azure. Se você não tiver o Azure AD, poderá se inscrever gratuitamente em [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
 
 Usuários sinalizados como risco, você pode executar as seguintes ações para cada usuário:
 
@@ -46,7 +46,7 @@ Para obter mais informações, consulte [Usuários sinalizados para o relatório
 
 Você também pode usar suas credenciais do Office 365 para acessar o **Azure Admin Center**. Após ativar seu acesso ao Azure AD, você será redirecionado para o portal do Azure AD. No nível de assinatura básica, a quantidade de detalhes fornecida nos relatórios é limitada. Outras análises e dados estão disponíveis para assinantes Premium do Azure.
 
-Para acessar os **Usuários sinalizados para** relatórios de risco no centro de admin microsoft 365:
+Para acessar os **usuários sinalizados para** relatórios de risco no centro de administração Microsoft 365:
 
 1.  No menu de navegação à esquerda, selecione **Centros de administração**. 
 2.  Selecione **Microsoft Azure Active Directory**.
@@ -60,7 +60,7 @@ Para acessar os **Usuários sinalizados para** relatórios de risco no centro de
 Execute as seguintes ações para ajudar a corrigir as contas afetadas e proteger seu ambiente:
 
 1.  [Valide as informações corretas](https://aka.ms/MFAValid) para autenticação de vários fatores e redefinição de senha de autoatendimento. 
-2.  [Habilite a autenticação multifatorial](https://aka.ms/MFAuth) para todos os usuários. 
+2.  [Habilite a autenticação multifator](https://aka.ms/MFAuth) para todos os usuários. 
 3.  Use esta [script de correção](https://aka.ms/remediate) para cada conta afetada, para executar automaticamente as etapas a seguir: 
 
     a. Redefina a senha para proteger a conta e elimine as sessões ativas.
@@ -85,9 +85,8 @@ Execute as seguintes ações para ajudar a corrigir as contas afetadas e protege
 
 Além disso, você deve:
 
-- Leia e implemente esta [orientação sobre como abordar atividades incomuns.](https://aka.ms/fixaccount) 
+- Leia e implemente essas [diretrizes sobre como lidar com atividades incomuns](https://aka.ms/fixaccount). 
 - [ Ative o pipeline de auditoria ](https://aka.ms/improvesecurity) para ajudá-lo a analisar a atividade em seu locatário. Depois de concluído, seu armazenamento de auditoria começa a ser preenchido com logs de atividades. Nesse ponto, você também pode aproveitar o recurso de pesquisa e investigação do [Security e Compliance Center](https://aka.ms/sccsearch). 
-- Use este [script para permitir a auditoria da caixa de correio](https://aka.ms/mailboxaudit1) para todas as suas contas. 
 - Examine as permissões de representante e as regras de encaminhamento para todas as suas caixas de correio de email. Você pode usar este [script do PowerShell](https://aka.ms/delegateforwardrules) para executar a tarefa. 
 
 ## <a name="next-steps"></a>Próximas etapas

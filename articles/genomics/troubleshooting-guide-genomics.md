@@ -1,22 +1,21 @@
 ---
 title: Guia de solução de problemas
 titleSuffix: Microsoft Genomics
-description: Saiba mais sobre estratégias de solução de problemas para usar o Microsoft Genomics, incluindo mensagens de erro e como resolvê-las.
+description: Saiba mais sobre estratégias de solução de problemas para usar Microsoft Genomics, incluindo mensagens de erro e como resolvê-las.
 keywords: solução de problemas, erro, depuração
 services: genomics
 author: ruchir
-editor: jasonwhowell
 ms.author: ruchir
 ms.service: genomics
 ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
-ms.openlocfilehash: f6ef56e4188a7541036db096e4ab35a1b95fc141
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73486001"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100899"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
@@ -30,7 +29,7 @@ Confira algumas dicas de solução de problemas comuns que podem acontecer ao us
 1. Usando a linha de comando e digitando `msgen status`
 2. Examinando o conteúdo de standardoutput.txt.
 
-### <a name="1-using-the-command-line-msgen-status"></a>1. Usando a linha de comando`msgen status`
+### <a name="1-using-the-command-line-msgen-status"></a>1. usando a linha de comando`msgen status`
 
 ```bash
 msgen status -u URL -k KEY -w ID 
@@ -82,7 +81,7 @@ Para o fluxo de trabalho ID 1001 e o arquivo config.txt localizado no mesmo cami
 msgen status -w 1001 -f "config.txt"
 ```
 
-### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. Examine o conteúdo de standardoutput.txt 
+### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. Examine o conteúdo de StandardOutput. txt 
 Localize o contêiner de saída do fluxo de trabalho em questão. O MSGEN cria uma pasta `[workflowfilename].logs.zip` após cada execução de fluxo de trabalho. Descompacte a pasta para exibir seu conteúdo:
 
 * outputFileList.txt - uma lista dos arquivos de saída produzida durante o fluxo de trabalho
@@ -102,7 +101,7 @@ O serviço do msgen (Microsoft Genomics) pode gerar dois tipos de erros:
 1. Erros de serviço interno: erros internos do serviço que não podem ser resolvidos corrigindo parâmetros ou arquivos de entrada. Às vezes, enviar novamente o fluxo de trabalho pode corrigir esses erros.
 2. Erros de entrada: erros que podem ser resolvidos usando os argumentos corretos ou corrigindo os formatos dos arquivos.
 
-### <a name="1-internal-service-errors"></a>1. Erros internos de serviço
+### <a name="1-internal-service-errors"></a>1. erros de serviço interno
 
 Um erro de serviço interno não é acionável pelo usuário. Você pode reenviar o fluxo de trabalho, mas se isso não funcionar, entre em contato com o suporte do Microsoft Genomics
 
@@ -110,7 +109,7 @@ Um erro de serviço interno não é acionável pelo usuário. Você pode reenvia
 |------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ocorreu um erro interno. Tente enviar o fluxo de trabalho novamente. Se esse erro ocorrer novamente, entre em contato com o suporte da Microsoft Genomics para obter assistência | Envie o fluxo de trabalho novamente. Contate o suporte do Microsoft Genomics para obter assistência se o problema persistir criando um [tíquete](file-support-ticket-genomics.md ) de suporte. |
 
-### <a name="2-input-errors"></a>2. Erros de entrada
+### <a name="2-input-errors"></a>2. erros de entrada
 
 Esses erros são acionáveis pelo usuário. Com base no tipo de arquivo e o código de erro, o serviço do Microsoft Genomics gera códigos de erro distintos. Siga as etapas de solução de problemas recomendadas listadas abaixo.
 

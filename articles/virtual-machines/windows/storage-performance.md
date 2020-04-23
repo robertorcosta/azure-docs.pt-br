@@ -1,101 +1,99 @@
 ---
-title: Otimizar o desempenho em máquinas virtuais da série Azure Lsv2 - Armazenamento
-description: Aprenda a otimizar o desempenho para sua solução nas máquinas virtuais da série Lsv2.
-services: virtual-machines-windows
+title: Otimizar o desempenho nas máquinas virtuais da série Lsv2 do Azure – armazenamento
+description: Saiba como otimizar o desempenho da sua solução nas máquinas virtuais da série Lsv2.
 author: sasha-melamed
-manager: gwallace
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.subservice: sizes
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 57b248908a02327f2521be05920259681a26817a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd15df2a7074463789bcf4a2d4de3c41bd012bbb
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920222"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100542"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais da série Lsv2
 
-As máquinas virtuais da série Lsv2 suportam uma variedade de cargas de trabalho que precisam de alta I/O e throughput no armazenamento local em uma ampla gama de aplicativos e indústrias.  A série Lsv2 é ideal para big data, sql, bancos de dados NoSQL, data warehousing e grandes bancos de dados transacionais, incluindo Cassandra, MongoDB, Cloudera e Redis.
+As máquinas virtuais da série Lsv2 dão suporte a uma variedade de cargas de trabalho que precisam de alta e/s e produtividade no armazenamento local em uma ampla gama de aplicativos e setores.  A Lsv2-Series é ideal para Big data, SQL, bancos de dados NoSQL, data warehousing e grandes bancos de dados transacionais, incluindo Cassandra, MongoDB, Cloudera e Redis.
 
-O design das Máquinas Virtuais (VMs) da série Lsv2 maximiza o processador AMD EPYC™ 7551 para fornecer o melhor desempenho entre o processador, memória, dispositivos NVMe e as VMs. Além de maximizar o desempenho do hardware, as VMs da série Lsv2 foram projetadas para trabalhar com as necessidades dos sistemas operacionais Windows e Linux para um melhor desempenho com o hardware e o software.
+O design das máquinas virtuais (VMs) da série Lsv2 maximiza o processador AMD EPYC™ 7551 para fornecer o melhor desempenho entre o processador, a memória, os dispositivos NVMe e as VMs. Além de maximizar o desempenho do hardware, as VMs da série Lsv2 são projetadas para funcionar com as necessidades dos sistemas operacionais Windows e Linux para melhorar o desempenho com o hardware e o software.
 
-A sintonia do software e do hardware resultou na versão otimizada do [Datacenter Windows Server 2019,](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview)lançado no início de dezembro de 2018 para o Azure Marketplace, que suporta o desempenho máximo nos dispositivos NVMe em VMs da série Lsv2.
+O ajuste do software e do hardware resultou na versão otimizada do [Windows Server 2019 datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), lançado no início de 2018 de dezembro para o Azure Marketplace, que dá suporte ao desempenho máximo nos dispositivos NVMe nas VMs da série Lsv2.
 
-Este artigo fornece dicas e sugestões para garantir que suas cargas de trabalho e aplicativos atinjam o máximo desempenho projetado nas VMs. As informações nesta página serão continuamente atualizadas à medida que mais imagens otimizadas lsv2 forem adicionadas ao Azure Marketplace.
+Este artigo fornece dicas e sugestões para garantir que suas cargas de trabalho e aplicativos alcancem o desempenho máximo projetado para as VMs. As informações nesta página serão atualizadas continuamente à medida que imagens otimizadas mais Lsv2 forem adicionadas ao Azure Marketplace.
 
 ## <a name="amd-eypc-chipset-architecture"></a>Arquitetura de chipset AMD EYPC™
 
-As VMs da série Lsv2 usam processadores AMD EYPC™ servidor baseados na microarquitetura Zen. A AMD desenvolveu o Infinity Fabric (IF) para EYPC™ como uma interconexão escalável para seu modelo NUMA que poderia ser usado para comunicações on-die, on-package e multi-package. Em comparação com o QPI (Quick-Path Interconnect) e o UPI (Ultra-Path Interconnect) usados em processadores monolíticos modernos da Intel, a arquitetura de pequenos-die da AMD pode trazer tanto benefícios de desempenho quanto desafios. O impacto real das restrições de largura de banda de memória e latência pode variar dependendo do tipo de cargas de trabalho em execução.
+As VMs da série Lsv2 usam processadores de servidor AMD EYPC™ com base na microarquitetura do Zen. A AMD desenvolveu a malha de infinitos (se) para EYPC™ como interconexão escalonável para seu modelo NUMA que poderia ser usado para comunicações no chip, no pacote e em vários pacotes. Em comparação com QPI (interconexão rápida de caminho) e UPI (interconexão de ultra caminhos) usados em processadores monolíticos de chips da Intel, a arquitetura de matriz pequena de vários NUMA do AMD pode trazer os benefícios de desempenho, bem como os desafios. O impacto real da largura de banda de memória e restrições de latência pode variar dependendo do tipo de cargas de trabalho em execução.
 
 ## <a name="tips-for-maximizing-performance"></a>Dicas para maximizar o desempenho
 
-* O hardware que alimenta as VMs da série Lsv2 utiliza dispositivos NVMe com oito Pares de Filas de I/O (QP)s. Cada fila de I/O do dispositivo NVMe é na verdade um par: uma fila de envio e uma fila de conclusão. O driver NVMe está configurado para otimizar a utilização desses oito QPs de I/O distribuindo I/O's em um cronograma de round robin. Para obter o desempenho máximo, execute oito trabalhos por dispositivo para combinar.
+* O hardware que alimenta as VMs da série Lsv2 utiliza dispositivos NVMe com oito pares de fila de e/s (QP). Cada fila de e/s do dispositivo NVMe é, na verdade, um par: uma fila de envio e uma fila de conclusão. O driver NVMe é configurado para otimizar a utilização desses oito QPs de e/s distribuindo e/s em uma agenda round robin. Para obter o desempenho máximo, execute oito trabalhos por dispositivo para fazer a correspondência.
 
-* Evite misturar comandos de admin NVMe (por exemplo, consulta de informações NVMe SMART, etc.) com comandos NVMe I/O durante cargas de trabalho ativas. Os dispositivos Lsv2 NVMe são apoiados pela tecnologia Hyper-V NVMe Direct, que muda para o "modo lento" sempre que quaisquer comandos de admin NVMe estão pendentes. Os usuários do Lsv2 podem ver uma queda dramática de desempenho no desempenho de I/O do NVMe se isso acontecer.
+* Evite misturar comandos de administrador de NVMe (por exemplo, consulta de informações inteligentes de NVMe, etc.) com os comandos de e/s de NVMe durante as cargas de trabalho ativas. Os dispositivos Lsv2 NVMe são apoiados pela tecnologia do Hyper-V NVMe Direct, que alterna para o "modo lento" sempre que qualquer comando de administração do NVMe estiver pendente. Os usuários do Lsv2 podem ver uma queda significativa no desempenho de e/s do NVMe, se isso acontecer.
 
-* Os usuários do Lsv2 não devem confiar nas informações do dispositivo NUMA (todas as 0) relatadas dentro da VM para unidades de dados para decidir a afinidade numa para seus aplicativos. A maneira recomendada para um melhor desempenho é espalhar cargas de trabalho em CPUs, se possível. 
+* Os usuários do Lsv2 não devem confiar nas informações NUMA do dispositivo (todas as 0) relatadas de dentro da VM para unidades de dados para decidir a afinidade NUMA para seus aplicativos. A maneira recomendada para melhor desempenho é distribuir cargas de trabalho entre CPUs, se possível. 
 
-* A profundidade máxima de fila suportada por par de filas de I/O para o dispositivo Lsv2 VM NVMe é 1024 (vs. Limite de QD 32 da Amazon i3). Os usuários do Lsv2 devem limitar suas cargas de trabalho de benchmarking (sintéticas) à profundidade de fila 1024 ou inferior para evitar desencadear condições completas da fila, o que pode reduzir o desempenho.
+* A profundidade máxima de fila com suporte por par de filas de e/s para o dispositivo de Lsv2 VM NVMe é 1024 (vs. Amazon i3 QD 32 limite). Os usuários do Lsv2 devem limitar suas cargas de trabalho de benchmark (sintéticas) para a profundidade da fila 1024 ou inferior para evitar o disparo de condições completas da fila, o que pode reduzir o desempenho.
 
-## <a name="utilizing-local-nvme-storage"></a>Utilizando o armazenamento NVMe local
+## <a name="utilizing-local-nvme-storage"></a>Utilizando o armazenamento de NVMe local
 
-O armazenamento local no disco NVMe de 1,92 TB em todas as VMs Lsv2 é efêmero. Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco NVMe local persistirão. Os dados não persistirão no NVMe se a VM for reimplantada, desalocada ou excluída. Os dados não persistirão se outro problema fizer com que a VM, ou o hardware em que está sendo executado, se torne insalubre. Quando isso acontece, todos os dados do host antigo são apagados com segurança.
+O armazenamento local no disco de 1,92 TB NVMe em todas as VMs Lsv2 é efêmero. Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco da NVMe local serão mantidos. Os dados não serão persistidos no NVMe se a VM for reimplantada, desalocada ou excluída. Os dados não serão mantidos se outro problema fizer a VM, ou o hardware em que está sendo executado, se tornarem não íntegros. Quando isso acontece, todos os dados no host antigo são apagados com segurança.
 
-Também haverá casos em que a VM precisa ser movida para uma máquina hospedeira diferente, por exemplo, durante uma operação de manutenção planejada. Operações planejadas de manutenção e algumas falhas de hardware podem ser antecipadas com [Eventos Programados](scheduled-events.md). Eventos programados devem ser usados para se manter atualizados sobre quaisquer operações de manutenção e recuperação previstas.
+Também haverá casos em que a VM precisa ser movida para um computador host diferente, por exemplo, durante uma operação de manutenção planejada. As operações de manutenção planejada e algumas falhas de hardware podem ser antecipadas com [eventos agendados](scheduled-events.md). Eventos Agendados deve ser usado para permanecer atualizado em qualquer operação prevista de manutenção e recuperação.
 
-No caso de um evento de manutenção planejado exigir que a VM seja recriada em um novo host com discos locais vazios, os dados precisarão ser ressincronizados (novamente, com qualquer dado no antigo host sendo apagado com segurança). Isso ocorre porque as VMs da série Lsv2 não suportam atualmente a migração ao vivo no disco NVMe local.
+No caso de um evento de manutenção planejada exigir que a VM seja recriada em um novo host com discos locais vazios, os dados precisarão ser ressincronizados (novamente, com todos os dados no host antigo sendo apagados com segurança). Isso ocorre porque as VMs da série Lsv2 atualmente não dão suporte à migração dinâmica no disco NVMe local.
 
-Existem dois modos para manutenção planejada.
+Há dois modos de manutenção planejada.
 
-### <a name="standard-vm-customer-controlled-maintenance"></a>Manutenção padrão controlada pelo cliente VM
+### <a name="standard-vm-customer-controlled-maintenance"></a>Manutenção controlada pelo cliente da VM padrão
 
-- O VM é movido para um host atualizado durante uma janela de 30 dias.
-- Os dados de armazenamento local do Lsv2 podem ser perdidos, por isso recomenda-se o backup de dados antes do evento.
+- A VM é movida para um host atualizado durante uma janela de 30 dias.
+- Lsv2 dados de armazenamento local podem ser perdidos; portanto, é recomendável fazer backup de dados antes do evento.
 
 ### <a name="automatic-maintenance"></a>Manutenção automática
 
 - Ocorre se o cliente não executar a manutenção controlada pelo cliente ou no caso de procedimentos de emergência, como um evento de dia zero de segurança.
-- Destina-se a preservar os dados do cliente, mas há um pequeno risco de um vm congelar ou reiniciar.
-- Os dados de armazenamento local do Lsv2 podem ser perdidos, por isso recomenda-se o backup de dados antes do evento.
+- Destina-se a preservar os dados do cliente, mas há um pequeno risco de um congelamento ou reinicialização da VM.
+- Lsv2 dados de armazenamento local podem ser perdidos; portanto, é recomendável fazer backup de dados antes do evento.
 
-Para quaisquer eventos de serviço futuros, use o processo de manutenção controlada para selecionar um horário mais conveniente para a atualização. Antes do evento, você pode fazer backup de seus dados no armazenamento premium. Depois que o evento de manutenção é concluído, você pode retornar seus dados para o armazenamento NVMe local Lsv2 VMs atualizado.
+Para qualquer evento de serviço futuro, use o processo de manutenção controlado para selecionar um horário mais conveniente para a atualização. Antes do evento, você pode fazer backup de seus dados no armazenamento Premium. Após a conclusão do evento de manutenção, você pode retornar seus dados para o armazenamento de NVMe local de VMs Lsv2 atualizadas.
 
 Os cenários que mantêm dados em discos NVMe locais incluem:
 
-- A VM está funcionando e saudável.
-- A VM é reiniciada no lugar (por você ou pelo Azure).
-- O VM é pausado (parado sem desalocação).
-- A maioria das operações planejadas de manutenção.
+- A VM está em execução e íntegra.
+- A VM é reinicializada no local (por você ou pelo Azure).
+- A VM está pausada (parada sem desalocação).
+- A maioria das operações de serviço de manutenção planejada.
 
-Cenários que apagam dados com segurança para proteger o cliente incluem:
+Os cenários que apagam dados com segurança para proteger o cliente incluem:
 
-- O VM é reimplantado, parado (desalocado) ou excluído (por você).
-- A VM torna-se insalubre e tem que servir a cura para outro nó devido a um problema de hardware.
-- Um pequeno número das operações planejadas de manutenção que exigem que a VM seja realocada para outro host para manutenção.
+- A VM é reimplantada, parada (desalocada) ou excluída (por você).
+- A VM se torna não íntegra e tem de reparar o serviço para outro nó devido a um problema de hardware.
+- Um pequeno número de operações de manutenção de manutenção planejada que exige que a VM seja realocada para outro host para manutenção.
 
-Para saber mais sobre opções de backup de dados no armazenamento local, consulte [Backup e recuperação de desastres para discos Azure IaaS](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Para saber mais sobre as opções de backup de dados no armazenamento local, consulte [backup e recuperação de desastre para discos IaaS do Azure](backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-* **Como começar a implantar VMs da série Lsv2?**  
-   Assim como qualquer outra VM, use o [Portal,](quick-create-portal.md) [Azure CLI](quick-create-cli.md)ou [PowerShell](quick-create-powershell.md) para criar uma VM.
+* **Como fazer iniciar a implantação de VMs da série Lsv2?**  
+   Assim como qualquer outra VM, use o [portal](quick-create-portal.md), [CLI do Azure](quick-create-cli.md)ou [PowerShell](quick-create-powershell.md) para criar uma VM.
 
-* **Uma única falha de disco NVMe fará com que todas as VMs do host falhem?**  
-   Se for detectada uma falha de disco no nó de hardware, o hardware será falhado. Quando isso ocorre, todas as VMs no nó são automaticamente desalocadas e movidas para um nó saudável. Para VMs da série Lsv2, isso significa que os dados do cliente sobre o nó falhado também são apagados com segurança e precisarão ser recriados pelo cliente no novo nó. Como observado, antes que a migração ao vivo se torne disponível no Lsv2, os dados sobre o nó falhado serão movidos proativamente com as VMs à medida que forem transferidos para outro nó.
+* **Uma única falha de disco de NVMe fará com que todas as VMs no host falhem?**  
+   Se uma falha de disco for detectada no nó de hardware, o hardware estará em um estado de falha. Quando isso ocorre, todas as VMs no nó são automaticamente desalocadas e movidas para um nó íntegro. Para VMs da série Lsv2, isso significa que os dados do cliente no nó com falha também serão apagados com segurança e precisarão ser recriados pelo cliente no novo nó. Conforme observado, antes que a migração ao vivo se torne disponível no Lsv2, os dados no nó com falha serão movidos proativamente com as VMs à medida que forem transferidas para outro nó.
 
-* **Preciso fazer ajustes de votação no Windows no Windows Server 2012 ou no Windows Server 2016?**  
-   A votação do NVMe só está disponível no Windows Server 2019 no Azure.  
+* **É necessário fazer ajustes de sondagem no Windows no Windows Server 2012 ou no Windows Server 2016?**  
+   A sondagem do NVMe só está disponível no Windows Server 2019 no Azure.  
 
-* **Posso voltar para um modelo tradicional de rotina de serviço de interrupção (ISR) ?**  
-   As VMs da série Lsv2 são otimizadas para a votação do NVMe. Atualizações são fornecidas continuamente para melhorar o desempenho das pesquisas.
+* **Posso voltar para um modelo de ISR (rotina de serviço de interrupção) tradicional?**  
+   As VMs da série Lsv2 são otimizadas para sondagem de NVMe. As atualizações são fornecidas continuamente para melhorar o desempenho de sondagem.
 
-* **Posso ajustar as configurações de votação no Windows Server 2019?**  
-   As configurações de votação não são ajustáveis pelo usuário.
+* **Posso ajustar as configurações de sondagem no Windows Server 2019?**  
+   As configurações de sondagem não são ajustáveis pelo usuário.
    
 ## <a name="next-steps"></a>Próximas etapas
 
-* Veja as especificações de todas as [VMs otimizadas para o desempenho de armazenamento](sizes-storage.md) no Azure
+* Consulte as especificações para todas as [VMs otimizadas para desempenho de armazenamento](sizes-storage.md) no Azure

@@ -1,26 +1,26 @@
 ---
-title: Lidar com erros de conectividade transitórios - Banco de dados Azure para PostgreSQL - Servidor Único
-description: Aprenda a lidar com erros de conectividade transitórios para o Banco de Dados Azure para PostgreSQL - Servidor Único.
+title: Tratar erros de conectividade transitórios-banco de dados do Azure para PostgreSQL-servidor único
+description: Saiba como lidar com erros de conectividade transitórios para o banco de dados do Azure para PostgreSQL-servidor único.
 keywords: conexão do postgresql, cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 8138512dfc893f3523c5ad78a93aef1bcdedfe70
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 026a0edf24d349c4b445d6229d3b1ad73decf87d
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768044"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097822"
 ---
 # <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Manipulação de erros de conectividade transitória para Banco de Dados do Azure para PostgreSQL – servidor único
 
-Este artigo descreve como lidar com erros transitórios conectados ao Banco de Dados Do Azure para PostgreSQL.
+Este artigo descreve como lidar com erros transitórios se conectando ao banco de dados do Azure para PostgreSQL.
 
 ## <a name="transient-errors"></a>Erros transitórios
 
-Um erro transitório, também conhecido como uma falha transitória, é um erro que será resolvido por si só. Geralmente, esses erros manifestam como uma conexão para o servidor de banco de dados que está sendo descartado. Além disso, as novas conexões com um servidor não podem ser abertas. Os erros transitórios podem ocorrer, por exemplo, quando ocorre uma falha de hardware ou de rede. Outra razão pode ser uma nova versão de um serviço PaaS que está sendo implantado. A maioria desses eventos são automaticamente mitigados pelo sistema em menos de 60 segundos. Uma prática recomendada para projetar e desenvolver aplicativos na nuvem é esperar erros transitórios. Suponha que pode acontecer em qualquer componente a qualquer momento e ter a lógica apropriada em vigor para lidar com essas situações.
+Um erro transitório, também conhecido como uma falha transitória, é um erro que será resolvido por si só. Geralmente, esses erros manifestam como uma conexão para o servidor de banco de dados que está sendo descartado. Além disso, as novas conexões com um servidor não podem ser abertas. Os erros transitórios podem ocorrer, por exemplo, quando ocorre uma falha de hardware ou de rede. Outro motivo pode ser uma nova versão de um serviço PaaS que está sendo distribuído. A maioria desses eventos é automaticamente mitigada pelo sistema em menos de 60 segundos. Uma prática recomendada para projetar e desenvolver aplicativos na nuvem é esperar erros transitórios. Suponha que pode acontecer em qualquer componente a qualquer momento e ter a lógica apropriada em vigor para lidar com essas situações.
 
 ## <a name="handling-transient-errors"></a>Tratamento de erros transitórios
 
@@ -36,7 +36,7 @@ A primeira e a segunda ocorrência são razoavelmente diretas de lidar. Tente ab
 * Para cada próxima repetição, a espera aumenta exponencialmente, para até 60 segundos.
 * Defina um número máximo de repetições no ponto em que seu aplicativo considera que a operação falhou.
 
-Quando uma conexão com uma transação ativa falha, é mais difícil de lidar com a recuperação corretamente. Há dois casos: se a transação era somente leitura por natureza, é seguro para reabrir a conexão e tentar a transação novamente. Se, no entanto, a transação também estava gravando no banco de dados, você deve determinar se a transação foi revertida ou se ela foi bem-sucedida antes da ocorrência do erro transitório. Nesse caso, você pode simplesmente não ter recebido a confirmação da confirmação do servidor de banco de dados.
+Quando uma conexão com uma transação ativa falha, é mais difícil de lidar com a recuperação corretamente. Há dois casos: se a transação era somente leitura por natureza, é seguro para reabrir a conexão e tentar a transação novamente. Se, no entanto, a transação também estava gravando no banco de dados, você deve determinar se a transação foi revertida ou se ela foi bem-sucedida antes da ocorrência do erro transitório. Nesse caso, você pode simplesmente não ter recebido a confirmação de confirmação do servidor de banco de dados.
 
 Uma maneira de fazer isso, é gerar uma ID exclusiva no cliente que é usado para todas as tentativas. Você pode passar essa ID exclusiva como parte da transação para o servidor e armazená-los em uma coluna com uma restrição exclusiva. Dessa forma, com segurança, você pode repetir a transação. Ela terá êxito se a transação anterior tiver sido revertida e a ID exclusiva do cliente gerada ainda não existir no sistema. Ocorrerá uma falha indicando que uma violação de chave duplicada se a ID exclusiva foi armazenada anteriormente porque a transação anterior foi concluída com êxito.
 

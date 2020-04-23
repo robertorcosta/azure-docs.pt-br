@@ -1,26 +1,19 @@
 ---
 title: Noções básicas sobre o uso de máquina virtual do Azure
 description: Noções básicas dos detalhes de uso da máquina virtual
-services: virtual-machines
-documentationcenter: ''
 author: mmccrory
-manager: gwallace
-editor: ''
 tags: azure-virtual-machine
-ms.assetid: ''
 ms.service: virtual-machines
-ms.devlang: ''
-ms.topic: article
-ms.tgt_pltfrm: vm
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: 2aa175d97787d82aae062a95ed519f35ff65816b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0caa028c8352f8dd1b3be4a843b9b49128b2c382
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75982272"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101562"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Noções básicas sobre o uso de máquina virtual do Azure
 Ao analisar os dados de uso do Azure, podem ser obtidas informações poderosas sobre o consumo - insights que podem permitir um melhor gerenciamento e alocação de custos em toda a sua organização. Este documento fornece um aprofundamento em seus detalhes de consumo de Computação do Azure. Para obter mais detalhes sobre o uso geral do Azure, navegue até [Entendendo sua fatura](../../cost-management-billing/understand/review-individual-bill.md).
@@ -117,7 +110,7 @@ O nome da região preenchido no campo Local do Recurso nos detalhes de uso varia
 As VMs adquirem custos para a própria VM, qualquer software Premium em execução na VM, a conta de armazenamento\disco gerenciado associado à VM e as transferências de largura de banda de rede da VM.
 ### <a name="how-can-i-tell-if-a-vm-is-using-azure-hybrid-benefit-in-the-usage-csv"></a>Como posso saber se uma VM está utilizando o Benefício Híbrido do Azure no CSV de Uso?
 Se você implantar utilizando o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/), será cobrado pela taxa de VM não-Windows, já que está trazendo sua própria licença para a nuvem. Na sua fatura, você pode distinguir as VMs do Gerenciador de Recursos que estão executando em Benefício Híbrido do Azure porque possuem ou o “Windows\_Server BYOL” ou o “Windows\_Client BYOL” na coluna ImageType.
-### <a name="how-are-basic-vs-standard-vm-types-differentiated-in-the-usage-csv"></a>Como os tipos de VM Básicos vs. Padrão são diferenciados no CSV de uso?
+### <a name="how-are-basic-vs-standard-vm-types-differentiated-in-the-usage-csv"></a>Como os tipos de VM Basic vs. standard são diferenciados no CSV de uso?
 São oferecidas VMs dos planos Básico e Standard da série A. Se você implantar uma VM do plano Básico, na subcategoria do medidor ela terá uma cadeia de caracteres “Básica”. Se você implantar uma VM do plano Standard de série A, o tamanho da VM aparecerá como “A1 VM”, já que o plano Standard é o padrão. Para saber mais sobre as diferenças entre os planos Básico e Standard, consulte a[Página de Preços](https://azure.microsoft.com/pricing/details/virtual-machines/).
 ### <a name="what-are-extrasmall-small-medium-large-and-extralarge-sizes"></a>Quais são os tamanhos ExtraSmall, Small, Medium, Large e ExtraLarge?
 ExtraSmall - ExtraLarge são os nomes herdados para Standard \_A0 – Standard\_A4. Nos registros de uso de VM clássica, você poderá visualizar essa convenção utilizada, caso tenha implantado esses tamanhos.

@@ -3,33 +3,33 @@ title: Criar webhooks em regras no Microsoft Azure IoT Central | Microsoft Docs
 description: Crie webhooks no Microsoft Azure IoT Central para notificar automaticamente outros aplicativos ao acionar regras.
 author: viv-liu
 ms.author: viviali
-ms.date: 12/02/2019
+ms.date: 04/03/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: d97bd7a3c6de92f22a9880040f407960d5257f6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cb80b54c75d637842c5f50d9336629dedf758fa
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158088"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100117"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Criar ações de webhook em regras no Microsoft Azure IoT Central
 
 *Este tópico aplica-se a construtores e administradores.*
 
-Webhooks permitem que você conecte o aplicativo IoT Central a outros aplicativos e serviços de monitoramento remoto e notificações. Webhooks notificam automaticamente os outros aplicativos e serviços conectados sempre que uma regra é acionada no aplicativo IoT Central. Seu aplicativo IoT Central envia uma solicitação POST para o ponto final HTTP do outro aplicativo sempre que uma regra é acionada. A carga contém detalhes do dispositivo e detalhes do gatilho de regras.
+Webhooks permitem que você conecte o aplicativo IoT Central a outros aplicativos e serviços de monitoramento remoto e notificações. Webhooks notificam automaticamente os outros aplicativos e serviços conectados sempre que uma regra é acionada no aplicativo IoT Central. Seu aplicativo IoT Central envia uma solicitação POST para o ponto de extremidade HTTP do outro aplicativo sempre que uma regra é disparada. A carga contém detalhes do dispositivo e detalhes do gatilho da regra.
 
-## <a name="set-up-the-webhook"></a>Configure o webhook
+## <a name="set-up-the-webhook"></a>Configurar o webhook
 
-Neste exemplo, você se conecta ao RequestBin para ser notificado quando as regras são acionadas usando webhooks.
+Neste exemplo, você se conecta ao RequestBin para ser notificado quando as regras forem acionadas usando WebHooks.
 
 1. Abra [RequestBin](https://requestbin.net/).
 
 1. Crie um novo RequestBin e copie a **URL do Compartimento**.
 
-1. Crie uma [regra de telemetria.](tutorial-create-telemetry-rules.md) Salve a regra e adicione uma nova ação.
+1. Crie uma [regra de telemetria](tutorial-create-telemetry-rules.md). Salve a regra e adicione uma nova ação.
 
     ![Tela de criação do webhook](media/howto-create-webhooks/webhookcreate.png)
 
@@ -37,11 +37,83 @@ Neste exemplo, você se conecta ao RequestBin para ser notificado quando as regr
 
 1. Salve a regra.
 
-Agora, quando a regra é acionada, você verá uma nova solicitação aparecer no RequestBin.
+Agora, quando a regra for disparada, você verá que uma nova solicitação aparecerá em RequestBin.
 
 ## <a name="payload"></a>Carga útil
 
-Quando uma regra é acionada, uma solicitação HTTP POST é feita na URL de retorno de chamada contendo uma carga json com os detalhes da telemetria, dispositivo, regra e aplicativo. A carga pode parecer a seguinte:
+Quando uma regra é disparada, uma solicitação HTTP POST é feita à URL de retorno de chamada que contém uma carga JSON com os detalhes de telemetria, dispositivo, regra e aplicativo. O conteúdo pode ser semelhante ao seguinte:
+
+```json
+{
+    "timestamp": "2020-04-06T00:20:15.06Z",
+    "action": {
+        "id": "<id>",
+        "type": "WebhookAction",
+        "rules": [
+            "<rule_id>"
+        ],
+        "displayName": "Webhook 1",
+        "url": "<callback_url>"
+    },
+    "application": {
+        "id": "<application_id>",
+        "displayName": "Contoso",
+        "subdomain": "contoso",
+        "host": "contoso.azureiotcentral.com"
+    },
+    "device": {
+        "id": "<device_id>",
+        "etag": "<etag>",
+        "displayName": "MXChip IoT DevKit - 1yl6vvhax6c",
+        "instanceOf": "<device_template_id>",
+        "simulated": true,
+        "provisioned": true,
+        "approved": true,
+        "cloudProperties": {
+            "City": {
+                "value": "Seattle"
+            }
+        },
+        "properties": {
+            "deviceinfo": {
+                "firmwareVersion": {
+                    "value": "1.0.0"
+                }
+            }
+        },
+        "telemetry": {
+            "<interface_instance_name>": {
+                "humidity": {
+                    "value": 47.33228889360127
+                }
+            }
+        }
+    },
+    "rule": {
+        "id": "<rule_id>",
+        "displayName": "Humidity monitor"
+    }
+}
+```
+Se a regra monitorar a telemetria agregada durante um período de tempo, a carga conterá uma seção de telemetria diferente.
+
+```json
+{
+    "telemetry": {
+        "<interface_instance_name>": {
+            "Humidity": {
+                "avg": 39.5
+            }
+        }
+    }
+}
+```
+
+## <a name="data-format-change-notice"></a>Aviso de alteração do formato de dados
+
+Se você tiver um ou mais WebHooks criados e salvos antes de **3 de abril de 2020**, será necessário excluir o webhook e criar um novo webhook. Isso ocorre porque WebHooks mais antigos usam um formato de carga mais antigo que será preterido no futuro.
+
+### <a name="webhook-payload-format-deprecated-as-of-3-april-2020"></a>Carga de webhook (formato preterido a partir de 3 de abril de 2020)
 
 ```json
 {
@@ -82,8 +154,8 @@ Quando uma regra é acionada, uma solicitação HTTP POST é feita na URL de ret
 
 Atualmente não há nenhuma maneira programática de assinar/cancelar a assinatura desses webhooks por meio de uma API.
 
-Se você tem ideias de como melhorar esse recurso, publique suas sugestões no nosso [fórum de voz do Usuário](https://feedback.azure.com/forums/911455-azure-iot-central).
+Se você tiver ideias sobre como melhorar esse recurso, poste suas sugestões em nosso [Fórum de voz do usuário](https://feedback.azure.com/forums/911455-azure-iot-central).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu a configurar e usar webhooks, o próximo passo sugerido é explorar a [configuração de Grupos de Ação do Monitor Do Azure](howto-use-action-groups.md).
+Agora que você aprendeu como configurar e usar WebHooks, a próxima etapa sugerida é explorar a [configuração Azure monitor grupos de ação](howto-use-action-groups.md).

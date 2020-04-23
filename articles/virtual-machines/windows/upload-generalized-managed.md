@@ -1,20 +1,18 @@
 ---
-title: Crie uma VM a partir de um VHD generalizado carregado
+title: Criar uma VM com base em um VHD generalizado carregado
 description: Carregar um VHD generalizado no Azure e usá-lo para criar novas VMs, no modelo de implantação do Resource Manager.
-services: virtual-machines-windows
 author: cynthn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 3c482caf2407c89ffdb6c55c9184c31e2e3197c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b0947d1cc4e53763c0f31444b8f3d27ba45b19a4
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75464942"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82096399"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carregar um VHD generalizado e usá-lo para criar novas VMs no Azure
 
@@ -30,7 +28,7 @@ Para um exemplo de script, consulte [Script de exemplo para carregar um VHD no A
  
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalize a VM de origem usando o Sysprep
 
-Se você ainda não o fez, você precisa sysprep o VM antes de carregar o VHD para o Azure. O Sysprep remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem. Para obter detalhes sobre Sysprep, consulte a [Visão geral do Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+Se você ainda não fez isso, precisará de Sysprep a VM antes de carregar o VHD no Azure. O Sysprep remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem. Para obter detalhes sobre Sysprep, consulte a [Visão geral do Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para obter mais informações, consulte [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -51,18 +49,18 @@ Verifique se as funções de servidor em execução no computador são suportada
 
 ## <a name="upload-the-vhd"></a>Carregar o VHD 
 
-Agora você pode carregar um VHD diretamente em um disco gerenciado. Para obter instruções, consulte [Enviar um VHD para o Azure usando o Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
+Agora você pode carregar um VHD diretamente em um disco gerenciado. Para obter instruções, consulte [carregar um VHD no Azure usando Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 
 
-Uma vez que o VHD é carregado no disco gerenciado, você precisa usar [get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk) para obter o disco gerenciado.
+Depois que o VHD for carregado no disco gerenciado, você precisará usar [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk) para obter o disco gerenciado.
 
 ```azurepowershell-interactive
 $disk = Get-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
 ```
 
 ## <a name="create-the-image"></a>Criar a imagem
-Crie uma imagem gerenciada a partir do seu disco gerenciado pelo Sistema Operacional Generalizado. Substitua os valores a seguir com suas próprias informações.
+Crie uma imagem gerenciada do seu disco de gerenciamento generalizado do sistema operacional. Substitua os valores a seguir com suas próprias informações.
 
 Primeiro, defina algumas variáveis:
 

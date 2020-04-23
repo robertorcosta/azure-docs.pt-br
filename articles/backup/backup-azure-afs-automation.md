@@ -1,18 +1,18 @@
 ---
-title: Fazer backup de arquivos Azure com PowerShell
-description: Neste artigo, saiba como fazer backup dos arquivos do Azure usando o serviço de backup do Azure e do PowerShell.
+title: Fazer backup de arquivos do Azure com o PowerShell
+description: Neste artigo, saiba como fazer backup de arquivos do Azure usando o serviço de backup do Azure e o PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: f85451e0da6458de34aea936836b46781f4c4a21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 865cfc6daa7568236b0306ba591b42a9f7704dd4
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273534"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101171"
 ---
-# <a name="back-up-azure-files-with-powershell"></a>Fazer backup de arquivos Azure com PowerShell
+# <a name="back-up-azure-files-with-powershell"></a>Fazer backup de arquivos do Azure com o PowerShell
 
-Este artigo descreve como usar o Azure PowerShell para fazer backup de um compartilhamento de arquivos do Azure usando um cofre [do Azure Backup](backup-overview.md) Recovery Services.
+Este artigo descreve como usar Azure PowerShell para fazer backup de um compartilhamento de arquivos do Azure files usando um cofre dos serviços de recuperação de [backup do Azure](backup-overview.md) .
 
 Este artigo explica como:
 
@@ -20,55 +20,54 @@ Este artigo explica como:
 >
 > * Configure o PowerShell e registre o provedor de serviços de recuperação do Azure.
 > * Crie um cofre dos Serviços de Recuperação.
-> * Configure backup para um compartilhamento de arquivos Azure.
-> * Faça um trabalho de backup.
+> * Configure o backup para um compartilhamento de arquivos do Azure.
+> * Execute um trabalho de backup.
 
 ## <a name="before-you-start"></a>Antes de começar
 
-* [Saiba mais](backup-azure-recovery-services-vault-overview.md) sobre os cofres dos Serviços de Recuperação.
-* Leia sobre os recursos de visualização para [fazer backup das partes de arquivos do Azure](backup-afs.md).
-* Revise a hierarquia de objetos PowerShell para serviços de recuperação.
+* [Saiba mais](backup-azure-recovery-services-vault-overview.md) sobre os cofres dos serviços de recuperação.
+* Examine a hierarquia de objetos do PowerShell para serviços de recuperação.
 
 ## <a name="recovery-services-object-hierarchy"></a>Hierarquia de objetos dos Serviços de Recuperação
 
-A hierarquia do objeto é resumida no diagrama a seguir.
+A hierarquia de objetos é resumida no diagrama a seguir.
 
 ![Hierarquia de objetos dos Serviços de Recuperação](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-Revise a referência de [cmdlet do](/powershell/module/az.recoveryservices) **Az.RecoveryServices** na biblioteca Azure.
+Examine a referência de [referência do cmdlet](/powershell/module/az.recoveryservices) **AZ. recoveryservices** na biblioteca do Azure.
 
 ## <a name="set-up-and-install"></a>Configurar e instalar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Configure o PowerShell da seguinte forma:
+Configure o PowerShell da seguinte maneira:
 
 1. [Baixe a versão mais recente do Azure PowerShell](/powershell/azure/install-az-ps). A versão 1.0.0 é a mínima necessária.
 
-> [!WARNING]
-> A versão mínima do PS necessária para visualização foi 'Az 1.0.0'. Devido às próximas alterações para GA, a versão mínima do PS necessária será 'Az.RecoveryServices 2.6.0'. É muito importante atualizar todas as versões existentes de PS para esta versão. Caso contrário, os scripts existentes serão quebrados após ga. Instale a versão mínima com os seguintes comandos PS
+    > [!WARNING]
+    > A versão mínima do PS necessária para o backup do compartilhamento de arquivos do Azure é **AZ. recoveryservices 2.6.0**. Atualize sua versão para evitar problemas com os scripts existentes. Instale a versão mínima com o seguinte comando do PS:
 
-```powershell
-Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
-```
+    ```powershell
+    Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+    ```
 
-2. Encontre os cmdlets powershell de backup do Azure com este comando:
+2. Localize os cmdlets do PowerShell de backup do Azure com este comando:
 
     ```powershell
     Get-Command *azrecoveryservices*
     ```
 
-3. Revise os aliases e cmdlets para backup do Azure, recuperação do site do Azure e o cofre dos Serviços de Recuperação aparecer. Aqui está um exemplo do que você pode ver. Não é uma lista completa de cmdlets.
+3. Examine os aliases e cmdlets para o backup do Azure, Azure Site Recovery e o cofre dos serviços de recuperação são exibidos. Aqui está um exemplo do que você pode ver. Não é uma lista completa de cmdlets.
 
     ![Listar cmdlets dos Serviços de Recuperação](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
-4. Faça login na sua conta do Azure com **o Connect-AzAccount**.
-5. Na página da Web que aparece, você é solicitado a inserir suas credenciais de conta.
+4. Entre em sua conta do Azure com **Connect-AzAccount**.
+5. Na página da Web que aparece, você será solicitado a inserir suas credenciais de conta.
 
-    * Alternativamente, você pode incluir suas credenciais de conta como parâmetro no cmdlet **Connect-AzAccount** com **-Credencial**.
-    * Se você é um parceiro CSP trabalhando em nome de um inquilino, especifique o cliente como inquilino, usando seu inquilinoID ou nome de domínio principal do inquilino. Um exemplo é **Connect-AzAccount -Tenant** fabrikam.com.
+    * Como alternativa, você pode incluir suas credenciais de conta como um parâmetro no cmdlet **Connect-AzAccount** com **-Credential**.
+    * Se você for um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário, usando seu nome de domínio de locatárioid ou de locatário primário. Um exemplo é **Connect-AzAccount -Tenant** fabrikam.com.
 
-6. Associe a assinatura que deseja usar com a conta, pois uma conta pode ter várias assinaturas.
+6. Associe a assinatura que você deseja usar com a conta, pois uma conta pode ter várias assinaturas.
 
     ```powershell
     Select-AzSubscription -SubscriptionName $SubscriptionName
@@ -80,13 +79,13 @@ Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-8. Verifique se os provedores se registraram com sucesso:
+8. Verifique se os provedores foram registrados com êxito:
 
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-9. Na saída de comando, verifique se **o RegistroÉ** altera-se em **Registrado**. Se isso não acontecer, execute novamente o **cmdlet Register-AzResourceProvider.**
+9. Na saída do comando, verifique se **RegistrationState** muda para **registrado**. Caso contrário, execute o cmdlet **Register-AzResourceProvider** novamente.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -100,16 +99,16 @@ Siga estas etapas para criar um cofre dos Serviços de Recuperação:
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-2. Use o [cmdlet New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) para criar o cofre. Especifique o mesmo local para o cofre usado para o grupo de recursos.
+2. Use o cmdlet [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) para criar o cofre. Especifique o mesmo local para o cofre usado para o grupo de recursos.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Especifique o tipo de redundância a ser usada para o armazenamento do cofre.
+3. Especifique o tipo de redundância a ser usado para o armazenamento do cofre.
 
    * Você pode usar [armazenamento com redundância local](../storage/common/storage-redundancy-lrs.md) ou [armazenamento com redundância geográfica](../storage/common/storage-redundancy-grs.md).
-   * O exemplo a seguir define a opção **-BackupStorageRedundânciay** para o[Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd for **testvault** set to **GeoRedundant**.
+   * O exemplo a seguir define a opção **-BackupStorageRedundancy** para o cmd[set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) para **testvault** definido como **georedundante**.
 
      ```powershell
      $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -124,7 +123,7 @@ Para exibir todos os cofres da assinatura, use [Get-AzRecoveryServicesVault](htt
 Get-AzRecoveryServicesVault
 ```
 
-A saída é semelhante à seguinte. Observe que o grupo de recursos e a localização associados são fornecidos.
+A saída é semelhante à seguinte. Observe que o grupo de recursos e o local associados são fornecidos.
 
 ```powershell
 Name              : Contoso-vault
@@ -138,10 +137,10 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 ### <a name="set-the-vault-context"></a>Definir o contexto do cofre
 
-Armazene o objeto do cofre em uma variável e defina o contexto do cofre.
+Armazene o objeto de cofre em uma variável e defina o contexto do cofre.
 
-* Muitos cmdlets de backup do Azure requerem o objeto cofre do Recovery Services como uma entrada, por isso é conveniente armazenar o objeto do cofre em uma variável.
-* O contexto do cofre é o tipo de dados protegido no cofre. Defina-o com [Set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0). Depois que o contexto é definido, aplica-se a todos os cmdlets subseqüentes.
+* Muitos cmdlets de backup do Azure exigem o objeto de cofre dos serviços de recuperação como uma entrada, portanto, é conveniente armazenar o objeto de cofre em uma variável.
+* O contexto do cofre é o tipo de dados protegido no cofre. Defina-o com [set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0). Depois que o contexto é definido, ele se aplica a todos os cmdlets subsequentes.
 
 O exemplo a seguir define o contexto de cofre de **testvault**.
 
@@ -149,9 +148,9 @@ O exemplo a seguir define o contexto de cofre de **testvault**.
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
-### <a name="fetch-the-vault-id"></a>Busque a id do cofre.
+### <a name="fetch-the-vault-id"></a>Buscar a ID do cofre
 
-Planejamos depreciar a configuração do contexto do cofre de acordo com as diretrizes do Azure PowerShell. Em vez disso, você pode armazenar ou buscar o ID do cofre e passá-lo para comandos relevantes. Então, se você não definiu o contexto do cofre ou deseja especificar o comando para executar para um determinado cofre, passe o ID do cofre como "-vaultID" para todos os comandos relevantes da seguinte forma:
+Planejamos substituir a configuração de contexto do cofre de acordo com as diretrizes de Azure PowerShell. Em vez disso, você pode armazenar ou buscar a ID do cofre e passá-la para comandos relevantes. Portanto, se você não tiver definido o contexto do cofre ou desejar especificar o comando a ser executado para um determinado cofre, passe a ID do cofre como "-vaultid" para todo o comando relevante da seguinte maneira:
 
 ```powershell
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
@@ -160,14 +159,14 @@ New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType 
 
 ## <a name="configure-a-backup-policy"></a>Configurar uma política de backup
 
-Uma política de backup especifica o cronograma para backups e por quanto tempo os pontos de recuperação de backup devem ser mantidos:
+Uma política de backup especifica o agendamento de backups e por quanto tempo os pontos de recuperação de backup devem ser mantidos:
 
 * Uma política de backup está associada a pelo menos uma política de retenção. Uma política de retenção define por quanto tempo um ponto de recuperação é mantido até ser excluído.
-* Exibir a retenção de diretiva de backup padrão usando [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
-* Exibir o cronograma de política de backup padrão usando [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
-* Você usa o [cmdlet New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) para criar uma nova política de backup. Você insere os objetos da política de agendamento e retenção.
+* Exiba a retenção de política de backup padrão usando [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
+* Exiba o agendamento da política de backup padrão usando [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
+* Use o cmdlet [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) para criar uma nova política de backup. Você insere os objetos de política de retenção e agendamento.
 
-Por padrão, um tempo de início é definido no Objeto de diretiva de agendamento. Use o exemplo a seguir para alterar o tempo de início para o tempo de início desejado. O horário de início desejado deve ser na UTC também. O exemplo abaixo pressupõe que a hora de início desejada seja 01:00 AM UTC para backups diários.
+Por padrão, uma hora de início é definida no objeto de política de agenda. Use o exemplo a seguir para alterar a hora de início para a hora de início desejada. A hora de início desejada também deve estar em UTC. O exemplo abaixo pressupõe que a hora de início desejada seja 01:00 AM UTC para backups diários.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
@@ -177,9 +176,9 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 ```
 
 > [!IMPORTANT]
-> Você precisa fornecer o tempo de partida apenas em múltiplos de 30 minutos. No exemplo acima, pode ser apenas "01:00:00" ou "02:30:00". O horário de início não pode ser "01:15:00"
+> Você precisa fornecer a hora de início apenas em 30 minutos. No exemplo acima, ele pode ser apenas "01:00:00" ou "02:30:00". A hora de início não pode ser "01:15:00"
 
-O exemplo a seguir armazena a política de agendamento e a política de retenção em variáveis. Em seguida, usa essas variáveis como parâmetros para uma nova política (**NewAFSPolicy**). **NewAFSPolicy** faz um backup diário e os retém por 30 dias.
+O exemplo a seguir armazena a política de agendamento e a política de retenção em variáveis. Em seguida, ele usa essas variáveis como parâmetros para uma nova política (**NewAFSPolicy**). **NewAFSPolicy** faz um backup diário e os retém por 30 dias.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
@@ -195,15 +194,15 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 NewAFSPolicy           AzureFiles            AzureStorage              10/24/2019 1:30:00 AM
 ```
 
-## <a name="enable-backup"></a>Habilite o backup
+## <a name="enable-backup"></a>Habilitar backup
 
-Depois de definir a política de backup, você pode habilitar a proteção para o compartilhamento de arquivos do Azure usando a diretiva.
+Depois de definir a política de backup, você pode habilitar a proteção para o compartilhamento de arquivos do Azure usando a política.
 
-### <a name="retrieve-a-backup-policy"></a>Recupere uma política de backup
+### <a name="retrieve-a-backup-policy"></a>Recuperar uma política de backup
 
-Você busca o objeto de diretiva relevante com [Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0). Use este cmdlet para obter uma política específica ou para visualizar as políticas associadas a um tipo de carga de trabalho.
+Você busca o objeto de política relevante com [Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0). Use este cmdlet para obter uma política específica ou para exibir as políticas associadas a um tipo de carga de trabalho.
 
-#### <a name="retrieve-a-policy-for-a-workload-type"></a>Recupere uma diretiva para um tipo de carga de trabalho
+#### <a name="retrieve-a-policy-for-a-workload-type"></a>Recuperar uma política para um tipo de carga de trabalho
 
 O exemplo a seguir recupera políticas para o tipo de carga de trabalho **AzureFiles**.
 
@@ -222,7 +221,7 @@ dailyafs             AzureFiles         AzureStorage         1/10/2018 12:30:00 
 > [!NOTE]
 > O fuso horário do campo **BackupTime** no PowerShell é o UTC (Tempo Universal Coordenado). Quando a hora de backup é mostrada no Portal do Azure, o horário é ajustado para seu fuso horário local.
 
-### <a name="retrieve-a-specific-policy"></a>Recupere uma política específica
+### <a name="retrieve-a-specific-policy"></a>Recuperar uma política específica
 
 A política a seguir recupera a política de backup **dailyafs**.
 
@@ -230,11 +229,11 @@ A política a seguir recupera a política de backup **dailyafs**.
 $afsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "dailyafs"
 ```
 
-### <a name="enable-backup-and-apply-policy"></a>Habilite backup e aplique política
+### <a name="enable-backup-and-apply-policy"></a>Habilitar backup e aplicar política
 
-Habilite a proteção com [o Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Depois que a diretiva é associada ao cofre, os backups são acionados de acordo com o cronograma da diretiva.
+Habilite a proteção com [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Depois que a política estiver associada ao cofre, os backups serão disparados de acordo com o agendamento da política.
 
-O exemplo a seguir permite a proteção para o teste de compartilhamento de arquivos **AzureAzureFileShare** no teste da conta **de armazenamentoStorageAcct**, com a política **dailyafs**.
+O exemplo a seguir habilita a proteção para o compartilhamento de arquivos do Azure **testAzureFileShare** na conta de armazenamento **testStorageAcct**, com a política **dailyafs**.
 
 ```powershell
 Enable-AzRecoveryServicesBackupProtection -StorageAccountName "testStorageAcct" -Name "testAzureFS" -Policy $afsPol
@@ -248,14 +247,14 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
-## <a name="important-notice---backup-item-identification-for-afs-backups"></a>Aviso importante - Identificação de itens de backup para backups AFS
+## <a name="important-notice---backup-item-identification-for-afs-backups"></a>Aviso importante-identificação de item de backup para backups AFS
 
-Esta seção descreve uma mudança importante no backup AFS em preparação para o GA.
+Esta seção descreve uma alteração importante no backup AFS em preparação para GA.
 
-Ao ativar o backup para AFS, o usuário fornece o nome de compartilhamento de arquivo amigável ao cliente como o nome da entidade e um item de backup é criado. O 'nome' do item de backup é um identificador exclusivo criado pelo serviço de backup do Azure. Normalmente, o identificador envolve nome amigável. Mas para lidar com o importante cenário de soft-delete, onde um compartilhamento de arquivos pode ser excluído e outro compartilhamento de arquivo pode ser criado com o mesmo nome, a identidade exclusiva do compartilhamento de arquivos Azure agora será um ID em vez de um nome amigável ao cliente. Para saber a identidade/nome exclusivo de cada item, basta executar o comando com os ```Get-AzRecoveryServicesBackupItem``` filtros relevantes para backupManagementType e WorkloadType para obter todos os itens relevantes e, em seguida, observar o campo de nome no objeto/resposta PS retornado. É sempre recomendado listar itens e, em seguida, recuperar seu nome único do campo 'nome' em resposta. Use este valor para filtrar os itens com o parâmetro 'Nome'. Caso contrário, use o parâmetro FriendlyName para recuperar o item com seu nome/identificador amigável ao cliente.
+Ao habilitar o backup para AFS, o usuário fornece o nome de compartilhamento de arquivos amigável do cliente como o nome da entidade e um item de backup é criado. O ' nome ' do item de backup é um identificador exclusivo criado pelo serviço de backup do Azure. Geralmente, o identificador envolve o nome amigável do usuário. Mas, para lidar com o cenário importante de exclusão reversível, em que um compartilhamento de arquivos pode ser excluído e outro compartilhamento de arquivos pode ser criado com o mesmo nome, a identidade exclusiva do compartilhamento de arquivos do Azure agora será uma ID em vez do nome amigável do cliente. Para saber a identidade/nome exclusivo de cada item, basta executar o ```Get-AzRecoveryServicesBackupItem``` comando com os filtros relevantes para BackupManagementType e workloadtype para obter todos os itens relevantes e, em seguida, observar o campo de nome no objeto/resposta do PS retornado. É sempre recomendável Listar itens e, em seguida, recuperar seu nome exclusivo do campo ' nome ' em resposta. Use esse valor para filtrar os itens com o parâmetro ' name '. Caso contrário, use o parâmetro FriendlyName para recuperar o item com o nome/identificador amigável do cliente.
 
 > [!WARNING]
-> Certifique-se de que a versão ps seja atualizada para a versão mínima de 'Az.RecoveryServices 2.6.0' para backups AFS. Com esta versão, o filtro 'friendlyName' está disponível para ```Get-AzRecoveryServicesBackupItem``` comando. Passe o nome de compartilhamento de arquivos do Azure para um parâmetro friendlyName. Se você passar o nome Azure File Share para o parâmetro 'Nome', esta versão lançará um aviso para passar este nome amigável para o parâmetro de nome amigável. A não instalação desta versão mínima pode resultar em falha dos scripts existentes. Instale a versão mínima do PS com o seguinte comando.
+> Certifique-se de que a versão do PS seja atualizada para a versão mínima para ' AZ. Recoveryservices 2.6.0 ' para backups AFS. Com essa versão, o filtro ' FriendlyName ' está disponível para ```Get-AzRecoveryServicesBackupItem``` o comando. Passe o nome do compartilhamento de arquivos do Azure para o parâmetro FriendlyName. Se você passar o nome do compartilhamento de arquivos do Azure para o parâmetro ' name ', essa versão lançará um aviso para passar esse nome amigável para o parâmetro de nome amigável. Não instalar essa versão mínima pode resultar em falha de scripts existentes. Instale a versão mínima do PS com o comando a seguir.
 
 ```powershell
 Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
@@ -263,13 +262,13 @@ Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
 
 ## <a name="trigger-an-on-demand-backup"></a>Disparar um backup sob demanda
 
-Use [backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) para executar um backup demanda para um compartilhamento de arquivos Azure protegido.
+Use [backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) para executar um backup sob demanda para um compartilhamento de arquivos do Azure protegido.
 
-1. Recupere a conta de armazenamento do contêiner no cofre que contém seus dados de backup com [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
-2. Para iniciar um trabalho de backup, você obtém informações sobre o compartilhamento de arquivos do Azure com [o Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+1. Recupere a conta de armazenamento do contêiner no cofre que contém os dados de backup com [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. Para iniciar um trabalho de backup, você obtém informações sobre o compartilhamento de arquivos do Azure com [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
 3. Execute um backup sob demanda com [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
 
-Execute o backup demanda da seguinte forma:
+Execute o backup sob demanda da seguinte maneira:
 
 ```powershell
 $afsContainer = Get-AzRecoveryServicesBackupContainer -FriendlyName "testStorageAcct" -ContainerType AzureStorage
@@ -287,15 +286,13 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 
 Os instantâneos do compartilhamento de arquivos do Azure são usados enquanto os backups são feitos, portanto, o trabalho normalmente é concluído no momento em que o comando retorna essa saída.
 
-### <a name="using-on-demand-backups-to-extend-retention"></a>Usando backups demanda para ampliar a retenção
+### <a name="using-a-runbook-to-schedule-backups"></a>Usando um runbook para agendar backups
 
-Backups demanda podem ser usados para reter seus instantâneos por 10 anos. Os agendadores podem ser usados para executar scripts PowerShell demanda com retenção escolhida e, assim, tirar instantâneos em intervalos regulares a cada semana, mês ou ano. Ao tirar instantâneos regulares, consulte as [limitações dos backups demanda](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) usando backup do Azure.
+Se você estiver procurando scripts de exemplo, poderá consultar o script de [exemplo no GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) usando um runbook de automação do Azure.
 
-Se você estiver procurando scripts de exemplo, você pode consultar<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>o script de exemplo no GitHub ( ) usando o runbook azure Automation que permite agendar backups em uma base periódica e retê-los até 10 anos.
-
-> [!WARNING]
-> Certifique-se de que a versão ps seja atualizada para a versão mínima de 'Az.RecoveryServices 2.6.0' para backups AFS em seus runbooks de automação. Você terá que substituir o antigo módulo 'AzureRM' pelo módulo 'Az'. Com esta versão, o filtro 'friendlyName' está disponível para ```Get-AzRecoveryServicesBackupItem``` comando. Passe o nome do compartilhamento de arquivo azure para o parâmetro friendlyName. Se você passar o nome de compartilhamento de arquivo azure para o parâmetro 'Nome', esta versão lançará um aviso para passar este nome amigável para o parâmetro de nome amigável.
+>[!NOTE]
+> A política de backup de compartilhamento de arquivos do Azure agora dá suporte à configuração de backup com retenção diária/semanal/mensal/anual.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais sobre](backup-afs.md) o backup de arquivos do Azure no portal Azure.
+[Saiba mais sobre como](backup-afs.md) fazer backup de arquivos do Azure no portal do Azure.

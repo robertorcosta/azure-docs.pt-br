@@ -1,21 +1,19 @@
 ---
-title: Pré-pago por máquinas virtuais do Azure para economizar dinheiro
+title: Pagar antecipadamente pelas máquinas virtuais do Azure para economizar dinheiro
 description: Saiba como comprar Instâncias de Máquinas Virtuais Reservadas do Azure para economizar nos custos de sua computação.
-services: virtual-machines-windows
 author: yashar
 manager: yashar
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: conceptual
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/27/2020
 ms.author: banders
-ms.openlocfilehash: 15e71494e9c7eecea7153ac213318b7a2e4b31ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d9b883c5319108166951814fcedb18181e25145
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371665"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82098655"
 ---
-# <a name="save-costs-with-azure-reserved-vm-instances"></a>Economizar custos com instâncias de VM reservadas do Azure
+# <a name="save-costs-with-azure-reserved-vm-instances"></a>Economize custos com instâncias de VM reservadas do Azure
 [!INCLUDE [virtual-machines-buy-compute-reservations](../../../includes/virtual-machines-common-prepay-reserved-vm-instances.md)]

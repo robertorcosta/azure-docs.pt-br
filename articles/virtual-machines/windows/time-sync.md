@@ -1,23 +1,18 @@
 ---
 title: Sincronização de Data/Hora para VMs do Windows no Azure
 description: Sincronização de Data/Hora para máquinas virtuais do Windows.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 33c8d58877a73c1ea3055fe52ef8470d8775b6e3
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: cd9a196e5f957782de91cff69c01fbfa5716369a
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458021"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100491"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Sincronização de Data/Hora para VMs do Windows no Azure
 
@@ -72,7 +67,7 @@ Para máquinas ingressadas no domínio, o domínio em si estabelece a hierarquia
 
 ### <a name="host-only"></a>Somente do host 
 
-Como time.windows.com é um servidor NTP público, sincronizar o tempo com ele requer o envio de tráfego pela internet, atrasos variados de pacotes podem afetar negativamente a qualidade da sincronização de tempo. A remoção de time.windows.com, mudando para sincronização somente para host, às vezes pode melhorar os resultados de sincronização de tempo.
+Como o time.windows.com é um servidor NTP público, o tempo de sincronização com ele requer o envio de tráfego pela Internet, os atrasos de pacotes variados podem afetar negativamente a qualidade da sincronização de tempo. A remoção de time.windows.com alternando para sincronização somente de host pode às vezes melhorar o tempo de sincronização dos resultados.
 
 Alternar para a sincronização de data/hora somente do host será viável se você tiver problemas de sincronização de data/hora usando a configuração padrão. Experimente a sincronização somente do host para ver se melhoraria a sincronização de data/hora na VM. 
 
@@ -152,7 +147,7 @@ net stop w32time && net start w32time
 
 ## <a name="windows-server-2012-and-r2-vms"></a>VMs do Windows Server 2012 e R2 
 
-O Windows Server 2012 e o Windows Server 2012 R2 têm configurações padrão diferentes para sincronização de tempo. O w32time por padrão é configurado de uma forma que prefere a baixa sobrecarga do serviço ao longo do tempo preciso. 
+O Windows Server 2012 e o Windows Server 2012 R2 têm configurações padrão diferentes para a sincronização de horário. O W32Time, por padrão, é configurado de forma que prefira uma baixa sobrecarga do serviço em relação ao tempo preciso. 
 
 Se você quiser mover as implantações do Windows Server 2012 e 2012 R2 para usar os padrões mais recentes que preferem hora precisa, aplique as configurações a seguir.
 
