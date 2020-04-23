@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 3f4f1f5e163dfed9f356aed538d934d0e4258790
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: c1d26fda57d665cc8d83f594f4efeebebc7bf139
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618874"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456882"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutorial – Criptografar e descriptografar blobs usando o Azure Key Vault
 
@@ -23,7 +23,7 @@ Este tutorial aborda como aproveitar a criptografia de armazenamento do cliente 
 
 **Tempo estimado para conclusão:** 20 minutos
 
-Para obter informações gerais sobre o Cofre de Chaves do Azure, consulte [O que é o Cofre de Chaves do Azure?](../../key-vault/key-vault-overview.md).
+Para obter informações gerais sobre o Cofre de Chaves do Azure, consulte [O que é o Cofre de Chaves do Azure?](../../key-vault/general/overview.md).
 
 Para obter informações gerais sobre a criptografia de cliente do armazenamento do Azure, consulte [Criptografia do lado do cliente e Cofre de Chaves do Azure para o Armazenamento do Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -48,7 +48,7 @@ Aqui está uma breve descrição de como funciona a criptografia do lado do clie
 
 ## <a name="set-up-your-azure-key-vault"></a>Configure o seu Cofre da Chave do Azure
 
-Para continuar com este tutorial, você precisa realizar as etapas a seguir, que são descritas no tutorial [Início rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do .NET](../../key-vault/quick-create-net.md):
+Para continuar com este tutorial, você precisa realizar as etapas a seguir, que são descritas no tutorial [Início rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do .NET](../../key-vault/secrets/quick-create-net.md):
 
 * Crie um cofre da chave.
 * Adicionar uma chave ou segredo ao cofre da chave.

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 25ed59b73f3b508fd29a964bb6b981049957143f
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 6421636b806f2c32f5beba8c3cfafc6cd146e945
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365664"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461320"
 ---
 # <a name="get-throughput-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Obter a taxa de transferência (RU/s) de um banco de dados ou uma coleção do Azure Cosmos DB – API do MongoDB
 
@@ -40,7 +40,7 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 |---|---|
 |**Azure Cosmos DB**| |
 | [Get-AzCosmosDBMongoDBDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbdatabasethroughput) | Obtém o valor de taxa de transferência do Banco de Dados da API do MongoDB especificado. |
-| [Get-AzCosmosDBMongoDBCollectionThroughput](hhttps://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollectionthroughput) | Obtém o valor da taxa de transferência da Coleção de API do MongoDB especificada. |
+| [Get-AzCosmosDBMongoDBCollectionThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollectionthroughput) | Obtém o valor da taxa de transferência da Coleção de API do MongoDB especificada. |
 |**Grupos de recursos do Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||

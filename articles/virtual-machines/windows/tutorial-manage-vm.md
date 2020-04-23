@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -15,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c48d5e514d854568043d001a22411b6a67f79e6a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d9db21fd350ccd3b860742877a958a6ee9377404
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74067802"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455590"
 ---
-# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Criar e Gerenciar as VMs do Windows com o Microsoft Azure PowerShell
+# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Criar e gerenciar as VMs do Windows com o Azure PowerShell
 
 Máquinas virtuais do Azure fornecem um ambiente de computação totalmente configurável e flexível. Este tutorial aborda itens básicos de tarefas de implantação de VM (máquina virtual) do Azure, como a seleção de um tamanho de VM, a seleção de uma imagem de VM e a implantação de uma VM. Você aprenderá como:
 
@@ -180,7 +179,7 @@ O tamanho da VM determina a quantidade de recursos de computação, como memóri
 
 A tabela a seguir categoriza tamanhos em casos de uso.  
 
-| Type                     | Tamanhos comuns           |    DESCRIÇÃO       |
+| Type                     | Tamanhos comuns           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Propósito geral](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU/memória equilibrados. Ideal para desenvolvimento/teste e para aplicativos de pequeno a médio porte e soluções de dados.  |
 | [Computação otimizada](sizes-compute.md)   | Fsv2          | Relação de CPU/memória alta. Boa para aplicativos de tráfego médio, dispositivos de rede e processos em lote.        |
@@ -241,7 +240,7 @@ Start-AzVM `
 Uma VM do Azure pode ter um dentre vários estados de energia. 
 
 
-| Estado de energia | DESCRIÇÃO
+| Estado de energia | Descrição
 |----|----|
 | Iniciando | A máquina virtual está sendo iniciada. |
 | Executando | A máquina virtual está em execução. |

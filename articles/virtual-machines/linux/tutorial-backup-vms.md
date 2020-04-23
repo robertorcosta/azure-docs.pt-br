@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6c8b29052b4ca1d3ccd6f1f9b6afba5177dbd6c8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d233cba65d190178c500f78d4817e233ab46d780
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80066489"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460063"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Fazer backup e restaurar arquivos para máquinas virtuais do Linux no Azure
 
@@ -94,8 +93,8 @@ Neste exemplo, mostramos como recuperar a página Web do nginx padrão /var/www/
 7. Selecione a VM na lista.
 8. Na folha da VM, na seção **Configurações**, clique em **Backup**. A folha **Backup** é aberta. 
 9. No menu na parte superior da folha, selecione **Recuperação de Arquivo**. A folha **Recuperação de arquivo** será aberta.
-10. Em **Etapa 1: selecionar um ponto de recuperação**, selecione um ponto de recuperação do menu suspenso.
-11. Em **Etapa 2: baixar o script para procurar e recuperar arquivos**, clique no botão **Baixar Executável**. Salve o arquivo baixado em seu computador local.
+10. Na **Etapa 1: Selecionar um ponto de recuperação**, selecione um ponto de recuperação do menu suspenso.
+11. Na **Etapa 2: Baixar o script para procurar e recuperar arquivos**, clique no botão **Baixar Executável**. Salve o arquivo baixado em seu computador local.
 7. Clique em **Baixar script** para baixar o arquivo de script localmente.
 8. Abra um prompt Bash e digite o seguinte, substituindo *Linux_myVM_05-05-2017.sh* pelo caminho e o nome de arquivo do script que você baixou, *azureuser* pelo nome de usuário da VM e *13.69.75.209* pelo endereço IP público de sua VM.
     
@@ -156,7 +155,7 @@ Neste exemplo, mostramos como recuperar a página Web do nginx padrão /var/www/
 
     ![Página Web do nginx padrão](./media/tutorial-backup-vms/nginx-working.png)
 
-18. No computador local, volte para a guia do navegador para o Portal do Azure e, na **Etapa 3: desmontar discos após a recuperação**, clique no botão **Desmontar Discos**. Se você esquecer de fazer isso, a conexão para o ponto de montagem será fechada automaticamente após 12 horas. Após essas 12 horas, você precisa baixar um novo script para criar um novo ponto de montagem.
+18. No computador local, volte para a guia do navegador no portal do Azure e, na **Etapa 3: Desmontar os discos após a recuperação**, clique no botão **Desmontar discos**. Se você esquecer de fazer isso, a conexão para o ponto de montagem será fechada automaticamente após 12 horas. Após essas 12 horas, você precisa baixar um novo script para criar um novo ponto de montagem.
 
 
 ## <a name="next-steps"></a>Próximas etapas
