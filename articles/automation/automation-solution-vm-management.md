@@ -5,25 +5,27 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0331678b50d2448013556ab0694d0ca87045c3a3
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 10c66ba175484d8b95f26ef9330753151a92969b
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2020
-ms.locfileid: "82096909"
+ms.locfileid: "82106025"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solução iniciar/parar VMs fora do horário comercial na automação do Azure
 
 A solução **iniciar/parar VMs fora do horário comercial** inicia ou interrompe as máquinas virtuais do Azure. Ele inicia ou interrompe computadores em agendas definidas pelo usuário, fornece informações sobre logs de Azure Monitor e envia emails opcionais usando [grupos de ação](../azure-monitor/platform/action-groups.md). A solução dá suporte a VMs Azure Resource Manager e clássicas para a maioria dos cenários. 
 
-Essa solução fornece uma opção de automação de baixo custo descentralizada para usuários que desejam otimizar seus custos de VM. Com essa solução, você pode:
+Essa solução usa o cmdlet [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) para iniciar as VMs. Ele usa [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) para parar as VMs.
+
+> [!NOTE]
+> A solução **iniciar/parar VMs fora do horário comercial** foi atualizada para dar suporte às versões mais recentes dos módulos do Azure que estão disponíveis.
+
+A solução fornece uma opção de automação descentralizada de baixo custo para os usuários que desejam otimizar seus custos de VM. Com essa solução, você pode:
 
 - [Agende as VMs para iniciar e parar](automation-solution-vm-management-config.md#schedule).
 - Agende as VMs para iniciar e parar em ordem crescente [usando marcas do Azure](automation-solution-vm-management-config.md#tags) (sem suporte para VMs clássicas).
 - Autostop VMs com base no [baixo uso da CPU](automation-solution-vm-management-config.md#cpuutil).
-
-> [!NOTE]
-> A solução **iniciar/parar VMs fora do horário comercial** foi atualizada para dar suporte às versões mais recentes dos módulos do Azure que estão disponíveis.
 
 A seguir estão as limitações da solução atual:
 
