@@ -12,4 +12,4 @@ ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183152"
 ---
 > [!NOTE]
-> No Azure Active Directory B2C, [as políticas personalizadas](../articles/active-directory-b2c/custom-policy-get-started.md) são projetadas principalmente para lidar com cenários complexos. Para a maioria dos cenários, recomendamos que você use fluxos de [usuário incorporados.](../articles/active-directory-b2c/user-flow-overview.md)
+> No Azure Active Directory B2C, [as políticas personalizadas](../articles/active-directory-b2c/custom-policy-get-started.md) são projetadas principalmente para tratar de cenários complexos. Para a maioria dos cenários, recomendamos que você use [fluxos de usuário](../articles/active-directory-b2c/user-flow-overview.md)internos.
