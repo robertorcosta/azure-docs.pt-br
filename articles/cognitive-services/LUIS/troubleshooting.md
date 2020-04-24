@@ -1,15 +1,15 @@
 ---
-title: Perguntas frequentes (FAQ) - LUIS
+title: Perguntas frequentes – LUIS
 description: Este artigo contém as respostas para perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal).
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 59d9b1f21e1936b7d03293ec3d338677380a7c99
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 3c7e191ab64d30ddb64f1c3ff4e31b9c20c87b5c
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81530225"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82101103"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -17,7 +17,7 @@ Este artigo contém as respostas para perguntas frequentes sobre o LUIS (Serviç
 
 ## <a name="whats-new"></a>Novidades
 
-[Saiba mais](whats-new.md) sobre as novidades no Entendimento linguístico (LUIS).
+[Saiba mais](whats-new.md) sobre as novidades do reconhecimento vocal (Luis).
 
 <a name="luis-authoring"></a>
 
@@ -53,9 +53,9 @@ Veja [entidades](luis-concept-entity-types.md) e [extração de dados](luis-conc
 
 ### <a name="should-variations-of-an-example-utterance-include-punctuation"></a>Variações de um enunciado de exemplo devem incluir pontuação?
 use uma das seguintes soluções:
-* Ignorar [pontuação](luis-reference-application-settings.md#punctuation-normalization)
-* Adicione as diferentes variações como expressões de exemplo à intenção
-* Adicione o padrão do enunciado de exemplo com a [sintaxe para ignorar](luis-concept-patterns.md#pattern-syntax) a pontuação.
+* Ignorar [Pontuação](luis-reference-application-settings.md#punctuation-normalization)
+* Adicione as diferentes variações como exemplo declarações à intenção
+* Adicione o padrão do exemplo expressão com a [sintaxe para ignorar](luis-concept-patterns.md#pattern-syntax) a pontuação.
 
 ### <a name="does-luis-currently-support-cortana"></a>O LUIS atualmente dá suporte à Cortana?
 
@@ -64,11 +64,11 @@ Os aplicativos pré-compilados da Cortana foram preteridos em 2017. Não há mai
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Como fazer para transferir a propriedade de um aplicativo de LUIS?
 Para transferir um aplicativo de LUIS para uma assinatura do Azure diferente, exporte o aplicativo de LUIS e importe-lo usando uma nova conta. Atualize a ID do aplicativo de LUIS no aplicativo cliente que o chama. O novo aplicativo pode retornar pontuações de LUIS ligeiramente diferentes que as do aplicativo original.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Uma entidade pré-construída é marcada em um exemplo de expressão em vez da minha entidade personalizada. Como faço para consertar isso?
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Uma entidade predefinida é marcada em um exemplo de expressão em vez de minha entidade personalizada. Como fazer corrigir isso?
 
-No portal LUIS, você pode rotular o texto para a entidade exata que você está interessado em extrair. Se o portal LUIS não estiver mostrando a previsão correta da entidade, você pode precisar adicionar mais expressões e rotular a entidade dentro do texto ou adicionar um descritor (como um recurso).
+No portal do LUIS, você pode rotular o texto para a entidade exata que você está interessado em extrair. Se o portal do LUIS não estiver mostrando a previsão de entidade correta, talvez seja necessário adicionar mais declarações e rotular a entidade dentro do texto ou adicionar um descritor (como um recurso).
 
-### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Tentei importar um aplicativo ou um arquivo de versão, mas tive um erro, o que aconteceu?
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Tentei importar um arquivo de aplicativo ou de versão, mas recebi um erro, o que aconteceu?
 
 Leia mais sobre [erros de importação de versão](luis-how-to-manage-versions.md#import-errors).
 
@@ -86,28 +86,28 @@ Confira [Recursos do Azure Active Directory](luis-how-to-collaborate.md#azure-ac
 
 ### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>Recebi um código de status de erro HTTP 403. Como corrigi-la?
 
-Você recebe 403 e 429 códigos de status de erro quando excede as transações por segundo ou transações por mês para o seu nível de preço. Aumente seu nível de preços ou use [recipientes](luis-container-howto.md)de compreensão de linguagem.
+Você obtém códigos de status de erro 403 e 429 ao exceder as transações por segundo ou transações por mês para o tipo de preço. Aumente seu tipo de preço ou use [contêineres](luis-container-howto.md)de reconhecimento vocal.
 
-Quando você usa todas essas consultas gratuitas de ponto final de 1000 ou excede a cota mensal de transações do seu nível de preço, você recebe um código de status de erro HTTP 403.
+Quando você usar todas essas consultas de ponto de extremidade 1000 gratuitas ou exceder a cota de transações mensais do seu tipo de preço, você receberá um código de status de erro HTTP 403.
 
-Para corrigir esse erro, você precisa [alterar sua camada de preços](luis-how-to-azure-subscription.md#change-pricing-tier) para um nível mais alto ou criar um novo [recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [atribuí-lo ao seu aplicativo](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+Para corrigir esse erro, você precisa [alterar seu tipo de preço](luis-how-to-azure-subscription.md#change-pricing-tier) para uma camada superior ou [criar um novo recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [atribuí-lo ao seu aplicativo](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
 
-As soluções para este erro incluem:
+As soluções para esse erro incluem:
 
-* No [portal Azure,](https://portal.azure.com)no recurso Decompreensão de Idiomas, no **nível de Gerenciamento de Recursos -> Pricing**, altere seu nível de preços para um nível TPS mais alto. Você não precisa fazer nada no portal Decompreensão de Idiomas se seu recurso já estiver atribuído ao seu aplicativo de compreensão de idiomas.
-*  Se o seu uso exceder o nível de preços mais alto, adicione mais recursos de compreensão de idioma com um balanceador de carga na frente deles. O [contêiner De compreensão de idiomas](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
+* No [portal do Azure](https://portal.azure.com), em seu recurso de reconhecimento vocal, no **tipo de preço gerenciamento de recursos->**, altere o tipo de preço para uma camada mais alta do TPS. Você não precisa fazer nada no portal de Reconhecimento vocal se o recurso já estiver atribuído ao seu aplicativo Reconhecimento vocal.
+*  Se seu uso exceder o tipo de preço mais alto, adicione mais recursos Reconhecimento vocal com um balanceador de carga na frente deles. O [contêiner reconhecimento vocal](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
 
 ### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>Recebi um código de status de erro HTTP 429. Como corrigi-la?
 
-Você recebe 403 e 429 códigos de status de erro quando excede as transações por segundo ou transações por mês para o seu nível de preço. Aumente seu nível de preços ou use [recipientes](luis-container-howto.md)de compreensão de linguagem.
+Você obtém códigos de status de erro 403 e 429 ao exceder as transações por segundo ou transações por mês para o tipo de preço. Aumente seu tipo de preço ou use [contêineres](luis-container-howto.md)de reconhecimento vocal.
 
-Este código de status é devolvido quando suas transações por segundo excedem seu nível de preços.
+Esse código de status é retornado quando suas transações por segundo excedem seu tipo de preço.
 
 As soluções incluem:
 
-* Você pode [aumentar seu nível de preços,](luis-how-to-azure-subscription.md#change-pricing-tier)se você não estiver no nível mais alto.
-* Se o seu uso exceder o nível de preços mais alto, adicione mais recursos de compreensão de idioma com um balanceador de carga na frente deles. O [contêiner De compreensão de idiomas](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
-* Você pode agendar solicitações de aplicativos de cliente com uma [política de repetição](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que você mesmo implementa quando receber esse código de status.
+* Você pode [aumentar seu tipo de preço](luis-how-to-azure-subscription.md#change-pricing-tier), se não estiver na camada mais alta.
+* Se seu uso exceder o tipo de preço mais alto, adicione mais recursos Reconhecimento vocal com um balanceador de carga na frente deles. O [contêiner reconhecimento vocal](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
+* Você pode portar suas solicitações de aplicativo cliente com uma [política de repetição](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que você mesmo implementa quando obtém esse código de status.
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Minha consulta de terminal retornou resultados inesperados. O que devo fazer?
 
@@ -123,10 +123,10 @@ Examine as [práticas recomendadas](luis-concept-best-practices.md) para obter o
 O LUIS transforma em [token](luis-glossary.md#token) o enunciado com base na [cultura](luis-language-support.md#tokenization). O valor original e o valor em token estão disponíveis para [extração de dados](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Como fazer para criar e atribuir uma chave de ponto de extremidade de LUIS?
-[Crie a chave do ponto de extremidade](luis-how-to-azure-subscription.md) no Azure para seu nível de [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Atribuir a chave](luis-how-to-azure-subscription.md) na página Recursos do **[Azure.](luis-how-to-azure-subscription.md)** Não há uma API correspondente para essa ação. Em seguida, você deve alterar a solicitação HTTP para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md).
+[Crie a chave do ponto de extremidade](luis-how-to-azure-subscription.md) no Azure para seu nível de [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Atribua a chave](luis-how-to-azure-subscription.md) na página de **[recursos do Azure](luis-how-to-azure-subscription.md)** . Não há uma API correspondente para essa ação. Em seguida, você deve alterar a solicitação HTTP para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Como fazer para interpretar as pontuações de LUIS?
-Seu sistema deve usar a intenção de pontuação mais alta, independentemente do seu valor. Por exemplo, uma pontuação inferior a 0,5 (menor que 50%) não significa necessariamente que o LUIS tem confiança baixa. Fornecer mais dados de treinamento pode ajudar a aumentar a [pontuação](luis-concept-prediction-score.md) da intenção mais provável.
+Seu sistema deve usar a intenção de pontuação mais alta, independentemente do seu valor. Por exemplo, uma pontuação inferior a 0,5 (menor que 50%) não significa necessariamente que o LUIS tem confiança baixa. Fornecer mais dados de treinamento pode ajudar a aumentar a [Pontuação](luis-concept-prediction-score.md) da intenção mais provável.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Por que eu não vejo minhas ocorrências de ponto de extremidade no painel do meu aplicativo?
 O total de pontos de extremidade no Painel do aplicativo é atualizado periodicamente, mas as métricas associadas à chave de ponto de extremidade de LUIS no portal do Azure são atualizadas com mais frequência.
@@ -144,7 +144,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ```
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Meu aplicativo de LUIS estava funcionando ontem, mas hoje estou recebendo erros 403. Eu não alterei o aplicativo. Como corrigi-la?
-Siga [estas instruções](#how-do-i-create-and-assign-a-luis-endpoint-key) para criar uma chave de ponto final LUIS e atribua-a ao aplicativo. Em seguida, você deve alterar a solicitação HTTP do aplicativo cliente para o ponto final para [usar a nova tecla endpoint](luis-concept-keys.md). Se você criou um novo recurso em uma região diferente, altere também a região da solicitação do cliente HTTP.
+Siga estas [instruções](#how-do-i-create-and-assign-a-luis-endpoint-key) para criar uma chave de ponto de extremidade Luis e atribuí-la ao aplicativo. Em seguida, você deve alterar a solicitação HTTP do aplicativo cliente para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md). Se você criou um novo recurso em uma região diferente, altere também a região da solicitação de cliente HTTP.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>Como fazer para protejar o ponto de extremidade de LUIS?
 Veja [Protegendo o ponto de extremidade](luis-concept-keys.md#securing-the-endpoint).
@@ -152,7 +152,7 @@ Veja [Protegendo o ponto de extremidade](luis-concept-keys.md#securing-the-endpo
 ## <a name="working-within-luis-limits"></a>Trabalhando dentro dos limites de LUIS
 
 ### <a name="what-is-the-maximum-number-of-intents-and-entities-that-a-luis-app-can-support"></a>Qual é o número máximo de intenções e entidades compatível com um aplicativo de LUIS?
-Veja a referência de [limites](luis-boundaries.md).
+Veja a referência de [limites](luis-limits.md).
 
 ### <a name="i-want-to-build-a-luis-app-with-more-than-the-maximum-number-of-intents-what-should-i-do"></a>Quero compilar um aplicativo de LUIS com mais do que o número máximo de intenções. O que devo fazer?
 
@@ -163,10 +163,10 @@ Veja [Melhores práticas para intenções](luis-concept-intent.md#if-you-need-mo
 Veja [Melhores práticas para entidades](luis-concept-entity-types.md#if-you-need-more-than-the-maximum-number-of-entities)
 
 ### <a name="what-are-the-limits-on-the-number-and-size-of-phrase-lists"></a>Quais são os limites de número e tamanho das listas de frases?
-Para o tamanho máximo de uma [lista de frases](./luis-concept-feature.md), veja a referência de [limites](luis-boundaries.md).
+Para o tamanho máximo de uma [lista de frases](./luis-concept-feature.md), veja a referência de [limites](luis-limits.md).
 
 ### <a name="what-are-the-limits-on-example-utterances"></a>Quais são os limites nos enunciados de exemplo?
-Veja a referência de [limites](luis-boundaries.md).
+Veja a referência de [limites](luis-limits.md).
 
 ## <a name="testing-and-training"></a>Teste e treinamento
 
@@ -206,19 +206,19 @@ Se seu aplicativo existia antes da GA (disponibilidade geral) do LUIS, as chaves
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Como sei qual chave preciso, onde obtê-la e o que fazer com ela?
 
-Consulte [As teclas de ponto final de previsão de previsão de autoria e consulta em LUIS](luis-concept-keys.md) para saber sobre as diferenças entre a chave de autoria e a tecla de tempo de execução de previsão.
+Consulte [criação e consulta de chaves de ponto de extremidade de previsão em Luis](luis-concept-keys.md) para saber mais sobre as diferenças entre a chave de criação e a chave de tempo de execução de previsão.
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Recebi um erro informando a ausência de cota. Como corrigi-la?
 
-Consulte, Corrija o código de status HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) para saber mais.
+Consulte corrigir o código de status HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) para saber mais.
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Eu preciso lidar com mais consultas de ponto de extremidade. Como faço isso?
 
-Consulte, Corrija o código de status HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) para saber mais.
+Consulte corrigir o código de status HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) para saber mais.
 
-### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>Criei uma chave de autoria, mas não está aparecendo no portal LUIS. O que aconteceu?
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>Criei uma chave de criação, mas ela não está sendo exibida no portal do LUIS. O que aconteceu?
 
-As chaves de autoria estão disponíveis no portal LUIS depois [de migrarem para a experiência-chave da autoria.](luis-migration-authoring.md)
+As chaves de criação estão disponíveis no portal do LUIS após [a migração para a experiência de chave de criação](luis-migration-authoring.md).
 
 ## <a name="app-management"></a>Gerenciamento de aplicativos
 
@@ -238,7 +238,7 @@ Se você estiver usando o log para análise de previsão, não capture enunciado
 ### <a name="can-i-delete-data-from-luis"></a>Posso excluir dados de LUIS?
 
 * Você sempre pode excluir enunciados de exemplo usados para treinar o LUIS. Se você excluir um enunciado de exemplo do seu aplicativo de LUIS, ele será removido do serviço Web de LUIS e não estará disponível para exportação.
-* Você pode excluir expressões da lista de declarações de usuário que LUIS sugere na página **Desporto final do Review.** Excluir enunciados dessa lista impede que eles sejam sugeridos, mas não os exclui dos logs.
+* Você pode excluir declarações da lista de usuários declarações que o LUIS sugere na página **revisar declarações do ponto de extremidade** . Excluir enunciados dessa lista impede que eles sejam sugeridos, mas não os exclui dos logs.
 * Se você excluir uma conta, todos os aplicativos serão excluídos, junto com os respectivos logs e enunciados de exemplo. Os dados serão mantidos nos servidores por 60 dias antes de serem excluídos permanentemente.
 
 ### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>Como a Microsoft gerencia dados que posso enviar para LUIS?
@@ -311,23 +311,23 @@ Sim, você poderá usar o [contêiner](luis-container-howto.md) do LUIS para ess
 
 ## <a name="migrating-to-the-next-version"></a>Migrando para a próxima versão
 
-### <a name="how-do-i-migrate-to-preview-v3-api"></a>Como migrar para visualizar a API V3?
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>Como fazer migrar para a API da visualização v3?
 
-Veja [o guia de migração da API v2 para v3 para aplicativos LUIS](luis-migration-api-v3.md)
+Consulte o [Guia de migração da API v2 para V3 para aplicativos Luis](luis-migration-api-v3.md)
 
-## <a name="build-2019-conference-announcements"></a>Editais da Conferência Build 2019
+## <a name="build-2019-conference-announcements"></a>Crie anúncios de conferência 2019
 
-Os seguintes recursos foram lançados na Conferência Build 2019:
+Os seguintes recursos foram lançados na conferência Build 2019:
 
-* [Pré-visualização do guia de migração da API V3](luis-migration-api-v3.md)
-* [Painel de análise aprimorado](luis-how-to-use-dashboard.md)
-* [Domínios pré-construídos aprimorados](luis-reference-prebuilt-domains.md)
+* [Visualização do guia de migração da API v3](luis-migration-api-v3.md)
+* [Painel analítico aprimorado](luis-how-to-use-dashboard.md)
+* [Domínios predefinidos aprimorados](luis-reference-prebuilt-domains.md)
 * [Entidades de lista dinâmica](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entidades externas](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 Vídeos:
 
-* [Como usar a IA do Azure Conversational para escalar seu negócio para a próxima geração](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+* [Como usar o AI de conversa do Azure para dimensionar sua empresa para a próxima geração](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Próximas etapas
 

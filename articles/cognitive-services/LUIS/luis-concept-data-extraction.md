@@ -1,17 +1,17 @@
 ---
-title: Extração de dados - LUIS
-description: Extrair dados do texto de enunciado com intenções e entidades. Saiba que tipo de dados podem ser extraídos do Entendimento da Linguagem (LUIS).
+title: Extração de dados-LUIS
+description: Extraia dados de texto expressão com intenções e entidades. Saiba que tipo de dados pode ser extraído de Reconhecimento vocal (LUIS).
 author: diberry
 ms.topic: conceptual
 ms.date: 01/23/2020
-ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3cea4a46564210ad8c37fdeda68e24337091d0bb
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79221079"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82100287"
 ---
-# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados do texto de enunciado com intenções e entidades
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de texto expressão com intenções e entidades
 O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chat bot para executar uma ação. Nas seções a seguir, saiba quais dados são retornados de intenções e entidades com exemplos de JSON.
 
 Os dados mais difíceis de extrair são dados de aprendizado de máquina, porque eles não são uma correspondência exata do texto. A extração de dados das [entidades](luis-concept-entity-types.md) de aprendizado de máquina precisa fazer parte do [ciclo de criação](luis-concept-app-iteration.md) até que você esteja confiante de receber os dados esperados.
@@ -31,7 +31,7 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 * * *
 
-O `appID` estará disponível na página **Configurações** do aplicativo LUIS, assim como parte da URL (após `/apps/`) quando você estiver editando esse aplicativo do LUIS. A `subscription-key` é a chave do ponto de extremidade usada para consultar seu aplicativo. Embora seja possível usar a chave início/criação gratuita enquanto estiver treinando o LUIS, é importante alterar a chave de ponto de extremidade para uma chave que dê suporte ao [uso esperado do LUIS](luis-boundaries.md#key-limits). A unidade `timezoneOffset` é de minutos.
+O `appID` estará disponível na página **Configurações** do aplicativo LUIS, assim como parte da URL (após `/apps/`) quando você estiver editando esse aplicativo do LUIS. A `subscription-key` é a chave do ponto de extremidade usada para consultar seu aplicativo. Embora seja possível usar a chave início/criação gratuita enquanto estiver treinando o LUIS, é importante alterar a chave de ponto de extremidade para uma chave que dê suporte ao [uso esperado do LUIS](luis-limits.md#key-limits). A unidade `timezoneOffset` é de minutos.
 
 A **resposta HTTPS** contém todas as informações de intenção e de entidade que o LUIS pode determinar com base no modelo publicado atual do ponto de extremidade de preparo ou de produção. A URL de ponto de extremidade é encontrada no site [LUIS](luis-reference-regions.md), na seção **Gerenciar**, na página **Chaves e os pontos de extremidade**.
 
@@ -77,12 +77,12 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 |--|--|--|--|
 |Intencional|String|topScoringIntent.intent|"GetStoreInfo"|
 
-Se o seu chatbot ou aplicativo de chamada LUIS tomar uma decisão com base em mais de uma pontuação de intenção, retorne todas as pontuações das intenções.
+Se seu aplicativo de chamada de chatbot ou LUIS tomar uma decisão com base em mais de uma pontuação de intenção, retornará todas as pontuações de intenções.
 
 
 #### <a name="v2-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V2](#tab/V2)
 
-Defina o parâmetro de `verbose=true`consultastring, . A resposta do ponto de extremidade é:
+Defina o parâmetro QueryString, `verbose=true`. A resposta do ponto de extremidade é:
 
 ```JSON
 {
@@ -107,7 +107,7 @@ Defina o parâmetro de `verbose=true`consultastring, . A resposta do ponto de ex
 
 #### <a name="v3-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
 
-Defina o parâmetro de `show-all-intents=true`consultastring, . A resposta do ponto de extremidade é:
+Defina o parâmetro QueryString, `show-all-intents=true`. A resposta do ponto de extremidade é:
 
 ```JSON
 {
@@ -247,7 +247,7 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 ## <a name="tokenized-entity-returned"></a>Entidade indexada retornada
 
-Revise o [suporte ao token](luis-language-support.md#tokenization) no LUIS.
+Examine o [suporte de token](luis-language-support.md#tokenization) em Luis.
 
 ## <a name="simple-entity-data"></a>Dados de entidade simples
 
@@ -255,11 +255,11 @@ Uma [entidade simples](reference-entity-simple.md) é um valor de aprendizado de
 
 ## <a name="composite-entity-data"></a>Dados da entidade composta
 
-Uma [entidade composta](reference-entity-composite.md) é composta por outras entidades, como entidades pré-construídas, simples, expressão regular e entidades de lista. As entidades separadas formam uma entidade inteira.
+Uma [entidade composta](reference-entity-composite.md) é composta por outras entidades, como entidades predefinidas, expressão simples, regular e entidades de lista. As entidades separadas formam uma entidade inteira.
 
 ## <a name="list-entity-data"></a>Dados da entidade Lista
 
-[As entidades de](reference-entity-list.md) lista representam um conjunto fixo e fechado de palavras relacionadas, juntamente com seus sinônimos. O LUIS não descobre valores adicionais para entidades de lista. Use o recurso **Recomendado** para consultar sugestões de novas palavras com base na lista atual. Se houver mais de uma entidade de lista com o mesmo valor, cada entidade será retornada na consulta de ponto de extremidade.
+As [entidades de lista](reference-entity-list.md) representam um conjunto fixo e fechado de palavras relacionadas junto com seus sinônimos. O LUIS não descobre valores adicionais para entidades de lista. Use o recurso **Recomendado** para consultar sugestões de novas palavras com base na lista atual. Se houver mais de uma entidade de lista com o mesmo valor, cada entidade será retornada na consulta de ponto de extremidade.
 
 ## <a name="prebuilt-entity-data"></a>Dados de entidade predefinida
 Entidades [predefinidas](luis-concept-entity-types.md) são descobertas com base em uma correspondência de expressão regular usando o projeto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) de software livre. Entidades predefinidas são retornadas na matriz de entidades e usam o nome do tipo que começa com `builtin::`. O texto a seguir é uma declaração de exemplo com as entidades predefinidas retornadas:
@@ -349,7 +349,7 @@ Entidades [predefinidas](luis-concept-entity-types.md) são descobertas com base
 
 #### <a name="v3-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
 
-Sem o parâmetro de `verbose=true`consultastring, :
+Sem o parâmetro QueryString, `verbose=true`:
 
 ```json
 "entities": {
@@ -391,7 +391,7 @@ Sem o parâmetro de `verbose=true`consultastring, :
 }
 ```
 
-Com o parâmetro de `verbose=true`consultastring, :
+Com o parâmetro QueryString, `verbose=true`:
 
 ```json
 
@@ -529,7 +529,7 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 * * *
 ## <a name="regular-expression-entity-data"></a>Dados de entidade de expressão regular
 
-Uma [entidade de expressão regular](reference-entity-regular-expression.md) extrai uma entidade com base em um padrão de expressão regular que você fornece.
+Uma [entidade de expressão regular](reference-entity-regular-expression.md) extrai uma entidade com base em um padrão de expressão regular fornecido por você.
 
 ## <a name="extracting-names"></a>Extraindo nomes
 Obter nomes de uma declaração é difícil, porque um nome pode ser quase qualquer combinação de letras e palavras. Dependendo de qual tipo de nome você está extraindo, haverá várias opções. As sugestões a seguir não são regras, mas mais diretrizes.
@@ -540,17 +540,17 @@ As entidades [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](lui
 
 ### <a name="names-of-people"></a>Nomes de pessoas
 
-Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Use uma **[entidade prebuilt personName](luis-reference-prebuilt-person.md)** ou uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** com [funções](luis-concept-roles.md) de primeiro e sobrenome.
+Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Use uma entidade **[PersonName](luis-reference-prebuilt-person.md)** predefinida ou uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** com [funções](luis-concept-roles.md) de First e Last Name.
 
-Se você usar a entidade simples, certifique-se de dar exemplos que usam o primeiro e o sobrenome em diferentes partes do enunciado, em declarações de diferentes comprimentos e declarações em todas as intenções, incluindo a intenção De Nenhum. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
+Se você usar a entidade simples, certifique-se de fornecer exemplos que usam o nome e o sobrenome em diferentes partes do expressão, em declarações de comprimentos diferentes e declarações em todas as intenções, incluindo a intenção de nenhum. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
 
 ### <a name="names-of-places"></a>Nomes de locais
 
-Os nomes dos locais são definidos e conhecidos como cidades, condados, estados, províncias e países/regiões. Use a geografia da entidade **[pré-construídaV2](luis-reference-prebuilt-geographyv2.md)** para extrair informações de localização.
+Os nomes de local são definidos e conhecidos como cidades, municípios, Estados, províncias e países/regiões. Use a entidade predefinida **[geographyV2](luis-reference-prebuilt-geographyv2.md)** para extrair informações de localização.
 
 ### <a name="new-and-emerging-names"></a>Nomes novos e emergentes
 
-Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produtos ou empresas. Esses tipos de nomes são o tipo mais difícil de extração de dados. Comece com uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** e adicione uma lista [de frases](luis-concept-feature.md). [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
+Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produtos ou empresas. Esses tipos de nomes são o tipo mais difícil de extração de dados. Comece com uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** e adicione uma [lista de frases](luis-concept-feature.md). [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
 
 ## <a name="pattern-roles-data"></a>Dados de funções de padrão
 Funções são diferenças contextuais de entidades.
@@ -558,7 +558,7 @@ Funções são diferenças contextuais de entidades.
 
 #### <a name="v2-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V2](#tab/V2)
 
-O nome `Location`da entidade `Origin` é `Destination`, com dois papéis, e .
+O nome da `Location`entidade é, com duas `Origin` funções `Destination`e.
 
 ```JSON
 "entities": [
@@ -591,11 +591,11 @@ O nome `Location`da entidade `Origin` é `Destination`, com dois papéis, e .
 
 #### <a name="v3-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
 
-Em V3, o nome da **função** é o nome principal do objeto.
+Em v3, o **nome da função** é o nome principal do objeto.
 
-O nome `Location`da entidade `Origin` é `Destination`, com dois papéis, e .
+O nome da `Location`entidade é, com duas `Origin` funções `Destination`e.
 
-Sem o parâmetro de `verbose=true`consultastring, :
+Sem o parâmetro QueryString, `verbose=true`:
 
 ```json
 "entities": {
@@ -611,7 +611,7 @@ Sem o parâmetro de `verbose=true`consultastring, :
 }
 ```
 
-Com o parâmetro de `verbose=true`consultastring, :
+Com o parâmetro QueryString, `verbose=true`:
 
 ```json
 "entities": {
@@ -679,7 +679,7 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 ## <a name="patternany-entity-data"></a>Dados de entidade pattern.any
 
-[Pattern.any](reference-entity-pattern-any.md) é um espaço reservado de comprimento variável usado apenas no enunciado do modelo de um padrão para marcar onde a entidade começa e termina.
+[Padrão. any](reference-entity-pattern-any.md) é um espaço reservado de comprimento variável usado somente no modelo de um padrão expressão para marcar onde a entidade começa e termina.
 
 ## <a name="sentiment-analysis"></a>Análise de sentimento
 Se a análise de sentimento estiver configurada, a resposta JSON do LUIS incluirá a análise de sentimento. Saiba mais sobre a análise de sentimento na documentação [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
@@ -748,7 +748,7 @@ A entidade de extração de frases-chave retorna frases-chave na declaração, f
 
 Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.md).
 
-Sem o parâmetro de `verbose=true`consultastring, :
+Sem o parâmetro QueryString, `verbose=true`:
 
 ```json
 "entities": {
@@ -760,7 +760,7 @@ Sem o parâmetro de `verbose=true`consultastring, :
 }
 ```
 
-Com o parâmetro de `verbose=true`consultastring, :
+Com o parâmetro QueryString, `verbose=true`:
 
 ```json
 "entities": {
@@ -820,7 +820,7 @@ O LUIS retorna todas as entidades descobertas na declaração. Como resultado, s
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
-O ponto final do LUIS pode descobrir os mesmos dados em diferentes entidades.
+O ponto de extremidade LUIS pode descobrir os mesmos dados em diferentes entidades.
 
 #### <a name="v2-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V2](#tab/V2)
 
@@ -950,7 +950,7 @@ O ponto final do LUIS pode descobrir os mesmos dados em diferentes entidades.
 
 #### <a name="v3-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
 
-Sem `verbose=true` como parâmetro de consultastring.
+Sem `verbose=true` como um parâmetro QueryString.
 
 ```json
 "entities": {
@@ -987,7 +987,7 @@ Sem `verbose=true` como parâmetro de consultastring.
 }
 ```
 
-Com `verbose=true` como parâmetro de consultastring.
+Com `verbose=true` como um parâmetro QueryString.
 
 
 ```json
@@ -1175,7 +1175,7 @@ Para a consulta `when is the best time to go to red rock?`, e o aplicativo tiver
 
 #### <a name="v3-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
 
-Sem `verbose=true` na seqüência de consulta:
+Sem `verbose=true` na cadeia de caracteres de consulta:
 
 ```JSON
 {
@@ -1205,7 +1205,7 @@ Sem `verbose=true` na seqüência de consulta:
 ```
 
 
-Com `verbose=true` na seqüência de consulta:
+Com `verbose=true` na cadeia de caracteres de consulta:
 
 ```JSON
 {
