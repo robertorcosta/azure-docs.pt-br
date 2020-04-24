@@ -1,19 +1,19 @@
 ---
-title: Excluir grupo de recursos e recursos
-description: Descreve como excluir grupos de recursos e recursos. Ele descreve como o Azure Resource Manager ordena a exclusão de recursos ao excluir um grupo de recursos. Descreve os códigos de resposta e como o Resource Manager os manipula para determinar se a exclusão teve êxito.
+title: Excluir o grupo de recursos e os recursos
+description: Descreve como excluir recursos e grupos de recursos. Ele descreve como o Azure Resource Manager ordena a exclusão de recursos quando uma exclusão de um grupo de recursos. Descreve os códigos de resposta e como o Resource Manager os manipula para determinar se a exclusão teve êxito.
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: db56cf0897cd90f1e6e51199032d0d9712530f1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c03296f8bec24da1fc85bae14e91ca742054d02
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274015"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82136474"
 ---
-# <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Grupo de recursos do Azure Resource Manager e exclusão de recursos
+# <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager o grupo de recursos e a exclusão de recursos
 
-Este artigo mostra como excluir grupos de recursos e recursos. Ele descreve como o Azure Resource Manager ordena a exclusão de recursos quando você exclui um grupo de recursos.
+Este artigo mostra como excluir recursos e grupos de recursos. Ele descreve como o Azure Resource Manager ordena a exclusão de recursos quando você exclui um grupo de recursos.
 
 ## <a name="how-order-of-deletion-is-determined"></a>Como a ordem de exclusão é determinada
 
@@ -54,17 +54,20 @@ Se a operação GET retornar um erro, o Gerenciador de Recursos tentará novamen
 
 Para outros códigos de erro, o Gerenciador de Recursos falha na exclusão do recurso.
 
+> [!IMPORTANT]
+> A exclusão do grupo de recursos é irreversível.
+
 ## <a name="delete-resource-group"></a>Excluir grupo de recursos
 
-Use um dos seguintes métodos para excluir o grupo de recursos.
+Use um dos métodos a seguir para excluir o grupo de recursos.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name ExampleResourceGroup
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group delete --name ExampleResourceGroup
@@ -72,7 +75,7 @@ az group delete --name ExampleResourceGroup
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. No [portal,](https://portal.azure.com)selecione o grupo de recursos que deseja excluir.
+1. No [portal](https://portal.azure.com), selecione o grupo de recursos que você deseja excluir.
 
 1. Selecione **Excluir grupo de recursos**.
 
@@ -84,9 +87,9 @@ az group delete --name ExampleResourceGroup
 
 ## <a name="delete-resource"></a>Excluir recurso
 
-Use um dos seguintes métodos para excluir um recurso.
+Use um dos métodos a seguir para excluir um recurso.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Remove-AzResource `
@@ -95,7 +98,7 @@ Remove-AzResource `
   -ResourceType Microsoft.Compute/virtualMachines
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az resource delete \
@@ -106,9 +109,9 @@ az resource delete \
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. No [portal,](https://portal.azure.com)selecione o recurso que deseja excluir.
+1. No [portal](https://portal.azure.com), selecione o recurso que você deseja excluir.
 
-1. Selecione **Excluir**. A captura de tela a seguir mostra as opções de gerenciamento de uma máquina virtual.
+1. Selecione **Excluir**. A captura de tela a seguir mostra as opções de gerenciamento para uma máquina virtual.
 
    ![Excluir recurso](./media/delete-resource-group/delete-resource.png)
 

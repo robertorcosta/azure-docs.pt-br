@@ -4,12 +4,12 @@ description: Saiba como fazer backup do estado do sistema do Windows Server e/ou
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 847ed8fc5a6c102284a03fa593587792767d7913
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4089815f8f76d9868f8fa56f8b2eab3de89541d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "76294007"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "82128200"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Fazer backup de estado do sistema do Windows na implementação do Gerenciador de Recursos
 
@@ -95,7 +95,7 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 
     ![Abrir folha de meta backup](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
-2. No menu suspenso **Onde sua carga de trabalho é executada?** , selecione **Local**.
+2. No menu suspenso **Onde sua carga de trabalho é executada?**, selecione **Local**.
 
     Você escolhe **Local** porque o Windows Server ou o computador do Windows é uma máquina física que não está no Azure.
 
@@ -127,7 +127,7 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 
     ![baixar as credenciais do cofre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    As credenciais do cofre são baixadas para a pasta Downloads. Após o término do download das credenciais do cofre, você verá um pop-up perguntando se deseja abrir ou salvar as credenciais. Clique em **Save** (Salvar). Se você clicar acidentalmente em **Abrir**, deixe a caixa de diálogo que tenta abrir as credenciais do cofre falhar. Não é possível abrir as credenciais do cofre. Vá para a próxima etapa. As credenciais do cofre estão na pasta Downloads.
+    As credenciais do cofre são baixadas para a pasta Downloads. Após o término do download das credenciais do cofre, você verá um pop-up perguntando se deseja abrir ou salvar as credenciais. Clique em **Salvar**. Se você clicar acidentalmente em **Abrir**, deixe a caixa de diálogo que tenta abrir as credenciais do cofre falhar. Não é possível abrir as credenciais do cofre. Vá para a próxima etapa. As credenciais do cofre estão na pasta Downloads.
 
     ![o download das credenciais do cofre foi concluído](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
@@ -193,7 +193,7 @@ Para concluir o backup inicial, use o agente dos Serviços de Recuperação do M
 
 5. Selecione **Estado do sistema** e, em seguida, clique em **OK**.
 
-6. Clique em **Próximo**.
+6. Clique em **Avançar**.
 
 7. Selecione a frequência de Backup necessária e a política de retenção para os backups de Estado do Sistema nas próximas páginas.
 
@@ -224,10 +224,10 @@ Depois que o backup inicial for concluído, o status **Trabalho concluído** apa
 
 ## <a name="questions"></a>Perguntas?
 
-Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](https://aka.ms/azurebackup_feedback).
+Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](https://feedback.azure.com/forums/258995-azure-backup).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-* Obtenha mais detalhes sobre o [backup de computadores que usam o Windows](backup-configure-vault.md).
+* Obtenha mais detalhes sobre o [backup de computadores que usam o Windows](backup-windows-with-mars-agent.md).
 * Agora que você fez backup do Estado do Sistema do Windows Server, [gerencie seus cofres e servidores](backup-azure-manage-windows-server.md).
 * Se você precisar restaurar um backup, use este artigo para [restaurar os arquivos para um computador que usa o Windows](backup-azure-restore-windows-server.md).

@@ -1,64 +1,66 @@
 ---
-title: Testes de malha de serviço azure
-description: Como modelar o Liveness Probe no Azure Service Fabric usando arquivos manifestos de aplicativos e serviços.
+title: Investigações de Service Fabric do Azure
+description: Como modelar uma investigação de vida no Azure Service Fabric usando arquivos de manifesto de aplicativo e serviço.
 ms.topic: conceptual
+author: tugup
+ms.author: tugup
 ms.date: 3/12/2020
-ms.openlocfilehash: 38f3888a29bf505b723d40bc7cd08fb0c7e29eff
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81431209"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137579"
 ---
-# <a name="liveness-probe"></a>Sonda de vida
-A partir do 7.1 Service Fabric suporta o mecanismo Liveness Probe para aplicações [contêiner.][containers-introduction-link] Liveness Probe ajuda a anunciar a vida do aplicativo contêiner e quando eles não respondem em tempo hábil, isso resultará em uma reinicialização.
-Este artigo fornece uma visão geral de como definir um Liveness Probe através de arquivos manifestos.
+# <a name="liveness-probe"></a>Investigação de tempo de vida
+A partir da versão 7,1, o Azure Service Fabric dá suporte a um mecanismo de teste de vida para aplicativos em [contêineres][containers-introduction-link] . Uma investigação de tempo de vida ajuda a relatar a vida de um aplicativo em contêineres, que será reiniciado se ele não responder rapidamente.
+Este artigo fornece uma visão geral de como definir uma investigação de vida usando arquivos de manifesto.
 
-Antes de prosseguir com este artigo, recomendamos familiarizar-se com o [modelo de aplicação service fabric][application-model-link] e o modelo de [hospedagem Service Fabric][hosting-model-link].
+Antes de prosseguir com este artigo, familiarize-se com o [modelo de aplicativo Service Fabric][application-model-link] e o [modelo de Hospedagem de Service Fabric][hosting-model-link].
 
 > [!NOTE]
-> O Liveness Probe só é suportado para contêineres no modo de rede NAT.
+> A investigação de tempo só tem suporte para contêineres no modo de rede NAT.
 
 ## <a name="semantics"></a>Semântica
-Você pode especificar apenas 1 Sonda de Vivacidade por contêiner e pode controlar seu comportamento com esses campos:
+Você pode especificar apenas uma investigação de vida por contêiner e pode controlar seu comportamento usando estes campos:
 
-* `initialDelaySeconds`: O atraso inicial em segundos para começar a executar a sonda assim que o contêiner tiver sido iniciado. O valor suportado é int. A inadimplência é 0. O mínimo é 0.
+* `initialDelaySeconds`: O atraso inicial em segundos para iniciar a execução da investigação após o contêiner ter sido iniciado. O valor com suporte é **int**. O padrão é 0 e o mínimo é 0.
 
-* `timeoutSeconds`: Período em segundos após o qual consideramos a sonda como falha se não tiver sido concluída com sucesso. O valor suportado é int. O padrão é 1. O mínimo é 1.
+* `timeoutSeconds`: O período em segundos após o qual consideramos a investigação como com falha, se ela não tiver sido concluída com êxito. O valor com suporte é **int**. O padrão é 1 e o mínimo é 1.
 
-* `periodSeconds`: Período em segundos para especificar com que frequência sondamos. O valor suportado é int. O padrão é 10. O mínimo é 1.
+* `periodSeconds`: O período em segundos para especificar a frequência da investigação. O valor com suporte é **int**. O padrão é 10 e o mínimo é 1.
 
-* `failureThreshold`: Assim que atingirmos failurethreshold, o contêiner será reiniciado. O valor suportado é int. O padrão é 3. O mínimo é 1.
+* `failureThreshold`: Quando atingirmos esse valor, o contêiner será reiniciado. O valor com suporte é **int**. O padrão é 3 e o mínimo é 1.
 
-* `successThreshold`: No fracasso, para que a sonda seja considerada sucesso, ela tem que ser executada com sucesso para SuccessThreshold. O valor suportado é int. O padrão é 1. O mínimo é 1.
+* `successThreshold`: Em caso de falha, para que a investigação seja considerada com êxito, ela precisa ser executada com êxito para esse valor. O valor com suporte é **int**. O padrão é 1 e o mínimo é 1.
 
-Haverá no máximo 1 sonda para contêiner em um momento. Se a sonda não for concluída no **tempo limiteSegundos** continuamos esperando e contando-o para o **limite de falha**. 
+Pode haver, no máximo, uma investigação para um contêiner a qualquer momento. Se a investigação não for concluída no tempo definido em **timeoutSeconds**, aguarde e conte o tempo para o **limite**. 
 
-Além disso, o ServiceFabric aumentará após os [relatórios de saúde do][health-introduction-link] teste no DeployedServicePackage:
+Além disso, Service Fabric gerará os seguintes [relatórios de integridade][health-introduction-link] de investigação em **DeployedServicePackage**:
 
-* `Ok`: Se a sonda tiver **sucessoLimite,** então reportamos saúde como Ok.
+* `OK`: A investigação é realizada com sucesso para o valor definido em **successThreshold**.
 
-* `Error`: Se a falha do testeCount == **failureThreshold**, antes de reiniciar o contêiner, reportamos erro.
+* `Error`: A investigação **failureCount** ==  **limite**, antes da reinicialização do contêiner.
 
 * `Warning`: 
-    1. Se o teste falhar e a falhaCount < **failureThreshold,** informamos aviso. Este relatório de saúde permanece até que a contagem de falhas atinja **o limite** ou **o sucessoThreshold**.
-    2. No sucesso pós-fracasso, ainda reportamos Aviso, mas com sucesso consecutivo atualizado.
+    * A investigação falha e **failureCount** < **limite**. Esse relatório de integridade permanece até que **failureCount** atinja o valor definido em **limite** ou **successThreshold**.
+    * Em caso de êxito após a falha, o aviso permanece, mas com sucessos consecutivos atualizados.
 
-## <a name="specifying-liveness-probe"></a>Especificando a sonda Liveness
+## <a name="specifying-a-liveness-probe"></a>Especificando uma investigação de tempo de vida
 
-Você pode especificar o teste no ApplicationManifest.xml em ServiceManifestImport:
+Você pode especificar uma investigação no arquivo ApplicationManifest. xml em **ServiceManifestImport**.
 
-A sonda pode qualquer um de:
+A investigação pode ser para qualquer um dos seguintes:
 
-1. HTTP
-2. TCP
-3. Exec 
+* HTTP
+* TCP
+* Exec 
 
-## <a name="http-probe"></a>Sonda HTTP
+### <a name="http-probe"></a>Investigação HTTP
 
-Para o teste HTTP, o Service Fabric enviará uma solicitação HTTP para a porta e o caminho especificado. O código de retorno maior ou igual a 200 e menos de 400 indica sucesso.
+Para uma investigação HTTP, Service Fabric enviará uma solicitação HTTP para a porta e o caminho que você especificar. Um código de retorno maior ou igual a 200 e menor que 400, indica êxito.
 
-Aqui está um exemplo de como especificar o teste HttpGet:
+Aqui está um exemplo de como especificar uma investigação HTTP:
 
 ```xml
   <ServiceManifestImport>
@@ -79,21 +81,21 @@ Aqui está um exemplo de como especificar o teste HttpGet:
   </ServiceManifestImport>
 ```
 
-O teste HttpGet tem propriedades adicionais que você pode definir:
+A investigação HTTP tem propriedades adicionais que podem ser definidas:
 
-* `path`: Caminho para acesso na solicitação HTTP.
+* `path`: O caminho a ser usado na solicitação HTTP.
 
-* `port`: Porta para acesso a sondas. O alcance é de 1 a 65535. Mandatory.
+* `port`: A porta a ser usada para investigações. Essa propriedade é obrigatória. O intervalo é de 1 a 65535.
 
-* `scheme`: Esquema a ser usado para conectar-se ao pacote de código. Se definido como HTTPS, a verificação do certificado será ignorada. Padrão para HTTP
+* `scheme`: O esquema a ser usado para se conectar ao pacote de códigos. Se essa propriedade for definida como HTTPS, a verificação do certificado será ignorada. A configuração padrão é HTTP.
 
-* `httpHeader`: Cabeçalhos a definir no pedido. Você pode especificar vários desses.
+* `httpHeader`: Os cabeçalhos a serem definidos na solicitação. Você pode especificar vários cabeçalhos.
 
-* `host`: IP do host para conectar.
+* `host`: O endereço IP do host ao qual se conectar.
 
-## <a name="tcp-probe"></a>Sonda TCP
+### <a name="tcp-probe"></a>Investigação TCP
 
-Para a sonda TCP, a Service Fabric tentará abrir um soquete no contêiner com a porta especificada. Se ele pode estabelecer uma conexão, a sonda é considerada sucesso. Aqui está um exemplo de como especificar o teste que usa o soquete TCP:
+Para uma investigação TCP, Service Fabric tentará abrir um soquete no contêiner usando a porta especificada. Se ele puder estabelecer uma conexão, a investigação será considerada com êxito. Aqui está um exemplo de como especificar uma investigação que usa um soquete TCP:
 
 ```xml
   <ServiceManifestImport>
@@ -111,13 +113,13 @@ Para a sonda TCP, a Service Fabric tentará abrir um soquete no contêiner com a
   </ServiceManifestImport>
 ```
 
-## <a name="exec-probe"></a>Sonda Exec
+### <a name="exec-probe"></a>Investigação de exec
 
-Esta sonda emitirá um executivo no contêiner e aguardará a conclusão do comando.
+Essa investigação emitirá um comando **exec** no contêiner e aguardará a conclusão do comando.
 
 > [!NOTE]
-> O comando exec leva uma seqüência de sementes de comma. O comando a seguir, no exemplo, funcionará para o contêiner Linux.
-> Se você estiver testando o recipiente do windows, use <Command>cmd</Command>
+> O comando **exec** usa uma cadeia de caracteres separada por vírgula. O comando no exemplo a seguir funcionará para um contêiner do Linux.
+> Se você estiver tentando investigar um contêiner do Windows, use **cmd**.
 
 ```xml
   <ServiceManifestImport>
@@ -138,8 +140,8 @@ Esta sonda emitirá um executivo no contêiner e aguardará a conclusão do coma
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja os artigos a seguir para obter informações relacionadas.
-* [Malha de serviço e contêineres.][containers-introduction-link]
+Consulte o seguinte artigo para obter informações relacionadas:
+* [Service Fabric e contêineres][containers-introduction-link]
 
 <!-- Links -->
 [containers-introduction-link]: service-fabric-containers-overview.md
