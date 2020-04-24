@@ -1,18 +1,16 @@
 ---
-title: Usar aplicativos de renderização - Lote do Microsoft Azure
-description: Como usar aplicativos de renderização com o Azure Batch. Este artigo fornece uma breve descrição de como executar cada aplicativo de renderização.
-services: batch
-ms.service: batch
+title: Usar aplicativos de renderização
+description: Como usar aplicativos de renderização com o lote do Azure. Este artigo fornece uma breve descrição de como executar cada aplicativo de renderização.
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: dc0ce23c90a4ba6575ba26b37d97f94ba8fa1f63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6610724cd2ecb14d165b587f9df31353e8eb8e41
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75390475"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115798"
 ---
 # <a name="rendering-applications"></a>Aplicativos de renderização
 
@@ -33,7 +31,7 @@ Além dos renderizadores incorporados no 3ds Max, os seguintes renderizadores es
 
 Invocar o `3dsmaxcmdio.exe` aplicativo para executar a renderização de linha de comando em um nó de pool.  Este aplicativo está no caminho de quando a tarefa é executada. O `3dsmaxcmdio.exe` aplicativo tem os mesmos parâmetros disponíveis que o `3dsmaxcmd.exe` aplicativo, que está documentado na [3ds Max ajuda documentação](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (renderização | Seção de renderização de linha de comando).
 
-Por exemplo: 
+Por exemplo:
 
 ```
 3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"

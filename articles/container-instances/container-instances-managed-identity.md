@@ -1,14 +1,14 @@
 ---
 title: Habilitar identidade gerenciada no grupo de contêineres
-description: Saiba como ativar uma identidade gerenciada no Azure Container Instances que pode autenticar com outros serviços do Azure
+description: Saiba como habilitar uma identidade gerenciada em instâncias de contêiner do Azure que podem ser autenticadas com outros serviços do Azure
 ms.topic: article
-ms.date: 01/29/2020
-ms.openlocfilehash: 19d2ab22eea15278c7753046f9222c7856fbf5ef
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.date: 04/15/2020
+ms.openlocfilehash: 31dc198bfb2023684f3a9022bec5a5f50f0d9a72
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685655"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115713"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Como usar identidades gerenciadas com Instâncias de Contêiner do Azure
 
@@ -18,45 +18,40 @@ Neste artigo, você aprenderá mais sobre identidades gerenciadas nas Instância
 
 > [!div class="checklist"]
 > * Habilitar uma identidade atribuída pelo usuário ou atribuída pelo sistema em um grupo de contêineres
-> * Conceda o acesso à identidade a um cofre chave Do Zure
-> * Use a identidade gerenciada para acessar um cofre de chaves de um contêiner em execução
+> * Conceder acesso de identidade a um cofre de chaves do Azure
+> * Usar a identidade gerenciada para acessar um cofre de chaves de um contêiner em execução
 
 Adapte os exemplos para habilitar e usar identidades em Instâncias de Contêiner do Azure para acessar outros serviços do Azure. Esses exemplos são interativos. No entanto, na prática as imagens de contêiner executariam o código para acessar os serviços do Azure.
-
-> [!NOTE]
-> Atualmente, não é possível usar uma identidade gerenciada em um grupo de contêineres implantados em uma rede virtual.
+ 
+> [!IMPORTANT]
+> Esse recurso está atualmente na visualização. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral). Atualmente, as identidades gerenciadas nas instâncias de contêiner do Azure só têm suporte com contêineres do Linux e ainda não com contêineres do Windows.
 
 ## <a name="why-use-a-managed-identity"></a>Por que usar uma identidade gerenciada?
 
-Use uma identidade gerenciada em um contêiner gerenciado para autenticar em qualquer serviço [ que dá suporte à autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), sem ter as credenciais no seu código de contêiner. Para serviços que não suportam a autenticação de AD, você pode armazenar segredos em um cofre de chaves do Azure e usar a identidade gerenciada para acessar o cofre de chaves para recuperar credenciais. Para saber mais sobre como usar uma identidade gerenciada, consulte [O que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
-
-> [!IMPORTANT]
-> Esse recurso está atualmente na visualização. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral). Atualmente, as identidades gerenciadas no Azure Container Instances, são suportadas apenas com contêineres Linux e ainda não com contêineres do Windows.
->  
+Use uma identidade gerenciada em um contêiner gerenciado para autenticar em qualquer serviço [ que dá suporte à autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), sem ter as credenciais no seu código de contêiner. Para serviços que não dão suporte à autenticação do AD, você pode armazenar segredos em um cofre de chaves do Azure e usar a identidade gerenciada para acessar o cofre de chaves para recuperar credenciais. Para saber mais sobre como usar uma identidade gerenciada, consulte [O que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 
 ### <a name="enable-a-managed-identity"></a>Habilitar uma identidade gerenciada
 
- Em Instâncias de Contêiner do Azure, as identidades gerenciadas para recursos do Azure que têm suporte a partir da API REST versão 2018-10-01 e ferramentas e SDKs correspondentes. Quando você cria um grupo de contêineres, habilite uma ou mais identidades gerenciadas definindo uma propriedade [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity). Você também pode habilitar ou atualizar identidades gerenciadas após a execução de um grupo de contêineres - ou a ação faz com que o grupo de contêineres seja reiniciado. Para definir as identidades em um grupo de contêineres novos ou existentes, use a CLI do Azure, um modelo do Resource Manager ou um arquivo YAML. 
+ Quando você cria um grupo de contêineres, habilite uma ou mais identidades gerenciadas definindo uma propriedade [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity). Você também pode habilitar ou atualizar identidades gerenciadas depois que um grupo de contêineres está em execução-qualquer ação faz com que o grupo de contêiners seja reiniciado. Para definir as identidades em um grupo de contêiner novo ou existente, use o CLI do Azure, um modelo do Resource Manager, um arquivo YAML ou outra ferramenta do Azure. 
 
-As instâncias de contêiner do Azure dão suporte a ambos os tipos de identidades gerenciada do Azure: atribuída pelo usuário e atribuída pelo sistema. Em um grupo de contêineres, você pode habilitar uma identidade atribuída pelo sistema, uma ou mais identidades atribuídas pelo usuário ou ambos os tipos de identidades. 
-
-* Uma identidade gerenciada **atribuída pelo usuário** é criada como um recurso autônomo do Azure no locatário do Azure AD que é confiável pela assinatura em uso. Depois que a identidade é criada, ela poderá ser atribuída a um ou mais recursos do Azure (nas Instâncias de Contêiner do Azure ou outros serviços do Azure). O ciclo de vida de uma identidade atribuída pelo usuário é gerenciado separadamente do ciclo de vida dos grupos de contêiner ou outros recursos de serviço a que ela é atribuída. Esse comportamento é especialmente útil em Instâncias de Contêiner do Azure. Como a identidade estende-se além do tempo de vida de um grupo de contêineres, você poderá reutilizá-la junto com outras configurações padrão para fazer suas implantações do grupo de contêineres altamente repetitivo.
-
-* Uma **identidade gerenciada atribuída pelo sistema** é habilitada diretamente em um grupo de contêineres nas Instâncias de Contêiner do Microsoft Azure. Quando ela está habilitada, o Azure cria uma identidade para o grupo do locatário do Azure AD confiado pela assinatura da instância. Depois que a identidade é criada, as credenciais são provisionadas em cada contêiner no grupo de contêineres. O ciclo de vida de uma identidade atribuída ao sistema está diretamente relacionado ao grupo de contêineres no qual ele está habilitado. Quando o grupo é excluído, o Azure limpa automaticamente as credenciais e a identidade no Azure AD.
+As instâncias de contêiner do Azure dão suporte a ambos os tipos de identidades gerenciada do Azure: atribuída pelo usuário e atribuída pelo sistema. Em um grupo de contêineres, você pode habilitar uma identidade atribuída pelo sistema, uma ou mais identidades atribuídas pelo usuário ou ambos os tipos de identidades. Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, consulte a [visão geral](../active-directory/managed-identities-azure-resources/overview.md).
 
 ### <a name="use-a-managed-identity"></a>Usar uma identidade gerenciada
 
-Para usar uma identidade gerenciada, a identidade deve inicialmente ser concedida acesso a um ou mais recursos de serviço do Azure (como um aplicativo web, um cofre chave ou uma conta de armazenamento) na assinatura. Para acessar os recursos do Azure de um contêiner em execução, seu código deverá adquirir um *token de acesso* de um ponto de extremidade do Azure AD. Seu código envia o token de acesso em uma chamada para um serviço que dá suporte à autenticação do Azure AD. 
+Para usar uma identidade gerenciada, a identidade deve receber acesso a um ou mais recursos de serviço do Azure (como um aplicativo Web, um cofre de chaves ou uma conta de armazenamento) na assinatura. O uso de uma identidade gerenciada em um contêiner em execução é semelhante ao uso de uma identidade em uma VM do Azure. Consulte as diretrizes de VM para usar um [token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), [Azure PowerShell ou CLI do Azure](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md) ou os [SDKs do Azure](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md).
 
-Usar uma identidade gerenciada em um contêiner em execução é essencialmente o mesmo que usar uma identidade em uma VM do Azure. Consulte as diretrizes de VM para usar um [token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), [Azure PowerShell ou CLI do Azure](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md) ou os [SDKs do Azure](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md).
+### <a name="limitations"></a>Limitações
+
+* No momento, você não pode usar uma identidade gerenciada em um grupo de contêineres implantado em uma rede virtual.
+* Você não pode usar uma identidade gerenciada para efetuar pull de uma imagem do registro de contêiner do Azure ao criar um grupo de contêineres. A identidade está disponível somente dentro de um contêiner em execução.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se você optar por instalar e usar a CLI localmente, este artigo exigirá que esteja em execução a CLI do Azure versão 2.0.49 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-an-azure-key-vault"></a>Criar um cofre chave Azure
+## <a name="create-an-azure-key-vault"></a>Criar um cofre de chaves do Azure
 
-Os exemplos deste artigo usam uma identidade gerenciada no Azure Container Instances para acessar um segredo do cofre chave do Azure. 
+Os exemplos neste artigo usam uma identidade gerenciada em instâncias de contêiner do Azure para acessar um segredo do Azure Key Vault. 
 
 Primeiramente, crie um grupo de recursos denominado *myResourceGroup* no local *eastus* com o seguinte comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create):
 
@@ -64,7 +59,7 @@ Primeiramente, crie um grupo de recursos denominado *myResourceGroup* no local *
 az group create --name myResourceGroup --location eastus
 ```
 
-Use o comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) para criar um cofre de chaves. Certifique-se de especificar um nome de cofre de chave exclusivo. 
+Use o comando [AZ keyvault Create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) para criar um cofre de chaves. Certifique-se de especificar um nome exclusivo do cofre de chaves. 
 
 ```azurecli-interactive
 az keyvault create \
@@ -73,7 +68,7 @@ az keyvault create \
   --location eastus
 ```
 
-Armazene um segredo de amostra no cofre de chaves usando o comando [az keyvault secret set:](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set)
+Armazene um segredo de exemplo no cofre de chaves usando o comando [AZ keyvault segredo Set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) :
 
 ```azurecli-interactive
 az keyvault secret set \
@@ -82,9 +77,9 @@ az keyvault secret set \
   --description ACIsecret --vault-name mykeyvault
 ```
 
-Continue com os exemplos a seguir para acessar o cofre de chaves usando uma identidade gerenciada atribuída pelo usuário ou atribuída ao sistema em Instâncias de Contêiner do Azure.
+Continue com os exemplos a seguir para acessar o cofre de chaves usando uma identidade gerenciada atribuída pelo usuário ou pelo sistema em instâncias de contêiner do Azure.
 
-## <a name="example-1-use-a-user-assigned-identity-to-access-azure-key-vault"></a>Exemplo 1: Use uma identidade atribuída pelo usuário para acessar o cofre de chaves do Azure
+## <a name="example-1-use-a-user-assigned-identity-to-access-azure-key-vault"></a>Exemplo 1: usar uma identidade atribuída pelo usuário para acessar o Azure Key Vault
 
 ### <a name="create-an-identity"></a>Criar uma identidade
 
@@ -100,15 +95,33 @@ Para usar a identidade nas etapas a seguir, use o comando [az identity show](/cl
 
 ```azurecli-interactive
 # Get service principal ID of the user-assigned identity
-spID=$(az identity show --resource-group myResourceGroup --name myACIId --query principalId --output tsv)
+spID=$(az identity show \
+  --resource-group myResourceGroup \
+  --name myACIId \
+  --query principalId --output tsv)
 
 # Get resource ID of the user-assigned identity
-resourceID=$(az identity show --resource-group myResourceGroup --name myACIId --query id --output tsv)
+resourceID=$(az identity show \
+  --resource-group myResourceGroup \
+  --name myACIId \
+  --query id --output tsv)
 ```
 
-### <a name="enable-a-user-assigned-identity-on-a-container-group"></a>Habilitar uma identidade atribuída pelo usuário em um grupo de contêineres
+### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>Conceder acesso de identidade atribuído pelo usuário ao cofre de chaves
 
-Execute o seguinte comando [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) para criar `azure-cli` uma instância de contêiner com base na imagem da Microsoft. Este exemplo fornece um grupo de contêiner único que você pode usar interativamente para executar o Azure CLI para acessar outros serviços do Azure. Nesta seção, apenas o sistema operacional base Ubuntu é usado. 
+Execute o seguinte comando [AZ keyvault Set-Policy](/cli/azure/keyvault?view=azure-cli-latest) para definir uma política de acesso no cofre de chaves. O exemplo a seguir permite que a identidade atribuída pelo usuário obtenha segredos do cofre de chaves:
+
+```azurecli-interactive
+ az keyvault set-policy \
+    --name mykeyvault \
+    --resource-group myResourceGroup \
+    --object-id $spID \
+    --secret-permissions get
+```
+
+### <a name="enable-user-assigned-identity-on-a-container-group"></a>Habilitar identidade atribuída pelo usuário em um grupo de contêineres
+
+Execute o comando [AZ container Create](/cli/azure/container?view=azure-cli-latest#az-container-create) a seguir para criar uma instância de contêiner com base `azure-cli` na imagem da Microsoft. Este exemplo fornece um grupo de contêiner único que você pode usar interativamente para executar o CLI do Azure para acessar outros serviços do Azure. Nesta seção, apenas o sistema operacional base é usado. Para obter um exemplo de como usar o CLI do Azure no contêiner, consulte [habilitar a identidade atribuída pelo sistema em um grupo de contêineres](#enable-system-assigned-identity-on-a-container-group). 
 
 O parâmetro `--assign-identity` passa sua identidade atribuída pelo usuário gerenciado para o grupo. O comando de execução demorada mantém o contêiner em execução. Este exemplo usa o mesmo grupo de recursos usado para criar o cofre de chaves, mas você pode especificar um diferente.
 
@@ -121,7 +134,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-Em poucos segundos, você obterá uma resposta da CLI do Azure indicando que a implantação foi concluída. Verifique seu status com o comando [az container show.](/cli/azure/container?view=azure-cli-latest#az-container-show)
+Em poucos segundos, você obterá uma resposta da CLI do Azure indicando que a implantação foi concluída. Verifique seu status com o comando [AZ container show](/cli/azure/container?view=azure-cli-latest#az-container-show) .
 
 ```azurecli-interactive
 az container show \
@@ -147,21 +160,9 @@ A seção `identity` na saída é semelhante ao seguinte, mostrando que a identi
 [...]
 ```
 
-### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>Conceda acesso de identidade atribuído pelo usuário ao cofre de chaves
+### <a name="use-user-assigned-identity-to-get-secret-from-key-vault"></a>Usar identidade atribuída pelo usuário para obter o segredo do Key Vault
 
-Execute o seguinte comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) para definir uma política de acesso no cofre de chaves. O exemplo a seguir permite que a identidade atribuída pelo usuário obtenha segredos do cofre de chaves:
-
-```azurecli-interactive
- az keyvault set-policy \
-    --name mykeyvault \
-    --resource-group myResourceGroup \
-    --object-id $spID \
-    --secret-permissions get
-```
-
-### <a name="use-user-assigned-identity-to-get-secret-from-key-vault"></a>Use a identidade atribuída pelo usuário para obter segredo do cofre de chaves
-
-Agora você pode usar a identidade gerenciada dentro da instância do contêiner em execução para acessar o cofre de chaves. Primeiro lance uma concha de bash no recipiente:
+Agora você pode usar a identidade gerenciada dentro da instância de contêiner em execução para acessar o cofre de chaves. Primeiro, inicie um shell bash no contêiner:
 
 ```azurecli-interactive
 az container exec \
@@ -170,7 +171,7 @@ az container exec \
   --exec-command "/bin/bash"
 ```
 
-Execute os seguintes comandos no shell bash no contêiner. Para obter um token de acesso para usar o Azure Active Directory para autenticar no cofre-chave, execute o seguinte comando:
+Execute os seguintes comandos no shell bash no contêiner. Para obter um token de acesso para usar Azure Active Directory para autenticar no Key Vault, execute o seguinte comando:
 
 ```bash
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true -s
@@ -189,7 +190,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Agora use o token de acesso para autenticar o cofre de chaves e ler um segredo. Certifique-se de substituir o nome do seu cofre de chaves na URL *(https:\//mykeyvault.vault.azure.net/...*):
+Agora, use o token de acesso para autenticar no cofre de chaves e ler um segredo. Certifique-se de substituir o nome do cofre de chaves na URL (*https:\//mykeyvault.Vault.Azure.net/...*):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"
@@ -201,13 +202,13 @@ A resposta se assemelha à seguinte, mostrando o segredo. No código, analise es
 {"value":"Hello Container Instances","contentType":"ACIsecret","id":"https://mykeyvault.vault.azure.net/secrets/SampleSecret/xxxxxxxxxxxxxxxxxxxx","attributes":{"enabled":true,"created":1539965967,"updated":1539965967,"recoveryLevel":"Purgeable"},"tags":{"file-encoding":"utf-8"}}
 ```
 
-## <a name="example-2-use-a-system-assigned-identity-to-access-azure-key-vault"></a>Exemplo 2: Use uma identidade atribuída ao sistema para acessar o cofre-chave do Azure
+## <a name="example-2-use-a-system-assigned-identity-to-access-azure-key-vault"></a>Exemplo 2: usar uma identidade atribuída pelo sistema para acessar o Azure Key Vault
 
-### <a name="enable-a-system-assigned-identity-on-a-container-group"></a>Habilitar uma identidade atribuída pelo sistema em um grupo de contêineres
+### <a name="enable-system-assigned-identity-on-a-container-group"></a>Habilitar a identidade atribuída pelo sistema em um grupo de contêineres
 
-Execute o seguinte comando [az container create](/cli/azure/container?view=azure-cli-latest#az-container-create) para criar `azure-cli` uma instância de contêiner com base na imagem da Microsoft. Este exemplo fornece um grupo de contêiner único que você pode usar interativamente para executar o Azure CLI para acessar outros serviços do Azure. 
+Execute o comando [AZ container Create](/cli/azure/container?view=azure-cli-latest#az-container-create) a seguir para criar uma instância de contêiner com base `azure-cli` na imagem da Microsoft. Este exemplo fornece um grupo de contêiner único que você pode usar interativamente para executar o CLI do Azure para acessar outros serviços do Azure. 
 
-O parâmetro `--assign-identity` sem valor adicional permite uma identidade gerenciada atribuída pelo sistema no grupo. A identidade é escopo para o grupo de recursos do grupo de contêineres. O comando de execução demorada mantém o contêiner em execução. Este exemplo usa o mesmo grupo de recursos usado para criar o cofre de chaves, mas você pode especificar um diferente.
+O parâmetro `--assign-identity` sem valor adicional permite uma identidade gerenciada atribuída pelo sistema no grupo. A identidade tem como escopo o grupo de recursos do grupo de contêineres. O comando de execução demorada mantém o contêiner em execução. Este exemplo usa o mesmo grupo de recursos usado para criar o cofre de chaves, que está no escopo da identidade.
 
 ```azurecli-interactive
 # Get the resource ID of the resource group
@@ -222,7 +223,7 @@ az container create \
   --command-line "tail -f /dev/null"
 ```
 
-Em poucos segundos, você obterá uma resposta da CLI do Azure indicando que a implantação foi concluída. Verifique seu status com o comando [az container show.](/cli/azure/container?view=azure-cli-latest#az-container-show)
+Em poucos segundos, você obterá uma resposta da CLI do Azure indicando que a implantação foi concluída. Verifique seu status com o comando [AZ container show](/cli/azure/container#az-container-show) .
 
 ```azurecli-interactive
 az container show \
@@ -246,12 +247,15 @@ A seção `identity` na saída é semelhante ao seguinte, mostrando que uma iden
 Definir uma variável como o valor de `principalId` (a ID de entidade de serviço) da identidade, para ser usada em etapas posteriores.
 
 ```azurecli-interactive
-spID=$(az container show --resource-group myResourceGroup --name mycontainer --query identity.principalId --out tsv)
+spID=$(az container show \
+  --resource-group myResourceGroup \
+  --name mycontainer \
+  --query identity.principalId --out tsv)
 ```
 
-### <a name="grant-container-group-access-to-the-key-vault"></a>Conceder acesso ao grupo de contêineres ao cofre-chave
+### <a name="grant-container-group-access-to-the-key-vault"></a>Conceder acesso ao grupo de contêineres para o cofre de chaves
 
-Execute o seguinte comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) para definir uma política de acesso no cofre de chaves. O exemplo a seguir permite que a identidade gerenciada pelo sistema obtenha segredos do cofre de chaves:
+Execute o seguinte comando [AZ keyvault Set-Policy](/cli/azure/keyvault?view=azure-cli-latest) para definir uma política de acesso no cofre de chaves. O exemplo a seguir permite que a identidade gerenciada pelo sistema obtenha segredos do cofre de chaves:
 
 ```azurecli-interactive
  az keyvault set-policy \
@@ -261,9 +265,9 @@ Execute o seguinte comando [az keyvault set-policy](/cli/azure/keyvault?view=azu
    --secret-permissions get
 ```
 
-### <a name="use-container-group-identity-to-get-secret-from-key-vault"></a>Use a identidade do grupo de contêineres para obter segredo do cofre de chaves
+### <a name="use-container-group-identity-to-get-secret-from-key-vault"></a>Use a identidade do grupo de contêineres para obter o segredo do Key Vault
 
-Agora você pode usar a identidade gerenciada para acessar o cofre de chaves dentro da instância do contêiner em execução. Primeiro lance uma concha de bash no recipiente:
+Agora você pode usar a identidade gerenciada para acessar o cofre de chaves na instância de contêiner em execução. Primeiro, inicie um shell bash no contêiner:
 
 ```azurecli-interactive
 az container exec \
@@ -272,13 +276,13 @@ az container exec \
   --exec-command "/bin/bash"
 ```
 
-Execute os seguintes comandos no shell bash no contêiner. Primeiro faça login no Azure CLI usando a identidade gerenciada:
+Execute os seguintes comandos no shell bash no contêiner. Primeiro faça logon no CLI do Azure usando a identidade gerenciada:
 
 ```bash
 az login --identity
 ```
 
-Do contêiner em execução, recupere o segredo do cofre da chave:
+No contêiner em execução, recupere o segredo do cofre de chaves:
 
 ```bash
 az keyvault secret show \
@@ -385,9 +389,9 @@ Neste artigo, você aprendeu sobre identidades gerenciadas nas Instâncias de Co
 
 > [!div class="checklist"]
 > * Habilitar uma identidade atribuída pelo usuário ou atribuída pelo sistema em um grupo de contêineres
-> * Conceda o acesso à identidade a um cofre chave Do Zure
-> * Use a identidade gerenciada para acessar um cofre de chaves de um contêiner em execução
+> * Conceder acesso de identidade a um cofre de chaves do Azure
+> * Usar a identidade gerenciada para acessar um cofre de chaves de um contêiner em execução
 
 * Aprenda sobre [identidades gerenciadas dos recursos do Azure](/azure/active-directory/managed-identities-azure-resources/).
 
-* Veja [um exemplo do Azure Go SDK](https://medium.com/@samkreter/c98911206328) de usar uma identidade gerenciada para acessar um cofre de chaves do Azure Container Instances.
+* Consulte um [exemplo do SDK do Azure go](https://medium.com/@samkreter/c98911206328) do uso de uma identidade gerenciada para acessar um cofre de chaves de instâncias de contêiner do Azure.

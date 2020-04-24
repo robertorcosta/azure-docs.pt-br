@@ -1,25 +1,15 @@
 ---
-title: Instalar pacotes de aplicativos em nós de computação - Azure Batch | Microsoft Docs
+title: Instalar pacotes de aplicativos em nós de computação
 description: Use o recurso de pacotes de aplicativos do Lote do Azure para gerenciar facilmente vários aplicativos e versões para instalação nos nós de computação do Lote.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/26/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30301832381bdc7b5f001eec2c449c571f9fd671
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7824d3e2d8cfb7b52041e59a9007688c4ef1cafa
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086231"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115611"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote
 
@@ -42,7 +32,7 @@ No Lote do Azure, um *aplicativo* refere-se a um conjunto de binários com vers�
 
 ![Diagrama de alto nível de aplicativos e pacotes de aplicativos][1]
 
-### <a name="applications"></a>Aplicativos
+### <a name="applications"></a>Aplicativo
 Um aplicativo no Lote contém um ou mais pacotes de aplicativos e especifica as opções de configuração para o aplicativo. Por exemplo, um aplicativo pode especificar a versão do pacote de aplicativos padrão para instalar nos nós de computação e se seus pacotes podem ser atualizados ou excluídos.
 
 ### <a name="application-packages"></a>pacotes de aplicativos
@@ -78,7 +68,7 @@ Com pacotes de aplicativos, a tarefa de inicialização do pool não precisa esp
 Você pode usar o [Portal do Azure][portal] ou as APIs de Gerenciamento de Lote para gerenciar os pacotes de aplicativos em sua conta do Lote. Nas próximas seções, primeiro vincularemos uma conta de Armazenamento e analisaremos como adicionar aplicativos e pacotes e como gerenciá-los com o portal.
 
 ### <a name="link-a-storage-account"></a>Vincular uma conta de armazenamento
-Para usar pacotes de aplicativos, primeiro você deve vincular uma [conta do Azure Storage](batch-api-basics.md#azure-storage-account) à sua conta Batch. Se você ainda não configurou uma conta de Armazenamento, o Portal do Azure exibe um aviso na primeira vez em que clicar em Aplicativos na Conta do Lote.
+Para usar pacotes de aplicativos, você deve primeiro vincular uma [conta de armazenamento do Azure](batch-api-basics.md#azure-storage-account) à sua conta do lote. Se você ainda não configurou uma conta de Armazenamento, o Portal do Azure exibe um aviso na primeira vez em que clicar em Aplicativos na Conta do Lote.
 
 
 
@@ -88,13 +78,13 @@ O serviço de Lote usa a conta de Armazenamento associada para armazenar os paco
 
 ![Folha Escolher conta de armazenamento no portal do Azure][10]
 
-Recomendamos que você crie uma conta de armazenamento *especificamente* para uso com sua conta Batch e selecione-a aqui. Depois de ter criado uma conta de Armazenamento, você poderá vinculá-la à sua conta do Lote usando a janela **Conta de Armazenamento**.
+Recomendamos que você crie uma conta de armazenamento *especificamente* para uso com sua conta do lote e selecione-a aqui. Depois de ter criado uma conta de Armazenamento, você poderá vinculá-la à sua conta do Lote usando a janela **Conta de Armazenamento**.
 
 > [!IMPORTANT] 
 > - Atualmente você não pode usar pacotes de aplicativos com uma conta de Armazenamento do Microsoft Azure que está configurada com [as regras de firewall](../storage/common/storage-network-security.md).
-> - Uma conta de armazenamento Azure com **namespace hierárquico** definido **como Ativado** não pode ser usada para pacotes de aplicativos.
+> - Uma conta de armazenamento do Azure com **namespace hierárquico** definido como **habilitado** não pode ser usada para pacotes de aplicativos.
 
-O serviço de Lote usa o Armazenamento do Azure para armazenar os pacotes de aplicativos como blobs de blocos. Você é [cobrado normalmente][storage_pricing] pelos dados de bolha de bloco, e o tamanho de cada pacote não pode exceder o tamanho máximo do bloco. Para obter mais informações, consulte [as metas de escalabilidade e desempenho do Azure Storage para contas de armazenamento](../storage/blobs/scalability-targets.md). Não se esqueça de considerar o tamanho e o número de pacotes de aplicativos e, periodicamente, remova pacotes preteridos para minimizar o custo.
+O serviço de Lote usa o Armazenamento do Azure para armazenar os pacotes de aplicativos como blobs de blocos. Você é [cobrado como normal][storage_pricing] para os dados do blob de blocos e o tamanho de cada pacote não pode exceder o tamanho máximo do blob de blocos. Para obter mais informações, consulte [escalabilidade e metas de desempenho do armazenamento do Azure para contas de armazenamento](../storage/blobs/scalability-targets.md). Não se esqueça de considerar o tamanho e o número de pacotes de aplicativos e, periodicamente, remova pacotes preteridos para minimizar o custo.
 
 ### <a name="view-current-applications"></a>Exibir aplicativos atuais
 Para exibir os aplicativos em sua conta do Lote, clique no item de menu **Aplicativos** no menu à esquerda enquanto exibe sua **Conta do Lote**.
@@ -111,11 +101,11 @@ Essa janela exibe a ID de cada aplicativo em sua conta e as seguintes propriedad
 * **Versão padrão**: a versão do aplicativo que será instalada se você não indicar uma versão ao especificar o aplicativo para um pool. Essa configuração é opcional.
 * **Permitir atualizações**: o valor que especifica se são permitidas as atualizações, exclusões e adições do pacote. Se isso estiver definido para **Não**, as exclusões e atualizações do pacote ficarão desabilitadas para o aplicativo. Apenas novas versões do pacote de aplicativos poderão ser adicionadas. O padrão é **Sim**.
 
-Se você quiser ver a estrutura de arquivos do pacote de aplicativos em seu nó de computação, navegue até sua conta Batch no portal. A partir de sua conta Batch, navegue até **Pools**. Selecione o pool que contém os nós de computação que você está interessado.
+Se você quiser ver a estrutura de arquivos do pacote de aplicativos no nó de computação, navegue até sua conta do lote no Portal. Na sua conta do lote, navegue até **pools**. Selecione o pool que contém os nós de computação nos quais você está interessado.
 
-![Nódulos na piscina][13]
+![Nós no pool][13]
 
-Depois de selecionar seu pool, navegue até o nó de computação em que o pacote de aplicativos está instalado. A partir daí, os detalhes do pacote de aplicativos estão localizados na pasta **de aplicativos.** Pastas adicionais no nó de computação contêm outros arquivos, como tarefas iniciais, arquivos de saída, saída de erro, etc.
+Depois de selecionar o pool, navegue até o nó de computação em que o pacote de aplicativos está instalado. A partir daí, os detalhes do pacote de aplicativos estão localizados na pasta **aplicativos** . Pastas adicionais no nó de computação contêm outros arquivos, como tarefas de inicialização, arquivos de saída, saída de erro, etc.
 
 ![Arquivos no nó][14]
 
@@ -133,13 +123,13 @@ Nos detalhes do aplicativo, você pode configurar as definições a seguir para 
 ### <a name="add-a-new-application"></a>Adicionar um novo aplicativo
 Para criar um novo aplicativo, adicione um pacote de aplicativos e especifique uma ID de aplicativo nova e exclusiva. O primeiro pacote de aplicativos que você adiciona com a nova ID de aplicativo também cria o novo aplicativo.
 
-Clique **em Aplicativos** > **Adicionar**.
+Clique em **Aplicativos** > **Adicionar**.
 
 ![Folha Novo aplicativo no portal do Azure][5]
 
 A janela **Novo aplicativo** fornece os campos a seguir para especificar as configurações do seu novo aplicativo e do pacote de aplicativos.
 
-**ID de aplicação**
+**ID do aplicativo**
 
 Este campo especifica a ID do novo aplicativo, que está sujeita às regras de validação padrão de ID do Lote do Azure. As regras para fornecer uma ID de aplicativo são conforme descrito a seguir:
 
@@ -173,7 +163,7 @@ Para adicionar uma nova versão do pacote de aplicativos a um aplicativo existen
 
 ![Folha Adicionar pacote de aplicativos no portal do Azure][8]
 
-Como você pode ver, os campos correspondem aos da janela **de aplicativo Novo,** mas a caixa **DeD do aplicativo** está desativada. Assim como para o novo aplicativo, especifique a **Versão** do novo pacote, procure o arquivo .zip do **Pacote de aplicativos** e clique em **OK** para carregar o pacote.
+Como você pode ver, os campos correspondem aos da janela **novo aplicativo** , mas a caixa **ID do aplicativo** está desabilitada. Assim como para o novo aplicativo, especifique a **Versão** do novo pacote, procure o arquivo .zip do **Pacote de aplicativos** e clique em **OK** para carregar o pacote.
 
 ### <a name="update-or-delete-an-application-package"></a>Atualizar ou excluir um pacote de aplicativos
 Para atualizar ou excluir um pacote de aplicativos existente, abra os detalhes do aplicativo, clique em **Pacotes** clique nas **reticências** na linha do pacote de aplicativos que você deseja modificar e selecione a ação que deseja executar.
@@ -186,7 +176,7 @@ Quando você clica em **Atualizar**, a janela **Atualizar pacote** é exibida. E
 
 ![Folha Atualizar pacote no portal do Azure][11]
 
-**Excluir**
+**Delete (excluir)**
 
 Quando você clica em **Excluir**, é preciso confirmar a exclusão da versão do pacote e o Lote exclui o pacote do Armazenamento do Azure. Se você excluir a versão padrão de um aplicativo, a configuração da **Versão padrão** será removida para o aplicativo.
 
@@ -258,7 +248,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Em nós do Linux, o formato é ligeiramente diferente. Pontos (.), hifens (-) e teclas jogo da velha (#) são transformados em sublinhados na variável de ambiente. Além disso, observe que o caso da ID do aplicativo é preservado. Por exemplo: 
+Em nós do Linux, o formato é ligeiramente diferente. Pontos (.), hifens (-) e teclas jogo da velha (#) são transformados em sublinhados na variável de ambiente. Além disso, observe que o caso da ID do aplicativo é preservado. Por exemplo:
 
 ```
 Linux:
@@ -369,12 +359,12 @@ Com os pacotes de aplicativos, você pode fornecer ajudar seus clientes a escolh
 [2]: ./media/batch-application-packages/app_pkg_02.png "Bloco Aplicativos no portal do Azure"
 [3]: ./media/batch-application-packages/app_pkg_03.png "Folha Aplicativos no portal do Azure"
 [4]: ./media/batch-application-packages/app_pkg_04.png "Folha Detalhes do aplicativo no portal do Azure"
-[5]: ./media/batch-application-packages/app_pkg_05.png "Nova lâmina de aplicação no portal Azure"
+[5]: ./media/batch-application-packages/app_pkg_05.png "Folha novo aplicativo no portal do Azure"
 [7]: ./media/batch-application-packages/app_pkg_07.png "Menu suspenso Atualizar ou excluir pacotes no portal do Azure"
 [8]: ./media/batch-application-packages/app_pkg_08.png "Folha Novo pacote de aplicativos no portal do Azure"
 [9]: ./media/batch-application-packages/app_pkg_09.png "Alerta Nenhuma conta de armazenamento vinculada"
-[10]: ./media/batch-application-packages/app_pkg_10.png "Escolha a lâmina da conta de armazenamento no portal Azure"
-[11]: ./media/batch-application-packages/app_pkg_11.png "Atualizar a lâmina do pacote no portal Azure"
+[10]: ./media/batch-application-packages/app_pkg_10.png "Escolha a folha conta de armazenamento em portal do Azure"
+[11]: ./media/batch-application-packages/app_pkg_11.png "Folha atualizar pacote no portal do Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Caixa de diálogo de confirmação Excluir pacote no portal do Azure"
-[13]: ./media/batch-application-packages/package-file-structure.png "Informações sobre nó computado no portal Azure"
-[14]: ./media/batch-application-packages/package-file-structure-node.png "Arquivos no nó de computação exibidos no portal Azure"
+[13]: ./media/batch-application-packages/package-file-structure.png "Informações do nó de computação no portal do Azure"
+[14]: ./media/batch-application-packages/package-file-structure-node.png "Arquivos no nó de computação exibido no portal do Azure"

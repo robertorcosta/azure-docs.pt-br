@@ -1,25 +1,15 @@
 ---
-title: Cotas do serviço e limites - Lote do Azure | Microsoft Docs
+title: Cotas e limites de serviço
 description: Saiba mais sobre as restrições, limites e cotas padrão do Lote do Azure e como aumentar a cota da solicitação
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: c8a78acfa1f3e7332cee337ae1a82ee365fe356a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a901d54ea584ec67bfa679e9cdc716ab27d45eca
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248223"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115815"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
@@ -35,7 +25,7 @@ Se você planeja executar cargas de trabalho de produção em Lote, talvez seja 
 
 Uma cota é um limite de crédito, não uma garantia de capacidade. Se você precisar de capacidade em larga escala, entre em contato com o suporte do Azure.
 
-Observe também que as cotas não são valores garantidos. As cotas podem variar de acordo com alterações do serviço Batch ou uma solicitação do usuário para alterar um valor de cota.
+Observe também que as cotas não são valores garantidos. As cotas podem variar com base nas alterações do serviço de lote ou de uma solicitação de usuário para alterar um valor de cota.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
@@ -45,14 +35,14 @@ Se você tiver criado uma conta de Lote com modo de alocação de pool definido 
 
 ## <a name="pool-size-limits"></a>Limites de tamanho do pool
 
-Os limites de tamanho da piscina são definidos pelo serviço Batch. Ao contrário [das cotas de recursos,](#resource-quotas)esses valores não podem ser alterados. Apenas piscinas com comunicação entre nó e imagens personalizadas têm restrições diferentes da cota padrão.
+Os limites de tamanho do pool são definidos pelo serviço de lote. Ao contrário das [cotas de recursos](#resource-quotas), esses valores não podem ser alterados. Somente os pools com comunicação entre nós e imagens personalizadas têm restrições diferentes da cota padrão.
 
-| **Recurso** | **Limite Máximo** |
+| **Recurso** | **Limite máximo** |
 | --- | --- |
 | **Nós de computação em [pool de computação entre nós habilitado](batch-mpi.md)**  ||
 | Modo de alocação de pool de serviço de Lote | 100 |
 | Modo de alocação de pool de assinatura do Lote | 80 |
-| **Calcular nós no [pool criado susta is](batch-custom-images.md)**<sup>1</sup> ||
+| **Nós de computação no [pool criado com um recurso de imagem gerenciada](batch-custom-images.md)**<sup>1</sup> ||
 | Nós dedicados | 2000 |
 | Nós de baixa prioridade | 1000 |
 
@@ -60,18 +50,18 @@ Os limites de tamanho da piscina são definidos pelo serviço Batch. Ao contrár
 
 ## <a name="other-limits"></a>Outros limites
 
-Limites adicionais definidos pelo serviço Batch. Ao contrário [das cotas de recursos,](#resource-quotas)esses valores não podem ser alterados.
+Limites adicionais definidos pelo serviço de lote. Ao contrário das [cotas de recursos](#resource-quotas), esses valores não podem ser alterados.
 
-| **Recurso** | **Limite Máximo** |
+| **Recurso** | **Limite máximo** |
 | --- | --- |
 | [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação | 4 vezes o número de núcleos de nó |
 | [Aplicativos](batch-application-packages.md) por conta do Lote | 20 |
 | Pacotes de aplicativos por aplicativo | 40 |
 | Pacotes de aplicativos por pool | 10 |
 | Tempo de vida máximo da tarefa | 180 dias<sup>1</sup> |
-| [Montagens](virtual-file-mount.md) por nó computacional | 10 |
+| [Montagens](virtual-file-mount.md) por nó de computação | 10 |
 
-<sup>1</sup> O tempo de vida máximo de uma tarefa, desde quando é adicionada ao trabalho até ser concluída, é de 180 dias. As tarefas concluídas persistem por sete dias; dados para tarefas não concluídas dentro da vida máxima não são acessíveis.
+<sup>1</sup> O tempo de vida máximo de uma tarefa, desde quando é adicionada ao trabalho até ser concluída, é de 180 dias. As tarefas concluídas persistem por sete dias; os dados para tarefas não concluídas no tempo de vida máximo não estão acessíveis.
 
 ## <a name="view-batch-quotas"></a>Exibir cotas do Lote
 
@@ -85,37 +75,37 @@ Exibir suas cotas de conta do Lote no [portal do Azure][portal].
 
 ## <a name="increase-a-quota"></a>Aumentar uma cota
 
-Siga estas etapas para solicitar uma cota aumentam para sua conta de lote ou sua assinatura usando o [portal do Azure][portal]. O tipo de aumento de cota depende do modo de alocação de pool de sua conta do lote. Para solicitar um aumento de cota, você deve incluir a série VM para a a que você gostaria de aumentar a cota. Quando o aumento da cota é aplicado, ele é aplicado a todas as séries de VMs.
+Siga estas etapas para solicitar uma cota aumentam para sua conta de lote ou sua assinatura usando o [portal do Azure][portal]. O tipo de aumento de cota depende do modo de alocação de pool de sua conta do lote. Para solicitar um aumento de cota, você deve incluir a série de VMs para a qual deseja aumentar a cota. Quando o aumento da cota é aplicado, ele é aplicado a todas as séries de VMs.
 
-### <a name="increase-cores-quota-in-batch"></a>Aumentar a cota de núcleos em Lote 
+### <a name="increase-cores-quota-in-batch"></a>Aumentar a cota de núcleos no lote 
 
 1. Selecione o bloco **Ajuda + suporte** no painel do portal ou o ponto de interrogação (**?**) no canto superior direito do portal.
-1. Selecione **Novo pedido de** > suporte**Básico**.
+1. Selecione **nova solicitação** > de suporte**básico**.
 1. Em **Noções básicas**:
    
-    a. **Issue Type** > Serviço de tipo**de emissão e limites de assinatura (cotas)**
+    a. **Issue Type** > **Serviço do tipo de problema e limites de assinatura (cotas)**
    
     b. Selecione sua assinatura.
    
-    c. **Quota type** > **Lote** tipo cota
+    c. **Tipo de cota** > **em lote**
       
     Selecione **Avançar**.
     
 1. Em **Detalhes**:
       
-    a. Em **Fornecer detalhes,** especifique o local, o tipo de cota e a conta do lote.
+    a. Em **fornecer detalhes**, especifique o local, o tipo de cota e a conta do lote.
     
-    ![Aumento da cota de lotes][quota_increase]
+    ![Aumento da cota de lote][quota_increase]
 
-    Os tipos de cotas incluem:
+    Os tipos de cota incluem:
 
-    * **Por conta de lote**  
-        Valores específicos para uma única conta em lote, incluindo núcleos dedicados e de baixa prioridade, e número de empregos e pools.
+    * **Por conta do lote**  
+        Valores específicos de uma única conta do lote, incluindo núcleos dedicados e de baixa prioridade, e o número de trabalhos e pools.
         
     * **Por região**  
-        Valores que se aplicam a todas as contas batch em uma região e inclui o número de contas em lote por região por assinatura.
+        Valores que se aplicam a todas as contas do lote em uma região e incluem o número de contas do lote por região por assinatura.
 
-    Cota de baixa prioridade é um único valor em todas as séries de VM. Se você precisar de SKUs restritos, você deve selecionar **núcleos de baixa prioridade** e incluir as famílias de VM para solicitar.
+    A cota de baixa prioridade é um único valor em todas as séries da VM. Se você precisar de SKUs restritos, deverá selecionar **núcleos de baixa prioridade** e incluir as famílias de VMs a serem solicitadas.
 
     b. Selecione uma **Gravidade** de acordo com o [impacto nos negócios][support_sev].
 
@@ -127,9 +117,9 @@ Siga estas etapas para solicitar uma cota aumentam para sua conta de lote ou sua
    
     b. Verifique e insira os detalhes de contato necessários.
    
-    Selecione **Criar** para enviar a solicitação de suporte.
+    Selecione **criar** para enviar a solicitação de suporte.
 
-Depois que a solicitação de suporte foi enviada, o suporte do Azure entrará em contato com você. As solicitações de cotas podem ser concluídas em poucos minutos ou até dois dias úteis.
+Depois que a solicitação de suporte foi enviada, o suporte do Azure entrará em contato com você. As solicitações de cota podem ser concluídas em alguns minutos ou até dois dias úteis.
 
 ## <a name="related-quotas-for-vm-pools"></a>Cotas relacionadas para pools VM
 
@@ -143,7 +133,7 @@ Esses recursos são alocados na assinatura que contém a rede virtual fornecida 
 
 
 ## <a name="related-topics"></a>Tópicos relacionados
-* [Crie uma conta do Azure Batch usando o portal Azure](batch-account-create-portal.md)
+* [Criar uma conta do lote do Azure usando o portal do Azure](batch-account-create-portal.md)
 * [Visão geral dos recursos do Lote do Azure](batch-api-basics.md)
 * [Assinatura do Azure e limite de serviços, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md)
 

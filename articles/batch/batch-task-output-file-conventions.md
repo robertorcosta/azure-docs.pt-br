@@ -1,25 +1,15 @@
 ---
-title: Persista dados de saída para o Armazenamento Azure com biblioteca .NET File Conventions - Azure Batch
-description: Aprenda a usar a biblioteca Azure Batch File Conventions para .NET persistir A tarefa em lote & saída de trabalho para o Azure Storage e visualize essa saída no portal Azure.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
-ms.service: batch
+title: Manter dados de saída no armazenamento do Azure com a biblioteca de convenções de arquivo .NET-lote do Azure
+description: Saiba como usar a biblioteca de convenções de arquivo do lote do Azure para .NET para manter a tarefa em lotes & saída de trabalho para o armazenamento do Azure e exibir essa saída no portal do Azure.
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e331dcfc9acf7a5e8a83be788b566cf92eaeb8f4
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: e835b4e4ace344de65bc5d037b99afdf811ed4bb
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548041"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116427"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Persistir dados de tarefa e trabalho no Armazenamento do Microsoft Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET
 
@@ -68,7 +58,7 @@ Para manter os dados de saída de trabalho e tarefa com a biblioteca Convençõe
 Para obter mais informações sobre como trabalhar com contêineres e blobs no Armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!WARNING]
-> Todas as saídas de trabalho e tarefa mantidas com a biblioteca Convenções de Arquivo são armazenadas no mesmo contêiner. Se um grande número de tarefas tentar persistir arquivos ao mesmo tempo, os limites de estrangulamento do Azure Storage podem ser aplicados. Para obter mais informações sobre limites de estrangulamento, consulte [Lista de verificação de desempenho e escalabilidade para armazenamento Blob](../storage/blobs/storage-performance-checklist.md).
+> Todas as saídas de trabalho e tarefa mantidas com a biblioteca Convenções de Arquivo são armazenadas no mesmo contêiner. Se um grande número de tarefas tentar persistir arquivos ao mesmo tempo, os limites de limitação de armazenamento do Azure poderão ser aplicados. Para obter mais informações sobre limites de limitação, consulte [lista de verificação de desempenho e escalabilidade para armazenamento de BLOBs](../storage/blobs/storage-performance-checklist.md).
 
 ### <a name="create-storage-container"></a>Criar um contêiner de armazenamento
 
@@ -109,7 +99,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-O parâmetro `kind` do método [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) categoriza os arquivos mantidos. Existem quatro tipos predefinidos `TaskOutput` `TaskPreview`de `TaskLog` [TaskOutputKind:][net_taskoutputkind] , , e `TaskIntermediate.` você também pode definir categorias personalizadas de saída.
+O parâmetro `kind` do método [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) categoriza os arquivos mantidos. Há quatro tipos de [TaskOutputKind][net_taskoutputkind] predefinidos `TaskPreview`: `TaskLog` `TaskOutput`,, `TaskIntermediate.` e você também pode definir categorias personalizadas de saída.
 
 Esses tipos de saída permitem que você especifique qual tipo de saídas listar ao consultar posteriormente o Lote para obter as saídas persistentes de determinada tarefa. Em outras palavras, ao listar as saídas de uma tarefa, você pode filtrar a lista em um dos tipos de saída. Por exemplo, "Forneça a saída de *visualização* da tarefa *109*". Mais informações sobre listagem e recuperação de saídas estão disponíveis em Recuperar saída mais adiante no artigo.
 
@@ -166,7 +156,7 @@ A seção comentada `Code to process data and produce output file(s)` é um espa
 O agente do nó é um programa executado em cada nó no pool e fornece a interface de comando e controle entre o nó e o serviço do Lote. A chamada `Task.Delay` é necessária no final deste bloco `using` para garantir que o agente do nó tenha tempo para liberar o conteúdo do padrão que sai para o arquivo stdout.txt no nó. Sem esse atraso, é possível ignorar os últimos segundos de saída. Esse atraso pode não ser necessário para todos os arquivos.
 
 > [!NOTE]
-> Quando você habilita o rastreamento de arquivos com **saveTrackedAsync,** apenas os *anexos* do arquivo rastreado são persistidos no Armazenamento Azure. Use esse método somente para acompanhar arquivos de log não rotativos ou outros arquivos que são gravados com operações de acréscimo ao final do arquivo.
+> Quando você habilita o rastreamento de arquivos com o **SaveTrackedAsync**, apenas *anexações* ao arquivo rastreado são persistidas no armazenamento do Azure. Use esse método somente para acompanhar arquivos de log não rotativos ou outros arquivos que são gravados com operações de acréscimo ao final do arquivo.
 
 ## <a name="retrieve-output-data"></a>Recuperar dados de saída
 
@@ -197,7 +187,7 @@ O portal do Azure exibe os arquivos de saída de tarefa e os logs que são manti
 Para habilitar a exibição de seus arquivos de saída no portal, você deve atender aos seguintes requisitos:
 
 1. Vincular uma conta do Armazenamento do Azure à sua conta do Lote.
-1. Seguir as convenções de nomenclatura predefinidas para os arquivos e contêineres de Armazenamento ao persistir saídas. Você pode encontrar a definição dessas convenções na biblioteca de Convenções de Arquivos [README][github_file_conventions_readme]. Se você usar a biblioteca [Convenções de Arquivo em Lote do Azure][nuget_package] para manter sua saída, seus arquivos serão mantidos de acordo com o padrão de Convenções de Arquivo.
+1. Seguir as convenções de nomenclatura predefinidas para os arquivos e contêineres de Armazenamento ao persistir saídas. Você pode encontrar a definição dessas convenções na biblioteca de convenções de arquivo [Leiame][github_file_conventions_readme]. Se você usar a biblioteca [Convenções de Arquivo em Lote do Azure][nuget_package] para manter sua saída, seus arquivos serão mantidos de acordo com o padrão de Convenções de Arquivo.
 
 Para exibir logs e arquivos de saída de tarefa no portal do Azure, navegue até a tarefa em cuja saída você está interessado e clique em **Arquivos de saída salvos** ou **Logs salvos**. Esta imagem mostra os **Arquivos de saída salvos** para a tarefa com a ID "007":
 
@@ -252,4 +242,4 @@ O [código-fonte][github_file_conventions] para a biblioteca Convenções de Arq
 [storage_explorer]: https://storageexplorer.com/
 
 [1]: ./media/batch-task-output/task-output-01.png "Arquivos de saída salvos e seletores de logs salvos no portal"
-[2]: ./media/batch-task-output/task-output-02.png "Lâmina de saídas de tarefas no portal Azure"
+[2]: ./media/batch-task-output/task-output-02.png "Folha de saídas de tarefa no portal do Azure"

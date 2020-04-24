@@ -1,54 +1,57 @@
 ---
 title: Conectores de Aplicativos Lógicos do Azure
-description: Automatize fluxos de trabalho com conectores para aplicativos azure logic, como conectores integrados, gerenciados, on-premises, conta de integração, ISE e conectores corporativos
+description: Automatizar fluxos de trabalho com conectores para aplicativos lógicos do Azure, como o interno, gerenciado, local, conta de integração, ISE e conectores empresariais
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/05/2020
-ms.openlocfilehash: 3010f3c99a5b214c2503f890321cbb73427e3c20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/24/2020
+ms.openlocfilehash: 9723fc3ab68785c6e444647f427fcf9788792cea
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247326"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115679"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores de Aplicativos Lógicos do Azure
 
 Os conectores fornecem acesso rápido do Aplicativos Lógicos do Azure a eventos, dados e ações entre outros aplicativos, serviços, sistemas, protocolos e plataformas. Ao usar conectores em seus aplicativos lógicos, você expande os recursos para seus aplicativos na nuvem e locais para executar tarefas com os dados que você cria e já tem.
 
-Embora o Logic Apps ofereça [centenas de conectores,](https://docs.microsoft.com/connectors)este artigo descreve os conectores *populares e mais comumente usados* que são usados com sucesso por milhares de aplicativos e milhões de execuções para processar dados e informações. Para encontrar a lista completa de conectores e as informações de referência de cada conector, como gatilhos, ações e limites, revise as páginas de referência do conector [visão geral do Connectors](https://docs.microsoft.com/connectors). Além disso, saiba mais sobre [gatilhos e ações,](#triggers-actions) [modelo de preços da Logic Apps](../logic-apps/logic-apps-pricing.md)e [detalhes de preços da Logic Apps.](https://azure.microsoft.com/pricing/details/logic-apps/)
+Embora os aplicativos lógicos ofereçam [centenas de conectores](https://docs.microsoft.com/connectors), este artigo descreve os *mais populares e mais usados* conectores que são usados com êxito por milhares de aplicativos e milhões de execuções para processamento de dados e informações. Para localizar a lista completa de conectores e as informações de referência de cada conector, como gatilhos, ações e limites, examine as páginas de referência do conector em [conectores visão geral](https://docs.microsoft.com/connectors). Além disso, saiba mais sobre [gatilhos e ações](#triggers-actions), [modelo de preços de aplicativos lógicos](../logic-apps/logic-apps-pricing.md)e detalhes de preços de [aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 > [!TIP]
-> Para se integrar a um serviço ou API que não tenha conector, você pode ligar diretamente para o serviço por um protocolo como HTTP ou criar um [conector personalizado](#custom).
+> Para integrar com um serviço ou uma API que não tem conector, você pode chamar diretamente o serviço por meio de um protocolo como HTTP ou criar um [conector personalizado](#custom).
 
-## <a name="connector-types"></a>Tipos de conectores
+## <a name="connector-types"></a>Tipos de conector
 
-Os conectores estão disponíveis como gatilhos e ações incorporados ou como conectores gerenciados.
+Os conectores estão disponíveis como gatilhos e ações internas ou como conectores gerenciados.
 
 <a name="built-in"></a>
 
-* [**Integrado**](#built-ins): Gatilhos e ações incorporados são "nativos" dos aplicativos azure logic e ajudam você a executar essas tarefas para seus aplicativos lógicos:
+* [**Interno**](#built-ins): gatilhos internos e ações são "nativos" para aplicativos lógicos do Azure e ajudam a executar essas tarefas para seus aplicativos lógicos:
 
-  * Execute em horários personalizados e avançados.
+  * Executar em agendas personalizadas e avançadas.
 
-  * Organize e controle o fluxo de trabalho do seu aplicativo lógico, por exemplo, loops e condições, e também para trabalhar com variáveis e operações de dados.
+  * Organize e controle o fluxo de trabalho de seu aplicativo lógico, por exemplo, loops e condições, e também para trabalhar com variáveis e operações de dados.
 
-  * Comunique-se com outros pontos finais.
+  * Comunique-se com outros pontos de extremidade.
 
-  * Receba e responda às solicitações.
+  * Receber e responder a solicitações.
 
-  * Ligue para as funções do Azure, Azure API Apps (Web Apps), suas próprias APIs gerenciadas e publicadas com o Azure API Management e aplicativos de lógica aninhadas que podem receber solicitações.
+  * Chame o Azure functions, aplicativos de API do Azure (aplicativos Web), suas próprias APIs gerenciadas e publicadas com o gerenciamento de API do Azure e aplicativos lógicos aninhados que podem receber solicitações.
 
 <a name="managed-connectors"></a>
 
-* [**Conectores gerenciados**](#managed-api-connectors): Implantados e gerenciados pela Microsoft, esses conectores fornecem gatilhos e ações para acessar serviços de nuvem, sistemas locais ou ambos, incluindo Office 365, Azure Blob Storage, SQL Server, Dynamics, Salesforce, SharePoint e muito mais. Alguns conectores suportam especificamente cenários de comunicação business-to-business (B2B) e exigem uma conta de [integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) vinculada ao seu aplicativo lógico. Antes de usar certos conectores, você pode ter que primeiro criar conexões, que são gerenciadas pelo Azure Logic Apps.
+* [**Conectores gerenciados**](#managed-api-connectors): implantados e gerenciados pela Microsoft, esses conectores fornecem gatilhos e ações para acessar serviços de nuvem, sistemas locais ou ambos, incluindo o Office 365, o armazenamento de BLOBs do Azure, o SQL Server, o Dynamics, o Salesforce, o SharePoint e muito mais. Alguns conectores especificamente dão suporte a cenários de comunicação entre empresas (B2B) e exigem uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) vinculada ao seu aplicativo lógico. Antes de usar determinados conectores, talvez você precise primeiro criar conexões, que são gerenciadas pelos aplicativos lógicos do Azure.
 
-  Por exemplo, se você estiver usando o Microsoft BizTalk Server, seus aplicativos lógicos podem se conectar e se comunicar com o BizTalk Server usando o [conector local biztalk server](#on-premises-connectors). Você pode, então, estender ou executar operações semelhantes ao BizTalk em seus aplicativos lógicos usando os [conectores de conta de integração](#integration-account-connectors).
+  Por exemplo, se você estiver usando o Microsoft BizTalk Server, seus aplicativos lógicos poderão se conectar e se comunicar com seus BizTalk Server usando o [BizTalk Server on-premises Connector](#on-premises-connectors). Você pode, então, estender ou executar operações semelhantes ao BizTalk em seus aplicativos lógicos usando os [conectores de conta de integração](#integration-account-connectors).
 
-  Os conectores são classificados como Padrão ou Enterprise. [Os conectores corporativos](#enterprise-connectors) fornecem acesso a sistemas corporativos como SAP, IBM MQ e IBM 3270 por um custo adicional. Para determinar se um conector é Padrão ou Enterprise, consulte os detalhes técnicos na página de referência de cada conector [visão geral do Connectors](https://docs.microsoft.com/connectors).
+  Os conectores são classificados como Standard ou Enterprise. [Conectores corporativos](#enterprise-connectors) fornecem acesso a sistemas corporativos como SAP, IBM MQ e IBM 3270 por um custo adicional. Para determinar se um conector é Standard ou Enterprise, consulte a página de referência detalhes técnicos em cada conector em [conectores visão geral](https://docs.microsoft.com/connectors).
 
-  Você também pode identificar conectores usando essas categorias, embora alguns conectores possam cruzar várias categorias. Por exemplo, o SAP é um conector Enterprise e um conector no local:
+  > [!IMPORTANT]
+  > A partir de **1º de maio de 2020**, as alterações feitas pelo Google em suas [políticas de segurança e privacidade de dados](https://www.blog.google/technology/safety-security/project-strobe/) podem afetar os aplicativos lógicos que usam o conector do [gmail](https://docs.microsoft.com/connectors/gmail/). Se seus aplicativos lógicos usam o conector do Gmail com uma conta de consumidor do gmail (endereço @gmail.com de @googlemail.comemail que termina com ou), seus aplicativos lógicos podem usar somente gatilhos, ações e conectores aprovados pelo Google. A partir de **15 de junho de 2020**, qualquer fluxo de trabalho não compatível será desabilitado. Para obter mais informações, consulte [políticas de segurança e privacidade de dados para o Google Connectors em aplicativos lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+
+  Você também pode identificar conectores usando essas categorias, embora alguns conectores possam cruzar várias categorias. Por exemplo, o SAP é um conector corporativo e um conector local:
 
   |   |   |
   |---|---|
@@ -59,145 +62,145 @@ Os conectores estão disponíveis como gatilhos e ações incorporados ou como c
 
 <a name="integration-service-environment"></a>
 
-### <a name="connect-from-an-integration-service-environment"></a>Conecte-se a partir de um ambiente de serviço de integração
+### <a name="connect-from-an-integration-service-environment"></a>Conectar-se de um ambiente do serviço de integração
 
-Para aplicativos lógicos que precisam de acesso direto aos recursos em uma rede virtual do Azure, você pode criar um ambiente de serviço de integração isolado [(ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) onde você pode construir, implantar e executar seus aplicativos lógicos em recursos dedicados. No Logic App Designer, quando você navega pelos conectores que deseja usar para aplicativos lógicos em um ISE, um rótulo **CORE** aparece em gatilhos e ações incorporados, enquanto o rótulo **ISE** aparece em alguns conectores:
+Para aplicativos lógicos que precisam de acesso direto a recursos em uma rede virtual do Azure, você pode criar um [ISE (ambiente do serviço de integração)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) isolado no qual você pode criar, implantar e executar seus aplicativos lógicos em recursos dedicados. No designer do aplicativo lógico, quando você procura os conectores que deseja usar para aplicativos lógicos em um ISE, um rótulo **principal** aparece em gatilhos e ações internas, enquanto o rótulo do **ISE** aparece em alguns conectores:
 
-* **CORE**: Gatilhos e ações incorporados com este rótulo executados na mesma ISE que seus aplicativos lógicos, por exemplo:
+* **Núcleo**: gatilhos e ações internos com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos, por exemplo:
 
-  ![Conector ISE exemplo](./media/apis-list/example-core-connector.png)
+  ![Conector do ISE de exemplo](./media/apis-list/example-core-connector.png)
 
-* **ISE**: Conectores gerenciados com este rótulo são executados na mesma ISE que seus aplicativos lógicos, por exemplo:
+* **ISE**: conectores gerenciados com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos, por exemplo:
 
-  ![Conector ISE exemplo](./media/apis-list/example-ise-connector.png)
+  ![Conector do ISE de exemplo](./media/apis-list/example-ise-connector.png)
 
-  Se você tem um sistema local conectado a uma rede virtual Do Zure, um ISE permite que seus aplicativos lógicos acessem diretamente esse sistema sem o [gateway de dados no local](../logic-apps/logic-apps-gateway-connection.md). Em vez disso, você pode usar o conector **ISE** desse sistema se disponível, uma ação HTTP ou um [conector personalizado](#custom). Para sistemas locais que não possuem conectores **ISE,** use gateway de dados no local. Para revisar os conectores ISE disponíveis, consulte [os conectores ISE](#ise-connectors).
+  Se você tiver um sistema local conectado a uma rede virtual do Azure, um ISE permitirá que seus aplicativos lógicos acessem diretamente esse sistema sem o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Em vez disso, você pode usar o conector do **ISE** do sistema, se disponível, uma ação http ou um [conector personalizado](#custom). Para sistemas locais que não têm conectores do **ISE** , use o gateway de dados local. Para examinar os conectores do ISE disponíveis, consulte [conectores do ISE](#ise-connectors).
 
-* Todos os outros conectores sem o rótulo **CORE** ou **ISE,** que você pode continuar a usar, executados no serviço global de aplicativos lógicos multilocatários, por exemplo:
+* Todos os outros conectores sem o rótulo **principal** ou **ISE** , que você pode continuar a usar, são executados no serviço de aplicativos lógicos multilocatários globais, por exemplo:
 
-  ![Exemplo conector multi-inquilino](./media/apis-list/example-multi-tenant-connector.png)
+  ![Conector de vários locatários de exemplo](./media/apis-list/example-multi-tenant-connector.png)
 
-Os aplicativos lógicos que são executados em um ISE e seus conectores, independentemente de onde esses conectores são executados, seguem um plano de preços fixos em comparação com o plano de preços baseado no consumo. Para obter mais informações, consulte estas páginas:
+Os aplicativos lógicos que são executados em um ISE e seus conectores, independentemente de onde esses conectores são executados, seguem um plano de preços fixo versus o plano de preços baseado em consumo. Para obter mais informações, consulte estas páginas:
 
 * [Modelo de preços de Aplicativos Lógicos](../logic-apps/logic-apps-pricing.md)
-* [Detalhes de preços da Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/)
+* [Detalhes de preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/)
 * [Conectar-se a redes virtuais do Azure dos Aplicativos Lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 
 <a name="built-ins"></a>
 
 ## <a name="built-in"></a>Interno
 
-O Logic Apps fornece gatilhos e ações incorporadas para que você possa criar fluxos de trabalho baseados em horários, ajudar seus aplicativos de lógica a se comunicar com outros aplicativos e serviços, controlar o fluxo de trabalho através de seus aplicativos lógicos e gerenciar ou manipular dados.
+Os aplicativos lógicos fornecem gatilhos e ações internas para que você possa criar fluxos de trabalho baseados em agendamento, ajudar seus aplicativos lógicos a se comunicar com outros aplicativos e serviços, controlar o fluxo de trabalho por meio de seus aplicativos lógicos e gerenciar ou manipular dados.
 
 |   |   |   |   |
 |---|---|---|---|
-| [![Programação de][schedule-icon]<br>ícones de**API**][schedule-doc] | - Execute um aplicativo lógico em uma recorrência especificada, que vai desde horários básicos até horários avançados com o gatilho [ **Recorrência** ][schedule-recurrence-doc]. <p>- Execute um aplicativo lógico que precisa lidar com dados em blocos contínuos com o [ **gatilho da janela deslizante** ][schedule-sliding-window-doc]. <p>- Pause seu aplicativo lógico por uma duração especificada com a ação [ **Delay** ][schedule-delay-doc]. <p>- Pause seu aplicativo lógico até a data e hora especificadas com o [ **Atraso até** ][schedule-delay-until-doc]a ação . | [![][batch-icon]<br>**Lote** do ícone de API][batch-doc] | - Processe mensagens em lotes com o gatilho **Mensagens em lote**. <p>- Chame aplicativos lógicos que possuem gatilhos de lote existentes com a ação **Enviar mensagens para lote**. |
-| [![Ícone de][http-icon]<br>API**HTTP**][http-doc] | Ligue para pontos finais HTTP ou HTTPS com gatilhos e ações para HTTP. Outros gatilhos e ações incorporados HTTP incluem [HTTP + Swagger][http-swagger-doc] e HTTP + [Webhook][http-webhook-doc]. | [![][http-request-icon]<br>**Solicitação** de ícone de API][http-request-doc] | - Faça com que seu aplicativo lógico possa ser chamado de outros aplicativos ou serviços, gatilho em eventos de recursos da Grade de Eventos ou gatilho em respostas aos alertas da Central de Segurança do Azure com o gatilho **Solicitar**. <p>- Envie respostas para um aplicativo ou serviço com a ação **Resposta**. |
-| [![API][azure-api-management-icon]<br>icon**Azure <br>API Management**][azure-api-management-doc] | Chame os gatilhos e ações definidos por suas próprias APIs que você gerencia e publica com o Gerenciamento de API do Azure. | [![Ícone da][azure-app-services-icon]<br>API**Azure <br>App Services**][azure-app-services-doc] | Chame Aplicativos de API do Azure ou Aplicativos Web, hospedado no Serviço de Aplicativo do Azure. Os gatilhos e ações definidos por esses aplicativos são exibidos como quaisquer outros gatilhos e ações de primeira classe quando o Swagger é incluído.|
-| [![Ícone da][azure-logic-apps-icon]<br>API**Azure <br>Logic Apps**][nested-logic-app-doc] | Chame outros aplicativos lógicos que começam com o gatilho **Solicitação.** |
+| [![Ícone][schedule-icon]<br>da API**agenda**][schedule-doc] | -Executar um aplicativo lógico em uma recorrência especificada, variando de programação básica para avançada com o gatilho de [ **recorrência** ][schedule-recurrence-doc]. <p>-Executar um aplicativo lógico que precisa manipular dados em partes contínuas com o gatilho de [ **janela deslizante** ][schedule-sliding-window-doc]. <p>-Pause seu aplicativo lógico por uma duração especificada com a [ação de **atraso** ][schedule-delay-doc]. <p>-Pause seu aplicativo lógico até a data e a hora especificadas com a ação de [ **atraso até** ][schedule-delay-until-doc]. | [![Ícone][batch-icon]<br>da API**lote**][batch-doc] | - Processe mensagens em lotes com o gatilho **Mensagens em lote**. <p>- Chame aplicativos lógicos que possuem gatilhos de lote existentes com a ação **Enviar mensagens para lote**. |
+| [![Ícone][http-icon]<br>de API**http**][http-doc] | Chamar pontos de extremidade HTTP ou HTTPS com gatilhos e ações para HTTP. Outros gatilhos internos HTTP e ações incluem [http + Swagger][http-swagger-doc] e [http + webhook][http-webhook-doc]. | [![][http-request-icon]<br>**Solicitação** de ícone de API][http-request-doc] | - Faça com que seu aplicativo lógico possa ser chamado de outros aplicativos ou serviços, gatilho em eventos de recursos da Grade de Eventos ou gatilho em respostas aos alertas da Central de Segurança do Azure com o gatilho **Solicitar**. <p>- Envie respostas para um aplicativo ou serviço com a ação **Resposta**. |
+| [![Ícone][azure-api-management-icon]<br>da API**gerenciamento <br>de API do Azure**][azure-api-management-doc] | Chame os gatilhos e ações definidos por suas próprias APIs que você gerencia e publica com o Gerenciamento de API do Azure. | [![Ícone][azure-app-services-icon]<br>de API**Azure app <br>serviços**][azure-app-services-doc] | Chame Aplicativos de API do Azure ou Aplicativos Web, hospedado no Serviço de Aplicativo do Azure. Os gatilhos e ações definidos por esses aplicativos são exibidos como quaisquer outros gatilhos e ações de primeira classe quando o Swagger é incluído.|
+| [![Ícone][azure-logic-apps-icon]<br>da API**aplicativos <br>lógicos do Azure**][nested-logic-app-doc] | Chame outros aplicativos lógicos que comecem com o gatilho de **solicitação** . |
 |||||
 
-### <a name="run-code-from-logic-apps"></a>Executar código a partir de aplicativos lógicos
+### <a name="run-code-from-logic-apps"></a>Executar código de aplicativos lógicos
 
-O Logic Apps fornece ações incorporadas para executar seu próprio código no fluxo de trabalho do seu aplicativo lógico:
+Os aplicativos lógicos fornecem ações internas para executar seu próprio código no fluxo de trabalho do aplicativo lógico:
 
 |   |   |   |   |
 |---|---|---|---|
-| [![Funções][azure-functions-icon]<br>do ícone da API**Azure**][azure-functions-doc] | Chame funções do Azure que executam snippets de códigos personalizados (C# ou Node.js) de seus aplicativos lógicos. | [![Ícone de][inline-code-icon]<br>API**Código inline**][azure-functions-doc] | Adicione e execute trechos de código JavaScript de seus aplicativos lógicos. |
+| [![Ícone][azure-functions-icon]<br>de API**Azure Functions**][azure-functions-doc] | Chame funções do Azure que executam snippets de códigos personalizados (C# ou Node.js) de seus aplicativos lógicos. | [![Ícone][inline-code-icon]<br>da API**código embutido**][azure-functions-doc] | Adicione e execute trechos de código JavaScript de seus aplicativos lógicos. |
 |||||
 
 ### <a name="control-workflow"></a>Controlar o fluxo de trabalho
 
-O Logic Apps fornece ações incorporadas para estruturar e controlar as ações no fluxo de trabalho do seu aplicativo lógico:
+Os aplicativos lógicos fornecem ações internas para estruturar e controlar as ações no fluxo de trabalho do aplicativo lógico:
 
 |   |   |   |   |
 |---|---|---|---|
-| [![Condição de][condition-icon]<br>ícone**incorporado**][condition-doc] | Avalie uma condição e execute ações diferentes com base em se a condição é verdadeira ou falsa. | [![Ícone][for-each-icon]<br>incorporado**para cada**][for-each-doc] | Execute as mesmas ações em cada item em uma matriz. |
-| [![][scope-icon]<br>**Escopo** de ícone incorporado][scope-doc] | Agrupe ações em *Escopos*, que obtém seus próprios status após as ações no escopo concluírem a execução. | [![][switch-icon]<br>**Interruptor** de ícone incorporado][switch-doc] | Agrupe ações em *Casos*, que recebem valores exclusivos, exceto para o caso padrão. Execute somente esse caso cujo valor atribuído coincide com o resultado de uma expressão, objeto ou token. Se nenhuma correspondência existir, execute o caso padrão. |
-| [![Ícone incorporado][terminate-icon]<br>**terminar**][terminate-doc] | Pare um fluxo de trabalho de aplicativo lógico ativamente em execução. | [![Ícone incorporado][until-icon]<br>**até**][until-doc] | Repita ações até que a condição especificada seja verdadeira ou algum estado seja alterado. |
+| [![][condition-icon]<br>**Condição** de ícone interno][condition-doc] | Avalie uma condição e execute ações diferentes com base em se a condição é verdadeira ou falsa. | [![Ícone][for-each-icon]<br>interno**para cada**][for-each-doc] | Execute as mesmas ações em cada item em uma matriz. |
+| [![][scope-icon]<br>**Escopo** de ícone interno][scope-doc] | Agrupe ações em *Escopos*, que obtém seus próprios status após as ações no escopo concluírem a execução. | [![][switch-icon]<br>**Opção** de ícone interno][switch-doc] | Agrupe ações em *Casos*, que recebem valores exclusivos, exceto para o caso padrão. Execute somente esse caso cujo valor atribuído coincide com o resultado de uma expressão, objeto ou token. Se nenhuma correspondência existir, execute o caso padrão. |
+| [![][terminate-icon]<br>**Término** do ícone interno][terminate-doc] | Pare um fluxo de trabalho de aplicativo lógico ativamente em execução. | [![Ícone][until-icon]<br>interno**até**][until-doc] | Repita ações até que a condição especificada seja verdadeira ou algum estado seja alterado. |
 |||||
 
 ### <a name="manage-or-manipulate-data"></a>Gerenciar ou manipular dados
 
-Logic Apps fornece ações incorporadas para trabalhar com saídas de dados e seus formatos:
+Os aplicativos lógicos fornecem ações internas para trabalhar com saídas de dados e seus formatos:
 
 |   |   |
 |---|---|
-| [![Operações de][data-operations-icon]<br>dados de**ícones incorporadas**][data-operations-doc] | Execute operações com dados: <p>- **Compor**: crie uma única saída de várias entradas com vários tipos. <br>- **Criar tabela CSV**: crie uma tabela CSV (separada por valores vírgula) de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: crie uma tabela HTML de uma matriz com objetos JSON. <br>- **Matriz de filtro**: crie uma matriz de itens na outra matriz que atendem aos seus critérios. <br>- **Juntar-se**: crie uma cadeia de caracteres de todos os itens em uma matriz e separe esses itens com o delimitador especificado. <br>- **Parse JSON**: Crie tokens fáceis de usar a partir de propriedades e seus valores no conteúdo JSON para que você possa usar essas propriedades em seu fluxo de trabalho. <br>- **Selecionar**: crie uma matriz com objetos JSON transformando itens ou valores em outra matriz e mapeando esses itens para propriedades especificadas. |
+| [![][data-operations-icon]<br>**Operações de dados** de ícone interno][data-operations-doc] | Execute operações com dados: <p>- **Compor**: crie uma única saída de várias entradas com vários tipos. <br>- **Criar tabela CSV**: crie uma tabela CSV (separada por valores vírgula) de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: crie uma tabela HTML de uma matriz com objetos JSON. <br>- **Matriz de filtro**: crie uma matriz de itens na outra matriz que atendem aos seus critérios. <br>- **Juntar-se**: crie uma cadeia de caracteres de todos os itens em uma matriz e separe esses itens com o delimitador especificado. <br>- **Analisar JSON**: Crie tokens amigáveis de propriedades e seus valores no conteúdo JSON para que você possa usar essas propriedades em seu fluxo de trabalho. <br>- **Selecionar**: crie uma matriz com objetos JSON transformando itens ou valores em outra matriz e mapeando esses itens para propriedades especificadas. |
 | ![Ícone Interno][date-time-icon]<br>**Data/Hora** | Execute operações com carimbos de data/hora: <p>- **Adicionar horário**: adicionar número especificado de unidades a um carimbo de data/hora. <br>- **Converter fuso horário**: converter um carimbo de data/hora do fuso horário de origem para o fuso horário de destino. <br>- **Horário atual**: retornar o carimbo de data/hora atual como uma cadeia de caracteres. <br>- **Obter horário futuro**: retornar o carimbo de data/hora atual mais as unidades de tempo especificadas. <br>- **Obter horário passado**: retornar o carimbo de data/hora atual menos as unidades de tempo especificadas. <br>- **Subtrair de horário**: subtrair um número de unidades de tempo de um carimbo de data/hora. |
-| [![Variáveis de][variables-icon]<br>ícone**incorporadas**][variables-doc] | Execute operações com variáveis: <p>- **Acrescentar à variável de matriz**: inserir um valor como o último item em uma matriz armazenada por uma variável. <br>- **Acrescentar à variável de matriz**: inserir um valor como o último caractere em uma cadeia de caracteres armazenada por uma variável. <br>- **Diminuir variável**: diminuir uma variável em um valor constante. <br>- **Incrementar variável**: aumentar uma variável em um valor constante. <br>- **Inicializar variável**: criar uma variável e declarar seu tipo de dados e o valor inicial. <br>- **Definir a variável**: atribuir um valor diferente em uma variável existente. |
+| [![][variables-icon]<br>**Variáveis** de ícone internas][variables-doc] | Execute operações com variáveis: <p>- **Acrescentar à variável de matriz**: inserir um valor como o último item em uma matriz armazenada por uma variável. <br>- **Acrescentar à variável de matriz**: inserir um valor como o último caractere em uma cadeia de caracteres armazenada por uma variável. <br>- **Diminuir variável**: diminuir uma variável em um valor constante. <br>- **Incrementar variável**: aumentar uma variável em um valor constante. <br>- **Inicializar variável**: criar uma variável e declarar seu tipo de dados e o valor inicial. <br>- **Definir a variável**: atribuir um valor diferente em uma variável existente. |
 |  |  |
 
 <a name="managed-api-connectors"></a>
 
 ## <a name="managed-connectors"></a>Conectores gerenciados
 
-O Logic Apps fornece esses conectores Padrão populares para automatizar tarefas, processos e fluxos de trabalho com esses serviços ou sistemas:
+Os aplicativos lógicos fornecem esses conectores padrão populares para automatizar tarefas, processos e fluxos de trabalho com esses serviços ou sistemas:
 
 |   |   |   |   |
 |---|---|---|---|
-| [![][azure-service-bus-icon]<br>**Ônibus de serviço azure** ícone da API][azure-service-bus-doc] | Gerencie mensagens assíncronas, sessões e assinaturas de tópico com o conector mais comumente usado em Aplicativos Lógicos. | [![Ícone de][sql-server-icon]<br>API**SQL Server**][sql-server-doc] | Conecte-se ao seu SQL Server no local ou a um banco de dados SQL do Azure na nuvem para que você possa gerenciar registros, executar procedimentos armazenados ou realizar consultas. |
-| [![Ícone da][azure-blob-storage-icon]<br>API**Azure<br>Blob Storage**][azure-blob-storage-doc] | Conecte-se à sua conta de armazenamento para que você possa criar e gerenciar conteúdo blob. | [![Ícone da][office-365-outlook-icon]<br>API**Office 365<br>Outlook**][office-365-outlook-doc] | Conecte-se à sua conta de e-mail do Office 365 para que você possa criar e gerenciar e-mails, tarefas, eventos e reuniões de calendário, contatos, solicitações e muito mais. |
-| [![Ícone de][sftp-ssh-icon]<br>API**SFTP-SSH**][sftp-ssh-doc] | Conecte-se aos servidores SFTP que você pode acessar a partir da internet usando SSH para que você possa trabalhar com seus arquivos e pastas. | [![Ícone da][sharepoint-online-icon]<br>API**SharePoint<br>Online**][sharepoint-online-doc] | Conecte-se ao SharePoint Online para que você possa gerenciar arquivos, anexos, pastas e muito mais. | 
-| [![Ícone da][dynamics-365-icon]<br>API**Dynamics 365<br> **][dynamics-365-doc] | Conecte-se à sua conta Dynamics 365 para que você possa criar e gerenciar registros, itens e muito mais. | [![API][azure-queues-icon]<br>ícone**Azure <br>Filas**][azure-queues-doc] | Conecte-se à sua conta de armazenamento do Azure para que você possa criar e gerenciar filas e mensagens |
-| [![Ícone de][ftp-icon]<br>API**FTP**][ftp-doc] | Conecte-se aos servidores FTP que você pode acessar a partir da internet para que você possa trabalhar com seus arquivos e pastas. | [![][file-system-icon]<br>**Sistema de <br>arquivos** do ícone da API][file-system-doc] | Conecte-se ao seu compartilhamento de arquivos no local para que você possa criar e gerenciar arquivos. |
-| [![Ícone da][azure-event-hubs-icon]<br>API,**a Azure Event Hubs**][azure-event-hubs-doc] | Como consumir e publicar eventos por meio de um Hub de Eventos. Por exemplo, obtenha uma saída do seu aplicativo lógico com os Hubs de Eventos e, em seguida, envie essa saída para um provedor de análise em tempo real. | [![Ícone da][azure-event-grid-icon]<br>API**Azure Event**<br>**Grid**][azure-event-grid-doc] | Monitore eventos publicados por uma grade de eventos, por exemplo, quando recursos do Azure ou recursos de terceiros são alterados. |
-| [![Ícone de][salesforce-icon]<br>API**Salesforce**][salesforce-doc] | Conecte-se à sua conta salesforce para que você possa criar e gerenciar itens como registros, empregos, objetos e muito mais. | [![Ícone da][twitter-icon]<br>API**Twitter**][twitter-doc] | Conecte-se à sua conta do Twitter para que você possa gerenciar tweets, seguidores, sua linha do tempo e muito mais. Salve seus tweets em SQL, o Excel ou SharePoint. |
+| [![Ícone][azure-service-bus-icon]<br>da API**barramento de serviço do Azure**][azure-service-bus-doc] | Gerencie mensagens assíncronas, sessões e assinaturas de tópico com o conector mais comumente usado em Aplicativos Lógicos. | [![Ícone][sql-server-icon]<br>de API**SQL Server**][sql-server-doc] | Conecte-se ao seu SQL Server local ou a um banco de dados SQL do Azure na nuvem para que você possa gerenciar registros, executar procedimentos armazenados ou executar consultas. |
+| [![Ícone][azure-blob-storage-icon]<br>da API**armazenamento<br>de BLOBs do Azure**][azure-blob-storage-doc] | Conecte-se à sua conta de armazenamento para que você possa criar e gerenciar conteúdo de BLOB. | [![Ícone][office-365-outlook-icon]<br>da API**Office<br>365 Outlook**][office-365-outlook-doc] | Conecte-se à sua conta de email do Office 365 para que você possa criar e gerenciar emails, tarefas, eventos de calendário e reuniões, contatos, solicitações e muito mais. |
+| [![Ícone][sftp-ssh-icon]<br>**de API SFTP-SSH**][sftp-ssh-doc] | Conecte-se a servidores SFTP que você pode acessar da Internet usando o SSH para que você possa trabalhar com seus arquivos e pastas. | [![Ícone][sharepoint-online-icon]<br>da API**SharePoint<br>online**][sharepoint-online-doc] | Conecte-se ao SharePoint Online para que você possa gerenciar arquivos, anexos, pastas e muito mais. | 
+| [![Ícone][dynamics-365-icon]<br>da API**Dynamics<br> 365**][dynamics-365-doc] | Conecte-se à sua conta do Dynamics 365 para que você possa criar e gerenciar registros, itens e muito mais. | [![Ícone][azure-queues-icon]<br>da API**filas do Azure <br>**][azure-queues-doc] | Conecte-se à sua conta de armazenamento do Azure para que você possa criar e gerenciar filas e mensagens |
+| [![Ícone][ftp-icon]<br>da API**FTP**][ftp-doc] | Conecte-se a servidores FTP que você pode acessar pela Internet para que você possa trabalhar com seus arquivos e pastas. | [![Ícone][file-system-icon]<br>da API**sistema de arquivos <br>**][file-system-doc] | Conecte-se ao seu compartilhamento de arquivos local para que você possa criar e gerenciar arquivos. |
+| [![Ícone][azure-event-hubs-icon]<br>da API**hubs de eventos do Azure**][azure-event-hubs-doc] | Como consumir e publicar eventos por meio de um Hub de Eventos. Por exemplo, obtenha uma saída do seu aplicativo lógico com os Hubs de Eventos e, em seguida, envie essa saída para um provedor de análise em tempo real. | [![Ícone][azure-event-grid-icon]<br>da API<br>**grade** de**eventos do Azure**][azure-event-grid-doc] | Monitore eventos publicados por uma grade de eventos, por exemplo, quando recursos do Azure ou recursos de terceiros são alterados. |
+| [![Ícone][salesforce-icon]<br>da API**Salesforce**][salesforce-doc] | Conecte-se à sua conta do Salesforce para que você possa criar e gerenciar itens como registros, trabalhos, objetos e muito mais. | [![Ícone][twitter-icon]<br>da API**Twitter**][twitter-doc] | Conecte-se à sua conta do Twitter para que você possa gerenciar tweets, seguidores, sua linha do tempo e muito mais. Salve seus tweets em SQL, o Excel ou SharePoint. |
 |||||
 
 <a name="on-premises-connectors"></a>
 
 ## <a name="on-premises-connectors"></a>Conectores locais
 
-Aqui estão alguns conectores Padrão comumente usados que o Logic Apps fornece para acessar dados e recursos em sistemas locais. Antes de criar uma conexão com um sistema local, você deve primeiro [fazer o download, instalar e configurar um gateway de dados local][gateway-doc]. Esse gateway fornece um canal de comunicação seguro sem ter que configurar a infraestrutura de rede necessária.
+Aqui estão alguns conectores padrão comumente usados que os aplicativos lógicos fornecem para acessar dados e recursos em sistemas locais. Antes de criar uma conexão com um sistema local, você deve primeiro [fazer o download, instalar e configurar um gateway de dados local][gateway-doc]. Esse gateway fornece um canal de comunicação seguro sem ter que configurar a infraestrutura de rede necessária.
 
 |   |   |   |   |   |
 |---|---|---|---|---|
-| [![Ícone da][biztalk-server-icon]<br>API**BizTalk** <br> **Server**][biztalk-server-doc] | [![][file-system-icon]<br>**Sistema de <br>arquivos** do ícone da API][file-system-doc] | [![Ícone de][ibm-db2-icon]<br>API**IBM DB2**][ibm-db2-doc] | [![Ícone da][ibm-informix-icon]<br>API**IBM** <br> **Informix**][ibm-informix-doc] | [![Ícone][mysql-icon]<br>de API**MySQL**][mysql-doc] |
-| [![Ícone de][oracle-db-icon]<br>API**Oracle DB**][oracle-db-doc] | [![Ícone da][postgre-sql-icon]<br>API**PostgreSQL**][postgre-sql-doc] | [![Ícone da][sharepoint-server-icon]<br>API,**servidor sharepoint <br>**][sharepoint-server-doc] | [![Ícone de][sql-server-icon]<br>API**SQL <br>Server**][sql-server-doc] | [![Ícone de][teradata-icon]<br>API**Teradata**][teradata-doc] |
+| [![Ícone][biztalk-server-icon]<br>da API**BizTalk** <br> **Server**][biztalk-server-doc] | [![Ícone][file-system-icon]<br>da API**sistema de arquivos <br>**][file-system-doc] | [![Ícone][ibm-db2-icon]<br>da API**IBM DB2**][ibm-db2-doc] | [![Ícone][ibm-informix-icon]<br>da API**IBM** <br> **Informix**][ibm-informix-doc] | [![Ícone][mysql-icon]<br>da API**MySQL**][mysql-doc] |
+| [![Ícone][oracle-db-icon]<br>de API**Oracle DB**][oracle-db-doc] | [![Ícone][postgre-sql-icon]<br>da API**PostgreSQL**][postgre-sql-doc] | [![Ícone][sharepoint-server-icon]<br>da API**SharePoint <br>Server**][sharepoint-server-doc] | [![Ícone][sql-server-icon]<br>da API**SQL <br>Server**][sql-server-doc] | [![Ícone][teradata-icon]<br>da API**Teradata**][teradata-doc] |
 |||||
 
 <a name="integration-account-connectors"></a>
 
 ## <a name="integration-account-connectors"></a>Conectores da conta de integração
 
-A Logic Apps fornece conectores padrão para criar soluções de negócios para negócios (B2B) com seus aplicativos lógicos quando você cria e paga por uma [conta de integração,](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)que está disponível através do Enterprise Integration Pack (EIP) no Azure. Com essa conta, você pode criar e armazenar os artefatos B2B, como parceiros comerciais, contratos, mapas, esquemas, certificados e assim por diante. Para usar esses artefatos, associe seus aplicativos lógicos com sua conta de integração. Se você usa o BizTalk Server atualmente, esses conectores poderão parecer familiares.
+Os aplicativos lógicos fornecem conectores padrão para a criação de Soluções B2B (entre empresas) com seus aplicativos lógicos quando você cria e paga por uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), que está disponível por meio do Enterprise Integration Pack (EIP) no Azure. Com essa conta, você pode criar e armazenar os artefatos B2B, como parceiros comerciais, contratos, mapas, esquemas, certificados e assim por diante. Para usar esses artefatos, associe seus aplicativos lógicos com sua conta de integração. Se você usa o BizTalk Server atualmente, esses conectores poderão parecer familiares.
 
 |   |   |   |   |
 |---|---|---|---|
-| [![Decodificação][as2-icon]<br>do ícone de API**AS2 <br>**][as2-doc] | [![Codificação][as2-icon]<br>do ícone de API**AS2 <br>**][as2-doc] | [![Ícone da][edifact-icon]<br>API,**decodificação <br>EDIFACT**][edifact-decode-doc] | [![Codificação][edifact-icon]<br>do ícone da API**EDIFACT <br>**][edifact-encode-doc] |
-| [![Ícone de][flat-file-decode-icon]<br>API**Decodificação <br>de arquivos planos**][flat-file-decode-doc] | [![Ícone de][flat-file-encode-icon]<br>API**Codificação de arquivos <br>planos**][flat-file-encode-doc] | [![Conta][integration-account-icon]<br>**de <br>integração do** ícone da API][integration-account-doc] | [![Ícone da][liquid-icon]<br>API,**líquido** <br> **transforma**][json-liquid-transform-doc] |
-| [![Ícone de][x12-icon]<br>API**X12 <br>decodificação**][x12-decode-doc] | [![Codificação][x12-icon]<br>do ícone de API**X12 <br>**][x12-encode-doc] | [![Ícone de][xml-transform-icon]<br>API**XML** <br> **transforma**][xml-transform-doc] | [![Validação do][xml-validate-icon]<br>ícone**de API <br>XML**][xml-validate-doc] |  
+| [![Ícone][as2-icon]<br>da API**decodificação de AS2 <br>**][as2-doc] | [![Ícone][as2-icon]<br>da API**codificação AS2 <br>**][as2-doc] | [![Ícone][edifact-icon]<br>da API**decodificação de EDIFACT <br>**][edifact-decode-doc] | [![Ícone][edifact-icon]<br>da API**codificação EDIFACT <br>**][edifact-encode-doc] |
+| [![Ícone][flat-file-decode-icon]<br>da API**decodificação de arquivo <br>simples**][flat-file-decode-doc] | [![Ícone][flat-file-encode-icon]<br>da API**codificação <br>de arquivo simples**][flat-file-encode-doc] | [![Ícone][integration-account-icon]<br>da API**conta de integração <br>**][integration-account-doc] | [![Ícone][liquid-icon]<br>da API **transformações** do**Liquid** <br>][json-liquid-transform-doc] |
+| [![Ícone][x12-icon]<br>da API**decodificação de X12 <br>**][x12-decode-doc] | [![Ícone][x12-icon]<br>da API**codificação X12 <br>**][x12-encode-doc] | [![Ícone][xml-transform-icon]<br>da API **transformações** **XML** <br>][xml-transform-doc] | [![Ícone][xml-validate-icon]<br>da API**validação de XML <br>**][xml-validate-doc] |  
 |||||
 
 <a name="enterprise-connectors"></a>
 
 ## <a name="enterprise-connectors"></a>Conectores empresariais
 
-O Logic Apps fornece esses conectores Enterprise para acessar sistemas corporativos, como O SAP e o IBM MQ:
+Os aplicativos lógicos fornecem esses conectores empresariais para acessar sistemas empresariais, como SAP e IBM MQ:
 
 |   |   |   |
 |---|---|---|
-| [![Ícone da][ibm-3270-icon]<br>API**IBM 3270**][ibm-3270-doc] | [![Ícone de][ibm-mq-icon]<br>API**IBM MQ**][ibm-mq-doc] | [![Ícone de][sap-icon]<br>**API SAP**][sap-connector-doc] |
+| [![Ícone][ibm-3270-icon]<br>da API**IBM 3270**][ibm-3270-doc] | [![Ícone][ibm-mq-icon]<br>da API**IBM MQ**][ibm-mq-doc] | [![Ícone][sap-icon]<br>da API**SAP**][sap-connector-doc] |
 ||||
 
 <a name="ise-connectors"></a>
 
-## <a name="ise-connectors"></a>Conectores ISE
+## <a name="ise-connectors"></a>Conectores do ISE
 
-Para aplicativos lógicos que você cria e executa um ambiente de serviço de integração isolado [(ISE),](#integration-service-environment)o Logic App Designer identifica gatilhos e ações incorporados que são executados em seu ISE usando o rótulo **CORE.** Conectores gerenciados que são executados em um ISE exibem o rótulo **ISE,** enquanto os conectores executados no serviço global de aplicativos lógicos de vários locatários não exibem nenhum dos rótulos. Esta lista mostra os conectores que atualmente possuem versões ISE:
+Para aplicativos lógicos que você cria e executa um [ambiente de serviço de integração isolado (ISE)](#integration-service-environment), o designer de aplicativo lógico identifica gatilhos e ações internos que são executados no ISE usando o rótulo **principal** . Os conectores gerenciados que são executados em um ISE exibem o rótulo do **ISE** , enquanto os conectores executados no serviço de aplicativos lógicos multilocatários globais não exibem nenhum rótulo. Esta lista mostra os conectores que atualmente têm versões do ISE:
 
 |   |   |   |   |   |
 |---|---|---|---|---|
-[![Ícone de][as2-icon]<br>API**AS2**][as2-doc] | [![Ícone da][azure-blob-storage-icon]<br>API**Azure<br>Blob Storage**][azure-blob-storage-doc] | [![Ícone da][azure-cosmos-db-icon]<br>API**Azure <br> Cosmos DB**][azure-cosmos-db-doc] | [![Ícone da][azure-event-hubs-icon]<br>API,**a Azure <br>Event Hubs**][azure-event-hubs-doc] | [![Ícone da][azure-file-storage-icon]<br>API,**o armazenamento de arquivos<br>Azure**][azure-file-storage-doc] |
-| [![][azure-service-bus-icon]<br>**Ônibus de serviço <br>azure** ícone da API][azure-service-bus-doc] | [![Ícone da][azure-sql-data-warehouse-icon]<br>API**Azure <br>SQL Data Warehouse**][azure-sql-data-warehouse-doc] | [![Ícone da][azure-table-storage-icon]<br>API,**o armazenamento de tabelas <br>azure**][azure-table-storage-doc] | [![API][azure-queues-icon]<br>ícone**Azure <br>Filas**][azure-queues-doc] | [![Ícone da][edifact-icon]<br>API**EDIFACT**][edifact-doc] |
-| [![][file-system-icon]<br>**Sistema de <br>arquivos** do ícone da API][file-system-doc] | [![Ícone de][ftp-icon]<br>API**FTP**][ftp-doc] | [![Ícone da][ibm-3270-icon]<br>API**IBM 3270**][ibm-3270-doc] | [![Ícone de][ibm-db2-icon]<br>API**IBM DB2**][ibm-db2-doc] | [![Ícone de][ibm-mq-icon]<br>API**IBM MQ**][ibm-mq-doc] |
-| [![Ícone de][sap-icon]<br>**API SAP**][sap-connector-doc] | [![Ícone de][sftp-ssh-icon]<br>API**SFTP-SSH**][sftp-ssh-doc] | [![Ícone de][smtp-icon]<br>API**SMTP**][smtp-doc] | [![Ícone de][sql-server-icon]<br>API**SQL <br>Server**][sql-server-doc] | [![Ícone de][x12-icon]<br>API**X12**][x12-doc] |
+[![Ícone][as2-icon]<br>da API**AS2**][as2-doc] | [![Ícone][azure-blob-storage-icon]<br>da API**armazenamento<br>de BLOBs do Azure**][azure-blob-storage-doc] | [![Ícone][azure-cosmos-db-icon]<br>da API**Azure <br> Cosmos DB**][azure-cosmos-db-doc] | [![Ícone][azure-event-hubs-icon]<br>da API**hubs <br>de eventos do Azure**][azure-event-hubs-doc] | [![Ícone][azure-file-storage-icon]<br>da API**armazenamento<br>de arquivos do Azure**][azure-file-storage-doc] |
+| [![Ícone][azure-service-bus-icon]<br>da API**barramento <br>de serviço do Azure**][azure-service-bus-doc] | [![Ícone][azure-sql-data-warehouse-icon]<br>da API**Azure SQL <br>data warehouse**][azure-sql-data-warehouse-doc] | [![Ícone][azure-table-storage-icon]<br>da API**armazenamento <br>de tabelas do Azure**][azure-table-storage-doc] | [![Ícone][azure-queues-icon]<br>da API**filas do Azure <br>**][azure-queues-doc] | [![Ícone][edifact-icon]<br>de API**EDIFACT**][edifact-doc] |
+| [![Ícone][file-system-icon]<br>da API**sistema de arquivos <br>**][file-system-doc] | [![Ícone][ftp-icon]<br>da API**FTP**][ftp-doc] | [![Ícone][ibm-3270-icon]<br>da API**IBM 3270**][ibm-3270-doc] | [![Ícone][ibm-db2-icon]<br>da API**IBM DB2**][ibm-db2-doc] | [![Ícone][ibm-mq-icon]<br>da API**IBM MQ**][ibm-mq-doc] |
+| [![Ícone][sap-icon]<br>da API**SAP**][sap-connector-doc] | [![Ícone][sftp-ssh-icon]<br>**de API SFTP-SSH**][sftp-ssh-doc] | [![Ícone][smtp-icon]<br>da API**SMTP**][smtp-doc] | [![Ícone][sql-server-icon]<br>da API**SQL <br>Server**][sql-server-doc] | [![Ícone][x12-icon]<br>de API**X12**][x12-doc] |
 ||||||
 
 Para saber mais, consulte esses tópicos:
 
-* [Acesso aos recursos de rede virtual do Azure a partir de aplicativos de lógica do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)
+* [Acesso aos recursos de rede virtual do Azure de aplicativos lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)
 * [Modelo de preços de Aplicativos Lógicos](../logic-apps/logic-apps-pricing.md)
 * [Conectar-se a redes virtuais do Azure dos Aplicativos Lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 
@@ -205,27 +208,27 @@ Para saber mais, consulte esses tópicos:
 
 ## <a name="triggers-and-action-types"></a>Gatilhos e tipos de ação
 
-Os conectores podem fornecer *gatilhos,* *ações*ou ambos. Um *gatilho* é o primeiro passo em qualquer aplicativo lógico, geralmente especificando o evento que dispara o gatilho e começa a executar seu aplicativo lógico. Por exemplo, o conector FTP tem um gatilho que inicia seu aplicativo lógico "quando um arquivo é adicionado ou modificado". Alguns gatilhos verificam regularmente o evento ou dados especificados e, em seguida, disparam quando detectam o evento ou dados especificados. Outros gatilhos esperam, mas disparam instantaneamente quando um evento específico acontece ou quando novos dados estão disponíveis. Os gatilhos também transmitem todos os dados necessários para o seu aplicativo lógico. Seu aplicativo lógico pode ler e usar esses dados durante todo o fluxo de trabalho. Por exemplo, o conector do Twitter tem um gatilho, "Quando um novo tweet é postado", que passa o conteúdo do tweet para o fluxo de trabalho do seu aplicativo lógico.
+Os conectores podem fornecer *gatilhos*, *ações*ou ambos. Um *gatilho* é a primeira etapa em qualquer aplicativo lógico, geralmente especificando o evento que dispara o gatilho e começa a executar seu aplicativo lógico. Por exemplo, o conector de FTP tem um gatilho que inicia seu aplicativo lógico "quando um arquivo é adicionado ou modificado". Alguns gatilhos verificam regularmente o evento ou os dados especificados e, em seguida, são acionados quando detectam o evento ou os dados especificados. Outros gatilhos esperam, mas são imediatamente acionados quando um evento específico ocorre ou quando novos dados estão disponíveis. Os gatilhos também passam todos os dados necessários para seu aplicativo lógico. Seu aplicativo lógico pode ler e usar esses dados em todo o fluxo de trabalho. Por exemplo, o conector do Twitter tem um gatilho "quando um novo tweet é Postado", que passa o conteúdo do tweet para o fluxo de trabalho do seu aplicativo lógico.
 
-Depois que um gatilho é acionado, o Azure Logic Apps cria uma instância do seu aplicativo lógico e começa a executar as *ações* no fluxo de trabalho do seu aplicativo lógico. Ações são as etapas que seguem o gatilho e executam tarefas no fluxo de trabalho do seu aplicativo lógico. Por exemplo, você pode criar um aplicativo lógico que obtém dados do cliente de um banco de dados SQL e processar esses dados em ações posteriores.
+Depois que um gatilho é disparado, o aplicativo lógico do Azure cria uma instância de sua aplicação lógica e começa a executar as *ações* no fluxo de trabalho do seu aplicativo lógico. As ações são as etapas que seguem o gatilho e executam tarefas no fluxo de trabalho do aplicativo lógico. Por exemplo, você pode criar um aplicativo lógico que obtém dados do cliente de um banco de dado SQL e processa esses dados em ações posteriores.
 
-Aqui estão os tipos gerais de gatilhos que o Azure Logic Apps fornece:
+Aqui estão os tipos gerais de gatilhos que o aplicativo lógico do Azure fornece:
 
-* *Gatilho de recorrência*: Este gatilho é executado em um cronograma especificado e não está fortemente associado a um determinado serviço ou sistema.
+* *Gatilho de recorrência*: esse gatilho é executado em um agendamento especificado e não está rigidamente associado a um serviço ou sistema específico.
 
-* *Gatilho de votação*: Este gatilho pesquisa regularmente um serviço ou sistema específico com base no cronograma especificado, verificando novos dados ou se um evento específico aconteceu. Se novos dados estão disponíveis ou o evento específico aconteceu, o gatilho cria e executa uma nova instância do seu aplicativo lógico, que agora pode usar os dados que são passados como entrada.
+* *Gatilho de sondagem*: esse gatilho sonda regularmente um serviço ou sistema específico com base no agendamento especificado, verificando se há novos dados ou se um evento específico ocorreu. Se novos dados estiverem disponíveis ou o evento específico tiver ocorrido, o gatilho criará e executará uma nova instância do seu aplicativo lógico, que agora pode usar os dados passados como entrada.
 
-* *Gatilho :* Este gatilho espera e ouve novos dados ou para que um evento aconteça. Quando novos dados estão disponíveis ou quando o evento acontece, o gatilho cria e executa uma nova instância do seu aplicativo lógico, que agora pode usar os dados que são passados como entrada.
+* *Gatilho de push*: esse gatilho espera e escuta novos dados ou para que um evento aconteça. Quando novos dados estão disponíveis ou quando o evento ocorre, o gatilho cria e executa uma nova instância do seu aplicativo lógico, que agora pode usar os dados passados como entrada.
 
 <a name="connections"></a>
 
 ## <a name="connector-configuration"></a>Configuração do conector
 
-Os gatilhos e ações de cada conector fornecem suas próprias propriedades para você configurar. Muitos conectores também exigem que você primeiro crie uma *conexão com* o serviço ou sistema de destino e forneça credenciais de autenticação ou outros detalhes de configuração antes de poder usar um gatilho ou ação em seu aplicativo lógico. Por exemplo, você deve autorizar uma conexão a uma conta do Twitter para acessar dados ou postar em seu nome.
+Os gatilhos e as ações de cada conector fornecem suas próprias propriedades para você configurar. Muitos conectores também exigem que você primeiro crie uma *conexão* com o serviço ou sistema de destino e forneça credenciais de autenticação ou outros detalhes de configuração para poder usar um gatilho ou uma ação em seu aplicativo lógico. Por exemplo, você deve autorizar uma conexão com uma conta do Twitter para acessar dados ou postar em seu nome.
 
-Para conectores que usam o Azure Active Directory (Azure AD) OAuth, criar uma conexão significa entrar no serviço, como office 365, Salesforce ou GitHub, onde seu token de acesso é [criptografado](../security/fundamentals/encryption-overview.md) e armazenado com segurança em uma loja secreta do Azure. Outros conectores, como FTP e SQL, exigem uma conexão que tenha detalhes de configuração, como endereço do servidor, nome de usuário e senha. Esses detalhes de configuração de conexão também são criptografados e armazenados com segurança. Saiba mais sobre [criptografia no Azure](../security/fundamentals/encryption-overview.md).
+Para conectores que usam Azure Active Directory (Azure AD) OAuth, criar uma conexão significa entrar no serviço, como o Office 365, Salesforce ou GitHub, em que seu token de acesso é [criptografado](../security/fundamentals/encryption-overview.md) e armazenado com segurança em um repositório de segredo do Azure. Outros conectores, como FTP e SQL, exigem uma conexão com detalhes de configuração, como o endereço do servidor, o nome de usuário e a senha. Esses detalhes de configuração de conexão também são criptografados e armazenados com segurança. Saiba mais sobre [criptografia no Azure](../security/fundamentals/encryption-overview.md).
 
-As conexões podem acessar o serviço de destino ou o sistema pelo tempo que esse serviço ou sistema permitir. Para serviços que usam conexões Azure AD OAuth, como Office 365 e Dynamics, o Azure Logic Apps atualiza os tokens de acesso indefinidamente. Outros serviços podem ter limites de quanto tempo os Aplicativos Azure Logic podem usar um token sem ser atualizado. Geralmente, algumas ações invalidam todos os tokens de acesso, como alterar sua senha.
+As conexões podem acessar o serviço ou sistema de destino pelo tempo que o serviço ou o sistema permitir. Para serviços que usam conexões OAuth do Azure AD, como o Office 365 e Dynamics, os aplicativos lógicos do Azure atualizam os tokens de acesso indefinidamente. Outros serviços podem ter limites de quanto tempo os aplicativos lógicos do Azure podem usar um token sem Atualizar. Em geral, algumas ações invalidam todos os tokens de acesso, como alterar sua senha.
 
 <a name="custom"></a>
 
@@ -234,16 +237,16 @@ As conexões podem acessar o serviço de destino ou o sistema pelo tempo que ess
 Para chamar as APIs que executam o código personalizado ou não estão disponíveis como conectores, você pode estender a plataforma dos Aplicativos Lógicos [criando Aplicativos de API personalizados](../logic-apps/logic-apps-create-api-app.md). Você também pode [criar conectores personalizados](../logic-apps/custom-connector-overview.md) para *qualquer* API REST ou baseadas em SOAP, o que torna essas APIs disponíveis para qualquer aplicativo lógico em sua assinatura do Azure. Para tornar Aplicativos de API personalizado ou conectores público disponíveis para qualquer pessoa para uso no Azure, você pode [enviar conectores para certificação da Microsoft](../logic-apps/custom-connector-submit-certification.md).
 
 > [!NOTE]
-> Os aplicativos lógicos que você implanta e executa em um [ambiente de serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) podem acessar diretamente recursos em uma rede virtual Do Zure. Se você tiver conectores personalizados que requerem o gateway de dados no local e você criou esses conectores fora de um ISE, os aplicativos lógicos em um ISE também podem usar esses conectores.
+> Os aplicativos lógicos implantados e executados em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) podem acessar diretamente os recursos em uma rede virtual do Azure. Se você tiver conectores personalizados que exigem o gateway de dados local e tiver criado esses conectores fora de um ISE, os aplicativos lógicos em um ISE também poderão usar esses conectores.
 >
-> Os conectores personalizados criados dentro de um ISE não funcionam com o gateway de dados no local. No entanto, esses conectores podem acessar diretamente fontes de dados locais que estão conectadas a uma rede virtual Azure que hospeda o ISE. Assim, os aplicativos lógicos em um ISE provavelmente não precisam do gateway de dados ao se comunicar com esses recursos.
+> Os conectores personalizados criados em um ISE não funcionam com o gateway de dados local. No entanto, esses conectores podem acessar diretamente fontes de dados locais que estão conectadas a uma rede virtual do Azure que hospeda o ISE. Portanto, os aplicativos lógicos em um ISE provavelmente não precisam do gateway de dados ao se comunicar com esses recursos.
 >
-> Para obter mais informações sobre a criação de ISEs, consulte [Conectar-se às redes virtuais do Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+> Para obter mais informações sobre como criar ISEs, consulte [conectar-se a redes virtuais do Azure de aplicativos lógicos do Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Veja a [lista completa de conectores](https://docs.microsoft.com/connectors)
-* [Crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Exibir a [lista completa de conectores](https://docs.microsoft.com/connectors)
+* [Criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Criar conectores personalizados para aplicativos lógicos](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Criar APIs personalizadas para aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md)
 
@@ -252,95 +255,95 @@ Para chamar as APIs que executam o código personalizado ou não estão disponí
 
 <!--Built-in doc links-->
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Criar uma instância de serviço de Gerenciamento de API do Azure para gerenciar e publicar suas APIs"
-[azure-app-services-doc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integre aplicativos lógicos com aplicativos de API de serviço de aplicativos"
-[azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integre aplicativos lógicos com funções do Azure"
+[azure-app-services-doc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrar aplicativos lógicos a aplicativos de API do serviço de aplicativo"
+[azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrar aplicativos lógicos com o Azure Functions"
 [batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Processar mensagens em grupos ou como lotes"
-[condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Avalie uma condição e execute diferentes ações com base em se a condição é verdadeira ou falsa"
-[for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Execute as mesmas ações em cada item em uma matriz"
-[http-doc]: ./connectors-native-http.md "Ligue para pontos finais HTTP ou HTTPS de seus aplicativos lógicos"
-[http-request-doc]: ./connectors-native-reqres.md "Receba solicitações HTTP em seus aplicativos lógicos"
-[http-response-doc]: ./connectors-native-reqres.md "Responda a solicitações HTTP de seus aplicativos lógicos"
-[http-swagger-doc]: ./connectors-native-http-swagger.md "Chame pontos finais rest de seus aplicativos lógicos"
-[http-webhook-doc]: ./connectors-native-webhook.md "Aguarde eventos específicos de pontos finais HTTP ou HTTPS"
+[condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Avaliar uma condição e executar ações diferentes com base em se a condição é verdadeira ou falsa"
+[for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Executar as mesmas ações em cada item de uma matriz"
+[http-doc]: ./connectors-native-http.md "Chamar pontos de extremidade HTTP ou HTTPS de seus aplicativos lógicos"
+[http-request-doc]: ./connectors-native-reqres.md "Receber solicitações HTTP em seus aplicativos lógicos"
+[http-response-doc]: ./connectors-native-reqres.md "Responder a solicitações HTTP de seus aplicativos lógicos"
+[http-swagger-doc]: ./connectors-native-http-swagger.md "Chamar pontos de extremidade REST de seus aplicativos lógicos"
+[http-webhook-doc]: ./connectors-native-webhook.md "Aguardar eventos específicos de pontos de extremidade HTTP ou HTTPS"
 [nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Integrar aplicativos lógicos a fluxos de trabalho aninhados"
 [query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "Selecionar e filtrar matrizes com a ação Consultar"
-[schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "Executar aplicativos lógicos com base em um cronograma"
-[schedule-delay-doc]: ./connectors-native-delay.md "Demore a executar a próxima ação"
-[schedule-delay-until-doc]: ./connectors-native-delay.md "Demore a executar a próxima ação"
-[schedule-recurrence-doc]:  ./connectors-native-recurrence.md "Execute aplicativos lógicos em um cronograma recorrente"
-[schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "Execute aplicativos lógicos que precisam lidar com dados em pedaços contíguos"
+[schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "Executar aplicativos lógicos com base em uma agenda"
+[schedule-delay-doc]: ./connectors-native-delay.md "Atraso ao executar a próxima ação"
+[schedule-delay-until-doc]: ./connectors-native-delay.md "Atraso ao executar a próxima ação"
+[schedule-recurrence-doc]:  ./connectors-native-recurrence.md "Executar aplicativos lógicos em um agendamento recorrente"
+[schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "Executar aplicativos lógicos que precisam manipular dados em partes contíguas"
 [scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Organizar ações em grupos, o que obtém seu próprio status após a conclusão da execução das ações"
-[switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organize ações em casos, que são atribuídos valores únicos. Execute apenas o estojo cujo valor corresponda ao resultado de uma expressão, objeto ou token. Se não houver correspondências, execute o caso padrão"
+[switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organize ações em casos, que recebem valores exclusivos. Execute somente o caso cujo valor corresponde ao resultado de uma expressão, objeto ou token. Se não houver correspondências, execute o caso padrão"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Parar ou cancelar um fluxo de trabalho em execução ativamente para seu aplicativo lógico"
-[until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Repita as ações até que a condição especificada seja verdadeira ou algum estado tenha mudado"
+[until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Repetir ações até que a condição especificada seja verdadeira ou algum estado seja alterado"
 [data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Executar as operações de dados, como filtragem de matrizes ou criação de tabelas HTML e de CSV"
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Executar operações com variáveis, como inicializar, configurar, aumentar ou diminuir e acrescentar à variável de cadeia de caracteres ou matriz"
 
 <!--Managed connector doc links-->
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Gerenciar arquivos em seu contêiner de blob com o conector de Armazenamento de Blobs do Azure"
-[azure-cosmos-db-doc]: https://docs.microsoft.com/connectors/documentdb/ "Conecte-se ao Azure Cosmos DB para que você possa acessar documentos e procedimentos armazenados"
-[azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Monitore eventos publicados por uma Grade de Eventos, por exemplo, quando os recursos do Azure ou recursos de terceiros mudam"
-[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Conecte-se aos Hubs de Eventos do Azure para que você possa receber e enviar eventos entre aplicativos lógicos e Hubs de Eventos"
-[azure-file-storage-doc]: https://docs.microsoft.com/connectors/azurefile/ "Conecte-se à sua conta do Azure Storage para que você possa criar, atualizar, obter e excluir arquivos"
+[azure-cosmos-db-doc]: https://docs.microsoft.com/connectors/documentdb/ "Conectar-se a Azure Cosmos DB para que você possa acessar documentos e procedimentos armazenados"
+[azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Monitorar eventos publicados por uma grade de eventos, por exemplo, quando os recursos do Azure ou os recursos de terceiros mudam"
+[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Conecte-se aos hubs de eventos do Azure para que você possa receber e enviar eventos entre os aplicativos lógicos e os hubs de eventos"
+[azure-file-storage-doc]: https://docs.microsoft.com/connectors/azurefile/ "Conecte-se à sua conta de armazenamento do Azure para que você possa criar, atualizar, obter e excluir arquivos"
 [azure-queues-doc]: https://docs.microsoft.com/connectors/azurequeues/ "Conecte-se à sua conta de armazenamento do Azure para que você possa criar e gerenciar filas e mensagens"
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Envia mensagens de tópicos e filas do barramento de serviço e recebe mensagens de assinaturas e filas do barramento de serviço"
-[azure-sql-data-warehouse-doc]: https://docs.microsoft.com/connectors/sqldw/ "Conecte-se ao Azure SQL Data Warehouse para que você possa visualizar seus dados"
-[azure-table-storage-doc]: https://docs.microsoft.com/connectors/azuretables/ "Conecte-se à sua conta do Azure Storage para que você possa criar, atualizar e consultar tabelas e muito mais"
-[biztalk-server-doc]: https://docs.microsoft.com/connectors/biztalk/ "Conecte-se ao seu BizTalk Server para que você possa executar aplicativos baseados no BizTalk lado a lado com aplicativos azure logic"
-[box-doc]: ./connectors-create-api-box.md "Conecte-se à Caixa. Carregar, obter, excluir, listar seus arquivos e muito mais"
-[dropbox-doc]: ./connectors-create-api-dropbox.md "Conecte-se ao Dropbox. Carregar, obter, excluir, listar seus arquivos e muito mais"
-[dynamics-365-doc]: ./connectors-create-api-crmonline.md "Conecte-se ao Dynamics CRM Online para que você possa trabalhar com dados CRM Online"
-[facebook-doc]: ./connectors-create-api-facebook.md "Conecte-se ao Facebook. Poste em uma linha do tempo, obtenha um feed de página e muito mais"
+[azure-sql-data-warehouse-doc]: https://docs.microsoft.com/connectors/sqldw/ "Conecte-se ao Azure SQL Data Warehouse para que você possa exibir seus dados"
+[azure-table-storage-doc]: https://docs.microsoft.com/connectors/azuretables/ "Conecte-se à sua conta de armazenamento do Azure para que você possa criar, atualizar e consultar tabelas e muito mais"
+[biztalk-server-doc]: https://docs.microsoft.com/connectors/biztalk/ "Conecte-se ao seu BizTalk Server para que você possa executar aplicativos baseados no BizTalk lado a lado com aplicativos lógicos do Azure"
+[box-doc]: ./connectors-create-api-box.md "Conecte-se ao box. Carregar, obter, excluir, listar seus arquivos e muito mais"
+[dropbox-doc]: ./connectors-create-api-dropbox.md "Conecte-se ao dropbox. Carregar, obter, excluir, listar seus arquivos e muito mais"
+[dynamics-365-doc]: ./connectors-create-api-crmonline.md "Conectar-se ao Dynamics CRM Online para que você possa trabalhar com dados do CRM Online"
+[facebook-doc]: ./connectors-create-api-facebook.md "Conecte-se ao Facebook. Postar em uma linha do tempo, obter um feed de página e muito mais"
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Conectar-se a um sistema de arquivos local"
 [ftp-doc]: ./connectors-create-api-ftp.md "Conectar-se a um servidor FTP / FTPS e para tarefas FTP, incluindo carregar, obter, excluir arquivos e muito mais"
 [github-doc]: ./connectors-create-api-github.md "Conectar-se ao GitHub e acompanhar os problemas"
-[google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Conecta-se ao Google Calendar e pode gerenciar o calendário"
+[google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Conecta-se ao Google Agenda e pode gerenciar o calendário"
 [google-drive-doc]: ./connectors-create-api-googledrive.md "Conecte-se ao GoogleDrive para que você possa trabalhar com seus dados"
-[google-sheets-doc]: ./connectors-create-api-googlesheet.md "Conecte-se às planilhas do Google para que você possa modificar suas planilhas"
-[google-tasks-doc]: ./connectors-create-api-googletasks.md "Conecta-se às tarefas do Google para que você possa gerenciar suas tarefas"
-[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Conecte-se a 3270 aplicativos nos mainframes da IBM"
-[ibm-db2-doc]: ./connectors-create-api-db2.md "Conecte-se ao IBM DB2 na nuvem ou no local. Atualize uma linha, obtenha uma tabela e muito mais"
-[ibm-informix-doc]: ./connectors-create-api-informix.md "Conecte-se ao Informix na nuvem ou no local. Leia uma linha, liste as tabelas e muito mais"
+[google-sheets-doc]: ./connectors-create-api-googlesheet.md "Conectar-se a planilhas do Google para que você possa modificar suas planilhas"
+[google-tasks-doc]: ./connectors-create-api-googletasks.md "Conecta-se ao Google Tasks para que você possa gerenciar suas tarefas"
+[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Conecte-se a aplicativos 3270 em mainframes IBM"
+[ibm-db2-doc]: ./connectors-create-api-db2.md "Conecte-se ao IBM DB2 na nuvem ou no local. Atualizar uma linha, obter uma tabela e muito mais"
+[ibm-informix-doc]: ./connectors-create-api-informix.md "Conecte-se ao Informix na nuvem ou no local. Ler uma linha, listar as tabelas e muito mais"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "Conectar-se a locais do IBM MQ ou ao Azure para enviar e receber mensagens"
-[instagram-doc]: ./connectors-create-api-instagram.md "Conecte-se ao Instagram. Desencadear ou agir em eventos"
-[mailchimp-doc]: ./connectors-create-api-mailchimp.md "Conecte-se à sua conta do MailChimp. Gerencie e automatize e-mails"
+[instagram-doc]: ./connectors-create-api-instagram.md "Conecte-se ao Instagram. Disparar ou agir em eventos"
+[mailchimp-doc]: ./connectors-create-api-mailchimp.md "Conecte-se à sua conta do MailChimp. Gerenciar e automatizar emails"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Conectar-se ao Mandrill para comunicação"
-[mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "Conecte-se ao seu banco de dados MySQL no local para que você possa ler e gravar dados"
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Conecte-se à sua conta do Office 365 para que você possa enviar e receber e-mails, gerenciar seu calendário e contatos e muito mais"
+[mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "Conecte-se ao seu banco de dados MySQL local para que você possa ler e gravar dados"
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Conecte-se à sua conta do Office 365 para que você possa enviar e receber emails, gerenciar seu calendário e contatos e muito mais"
 [office-365-users-doc]: ./connectors-create-api-office365-users.md
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Conecte-se ao seu Microsoft OneDrive pessoal para que você possa carregar, excluir, listar arquivos e muito mais"
-[onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Conecte-se à sua empresa Microsoft OneDrive para que você possa carregar, excluir, listar seus arquivos e muito mais"
+[onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Conecte-se ao Microsoft OneDrive de sua empresa para que você possa carregar, excluir, listar seus arquivos e muito mais"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Conecte-se a um banco de dados Oracle para que você possa adicionar, inserir, excluir linhas e muito mais"
-[outlook.com-doc]: ./connectors-create-api-outlook.md "Conecte-se à caixa de correio do Outlook para que você possa gerenciar seu e-mail, calendários, contatos e muito mais"
-[postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "Conecte-se ao seu banco de dados PostgreSQL para que você possa ler dados de tabelas"
-[project-online-doc]: ./connectors-create-api-projectonline.md "Conecte-se ao Microsoft Project Online para que você possa gerenciar seus projetos, tarefas, recursos e muito mais"
-[rss-doc]: ./connectors-create-api-rss.md "Publicar e recuperar itens de alimentação, acionar operações quando um novo item é publicado em um feed RSS"
-[salesforce-doc]: ./connectors-create-api-salesforce.md "Conecte-se à sua conta salesforce. Gerencie contas, leads, oportunidades e muito mais"
+[outlook.com-doc]: ./connectors-create-api-outlook.md "Conecte-se à sua caixa de correio do Outlook para que você possa gerenciar seu email, calendários, contatos e muito mais"
+[postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "Conecte-se ao seu banco de dados PostgreSQL para que você possa ler o dado de tabelas"
+[project-online-doc]: ./connectors-create-api-projectonline.md "Conecte-se ao Microsoft Project online para que você possa gerenciar seus projetos, tarefas, recursos e muito mais"
+[rss-doc]: ./connectors-create-api-rss.md "Publicar e recuperar itens de feed, disparar operações quando um novo item for publicado em um RSS feed"
+[salesforce-doc]: ./connectors-create-api-salesforce.md "Conecte-se à sua conta do Salesforce. Gerenciar contas, clientes potenciais, oportunidades e muito mais"
 [sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "Conectar-se a um sistema SAP local"
-[sendgrid-doc]: ./connectors-create-api-sendgrid.md "Conecte-se ao SendGrid. Enviar e-mails e gerenciar listas de destinatários"
-[sftp-ssh-doc]: ./connectors-sftp-ssh.md "Conecte-se à sua conta SFTP usando SSH. Carregar, obter, excluir arquivos e muito mais"
-[sharepoint-server-doc]: ./connectors-create-api-sharepointserver.md "Conecte-se ao servidor local SharePoint. Gerenciar documentos, listar itens e muito mais"
-[sharepoint-online-doc]: ./connectors-create-api-sharepointonline.md "Conecte-se ao SharePoint Online. Gerenciar documentos, listar itens e muito mais"
-[slack-doc]: ./connectors-create-api-slack.md "Conecte-se ao Slack e poste mensagens nos canais do Slack"
+[sendgrid-doc]: ./connectors-create-api-sendgrid.md "Conecte-se ao SendGrid. Enviar email e gerenciar listas de destinatários"
+[sftp-ssh-doc]: ./connectors-sftp-ssh.md "Conecte-se à sua conta do SFTP usando SSH. Carregar, obter, excluir arquivos e muito mais"
+[sharepoint-server-doc]: ./connectors-create-api-sharepointserver.md "Conecte-se ao servidor local do SharePoint. Gerenciar documentos, itens de lista e muito mais"
+[sharepoint-online-doc]: ./connectors-create-api-sharepointonline.md "Conecte-se ao SharePoint Online. Gerenciar documentos, itens de lista e muito mais"
+[slack-doc]: ./connectors-create-api-slack.md "Conectar-se à margem de atraso e postar mensagens em canais de margem de atraso"
 [smtp-doc]: ./connectors-create-api-smtp.md "Conectar-se a um servidor SMTP e enviar emails com anexos"
 [sparkpost-doc]: ./connectors-create-api-sparkpost.md "Conectar-se ao SparkPost para comunicação."
-[sql-server-doc]: ./connectors-create-api-sqlazure.md "Conecte-se ao Banco de Dados SQL do Azure ou ao SQL Server. Criar, atualizar, obter e excluir entradas em uma tabela de banco de dados SQL"
-[teradata-doc]: https://docs.microsoft.com/connectors/teradata/ "Conecte-se ao seu banco de dados Teradata para ler dados de tabelas"
+[sql-server-doc]: ./connectors-create-api-sqlazure.md "Conecte-se ao banco de dados SQL do Azure ou SQL Server. Criar, atualizar, obter e excluir entradas em uma tabela de banco de dados SQL"
+[teradata-doc]: https://docs.microsoft.com/connectors/teradata/ "Conectar-se ao seu banco de dados Teradata para ler o dado de tabelas"
 [trello-doc]: ./connectors-create-api-trello.md "Conecte-se ao Trello. Gerencie seus projetos e organize qualquer coisa com qualquer pessoa"
-[twilio-doc]: ./connectors-create-api-twilio.md "Ligue para Twilio. Enviar e receber mensagens, obter números disponíveis, gerenciar números de telefone de entrada e muito mais"
+[twilio-doc]: ./connectors-create-api-twilio.md "Conecte-se ao twilio. Enviar e receber mensagens, obter números disponíveis, gerenciar números de telefone de entrada e muito mais"
 [twitter-doc]: ./connectors-create-api-twitter.md "Conecte-se ao Twitter. Obtenha cronogramas, poste tweets e muito mais"
-[yammer-doc]: ./connectors-create-api-yammer.md "Conecte-se a Yammer. Postar mensagens, receber novas mensagens e muito mais"
-[youtube-doc]: ./connectors-create-api-youtube.md "Conecte-se ao YouTube. Gerencie seus vídeos e canais"
+[yammer-doc]: ./connectors-create-api-yammer.md "Conecte-se ao Yammer. Poste mensagens, obtenha novas mensagens e muito mais"
+[youtube-doc]: ./connectors-create-api-youtube.md "Conecte-se ao YouTube. Gerenciar seus vídeos e canais"
 
 <!--Enterprise Intregation Pack doc links-->
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Codificar e decodificar mensagens que usam o protocolo AS2"
 [edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Codificar e decodificar mensagens que usam o protocolo EDIFACT"
 [edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Decodificar mensagens que usam o protocolo EDIFACT"
 [edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Codificar mensagens que usam o protocolo EDIFACT"
-[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Conheça o arquivo plano de integração corporativa"
-[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Conheça o arquivo plano de integração corporativa"
-[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Gerenciar metadados para artefatos de conta de integração"
-[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transforme JSON com modelos líquidos"
+[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Saiba mais sobre o arquivo simples de integração corporativa"
+[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Saiba mais sobre o arquivo simples de integração corporativa"
+[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Gerenciar metadados para artefatos da conta de integração"
+[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transformar JSON com modelos líquidos"
 [x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Codificar e decodificar mensagens que usam o protocolo X12"
 [x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Decodificar mensagens que usam o protocolo X12"
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Codificar mensagens que usam o protocolo X12"

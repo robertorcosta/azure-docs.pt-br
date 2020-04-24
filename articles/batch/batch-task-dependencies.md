@@ -1,25 +1,15 @@
 ---
-title: Criar dependências de tarefas para executar tarefas - Azure Batch
+title: Criar dependências de tarefas para executar tarefas-lote do Azure
 description: Crie tarefas que dependem da conclusão de outras tarefas para o processamento em estilo MapReduce e cargas de trabalho de big data semelhantes no Lote do Azure.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca771117e889afc8e143c4ca4626ab2d3bb4da2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b3bc37a3d004f077e2e780d096b7bb2a8e5f773
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022895"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116478"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Crie dependências de tarefas para executar tarefas que dependam de outras tarefas
 
@@ -238,4 +228,4 @@ Consulte [Instalando aplicativos e preparando dados em nós de computação do L
 
 [1]: ./media/batch-task-dependency/01_one_to_one.png "Diagrama: dependência de um para um"
 [2]: ./media/batch-task-dependency/02_one_to_many.png "Diagrama: dependência de um para muitos"
-[3]: ./media/batch-task-dependency/03_task_id_range.png "Diagrama: dependência do intervalo de id da tarefa"
+[3]: ./media/batch-task-dependency/03_task_id_range.png "Diagrama: dependência de intervalo de IDs de tarefas"

@@ -1,22 +1,14 @@
 ---
-title: Monitorar Lote com o Azure Application Insights | Microsoft Docs
+title: Monitorar lote com informações de Aplicativo Azure
 description: Aprenda como instrumentar um aplicativo .NET do Lote do Azure usando a biblioteca do Azure Application Insights.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
-ms.devlang: .NET
 ms.topic: article
-ms.workload: na
 ms.date: 04/05/2018
-ms.author: labrenne
-ms.openlocfilehash: b1f4fb0207d4f659861dbd3fdfd1b2d502409935
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca8cde9b1838239a79ebca4efe43d9e619f80f12
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022453"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115458"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorar e depurar um aplicativo .NET do Lote do Azure com o Application Insights
 
@@ -35,7 +27,7 @@ Uma solução C# de exemplo com código para acompanhar este artigo está dispon
 
 * [Conta do Lote e conta de armazenamento vinculada](batch-account-create-portal.md)
 
-* [Recurso de Insights de Aplicativos](../azure-monitor/app/create-new-resource.md )
+* [Application Insights recurso](../azure-monitor/app/create-new-resource.md )
   
    * Use o Portal do Azure para criar um *recurso* do Application Insights. Selecione a opção *Geral* **Tipo de Aplicativo**.
 
@@ -288,7 +280,7 @@ As capturas de tela a seguir mostram como o Application Insights registra exceç
 Métricas personalizadas também são uma ferramenta valiosa no portal. Por exemplo, é possível exibir o tempo médio que cada nó de computação demorou para baixar o arquivo de texto necessário que estava processando.
 
 Para criar um gráfico de exemplo:
-1. No recurso Application Insights, clique em **Metrics Explorer** > **Add chart**.
+1. Em seu recurso de Application insights, clique em **Metrics Explorer** > **Adicionar gráfico**.
 2. Clique em **Editar** no gráfico que foi adicionado.
 2. Atualize os detalhes do gráfico conforme a seguir:
    * Defina **Tipo de gráfico** para **Grade**.
@@ -342,7 +334,7 @@ Devido à natureza em grande escala dos aplicativos do Lote do Azure executando 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [o Application Insights](../azure-monitor/app/app-insights-overview.md).
+* Saiba mais sobre [Application insights](../azure-monitor/app/app-insights-overview.md).
 
 * Para suporte do Application Insights em outros idiomas, consulte a [documentação de integrações, plataformas e idiomas](../azure-monitor/app/platforms.md).
 

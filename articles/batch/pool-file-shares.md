@@ -1,25 +1,14 @@
 ---
-title: Compartilhamento de arquivos do Azure para pools do Lote do Azure | Microsoft Docs
+title: Compartilhamento de arquivos do Azure para pools do lote do Azure
 description: Como montar um compartilhamento de Arquivos do Azure de nós de computação em um pool de Linux ou Windows no Lote do Azure.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 05/24/2018
-ms.author: labrenne
-ms.custom: ''
-ms.openlocfilehash: 156dad25af5abd1b4d5db32569faf09a23fadfb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 666ee6bd0e6287545c107427dffcc9f2ccde900a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022504"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115441"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Usar um compartilhamento de arquivos do Azure com um pool do Lote
 
@@ -50,8 +39,8 @@ No Lote, você precisará montar o compartilhamento sempre que uma tarefa for ex
 
 Por exemplo, inclua um comando `net use` para montar o compartilhamento de arquivos como parte de cada linha de comando da tarefa. Para montar o compartilhamento de arquivos, as credenciais a seguir são necessárias:
 
-* **Nome do usuário**\\\<: Nome\>da conta de\\armazenamento AZURE, por exemplo, azurE*mystorageaccountname*
-* **Senha:** \<StorageAccountKeyWhichEnds in==>, por exemplo, *XXXXXXXXXXXXXXXXXX==*
+* **Nome de usuário**:\\\<StorageAccountName\>do Azure, por exemplo\\,*mystorageaccountname* do Azure
+* **Senha**: \<StorageAccountKeyWhichEnds in = =>, por exemplo, *XXXXXXXXXXXXXXXXXXXXX = =*
 
 O comando a seguir monta um compartilhamento de arquivos *meucompartilhamentodearquivos* na conta de armazenamento *nomedaminhacontadearmazenamento* como a unidade *S:*:
 
@@ -117,7 +106,7 @@ tasks.Add(task);
 
 ## <a name="mount-a-share-on-a-linux-pool"></a>Montar um compartilhamento em um pool do Linux
 
-As partes de arquivos do Azure podem ser montadas em distribuições Linux usando o [cliente do kernel CIFS](https://wiki.samba.org/index.php/LinuxCIFS). O exemplo a seguir mostra como montar um compartilhamento de arquivos em um pool de nós de computação Ubuntu 16.04 LTS. Se você usar uma distribuição diferente do Linux, as etapas gerais serão semelhantes, mas usarão o gerenciador de pacotes apropriado para a distribuição. Para obter detalhes e exemplos adicionais, veja [Usar Arquivos do Azure com Linux](../storage/files/storage-how-to-use-files-linux.md).
+Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente de kernel CIFS](https://wiki.samba.org/index.php/LinuxCIFS). O exemplo a seguir mostra como montar um compartilhamento de arquivos em um pool de nós de computação Ubuntu 16.04 LTS. Se você usar uma distribuição diferente do Linux, as etapas gerais serão semelhantes, mas usarão o gerenciador de pacotes apropriado para a distribuição. Para obter detalhes e exemplos adicionais, veja [Usar Arquivos do Azure com Linux](../storage/files/storage-how-to-use-files-linux.md).
 
 Primeiro, sob uma identidade de usuário administrador, instale o pacote `cifs-utils` e crie o ponto de montagem (por exemplo, */mnt/Retention/MeuCompartilhametnoDeArquivoDoAzure*) no sistema de arquivos local. Uma pasta para um ponto de montagem pode ser criada em qualquer lugar no sistema de arquivos, mas é comum criá-la na pasta `/mnt`. Não crie um ponto de montagem diretamente em `/mnt` (no Ubuntu) ou em `/mnt/resource` (em outras distribuições).
 
@@ -127,8 +116,8 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 
 Em seguida, execute o comando `mount` para montar o compartilhamento de arquivos, fornecendo estas credenciais:
 
-* **Nome**do \<usuário\>: nome da conta de armazenamento, por exemplo, *mystorageaccountname*
-* **Senha:** \<StorageAccountKeyWhichEnds in==>, por exemplo, *XXXXXXXXXXXXXXXXXX==*
+* **Nome**de usuário \<:\>StorageAccountName, por exemplo, *mystorageaccountname*
+* **Senha**: \<StorageAccountKeyWhichEnds in = =>, por exemplo, *XXXXXXXXXXXXXXXXXXXXX = =*
 
 O comando a seguir monta um compartilhamento de arquivos *meucompartilhamentodearquivos* na conta de armazenamento *nomedaminhacontadearmazenamento* em */mnt/MeuCompartilhamentoDeArquivosDoAzure*: 
 

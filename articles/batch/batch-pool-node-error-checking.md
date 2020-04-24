@@ -1,18 +1,16 @@
 ---
-title: Verifique se há erros de pool e dos nós - Lote do Microsoft Azure
-description: Este artigo abrange as operações de fundo que podem ocorrer, juntamente com erros a serem verificados e como evitá-los ao criar pools e nós.
-services: batch
-ms.service: batch
+title: Verificar erros no pool e nos nós
+description: Este artigo aborda as operações em segundo plano que podem ocorrer, juntamente com erros a serem verificados e como evitá-los ao criar pools e nós.
 author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: a68d812a044c776819d169d5bf179f011d06390f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5051b9c536ded50e77fb75515c16daba884d5d24
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472938"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115900"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificar erros no pool e nos nós
 
@@ -26,11 +24,11 @@ Este artigo aborda as operações em segundo plano que podem ocorrer para pools 
 
 ### <a name="resize-timeout-or-failure"></a>Redimensionar tempo limite ou falha
 
-Ao criar um novo pool ou redimensionar um existente, o número de destino de nós é especificado.  A operação criar ou redimensionar é concluída imediatamente, mas a alocação real de novos nódulos ou a remoção de nódulos existentes pode levar vários minutos.  Especifique o tempo limite de redimensionamento em [crie](https://docs.microsoft.com/rest/api/batchservice/pool/add) ou [redimensionar](https://docs.microsoft.com/rest/api/batchservice/pool/resize) a API. Se o Batch não conseguir obter o número de números-alvo durante o período de tempo limite de redimensionamento, o pool entrará em um estado estável e relatará erros de redimensionamento.
+Ao criar um novo pool ou redimensionar um existente, o número de destino de nós é especificado.  A operação de criação ou redimensionamento é concluída imediatamente, mas a alocação real de novos nós ou a remoção de nós existentes pode levar vários minutos.  Especifique o tempo limite de redimensionamento em [crie](https://docs.microsoft.com/rest/api/batchservice/pool/add) ou [redimensionar](https://docs.microsoft.com/rest/api/batchservice/pool/resize) a API. Se o lote não puder obter o número de destino de nós durante o período de tempo limite de redimensionamento, o pool entrará em um estado estável e redimensionará os erros.
 
-A propriedade [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) para a avaliação mais recente lista os erros ocorridos.
+A propriedade [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) para a avaliação mais recente lista os erros que ocorreram.
 
-As causas comuns para redimensionar erros incluem:
+As causas comuns para erros de redimensionamento incluem:
 
 - O tempo limite de redimensionamento é muito curto
   - Na maioria das circunstâncias, o tempo limite padrão de 15 minutos é longo o suficiente para que os nós de pool sejam alocados ou removidos.
@@ -42,7 +40,7 @@ As causas comuns para redimensionar erros incluem:
 - Recursos insuficientes quando um [pool está em uma rede virtual](https://docs.microsoft.com/azure/batch/batch-virtual-network)
   - É possível criar recursos como grupos de segurança de rede, IPs públicos e grupo de segurança de rede na mesma assinatura que a conta do lote. Verifique se as cotas de assinatura para esses recursos são suficientes.
 - Grandes pools com imagens de VM personalizadas
-  - Grandes pools que usam imagens personalizadas de VM podem demorar mais para alocar, e podem ocorrer tempos limite de redimensionamento.  Consulte [Criar um pool com a Galeria de Imagens Compartilhadas](batch-sig-images.md) para obter recomendações sobre limites e configuração.
+  - Grandes pools que usam imagens personalizadas de VM podem demorar mais para alocar, e podem ocorrer tempos limite de redimensionamento.  Consulte [criar um pool com a Galeria de imagens compartilhadas](batch-sig-images.md) para obter recomendações sobre limites e configurações.
 
 ### <a name="automatic-scaling-failures"></a>Falhas de dimensionamento automático
 
@@ -64,37 +62,37 @@ O lote define o [estado do pool](https://docs.microsoft.com/rest/api/batchservic
 
 ## <a name="pool-compute-node-errors"></a>Erros do nó de computação do pool
 
-Mesmo quando batch aloca nós com sucesso em um pool, vários problemas podem fazer com que alguns dos nós sejam insalubres e incapazes de executar tarefas. Esses nódulos ainda incorrem em encargos, por isso é importante detectar problemas para evitar pagar por nódulos que não podem ser usados. Além de erros comuns de nó, conhecer o estado atual do [trabalho](/rest/api/batchservice/job/get#jobstate) é útil para a solução de problemas.
+Mesmo quando o lote aloca nós em um pool com êxito, vários problemas podem fazer com que alguns nós não estejam íntegros e não possam executar tarefas. Esses nós ainda incorrem em encargos, portanto, é importante detectar problemas para evitar o pagamento de nós que não podem ser usados. Além dos erros de nó comuns, saber se o [estado](/rest/api/batchservice/job/get#jobstate) atual do trabalho é útil para solução de problemas.
 
-### <a name="start-task-failures"></a>Iniciar falhas de tarefa
+### <a name="start-task-failures"></a>Falhas na tarefa inicial
 
 Você talvez queira especificar um opcional [Iniciar tarefa](/rest/api/batchservice/pool/add#starttask) para um pool. Assim como acontece com qualquer tarefa, uma linha de comando e os arquivos de recurso para fazer o download do armazenamento podem ser especificados. A tarefa inicial é executada para cada nó depois que ele é iniciado. A propriedade **waitForSuccess** especifica se o lote aguarda até que a tarefa inicial seja concluída com êxito antes de agendar as tarefas para um nó.
 
-E se o nó tiver sido configurado para aguardar a conclusão do iniciar tarefa com êxito, mas o iniciar tarefa falhar? Nesse caso, o nó não será utilizável, mas ainda incorrerá em acusações.
+E se o nó tiver sido configurado para aguardar a conclusão do iniciar tarefa com êxito, mas o iniciar tarefa falhar? Nesse caso, o nó não será utilizável, mas ainda incorrerá em encargos.
 
 Falhas na tarefa inicial podem ser detectadas usando as propriedades [result](/rest/api/batchservice/computenode/get#taskexecutionresult) e [failureInfo](/rest/api/batchservice/computenode/get#taskfailureinformation) da propriedade de nó [startTaskInfo](/rest/api/batchservice/computenode/get#starttaskinformation) de nível superior.
 
-Uma tarefa inicial com falha também faz com que batch defina o [estado](/rest/api/batchservice/computenode/get#computenodestate) de nó para **iniciar tarefas falhou** se **waitForSuccess** foi definido como **true**.
+Uma tarefa de inicialização com falha também faz com que o lote defina o [estado](/rest/api/batchservice/computenode/get#computenodestate) do nó como **starttaskfailed** se **waitForSuccess** foi definido como **true**.
 
 Assim como acontece com qualquer tarefa, pode haver muitas causas para a falhar na tarefa inicial.  Para solucionar problemas, stdout, stderr e quaisquer arquivos de log de tarefas específicas adicionais devem ser verificados.
 
-As tarefas iniciais devem ser re-participantes, pois é possível que a tarefa inicial seja executada várias vezes no mesmo nó; a tarefa inicial é executada quando um nó é regravado ou reiniciado. Em casos raros, uma tarefa inicial será executada após um evento causar uma reinicialização do nó, onde um dos discos operacionais ou efêmeros foi recapturado enquanto o outro não estava. Uma vez que as tarefas de início de lote (como todas as tarefas em lote) são executadas a partir do disco efêmero, isso normalmente não é um problema, mas em alguns casos em que a tarefa inicial é instalar um aplicativo no disco do sistema operacional e manter outros dados no disco efêmero, isso pode causar problemas porque as coisas estão fora de sincronia. Proteja seu aplicativo de acordo se estiver usando ambos os discos.
+As tarefas iniciais devem ser reentrante novamente, pois é possível que a tarefa inicial seja executada várias vezes no mesmo nó; a tarefa inicial é executada quando um nó é recriado ou reinicializado. Em casos raros, uma tarefa inicial será executada Depois que um evento tiver causado uma reinicialização de nó, onde um dos discos de sistema operacional ou efêmero foi refeita a imagem enquanto o outro não estava. Como as tarefas de início do lote (como todas as tarefas do lote) são executadas a partir do disco efêmero, isso normalmente não é um problema, mas em alguns casos em que a tarefa inicial está instalando um aplicativo no disco do sistema operacional e mantendo outros dados no disco efêmero, isso pode causar problemas porque as coisas estão fora de sincronia. Proteja seu aplicativo adequadamente se você estiver usando ambos os discos.
 
 ### <a name="application-package-download-failure"></a>Falha no download do pacote de aplicativos
 
-Você pode especificar um ou mais pacotes de aplicativos de um pool. O batch baixa os arquivos de pacote especificados para cada nó e descompacta os arquivos após o início do nó, mas antes que as tarefas sejam agendadas. É comum usar uma linha de comando de tarefa inicial em conjunto com pacotes de aplicativos. Por exemplo, para copiar arquivos para um local diferente ou para executar a instalação.
+Você pode especificar um ou mais pacotes de aplicativos de um pool. O lote baixa os arquivos de pacote especificados para cada nó e descompacta os arquivos após o nó ser iniciado, mas antes que as tarefas sejam agendadas. É comum usar uma linha de comando de tarefa inicial em conjunto com pacotes de aplicativos. Por exemplo, para copiar arquivos para um local diferente ou para executar a instalação.
 
-A propriedade de [erros](/rest/api/batchservice/computenode/get#computenodeerror) de nó relata uma falha no download e descompactação de um pacote de aplicativos; o estado do nó é definido **como inutilizável**.
+A propriedade de [erros](/rest/api/batchservice/computenode/get#computenodeerror) de nó relata uma falha ao baixar e cancelar a compactação de um pacote de aplicativos; o estado do nó é definido como **inutilizável**.
 
 ### <a name="container-download-failure"></a>Falha no download do contêiner
 
-Você pode especificar uma ou mais referências de contêiner em uma piscina. O lote baixa os recipientes especificados para cada nó. A propriedade de [erros](/rest/api/batchservice/computenode/get#computenodeerror) de nó relata uma falha no download de um contêiner e define o estado do nó como **inutilizável**.
+Você pode especificar uma ou mais referências de contêiner em um pool. O lote baixa os contêineres especificados para cada nó. A propriedade de [erros](/rest/api/batchservice/computenode/get#computenodeerror) de nó relata uma falha ao baixar um contêiner e define o estado do nó como **inutilizável**.
 
 ### <a name="node-in-unusable-state"></a>Nó em estado inutilizável
 
 O Lote do Microsoft Azure pode definir o [estado do nó](/rest/api/batchservice/computenode/get#computenodestate) pode ser definido como **inutilizável** por muitos motivos. Com o estado do nó definido como **inutilizável**, as tarefas não podem ser agendadas para o nó, mas ainda incorrerá em encargos.
 
-Nós em um estado **inutilizável,** mas sem [erros](/rest/api/batchservice/computenode/get#computenodeerror) significa que batch é incapaz de se comunicar com a VM. Neste caso, batch sempre tenta recuperar o VM. O batch não tentará recuperar automaticamente VMs que não conseguiram instalar pacotes de aplicativos ou contêineres, mesmo que seu estado esteja **inutilizável**.
+Nós em um estado **inutilizável** , mas sem [erros](/rest/api/batchservice/computenode/get#computenodeerror) significa que o lote não pode se comunicar com a VM. Nesse caso, o lote sempre tenta recuperar a VM. O lote não tentará automaticamente recuperar as VMs que falharam ao instalar pacotes de aplicativos ou contêineres, mesmo que seu estado seja **inutilizável**.
 
 Se o lote poder determinar a causa, a propriedade do nó [erros](/rest/api/batchservice/computenode/get#computenodeerror) irá reportá-lo.
 
@@ -104,55 +102,55 @@ Alguns outros exemplos de causas para nós **inutilizáveis** incluem:
 
 - Uma VM é movida devido a uma falha de infraestrutura ou de uma atualização de nível baixo. O lote recupera o nó.
 
-- Uma imagem VM foi implantada em hardware que não a suporta. Por exemplo, tentar executar uma imagem Do CentOS HPC em um [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md) VM.
+- Uma imagem de VM foi implantada em hardware que não oferece suporte a ela. Por exemplo, tentar executar uma imagem CentOS HPC em uma VM [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md) .
 
-- As VMs estão em uma [rede virtual Azure](batch-virtual-network.md), e o tráfego foi bloqueado em portas-chave.
+- As VMs estão em uma [rede virtual do Azure](batch-virtual-network.md)e o tráfego foi bloqueado para as principais portas.
 
-- As VMs estão em uma rede virtual, mas o tráfego de saída para o armazenamento do Azure está bloqueado.
+- As VMs estão em uma rede virtual, mas o tráfego de saída para o armazenamento do Azure é bloqueado.
 
-- As VMs estão em uma rede virtual com uma configuração de DNS do cliente e o servidor DNS não pode resolver o armazenamento DoZure.
+- As VMs estão em uma rede virtual com uma configuração de DNS do cliente e o servidor DNS não pode resolver o armazenamento do Azure.
 
 ### <a name="node-agent-log-files"></a>Arquivos de log do agente de nó
 
-O processo de agente batch que é executado em cada nó de pool pode fornecer arquivos de log que podem ser úteis se você precisar entrar em contato com o suporte sobre um problema de nó de pool. Os arquivos de log para um nó podem ser carregados por meio do portal do Microsoft Azure, do Batch Explorer ou de uma [API](/rest/api/batchservice/computenode/uploadbatchservicelogs). É útil carregar e salvar os arquivos de log. Depois disso, pode-se excluir o nó ou o pool para economizar o custo de nós em execução.
+O processo do agente do lote que é executado em cada nó de pool pode fornecer arquivos de log que podem ser úteis se você precisar entrar em contato com o suporte sobre um problema de nó de pool. Os arquivos de log para um nó podem ser carregados por meio do portal do Microsoft Azure, do Batch Explorer ou de uma [API](/rest/api/batchservice/computenode/uploadbatchservicelogs). É útil carregar e salvar os arquivos de log. Depois disso, pode-se excluir o nó ou o pool para economizar o custo de nós em execução.
 
-### <a name="node-disk-full"></a>Disco de nó completo
+### <a name="node-disk-full"></a>Nó cheio do disco
 
-A unidade temporária para um vm de nó de pool é usada pela Batch para arquivos de trabalho, arquivos de tarefas e arquivos compartilhados.
+A unidade temporária para uma VM de nó de pool é usada pelo lote para arquivos de trabalho, arquivos de tarefas e arquivos compartilhados.
 
 - Arquivos de pacotes de aplicativos
-- Arquivos de recursos de tarefa
-- Arquivos específicos de aplicativos baixados para uma das pastas batch
-- Arquivos Stdout e stderr para cada execução de aplicativo de tarefa
+- Arquivos de recurso de tarefa
+- Arquivos específicos do aplicativo baixados para uma das pastas do lote
+- Arquivos stdout e stderr para cada execução de aplicativo de tarefa
 - Arquivos de saída específicos do aplicativo
 
-Alguns desses arquivos são gravados apenas uma vez quando os nós de pool são criados, como pacotes de aplicativos de pool ou arquivos de recursos de início de pool. Mesmo que apenas escrito uma vez quando o nó é criado, se esses arquivos são muito grandes, eles poderiam preencher a unidade temporária.
+Alguns desses arquivos são gravados apenas uma vez quando nós de pool são criados, como pacotes de aplicativos de pool ou arquivos de recurso de tarefa de início de pool. Mesmo que seja gravado apenas uma vez quando o nó for criado, se esses arquivos forem muito grandes, eles poderão preencher a unidade temporária.
 
-Outros arquivos são escritos para cada tarefa que é executada em um nó, como stdout e stderr. Se um grande número de tarefas for executada no mesmo nó e/ou os arquivos de tarefas forem muito grandes, eles podem preencher a unidade temporária.
+Outros arquivos são gravados para cada tarefa que é executada em um nó, como stdout e stderr. Se um grande número de tarefas for executado no mesmo nó e/ou os arquivos de tarefa forem muito grandes, eles poderão preencher a unidade temporária.
 
 O tamanho da unidade temporária depende do tamanho da VM. Uma consideração ao escolher um tamanho de VM é garantir que a unidade temporária tenha espaço suficiente.
 
-- No portal Azure ao adicionar um pool, a lista completa de tamanhos de VM pode ser exibida e há uma coluna 'Tamanho do disco de recursos'.
-- Os artigos que descrevem todos os tamanhos de VM têm tabelas com uma coluna 'Armazenamento temporário'; por [exemplo, tamanhos de VM otimizados para computação](/azure/virtual-machines/windows/sizes-compute)
+- Na portal do Azure ao adicionar um pool, a lista completa de tamanhos de VM pode ser exibida e há uma coluna "tamanho do disco do recurso".
+- Os artigos que descrevem todos os tamanhos de VM têm tabelas com uma coluna ' armazenamento temporário '; por exemplo, [tamanhos de VM otimizados para computação](/azure/virtual-machines/windows/sizes-compute)
 
-Para arquivos gravados por cada tarefa, um tempo de retenção pode ser especificado para cada tarefa que determina quanto tempo os arquivos de tarefa são mantidos antes de serem automaticamente limpos. O tempo de retenção pode ser reduzido para reduzir os requisitos de armazenamento.
+Para arquivos gravados por cada tarefa, um tempo de retenção pode ser especificado para cada tarefa que determina por quanto tempo os arquivos de tarefa são mantidos antes de serem limpos automaticamente. O tempo de retenção pode ser reduzido para reduzir os requisitos de armazenamento.
 
 
-Se o disco temporário ficar sem espaço (ou estiver muito perto de ficar sem espaço), o nó se moverá para o estado [inutilizável](/rest/api/batchservice/computenode/get#computenodestate) e um erro de nó será relatado dizendo que o disco está cheio.
+Se o disco temporário ficar sem espaço (ou estiver muito perto de ficar sem espaço), o nó será movido para o estado [inutilizável](/rest/api/batchservice/computenode/get#computenodestate) e um erro de nó será relatado dizendo que o disco está cheio.
 
 ### <a name="what-to-do-when-a-disk-is-full"></a>O que fazer quando um disco está cheio
 
-Determine por que o disco está cheio: Se você não tem certeza do que está ocupando espaço no nó, é recomendável controlar o nó e investigar manualmente para onde o espaço foi. Você também pode fazer uso da [API Arquivos de lista](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) de lotes para examinar arquivos em pastas gerenciadas em lote (por exemplo, saídas de tarefas). Observe que esta API só lista arquivos nos diretórios gerenciados do Batch e se suas tarefas criaram arquivos em outro lugar, você não os verá.
+Determine por que o disco está cheio: se você não tiver certeza do que está ocupando espaço no nó, é recomendável remoto para o nó e investigar manualmente onde o espaço acabou. Você também pode usar a API de [arquivos de lista de lotes](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) para examinar arquivos em pastas gerenciadas do lote (por exemplo, saídas de tarefa). Observe que essa API só lista os arquivos nos diretórios gerenciados do lote e se suas tarefas criaram arquivos em outro lugar, você não os verá.
 
-Certifique-se de que todos os dados necessários foram recuperados do nó ou carregados em uma loja durável. Toda a mitigação do problema do disco completo envolve a exclusão de dados para liberar espaço.
+Certifique-se de que todos os dados necessários foram recuperados do nó ou carregados em um repositório durável. Toda a mitigação do problema completo de disco envolve a exclusão de dados para liberar espaço.
 
 ### <a name="recovering-the-node"></a>Recuperando o nó
 
-1. Se o pool for um pool [C.loudServiceConfiguration,](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) você poderá revisualizar o nó através da [API de reimagem batch](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage). Isso vai limpar todo o disco. A reimagem não é suportada no momento para pools [VirtualMachineConfiguration.](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)
+1. Se o pool for um pool de [C. loudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) , você poderá recriar a imagem do nó por meio da [API de recriação do lote](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage). Isso limpará todo o disco. A recriação de imagem não tem suporte no momento para pools [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) .
 
-2. Se o seu pool for uma [Configuração VirtualMachine,](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)você pode remover o nó da piscina usando a [API removenós](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes). Então, você pode crescer a piscina novamente para substituir o nó ruim por um novo.
+2. Se o pool for um [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration), você poderá remover o nó do pool usando a [API remover nós](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes). Em seguida, você pode aumentar o pool novamente para substituir o nó insatisfatório por um novo.
 
-3.  Exclua trabalhos antigos concluídos ou tarefas antigas concluídas cujos dados de tarefa ainda estão nos nós. Para obter uma dica sobre quais dados de trabalhos/tarefas estão nos nós, você pode olhar na [coleção RecentTasks](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) no nó ou nos [arquivos no nó](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). A exclusão do trabalho excluirá todas as tarefas do trabalho e a exclusão das tarefas no trabalho acionará dados nos diretórios de tarefas no nó a ser excluído, liberando assim espaço. Depois de liberar espaço suficiente, reinicie o nó e ele deve sair do estado "Inutilizável" para "Ocioso" novamente.
+3.  Excluir trabalhos antigos concluídos ou tarefas concluídas antigas cujos dados de tarefa ainda estão nos nós. Para obter uma dica sobre quais dados de trabalho/tarefas estão nos nós, você pode procurar na [coleção RecentTasks](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) no nó ou nos arquivos do [nó](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). A exclusão do trabalho excluirá todas as tarefas no trabalho e a exclusão das tarefas no trabalho disparará os dados nos diretórios de tarefas no nó a ser excluído, liberando assim o espaço. Depois de liberar espaço suficiente, reinicialize o nó e ele deverá sair do estado "inutilizável" e para "ocioso" novamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

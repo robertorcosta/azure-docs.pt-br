@@ -1,22 +1,14 @@
 ---
-title: Evento de início da tarefa Azure Batch
-description: Informações de referência para o evento de início da tarefa em lote. Esse evento é emitido quando uma tarefa é agendada para iniciar em um nó de computação pelo agendador.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
+title: Evento de início de tarefa do lote do Azure
+description: Informações de referência para evento de início de tarefa de lote. Esse evento é emitido quando uma tarefa é agendada para iniciar em um nó de computação pelo agendador.
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: labrenne
-ms.openlocfilehash: bed3749e29867298f3e8258a08448b7b094055ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e897cb02163d11657c915d31ee5564e5bbd7407
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022810"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116393"
 ---
 # <a name="task-start-event"></a>Evento de início da tarefa
 
@@ -49,8 +41,8 @@ ms.locfileid: "77022810"
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
-|`jobId`|String|A id do trabalho contendo a tarefa.|
-|`id`|String|A id da tarefa.|
+|`jobId`|String|A ID do trabalho que contém a tarefa.|
+|`id`|String|A ID da tarefa.|
 |`taskType`|String|O tipo de tarefa. Pode ser “JobManager” indicando que é uma tarefa do gerenciador de trabalhos ou “Usuário”, indicando que não é uma tarefa do gerenciador de trabalhos.|
 |`systemTaskVersion`|Int32|Esse é o contador interno de repetição de uma tarefa. Internamente, o serviço em lotes pode repetir uma tarefa para contabilizar problemas transitórios. Esses problemas podem incluir erros internos de agendamento ou tentativa de recuperar nós de computação em estado inválido.|
 |[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó de computação em que a tarefa é executada.|
@@ -62,22 +54,22 @@ ms.locfileid: "77022810"
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
-|`poolId`|String|O ID da piscina em que a tarefa foi realizada.|
-|`nodeId`|String|A id do nó em que a tarefa foi realizada.|
+|`poolId`|String|A ID do pool no qual a tarefa foi executada.|
+|`nodeId`|String|A ID do nó no qual a tarefa foi executada.|
 
-###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>configurações de várias instâncias
+###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstanceSettings
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int|O número de nós de computação que a tarefa precisa.|
 
-###  <a name="constraints"></a><a name="constraints"></a>Restrições
+###  <a name="constraints"></a><a name="constraints"></a>reflexiva
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|O número máximo de vezes que a tarefa pode ser repetida. O serviço em lotes repetirá uma tarefa se seu código de saída for diferente de zero.<br /><br /> Observe que esse valor controla especificamente o número de tentativas. O serviço em lotes tentará a tarefa uma vez e, em seguida, pode tentar novamente até esse limite. Por exemplo, se a contagem máxima de repetição for 3, o lote tentará uma tarefa até 4 vezes (uma tentativa inicial e 3 repetições).<br /><br /> Se a contagem máxima de repetição for 0, o serviço em lote não tentará repetir a tarefas.<br /><br /> Se a contagem máxima de repetição for -1, o serviço em lotes repetirá as tarefas ilimitadamente.<br /><br /> O valor padrão é 0 (sem novas tentativas).|
 
-###  <a name="executioninfo"></a><a name="executionInfo"></a>Executioninfo
+###  <a name="executioninfo"></a><a name="executionInfo"></a>executionInfo
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|

@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/21/2020
+ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1377023af9d4f153671f15e214516ac29536638
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82100066"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112194"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -47,6 +47,14 @@ Nem todas as versões do Azure AD Connect serão disponibilizadas para atualiza�
 >Se você tiver habilitado Azure AD Connect para sincronização, logo começará automaticamente a receber notificações de integridade que avisam sobre as substituições futuras quando você estiver executando uma das versões mais antigas.
 >
 >Veja [Este artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para saber mais sobre como atualizar Azure ad Connect para a versão mais recente.
+
+## <a name="15290"></a>1.5.29.0
+
+### <a name="release-status"></a>Status de liberação
+04/23/2020: liberado para download
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+Essa compilação de hotfix corrige um problema introduzido no Build 1.5.20.0, em que um administrador de locatários com MFA não conseguiu habilitar o DSSO.
 
 ## <a name="15220"></a>1.5.22.0
 
@@ -548,10 +556,10 @@ Bloqueie o acesso à conta do AD DS implementando as seguintes alterações de p
 
 Type     | Nome                          | Acesso               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
-Allow    | SYSTEM                        | Controle Total         | Este objeto  |
-Allow    | Administradores Corporativos             | Controle Total         | Este objeto  |
-Allow    | Administradores de Domínio                 | Controle Total         | Este objeto  |
-Allow    | Administradores                | Controle Total         | Este objeto  |
+Allow    | SYSTEM                        | Controle total         | Este objeto  |
+Allow    | Administrador corporativo             | Controle total         | Este objeto  |
+Allow    | Administradores do domínio                 | Controle total         | Este objeto  |
+Allow    | Administradores                | Controle total         | Este objeto  |
 Allow    | Controladores de Domínio Corporativo | Listar Conteúdo        | Este objeto  |
 Allow    | Controladores de Domínio Corporativo | Ler Todas as Propriedades  | Este objeto  |
 Allow    | Controladores de Domínio Corporativo | Permissões de Leitura     | Este objeto  |
@@ -571,7 +579,7 @@ Para usar o script do PowerShell, para aplicar essas configurações, para uma c
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Where 
+Em que 
 
 **$ObjectDN** = A conta do Active Directory cujas permissões precisam ser reforçadas.
 
@@ -890,7 +898,7 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Selecionar|
-    |CertKeyAlgorithmParams|CertHashString|Where|
+    |CertKeyAlgorithmParams|CertHashString|Em que|
     |||With|
 
 * As seguintes alterações de esquema foram introduzidas para permitir que os clientes criem regras de sincronização personalizadas para transmitir sAMAccountName, domainNetBios e domainFQDN para objetos de grupo, bem como transmitir distinguishedName para objetos de usuário:

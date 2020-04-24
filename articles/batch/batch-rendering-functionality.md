@@ -1,18 +1,16 @@
 ---
-title: Recursos de renderização - Lote do Azure
-description: Os recursos padrão do Azure Batch são usados para executar cargas de trabalho de renderização e aplicativos. O lote inclui recursos específicos para suportar cargas de trabalho de renderização.
-services: batch
-ms.service: batch
+title: Recursos de renderização
+description: Os recursos do lote do Azure padrão são usados para executar aplicativos e cargas de trabalho de renderização. O lote inclui recursos específicos para dar suporte à renderização de cargas de trabalho.
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 697e2640b7215e0bbb9202c672f936535831eb99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3efe1dfa69de5ce41aed2152baa88b313fd928f1
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75449720"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115747"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Recursos de renderização de Lote do Azure
 
@@ -37,9 +35,9 @@ Para um exemplo de configuração do pool, consulte o [tutorial de renderizaçã
 
 Outras opções estão disponíveis se aplicativos adicionais forem necessários nas VMs do pool:
 
-* Uma imagem personalizada da Galeria de Imagens Compartilhadas:
-  * Usando essa opção, você pode configurar sua VM exatamente com os aplicativos e as versões específicas de que você precisa. Para obter mais informações, consulte [Criar um pool com a Galeria de Imagens Compartilhadas](batch-sig-images.md). A Autodesk e o Chaos Group modificaram o Arnold e o V-Ray, respectivamente, para validar o serviço de licenciamento do Azure Batch. Certifique-se de ter as versões desses aplicativos com esse suporte, caso contrário, o licenciamento de pagamento por uso não funcionará. As versões atuais do Maya ou do 3ds Max não exigem um servidor de licenças durante a execução sem cabeça (no modo de lote / linha de comando). Entre em contato com o suporte do Azure se você não tiver certeza de como proceder com essa opção.
-* [Pacotes de aplicativos:](https://docs.microsoft.com/azure/batch/batch-application-packages)
+* Uma imagem personalizada da Galeria de imagens compartilhadas:
+  * Usando essa opção, você pode configurar sua VM exatamente com os aplicativos e as versões específicas de que você precisa. Para obter mais informações, consulte [criar um pool com a Galeria de imagens compartilhadas](batch-sig-images.md). A Autodesk e o Chaos Group modificaram o Arnold e o V-Ray, respectivamente, para validar o serviço de licenciamento do Azure Batch. Certifique-se de ter as versões desses aplicativos com esse suporte, caso contrário, o licenciamento de pagamento por uso não funcionará. As versões atuais do Maya ou do 3ds Max não exigem um servidor de licenças durante a execução sem cabeça (no modo de lote / linha de comando). Entre em contato com o suporte do Azure se você não tiver certeza de como proceder com essa opção.
+* [Pacotes de aplicativos](https://docs.microsoft.com/azure/batch/batch-application-packages):
   * Empacote os arquivos do aplicativo usando um ou mais arquivos ZIP, faça o upload por meio do portal do Azure e especifique o pacote na configuração do pool. Quando as VMs do pool são criadas, os arquivos ZIP são baixados e os arquivos extraídos.
 * Arquivos de recurso:
   * Os arquivos do aplicativo são carregados no armazenamento de blobs do Azure e você especifica referências de arquivos na tarefa de [início do pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask). Quando as VMs do pool são criadas, os arquivos de recurso são baixados em cada VM.

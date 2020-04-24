@@ -1,6 +1,6 @@
 ---
-title: Mover web app que assina em usuários para produção - plataforma de identidade Microsoft | Azure
-description: Saiba como construir um aplicativo web que faça sinais nos usuários (mude para produção)
+title: Mover o aplicativo Web que conecta os usuários à produção – plataforma de identidade da Microsoft | Azure
+description: Saiba como criar um aplicativo Web que faz logon de usuários (mover para produção)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,53 +11,62 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9c5fd444c55a20441325088912a07eb051219b84
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a8e275a41637950139598ac7c4f2513841bb4d0d
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881461"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82112500"
 ---
-# <a name="web-app-that-signs-in-users-move-to-production"></a>Web app que assina nos usuários: Mova-se para a produção
+# <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicativo Web que conecta usuários: mover para produção
 
-Agora que você sabe como obter um token para chamar APIs da Web, aprenda como movê-lo para a produção.
+Agora que você sabe como obter um token para chamar APIs da Web, saiba como movê-la para produção.
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
+### <a name="troubleshooting"></a>Solução de problemas
+
+> [!NOTE]
+> Quando os usuários entram no aplicativo Web pela primeira vez, eles precisarão consentir. No entanto, em algumas organizações, os usuários podem ver uma mensagem semelhante à seguinte:
+>
+> *AppName precisa de permissões para acessar recursos em sua organização que somente um administrador pode conceder. Peça a um administrador para conceder permissão a este aplicativo antes de poder usá-lo.*
+>
+> Isso ocorre porque o administrador de locatários **desabilitou** a capacidade de consentimento dos usuários. Nesse caso, você precisa entrar em contato com seus administradores de locatários para que eles façam um consentimento de administrador para os escopos exigidos pelo aplicativo.
+
 ### <a name="same-site"></a>Mesmo site
 
-Certifique-se de entender possíveis problemas com novas versões do navegador Chrome
+Verifique se você entendeu possíveis problemas com as novas versões do navegador Chrome
 
 > [!div class="nextstepaction"]
-> [Como lidar com as alterações de cookies do SameSite no navegador Chrome](howto-handle-samesite-cookie-changes-chrome-browser.md)
+> [Como lidar com alterações de cookie SameSite no navegador Chrome](howto-handle-samesite-cookie-changes-chrome-browser.md)
 
-### <a name="scenario-for-calling-web-apis"></a>Cenário para chamar APIs da Web
+### <a name="scenario-for-calling-web-apis"></a>Cenário para chamar APIs Web
 
-Depois que seu aplicativo web assina nos usuários, ele pode chamar APIs da Web em nome dos usuários inscritos. Chamar APIs da Web a partir do aplicativo web é o objeto do seguinte cenário:
-
-> [!div class="nextstepaction"]
-> [Aplicativo Web que chama as APIs Web](scenario-web-app-call-api-overview.md)
-
-## <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Mergulho profundo: tutorial do aplicativo web ASP.NET Core
-
-Conheça outras maneiras de fazer login com usuários com este tutorial do ASP.NET Core: 
+Depois que seu aplicativo Web entra em usuários, ele pode chamar APIs da Web em nome dos usuários conectados. Chamar APIs da Web do aplicativo Web é o objeto do seguinte cenário:
 
 > [!div class="nextstepaction"]
-> [Habilite que seus aplicativos web entrem nos usuários e chamem APIs com a plataforma de identidade da Microsoft para desenvolvedores](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 
+> [Aplicativo Web que faz chamadas a APIs Web](scenario-web-app-call-api-overview.md)
 
-Este tutorial progressivo tem código pronto para produção para um aplicativo web, incluindo como adicionar login com contas em:
+## <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Aprofunde-se: tutorial do aplicativo Web ASP.NET Core
+
+Saiba mais sobre outras maneiras de conectar usuários com este ASP.NET Core tutorial: 
+
+> [!div class="nextstepaction"]
+> [Habilite seus aplicativos Web para conectar usuários e chamar APIs com a plataforma de identidade da Microsoft para desenvolvedores](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 
+
+Este tutorial progressivo tem código pronto para produção para um aplicativo Web, incluindo como adicionar entrada com contas no:
 
 - Sua organização
 - Várias organizações
-- Contas de trabalho ou escola, ou contas pessoais da Microsoft
+- Contas corporativas ou de estudante ou contas pessoais da Microsoft
 - [Azure AD B2C](https://aka.ms/aadb2c)
 - Nuvens nacionais
 
-## <a name="sample-code-java-web-app"></a>Código de exemplo: Java web app
+## <a name="sample-code-java-web-app"></a>Código de exemplo: aplicativo Web Java
 
-Saiba mais sobre o aplicativo web Java a partir desta amostra no GitHub: 
+Saiba mais sobre o aplicativo Web Java deste exemplo no GitHub: 
 
 > [!div class="nextstepaction"]
-> [Um aplicativo Web Java que assina em usuários com a plataforma de identidade Microsoft e chama Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)
+> [Um aplicativo Web Java que conecta usuários com a plataforma de identidade da Microsoft e chama Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)

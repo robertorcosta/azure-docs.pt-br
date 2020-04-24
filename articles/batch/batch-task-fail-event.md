@@ -1,22 +1,14 @@
 ---
-title: Evento de falha da tarefa azure Batch
+title: Evento de falha de tarefa do lote do Azure
 description: Referência de evento de falha de tarefa de lote. Esse evento será emitido além de um evento de conclusão de tarefa e pode ser usado para detectar falha de uma tarefa.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 08/15/2019
-ms.author: labrenne
-ms.openlocfilehash: 2bc958d6dca2b3caae665e6f9b080c651ace9ea0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e973a7e0a2ab67300a0f6762c837336e12bae3b
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022878"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116444"
 ---
 # <a name="task-fail-event"></a>Evento de falha da tarefa
 
@@ -53,12 +45,12 @@ ms.locfileid: "77022878"
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
-|`jobId`|String|A id do trabalho contendo a tarefa.|
-|`id`|String|A id da tarefa.|
+|`jobId`|String|A ID do trabalho que contém a tarefa.|
+|`id`|String|A ID da tarefa.|
 |`taskType`|String|O tipo de tarefa. Pode ser “JobManager” indicando que é uma tarefa do gerenciador de trabalhos ou “Usuário”, indicando que não é uma tarefa do gerenciador de trabalhos. Esse evento não é emitido para tarefas de preparação, lançamento ou inicialização de trabalho.|
 |`systemTaskVersion`|Int32|Esse é o contador interno de repetição de uma tarefa. Internamente, o serviço em lotes pode repetir uma tarefa para contabilizar problemas transitórios. Esses problemas podem incluir erros internos de agendamento ou tentativa de recuperar nós de computação em estado inválido.|
 |[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó de computação em que a tarefa é executada.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma tarefa com várias instâncias que precisa de vários nós de computação.  Veja [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) os detalhes.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma tarefa com várias instâncias que precisa de vários nós de computação.  Consulte [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) para obter detalhes.|
 |[`constraints`](#constraints)|Tipo complexo|As restrições de execução aplicáveis a essa tarefa.|
 |[`executionInfo`](#executionInfo)|Tipo complexo|Contém informações sobre a execução da tarefa.|
 
@@ -66,23 +58,23 @@ ms.locfileid: "77022878"
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
-|`poolId`|String|O ID da piscina em que a tarefa foi realizada.|
-|`nodeId`|String|A id do nó em que a tarefa foi realizada.|
+|`poolId`|String|A ID do pool no qual a tarefa foi executada.|
+|`nodeId`|String|A ID do nó no qual a tarefa foi executada.|
 
-###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>configurações de várias instâncias
+###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstanceSettings
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int32|O número de nós de computação que a tarefa precisa.|
 
-###  <a name="constraints"></a><a name="constraints"></a>Restrições
+###  <a name="constraints"></a><a name="constraints"></a>reflexiva
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|O número máximo de vezes que a tarefa pode ser repetida. O serviço em lotes repetirá uma tarefa se seu código de saída for diferente de zero.<br /><br /> Observe que esse valor controla especificamente o número de tentativas. O serviço em lotes tentará a tarefa uma vez e, em seguida, pode tentar novamente até esse limite. Por exemplo, se a contagem máxima de repetição for 3, o lote tentará uma tarefa até 4 vezes (uma tentativa inicial e 3 repetições).<br /><br /> Se a contagem máxima de repetição for 0, o serviço em lote não tentará repetir a tarefas.<br /><br /> Se a contagem máxima de repetição for -1, o serviço em lotes repetirá as tarefas ilimitadamente.<br /><br /> O valor padrão é 0 (sem novas tentativas).|
 
 
-###  <a name="executioninfo"></a><a name="executionInfo"></a>Executioninfo
+###  <a name="executioninfo"></a><a name="executionInfo"></a>executionInfo
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|

@@ -1,20 +1,15 @@
 ---
 title: Provisionar o pool em uma rede virtual | Microsoft Docs
 description: Como criar um pool de lotes em uma rede virtual do Azure para que os nós de computação possam se comunicar com segurança com outras VMs na rede, como um servidor de arquivos.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: article
 ms.date: 04/03/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: a653b645fb8713698e8baf283b3ab6226841dfcd
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 616118d5f75f9bfa6d97d89baac9d7ea9186cd5d
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657488"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82111888"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um pool do Lote do Azure em uma rede virtual
 
@@ -56,7 +51,7 @@ Você pode ter requisitos em sua organização para redirecionar (forçar) o tr�
 
 Para garantir que seus nós de computação do pool do Lote do Azure funcionam em uma rede virtual com túnel forçado habilitado, você deve adicionar as seguintes [rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md) para essa sub-rede:
 
-* O serviço do Lote precisa se comunicar com os nós de computação do pool para o agendamento de tarefas. Para habilitar essa comunicação, adicione uma rota definida pelo usuário para cada endereço IP usado pelo serviço do Lote na região onde existe sua conta do Lote. Para saber como obter a lista de endereços IP do serviço Batch, consulte [Tags de serviço no local](../virtual-network/service-tags-overview.md). Os endereços IP do serviço `BatchNodeManagement` Batch serão associados à tag de serviço (ou à variante regional que corresponde à região da sua conta batch).
+* O serviço do Lote precisa se comunicar com os nós de computação do pool para o agendamento de tarefas. Para habilitar essa comunicação, adicione uma rota definida pelo usuário para cada endereço IP usado pelo serviço do Lote na região onde existe sua conta do Lote. Para saber como obter a lista de endereços IP do serviço de lote, consulte [marcas de serviço locais](../virtual-network/service-tags-overview.md). Os endereços IP do serviço de lote serão associados à `BatchNodeManagement` marca de serviço (ou à variante regional que corresponde à sua região de conta do lote).
 
 * Certifique-se de que o tráfego de saída no Armazenamento do Azure (especificamente, as URLs da forma `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` e `<account>.blob.core.windows.net`) não está bloqueado por meio de seu dispositivo de rede local.
 
@@ -65,7 +60,7 @@ Quando você adicionar uma rota definida pelo usuário, defina a rota para cada 
 ![Rota definida pelo usuário](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
-> Os endereços IP do serviço em lote podem mudar com o tempo. Para evitar uma interrupção devido a uma alteração de endereço IP, sugerimos que você estabeleça um processo periódico para atualizar endereços IP de serviço em lote automaticamente e mantê-los atualizados em sua tabela de rotas.
+> Os endereços IP do serviço de lote podem mudar ao longo do tempo. Para evitar uma interrupção devido a uma alteração de endereço IP, sugerimos que você estabeleça um processo periódico para atualizar os endereços IP do serviço de lote automaticamente e mantê-los atualizados em sua tabela de rotas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

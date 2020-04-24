@@ -1,34 +1,21 @@
 ---
-title: Executar tarefas em contas de usuário - Azure Batch
-description: É útil ser capaz de configurar a conta de usuário a qual você deseja que uma tarefa seja executada. Saiba os tipos de contas de usuário e como configurá-las.
-services: batch
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: batch
+title: Executar tarefas em contas de usuário – lote do Azure
+description: É útil ser capaz de configurar a conta de usuário sob a qual você deseja que uma tarefa seja executada. Aprenda os tipos de contas de usuário e como configurá-las.
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 11/18/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: fee3dc764d2052185160a4ba6b3d70854c54eeac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22827a1a1406be7cb6ea0bd6e19f6ce316598a48
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252266"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82111735"
 ---
 > [!NOTE] 
-> As contas de usuário discutidas neste artigo são diferentes das contas de usuários usadas para RDP (Remote Desktop Protocol) ou Secure Shell (SSH), por razões de segurança. 
+> As contas de usuário discutidas neste artigo são diferentes das contas de usuários usadas para protocolo RDP (RDP) ou Secure Shell (SSH), por motivos de segurança. 
 >
 > Para se conectar a um nó em execução na configuração da máquina virtual Linux via SSH, confira [Usar Área de Trabalho Remota para uma VM Linux no Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para se conectar a nós em execução no Windows via RDP, confira [Conectar-se a uma VM do Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Para se conectar a um nó em execução na configuração do serviço de nuvem via RDP, confira [Habilitar a Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
->
->
-
 
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de usuário no Lote
 
@@ -159,7 +146,7 @@ Uma conta de usuário nomeado é útil quando você deseja executar todas as tar
 
 Você também pode usar uma conta de usuário nomeado para executar uma tarefa que defina permissões em recursos externos, como compartilhamentos de arquivos. Com uma conta de usuário nomeado, você controla a identidade do usuário e pode usar a identidade do usuário para definir permissões.  
 
-As contas de usuário nomeado permitem o SSH sem senha entre os nós Linux. É possível usar uma conta de usuário nomeado com nós Linux que precisam executar tarefas de várias instâncias. Cada nó no pool pode executar tarefas em uma conta de usuário definida no pool inteiro. Para obter mais informações sobre tarefas de várias instâncias, consulte [Usar tarefas de várias\-instâncias para executar aplicativos MPI](batch-mpi.md).
+As contas de usuário nomeado permitem o SSH sem senha entre os nós Linux. É possível usar uma conta de usuário nomeado com nós Linux que precisam executar tarefas de várias instâncias. Cada nó no pool pode executar tarefas em uma conta de usuário definida no pool inteiro. Para obter mais informações sobre tarefas de várias instâncias, consulte [usar\-tarefas de várias instâncias para executar aplicativos MPI](batch-mpi.md).
 
 ### <a name="create-named-user-accounts"></a>Criar contas de usuário nomeado
 

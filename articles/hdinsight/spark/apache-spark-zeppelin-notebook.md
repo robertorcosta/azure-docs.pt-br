@@ -1,5 +1,5 @@
 ---
-title: Notebooks Zeppelin & grupo Apache Spark - Azure HDInsight
+title: Zeppelin notebooks & Apache Spark cluster – Azure HDInsight
 description: Instruções passo a passo sobre como usar notebooks Zeppelin com clusters Apache Spark no Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,43 +7,43 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/07/2020
-ms.openlocfilehash: 3c1369e813ba6518f6cd4b27082020ae36a24c82
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.date: 04/23/2020
+ms.openlocfilehash: e97ac14c91ec9fb05b25d422680d788b4498725f
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811211"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116716"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Use os cadernos Apache Zeppelin com o cluster do Apache Spark no HDInsight do Azure
 
-Os clusters HDInsight Spark incluem notebooks [Apache Zeppelin.](https://zeppelin.apache.org/) Use os cadernos para executar [apache spark](https://spark.apache.org/) trabalhos. Neste artigo, você aprenderá a usar o notebook Zeppelin em um cluster HDInsight.
+Os clusters do HDInsight Spark incluem notebooks [Apache Zeppelin](https://zeppelin.apache.org/) . Use os blocos de anotações para executar Apache Spark trabalhos. Neste artigo, você aprenderá a usar o notebook Zeppelin em um cluster HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* O esquema de URI do seu armazenamento primário de clusters. O esquema `wasb://` seria para o Azure Blob Storage, `abfs://` para `adl://` o Azure Data Lake Storage Gen2 ou para o Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para `wasbs://`o Blob Storage, o URI será .  Para obter mais informações, consulte [Exigir transferência segura no Armazenamento Azure](../../storage/common/storage-require-secure-transfer.md) .
+* O esquema de URI do seu armazenamento primário de clusters. O esquema seria `wasb://` para o armazenamento de BLOBs `abfs://` do Azure, `adl://` por Azure data Lake Storage Gen2 ou para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento de BLOB, `wasbs://`o URI será.  Para obter mais informações, consulte [exigir transferência segura no armazenamento do Azure](../../storage/common/storage-require-secure-transfer.md) .
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Inicie um notebook do Apache Zeppelin
 
-1. Na visão **geral**do cluster Spark, selecione **o notebook Zeppelin** nos **painéis do Cluster**. Digite as credenciais de administrador para o cluster.  
+1. Na **visão geral**do cluster do Spark, selecione **Zeppelin Notebook** em **painéis do cluster**. Insira as credenciais de administrador para o cluster.  
 
    > [!NOTE]  
    > Você também pode acessar o Bloco de Notas Zeppelin de seu cluster abrindo a seguinte URL no navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
-2. Crie um novo bloco de anotações. Do painel de cabeçalho, navegue **até notebook** > **Criar uma nova nota**.
+2. Crie um novo bloco de anotações. No painel de cabeçalho, navegue até o **bloco de anotações** > **criar nova anotação**.
 
     ![Criar um novo bloco de anotações do Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "Criar um novo bloco de anotações do Zeppelin")
 
-    Digite um nome para o notebook e selecione **Criar nota**.
+    Insira um nome para o bloco de anotações e, em seguida, selecione **criar anotação**.
 
-3. Certifique-se de que o cabeçalho do notebook mostra um status conectado. É denotado por um ponto verde no canto superior direito.
+3. Verifique se o cabeçalho do bloco de anotações mostra um status conectado. Ele é indicado por um ponto verde no canto superior direito.
 
     ![Status do bloco de anotações do Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Status do bloco de anotações do Zeppelin")
 
-4. Carregar dados de exemplo em uma tabela temporária. Quando você cria um cluster Spark no HDInsight, o arquivo de dados de amostra, `hvac.csv`é copiado para a conta de armazenamento associada em `\HdiSamples\SensorSampleData\hvac`.
+4. Carregar dados de exemplo em uma tabela temporária. Quando você cria um cluster Spark no HDInsight, o arquivo de dados de `hvac.csv`exemplo,, é copiado para a conta `\HdiSamples\SensorSampleData\hvac`de armazenamento associada em.
 
     No parágrafo vazio criado por padrão no novo bloco de anotações, cole o snippet a seguir.
 
@@ -71,16 +71,16 @@ Os clusters HDInsight Spark incluem notebooks [Apache Zeppelin.](https://zeppeli
     hvac.registerTempTable("hvac")
     ```
 
-    Pressione **SHIFT + ENTER** ou selecione o botão **Reproduzir** para que o parágrafo execute o trecho. O status no canto direito do parágrafo deve progredir de PRONTO, PENDENTE, EM EXCECUÇÃO para CONCLUÍDO. A saída é exibida na parte inferior do mesmo parágrafo. A captura de tela parece a seguinte imagem:
+    Pressione **Shift + Enter** ou selecione o botão **reproduzir** para o parágrafo para executar o trecho de código. O status no canto direito do parágrafo deve progredir de PRONTO, PENDENTE, EM EXCECUÇÃO para CONCLUÍDO. A saída é exibida na parte inferior do mesmo parágrafo. A captura de tela é semelhante à imagem a seguir:
 
     ![Criar uma tabela temporária por meio de dados brutos](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Criar uma tabela temporária por meio de dados brutos")
 
-    Você também pode fornecer um título para cada parágrafo. No canto direito do parágrafo, selecione o ícone **Configurações** (sprocket) e selecione **Mostrar título**.  
+    Você também pode fornecer um título para cada parágrafo. No canto direito do parágrafo, selecione o ícone de **configurações** (Sprocket) e, em seguida, selecione **Mostrar título**.  
 
     > [!NOTE]  
     > O intérprete% spark2 não é suportado nos portáteis Zeppelin em todas as versões do HDInsight, e o intérprete% sh não será suportado pelo HDInsight 4.0 em diante.
 
-5. Agora você pode executar as instruções Spark SQL na `hvac` mesa. Cole a seguinte consulta em um novo parágrafo. A consulta recupera o ID do prédio. Também a diferença entre o alvo e as temperaturas reais para cada edifício em uma determinada data. Pressione **SHIFT + ENTER**.
+5. Agora você pode executar instruções SQL do Spark na `hvac` tabela. Cole a seguinte consulta em um novo parágrafo. A consulta recupera a ID de edifício. Além disso, a diferença entre as temperaturas de destino e real para cada edifício em uma determinada data. Pressione **SHIFT+ENTER**.
 
     ```sql
     %sql
@@ -89,51 +89,51 @@ Os clusters HDInsight Spark incluem notebooks [Apache Zeppelin.](https://zeppeli
 
     A instrução **%sql** no início informa ao bloco de anotações para usar o interpretador Scala Livy.
 
-6. Selecione o ícone **Gráfico de** barras para alterar o visor.  **configurações**, aparecer depois de ter selecionado **Gráfico de**barras, permite que você escolha **Chaves**e **Valores**.  A captura de tela a seguir mostra o resultado.
+6. Selecione o ícone de **gráfico de barras** para alterar a exibição.  **as configurações**, exibidas depois que você selecionou **gráfico de barras**, permitem que você escolha **chaves**e **valores**.  A captura de tela a seguir mostra o resultado.
 
-    ![Execute uma declaração Spark SQL usando o notebook1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Execute uma declaração Spark SQL usando o notebook1")
+    ![Executar uma instrução SQL do Spark usando o notebook1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Executar uma instrução SQL do Spark usando o notebook1")
 
-7. Você também pode executar instruções Spark SQL usando variáveis na consulta. O próximo trecho mostra como definir `Temp`uma variável, na consulta com os possíveis valores que você deseja consultar. Quando você executa a consulta pela primeira vez, uma lista suspensa é preenchida automaticamente com os valores especificados para a variável.
+7. Você também pode executar instruções Spark SQL usando variáveis na consulta. O próximo trecho mostra como definir uma variável, `Temp`, na consulta com os possíveis valores com os quais você deseja consultar. Quando você executa a consulta pela primeira vez, uma lista suspensa é preenchida automaticamente com os valores especificados para a variável.
 
     ```sql
     %sql  
     select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff from hvac where targettemp > "${Temp = 65,65|75|85}"
     ```
 
-    Cole esse snippet em um novo parágrafo e pressione **SHIFT+ENTER**. Em seguida, selecione **65** na lista de estiletes **temp.**
+    Cole esse snippet em um novo parágrafo e pressione **SHIFT+ENTER**. Em seguida, selecione **65** na lista suspensa **Temp** .
 
-8. Selecione o ícone **Gráfico de** barras para alterar o visor.  Em seguida, selecione **as configurações** e faça as seguintes alterações:
+8. Selecione o ícone de **gráfico de barras** para alterar a exibição.  Em seguida, selecione **configurações** e faça as seguintes alterações:
 
-   * **Grupos:**  Adicionar **targettemp**.  
-   * **Valores:** 1. Remova **a data**.  2. Adicione **temp_diff**.  3.  Mude o agregador de **SUM** para **AVG**.  
+   * **Grupos:**  Adicione **targettemp**.  
+   * **Valores:** uma. Remover **Data**.  2. Adicionar **temp_diff**.  3.  Altere o agregador de **sum** para **AVG**.  
 
      A captura de tela a seguir mostra o resultado.
 
-     ![Execute uma declaração Spark SQL usando o notebook2](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Execute uma declaração Spark SQL usando o notebook2")
+     ![Executar uma instrução SQL do Spark usando o notebook2](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Executar uma instrução SQL do Spark usando o notebook2")
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Como usar pacotes externos com o notebook?
 
-O notebook Zeppelin no cluster Apache Spark no HDInsight pode usar pacotes externos e contribuídos pela comunidade que não estão incluídos no cluster. Procure no [repositório da Maven](https://search.maven.org/) a lista completa de pacotes disponíveis. Você também pode obter uma lista de pacotes disponíveis de outras fontes. Por exemplo, uma lista completa dos pacotes enviados pela comunidade está disponível em [Pacotes do Spark](https://spark-packages.org/).
+O Zeppelin Notebook no cluster Apache Spark no HDInsight pode usar pacotes externos e contribuídos pela Comunidade que não estão incluídos no cluster. Pesquise o [repositório do Maven](https://search.maven.org/) para obter a lista completa de pacotes que estão disponíveis. Você também pode obter uma lista de pacotes disponíveis de outras fontes. Por exemplo, uma lista completa dos pacotes enviados pela comunidade está disponível em [Pacotes do Spark](https://spark-packages.org/).
 
-Neste artigo, você verá como usar o pacote [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) com o notebook Jupyter.
+Neste artigo, você verá como usar o pacote [Spark-CSV](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) com o notebook Jupyter.
 
-1. Abra as configurações do interpretador. No canto superior direito, selecione o nome de usuário logado e selecione **Intérprete**.
+1. Abra as configurações do interpretador. No canto superior direito, selecione o nome de usuário conectado e, em seguida, selecione **intérprete**.
 
     ![Iniciar o interpretador](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Saída do Hive")
 
-2. Role para **livy2,** depois selecione **editar**.
+2. Role até **livy2**e, em seguida, selecione **Editar**.
 
-    ![Alterar configurações do intérprete1](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Alterar configurações do intérprete1")
+    ![Alterar dispositivo1 do intérprete](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Alterar dispositivo1 do intérprete")
 
-3. Navegue `livy.spark.jars.packages`até a tecla e `group:id:version`defina seu valor no formato . Dessa forma, se você quiser usar o pacote [spark csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar), deverá definir o valor da chave como `com.databricks:spark-csv_2.10:1.4.0`.
+3. Navegue até a `livy.spark.jars.packages`chave e defina seu valor no formato `group:id:version`. Dessa forma, se você quiser usar o pacote [spark csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar), deverá definir o valor da chave como `com.databricks:spark-csv_2.10:1.4.0`.
 
-    ![Alterar configurações do intérprete2](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Alterar configurações do intérprete2")
+    ![Alterar settings2 do intérprete](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Alterar settings2 do intérprete")
 
-    Selecione **Salvar** e, em seguida, **OK** para reiniciar o intérprete DeLivy.
+    Selecione **salvar** e **OK** para reiniciar o intérprete Livy.
 
 4. se quiser saber como chegar ao valor da chave inserida acima, confira como.
 
-    a. Localize o pacote no Repositório Maven. Para este artigo, usamos [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+    a. Localize o pacote no Repositório Maven. Para este artigo, usamos o [Spark-CSV](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
 
     b. No repositório, colete os valores para **GroupId**, **ArtifactId** e **Version**.
 
@@ -145,26 +145,26 @@ Neste artigo, você verá como usar o pacote [spark-csv](https://search.maven.or
 
 ## <a name="where-are-the-zeppelin-notebooks-saved"></a>Onde os notebooks Zeppelin são salvos?
 
-Os notebooks Zeppelin são salvos nos nós de cabeçalho do cluster. Portanto, se você excluir o cluster, os notebooks também serão excluídos. Se você quiser preservar os notebooks para uso posterior em outros clusters, deverá exportá-los depois de concluir os trabalhos em execução. Para exportar um notebook, selecione o ícone **Exportar** como mostrado na imagem abaixo.
+Os notebooks Zeppelin são salvos nos nós de cabeçalho do cluster. Portanto, se você excluir o cluster, os notebooks também serão excluídos. Se você quiser preservar os notebooks para uso posterior em outros clusters, deverá exportá-los depois de concluir os trabalhos em execução. Para exportar um bloco de anotações, selecione o ícone **Exportar** , conforme mostrado na imagem abaixo.
 
-![Baixar o notebook](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "Baixe o notebook")
+![Baixar o notebook](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "Baixar o bloco de anotações")
 
-Esta ação salva o notebook como um arquivo JSON em seu local de download.
+Essa ação salva o bloco de anotações como um arquivo JSON em seu local de download.
 
-## <a name="use-shiro-to-configure-access-to-zeppelin-interpreters-in-enterprise-security-package-esp-clusters"></a>Use `Shiro` para configurar o acesso aos intérpretes Zeppelin em clusters esp (Enterprise Security Package, pacote de segurança corporativa)
+## <a name="use-shiro-to-configure-access-to-zeppelin-interpreters-in-enterprise-security-package-esp-clusters"></a>Use `Shiro` para configurar o acesso a interpretadores Zeppelin em clusters de Enterprise Security Package (ESP)
 
-Como observado acima, o `%sh` intérprete não é suportado a partir do HDInsight 4.0 em diante. Além disso, `%sh` uma vez que o intérprete introduz possíveis problemas de segurança, como teclas de acesso usando comandos shell, ele também foi removido dos clusters HDInsight 3.6 ESP. Isso `%sh` significa que o intérprete não está disponível ao clicar em **Criar nova nota** ou na UI intérprete por padrão.
+Conforme observado acima, o `%sh` intérprete não tem suporte do HDInsight 4,0 em diante. Além disso, `%sh` como o intérprete introduz possíveis problemas de segurança, como as guias de acesso usando comandos do Shell, ele também foi removido dos clusters do HDINSIGHT 3,6 ESP. Isso significa `%sh` que o intérprete não está disponível ao clicar em **criar nova nota** ou na interface do usuário do interpretador por padrão.
 
-Usuários de domínio privilegiado `Shiro.ini` podem usar o arquivo para controlar o acesso à UI intérprete. Somente esses usuários `%sh` podem criar novos intérpretes `%sh` e definir permissões em cada novo intérprete. Para controlar o `shiro.ini` acesso usando o arquivo, use as seguintes etapas:
+Os usuários de domínio com privilégios `Shiro.ini` podem usar o arquivo para controlar o acesso à interface do usuário do interpretador. Somente esses usuários podem criar novos `%sh` interpretadores e definir permissões em cada `%sh` intérprete novo. Para controlar o acesso usando `shiro.ini` o arquivo, use as seguintes etapas:
 
-1. Defina uma nova função usando um nome de grupo de domínio existente. No exemplo a `adminGroupName` seguir, está um grupo de usuários privilegiados no AAD. Não use caracteres especiais ou espaços brancos no nome do grupo. Os personagens depois `=` dão as permissões para este papel. `*`significa que o grupo tem permissões completas.
+1. Defina uma nova função usando um nome de grupo de domínio existente. No exemplo a seguir, `adminGroupName` é um grupo de usuários privilegiados no AAD. Não use caracteres especiais ou espaços em branco no nome do grupo. Os caracteres depois `=` fornecem as permissões para essa função. `*`significa que o grupo tem permissões completas.
 
     ```
     [roles]
     adminGroupName = *
     ```
 
-2. Adicione o novo papel para acesso aos intérpretes do Zeppelin. No exemplo a seguir, `adminGroupName` todos os usuários em são dado acesso aos intérpretes Zeppelin e podem criar novos intérpretes. Você pode colocar várias funções entre os suportes, `roles[]`separadas por commas. Em seguida, os usuários que tiverem as permissões necessárias, podem acessar os intérpretes do Zeppelin.
+2. Adicione a nova função para acesso aos interpretadores do Zeppelin. No exemplo a seguir, todos os usuários `adminGroupName` no recebem acesso a intérpretes Zeppelin e podem criar novos interpretadores. Você pode colocar várias funções entre colchetes em `roles[]`, separadas por vírgulas. Em seguida, os usuários que têm as permissões necessárias podem acessar interpretadores Zeppelin.
 
     ```
     [urls]
@@ -173,80 +173,57 @@ Usuários de domínio privilegiado `Shiro.ini` podem usar o arquivo para control
 
 ## <a name="livy-session-management"></a>Gerenciamento de sessões do Livy
 
-O primeiro parágrafo de código em seu caderno Zeppelin cria uma nova sessão livy em seu cluster. Esta sessão é compartilhada em todos os cadernos Zeppelin que você cria mais tarde. Se a sessão livy for morta por qualquer razão, os empregos não fugirão do caderno Zeppelin.
+O primeiro parágrafo de código em seu notebook Zeppelin cria uma nova sessão Livy no cluster. Essa sessão é compartilhada entre todos os blocos de anotações do Zeppelin que você cria posteriormente. Se a sessão Livy for interrompida por qualquer motivo, os trabalhos não serão executados no notebook Zeppelin.
 
-Nesse caso, você deve fazer as seguintes etapas antes de começar a executar trabalhos a partir de um notebook Zeppelin.  
+Nesse caso, você deve executar as etapas a seguir antes de poder iniciar a execução de trabalhos de um notebook Zeppelin.  
 
-1. Reinicie o interpretador Livy no notebook Zeppelin. Para isso, abra as configurações do intérprete selecionando o nome de usuário logado no canto superior direito e selecione **Intérprete**.
+1. Reinicie o interpretador Livy no notebook Zeppelin. Para fazer isso, abra as configurações do intérprete selecionando o nome de usuário conectado no canto superior direito e, em seguida, selecione **intérprete**.
 
     ![Iniciar o interpretador](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Saída do Hive")
 
-2. Role para **livy2,** em seguida, selecione **reiniciar**.
+2. Role até **livy2**e selecione **reiniciar**.
 
-    ![Reinicie o intérprete de Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reinicie o intérprete do Zeppelin")
+    ![Reiniciar o intérprete Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reiniciar o intérprete Zeppelin")
 
-3. Execute uma célula de código de um notebook Zeppelin existente. Este código cria uma nova sessão Livy no cluster HDInsight.
+3. Execute uma célula de código de um notebook Zeppelin existente. Esse código cria uma nova sessão Livy no cluster HDInsight.
 
 ## <a name="general-information"></a>Informações gerais
 
-### <a name="validate-service"></a>Validar o serviço
+### <a name="validate-service"></a>Validar serviço
 
-Para validar o serviço do `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` Ambari, navegue até onde CLUSTERNAME é o nome do seu cluster.
+Para validar o serviço de Ambari, navegue até `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` onde ClusterName é o nome do cluster.
 
-Para validar o serviço de uma linha de comando, SSH para o nó principal. Mude o usuário `sudo su zeppelin`para o zeppelin usando o comando . Comandos de status:
+Para validar o serviço de uma linha de comando, use SSH para o nó principal. Alterne o usuário para Zeppelin usando `sudo su zeppelin`o comando. Comandos de status:
 
 |Comando |Descrição |
 |---|---|
-|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh status`|Status de serviço.|
-|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh --version`|Versão de serviço.|
+|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh status`|Status do serviço.|
+|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh --version`|Versão do serviço.|
 |`ps -aux | grep zeppelin`|Identifique o PID.|
 
-### <a name="log-locations"></a>Localizações de log
+### <a name="log-locations"></a>Locais de log
 
 |Serviço |Caminho |
 |---|---|
-|zeppelin-servidor|/usr/hdp/current/zeppelin-server/|
+|Zeppelin-servidor|/usr/hdp/current/zeppelin-server/|
 |Logs do servidor|/var/log/zeppelin|
-|Intérprete de `Shiro`configuração, , site.xml, log4j|/usr/hdp/current/zeppelin-server/conf ou /etc/zeppelin/conf|
+|Intérprete de `Shiro`configuração,, site. xml, Log4J|/usr/HDP/Current/Zeppelin-Server/conf ou/etc/Zeppelin/conf|
 |Diretório PID|/var/run/zeppelin|
 
 ### <a name="enable-debug-logging"></a>Habilitar o log de depuração
 
-1. Navegue `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` até onde CLUSTERNAME é o nome do seu cluster.
+1. Navegue até `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` onde ClusterName é o nome do cluster.
 
-1. Navegue até **CONFIGS** > **Avançado zeppelin-log4j-properties** > **log4j_properties_content**.
+1. Navegue até **configurações** > **avançado Zeppelin-Log4J-Propriedades** > **log4j_properties_content**.
 
-1. Modificar `log4j.appender.dailyfile.Threshold = INFO` `log4j.appender.dailyfile.Threshold = DEBUG`para .
+1. Modifique `log4j.appender.dailyfile.Threshold = INFO` para `log4j.appender.dailyfile.Threshold = DEBUG`.
 
 1. Adicione `log4j.logger.org.apache.zeppelin.realm=DEBUG`.
 
-1. Salvar alterações e reiniciar o serviço.
+1. Salve as alterações e reinicie o serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
-
-### <a name="scenarios"></a>Cenários
-
-* [Apache Spark com BI: Análise interativa de dados usando Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: use o Spark no HDInsight para analisar a temperatura do edifício usando dados de HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: use o Spark no HDInsight para prever os resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
-* [Análise de log do site usando o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
-
-### <a name="create-and-run-applications"></a>Criar e executar aplicativos
-
-* [Criar um aplicativo autônomo usando Scala](apache-spark-create-standalone-application.md)
-* [Execute trabalhos remotamente em um cluster do Apache Spark usando o Apache Livy](apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>Ferramentas e extensões
-
-* [Use o Plugin do HDInsight Tools para o IntelliJ IDEA criar e enviar os aplicativos Scala do Apache Spark](apache-spark-intellij-tool-plugin.md)
-* [Use o Plugin do HDInsight Tools para o IntelliJ IDEA para depurar os aplicativos do Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 * [Kernels disponíveis para o notebook Jupyter no cluster do Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Usar pacotes externos com blocos de notas Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="manage-resources"></a>Gerenciar recursos
-
-* [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)
-* [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](apache-spark-job-debugging.md)

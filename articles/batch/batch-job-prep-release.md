@@ -1,25 +1,15 @@
 ---
-title: Crie tarefas para preparar & concluir trabalhos em nós computacionais - Azure Batch
+title: Criar tarefas para preparar & trabalhos completos em nós de computação
 description: Use tarefas de preparação de nível de trabalho para minimizar a transferência de dados para nós de computação do Lote do Azure e libere as tarefas para limpeza de nó na conclusão do trabalho.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 02/17/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: d9f6f015c210592d5d8053b1b34d5357bb357629
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9c88994a65d4d2cb8c8373d2bbb4aa2877fe465
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77586777"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82116053"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Executar tarefas de preparação e liberação do trabalho em nós de computação do Lote
 
@@ -60,7 +50,7 @@ Convém manter uma cópia dos arquivos de log gerados pelas tarefas ou talvez ar
 ## <a name="job-preparation-task"></a>tarefa de preparação de trabalho
 
 
-Antes da execução das tarefas de um trabalho, Batch executa a tarefa de preparação do trabalho em cada nó de computação programado para executar uma tarefa. Por padrão, batch aguarda a tarefa de preparação do trabalho para ser concluída antes de executar as tarefas programadas para executar no nó. No entanto, você pode configurar o serviço para não aguardar. Se o nó for reiniciado, a tarefa de preparação do trabalho será executada novamente. Você também pode desativar esse comportamento. Se você tem um trabalho com uma tarefa de preparação de trabalho e uma tarefa de gerente de trabalho configurada, a tarefa de preparação do trabalho é executada antes da tarefa de gerente de trabalho, assim como acontece em todas as outras tarefas. A tarefa de preparação do trabalho sempre é a primeira.
+Antes da execução das tarefas de um trabalho, o lote executa a tarefa de preparação de trabalho em cada nó de computação agendado para executar uma tarefa. Por padrão, o lote aguarda a conclusão da tarefa de preparação do trabalho antes de executar as tarefas agendadas para execução no nó. No entanto, você pode configurar o serviço para não aguardar. Se o nó for reiniciado, a tarefa de preparação do trabalho será executada novamente. Você também pode desabilitar esse comportamento. Se você tiver um trabalho com uma tarefa de preparação de trabalho e uma tarefa do Gerenciador de trabalho configurada, a tarefa de preparação do trabalho será executada antes da tarefa do Gerenciador de trabalho, assim como faz para todas as outras tarefas. A tarefa de preparação de trabalho sempre é executada primeiro.
 
 A tarefa de preparação de trabalho é executada apenas em nós programados para executar uma tarefa. Isso impede a execução desnecessária de uma tarefa de preparação em um nó que não recebeu uma tarefa. Isso pode ocorrer quando o número de tarefas de um trabalho é menor do que o número de nós em um pool. Também se aplica quando a [execução de tarefas simultâneas](batch-parallel-node-tasks.md) é habilitada, o que deixará alguns nós ociosos se a contagem de tarefas for inferior ao total de possíveis tarefas simultâneas. A não execução da tarefa de preparação do trabalho em nós ociosos economiza encargos de transferência de dados.
 
@@ -76,7 +66,7 @@ Quando um trabalho é marcado como concluído, a tarefa de liberação do trabal
 > [!NOTE]
 > A exclusão do trabalho também executa a tarefa de liberação do trabalho. No entanto, se um trabalho já tiver sido encerrado, a tarefa de liberação não será executada uma segunda vez se o trabalho for excluído posteriormente.
 
-As tarefas de liberação de empregos podem ser executadas por um máximo de 15 minutos antes de serem encerradas pelo serviço Batch. Para obter mais informações, consulte a [documentação de referência](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask)da API REST .
+Tarefas de liberação de trabalhos podem ser executadas por um máximo de 15 minutos antes de serem encerradas pelo serviço de lote. Para obter mais informações, consulte a [documentação de referência da API REST](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask).
 > 
 > 
 
