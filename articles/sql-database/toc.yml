@@ -108,7 +108,7 @@
           items:
             - name: Auditoria do SQL do Azure
               href: sql-database-auditing.md
-            - name: Para armazenamento atrás de uma VNet ou firewall
+            - name: Auditoria para conta de armazenamento atrás da VNet ou do firewall
               href: create-auditing-storage-account-vnet-firewall.md
             - name: Formato do log de auditoria
               href: sql-database-audit-log-format.md

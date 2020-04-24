@@ -20,8 +20,8 @@
     - name: Desenvolver aplicativos
       expanded: true
       items:
-        - name: Usar o rascunho
-          href: kubernetes-draft.md
+        - name: Desenvolvimento com o Helm
+          href: quickstart-helm.md
         - name: Espaços de Desenvolvimento do Azure
           expanded: true
           items:
@@ -316,7 +316,7 @@
                 - name: 3 – Desenvolvimento em equipe
                   href: ../dev-spaces/team-development-nodejs.md
                   maintainContext: true
-        - name: Executar aplicativos com Helm
+        - name: Instalar aplicativos existentes com o Helm
           href: kubernetes-helm.md
         - name: Usar o OpenFaaS
           href: openfaas.md

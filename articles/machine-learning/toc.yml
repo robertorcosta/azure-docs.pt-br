@@ -149,8 +149,9 @@
             - name: Usar o Link Privado
               displayName: private endpoint
               href: how-to-configure-private-link.md
-            - name: Proteger o servidor Web com SSL
+            - name: Proteger serviços Web com o TLS
               href: how-to-secure-web-service.md
+              displayName: ssl
             - name: Usar a identidade do Azure AD em implantações do AKS
               href: how-to-use-azure-ad-identity.md
             - name: Regenerar chaves de acesso de armazenamento

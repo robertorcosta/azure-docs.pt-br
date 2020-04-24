@@ -441,7 +441,7 @@
           href: ./partner-center-portal/manage-account.md
         - name: Localizar ou criar uma conta corporativa da empresa
           href: ./partner-center-portal/company-work-accounts.md
-        - name: Migração de conta do CPP para o Partner Center
+        - name: Migração de conta do CPP para a Central de Parceiros
           href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
     - name: Criar uma oferta
       items:
