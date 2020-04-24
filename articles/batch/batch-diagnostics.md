@@ -1,25 +1,15 @@
 ---
-title: Métricas, alertas e logs de diagnóstico - Lote do Azure | Microsoft Docs
+title: Métricas, alertas e logs de diagnóstico
 description: Registre e analisar eventos de log de diagnóstico para recursos de conta do Lote do Azure, como pools e tarefas.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 12/05/2018
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 68d5976a5a79dbde88b7f80b02b39793ffc86de9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f75a8302c8ba368138e6c8edee6c6069c5031d8
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78254854"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117294"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Logs, alertas e métricas do Lote para avaliação e monitoramento de diagnóstico
 
@@ -44,13 +34,13 @@ Visualize as métricas para a conta do Lote no Portal do Azure. A **Visão Geral
 
 Para exibir todas as métricas da conta do lote: 
 
-1. No portal, clique em **Todos os serviços** > **Contas em lote**e clique no nome da sua conta em lote.
+1. No portal, clique em **todos os serviços** > **contas do lote**e, em seguida, clique no nome da sua conta do lote.
 2. Em **Monitoramento**, clique em **Métrica**.
 3. Selecione uma ou mais métricas. Se preferir, selecione as métricas de recursos adicionais usando as listas suspensas **Assinaturas**, **Grupo de recursos**, **Tipo de recurso** e **Recurso**.
-    * Para métricas baseadas em contagem (como "Contagem de núcleos dedicados" ou "Contagem de nódes de baixa prioridade"), use a agregação "Média". Para métricas baseadas em eventos (como "Pool Redimension Complete Events"), use a agregação "Count".
+    * Para métricas baseadas em contagem (como "contagem de núcleos dedicados" ou "contagem de nós de baixa prioridade"), use a agregação "média". Para métricas baseadas em evento (como "eventos de redimensionamento de pool concluídos"), use a agregação "contagem".
 
 > [!WARNING]
-> Não utilize a agregação "Soma", que soma os valores de todos os pontos de dados recebidos ao longo do período do gráfico
+> Não use a agregação "Sum", que soma os valores de todos os pontos de dados recebidos no período do gráfico
 > 
 > 
 
@@ -72,11 +62,11 @@ Por exemplo, você pode configurar um alerta de métrica quando a contagem de n�
 
 Para configurar um alerta de métrica no portal:
 
-1. Clique em Todas as**contas em lote**de **serviços** > e clique no nome da sua conta batch.
+1. Clique em **todos os serviços** > **contas do lote**e, em seguida, clique no nome da sua conta do lote.
 2. Em **Monitoramento**, clique em **Regras de alerta** > **Adicionar métrica de alerta**.
 3. Selecione uma métrica, uma condição de alerta (por exemplo, quando uma métrica exceder um valor específico durante um período) e uma ou mais notificações.
 
-Também é possível configurar um alerta quase em tempo real usando a [API REST](https://docs.microsoft.com/rest/api/monitor/). Para obter mais informações, consulte [Visão geral de alertas](../azure-monitor/platform/alerts-overview.md). Para incluir informações específicas de trabalho, tarefa ou pool em seus alertas, consulte as informações sobre consultas de pesquisa em [Responder a eventos com alertas do Monitor do Azure](../azure-monitor/learn/tutorial-response.md)
+Também é possível configurar um alerta quase em tempo real usando a [API REST](https://docs.microsoft.com/rest/api/monitor/). Para obter mais informações, consulte [visão geral de alertas](../azure-monitor/platform/alerts-overview.md). Para incluir informações específicas de trabalho, tarefa ou pool em seus alertas, consulte as informações em consultas de pesquisa em [responder a eventos com Azure monitor alertas](../azure-monitor/learn/tutorial-response.md)
 
 ## <a name="batch-diagnostics"></a>Diagnóstico do Lote
 
@@ -96,7 +86,7 @@ Outros destinos opcionais para logs de diagnóstico:
 
 * Transmita eventos de log de diagnóstico do Lote para um [Hub de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Os Hubs de Eventos podem incluir milhões de eventos por segundo, os quais você pode transformar e armazenar usando qualquer provedor de análise em tempo real. 
 
-* Envie registros de diagnóstico para [registros do Monitor do Azure,](../log-analytics/log-analytics-overview.md)onde você pode analisá-los ou exportá-los para análise em Power BI ou Excel.
+* Envie logs de diagnóstico para [Azure monitor logs](../log-analytics/log-analytics-overview.md), onde você pode analisá-los ou exportá-los para análise no Power bi ou no Excel.
 
 > [!NOTE]
 > É possível que incorra custos adicionais para armazenar ou processar dados de log de diagnóstico com os serviços do Azure. 
@@ -104,9 +94,9 @@ Outros destinos opcionais para logs de diagnóstico:
 
 ### <a name="enable-collection-of-batch-diagnostic-logs"></a>Habilitar coleção de logs de diagnóstico do Lote
 
-1. No portal, clique em **Todos os serviços** > **Contas em lote**e clique no nome da sua conta em lote.
+1. No portal, clique em **todos os serviços** > **contas do lote**e, em seguida, clique no nome da sua conta do lote.
 2. Em **Monitoramento**, clique em **Logs de diagnóstico** > **Ativar diagnóstico**.
-3. Em **Configurações de diagnóstico,** digite um nome para a configuração e escolha um destino de log (conta de armazenamento existente, hub de eventos ou logs do Monitor Do Azure). Selecione um ou ambos **ServiceLog** e **AllMetrics**.
+3. Em **configurações de diagnóstico**, insira um nome para a configuração e escolha um destino de log (conta de armazenamento existente, Hub de eventos ou logs de Azure monitor). Selecione um ou ambos **ServiceLog** e **AllMetrics**.
 
     Ao selecionar uma conta de armazenamento, opcionalmente, defina uma política de retenção. Se você não especificar um número de dias para retenção, os dados serão retidos durante a vida útil da conta de armazenamento.
 
@@ -135,9 +125,9 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Cada `PT1H.json` arquivo blob contém eventos formatados por JSON que ocorreram dentro da `h=12`hora especificada na URL blob (por exemplo, ). Durante a presente hora, os `PT1H.json` eventos são anexados ao arquivo à medida que ocorrem. O valor`m=00`minucioso () é sempre, `00`uma vez que os eventos de registro de diagnóstico são divididos em bolhas individuais por hora. (Todas as horas estão em UTC.)
+Cada `PT1H.json` arquivo de BLOB contém eventos formatados em JSON que ocorreram dentro da hora especificada na URL do blob ( `h=12`por exemplo,). Durante a hora atual, os eventos são anexados ao `PT1H.json` arquivo conforme eles ocorrem. O valor de minuto`m=00`() é `00`sempre, pois os eventos de log de diagnóstico são divididos em BLOBs individuais por hora. (Todas as horas estão em UTC.)
 
-Abaixo está um `PoolResizeCompleteEvent` exemplo de `PT1H.json` uma entrada em um arquivo de log. Inclui informações sobre o número atual e alvo de nódulos dedicados e de baixa prioridade, bem como o horário de início e término da operação:
+Abaixo está um exemplo de uma `PoolResizeCompleteEvent` entrada em um `PT1H.json` arquivo de log. Ele inclui informações sobre o número atual e o destino de nós dedicados e de baixa prioridade, bem como a hora de início e de término da operação:
 
 ```
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}

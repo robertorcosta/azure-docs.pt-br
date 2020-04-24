@@ -1,22 +1,15 @@
 ---
-title: Executar trabalhos de ponta a ponta usando modelos - Azure Batch
+title: Executar trabalhos de ponta a ponta usando modelos
 description: Somente com comandos CLI é possível criar um pool, carregar dados de entrada, criar trabalhos e tarefas associadas e baixar os dados de saída resultantes.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.topic: article
-ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: df7db30e987c408ff158acfc468010948c821b8d
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 634a0b66379d8c94988d5f974baffe475af94c2e
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397528"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117345"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usar modelos CLI do Azure de Lote e o arquivo de transferência
 
@@ -28,7 +21,7 @@ Criar e usar arquivos de modelo JSON com a CLI do Azure para criar pools de Lote
 
 Uma extensão da CLI do Azure permite que o Lote seja usado de ponta a ponta por usuários que não são desenvolvedores. Somente com comandos CLI é possível criar um pool, carregar dados de entrada, criar trabalhos e tarefas associadas e baixar os dados de saída resultantes. Nenhum código adicional é necessário. Execute os comandos CLI diretamente ou integre-os aos scripts.
 
-Os modelos de lote baseiam-se no suporte em lote existente no [Azure CLI](batch-cli-get-started.md#json-files-for-resource-creation) para arquivos JSON para especificar valores de propriedade ao criar pools, empregos, tarefas e outros itens. Os modelos do lote adicionam os seguintes recursos:
+Os modelos de lote são criados no suporte de lote existente no [CLI do Azure](batch-cli-get-started.md#json-files-for-resource-creation) para arquivos JSON para especificar valores de propriedade ao criar pools, trabalhos, tarefas e outros itens. Os modelos do lote adicionam os seguintes recursos:
 
 -   Parâmetros podem ser definidos. Quando o modelo é usado, somente os valores de parâmetro são especificados para criar o item, com outros valores de propriedade de item sendo especificados no corpo do modelo. Um usuário que entende o Lote e os aplicativos a serem executados pelo Lote pode criar modelos especificando os valores de propriedade de pool, de trabalho e de tarefa. Um usuário menos familiarizado com o Lote e/ou os aplicativos só precisa especificar os valores para os parâmetros definidos.
 
@@ -66,13 +59,13 @@ Para fazer logon em uma conta do lote com a CLI do Azure, consulte [Gerenciar re
 
 Os modelos do Lote do Azure são semelhantes aos modelos do Azure Resource Manager, na funcionalidade e na sintaxe. Eles são arquivos JSON que contêm valores e nomes de propriedade do item, mas adicionam os conceitos principais a seguir:
 
--   **Parâmetros**
+-   **Parameters**
 
-    -   Permitem que os valores de propriedade sejam especificados em uma seção de corpo, com necessidade de fornecer apenas os valores de parâmetro quando o modelo é usado. Por exemplo, a definição completa para um pool poderia ser colocada `poolId`no corpo e apenas um parâmetro definido para ; apenas uma seqüência de ID de pool, portanto, precisa ser fornecida para criar uma piscina.
+    -   Permitem que os valores de propriedade sejam especificados em uma seção de corpo, com necessidade de fornecer apenas os valores de parâmetro quando o modelo é usado. Por exemplo, a definição completa de um pool poderia ser colocada no corpo e apenas um parâmetro definido para `poolId`; Portanto, somente uma cadeia de caracteres de ID de pool precisa ser fornecida para criar um pool.
         
     -   O corpo do modelo pode ser criado por uma pessoa com conhecimento do Lote e dos aplicativos a serem executados pelo Lote; somente os valores dos parâmetros definidos pelo autor devem ser fornecidos quando o modelo é usado. Portanto, um usuário sem o conhecimento detalhado do Lote e/ou do aplicativo pode usar os modelos.
 
--   **variáveis**
+-   **Variáveis**
 
     -   Permitem que valores de parâmetro simples ou complexos sejam especificados em um local e usado em um ou mais locais no corpo do modelo. As variáveis podem simplificar e reduzir o tamanho do modelo, além de torná-lo mais sustentável, tendo um local para alterar as propriedades.
 
@@ -143,7 +136,7 @@ Se o arquivo de modelo foi nomeado _pool-ffmpeg.json_, invoque o modelo conforme
 az batch pool create --template pool-ffmpeg.json
 ```
 
-A CLI solicita que você forneça valores para o `poolId` e `nodeCount` parâmetros. Você também pode fornecer os parâmetros em um arquivo JSON. Por exemplo: 
+A CLI solicita que você forneça valores para o `poolId` e `nodeCount` parâmetros. Você também pode fornecer os parâmetros em um arquivo JSON. Por exemplo:
 
 ```json
 {
@@ -260,7 +253,7 @@ Você pode carregar um modelo de CLI do lote para o aplicativo de desktop do [Az
 
 Para carregar um modelo:
 
-1. No Batch Explorer, selecione **modelos do Gallery** > **Local**.
+1. Em batch Explorer, selecione **Gallery** > **modelos locais**da galeria.
 
 2. Selecione, ou arraste e solte, um pool local ou o modelo de trabalho.
 

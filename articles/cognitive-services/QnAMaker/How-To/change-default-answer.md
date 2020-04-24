@@ -1,20 +1,20 @@
 ---
-title: Obter resposta padrão - QnA Maker
-description: A resposta padrão é devolvida quando não há correspondência com a pergunta. Você pode querer alterar a resposta padrão da resposta padrão padrão.
-ms.topic: conceptual
-ms.date: 01/10/2020
-ms.openlocfilehash: fae5c38fd64435a3fae56862bad04e000916e88b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+title: Obter QnA Maker de resposta padrão
+description: A resposta padrão é retornada quando não há nenhuma correspondência com a pergunta. Talvez você queira alterar a resposta padrão da resposta padrão standard.
+ms.topic: how-to
+ms.date: 04/22/2020
+ms.openlocfilehash: db5a79ec612a73066ac37365a1815841fafb3862
+ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76843270"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82097091"
 ---
-# <a name="set-default-answer-for-a-knowledge-base"></a>Defina a resposta padrão para uma base de conhecimento
+# <a name="change-default-answer-for-a-qna-maker-resource"></a>Alterar a resposta padrão para um recurso de QnA Maker
 
-A resposta padrão é devolvida quando não há correspondência com a pergunta. Você pode querer alterar a resposta padrão da resposta padrão padrão.
+A resposta padrão é retornada quando não há nenhuma correspondência com a pergunta. Talvez você queira alterar a resposta padrão da resposta padrão standard.
 
-## <a name="change-default-answer"></a>Alterar a resposta padrão
+## <a name="change-default-answer-in-the-azure-portal"></a>Alterar a resposta padrão no portal do Azure
 
 1. Vá para o [portal do Azure](https://portal.azure.com) e navegue até o grupo de recursos que representa o serviço QnA Maker que você criou.
 
@@ -32,4 +32,4 @@ A resposta padrão é devolvida quando não há correspondência com a pergunta.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Crie um bot com QnA Maker e LUIS](../tutorials/integrate-qnamaker-luis.md)
+* [Criar uma base de dados de conhecimento](../How-to/manage-knowledge-bases.md)

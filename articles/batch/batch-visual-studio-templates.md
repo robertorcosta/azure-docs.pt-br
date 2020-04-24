@@ -1,25 +1,15 @@
 ---
 title: Compilar soluções com modelos do Visual Studio - Lote do Azure | Microsoft Docs
 description: Saiba como os modelos de projeto do Visual Studio podem ajudar você a implementar e executar suas cargas de trabalho de computação intensa no Lote do Azure.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: e42917237f3b114881655d88a017c2c4366612b3
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 8e8d5be4a9f0fb5482ba6c86a8766a25e5713c09
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81254556"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117515"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usar modelos de projeto do Visual Studio para iniciar rapidamente soluções em lote
 
@@ -67,7 +57,7 @@ Para usar os modelos do Lote, você precisará do seguinte:
 ## <a name="preparation"></a>Preparação
 Recomendamos a criação de uma solução que pode conter seu Gerenciador de trabalho, bem como o processador de tarefas, pois isso pode facilitar o compartilhamento do código entre os programas Gerenciador de trabalho e Processador de tarefas. Para criar essa solução, execute estas etapas:
 
-1. Abra o Visual Studio e selecione **File** > **New** > **Project**.
+1. Abra o Visual Studio e selecione **arquivo** > **novo** > **projeto**.
 2. Em **Modelos**, expanda **Outros Tipos de Projeto**, clique em **Soluções do Visual Studio** e, em seguida, selecione **Solução em Branco**.
 3. Digite um nome que descreva seu aplicativo e a finalidade dessa solução (por exemplo, "ProgramasDeTarefasdoLoteLitware").
 4. Para criar a nova solução, clique em **OK**.
@@ -87,7 +77,7 @@ O modelo do Gerenciador de trabalho ajuda você a implementar uma tarefa do Gere
 Para adicionar um Gerenciador de trabalho à solução que você criou anteriormente, execute estas etapas:
 
 1. Abra sua solução existente no Visual Studio.
-2. No Solution Explorer, clique com o botão direito do mouse na solução, clique **em Adicionar** > **novo projeto**.
+2. Em Gerenciador de soluções, clique com o botão direito do mouse na solução, clique em **Adicionar** > **novo projeto**.
 3. No **Visual C#**, clique em **Nuvem** e em **Gerenciador de trabalho do Lote do Azure com o Divisor de trabalho**.
 4. Digite um nome que descreva o aplicativo e identifique esse projeto como o Gerenciador de trabalho (por exemplo, "GerenciadorDeTrabalhoLitware").
 5. Para criar o projeto, clique em **OK**.
@@ -97,7 +87,7 @@ Para adicionar um Gerenciador de trabalho à solução que você criou anteriorm
 Quando você cria um projeto usando o modelo do Gerenciador de trabalho, ele gera três grupos de arquivos de código:
 
 * O arquivo de programa principal (Program.cs). Esse arquivo contém o ponto de entrada do programa e a manipulação de exceção de nível superior. Normalmente, não é necessário modificar isso.
-* O diretório Framework. Este contém os arquivos responsáveis pelo trabalho 'caldeira' feito pelo programa job manager – desempacotar parâmetros, adicionar tarefas ao trabalho batch, etc. Você normalmente não deve precisar modificar esses arquivos.
+* O diretório Framework. Ele contém os arquivos responsáveis pelo trabalho ' clichê ' feito pelo programa gerenciador de trabalho – descompactando parâmetros, adicionando tarefas ao trabalho em lotes, etc. Normalmente, você não precisa modificar esses arquivos.
 * O arquivo do Divisor de trabalho (JobSplitter.cs). É nesse arquivo que você colocará a lógica específica ao aplicativo para a divisão de um trabalho em tarefas.
 
 Obviamente você pode adicionar outros arquivos conforme o necessário a fim de oferecer suporte ao código do divisor de trabalho, dependendo da complexidade da lógica de divisão do trabalho.
@@ -233,7 +223,7 @@ Normalmente, é seguro para o cliente definir *runExclusive* como **false**.
 
 O cliente deve usar a coleção *resourceFiles* ou *applicationPackageReferences* para que o executável do Gerenciador de trabalho (e suas DLLs necessárias) seja implantado no nó de computação.
 
-Por padrão, o Gerenciador de trabalho não será repetido em caso de falha. Dependendo da lógica do gerenciador de trabalho, o cliente pode querer ativar tentativas por meio *de restrições*/*maxTaskRetryCount*.
+Por padrão, o Gerenciador de trabalho não será repetido em caso de falha. Dependendo da lógica do Gerenciador de trabalho, o cliente pode querer habilitar repetições por meio de *restrições*/*maxTaskRetryCount*.
 
 **Configurações do trabalho**
 
@@ -266,7 +256,7 @@ Para adicionar um Processador de tarefas à solução que você criou anteriorme
 Quando você cria um projeto usando o modelo do Processador de tarefas, ele gera três grupos de arquivos de código:
 
 * O arquivo de programa principal (Program.cs). Esse arquivo contém o ponto de entrada do programa e a manipulação de exceção de nível superior. Normalmente, não é necessário modificar isso.
-* O diretório Framework. Este contém os arquivos responsáveis pelo trabalho 'caldeira' feito pelo programa job manager – desempacotar parâmetros, adicionar tarefas ao trabalho batch, etc. Você normalmente não deve precisar modificar esses arquivos.
+* O diretório Framework. Ele contém os arquivos responsáveis pelo trabalho ' clichê ' feito pelo programa gerenciador de trabalho – descompactando parâmetros, adicionando tarefas ao trabalho em lotes, etc. Normalmente, você não precisa modificar esses arquivos.
 * O arquivo do Processador de tarefas (TaskProcessor.cs). É nele que você colocará a lógica específica ao aplicativo para execução de uma tarefa (normalmente chamando um executável existente). Código de pré e pós-processamento, como o download dos dados adicionais ou upload de arquivos de resultados, também é colocado nesse local.
 
 Obviamente você pode adicionar outros arquivos conforme o necessário a fim de oferecer suporte ao código do Processador de tarefas, dependendo da complexidade da lógica de divisão do trabalho.

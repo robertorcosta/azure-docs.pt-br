@@ -1,25 +1,15 @@
 ---
-title: Introdução à CLI do Azure do Lote | Microsoft Docs
+title: Introdução ao CLI do Azure para o lote
 description: Obtenha uma introdução rápida dos comandos do Lote na CLI do Azure para gerenciar recursos de serviço do Lote do Azure
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
-ms.service: batch
 ms.topic: conceptual
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 07/24/2018
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30f71432ca008b87bddfb253f23ae3cef0ac390d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fe73770dbe8dfe6d69cb08e1fbf44d42bff9e54
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77020175"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82117362"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerenciar recursos do Lote com a CLI do Azure
 
@@ -38,7 +28,7 @@ Você pode executar a CLI do Azure mais recente no [Azure Cloud Shell](../cloud-
 
 ## <a name="command-help"></a>Ajuda de comando
 
-Você pode exibir um texto de ajuda para todo comando na CLI do Azure acrescentando `-h` ao comando. Omita as outras opções. Por exemplo: 
+Você pode exibir um texto de ajuda para todo comando na CLI do Azure acrescentando `-h` ao comando. Omita as outras opções. Por exemplo:
 
 * Para obter ajuda sobre o comando `az`, insira: `az -h`
 * Para obter uma lista de todos os comandos do Lote na CLI, use: `az batch -h`
@@ -83,7 +73,7 @@ Para usar a CLI do Azure e gerenciar recursos do Lote, como pools, trabalhos e t
 
 Você tem duas opções para autenticação na sua conta do Lote:
 
-- **Usando a autenticação do Azure Active Directory (Azure AD)** 
+- **Usando a autenticação do Azure Active Directory (AD do Azure)** 
 
     A autenticação com o Azure AD é o padrão quando você usa a CLI do Azure com o Lote e é recomendada na maioria dos cenários. 
     
@@ -113,7 +103,7 @@ Os exemplos listados na seção Scripts do shell de exemplo mostram como fazer l
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>Usar comandos de extensão da CLI do Lote do Azure
 
-Instalando a extensão de CLI do Lote do Azure, você pode usar a CLI do Azure para executar trabalhos do Lote de ponta a ponta sem escrever código. Os comandos do Lote com suporte pela extensão permitem que você use modelos JSON para criar pools, trabalhos e tarefas com a CLI do Azure. Você também pode usar os comandos de CLI da extensão para carregar arquivos de entrada de trabalho na conta de Armazenamento do Azure associada à conta do Lote e baixar arquivos de saída de trabalho dele. Para obter mais informações, consulte [Use azure Batch DE TEMPLATES e transfer file](batch-cli-templates.md).
+Instalando a extensão de CLI do Lote do Azure, você pode usar a CLI do Azure para executar trabalhos do Lote de ponta a ponta sem escrever código. Os comandos do Lote com suporte pela extensão permitem que você use modelos JSON para criar pools, trabalhos e tarefas com a CLI do Azure. Você também pode usar os comandos de CLI da extensão para carregar arquivos de entrada de trabalho na conta de Armazenamento do Azure associada à conta do Lote e baixar arquivos de saída de trabalho dele. Para obter mais informações, consulte [usar modelos da CLI do lote do Azure e transferência de arquivos](batch-cli-templates.md).
 
 ## <a name="script-examples"></a>Exemplos de script
 
@@ -121,7 +111,7 @@ Consulte os [exemplos de script da CLI](cli-samples.md) para o Lote a fim de rea
 
 ## <a name="json-files-for-resource-creation"></a>Arquivos JSON para a criação de recursos
 
-Ao criar recursos do Lote, como pools e trabalhos, você pode especificar um arquivo JSON contendo a nova configuração do recurso, em vez de passar seus parâmetros como opções da linha de comando. Por exemplo: 
+Ao criar recursos do Lote, como pools e trabalhos, você pode especificar um arquivo JSON contendo a nova configuração do recurso, em vez de passar seus parâmetros como opções da linha de comando. Por exemplo:
 
 ```azurecli
 az batch pool create my_batch_pool.json

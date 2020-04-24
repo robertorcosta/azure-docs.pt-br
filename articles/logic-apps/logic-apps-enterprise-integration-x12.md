@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/31/2017
-ms.openlocfilehash: cbf0a1f033ddafc68debab8de26dff29d73cc98e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12a1cd3c170fd7444362d1eabba1541cefb37d1a
+ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651467"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82115543"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens X12 para Enterprise Integration B2B nos Aplicativos Lógicos do Azure com Enterprise Integration Pack
 
@@ -34,7 +34,7 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
 ## <a name="create-an-x12-agreement"></a>Criar um contrato X12
 
-1. Faça login no [portal Azure](https://portal.azure.com "Portal do Azure"). 
+1. Entre no [portal do Azure](https://portal.azure.com "Portal do Azure"). 
 
 2. No menu principal do Azure, selecione **Todos os serviços**. 
    Insira “integração” na caixa de pesquisa e, em seguida, selecione **Contas de Integração**.  
@@ -104,7 +104,7 @@ Agora o contrato está pronto para lidar com mensagens de entrada de acordo com 
 
 ### <a name="acknowledgment"></a>Confirmação
 
-![Definir propriedades de reconhecimento](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
+![Definir propriedades de confirmação](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
 
 | Propriedade | Descrição |
 | --- | --- |
@@ -134,7 +134,7 @@ Escolha um esquema para cada tipo de transação (ST1) e o Aplicativo de remeten
 
 | Propriedade | Descrição |
 | --- | --- |
-| Uso de ISA11 |Especifica o separador a ser usado em um conjunto de transações: <p>Selecione o **identificador padrão** para usar um ponto (.) em notação decimal, em vez de uma notação decimal no documento de entrada do pipeline de recebimento EDI. <p>Selecione **O Separador de Repetição** para especificar o separador para ocorrências repetidas de um elemento de dados simples ou de uma estrutura de dados repetida. Por exemplo, geralmente o circunflexo (^) é usado como o separador de repetição. Para esquemas HIPAA, só é possível usar circunflexo (^). |
+| Uso de ISA11 |Especifica o separador a ser usado em um conjunto de transações: <p>Selecione o **identificador padrão** para usar um ponto (.) em notação decimal, em vez de uma notação decimal no documento de entrada do pipeline de recebimento EDI. <p>Selecione **separador de repetição** para especificar o separador para ocorrências repetidas de um elemento de dados simples ou uma estrutura de dados repetida. Por exemplo, geralmente o circunflexo (^) é usado como o separador de repetição. Para esquemas HIPAA, só é possível usar circunflexo (^). |
 
 ### <a name="control-numbers"></a>Números de controle
 
@@ -200,7 +200,7 @@ Agora o contrato está pronto para lidar com mensagens de saída de acordo com a
 
 ### <a name="acknowledgment"></a>Confirmação
 
-![Definir propriedades de reconhecimento](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
+![Definir propriedades de confirmação](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
 | Propriedade | Descrição |
 | --- | --- |
@@ -227,7 +227,7 @@ Agora o contrato está pronto para lidar com mensagens de saída de acordo com a
 
 | Propriedade | Descrição |
 | --- | --- |
-| Uso de ISA11 |Especifica o separador a ser usado em um conjunto de transações: <p>Selecione o **identificador padrão** para usar um ponto (.) em notação decimal, em vez de uma notação decimal no documento de entrada do pipeline de recebimento EDI. <p>Selecione **O Separador de Repetição** para especificar o separador para ocorrências repetidas de um elemento de dados simples ou de uma estrutura de dados repetida. Por exemplo, geralmente o circunflexo (^) é usado como o separador de repetição. Para esquemas HIPAA, só é possível usar circunflexo (^). |
+| Uso de ISA11 |Especifica o separador a ser usado em um conjunto de transações: <p>Selecione o **identificador padrão** para usar um ponto (.) em notação decimal, em vez de uma notação decimal no documento de entrada do pipeline de recebimento EDI. <p>Selecione **separador de repetição** para especificar o separador para ocorrências repetidas de um elemento de dados simples ou uma estrutura de dados repetida. Por exemplo, geralmente o circunflexo (^) é usado como o separador de repetição. Para esquemas HIPAA, só é possível usar circunflexo (^). |
 
 ### <a name="control-numbers"></a>Números de controle
 
@@ -273,7 +273,7 @@ Além do conjunto de caracteres, você pode inserir um conjunto diferente de del
 
 ### <a name="validation"></a>Validação
 
-![Definir propriedades de validação para envio de mensagens](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
+![Definir propriedades de validação para enviar mensagens](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
 
 Quando você conclui cada linha de validação, outra é adicionada automaticamente. Se você não especificar regras, a validação usa a linha "Padrão".
 
@@ -298,10 +298,10 @@ Quando você conclui cada linha de validação, outra é adicionada automaticame
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter mais detalhes técnicos sobre este conector, como ações e limites descritos pelo arquivo Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/x12/). 
+Para obter mais detalhes técnicos sobre esse conector, como ações e limites, conforme descrito pelo arquivo Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/x12/). 
 
 > [!NOTE]
-> Para aplicativos lógicos em um [ambiente de serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão rotulada pelo conector ISE usa os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
+> Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector usa os [limites de mensagem B2B para o ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
 
 ## <a name="next-steps"></a>Próximas etapas
 
