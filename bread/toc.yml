@@ -835,6 +835,9 @@
             - name: SQL VM
               tocHref: /azure/virtual-machines/windows/sql
               topicHref: /azure/virtual-machines/windows/sql
+    - name: Computação Confidencial
+      tocHref: /azure/confidential-computing/
+      topicHref: /azure/confidential-computing/
     - name: Área de Trabalho Virtual do Windows
       tocHref: /azure/virtual-desktop/
       topicHref: /azure/virtual-desktop/
