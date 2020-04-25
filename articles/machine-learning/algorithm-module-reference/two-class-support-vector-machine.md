@@ -1,84 +1,94 @@
 ---
-title: 'Máquina vetorial de suporte de duas classes: referência do módulo'
+title: 'Computador de vetor de suporte de duas classes: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo **de máquina vetorial de suporte de duas classes** no Azure Machine Learning para criar um modelo baseado no algoritmo da máquina vetorial de suporte.
+description: Saiba como usar o módulo de **máquina de vetor de suporte de duas classes** no Azure Machine Learning para criar um modelo baseado no algoritmo máquina de vetor de suporte.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: ba788518951e72c1701d99decf46350e8665dbae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 912d6b80914232d1a2ed2b1fe987ebdf949a1abc
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455801"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82136491"
 ---
-# <a name="two-class-support-vector-machine-module"></a>Módulo da máquina vetorial de suporte de duas classes
+# <a name="two-class-support-vector-machine-module"></a>Módulo de máquina de vetor de suporte de duas classes
 
-Este artigo descreve um módulo no azure Machine Learning designer (visualização).
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
-Use este módulo para criar um modelo baseado no algoritmo da máquina vetorial de suporte. 
+Use este módulo para criar um modelo baseado no algoritmo máquina de vetor de suporte. 
 
-As máquinas vetoriais de suporte (SVMs) são uma classe bem pesquisada de métodos de aprendizagem supervisionados. Esta implementação em particular é adequada à previsão de dois desfechos possíveis, com base em variáveis contínuas ou categóricas.
+As máquinas de vetor de suporte (SVMs) são uma classe bem pesquisada de métodos de aprendizado supervisionados. Essa implementação específica é adequada à previsão de dois resultados possíveis, com base em variáveis contínuas ou categóricas.
 
-Depois de definir os parâmetros do modelo, treine o modelo usando os módulos de treinamento e forneça um *conjunto de dados marcado* que inclua uma coluna de etiqueta ou resultado.
+Depois de definir os parâmetros do modelo, treine o modelo usando os módulos de treinamento e fornecendo um conjunto de um *DataSet marcado* que inclui um rótulo ou uma coluna de resultado.
 
-## <a name="about-support-vector-machines"></a>Sobre as máquinas vetoriais de suporte
+## <a name="about-support-vector-machines"></a>Sobre as máquinas de vetor de suporte
 
-O suporte às máquinas de vetor estão entre os mais recentes dos algoritmos de aprendizado da máquina e modelos SVM e tem sido usado em muitos aplicativos, da recuperação de informações até a classificação de texto e imagem. SVMs podem ser usados tanto para tarefas de classificação quanto de regressão.
+O suporte às máquinas de vetor estão entre os mais recentes dos algoritmos de aprendizado da máquina e modelos SVM e tem sido usado em muitos aplicativos, da recuperação de informações até a classificação de texto e imagem. SVMs pode ser usado para tarefas de classificação e regressão.
 
-Este modelo SVM é um modelo de aprendizagem supervisionado que requer dados rotulados. No processo de treinamento, o algoritmo analisa dados de entrada e reconhece padrões em um espaço de recursos multidimensional chamado *hiperplano*.  Todos os exemplos de entrada são representados como pontos neste espaço, e são mapeados para categorias de saída de tal forma que as categorias sejam divididas pelo mais amplo e claro possível.
+Esse modelo de SVM é um modelo de aprendizado supervisionado que requer dados rotulados. No processo de treinamento, o algoritmo analisa dados de entrada e reconhece padrões em um espaço de recurso multidimensional chamado de *hiperplano*.  Todos os exemplos de entrada são representados como pontos neste espaço e são mapeados para categorias de saída de tal forma que as categorias são divididas por uma grande e limpam uma lacuna possível.
 
-Para previsão, o algoritmo SVM atribui novos exemplos em uma categoria ou outra, mapeando-os nesse mesmo espaço. 
+Para previsão, o algoritmo SVM atribui novos exemplos em uma categoria ou na outra, mapeando-os para esse mesmo espaço. 
 
 ## <a name="how-to-configure"></a>Como configurar 
 
-Para este tipo de modelo, recomenda-se que você normalize o conjunto de dados antes de usá-lo para treinar o classificador.
+Para esse tipo de modelo, é recomendável que você Normalize o conjunto de os antes de usá-lo para treinar o classificador.
   
-1.  Adicione o módulo **de máquina vetorial de suporte de duas classes** ao seu pipeline.  
+1.  Adicione o módulo **máquina de vetor de suporte de duas classes** ao seu pipeline.  
   
-2.  Especifique como deseja que o modelo seja treinado, definindo a opção **Criar modo treinador.**  
+2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro Único**: Se você souber como deseja configurar o modelo, você pode fornecer um conjunto específico de valores como argumentos.  
+    -   **Parâmetro único**: se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.  
 
-    -   **Intervalo de parâmetros**: Se você não tiver certeza dos melhores parâmetros, você pode encontrar os parâmetros ideais usando o módulo [Tune Model Hyperparameters.](tune-model-hyperparameters.md) Você fornece algumas faixas de valores, e o treinador itera sobre várias combinações das configurações para determinar a combinação de valores que produz o melhor resultado.
+    -   **Intervalo de parâmetros**: se você não tiver certeza dos melhores parâmetros, poderá encontrar os parâmetros ideais usando o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) . Você fornece algum intervalo de valores, e o instrutor itera em várias combinações de configurações para determinar a combinação de valores que produz o melhor resultado.
 
-3.  Para **Número de iterações,** digite um número que denote o número de iterações usadas na construção do modelo.  
+3.  Para **número de iterações**, digite um número que denota o número de iterações usadas durante a criação do modelo.  
   
      Este parâmetro pode ser usado para controlar o compromisso entre a precisão e a velocidade de treinamento.  
   
-4.  Para **Lambda,** digite um valor a ser usado como peso para a regularização L1.  
+4.  Para **lambda**, digite um valor a ser usado como o peso para regularização L1.  
   
      Esse coeficiente de regularização pode ser usado para ajustar o modelo. Valores maiores penalizam modelos mais complexos.  
   
-5.  Selecione a opção, **normalize recursos,** se quiser normalizar os recursos antes do treinamento.
+5.  Selecione a opção **normalizar recursos**, se desejar normalizar os recursos antes do treinamento.
   
-     Se você aplicar a normalização, antes do treinamento, os pontos de dados são centrados na média e dimensionados para ter uma unidade de desvio padrão.
+     Se você aplicar a normalização, antes do treinamento, os pontos de dados serão centralizados na média e dimensionados para ter uma unidade de desvio padrão.
   
-6.  Selecione a **opção, Projetize para a esfera da unidade,** para normalizar os coeficientes.
+6.  Selecione a opção, **projeto para a esfera de unidade**, para normalizar coeficientes.
   
-     Projetar valores para o espaço unitário significa que antes do treinamento, os pontos de dados são centrados em 0 e dimensionados para ter uma unidade de desvio padrão.
+     A projeção de valores para o espaço de unidade significa que, antes do treinamento, os pontos de dados são centralizados em 0 e dimensionados para ter uma unidade de desvio padrão.
   
-7.  Em **Sementes de número aleatório, digite**um valor inteiro para usar como semente se você quiser garantir a reprodutibilidade entre as corridas.  Caso contrário, um valor de relógio do sistema é usado como uma semente, o que pode resultar em resultados ligeiramente diferentes em todas as corridas.
+7.  Em **semente de número aleatório**, digite um valor inteiro para usar como semente se você quiser garantir reprodução em execuções.  Caso contrário, um valor de relógio do sistema será usado como uma semente, o que pode resultar em resultados ligeiramente diferentes entre as execuções.
   
-9. Conecte um conjunto de dados rotulado e um dos módulos de [treinamento:](module-reference.md)
+9. Conecte um DataSet rotulado e treine o modelo:
+
+    + Se você definir **criar modo de instrutor** como um **único parâmetro**, conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
   
-    -   Se você definir **Criar modo de treinador** para Um **Parâmetro,** use o módulo [Modelo de Trem.](train-model.md)
+    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros**, conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
   
-10. Envie o oleoduto.
+    > [!NOTE]
+    > 
+    > Se você passar um intervalo de parâmetros para [treinar o modelo](train-model.md), ele usará apenas o valor padrão na lista de parâmetros únicos.  
+    > 
+    > Se você passar um único conjunto de valores de parâmetro para o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) , quando ele esperar um intervalo de configurações para cada parâmetro, ele ignorará os valores e usará os valores padrão para o aprendiz.  
+    > 
+    > Se você selecionar a opção **intervalo de parâmetros** e inserir um único valor para qualquer parâmetro, esse valor único especificado será usado em toda a varredura, mesmo que outros parâmetros sejam alterados em um intervalo de valores.
+  
+10. Envie o pipeline.
 
 ## <a name="results"></a>Resultados
 
-Após o treinamento ser concluído:
+Após a conclusão do treinamento:
 
-+ Para salvar um instantâneo do modelo treinado, selecione a guia **Saídas** no painel direito do módulo **modelo Train.** Selecione o ícone **do conjunto de dados Registrar** para salvar o modelo como um módulo reutilizável.
++ Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do módulo modelo de **treinamento** . Selecione o ícone **registrar conjunto de registros** para salvar o modelo como um módulo reutilizável.
 
-+ Para usar o modelo para pontuação, adicione o módulo **Score Model** a um pipeline.
++ Para usar o modelo de pontuação, adicione o módulo **modelo de Pontuação** a um pipeline.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

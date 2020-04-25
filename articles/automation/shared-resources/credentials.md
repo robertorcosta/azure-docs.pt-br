@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 42abeba310e7a30364f93e998f12129a2d3c1f15
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 4226a625918be378b14e14c55fe4dd4ca5c398d5
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114251"
+ms.locfileid: "82136678"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Gerenciar credenciais na automação do Azure
 
@@ -41,7 +41,7 @@ Como parte do módulo Azure PowerShell AZ, os cmdlets na tabela a seguir são us
 
 ## <a name="activities-used-to-access-credentials"></a>Atividades usadas para acessar credenciais
 
-As atividades na tabela a seguir são usadas para acessar credenciais em runbooks e configurações DSC.
+As atividades na tabela a seguir são usadas para acessar credenciais em runbooks gráficos e configurações DSC. Para obter exemplos de uso de atividades, consulte [criação gráfica na automação do Azure](../automation-graphical-authoring-intro.md#activities).
 
 | Atividade | Descrição |
 |:--- |:--- |

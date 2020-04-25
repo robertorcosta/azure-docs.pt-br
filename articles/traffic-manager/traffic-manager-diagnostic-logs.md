@@ -1,6 +1,6 @@
 ---
-title: Habilitar o log de diagnósticos no Gerenciador de Tráfego do Microsoft Azure
-description: Saiba como habilitar o log de diagnósticos para o perfil do Gerenciador de Tráfego e acessar os arquivos de log que são criados como resultado.
+title: Habilitar o log de recursos no Gerenciador de tráfego do Azure
+description: Saiba como habilitar o log de recursos para seu perfil do Gerenciador de tráfego e acessar os arquivos de log criados como resultado.
 services: traffic-manager
 author: rohinkoul
 manager: twooley
@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
-ms.openlocfilehash: 0ed2ecef86795f62aa3fe5798dcd0d07adbaf9cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d0ffcffd7d4a4f2072b640ace03ec819aa416d47
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938668"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133914"
 ---
-# <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Habilitar o log de diagnósticos no Gerenciador de Tráfego do Microsoft Azure
+# <a name="enable-resource-logging-in-azure-traffic-manager"></a>Habilitar o log de recursos no Gerenciador de tráfego do Azure
 
-Este artigo descreve como habilitar o log de diagnósticos e os dados do log de acesso para um perfil do Gerenciador de Tráfego.
+Este artigo descreve como habilitar a coleta de logs de recursos de diagnóstico e acessar dados de log para um perfil do Gerenciador de tráfego.
 
-Os logs de diagnósticos do Gerenciador de Tráfego do Azure podem fornecer informações sobre o comportamento do recurso de perfil do Gerenciador de Tráfego. Por exemplo, é possível usar os dados do log do perfil para determinar por que as investigações individuais atingiram o tempo limite em um ponto de extremidade.
+Os logs de recursos do Gerenciador de tráfego do Azure podem fornecer informações sobre o comportamento do recurso de perfil do Gerenciador de tráfego. Por exemplo, é possível usar os dados do log do perfil para determinar por que as investigações individuais atingiram o tempo limite em um ponto de extremidade.
 
-## <a name="enable-diagnostic-logging"></a>Habilitar registro em log de diagnóstico
+## <a name="enable-resource-logging"></a>Habilitar log de recursos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -32,15 +32,15 @@ Os logs de diagnósticos do Gerenciador de Tráfego do Azure podem fornecer info
 
 1. **Recuperar o perfil do Gerenciador de Tráfego:**
 
-    Para habilitar o log de diagnósticos, será necessário ter a ID de um perfil do Gerenciador de Tráfego. Recuperar o perfil do Gerenciador de Tráfego para o qual você quer habilitar o log de diagnósticos [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). A saída inclui as informações da ID do perfil do Gerenciador de Tráfego.
+    Para habilitar o log de recursos, você precisa da ID de um perfil do Gerenciador de tráfego. Recupere o perfil do Gerenciador de tráfego para o qual você deseja habilitar o log de recursos com [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). A saída inclui as informações da ID do perfil do Gerenciador de Tráfego.
 
     ```azurepowershell-interactive
     Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
-2. **Habilitar o log de diagnósticos para o perfil do Gerenciador de Tráfego:**
+2. **Habilitar o log de recursos para o perfil do Gerenciador de tráfego:**
 
-    Habilite o log de diagnósticos para o perfil do Gerenciador de Tráfego, usando a ID obtida na etapa anterior com [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). O comando a seguir armazena logs detalhados do perfil do Gerenciador de Tráfego em uma conta de Armazenamento do Azure especificada. 
+    Habilite o log de recursos para o perfil do Gerenciador de tráfego usando a ID obtida na etapa anterior com [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). O comando a seguir armazena logs detalhados do perfil do Gerenciador de Tráfego em uma conta de Armazenamento do Azure especificada. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
@@ -55,7 +55,7 @@ Os logs de diagnósticos do Gerenciador de Tráfego do Azure podem fornecer info
       Assegure-se de que todas as categorias de log associadas ao recurso de perfil do Gerenciador de Tráfego sejam exibidas como habilitadas. Além disso, verifique se a conta de armazenamento está configurada corretamente.
 
 ## <a name="access-log-files"></a>Acessar arquivos de log
-1. Faça login no [portal Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 1. Navegue até a conta de Armazenamento do Azure no portal.
 2. Na página de **Visão Geral** da conta de armazenamento do Azure, em **Serviços**, selecione **Blobs**.
 3. Para **Contêineres**, selecione **insights-logs-probehealthstatusevents**, navegue até o arquivo PT1H.json e clique em **Baixar** para baixar e salvar uma cópia desse arquivo de log.
@@ -65,7 +65,7 @@ Os logs de diagnósticos do Gerenciador de Tráfego do Azure podem fornecer info
 
 ## <a name="traffic-manager-log-schema"></a>Esquema de log do Gerenciador de Tráfego
 
-Todos os logs de diagnóstico disponíveis por meio do Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço emitir propriedades exclusivas para seus próprios eventos. Para o esquema de logs de diagnóstico de nível superior, consulte [Serviços, esquemas e categorias com suporte para Logs de Diagnóstico do Azure](../azure-monitor/platform/tutorial-dashboards.md).
+Todos os logs de recursos disponíveis por meio de Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço para emitir propriedades exclusivas para seus próprios eventos. Para o esquema de logs de recursos de nível superior, consulte [serviços, esquemas e categorias com suporte para logs de recursos do Azure](../azure-monitor/platform/tutorial-dashboards.md).
 
 A tabela a seguir inclui o esquema de logs específico para o recurso de perfil do Gerenciador de Tráfego do Azure.
 

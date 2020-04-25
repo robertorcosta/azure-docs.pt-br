@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2b6e056fbfb134f0b1218b4281b9f971a0e24202
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4a29c7cb7e35e69eb9410dd7ddc9f07757e3565
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71219475"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128726"
 ---
 # <a name="api-management-policies"></a>Políticas de Gerenciamento de API
 Esta seção fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](api-management-howto-policies.md).  
   
  As políticas são um recurso poderoso do sistema que permitem ao editor alterar o comportamento da API por meio de configuração. As políticas são um conjunto de instruções executadas em sequência, no momento da solicitação ou da resposta de uma API. Instruções populares incluem a conversão do formato de XML para JSON e limite de taxa de chamada para restringir a quantidade de chamadas recebidas de um desenvolvedor. Muitas políticas estão disponíveis pré-configuradas.  
   
- Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo](api-management-advanced-policies.md#choose) e [Definir variável](api-management-advanced-policies.md#set-variable) se baseiam em expressões de políticas. Para obter mais informações, consulte [Políticas avançadas](api-management-advanced-policies.md#AdvancedPolicies) e [expressões políticas](api-management-policy-expressions.md).  
+ Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo](api-management-advanced-policies.md#choose) e [Definir variável](api-management-advanced-policies.md#set-variable) se baseiam em expressões de políticas. Para obter mais informações, consulte [políticas avançadas](api-management-advanced-policies.md#AdvancedPolicies) e [expressões de política](api-management-policy-expressions.md).  
   
-##  <a name="policies"></a><a name="ProxyPolicies"></a>Políticas  
+##  <a name="policies"></a><a name="ProxyPolicies"></a>Policie  
   
 -   [Políticas de restrição de acesso](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
     -   [Verificar cabeçalho HTTP](api-management-access-restriction-policies.md#CheckHTTPHeader) - Impõe a existência e/ou valor de um cabeçalho HTTP.  
@@ -50,12 +50,12 @@ Esta seção fornece uma referência para as políticas de Gerenciamento de API 
     -   [Definir variável](api-management-advanced-policies.md#set-variable) - Mantém um valor em uma variável context para acesso posterior.  
     -   [Definir método de solicitação](api-management-advanced-policies.md#SetRequestMethod) - Permite alterar o método HTTP de uma solicitação.  
     -   [Definir código de status](api-management-advanced-policies.md#SetStatus) – altera o código de status de HTTP para o valor especificado.  
-    -   [Trace](api-management-advanced-policies.md#Trace) - Adiciona traços personalizados na saída do [Inspetor de API,](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) telemetrias de insights de aplicativos e registros de diagnóstico.  
-    -   [Esperar](api-management-advanced-policies.md#Wait) - Espera por [solicitação](api-management-advanced-policies.md#SendRequest)de envio fechado, obter valor do cache ou controlar as políticas [de](api-management-caching-policies.md#GetFromCacheByKey) [fluxo](api-management-advanced-policies.md#choose) para concluir antes de prosseguir.  
+    -   [Trace](api-management-advanced-policies.md#Trace) – adiciona rastreamentos personalizados na saída do [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) , Application insights telemetrias e logs de recursos.  
+    -   [Wait](api-management-advanced-policies.md#Wait) -aguarda a conclusão das políticas de [envio por solicitação](api-management-advanced-policies.md#SendRequest), [obtenção de valor do cache](api-management-caching-policies.md#GetFromCacheByKey)ou [fluxo de controle](api-management-advanced-policies.md#choose) antes de continuar.  
 -   [Políticas de autenticação](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Autenticar com o Basic](api-management-authentication-policies.md#Basic) - Autenticar com um serviço de back-end usando a autenticação Básica.  
     -   [Autenticar com o certificado de cliente](api-management-authentication-policies.md#ClientCertificate) - Autenticar com um serviço de back-end usando certificados de cliente.  
-    -   [Autenticar com identidade gerenciada](api-management-authentication-policies.md#ManagedIdentity) - Autenticar com um serviço backend usando uma [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
+    -   [Autenticar com a identidade gerenciada](api-management-authentication-policies.md#ManagedIdentity) – autentique com um serviço de back-end usando uma [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 -   [Políticas de caching](api-management-caching-policies.md#CachingPolicies)  
     -   [Obter do cache](api-management-caching-policies.md#GetFromCache) - Executa a pesquisa em cache e retorna uma resposta válida armazenada em cache quando uma estiver disponível.  
     -   [Armazenar em cache](api-management-caching-policies.md#StoreToCache) - Armazena a resposta em cache de acordo com a configuração de controle de cache especificada.  

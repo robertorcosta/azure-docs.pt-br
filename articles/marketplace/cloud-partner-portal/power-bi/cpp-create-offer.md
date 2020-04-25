@@ -1,5 +1,5 @@
 ---
-title: Crie uma oferta de aplicativo Power BI | Mercado Azure
+title: Criar uma oferta de aplicativo Power BI | Azure Marketplace
 description: Como criar uma oferta de aplicativo do Power BI para o Microsoft AppSource Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: c396468bff0edef5cfceccd3d3c3394662111c10
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: c8273025b92a74286d3f918289ef9f21bd992182
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984837"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143112"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Criar uma oferta de Aplicativo do Power BI
 
 >[!Important]
->A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas do seu aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [visão geral de criação de aplicativos do Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerenciar suas ofertas migradas.
+>A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Power bi visão geral da criação de aplicativo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) para gerenciar suas ofertas migradas.
 
 Este artigo lista as etapas necessárias para criar uma nova oferta de Aplicativo do Power BI para o [AppSource](https://appsource.microsoft.com). Cada oferta aparece como sua própria entidade no AppSource. Ao criar uma nova oferta no [Portal do Cloud Partner](https://cloudpartner.azure.com/), você deve fornecer quatro grupos de ativos para sua oferta.
 
@@ -26,9 +26,9 @@ Os grupos de ativos são descritos na tabela a seguir:
 |   Grupo de ativos      | Descrição                                                                         |
 | ----------------   | ----------------                                                                    |
 | Configurações da oferta     | As identificações primárias e o nome da oferta.                                      |
-| Informações técnicas     | A URL do instalador que você usa para instalar o aplicativo no espaço de trabalho power bi do cliente. Para obter mais informações sobre como gerar essa URL, confira a [documentação do Aplicativo do Power BI](https://go.microsoft.com/fwlink/?linkid=2028636). |
+| Informações técnicas     | A URL do instalador que você usa para instalar o aplicativo no espaço de trabalho do Power BI do cliente. Para obter mais informações sobre como gerar essa URL, confira a [documentação do Aplicativo do Power BI](https://go.microsoft.com/fwlink/?linkid=2028636). |
 | Detalhes da vitrine | Contém ativos de marketing, jurídicos e de cliente potencial. Os ativos de marketing incluem uma descrição e os logotipos da oferta. Ativos jurídicos incluem uma política de privacidade, termos de uso e outras documentações legais. A política de gerenciamento de cliente potencial permite especificar como manusear os clientes potenciais do portal do usuário do AppSource. |
-| Contatos           | Contém informações de contato e política de suporte.                                     |
+| Contacts           | Contém informações de contato e política de suporte.                                     |
 
 ## <a name="new-offer-form"></a>Novo formulário de oferta
 

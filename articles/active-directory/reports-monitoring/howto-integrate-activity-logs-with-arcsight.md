@@ -1,6 +1,6 @@
 ---
-title: Integre logs com arcsight usando o Azure Monitor | Microsoft Docs
-description: Saiba como integrar os logs do Azure Active Directory com o ArcSight usando o Azure Monitor
+title: Integrar logs com o ArcSight usando o Azure Monitor | Microsoft Docs
+description: Saiba como integrar logs de Azure Active Directory com o ArcSight usando Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05002c1b11ef31b61fb4036f09dc8edcdafca767
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f03b146331069371106c1857f2acc68b566d3c5d
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75608373"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129239"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrar logs do Azure Active Directory ao ArcSight usando o Azure Monitor
 
@@ -53,7 +53,7 @@ Baixe e abra o [guia de configuração do ArcSight SmartConnector para Hub de Ev
     * As configurações do aplicativo da implantação são mantidas nas configurações do aplicativo em aplicativos do Azure Functions. 
     * Um novo grupo de recursos para ArcSight é criado no Azure com um aplicativo do Azure AD para o conector ArcSight e contas de armazenamento contendo os arquivos mapeados no formato CEF.
 
-4. Por fim, conclua as etapas de pós-implantação nas **Configurações de Pós-Implantação** do guia de configuração. Esta seção explica como realizar configurações adicionais, se você estiver em um Plano de Serviço de Aplicativo para impedir que os aplicativos de funções fiquem ociosos após um período de tempo limite, configurar o fluxo do logs de diagnóstico do hub de eventos e atualizar o certificado do repositório de chaves do SmartConnector Daemon Syslog NG para associá-lo à conta de armazenamento recém-criada.
+4. Por fim, conclua as etapas de pós-implantação nas **Configurações de Pós-Implantação** do guia de configuração. Esta seção explica como executar uma configuração adicional se você estiver em um plano do serviço de aplicativo para impedir que os aplicativos de funções fiquem ociosos após um período de tempo limite, configurar o streaming de logs de recursos do hub de eventos e atualizar o certificado SysLog NG daemon SmartConnector do repositório de chaves para associá-lo à conta de armazenamento recém-criada.
 
 5. O guia de configuração também explica como personalizar as propriedades do conector no Azure e como atualizar e desinstalar o conector. Há também uma seção sobre aprimoramentos de desempenho, incluindo upgrade para um [Plano de Consumo do Azure](https://azure.microsoft.com/pricing/details/functions) e configuração de um Balanceador de Carga do ArcSight se a carga de eventos for maior que um SmartConnector Daemon Syslog NG único pode manipular.
 

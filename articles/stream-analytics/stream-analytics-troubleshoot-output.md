@@ -8,28 +8,28 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 305632a0faa1eb7e217e86d36c5159e557df7aaf
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
-ms.translationtype: MT
+ms.openlocfilehash: 5652df0cf142af2ff96590368892530abcb3d667
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409262"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133224"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Solucionar problemas de saídas do Azure Stream Analytics
 
-Este artigo descreve problemas comuns com conexões de saída do Azure Stream Analytics, como solucionar problemas de saída e como corrigir os problemas. Muitas etapas de solução de problemas exigem que os registros de diagnóstico sejam habilitados para o seu trabalho de Stream Analytics. Se você não tiver registros de diagnóstico ativados, consulte [Solucionar problemas do Azure Stream Analytics usando registros de diagnóstico .](stream-analytics-job-diagnostic-logs.md)
+Este artigo descreve problemas comuns com Azure Stream Analytics conexões de saída, como solucionar problemas de saída e como corrigir os problemas. Muitas etapas de solução de problemas exigem que recursos e outros logs de diagnóstico sejam habilitados para seu trabalho de Stream Analytics. Se você não tiver os logs de recursos habilitados, consulte [solucionar problemas Azure Stream Analytics usando os logs de recursos](stream-analytics-job-diagnostic-logs.md).
 
 ## <a name="output-not-produced-by-job"></a>Saída não produzida pelo trabalho
 
 1.  Verifique a conectividade com as saídas usando o botão **Testar Conexão** para cada uma das saídas.
 
-2.  Veja [**as métricas de monitoramento**](stream-analytics-monitoring.md) na guia **Monitor.** Como os valores são agregados, as métricas são atrasadas em poucos minutos.
-   * Se os Eventos de Entrada forem maiores que 0, o trabalho é capaz de ler dados de entrada. Se os Eventos de Entrada não forem maiores que 0, então há um problema com a entrada do trabalho. Consulte ['Solucionar problemas' nas conexões de entrada](stream-analytics-troubleshoot-input.md) para saber como solucionar problemas de conexão de entrada.
-   * Se os erros de conversão de dados forem maiores que 0 e subir, consulte [erros de dados do Azure Stream Analytics](data-errors.md) para obter informações detalhadas sobre erros de conversão de dados.
-   * Se os erros de tempo de execução forem maiores que 0, seu trabalho pode receber dados, mas está gerando erros ao processar a consulta. Para encontrar os erros, acesse os [Logs de Auditoria](../azure-resource-manager/management/view-activity-logs.md) e filtre o status *Com Falha*.
-   * Se InputEvents for maior que 0 e OutputEvents for igual a 0, um dos seguintes é verdadeiro:
+2.  Examine as [**métricas de monitoramento**](stream-analytics-monitoring.md) na guia **Monitor** . Como os valores são agregados, as métricas são atrasadas em alguns minutos.
+   * Se os eventos de entrada forem maiores que 0, o trabalho poderá ler os dados de entrada. Se os eventos de entrada não forem maiores que 0, haverá um problema com a entrada do trabalho. Consulte [solucionar problemas de conexões de entrada](stream-analytics-troubleshoot-input.md) para saber como solucionar problemas de conexão de entrada.
+   * Se os erros de conversão de dados forem maiores que 0 e a escalada, consulte [Azure Stream Analytics erros de dados](data-errors.md) para obter informações detalhadas sobre erros de conversão de dados.
+   * Se os erros de tempo de execução forem maiores que 0, seu trabalho poderá receber dados, mas ele está gerando erros durante o processamento da consulta. Para encontrar os erros, acesse os [Logs de Auditoria](../azure-resource-manager/management/view-activity-logs.md) e filtre o status *Com Falha*.
+   * Se InputEvents for maior que 0 e OutputEvents for igual a 0, uma das seguintes opções será verdadeira:
       * O processamento de consulta resultou em zero evento de saída.
-      * Eventos ou campos podem estar mal formados, resultando em saída zero após o processamento da consulta.
+      * Eventos ou campos podem estar malformados, resultando em saída zero após o processamento da consulta.
       * O trabalho não pôde enviar dados por push para o coletor de saída por motivos de conectividade ou autenticação.
 
    Em todos os casos de erro mencionados anteriormente, as mensagens do log de operações explicam os detalhes adicionais (incluindo o que está acontecendo), exceto nos casos em que a lógica da consulta filtrou todos os eventos. Se o processamento de vários eventos gerar erros, os erros serão agregados a cada 10 minutos.
@@ -84,17 +84,17 @@ Observe as observações a seguir ao configurar IGNORE_DUP_KEY para vários tipo
 
 * IGNORE_DUP_KEY não é aplicável para índices de repositório de coluna porque não é possível impor a exclusividade desses índices.  
 
-## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>Os nomes das colunas são minúsculos pelo Azure Stream Analytics
-Ao usar o nível de compatibilidade original (1.0), o Azure Stream Analytics costumava alterar nomes de colunas para minúsculas. Esse comportamento foi corrigido em níveis posteriores de compatibilidade. Para preservar o caso, aconselhamos os clientes a passar para o nível de compatibilidade 1.1 e posterior. Você pode encontrar mais informações sobre [o nível de compatibilidade para trabalhos do Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>Os nomes de coluna são minúsculos por Azure Stream Analytics
+Ao usar o nível de compatibilidade original (1,0), Azure Stream Analytics usado para alterar nomes de coluna para letras minúsculas. Esse comportamento foi corrigido em níveis de compatibilidade posteriores. Para preservar o caso, aconselhamos os clientes a migrar para o nível de compatibilidade 1,1 e posterior. Você pode encontrar mais informações sobre o [nível de compatibilidade para trabalhos de Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, experimente [nosso fórum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para obter mais assistência, experimente nosso [Fórum de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-* [Comece a usar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Introdução ao uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência da API REST de gerenciamento de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

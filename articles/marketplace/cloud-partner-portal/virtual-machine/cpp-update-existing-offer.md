@@ -1,5 +1,5 @@
 ---
-title: Atualize uma oferta de VM existente no Azure Marketplace
+title: Atualizar uma oferta de VM existente no Azure Marketplace
 description: Explica como atualizar uma oferta de VM existente no Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: dsindona
-ms.openlocfilehash: a15ccb1de2a9ce0072d032e624ead3b4d730763b
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 934be24d07c01c76c8caf5e16af4b765df79c964
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273045"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142912"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Atualizar uma oferta de VM existente no Azure Marketplace
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de Máquina Virtual do Azure](https://aka.ms/CreateAzureVMoffer) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de máquina virtual do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar uma máquina virtual do Azure oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) para gerenciar suas ofertas migradas.
 
-Este artigo explica os diferentes aspectos da atualização da sua oferta de máquina virtual (VM) no [Cloud Partner Portal](https://cloudpartner.azure.com/) e republica a oferta. 
+Este artigo explica os diferentes aspectos da atualização da sua oferta de máquina virtual (VM) no [Cloud Partner Portal](https://cloudpartner.azure.com/) e republica a oferta.
 
 Existem várias razões comuns para você atualizar sua oferta, incluindo:
 
@@ -32,7 +32,7 @@ Existem várias razões comuns para você atualizar sua oferta, incluindo:
 Para ajudá-lo nessas modificações, o portal oferece os recursos **Comparar** e **Histórico**.  
 
 >[!Note]
->O opt-in do canal parceiro Cloud Solution Providers (CSP) já está disponível.  Consulte [os Provedores de Soluções em Nuvem](../../cloud-solution-providers.md) para obter mais informações sobre o marketing de sua oferta através dos canais parceiros microsoft CSP.
+>A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](../../cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Alterações não permitidas na oferta de VM ou SKU
 
@@ -78,7 +78,7 @@ Para modificar a disponibilidade, use as seguintes etapas:
 
 1.  Entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 
-2.  Em **Todas as ofertas** encontre a oferta que você gostaria de atualizar.
+2.  Em **todas as ofertas** , encontre a oferta que você gostaria de atualizar.
 
 3.  Na guia **SKUs**, clique no SKU que você deseja modificar sua disponibilidade.
 
@@ -97,7 +97,7 @@ Use as etapas a seguir para disponibilizar um novo SKU para sua oferta existente
 
 1.  Entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 
-2.  Em **Todas as ofertas** encontre a oferta que você gostaria de atualizar.
+2.  Em **todas as ofertas** , encontre a oferta que você gostaria de atualizar.
 
 3.  Na guia **SKUs**, clique em **Add new SKU** e forneça um **SKU ID** no pop-up.
 
@@ -112,7 +112,7 @@ Utilize os seguintes passos para atualizar os metadados do mercado - nome da emp
 
 1.  Entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 
-2.  Em **Todas as ofertas** encontre a oferta que você gostaria de atualizar.
+2.  Em **todas as ofertas** , encontre a oferta que você gostaria de atualizar.
 
 3.  Vá para a guia **Marketplace** e siga as instruções no artigo [Publique uma máquina virtual no Azure Marketplace](./cpp-publish-offer.md) para fazer alterações nos metadados.
 
@@ -121,7 +121,7 @@ Utilize os seguintes passos para atualizar os metadados do mercado - nome da emp
 
 ### <a name="update-pricing-on-published-offers"></a>Atualizar o preço em ofertas publicadas
 
-Quando sua oferta pré-paga for publicada, você não poderá aumentar diretamente o preço da SKU.  (No entanto, você pode criar um novo SKU sob a mesma oferta, excluir o Antigo SKU e, em seguida, republicar sua oferta para novos clientes.)  Em contrapartida, você pode diminuir o preço de uma oferta publicada usando as seguintes etapas:
+Quando sua oferta pré-paga for publicada, você não poderá aumentar diretamente o preço da SKU.  (No entanto, você pode criar um novo SKU na mesma oferta, excluir o SKU antigo e, em seguida, republicar sua oferta para novos clientes.)  Por outro lado, você pode diminuir o preço de uma oferta publicada usando as seguintes etapas:
 
 1.  Entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 
@@ -131,7 +131,7 @@ Quando sua oferta pré-paga for publicada, você não poderá aumentar diretamen
 
 4.  Se você definiu o preço na GUI 1x1, poderá alterar o preço diretamente na interface do usuário. Se você definir o preço por meio da planilha de importação / exportação, só poderá diminuir os preços por meio do recurso de importação / exportação.
 
-3.  Clique em **Save** (Salvar).
+3.  Clique em **Salvar**.
 
 4.  Clique em **Publicar** para iniciar o fluxo de trabalho para publicar suas alterações.
 

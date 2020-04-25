@@ -3,24 +3,25 @@ title: Configurar endereços IP para um adaptador de rede do Azure | Microsoft D
 description: Saiba como adicionar, alterar e remover endereços IP públicos e privados para um adaptador de rede.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
-ms.author: kumud
-ms.openlocfilehash: b5655a58c3538ac47e8649619b079dc46ee01242
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.author: allensu
+ms.openlocfilehash: 8ff958b7bab7be3124452c1206baf64d0f8ccb7a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473222"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142513"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para um adaptador de rede do Azure
 
@@ -37,13 +38,13 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 - Caso ainda não tenha uma conta do Azure, inscreva-se para obter uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se estiver usando o Portal, abra https://portal.azure.com e faça logon com sua conta do Azure.
 - Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial exige o módulo do Azure PowerShell versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
-- Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisar instalar ou atualizar, consulte [Install Azure CLI](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
+- Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial requer a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
 A conta que você realizou o logon, ou conectou ao Azure, deve estar atribuída à função do [contribuidor de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída a ações adequadas listadas em [Permissões de interface de rede](virtual-network-network-interface.md#permissions).
 
 ## <a name="add-ip-addresses"></a>Adicionar endereços IP
 
-Você pode adicionar o máximo de endereços [IPv4](#ipv4) [privados](#private) e [públicos](#public) necessários a uma interface de rede, dentro dos limites listados no artigo limites do [Azure.](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) Você pode adicionar um endereço IPv6 privado a uma [configuração IP secundária](#secondary) (desde que não haja configurações IP secundárias existentes) para uma interface de rede existente. Cada interface de rede pode ter no máximo um endereço privado IPv6. Você pode adicionar opcionalmente um endereço IPv6 público a uma configuração de interface de rede IPv6. Confira [IPv6](#ipv6) para obter detalhes sobre como usar endereços IPv6.
+Você pode adicionar quantos endereços [IPv4](#ipv4) [públicos](#public) e [privados](#private) forem necessários para uma interface de rede, dentro dos limites listados no artigo [limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) . Você pode adicionar um endereço IPv6 privado a uma [configuração de IP secundário](#secondary) (desde que não haja nenhuma configuração de IP secundário existente) para uma interface de rede existente. Cada interface de rede pode ter no máximo um endereço IPv6 privado. Opcionalmente, você pode adicionar um endereço IPv6 público a uma configuração de interface de rede IPv6. Confira [IPv6](#ipv6) para obter detalhes sobre como usar endereços IPv6.
 
 1. Na caixa que contém o texto *Pesquisar recursos*, na parte superior do portal do Azure, digite *adaptadores de rede*. Quando o texto **adaptadores de rede** aparecer nos resultados da pesquisa, clique nele.
 2. Selecione a interface de rede que você deseja exibir ou alterar as configurações da lista.
@@ -53,8 +54,8 @@ Você pode adicionar o máximo de endereços [IPv4](#ipv4) [privados](#private) 
 
    |Configuração|Obrigatório?|Detalhes|
    |---|---|---|
-   |Nome|Sim|Deve ser exclusivo ao adaptador de rede|
-   |Type|Sim|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
+   |Name|Sim|Deve ser exclusivo ao adaptador de rede|
+   |Tipo|Sim|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
    |Método de atribuição de endereço IP privado|Sim|[**Dinâmico**](#dynamic): o Azure atribui o próximo endereço disponível para o intervalo de endereços de sub-rede na qual o adaptador de rede está implantado. [**Estático**](#static): você atribui um endereço não utilizado ao intervalo de endereços de sub-rede na qual o adaptador de rede está implantado.|
    |Endereço IP público|Não|**Desabilitado:** no momento, nenhum recurso de endereço IP público está associado à configuração de IP. **Habilitado:** selecione um endereço IP público IPv4 existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [Endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Adicione manualmente endereços IP privados secundários ao sistema operacional da máquina virtual seguindo as instruções do artigo [Como atribuir vários endereços IP a sistemas operacionais de máquina virtual](virtual-network-multiple-ip-addresses-portal.md#os-config). Confira endereços IP [privados](#private) para ver considerações especiais antes de adicionar manualmente os endereços IP ao sistema operacional de uma máquina virtual. Não adicione endereços IP públicos ao sistema operacional da máquina virtual.
@@ -112,14 +113,14 @@ Os endereços IP [privados](#private) e (opcionalmente) [públicos](#public) sã
 Cada adaptador de rede recebe uma configuração de IP primário. Uma configuração de IP primário:
 
 - Tem um endereço [privado](#private) [IPv4](#ipv4) atribuído a ela. Não é possível atribuir um endereço [IPv6](#ipv6) privado a uma configuração de IP primário.
-- Também pode ter tem um endereço IPv4 [público](#public) atribuído a ela. Não é possível atribuir um endereço IPv6 público a uma configuração IP primária (IPv4). 
+- Também pode ter tem um endereço IPv4 [público](#public) atribuído a ela. Você não pode atribuir um endereço IPv6 público a uma configuração de IP primário (IPv4). 
 
 ### <a name="secondary"></a>Secundário
 
 Além de uma configuração de IP primário, um adaptador de rede pode ter várias ou nenhuma configuração de IP secundário atribuída a ele. Uma configuração de IP secundário:
 
 - Deve ter um endereço IPv4 ou IPv6 privado atribuído a ela. Se o endereço for IPv6, o adaptador de rede poderá ter apenas uma configuração de IP secundário. Se o endereço for IPv4, o adaptador de rede poderá ter várias configurações de IP secundário atribuídas a ele. Para saber mais sobre quantos endereços IPv4 públicos e privados podem ser atribuídos a um adaptador de rede, confira o artigo [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
-- Pode também ter um endereço IPv4 ou IPv6 público atribuído a ele. Atribuir vários endereços IPv4 a uma interface de rede é útil em cenários como:
+- Também pode ter um endereço IPv4 ou IPv6 público atribuído a ele. A atribuição de vários endereços IPv4 a uma interface de rede é útil em cenários como:
   - Hospedagem de vários sites ou serviços com diferentes endereços IP e certificados TLS/SSL em um único servidor.
   - Uma máquina virtual usada como dispositivo de rede virtual, como um firewall ou balanceador de carga.
   - A capacidade de adicionar qualquer um dos endereços IPv4 privados para qualquer um dos adaptadores de rede a um pool de back-ends do Azure Load Balancer. No passado, somente o endereço IPv4 primário para o adaptador de rede primário podia ser adicionado a um pool de back-end. Para saber mais sobre como balancear a carga de várias configurações de IPv4, confira o artigo [Balanceamento de carga de várias configurações de IP](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
@@ -131,7 +132,7 @@ Você pode atribuir os seguintes tipos de endereços IP a uma [configuração de
 
 ### <a name="private"></a>Privado
 
-Os endereços [Privados IPv4](#ipv4) ou IPv6 permitem que uma máquina virtual se comunique com outros recursos em uma rede virtual ou outras redes conectadas. 
+Os endereços [IPv4](#ipv4) ou IPv6 privados permitem que uma máquina virtual se comunique com outros recursos em uma rede virtual ou em outras redes conectadas. 
 
 Por padrão, os servidores DHCP do Azure atribuem o endereço IPv4 privado à [configuração de IP primário](#primary) do adaptador de rede do Azure ao adaptador de rede dentro do sistema operacional da máquina virtual. A menos que seja necessário, nunca defina manualmente o endereço IP de um adaptador de rede no sistema operacional da máquina virtual.
 
@@ -172,10 +173,10 @@ Endereços IPv4 e (opcionalmente) IPv6 privados dinâmicos são atribuídos por 
 
 ### <a name="static"></a>Estático
 
-Você pode (opcionalmente) atribuir um endereço IPv4 ou IPv6 estático público ou privado a uma configuração IP. Para saber mais sobre como o Azure atribui endereços IPv4 estáticos públicos, confira [Endereço IP público](virtual-network-public-ip-address.md).
+Você pode (opcionalmente) atribuir um endereço IPv4 ou IPv6 estático público ou privado a uma configuração de IP. Para saber mais sobre como o Azure atribui endereços IPv4 estáticos públicos, confira [Endereço IP público](virtual-network-public-ip-address.md).
 
 - **Somente público**: o Azure atribui o endereço de um intervalo exclusivo a cada região do Azure. Você pode baixar a lista de intervalos (prefixos) para as nuvens [pública](https://www.microsoft.com/download/details.aspx?id=56519), do [governo dos EUA](https://www.microsoft.com/download/details.aspx?id=57063), da [China](https://www.microsoft.com/download/details.aspx?id=57062) e da [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064) do Azure. O endereço não é alterado até que o recurso de endereço IP público ao qual ele foi atribuído seja excluído ou o método de atribuição seja alterado para dinâmico. Se o recurso de endereço IP público estiver associado a uma configuração de IP, ele deverá ser desassociado da configuração de IP antes da alteração de seu método de atribuição.
-- **Somente privado**: você seleciona e atribui um endereço do intervalo de endereços da sub-rede. O endereço que você atribuir pode ser qualquer endereço no intervalo de endereços da sub-rede que não seja um dos quatro primeiros endereços no intervalo de endereços da sub-rede e não esteja atualmente atribuído a nenhum outro recurso na sub-rede. Os endereços estáticos só são liberados se um adaptador de rede é excluído. Se você alterar o método de alocação para estático, o Azure atribui dinamicamente o endereço IP dinâmico atribuído anteriormente como endereço estático, mesmo que o endereço não seja o próximo endereço disponível na faixa de endereço da sub-rede. O endereço também será alterado se o adaptador de rede for atribuído a uma sub-rede diferente na mesma rede virtual. No entanto, para atribuir o adaptador de rede a outra sub-rede, primeiro você deve alterar o método de alocação de estático para dinâmico. Depois de atribuir o adaptador de rede a uma sub-rede diferente, você poderá alterar o método de alocação novamente para estático e atribuir um endereço IP do intervalo de endereços da nova sub-rede.
+- **Somente privado**: você seleciona e atribui um endereço do intervalo de endereços da sub-rede. O endereço que você atribuir pode ser qualquer endereço no intervalo de endereços da sub-rede que não seja um dos quatro primeiros endereços no intervalo de endereços da sub-rede e não esteja atualmente atribuído a nenhum outro recurso na sub-rede. Os endereços estáticos só são liberados se um adaptador de rede é excluído. Se você alterar o método de alocação para estático, o Azure atribuirá dinamicamente o endereço IP dinâmico atribuído anteriormente como o endereço estático, mesmo que o endereço não seja o próximo endereço disponível no intervalo de endereços da sub-rede. O endereço também será alterado se o adaptador de rede for atribuído a uma sub-rede diferente na mesma rede virtual. No entanto, para atribuir o adaptador de rede a outra sub-rede, primeiro você deve alterar o método de alocação de estático para dinâmico. Depois de atribuir o adaptador de rede a uma sub-rede diferente, você poderá alterar o método de alocação novamente para estático e atribuir um endereço IP do intervalo de endereços da nova sub-rede.
 
 ## <a name="ip-address-versions"></a>Versões de endereço IP
 
@@ -183,11 +184,11 @@ Especifique as seguintes versões ao atribuir endereços:
 
 ### <a name="ipv4"></a>IPv4
 
-Cada interface de rede deve ter uma configuração IP [principal](#primary) com um endereço [IPv4](#ipv4) [privado](#private) atribuído. Você pode adicionar uma ou mais configurações de IP [secundário](#secondary) que possuem um endereço IPv4 privado e (opcionalmente) um IPv4 [público](#public).
+Cada interface de rede deve ter uma configuração de IP [primário](#primary) com um endereço [IPv4](#ipv4) [privado](#private) atribuído. Você pode adicionar uma ou mais configurações de IP [secundário](#secondary) que possuem um endereço IPv4 privado e (opcionalmente) um IPv4 [público](#public).
 
 ### <a name="ipv6"></a>IPv6
 
-Você pode atribuir um ou nenhum endereço [IPv6](#ipv6) privado a uma configuração de IP secundário de um adaptador de rede. O adaptador de rede não pode ter configurações de IP secundário. Cada interface de rede pode ter no máximo um endereço privado IPv6. Você pode adicionar opcionalmente um endereço IPv6 público a uma configuração de interface de rede IPv6.
+Você pode atribuir um ou nenhum endereço [IPv6](#ipv6) privado a uma configuração de IP secundário de um adaptador de rede. O adaptador de rede não pode ter configurações de IP secundário. Cada interface de rede pode ter no máximo um endereço IPv6 privado. Opcionalmente, você pode adicionar um endereço IPv6 público a uma configuração de interface de rede IPv6.
 
 > [!NOTE]
 > Embora você possa criar uma interface de rede com um endereço IPv6 usando o portal, você não pode adicionar uma interface de rede existente para uma máquina virtual nova ou existente, usando o portal. Use o PowerShell ou a CLI do Azure para criar uma interface de rede com um endereço IPv6 privado e, em seguida, conecte a interface de rede ao criar uma máquina virtual. Não é possível anexar um adaptador de rede, com um endereço IPv6 privado atribuído a ele, a uma máquina virtual existente. Você não pode adicionar um endereço IPv6 privado a uma configuração de IP de qualquer adaptador de rede conectado a uma máquina virtual usando quaisquer ferramentas (portal, CLI ou PowerShell).

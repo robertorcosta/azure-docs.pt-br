@@ -1,5 +1,5 @@
 ---
-title: Suporte para um módulo Azure IoT Edge | Mercado Azure
+title: Suporte para um módulo Azure IoT Edge | Azure Marketplace
 description: Opções de suporte para um módulo IoT Edge.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 45304e12bf959cb1f695384535360af283ee3f10
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 59469aaa0a63cd56debe6af84d48bafa727df88c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981861"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142305"
 ---
 # <a name="iot-edge-module-support-tab"></a>Guia de suporte do módulo do IoT Edge
 
 >[!Important]
->A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas do seu módulo IoT Edge para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://aka.ms/AzureCreateIoT) para gerenciar suas ofertas migradas.
+>A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de módulo IoT Edge para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar um módulo de IOT Edge oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) para gerenciar suas ofertas migradas.
 
 Use a guia **Suporte** da página **Nova oferta** para fornecer recursos técnicos e de suporte ao usuário para sua oferta.  As seguintes áreas de entrada são fornecidas no formulário de Suporte: **Contato de Engenharia**, **Suporte ao Cliente** e **URLs de Suporte**. Um asterisco (*) anexado ao nome do campo indica que é obrigatório.
 
@@ -30,13 +30,13 @@ A tabela a seguir descreve os campos de formulário e a entrada necessária para
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |
 | ***Contato de engenharia***  |  *Serve como um contato técnico entre a Microsoft e sua organização* | 
-| **Nome\***                  | Nome da pessoa ou grupo que serve como suporte técnico / de engenharia     |
+| **Name\***                  | Nome da pessoa ou grupo que serve como suporte técnico / de engenharia     |
 | **Email\***                 | Endereço de e-mail do contato técnico                                      |
-| **Telefone\***                 | Número de telefone para suporte técnico                                           |
+| **Telemóvel\***                 | Número de telefone para suporte técnico                                           |
 | ***Suporte ao cliente***  | *Recebe os tíquetes de suporte abertos por clientes no Azure* |
-| **Nome\***                  | Nome da pessoa ou grupo que serve como o suporte ao cliente                  |
+| **Name\***                  | Nome da pessoa ou grupo que serve como o suporte ao cliente                  |
 | **Email\***                 | Endereço de e-mail do suporte ao cliente                                            |
-| **Telefone\***                 | Número de telefone de suporte ao cliente                                            |
+| **Telemóvel\***                 | Número de telefone de suporte ao cliente                                            |
 | ***Suporte a Urls***  | *Sites de suporte que a Microsoft usará quando seus clientes abrir tíquetes de suporte* |
 | **Azure público**          | URL do site de suporte da internet pública                                         |
 | **Nuvem do Azure Governamental**| URL para o site de suporte de nuvem do governo                                        |

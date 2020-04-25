@@ -1,151 +1,130 @@
 ---
-title: 'Avaliar modelo: Referência do módulo'
+title: 'Avaliar modelo: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo Avaliar modelo no Azure Machine Learning para medir a precisão de um modelo treinado.
+description: Saiba como usar o módulo modelo de avaliação no Azure Machine Learning para medir a precisão de um modelo treinado.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/24/2020
-ms.openlocfilehash: c1bcbb6a368c9c80f968c48c1a6e0bc6c95133d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/24/2020
+ms.openlocfilehash: cf9597f4a722ff9cda68e87b31db77c989afcb0b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456397"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82129844"
 ---
-# <a name="evaluate-model-module"></a>Avaliar módulo modelo
+# <a name="evaluate-model-module"></a>Módulo avaliar modelo
 
-Este artigo descreve um módulo no azure Machine Learning designer (visualização).
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
-Use este módulo para medir a precisão de um modelo treinado. Você fornece um conjunto de dados contendo pontuações geradas a partir de um modelo, e o módulo **Modelo de avaliação** calcula um conjunto de métricas de avaliação padrão do setor.
+Use este módulo para medir a precisão de um modelo treinado. Você fornece um conjunto de resultados que contém pontuações geradas de um modelo e o módulo **avaliar modelo** computa um conjunto de métricas de avaliação padrão do setor.
   
- As métricas retornadas pelo **Modelo de Avaliação** dependem do tipo de modelo que você está avaliando:  
+ As métricas retornadas pelo **modelo de avaliação** dependem do tipo de modelo que você está avaliando:  
   
--   **Modelos de Classificação**    
+-   **Modelos de classificação**    
 -   **Modelos de regressão**  
 -   **Modelos de clustering**  
 
 
 > [!TIP]
-> Se você é novo na avaliação de modelos, recomendamos a série de vídeos do Dr. Stephen Elston, como parte do curso de [aprendizagem](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) de máquina da EdX. 
+> Se você for novo na avaliação do modelo, recomendamos a série de vídeos de Dr. Stephen Elston, como parte do [curso do Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) do EdX. 
 
 
-Existem três maneiras de usar o módulo **Modelo de Avaliação:**
+## <a name="how-to-use-evaluate-model"></a>Como usar o modelo de avaliação
+1. Conecte a saída do conjunto de dados **pontuado** do [modelo de Pontuação](./score-model.md) à porta de entrada à esquerda do **modelo de avaliação**. 
 
-+ Gere pontuações sobre seus dados de treinamento e avalie o modelo com base nessas pontuações
-+ Gerar pontuações no modelo, mas comparar essas pontuações com pontuações em um conjunto de testes reservado
-+ Compare pontuações para dois modelos diferentes, mas relacionados, usando o mesmo conjunto de dados
+2. Adicional Conecte a saída do conjunto de dados **pontuado** do [modelo de Pontuação](./score-model.md) para o segundo modelo à entrada do **lado direito** do **modelo de avaliação**. Você pode comparar facilmente os resultados de dois modelos diferentes nos mesmos dados. Os dois algoritmos de entrada devem ser do mesmo tipo de algoritmo. Ou, você pode comparar classificações de duas execuções diferentes sobre os mesmos dados com parâmetros diferentes.
 
-## <a name="use-the-training-data"></a>Use os dados de treinamento
+    > [!NOTE]
+    > O tipo de algoritmo se refere a ' classificação de duas classes ', ' classificação multiclasse ', ' regressão ', ' clustering ' em ' algoritmos de Machine Learning '. 
 
-Para avaliar um modelo, você deve se conectar a um conjunto de dados que contém um conjunto de colunas de entrada e classificações.  Se nenhum outro dado estiver disponível, você pode usar seu conjunto de dados original.
-
-1. Conecte a saída do conjunto de **dados Marcado** do Modelo [de Pontuação](./score-model.md) à entrada do Modelo **de Avaliação**. 
-2. Clique **em Avaliar o** módulo Modelo e execute o pipeline para gerar as pontuações de avaliação.
-
-## <a name="use-testing-data"></a>Use dados de teste
-
-Um cenário comum no aprendizado de máquina é separar seu conjunto de dados original em conjuntos de dados de treinamento e teste, usando o módulo [Split](./split-data.md) ou o módulo [Partição e Amostra.](./partition-and-sample.md) 
-
-1. Conecte a saída do conjunto de **dados Marcado** do Modelo [de Pontuação](score-model.md) à entrada do Modelo **de Avaliação**. 
-2. Conecte a saída do módulo Split Data que contém os dados de teste à entrada à direita do **Modelo de Avaliação**.
-2. Clique **em Avaliar o** módulo modelo e selecione Executar **selecionado** para gerar as pontuações de avaliação.
-
-## <a name="compare-scores-from-two-models"></a>Compare as pontuações de dois modelos
-
-Você também pode conectar um segundo conjunto de pontuações para **avaliar modelo**.  Os escores podem ser um conjunto de avaliação compartilhada que tenha resultados conhecidos, ou um conjunto de resultados de um modelo diferente para os mesmos dados.
-
-This featureEste recurso é útil pois você pode comparar facilmente resultados de dois modelos diferentes nos mesmos dados. Ou, você pode comparar classificações de duas execuções diferentes sobre os mesmos dados com parâmetros diferentes.
-
-1. Conecte a saída do conjunto de **dados Marcado** do Modelo [de Pontuação](score-model.md) à entrada do Modelo **de Avaliação**. 
-2. Conecte a saída do módulo Score Model para o segundo modelo à entrada à direita do **Modelo de Avaliação**.
-3. Envie o oleoduto.
+3. Envie o pipeline para gerar as pontuações de avaliação.
 
 ## <a name="results"></a>Resultados
 
-Depois de executar **O Modelo de Avaliação,** clique com o botão direito do mouse no módulo e selecione **Visualizar resultados de avaliação** para ver os resultados.
+Depois de executar o **modelo de avaliação**, clique com o botão direito do mouse no módulo e selecione **Visualizar resultados da avaliação** para ver os resultados.
 
-Se você conectar conjuntos de dados a ambas as entradas do **Modelo de Avaliação,** os resultados conterão métricas para ambos os conjuntos de dados ou ambos os modelos.
-O modelo ou dados anexados à porta esquerda são apresentados primeiro no relatório, seguidos das métricas para o conjunto de dados, ou modelo anexado na porta direita.  
+Se você conectar conjuntos de dados a ambas as entradas do **modelo de avaliação**, os resultados conterão métricas para ambos os conjuntos ou ambos os modelos.
+O modelo ou os dados anexados à porta à esquerda são apresentados primeiro no relatório, seguidos pelas métricas para o conjunto de dados ou modelo anexado na porta correta.  
 
-Por exemplo, a imagem a seguir representa uma comparação dos resultados de dois modelos de clustering que foram construídos sobre os mesmos dados, mas com parâmetros diferentes.  
+Por exemplo, a imagem a seguir representa uma comparação de resultados de dois modelos de clustering que foram criados nos mesmos dados, mas com parâmetros diferentes.  
 
-![Comparando2Modelos](media/module/evaluate-2-models.png)  
+![Comparing2Models](media/module/evaluate-2-models.png)  
 
-Por se trata de um modelo de clustering, os resultados da avaliação são diferentes se você comparar os escores de dois modelos de regressão, ou comparar dois modelos de classificação. No entanto, a apresentação geral é a mesma. 
+Como esse é um modelo de clustering, os resultados da avaliação são diferentes de se você comparasse pontuações de dois modelos de regressão ou compararam dois modelos de classificação. No entanto, a apresentação geral é a mesma. 
 
 ## <a name="metrics"></a>Métricas
 
-Esta seção descreve as métricas retornadas para os tipos específicos de modelos suportados para uso com **Modelo de Avaliação**:
+Esta seção descreve as métricas retornadas para os tipos específicos de modelos com suporte para uso com o **modelo de avaliação**:
 
 + [modelos de classificação](#metrics-for-classification-models)
 + [modelos de regressão](#metrics-for-regression-models)
-+ [modelos de agrupamento](#metrics-for-clustering-models)
++ [modelos de clustering](#metrics-for-clustering-models)
 
 ### <a name="metrics-for-classification-models"></a>Métricas para modelos de classificação
 
-As seguintes métricas são relatadas ao avaliar modelos de classificação.
+As métricas a seguir são relatadas ao avaliar modelos de classificação.
   
--   **A precisão** mede a bondade de um modelo de classificação como a proporção de resultados verdadeiros ao total de casos.  
+-   A **precisão** mede a imsorte de um modelo de classificação como a proporção de resultados verdadeiros para casos totais.  
   
--   **Precisão** é a proporção de resultados verdadeiros sobre todos os resultados positivos.  
+-   **Precisão** é a proporção de resultados verdadeiros em todos os resultados positivos.  
   
--   **Recall** é a fração de todos os resultados corretos devolvidos pelo modelo.  
+-   **Recall** é a fração de todos os resultados corretos retornados pelo modelo.  
   
--   **A pontuação F** é calculada como a média ponderada de precisão e recall entre 0 e 1, onde o valor ideal de pontuação F é 1.  
+-   A **Pontuação de f** é calculada como a média ponderada de precisão e RECALL entre 0 e 1, em que o valor ideal de Pontuação F é 1.  
   
--   **AUC** mede a área a curva traçada com verdadeiros positivos no eixo y e falsos positivos no eixo x. Esta métrica é útil porque fornece um único número que permite comparar modelos de diferentes tipos.  
+-   **Auc** mede a área sob a curva plotada com verdadeiros positivos no eixo y e falsos positivos no eixo x. Essa métrica é útil porque fornece um único número que permite comparar modelos de tipos diferentes.  
   
-- **A perda média de log** é uma pontuação única usada para expressar a penalidade por resultados errados. É calculada como a diferença entre duas distribuições de probabilidades – a verdadeira e a do modelo.  
+- A **perda de log média** é uma única Pontuação usada para expressar a penalidade para resultados incorretos. Ele é calculado como a diferença entre duas distribuições de probabilidade – a verdadeira e a do modelo.  
   
-- **A perda de registro** de treinamento é uma pontuação única que representa a vantagem do classificador sobre uma previsão aleatória. A perda de log mede a incerteza do seu modelo, comparando as probabilidades que ele produz com os valores conhecidos (verdade de solo) nos rótulos. Você quer minimizar a perda de log para o modelo como um todo.
+- A **perda do log de treinamento** é uma única pontuação que representa a vantagem do classificador em uma previsão aleatória. A perda de log mede a incerteza de seu modelo comparando as probabilidades que gera para os valores conhecidos (verdade) nos rótulos. Você deseja minimizar a perda de log para o modelo como um todo.
 
 ### <a name="metrics-for-regression-models"></a>Métricas para modelos de regressão
  
-As métricas devolvidas para modelos de regressão são projetadas para estimar a quantidade de erro.  Considera-se que um modelo se encaixa bem nos dados se a diferença entre valores observados e previstos for pequena. No entanto, olhar para o padrão dos resíduos (a diferença entre qualquer ponto previsto e seu valor real correspondente) pode dizer muito sobre o viés potencial no modelo.  
+As métricas retornadas para modelos de regressão são projetadas para estimar a quantidade de erros.  Um modelo é considerado adequado para os dados se a diferença entre os valores observados e previstos for pequena. No entanto, observar o padrão dos resíduos (a diferença entre qualquer ponto previsto e seu valor real correspondente) pode informá-lo muito sobre a possível diferença no modelo.  
   
- As seguintes métricas são relatadas para avaliação de modelos de regressão.
+ As métricas a seguir são relatadas para avaliar modelos de regressão.
   
-- **O erro absoluto médio (MAE)** mede o quão próximos são as previsões dos resultados reais; assim, uma pontuação menor é melhor.  
+- O **erro de média absoluta (Mae)** mede o quão próximo as previsões são para os resultados reais; Portanto, uma pontuação mais baixa é melhor.  
   
-- **Root mean squared error (RMSE)** cria um único valor que resume o erro no modelo. Ao esquartejar a diferença, a métrica desconsidera a diferença entre a superprevisão e a sub-previsão.  
+- **Erro de quadrado médio de raiz (RMSE)** cria um único valor que resume o erro no modelo. Ao elevar a diferença, a métrica não considera a diferença entre a previsão de excesso e a subprevisão.  
   
-- **Erro absoluto relativo (RAE)** é a diferença relativa absoluta entre valores esperados e reais; relativo porque a diferença média é dividida pela média aritmética.  
+- **Erro absoluto relativo (RAE)** é a diferença absoluta relativa entre os valores esperado e real; relativo porque a diferença média é dividida pela média aritmética.  
   
-- **O erro quadrado relativo (RSE)** normaliza da mesma forma o erro total quadrado dos valores previstos, dividindo-se pelo erro total quadrado dos valores reais.  
+- O **erro quadrado relativo (RSE)** normaliza, de forma semelhante, o erro quadrado total dos valores previstos dividindo pelo erro quadrado total dos valores reais.  
   
 
   
-- **O coeficiente de determinação**, muitas vezes referido como R<sup>2</sup>, representa o poder preditivo do modelo como valor entre 0 e 1. Zero significa que o modelo é aleatório (não explica nada); 1 significa que há um ajuste perfeito. No entanto, deve-se ter cuidado na interpretação dos valores de R<sup>2,</sup> pois valores baixos podem ser totalmente normais e valores elevados podem ser suspeitos.
+- O **coeficiente de determinação**, geralmente referido como R<sup>2</sup>, representa a potência preditiva do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (explica nada); 1 significa que há um ajuste perfeito. No entanto, cuidado deve ser usado na interpretação de valores de R<sup>2</sup> , já que valores baixos podem ser totalmente normais e valores altos podem ser suspeitos.
 
 ###  <a name="metrics-for-clustering-models"></a>Métricas para modelos de clustering
 
-Como os modelos de clustering diferem significativamente dos modelos de classificação e regressão em muitos aspectos, [o Modelo de Avaliação](evaluate-model.md) também retorna um conjunto diferente de estatísticas para modelos de clustering.  
+Como os modelos de clustering diferem significativamente dos modelos de classificação e regressão em muitos aspectos, o [modelo de avaliação](evaluate-model.md) também retorna um conjunto diferente de estatísticas para modelos de clustering.  
   
- As estatísticas retornadas para um modelo de clustering descrevem quantos pontos de dados foram atribuídos a cada cluster, a quantidade de separação entre clusters e o quão fortemente os pontos de dados são agrupados dentro de cada cluster.  
+ As estatísticas retornadas para um modelo de clustering descrevem quantos pontos de dados foram atribuídos a cada cluster, a quantidade de separação entre clusters e quão rigidamente os pontos de dados são agrupados dentro de cada cluster.  
   
- As estatísticas para o modelo de clustering são médias sobre todo o conjunto de dados, com linhas adicionais contendo as estatísticas por cluster.  
+ As estatísticas para o modelo de clustering são calculadas em média em todo o conjunto de registros, com linhas adicionais contendo as estatísticas por cluster.  
   
-As seguintes métricas são relatadas para avaliação de modelos de clustering.
+As métricas a seguir são relatadas para avaliar modelos de clustering.
     
--   As pontuações na coluna, **Distância Média para Outro Centro,** representam o quão perto, em média, cada ponto no cluster está dos centróides de todos os outros clusters.   
+-   As pontuações na coluna, a **distância média para outro centro**, representam o quão próximo, em média, cada ponto no cluster é para as centróides de todos os outros clusters.   
 
--   As pontuações na coluna, **Distância Média para Centro de Cluster,** representam a proximidade de todos os pontos em um cluster com o centróide desse cluster.  
+-   As pontuações na coluna, a **distância média até o centro de cluster**, representam a proximidade de todos os pontos em um cluster para o centróide desse cluster.  
   
--   A coluna **Número de Pontos** mostra quantos pontos de dados foram atribuídos a cada cluster, juntamente com o número total total de pontos de dados em qualquer cluster.  
+-   A coluna **número de pontos** mostra quantos pontos de dados foram atribuídos a cada cluster, juntamente com o número total geral de pontos de dados em qualquer cluster.  
   
-     Se o número de pontos de dados atribuídos a clusters for menor do que o número total de pontos de dados disponíveis, significa que os pontos de dados não poderiam ser atribuídos a um cluster.  
+     Se o número de pontos de dados atribuídos a clusters for menor que o número total de pontos de dados disponíveis, isso significará que não foi possível atribuir os pontos de dados a um cluster.  
   
--   As pontuações na coluna, **Distância Máxima para Centro de Cluster,** representam a soma das distâncias entre cada ponto e o centróide do cluster desse ponto.  
+-   As pontuações na coluna, a **distância máxima ao centro de cluster**, representam a soma das distâncias entre cada ponto e o centróide do cluster desse ponto.  
   
-     Se esse número for alto, pode significar que o cluster está amplamente disperso. Você deve rever esta estatística juntamente com o **Centro de Distância Média para Cluster** para determinar o spread do cluster.   
+     Se esse número for alto, isso pode significar que o cluster é amplamente disperso. Você deve examinar essa estatística junto com a **distância média para o centro de cluster** para determinar a disseminação do cluster.   
 
--   A pontuação **de Avaliação Combinada** na parte inferior de cada seção de resultados lista as pontuações médias dos clusters criados nesse modelo específico.  
+-   A pontuação de **avaliação combinada** na parte inferior de cada seção de resultados lista as pontuações médias para os clusters criados nesse modelo específico.  
   
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

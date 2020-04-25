@@ -6,16 +6,16 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: b29d66e8bb213fbbb162c3249f022e0783f9f62f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 45e766c624ee96f7faa06fb07d00349e620a4c0a
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115580"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133479"
 ---
 # <a name="user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo usuário no Azure Stream Analytics
 
-A linguagem de consulta semelhante ao SQL no Azure Stream Analytics facilita a implementação da lógica de análise em tempo real sobre dados de streaming. O Stream Analytics oferece flexibilidade adicional através de funções personalizadas que são invocadas em sua consulta. O exemplo de código a `sampleFunction` seguir é um UDF chamado que aceita um parâmetro, cada `sampleResult`registro de entrada que o trabalho recebe, e o resultado é escrito na saída como .
+A linguagem de consulta do tipo SQL no Azure Stream Analytics facilita a implementação da lógica de análise em tempo real em dados de streaming. Stream Analytics fornece flexibilidade adicional por meio de funções personalizadas que são invocadas em sua consulta. O exemplo de código a seguir é um `sampleFunction` UDF chamado que aceita um parâmetro, cada registro de entrada que o trabalho recebe e o resultado é gravado na `sampleResult`saída como.
 
 ```sql
 SELECT 
@@ -28,30 +28,30 @@ FROM
 
 ## <a name="types-of-functions"></a>Tipos de funções
 
-O Azure Stream Analytics suporta os quatro tipos de função a seguir: 
+O Azure Stream Analytics dá suporte aos quatro tipos de função a seguir: 
 
 * Funções definidas pelo usuário de JavaScript 
 * Agregações definidas pelo usuário do JavaScript 
-* C# funções definidas pelo usuário (usando o Visual Studio) 
+* Funções definidas pelo usuário do C# (usando o Visual Studio) 
 * Azure Machine Learning 
 
-Você pode usar essas funções para cenários como pontuação em tempo real usando modelos de aprendizado de máquina, manipulações de cordas, cálculos matemáticos complexos, codificação e decodificação de dados. 
+Você pode usar essas funções para cenários como pontuação em tempo real usando modelos de aprendizado de máquina, manipulações de cadeia de caracteres, cálculos matemáticos complexos, codificação e decodificação de dados. 
 
 ## <a name="limitations"></a>Limitações
 
-As funções definidas pelo usuário são apátridas, e o valor de retorno só pode ser um valor escalar. Não é possível chamar os pontos finais externos do REST a partir dessas funções definidas pelo usuário, pois isso provavelmente afetará o desempenho do seu trabalho. 
+As funções definidas pelo usuário são sem estado e o valor de retorno só pode ser um valor escalar. Você não pode chamar pontos de extremidade REST externos dessas funções definidas pelo usuário, pois isso provavelmente afetará o desempenho do seu trabalho. 
 
-O Azure Stream Analytics não mantém um registro de todas as invocações de funções e resultados retornados. Para garantir a repetibilidade - por exemplo, refazer o seu trabalho a partir de carimbo `Date.GetData()` `Math.random()`de data-hora mais antigo produz os mesmos resultados novamente - não use funções como ou , como essas funções não retornam o mesmo resultado para cada invocação.  
+Azure Stream Analytics não mantém um registro de todas as invocações de funções e retornou resultados. Para garantir a capacidade de repetição – por exemplo, executar novamente seu trabalho de carimbo de data/hora antigo produz os mesmos resultados novamente – não use `Date.GetData()` funções `Math.random()`como ou, pois essas funções não retornam o mesmo resultado para cada invocação.  
 
-## <a name="diagnostic-logs"></a>Logs de diagnóstico
+## <a name="resource-logs"></a>Logs de recursos
 
-Quaisquer erros de tempo de execução são considerados fatais e são fornecidos através de registros de atividade e diagnóstico. Recomenda-se que sua função acuse todas as exceções e erros e retorne um resultado válido à sua consulta. Isso impedirá que seu trabalho vá para um [estado falido.](job-states.md)  
+Os erros de tempo de execução são considerados fatais e são exibidos por meio de logs de atividade e de recursos. É recomendável que sua função manipule todas as exceções e erros e retorne um resultado válido para sua consulta. Isso impedirá que seu trabalho vá para um [estado de falha](job-states.md).  
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Funções definidas pelo usuário do JavaScript no Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
-* [Agregados definidos pelo usuário JavaScript do Azure Stream Analytics](stream-analytics-javascript-user-defined-aggregates.md)
-* [Desenvolver funções padrão do usuário .NET para trabalhos do Azure Stream Analytics](stream-analytics-edge-csharp-udf-methods.md)
-* [Integre o Azure Stream Analytics com o Azure Machine Learning](machine-learning-udf.md)
+* [Azure Stream Analytics agregações definidas pelo usuário do JavaScript](stream-analytics-javascript-user-defined-aggregates.md)
+* [Desenvolver .NET Standard funções definidas pelo usuário para trabalhos de Azure Stream Analytics](stream-analytics-edge-csharp-udf-methods.md)
+* [Integrar Azure Stream Analytics com Azure Machine Learning](machine-learning-udf.md)
 

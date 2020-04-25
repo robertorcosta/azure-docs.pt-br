@@ -1,18 +1,18 @@
 ---
-title: Vinculações de certificados
-description: Explique inúmeros tópicos relacionados a certificados em um Ambiente de Serviço de Aplicativo. Saiba como as vinculações de certificados funcionam nos aplicativos de um único inquilino em um ASE.
+title: Associações de certificados
+description: Explique vários tópicos relacionados a certificados em um Ambiente do Serviço de Aplicativo. Saiba como as associações de certificado funcionam nos aplicativos de locatário único em um ASE.
 author: ccompy
 ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba1d06ce83d50b6f0db84d1e423e66eae98f665d
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: dffa9571706c067834e47a656ec1d47cb884fb48
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477506"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82128699"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados e o Ambiente do Serviço de Aplicativo 
 
@@ -22,7 +22,7 @@ O ASE é um sistema de locatário único. Como ele é de locatário único, há 
 
 ## <a name="ilb-ase-certificates"></a>Certificados de ILB ASE 
 
-Se você estiver usando um ASE externo, seus aplicativos serão acessados em [appname].[asename].p.azurewebsites.net. Por padrão, todos os ASEs, até mesmo os ASEs ILB, são criados com certificados que seguem esse formato. Quando você tem um ILB ASE, os aplicativos são acessados com base no nome de domínio que você especifica ao criar o ILB ASE. Para que os aplicativos suportem o TLS, você precisa carregar certificados. Obtenha um certificado TLS/SSL válido usando autoridades de certificados internos, comprando um certificado de um emissor externo ou usando um certificado auto-assinado. 
+Se você estiver usando um ASE externo, seus aplicativos serão acessados em [appname].[asename].p.azurewebsites.net. Por padrão, todos os ASEs, até mesmo os ASEs ILB, são criados com certificados que seguem esse formato. Quando você tem um ILB ASE, os aplicativos são acessados com base no nome de domínio que você especifica ao criar o ILB ASE. Para que os aplicativos ofereçam suporte a TLS, você precisa carregar certificados. Obtenha um certificado TLS/SSL válido usando autoridades de certificação internas, comprando um certificado de um emissor externo ou usando um certificado autoassinado. 
 
 Há duas opções para configurar certificados com o ILB ASE.  Você pode definir um certificado padrão curinga para o ILB ASE ou definir certificados nos aplicativos Web individuais no ASE.  Independentemente da sua escolha, os seguintes atributos de certificado devem ser configurados corretamente:
 
@@ -48,7 +48,7 @@ Se desejar criar um certificado autoassinado rapidamente para testar, você pode
 
     $fileName = "exportedcert.pfx"
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-Ao criar um cert auto-assinado, você precisará garantir que o nome do assunto tenha o formato de CN={ASE_NAME_HERE}_InternalLoadBalancingASE.
+Ao criar um certificado autoassinado, você precisará garantir que o nome da entidade tenha o formato CN = {ASE_NAME_HERE} _InternalLoadBalancingASE.
 
 ## <a name="application-certificates"></a>Certificados de aplicativo 
 
@@ -58,7 +58,7 @@ Aplicativos que são hospedados em um ASE podem usar os recursos de certificado 
 - SSL com base em IP, que só é compatível com um ASE externo.  Um ILB ASE não é compatível com SSL com base em IP.
 - Certificados hospedados no Key Vault 
 
-As instruções para carregar e gerenciar esses certificados estão disponíveis em [Adicionar um certificado TLS/SSL no Azure App Service](../configure-ssl-certificate.md).  Se você estiver simplesmente configurando certificados de acordo com um nome de domínio personalizado que você atribuiu ao seu aplicativo Web, essas instruções serão suficientes. Se você estiver carregando o certificado para um aplicativo Web de ILB ASE com o nome de domínio padrão, especifique o site SCM na SAN do certificado, conforme observado anteriormente. 
+As instruções para carregar e gerenciar esses certificados estão disponíveis em [Adicionar um certificado TLS/SSL no serviço Azure app](../configure-ssl-certificate.md).  Se você estiver simplesmente configurando certificados de acordo com um nome de domínio personalizado que você atribuiu ao seu aplicativo Web, essas instruções serão suficientes. Se você estiver carregando o certificado para um aplicativo Web de ILB ASE com o nome de domínio padrão, especifique o site SCM na SAN do certificado, conforme observado anteriormente. 
 
 ## <a name="tls-settings"></a>Configurações de protocolo TLS 
 
@@ -78,13 +78,13 @@ Para carregar o certificado em seu aplicativo no ASE:
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-O certificado ficará disponível para todos os aplicativos no mesmo Plano do Serviço de Aplicativo que definiu essa configuração. Se você precisar que ele fique disponível para aplicativos de outro Plano do Serviço de Aplicativo, será necessário repetir a operação de Configuração de Aplicativo em um aplicativo desse Plano do Serviço de Aplicativo. Para verificar se o certificado está definido, vá para o console Kudu e emita o seguinte comando no console de depuração PowerShell:
+O certificado ficará disponível para todos os aplicativos no mesmo Plano do Serviço de Aplicativo que definiu essa configuração. Se você precisar que ele fique disponível para aplicativos de outro Plano do Serviço de Aplicativo, será necessário repetir a operação de Configuração de Aplicativo em um aplicativo desse Plano do Serviço de Aplicativo. Para verificar se o certificado está definido, vá para o console do Kudu e emita o seguinte comando no console de depuração do PowerShell:
 
     dir cert:\localmachine\root
 
 Para executar testes, você pode criar um certificado autoassinado e gerar um arquivo *.cer* com o PowerShell a seguir: 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com
+    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
     $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
     $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText

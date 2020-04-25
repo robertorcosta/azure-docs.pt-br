@@ -1,54 +1,54 @@
 ---
-title: Habilite e trabalhe com registros de diagnóstico do Azure Bastion
-description: Neste artigo, saiba como habilitar e trabalhar com registros de diagnóstico do Azure Bastion.
+title: Habilitar e trabalhar com logs de recursos de bastiões do Azure
+description: Neste artigo, saiba como habilitar e trabalhar com os logs de diagnóstico de bastiões do Azure.
 services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 97f0cdb1e93ef2ad06d2daa04b2f4893fd5dfac2
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 4b71dba02a311b8fa6a16645364f90d7632693a2
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619273"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131268"
 ---
-# <a name="enable-and-work-with-bastion-diagnostic-logs"></a>Habilite e trabalhe com registros de diagnóstico bastion
+# <a name="enable-and-work-with-bastion-resource-logs"></a>Habilitar e trabalhar com logs de recursos de bastiões
 
-À medida que os usuários se conectam a cargas de trabalho usando o Azure Bastion, o Bastion pode registrar diagnósticos das sessões remotas. Em seguida, você pode usar os diagnósticos para visualizar quais usuários conectados a quais cargas de trabalho, em que momento, de onde e outras informações de registro relevantes. Para usar os diagnósticos, você deve habilitar registros de diagnóstico no Azure Bastion. Este artigo ajuda você a habilitar registros de diagnósticoe, em seguida, visualizar os registros.
+À medida que os usuários se conectam a cargas de trabalho usando a bastiões do Azure, a bastiões pode registrar em log o diagnóstico das sessões remotas. Você pode usar o diagnóstico para exibir quais usuários se conectaram a quais cargas de trabalho, em que hora, de onde e outras informações de registro em log relevantes. Para usar o diagnóstico, você deve habilitar os logs de diagnóstico na bastiões do Azure. Este artigo ajuda você a habilitar os logs de diagnóstico e a exibir os logs.
 
-## <a name="enable-the-diagnostics-log"></a><a name="enable"></a>Habilite o registro de diagnóstico
+## <a name="enable-the-resource-log"></a><a name="enable"></a>Habilitar o log de recursos
 
-1. No [portal Azure,](https://portal.azure.com)navegue até o recurso Do Azure Bastion e selecione **configurações** de Diagnóstico na página Azure Bastion.
+1. Na [portal do Azure](https://portal.azure.com), navegue até o recurso de bastiões do Azure e selecione **configurações de diagnóstico** na página de bastiões do Azure.
 
    ![configurações de diagnóstico](./media/diagnostic-logs/1diagnostics-settings.png)
-2. Selecione **Configurações de diagnóstico**e selecione **+Adicionar configuração de diagnóstico** para adicionar um destino para os logs.
+2. Selecione **configurações de diagnóstico**e, em seguida, selecione **+ Adicionar configuração de diagnóstico** para adicionar um destino para os logs.
 
-   ![adicionar configuração de diagnóstico](./media/diagnostic-logs/2add-diagnostic-setting.png)
-3. Na página **Configurações de Diagnóstico,** selecione o tipo de conta de armazenamento a ser usada para armazenar registros de diagnósticos.
+   ![Adicionar configuração de diagnóstico](./media/diagnostic-logs/2add-diagnostic-setting.png)
+3. Na página **configurações de diagnóstico** , selecione o tipo de conta de armazenamento a ser usado para armazenar os logs de diagnóstico.
 
    ![selecionar local de armazenamento](./media/diagnostic-logs/3add-storage-account.png)
-4. Quando você concluir as configurações, ele será semelhante a este exemplo:
+4. Quando você concluir as configurações, a aparência será semelhante a este exemplo:
 
-   ![configurações exemplo](./media/diagnostic-logs/4example-settings.png)
+   ![configurações de exemplo](./media/diagnostic-logs/4example-settings.png)
 
-## <a name="view-diagnostics-log"></a><a name="view"></a>Exibir registro de diagnóstico
+## <a name="view-diagnostics-log"></a><a name="view"></a>Exibir log de diagnóstico
 
-Para acessar seus registros de diagnóstico, você pode usar diretamente a conta de armazenamento que você especificou ao ativar as configurações de diagnóstico.
+Para acessar seus logs de diagnóstico, você pode usar diretamente a conta de armazenamento que você especificou ao habilitar as configurações de diagnóstico.
 
-1. Navegue até o recurso da conta de armazenamento e, em seguida, para **Contêineres**. Você vê o **blob insights-logs-bastionauditlogs** criado no contêiner blob da sua conta de armazenamento.
+1. Navegue até o recurso de conta de armazenamento e, em seguida, para **contêineres**. Você verá o blob **insights-logs-bastionauditlogs** criado no seu contêiner de BLOB da conta de armazenamento.
 
    ![configurações de diagnóstico](./media/diagnostic-logs/1-navigate-to-logs.png)
-2. Ao navegar para dentro do contêiner, você vê várias pastas em seu blog. Essas pastas indicam a hierarquia de recursos para o recurso Do Azure Bastion.
+2. Ao navegar para dentro do contêiner, você verá várias pastas em seu blog. Essas pastas indicam a hierarquia de recursos para o recurso de bastiões do Azure.
 
-   ![adicionar configuração de diagnóstico](./media/diagnostic-logs/2-resource-h.png)
-3. Navegue até a hierarquia completa do recurso Azure Bastion, cujos registros de diagnósticos você deseja acessar/visualizar. Os 'y=', 'm=', 'd=', 'h=' e 'm=' indicam o ano, mês, dia, hora e minuto, respectivamente, para os registros diagnósticos.
+   ![Adicionar configuração de diagnóstico](./media/diagnostic-logs/2-resource-h.png)
+3. Navegue até a hierarquia completa do seu recurso de bastiões do Azure cujos logs de diagnóstico você deseja acessar/exibir. O ' y = ', ' M' = ', ' d' = ', ' h = ' e ' M' = ' indicam o ano, mês, dia, hora e minuto, respectivamente, para os logs de recursos.
 
    ![selecionar local de armazenamento](./media/diagnostic-logs/3-resource-location.png)
-4. Localize o arquivo json criado pelo Azure Bastion que contém os dados de registro de diagnóstico para o período de tempo navegado.
+4. Localize o arquivo JSON criado pela bastiões do Azure que contém os dados de log de diagnóstico para o período de tempo de navegação.
 
-5. Baixe o arquivo json do seu recipiente de bolha de armazenamento. Uma entrada de exemplo do arquivo json é mostrada abaixo para referência:
+5. Baixe o arquivo JSON do seu contêiner de blob de armazenamento. Uma entrada de exemplo do arquivo JSON é mostrada abaixo para referência:
 
    ```json
    { 
@@ -79,4 +79,4 @@ Para acessar seus registros de diagnóstico, você pode usar diretamente a conta
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Leia o [Bastião FAQ](bastion-faq.md).
+Leia as [perguntas frequentes sobre bastiões](bastion-faq.md).

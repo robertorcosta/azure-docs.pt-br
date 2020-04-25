@@ -1,14 +1,14 @@
 ---
 title: Tipos de recursos do Resource Manager com suporte
 description: Forneça uma lista dos tipos de recursos do Resource Manager com suporte do grafo de recursos do Azure e do histórico de alterações.
-ms.date: 04/23/2020
+ms.date: 04/24/2020
 ms.topic: reference
-ms.openlocfilehash: 021a0d595a34bc132aa0e67f2b5485ae9c321ef3
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 7092a6dccc2870c7fd7b6dc6feb3af16f0fd3b7a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116631"
+ms.locfileid: "82141892"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Referência de tipo de recurso e tabela do grafo de recursos do Azure
 
@@ -65,6 +65,7 @@ O grafo de recursos do Azure dá suporte aos seguintes **tipos de recursos** de 
 - Microsoft. Automation/automationaccounts
 - Microsoft. Automation/automationaccounts/Configurations
 - Microsoft. Automation/automationaccounts/runbooks
+- Microsoft. autonomoussystems/Workspaces
 - Microsoft. azconfig/configurationstores
 - Microsoft. azureactivedirectory/b2cdirectories
 - Microsoft. azuredata/datacontrollers
@@ -104,6 +105,7 @@ O grafo de recursos do Azure dá suporte aos seguintes **tipos de recursos** de 
 - Microsoft. cognição/syntheticsaccounts
 - Microsoft. cognitivaservices/contas
 - Microsoft. Compute/availabilitysets
+- Microsoft. Compute/diskaccesses
 - Microsoft. Compute/diskencryptionsets
 - Microsoft. Compute/disks
 - Microsoft. Compute/galerias

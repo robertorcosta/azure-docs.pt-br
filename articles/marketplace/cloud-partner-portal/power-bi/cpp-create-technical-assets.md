@@ -1,5 +1,5 @@
 ---
-title: Criar ativos técnicos para uma oferta de Power BI App | Mercado Azure
+title: Criar ativos técnicos para uma oferta de aplicativo Power BI | Azure Marketplace
 description: Lista dos ativos técnicos necessários para publicar uma oferta de Aplicativo do Power BI no Microsoft AppSource Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 90317591b2666f48363c2ee636e36822e2083ed3
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 1d67bd46cfc961e14ec1e1eb95fbc2d748b8a629
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984803"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143077"
 ---
 # <a name="create-power-bi-app-offer-technical-assets"></a>Criar ativos técnicos para uma oferta de Aplicativo do Power BI
 
 >[!Important]
->A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas do seu aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [visão geral de criação de aplicativos do Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerenciar suas ofertas migradas.
+>A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Power bi visão geral da criação de aplicativo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) para gerenciar suas ofertas migradas.
 
 O principal ativo técnico necessário para esse tipo de oferta é um aplicativo do Power BI. Um aplicativo do Power BI é uma coleção de conjuntos de dados primários, relatórios ou painéis e conjuntos de dados integrados e serviços conectados opcionais. Ele evoluiu de um tipo de ativo anteriormente conhecido como um [pacote de conteúdo](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). Para obter mais informações sobre como desenvolver este tipo de aplicativo, consulte [O que são modelos de aplicativo do Power BI?](https://go.microsoft.com/fwlink/?linkid=2028636).
 

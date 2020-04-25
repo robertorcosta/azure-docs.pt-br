@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas Azure Data Factory | Microsoft Docs
-description: Saiba como solucionar as atividades de controle externo na Fábrica de Dados do Azure.
+title: Solucionar problemas Azure Data Factory | Microsoft Docs
+description: Saiba como solucionar problemas de atividades de controle externo no Azure Data Factory.
 services: data-factory
 author: nabhishek
 ms.service: data-factory
@@ -8,123 +8,123 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: c9a1ac831c4300c0523717fddc1fa53417068b89
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: af0c95c197a70291e0fc863f3256be0e9a1da7f1
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416565"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133201"
 ---
-# <a name="troubleshoot-azure-data-factory"></a>Solucionar problemas fábrica de dados do Azure
+# <a name="troubleshoot-azure-data-factory"></a>Solucionar problemas Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo explora métodos comuns de solução de problemas para atividades de controle externo na Fábrica de Dados Do Azure.
+Este artigo explora métodos comuns de solução de problemas para atividades de controle externo no Azure Data Factory.
 
-## <a name="connector-and-copy-activity"></a>Atividade do conector e cópia
+## <a name="connector-and-copy-activity"></a>Conector e atividade de cópia
 
-Para obter problemas de conector, por exemplo, erro de encontro usando atividade de cópia, consulte [Os conectores de fábrica de dados do Azure](connector-troubleshoot-guide.md).
+Para problemas de conector, por exemplo, encontrar erro ao usar a atividade de cópia, consulte [solucionar problemas de conectores Azure data Factory](connector-troubleshoot-guide.md).
   
 
 ## <a name="azure-databricks"></a>Azure Databricks
 
 ### <a name="error-code--3200"></a>Código de erro: 3200
 
-- **Mensagem**: Erro 403.
+- **Mensagem**: erro 403.
 
-- **Porque:**`The Databricks access token has expired.`
+- **Causa**:`The Databricks access token has expired.`
 
-- **Recomendação**: Por padrão, o token de acesso Azure Databricks é válido por 90 dias. Crie um novo token e atualize o serviço vinculado.
+- **Recomendação**: por padrão, o token de acesso Azure Databricks é válido por 90 dias. Crie um novo token e atualize o serviço vinculado.
 
 
 ### <a name="error-code--3201"></a>Código de erro: 3201
 
-- **Mensagem:**`Missing required field: settings.task.notebook_task.notebook_path.`
+- **Mensagem**:`Missing required field: settings.task.notebook_task.notebook_path.`
 
-- **Porque:**`Bad authoring: Notebook path not specified correctly.`
+- **Causa**:`Bad authoring: Notebook path not specified correctly.`
 
-- **Recomendação**: Especifique o caminho do notebook na atividade Databricks.
-
-<br/>  
-
-- **Mensagem:**`Cluster... does not exist.`
-
-- **Porque:**`Authoring error: Databricks cluster does not exist or has been deleted.`
-
-- **Recomendação**: Verifique se existe o cluster Databricks.
+- **Recomendação**: especifique o caminho do bloco de anotações na atividade do databricks.
 
 <br/>  
 
-- **Mensagem:**`Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
+- **Mensagem**:`Cluster... does not exist.`
 
-- **Porque:**`Bad authoring.`
+- **Causa**:`Authoring error: Databricks cluster does not exist or has been deleted.`
 
-- **Recomendação**: Especifique caminhos absolutos `dbfs:/folder/subfolder/foo.py` para esquemas de endereçamento de espaço de trabalho ou para arquivos armazenados no Sistema de Arquivos Databricks.
-
-<br/>  
-
-- **Mensagem:**`{0} LinkedService should have domain and accessToken as required properties.`
-
-- **Porque:**`Bad authoring.`
-
-- **Recomendação**: Verifique a definição de [serviço vinculado.](compute-linked-services.md#azure-databricks-linked-service)
+- **Recomendação**: Verifique se o cluster do databricks existe.
 
 <br/>  
 
-- **Mensagem:**`{0} LinkedService should specify either existing cluster ID or new cluster information for creation.`
+- **Mensagem**:`Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
 
-- **Porque:**`Bad authoring.`
+- **Causa**:`Bad authoring.`
 
-- **Recomendação**: Verifique a definição de [serviço vinculado.](compute-linked-services.md#azure-databricks-linked-service)
+- **Recomendação**: especifique caminhos absolutos para esquemas de endereçamento de espaço `dbfs:/folder/subfolder/foo.py` de trabalho ou para arquivos armazenados no sistema de arquivos do databricks.
 
 <br/>  
 
-- **Mensagem:**`Node type Standard_D16S_v3 is not supported. Supported node types:   Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3,   Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2,   Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3,   Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2,   Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2,   Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3,   Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s,   Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2,   Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2,   Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3,   Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2,   Standard_L64s_v2, Standard_L80s_v2.`
+- **Mensagem**:`{0} LinkedService should have domain and accessToken as required properties.`
 
-- **Porque:**`Bad authoring.`
+- **Causa**:`Bad authoring.`
 
-- **Recomendação**: Consulte a mensagem de erro.
+- **Recomendação**: Verifique a [definição do serviço vinculado](compute-linked-services.md#azure-databricks-linked-service).
+
+<br/>  
+
+- **Mensagem**:`{0} LinkedService should specify either existing cluster ID or new cluster information for creation.`
+
+- **Causa**:`Bad authoring.`
+
+- **Recomendação**: Verifique a [definição do serviço vinculado](compute-linked-services.md#azure-databricks-linked-service).
+
+<br/>  
+
+- **Mensagem**:`Node type Standard_D16S_v3 is not supported. Supported node types:   Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3,   Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2,   Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3,   Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2,   Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2,   Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3,   Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s,   Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2,   Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2,   Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3,   Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2,   Standard_L64s_v2, Standard_L80s_v2.`
+
+- **Causa**:`Bad authoring.`
+
+- **Recomendação**: consulte a mensagem de erro.
 
 <br/>
 
 ### <a name="error-code--3202"></a>Código de erro: 3202
 
-- **Mensagem:**`There were already 1000 jobs created in past 3600 seconds, exceeding rate limit:   1000 job creations per 3600 seconds.`
+- **Mensagem**:`There were already 1000 jobs created in past 3600 seconds, exceeding rate limit:   1000 job creations per 3600 seconds.`
 
-- **Porque:**`Too many Databricks runs in an hour.`
+- **Causa**:`Too many Databricks runs in an hour.`
 
-- **Recomendação**: Verifique todos os pipelines que utilizam este espaço de trabalho databricks para sua taxa de criação de empregos.  Se os pipelines lançarem muitos Databricks executados em conjunto, migraralguns pipelines para um novo espaço de trabalho.
-
-<br/>  
-
-- **Mensagem:**`Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead.`
-
-- **Porque:**`Authoring error: No value provided for the parameter.`
-
-- **Recomendação**: Inspecione o pipeline JSON e certifique-se de que todos os parâmetros do caderno baseParâmetros especifiquem um valor não vazio.
+- **Recomendação**: marque todos os pipelines que usam este espaço de trabalho do databricks para sua taxa de criação de trabalho.  Se os pipelines inicializados em excesso de databricks forem executados na agregação, migre alguns pipelines para um novo espaço de trabalho.
 
 <br/>  
 
-- **Mensagem**: `User: `SimpleUserContext{userId=..., nome=user@company.com, orgId=...}` is not   authorized to access cluster.`
+- **Mensagem**:`Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead.`
 
-- **Causa**: O usuário que gerou o token de acesso não tem permissão para acessar o cluster Databricks especificado no serviço vinculado.
+- **Causa**:`Authoring error: No value provided for the parameter.`
 
-- **Recomendação**: Certifique-se de que o usuário tenha as permissões necessárias no espaço de trabalho.
+- **Recomendação**: Inspecione o pipeline JSON e verifique se todos os parâmetros no notebook baseparameters especificam um valor não vazio.
+
+<br/>  
+
+- **Mensagem**: `User: `SimpleUserContext {userid =..., nome =user@company.com, orgId =...}` is not   authorized to access cluster.`
+
+- **Causa**: o usuário que gerou o token de acesso não tem permissão para acessar o cluster do databricks especificado no serviço vinculado.
+
+- **Recomendação**: Verifique se o usuário tem as permissões necessárias no espaço de trabalho.
 
 
 ### <a name="error-code--3203"></a>Código de erro: 3203
 
-- **Mensagem:**`The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later.`
+- **Mensagem**:`The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later.`
 
-- **Causa:** O cluster foi encerrado. Para clusters interativos, isso pode ser uma condição de raça.
+- **Causa**: o cluster foi encerrado. Para clusters interativos, isso pode ser uma condição de corrida.
 
-- **Recomendação**: A melhor maneira de evitar esse erro é usar clusters de trabalho.
+- **Recomendação**: a melhor maneira de evitar esse erro é usar clusters de trabalho.
 
 
 ### <a name="error-code--3204"></a>Código de erro: 3204
 
-- **Mensagem:**`Job execution failed.`
+- **Mensagem**:`Job execution failed.`
 
-- **Causa**: As mensagens de erro indicam vários problemas, como um estado de cluster inesperado ou uma atividade específica. Na maioria das vezes nenhuma mensagem de erro aparece.
+- **Causa**: as mensagens de erro indicam vários problemas, como um estado de cluster inesperado ou uma atividade específica. Geralmente, nenhuma mensagem de erro é exibida.
 
 - **Recomendação**: N/A
             
@@ -135,163 +135,163 @@ A tabela a seguir se aplica ao U-SQL.
       
 ### <a name="error-code--2709"></a>Código de erro: 2709
 
-- **Mensagem:**`The access token is from the wrong tenant.`
+- **Mensagem**:`The access token is from the wrong tenant.`
 
-- **Causa**: Incorreto Azure Active Directory (Azure AD) inquilino.
+- **Causa**: locatário incorreto do Azure Active Directory (AD do Azure).
 
-- **Recomendação**: Incorreto Azure Active Directory (Azure AD) inquilino.
+- **Recomendação**: locatário incorreto do Azure Active Directory (AD do Azure).
 
 <br/>
 
-- **Mensagem:**`We cannot accept your job at this moment. The maximum number of queued jobs for   your account is 200. `
+- **Mensagem**:`We cannot accept your job at this moment. The maximum number of queued jobs for   your account is 200. `
 
-- **Causa**: Este erro é causado pelo estrangulamento no Data Lake Analytics.
+- **Causa**: esse erro é causado pela limitação no data Lake Analytics.
 
-- **Recomendação**: Reduza o número de empregos enviados ao Data Lake Analytics alterando gatilhos da Fábrica de Dados e configurações de concorrência nas atividades. Ou aumentar os limites do Data Lake Analytics.
+- **Recomendação**: Reduza o número de trabalhos enviados para data Lake Analytics alterando os gatilhos data Factory e as configurações de simultaneidade em atividades. Ou aumente os limites no Data Lake Analytics.
 
 <br/>  
 
-- **Mensagem:**`This job was rejected because it requires 24 AUs. This account's administrator-defined policy prevents a job from using more than 5 AUs.`
+- **Mensagem**:`This job was rejected because it requires 24 AUs. This account's administrator-defined policy prevents a job from using more than 5 AUs.`
 
-- **Causa**: Este erro é causado pelo estrangulamento no Data Lake Analytics.
+- **Causa**: esse erro é causado pela limitação no data Lake Analytics.
 
-- **Recomendação**: Reduza o número de empregos enviados ao Data Lake Analytics alterando gatilhos da Fábrica de Dados e configurações de concorrência nas atividades. Ou aumentar os limites do Data Lake Analytics.
+- **Recomendação**: Reduza o número de trabalhos enviados para data Lake Analytics alterando os gatilhos data Factory e as configurações de simultaneidade em atividades. Ou aumente os limites no Data Lake Analytics.
 
 
 ### <a name="error-code--2705"></a>Código de erro: 2705
 
-- **Mensagem:**`Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/>  <br/>  User is   not able to access Data Lake Store.  <br/>  <br/>  User is  not authorized to use Data Lake Analytics.`
+- **Mensagem**:`Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/>  <br/>  User is   not able to access Data Lake Store.  <br/>  <br/>  User is  not authorized to use Data Lake Analytics.`
 
-- **Causa**: O diretor de serviço ou certificado não tem acesso ao arquivo no armazenamento.
+- **Causa**: a entidade de serviço ou o certificado não tem acesso ao arquivo no armazenamento.
 
-- **Recomendação**: Certifique-se de que o principal ou certificado de serviço que o usuário fornece para os trabalhos do Data Lake Analytics tenha acesso à conta Data Lake Analytics e à instância padrão de armazenamento do Lago de Dados da pasta raiz.
+- **Recomendação**: Verifique se a entidade de serviço ou o certificado que o usuário fornece para data Lake Analytics trabalhos tem acesso à conta de data Lake Analytics e à instância de data Lake Storage padrão da pasta raiz.
 
 
 ### <a name="error-code--2711"></a>Código de erro: 2711
 
-- **Mensagem:**`Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/>  <br/>  User is   not able to access Data Lake Store.  <br/>  <br/>  User is  not authorized to use Data Lake Analytics.`
+- **Mensagem**:`Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/>  <br/>  User is   not able to access Data Lake Store.  <br/>  <br/>  User is  not authorized to use Data Lake Analytics.`
 
-- **Causa**: O diretor de serviço ou certificado não tem acesso ao arquivo no armazenamento.
+- **Causa**: a entidade de serviço ou o certificado não tem acesso ao arquivo no armazenamento.
 
-- **Recomendação**: Certifique-se de que o principal ou certificado de serviço que o usuário fornece para os trabalhos do Data Lake Analytics tenha acesso à conta Data Lake Analytics e à instância padrão de armazenamento do Lago de Dados da pasta raiz.
+- **Recomendação**: Verifique se a entidade de serviço ou o certificado que o usuário fornece para data Lake Analytics trabalhos tem acesso à conta de data Lake Analytics e à instância de data Lake Storage padrão da pasta raiz.
 
 <br/>  
 
-- **Mensagem:**`Cannot find the 'Azure Data Lake Store' file or folder.`
+- **Mensagem**:`Cannot find the 'Azure Data Lake Store' file or folder.`
 
-- **Causa**: O caminho para o arquivo U-SQL está errado, ou as credenciais de serviço vinculadas não têm acesso.
+- **Causa**: o caminho para o arquivo U-SQL está errado ou as credenciais do serviço vinculado não têm acesso.
 
 - **Recomendação**: Verifique o caminho e as credenciais fornecidas no serviço vinculado.
 
 
 ### <a name="error-code--2704"></a>Código de erro: 2704
 
-- **Mensagem:**`Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/>  <br/>  User is   not able to access Data Lake Store.  <br/>  <br/>  User is  not authorized to use Data Lake Analytics.`
+- **Mensagem**:`Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/>  <br/>  User is   not able to access Data Lake Store.  <br/>  <br/>  User is  not authorized to use Data Lake Analytics.`
 
-- **Causa**: O diretor de serviço ou certificado não tem acesso ao arquivo no armazenamento.
+- **Causa**: a entidade de serviço ou o certificado não tem acesso ao arquivo no armazenamento.
 
-- **Recomendação**: Certifique-se de que o principal ou certificado de serviço que o usuário fornece para os trabalhos do Data Lake Analytics tenha acesso à conta Data Lake Analytics e à instância padrão de armazenamento do Lago de Dados da pasta raiz.
+- **Recomendação**: Verifique se a entidade de serviço ou o certificado que o usuário fornece para data Lake Analytics trabalhos tem acesso à conta de data Lake Analytics e à instância de data Lake Storage padrão da pasta raiz.
 
 
 ### <a name="error-code--2707"></a>Código de erro: 2707
 
-- **Mensagem:**`Cannot resolve the account of AzureDataLakeAnalytics. Please check 'AccountName' and   'DataLakeAnalyticsUri'.`
+- **Mensagem**:`Cannot resolve the account of AzureDataLakeAnalytics. Please check 'AccountName' and   'DataLakeAnalyticsUri'.`
 
-- **Causa**: A conta Data Lake Analytics no serviço vinculado está errada.
+- **Causa**: a conta de data Lake Analytics no serviço vinculado está incorreta.
 
-- **Recomendação**: Verifique se a conta certa está fornecida.
+- **Recomendação**: Verifique se a conta correta foi fornecida.
 
 
 ### <a name="error-code--2703"></a>Código de erro: 2703
 
-- **Mensagem:**`Error Id: E_CQO_SYSTEM_INTERNAL_ERROR (or any error that starts with "Error   Id:").`
+- **Mensagem**:`Error Id: E_CQO_SYSTEM_INTERNAL_ERROR (or any error that starts with "Error   Id:").`
 
-- **Causa**: O erro é do Data Lake Analytics.
+- **Causa**: o erro é de data Lake Analytics.
 
-- **Recomendação**: Um erro como o exemplo significa que o trabalho foi submetido ao Data Lake Analytics, e o script lá falhou. Investigue em Data Lake Analytics. No portal, vá até a conta Data Lake Analytics e procure o trabalho usando o ID de execução de atividade da Fábrica de Dados (não o ID de execução de pipeline). O trabalho lá fornece mais informações sobre o erro e irá ajudá-lo a solucionar problemas. Se a resolução não estiver clara, entre em contato com a equipe de suporte do Data Lake Analytics e forneça a URL do trabalho, que inclui o nome da sua conta e o ID do trabalho.
+- **Recomendação**: um erro como o exemplo significa que o trabalho foi enviado para data Lake Analytics e o script falhou. Investigue no Data Lake Analytics. No portal, vá para a conta de Data Lake Analytics e procure o trabalho usando a ID de execução de atividade de Data Factory (não a ID de execução de pipeline). O trabalho fornece mais informações sobre o erro e irá ajudá-lo a solucionar problemas. Se a resolução não estiver clara, entre em contato com a equipe de suporte do Data Lake Analytics e forneça a URL do trabalho, que inclui o nome da conta e a ID do trabalho.
           
 
 ## <a name="azure-functions"></a>Funções do Azure
 
 ### <a name="error-code--3602"></a>Código de erro: 3602
 
-- **Mensagem:**`Invalid HttpMethod: '%method;'.`
+- **Mensagem**:`Invalid HttpMethod: '%method;'.`
 
-- **Causa**: O método http especificado na carga útil da atividade não é suportado pela Atividade de Função Azure.
+- **Causa**: o método HTTP especificado na carga de atividade não é suportado pela atividade de funções do Azure.
 
-- **Recomendação**: Os métodos http que são suportados são PUT, POST, GET, DELETE, OPTIONS, HEAD e TRACE.
+- **Recomendação**: os métodos http que têm suporte são PUT, post, obter, excluir, opções, cabeçalho e rastreamento.
 
 
 ### <a name="error-code--3603"></a>Código de erro: 3603
 
-- **Mensagem:**`Response Content is not a valid JObject.`
+- **Mensagem**:`Response Content is not a valid JObject.`
 
-- **Causa**: A função Azure que foi chamada não retornou uma carga útil JSON na resposta. A atividade de função Do ADF Azure só suporta conteúdo de resposta JSON.
+- **Causa**: a função do Azure que foi chamada não retornou uma carga JSON na resposta. A atividade de função do Azure AAD dá suporte apenas ao conteúdo de resposta JSON.
 
-- **Recomendação**: Atualizar a função Azure para retornar uma carga útil JSON válida, por exemplo,\"uma\"função\"C#\"pode retornar (ActionResult)novo OkObjectResult("{ Id : 123 }");
+- **Recomendação**: Atualize a função do Azure para retornar uma carga JSON válida, por exemplo, uma função C# pode retornar (ActionResult) New\"OkObjectResult\"(\""\"{ID: 123}");
 
 
 ### <a name="error-code--3606"></a>Código de erro: 3606
 
-- **Mensagem**: Aatividade de função azure ausente chave de função ausente.
+- **Mensagem**: chave de função ausente na atividade de função do Azure.
 
-- **Causa**: A definição de atividade de função do Azure não está completa.
+- **Causa**: a definição de atividade da função do Azure não está completa.
 
-- **Recomendação**: Verifique a entrada AzureFunction atividade JSON definição tem propriedade chamada 'functionKey'.
+- **Recomendação**: Verifique se a definição de JSON da atividade AzureFunction de entrada tem a propriedade chamada ' functionKey '.
 
 
 ### <a name="error-code--3607"></a>Código de erro: 3607
 
-- **Mensagem:**`Azure function activity missing function name.`
+- **Mensagem**:`Azure function activity missing function name.`
 
-- **Causa**: A definição de atividade de função do Azure não está completa.
+- **Causa**: a definição de atividade da função do Azure não está completa.
 
-- **Recomendação**: Verifique a entrada AzureFunction atividade JSON definição tem propriedade chamada 'functionName'.
+- **Recomendação**: Verifique se a definição de JSON da atividade AzureFunction de entrada tem a propriedade chamada ' nomedafunção '.
 
 
 ### <a name="error-code--3608"></a>Código de erro: 3608
 
-- **Mensagem:**`Call to provided Azure function '%FunctionName;' failed with status-'%statusCode;' and message - '%message;'.`
+- **Mensagem**:`Call to provided Azure function '%FunctionName;' failed with status-'%statusCode;' and message - '%message;'.`
 
-- **Causa**: Os detalhes da função Azure na definição da atividade podem estar incorretos.
+- **Causa**: os detalhes da função do Azure na definição da atividade podem estar incorretos.
 
-- **Recomendação**: Corrija os detalhes da função azul e tente novamente.
+- **Recomendação**: corrija os detalhes da função do Azure e tente novamente.
 
 
 ### <a name="error-code--3609"></a>Código de erro: 3609
 
-- **Mensagem:**`Azure function activity missing functionAppUrl.`
+- **Mensagem**:`Azure function activity missing functionAppUrl.`
 
-- **Causa**: A definição de atividade de função do Azure não está completa.
+- **Causa**: a definição de atividade da função do Azure não está completa.
 
-- **Recomendação**: Verifique a entrada AzureFunction atividade JSON definição tem propriedade chamada 'functionAppUrl'.
+- **Recomendação**: Verifique se a definição de JSON da atividade AzureFunction de entrada tem a propriedade chamada ' functionAppUrl '.
 
 
 ### <a name="error-code--3610"></a>Código de erro: 3610
 
-- **Mensagem:**`There was an error while calling endpoint.`
+- **Mensagem**:`There was an error while calling endpoint.`
 
-- **Causa**: A URL da função pode estar incorreta.
+- **Causa**: a URL da função pode estar incorreta.
 
-- **Recomendação**: Certifique-se de que o valor para 'functionAppUrl' na atividade JSON esteja correto e tente novamente.
+- **Recomendação**: Verifique se o valor de ' functionAppUrl ' na atividade JSON está correto e tente novamente.
 
 
 ### <a name="error-code--3611"></a>Código de erro: 3611
 
-- **Mensagem:**`Azure function activity missing Method in JSON.`
+- **Mensagem**:`Azure function activity missing Method in JSON.`
 
-- **Causa**: A definição de atividade de função do Azure não está completa.
+- **Causa**: a definição de atividade da função do Azure não está completa.
 
-- **Recomendação**: Verifique a entrada AzureFunction atividade JSON definição tem propriedade chamada 'método'.
+- **Recomendação**: Verifique se a definição de JSON da atividade AzureFunction de entrada tem a propriedade chamada ' method '.
 
 
 ### <a name="error-code--3612"></a>Código de erro: 3612
 
-- **Mensagem:**`Azure function activity missing LinkedService definition in JSON.`
+- **Mensagem**:`Azure function activity missing LinkedService definition in JSON.`
 
-- **Causa**: A definição de atividade de função do Azure não está completa.
+- **Causa**: a definição de atividade da função do Azure não está completa.
 
-- **Recomendação**: Verifique a entrada AzureFunction atividade JSON definição tem detalhes de serviço vinculados.
+- **Recomendação**: Verifique se a definição de JSON da atividade AzureFunction de entrada tem detalhes do serviço vinculado.
 
 
 
@@ -299,92 +299,92 @@ A tabela a seguir se aplica ao U-SQL.
 
 ### <a name="error-code--4101"></a>Código de erro: 4101
 
-- **Mensagem:**`AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
+- **Mensagem**:`AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
 
-- **Causa**: Formato ruim ou definição ausente de propriedade '%propertyName;'.
+- **Causa**: formato inadequado ou definição ausente da propriedade '% PropertyName; '.
 
-- **Recomendação**: Verifique se a atividade '%activityName;' tem propriedade '%propertyName;' definida com dados corretos.
+- **Recomendação**: Verifique se a atividade '% ActivityName; ' tem a propriedade '% PropertyName; ' definida com os dados corretos.
 
 
 ### <a name="error-code--4110"></a>Código de erro: 4110
 
-- **Mensagem:**`AzureMLExecutePipeline activity missing LinkedService definition in JSON.`
+- **Mensagem**:`AzureMLExecutePipeline activity missing LinkedService definition in JSON.`
 
-- **Causa**: AzureMLExecuteA definição de atividade do Pipeline não está completa.
+- **Causa**: a definição da atividade AzureMLExecutePipeline não está completa.
 
-- **Recomendação**: Verifique se a entrada AzureMLExecuteA atividade JSON atividade tem detalhes de serviço vinculados.
+- **Recomendação**: Verifique se a definição de JSON da atividade AzureMLExecutePipeline de entrada tem detalhes do serviço vinculado.
 
 
 ### <a name="error-code--4111"></a>Código de erro: 4111
 
-- **Mensagem:**`AzureMLExecutePipeline activity has wrong LinkedService type in JSON. Expected LinkedService type: '%expectedLinkedServiceType;', current LinkedService type: Expected LinkedService type: '%currentLinkedServiceType;'.`
+- **Mensagem**:`AzureMLExecutePipeline activity has wrong LinkedService type in JSON. Expected LinkedService type: '%expectedLinkedServiceType;', current LinkedService type: Expected LinkedService type: '%currentLinkedServiceType;'.`
 
-- **Causa**: Definição de atividade incorreta.
+- **Causa**: definição de atividade incorreta.
 
-- **Recomendação**: Verifique se a entrada AzureMLExecuteA atividade JSON atividade tem detalhes corretos do serviço vinculado.
+- **Recomendação**: Verifique se a definição de JSON de atividade de AzureMLExecutePipeline de entrada tem detalhes de serviço vinculado corretos.
 
 
 ### <a name="error-code--4112"></a>Código de erro: 4112
 
-- **Mensagem:**`AzureMLService linked service has invalid value for property '%propertyName;'.`
+- **Mensagem**:`AzureMLService linked service has invalid value for property '%propertyName;'.`
 
-- **Causa**: Formato ruim ou definição ausente de propriedade '%propertyName;'.
+- **Causa**: formato inadequado ou definição ausente da propriedade '% PropertyName; '.
 
-- **Recomendação**: Verifique se o serviço vinculado tem propriedade '%propertyName;' definida com dados corretos.
+- **Recomendação**: Verifique se o serviço vinculado tem a propriedade '% PropertyName; ' definida com os dados corretos.
 
 
 ### <a name="error-code--4121"></a>Código de erro: 4121
 
-- **Mensagem:**`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **Mensagem**:`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Causa**: A credencial usada para acessar o Azure Machine Learning expirou.
+- **Causa**: a credencial usada para acessar Azure Machine Learning expirou.
 
 - **Recomendação**: Verifique se a credencial é válida e tente novamente
 
 
 ### <a name="error-code--4122"></a>Código de erro: 4122
 
-- **Mensagem:**`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **Mensagem**:`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Causa**: A credencial fornecida no Azure Machine Learning Linked Service é inválida ou não tem permissão para a operação.
+- **Causa**: a credencial fornecida no serviço vinculado Azure Machine Learning é inválida ou não tem permissão para a operação.
 
-- **Recomendação**: Verifique se a credencial no Linked Service é válida e tem permissão para acessar o Azure Machine Learning.
+- **Recomendação**: Verifique se a credencial no serviço vinculado é válida e tem permissão para acessar Azure Machine Learning.
 
 
 ### <a name="error-code--4123"></a>Código de erro: 4123
 
-- **Mensagem:**`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **Mensagem**:`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Causa**: Propriedades da atividade como pipelineOs parâmetros são inválidos para o gasoduto Azure ML.
+- **Causa**: as propriedades da atividade, como pipelineparameters, são inválidas para o pipeline do Azure ml.
 
-- **Recomendação**: Verifique o valor das propriedades de atividade para corresponder à carga esperada do pipeline Azure ML publicado especificado no Linked Service.
+- **Recomendação**: Verifique o valor das propriedades de atividade para corresponder a carga esperada do pipeline do ml do Azure publicado especificado no serviço vinculado.
 
 
 ### <a name="error-code--4124"></a>Código de erro: 4124
 
-- **Mensagem:**`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **Mensagem**:`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Causa**: O ponto final do gasoduto Azure ML publicado não existe.
+- **Causa**: o ponto de extremidade de pipeline do Azure ml publicado não existe.
 
-- **Recomendação**: Verifique o ponto final do pipeline de aprendizado de máquina publicado especificado no Linked Service existe no Azure Machine Learning.
+- **Recomendação**: Verifique se o ponto de extremidade do pipeline de Azure Machine Learning publicado especificado no serviço vinculado existe no Azure Machine Learning.
 
 
 ### <a name="error-code--4125"></a>Código de erro: 4125
 
-- **Mensagem:**`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
+- **Mensagem**:`Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Causa**: Erro do servidor no Azure Machine Learning.
+- **Causa**: erro de servidor em Azure Machine Learning.
 
-- **Recomendação**: Por favor, tente novamente mais tarde. Entre em contato com a equipe de Aprendizado de Máquina do Azure para obter ajuda se o problema permanecer.
+- **Recomendação**: tente novamente mais tarde. Contate a equipe de Azure Machine Learning para obter ajuda se o problema permanecer.
 
 
 ### <a name="error-code--4126"></a>Código de erro: 4126
 
-- **Mensagem:**`Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
+- **Mensagem**:`Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
 
-- **Causa:** A corrida do gasoduto Azure ML falhou.
+- **Causa**: falha na execução do pipeline do Azure ml.
 
-- **Recomendação**: Verifique no Azure Machine Learning se há mais registros de erros e corrija o pipeline ML.
+- **Recomendação**: Verifique Azure Machine Learning para obter mais logs de erros e corrija o pipeline ml.
 
 
 
@@ -392,167 +392,167 @@ A tabela a seguir se aplica ao U-SQL.
 
 ### <a name="error-code--2103"></a>Código de erro: 2103
 
-- **Mensagem:**`Please provide value for the required property '%propertyName;'.`
+- **Mensagem**:`Please provide value for the required property '%propertyName;'.`
 
-- **Causa**: O valor do imóvel não foi fornecido, porém é exigido no cenário.
+- **Causa**: o valor da propriedade não foi fornecido, no entanto, é necessário no cenário.
 
-- **Recomendação**: Forneça o valor da mensagem e tente novamente.
+- **Recomendação**: forneça o valor da mensagem e tente novamente.
 
 
 ### <a name="error-code--2104"></a>Código de erro: 2104
 
-- **Mensagem:**`The type of the property '%propertyName;' is incorrect.`
+- **Mensagem**:`The type of the property '%propertyName;' is incorrect.`
 
-- **Causa**: O tipo de propriedade fornecida não é como o esperado.
+- **Causa**: o tipo da propriedade fornecida não é o esperado.
 
-- **Recomendação**: Por favor, conserte o tipo da propriedade e tente novamente.
+- **Recomendação**: corrija o tipo da propriedade e tente novamente.
 
 
 ### <a name="error-code--2105"></a>Código de erro: 2105
 
-- **Mensagem:**`An invalid json is provided for property '%propertyName;'. Encountered an error while trying to parse: '%message;'.`
+- **Mensagem**:`An invalid json is provided for property '%propertyName;'. Encountered an error while trying to parse: '%message;'.`
 
-- **Causa**: O valor da propriedade é inválido ou não tem o formato esperado.
+- **Causa**: o valor da propriedade é inválido ou não tem o formato esperado.
 
-- **Recomendação**: Procure a documentação da propriedade e certifique-se de que o valor fornecido tenha o formato e o tipo esperados.
+- **Recomendação**: Procure a propriedade na documentação e verifique se o valor fornecido tem o formato e o tipo esperados.
 
 
 ### <a name="error-code--2106"></a>Código de erro: 2106
 
-- **Mensagem:**`The storage connection string is invalid. %errorMessage;`
+- **Mensagem**:`The storage connection string is invalid. %errorMessage;`
 
-- **Causa**: A seqüência de conexão para o armazenamento é inválida ou tem formato incorreto.
+- **Causa**: a cadeia de conexão para o armazenamento é inválida ou tem um formato incorreto.
 
-- **Recomendação**: Por favor, vá para o portal Azure, encontre seu armazenamento, copie a seqüência de conexões e cole em seu serviço vinculado e tente novamente.
+- **Recomendação**: Vá para a Portal do Azure, localize o armazenamento, copie a cadeia de conexão e cole o serviço vinculado e tente novamente.
 
 
 ### <a name="error-code--2108"></a>Código de erro: 2108
 
-- **Mensagem:**`Error calling the endpoint '%url;'. Response status code: '%code;'`
+- **Mensagem**:`Error calling the endpoint '%url;'. Response status code: '%code;'`
 
-- **Causa**: A solicitação falhou devido a um problema subjacente, como conectividade de rede, falha do DNS, validação do certificado do servidor ou tempo hábit.
+- **Causa**: falha na solicitação devido a um problema subjacente, como conectividade de rede, falha de DNS, validação de certificado do servidor ou tempo limite.
 
-- **Recomendação**: Use Violinista/Carteiro para validar a solicitação.
+- **Recomendação**: Use Fiddler/postmaster para validar a solicitação.
 
 
 ### <a name="error-code--2110"></a>Código de erro: 2110
 
-- **Mensagem:**`The linked service type '%linkedServiceType;' is not supported for '%executorType;' activities.`
+- **Mensagem**:`The linked service type '%linkedServiceType;' is not supported for '%executorType;' activities.`
 
-- **Causa**: O serviço vinculado especificado na atividade estava errado.
+- **Causa**: o serviço vinculado especificado na atividade estava errado.
 
-- **Recomendação**: Certifique-se de que o tipo de serviço vinculado é um dos tipos suportados para a atividade. Por exemplo, para atividades de HDI, o tipo de serviço vinculado pode ser HDInsight ou HDInsightOnDemand.
+- **Recomendação**: Verifique se o tipo de serviço vinculado é um dos tipos com suporte para a atividade. Por exemplo, para atividades HDI, o tipo de serviço vinculado pode ser HDInsight ou HDInsightOnDemand.
 
 
 ### <a name="error-code--2111"></a>Código de erro: 2111
 
-- **Mensagem:**`The type of the property '%propertyName;' is incorrect. The expected type is %expectedType;.`
+- **Mensagem**:`The type of the property '%propertyName;' is incorrect. The expected type is %expectedType;.`
 
-- **Causa**: O tipo de propriedade fornecida não é como o esperado.
+- **Causa**: o tipo da propriedade fornecida não é o esperado.
 
-- **Recomendação**: Por favor, conserte o tipo da propriedade e tente novamente.
+- **Recomendação**: corrija o tipo da propriedade e tente novamente.
 
 
 ### <a name="error-code--2112"></a>Código de erro: 2112
 
-- **Mensagem:**`The cloud type is unsupported or could not be determined for storage from the EndpointSuffix '%endpointSuffix;'.`
+- **Mensagem**:`The cloud type is unsupported or could not be determined for storage from the EndpointSuffix '%endpointSuffix;'.`
 
-- **Causa**: O tipo de nuvem não tem suporte ou não pode ser determinado para armazenamento a partir do EndpointSufix.
+- **Causa**: o tipo de nuvem não tem suporte ou não pôde ser determinado para armazenamento do EndpointSuffix.
 
-- **Recomendação**: Por favor, use o armazenamento em outra nuvem e tente novamente.
+- **Recomendação**: Use o armazenamento em outra nuvem e tente novamente.
 
 
 ### <a name="error-code--2128"></a>Código de erro: 2128
 
-- **Mensagem:**`No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
+- **Mensagem**:`No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
 
-- **Causa**: Conectividade de rede, falha de DNS, validação do certificado de servidor ou tempo há10.
+- **Causa**: conectividade de rede, falha de DNS, validação de certificado do servidor ou tempo limite.
 
-- **Recomendação**: Valide que o ponto final que você está tentando acertar está respondendo às solicitações. Você pode usar ferramentas como Fiddler/Carteiro.
+- **Recomendação**: valide se o ponto de extremidade que você está tentando atingir está respondendo às solicitações. Você pode usar ferramentas como Fiddler/postmaster.
 
 
 
 ## <a name="custom"></a>Personalizado
 
-A tabela a seguir se aplica ao Azure Batch.
+A tabela a seguir se aplica ao lote do Azure.
       
 ### <a name="error-code--2500"></a>Código de erro: 2500
 
-- **Mensagem:**`Hit unexpected exception and execution failed.`
+- **Mensagem**:`Hit unexpected exception and execution failed.`
 
-- **Porque:**`Can't launch command, or the program returned an error code.`
+- **Causa**:`Can't launch command, or the program returned an error code.`
 
-- **Recomendação**: Certifique-se de que o arquivo executável existe. Se o programa começou, certifique-se de que *stdout.txt* e *stderr.txt* foram carregados para a conta de armazenamento. É uma boa prática para emitir registros abundantes em seu código para depuração.
+- **Recomendação**: Verifique se o arquivo executável existe. Se o programa foi iniciado, certifique-se de que *stdout. txt* e *stderr. txt* foram carregados para a conta de armazenamento. É uma boa prática emitir logs de grandes em seu código para depuração.
 
 
 ### <a name="error-code--2501"></a>Código de erro: 2501
 
-- **Mensagem:**`Cannot access user batch account; please check batch account settings.`
+- **Mensagem**:`Cannot access user batch account; please check batch account settings.`
 
-- **Causa**: Chave de acesso em lote incorreto ou nome do pool.
+- **Causa**: nome de pool ou chave de acesso do lote incorreto.
 
-- **Recomendação**: Verifique o nome do pool e a chave de acesso em lote no serviço vinculado.
+- **Recomendação**: Verifique o nome do pool e a chave de acesso do lote no serviço vinculado.
 
 
 ### <a name="error-code--2502"></a>Código de erro: 2502
 
-- **Mensagem:**`Cannot access user storage account; please check storage account settings.`
+- **Mensagem**:`Cannot access user storage account; please check storage account settings.`
 
-- **Causa**: Nome da conta de armazenamento incorreto ou chave de acesso.
+- **Causa**: nome de conta de armazenamento ou chave de acesso incorreto.
 
 - **Recomendação**: Verifique o nome da conta de armazenamento e a chave de acesso no serviço vinculado.
 
 
 ### <a name="error-code--2504"></a>Código de erro: 2504
 
-- **Mensagem:**`Operation returned an invalid status code 'BadRequest'.`
+- **Mensagem**:`Operation returned an invalid status code 'BadRequest'.`
 
-- **Causa:** Muitos arquivos na pastaPath da atividade personalizada. O tamanho total dos recursosFiles não pode ser superior a 32.768 caracteres.
+- **Causa**: muitos arquivos no FolderPath da atividade personalizada. O tamanho total de resourceFiles não pode ter mais de 32.768 caracteres.
 
-- **Recomendação**: Remover arquivos desnecessários. Ou feche-os e adicione um comando unzip para extraí-los. Por exemplo, use`powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;  $folder\yourProgram.exe`
+- **Recomendação**: remover arquivos desnecessários. Ou compactá-los e adicionar um comando de descompactação para extraí-los. Por exemplo, use`powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;  $folder\yourProgram.exe`
 
 
 ### <a name="error-code--2505"></a>Código de erro: 2505
 
-- **Mensagem:**`Cannot create Shared Access Signature unless Account Key credentials are used.`
+- **Mensagem**:`Cannot create Shared Access Signature unless Account Key credentials are used.`
 
-- **Causa**: Atividades personalizadas suportam apenas contas de armazenamento que usam uma chave de acesso.
+- **Causa**: as atividades personalizadas dão suporte apenas a contas de armazenamento que usam uma tecla de acesso.
 
-- **Recomendação**: Consulte a descrição do erro.
+- **Recomendação**: consulte a descrição do erro.
 
 
 ### <a name="error-code--2507"></a>Código de erro: 2507
 
-- **Mensagem:**`The folder path does not exist or is empty: ...`
+- **Mensagem**:`The folder path does not exist or is empty: ...`
 
-- **Causa**: Nenhum arquivo está na conta de armazenamento no caminho especificado.
+- **Causa**: nenhum arquivo está na conta de armazenamento no caminho especificado.
 
-- **Recomendação**: O caminho da pasta deve conter os arquivos executáveis que você deseja executar.
+- **Recomendação**: o caminho da pasta deve conter os arquivos executáveis que você deseja executar.
 
 
 ### <a name="error-code--2508"></a>Código de erro: 2508
 
-- **Mensagem:**`There are duplicate files in the resource folder.`
+- **Mensagem**:`There are duplicate files in the resource folder.`
 
-- **Causa**: Vários arquivos de mesmo nome estão em diferentes subpastas do folderPath.
+- **Causa**: vários arquivos com o mesmo nome estão em subpastas diferentes de FolderPath.
 
-- **Recomendação**: Atividades personalizadas achatam a estrutura da pasta em folderPath.  Se você precisar preservar a estrutura da pasta, feche os arquivos e extraia-os no Azure Batch usando um comando unzip. Por exemplo, use`powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;   $folder\yourProgram.exe`
+- **Recomendação**: estrutura de pastas achatada de atividades personalizadas em FolderPath.  Se você precisar preservar a estrutura de pastas, compacte os arquivos e extraia-os no lote do Azure usando um comando unzip. Por exemplo, use`powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;   $folder\yourProgram.exe`
 
 
 ### <a name="error-code--2509"></a>Código de erro: 2509
 
-- **Mensagem:**`Batch   url ... is invalid; it must be in Uri format.`
+- **Mensagem**:`Batch   url ... is invalid; it must be in Uri format.`
 
-- **Causa**: URLs de lote devem ser semelhantes a`https://mybatchaccount.eastus.batch.azure.com`
+- **Causa**: as URLs de lote devem ser semelhantes a`https://mybatchaccount.eastus.batch.azure.com`
 
-- **Recomendação**: Consulte a descrição do erro.
+- **Recomendação**: consulte a descrição do erro.
 
 
 ### <a name="error-code--2510"></a>Código de erro: 2510
 
-- **Mensagem:**`An   error occurred while sending the request.`
+- **Mensagem**:`An   error occurred while sending the request.`
 
-- **Causa**: A URL do lote é inválida.
+- **Causa**: a URL do lote é inválida.
 
 - **Recomendação**: Verifique a URL do lote.
             
@@ -561,433 +561,435 @@ A tabela a seguir se aplica ao Azure Batch.
 
 ### <a name="error-code--200"></a>Código de erro: 200
 
-- **Mensagem:**`Unexpected error happened: '%error;'.`
+- **Mensagem**:`Unexpected error happened: '%error;'.`
 
-- **Causa:** Há um problema de serviço interno.
+- **Causa**: há um problema de serviço interno.
 
-- **Recomendação**: Entre em contato com o suporte da ADF para obter assistência adicional.
+- **Recomendação**: entre em contato com o suporte do ADF para obter mais assistência.
 
 
 ### <a name="error-code--201"></a>Código de erro: 201
 
-- **Mensagem:**`JobType %jobType; is not found.`
+- **Mensagem**:`JobType %jobType; is not found.`
 
-- **Causa**: Há um novo tipo de trabalho que não é suportado pela ADF.
+- **Causa**: há um novo tipo de trabalho que não é suportado pelo ADF.
 
-- **Recomendação**: Entre em contato com a equipe de suporte da ADF para obter mais assistência.
+- **Recomendação**: entre em contato com a equipe de suporte do ADF para obter mais assistência.
 
 
 ### <a name="error-code--202"></a>Código de erro: 202
 
-- **Mensagem:**`Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
+- **Mensagem**:`Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
 
-- **Causa:** A mensagem de erro deve mostrar os detalhes do que deu errado.
+- **Causa**: a mensagem de erro deve mostrar os detalhes do que deu errado.
 
-- **Recomendação**: A mensagem de erro deve ajudar a solucionar problemas. Se não houver informações suficientes, entre em contato com o suporte da ADF para obter mais ajuda.
+- **Recomendação**: a mensagem de erro deve ajudar a solucionar o problema. Se não houver informações suficientes, entre em contato com o suporte do ADF para obter mais ajuda.
 
 
 ### <a name="error-code--203"></a>Código de erro: 203
 
-- **Mensagem:**`Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
+- **Mensagem**:`Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
 
-- **Causa:** A mensagem de erro deve mostrar os detalhes do que deu errado.
+- **Causa**: a mensagem de erro deve mostrar os detalhes do que deu errado.
 
-- **Recomendação**: A mensagem de erro deve ajudar a solucionar problemas. Se não houver informações suficientes, entre em contato com o suporte da ADF para obter mais ajuda.
+- **Recomendação**: a mensagem de erro deve ajudar a solucionar o problema. Se não houver informações suficientes, entre em contato com o suporte do ADF para obter mais ajuda.
 
 
 ### <a name="error-code--204"></a>Código de erro: 204
 
-- **Mensagem:**`The resumption token is missing for runId '%runId;'.`
+- **Mensagem**:`The resumption token is missing for runId '%runId;'.`
 
-- **Causa:** Há um problema de serviço interno.
+- **Causa**: há um problema de serviço interno.
 
-- **Recomendação**: Entre em contato com o suporte da ADF para obter assistência adicional.
+- **Recomendação**: entre em contato com o suporte do ADF para obter mais assistência.
 
 
 ### <a name="error-code--205"></a>Código de erro: 205
 
-- **Mensagem:**`Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
+- **Mensagem**:`Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
 
-- **Causa**: Houve um erro ao criar o cluster HDI on demand.
+- **Causa**: erro ao criar o cluster HDI on Demand.
 
-- **Recomendação**: Entre em contato com o suporte da ADF para obter assistência adicional.
+- **Recomendação**: entre em contato com o suporte do ADF para obter mais assistência.
 
 
 ### <a name="error-code--206"></a>Código de erro: 206
 
-- **Mensagem:**`The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
+- **Mensagem**:`The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
 
-- **Causa:** Houve um problema interno com o serviço que causou isso.
+- **Causa**: houve um problema interno com o serviço que causou isso.
 
-- **Recomendação**: Pode ser uma questão transitória. Por favor, tente novamente o seu trabalho, e se o problema persistir, entre em contato com o suporte da ADF para obter mais assistência.
+- **Recomendação**: isso pode ser um problema transitório. Repita o trabalho e, se o problema persistir, entre em contato com o suporte do ADF para obter mais assistência.
 
 
 ### <a name="error-code--207"></a>Código de erro: 207
 
-- **Mensagem:**`Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
+- **Mensagem**:`Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
 
-- **Causa**: Houve um erro interno ao tentar determinar a região a partir da conta de armazenamento principal.
+- **Causa**: ocorreu um erro interno ao tentar determinar a região da conta de armazenamento primária.
 
-- **Recomendação**: Tente outro armazenamento. Caso esta não seja uma solução aceitável, entre em contato com a equipe de suporte da ADF para obter mais assistência.
+- **Recomendação**: tente outro armazenamento. Caso essa não seja uma solução aceitável, entre em contato com a equipe de suporte do ADF para obter mais assistência.
 
 
 ### <a name="error-code--208"></a>Código de erro: 208
 
-- **Mensagem:**`Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
+- **Mensagem**:`Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
 
-- **Causa**: Houve um erro interno ao tentar ler o Service Principal ou instanciar a autenticação msi.
+- **Causa**: ocorreu um erro interno ao tentar ler a entidade de serviço ou instanciar a autenticação msi.
 
-- **Recomendação**: Por favor, considere fornecer um Diretor de Serviço que tenha permissões para criar um cluster HDInsight na assinatura fornecida e tente novamente. Caso essa não seja uma solução aceitável, entre em contato com a equipe de suporte da ADF para obter mais assistência.
+- **Recomendação**: Considere fornecer uma entidade de serviço que tenha permissões para criar um cluster HDInsight na assinatura fornecida e tente novamente. Verifique se as [identidades de gerenciamento estão configuradas corretamente](https://docs.microsoft.com/azure/hdinsight/hdinsight-managed-identities). Caso essa não seja uma solução aceitável, entre em contato com a equipe de suporte do ADF para obter mais assistência.
 
 
 ### <a name="error-code--2300"></a>Código de erro: 2300
 
-- **Mensagem:**`Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
+- **Mensagem**:`Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
 
-<br>
-
-- **Causa**: Quando a mensagem de erro contém uma mensagem semelhante a 'O nome remoto não pôde ser resolvido.', isso pode significar que o URI do cluster fornecido é inválido.
+- **Causa**: quando a mensagem de erro contém uma mensagem semelhante a ' o nome remoto não pôde ser resolvido. ', isso pode significar que o URI de cluster fornecido é inválido.
 
 
-- **Recomendação**: Certifique-se de que o cluster não foi excluído e que o URI fornecido está correto. Quando você abre o URI em um navegador, você deve ver a interface do usuário ambari. Se o cluster estiver em uma rede virtual, o URI deve ser o URI privado. Para abri-lo, use uma VM que faz parte da mesma rede virtual. Para obter mais informações, consulte [este](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services) tópico.
+- **Recomendação**: Verifique se o cluster não foi excluído e se o URI fornecido está correto. Ao abrir o URI em um navegador, você deverá ver a interface do usuário do amAmbari. Se o cluster estiver em uma rede virtual, o URI deverá ser o URI privado. Para abri-lo, use uma VM que faça parte da mesma rede virtual. Para obter mais informações, consulte [este](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services) tópico.
                   
 
 <br>
 
-- **Causa**: Quando a mensagem de erro contém uma mensagem semelhante a 'Uma tarefa foi cancelada.', isso significa que a submissão de trabalho foi desagendada.
+- **Causa**: quando A mensagem de erro contém uma mensagem semelhante A ' uma tarefa foi cancelada. ', isso significa que o envio do trabalho atingiu o tempo limite.
 
-- **Recomendação**: O problema pode ser a conectividade geral do HDInsight ou a conectividade de rede. Primeiro confirme que a interface do usuário HDInsight Ambari está disponível em qualquer navegador. Confirme se suas credenciais ainda são válidas. Se você estiver usando o IR (Self-Hosted Integrated Runtime, tempo de execução integrado) auto-hospedado, certifique-se de fazer isso a partir da VM ou da máquina onde o IR auto-hospedado está instalado. Em seguida, tente enviar o trabalho da Data Factory novamente. Se ainda falhar, entre em contato com a equipe da Fábrica de Dados para obter suporte.
-
-<br>
-
-- **Causa**: Quando a mensagem de erro contém uma mensagem semelhante a 'O anúncio do usuário está bloqueado no Ambari' ou 'Não autorizado: o nome de usuário ou senha da Ambari está incorreto', isso significa que as credenciais do HDInsight estão incorretas ou expiraram.
-
-- **Recomendação**: Corrija as credenciais e reimplante o serviço vinculado. Primeiro certifique-se de que as credenciais funcionam no HDInsight abrindo o URI do cluster em qualquer navegador e tentando fazer login. Se as credenciais não funcionarem, você pode redefini-las a partir do portal Azure.
+- **Recomendação**: o problema pode ser a conectividade geral do HDInsight ou a conectividade de rede. Primeiro, confirme se a interface do usuário do HDInsight Ambari está disponível em qualquer navegador. Confirme se suas credenciais ainda são válidas. Para obter mais informações, leia [interface do usuário da Web do amAmbari](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-manage-ambari#ambari-web-ui). Se você estiver usando o IR (tempo de execução integrado) auto-hospedado, certifique-se de fazer isso na VM ou computador em que o IR auto-hospedado está instalado. Em seguida, tente enviar o trabalho de Data Factory novamente. Se ainda falhar, contate a equipe de Data Factory para obter suporte.
 
 <br>
 
-- **Causa**: Quando a mensagem de erro contém uma mensagem semelhante a '502 - o servidor da Web recebeu uma resposta inválida enquanto atuava como um gateway ou servidor proxy', esse erro é retornado pelo serviço HDInsight.
+- **Causa**: quando a mensagem de erro contém uma mensagem semelhante a ' o administrador do usuário está bloqueado em Ambari ' ou ' não autorizado: o nome de usuário do Ambari ou a senha está incorreta ', isso significa que as credenciais do HDInsight estão incorretas ou expiraram.
 
-
-- **Recomendação**: Veja a documentação de solução https://hdinsight.github.io/ambari/ambari-ui-502-error.htmlde https://hdinsight.github.io/spark/spark-thriftserver-errors.html https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502problemas do Azure HDInsight, por exemplo, , .
-                  
+- **Recomendação**: corrija as credenciais e reimplante o serviço vinculado. Primeiro, verifique se as credenciais funcionam no HDInsight abrindo o URI do cluster em qualquer navegador e tentando entrar. Se as credenciais não funcionarem, você poderá redefini-las do portal do Azure. Para o cluster ESP, você pode [redefinir a senha por meio da redefinição de senha de autoatendimento](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password).
 
 <br>
 
-- **Causa**: Quando a mensagem de erro contém uma mensagem semelhante a 'Não é possível atender à solicitação de envio de trabalho, pois o serviço templeton está ocupado com muitas solicitações de emprego de envio' ou 'Queue root.joblauncher já tem 500 aplicativos, não pode aceitar submissão de solicitação', isso significa que muitos trabalhos estão sendo submetidos ao HDInsight ao mesmo tempo.
+- **Causa**: quando a mensagem de erro contém uma mensagem semelhante a ' 502-o servidor Web recebeu uma resposta inválida ao atuar como um gateway ou servidor proxy ', esse erro é retornado pelo serviço do HDInsight.
 
-- **Recomendação**: Considere limitar o número de trabalhos simultâneos submetidos ao HDInsight. Consulte a atividade da Fábrica de Dados se os trabalhos estiverem sendo submetidos pela mesma atividade. Altere os gatilhos para que as corridas simultâneas do pipeline se espalhem ao longo do tempo. Consulte a documentação do HDInsight para ajustar templeton.parallellism.job.submit como o erro sugere.
+- **Recomendação**: para 502 erro, na maioria das vezes isso ocorre porque o processo do servidor Ambari foi desligado. Você pode reiniciar os serviços Ambaris reiniciando o nó principal.  
+
+    1. Conecte-se a um de seus nós no Hdinsight usando SSH.
+    2. Identifique o host do nó de cabeçalho ativo executando "ping headnodehost".
+    3. Conecte-se ao nó de cabeçalho ativo, pois o servidor Ambari fica no nó de cabeçalho ativo usando o SSH.  
+    4. Reinicialize o nó de cabeçalho ativo.
+
+        Para obter mais informações: consulte a documentação de solução de problemas do Azure HDInsight, por exemplo: [erro Ambari da interface do usuário 502](https://hdinsight.github.io/ambari/ambari-ui-502-error.html), [RpcTimeoutException para Apache Spark Thrift Server](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception), [solução de erros de gateway inadequado no gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502).
+
+<br>
+
+- **Causa**: quando a mensagem de erro contém uma mensagem semelhante a ' não é possível atender à solicitação do trabalho de envio, pois o serviço Templeton está ocupado com muitas solicitações de trabalho de envio ' ou ' raiz da fila. joblauncher já tem 500 aplicativos, não é possível aceitar o envio do aplicativo ', isso significa que muitos trabalhos estão sendo enviados ao HDInsight ao mesmo tempo.
+
+- **Recomendação**: considere limitar o número de trabalhos simultâneos enviados ao HDInsight. Consulte Data Factory a simultaneidade de atividade se os trabalhos estiverem sendo enviados pela mesma atividade. Altere os gatilhos para que as execuções de pipeline simultâneas sejam distribuídas com o passar do tempo. Consulte a [documentação do HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors) para `templeton.parallellism.job.submit` ajustar conforme o erro sugere.
 
 
 ### <a name="error-code--2301"></a>Código de erro: 2301
 
-- **Mensagem:**`Could not get the status of the application '%physicalJobId;' from the HDInsight service. Received the following error: %message;. Please refer to HDInsight troubleshooting documentation or contact their support for further assistance.`
+- **Mensagem**:`Could not get the status of the application '%physicalJobId;' from the HDInsight service. Received the following error: %message;. Please refer to HDInsight troubleshooting documentation or contact their support for further assistance.`
 
-- **Causa**: O cluster ou serviço HDInsight tem problemas.
+- **Causa**: o serviço ou cluster HDInsight tem problemas.
 
 
-- **Recomendação**: Esse erro acontece quando o ADF não recebe resposta do cluster HDInsight ao tentar obter o status do trabalho em execução. Pode ser causa de problemas no próprio cluster, ou o serviço HDInsight pode ter uma paralisação. Consulte a documentação de https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guidesolução de problemas do HDInsight em , ou entre em contato com seu suporte para obter mais assistência.
+- **Recomendação**: esse erro ocorre quando o ADF não obtém resposta do cluster HDInsight ao tentar obter o status do trabalho em execução. Pode ser a causa de problemas no próprio cluster ou o serviço HDInsight pode ter uma interrupção. Consulte a documentação de solução de problemas do https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guideHDInsight em ou contate o suporte para obter assistência adicional.
                 
 
 
 ### <a name="error-code--2302"></a>Código de erro: 2302
 
-- **Mensagem:**`Hadoop job failed with exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Contact HDInsight team for further support.`
+- **Mensagem**:`Hadoop job failed with exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Contact HDInsight team for further support.`
 
-- **Causa**: O trabalho foi submetido ao cluster HDI e falhou lá.
+- **Causa**: o trabalho foi enviado ao cluster HDI e falhou.
 
-- **Recomendação**: Siga o link logs de fio na execução de atividades Saída e procure os erros na saída de HDI. Entre em contato com a equipe do HDInsight para obter suporte, se necessário.
+- **Recomendação**: Siga o link yarn logs na saída da execução da atividade e procure os erros na saída do HDI. Contate a equipe do HDInsight para obter suporte, se necessário.
 
 
 ### <a name="error-code--2303"></a>Código de erro: 2303
 
-- **Mensagem:**`Hadoop job failed with transient exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Try again or contact HDInsight team for further support.`
+- **Mensagem**:`Hadoop job failed with transient exit code '%exitCode;'. See '%logPath;/stderr' for more details. Alternatively, open the Ambari UI on the HDI cluster and find the logs for the job '%jobId;'. Try again or contact HDInsight team for further support.`
 
-- **Causa**: O trabalho foi submetido ao cluster HDI e falhou lá.
+- **Causa**: o trabalho foi enviado ao cluster HDI e falhou.
 
-- **Recomendação**: Siga o link logs de fio na execução de atividades Saída e procure os erros na saída de HDI. Tente novamente ou entre em contato com a equipe do HDInsight para obter suporte, se necessário.
+- **Recomendação**: Siga o link yarn logs na saída da execução da atividade e procure os erros na saída do HDI. Tente novamente ou contate a equipe do HDInsight para obter suporte, se necessário.
 
 
 ### <a name="error-code--2304"></a>Código de erro: 2304
 
-- **Mensagem:**`MSI authentication is not supported on storages for HDI activities.`
+- **Mensagem**:`MSI authentication is not supported on storages for HDI activities.`
 
-- **Causa**: Os serviços vinculados de armazenamento usados no serviço vinculado ao HDI ou na atividade HDI são configurados com autenticação MSI que não é suportada.
+- **Causa**: os serviços vinculados de armazenamento usados no serviço vinculado HDI ou na atividade HDI são configurados com a autenticação MSI que não tem suporte.
 
-- **Recomendação**: Forneça strings de conexão completas para contas de armazenamento usadas no serviço vinculado ao HDI ou na atividade de HDI.
+- **Recomendação**: forneça cadeias de conexão completas para contas de armazenamento usadas no serviço vinculado HDI ou na atividade HDI.
 
 
 ### <a name="error-code--2305"></a>Código de erro: 2305
 
-- **Mensagem:**`Failed to initialize the HDInsight client for the cluster '%cluster;'. Error: '%message;'`
+- **Mensagem**:`Failed to initialize the HDInsight client for the cluster '%cluster;'. Error: '%message;'`
 
-- **Causa**: As informações de conexão para o cluster HDI estão incorretas, o usuário fornecido não tem permissões para executar a ação necessária ou o serviço HDInsight teve problemas em responder às solicitações do ADF.
+- **Causa**: as informações de conexão para o cluster HDI estão incorretas, o usuário fornecido não tem permissões para executar a ação necessária ou o serviço HDInsight teve problemas de resposta a solicitações do ADF.
 
-- **Recomendação**: Certifique-se de que as informações do usuário estão corretas. Verifique também se a Interface do Ambari para o cluster HDI pode ser aberta em um navegador da VM onde o IR está instalado no caso de IR auto-hospedado, ou pode ser aberta a partir de qualquer máquina no caso do Azure IR.
+- **Recomendação**: Verifique se as informações do usuário estão corretas. Verifique também se a interface do usuário do amAmbari para o cluster HDI pode ser aberta em um navegador da VM em que o IR está instalado no caso do IR auto-hospedado ou pode ser aberto em qualquer computador no caso Azure IR.
 
 
 ### <a name="error-code--2306"></a>Código de erro: 2306
 
-- **Mensagem:**`An invalid json is provided for script action '%scriptActionName;'. Error: '%message;'`
+- **Mensagem**:`An invalid json is provided for script action '%scriptActionName;'. Error: '%message;'`
 
-- **Causa**: O json fornecido para a ação do script é inválido.
+- **Causa**: o JSON fornecido para a ação de script é inválido.
 
 
-- **Recomendação**: A mensagem de erro deve ajudar a identificar o problema. Por favor, conserte a configuração json e tente novamente. Procure https://docs.microsoft.com/azure/data-factory/compute-linked-services#azure-hdinsight-on-demand-linked-service mais informações.
+- **Recomendação**: a mensagem de erro deve ajudar a identificar o problema. Corrija a configuração JSON e tente novamente. Verifique https://docs.microsoft.com/azure/data-factory/compute-linked-services#azure-hdinsight-on-demand-linked-service se há mais informações.
                 
-
 
 ### <a name="error-code--2310"></a>Código de erro: 2310
 
-- **Mensagem:**`Failed to submit Spark job. Error: '%message;'`
+- **Mensagem**:`Failed to submit Spark job. Error: '%message;'`
 
-- **Causa**: A ADF tentou criar um lote em um cluster Spark usando a API Livy (livy/batch), mas recebeu um erro.
+- **Causa**: o ADF tentou criar um lote em um cluster Spark usando a API Livy (Livy/batch), mas recebeu um erro.
 
-- **Recomendação**: Siga a mensagem de erro para corrigir o problema. Se não houver informações suficientes para resolvê-lo, entre em contato com a equipe do HDI e forneça-lhes o ID de lote e o ID de trabalho que podem ser encontrados na página de execução de atividades Saída na página de monitoramento do ADF.
+- **Recomendação**: siga a mensagem de erro para corrigir o problema. Se não houver informações suficientes para que elas sejam resolvidas, entre em contato com a equipe do HDI e forneça a ID do lote e a ID do trabalho que podem ser encontrados na página de monitoramento de execução da atividade na saída do ADF.
 
 
 ### <a name="error-code--2312"></a>Código de erro: 2312
 
-- **Mensagem:**`Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
+- **Mensagem**:`Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
 
-- **Causa**: O trabalho falhou no cluster HDInsight Spark.
+- **Causa**: falha no trabalho no cluster HDInsight Spark.
 
-- **Recomendação**: Siga os links na página de execução de atividades Saída na página de monitoramento do ADF para solucionar problemas no cluster HDInsight Spark. Entre em contato com a equipe de suporte da HDInsight para obter mais assistência.
+- **Recomendação**: siga os links na página de monitoramento de execução da atividade no ADF para solucionar problemas de execução no cluster Spark do HDInsight. Entre em contato com a equipe de suporte do HDInsight para obter assistência adicional.
 
 
 ### <a name="error-code--2313"></a>Código de erro: 2313
 
-- **Mensagem:**`The batch with ID '%batchId;' was not found on Spark cluster. Open the Spark History UI and try to find it there. Contact HDInsight support for further assistance.`
+- **Mensagem**:`The batch with ID '%batchId;' was not found on Spark cluster. Open the Spark History UI and try to find it there. Contact HDInsight support for further assistance.`
 
-- **Causa**: O lote foi excluído no cluster HDInsight Spark.
+- **Causa**: o lote foi excluído no cluster HDInsight Spark.
 
-- **Recomendação**: Solucionar problemas em lotes no cluster HDInsight Spark. Entre em contato com o suporte do HDInsight para obter mais assistência. 
+- **Recomendação**: solucionar problemas de lotes no cluster HDInsight Spark. Contate o suporte do HDInsight para obter mais assistência. 
 
 
 ### <a name="error-code--2328"></a>Código de erro: 2328
 
-- **Mensagem:**`Failed to create the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
+- **Mensagem**:`Failed to create the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
 
-- **Porque:**`The error message should show the details of what went wrong.`
+- **Causa**:`The error message should show the details of what went wrong.`
 
-- **Recomendação**: A mensagem de erro deve ajudar a solucionar problemas.
+- **Recomendação**: a mensagem de erro deve ajudar a solucionar o problema.
 
 
 ### <a name="error-code--2329"></a>Código de erro: 2329
 
-- **Mensagem:**`Failed to delete the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
+- **Mensagem**:`Failed to delete the on demand HDI cluster. Cluster or linked service name: '%clusterName;', error: '%message;'`
 
-- **Causa:** A mensagem de erro deve mostrar os detalhes do que deu errado.
+- **Causa**: a mensagem de erro deve mostrar os detalhes do que deu errado.
 
-- **Recomendação**: A mensagem de erro deve ajudar a solucionar problemas.
+- **Recomendação**: a mensagem de erro deve ajudar a solucionar o problema.
 
 
 ### <a name="error-code--2331"></a>Código de erro: 2331
 
-- **Mensagem:**`The file path should not be null or empty.`
+- **Mensagem**:`The file path should not be null or empty.`
 
-- **Causa:** O caminho do arquivo fornecido está vazio.
+- **Causa**: o caminho de arquivo fornecido está vazio.
 
-- **Recomendação**: Por favor, forneça um caminho para um arquivo que existe.
+- **Recomendação**: forneça um caminho para um arquivo existente.
 
 
 ### <a name="error-code--2340"></a>Código de erro: 2340
 
-- **Mensagem:**`HDInsightOnDemand linked service does not support execution via SelfHosted IR. Your IR name is '%IRName;'. Please select an Azure IR instead.`
+- **Mensagem**:`HDInsightOnDemand linked service does not support execution via SelfHosted IR. Your IR name is '%IRName;'. Please select an Azure IR instead.`
 
-- **Causa**: O serviço vinculado HDInsightOnDemand não suporta execução via IR AutoHosted.
+- **Causa**: o serviço vinculado HDInsightOnDemand não dá suporte à execução via SelfHosted ir.
 
-- **Recomendação**: Selecione um IR do Azure e tente novamente.
+- **Recomendação**: selecione um Azure ir e tente novamente.
 
 
 ### <a name="error-code--2341"></a>Código de erro: 2341
 
-- **Mensagem:**`HDInsight cluster URL '%clusterUrl;' is incorrect, it must be in URI format and the scheme must be 'https'.`
+- **Mensagem**:`HDInsight cluster URL '%clusterUrl;' is incorrect, it must be in URI format and the scheme must be 'https'.`
 
-- **Causa**: A URL fornecida não está no formato correto.
+- **Causa**: a URL fornecida não está no formato correto.
 
-- **Recomendação**: Por favor, corrija a URL do cluster e tente novamente.
+- **Recomendação**: corrija a URL do cluster e tente novamente.
 
 
 ### <a name="error-code--2342"></a>Código de erro: 2342
 
-- **Mensagem:**`Failed to connect to HDInsight cluster: '%errorMessage;'.`
+- **Mensagem**:`Failed to connect to HDInsight cluster: '%errorMessage;'.`
 
-- **Causa**: As credenciais fornecidas estão erradas para o cluster ou houve uma configuração de rede ou problema de conexão ou o IR está tendo problemas de conexão ao cluster.
+- **Causa**: as credenciais fornecidas são incorretas para o cluster ou houve uma configuração de rede ou um problema de conexão ou o ir está tendo problemas para se conectar ao cluster.
 
 - **Recomendação**:  
-      1. Verifique se as credenciais estão corretas abrindo a interface do usuário ambari do cluster HDInsight em um navegador.
-      2. Se o cluster estiver no VNet e o IR auto-hospedado estiver sendo usado, a URL HDI deve ser a URL privada em VNets, o que significa que ele deve ter '-int' após o nome do cluster. Por exemplo, ""https://mycluster.azurehdinsight.net/devehttps://mycluster-int.azurehdinsight.net/ser mudado para ".
-      2. Se o cluster estiver no VNet, o IR auto-hospedado estiver sendo usado e a URL privada for usada e a conexão ainda falhar, a VM onde o IR está instalado teve problemas de conexão com o HDI. Conecte-se à VM onde o IR está instalado e abra a Interface do Ambari em um navegador. Use a URL privada para o cluster. Esta conexão deve funcionar a partir do navegador. Caso isso não aconteça, entre em contato com a equipe de suporte do HDInsight para obter mais assistência.
-      3. Se o IR auto-hospedado não estiver sendo usado, então o cluster HDI deve ser acessível publicamente. Abra a interface do ambari em um navegador e certifique-se de que ela seja aberta. Se houver algum problema com o cluster ou os serviços nele, entre em contato com a equipe de suporte do HDInsight para obter assistência.
-      Assim, em geral, a URL de cluster HDI usada no serviço vinculado ao ADF deve estar acessível para ODF IR (auto-hosted ou Azure) para que a conexão de teste passe e para que as corridas funcionem. Isso pode ser facilmente verificado abrindo essa URL de um navegador da VM ou de qualquer máquina pública.
+      1. Verifique se as credenciais estão corretas abrindo a interface do usuário do Ambari do cluster HDInsight em um navegador.
+      2. Se o cluster estiver em VNet e o IR auto-hospedado estiver sendo usado, a URL HDI deverá ser a URL privada em VNets, o que significa que ele deve ter '-int ' após o nome do cluster. Por exemplo,https://mycluster.azurehdinsight.net/"" deve ser alterado parahttps://mycluster-int.azurehdinsight.net/"".
+      2. Se o cluster estiver na VNet, o IR auto-hospedado está sendo usado e a URL privada foi usada e a conexão ainda falhou, a VM em que o IR está instalado teve problemas ao se conectar ao HDI. Conecte-se à VM em que o IR está instalado e abra a interface do usuário do Ambari em um navegador. Use a URL privada para o cluster. Essa conexão deve funcionar no navegador. Caso contrário, entre em contato com a equipe de suporte do HDInsight para obter mais assistência.
+      3. Se o IR auto-hospedado não estiver sendo usado, o cluster HDI deverá ser acessível publicamente. Abra a interface do usuário do amAmbari em um navegador e verifique se ele é aberto. Se houver algum problema com o cluster ou com os serviços, entre em contato com a equipe de suporte do HDInsight para obter assistência.
+      Portanto, em geral, a URL do cluster HDI usada no serviço vinculado do ADF deve ser acessível para o IR do ADF (auto-hospedado ou Azure) para que a conexão de teste passe e para que as execuções funcionem. Isso pode ser facilmente verificado abrindo a URL em um navegador, seja da VM ou de qualquer máquina pública.
     
 
 
 ### <a name="error-code--2343"></a>Código de erro: 2343
 
-- **Mensagem:**`User name and password cannot be null or empty to connect to the HDInsight cluster.`
+- **Mensagem**:`User name and password cannot be null or empty to connect to the HDInsight cluster.`
 
-- **Causa:** O nome de usuário ou a senha estão vazios.
+- **Causa**: o nome de usuário ou a senha estão vazios.
 
-- **Recomendação:** Forneça credenciais corretas para conectar-se ao HDI e tentar novamente.
+- **Recomendação**: forneça as credenciais corretas para se conectar ao HDI e tente novamente.
 
 
 ### <a name="error-code--2345"></a>Código de erro: 2345
 
-- **Mensagem:**`Failed to read the content of the hive script. Error: '%message;'`
+- **Mensagem**:`Failed to read the content of the hive script. Error: '%message;'`
 
-- **Causa**: O arquivo de script não existe ou o ADF não poderia se conectar à localização do script.
+- **Causa**: o arquivo de script não existe ou o ADF não pôde se conectar ao local do script.
 
-- **Recomendação**: Verifique se o script existe e o serviço vinculado associado tem credenciais adequadas para conexão.
+- **Recomendação**: Verifique se o script existe e se o serviço vinculado associado tem as credenciais adequadas para a conexão.
 
 
 ### <a name="error-code--2346"></a>Código de erro: 2346
 
-- **Mensagem:**`Failed to create ODBC connection to the HDI cluster with error message '%message;'.`
+- **Mensagem**:`Failed to create ODBC connection to the HDI cluster with error message '%message;'.`
 
-- **Causa**: A ADF tentou estabelecer uma conexão ODBC com o cluster HDI e falhou com o erro.
+- **Causa**: o ADF tentou estabelecer uma conexão ODBC com o cluster HDI e falhou com erro.
 
-- **Recomendação**: A mensagem de erro e o código de erro devem ajudar a solucionar os erros de conexão ODBC. Caso eles não sejam suficientes para resolver o problema, entre em contato com a equipe do Azure HDInsight para obter suporte.
+- **Recomendação**: a mensagem de erro e o código de erro devem ajudar a solucionar os erros de conexão ODBC. Caso não sejam suficientes para resolver o problema, entre em contato com a equipe do Azure HDInsight para obter suporte.
 
 
 ### <a name="error-code--2347"></a>Código de erro: 2347
 
-- **Mensagem:**`Hive execution through ODBC failed with error message '%message;'.`
+- **Mensagem**:`Hive execution through ODBC failed with error message '%message;'.`
 
-- **Causa**: A ADF submeteu o script de colmeia para execução ao cluster HDI via conexão ODBC e o script falhou no HDI.
+- **Causa**: o ADF enviou o script do hive para execução para o cluster HDI via conexão ODBC e o script falhou em HDI.
 
-- **Recomendação**: A execução do script colmeia falhou no cluster HDI e a mensagem de erro e o código de erro devem ajudar na solução de problemas. Caso eles não sejam suficientes para resolver o problema, entre em contato com a equipe do Azure HDInsight para obter suporte.
+- **Recomendação**: a execução do script do hive falhou no cluster HDI e a mensagem de erro e o código de erro devem ajudar na solução de problemas. Caso não sejam suficientes para resolver o problema, entre em contato com a equipe do Azure HDInsight para obter suporte.
 
 
 ### <a name="error-code--2348"></a>Código de erro: 2348
 
-- **Mensagem:**`The main storage has not been initialized. Please check the properties of the storage linked service in the HDI linked service.`
+- **Mensagem**:`The main storage has not been initialized. Please check the properties of the storage linked service in the HDI linked service.`
 
-- **Causa**: As propriedades de serviço vinculadas ao armazenamento não estão definidas corretamente.
+- **Causa**: as propriedades do serviço vinculado de armazenamento não estão definidas corretamente.
 
-- **Recomendação**: Apenas as strings de conexão completas são suportadas no serviço principal vinculado ao armazenamento para atividades de HDI. Certifique-se de que não está usando auth MSI ou aplicativos.
+- **Recomendação**: há suporte apenas para cadeias de conexão completas no serviço vinculado de armazenamento principal para atividades HDI. Certifique-se de que você não está usando a autenticação ou os aplicativos do MSI.
 
 
 ### <a name="error-code--2350"></a>Código de erro: 2350
 
-- **Mensagem:**`Failed to prepare the files for the run '%jobId;'. HDI cluster: '%cluster;', Error: '%errorMessage;'`
+- **Mensagem**:`Failed to prepare the files for the run '%jobId;'. HDI cluster: '%cluster;', Error: '%errorMessage;'`
 
-- **Causa**: As credenciais fornecidas para se conectar ao armazenamento onde os arquivos devem ser localizados estão incorretas, ou os arquivos não existem lá.
+- **Causa**: as credenciais fornecidas para se conectar ao armazenamento onde os arquivos devem estar localizados estão incorretas ou os arquivos não existem.
 
-- **Recomendação**: Este erro acontece quando a ADF faz etapas de preparação para atividades de IDH. Ele tenta copiar arquivos para o armazenamento principal antes de enviar o trabalho para o HDI. Certifique-se de que os arquivos existem no local fornecido, a conexão de armazenamento está correta. As atividades do ADF HDI não suportam a autenticação msi em contas de armazenamento relacionadas a atividades de HDI, portanto, certifique-se de que esses serviços vinculados tenham chaves completas ou estejam usando o Azure Key Vault.
+- **Recomendação**: esse erro ocorre quando o ADF faz etapas de preparação para atividades HDI. Ele tenta copiar arquivos para o armazenamento principal antes de enviar o trabalho para HDI. Verifique se os arquivos existem no local fornecido, se a conexão de armazenamento está correta. As atividades do ADF HDI não dão suporte à autenticação MSI em contas de armazenamento relacionadas às atividades do HDI, portanto, certifique-se de que esses serviços vinculados tenham chaves completas ou estejam usando Azure Key Vault.
 
 
 ### <a name="error-code--2351"></a>Código de erro: 2351
 
-- **Mensagem:**`Could not open the file '%filePath;' in container/fileSystem '%container;'.`
+- **Mensagem**:`Could not open the file '%filePath;' in container/fileSystem '%container;'.`
 
-- **Causa**: O arquivo não existe no caminho especificado.
+- **Causa**: o arquivo não existe no caminho especificado.
 
-- **Recomendação**: Verifique se o arquivo realmente existe, e o serviço vinculado com informações de conexão apontando para este arquivo tem credenciais corretas.
+- **Recomendação**: Verifique se o arquivo realmente existe e se o serviço vinculado com informações de conexão apontando para esse arquivo tem as credenciais corretas.
 
 
 ### <a name="error-code--2352"></a>Código de erro: 2352
 
-- **Mensagem:**`The file storage has not been initialized. Please check the properties of the file storage linked service in the HDI activity.`
+- **Mensagem**:`The file storage has not been initialized. Please check the properties of the file storage linked service in the HDI activity.`
 
-- **Causa**: As propriedades de serviço vinculadas ao armazenamento de arquivos não estão definidas corretamente.
+- **Causa**: as propriedades do serviço vinculado do armazenamento de arquivos não estão definidas corretamente.
 
-- **Recomendação**: Certifique-se de que as propriedades do serviço vinculado ao armazenamento de arquivos estão configuradas corretamente.
+- **Recomendação**: Verifique se as propriedades do serviço vinculado de armazenamento de arquivos estão configuradas corretamente.
 
 
 ### <a name="error-code--2353"></a>Código de erro: 2353
 
-- **Mensagem:**`The script storage has not been initialized. Please check the properties of the script storage linked service in the HDI activity.`
+- **Mensagem**:`The script storage has not been initialized. Please check the properties of the script storage linked service in the HDI activity.`
 
-- **Causa**: As propriedades de serviço vinculadas ao armazenamento de script não estão definidas corretamente.
+- **Causa**: as propriedades do serviço vinculado de armazenamento de script não estão definidas corretamente.
 
-- **Recomendação**: Certifique-se de que as propriedades do serviço vinculado ao armazenamento de script estão configuradas corretamente.
+- **Recomendação**: Verifique se as propriedades do serviço vinculado de armazenamento de script estão configuradas corretamente.
 
 
 ### <a name="error-code--2354"></a>Código de erro: 2354
 
-- **Mensagem:**`The storage linked service type '%linkedServiceType;' is not supported for '%executorType;' activities for property '%linkedServicePropertyName;'.`
+- **Mensagem**:`The storage linked service type '%linkedServiceType;' is not supported for '%executorType;' activities for property '%linkedServicePropertyName;'.`
 
-- **Causa**: O tipo de serviço vinculado ao armazenamento não é suportado pela atividade.
+- **Causa**: o tipo de serviço vinculado de armazenamento não é suportado pela atividade.
 
-- **Recomendação**: Certifique-se de que o serviço vinculado selecionado tenha um dos tipos suportados para a atividade. As atividades do HDI suportam serviços vinculados ao AzureBlobStorage e ao AzureBlobFSStorage.
+- **Recomendação**: Verifique se o serviço vinculado selecionado tem um dos tipos com suporte para a atividade. As atividades HDI dão suporte aos serviços vinculados AzureBlobStorage e AzureBlobFSStorage. Para obter mais informações, leia [comparar opções de armazenamento para uso com clusters do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options)
 
 
 ### <a name="error-code--2355"></a>Código de erro: 2355
 
-- **Mensagem:**`The '%value' provided for commandEnvironment is incorrect. The expected value should be an array of strings where each string has the format CmdEnvVarName=CmdEnvVarValue.`
+- **Mensagem**:`The '%value' provided for commandEnvironment is incorrect. The expected value should be an array of strings where each string has the format CmdEnvVarName=CmdEnvVarValue.`
 
-- **Causa**: O ambiente de comando fornecido está incorreto.
+- **Causa**: o fornecido para commandEnvironment está incorreto.
 
 - **Recomendação**:  
-      Certifique-se de que o valor \"fornecido\"é \"semelhante a:\" commandEnvironment : [ variableName=variableValue ] E cada variável aparece na lista apenas uma vez.
+      Certifique-se de que o valor fornecido seja semelhante \"a\": commandEnvironment \": [VariableName\" = variableValue] e que cada variável apareça na lista apenas uma vez.
     
 
 
 ### <a name="error-code--2356"></a>Código de erro: 2356
 
-- **Mensagem:**`The commandEnvironment already contains a variable named '%variableName;'.`
+- **Mensagem**:`The commandEnvironment already contains a variable named '%variableName;'.`
 
-- **Causa**: A variável foi fornecida duas vezes no comandoAmbiente .
+- **Causa**: a variável foi fornecida duas vezes no commandEnvironment.
 
 - **Recomendação**:  
-      Certifique-se de que o valor \"fornecido\"é \"semelhante a:\" commandEnvironment : [ variableName=variableValue ] E cada variável aparece na lista apenas uma vez.
+      Certifique-se de que o valor fornecido seja semelhante \"a\": commandEnvironment \": [VariableName\" = variableValue] e que cada variável apareça na lista apenas uma vez.
     
 
 
 ### <a name="error-code--2357"></a>Código de erro: 2357
 
-- **Mensagem:**`The certificate or password is wrong for ADLS Gen 1 storage.`
+- **Mensagem**:`The certificate or password is wrong for ADLS Gen 1 storage.`
 
-- **Causa:** As credenciais fornecidas estão incorretas.
+- **Causa**: as credenciais fornecidas estão incorretas.
 
-- **Recomendação**: Verifique as informações de conexão no serviço vinculado ao ADLS Gen 1 e certifique-se de que a conexão de teste seja bem sucedida.
+- **Recomendação**: Verifique as informações de conexão no serviço vinculado do ADLS Gen 1 e certifique-se de que a conexão de teste tenha sucesso.
 
 
 ### <a name="error-code--2358"></a>Código de erro: 2358
 
-- **Mensagem:**`The value '%value;' for the required property 'TimeToLive' in the on demand HDInsight linked service '%linkedServiceName;' has invalid format. It should be a timespan between '00:05:00' and '24:00:00'.`
+- **Mensagem**:`The value '%value;' for the required property 'TimeToLive' in the on demand HDInsight linked service '%linkedServiceName;' has invalid format. It should be a timespan between '00:05:00' and '24:00:00'.`
 
-- **Causa**: O valor fornecido para a propriedade necessária 'TimeToLive' tem formato inválido. 
+- **Causa**: o valor fornecido para a propriedade necessária ' TimeToLive ' tem um formato inválido. 
 
-- **Recomendação**: Atualize o valor para estar na faixa sugerida e tente novamente.
+- **Recomendação**: Atualize o valor para estar no intervalo sugerido e tente novamente.
 
 
 ### <a name="error-code--2359"></a>Código de erro: 2359
 
-- **Mensagem:**`The value '%value;' for the property 'roles' is invalid. Expected types are 'zookeeper', 'headnode', and 'workernode'.`
+- **Mensagem**:`The value '%value;' for the property 'roles' is invalid. Expected types are 'zookeeper', 'headnode', and 'workernode'.`
 
-- **Causa**: O valor fornecido para os 'papéis' da propriedade é inválido.
+- **Causa**: o valor fornecido para a propriedade ' Roles ' é inválido.
 
 - **Recomendação**: Atualize o valor para ser uma das sugestões e tente novamente.
 
 
 ### <a name="error-code--2360"></a>Código de erro: 2360
 
-- **Mensagem:**`The connection string in HCatalogLinkedService is invalid. Encountered an error while trying to parse: '%message;'.`
+- **Mensagem**:`The connection string in HCatalogLinkedService is invalid. Encountered an error while trying to parse: '%message;'.`
 
-- **Causa**: A seqüência de conexão fornecida para o HCatalogLinkedService é inválida.
+- **Causa**: a cadeia de conexão fornecida para o HCatalogLinkedService é inválida.
 
-- **Recomendação**: Atualize o valor para uma seqüência de conexão Azure SQL correta e tente novamente.
+- **Recomendação**: Atualize o valor para uma cadeia de conexão do Azure SQL correta e tente novamente.
 
 
 ### <a name="error-code--2361"></a>Código de erro: 2361
 
-- **Mensagem:**`Failed to create on demand HDI cluster. Cluster name is '%clusterName;'.`
+- **Mensagem**:`Failed to create on demand HDI cluster. Cluster name is '%clusterName;'.`
 
-- **Causa**: A criação de cluster falhou e o ADF não teve um erro de volta do serviço HDInsight.
+- **Causa**: falha na criação do cluster e o ADF não retornou um erro do serviço HDInsight.
 
-- **Recomendação**: Abra o portal Dozure e tente encontrar o recurso HDI com o nome fornecido e verifique o status do provisionamento. Entre em contato com a equipe de suporte da HDInsight para obter mais assistência.
+- **Recomendação**: abra o portal do Azure e tente localizar o recurso HDI com o nome fornecido e verifique o status de provisionamento. Contate a equipe de suporte do HDInsight para obter mais assistência.
 
 
 ### <a name="error-code--2362"></a>Código de erro: 2362
 
-- **Mensagem:**`Only Azure Blob storage accounts are supported as additional storages for HDInsight on demand linked service.`
+- **Mensagem**:`Only Azure Blob storage accounts are supported as additional storages for HDInsight on demand linked service.`
 
-- **Causa**: O armazenamento adicional fornecido não foi o armazenamento DoZure Blob.
+- **Causa**: o armazenamento adicional fornecido não era o armazenamento de BLOBs do Azure.
 
-- **Recomendação**: Forneça a conta de armazenamento Azure Blob como um armazenamento adicional para o hdinsight sob demanda.
+- **Recomendação**: forneça a conta de armazenamento de BLOBs do Azure como um armazenamento adicional para o serviço vinculado sob demanda do HDInsight.
 
 
 
@@ -995,63 +997,63 @@ A tabela a seguir se aplica ao Azure Batch.
 
 ### <a name="error-code--2128"></a>Código de erro: 2128
 
-- **Mensagem:**`No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
+- **Mensagem**:`No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
 
-- **Causa**: Conectividade de rede, falha de DNS, validação do certificado de servidor ou tempo há10.
+- **Causa**: conectividade de rede, falha de DNS, validação de certificado do servidor ou tempo limite.
 
-- **Recomendação**: Valide que o ponto final que você está tentando acertar está respondendo às solicitações. Você pode usar ferramentas como Fiddler/Carteiro.
+- **Recomendação**: valide se o ponto de extremidade que você está tentando atingir está respondendo às solicitações. Você pode usar ferramentas como Fiddler/postmaster.
 
 
 ### <a name="error-code--2108"></a>Código de erro: 2108
 
-- **Mensagem:**`Error calling the endpoint '%url;'. Response status code: '%code;'`
+- **Mensagem**:`Error calling the endpoint '%url;'. Response status code: '%code;'`
 
-- **Causa**: A solicitação falhou devido a um problema subjacente, como conectividade de rede, falha do DNS, validação do certificado do servidor ou tempo hábit.
+- **Causa**: falha na solicitação devido a um problema subjacente, como conectividade de rede, falha de DNS, validação de certificado do servidor ou tempo limite.
 
-- **Recomendação**: Use Violinista/Carteiro para validar a solicitação.
+- **Recomendação**: Use Fiddler/postmaster para validar a solicitação.
 <br>
 
 
 #### <a name="more-details"></a>Mais detalhes
-Para usar o Fiddler para criar uma sessão HTTP do aplicativo web monitorado:
+Para usar o Fiddler para criar uma sessão HTTP do aplicativo Web monitorado:
 
-1. Baixe, instale e abra [o Fiddler](https://www.telerik.com/download/fiddler).
+1. Baixe, instale e abra o [Fiddler](https://www.telerik.com/download/fiddler).
 
-1. Se o seu aplicativo web usar HTTPS, vá para **Tools** > **Fiddler Options** > **HTTPS**. Selecione **Capturar CONNECTs HTTPS** e **Descriptografar o tráfego HTTPS**.
+1. Se seu aplicativo Web usar HTTPS, vá para **ferramentas** > **Opções** > do Fiddler**https**. Selecione **capturar conexões HTTPS** e **descriptografar tráfego HTTPS**.
 
-   ![Opções de violinista](media/data-factory-troubleshoot-guide/fiddler-options.png)
+   ![Opções do Fiddler](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
-1. Se o aplicativo usar certificados TLS/SSL, adicione o certificado Fiddler ao seu dispositivo. Vá para **ferramentas** > **opções de fiddler HTTPS** > **HTTPS** > **Ações** > **exportar certificado raiz para desktop**.
+1. Se seu aplicativo usar certificados TLS/SSL, adicione o certificado Fiddler ao seu dispositivo. Acesse **ferramentas** > **Fiddler opções** > **https** > **ações** > **Exportar certificado raiz para área de trabalho**.
 
-1. Desative a captura indo para **File** > **Capture Traffic**. Ou pressione **F12**.
+1. Desative a captura indo para o**tráfego de captura**de **arquivo** > . Ou pressione **F12**.
 
-1. Limpe o cache do seu navegador para que todos os itens armazenados em cache sejam removidos e devem ser baixados novamente.
+1. Limpe o cache do navegador para que todos os itens em cache sejam removidos e precisem ser baixados novamente.
 
-1. Crie uma solicitação:
+1. Criar uma solicitação:
 
-   1. Selecione a guia **Compositor.**
+   1. Selecione a guia **compositor** .
 
-   1. Defina o método HTTP e a URL.
+   1. Defina o método e a URL HTTP.
    
    1. Adicione cabeçalhos e um corpo de solicitação, se necessário.
 
-   1. Selecione **Executar**.
+   1. Selecione **executar**.
 
-1. Ative a captura de tráfego novamente e complete a transação problemática em sua página.
+1. Ative a captura de tráfego novamente e conclua a transação problemática em sua página.
 
-1. Vá para **Registrar** > **Salvar** > **Todas as Sessões**.
+1. Vá para **arquivo** > **salvar** > **todas as sessões**.
 
-Para obter mais informações, consulte [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
+Para obter mais informações, consulte [introdução ao Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais ajuda para solucionar problemas, tente esses recursos:
+Para obter mais ajuda para solução de problemas, Experimente estes recursos:
 
-*  [Blog da Fábrica de Dados](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Solicitações de recursos da Fábrica de Dados](https://feedback.azure.com/forums/270578-data-factory)
+*  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory solicitações de recursos](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
-*  [Fórum Stack Overflow para Fábrica de Dados](https://stackoverflow.com/questions/tagged/azure-data-factory)
+*  [Stack Overflow Fórum para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre Data Factory](https://twitter.com/hashtag/DataFactory)
 
 

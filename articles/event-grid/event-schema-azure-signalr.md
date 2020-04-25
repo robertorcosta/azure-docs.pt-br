@@ -1,37 +1,37 @@
 ---
-title: Azure SingnalR como fonte da Grade de Eventos
-description: Descreve as propriedades fornecidas para eventos Azure SignalR com a Azure Event Grid
+title: Sinalizador do Azure como origem da grade de eventos
+description: Descreve as propriedades que são fornecidas para eventos do Signalr do Azure com a grade de eventos do Azure
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 04/23/2020
 ms.author: babanisa
-ms.openlocfilehash: 730d1a7a053ab636c45313dd0c35a537434eb782
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: e4ebae9597d750cea6f292655e9f03dd65ccc3f5
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393388"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133711"
 ---
-# <a name="azure-event-grid-event-schema-for-signalr-service"></a>Esquema de eventos da Azure Event Grid para o Serviço SignalR
+# <a name="azure-event-grid-event-schema-for-signalr-service"></a>Esquema de evento da grade de eventos do Azure para o serviço Signalr
 
-Este artigo fornece as propriedades e o esquema para eventos do SignalR Service.Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md). Ele também oferece uma lista de partidas rápidas e tutoriais para usar o Azure SignalR como fonte de evento.
+Este artigo fornece as propriedades e o esquema para eventos do serviço Signalr.Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md). Ele também fornece uma lista de inícios rápidos e tutoriais para usar o Azure Signalr como uma fonte de eventos.
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos
 
 ### <a name="available-event-types"></a>Tipos de evento disponíveis
 
-O SignalR Service emite os seguintes tipos de eventos:
+O serviço signalr emite os seguintes tipos de evento:
 
 | Tipo de evento | Descrição |
 | ---------- | ----------- |
-| Conexão Microsoft.SignalRService.clientConnected | Levantada quando uma conexão com o cliente conectado. |
-| Microsoft.SignalRService.ClientConexão Desconectada | Levantada quando uma conexão com o cliente se desconecta. |
+| Microsoft. SignalRService. ClientConnectionConnected | Gerado quando uma conexão de cliente é conectada. |
+| Microsoft. SignalRService. ClientConnectionDisconnected | Gerado quando uma conexão de cliente é desconectada. |
 
 ### <a name="example-event"></a>Exemplo de evento
 
-O exemplo a seguir mostra o esquema de um evento conectado à conexão com o cliente: 
+O exemplo a seguir mostra o esquema de um evento conectado de conexão de cliente: 
 
 ```json
 [{
@@ -51,7 +51,7 @@ O exemplo a seguir mostra o esquema de um evento conectado à conexão com o cli
 }]
 ```
 
-O esquema para um evento desconectado de conexão do cliente é semelhante: 
+O esquema para um evento de conexão de cliente desconectado é semelhante: 
 
 ```json
 [{
@@ -76,32 +76,32 @@ O esquema para um evento desconectado de conexão do cliente é semelhante:
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | string | Identificador exclusivo do evento. |
-| data | objeto | Dados de eventos do SignalR Service. |
-| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| id | cadeia de caracteres | Identificador exclusivo do evento. |
+| data | objeto | Dados de evento do serviço signalr. |
+| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | Descrição |
+| Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| timestamp | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| hubName | string | O hub ao qual a conexão com o cliente pertence. |
-| ConnectionId | string | O identificador exclusivo para a conexão com o cliente. |
-| userId | string | O identificador de usuário definido na reclamação. |
-| Errormessage | string | O erro que faz com que a conexão seja desconectada. |
+| timestamp | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| hubName | cadeia de caracteres | O Hub ao qual a conexão do cliente pertence. |
+| ConnectionId | cadeia de caracteres | O identificador exclusivo para a conexão do cliente. |
+| userId | cadeia de caracteres | O identificador de usuário definido na declaração. |
+| errorMessage | cadeia de caracteres | O erro que faz com que a conexão seja desconectada. |
 
-## <a name="tutorials-and-how-tos"></a>Tutoriais e como fazer
+## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
 |Title | Descrição |
 |---------|---------|
-| [Reaja aos eventos do Azure SignalR Service usando event grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Visão geral da integração do Azure SignalR Service com a Event Grid. |
-| [Como enviar eventos do Azure SignalR Service para event grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Mostra como enviar eventos do Azure SignalR Service para um aplicativo através da Event Grid. |
+| [Reagir aos eventos do serviço de Signaler do Azure usando a grade de eventos](../azure-signalr/signalr-concept-event-grid-integration.md) | Visão geral da integração do serviço de Signaler do Azure com a grade de eventos. |
+| [Como enviar eventos do serviço de Signaler do Azure para a grade de eventos](../azure-signalr/signalr-howto-event-grid-integration.md) | Mostra como enviar eventos do serviço de Signaler do Azure para um aplicativo por meio da grade de eventos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

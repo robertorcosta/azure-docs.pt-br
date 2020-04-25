@@ -1,5 +1,5 @@
 ---
-title: Cliente de autoteste para pré-validar uma máquina virtual | Mercado Azure
+title: Cliente de teste automático para validar previamente uma máquina virtual | Azure Marketplace
 description: Como criar um cliente de autoteste para validar previamente uma imagem de máquina virtual para o Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,23 +7,23 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: dsindona
-ms.openlocfilehash: af42476f9d04f7f2bfc275c731b02aa5a9b8ecf6
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9f16d26fa95254282e453cd7bf35d85f8b81ed73
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273147"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143204"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Criar um cliente de autoteste para validar previamente uma imagem de máquina virtual do Azure
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [certificação de imagem Azure VM](https://aks.ms/CertifyVMimage) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de máquina virtual do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [certificação de imagem de VM do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) para gerenciar suas ofertas migradas.
 
 Use este artigo como guia para criar um serviço de cliente que consome a API de autoteste. Use a API de autoteste para pré-validar uma VM (máquina virtual) a fim de garantir que ela atende aos últimos requisitos de publicação do Azure Marketplace. Esse serviço de cliente permite que você teste uma VM antes de enviar sua oferta para certificação da Microsoft.
 
 ## <a name="development-and-testing-overview"></a>Visão geral de desenvolvimento e teste
 
-Como parte do processo de autoteste, você criará um cliente local que se conecta ao Azure Marketplace para validar uma VM em execução em sua Assinatura Azure. A VM pode executar o sistema operacional Windows ou Linux.
+Como parte do processo de teste automático, você criará um cliente local que se conecta ao Azure Marketplace para validar uma VM em execução na sua assinatura do Azure. A VM pode executar o sistema operacional Windows ou Linux.
 
 O cliente local executa um script que se autentica com a API de autoteste, envia informações de conexão e recebe os resultados do teste.
 
@@ -67,7 +67,7 @@ A tabela a seguir descreve os campos da API.
 
 |      Campo         |    Descrição    |
 |  ---------------   |  ---------------  |
-|  Autorização     |  A seqüência "Bearer xxxx-xxxx-xxxx-xxxxx" contém o token de cliente Azure Active Directory (AD), que pode ser criado usando o PowerShell.          |
+|  Authorization     |  A cadeia de caracteres "portador xxxx-xxxx-xxxx-xxxxx" contém o token de cliente Azure Active Directory (AD), que pode ser criado usando o PowerShell.          |
 |  DNSName           |  Nome DNS da VM a ser testada    |
 |  Usuário              |  Nome de usuário para entrar na VM         |
 |  Senha          |  Senha para entrar na VM          |
@@ -233,7 +233,7 @@ Use as etapas a seguir para escolher o locatário do Azure AD no qual deseja cri
 
    **Para obter informações de locatário:**
 
-   Na **visão geral do diretório ativo do Azure,** procure por "Propriedades" e, em seguida, selecione **Propriedades**. Usando a seguinte captura de tela como exemplo:
+   Em **Azure Active Directory visão geral**, procure "Propriedades" e, em seguida, selecione **Propriedades**. Usando a seguinte captura de tela como exemplo:
 
    - **Nome** – o nome do locatário ou o nome do diretório
    - **ID de Diretório** – a ID de locatário ou a ID de diretório, ou use a barra de rolagem para localizar Propriedades.
@@ -248,9 +248,9 @@ Use as etapas a seguir para registrar o aplicativo cliente.
 2. Em **Registros de aplicativo**, selecione **+ Novo registro de aplicativo**.
 3. Em **Criar**, forneça as informações necessárias para os seguintes campos:
 
-   - **Nome** - Digite um nome amigável para o aplicativo. Por exemplo, "SelfTestClient".
-   - **Tipo de aplicativo** - Selecione **Web App/API**
-   - **URL de login** - Digite "https:\//isvapp.azurewebsites.net/selftest-vm"
+   - **Nome** – Insira um nome amigável para o aplicativo. Por exemplo, "SelfTestClient".
+   - **Tipo de aplicativo** – selecione **aplicativo Web/API**
+   - **URL de entrada** -digite "https:\//isvapp.azurewebsites.net/selftest-VM"
 
 4. Selecione **Criar**.
 5. Em **Registros de aplicativo** ou em **Aplicativo registrado**, copie a **ID do Aplicativo**.
@@ -261,13 +261,13 @@ Use as etapas a seguir para registrar o aplicativo cliente.
 7. Selecione **Permissões necessárias** para configurar permissões para o aplicativo.
 8. Em **Permissões necessárias**, selecione **+ Adicionar**.
 9. Em **Adicionar acesso à API**, escolha **Selecionar uma API**.
-10. Em **Select a API**, digite "Modelo de implantação clássica do Windows Azure" para procurar a API.
+10. Em **selecionar uma API**, digite "modelo de implantação clássico do Windows Azure" para pesquisar a API.
 11. Nos resultados da pesquisa, escolha **Modelo de implantação clássico do Microsoft Azure** e, em seguida, clique em **Selecionar**.
 
     ![Configurar o multilocatário para o aplicativo](./media/stclient-select-api.png)
 
 12. Em **Adicionar acesso à API**, escolha **Selecionar permissões**.
-13. Selecione **Acessar "API de gerenciamento de serviços do Windows Azure"**.
+13. Selecione **acesso "Windows Azure API de gerenciamento de serviços"**.
 
     ![Habilitar o acesso à API para o aplicativo](./media/stclient-enable-api-access.png)
 
@@ -283,12 +283,12 @@ Use as etapas a seguir para registrar o aplicativo cliente.
 20. Crie uma chave secreta selecionando a caixa de texto **DESCRIÇÃO** da chave. Configure os seguintes campos:
 
     - Digite um nome de chave. Por exemplo, "selftestclient"
-    - Na lista de isto **EXPIRA,** selecione "Em 1 ano".
+    - Na lista suspensa **expirar** , selecione "em 1 ano".
     - Selecione **Salvar** para gerar a chave.
     - Em **VALOR**, copie a chave.
 
       >[!Important]
-      >Você não poderá ver o valor-chave depois de sair do formulário **Chaves.**
+      >Você não poderá ver o valor da chave depois de sair do formulário de **chaves** .
 
     ![Formulário de valor da chave](./media/stclient-create-key.png)
 
@@ -303,7 +303,7 @@ Use um dos seguintes programas para criar e obter um token usando a API REST OAu
 
 ### <a name="to-create-and-get-a-token-using-postman"></a>Para criar e obter um token usando o Postman
 
- Para solicitar ao Auth0 tokens qualquer um de seus aplicativos [https://login.microsoftonline.com/common/oauth2/token](https://login.microsoftonline.com/common/oauth2/token) autorizados, execute uma operação POST até o ponto final com uma carga útil no seguinte formato:
+ Para solicitar Auth0 tokens para qualquer um dos seus aplicativos autorizados, execute uma operação POST para [https://login.microsoftonline.com/common/oauth2/token](https://login.microsoftonline.com/common/oauth2/token) o ponto de extremidade com uma carga no seguinte formato:
 
 ```
 Method Type : POST
@@ -332,7 +332,7 @@ A captura de tela a seguir mostra um exemplo de como usar o Postman para obter u
 
 ### <a name="to-create-and-get-a-token-using-curl-in-linux"></a>Para criar e obter um token usando o cURL no Linux
 
-Para solicitar ao Auth0 tokens qualquer um de seus aplicativos [https://login.microsoftonline.com/common/oauth2/token](https://login.microsoftonline.com/common/oauth2/token) autorizados, execute uma operação POST até o ponto final com uma carga útil no seguinte formato:
+Para solicitar Auth0 tokens para qualquer um dos seus aplicativos autorizados, execute uma operação POST para [https://login.microsoftonline.com/common/oauth2/token](https://login.microsoftonline.com/common/oauth2/token) o ponto de extremidade com uma carga no seguinte formato:
 
 ```
 Request:
@@ -353,7 +353,7 @@ A captura de tela a seguir mostra um exemplo de como usar o comando curl para ob
 
 ### <a name="to-create-and-get-a-token-using-c35"></a>Para criar e obter um token usando C&#35;
 
-Para solicitar ao Auth0 tokens qualquer um de seus aplicativos autorizados, execute uma operação POST para o ponto final https:\//soamtenant.auth0.com/oauth/token com uma carga útil no seguinte formato:
+Para solicitar Auth0 tokens para qualquer um dos seus aplicativos autorizados, execute uma operação POST para o ponto\/de extremidade https:/soamtenant.auth0.com/OAuth/token com uma carga no seguinte formato:
 
 ```csharp
 string clientId = "Your Application Id";
@@ -376,7 +376,7 @@ var token = JObject.Parse(content)["access_token"];
 
 ### <a name="to-create-and-get-a-token-using-powershell"></a>Para criar e obter um token usando o PowerShell
 
-Para solicitar ao Auth0 tokens qualquer um de seus aplicativos autorizados, execute uma operação POST para o ponto final https:\//soamtenant.auth0.com/oauth/token com uma carga útil no seguinte formato:
+Para solicitar Auth0 tokens para qualquer um dos seus aplicativos autorizados, execute uma operação POST para o ponto\/de extremidade https:/soamtenant.auth0.com/OAuth/token com uma carga no seguinte formato:
 
 ```powershell
 $clientId = "Application Id of AD Client APP";

@@ -1,5 +1,5 @@
 ---
-title: Crie oferta de máquina virtual no Azure Marketplace
+title: Criar uma oferta de máquina virtual no Azure Marketplace
 description: Lista as etapas necessárias para criar uma nova oferta de máquina virtual para o Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 9d06809df2774224b61fd3fb643ab628dd2890f6
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: a25f6877f1fb4940fb1de127b81d83975c8e835c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273980"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142717"
 ---
 # <a name="create-virtual-machine-offer"></a>Criar uma oferta de Máquina Virtual
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de Máquina Virtual do Azure](https://aka.ms/CreateAzureVMoffer) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de máquina virtual do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar uma máquina virtual do Azure oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) para gerenciar suas ofertas migradas.
 
 Esta seção lista as etapas necessárias para criar uma nova solicitação de oferta de máquina virtual (VM) para o Azure Marketplace.  Cada oferta aparece como sua própria entidade no Azure Marketplace e está associada uma ou mais SKUs.  Uma oferta VM é composta dos seguintes grupos de ativos e serviços de suporte: 
 
@@ -36,7 +36,7 @@ onde:
 
 ## <a name="new-offer-form"></a>Novo formulário de oferta
 
-Uma vez que seu login no [Portal do Parceiro na Nuvem,](https://cloudpartner.azure.com/)clique no item + Nova **Oferta** na barra de menus esquerda. No menu resultante, clique em **Máquinas Virtuais** para exibir o formulário de **Nova Oferta** e iniciar o processo de definição de ativos para uma nova oferta de máquina virtual. 
+Depois de entrar no [portal do Cloud Partner](https://cloudpartner.azure.com/), clique no item **+ nova oferta** na barra de menus à esquerda. No menu resultante, clique em **Máquinas Virtuais** para exibir o formulário de **Nova Oferta** e iniciar o processo de definição de ativos para uma nova oferta de máquina virtual. 
 <!-- not all publishers see corevm or azure apps test, you need to be whitelisted to see them. we should hide those in these images. -->
 
 ![A nova oferta de máquina virtual oferce seleção de interface do usuário](./media/publishvm_003.png)

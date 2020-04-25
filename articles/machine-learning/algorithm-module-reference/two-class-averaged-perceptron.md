@@ -1,62 +1,72 @@
 ---
-title: 'Regressão florestal de decisão: Referência do módulo'
+title: 'Regressão de floresta de decisão: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo Perceptron médio de duas classes no Azure Machine Learning para criar um modelo de aprendizado de máquina baseado no algoritmo perceptron médio.
+description: Saiba como usar o módulo perceptron médio de duas classes no Azure Machine Learning para criar um modelo de aprendizado de máquina com base no algoritmo de média de perceptron.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 73e23dd7d350ea63e9fd8b933a525a9d8aad9e3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/22/2020
+ms.openlocfilehash: 53e40726a5745263ee2b3cb4ada8671bf65da963
+ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920766"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82137664"
 ---
-# <a name="two-class-averaged-perceptron-module"></a>Módulo Perceptron Médio de Duas Classes
+# <a name="two-class-averaged-perceptron-module"></a>Módulo perceptron médio de duas classes
 
-Este artigo descreve um módulo no azure Machine Learning designer (visualização).
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
-Use este módulo para criar um modelo de aprendizado de máquina baseado no algoritmo perceptron médio.  
+Use este módulo para criar um modelo de aprendizado de máquina com base no algoritmo médio de perceptron.  
   
-Este algoritmo de classificação é um método de aprendizagem supervisionado e requer um *conjunto de dados marcado,* que inclui uma coluna de rótulo. Você pode treinar o modelo fornecendo o modelo e o conjunto de dados marcado como uma entrada para [o Train Model](./train-model.md). O modelo treinado pode então ser usado para prever valores para os novos exemplos de entrada.  
+Esse algoritmo de classificação é um método de aprendizado supervisionado e requer um conjunto de informações *marcado*, que inclui uma coluna de rótulo. Você pode treinar o modelo fornecendo o modelo e o conjunto de dados marcado como uma entrada para [treinar o modelo](./train-model.md). O modelo treinado pode então ser usado para prever valores para os novos exemplos de entrada.  
 
-### <a name="about-averaged-perceptron-models"></a>Sobre modelos perceptron médios
+### <a name="about-averaged-perceptron-models"></a>Sobre os modelos de média de perceptron
 
-O *método perceptron médio* é uma versão antiga e simples de uma rede neural. Nesta abordagem, as entradas são classificadas em várias saídas possíveis com base em uma função linear e, em seguida, combinadas com um conjunto de pesos que são derivados do vetor de recurso — daí o nome "perceptron".
+O *Método Average perceptron* é uma versão inicial e simples de uma rede neural. Nessa abordagem, as entradas são classificadas em várias saídas possíveis com base em uma função linear e, em seguida, combinadas com um conjunto de pesos que são derivados do vetor de recurso — por isso o nome "perceptron".
 
 Os modelos perceptron mais simples são adequados ao aprendizado de padrões separáveis linearmente, enquanto as redes neurais (especialmente redes neurais profundas) podem modelar limites de classe mais complexos. No entanto, os perceptrons são mais rápidos e conforme eles processem casos em série, podem ser usados com treinamento contínuo.
 
-## <a name="how-to-configure-two-class-averaged-perceptron"></a>Como configurar perceptron médio de duas classes
+## <a name="how-to-configure-two-class-averaged-perceptron"></a>Como configurar o perceptron médio de duas classes
 
-1.  Adicione o módulo **Perceptron médio de duas classes** ao seu pipeline.  
+1.  Adicione o módulo **perceptron médio de duas classes** ao seu pipeline.  
 
-2.  Especifique como deseja que o modelo seja treinado, definindo a opção **Criar modo treinador.**  
+2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro Único**: Se você souber como deseja configurar o modelo, forneça um conjunto específico de valores como argumentos.
+    -   **Parâmetro único**: se você souber como deseja configurar o modelo, forneça um conjunto específico de valores como argumentos.
 
-    -   **Intervalo de parâmetros**: Selecione esta opção se você não tiver certeza dos melhores parâmetros e deseja executar uma varredura de parâmetros. Selecione uma gama de valores para iterar, e o [Tune Model Hyperparameters](tune-model-hyperparameters.md) iterates sobre todas as combinações possíveis das configurações fornecidas para determinar os hiperparâmetros que produzem os resultados ideais.  
+    -   **Intervalo de parâmetros**: Selecione esta opção se você não tiver certeza dos melhores parâmetros e quiser executar uma limpeza de parâmetro. Selecione um intervalo de valores para iteração e os [hiperparâmetros de modelo de ajuste](tune-model-hyperparameters.md) iteram sobre todas as combinações possíveis das configurações que você forneceu para determinar os hiperparâmetros que produzem os resultados ideais.  
   
-3.  Para **taxa de aprendizagem,** especifique um valor para a *taxa de aprendizagem*. Os valores da taxa de aprendizagem controlam o tamanho da etapa que é usada na descida do gradiente estocástico cada vez que o modelo é testado e corrigido.
+3.  Para **taxa de aprendizagem**, especifique um valor para a *taxa de aprendizado*. Os valores de taxa de aprendizagem controlam o tamanho da etapa usada em estocástico Grad descendente cada vez que o modelo é testado e corrigido.
   
-     Ao tornar a taxa menor, você testa o modelo com mais frequência, com o risco de ficar preso em um planalto local. Aumentando a etapa, você pode convergir mais rapidamente, com o risco mínimo de errar o alvo verdadeiro.
+     Ao tornar a taxa menor, você testa o modelo com mais frequência, com o risco que você pode ficar preso em um limite local. Aumentando a etapa, você pode convergir mais rapidamente, com o risco mínimo de errar o alvo verdadeiro.
   
-4.  Para **o número máximo de iterações,** digite o número de vezes que deseja que o algoritmo examine os dados de treinamento.  
+4.  Para **número máximo de iterações**, digite o número de vezes que você deseja que o algoritmo examine os dados de treinamento.  
   
      Parando no início geralmente fornece melhor generalização. Aumentar o número de iterações melhora o ajuste, com o risco de superajuste.
   
-5.  Para **sementes de número aleatório, digite**opcionalmente um valor inteiro para usar como semente. O uso de uma semente é recomendado se você quiser garantir a reprodutibilidade do gasoduto através das corridas.  
+5.  Para **semente de número aleatório**, opcionalmente, digite um valor inteiro para usar como a semente. Usar uma semente é recomendado se você quiser garantir reprodução do pipeline entre execuções.  
   
-1.  Conecte um conjunto de dados de treinamento e um dos módulos de treinamento:
+1.  Conecte-se a um conjunto de um de treinamento e treine o modelo:
+
+    + Se você definir **criar modo de instrutor** como um **único parâmetro**, conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](train-model.md) .  
   
-    -   Se você definir **Criar modo de treinador** para Um **Parâmetro,** use o módulo [Modelo de Trem.](train-model.md)
+    + Se você definir **criar modo de instrutor** como **intervalo de parâmetros**, conecte um conjunto de um DataSet marcado e treine o modelo usando [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > Se você passar um intervalo de parâmetros para [treinar o modelo](train-model.md), ele usará apenas o valor padrão na lista de parâmetros únicos.  
+    > 
+    > Se você passar um único conjunto de valores de parâmetro para o módulo [ajustar hiperparâmetros de modelo](tune-model-hyperparameters.md) , quando ele esperar um intervalo de configurações para cada parâmetro, ele ignorará os valores e usará os valores padrão para o aprendiz.  
+    > 
+    > Se você selecionar a opção **intervalo de parâmetros** e inserir um único valor para qualquer parâmetro, esse valor único especificado será usado em toda a varredura, mesmo que outros parâmetros sejam alterados em um intervalo de valores.
 
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

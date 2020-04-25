@@ -1,38 +1,38 @@
 ---
-title: Oferecer configurações para uma oferta de aplicativo Power BI | Mercado Azure
-description: Configure as configurações de oferta para uma oferta de Aplicativo Power BI para o mercado Microsoft AppSource.
+title: Configurações da oferta para uma oferta de aplicativo Power BI | Azure Marketplace
+description: Defina as configurações de oferta para uma oferta de aplicativo Power BI para o Microsoft AppSource Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 1bf8abb2d8ac6c1c9d2e03ef5e4f1edce530cbdb
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: ddedc15b41b2b163f85f5443275daf9fbb56bac8
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985755"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82143041"
 ---
 # <a name="power-bi-apps-offer-settings-tab"></a>Guia Configurações de Oferta de Aplicativos do Power BI
 
 >[!Important]
->A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas do seu aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [visão geral de criação de aplicativos do Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerenciar suas ofertas migradas.
+>A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Power bi visão geral da criação de aplicativo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) para gerenciar suas ofertas migradas.
 
-Quando você abre a página **Nova oferta** para aplicativos de serviço, você verá pela primeira vez a guia **Configurações de oferta.** Você fornece os principais identificadores e o nome para sua oferta nesta guia. Um asterisco (*) indica um campo necessário.
+Ao abrir a nova página de **oferta** para aplicativos de serviço, você verá primeiro a guia **configurações da oferta** . Você fornece os identificadores primários e o nome da sua oferta nessa guia. Um asterisco (*) indica um campo obrigatório.
 
 ![Guia Configurações da Oferta](./media/offer-settings-tab.png)
 
 
 ## <a name="offer-settings-fields"></a>Campos de Configurações da Oferta 
 
-Na guia **Configurações de oferta,** você precisa inserir informações nos seguintes campos necessários. Os campos obrigatórios são indicados por um asterisco (*).
+Na guia **configurações da oferta** , você precisa inserir informações nos campos obrigatórios a seguir. Os campos obrigatórios são indicados por um asterisco (*).
 
 |  Campo        |  Descrição                                                               |
 |---------------|----------------------------------------------------------------------------|
-| **ID da oferta\***  | Um identificador exclusivo (dentro de um perfil de editor) para a oferta. Esse identificador ficará visível em URLs de produtos, modelos do Azure Resource Manager e relatórios de faturamento. O tamanho máximo é de 50 caracteres. Pode conter apenas caracteres alfanuméricos minúsculos e traços (-). Não pode terminar com um traço. Este identificador não pode ser alterado depois que uma oferta entra no ar. Se contoso publicar uma oferta `sample-SvcApp`com ID de oferta, `https://appsource.microsoft.com/marketplace/apps/contoso.sample-SvcApp`a oferta será atribuída ao APPSource URL .      |
-| **Publicador\*** | O identificador exclusivo de sua organização no [AppSource](https://appsource.microsoft.com). Todas as suas ofertas devem ser associadas à sua ID do publicador. Esse valor não pode ser alterado depois que a oferta é salva.                         |
-| **Nome\***      | Um nome de exibição para sua oferta. Este nome aparecerá no AppSource e no Portal de Parceiros na Nuvem. O tamanho máximo é de 50 caracteres. Use uma marca que seja reconhecível para o seu produto. Não inclua o nome da sua organização aqui, a menos que o aplicativo seja comercializado com esse nome. Se você estiver fornecendo esta oferta em outros sites e publicações, use o mesmo nome em todas as publicações.    <br/>Se você liberar uma oferta durante o período de `(Preview)` visualização para aplicativos Power BI, `Sample Scv App (Preview)`adicione a string no final do nome do aplicativo, assim: . |
+| **ID da oferta\***  | Um identificador exclusivo (dentro de um perfil de editor) para a oferta. Esse identificador ficará visível em URLs de produtos, modelos do Azure Resource Manager e relatórios de faturamento. O tamanho máximo é de 50 caracteres. Ele pode conter apenas caracteres alfanuméricos minúsculos e traços (-). Ele não pode terminar com um traço. Esse identificador não pode ser alterado depois que uma oferta é ativada. Se a contoso publicar uma oferta com uma ID `sample-SvcApp`de oferta, a oferta será atribuída à `https://appsource.microsoft.com/marketplace/apps/contoso.sample-SvcApp`URL AppSource.      |
+| **Editor\*** | O identificador exclusivo de sua organização no [AppSource](https://appsource.microsoft.com). Todas as suas ofertas devem ser associadas à sua ID do publicador. Esse valor não pode ser alterado depois que a oferta é salva.                         |
+| **Name\***      | Um nome de exibição para sua oferta. Esse nome aparecerá em AppSource e na Portal do Cloud Partner. O tamanho máximo é de 50 caracteres. Use um nome de marca que seja reconhecível para seu produto. Não inclua o nome da sua organização aqui, a menos que o aplicativo esteja comercializado com esse nome. Se você estiver fornecendo essa oferta em outros sites e publicações, use o mesmo nome em todas as publicações.    <br/>Se você liberar uma oferta durante o período de visualização para aplicativos Power BI, adicione a `(Preview)` cadeia de caracteres no final do nome do aplicativo, desta forma `Sample Scv App (Preview)`:. |
 |     |     |
 
 

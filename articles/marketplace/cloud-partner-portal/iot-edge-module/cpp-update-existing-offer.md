@@ -1,5 +1,5 @@
 ---
-title: Atualize uma oferta existente do módulo Azure IoT Edge | Mercado Azure
+title: Atualizar uma oferta de módulo de Azure IoT Edge existente | Azure Marketplace
 description: Atualizar uma oferta de módulo do IoT Edge existente no Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 019711f35d249e6684013feddb6b453d509f66d4
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 17cce766f2d56766a9fcf260416d8bbf3e43d0c5
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985347"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82142245"
 ---
 # <a name="update-an-existing-iot-edge-module-offer"></a>Atualizar uma oferta de módulo do IoT Edge existente
 
 >[!Important]
->A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas do seu módulo IoT Edge para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://aka.ms/AzureCreateIoT) para gerenciar suas ofertas migradas.
+>A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de módulo IoT Edge para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar um módulo de IOT Edge oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) para gerenciar suas ofertas migradas.
 
 Este artigo percorre os diferentes aspectos da atualização de sua oferta de módulo do IoT Edge no [Portal do Cloud Partner](https://cloudpartner.azure.com/) e, em seguida, republicar a oferta.
 
@@ -32,7 +32,7 @@ Para ajudá-lo nessas modificações, o portal oferece os recursos **Comparar** 
 
 ## <a name="unpermitted-changes-to-iot-edge-module-offer-or-sku"></a>Alterações não permitidas na oferta de módulo do IoT Edge ou SKU
 
-Existem atributos de uma oferta de módulo IoT Edge ou SKU que não podem ser alterados depois que a oferta estiver ao vivo no Azure Marketplace. Você não pode alterar as configurações a seguir:
+Há atributos de uma oferta de módulo IoT Edge ou SKU que não pode ser alterado depois que a oferta está ativa no Azure Marketplace. Você não pode alterar as configurações a seguir:
 
 -  **ID da oferta** e **ID do Publicador** da oferta
 -  **ID da SKU** de SKUs existentes
@@ -45,7 +45,7 @@ As operações de inserção e atualização são comuns.
 
 ### <a name="update-the-iot-edge-module-image-version-for-a-sku"></a>Atualizar a versão de imagem do módulo do IoT Edge para uma SKU
 
-É comum que uma imagem do módulo IoT Edge seja atualizada periodicamente com patches de segurança, recursos adicionais e assim por diante. Nesse cenário, você deseja atualizar a imagem de módulo do IoT Edge que faz referência a sua SKU usando as seguintes etapas:
+É comum que uma imagem de módulo IoT Edge seja atualizada periodicamente com patches de segurança, recursos adicionais e assim por diante. Nesse cenário, você deseja atualizar a imagem de módulo do IoT Edge que faz referência a sua SKU usando as seguintes etapas:
 
 1.  Entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 
@@ -69,7 +69,7 @@ Use as etapas a seguir para disponibilizar uma nova SKU para sua oferta existent
 
 3.  Na guia **SKUs**, selecione **Adicionar nova SKU** e forneça uma **ID DE SKU** na janela pop-up.
 
-4.  Republique o módulo IoT Edge usando as etapas descritas em [Publicar um módulo IoT Edge para o Azure Marketplace](./cpp-publish-offer.md).
+4.  Republique o módulo IoT Edge usando as etapas descritas em [publicar um módulo IOT Edge no Azure Marketplace](./cpp-publish-offer.md).
 
 5.  Selecione **Publicar** para iniciar o fluxo de trabalho para publicar a sua nova SKU.
 
@@ -80,9 +80,9 @@ Utilize os seguintes passos para atualizar os metadados do mercado associados à
 
 1.  Entrar no [Portal do Cloud Partner](https://cloudpartner.azure.com/).
 
-2.  Em **Todas as ofertas,** encontre a oferta que você gostaria de atualizar.
+2.  Em **todas as ofertas**, encontre a oferta que você deseja atualizar.
 
-3.  Vá para a guia **Marketplace.** Use as instruções no [módulo Publicar um módulo IoT Edge para o artigo do Azure Marketplace](./cpp-publish-offer.md) para fazer alterações de metadados.
+3.  Vá para a guia **Marketplace** . Use as instruções no artigo [publicar um módulo IOT Edge no Azure Marketplace](./cpp-publish-offer.md) para fazer alterações de metadados.
 
 4.  Selecione **Publicar** para iniciar o fluxo de trabalho para publicar suas alterações.
 

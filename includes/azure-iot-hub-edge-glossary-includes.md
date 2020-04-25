@@ -4,15 +4,15 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: dobett
-ms.openlocfilehash: c95bca125ea70cf32acad0d5ea67c3ad195ed704
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30b8facfef6d90a444bd61d0ce041ed7dfef324e
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67172041"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82131983"
 ---
 ## <a name="automatic-device-management"></a>Gerenciamento de Dispositivo Automático
-O gerenciamento automático do dispositivo no Hub IoT do Azure automatiza muitas das tarefas repetitivas e complexas de gerenciamento de grande frotas de dispositivos sobre a totalidade de seu ciclo de vida. Com o gerenciamento automático do dispositivo, você pode direcionar um conjunto de dispositivos com base em suas propriedades, definir uma configuração desejada e permitir que o Hub IoT atualize dispositivos sempre que entrem no escopo.  Consiste em [configurações de dispositivo automáticas](../articles/iot-hub/iot-hub-auto-device-config.md) e [implantações automáticas do IoT Edge](../articles/iot-edge/how-to-deploy-monitor.md).
+O gerenciamento automático do dispositivo no Hub IoT do Azure automatiza muitas das tarefas repetitivas e complexas de gerenciamento de grande frotas de dispositivos sobre a totalidade de seu ciclo de vida. Com o gerenciamento automático do dispositivo, você pode direcionar um conjunto de dispositivos com base em suas propriedades, definir uma configuração desejada e permitir que o Hub IoT atualize dispositivos sempre que entrem no escopo.  Consiste em [configurações de dispositivo automáticas](../articles/iot-hub/iot-hub-auto-device-config.md) e [implantações automáticas do IoT Edge](../articles/iot-edge/how-to-deploy-at-scale.md).
 
 ## <a name="iot-edge"></a>IoT Edge
 O Azure IoT Edge permite a implantação orientada a nuvem do código específico da solução e de serviços do Azure para dispositivos locais. Os dispositivos IoT Edge podem agregar dados de outros dispositivos para realizar a computação e a análise antes de os dados serem enviados para a nuvem. Para obter mais informações, consulte[ Borda do IoT do Azure](https://docs.microsoft.com/azure/iot-edge/).
@@ -39,7 +39,7 @@ A parte do runtime do IoT Edge responsável pelas comunicações de módulo para
 Um dispositivo IoT Edge sem nenhum dispositivo downstream. 
 
 ## <a name="iot-edge-module"></a>Módulo do IoT Edge
-Um módulo do IoT Edge é um contêiner do Docker que você pode implantar para dispositivos IoT Edge. Ele executa uma tarefa específica, como a ingestão de uma mensagem de um dispositivo, a transformação de uma mensagem ou o envio de uma mensagem para um Hub IoT. Ele se comunica com outros módulos e envia dados para o runtime do IoT Edge. [Entenda os requisitos e ferramentas para o desenvolvimento de módulos IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-development).
+Um módulo do IoT Edge é um contêiner do Docker que você pode implantar para dispositivos IoT Edge. Ele executa uma tarefa específica, como a ingestão de uma mensagem de um dispositivo, a transformação de uma mensagem ou o envio de uma mensagem para um Hub IoT. Ele se comunica com outros módulos e envia dados para o runtime do IoT Edge. [Entenda os requisitos e as ferramentas para o desenvolvimento de módulos IOT Edge](https://docs.microsoft.com/azure/iot-edge/module-development).
 
 ## <a name="iot-edge-module-identity"></a>Identidade do módulo do IoT Edge
 Um registro no Registro de identidade do módulo do Hub IoT detalhando as credenciais de segurança e existência a serem usadas por um módulo para a autenticação com um hub de borda ou Hub IoT.
@@ -60,4 +60,4 @@ O runtime do IoT Edge inclui tudo que a Microsoft distribui para ser instalado e
 Uma operação que copia o conteúdo de um manifesto do IoT Edge no módulo gêmeo de um dispositivo. A API subjacente é uma “aplicar configuração” genérica, que simplesmente utiliza o manifesto do IoT Edge como uma entrada.
 
 ## <a name="iot-edge-target-condition"></a>Condição de destino do IoT Edge
-Em uma implantação de IoT Edge, a condição de destino é qualquer condição booleana nas tags de gêmeos do dispositivo para selecionar os dispositivos de destino da implantação, por exemplo **tag.environment = prod**. A condição de destino é continuamente avaliada para incluir quaisquer novos dispositivos que atendam aos requisitos ou removam dispositivos que não o façam mais. Saiba mais sobre a [condição de destino](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#target-condition)
+Em uma implantação de IoT Edge, a condição de destino é qualquer condição booliana nas marcas do dispositivo gêmeos para selecionar os dispositivos de destino da implantação, por exemplo, **tag. Environment = prod**. A condição de destino é avaliada continuamente para incluir novos dispositivos que atendam aos requisitos ou remova os dispositivos que não fazem mais. Saiba mais sobre a [condição de destino](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#target-condition)

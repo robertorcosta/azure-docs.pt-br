@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/13/2020
 ms.service: service-bus-messaging
 ms.topic: article
-ms.openlocfilehash: f456137b61a96f555b2604e7871516fd1d38ab42
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 33e6ce1d5feb50080b00fcbecdeb9e512980eab6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116699"
+ms.locfileid: "82141941"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link-preview"></a>Integrar o barramento de serviço do Azure com o link privado do Azure (versão prévia)
 
@@ -25,7 +25,7 @@ Para obter mais informações, confira [O que é o Link Privado do Azure?](../pr
 >[!WARNING]
 > A implementação de pontos de extremidade privados pode impedir que outros serviços do Azure interajam com o barramento de serviço.
 >
-> Não há suporte para serviços confiáveis da Microsoft quando as Redes Virtuais são implementadas.
+> Os serviços confiáveis da Microsoft não têm suporte ao usar redes virtuais.
 >
 > Cenários comuns do Azure que não funcionam com Redes Virtuais (observe que a lista **NÃO** é exaustiva):
 > - Integração com a Grade de Eventos do Azure
@@ -71,7 +71,7 @@ Se você já tiver um namespace existente, poderá criar um ponto de extremidade
     1. Selecione a **assinatura do Azure** na qual você deseja criar o ponto de extremidade privado. 
     2. Selecione o **grupo de recursos** para o recurso de ponto de extremidade privado.
     3. Insira um **nome** para o ponto de extremidade privado. 
-    5. Selecione uma **região** para o ponto de extremidade privado. Seu ponto de extremidade privado deve estar na mesma região que sua rede virtual, mas pode estar em uma região diferente partir o recurso de link privado ao qual você está se conectando. 
+    5. Selecione uma **região** para o ponto de extremidade privado. Seu ponto de extremidade privado deve estar na mesma região que sua rede virtual, mas pode estar em uma região diferente do recurso de link privado ao qual você está se conectando. 
     6. Selecione **Avançar:** o botão >de recursos na parte inferior da página.
 
         ![Criar ponto de extremidade privado-página noções básicas](./media/private-link-service/create-private-endpoint-basics-page.png)
@@ -85,7 +85,7 @@ Se você já tiver um namespace existente, poderá criar um ponto de extremidade
         
             ![Criar ponto de extremidade privado – página de recursos](./media/private-link-service/create-private-endpoint-resource-page.png)
     2. Se você selecionar **conectar-se a um recurso do Azure por ID de recurso ou alias**, siga estas etapas:
-        1. Insira a **ID do recurso** ou o **alias**. Pode ser a ID de recurso ou o alias que alguns compartilharam com você.
+        1. Insira a **ID do recurso** ou o **alias**. Pode ser a ID de recurso ou o alias que alguém compartilhou com você. A maneira mais fácil de obter a ID do recurso é navegar até o namespace do barramento de serviço no portal do Azure e copiar a parte do URI a `/subscriptions/`partir de. Consulte a imagem a seguir para obter um exemplo. 
         2. Para o **subrecurso de destino**, insira **namespace**. É o tipo do subrecurso que seu ponto de extremidade privado pode acessar. 
         3. adicional Insira uma **mensagem de solicitação**. O proprietário do recurso vê essa mensagem enquanto gerencia a conexão de ponto de extremidade particular. 
         4. Em seguida, selecione o botão **Avançar: configuração >** na parte inferior da página. 

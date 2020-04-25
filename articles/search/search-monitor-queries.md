@@ -1,128 +1,128 @@
 ---
-title: Consultas de monitor
+title: Monitorar consultas
 titleSuffix: Azure Cognitive Search
-description: Monitore as métricas de consulta para desempenho e throughput. Coletar e analisar entradas de seqüência de consultas em registros de diagnóstico.
+description: Monitore as métricas de consulta para desempenho e taxa de transferência. Coletar e analisar entradas de cadeia de caracteres de consulta nos logs de recursos.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: a3a313ef9cd74ba901f5a6a2d82a18e3c21145dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da7a47bf61453c30f5c735b1282ae93d2442598c
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462507"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82127690"
 ---
-# <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorar solicitações de consulta no Azure Cognitive Search
+# <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorar solicitações de consulta no Azure Pesquisa Cognitiva
 
-Este artigo explica como medir o desempenho e o volume da consulta usando métricas e registro de diagnóstico. Ele também explica como coletar os termos de entrada usados em consultas - informações necessárias quando você precisa avaliar a utilidade e eficácia do seu corpus de pesquisa.
+Este artigo explica como medir o desempenho e o volume da consulta usando métricas e log de recursos. Ele também explica como coletar os termos de entrada usados em consultas – informações necessárias quando você precisa avaliar o utilitário e a eficácia do seu corpus de pesquisa.
 
-Os dados históricos que alimentam métricas são preservados por 30 dias. Para maior retenção ou para relatar dados operacionais e seqüências de consultas, certifique-se de habilitar uma [configuração de diagnóstico](search-monitor-logs.md) que especifica uma opção de armazenamento para eventos e métricas registradas persistentes.
+Os dados históricos que alimentam as métricas são preservados por 30 dias. Para maior retenção ou para relatar dados operacionais e cadeias de consulta, certifique-se de habilitar uma [configuração de diagnóstico](search-monitor-logs.md) que especifique uma opção de armazenamento para manter métricas e eventos registrados em log.
 
 As condições que maximizam a integridade da medição de dados incluem:
 
-+ Use um serviço de cobrança (um serviço criado no nível Básico ou Padrão). O serviço gratuito é compartilhado por vários assinantes, o que introduz uma certa quantidade de volatilidade à medida que as cargas mudam.
++ Use um serviço faturável (um serviço criado na camada básica ou Standard). O serviço gratuito é compartilhado por vários assinantes, o que introduz uma determinada quantidade de volatilidade como um deslocamento de carga.
 
-+ Use uma única réplica e partição, se possível, para criar um ambiente contido e isolado. Se você usar várias réplicas, as métricas de consulta são médias em vários nós, o que pode diminuir a precisão dos resultados. Da mesma forma, várias partições significam que os dados são divididos, com o potencial de que algumas partições possam ter dados diferentes se a indexação também estiver em andamento. Ao ajustar o desempenho da consulta, um único nó e partição dá um ambiente mais estável para testes.
++ Use uma única réplica e partição, se possível, para criar um ambiente independente e isolado. Se você usar várias réplicas, as métricas de consulta serão calculadas em média em vários nós, o que pode reduzir a precisão dos resultados. Da mesma forma, várias partições significam que os dados são divididos, com o potencial de que algumas partições podem ter dados diferentes se a indexação também estiver em andamento. Ao ajustar o desempenho da consulta, um único nó e partição fornece um ambiente mais estável para teste.
 
 > [!Tip]
-> Com código suplementar do lado do cliente e insights de aplicativos, você também pode capturar dados por clique através de informações mais profundas sobre o que atrai o interesse dos usuários do seu aplicativo. Para saber mais, confira [Análise de tráfego de pesquisa](search-traffic-analytics.md).
+> Com o código adicional do lado do cliente e Application Insights, você também pode capturar dados de clickthrough para obter informações mais aprofundadas sobre o que atrai o interesse dos usuários do seu aplicativo. Para saber mais, confira [Análise de tráfego de pesquisa](search-traffic-analytics.md).
 
 ## <a name="query-volume-qps"></a>Volume de consulta (QPS)
 
-O volume é medido como **Perguntas de Pesquisa por Segundo** (QPS), uma métrica incorporada que pode ser relatada como valores médios, de contagem, mínimos ou máximos de consultas que são executadas dentro de uma janela de um minuto. Intervalos de um minuto (TimeGrain = "PT1M") para métricas são fixados dentro do sistema.
+O volume é medido como **consultas de pesquisa por segundo** (QPS), uma métrica interna que pode ser relatada como um valor médio, de contagem, mínimo ou máximo de consultas executadas em uma janela de um minuto. Os intervalos de um minuto (timegranular = "PT1M") para métricas são corrigidos no sistema.
 
-É comum que consultas sejam executadas em milissegundos, então apenas consultas que medem como segundos aparecerão em métricas.
+É comum que as consultas sejam executadas em milissegundos, portanto, somente as consultas que medem como segundos aparecerão em métricas.
 
 | Tipo de agregação | Descrição |
 |------------------|-------------|
-| Média | O número médio de segundos dentro de um minuto durante o qual a execução da consulta ocorreu.|
-| Contagem | O número de métricas emitidas para o registro dentro do intervalo de um minuto. |
-| Máximo | O maior número de consultas de pesquisa por segundo registrado durante um minuto. |
-| Mínimo | O menor número de consultas de pesquisa por segundo registrado durante um minuto.  |
-| SUM | A soma de todas as consultas executadas dentro de um minuto.  |
+| Média | O número médio de segundos em um minuto durante o qual a execução da consulta ocorreu.|
+| Contagem | O número de métricas emitidas para o log dentro do intervalo de um minuto. |
+| Máximo | O número mais alto de consultas de pesquisa por segundo registradas durante um minuto. |
+| Mínimo | O número mais baixo de consultas de pesquisa por segundo registradas durante um minuto.  |
+| SUM | A soma de todas as consultas executadas dentro do minuto.  |
 
-Por exemplo, dentro de um minuto, você pode ter um padrão como este: um segundo de alta carga que é o máximo para SearchQueriesPerSecond, seguido por 58 segundos de carga média, e finalmente um segundo com apenas uma consulta, que é o mínimo.
+Por exemplo, em um minuto, você pode ter um padrão como este: um segundo de alta carga que é o máximo para SearchQueriesPerSecond, seguido de 58 segundos de carga média e, finalmente, um segundo com apenas uma consulta, que é o mínimo.
 
-Outro exemplo: se um nó emite 100 métricas, onde o valor de cada métrica é 40, então "Contagem" é 100, "Soma" é 4000, "Média" é 40 e "Max" é 40.
+Outro exemplo: se um nó emite 100 métricas, em que o valor de cada métrica é 40, "Count" é 100, "Sum" é 4000, "Average" é 40 e "Max" é 40.
 
 ## <a name="query-performance"></a>Desempenho de consulta
 
-O desempenho de consulta em todo o serviço é medido como latência de pesquisa (quanto tempo uma consulta leva para ser concluída) e consultas estranguladas que foram descartadas como resultado da contenção de recursos.
+O desempenho de consulta em todo o serviço é medido como a latência de pesquisa (por quanto tempo uma consulta leva para ser concluída) e consultas limitadas que foram descartadas como resultado da contenção de recursos.
 
 ### <a name="search-latency"></a>Latência de pesquisa
 
 | Tipo de agregação | Latency | 
 |------------------|---------|
 | Média | Duração média da consulta em milissegundos. | 
-| Contagem | O número de métricas emitidas para o registro dentro do intervalo de um minuto. |
-| Máximo | Consulta mais longa da amostra. | 
-| Mínimo | Consulta de execução mais curta na amostra.  | 
-| Total | Tempo total de execução de todas as consultas na amostra, executando dentro do intervalo (um minuto).  |
+| Contagem | O número de métricas emitidas para o log dentro do intervalo de um minuto. |
+| Máximo | Consulta de execução mais longa no exemplo. | 
+| Mínimo | Consulta de execução mais curta no exemplo.  | 
+| Total | Tempo de execução total de todas as consultas no exemplo, executando dentro do intervalo (um minuto).  |
 
-Considere o seguinte exemplo de métricas de **Latência** de Pesquisa: 86 consultas foram amostradas, com duração média de 23,26 milissegundos. Um mínimo de 0 indica que algumas consultas foram retiradas. A consulta mais longa levou 1000 milissegundos para ser concluída. O tempo total de execução foi de 2 segundos.
+Considere o seguinte exemplo de métricas de **latência de pesquisa** : 86 consultas foram amostradas, com uma duração média de 23,26 milissegundos. Um mínimo de 0 indica que algumas consultas foram descartadas. A consulta de execução mais longa levou 1000 milissegundos para ser concluída. O tempo de execução total foi de 2 segundos.
 
 ![Agregações de latência](./media/search-monitor-usage/metrics-latency.png "Agregações de latência")
 
-### <a name="throttled-queries"></a>Consultas estranguladas
+### <a name="throttled-queries"></a>Consultas limitadas
 
-Consultas estranguladas referem-se a consultas que são descartadas em vez de processo. Na maioria dos casos, o estrangulamento é uma parte normal da execução do serviço.  Não é necessariamente uma indicação de que há algo errado.
+Consultas limitadas referem-se a consultas que são descartadas em vez de processo. Na maioria dos casos, a limitação é uma parte normal da execução do serviço.  Não é necessariamente uma indicação de que há algo errado.
 
-O estrangulamento ocorre quando o número de solicitações atualmente processadas excede os recursos disponíveis. Você pode ver um aumento nas solicitações estranguladas quando uma réplica é retirada da rotação ou durante a indexação. Tanto as solicitações de consulta quanto de indexação são tratadas pelo mesmo conjunto de recursos.
+A limitação ocorre quando o número de solicitações atualmente processadas excede os recursos disponíveis. Você pode ver um aumento nas solicitações limitadas quando uma réplica é retirada da rotação ou durante a indexação. As solicitações de consulta e indexação são tratadas pelo mesmo conjunto de recursos.
 
-O serviço determina se deve retirar solicitações com base no consumo de recursos. A porcentagem de recursos consumidos em memória, CPU e IO de disco é média durante um período de tempo. Se esse percentual exceder um limite, todas as solicitações ao índice serão estranguladas até que o volume de solicitações seja reduzido. 
+O serviço determina se as solicitações devem ser descartadas com base no consumo de recursos. A porcentagem de recursos consumidos em memória, CPU e e/s de disco são calculadas por meio de um período de tempo. Se essa porcentagem exceder um limite, todas as solicitações para o índice serão limitadas até que o volume de solicitações seja reduzido. 
 
-Dependendo do seu cliente, uma solicitação estrangulada pode ser indicada desta forma:
+Dependendo do seu cliente, uma solicitação limitada pode ser indicada das seguintes maneiras:
 
-+ Um serviço retorna um erro "Você está enviando muitas solicitações. Tente novamente mais tarde.” 
++ Um serviço retorna um erro "você está enviando muitas solicitações. Tente novamente mais tarde.” 
 + Um serviço retorna um código de erro 503 indicando que o serviço está indisponível no momento. 
-+ Se você estiver usando o portal (por exemplo, Search Explorer), a consulta será descartada silenciosamente e você precisará clicar em Pesquisar novamente.
++ Se você estiver usando o portal (por exemplo, Gerenciador de pesquisa), a consulta será descartada silenciosamente e será necessário clicar em Pesquisar novamente.
 
-Para confirmar as consultas estranguladas, use a métrica **de consultas de pesquisa estrangulada.** Você pode explorar métricas no portal ou criar uma métrica de alerta conforme descrito neste artigo. Para consultas que foram descartadas dentro do intervalo de amostragem, use *Total* para obter a porcentagem de consultas que não foram executadas.
+Para confirmar as consultas limitadas, use a métrica de **consultas de pesquisa limitada** . Você pode explorar as métricas no portal ou criar uma métrica de alerta, conforme descrito neste artigo. Para consultas que foram descartadas dentro do intervalo de amostragem, use *total* para obter a porcentagem de consultas que não foram executadas.
 
 | Tipo de agregação | Limitação |
 |------------------|-----------|
-| Média | A porcentagem de consultas caiu dentro do intervalo. |
-| Contagem | O número de métricas emitidas para o registro dentro do intervalo de um minuto. |
-| Máximo | A porcentagem de consultas caiu dentro do intervalo.|
-| Mínimo | A porcentagem de consultas caiu dentro do intervalo. |
-| Total | A porcentagem de consultas caiu dentro do intervalo. |
+| Média | Porcentagem de consultas descartadas dentro do intervalo. |
+| Contagem | O número de métricas emitidas para o log dentro do intervalo de um minuto. |
+| Máximo | Porcentagem de consultas descartadas dentro do intervalo.|
+| Mínimo | Porcentagem de consultas descartadas dentro do intervalo. |
+| Total | Porcentagem de consultas descartadas dentro do intervalo. |
 
-Para **a Porcentagem de Consultas de Pesquisa Estrangulada,** mínimo, máximo, médio e total, todos têm o mesmo valor: a porcentagem de consultas de pesquisa que foram estranguladas, a partir do número total de consultas de pesquisa durante um minuto.
+Para **consultas de pesquisa limitadas percentual**, mínimo, máximo, média e total, todos têm o mesmo valor: a porcentagem de consultas de pesquisa que foram limitadas, do número total de consultas de pesquisa durante um minuto.
 
-Na captura de tela a seguir, o primeiro número é a contagem (ou número de métricas enviadas ao registro). Agregações adicionais, que aparecem na parte superior ou quando pairam sobre a métrica, incluem média, máximo e total. Nesta amostra, nenhum pedido foi descartado.
+Na captura de tela a seguir, o primeiro número é a contagem (ou o número de métricas enviadas ao log). Agregações adicionais, que aparecem na parte superior ou ao passar o mouse sobre a métrica, incluem média, máximo e total. Neste exemplo, nenhuma solicitação foi descartada.
 
-![Agregações estranguladas](./media/search-monitor-usage/metrics-throttle.png "Agregações estranguladas")
+![Agregações limitadas](./media/search-monitor-usage/metrics-throttle.png "Agregações limitadas")
 
 ## <a name="explore-metrics-in-the-portal"></a>Explorar métricas no portal
 
-Para uma rápida olhada nos números atuais, a guia **Monitoramento** na página Visão Geral do serviço mostra três métricas (**Latência de**pesquisa , **consultas de pesquisa por segundo (por unidade de pesquisa)**, **Porcentagem de consultas de pesquisa estranguladas**) sobre intervalos fixos medidos em horas, dias e semanas, com a opção de alterar o tipo de agregação.
+Para uma visão rápida dos números atuais, a guia **monitoramento** na página Visão geral do serviço mostra três métricas (**latência de pesquisa**, **consultas de pesquisa por segundo (por unidade de pesquisa)**, **percentual de consultas de pesquisa limitadas**) sobre os intervalos fixos medidos em horas, dias e semanas, com a opção de alterar o tipo de agregação.
 
-Para uma exploração mais profunda, abra o explorador de métricas do menu **Monitorando** para que você possa camada, zoom e visualização de dados para explorar tendências ou anomalias. Saiba mais sobre o metrics explorer completando este [tutorial sobre a criação de um gráfico de métricas](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-metrics-explorer).
+Para uma exploração mais profunda, abra o Metrics Explorer no menu **monitoramento** para que você possa aplicar camadas, ampliar e Visualizar dados para explorar tendências ou anomalias. Saiba mais sobre o Metrics Explorer concluindo este [tutorial sobre como criar um gráfico de métricas](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-metrics-explorer).
 
-1. Na seção Monitoramento, selecione **Métricas** para abrir o explorador de métricas com o escopo definido para o serviço de pesquisa.
+1. Na seção monitoramento, selecione **métricas** para abrir o Gerenciador de métricas com o escopo definido para o serviço de pesquisa.
 
-1. Em Metric, escolha um da lista de saque e revise a lista de agregações disponíveis para um tipo preferido. A agregação define como os valores coletados serão amostrados ao longo de cada intervalo de tempo.
+1. Em métrica, escolha uma na lista suspensa e examine a lista de agregações disponíveis para um tipo preferencial. A agregação define como os valores coletados serão amostrados em cada intervalo de tempo.
 
-   ![Explorador de métricas para métrica QPS](./media/search-monitor-usage/metrics-explorer-qps.png "Explorador de métricas para métrica QPS")
+   ![Métricas Explorer para métrica QPS](./media/search-monitor-usage/metrics-explorer-qps.png "Métricas Explorer para métrica QPS")
 
 1. No canto superior direito, defina o intervalo de tempo.
 
 1. Escolha uma visualização. O padrão é um gráfico de linhas.
 
-1. Camada agregações adicionais escolhendo **Adicionar métrica** e selecionando diferentes agregações.
+1. Agregações adicionais de camada escolhendo **Adicionar métrica** e selecionando diferentes agregações.
 
-1. Amplie em uma área de interesse no gráfico de linha. Coloque o ponteiro do mouse no início da área, clique com o botão esquerdo do mouse e mantenha pressionado, arraste para o outro lado da área e solte o botão. O gráfico será ampliado naquele intervalo de tempo.
+1. Aplique zoom em uma área de interesse no gráfico de linhas. Coloque o ponteiro do mouse no início da área, clique com o botão esquerdo do mouse e mantenha pressionado, arraste para o outro lado da área e solte o botão. O gráfico será ampliado naquele intervalo de tempo.
 
-## <a name="identify-strings-used-in-queries"></a>Identificar strings usadas em consultas
+## <a name="identify-strings-used-in-queries"></a>Identificar cadeias de caracteres usadas em consultas
 
-Quando você habilita o registro de diagnóstico, o sistema captura solicitações de consulta na tabela **AzureDiagnostics.** Como pré-requisito, você já deve ter ativado [o registro de diagnóstico,](search-monitor-logs.md)especificando um espaço de trabalho de análise de log ou outra opção de armazenamento.
+Quando você habilita o log de recursos, o sistema captura solicitações de consulta na tabela **AzureDiagnostics** . Como pré-requisito, você já deve ter habilitado o [log de recursos](search-monitor-logs.md), especificando um espaço de trabalho do log Analytics ou outra opção de armazenamento.
 
-1. Na seção Monitoramento, selecione **Logs** para abrir uma janela de consulta vazia no Log Analytics.
+1. Na seção monitoramento, selecione **logs** para abrir uma janela de consulta vazia no log Analytics.
 
-1. Execute a seguinte expressão para pesquisar Operações de consulta.Pesquisa, retornando um conjunto de resultados tabular que consiste no nome da operação, na seqüência de consultas, no índice consultado e no número de documentos encontrados. As duas últimas instruções excluem as seqüências de consulta que consistem em uma pesquisa vazia ou não especificada, sobre um índice de amostra, o que reduz o ruído em seus resultados.
+1. Execute a expressão a seguir para pesquisar as operações Query. Search, retornando um conjunto de resultados tabulares que consistem no nome da operação, na cadeia de caracteres de consulta, no índice consultado e no número de documentos encontrados. As duas últimas instruções excluem cadeias de caracteres de consulta que consistem em uma pesquisa vazia ou não especificada, em um índice de exemplo, que reduz o ruído nos resultados.
 
    ```
    AzureDiagnostics
@@ -132,19 +132,19 @@ Quando você habilita o registro de diagnóstico, o sistema captura solicitaçõ
    | where IndexName_s != "realestate-us-sample-index"
    ```
 
-1. Opcionalmente, defina um filtro de coluna no *Query_s* para pesquisar sobre uma sintaxe ou string específica. Por exemplo, você pode filtrar *mais é igual a* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
+1. Opcionalmente, defina um filtro de coluna em *Query_s* para pesquisar por uma sintaxe ou cadeia de caracteres específica. Por exemplo, você pode filtrar por *é igual a* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
 
-   ![Strings de consulta registrada](./media/search-monitor-usage/log-query-strings.png "Strings de consulta registrada")
+   ![Cadeias de consulta registradas](./media/search-monitor-usage/log-query-strings.png "Cadeias de consulta registradas")
 
-Enquanto essa técnica funciona para uma investigação ad hoc, a construção de um relatório permite que você consolide e apresente as strings de consulta em um layout mais propício à análise.
+Embora essa técnica funcione para a investigação ad hoc, a criação de um relatório permite que você consolide e apresente as cadeias de caracteres de consulta em um layout mais adequado à análise.
 
-## <a name="identify-long-running-queries"></a>Identifique consultas de longo prazo
+## <a name="identify-long-running-queries"></a>Identificar consultas de execução longa
 
-Adicione a coluna de duração para obter os números para todas as consultas, não apenas aqueles que são pegos como uma métrica. A classificação destes dados mostra quais consultas levam mais tempo para serem concluídas.
+Adicione a coluna Duration para obter os números de todas as consultas, não apenas aquelas que são selecionadas como uma métrica. A classificação desses dados mostra quais consultas levam mais tempo para serem concluídas.
 
-1. Na seção Monitoramento, selecione **Logs** para consultar informações de log.
+1. Na seção monitoramento, selecione **logs** para consultar informações de log.
 
-1. Execute a seguinte consulta para retornar consultas, classificadapor duração em milissegundos. As consultas mais longas estão no topo.
+1. Execute a consulta a seguir para retornar consultas, classificadas por duração em milissegundos. As consultas de execução mais longa estão na parte superior.
 
    ```
    AzureDiagnostics
@@ -157,31 +157,31 @@ Adicione a coluna de duração para obter os números para todas as consultas, n
 
 ## <a name="create-a-metric-alert"></a>Criar um alerta de métrica
 
-Um alerta métrico estabelece um limite no qual você receberá uma notificação ou desencadeará uma ação corretiva que você definirá com antecedência. 
+Um alerta de métrica estabelece um limite no qual você receberá uma notificação ou disparará uma ação corretiva que você definir antecipadamente. 
 
-Para um serviço de pesquisa, é comum criar um alerta métrico para latência de pesquisa e consultas estranguladas. Se você souber quando as consultas são retiradas, você pode procurar por remédios que reduzam a carga ou aumentem a capacidade. Por exemplo, se as consultas estranguladas aumentarem durante a indexação, você poderá adiá-la até que a atividade de consulta diminua.
+Para um serviço de pesquisa, é comum criar um alerta de métrica para latência de pesquisa e consultas limitadas. Se você souber quando as consultas são descartadas, poderá procurar soluções que reduzem a carga ou aumentam a capacidade. Por exemplo, se as consultas limitadas aumentarem durante a indexação, você poderá adiar isso até o sublado da atividade de consulta.
 
-Ao empurrar os limites de uma configuração de partição de réplica específica, configurar alertas para limiares de volume de consulta (QPS) também é útil.
+Ao enviar por push os limites de uma configuração de partição de réplica específica, a configuração de alertas para QPS (limites de volume de consulta) também é útil.
 
-1. Na seção Monitoramento, selecione **Alertas** e clique **em + Nova regra de alerta**. Certifique-se de que seu serviço de pesquisa seja selecionado como recurso.
+1. Na seção monitoramento, selecione **alertas** e clique em **+ nova regra de alerta**. Verifique se o serviço de pesquisa está selecionado como o recurso.
 
-1. Em Condição, clique em **Adicionar**.
+1. Em condição, clique em **Adicionar**.
 
-1. Configure a lógica do sinal. Para o tipo de sinal, escolha **métricas** e selecione o sinal.
+1. Configure a lógica de sinal. Para tipo de sinal, escolha **métricas** e, em seguida, selecione o sinal.
 
-1. Depois de selecionar o sinal, você pode usar um gráfico para visualizar dados históricos para uma decisão informada sobre como proceder com as condições de configuração.
+1. Depois de selecionar o sinal, você pode usar um gráfico para visualizar os dados históricos para uma decisão informada sobre como prosseguir com a configuração de condições.
 
-1. Em seguida, desça até a lógica de alerta. Para a prova de conceito, você pode especificar um valor artificialmente baixo para fins de teste.
+1. Em seguida, role para baixo até a lógica de alerta. Para prova de conceito, você pode especificar um valor artificialmente baixo para fins de teste.
 
    ![Lógica de alerta](./media/search-monitor-usage/alert-logic-qps.png "Lógica de alerta")
 
-1. Em seguida, especifique ou crie um Grupo de Ação. Esta é a resposta para invocar quando o limiar é atingido. Pode ser uma notificação push ou uma resposta automatizada.
+1. Em seguida, especifique ou crie um grupo de ação. Essa é a resposta a ser invocada quando o limite é atingido. Pode ser uma notificação por Push ou uma resposta automatizada.
 
-1. Por último, especifique detalhes de alerta. Nomeie e descreva o alerta, atribua um valor de gravidade e especifique se criará a regra em um estado habilitado ou desativado.
+1. Por fim, especifique os detalhes do alerta. Nomeie e descreva o alerta, atribua um valor de severidade e especifique se deseja criar a regra em um estado habilitado ou desabilitado.
 
    ![Detalhes do Alerta](./media/search-monitor-usage/alert-details.png "Detalhes do Alerta")
 
-Se você especificou uma notificação por e-mail, você receberá um e-mail do "Microsoft Azure" com uma linha de assunto "Azure: Gravidade Ativada: 3 `<your rule name>`".
+Se você especificou uma notificação por email, receberá um email de "Microsoft Azure" com uma linha de assunto de "Azure: severidade ativada: 3 `<your rule name>`".
 
 <!-- ## Report query data
 
@@ -189,7 +189,7 @@ Power BI is an analytical reporting tool useful for visualizing data, including 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda não fez isso, revise os fundamentos do monitoramento do serviço de busca para saber sobre toda a gama de recursos de supervisão.
+Se você ainda não tiver feito isso, examine os conceitos básicos do monitoramento do serviço de pesquisa para saber mais sobre a gama completa de recursos de supervisão.
 
 > [!div class="nextstepaction"]
-> [Monitorar operações e atividades na Pesquisa Cognitiva do Azure](search-monitor-usage.md)
+> [Monitorar operações e atividades no Azure Pesquisa Cognitiva](search-monitor-usage.md)
