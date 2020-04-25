@@ -1,5 +1,5 @@
 ---
-title: Crie uma imagem VM do usuário para o Azure Marketplace
+title: Criar uma imagem de VM de usuário para o Azure Marketplace
 description: Lista as etapas e as referências necessárias para criar uma imagem de VM de usuário.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 6bbee7f53cb9a61b72bdbbd941a3a0401f5b913b
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9d82d50769925480d461c122096c3919d7e8940d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273946"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146563"
 ---
 # <a name="create-a-user-vm-image"></a>Criar uma imagem VM de usuário
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, iniciaremos a gestão móvel das ofertas da Sua Máquina Virtual Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar seus ativos técnicos da Máquina Virtual do Azure](https://aka.ms/AzureVMTechAsset) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos o gerenciamento de movimentação de suas ofertas de máquina virtual do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar seus ativos técnicos da máquina virtual do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) para gerenciar suas ofertas migradas.
 
 Este artigo explica as duas etapas gerais necessárias para criar uma imagem não gerenciada a partir de um VHD generalizado.  Há referências para orientar em cada etapa: capturar a imagem e generalizar a imagem.
 

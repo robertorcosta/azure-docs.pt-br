@@ -1,5 +1,5 @@
 ---
-title: Crie ativos técnicos para uma oferta de máquina virtual para o Azure Marketplace
+title: Criar ativos técnicos para uma oferta de máquina virtual para o Azure Marketplace
 description: Explica como criar os recursos técnicos para uma oferta de máquina virtual no Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: dsindona
-ms.openlocfilehash: a62af1d8d751d36150c236280077cde8f6547385
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: c6ca017e18a83f0745140cba15d9c894e5a21c32
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273963"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148129"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Criar recursos técnicos para uma oferta de máquina virtual
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, iniciaremos a gestão móvel das ofertas da Sua Máquina Virtual Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar seus ativos técnicos da Máquina Virtual do Azure](https://aka.ms/AzureVMTechAsset) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos o gerenciamento de movimentação de suas ofertas de máquina virtual do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar seus ativos técnicos da máquina virtual do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) para gerenciar suas ofertas migradas.
 
 Esta seção irá guiá-lo na criação e configuração dos recursos técnicos para uma oferta de VM (máquina virtual) do Azure Marketplace.  Uma VM contém dois componentes: o VHD (disco rígido virtual) da solução e os discos de dados associados opcionais.  
 
@@ -37,7 +37,7 @@ Uma imagem de VM contém um disco de sistema operacional e zero ou mais discos d
 
 ## <a name="fundamental-technical-knowledge"></a>Conhecimento técnico fundamental
 
-Projetar, construir e testar esses ativos leva tempo e requer conhecimento técnico tanto da plataforma Azure quanto das tecnologias usadas para construir a oferta. Além do domínio da solução, sua equipe de engenharia deve ter conhecimento das seguintes tecnologias da Microsoft: 
+Projetar, criar e testar esses ativos leva tempo e exige conhecimento técnico da plataforma Azure e das tecnologias usadas para criar a oferta. Além do seu domínio de solução, sua equipe de engenharia deve ter conhecimento das seguintes tecnologias da Microsoft: 
 -    Noções básicas sobre os [Serviços do Azure](https://azure.microsoft.com/services/) 
 -    Como [projetar e arquitetar aplicativos do Azure](https://azure.microsoft.com/solutions/architecture/)
 -    Conhecimento prático de [Máquinas Virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/), [Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/?filter=storage) e [Rede do Azure](https://azure.microsoft.com/services/?filter=networking)
@@ -48,7 +48,7 @@ Projetar, construir e testar esses ativos leva tempo e requer conhecimento técn
 ## <a name="suggested-tools"></a>Ferramentas sugeridas 
 
 Escolha um ou ambos dos seguintes ambientes de script para ajudar a gerenciar VHDs e VMs:
--    [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+-    [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview)
 -    [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 Além disso, é recomendável adicionar as seguintes ferramentas ao ambiente de desenvolvimento: 

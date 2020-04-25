@@ -1,5 +1,5 @@
 ---
-title: Problemas comuns durante a criação de VHD (FAQ) para o Azure Marketplace
+title: Problemas comuns durante a criação do VHD (FAQ) para o Azure Marketplace
 description: Perguntas frequentes sobre a criação do VHD e problemas associados.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: dsindona
-ms.openlocfilehash: 988121effb35949cce442ba9458789105e88feec
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: df219ad7428eed5283c7a30a232308dca84fd25f
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273436"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146986"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problemas comuns durante a criação do VHD (Perguntas Frequentes)
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar PERGUNTAS FREQUENTES VHD](https://aka.ms/VHDcreationIssues) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de máquina virtual do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar VHD perguntas frequentes](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation) para gerenciar suas ofertas migradas.
 
 As perguntas frequentes cobrem problemas comuns encontrados durante a criação do disco rígido virtual (VHD) máquina virtual (VM) para as ofertas da máquina virtual. 
 

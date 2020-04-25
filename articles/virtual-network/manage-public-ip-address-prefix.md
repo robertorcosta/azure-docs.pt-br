@@ -4,24 +4,25 @@ titlesuffix: Azure Virtual Network
 description: Saiba como criar, alterar ou excluir um prefixo de endereço IP público.
 services: virtual-network
 documentationcenter: na
-author: anavinahar
+author: asudbring
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
-ms.author: anavin
-ms.openlocfilehash: 5f0c2d9757f3652b0f83b8c36d89c855f7a92fdd
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.author: allensu
+ms.openlocfilehash: 720496c56cdae69e3b7415ac4d4d05d5796fbff9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383860"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146360"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou excluir um prefixo de endereço IP público
 
-Saiba mais sobre um prefixo de endereço IP público e como criar, alterar e excluir um. Um prefixo de endereço IP público é um intervalo contíguo de endereços com base no número de endereços IP públicos especificados. Os endereços são atribuídos à sua assinatura. Quando você cria um recurso público de endereço IP, você pode atribuir um endereço IP público estático a partir do prefixo e associar o endereço a máquinas virtuais, balanceadores de carga ou outros recursos, para permitir a conectividade com a Internet. Se você não estiver familiarizado com prefixos de endereço IP público, consulte [Visão geral do prefixo de endereço IP público](public-ip-address-prefix.md)
+Saiba mais sobre um prefixo de endereço IP público e como criar, alterar e excluir um. Um prefixo de endereço IP público é um intervalo contíguo de endereços com base no número de endereços IP públicos especificados. Os endereços são atribuídos à sua assinatura. Ao criar um recurso de endereço IP público, você pode atribuir um endereço IP público estático do prefixo e associar o endereço a máquinas virtuais, balanceadores de carga ou outros recursos, para habilitar a conectividade com a Internet. Se você não estiver familiarizado com prefixos de endereço IP público, consulte [Visão geral do prefixo de endereço IP público](public-ip-address-prefix.md)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -34,14 +35,14 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 - Se usar os comandos do PowerShell para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/powershell) ou então executando o PowerShell do computador. O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Este tutorial exige o módulo do Azure PowerShell versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 - Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este tutorial exige a CLI do Azure versão 2.0.41 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
-A conta em que você faz login ou se conecta ao Azure deve ser atribuída à função [de contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) da rede ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que é atribuída às ações apropriadas listadas nas [Permissões.](#permissions)
+A conta que você faz logon ou conecta-se ao Azure com o, deve ser atribuída à função [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que recebe as ações apropriadas listadas em [permissões](#permissions).
 
 Prefixos do endereço IP público têm um encargo. Para detalhes, consulte o [preço](https://azure.microsoft.com/pricing/details/ip-addresses).
 
 ## <a name="create-a-public-ip-address-prefix"></a>Criar um prefixo de endereço IP público
 
 1. No canto superior esquerdo do Portal, selecione **+ Criar um recurso**.
-2. Digite *o prefixo ip público* na caixa Pesquisar o *Marketplace.* Quando **Prefixo de endereço IP público** aparecer nos resultados da pesquisa, selecione-o.
+2. Insira o *prefixo IP público* na caixa *Pesquisar no Marketplace* . Quando **Prefixo de endereço IP público** aparecer nos resultados da pesquisa, selecione-o.
 3. Em **Prefixo de endereço IP público**, selecione **Criar**.
 4. Insira ou selecione valores para as configurações a seguir, em **Criar prefixo de endereço IP público** e, em seguida, selecione **Criar**:
 
@@ -49,7 +50,7 @@ Prefixos do endereço IP público têm um encargo. Para detalhes, consulte o [pr
    |---|---|---|
    |Subscription|Sim|Deve existir na mesma [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que o recurso ao qual você deseja associar o endereço IP público.|
    |Resource group|Sim|Pode existir no mesmo ou em outro [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) que o recurso ao qual você deseja associar o endereço IP público.|
-   |Nome|Sim|O nome deve ser exclusivo no grupo de recursos selecionado.|
+   |Name|Sim|O nome deve ser exclusivo no grupo de recursos selecionado.|
    |Região|Sim|Deve existir no mesma [região](https://azure.microsoft.com/regions)que os endereços IP públicos que você atribuirá endereços do intervalo.|
    |Tamanho do prefixo|Sim| O tamanho do prefixo que você precisa. Um /28 ou 16 endereços IP é o padrão.
 
@@ -70,11 +71,11 @@ Após criar um prefixo, você deverá criar endereços IP estáticos a partir do
 
    |Configuração|Obrigatório?|Detalhes|
    |---|---|---|
-   |Nome|Sim|O nome do endereço IP público deve ser exclusivo no grupo de recursos selecionado.|
+   |Name|Sim|O nome do endereço IP público deve ser exclusivo no grupo de recursos selecionado.|
    |Tempo limite de ociosidade (minutos)|Não|Por quantos minutos manter uma conexão TCP ou HTTP aberta sem depender de clientes para enviar mensagens keep alive. |
    |Rótulo do nome DNS|Não|Deve ser exclusivo na região do Azure na qual você cria o nome (em todas as assinaturas e em todos os clientes). O Azure registra automaticamente o nome e o endereço IP no DNS dele para que você possa se conectar a um recurso com o nome. O Azure acrescenta uma sub-rede padrão como *location.cloudapp.azure.com* (onde location é a localização selecionada) para o nome fornecido, para criar o nome DNS totalmente qualificado. Para obter mais informações, consulte [Usar DNS do Azure com um endereço IP público do Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
-Alternativamente, você pode usar os comandos CLI e PS abaixo com os parâmetros --public-ip-prefix (CLI) e -PublicIpPrefix (PS) para criar um recurso de endereço IP público. 
+Como alternativa, você pode usar os comandos da CLI e do PS abaixo com os parâmetros--Public-IP-prefix (CLI) e-PublicIpPrefix (PS) para criar um recurso de endereço IP público. 
 
 |Ferramenta|Comando|
 |---|---|
@@ -94,13 +95,13 @@ Alternativamente, você pode usar os comandos CLI e PS abaixo com os parâmetros
 |Ferramenta|Comando|
 |---|---|
 |CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) para listar endereços IP públicos, [az network public-ip prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) para mostrar configurações; [az network public-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-update) para atualizar; [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) para excluir|
-|PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) para recuperar um objeto de endereço IP público e visualizar suas configurações, [Set-AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) para atualizar as configurações; [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) para excluir|
+|PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) para recuperar um objeto de endereço IP público e exibir suas configurações, [set-AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) para atualizar as configurações; [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) para excluir|
 
 ## <a name="permissions"></a>Permissões
 
 Para executar tarefas em prefixos de endereços IP públicos, a conta deve ser atribuída à função [Colaborador de Rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma função [Personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) à qual são atribuídas as ações apropriadas listadas na tabela a seguir:
 
-| Ação                                                            | Nome                                                           |
+| Ação                                                            | Name                                                           |
 | ---------                                                         | -------------                                                  |
 | Microsoft.Network/publicIPPrefixes/read                           | Ler um prefixo de endereço IP público                                |
 | Microsoft.Network/publicIPPrefixes/write                          | Criar ou atualizar um prefixo de endereço IP público                    |

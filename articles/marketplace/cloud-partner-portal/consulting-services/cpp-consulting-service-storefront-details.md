@@ -1,29 +1,29 @@
 ---
-title: Insira detalhes da vitrine para oferta de consultoria | Mercado Azure
-description: Defina os detalhes da vitrine em uma oferta de serviço de consultoria Azure ou Dynamics 365 no Portal de Parceiros em Nuvem.
+title: Inserir detalhes da vitrine para oferta de consultoria | Azure Marketplace
+description: Defina detalhes da vitrine em uma oferta do serviço de consultoria do Azure ou Dynamics 365 no Portal do Cloud Partner.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 65713eaf1651a6c02084751471504b5d022dfe14
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 9fd1330e0ca0a49556e79044570173adaf458e13
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985041"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148155"
 ---
 # <a name="storefront-details-tab"></a>Guia Detalhes da Vitrine
 
 >[!Important]
->A partir de 13 de abril de 2020, começaremos a movimentar a gestão de suas ofertas de serviços de Consultoria para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Visão geral de criação de serviços de consultoria](https://aka.ms/AzureCreateConsultingService) para gerenciar suas ofertas migradas.
+>A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de serviço de consultoria para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [visão geral da criação do serviço de consultoria](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) para gerenciar suas ofertas migradas.
 
 Este artigo explica como inserir os detalhes de sua vitrine. A guia **Detalhes da Vitrine** consiste nestas seções:
 
 -   **Detalhes da oferta**
 -   **Informações do publicador**
--   **Detalhes da listagem**
+-   **Listando detalhes**
 -   **Artefatos de marketing**
 
 ![Criar uma oferta de serviço consultoria – guia Detalhes da Vitrine](media/consultingoffer-storefront-details.png)
@@ -43,28 +43,28 @@ O resumo da oferta é uma breve descrição da oferta que aparece logo abaixo do
 
 *Exemplo 1*
 
--   **Nome da oferta**: Cloud Analytics: Workshop de 3 dias
--   **Resumo da oferta**: Visão geral do Microsoft Azure e Power BI, avaliação do ambiente atual e mini POC.
+-   **Nome da oferta**: análise de nuvem: Workshop de três dias
+-   **Resumo da oferta**: visão geral de Microsoft Azure e Power bi, avaliação do ambiente atual e mini VDC.
 
 *Exemplo 2*
 
--   **Nome da oferta**: Industrial Azure IoT: Prova de conceito de 30 dias
--   **Resumo da oferta**: Crie um piloto de produto conectado à indústria para conectar com segurança equipamentos no campo a uma solução Azure IoT Hub com dashboards, relatórios e notificações.
+-   **Nome da oferta**: Azure IOT industrial: prova de conceito de 30 dias
+-   **Resumo da oferta**: Crie um piloto de produto conectado por industrial para conectar com segurança o equipamento no campo a uma solução de Hub IOT do Azure com dashboards, relatórios e notificações.
 
 *Exemplo 3*
 
--   **Nome da oferta:** Serviços Profissionais: Briefing 1-Hr
--   **Resumo da oferta**: Visão geral e demonstração da solução Dynamics 365 pré-configurada e estendida para operações que fornece gerenciamento aprimorado de projetos, faturamento e recursos para serviços profissionais.
+-   **Nome da oferta**: serviços profissionais: Resumo de 1 a HR
+-   **Resumo da oferta**: visão geral e demonstração da solução pré-configurada e estendida do Dynamics 365 for Operations que fornece gerenciamento aprimorado de projetos, cobrança e recursos para serviços profissionais.
 
 *Exemplo 4*
 
--   **Nome de**oferta : Power BI in Your World: Workshop de 4 Horas
--   **Resumo da**oferta : Levante-se e retome com seu primeiro painel e aprenda as melhores práticas. Para até 12 alunos, realizado no local.
+-   **Nome da oferta**: Power bi em seu mundo: Workshop de 4 horas
+-   **Resumo da oferta**: entrar em funcionamento com seu primeiro painel e aprender as práticas recomendadas. Para até 12 alunos, realizado no local.
 
 *Exemplo 5*
 
--   **Nome da oferta**: Dinâmica e Projetos: Avaliação de 3 Dias
--   **Resumo da oferta**: Coleta e avaliação de requisitos para uma solução ERP projetada para empresas de serviços profissionais e empresas orientadas a projetos.
+-   **Nome da oferta**: Dynamics e projetos: avaliação de 3 dias
+-   **Resumo da oferta**: coleta e avaliação de requisitos para uma solução de ERP projetada para empresas de serviços profissionais e negócios orientados por projeto.
 
 
 ### <a name="offer-description"></a>Descrição da oferta\*
@@ -81,11 +81,11 @@ Mantenha a descrição da oferta breve e respeite o limite de caracteres, pois o
 
 O exemplo a seguir demonstra uma descrição de oferta composta adequadamente, além do nome e do resumo relacionados:
 
-**Nome da oferta**: Cloud Analytics: Workshop de 3 dias
+**Nome da oferta**: análise de nuvem: Workshop de três dias
 
-**Resumo da oferta**: Visão geral do Microsoft Azure e Power BI, avaliação do ambiente atual e mini POC.
+**Resumo da oferta**: visão geral de Microsoft Azure e Power bi, avaliação do ambiente atual e mini VDC.
 
-**Descrição da oferta**: Este workshop de 3 dias é para líderes técnicos e empresariais e é realizado no local na instalação do cliente.
+**Descrição da oferta**: Este workshop de três dias destina-se a líderes técnicos e de negócios e é mantido no local na instalação do cliente.
 
 Agenda
 
@@ -130,7 +130,7 @@ O arquivo Markdown de exemplo a seguir é para a oferta anterior:
 
 ## <a name="publisher-information"></a>Informações do editor
 
-**ID MPN**
+**ID do MPN**
 
 Insira sua ID da MPN (Microsoft Partner Network) de nove dígitos. Se você não tiver uma ID da MPN, poderá obter uma no Microsoft Partner Center.
 
@@ -138,7 +138,7 @@ Insira sua ID da MPN (Microsoft Partner Network) de nove dígitos. Se você não
 
 Insira sua nova ID do Partner Center, caso tenha uma.
 
-**ID MPN**
+**ID do MPN**
 
 Insira uma chave secreta para uma versão prévia da oferta no AppSource antes da ativação.
 Esse identificador não é uma senha.
@@ -155,24 +155,24 @@ A Microsoft se concentra exclusivamente em preço fixo (ou gratuito) ou estimado
 
 Os cinco tipos de ofertas a seguir estão incluídos:
 
--   **Avaliação**: Uma avaliação do ambiente do cliente para determinar a aplicabilidade de uma solução e fornecer uma estimativa de custo e tempo.
+-   **Avaliação**: uma avaliação do ambiente de um cliente para determinar a aplicabilidade de uma solução e fornecer uma estimativa de custo e tempo.
 -   **Resumo**: uma introdução a uma solução ou um serviço de consultoria para atrair o interesse do cliente utilizando estruturas, demonstrações e exemplos de clientes. Os resumos devem ser feitos localmente.
 -   **Implementação**: uma instalação completa que resulta em uma solução totalmente funcional. Para este piloto, a Microsoft recomenda limitar a soluções que possam ser implementadas em uma semana ou menos.
--   **Prova de conceito**: Uma implementação de escopo limitado para determinar se uma solução atende aos requisitos de um cliente.
--   **Workshop**: Um engajamento interativo realizado nas instalações do cliente que pode incluir sessões de treinamento, briefings, avaliações ou demonstrações construídas sobre os dados ou ambiente do cliente.
+-   **Prova de conceito**: uma implementação de escopo limitado para determinar se uma solução atende aos requisitos de um cliente.
+-   **Workshop**: um engajamento interativo realizado nos locais de um cliente que pode incluir sessões de treinamento, resumos, avaliações ou demonstrações criadas nos dados ou no ambiente do cliente.
 
-**Disponibilidade de país/região**
+**Disponibilidade do país/da região**
 
 Selecione o país e a região em que essa oferta de serviço de consultoria está disponível. Não é possível publicar uma única oferta em vários países ou regiões. Uma nova oferta precisa ser criada para cada país ou região.
 
 >[!Note]
->Serviços de consultoria do AppSource estão atualmente ativos no Canadá, nos Estados Unidos e no Reino Unido. Você pode enviar uma oferta para um país/região que ainda não está viva, e ela será revisada e preparada para entrar ao vivo. Um número mínimo de ofertas prontas para entrar em operação são necessárias para abrir um novo país/região, por isso as ofertas para países/regiões que não estão vivas são encorajadas.
+>Serviços de consultoria do AppSource estão atualmente ativos no Canadá, nos Estados Unidos e no Reino Unido. Você pode enviar uma oferta para um país/região que ainda não esteja ao vivo e ela será revisada e preparada para ficar ativa. Um número mínimo de ofertas prontas para ser ativadas é necessário para abrir um novo país/região, portanto, as ofertas para países/regiões que não estão ao vivo são incentivadas.
 
-**Indústrias**
+**Mercados**
 
 Selecione os setores aos quais sua oferta de serviço de consultoria mais se aplica.
 
-**Duração**
+**Permanência**
 
 Selecione um número (por exemplo, 3 ou 4) em **Duração** e, em seguida, selecione **Hora**, **Dia** ou **Semana**.
 

@@ -3,12 +3,12 @@ title: Visão geral da Integridade de Serviço | Microsoft Docs
 description: Informações personalizadas sobre como seus aplicativos do Azure são afetados pela manutenção e pelos problemas de serviço atuais e futuros do Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 280be9f0df1f94dad59c1af147d499860571f86e
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: 2d98a909a45c9dd00b3174f495a15cd18ced11f9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82097244"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146906"
 ---
 # <a name="service-health-overview"></a>Visão geral da integridade do serviço
 
@@ -41,6 +41,12 @@ A exibição **Problemas de serviço** mostra os problemas em andamento nos serv
 Escolha a guia **Impacto potencial** para ver a lista específica de recursos que você tem e que podem ser afetados pelo problema. Você pode fazer o download de uma lista em CSV desses recursos para compartilhar com sua equipe.
 
 ![Gerenciar o problema de serviço – impacto](./media/service-health-overview/azure-service-health-overview-4.png)
+
+## <a name="see-emerging-issues-which-may-impact-your-services"></a>Veja problemas emergentes que podem afetar seus serviços
+
+Há situações em que problemas de serviço generalizados podem ser postados na [página de status do Azure](https://status.azure.com) antes que as comunicações de destino possam ser enviadas aos clientes afetados. Para garantir que a integridade do serviço do Azure forneça uma visão abrangente dos problemas que podem afetar você, os problemas ativos da página de status do Azure são exibidos na integridade do serviço como *problemas emergentes*. Quando um evento estiver ativo na página de status do Azure, uma faixa de problemas emergentes estará presente na integridade do serviço. Clique na faixa para ver os detalhes completos do problema.
+
+![Problema de serviço emergente](./media/service-health-overview/azure-service-health-emerging-issue.png)
 
 ## <a name="get-links-and-downloadable-explanations"></a>Obter links e explicações para download 
 

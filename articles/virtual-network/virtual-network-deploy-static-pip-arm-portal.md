@@ -3,24 +3,22 @@ title: Criar uma máquina virtual com um endereço IP público estático - Porta
 description: Saiba como criar uma VM com um endereço IP público estático usando o Portal do Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: e9546bcc-f300-428f-b94a-056c5bd29035
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
-ms.author: kumud
-ms.openlocfilehash: 66050c16f40e0a06117327ef53e3aae87d03c5db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 0de28fc75d5eb1b0867e4ba6d8eda9f0f42c8498
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76043548"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148013"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Crie uma máquina virtual com um endereço IP público estático usando o portal do Azure
 
@@ -43,7 +41,7 @@ Entre no Portal do Azure em https://portal.azure.com.
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Selecione sua assinatura.|
     |Resource group| Selecione **Usar existente** e, em seguida, **myResourceGroup**.|
-    |Location| Selecione **Leste dos EUA**|
+    |Local| Selecione **leste dos EUA**|
 
 4. Selecione um tamanho para a VM e selecione **Selecionar**.
 5. Sob **as configurações**, selecione **endereço IP público**.
@@ -73,13 +71,13 @@ Entre no Portal do Azure em https://portal.azure.com.
 > [!WARNING]
 > Não modifique as configurações do endereço IP no sistema operacional da máquina virtual. O sistema operacional fica ciente dos endereços IP públicos do Azure. Embora você possa adicionar configurações de endereço IP privado ao sistema operacional, recomendamos não fazê-lo, a menos que seja necessário, e somente depois de ler [Adicionar um endereço IP privado a um sistema operacional](virtual-network-network-interface-addresses.md#private).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua o grupo de recursos e todos os recursos que ele contém:
 
 1. Insira *myResourceGroup* na caixa **Pesquisar** na parte superior do portal. Quando aparecer **myResourceGroup** nos resultados da pesquisa, selecione-o.
 2. Selecione **Excluir grupo de recursos**.
-3. Digite *myResourceGroup* para **digitar o nome do grupo de recursos:** e **selecione Excluir**.
+3. Insira *MyResource* Group para **digite o nome do grupo de recursos:** e selecione **excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

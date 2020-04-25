@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: dsindona
-ms.openlocfilehash: f13e4066137e0d76612040d9f6e5ff3d0aa399c8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: b02fda545ac135735186885d7db597885bf6cc21
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273890"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147961"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Implantar uma VM por meio dos seus VHDs
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, iniciaremos a gestão móvel das ofertas da Sua Máquina Virtual Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar seus ativos técnicos da Máquina Virtual do Azure](https://aka.ms/AzureVMTechAsset) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos o gerenciamento de movimentação de suas ofertas de máquina virtual do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar seus ativos técnicos da máquina virtual do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) para gerenciar suas ofertas migradas.
 
 Esta seção explica como implantar uma VM (máquina virtual) por meio de um VHD (disco rígido virtual) implantado no Azure.  Ela lista as ferramentas necessárias e como usá-las para criar uma imagem de VM do usuário e, em seguida, implantá-la no Azure usando scripts do PowerShell.
 
@@ -26,7 +26,7 @@ Depois de carregar seus discos rígidos virtuais (VHDs) - o VHD do sistema opera
 Para obter mais informações sobre imagens de VM consulte os posts de blog abaixo:
 
 - [Image da VM](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [VM Image PowerShell 'How To'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [Instruções "como" do PowerShell de imagem de VM](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -38,7 +38,7 @@ Se você ainda não fez isso, instale o Azure PowerShell e CLI do Azure, usando 
 - [Instalar a CLI do Azure.](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
-## <a name="deployment-steps"></a>Etapas de implantação.
+## <a name="deployment-steps"></a>Etapas de implantação
 
 Você usará as seguintes etapas para criar e implantar uma imagem de VM do usuário:
 
@@ -62,12 +62,12 @@ Depois que a VM for implantada, você estará pronto para [certificar a imagem d
    |  -------------              |   ---------------                                                            |
    | Nome de Conta de Armazenamento do Usuário   | Nome da conta de armazenamento onde se encontra o VHD generalizado                    |
    | Nome do Contêiner de Armazenamento de Usuário | Nome do contêiner onde se encontra o VHD generalizado                          |
-   | Nome DNS para o IP público      | Nome Público de DNS ip. O nome DNS é da VM, você definirá isso no Portal Azure, assim que a oferta for implantada.  |
+   | Nome DNS para o IP público      | Nome DNS do IP público. O nome DNS é da VM, você irá defini-lo no portal do Azure, depois que a oferta for implantada.  |
    | Nome de Usuário do Administrador             | Nome de usuário da conta do administrador para a nova VM                                  |
    | Senha do Administrador              | Senha da conta Administrador para nova VM                                  |
-   | Tipo de SO                     | Sistema operacional VM: `Windows` \|`Linux`                                    |
+   | Tipo de SO                     | Sistema operacional da VM `Windows` \| :`Linux`                                    |
    | ID da assinatura             | Identificador para a assinatura selecionada                                      |
-   | Location                    | Localização geográfica da implantação                                        |
+   | Local                    | Localização geográfica da implantação                                        |
    | Tamanho da VM                     | [Tamanho da VM do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), por exemplo `Standard_A2` |
    | Nome do endereço IP público      | Nome do seu endereço IP público                                               |
    | Nome da VM                     | Nome da nova VM                                                           |

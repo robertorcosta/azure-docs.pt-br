@@ -1,171 +1,191 @@
 ---
-title: Sobre a Azure Edge Zones - Visualização
-description: Conheça as ofertas de edge computing da Microsoft.
+title: Sobre a visualização da zona do Azure Edge
+description: 'Saiba mais sobre as ofertas de computação de borda da Microsoft: zona de borda do Azure.'
 services: vnf-manager
 author: ganesr
 ms.service: vnf-manager
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: ganesr
-ms.openlocfilehash: aaa849633591bfd34a9fca026c820ec2f9137844
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 90e796c244950d6d374a02757b608099c229c1ea
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81410848"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146939"
 ---
-# <a name="about-azure-edge-zones---preview"></a>Sobre a Azure Edge Zones - Visualização
+# <a name="about-azure-edge-zone-preview"></a>Sobre a visualização da zona do Azure Edge
 
-O Azure Edge Zones é uma família de ofertas do Microsoft Azure que permite o processamento de dados perto do usuário. Você pode implantar VMs, contêineres e outros serviços selecionados do Azure em Regiões de Borda para atender aos requisitos de baixa latência e alto rendimento dos aplicativos.
+A zona de borda do Azure é uma família de ofertas de Microsoft Azure que permite o processamento de dados próximo ao usuário. Você pode implantar VMs, contêineres e outros serviços do Azure selecionados em zonas de borda para atender aos requisitos de baixa latência e alta taxa de transferência dos aplicativos.
 
-Os cenários típicos de casos de uso para Regiões de Borda incluem:
+Os cenários de caso de uso típicos para zonas de borda incluem:
 
-- Comando e controle em tempo real em robótica
-- Análise e inferência em tempo real com Inteligência Artificial e Machine Learning
-- Visão da Máquina
-- Renderização remota para realidade mista e cenários VDI
-- Jogos multi-jogadores imersivos
-- Streaming de mídia e entrega de conteúdo
-- Vigilância e segurança
+- Comando e controle em tempo real em robótica.
+- Análise em tempo real e inferência por meio de inteligência artificial e aprendizado de máquina.
+- Visão da máquina.
+- Renderização remota para cenários mistos de realidade e VDI.
+- Jogos de vários participantes.
+- Streaming de mídia e distribuição de conteúdo.
+- Vigilância e segurança.
 
-As Zonas de Borda do Azure vêm em três ofertas discretas:
+Há três tipos de zonas de borda do Azure:
 
-- Zonas de borda do Azure
-- Zonas de borda do Azure com portador
+- Zonas do Azure Edge
+- Zonas do Azure Edge com a transportadora
 - Zonas de borda privada do Azure
 
-## <a name="azure-edge-zones"></a><a name="edge-zones"></a>Zonas de borda do Azure
+## <a name="azure-edge-zones"></a><a name="edge-zones"></a>Zonas do Azure Edge
 
-![Zonas de borda](./media/edge-zones-overview/edge-zones.png "Zonas de borda")
+![Zonas do Azure Edge](./media/edge-zones-overview/edge-zones.png "Zonas do Azure Edge")
 
-Azure Edge Zones são pequenas extensões de pegada do Azure colocadas em centros populacionais que estão longe das regiões do Azure. As Zonas de Borda do Azure suportam VMs, contêineres e um conjunto selecionado de serviços Do Azure que permitem executar aplicativos intensivos de latência e de throughput perto dos usuários finais. As Azure Edge Zones fazem parte da rede global da Microsoft e oferecem conectividade segura, confiável e de alta largura de banda entre aplicativos em execução na End Zone perto do usuário e o conjunto completo de serviços do Azure em execução nas regiões do Azure. As Azure Edge Zones são de propriedade e operadas pela Microsoft e permitem que você use o mesmo conjunto de ferramentas e portal do Azure para gerenciar e implantar serviços nas Zonas de Borda.
+As zonas do Azure Edge são extensões de pequena superfície do Azure colocadas em centros de população que estão longe das regiões do Azure. As zonas do Azure Edge dão suporte a VMs, contêineres e um conjunto selecionado de serviços do Azure que permitem que você execute aplicativos sensíveis à latência e com uso intensivo de taxa de transferência próximos aos usuários finais. As zonas do Azure Edge fazem parte da rede global da Microsoft. Eles fornecem conectividade segura, confiável e de alta largura de banda entre aplicativos executados na zona de borda perto do usuário. E eles oferecem o conjunto completo de serviços do Azure em execução nas regiões do Azure. As zonas do Azure Edge são de propriedade e operadas pela Microsoft. Você pode usar o mesmo conjunto de ferramentas do Azure e o mesmo portal para gerenciar e implantar serviços em zonas de borda.
 
-Os casos típicos de uso incluem:
+Os casos de uso típicos incluem:
 
-- Jogos e streaming de jogos
-- Streaming de mídia e entrega de conteúdo
-- Análise e inferência em tempo real usando inteligência artificial e machine learning
-- Renderização para realidade mista
+- Jogos e streaming de jogos.
+- Streaming de mídia e distribuição de conteúdo.
+- Análise em tempo real e inferência por meio de inteligência artificial e aprendizado de máquina.
+- Renderização para realidade misturada.
 
-As Zonas de Borda do Azure estarão disponíveis nos seguintes metros:
+As zonas do Azure Edge estarão disponíveis nas seguintes áreas de metrô:
 
 - Nova Iorque, NY
 - Los Angeles, CA
 - Miami, FL
 
-[Entre em contato com a equipe de Zonas de Borda](https://aka.ms/EdgeZones) para obter mais informações.
+[Contate a equipe da zona de borda](https://aka.ms/EdgeZones) para obter mais informações.
 
-## <a name="azure-edge-zones-with-carrier"></a><a name="carrier"></a>Zonas de borda do Azure com portador
+## <a name="azure-edge-zones-with-carrier"></a><a name="carrier"></a>Zonas do Azure Edge com a transportadora
 
-![Zonas de borda com portador](./media/edge-zones-overview/edge-carrier.png "Zonas de borda com portador")
+![Zonas de borda com a transportadora](./media/edge-zones-overview/edge-carrier.png "Zonas de borda com a transportadora")
 
-As Zonas de Borda do Azure com operadora são pequenas extensões de pegada do Azure colocadas nos data centers das operadoras móveis em centros populacionais. A Azure Edge Zones com infra-estrutura de operadoras é colocada a um salto da rede 5G da operadora móvel, oferecendo latência de sub-10 milissegundos para aplicações de dispositivos móveis. O Azure Edge Zones com a operadora é implantado nos data centers das operadoras móveis e está conectado à rede global da Microsoft. Eles oferecem conectividade segura, confiável e de alta largura de banda entre aplicativos que são executados perto do usuário e o conjunto completo de serviços do Azure em execução nas regiões do Azure. Os desenvolvedores podem usar o mesmo conjunto de ferramentas familiares para construir e implantar serviços nas Zonas de Borda.
+As zonas do Azure Edge com a transportadora são extensões de pequena superfície do Azure que são colocadas nos datacenters dos operadores móveis em centros de população. A zona de borda do Azure com a infraestrutura da transportadora é colocada um salto para fora da rede 5G da operadora móvel. Esse posicionamento oferece latência de menos de 10 milissegundos para aplicativos de dispositivos móveis.
 
-Os casos típicos de uso incluem:
+As zonas de borda do Azure com a transportadora são implantadas nos data centers dos operadores móveis e conectadas à rede global da Microsoft. Eles fornecem conectividade segura, confiável e de alta largura de banda entre aplicativos que são executados perto do usuário. E eles oferecem o conjunto completo de serviços do Azure em execução nas regiões do Azure. Os desenvolvedores podem usar o mesmo conjunto de ferramentas familiares para criar e implantar serviços nas zonas de borda.
 
-- Jogos e streaming de jogos
-- Streaming de mídia e entrega de conteúdo
-- Análise e inferência em tempo real usando inteligência artificial e machine learning
-- Renderização para realidade mista
-- Automóveis conectados
-- Telemedicina
+Os casos de uso típicos incluem:
 
-As Zonas de Borda serão oferecidas em parceria com os seguintes operadores:
+- Jogos e streaming de jogos.
+- Streaming de mídia e distribuição de conteúdo.
+- Análise em tempo real e inferência por meio de inteligência artificial e aprendizado de máquina.
+- Renderização para realidade misturada.
+- Dispositivos móveis conectados.
+- Tele-remédio.
 
-- AT&T (Atlanta, Dallas e Los Angeles)
+As zonas de borda serão oferecidas em parceria com os seguintes operadores:
+
+- ÀS&T (Atlanta, Dallas e Los Angeles)
 
 ## <a name="azure-private-edge-zones"></a><a name="private-edge-zones"></a>Zonas de borda privada do Azure
 
 ![Zonas de borda privada](./media/edge-zones-overview/private-edge.png "Zonas de borda privada")
 
-Azure Private Edge Zones são pequenas extensões de pegada do Azure colocadas no local. O Azure Private Edge Zones é baseado na plataforma [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) e permite acesso de baixa latência a serviços de computação e armazenamento implantados no local. O Private Edge Zones também permite que você implante funções de rede virtualizadas (VNFs), como núcleos de pacotes móveis, roteadores, firewalls e dispositivos SD-WAN, e aplicativos do ISVS à medida [que os aplicativos gerenciados do Azure](https://azure.microsoft.com/services/managed-applications/) estão lado a lado, juntamente com máquinas virtuais e contêineres no local. O Azure Private Edge Zones vem com uma solução de orquestração nativa na nuvem que permite gerenciar o ciclo de vida das Funções de Rede Virtualizadas (VNF) e aplicativos do portal Azure.
+As zonas de borda privada do Azure são extensões de pequena superfície do Azure que são colocadas no local. A zona de borda privada do Azure é baseada na plataforma de [borda Azure Stack](https://azure.microsoft.com/products/azure-stack/edge/) . Ele permite acesso de baixa latência aos serviços de computação e armazenamento implantados localmente. A zona de borda privada também permite que você implante aplicativos de ISVs e VNFs (funções de rede virtualizadas) como [aplicativos gerenciados do Azure](https://azure.microsoft.com/services/managed-applications/) , juntamente com máquinas virtuais e contêineres locais. Esses VNFs podem incluir núcleos de pacotes móveis, roteadores, firewalls e dispositivos SD-WAN. A zona de borda privada do Azure vem com uma solução de orquestração nativa de nuvem que permite gerenciar os ciclos de vida de VNFs e aplicativos do portal do Azure.
 
-O Azure Private Edge Zones permite que você desenvolva e implante aplicativos no local usando as mesmas ferramentas familiares usadas para construir e implantar aplicativos no Azure. Você também pode executar redes móveis privadas (LTE privado, 5G privado), funções de segurança, como firewalls, e estender suas redes locais em várias filiais e Azure usando dispositivos SD-WAN nos mesmos aparelhos private Edge Zone e gerenciá-los a partir do Azure.
+A zona de borda privada do Azure permite desenvolver e implantar aplicativos locais usando as mesmas ferramentas conhecidas que você usa para criar e implantar aplicativos no Azure. 
 
-Os casos típicos de uso incluem:
+Ele também permite que você: 
 
-- Comando e controle em tempo real em robótica
-- Análise e inferência em tempo real com Inteligência Artificial e Machine Learning
-- Visão da Máquina
-- Renderização remota para realidade mista e cenários VDI
-- Vigilância e segurança
+- Execute redes móveis privadas (LTE particular, 5G privado).
+- Implemente funções de segurança como firewalls.
+- Estenda suas redes locais entre várias ramificações e o Azure usando dispositivos SD-WAN nos mesmos dispositivos de zona de borda privada e gerencie-os do Azure.
 
-Temos um rico ecossistema de fornecedores de VNF, ISVs e parceiros MSP para permitir soluções de ponta a ponta usando zonas de borda privadas. [Entre em contato com a equipe de Zonas de Borda Privada](https://aka.ms/EdgeZonesPartner) para obter mais informações.
+Os casos de uso típicos incluem:
 
-## <a name="private-edge-zones---partners"></a><a name="private-edge-partners"></a>Private Edge Zones - Parceiros
+- Comando e controle em tempo real em robótica.
+- Análise em tempo real e inferência com inteligência artificial e aprendizado de máquina.
+- Visão da máquina.
+- Renderização remota para cenários mistos de realidade e VDI.
+- Vigilância e segurança.
 
-![Parceiros de zona de borda privada](./media/edge-zones-overview/partners.png "Parceiros de zona de borda privada")
+Temos um rico ecossistema de fornecedores de VNF, ISVs e parceiros MSP para permitir soluções de ponta a ponta que usam zonas de borda privadas. [Contate a equipe da zona de borda privada](https://aka.ms/EdgeZonesPartner) para obter mais informações.
 
-### <a name="virtualized-network-functions-vnfs"></a><a name="vnf"></a>VNFs (Virtualized Network Functions, funções de rede virtualizadas)
+### <a name="private-edge-zone-partners"></a><a name="private-edge-partners"></a>Parceiros de zona de borda privada
 
-#### <a name="virtualized-evolved-packet-core-vepc-for-mobile-networks"></a><a name="vEPC"></a>Núcleo de pacote evoluído virtualizado (vEPC) para redes móveis
+![Parceiros de zona de borda privada](./media/edge-zones-overview/partners.png "Parceiros de zonas de borda privada")
 
-- [Redes Afirmadas](https://www.affirmednetworks.com/)
-- [Software druida](https://www.druidsoftware.com/)
+#### <a name="virtualized-network-functions-vnfs"></a><a name="vnf"></a>VNFs (funções de rede virtualizadas)
+
+##### <a name="virtualized-evolved-packet-core-vepc-for-mobile-networks"></a><a name="vEPC"></a>Núcleo de pacotes evoluídos virtualizados (vEPC) para redes móveis
+
+- [Redes afirmadas](https://www.affirmednetworks.com/)
+- [Druid software](https://www.druidsoftware.com/)
 - [Expeto](https://www.expeto.io/)
-- [Rio Mavenir](https://mavenir.com/)
+- [Mavenir](https://mavenir.com/)
 - [Metaswitch](https://www.metaswitch.com/)
-- [Nuvem de Automação Digital Nokia](https://www.dac.nokia.com/)
+- [Nuvem de automação digital Nokia](https://www.dac.nokia.com/)
 
-#### <a name="mobile-radio-partners"></a><a name="mobile-radio"></a>Parceiros de rádio móvel
+##### <a name="mobile-radio-partners"></a><a name="mobile-radio"></a>Parceiros de rádio móvel
 
 - [Commscope Ruckus](https://support.ruckuswireless.com/)
 
-#### <a name="sd-wan-vendors"></a><a name="sdwan-vendors"></a>Fornecedores SD-WAN
+##### <a name="sd-wan-vendors"></a><a name="sdwan-vendors"></a>SD-fornecedores de WAN
 
-- [Resmando net](https://netfoundry.io/)
-- [NuageNetworks da Nokia](https://www.nuagenetworks.net/)
-- [VMware SD-WAN por Velocloud](https://www.velocloud.com/)
+- [NetFoundry](https://netfoundry.io/)
+- [Redes Nuage da Nokia](https://www.nuagenetworks.net/)
+- [VMware SD – WAN por Velocloud](https://www.velocloud.com/)
 
-#### <a name="router-vendors"></a><a name="router-vendors"></a>Fornecedores de roteador
+##### <a name="router-vendors"></a><a name="router-vendors"></a>Fornecedores de roteador
 
 - [Arista](https://www.arista.com/)
 
-[Entre em contato com a equipe do Private Edge Zones](https://aka.ms/EdgeZonesPartner) para obter mais informações sobre como se tornar um parceiro.
+##### <a name="firewall-vendors"></a><a name="firewall-vendors"></a>Fornecedores de firewall
 
-#### <a name="firewall-vendors"></a><a name="firewall-vendors"></a>Fornecedores de firewall
+- [Redes Palo Alto](https://www.paloaltonetworks.com/)
 
-- Redes Palo Alto
+##### <a name="managed-solutions-providers-mobile-operators-and-global-system-integrators-gsis"></a><a name="msp-mobile"></a>Provedores de soluções gerenciadas: operadores móveis e integradores de sistema global (GSIs)
 
-### <a name="managed-solutions-providers---mobile-operators-and-global-system-integrators"></a><a name="msp-mobile"></a>Provedores de Soluções Gerenciadas - Operadores Móveis e Integradores Globais de Sistemas
-
-| SIs e operadores globais | Operadoras móveis |
+| GSIs e operadores | Operadoras móveis |
 | --- | --- |
 | Amdocs                       | Etisalat             |
-| Torre Americana               | Comunicações NTT   |
-| Link do Século                 | Proximus             |
+| Torre americana               | Comunicações NTT   |
+| CenturyLink                  | Proximus             |
 | Expeto                       | Rogers               |
 | Sem fio federado           | SK Telecom           |
 | Infosys                      | Telefonica           |
-| Mahindra Tecnológica                | Telstra              |
-|        *                     | Vodafone             |
+| Mahindra de tecnologia                | Telstra              |
+|                              | Vodafone             |
 
-[Entre em contato com a equipe do Private Edge Zones](https://aka.ms/EdgeZonesPartner) para obter mais informações sobre como se tornar um parceiro.
+[Entre em contato com a equipe da zona de borda privada](https://aka.ms/EdgeZonesPartner) para obter informações sobre como se tornar um parceiro.
 
-## <a name="private-edge-zones---solutions"></a><a name="solutions-private-edge"></a>Private Edge Zones - Soluções
+### <a name="private-edge-zone-solutions"></a><a name="solutions-private-edge"></a>Soluções de zona de borda privada
 
-### <a name="private-mobile-network-on-private-edge-zones"></a><a name="private-mobile-private-edge"></a>Rede móvel privada em zonas de borda privada
+#### <a name="private-mobile-network-on-private-edge-zones"></a><a name="private-mobile-private-edge"></a>Rede móvel privada em zonas de borda privada
 
 ![Rede móvel privada em zonas de borda privada](./media/edge-zones-overview/mobile-networks.png "Rede móvel privada em zonas de borda privada")
 
-Agora você pode implantar uma rede móvel privada em zonas de borda privadas. As redes móveis privadas permitem latência ultra baixa, alta capacidade e uma rede sem fio confiável e segura que é necessária para aplicativos críticos de negócios. Redes móveis privadas podem permitir cenários como comando e controle de veículos guiados automatizados (AGV) em um armazém, comunicação em tempo real entre robôs em uma fábrica inteligente e aplicações de realidade aumentada e aplicações de borda de realidade virtual.
+Agora você pode implantar uma rede móvel privada em zonas de borda privadas. As redes móveis privadas habilitam a latência ultra baixa, alta capacidade e a rede sem fio confiável e segura necessária para aplicativos críticos para os negócios. 
 
-A função de rede de núcleo de pacotes evoluído virtualizado (vEPC) forma o cérebro de uma rede móvel privada. Agora você pode implantar um vEPC em Zonas de Borda Privada. Para obter uma lista de parceiros vEPC disponíveis em zonas de borda privadas, consulte [vEPC ISVs](#vEPC).
+As redes móveis privadas podem habilitar cenários como: 
+- Comando e controle de veículos guiados automatizados (AGVs) em depósitos. 
+- Comunicação em tempo real entre os robôs no Smart factories.
+- Realidade aumentada e aplicativos de borda de realidade virtual.
 
-A implantação de uma solução de rede móvel privada em Zonas de Borda Privada requer outros componentes, como pontos de acesso móvel, cartões SIM e outros VNFs, como roteadores. O acesso a espectro licenciado ou não licenciado é fundamental para a criação de uma rede móvel privada. Além disso, você pode precisar de ajuda com planejamento de RF, layout físico, instalação e suporte. Para obter uma lista de parceiros, consulte [parceiros](#mobile-radio)de rádio móveis .
+A função de rede vEPC (núcleo de pacotes evoluídos) virtualizada é o cérebro de uma rede móvel privada. Agora você pode implantar um vEPC em zonas de borda privadas. Para obter uma lista de parceiros do vEPC que estão disponíveis em zonas de borda privada, consulte [ISVs do vEPC](#vEPC).
 
-A Microsoft fornece um ecossistema de parceiros que pode ajudar em todos os aspectos desse processo – desde o planejamento da rede, a compra dos dispositivos necessários, a configuração de hardware, até o gerenciamento da configuração do Azure. Com um conjunto de parceiros validados que estão fortemente integrados com a Microsoft, você pode ter certeza de que a solução será confiável e fácil de usar. Você pode se concentrar em seus cenários principais, enquanto confia na Microsoft e seus parceiros para ajudar com o resto.
+A implantação de uma solução de rede móvel privada em zonas de borda privada requer outros componentes, como pontos de acesso móvel, cartões SIM e outros VNFs como roteadores. O acesso a um espectro licenciado ou não licenciado é essencial para configurar uma rede móvel privada. E você pode precisar de ajuda com o planejamento de RF, layout físico, instalação e suporte. Para obter uma lista de parceiros, consulte [parceiros de rádio móvel](#mobile-radio).
 
-### <a name="sd-wan-on-private-edge-zones"></a><a name="sdwan-private-edge"></a>SD-WAN em zonas de borda privada
+A Microsoft fornece um ecossistema de parceiros que pode ajudar com todos os aspectos desse processo. Os parceiros podem ajudar no planejamento da rede, na compra de dispositivos necessários, na configuração de hardware e no gerenciamento da configuração do Azure. Um conjunto de parceiros validados totalmente integrados à Microsoft garantem que sua solução será confiável e fácil de usar. Você pode se concentrar nos cenários principais e contar com a Microsoft e seus parceiros para ajudar no restante.
+
+#### <a name="sd-wan-on-private-edge-zones"></a><a name="sdwan-private-edge"></a>SD-WAN em zonas de borda privada
 
 ![SD-WAN em zonas de borda privada](./media/edge-zones-overview/sd-wan.png "SD-WAN em zonas de borda privada")
  
-O SD-WAN como uma tecnologia permite criar WAN (Enterprise-Grade Wide Area Networks, redes de área larga) de nível corporativo com maior largura de banda, acesso de alto desempenho à nuvem, inserção de serviços, confiabilidade, gerenciamento de políticas e ampla visibilidade da rede. O SD-WAN fornece conectividade de filial perfeita orquestrada a partir de controladores centrais redundantes, a um custo menor de propriedade.
-O SD-WAN em Private Edge Zones permite que você se afaste do modelo centrado em capex para um modelo SaaS (Software-as-a-service) para reduzir os orçamentos de TI. Você pode usar sua escolha de orquestrador ou controlador de parceiros SD-WAN para habilitar novos serviços e prolí-los em toda a rede imediatamente.
+O SD-WAN permite que você crie WANs (redes de longa distância) de nível empresarial que têm estes benefícios:
+
+- Maior largura de banda
+- Acesso de alto desempenho à nuvem
+- Inserção de serviço
+- Confiabilidade
+- Gerenciamento de política
+- Ampla visibilidade da rede
+    
+O SD-WAN fornece conectividade de filial sem interrupções, que é orquestrada de controladores centrais redundantes a um custo menor de propriedade.
+O SD-WAN em zonas de borda privada permite que você passe de um modelo centrado em Capex para um modelo de software como serviço (SaaS) para reduzir os orçamentos de ti. Você pode usar sua escolha de parceiros SD-WAN, Orchestrator ou Controller para habilitar novos serviços e propagá-los em toda a rede imediatamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações, entre em contato com as seguintes equipes:
 
-* [Equipe de Zonas de Borda](https://aka.ms/EdgeZones)
-* [Equipe private edge zones - para se tornar um parceiro](https://aka.ms/EdgeZonesPartner)
+* [Equipe da zona de borda](https://aka.ms/EdgeZones)
+* [Equipe de zona de borda privada, para se tornar um parceiro](https://aka.ms/EdgeZonesPartner)

@@ -4,21 +4,22 @@ titlesuffix: Azure Virtual Network
 description: Saiba como atribuir diversos endereços IP a uma máquina virtual usando a interface de linha de comando (CLI) do Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: kumud
-ms.openlocfilehash: 144f30463adb3dfbce1717e06548baccc8286f8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: cb101095aa95f9d41f7891bc3c18f7e5bfeb59db
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240230"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148108"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Como atribuir vários endereços IP a máquinas virtuais usando a CLI do Azure
 
@@ -204,7 +205,7 @@ Você pode adicionar endereços IP públicos e privados adicionais para uma inte
         --dns-name mypublicdns3
         ```
 
-        Para criar uma nova configuração IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIP3* associado, digite o seguinte comando:
+        Para criar uma nova configuração de IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIP3* associado, digite o seguinte comando:
 
         ```azurecli
         az network nic ip-config create \

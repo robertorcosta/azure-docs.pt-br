@@ -7,12 +7,12 @@ ms.author: spelluru
 ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
-ms.openlocfilehash: 110d4b94eda8315c20f4baa70256f7e5ed378530
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: fb8fc93174345d0bdb09e4308a4206a65ed2270a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106467"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148195"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integrar hubs de eventos do Azure com o link privado do Azure (versão prévia)
 O serviço de vínculo privado do Azure permite que você acesse os serviços do Azure (por exemplo, hubs de eventos do Azure, armazenamento do Azure e Azure Cosmos DB) e serviços hospedados de cliente/parceiro do Azure em um **ponto de extremidade privado** em sua rede virtual.
@@ -29,7 +29,7 @@ Para obter mais informações, confira [O que é o Link Privado do Azure?](../pr
 >[!WARNING]
 > A habilitação de pontos de extremidade privados pode impedir que outros serviços do Azure interajam com os hubs de eventos.
 >
-> Não há suporte para serviços confiáveis da Microsoft quando as Redes Virtuais são implementadas.
+> Os serviços confiáveis da Microsoft não têm suporte ao usar redes virtuais.
 >
 > Cenários comuns do Azure que não funcionam com Redes Virtuais (observe que a lista **NÃO** é exaustiva):
 > - Azure Monitor (configuração de diagnóstico)
@@ -72,7 +72,7 @@ Se você já tiver um namespace de hubs de eventos, poderá criar uma conexão d
     1. Selecione a **assinatura do Azure** na qual você deseja criar o ponto de extremidade privado. 
     2. Selecione o **grupo de recursos** para o recurso de ponto de extremidade privado.
     3. Insira um **nome** para o ponto de extremidade privado. 
-    5. Selecione uma **região** para o ponto de extremidade privado. Seu ponto de extremidade privado deve estar na mesma região que sua rede virtual, mas pode estar em uma região diferente partir o recurso de link privado ao qual você está se conectando. 
+    5. Selecione uma **região** para o ponto de extremidade privado. Seu ponto de extremidade privado deve estar na mesma região que sua rede virtual, mas pode estar em uma região diferente do recurso de link privado ao qual você está se conectando. 
     6. Selecione **Avançar:** o botão >de recursos na parte inferior da página.
 
         ![Criar ponto de extremidade privado-página noções básicas](./media/private-link-service/create-private-endpoint-basics-page.png)
@@ -86,7 +86,7 @@ Se você já tiver um namespace de hubs de eventos, poderá criar uma conexão d
         
             ![Criar ponto de extremidade privado – página de recursos](./media/private-link-service/create-private-endpoint-resource-page.png)    
     2. Se você selecionar **conectar-se a um recurso do Azure por ID de recurso ou alias**, siga estas etapas:
-        1. Insira a **ID do recurso** ou o **alias**. Pode ser a ID de recurso ou o alias que alguns compartilharam com você.
+        1. Insira a **ID do recurso** ou o **alias**. Pode ser a ID de recurso ou o alias que alguém compartilhou com você. A maneira mais fácil de obter a ID do recurso é navegar até o namespace dos hubs de eventos na portal do Azure e copiar a parte do URI a `/subscriptions/`partir de. Consulte a imagem a seguir para obter um exemplo. 
         2. Para o **subrecurso de destino**, insira **namespace**. É o tipo do subrecurso que seu ponto de extremidade privado pode acessar.
         3. adicional Insira uma **mensagem de solicitação**. O proprietário do recurso vê essa mensagem enquanto gerencia a conexão de ponto de extremidade particular.
         4. Em seguida, selecione o botão **Avançar: configuração >** na parte inferior da página.

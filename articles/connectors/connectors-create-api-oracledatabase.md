@@ -1,5 +1,5 @@
 ---
-title: Conecte-se ao banco de dados Oracle
+title: Conectar-se ao Oracle Database
 description: Inserir e gerenciar registros com APIs REST do Oracle Database e os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 03/29/2017
 tags: connectors
-ms.openlocfilehash: 99abd48bde97c2a2e085688cdfbb365e5e4cfd56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fdbf7fd7dded2fc0026e5c819ca579eeddc5cdb6
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74789419"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147809"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introdução ao conector do Banco de Dados Oracle
 
@@ -47,13 +47,13 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 > [!IMPORTANT]
 > Esse conector não tem gatilhos. Ele tem somente ações. Então, quando você criar seu aplicativo lógico, adicione outro gatilho para iniciar seu aplicativo lógico, como **Agenda - Recorrência** ou **Solicitação / Resposta - Resposta**. 
 
-1. No [portal Azure,](https://portal.azure.com)crie um aplicativo de lógica em branco.
+1. No [portal do Azure](https://portal.azure.com), crie um aplicativo lógico em branco.
 
 2. No início de seu aplicativo lógico, selecione o gatilho **Solicitação / Resposta - Solicitação**: 
 
     ![](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
-3. Selecione **Salvar**. Quando você salva, a URL de uma solicitação é gerada automaticamente. 
+3. Clique em **Salvar**. Quando você salva, a URL de uma solicitação é gerada automaticamente. 
 
 4. Selecione **Nova etapa** e selecione **Adicionar uma ação**. Digite `oracle` para ver as ações disponíveis: 
 
@@ -72,7 +72,7 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 
     ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. Nesta próxima etapa, use qualquer um dos outros conectores para compilar seu fluxo de trabalho. Se você quiser testar a obtenção de dados do Oracle, envie um email com os dados do Oracle usando um dos conectores de envio de email, como o Office 365 ou o Gmail. Use os tokens dinâmicos da tabela do Oracle para criar o `Subject` e o `Body` de seu email:
+7. Nesta próxima etapa, use qualquer um dos outros conectores para compilar seu fluxo de trabalho. Se você quiser testar a obtenção de dados do Oracle, envie um email com os dados da Oracle usando um dos conectores de envio de email, como o Outlook do Office 365. Use os tokens dinâmicos da tabela do Oracle para criar o `Subject` e o `Body` de seu email:
 
     ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
@@ -97,7 +97,7 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 
 **Atenuação**: verifique se o gateway está em execução no computador local onde ele foi instalado e se ele pode se conectar à internet.Recomendamos a não instalação do gateway em um computador que pode ser desativado ou suspenso.Você também pode reiniciar o serviço de gateway de dados local (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: o provedor que está sendo usado é preterido: 'O System.Data.OracleClient exige o software cliente da Oracle versão 8.1.7 ou posterior.'. Consulte [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) a instalação do provedor oficial.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erro**: o provedor que está sendo usado é preterido: 'O System.Data.OracleClient exige o software cliente da Oracle versão 8.1.7 ou posterior.'. Consulte [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) para instalar o provedor oficial.
 
 **Causa**: o SDK do cliente da Oracle não está instalado no computador onde o gateway de dados local está em execução.  
 
@@ -123,7 +123,7 @@ Veja os gatilhos e ações definidos no swagger e também os limites nos [detalh
 
 O [fórum de Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) é um ótimo lugar para fazer perguntas, responder a perguntas e saber o que os outros usuários dos Aplicativos Lógicos estão fazendo. 
 
-Você pode ajudar a melhorar os aplicativos e conectores [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)lógicos votando e enviando suas ideias em . 
+Você pode ajudar a melhorar os aplicativos lógicos e conectores votando e enviando [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)suas ideias em. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

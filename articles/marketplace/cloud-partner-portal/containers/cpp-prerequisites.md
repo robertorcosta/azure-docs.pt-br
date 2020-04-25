@@ -1,5 +1,5 @@
 ---
-title: Azure Containers oferecem pré-requisitos | Mercado Azure
+title: Os contêineres do Azure oferecem pré-requisitos | Azure Marketplace
 description: Pré-requisitos para a publicação de um contêiner do Azure.
 author: dsindona
 ms.service: marketplace
@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: dsindona
-ms.openlocfilehash: 0453117ee2984e0b8ebee60145353584a02a359a
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 2a5d82af609ab5eafbbc29dc95b8b6e4c8aa32df
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270121"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146249"
 ---
 # <a name="container-publishing-prerequisites"></a>Pré-requisitos de publicação de contêiner
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover a gestão de suas ofertas de contêineres Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de contêiner Azure](https://aka.ms/CreateContainerOffer) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de contêiner do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar uma oferta de contêiner do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) para gerenciar suas ofertas migradas.
 
-Este artigo descreve os pré-requisitos para a publicação uma oferta de contêiner no Azure Marketplace.  Se você ainda não fez isso, você deve rever o [Guia de Publicação de Oferta de Contêineres](../../marketplace-containers.md).
+Este artigo descreve os pré-requisitos para a publicação uma oferta de contêiner no Azure Marketplace.  Se ainda não tiver feito isso, examine o [Guia de publicação dos contêineres Offering](../../marketplace-containers.md).
 
 ## <a name="publishing-prerequisites"></a>Pré-requisitos de publicação
 
@@ -32,10 +32,10 @@ Para publicar uma nova imagem de contêiner, você precisa atender aos seguintes
   - Um título
   - Uma descrição (no formato HTML)
   - Uma imagem do logotipo (no formato PNG) e nesses tamanhos fixos de imagem: 40x40 px, 90x90 px, 115x 115 px e 255x115 px.
-- Um *Termo de Uso* e declarações de Política de *Privacidade*
-- Documentação da solução de contêineres
+- Os *termos de uso* e as instruções de *política de privacidade*
+- Documentação da solução de contêiner
 - Contatos de suporte
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda não fez isso, você deve [preparar seus ativos técnicos de contêiner](./cpp-create-technical-assets.md) antes de criar sua oferta de [contêiner](./cpp-create-offer.md).  
+Se ainda não tiver feito isso, você deverá [preparar seus ativos técnicos do contêiner](./cpp-create-technical-assets.md) antes [de criar sua oferta de contêiner](./cpp-create-offer.md).  

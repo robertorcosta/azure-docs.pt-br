@@ -1,18 +1,18 @@
 ---
 title: Backup e restauração do banco de dados do Analysis Services do Azure | Microsoft Docs
-description: Este artigo descreve como fazer backup e restaurar metadados e dados do modelo de um banco de dados do Azure Analysis Services.
+description: Este artigo descreve como fazer backup e restaurar dados e metadados do modelo de um banco de Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/24/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 83da2024ab74b705b45a5891f6b40251020dad31
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 2866ec860cbc9037aa6b57389b35f17ec71a7c9d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408668"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82145448"
 ---
 # <a name="backup-and-restore"></a>Backup e restauração
 
@@ -23,7 +23,10 @@ O backup de bancos de dados de modelos tabulares no Azure Analysis Services é m
 > 
 > 
 
-Os backups são salvos com uma extensão .abf. Para modelos tabular na memória, ambos os dados de modelo e metadados são armazenados. Para modelos tabulares do DirectQuery, somente os metadados do modelo são armazenados. Os backups podem ser compactados e criptografados, dependendo das opções escolhidas.
+> [!NOTE]
+> Se a conta de armazenamento estiver em uma região diferente, as configurações de firewall deverão ser configuradas para permitir o acesso de **todas as redes**. Não há suporte para as configurações de firewall definidas para redes selecionadas com endereços IP na lista de permissões e para permitir exceções confiáveis de serviços da Microsoft.
+
+Os backups são salvos com uma extensão. ABF. Para modelos tabular na memória, ambos os dados de modelo e metadados são armazenados. Para modelos tabulares do DirectQuery, somente os metadados do modelo são armazenados. Os backups podem ser compactados e criptografados, dependendo das opções escolhidas.
 
 
 ## <a name="configure-storage-settings"></a>Definir as configurações de armazenamento
@@ -55,7 +58,7 @@ Antes de fazer backup, é necessário definir as configurações de armazenament
 
 1. No SSMS, clique com o botão direito do mouse em um banco de dados > **Backup**.
 
-2. No arquivo **backup do banco de dados** > **de backup,** clique **em Procurar**.
+2. Em **Backup Database** > **arquivo de backup**do banco de dados de backup, clique em **procurar**.
 
 3. Na caixa de diálogo **Salvar arquivo como** verifique o caminho da pasta e digite um nome para o arquivo de backup. 
 

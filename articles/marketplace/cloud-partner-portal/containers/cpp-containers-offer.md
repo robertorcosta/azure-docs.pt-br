@@ -1,5 +1,5 @@
 ---
-title: Oferta de imagem azure Containers | Mercado Azure
+title: Oferta de imagem de contêineres do Azure | Azure Marketplace
 description: Visão geral do processo de publicação de uma oferta de contêiner no Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: dsindona
-ms.openlocfilehash: cd9f98d42efcb35dbab4f3c0a06c5a11360e36b6
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 81908de5c2fb3960684ed6cf37952e8815d8a5d5
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270342"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148307"
 ---
 # <a name="containers"></a>Contêineres
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover a gestão de suas ofertas de contêineres Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de contêiner Azure](https://aka.ms/CreateContainerOffer) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de contêiner do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar uma oferta de contêiner do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) para gerenciar suas ofertas migradas.
 
 <table> <tr> <td>Esta seção explica como publicar uma imagem de contêiner no <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.  
 O tipo de oferta de contêiner oferece suporte a imagens de contêiner do Docker provisionadas como <a href="https://docs.microsoft.com/azure/aks/index">Serviço de Kubernetes do Azure</a> ou <a href="https://docs.microsoft.com/azure/container-instances/container-instances-overview">Instâncias do Contêiner do Azure</a> e hospedadas em um repositório do <a href="https://docs.microsoft.com/azure/container-registry">Registro do Contêiner do Azure</a>. </td> <td><img src="./media/container-icon.png"  alt="Azure container icon" /></td> </tr> </table>

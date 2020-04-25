@@ -1,22 +1,22 @@
 ---
-title: Políticas para etiquetagem de recursos
-description: Descreve as políticas do Azure que você pode atribuir para garantir a conformidade da tag.
+title: Políticas para a marcação de recursos
+description: Descreve as políticas do Azure que você pode atribuir para garantir a conformidade da marca.
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: e7febe4c833cefd0ee9a5c49b4b70f4901fea8d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3eeb28ea23b18c3492f68d2fac294fc014420c5
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80147012"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147860"
 ---
-# <a name="assign-policies-for-tag-compliance"></a>Atribuir políticas para conformidade de tag
+# <a name="assign-policies-for-tag-compliance"></a>Atribuir políticas de conformidade de marca
 
-Você usa [a Política Do Azure](../../governance/policy/overview.md) para impor regras de marcação e convenções. Ao criar uma política, você evita o cenário de recursos sendo implantados em sua assinatura que não têm as tags esperadas para sua organização. Em vez de aplicar manualmente tags ou procurar recursos que não estão em conformidade, você cria uma diretiva que aplica automaticamente as tags necessárias durante a implantação. As tags também podem ser aplicadas aos recursos existentes com o novo efeito [Modificar](../../governance/policy/concepts/effects.md#modify) e uma [tarefa de remediação](../../governance/policy/how-to/remediate-resources.md). A seção a seguir mostra as políticas de exemplo para marcas.
+Você usa [Azure Policy](../../governance/policy/overview.md) para impor regras e convenções de marcação. Ao criar uma política, você evita o cenário dos recursos que estão sendo implantados em sua assinatura que não têm as marcas esperadas para sua organização. Em vez de aplicar marcas manualmente ou procurar recursos que não são compatíveis, você cria uma política que aplica automaticamente as marcas necessárias durante a implantação. Agora, as marcas também podem ser aplicadas a recursos existentes com o novo efeito [Modificar](../../governance/policy/concepts/effects.md#modify) e uma [tarefa de correção](../../governance/policy/how-to/remediate-resources.md). A seção a seguir mostra as políticas de exemplo para marcas.
 
 ## <a name="policies"></a>Políticas
 
-[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-policies-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/policy/samples/bycat/policies-tags.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

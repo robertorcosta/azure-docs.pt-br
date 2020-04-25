@@ -1,5 +1,5 @@
 ---
-title: Implantar uma VM Azure de um Usuário VHD | Mercado Azure
+title: Implantar uma VM do Azure de um VHD de usuário | Azure Marketplace
 description: Explica como implantar uma imagem de VHD do usuário para criar uma instância de VM do Azure.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 79754b4ce7c3dfe2a5c549f4a39ef3160be423d8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: e3bad2dc63f6a75f52c537aabfa6e85d1846ef15
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273878"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147927"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Implantar uma VM do Azure de um VHD do usuário
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [certificação de imagem Azure VM](https://aks.ms/CertifyVMimage) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de máquina virtual do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [certificação de imagem de VM do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) para gerenciar suas ofertas migradas.
 
 Esse artigo explica como implantar uma imagem de VHD generalizada para criar um novo recurso de VM do Azure, usando o modelo do Azure Resource Manager fornecido e o script do Azure PowerShell.
 
@@ -34,7 +34,7 @@ Copie o modelo do Azure Resource Manager para [implantação de VHD](cpp-deploy-
 | userStorageAccountName     | Nome da conta de armazenamento                                                    |
 | sNameForPublicIP           | Nome DNS do IP público. Precisa estar em letras minúsculas                                  |
 | subscriptionId             | O identificador da assinatura                                                  |
-| Location                   | Local geográfico padrão do Azure para o grupo de recursos                       |
+| Local                   | Local geográfico padrão do Azure para o grupo de recursos                       |
 | vmName                     | Nome da Máquina Virtual                                                    |
 | vaultName                  | Nome do cofre de chaves                                                          |
 | vaultResourceGroup         | Grupo de recursos do cofre de chaves

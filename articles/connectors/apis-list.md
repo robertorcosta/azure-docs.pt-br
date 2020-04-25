@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 04/24/2020
-ms.openlocfilehash: 9723fc3ab68785c6e444647f427fcf9788792cea
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 27f86a3fa34f8029e59d11066de9ea5a25a8c5ad
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82115679"
+ms.locfileid: "82147988"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores de Aplicativos Lógicos do Azure
 
@@ -48,9 +48,6 @@ Os conectores estão disponíveis como gatilhos e ações internas ou como conec
 
   Os conectores são classificados como Standard ou Enterprise. [Conectores corporativos](#enterprise-connectors) fornecem acesso a sistemas corporativos como SAP, IBM MQ e IBM 3270 por um custo adicional. Para determinar se um conector é Standard ou Enterprise, consulte a página de referência detalhes técnicos em cada conector em [conectores visão geral](https://docs.microsoft.com/connectors).
 
-  > [!IMPORTANT]
-  > A partir de **1º de maio de 2020**, as alterações feitas pelo Google em suas [políticas de segurança e privacidade de dados](https://www.blog.google/technology/safety-security/project-strobe/) podem afetar os aplicativos lógicos que usam o conector do [gmail](https://docs.microsoft.com/connectors/gmail/). Se seus aplicativos lógicos usam o conector do Gmail com uma conta de consumidor do gmail (endereço @gmail.com de @googlemail.comemail que termina com ou), seus aplicativos lógicos podem usar somente gatilhos, ações e conectores aprovados pelo Google. A partir de **15 de junho de 2020**, qualquer fluxo de trabalho não compatível será desabilitado. Para obter mais informações, consulte [políticas de segurança e privacidade de dados para o Google Connectors em aplicativos lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
-
   Você também pode identificar conectores usando essas categorias, embora alguns conectores possam cruzar várias categorias. Por exemplo, o SAP é um conector corporativo e um conector local:
 
   |   |   |
@@ -59,6 +56,9 @@ Os conectores estão disponíveis como gatilhos e ações internas ou como conec
   | [**Conectores locais**](#on-premises-connectors) | Depois de instalar e configurar o [gateway de dados locais][gateway-doc], esses conectores ajudam seus aplicativos lógicos a acessar sistemas locais, como SQL Server, SharePoint Server, Oracle DB, compartilhamentos de arquivos e outros. |
   | [**Conectores da conta de integração**](#integration-account-connectors) | Disponível quando você cria e paga por uma conta de integração, esses conectores transformam e validam XML, codificam e decodificam arquivos simples e processam mensagens B2B (business-to-business) com protocolos AS2, EDIFACT e X12. |
   |||
+
+  > [!IMPORTANT]
+  > Se você quiser usar o conector do Gmail, somente as contas de negócios do G-Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou pode [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, consulte [políticas de segurança e privacidade de dados para o Google Connectors em aplicativos lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
 <a name="integration-service-environment"></a>
 

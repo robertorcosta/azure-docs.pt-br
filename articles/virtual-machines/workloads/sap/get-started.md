@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 04/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fe7b375ebafb1e8194b29061430d956e48f2c441
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: bf8c797edec143d09739272917b5781a239280ba
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82100747"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147737"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -111,6 +111,7 @@ Para obter informações sobre a integração dos serviços do Azure em componen
 
 ## <a name="change-log"></a>Log de alterações
 
+- 04/24/2020: alterações no [SAP Hana expansão com o nó em espera em VMs do Azure com seja no SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse), em [SAP Hana escalar horizontalmente com nó em espera em VMs do Azure com seja no RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel), [alta disponibilidade para SAP NetWeaver em VMs do Azure no SLES com seja](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) e [alta disponibilidade para SAP NetWeaver em VMs do Azure no RHEL com seja](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) para adicionar esclarecimento de que os endereços IP para volumes seja são atribuídos
 - 04/22/2020: alterar a [alta disponibilidade de SAP Hana em VMs do Azure no SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) para remover o `is-managed` atributo meta das instruções, pois ele entra em conflito com a colocação do cluster dentro ou fora do modo de manutenção
 - 04/21/2020: adicionado o SQL Azure DB como DBMS suportado para a plataforma de comércio Hybris (SAP) Commerce 1811 e posteriores em artigos [o que é compatível com o software SAP para implantações do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) e [as configurações e certificações do SAP em execução no Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
 - 04/16/2020: adicionado SAP HANA como DBMS com suporte para a plataforma de comércio SAP (Hybris) em artigos [que software SAP tem suporte para implantações do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) e [configurações e certificações do SAP em execução no Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)

@@ -1,5 +1,5 @@
 ---
-title: SKUs para uma imagem de Contêineres Azure | Mercado Azure
+title: SKUs para uma imagem de contêineres do Azure | Azure Marketplace
 description: Configurar SKUs para um contêiner do Azure.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
-ms.openlocfilehash: 9c5cf218632c720fd042cc5f5d4ed95d5096b5b5
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 5f37d157e11b8cd7cf093fa558e81d9a1ce345a9
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270189"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146197"
 ---
 # <a name="container-skus-tab"></a>Guia de SKUs de contêiner
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover a gestão de suas ofertas de contêineres Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de contêiner Azure](https://aka.ms/CreateContainerOffer) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de contêiner do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar uma oferta de contêiner do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) para gerenciar suas ofertas migradas.
 
 A guia **SKUs** da página **Nova Oferta** permite criar uma ou mais SKUs e associá-las à sua nova oferta.  É possível usar diferentes SKUs para diferenciar uma solução por conjuntos de recursos, modelos de cobrança ou outra característica.
 
@@ -25,7 +25,7 @@ A guia **SKUs** da página **Nova Oferta** permite criar uma ou mais SKUs e asso
 
 Quando você começa a criar uma nova oferta, não há SKUs associados à oferta. Para criar uma nova SKU, siga estas etapas:
 
-1. Na guia SKUs, selecione **Novo SKU**
+1. Na guia SKUs, selecione **novo SKU**
 
    ![Prompt de Nova SKU](./media/containers-sku-settings.png)
 
@@ -48,14 +48,14 @@ Os metadados do contêiner têm informações de referência de seus detalhes de
 
 ![Metadados do contêiner](./media/containers-image-repository.png)
     
-Os **detalhes do repositório** de imagem na captura de tela anterior contém os seguintes campos.  Os campos obrigatórios são indicados por um asterisco (*).
+Os **detalhes do repositório de imagens** na captura de tela anterior contêm os campos a seguir.  Os campos obrigatórios são indicados por um asterisco (*).
 
--   **ID\* de assinatura** - O ID de assinatura do Azure onde o ACR está presente.
--   **Nome\* do grupo de** recursos - O nome do grupo de recursos do ACR.
--   **Nome\* do registro** - O nome ACR.
--   **Nome do repositório\* ** - O nome do repositório. Após a definição do nome, esse valor não pode ser alterado. Use um nome exclusivo para evitar um conflito com outras ofertas em sua conta.
--   **Nome\* de usuário** - O nome de usuário (nome de usuário do admin) associado à imagem ACR.
--   **Senha\* ** - A senha associada à imagem ACR.
+-   **ID\* da assinatura** -a ID da assinatura do Azure em que o ACR está presente.
+-   **Nome\* do grupo de recursos** -o nome do grupo de recursos do ACR.
+-   **Nome\* do registro** -o nome do ACR.
+-   **Nome\* do repositório** -o nome do repositório. Após a definição do nome, esse valor não pode ser alterado. Use um nome exclusivo para evitar um conflito com outras ofertas em sua conta.
+-   **Nome\* ** de usuário-o nome de usuário (nome de usuário do administrador) associado à imagem do ACR.
+-   **Senha\* ** -a senha associada à imagem do ACR.
 
     >[!NOTE]
     >O nome de usuário e senha são necessários para assegurar que os parceiros tenham acesso ao ACR mencionado no processo de publicação.
@@ -65,7 +65,7 @@ Os **detalhes do repositório** de imagem na captura de tela anterior contém os
 
 Ao publicar uma imagem de contêiner, você pode fornecer uma ou mais marcas de imagem e resumos do SHA.
 
-**Tag\* de imagem ou digesto**
+**Resumo ou\* marca de imagem**
  
 - Essa marca ou resumo deve incluir pelo menos uma marca `latest` e uma marca de versão (por exemplo, começando com `xx.xx.xx-` em que xx é um número). Devem ser [marcas de manifesto](https://github.com/estesp/manifest-tool) para segmentar várias plataformas. Todas as marcas referenciadas por uma marca de manifesto também deverão ser adicionadas para que possamos enviá-las. 
 - Você pode adicionar várias versões de um contêiner usando marcas. Todas as marcas de manifesto (exceto `latest`) devem começar com `X.Y-` ou `X.Y.Z-` em que X, Y, Z são inteiros. <br/> Por exemplo, se uma marca `latest` apontar para `1.0.1-linux-x64`, `1.0.1-linux-arm32` e `1.0.1-windows-arm32`, essas marcas deverão ser adicionadas aqui.

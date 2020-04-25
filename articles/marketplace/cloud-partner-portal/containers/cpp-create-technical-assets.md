@@ -1,5 +1,5 @@
 ---
-title: Criar ativos técnicos de imagem do Azure Containers | Mercado Azure
+title: Criar ativos técnicos de imagem de contêineres do Azure | Azure Marketplace
 description: Crie os recursos técnicos para um contêiner do Azure.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: 1116bd03cf0ef734b74b387ff8f3cff74b29b215
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 68db606c9a01c4b1122f9b0cce620762485ca40a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270308"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148270"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Prepare seus recursos técnicos de contêiner
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover a gestão de suas ofertas de contêineres Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Prepare os ativos técnicos do Azure Container](https://aka.ms/CreateContainerTechAssets) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de contêiner do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [preparar seus ativos técnicos do contêiner do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) para gerenciar suas ofertas migradas.
 
 Este artigo descreve as etapas e requisitos para configurar uma oferta de contêiner do Azure Marketplace.
 
@@ -41,7 +41,7 @@ Além do domínio da solução, a equipe de engenharia deverá ter conhecimento 
 
 Escolha um ou ambos dos seguintes ambientes de script para ajudar a gerenciar sua imagem do contêiner:
 
--    [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+-    [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview)
 -    [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 Além disso, é recomendável adicionar as seguintes ferramentas ao ambiente de desenvolvimento:
@@ -58,8 +58,8 @@ Também é recomendável que você revise as ferramentas disponíveis na página
 
 Veja o seguinte para obter mais informações:
 
-* [Tutorial: Crie uma imagem de contêiner para implantação no Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
-* [Tutorial: Construa e implante imagens de contêiner na nuvem com tarefas de registro de contêineres do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
+* [Tutorial: criar uma imagem de contêiner para implantação em instâncias de contêiner do Azure](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Tutorial: criar e implantar imagens de contêiner na nuvem com tarefas de registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>Próximas etapas
 

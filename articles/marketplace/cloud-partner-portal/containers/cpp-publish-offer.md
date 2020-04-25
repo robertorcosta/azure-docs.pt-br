@@ -1,5 +1,5 @@
 ---
-title: Publicar oferta de imagem do Azure Containers | Mercado Azure
+title: Publicar oferta de imagem de contêineres do Azure | Azure Marketplace
 description: Como publicar uma oferta de contêiner do Azure.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: 8003bf1cb7905d5decf8a6267ea397f1b2c01222
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 58e096a3b25b16e54cf2f18935dcf4a2d44cd767
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270155"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146207"
 ---
 # <a name="publish-container-offer"></a>Publicar oferta de contêiner
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover a gestão de suas ofertas de contêineres Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de contêiner Azure](https://aka.ms/CreateContainerOffer) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de contêiner do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar uma oferta de contêiner do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer) para gerenciar suas ofertas migradas.
 
  Depois de criar uma nova oferta usando a página **Nova oferta**, você pode publicar a oferta. Selecione **publicar** para iniciar o processo de publicação.
 
@@ -30,11 +30,11 @@ O diagrama a seguir mostra as principais etapas no processo de publicação para
 A tabela a seguir descreve cada etapa de publicação. Um tempo estimado para concluir cada etapa também é dado.
 
 
-|  **Etapa de publicação**           | **Tempo**    | **Descrição**                                                            |
+|  **Etapa de publicação**           | **Hora**    | **Descrição**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Validar os pré-requisitos         | 15 min   | Informações de oferta e configurações de oferta são validadas.                        |
 | Certificação                  | 1 semana | A oferta é analisada pela equipe de certificação do Azure. A oferta é exeminada em busca de vírus, malware, conformidade de segurança e problemas de segurança. A oferta é verificada para ver se atende aos critérios de qualificação. Para obter mais informações, consulte os [pré-requisitos](./cpp-prerequisites.md) e [preparando seus ativos técnicos](./cpp-create-technical-assets.md). Comentários serão fornecidos se um problema for encontrado. |
-| Empacotamento | 1 hora  | Os ativos técnicos da oferta são embalados para uso do cliente e os sistemas de chumbo são configurados e configurados. |
+| Empacotamento | 1 hora  | Os ativos técnicos da oferta são empacotados para uso do cliente e os sistemas de Lead são configurados e definidos. |
 |  Aprovação do publicador             |  -        | Revisão final do editor e confirmação antes que a oferta seja publicada. Você pode implantar sua oferta nas assinaturas selecionadas (nas etapas a informações de oferta) para verificar se ele atende a todos os seus requisitos.  Selecione **Go Live** para que sua oferta possa passar para a próxima etapa. |
 | Empacotamento                 | 1 hora | A oferta finalizada é replicada nos sistemas e regiões de produção do mercado. | 
 | Live                           | 4 dias |A oferta é lançada, replicada para as regiões exigidas e disponibilizada ao público. |

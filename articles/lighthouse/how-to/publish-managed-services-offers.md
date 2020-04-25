@@ -1,45 +1,45 @@
 ---
-title: Publique uma oferta de serviço gerenciado para o Azure Marketplace
-description: Saiba como publicar uma oferta de Serviço Gerenciado que abordo clientes para o gerenciamento de recursos delegados do Azure.
-ms.date: 04/08/2020
+title: Publicar uma oferta de serviço gerenciado no Azure Marketplace
+description: Saiba como publicar uma oferta de serviço gerenciado que integra os clientes ao gerenciamento de recursos delegado do Azure.
+ms.date: 04/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 247f711188fa10de19cece27f164fdfa71612d1b
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 19c4d1a4bd0ffd7c0162cbf7f20c49a5b219b9bc
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991902"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146733"
 ---
-# <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publique uma oferta de serviço gerenciado para o Azure Marketplace
+# <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de serviço gerenciado no Azure Marketplace
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de Serviço Gerenciado para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma nova oferta de Serviço Gerenciado](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de serviço gerenciado para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar uma nova oferta de serviço gerenciado](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) para gerenciar suas ofertas migradas.
 
-Neste artigo, você aprenderá como publicar uma oferta pública ou privada de Serviço Gerenciado ao [Azure Marketplace](https://azuremarketplace.microsoft.com) usando [o Cloud Partner Portal](https://cloudpartner.azure.com/). Os clientes que comprarem a oferta podem então embarcar em assinaturas e grupos de recursos para [o gerenciamento de recursos delegados do Azure.](../concepts/azure-delegated-resource-management.md)
+Neste artigo, você aprenderá a publicar uma oferta de serviço gerenciado pública ou privada para o [Azure Marketplace](https://azuremarketplace.microsoft.com) usando o [portal do Cloud Partner](https://cloudpartner.azure.com/). Os clientes que comprarem a oferta serão capazes de carregar assinaturas e grupos de recursos para o [Gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md).
 
 ## <a name="publishing-requirements"></a>Publicação de requisitos
 
-Você precisa ter uma conta válida [no Partner Center](../../marketplace/partner-center-portal/create-account.md) para criar e publicar ofertas. Se você ainda não tiver uma conta, o [processo de inscrição](https://aka.ms/joinmarketplace) o levará através das etapas de criação de uma conta no Partner Center e inscrição no programa Comercial.
+Você precisa ter uma conta válida [no Partner Center](../../marketplace/partner-center-portal/create-account.md) para criar e publicar ofertas. Se você ainda não tiver uma conta, o [processo de inscrição](https://aka.ms/joinmarketplace) o conduzirá pelas etapas de criação de uma conta no Partner Center e registro no programa do Marketplace comercial.
 
-De acordo com os [requisitos de certificação](https://docs.microsoft.com/legal/marketplace/certification-policies#7004-business-requirements)do Serviço Gerenciado, você deve ter um nível de competência da [Plataforma Silver ou Gold Cloud](https://docs.microsoft.com/partner-center/learn-about-competencies) ou ser um MSP especialista do [Azure](https://partner.microsoft.com/membership/azure-expert-msp) para publicar uma oferta de Serviço Gerenciado.
+De acordo com os [requisitos de certificação da oferta de serviço gerenciado](https://docs.microsoft.com/legal/marketplace/certification-policies#7004-business-requirements), você deve ter um [nível de competência de plataforma de nuvem prata ou ouro](https://docs.microsoft.com/partner-center/learn-about-competencies) ou ser um [Azure expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) para publicar uma oferta de serviço gerenciado.
 
 Sua ID do MPN (Microsoft Partner Network) será [associada automaticamente](../../billing/billing-partner-admin-link-started.md) às ofertas que você publicar para controlar seu impacto na participação dos clientes.
 
 > [!NOTE]
 > Se não quiser publicar uma oferta no Azure Marketplace, você poderá integrar os clientes manualmente usando modelos do Azure Resource Manager. Para saber mais, confira [Integrar um cliente no gerenciamento de recursos delegados do Azure](onboard-customer.md).
 
-Publicar uma oferta de Serviço Gerenciado é semelhante à publicação de qualquer outro tipo de oferta ao Azure Marketplace. Para saber mais sobre o processo de publicação geral, consulte [O Azure Marketplace e o AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md). Você também deve examinar as [políticas de certificação do mercado comercial](https://docs.microsoft.com/legal/marketplace/certification-policies), especialmente a seção [Serviços Gerenciados](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services).
+A publicação de uma oferta de serviço gerenciado é semelhante à publicação de qualquer outro tipo de oferta no Azure Marketplace. Para saber mais sobre o processo de publicação geral, consulte o [Guia de publicação do Azure Marketplace e do AppSource](../../marketplace/marketplace-publishers-guide.md). Você também deve examinar as [políticas de certificação do mercado comercial](https://docs.microsoft.com/legal/marketplace/certification-policies), especialmente a seção [Serviços Gerenciados](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services).
 
-Uma vez que um cliente adicione sua oferta, ele poderá delegar uma ou mais assinaturas ou grupos de recursos, que serão então [a bordo para o gerenciamento de recursos delegados do Azure.](#the-customer-onboarding-process)
+Depois que um cliente adiciona sua oferta, ele poderá delegar uma ou mais assinaturas ou grupos de recursos, que serão [integrados ao gerenciamento de recursos delegado do Azure](#the-customer-onboarding-process).
 
 > [!IMPORTANT]
-> Cada plano em uma oferta de serviço gerenciado inclui uma seção **Detalhes do Manifesto,** onde você define as entidades do Azure Active Directory (Azure AD) em seu inquilino que terão acesso aos grupos de recursos delegados e/ou assinaturas para clientes que comprarem esse plano. É importante estar ciente de que qualquer grupo (ou usuário ou diretor de serviço) que você incluir terá as mesmas permissões para cada cliente que comprar o plano. Para atribuir diferentes grupos para trabalhar com cada cliente, você precisará publicar um [plano privado](../../marketplace/private-offers.md) separado que seja exclusivo de cada cliente.
+> Cada plano em uma oferta de serviço gerenciado inclui uma seção **detalhes do manifesto** , em que você define as entidades Azure Active Directory (Azure AD) em seu locatário que terão acesso aos grupos de recursos delegados e/ou assinaturas para clientes que compram esse plano. É importante estar ciente de que qualquer grupo (ou entidade de serviço ou usuário) que você incluir terá as mesmas permissões para cada cliente que comprar o plano. Para atribuir grupos diferentes para trabalhar com cada cliente, você precisará publicar um [plano privado](../../marketplace/private-offers.md) separado que seja exclusivo para cada cliente.
 
 ## <a name="create-your-offer"></a>Criar sua oferta
 
-1. Faça login no Portal de [Parceiros na Nuvem](https://cloudpartner.azure.com/).
+1. Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/).
 2. No menu de navegação à esquerda, selecione **Nova oferta** e selecione **Serviços gerenciados**.
-3. Você verá uma seção **de Editor** para sua oferta com quatro partes para preencher: **Configurações de oferta,** **planos,** **marketplace**e **suporte.** Continue lendo para obter diretrizes sobre como concluir essas seções.
+3. Você verá uma seção do **Editor** para sua oferta com quatro partes a serem preenchidas: **configurações da oferta**, **planos**, **Marketplace**e **suporte**. Continue lendo para obter diretrizes sobre como concluir essas seções.
 
 ### <a name="enter-offer-settings"></a>Inserir configurações da oferta
 
@@ -65,14 +65,14 @@ Preencha as seguintes seções em **Detalhes do plano**:
 
 |Campo  |Descrição  |
 |---------|---------|
-|**Title**     | Nome amigável do plano para exibição. Comprimento máximo de 50 caracteres.        |
+|**Título**     | Nome amigável do plano para exibição. Comprimento máximo de 50 caracteres.        |
 |**Resumo**     | Descrição sucinta do plano para exibição abaixo do título. Comprimento máximo de 100 caracteres.        |
 |**Descrição**     | Texto de descrição que fornece uma explicação mais detalhada do plano.         |
 |**Modelo de cobrança**     | Há dois modelos de cobrança mostrados aqui, mas você deve escolher **Traga sua própria licença** para ofertas de serviços gerenciados. Isso significa que você cobrará de seus clientes diretamente os custos relacionados a essa oferta, e a Microsoft não cobrará nenhum valor por você.   |
-|**É um plano privado?**     | Indica se a SKU é pública ou privada. O padrão é **Não** (público). Se você deixar essa seleção, seu plano não será restrito a clientes específicos (ou a determinado número de clientes); depois de publicar um plano público, você não poderá alterá-lo posteriormente para privado. Para disponibilizar esse plano somente para clientes específicos, selecione **Sim**. Ao fazer isso, você precisará identificar os clientes fornecendo suas IDs de assinatura. Elas podem ser inseridas uma a uma (até 10 assinaturas) ou pelo upload de um arquivo .csv (até 20.000 assinaturas). Inclua suas próprias assinaturas aqui para que você possa testar e validar a oferta. Para saber mais, confira [SKUs Privados e Planos](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md).  |
+|**Este é um plano privado?**     | Indica se a SKU é pública ou privada. O padrão é **Não** (público). Se você deixar essa seleção, seu plano não será restrito a clientes específicos (ou a determinado número de clientes); depois de publicar um plano público, você não poderá alterá-lo posteriormente para privado. Para disponibilizar esse plano somente para clientes específicos, selecione **Sim**. Ao fazer isso, você precisará identificar os clientes fornecendo suas IDs de assinatura. Elas podem ser inseridas uma a uma (até 10 assinaturas) ou pelo upload de um arquivo .csv (até 20.000 assinaturas). Inclua suas próprias assinaturas aqui para que você possa testar e validar a oferta. Para saber mais, confira [SKUs Privados e Planos](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md).  |
 
 > [!IMPORTANT]
-> Uma vez que um plano tenha sido publicado como público, você não pode mudá-lo para privado. Para controlar quais clientes podem aceitar sua oferta e delegar recursos, use um plano privado. Com um plano público, você não pode restringir a disponibilidade a certos clientes ou mesmo a um certo número de clientes (embora você possa parar de vender o plano completamente se você optar por fazê-lo). Você pode [remover o acesso a uma delegação](onboard-customer.md#remove-access-to-a-delegation) depois que um cliente aceitar uma oferta somente se você incluiu uma **autorização** com a definição **de função** definida como Função [de Exclusão de Atribuição de Registro de Serviços Gerenciados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) quando você publicou a oferta. Você também pode entrar em contato com o cliente e pedir-lhe para [remover seu acesso](view-manage-service-providers.md#add-or-remove-service-provider-offers).
+> Depois que um plano tiver sido publicado como público, você não poderá alterá-lo para privado. Para controlar quais clientes podem aceitar sua oferta e delegar recursos, use um plano privado. Com um plano público, não é possível restringir a disponibilidade para determinados clientes ou até mesmo para um determinado número de clientes (embora você possa deixar de vender completamente o plano se optar por fazê-lo). Você poderá [remover o acesso a uma delegação](remove-delegation.md) depois que um cliente aceitar uma oferta somente se você tiver incluído uma **autorização** com a **definição de função** definida para atribuição de [registro de serviços gerenciados excluir função](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) quando você publicou a oferta. Você também pode entrar em contato com o cliente e pedir que eles [removam seu acesso](view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 #### <a name="manifest-details"></a>Detalhes do manifesto
 
@@ -92,15 +92,15 @@ Por fim, adicione uma ou mais entradas de **Autorização** ao plano. As autoriz
 
 Para cada **Autorização**, você precisará fornecer o seguinte. Em seguida, você pode selecionar **Nova autorização** quantas vezes forem necessárias para adicionar mais definições de usuários e funções.
 
-- **ID do objeto Azure AD**: O identificador Azure AD de um usuário, grupo de usuário ou aplicativo que receberá certas permissões (conforme descrito pela Definição de Função) aos recursos de seus clientes.
-- **Nome de exibição de objeto AD do Azure :** Um nome amigável para ajudar o cliente a entender o propósito desta autorização. O cliente verá esse nome ao delegar recursos.
-- **Definição de função**: Selecione uma das funções incorporadas do Azure AD disponíveis na lista. Essa função determinará as permissões que o usuário no campo **ID do Objeto do Azure AD** terá nos recursos dos clientes. Para descrições dessas funções, consulte [Funções incorporadas](../../role-based-access-control/built-in-roles.md) e [suporte de função para gerenciamento de recursos delegados do Azure](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management).
+- **ID de objeto do Azure ad**: o identificador do Azure AD de um usuário, grupo de usuários ou aplicativo ao qual serão concedidas determinadas permissões (conforme descrito pela definição de função) aos recursos dos seus clientes.
+- **Nome de exibição do objeto do Azure ad**: um nome amigável para ajudar o cliente a entender a finalidade dessa autorização. O cliente verá esse nome ao delegar recursos.
+- **Definição de função**: selecione uma das funções internas do Azure ad disponíveis na lista. Essa função determinará as permissões que o usuário no campo **ID do Objeto do Azure AD** terá nos recursos dos clientes. Para obter descrições dessas funções, consulte [funções internas](../../role-based-access-control/built-in-roles.md) e [suporte de função para o gerenciamento de recursos delegado do Azure](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management).
   > [!NOTE]
-  > À medida que novas funções incorporadas forem adicionadas ao Azure, elas estarão disponíveis aqui, embora possa haver algum atraso antes de aparecerem.
-- **Funções atribuíveis**: Isso só é necessário se você tiver selecionado administrador de acesso ao usuário na **Definição de Função** para esta autorização. Nesse caso, você deve adicionar uma ou mais funções atribuíveis aqui. O usuário no campo **ID de objeto do Azure AD** poderá atribuir essas **Funções atribuíveis** às [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md), necessárias para [implantar políticas que possam ser corrigidas](deploy-policy-remediation.md). Observe que nenhuma outra permissão normalmente associada à função Administrador de Acesso de Usuário será aplicada a esse usuário. Se você não selecionar uma ou mais funções aqui, seu envio não será aprovado na certificação. (Se você não selecionou o Administrador de Acesso ao Usuário para a Definição de Função deste usuário, este campo não tem efeito.)
+  > Conforme as novas funções internas aplicáveis forem adicionadas ao Azure, elas ficarão disponíveis aqui, embora possa haver algum atraso antes que elas apareçam.
+- **Funções atribuíveis**: isso será necessário somente se você tiver selecionado administrador de acesso de usuário na **definição de função** para essa autorização. Nesse caso, você deve adicionar uma ou mais funções atribuíveis aqui. O usuário no campo **ID de objeto do Azure AD** poderá atribuir essas **Funções atribuíveis** às [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md), necessárias para [implantar políticas que possam ser corrigidas](deploy-policy-remediation.md). Observe que nenhuma outra permissão normalmente associada à função Administrador de Acesso de Usuário será aplicada a esse usuário. Se você não selecionar uma ou mais funções aqui, seu envio não será aprovado na certificação. (Se você não selecionou administrador de acesso do usuário para a definição de função deste usuário, esse campo não terá efeito.)
 
 > [!TIP]
-> Para garantir que você possa [remover o acesso a uma delegação,](onboard-customer.md#remove-access-to-a-delegation) se necessário, inclua uma **autorização** com a definição **de função** definida como Função [de Exclusão de Atribuição de Registro de Serviços Gerenciados .](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) Se essa função não for atribuída, os recursos delegados só poderão ser removidos por um usuário no locatário do cliente.
+> Para garantir que você possa [remover o acesso a uma delegação](remove-delegation.md) , se necessário, inclua uma **autorização** com a **definição de função** definida como atribuição de registro de [Serviços gerenciados excluir função](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Se essa função não for atribuída, os recursos delegados só poderão ser removidos por um usuário no locatário do cliente.
 
 Depois de concluir as informações, você poderá selecionar o **Novo plano** quantas vezes precisar para criar planos adicionais. Ao terminar, selecione **Salvar** e continue na seção **Marketplace**.
 
@@ -112,18 +112,18 @@ Preencha os seguintes campos na seção **Visão geral**:
 
 |Campo  |Descrição  |
 |---------|---------|
-|**Title**     |  Título da oferta, geralmente o nome longo e formal. Este título será exibido com destaque no mercado. Comprimento máximo de 50 caracteres. Na maioria dos casos, ele deve ser igual ao **Nome** inserido na seção **Configurações da Oferta**.       |
+|**Título**     |  Título da oferta, geralmente o nome longo e formal. Este título será exibido com destaque no mercado. Comprimento máximo de 50 caracteres. Na maioria dos casos, ele deve ser igual ao **Nome** inserido na seção **Configurações da Oferta**.       |
 |**Resumo**     | Breve propósito ou função da solução. Isso geralmente é exibido abaixo do título. Comprimento máximo de 100 caracteres.        |
 |**Resumo longo**     | Um resumo mais longo da finalidade ou da função da oferta. Comprimento máximo de 256 caracteres.        |
 |**Descrição**     | Mais informações sobre sua oferta. É um campo com tamanho máximo de 3000 caracteres e dá suporte à formatação HTML simples. Você deve incluir as palavras "serviço gerenciado" ou "serviços gerenciados" em algum lugar na sua descrição.       |
-|**Identificador de marketing**     | Um identificador amigável de URL exclusivo. Este identificador só pode conter caracteres alfanuméricas minúsculos e traços. Ele será usado em URLs marketplace para esta oferta. Por exemplo, se a ID do editor for *contoso* e o identificador de marketing for *sampleApp*, a URL da oferta no Azure Marketplace será *https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp*.        |
+|**Identificador de marketing**     | Um identificador amigável de URL exclusivo. Esse identificador só pode conter caracteres alfanuméricos minúsculos e traços. Ele será usado em URLs do Marketplace para esta oferta. Por exemplo, se a ID do editor for *contoso* e o identificador de marketing for *sampleApp*, a URL da oferta no Azure Marketplace será `https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp`.       |
 |**Visualizar IDs de assinatura**     | Adicione 1 a 100 identificadores de assinatura. Os clientes associados a essas assinaturas poderão exibir a oferta no Azure Marketplace antes de ser ativada. Sugerimos incluir suas próprias assinaturas aqui para que você possa visualizar como a oferta aparece no Azure Marketplace antes de disponibilizá-la para os clientes.  (As equipes de suporte e engenharia da Microsoft também poderão exibir a oferta durante esse período de versão prévia.)   |
 |**Links úteis**     | URLs relacionadas à oferta, como documentação, notas de versão, perguntas frequentes, etc.        |
 |**Categorias sugeridas (máximo 5)**     | Uma ou mais categorias (até cinco) que se aplicam à oferta. Essas categorias ajudam os clientes a descobrir a oferta no Azure Marketplace e no portal do Azure.        |
 
 Na seção **Artefatos de Marketing**, você pode fazer upload de logotipos e outros ativos para serem mostrados com a oferta. Opcionalmente, você pode fazer upload de capturas de tela ou links para vídeos que podem ajudar os clientes a entender a oferta.
 
-São necessários quatro tamanhos de logotipo: **Pequeno (40x40)**, **Médio (90x90)**, **Grande (115x115)** e **Largo (255x115)**. Siga estas diretrizes para seus logotipos:
+São necessários quatro tamanhos de logotipo: **Small (40x40)**, **Medium (90x90)**, **Large (115x115)** e **Wide (255x115)**. Siga estas diretrizes para seus logotipos:
 
 - O design do Azure tem uma paleta de cores simples. Limite o número de cores primárias e secundárias em seu logotipo.
 - As cores do tema do portal são branca e preta. Não use essas cores como a cor de fundo de seu logotipo. Use uma cor que destaque seu logotipo no portal. É recomendável usar cores primárias simples.
@@ -161,12 +161,12 @@ Você pode [publicar uma versão atualizada de sua oferta](../../marketplace/clo
 Após o cliente adicionar a oferta, ele poderá [delegar uma ou mais assinaturas ou grupos de recursos específicos](view-manage-service-providers.md#delegate-resources), que serão integrados para gerenciamento de recursos delegados do Azure. Se um cliente tiver aceitado uma oferta, mas ainda não tiver delegado nenhum recurso, ele verá uma observação na parte superior da seção **Ofertas de provedores** da página [**Provedores de serviço**](view-manage-service-providers.md) no portal do Azure.
 
 > [!IMPORTANT]
-> A delegação deve ser feita por uma conta não-convidada no inquilino do cliente que tenha a [função de Proprietário incorporada](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para a assinatura que está sendo a bordo (ou que contém os grupos de recursos que estão sendo abordados). Para ver todos os usuários que podem delegar a assinatura, um usuário do locatário do cliente poderá selecionar a assinatura no portal do Azure, abrir o **IAM (Controle de acesso)** e [exibir todos os usuários com a função Proprietário](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> A delegação deve ser feita por uma conta que não seja de convidado no locatário do cliente que tem a [função interna de proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) para a assinatura que está sendo integrada (ou que contém os grupos de recursos que estão sendo integrados). Para ver todos os usuários que podem delegar a assinatura, um usuário do locatário do cliente poderá selecionar a assinatura no portal do Azure, abrir o **IAM (Controle de acesso)** e [exibir todos os usuários com a função Proprietário](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
-Uma vez que o cliente delegue uma assinatura (ou um ou mais grupos de recursos dentro de uma assinatura), o provedor de recursos **Microsoft.ManagedServices** será registrado para essa assinatura, e os usuários em seu inquilino poderão acessar os recursos delegados de acordo com as autorizações em sua oferta.
+Depois que o cliente delega uma assinatura (ou um ou mais grupos de recursos em uma assinatura), o provedor de recursos **Microsoft. managedservices** será registrado para essa assinatura e os usuários em seu locatário poderão acessar os recursos delegados de acordo com as autorizações em sua oferta.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Conheça o [Mercado Comercial](../../marketplace/partner-center-portal/commercial-marketplace-overview.md).
+- Saiba mais sobre o [Marketplace comercial](../../marketplace/partner-center-portal/commercial-marketplace-overview.md).
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).
 - [Exiba e gerencie clientes](view-manage-customers.md) acessando **Meus clientes** no portal do Azure.

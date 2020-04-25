@@ -1,23 +1,23 @@
 ---
-title: Serviço de consultoria Azure e Dynamics 365 oferece publicação | Mercado Azure
-description: Publique uma oferta de serviço de consultoria Azure ou Dynamics 365 no Portal de Parceiros em Nuvem para O Mercado Azure ou AppSource.
+title: Publicação de ofertas de serviço de consultoria do Azure e Dynamics 365 | Azure Marketplace
+description: Publique uma oferta de serviço de consultoria do Azure ou Dynamics 365 no Portal do Cloud Partner para o Azure Marketplace ou AppSource.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 3a06bae941c75e43a0e4ea2b66cc420e7a2467c3
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: c602bbee128c3338d841cb4564add26ba1c9e841
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985075"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146639"
 ---
 # <a name="publish-a-consulting-service-offer"></a>Publicar uma oferta de serviço de consultoria
 
 >[!Important]
->A partir de 13 de abril de 2020, começaremos a movimentar a gestão de suas ofertas de serviços de Consultoria para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Visão geral de criação de serviços de consultoria](https://aka.ms/AzureCreateConsultingService) para gerenciar suas ofertas migradas.
+>A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de serviço de consultoria para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [visão geral da criação do serviço de consultoria](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-consulting-service-offer) para gerenciar suas ofertas migradas.
 
 Depois de finalizar as **Configurações da oferta**, os **Detalhes da vitrine** e os **Contatos**, selecione **Publicar** e forneça um endereço de email. Quando a Microsoft estiver pronta para publicar sua oferta, você recebe um email para ver uma versão prévia antes de entrar no ar. Pode retornar ao portal para verificar o status da oferta a qualquer momento.
 

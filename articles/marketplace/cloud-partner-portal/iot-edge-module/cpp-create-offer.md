@@ -1,5 +1,5 @@
 ---
-title: Crie uma oferta de módulo Azure IoT Edge | Mercado Azure
+title: Criar uma oferta de módulo de Azure IoT Edge | Azure Marketplace
 description: Como publicar um novo módulo do IoT Edge para o Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ab40a0e90bee8f034d811aac2781192359cbc109
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: d8f4300f45fc626c104055f987d123301ba8f39d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981742"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148058"
 ---
 # <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>Criar uma nova oferta de módulo do IoT Edge com o Portal do Cloud Partner
 
 >[!Important]
->A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas do seu módulo IoT Edge para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://aka.ms/AzureCreateIoT) para gerenciar suas ofertas migradas.
+>A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de módulo IoT Edge para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar um módulo de IOT Edge oferta](https://docs.microsoft.com//azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) para gerenciar suas ofertas migradas.
 
 Este artigo descreve como criar e publicar uma entrada de oferta de Módulo do IoT Edge para o Azure Marketplace. Cada oferta aparece como sua própria entidade no Azure Marketplace e está associada uma ou mais SKUs.  Uma oferta de Módulo do Azure IoT Edge é composta dos seguintes grupos de ativos e serviços de suporte:
 
@@ -30,7 +30,7 @@ Este artigo descreve como criar e publicar uma entrada de oferta de Módulo do I
 
 ## <a name="new-offer-form"></a>Novo formulário de oferta 
 
-Faça login no Portal do [Parceiro na Nuvem](https://cloudpartner.azure.com/)e selecione + Nova **Oferta** na barra de menuà esquerda. No menu de Nova Oferta, selecione **Módulos do IoT Edge** para exibir o novo formul´pario de **Nova Oferta** e iniciar o processo de definição de ativos para uma nova oferta de Módulo do Edge ioT. 
+Entre no [portal do Cloud Partner](https://cloudpartner.azure.com/)e, em seguida, selecione **+ nova oferta** na barra de menus à esquerda. No menu de Nova Oferta, selecione **Módulos do IoT Edge** para exibir o novo formul´pario de **Nova Oferta** e iniciar o processo de definição de ativos para uma nova oferta de Módulo do Edge ioT. 
 
 ![O novo Módulo do IoT Edge oferece a seleção de interface do usuário](./media/new-iot-edge-module-offer.png)
 

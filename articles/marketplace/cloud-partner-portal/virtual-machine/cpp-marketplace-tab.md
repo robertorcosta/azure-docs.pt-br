@@ -1,5 +1,5 @@
 ---
-title: Guia de marketplace de máquina virtual no Portal de Parceiros na Nuvem para o Azure Marketplace
+title: Guia Marketplace de máquina virtual no Portal do Cloud Partner para o Azure Marketplace
 description: Descreve a guia Marketplace usada na criação de uma oferta de VM do Marketplace do Azure.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: 156a405d93aeac27f27fe617e1a5485044309846
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 2c3d316d0d2810cb2a25ffd3bc4e34cf3454c10d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273810"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146852"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Guia de Marketplace de máquina virtual
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de Máquina Virtual do Azure](https://aka.ms/CreateAzureVMoffer) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de máquina virtual do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar uma máquina virtual do Azure oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) para gerenciar suas ofertas migradas.
 
 A guia **Marketplace** da página **New Offer** permite que você forneça aos clientes em potencial informações e contratos de marketing, vendas e legais e gerencie leads gerados no mercado. Essa forma longa é dividida em quatro seções: **visão geral**, **artefatos de Marketing**, **gerenciamento de leads**, e **Legal**.
 
@@ -25,21 +25,21 @@ A guia **Marketplace** da página **New Offer** permite que você forneça aos c
 ## <a name="overview-section"></a>Seção de visão geral
 Nesta seção, você insere as informações gerais sobre sua oferta do Azure Marketplace.  Um asterisco anexado (*) no nome do campo indica que isso é necessário.
 
-![Seção visão geral da guia Marketplace para máquinas virtuais](./media/publishvm_008.png)
+![Seção de visão geral da guia Marketplace para máquinas virtuais](./media/publishvm_008.png)
 
 A tabela a seguir descreve o objetivo e o conteúdo desses campos. Os campos obrigatórios são indicados por um asterisco (*).
 
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Title\***                 | Título da oferta, geralmente o nome longo e formal. Este título será exibido com destaque no mercado.  Comprimento máximo de 50 caracteres. |
+| **Título\***                 | Título da oferta, geralmente o nome longo e formal. Este título será exibido com destaque no mercado.  Comprimento máximo de 50 caracteres. |
 | **Resumo\***               | Breve propósito ou função da solução.  Comprimento máximo de 100 caracteres. |
 | **Resumo longo\***          | Finalidade ou a função da solução.  Comprimento máximo de 256 caracteres. |
 | **Descrição\***           | Descrição da solução  Comprimento máximo de 3000 caracteres, suporta formatação HTML simples. |
-| **Canal de revenda do Microsoft CSP\*** | O opt-in do canal parceiro Cloud Solution Providers (CSP) já está disponível.  Consulte [os Provedores de Soluções em Nuvem](../../cloud-solution-providers.md) para obter mais informações sobre o marketing de sua oferta através dos canais parceiros microsoft CSP. |
+| **Canal de revendedor CSP da Microsoft\*** | A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](../../cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP. |
 | **Identificador de marketing\***  | Um URL exclusivo para associar a essa oferta geralmente inclui sua organização e o nome da solução, com um comprimento máximo de 50 caracteres.  Por exemplo: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Visualizar IDs de assinatura\*** | Adicione de um a 100 identificadores de assinatura de pré-visualizadores. Essas assinaturas listadas na lista de permissões terão acesso à oferta assim que forem publicadas antes de serem publicadas. |
 | **Links úteis**          | Adicione URLs a documentações, notas de versão, perguntas frequentes e assim por diante. |
-| **Categorias sugeridas\*** | Selecione até duas (2) categorias, incluindo uma categoria primária e secundária (opcional). Selecione até duas (2) subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for selecionada, você ainda será descoberto apenas na categoria selecionada. |
+| **Categorias sugeridas\*** | Selecione até duas (2) categorias, incluindo uma categoria primária e uma secundária (opcional). Selecione até duas (2) subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for selecionada, sua oferta ainda poderá ser descoberta somente na categoria selecionada. |
 |  |  |
 
 
@@ -54,12 +54,12 @@ A tabela a seguir descreve o objetivo e o conteúdo desses campos. Os campos obr
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |
 | *Logos*  |  |
-| **Pequeno\***                 | 40x40 pixel .ico bitmap                                                      |
+| **Pequena\***                 | 40x40 pixel .ico bitmap                                                      |
 | **Médio\***                | 90x90 pixel .ico bitmap                                                      |
 | **grande\***                 | 115x115 pixel .ico  bitmap                                                   |
-| **Larga\***                  | bitmap do pixel de 255 x 115. ico                                                    |
+| **Amplia\***                  | bitmap do pixel de 255 x 115. ico                                                    |
 | **Hero**                  | bitmap de 815 x 290.  Opcional, no entanto, uma vez carregado, o ícone do herói não pode ser excluído. |
-| *Screenshots*  | Opcional, mas no máximo cinco capturas de tela por SKU. |
+| *Capturas*  | Opcional, mas no máximo cinco capturas de tela por SKU. |
 | **Nome**                  | Nome ou o título   <!-- TODO - max char length? none specified in UI -->                               |
 | **Imagem**                 | Imagem de captura de tela, 533, 324 pixel                                         |
 | *Vídeos*  |  |
@@ -119,7 +119,7 @@ Depois de publicar sua oferta, a conexão do lead é validada e um lead de teste
 
 ## <a name="legal-section"></a>Seção legal
 
-Esta última seção permite que você forneça os documentos legais necessários para cada oferta.  
+Esta última seção permite que você forneça os documentos legais necessários necessários para cada oferta.  
 
 |  **Campo**                    |     **Descrição**                                        |
 |  ---------                    |     ---------------                                        |

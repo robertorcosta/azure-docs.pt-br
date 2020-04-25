@@ -1,5 +1,5 @@
 ---
-title: Informações de contatos para uma oferta de power bi app | Mercado Azure
+title: Informações de contatos para uma oferta de aplicativo Power BI | Azure Marketplace
 description: Configure os campos de Contatos para uma oferta de aplicativo do Power BI para o Microsoft AppSource Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -7,35 +7,35 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b7365babd9a6cdba28da59a9113edf32d2974fb0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: f3c6f3b07f878bac6e67be90947fb7109b840a3c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984820"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146759"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Guia de Contatos de aplicativos do Power BI
 
 >[!Important]
->A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas do seu aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [visão geral de criação de aplicativos do Power BI](https://aka.ms/AzureCreatePBIServiceApp) para gerenciar suas ofertas migradas.
+>A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de aplicativo Power BI para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Power bi visão geral da criação de aplicativo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer) para gerenciar suas ofertas migradas.
 
-Use a guia **Contatos** da página **Nova oferta** para fornecer recursos técnicos e suporte ao usuário para sua oferta. É dividido em duas seções: **Engenharia** e **Suporte ao Cliente.**
+Use a guia **Contatos** da página **Nova oferta** para fornecer recursos técnicos e suporte ao usuário para sua oferta. Ele é dividido em duas seções: **engenharia** e **suporte ao cliente**.
 
 ![Guia Contatos](media/contacts-tab.png)
 
 
 ## <a name="contacts-fields"></a>Campos de Contatos 
 
-A tabela a seguir descreve o propósito de cada campo.  Os campos obrigatórios são indicados por um asterisco (*). 
+A tabela a seguir descreve a finalidade de cada campo.  Os campos obrigatórios são indicados por um asterisco (*). 
 
 |   Campo               |   Descrição                                                            |
 |-----------------------|--------------------------------------------------------------------------|
 | *Contato de engenharia* | Serve como um contato técnico entre o AppSource e a sua organização.    |
-| **Nome\***              | O nome da pessoa ou do grupo que serve como suporte técnico ou de engenharia. |
+| **Name\***              | O nome da pessoa ou do grupo que serve como suporte técnico ou de engenharia. |
 | **Email\***             | Endereço de email do contato técnico.                                  |
-| **Telefone\***             | Número de telefone do suporte técnico.                                       |
+| **Telemóvel\***             | Número de telefone do suporte técnico.                                       |
 | *Contato de suporte*     | Recebe os tíquetes de suporte abertos por clientes no AppSource.            |
-| **Nome\***              | O nome da pessoa ou do grupo que atua como suporte ao cliente.              |
+| **Name\***              | O nome da pessoa ou do grupo que atua como suporte ao cliente.              |
 | **Email\***             | Endereço de email do suporte ao cliente.                                        |
 |   |   |
 

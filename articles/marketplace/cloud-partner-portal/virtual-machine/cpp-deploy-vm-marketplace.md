@@ -1,23 +1,23 @@
 ---
 title: Implantar uma VM do Azure Marketplace
-description: Explica como implantar uma máquina virtual a partir de uma máquina virtual pré-configurada do Azure Marketplace.
+description: Explica como implantar uma máquina virtual de uma máquina virtual pré-configurada do Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 6e39f1c70cd94c14b12e54817941ea9106aacfdd
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 2fb04e2e953e2bcbe479f7685b8042fdc7ea1767
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273861"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147001"
 ---
 # <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Implantar uma máquina virtual do Azure Marketplace
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [certificação de imagem Azure VM](https://aks.ms/CertifyVMimage) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de máquina virtual do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [certificação de imagem de VM do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) para gerenciar suas ofertas migradas.
 
 Este artigo explica como implantar uma VM (máquina virtual) pré-configurada do Azure Marketplace usando o script do Azure PowerShell fornecido.  Esse script também expõe os pontos de extremidade HTTP e HTTPS do WinRM na VM.  O script requer que um certificado já esteja carregado no Azure Key Vault, conforme descrito em [Criar certificados para o Azure Key Vault](./cpp-create-key-vault-cert.md). 
 

@@ -1,5 +1,5 @@
 ---
-title: Descrição do mercado para um módulo Azure IoT Edge | Mercado Azure
+title: Descrição do Marketplace para um módulo Azure IoT Edge | Azure Marketplace
 description: Crie a descrição do marketplace de um módulo IoT Edge.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: df51a408cc47908a240ceb66bf510fe3df3ce87f
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: b4a3aa4e92fcabf354de7d550ec53ead5872596d
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983391"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144786"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Guia de mercado de módulo do IoT Edge
 
 >[!Important]
->A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas do seu módulo IoT Edge para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [Criar uma oferta de módulo IoT Edge](https://aka.ms/AzureCreateIoT) para gerenciar suas ofertas migradas.
+>A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de módulo IoT Edge para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [criar um módulo de IOT Edge oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) para gerenciar suas ofertas migradas.
 
 A guia **Marketplace** da página **New Offer** permite que você forneça aos clientes em potencial informações e contratos de marketing, vendas e legais e gerencie leads gerados no mercado. Essa forma longa é dividida em quatro seções: **visão geral**, **artefatos de Marketing**, **gerenciamento de leads**, e **Legal**.
 
@@ -88,12 +88,12 @@ Esta seção tem as seguintes subseções: **Logotipos**, **Captura de tela** e 
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |
 | *Logos*  | Veja as capturas de tela anteriores para ver como e onde seus logotipos serão usados.  |
-| **Pequeno\***                 | formato PNG de 40 x 40 pixels                                                     |
+| **Pequena\***                 | formato PNG de 40 x 40 pixels                                                     |
 | **Médio\***                | formato PNG de 90 x 90 pixels                                                     |
 | **grande\***                 | formato do pixel 115 x 115 PNG                                                  |
-| **Larga\***                  | formato do pixel de 255 x 115 PNG                                                   |
+| **Amplia\***                  | formato do pixel de 255 x 115 PNG                                                   |
 | **Hero**                  | formato de pixel de 815 x 290 PNG.  Opcional, no entanto, uma vez carregado, o ícone do herói não pode ser excluído. |
-| *Screenshots*  | Capturas de tela são exibidas na sua página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o que o seu módulo IoT Edge faz e como funciona. Você pode mostrar diagramas de arquitetura ou usar ilustrações de casos, por exemplo. Opcional, mas no máximo cinco capturas de tela por SKU. |
+| *Capturas*  | Capturas de tela são exibidas na sua página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o que o seu módulo IoT Edge faz e como funciona. Você pode mostrar diagramas de arquitetura ou usar ilustrações de casos, por exemplo. Opcional, mas no máximo cinco capturas de tela por SKU. |
 | **Nome**                  | Nome ou o título. Comprimento máximo de 100 caracteres.                             |
 | **Imagem**                 | Imagem de captura de tela, o formato do pixel 533, 324 PNG                               |
 | *Vídeos*  | Vídeos são exibidos na sua página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o que o seu módulo IoT Edge faz e como funciona. |
@@ -111,7 +111,7 @@ Esta seção tem as seguintes subseções: **Logotipos**, **Captura de tela** e 
 Todos os logotipos enviados para o Cloud Partner Portal devem seguir as diretrizes:
 
 *  O design do Azure tem uma paleta de cores simples. Mantenha um baixo número de cores primárias e secundárias no seu logotipo.
-*  As cores de tema do Portal do Azure são branco e preto. Evite usar essas cores como a cor de fundo para seus logotipos. Use uma cor que torne seus logotipos proeminentes no portal do Azure. É recomendável usar cores primárias simples. Se você estiver usando um plano de fundo transparente, verifique se os logotipos / texto não são branco, preto ou azul.
+*  As cores do tema do portal do Azure são branco e preto. Evite usar essas cores como a cor de fundo para seus logotipos. Use uma cor que torne seus logotipos proeminentes no portal do Azure. É recomendável usar cores primárias simples. Se você estiver usando um plano de fundo transparente, verifique se os logotipos / texto não são branco, preto ou azul.
 *  Não use um plano de fundo gradiente no seu logotipo.
 *  Evite colocar o texto - até mesmo sua empresa ou nome de marca - no logotipo. A aparência do seu logotipo deve ser "plana" e deve evitar gradientes.
 *  Não se estendem o logotipo.
@@ -168,8 +168,8 @@ Esta seção permite fornecer os dois documentos legais necessários para cada o
 |  **Campo**                    |     **Descrição**                                                          |
 |  ---------                    |     ---------------                                                          |
 | **URL da Política de Privacidade\***      | URL para sua política de privacidade postada                                            |
-| **Use Standard Constract\***  | Se deve usar o modelo padrão de contrato da Microsoft.  Para obter mais informações, consulte [Contrato Padrão](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
-| **Termos de uso\***            | *Termos de uso* como HTML simples em linha ou link para sua página de termos de uso postado     |
+| **Usar Constract padrão\***  | Se o modelo padrão de contrato da Microsoft deve ser usado.  Para obter mais informações, consulte [contrato Standard](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
+| **Termos de uso\***            | *Termos de uso* como HTML simples embutido ou link para a página de termos de uso postados     |
 |  |  |
 
 

@@ -1,6 +1,6 @@
 ---
-title: Mensagens de processo em lote como um grupo
-description: Enviar e receber mensagens em grupos entre seus fluxos de trabalho usando processamento em lote em Aplicativos lógicos do Azure
+title: Processar mensagens em lote como um grupo
+description: Enviar e receber mensagens em grupos entre seus fluxos de trabalho usando o processamento em lotes em aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: e48d2bb2ffce0dd4f9293417534165165d426784
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d44d5a8eeba749572980f79a90bcf5893a9c1fbf
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75666747"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82144351"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Enviar, receber e processar em lote mensagens nos Aplicativos Lógicos do Azure
 
@@ -31,13 +31,15 @@ Certifique-se de que o receptor do lote e o remetente do lote compartilham a mes
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir este exemplo, você precisa destes itens:
-
-* Uma assinatura do Azure. Se você não tiver uma assinatura, você pode [começar com uma conta gratuita do Azure](https://azure.microsoft.com/free/). Ou, [inscreva-se para uma assinatura de Pagamento Conforme o Uso](https://azure.microsoft.com/pricing/purchase-options/).
+* Uma assinatura do Azure. Se você não tiver uma assinatura, poderá [começar com uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+Ou, [inscreva-se para uma assinatura de Pagamento Conforme o Uso](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Uma conta de email com qualquer [provedor de email com suporte dos Aplicativos Lógicos do Azure](../connectors/apis-list.md)
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+  > [!IMPORTANT]
+  > Se você quiser usar o conector do Gmail, somente as contas de negócios do G-Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou pode [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, consulte [políticas de segurança e privacidade de dados para o Google Connectors em aplicativos lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Para usar o Visual Studio em vez do portal do Azure, certifique-se de [configurar o Visual Studio para trabalhar com Aplicativos Lógicos](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
@@ -59,10 +61,10 @@ Antes de enviar mensagens para um lote, esse lote deverá existir primeiro como 
    |----------|-------------|
    | **Modo de lote** | - **Inline**: para definir os critérios de liberação dentro do acionador de lote <br>- **Conta de Integração**: para definir várias configurações de critérios de liberação por meio de uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Com uma conta de integração, você pode manter essas configurações em um só lugar e não em aplicativos lógicos separados. | 
    | **Nome do lote** | O nome do seu lote, que é "TestBatch" neste exemplo, e se aplica apenas ao modo em lote **Inline** |  
-   | **Critérios de liberação** | Aplica-se somente ao modo em lote **Embutido** e selecione os critérios a serem atendidos antes do processamento de cada lote: <p>- **Contagem de mensagens baseada**: Libere o lote com base no número de mensagens coletadas pelo lote. <br>- **Tamanho baseado**: Libere o lote com base no tamanho total em bytes para todas as mensagens coletadas por esse lote. <br>- **Cronograma**: Libere o lote com base em um cronograma de recorrência, que especifica um intervalo e frequência. Nas opções avançadas, você também pode selecionar um fuso horário e fornecer uma data e hora de início. <br>- **Selecionar tudo**: usar todos os critérios especificados. | 
+   | **Critérios de liberação** | Aplica-se somente ao modo em lote **Embutido** e selecione os critérios a serem atendidos antes do processamento de cada lote: <p>- **Contagem de mensagens com base**: Libere o lote com base no número de mensagens coletadas pelo lote. <br>- **Baseado em tamanho**: Libere o lote com base no tamanho total em bytes para todas as mensagens coletadas por esse lote. <br>- **Agenda**: libera o lote com base em um agendamento de recorrência, que especifica um intervalo e uma frequência. Nas opções avançadas, você também pode selecionar um fuso horário e fornecer uma data e hora de início. <br>- **Selecionar tudo**: usar todos os critérios especificados. | 
    | **Contagem de mensagens** | O número de mensagens a coletar no lote, por exemplo, 10 mensagens. O limite de um lote é 8.000 mensagens. | 
    | **Tamanho do lote** | O tamanho total em bytes para coletar no lote, por exemplo, 10 MB. O limite de tamanho de um lote é de 80 MB. | 
-   | **Agenda** | O intervalo e a frequência entre lançamentos de lote, por exemplo, 10 minutos. A recorrência mínima é de 60 segundos ou 1 minuto. Os valores de fração de minutos são arredondados para 1 minuto. Para especificar um fuso horário ou uma data e hora de início, escolha **Mostrar opções avançadas**. | 
+   | **Agendamento** | O intervalo e a frequência entre lançamentos de lote, por exemplo, 10 minutos. A recorrência mínima é de 60 segundos ou 1 minuto. Os valores de fração de minutos são arredondados para 1 minuto. Para especificar um fuso horário ou uma data e hora de início, escolha **Mostrar opções avançadas**. | 
    ||| 
 
    > [!NOTE]
@@ -83,13 +85,11 @@ Antes de enviar mensagens para um lote, esse lote deverá existir primeiro como 
    2. Na caixa de pesquisa, insira "enviar email" como filtro.
    Com base em seu provedor de email, selecione um conector de email.
 
-      Por exemplo, se você tiver uma conta pessoal, como @outlook.com ou @hotmail.com, selecione o conector Outlook.com. 
-      Se você tiver uma conta do Gmail, selecione o conector Gmail. 
-      Este exemplo usa o Outlook do Office 365. 
+      Por exemplo, se você tiver uma conta pessoal, como @outlook.com ou @hotmail.com, selecione o conector Outlook.com. Este exemplo usa o conector do Outlook do Office 365.
 
    3. Selecione esta ação: **enviar um e-mail - <*provedor de e-mail*>**
 
-      Por exemplo: 
+      Por exemplo:
 
       ![Selecione a ação "Enviar um email" para o seu provedor de email](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 
@@ -189,7 +189,7 @@ Agora crie um ou mais aplicativos de lógica de remetente em lote que enviem men
    | Propriedade | Descrição | 
    |----------|-------------| 
    | **Nome da Partição** | Uma chave de partição exclusiva opcional a ser usada para dividir o lote de destino em subconjuntos lógicos e coletar mensagens com base nessa chave | 
-   | **Id de mensagem** | Um identificador de mensagem opcional que é um identificador global exclusivo gerado (GUID) quando estiver vazio | 
+   | **ID da mensagem** | Um identificador de mensagem opcional que é um identificador global exclusivo gerado (GUID) quando estiver vazio | 
    ||| 
 
    Para este exemplo, na caixa **Partition Name**, adicione uma expressão que gere um número aleatório entre um e cinco. Deixe a caixa **ID da mensagem** vazia.

@@ -1,10 +1,10 @@
 ---
-title: Lançamentos do Microsoft Security Code Analysis
-description: Este artigo descreve os próximos lançamentos para a extensão Microsoft Security Code Analysis
+title: Lançamentos de análise de código de segurança da Microsoft
+description: Este artigo descreve as versões futuras para a extensão de análise de código de segurança da Microsoft
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 04/14/2020
+ms.date: 04/24/2020
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,63 +12,63 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a07ce7437d664baca0cfdc310dbc2631f41fdbcc
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: d4281d3b6132e551283a71cd1801ef462fbfc68c
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81462029"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146136"
 ---
-# <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Lançamentos e roteiros do Microsoft Security Code Analysis
+# <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Roteiros e lançamentos de análise de código de segurança da Microsoft
 
-A equipe de Análise de Código de Segurança da Microsoft em parceria com o Suporte ao Desenvolvedor tem o orgulho de anunciar melhorias recentes e futuras em nossa extensão MSCA. Veja o Roteiro abaixo.
+A equipe de análise de código de segurança da Microsoft em parceria com Suporte Developer tem o orgulho de anunciar aprimoramentos recentes e futuros em nossa extensão MSCA. Consulte o roteiro abaixo.
 
 ![Lançamentos](./media/security-code-analysis-releases/releases.png)
 
-## <a name="credential-scanner-v20-released-on-april-1-2020"></a>Credential Scanner v2.0: Lançado em 1 de abril de 2020
+## <a name="credential-scanner-v20-released-in-april-2020"></a>Verificador de credenciais v 2.0: lançado em abril de 2020
 
-### <a name="innovations--improvements"></a>Inovações & Melhorias
+### <a name="innovations--improvements"></a>Inovações & aprimoramentos
 
-- **Motor central**
+- **Mecanismo principal**
 
-   - Atualização média de desempenho de 25% com tempos de execução quase lineares
-   - Pesquisa e classificação baseadas em contexto/evidência para maior precisão
-   - Melhorias nas detecções gerais de senha e na lógica de correspondência para espaços reservados óbvios (por exemplo, fakePassword)
+   - Upgrade de desempenho médio de 25% com tempos de execução quase lineares
+   - Pesquisa e classificação com base em contexto/evidência para maior precisão
+   - Melhorias em detecções gerais de senha e lógica de correspondência para espaços reservados óbvios (por exemplo, fakePassword)
 
-- **Cobertura** - Suporte para mais de 25 tipos secretos, incluindo o seguinte top solicitado:
+- **Cobertura** -suporte para mais de 25 tipos secretos, incluindo o seguinte principal solicitado:
 
-   - Senha do certificado de conta de malha
-   - Chave de segredo do cliente/API
+   - Senha do certificado da conta de malha
+   - Chave de API/segredo do cliente
    - Cabeçalho de autorização HTTP
-   - Chave de acesso secreto do cliente Amazon S3
-   - Token de acesso ao cliente do azure Active Directory
-   - Chave mestre/API da função do azure
-   - Chave de acesso power BI
-   - Padrão de senha do modelo do Azure Resource Manager
+   - Chave de acesso de segredo do cliente do Amazon S3
+   - Azure Active Directory token de acesso de cliente
+   - Chave mestra/API de função do Azure
+   - Chave de acesso de Power BI
+   - Padrão de senha do modelo de Azure Resource Manager
 
 - **outputs**
 
-   - Suporte para formatos de arquivo de saída de arquivos SARIF 2.1 e CSV
+   - Suporte para formatos de arquivo de saída de arquivo SARIF 2,1 e CSV
 
-## <a name="binskim-v160-to-be-released-on-april-2020"></a>BinSkim v1.6.0: Será lançado em abril de 2020
+## <a name="binskim-v160-released-in-april-2020"></a>BinSkim v 1.6.0: lançado em abril de 2020
 
 ### <a name="improvements"></a>Aprimoramentos
 
-- RECURSO: Atualize para o SARIF v2 final (versão 2.1.16). Isso permite o cache de resultados ao passar --hashes na linha de comando, uma melhoria significativa de desempenho ao analisar recursivamente diretórios com várias cópias de metas de varredura.
-- CORREÇÃO DE ERROS: Corrigir erro de digitação em BA2021. DoNotMarkGravitableSectionsSaídaexecutável saída.
-- DESEMPENHO: Elimine o carregamento do PDB para todos os modos não mistos para conjuntos gerenciados, incluindo binários il Library (antes do tempo compilado).
-- CORREÇÃO NEGATIVA FALSA: Verifique se um PDB colocado ao lado de um binário realmente corresponde ao binário em análise
-- RECURSO: Forneça --argumento local-símbolo-diretórios para especificar locais adicionais (locais, não-símbolo-servidor) PDB locais
-- CORREÇÃO FALSA POSITIVA: Pule a análise orientada pelo PDB para o bootstrap exe nativo do núcleo .NET gerado (que não é um código controlável pelo usuário).
+- RECURSO: Atualize para o final SARIF v2 (versão 2.1.16). Isso permite o cache de resultados ao passar--hashes na linha de comando, uma melhoria significativa no desempenho ao analisar recursivamente os diretórios com várias cópias de destinos de verificação.
+- CORREÇÃO de BUG: corrija o erro de digitação em BA2021. Saída de DoNotMarkWritableSectionsAsExecutable.
+- DESEMPENHO: eliminar o carregamento de PDB para todos os modos não mistos para assemblies gerenciados, incluindo os binários da biblioteca de IL (antecipada de tempo compilado).
+- CORREÇÃO falsa negativa: Verifique se um PDB colocado junto com um binário realmente corresponde ao binário em análise
+- RECURSO: forneça o argumento--local-Symbol-diretórios para especificar locais de pesquisa de PDB (local, não-símbolo-servidor) adicionais
+- CORREÇÃO falsa positiva: ignorar a análise controlada por PDB para o exe de inicialização nativa do .NET Core gerado (que não é um código controlável pelo usuário).
 
-## <a name="whats-next-in-fy20"></a>O que vem a seguir em FY20?
+## <a name="whats-next-in-fy20"></a>O que vem a seguir no FY20?
 
-- Ferramenta Java Security Analysis
-- Ferramenta de análise de segurança python
-- ES Lint para substituir TS Lint por TypeScript e JavaScript
+- Ferramenta de análise de segurança do Java
+- Ferramenta de análise de segurança do Python
+- S fiapo para substituir TS fiapo para TypeScript e JavaScript
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter instruções sobre como embarcar e instalar a Análise de Código de Segurança da Microsoft, consulte nosso [guia de onboarding e instalação](security-code-analysis-onboard.md).
+Para obter instruções sobre como carregar e instalar a análise de código de segurança da Microsoft, consulte nosso [Guia de integração e instalação](security-code-analysis-onboard.md).
 
-Se você tiver mais dúvidas sobre a extensão e as ferramentas oferecidas, confira nossa [página de perguntas frequentes](security-code-analysis-faq.md).
+Se você tiver mais perguntas sobre a extensão e as ferramentas oferecidas, Confira nossa [página de perguntas frequentes](security-code-analysis-faq.md).

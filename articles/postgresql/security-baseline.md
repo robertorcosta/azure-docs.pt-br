@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a38bb12577fd646b2e7abf773dbb2a3f138f58fe
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
-ms.translationtype: HT
+ms.openlocfilehash: eb6fc65d15ba7262b38a48e220f01d74bfcee54a
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/24/2020
-ms.locfileid: "82127557"
+ms.locfileid: "82146545"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Linha de base de segurança do Azure para o banco de dados do Azure para PostgreSQL servidor único
 
@@ -130,7 +130,7 @@ Entender o uso da marca de serviço para o banco de dados do Azure para PostgreS
 
 - A Proteção contra DDoS Standard deve ser habilitada
 
-- 'Impor conexão SSL' deve ser habilitada para servidores de banco de dados PostgreSQL
+- Impor a conexão TLS deve ser habilitada para servidores de banco de dados PostgreSQL
 
 Como configurar e gerenciar Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -525,7 +525,7 @@ Entender a proteção de dados do cliente no Azure:https://docs.microsoft.com/az
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: criptografar todas as informações confidenciais em trânsito
 
-**Diretrizes**: o banco de dados do Azure para PostgreSQL dá suporte à conexão do servidor PostgreSQL a aplicativos cliente usando o protocolo SSL (SSL). Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo. No portal do Azure, certifique-se de que "impor conexão SSL" esteja habilitado para todas as instâncias do banco de dados do Azure para PostgreSQL por padrão.
+**Diretrizes**: o banco de dados do Azure para PostgreSQL dá suporte à conexão do servidor PostgreSQL a aplicativos cliente usando TLS (segurança de camada de transporte), anteriormente conhecido como protocolo SSL (SSL). A imposição de conexões TLS entre o servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques "Man-in-the-middle" criptografando o fluxo de dados entre o servidor e seu aplicativo. No portal do Azure, certifique-se de que "impor conexão SSL" esteja habilitado para todas as instâncias do banco de dados do Azure para PostgreSQL por padrão.
 
 Atualmente, a versão do TLS com suporte para o banco de dados do Azure para PostgreSQL é TLS 1,0, TLS 1,1, TLS 1,2.
 
@@ -794,7 +794,7 @@ Como configurar o acesso condicional para bloquear o acesso a Azure Resource Man
 
 **Diretrizes**: defina e implemente configurações de segurança padrão para as instâncias do banco de dados do Azure para PostgreSQL com Azure Policy. Use Azure Policy aliases no namespace "Microsoft. DBforPostgreSQL" para criar políticas personalizadas para auditar ou impor a configuração de rede de suas instâncias do banco de dados do Azure para PostgreSQL. Você também pode fazer uso de definições de política internas relacionadas às instâncias do banco de dados do Azure para PostgreSQL, como:
 
-- 'Impor conexão SSL' deve ser habilitada para servidores de banco de dados PostgreSQL
+- Impor a conexão TLS deve ser habilitada para servidores de banco de dados PostgreSQL
 
 - As conexões de log devem ser habilitadas para os servidores de banco de dados PostgreSQL
 

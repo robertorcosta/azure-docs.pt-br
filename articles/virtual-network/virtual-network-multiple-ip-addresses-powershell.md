@@ -1,27 +1,24 @@
 ---
 title: Vários endereços IP para máquinas virtuais do Azure – PowerShell | Microsoft Docs
-description: Aprenda a atribuir vários endereços IP a uma máquina virtual usando o PowerShell. | Gerenciador de recursos
+description: Saiba como atribuir vários endereços IP a uma máquina virtual usando o PowerShell. | Gerenciador de recursos
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: c44ea62f-7e54-4e3b-81ef-0b132111f1f8
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
-ms.author: kumud
-ms.reviewer: annahar
-ms.openlocfilehash: a8bd4e4779d94cfc22ac7726c9746fe755764033
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: e4197923fa71c719611bea7603113cab331d4ba8
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279566"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82147790"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Atribuir vários endereços IP a máquinas virtuais usando o PowerShell
 
@@ -95,9 +92,9 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     -SecurityRules $NSGRule
     ```
 
-6. Defina a configuração de IP primário da NIC. Caso você não tenha usado o valor definido anteriormente, altere 10.0.0.4 para um endereço válido na sub-rede que você criou. Antes de atribuir um endereço IP estático, é recomendável que você primeiro confirme que ele ainda não está em uso. Digite o comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se o endereço está disponível, a saída retorna *True*. Se não estiver disponível, a saída retorna *False* e uma lista de endereços disponíveis. 
+6. Defina a configuração de IP primário da NIC. Caso você não tenha usado o valor definido anteriormente, altere 10.0.0.4 para um endereço válido na sub-rede que você criou. Antes de atribuir um endereço IP estático, é recomendável que você primeiro confirme que ele ainda não está em uso. Digite o comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se o endereço está disponível, a saída retorna *True*. Se não estiver disponível, a saída retornará *false* e uma lista de endereços que estão disponíveis. 
 
-    Nos comandos a seguir, **substitua-o \<por seu nome único> pelo nome DNS exclusivo a ser usado.** O nome deve ser exclusivo entre todos os endereços IP públicos dentro de uma região do Azure. Esse é um parâmetro opcional. Ele pode ser removido se você deseja conectar-se à VM usando o endereço IP público.
+    Nos comandos a seguir, **substitua \<o nome exclusivo do Replace-com-seu> pelo nome DNS exclusivo a ser usado.** O nome deve ser exclusivo entre todos os endereços IP públicos dentro de uma região do Azure. Esse é um parâmetro opcional. Ele pode ser removido se você deseja conectar-se à VM usando o endereço IP público.
 
     ```powershell
     
@@ -162,7 +159,7 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
    ```
 
    >[!NOTE]
-   >Embora todas as configurações estejam atribuídas a uma NIC neste artigo, você pode atribuir várias configurações de IP a cada NIC anexada à VM. Para aprender como criar uma VM com várias NICs, leia o [Criar uma VM com vários NICs.](../virtual-machines/windows/multiple-nics.md)
+   >Embora todas as configurações estejam atribuídas a uma NIC neste artigo, você pode atribuir várias configurações de IP a cada NIC anexada à VM. Para saber como criar uma VM com várias NICs, leia o artigo [criar uma VM com várias NICs](../virtual-machines/windows/multiple-nics.md) .
 
 9. Crie a VM digitando os seguintes comandos:
 
@@ -314,7 +311,7 @@ Você pode adicionar Endereços IP Públicos e privados a um adaptador de rede d
    -Location $Location -AllocationMethod Static
    ```
 
-   Digite o seguinte comando para associar o recurso de endereço IP público à configuração IP existente chamada *IpConfig-3*:
+   Digite o seguinte comando para associar o recurso de endereço IP público à configuração de IP existente chamada *ipconfig-3*:
 
    ```powershell
    Set-AzNetworkInterfaceIpConfig `

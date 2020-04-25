@@ -1,5 +1,5 @@
 ---
-title: Conecte-se a sistemas de arquivos no local
+title: Conectar-se a sistemas de arquivos locais
 description: Automatize tarefas e fluxos de trabalho que se conectam a sistemas de arquivos locais com o conector do sistema de arquivos por meio do gateway de dados local nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
@@ -8,22 +8,22 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: ab17137f162b893b54942d870b07a36f87d1b71d
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: b1f4feab9587fb77089be265801c71f5b23b26ab
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115083"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146787"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conectar a sistemas de arquivos locais com os Aplicativos Lógicos do Azure
 
-Com o Azure Logic Apps e o conector Do Sistema de Arquivos, você pode criar tarefas e fluxos de trabalho automatizados que criam e gerenciam arquivos em um compartilhamento de arquivos no local, por exemplo:
+Com os aplicativos lógicos do Azure e o conector do sistema de arquivos, você pode criar tarefas e fluxos de trabalho automatizados que criam e gerenciam arquivos em um compartilhamento de arquivos local, por exemplo:
 
 - Criar, obter, acrescentar, atualizar e excluir arquivos.
 - Listar arquivos em pastas ou pastas raiz.
 - Obter conteúdo e metadados do arquivo.
 
-Este artigo mostra como se conectar a um sistema de arquivos local como descrito por este cenário de exemplo: copiar um arquivo carregado no Dropbox para um compartilhamento de arquivos e depois enviar um email. Para se conectar e acessar sistemas locais com segurança, os aplicativos lógicos usam o [gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Se você é novo em aplicativos lógicos, [revise o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md). Para obter informações técnicas específicas do conector, consulte a [referência do conector do sistema de arquivos](/connectors/filesystem/).
+Este artigo mostra como se conectar a um sistema de arquivos local como descrito por este cenário de exemplo: copiar um arquivo carregado no Dropbox para um compartilhamento de arquivos e depois enviar um email. Para se conectar e acessar sistemas locais com segurança, os aplicativos lógicos usam o [gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md). Para obter informações técnicas específicas do conector, consulte a [referência do conector do sistema de arquivos](/connectors/filesystem/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,11 +31,14 @@ Este artigo mostra como se conectar a um sistema de arquivos local como descrito
 
 * Antes de poder conectar aplicativos lógicos a sistemas locais, como seu servidor do sistema de arquivos, você precisará [instalar e configurar o gateway de dados local](../logic-apps/logic-apps-gateway-install.md). Dessa forma, você pode especificar para usar sua instalação de gateway quando criar a conexão do sistema de arquivos do seu aplicativo lógico.
 
-* Uma [conta dropbox](https://www.dropbox.com/), que você pode se inscrever gratuitamente. Suas credenciais de conta são necessárias para criar uma conexão entre seu aplicativo lógico e sua conta Dropbox.
+* Uma [conta do Dropbox](https://www.dropbox.com/), que você pode assinar gratuitamente. Suas credenciais de conta são necessárias para criar uma conexão entre seu aplicativo lógico e sua conta do dropbox.
 
-* Acesso ao computador que tem o sistema de arquivos que você deseja usar. Por exemplo, se você instalar o gateway de dados no mesmo computador que o seu sistema de arquivos, você precisará das credenciais da conta para esse computador.
+* Acesso ao computador que tem o sistema de arquivos que você deseja usar. Por exemplo, se você instalar o gateway de dados no mesmo computador que o sistema de arquivos, precisará das credenciais de conta para esse computador.
 
 * Uma conta de email de um provedor compatível com os Aplicativos Lógicos, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros provedores, [revise a lista de conectores aqui](https://docs.microsoft.com/connectors/). Esso aplicativo lógico usa uma conta do Outlook do Office 365. Se você usar outra conta de email, as etapas gerais são as mesmos, mas a interface do usuário pode ser ligeiramente diferente.
+
+  > [!IMPORTANT]
+  > Se você quiser usar o conector do Gmail, somente as contas de negócios do G-Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou pode [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, consulte [políticas de segurança e privacidade de dados para o Google Connectors em aplicativos lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md). Neste exemplo, você precisa de um aplicativo lógico em branco.
 
@@ -57,7 +60,7 @@ Este artigo mostra como se conectar a um sistema de arquivos local como descrito
 
 ## <a name="add-actions"></a>Adicionar ações
 
-1. No gatilho, escolha **Próxima etapa**. Na caixa de pesquisa, insira "sistema de arquivos" como filtro. Na lista de ações, selecione esta ação: **Criar arquivo**
+1. No gatilho, escolha **Próxima etapa**. Na caixa de pesquisa, insira "sistema de arquivos" como filtro. Na lista ações, selecione esta ação: **criar arquivo**
 
    ![Localizar o conector do sistema de arquivos](media/logic-apps-using-file-connector/find-file-system-action.png)
 
@@ -67,12 +70,12 @@ Este artigo mostra como se conectar a um sistema de arquivos local como descrito
 
    | Propriedade | Obrigatório | Valor | Descrição |
    | -------- | -------- | ----- | ----------- |
-   | **Nome da conexão** | Sim | <*nome de conexão*> | O nome desejado para a conexão |
-   | **Pasta raiz** | Sim | <*raiz-nome de pasta*> | A pasta raiz do sistema de arquivos, por exemplo, se você tiver instalado seu gateway de dados local, como uma pasta local no computador em que o gateway de dados local está instalado ou a pasta de um compartilhamento de rede que o computador pode acessar. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta pai principal, que é usada para caminhos relativos de todas as ações relacionadas ao arquivo. |
-   | **Tipo de autenticação** | Não | <*auth-tipo*> | O tipo de autenticação que seu sistema de arquivos usa: **Windows** |
-   | **Username** | Sim | <*domain*>\\<*nome de usuário de* domínio> | O nome de usuário do computador no qual você tem seu sistema de arquivos |
+   | **Nome da Conexão** | Sim | <*nome da conexão*> | O nome desejado para a conexão |
+   | **Pasta raiz** | Sim | <*nome da pasta raiz*> | A pasta raiz do sistema de arquivos, por exemplo, se você tiver instalado seu gateway de dados local, como uma pasta local no computador em que o gateway de dados local está instalado ou a pasta de um compartilhamento de rede que o computador pode acessar. <p>Por exemplo: `\\PublicShare\\DropboxFiles` <p>A pasta raiz é a pasta pai principal, que é usada para caminhos relativos de todas as ações relacionadas ao arquivo. |
+   | **Tipo de autenticação** | Não | <*tipo de autenticação*> | O tipo de autenticação que o sistema de arquivos usa: **Windows** |
+   | **Nome de usuário** | Sim | <*domain*>\\<*nome de usuário* do domínio> | O nome de usuário do computador no qual você tem seu sistema de arquivos |
    | **Senha** | Sim | <*sua senha*> | A senha do computador no qual você tem seu sistema de arquivos |
-   | **Gateway** | Sim | <*nome do gateway instalado*> | O nome do seu gateway instalado anteriormente |
+   | **Gateway** | Sim | <*installed-gateway-Name*> | O nome do seu gateway instalado anteriormente |
    |||||
 
 1. Quando terminar, escolha **Criar**.
@@ -93,10 +96,10 @@ Este artigo mostra como se conectar a um sistema de arquivos local como descrito
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter mais detalhes técnicos sobre este conector, como gatilhos, ações e limites descritos pelo arquivo Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/fileconnector/).
+Para obter mais detalhes técnicos sobre esse conector, como gatilhos, ações e limites, conforme descrito pelo arquivo Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/fileconnector/).
 
 > [!NOTE]
-> Para aplicativos lógicos em um [ambiente de serviço de integração (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)a versão rotulada pelo conector ISE usa os limites de [mensagem ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
+> Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector usa os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.
 
 ## <a name="next-steps"></a>Próximas etapas
 

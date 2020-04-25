@@ -1,5 +1,5 @@
 ---
-title: Criar um certificado azure Key Vault | Mercado Azure
+title: Criar um certificado de Azure Key Vault | Azure Marketplace
 description: Explica como registrar uma VM de um VHD do Azure implantado.
 author: dsindona
 ms.service: marketplace
@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 09e82b9905104df9b1902b0f64f6cfdf812aabb8
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9981f8eda174bbe04b54933528d20d270d360824
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273997"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82148251"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Criar certificados para o Azure Key Vault
 
 > [!IMPORTANT]
-> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento das ofertas da Sua Máquina Virtual Do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções na [certificação de imagem Azure VM](https://aks.ms/CertifyVMimage) para gerenciar suas ofertas migradas.
+> A partir de 13 de abril de 2020, começaremos a mover o gerenciamento de suas ofertas de máquina virtual do Azure para o Partner Center. Após a migração, você criará e gerenciará suas ofertas no Partner Center. Siga as instruções em [certificação de imagem de VM do Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) para gerenciar suas ofertas migradas.
 
 Este artigo explica como provisionar os certificados autoassinados necessários para estabelecer uma conectividade do WinRM (Gerenciamento Remoto do Windows) com uma VM (máquina virtual) hospedada no Azure. Esse processo consiste em três etapas:
 
@@ -79,7 +79,7 @@ Edite e execute o seguinte script do Azure Powershell para criar o arquivo de ce
 
 ## <a name="create-the-key-vault"></a>Criar o cofre de chaves
 
-Copie o conteúdo do [modelo de implantação do cofre de chaves](./cpp-key-vault-deploy-template.md) em um arquivo em seu computador local. (no script de exemplo abaixo, esse recurso é `C:\certLocation\keyvault.json`.)  Editar e executar o seguinte script do Azure Powershell para criar uma instância do Azure Key Vault e o grupo de recursos associado.  Você precisará substituir os valores dos seguintes parâmetros:
+Copie o conteúdo do [modelo de implantação do cofre de chaves](./cpp-key-vault-deploy-template.md) em um arquivo em seu computador local. (no script de exemplo abaixo, esse recurso é `C:\certLocation\keyvault.json`.)  Edite e execute o seguinte script do Azure PowerShell para criar uma instância de Azure Key Vault e o grupo de recursos associado.  Você precisará substituir os valores dos seguintes parâmetros:
 
 |  **Parâmetro**        |   **Descrição**                                                               |
 |  -------------        |   ---------------                                                               |

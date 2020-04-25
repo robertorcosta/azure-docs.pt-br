@@ -3,24 +3,21 @@ title: Criar uma VM com um endereço IP público estático - PowerShell | Micros
 description: Saiba como criar uma VM com um endereço IP público estático usando o PowerShell.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ad975ab9-d69f-45c1-9e45-0d3f0f51e87e
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
-ms.devlang: azurecli
+ms.subservice: ip-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
-ms.author: kumud
-ms.openlocfilehash: 0eb4f86a2484486658171ab4b099794e4ba3e4bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 1d340aadc20110e6aa4bfb05b1cf794fd6a286b2
+ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76043385"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82146184"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Crie uma máquina virtual com um endereço IP público estático usando o PowerShell
 
@@ -39,7 +36,7 @@ Você pode concluir as etapas a seguir no seu computador local ou usando o Shell
    New-AzResourceGroup -Name myResourceGroup -Location EastUS
    ```
 
-3. Crie uma máquina virtual com o comando [New-AzVM.](/powershell/module/az.Compute/New-azVM) O `-AllocationMethod "Static"` opção atribui um endereço IP público estático para a máquina virtual. O exemplo a seguir cria uma máquina virtual do Windows Server com um endereço IP público, estático e básico da SKU denominado *myPublicIpAddress*. Quando solicitado, forneça um nome de usuário e uma senha para serem usados como as credenciais de login da máquina virtual:
+3. Crie uma máquina virtual com o comando [New-AzVM](/powershell/module/az.Compute/New-azVM) . O `-AllocationMethod "Static"` opção atribui um endereço IP público estático para a máquina virtual. O exemplo a seguir cria uma máquina virtual do Windows Server com um endereço IP público, estático e básico da SKU denominado *myPublicIpAddress*. Quando solicitado, forneça um nome de usuário e uma senha para serem usados como as credenciais de login da máquina virtual:
 
    ```azurepowershell-interactive
    New-AzVm `
@@ -52,7 +49,7 @@ Você pode concluir as etapas a seguir no seu computador local ou usando o Shell
 
    Se o endereço IP público precisar ser um SKU padrão, você deverá [criar um endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address), [criar uma interface de rede](virtual-network-network-interface.md#create-a-network-interface), [atribuir o endereço IP público à interface de rede](virtual-network-network-interface-addresses.md#add-ip-addresses) e, em seguida, [crie uma máquina virtual com a interface de rede](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm), em etapas separadas. Saiba mais sobre [SKUs de endereço IP público](virtual-network-ip-addresses-overview-arm.md#sku). Se a máquina virtual for adicionada ao pool de back-end de um Azure Load Balancer público, o SKU do endereço IP público da máquina virtual deverá corresponder ao SKU do endereço IP público do balanceador de carga. Para obter detalhes, consulte [balanceador de carga do Azure](../load-balancer/concepts-limitations.md#skus).
 
-4. Exibir o endereço IP público atribuído e confirmar que ele foi criado como um endereço estático, com [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
+4. Exiba o endereço IP público atribuído e confirme se ele foi criado como um endereço estático, com [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 
    ```azurepowershell-interactive
    Get-AzPublicIpAddress `
@@ -67,7 +64,7 @@ Você pode concluir as etapas a seguir no seu computador local ou usando o Shell
 > [!WARNING]
 > Não modifique as configurações do endereço IP no sistema operacional da máquina virtual. O sistema operacional fica ciente dos endereços IP públicos do Azure. Embora você possa adicionar configurações de endereço IP privado ao sistema operacional, recomendamos não fazê-lo, a menos que seja necessário, e somente depois de ler [Adicionar um endereço IP privado a um sistema operacional](virtual-network-network-interface-addresses.md#private).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você poderá usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém:
 
